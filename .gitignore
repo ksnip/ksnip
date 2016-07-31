@@ -36,3 +36,31 @@ Makefile*
 # QtCtreator CMake
 CMakeLists.txt.user
 
+
+# kdevelop
+apidocs
+.kdev4
+build
+*~
+*.kdev4
+*.bak
+*.orig
+*.rej
+doxygen.log
+Doxyfile
+*.kdevelop
+*.kdevelop.filelist
+*.kdevelop.pcs
+*.kdevses
+.*kate-swp
+build/
+mem.log.*
+massif.*
+callgrind.*
+perf.data*
+
+# from kdiff3
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*

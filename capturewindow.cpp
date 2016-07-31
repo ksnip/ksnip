@@ -58,6 +58,8 @@ CaptureWindow::CaptureWindow()
   connect(snipframe, SIGNAL(rectSelected(QPoint,QPoint)), this, SLOT(rectSelected(QPoint,QPoint)));
   
   paintWindow = new PaintWindow(this);
+  
+  setWindowFlags(Qt::WindowStaysOnTopHint);
 }
 
 /*

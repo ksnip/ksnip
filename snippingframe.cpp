@@ -31,7 +31,7 @@ SnippingFrame::SnippingFrame(CaptureWindow *parent) : QWidget()
     
     // Make the frame span across the screen
     setWindowFlags( Qt::FramelessWindowHint | Qt::Tool);
-    setFixedSize(QApplication::desktop()->screenGeometry().size());
+    setFixedSize(QDesktopWidget().size()); 
     
     // Hide the widget background, we will draw it manually on the paint event
     this->setAttribute( Qt::WA_TranslucentBackground, true );
@@ -105,7 +105,7 @@ void SnippingFrame::paintEvent ( QPaintEvent* event)
 			 mouseDownPosistion.y() - 2, 
 			 mouseCurrentPosistion.x() - mouseDownPosistion.x() + 3, 
 			 mouseCurrentPosistion.y() - mouseDownPosistion.y() + 3); 
-    }     
+    }  
     QWidget::paintEvent(event);
 }
 

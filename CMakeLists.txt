@@ -7,7 +7,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
-set(ksnip_SRCS paintwindow.cpp snippingframe.cpp capturewindow.cpp main.cpp)
+set(ksnip_SRCS paintwindow.cpp snippingarea.cpp capturewindow.cpp main.cpp)
 
 qt4_automoc(${ksnip_SRCS})
 add_executable(ksnip ${ksnip_SRCS})

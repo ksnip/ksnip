@@ -10,6 +10,7 @@ Screenshot tool inspired by Windows Snipping Tool and made with Qt for Linux.
 2. Change to download directory, unpack the package and go to new directory:  
     `> cd ~/Downloads`  
     `> unzip ksnip-master.zip`  
+    `> cd ksnip-master`  
 3. Make new build directory and enter it:  
     `> mkdir build`  
     `> cd build`  

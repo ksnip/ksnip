@@ -17,20 +17,20 @@
  *  Boston, MA 02110-1301, USA.
  */
 
-#include "snippingframe.h"
+#include "snippingarea.h"
 
 #include <QtGui>
 
 /*
  * Constructor
  */
-SnippingFrame::SnippingFrame(CaptureWindow *parent) : QWidget()
+SnippingArea::SnippingArea(CaptureWindow *parent) : QWidget()
 {
     // Create a connection back to the parent
     this->parent = parent;
     
-    // Make the frame span across the screen
-    setWindowFlags( Qt::FramelessWindowHint | Qt::Tool);
+    // Make the frame span across the screen and show above any other widget
+    setWindowFlags( Qt::FramelessWindowHint | Qt::ToolTip);
     setFixedSize(QDesktopWidget().size()); 
     
     // Hide the widget background, we will draw it manually on the paint event
@@ -41,12 +41,12 @@ SnippingFrame::SnippingFrame(CaptureWindow *parent) : QWidget()
  * Detect mouse button down event and continue only when the pressed
  * button was the LMB, store the position where the button was pressed.
  */ 
-void SnippingFrame::mousePressEvent ( QMouseEvent* event)
+void SnippingArea::mousePressEvent ( QMouseEvent* event)
 {
     if(event->button() != Qt::LeftButton)
       return;
-    mouseDownPosistion = event->pos();
-    mouseCurrentPosistion = event->pos();
+    mouseDownPos = event->pos();
+    captureArea =  calculateArea(event->pos(), event->pos());
     mouseIsDown = true;
 }
 
@@ -55,13 +55,13 @@ void SnippingFrame::mousePressEvent ( QMouseEvent* event)
  * released button was the LMB, store the position and emit an event
  * so that other can be informed.
 */ 
-void SnippingFrame::mouseReleaseEvent ( QMouseEvent* event)
+void SnippingArea::mouseReleaseEvent ( QMouseEvent* event)
 {
     if(event->button() != Qt::LeftButton)
       return;
     
     mouseIsDown = false;
-    emit rectSelected(mouseDownPosistion, mouseCurrentPosistion);
+    emit areaSelected(captureArea);
 }
 
 /*
@@ -69,12 +69,12 @@ void SnippingFrame::mouseReleaseEvent ( QMouseEvent* event)
  * also calls the update function to draw the screen with the rectangle
  * that the user wants to capture.
  */
-void SnippingFrame::mouseMoveEvent ( QMouseEvent* event)
+void SnippingArea::mouseMoveEvent ( QMouseEvent* event)
 {
     if(!mouseIsDown)
       return;
     
-    mouseCurrentPosistion = event->pos();
+    captureArea = calculateArea(mouseDownPos, event->pos());
     this->update();
     
     QWidget::mouseMoveEvent(event);
@@ -85,38 +85,33 @@ void SnippingFrame::mouseMoveEvent ( QMouseEvent* event)
  * as it's transparent by default, next, in case the mouse is down, we also skip drawing
  * the rectangle that was selected for capture and draw a border around that region.
  */
-void SnippingFrame::paintEvent ( QPaintEvent* event)
+void SnippingArea::paintEvent ( QPaintEvent* event)
 {
     QPainter painter(this);
     
     if(mouseIsDown)
-	painter.setClipRegion(QRegion(QRect(QPoint(), this->size())).subtracted(QRegion(mouseDownPosistion.x(), 
-											mouseDownPosistion.y(), 
-											mouseCurrentPosistion.x() - mouseDownPosistion.x(), 
-											mouseCurrentPosistion.y() - mouseDownPosistion.y())));
-    
+	painter.setClipRegion(QRegion(QRect(QPoint(), this->size())).subtracted(QRegion(captureArea)));
+
     painter.setBrush(QColor(0, 0, 0, 150));
     painter.drawRect(QRect(QPoint(), this->size()));
     
     if(mouseIsDown)
     {
-	painter.setPen(QPen(Qt::red, 3, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
-	painter.drawRect(mouseDownPosistion.x() - 2, 
-			 mouseDownPosistion.y() - 2, 
-			 mouseCurrentPosistion.x() - mouseDownPosistion.x() + 3, 
-			 mouseCurrentPosistion.y() - mouseDownPosistion.y() + 3); 
+	painter.setPen(QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+	painter.drawRect(captureArea); 
     }  
     QWidget::paintEvent(event);
 }
 
-/*
- * Function that is called any time the widget is brought up, we need
- * to clear any mask that was used from previous captures. 
- */
-void SnippingFrame::show()
-{
-    this->clearMask();
-    QWidget::show();
+QRect SnippingArea::calculateArea(QPoint pointA, QPoint pointB)
+{ 
+  return QRect(QPoint((pointA.x() <= pointB.x() ? pointA.x() : pointB.x()), 
+		      (pointA.y() <= pointB.y() ? pointA.y() : pointB.y())), 
+	       QPoint((pointA.x() >= pointB.x() ? pointA.x() : pointB.x()), 
+		     (pointA.y() >= pointB.y() ? pointA.y() : pointB.y())));
 }
+
+
+
 
 

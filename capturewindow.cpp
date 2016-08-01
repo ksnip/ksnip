@@ -20,13 +20,12 @@
 #include <QtGui>
 
 #include "capturewindow.h"
-#include "snippingframe.h"
+#include "snippingarea.h"
 #include "paintwindow.h"
 
 /*
  * Constructor
  */
-
 CaptureWindow::CaptureWindow()
 {
   // Create the three buttons that we need
@@ -52,14 +51,44 @@ CaptureWindow::CaptureWindow()
   
   // Disable widget resizing
   setFixedSize(this->minimumSize());
-  setWindowFlags(Qt::Widget | Qt::MSWindowsFixedSizeDialogHint);    
+  setWindowFlags(Qt::Widget | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowStaysOnTopHint);    
   
-  snipframe = new SnippingFrame(this);
-  connect(snipframe, SIGNAL(rectSelected(QPoint,QPoint)), this, SLOT(rectSelected(QPoint,QPoint)));
+  sniparea = new SnippingArea(this);
+  connect(sniparea, SIGNAL(areaSelected(QRect)), this, SLOT(areaSelected(QRect)));
   
   paintWindow = new PaintWindow(this);
-  
-  setWindowFlags(Qt::WindowStaysOnTopHint);
+ 
+}
+
+/*
+ * Can be called externally, like from the paint window to go back to the 
+ * capture window and capture a new screenshot.
+ */
+void CaptureWindow::TakeNewCapture()
+{
+    this->show();
+    newCaptureClicked();
+}
+
+/*
+ * Called when the window is closed so that we can clean up before closing.
+ */
+void CaptureWindow::closeEvent ( QCloseEvent* event)
+{
+    sniparea->close();
+    paintWindow->close();
+    QWidget::closeEvent(event);
+}
+
+/*
+ * Detects key down events and check if the escape key was pressed, if yes, closes
+ * the snipping frame.
+ */
+void CaptureWindow::keyPressEvent ( QKeyEvent* event )
+{
+    if(event->key() == Qt::Key_Escape)
+      this->cancelCaptureClicked();
+    QWidget::keyPressEvent(event);
 }
 
 /*
@@ -69,7 +98,7 @@ CaptureWindow::CaptureWindow()
  */
 void CaptureWindow::newCaptureClicked()
 {  
-    snipframe->show();
+    sniparea->show();
        
     this->activateWindow();
     newCapButton->setEnabled(false);
@@ -82,7 +111,7 @@ void CaptureWindow::newCaptureClicked()
  */
 void CaptureWindow::cancelCaptureClicked()
 {
-    snipframe->hide();
+    sniparea->hide();
     newCapButton->setEnabled(true);
     cancelCapButton->setEnabled(false);
 }
@@ -92,7 +121,7 @@ void CaptureWindow::cancelCaptureClicked()
  */
 void CaptureWindow::optionsClicked()
 {
-    setWindowTitle("Options");
+    setWindowTitle("Options Clicked");
 }
 
 /*
@@ -101,25 +130,29 @@ void CaptureWindow::optionsClicked()
  * between them. Before we start the capture, we hide all window so that we can 
  * see the screen. With the captured screen we open the paint window.
  */
-void CaptureWindow::rectSelected ( QPoint mouseDownPos, QPoint mouseUpPos )
+void CaptureWindow::areaSelected ( QRect area )
 {
-    snipframe->hide();
+    sniparea->hide();
     newCapButton->setEnabled(true);
     cancelCapButton->setEnabled(false);
     
     hide();
     delay(400);
-    paintWindow->show(grabScreen(mouseDownPos, mouseUpPos));
+    paintWindow->show(grabScreen(area));
 }
 
 /*
  * Captures the screen between the two provided QPoints.
  */
-QPixmap CaptureWindow::grabScreen (QPoint mouseDownPos, QPoint mouseUpPos)
+QPixmap CaptureWindow::grabScreen (QRect area)
 {
     QPixmap capImage;
     capImage = QPixmap(); 
-    capImage = QPixmap::grabWindow(QApplication::desktop()->winId(), mouseDownPos.x(), mouseDownPos.y(), mouseUpPos.x() - mouseDownPos.x(), mouseUpPos.y() - mouseDownPos.y());
+    capImage = QPixmap::grabWindow(QApplication::desktop()->winId(), 
+				   area.topLeft().x(), 
+				   area.topLeft().y(), 
+				   area.width(), 
+				   area.height());
     return capImage;
 }
 
@@ -134,21 +167,9 @@ void CaptureWindow::delay (int ms)
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
 
-/*
- * Called when the window is closed so that we can clean up before closing.
- */
-void CaptureWindow::closeEvent ( QCloseEvent* event)
-{
-    snipframe->close();
-    paintWindow->close();
-    QWidget::closeEvent(event);
-}
 
-void CaptureWindow::TakeNewCapture()
-{
-    this->show();
-    newCaptureClicked();
-}
+
+
 
 
 

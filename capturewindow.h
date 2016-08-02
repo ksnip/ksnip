@@ -31,28 +31,28 @@ class CaptureWindow : public QWidget
 {
     Q_OBJECT
 public:
-    CaptureWindow();                           /* Constructor                                                    */
-    void TakeNewCapture();                     /* Callable externally to allow starting from beginning           */
+    CaptureWindow();                            /* Constructor                                                    */
+    void TakeNewCapture();                      /* Callable externally to allow starting from beginning           */
     
 protected:
-    void closeEvent(QCloseEvent *);            /* Close event, called when the window is closing for cleanup     */ 
-    void keyPressEvent(QKeyEvent *);           /* Event which is called when any key is pressed                  */
+    void closeEvent(QCloseEvent *);             /* Close event, called when the window is closing for cleanup     */ 
+    void keyPressEvent(QKeyEvent *);            /* Event which is called when any key is pressed                  */
     
 private slots:
-    void newCaptureClicked();                  /* Slot called when the new capture button is clicked             */
-    void cancelCaptureClicked();               /* Slot called when the cancel button is clicked                  */
-    void optionsClicked();                     /* Slot called when the options button is clicked                 */
-    void areaSelected(QRect);         /* Slot called when the user finished selecting an capture area   */
+    void newCaptureClicked();                   /* Slot called when the new capture button is clicked             */
+    void cancelCaptureClicked();                /* Slot called when the cancel button is clicked                  */
+    void propertiesClicked();                      /* Slot called when the options button is clicked                 */
+    void areaSelected(QRect);                   /* Slot called when the user finished selecting an capture area   */
     
 private:
-    QPushButton *newCapButton;                 /* Push button that starts new capture                            */
-    QPushButton *cancelCapButton;              /* Push button that cancels current open capture                  */
-    QPushButton *optionsButton;                /* Push button that opens the option menu                         */
-    QHBoxLayout *buttonsLayout;                /* Horizontal Layout Box used to organize buttons                 */
-    SnippingArea *sniparea;                    /* SnippingFrame widget used to select a capturing area           */
-    PaintWindow *paintWindow;                  /* Paint window widget used to edit the captured image            */
-    QPixmap grabScreen(QRect);                 /* Function that captures the screen between the two QPoints      */
-    void delay( int ms );                      /* Adds some delay to execution so that the screen can be updated */
+    QPushButton  *newCapButton;                 /* Push button that starts new capture                            */
+    QPushButton  *cancelCapButton;              /* Push button that cancels current open capture                  */
+    QPushButton  *propertiesButton;             /* Push button that opens the option menu                         */
+    QHBoxLayout  *buttonLayout;                 /* Horizontal Layout Box used to organize buttons                 */
+    SnippingArea *sniparea;                     /* SnippingFrame widget used to select a capturing area           */
+    PaintWindow  *paintWindow;                  /* Paint window widget used to edit the captured image            */
+    QPixmap       grabScreen(QRect);            /* Function that captures the screen between the two QPoints      */
+    void          delay( int ms );              /* Adds some delay to execution so that the screen can be updated */
 };
 
 #endif // CAPTUREWINDOW_H

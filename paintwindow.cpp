@@ -24,41 +24,56 @@
 /*
  * Constructor
  */
-PaintWindow::PaintWindow ( CaptureWindow* parent ) : QWidget()
+PaintWindow::PaintWindow ( CaptureWindow* parent ) : QWidget(),
+    newCapButton(new QPushButton("New")),
+    saveButton(new QPushButton("Save")),
+    copyClipButton(new QPushButton("Copy")),
+    captureScene(new QGraphicsScene),
+    captureView(new QGraphicsView(captureScene)),
+    buttonsLayout(new QHBoxLayout),
+    windowLayout(new QVBoxLayout)
+    
+    
 {
     this->parent = parent;
     
-    // Create the three buttons that we need
-    newCapButton   = new QPushButton("New");
-    saveButton     = new QPushButton("Save");
-    copyClipButton = new QPushButton("Copy");
-    
-    // Connect button signals and widget slots
+    // Setup buttons
+    newCapButton->setText("New");
+    newCapButton->setToolTip("Make new Screen Capture");
+    newCapButton->setIcon(QIcon::fromTheme("edit-cut"));
     newCapButton->connect(newCapButton, SIGNAL(clicked()), this, SLOT(newCaptureClicked()));
+
+    saveButton->setText("Save");    
+    saveButton->setToolTip("Save Screen Capture to file system");
+    saveButton->setIcon(QIcon::fromTheme("document-save-as"));
     saveButton->connect(saveButton, SIGNAL(clicked()), this, SLOT(saveCaptureClicked()));
+    saveButton->setEnabled(false);
+    
+    copyClipButton->setText("Copy");
+    copyClipButton->setToolTip("Copy Screen Capture to clipboard");
+    copyClipButton->setIcon(QIcon::fromTheme("edit-copy"));
     copyClipButton->connect(copyClipButton, SIGNAL(clicked()), this, SLOT(copyToClipClicked()));
     
-    // Setup Graphics scene that will present the image that was captured and graphics view
-    captureScene   = new QGraphicsScene;
-    captureView    = new QGraphicsView( captureScene );
-    captureView->setFrameStyle( 0 );
+    // Disable frame around the image
+    captureView->setFrameStyle(0);
     
     // Setup the clipboard that we will use to copy images when required.
     clipboard = QApplication::clipboard();
     
     // Setup widget layout
-    buttonsLayout  = new QHBoxLayout;
     buttonsLayout->addWidget(newCapButton);
     buttonsLayout->addWidget(saveButton);
     buttonsLayout->addWidget(copyClipButton); 
     buttonsLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-    windowLayout   = new QVBoxLayout;
+    
     windowLayout->addLayout(buttonsLayout);
     windowLayout->addWidget(captureView);
     setLayout(windowLayout);
     
-    //prepare buttons
-    saveButton->setEnabled(false);
+    // Setup application properties
+    setWindowTitle("ksnip");
+    setWindowIcon(QIcon::fromTheme("preferences-desktop-screensaver"));
+    move(200,200);
 }
 
 /*
@@ -79,6 +94,7 @@ void PaintWindow::show ( QPixmap captureImage )
     captureScene->setSceneRect(0,0, captureImage.width(), captureImage.height());
     this->resize(captureScene->sceneRect().size().toSize() + QSize(100,100));
     saveButton->setEnabled(true);
+    setWindowTitle("*ksnip - Unsaved");
     QWidget::show();
 }
 
@@ -118,11 +134,12 @@ void PaintWindow::saveCaptureClicked()
     else
     {
       if(!QPixmap::grabWidget(captureView).save(fileName, format.toAscii()))
-	{
+      {
 	  qCritical("PaintWindow::saveCaptureClicked: Failed to save image, something went wrong.");
 	  return;
-	}	  
-	saveButton->setEnabled(false);
+      }	  
+      saveButton->setEnabled(false);
+      setWindowTitle("ksnip");
     }
 }
 

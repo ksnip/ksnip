@@ -26,38 +26,47 @@
 /*
  * Constructor
  */
-CaptureWindow::CaptureWindow()
+CaptureWindow::CaptureWindow() :
+    newCapButton(new QPushButton),
+    cancelCapButton(new QPushButton),
+    propertiesButton(new QPushButton),
+    buttonLayout(new QHBoxLayout),
+    sniparea(new SnippingArea(this)),
+    paintWindow(new PaintWindow(this))
+    
 {
-  // Create the three buttons that we need
-  newCapButton    = new QPushButton("New");
-  cancelCapButton = new QPushButton("Cancel");
-  optionsButton   = new QPushButton("Options");
-  
-  // Connect button signals with widget slots so that we can capture the events
-  newCapButton->connect(newCapButton, SIGNAL(clicked()), this, SLOT(newCaptureClicked()));
-  cancelCapButton->connect(cancelCapButton, SIGNAL(clicked()), this, SLOT(cancelCaptureClicked()));
-  optionsButton->connect(optionsButton, SIGNAL(clicked()), this, SLOT(optionsClicked()));
-  
-  // Add the buttons to the layout
-  buttonsLayout = new QHBoxLayout;
-  buttonsLayout->addStretch();
-  buttonsLayout->addWidget(newCapButton);
-  buttonsLayout->addWidget(cancelCapButton);
-  buttonsLayout->addWidget(optionsButton); 
-  setLayout(buttonsLayout);
-  
-  setWindowTitle("ksnip");
-  cancelCapButton->setEnabled(false);
-  
-  // Disable widget resizing
-  setFixedSize(this->minimumSize());
-  setWindowFlags(Qt::Widget | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowStaysOnTopHint);    
-  
-  sniparea = new SnippingArea(this);
-  connect(sniparea, SIGNAL(areaSelected(QRect)), this, SLOT(areaSelected(QRect)));
-  
-  paintWindow = new PaintWindow(this);
- 
+    // Setup buttons with all relevant properties
+    newCapButton->setText("New");
+    newCapButton->setToolTip("Make new Screen Capture");
+    newCapButton->setIcon(QIcon::fromTheme("edit-cut"));
+    newCapButton->connect(newCapButton, SIGNAL(clicked()), this, SLOT(newCaptureClicked()));
+    
+    cancelCapButton->setText("Cancel");
+    cancelCapButton->setToolTip("Cancel current Screen Capture");
+    cancelCapButton->setIcon(QIcon::fromTheme("window-close"));
+    cancelCapButton->connect(cancelCapButton, SIGNAL(clicked()), this, SLOT(cancelCaptureClicked()));
+    cancelCapButton->setEnabled(false);
+    
+    propertiesButton->setText("Properties");
+    propertiesButton->setToolTip("Configure Screen Capture properties");
+    propertiesButton->setIcon(QIcon::fromTheme("document-properties"));
+    propertiesButton->connect(propertiesButton, SIGNAL(clicked()), this, SLOT(propertiesClicked()));
+    
+    // Add the buttons to the layout
+    buttonLayout->addStretch();
+    buttonLayout->addWidget(newCapButton);
+    buttonLayout->addWidget(cancelCapButton);
+    buttonLayout->addWidget(propertiesButton); 
+    setLayout(buttonLayout);
+    
+    // Setup application properties
+    setWindowTitle("ksnip");
+    setWindowIcon(QIcon::fromTheme("preferences-desktop-screensaver"));
+    setFixedSize(this->minimumSize());
+    setWindowFlags(Qt::Widget | Qt::MSWindowsFixedSizeDialogHint | Qt::WindowStaysOnTopHint);  
+    move(300,300);  
+    
+    connect(sniparea, SIGNAL(areaSelected(QRect)), this, SLOT(areaSelected(QRect))); 
 }
 
 /*
@@ -119,7 +128,7 @@ void CaptureWindow::cancelCaptureClicked()
 /*
  * NOT YET IMPLEMENTED
  */
-void CaptureWindow::optionsClicked()
+void CaptureWindow::propertiesClicked()
 {
     setWindowTitle("Options Clicked");
 }

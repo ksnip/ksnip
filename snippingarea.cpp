@@ -26,15 +26,14 @@
  */
 SnippingArea::SnippingArea(CaptureWindow *parent) : QWidget()
 {
-    // Create a connection back to the parent
     this->parent = parent;
     
-    // Make the frame span across the screen and show above any other widget
-    setWindowFlags( Qt::FramelessWindowHint | Qt::ToolTip);
-    setFixedSize(QDesktopWidget().size()); 
-    
     // Hide the widget background, we will draw it manually on the paint event
-    this->setAttribute( Qt::WA_TranslucentBackground, true );
+    setAttribute( Qt::WA_TranslucentBackground, true );       
+    
+    // Make the frame span across the screen and show above any other widget
+    setWindowFlags( Qt::FramelessWindowHint | Qt::ToolTip);   
+    setFixedSize(QDesktopWidget().size());                    
 }
 
 /* 

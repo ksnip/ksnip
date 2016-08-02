@@ -1,6 +1,6 @@
 #include <QtGui/QApplication>
 #include "capturewindow.h"
-#include "snippingframe.h"
+#include "snippingarea.h"
 
 int main(int argc, char** argv)
 {

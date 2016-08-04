@@ -47,6 +47,8 @@ private slots:
     void newCaptureClicked();                     /* Slot called when the new capture button is clicked                       */
     void saveCaptureClicked();                    /* Slot called when the save button is clicked                              */
     void copyToClipboardClicked();                /* Slot called when the copy to clipboard button is clicked                 */
+    void paintClicked();
+    void eraseClicked();
     void keyPressEvent(QKeyEvent *);
     void areaSelected(QRect);                     /* Slot called when the user finished selecting an capture area             */
        
@@ -54,6 +56,8 @@ private:
     QPushButton    *mNewCaptureButton;            /* Push button that starts new capture                                      */
     QPushButton    *mSaveButton;                  /* Button to save the captured image to disk                                */
     QPushButton    *mCopyToClipboardButton;       /* Button used to copy the image to clipboard                               */
+    QPushButton    *mPaintButton;
+    QPushButton    *mEraseButton;
     QHBoxLayout    *mButtonsLayout;               /* Layout used to organize all buttons on this widget                       */
     QVBoxLayout    *mWindowLayout;                /* Layout used to organize the overall widget layout                        */
     ScribbleArea   *mCaptureScene;                /* Graphics Scene used to present the captured image and allow editing      */ 

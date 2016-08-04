@@ -30,6 +30,18 @@ public:
     ScribbleArea();
     void loadImage(QPixmap);
     QSize getSize();
+    void setErase(bool);
+    
+protected:
+    virtual void	mousePressEvent(QGraphicsSceneMouseEvent *);
+    virtual void	mouseMoveEvent(QGraphicsSceneMouseEvent *);
+    
+private:
+    QList<QGraphicsPathItem *> mList;
+    bool mErase;
+    QPainterPath * mCurrentPath;
+    QPainterPathStroker mStroker;
+    
 };
 
 #endif // SCRIBBLEAREA_H

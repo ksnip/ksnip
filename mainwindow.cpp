@@ -28,6 +28,8 @@ MainWindow::MainWindow () : QWidget(),
     mNewCaptureButton(new QPushButton),
     mSaveButton(new QPushButton),
     mCopyToClipboardButton(new QPushButton),
+    mPaintButton(new QPushButton),
+    mEraseButton(new QPushButton),
     mCaptureScene(new ScribbleArea),
     mCaptureView(new QGraphicsView(mCaptureScene)),
     mButtonsLayout(new QHBoxLayout),
@@ -52,6 +54,14 @@ MainWindow::MainWindow () : QWidget(),
     mCopyToClipboardButton->setIcon(QIcon::fromTheme("edit-copy"));
     mCopyToClipboardButton->connect(mCopyToClipboardButton, SIGNAL(clicked()), this, SLOT(copyToClipboardClicked()));
     
+    mPaintButton->setText("Paint");
+    mPaintButton->setToolTip("Draw on the Screen Capture");
+    mPaintButton->connect(mPaintButton, SIGNAL(clicked()), this, SLOT(paintClicked()));
+    
+    mEraseButton->setText("Erase");
+    mEraseButton->setToolTip("Erase drawing from Screen Capture");
+    mEraseButton->connect(mEraseButton, SIGNAL(clicked()), this, SLOT(eraseClicked()));
+    
     // Disable frame around the image and hide it as on startup it's empty
     mCaptureView->setFrameStyle(0);
     mCaptureView->hide();
@@ -63,6 +73,8 @@ MainWindow::MainWindow () : QWidget(),
     mButtonsLayout->addWidget(mNewCaptureButton);
     mButtonsLayout->addWidget(mSaveButton);
     mButtonsLayout->addWidget(mCopyToClipboardButton); 
+    mButtonsLayout->addWidget(mPaintButton);
+    mButtonsLayout->addWidget(mEraseButton);
     mButtonsLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     
     mWindowLayout->addLayout(mButtonsLayout);
@@ -76,6 +88,8 @@ MainWindow::MainWindow () : QWidget(),
     
     // Create a connection between the snipping area and and the main window
     connect(mSnippingArea, SIGNAL(areaSelected(QRect)), this, SLOT(areaSelected(QRect)));
+    
+    mCaptureView->setRenderHints(QPainter::Antialiasing);
 }
 
 /*
@@ -167,6 +181,16 @@ void MainWindow::saveCaptureClicked()
 void MainWindow::copyToClipboardClicked()
 {
     mClipboard->setPixmap(QPixmap::grabWidget(mCaptureView));  
+}
+
+void MainWindow::paintClicked()
+{
+    mCaptureScene->setErase(false);
+}
+
+void MainWindow::eraseClicked()
+{
+    mCaptureScene->setErase(true);
 }
 
 void MainWindow::keyPressEvent ( QKeyEvent* event)

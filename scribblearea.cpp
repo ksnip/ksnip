@@ -18,12 +18,15 @@
  *
  */
 #include <QtGui>
+#include <iostream>
 
 #include "scribblearea.h"
 
 ScribbleArea::ScribbleArea()
 {
-
+    mStroker.setCapStyle( Qt::RoundCap );
+    mStroker.setJoinStyle( Qt::RoundJoin  );
+    mStroker.setWidth( 5 );
 }
 
 void ScribbleArea::loadImage ( QPixmap pixmap)
@@ -37,3 +40,41 @@ QSize ScribbleArea::getSize()
 {
     return sceneRect().size().toSize(); 
 }
+
+void ScribbleArea::mousePressEvent ( QGraphicsSceneMouseEvent* event)
+{
+    mCurrentPath = new QPainterPath();
+    mCurrentPath->moveTo(event->lastScenePos());
+    mList.append(addPath(mStroker.createStroke(*mCurrentPath), QPen(Qt::red), QBrush(Qt::red)));
+    QGraphicsScene::mousePressEvent(event);
+}
+
+void ScribbleArea::mouseMoveEvent ( QGraphicsSceneMouseEvent* event)
+{ 
+      if(!mErase)
+      {
+	  mCurrentPath->lineTo(event->lastScenePos());
+	  mList[mList.count()-1]->setPath(mStroker.createStroke(*mCurrentPath));
+      }
+      else
+      {
+	  for(int i=0; i < mList.count(); i++)
+	  {
+	      if(mList[i]->isUnderMouse())
+	      {
+		  removeItem(mList[i]);
+		  delete mList[i];
+		  mList.removeAt(i);
+	      }
+	  }
+      }    
+      QGraphicsScene::mouseMoveEvent(event);
+}
+
+void ScribbleArea::setErase ( bool erase)
+{
+    mErase = erase;
+}
+
+
+

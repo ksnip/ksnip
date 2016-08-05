@@ -29,7 +29,7 @@ ScribbleArea::ScribbleArea()
     mStroker.setWidth( 5 );
 }
 
-void ScribbleArea::loadImage ( QPixmap pixmap)
+void ScribbleArea::loadCapture ( QPixmap pixmap)
 {
     clear();
     addPixmap(pixmap);
@@ -43,9 +43,12 @@ QSize ScribbleArea::getSize()
 
 void ScribbleArea::mousePressEvent ( QGraphicsSceneMouseEvent* event)
 {
-    mCurrentPath = new QPainterPath();
-    mCurrentPath->moveTo(event->lastScenePos());
-    mList.append(addPath(mStroker.createStroke(*mCurrentPath), QPen(Qt::red), QBrush(Qt::red)));
+    if(!mErase)
+    {
+	mCurrentPath = new QPainterPath();
+	mCurrentPath->moveTo(event->lastScenePos());
+	mList.append(addPath(mStroker.createStroke(*mCurrentPath), QPen(Qt::red), QBrush(Qt::red)));
+    }
     QGraphicsScene::mousePressEvent(event);
 }
 
@@ -71,9 +74,10 @@ void ScribbleArea::mouseMoveEvent ( QGraphicsSceneMouseEvent* event)
       QGraphicsScene::mouseMoveEvent(event);
 }
 
-void ScribbleArea::setErase ( bool erase)
+void ScribbleArea::setErase (bool erase)
 {
     mErase = erase;
+
 }
 
 

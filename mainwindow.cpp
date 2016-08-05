@@ -107,7 +107,7 @@ void MainWindow::show (QPixmap screenshot)
 	return show();
     }
     
-    mCaptureScene->loadImage(screenshot);
+    mCaptureScene->loadCapture(screenshot);
     resize(mCaptureScene->getSize() + QSize(100,100));
 	    
     mCaptureView->show();

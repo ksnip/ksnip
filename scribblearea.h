@@ -28,9 +28,9 @@ class ScribbleArea : public QGraphicsScene
     Q_OBJECT
 public:
     ScribbleArea();
-    void loadImage(QPixmap);
-    QSize getSize();
-    void setErase(bool);
+    void                loadCapture(QPixmap);
+    QSize               getSize();
+    void                setErase(bool);
     
 protected:
     virtual void	mousePressEvent(QGraphicsSceneMouseEvent *);

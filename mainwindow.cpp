@@ -108,7 +108,7 @@ void MainWindow::show (QPixmap screenshot)
     }
     
     mCaptureScene->loadCapture(screenshot);
-    resize(mCaptureScene->getSize() + QSize(100,100));
+    resize(mCaptureScene->getAreaSize() + QSize(100,100));
 	    
     mCaptureView->show();
     mSaveButton->setEnabled(true);
@@ -158,17 +158,17 @@ void MainWindow::saveCaptureClicked()
     
     if (fileName.isEmpty())
     {
-	QMessageBox msgBox;
-	msgBox.setWindowTitle("Unable to save");
-	msgBox.setText("Filename is empty, unable to save the image.");
-	msgBox.exec();
-	return;
+		QMessageBox msgBox;
+		msgBox.setWindowTitle("Unable to save");
+		msgBox.setText("Filename is empty, unable to save the image.");
+		msgBox.exec();
+		return;
     }
     
     if (!QPixmap::grabWidget(mCaptureView).save(fileName, format.toAscii()))
     {
-	qCritical("PaintWindow::saveCaptureClicked: Failed to save image, something went wrong.");
-	return;
+		qCritical("PaintWindow::saveCaptureClicked: Failed to save image, something went wrong.");
+		return;
     }	
     
     mSaveButton->setEnabled(false);
@@ -185,20 +185,20 @@ void MainWindow::copyToClipboardClicked()
 
 void MainWindow::paintClicked()
 {
-    mCaptureScene->setErase(false);
+    mCaptureScene->setScribbleMode(ScribbleArea::Paint);
 }
 
 void MainWindow::eraseClicked()
 {
-    mCaptureScene->setErase(true);
+    mCaptureScene->setScribbleMode(ScribbleArea::Erase);
 }
 
 void MainWindow::keyPressEvent ( QKeyEvent* event)
 {
     if (event->key() == Qt::Key_Escape)
     {
-	mSnippingArea->hide();
-	setWindowOpacity(1.0);
+		mSnippingArea->hide();
+		setWindowOpacity(1.0);
     }
     QWidget::keyPressEvent(event);
 }

@@ -27,20 +27,26 @@ class ScribbleArea : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    ScribbleArea();
-    void                loadCapture(QPixmap);
-    QSize               getSize();
-    void                setErase(bool);
+    ScribbleArea();                                                           /* Constructor                                           */
+    enum ScribbleMode          { Paint, Mark, Shape, Erase };                 /* Enum for different scribbe area functions             */
+    void                       loadCapture(QPixmap);                          /* Load a QPixmap based capture image into scribble area */
+    QSize                      getAreaSize();                                 /* Returns size of current scribbe area                  */
+    void                       setScribbleMode(enum ScribbleMode);            /* Sets current scribble mode                            */
+    ScribbleMode               getScribbleMode();                             /* Returns current scribble mode                         */   
     
 protected:
-    virtual void	mousePressEvent(QGraphicsSceneMouseEvent *);
-    virtual void	mouseMoveEvent(QGraphicsSceneMouseEvent *);
+    virtual void	  	       mousePressEvent(QGraphicsSceneMouseEvent *);   /* Function called when mouse button down event happens  */
+    virtual void	           mouseMoveEvent(QGraphicsSceneMouseEvent *);    /* Function called when mouse move event happens         */
+	virtual void               mouseReleaseEvent(QGraphicsSceneMouseEvent *); /* Function called when mouse button was released        */
     
 private:
-    QList<QGraphicsPathItem *> mList;
-    bool mErase;
-    QPainterPath * mCurrentPath;
-    QPainterPathStroker mStroker;
+    QList<QGraphicsPathItem *> mList;                                         /* List holding all paint paths                          */
+    QPainterPath              *mCurrentPath;                                  /* Pointer to latest painter path                        */
+    QPainterPathStroker        mStroker;                                      /* Stroker used for setting the path width               */
+    ScribbleMode               mCurrentScribbleMode;                          /* Current scribble mode                                 */
+	void                       addNewPath(QPointF);                           /* Function called when a new path is created            */
+	void                       addToCurrentPath(QPointF);                     /* Adds a new point to current path                      */
+	bool                       erasePath();                                   /* Erases path under mouse                               */
     
 };
 

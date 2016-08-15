@@ -18,20 +18,17 @@
  *
  */
 #include <QtGui>
-#include <iostream>
 
 #include "scribblearea.h"
 
 /*
  * Constructor
  */
-ScribbleArea::ScribbleArea()
+ScribbleArea::ScribbleArea() : QGraphicsScene()
 {
-    mStroker.setCapStyle( Qt::RoundCap );
-    mStroker.setJoinStyle( Qt::RoundJoin  );
-    mStroker.setWidth( 5 );
 	mCurrentPath = NULL;
     mCurrentScribbleMode = Paint;
+	setupPainter(Paint);
 }
 
 /*
@@ -60,6 +57,7 @@ QSize ScribbleArea::getAreaSize()
 void ScribbleArea::setScribbleMode (ScribbleMode scribbleMode)
 {
     mCurrentScribbleMode = scribbleMode;
+	setupPainter(scribbleMode);
 }
 
 /*
@@ -145,9 +143,9 @@ void ScribbleArea::addNewPath(QPointF mousePos)
 	mCurrentPath = new QPainterPath();
 	mCurrentPath->moveTo(mousePos);
 	mList.append(addPath(mStroker.createStroke(*mCurrentPath), 
-						QPen(Qt::red), 
-						QBrush(Qt::red)
-	));
+						mPen, 
+						mBrush.color()
+	));	
 }
 
 /*
@@ -186,6 +184,36 @@ bool ScribbleArea::erasePath()
   }
   return false;
 }
+
+/*
+ * Setting up the path properties based on the drawing mode selected, this 
+ * function should be called any time the drawing mode is changed.
+ */
+void ScribbleArea::setupPainter(ScribbleMode scribbleMode)
+{
+	switch (mCurrentScribbleMode)
+	{
+	  case Paint:
+		mStroker.setCapStyle( Qt::RoundCap );
+		mStroker.setJoinStyle( Qt::RoundJoin  );
+		mStroker.setWidth( 5 );
+		mPen.setColor( Qt::red );
+		mBrush.setColor( Qt::red );
+		break;
+	  case Mark:
+		mStroker.setCapStyle( Qt::RoundCap );
+		mStroker.setJoinStyle( Qt::RoundJoin  );
+		mStroker.setWidth( 20 );
+		mPen.setColor( QColor(0, 0, 0, 0) );
+		mBrush.setColor( QColor(255, 255, 0, 80) );
+		break;
+	  case Shape:
+		break;
+	  case Erase:
+		break;
+	}
+}
+
 
 
 

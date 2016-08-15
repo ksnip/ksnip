@@ -28,59 +28,31 @@ MainWindow::MainWindow () : QWidget(),
     mNewCaptureButton(new QPushButton),
     mSaveButton(new QPushButton),
     mCopyToClipboardButton(new QPushButton),
-    mPaintButton(new QPushButton),
-    mEraseButton(new QPushButton),
+    mMenu(new QMenu),
+    mToolBar(new QToolBar),
+    mToolButton(new CustomToolButton),
+    mPaintAction(new QAction(this)),
+    mMarkAction(new QAction(this)),
+    mEraseAction(new QAction(this)),
     mCaptureScene(new ScribbleArea),
     mCaptureView(new QGraphicsView(mCaptureScene)),
-    mButtonsLayout(new QHBoxLayout),
+    mMenuLayout(new QHBoxLayout),
     mWindowLayout(new QVBoxLayout),
     mSnippingArea(new SnippingArea(this))
    
 {   
-    // Setup buttons
-    mNewCaptureButton->setText("New");
-    mNewCaptureButton->setToolTip("Make new Screen Capture");
-    mNewCaptureButton->setIcon(QIcon::fromTheme("edit-cut"));
-    mNewCaptureButton->connect(mNewCaptureButton, SIGNAL(clicked()), this, SLOT(newCaptureClicked()));
+	createButtons();
+	createToolBar();
+	createLayout();
 
-    mSaveButton->setText("Save");    
-    mSaveButton->setToolTip("Save Screen Capture to file system");
-    mSaveButton->setIcon(QIcon::fromTheme("document-save-as"));
-    mSaveButton->connect(mSaveButton, SIGNAL(clicked()), this, SLOT(saveCaptureClicked()));
-    mSaveButton->setEnabled(false);
-    
-    mCopyToClipboardButton->setText("Copy");
-    mCopyToClipboardButton->setToolTip("Copy Screen Capture to clipboard");
-    mCopyToClipboardButton->setIcon(QIcon::fromTheme("edit-copy"));
-    mCopyToClipboardButton->connect(mCopyToClipboardButton, SIGNAL(clicked()), this, SLOT(copyToClipboardClicked()));
-    
-    mPaintButton->setText("Paint");
-    mPaintButton->setToolTip("Draw on the Screen Capture");
-    mPaintButton->connect(mPaintButton, SIGNAL(clicked()), this, SLOT(paintClicked()));
-    
-    mEraseButton->setText("Erase");
-    mEraseButton->setToolTip("Erase drawing from Screen Capture");
-    mEraseButton->connect(mEraseButton, SIGNAL(clicked()), this, SLOT(eraseClicked()));
-    
+		
     // Disable frame around the image and hide it as on startup it's empty
     mCaptureView->setFrameStyle(0);
     mCaptureView->hide();
     
     // Setup the clipboard that we will use to copy images when required.
     mClipboard = QApplication::clipboard();
-    
-    // Setup widget layout
-    mButtonsLayout->addWidget(mNewCaptureButton);
-    mButtonsLayout->addWidget(mSaveButton);
-    mButtonsLayout->addWidget(mCopyToClipboardButton); 
-    mButtonsLayout->addWidget(mPaintButton);
-    mButtonsLayout->addWidget(mEraseButton);
-    mButtonsLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-    
-    mWindowLayout->addLayout(mButtonsLayout);
-    mWindowLayout->addWidget(mCaptureView);
-    setLayout(mWindowLayout);
-        
+   
     // Setup application properties
     setWindowTitle("ksnip");
     setWindowIcon(QIcon::fromTheme("preferences-desktop-screensaver"));
@@ -103,8 +75,8 @@ void MainWindow::show (QPixmap screenshot)
     
     if (screenshot.isNull())
     {
-	qCritical("PaintWindow::showWindow: No image provided to but it was expected.");
-	return show();
+		qCritical("PaintWindow::showWindow: No image provided to but it was expected.");
+		return show();
     }
     
     mCaptureScene->loadCapture(screenshot);
@@ -112,6 +84,7 @@ void MainWindow::show (QPixmap screenshot)
 	    
     mCaptureView->show();
     mSaveButton->setEnabled(true);
+	mToolBar->setEnabled(true);
     setWindowTitle("*ksnip - Unsaved");  
 
     QWidget::show();
@@ -128,7 +101,6 @@ void MainWindow::show()
     setWindowTitle("ksnip");
     QWidget::show();
 }
-
 
 /*
  * Called when the New Capture button was clicked, hides itself and show the snipping area
@@ -159,8 +131,8 @@ void MainWindow::saveCaptureClicked()
     if (fileName.isEmpty())
     {
 		QMessageBox msgBox;
-		msgBox.setWindowTitle("Unable to save");
-		msgBox.setText("Filename is empty, unable to save the image.");
+		msgBox.setWindowTitle(tr("Unable to save"));
+		msgBox.setText(tr("Filename is empty, unable to save the image."));
 		msgBox.exec();
 		return;
     }
@@ -183,16 +155,34 @@ void MainWindow::copyToClipboardClicked()
     mClipboard->setPixmap(QPixmap::grabWidget(mCaptureView));  
 }
 
+/*
+ * Select painting tool
+ */
 void MainWindow::paintClicked()
 {
     mCaptureScene->setScribbleMode(ScribbleArea::Paint);
 }
 
+/*
+ * Select marker tool 
+ */
+void MainWindow::markClicked()
+{
+	mCaptureScene->setScribbleMode(ScribbleArea::Mark);
+}
+
+/*
+ * Select erase tool
+ */
 void MainWindow::eraseClicked()
 {
     mCaptureScene->setScribbleMode(ScribbleArea::Erase);
 }
 
+/*
+ * Detect if escape key was pressed while the snipping area was open, if yes, 
+ * switches back to the ksnip tool and hides the snipping area.
+ */
 void MainWindow::keyPressEvent ( QKeyEvent* event)
 {
     if (event->key() == Qt::Key_Escape)
@@ -239,6 +229,72 @@ void MainWindow::delay (int ms)
     while (QTime::currentTime() < dieTime)
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
+
+/*
+ * Sets up all button properties 
+ */
+void MainWindow::createButtons()
+{
+	mNewCaptureButton->setText("New");
+	mNewCaptureButton->setToolTip("Make new Screen Capture");
+	mNewCaptureButton->setIcon(QIcon::fromTheme("edit-cut"));
+	mNewCaptureButton->connect(mNewCaptureButton, SIGNAL(clicked()), this, SLOT(newCaptureClicked()));
+	
+	mSaveButton->setText("Save");    
+	mSaveButton->setToolTip("Save Screen Capture to file system");
+	mSaveButton->setIcon(QIcon::fromTheme("document-save-as"));
+	mSaveButton->connect(mSaveButton, SIGNAL(clicked()), this, SLOT(saveCaptureClicked()));
+	mSaveButton->setEnabled(false);
+	
+	mCopyToClipboardButton->setText("Copy");
+	mCopyToClipboardButton->setToolTip("Copy Screen Capture to clipboard");
+	mCopyToClipboardButton->setIcon(QIcon::fromTheme("edit-copy"));
+	mCopyToClipboardButton->connect(mCopyToClipboardButton, SIGNAL(clicked()), this, SLOT(copyToClipboardClicked()));
+}
+
+/*
+ * Sets up tool bar
+ */
+void MainWindow::createToolBar()
+{
+	mPaintAction->setText("Paint");
+	mPaintAction->setIcon(QIcon::fromTheme("tool_pen"));
+	connect(mPaintAction, SIGNAL(triggered()), this, SLOT(paintClicked()));
+	
+	mMarkAction->setText("Mark");
+	mMarkAction->setIcon(QIcon::fromTheme("draw-brush"));
+	connect(mMarkAction, SIGNAL(triggered()), this, SLOT(markClicked()));
+	
+	mEraseAction->setText("Erase");
+	mEraseAction->setIcon(QIcon::fromTheme("draw-eraser"));
+	connect(mEraseAction, SIGNAL(triggered()), this, SLOT(eraseClicked()));
+	
+	mMenu->addAction(mPaintAction);
+	mMenu->addAction(mMarkAction);
+	mMenu->addAction(mEraseAction);
+	
+	mToolButton->setMenu(mMenu);
+	mToolButton->setDefaultAction(mPaintAction);
+	mToolBar->addWidget(mToolButton);
+	mToolBar->setEnabled(false);
+}
+
+/*
+ * Sets up window layout
+ */
+void MainWindow::createLayout()
+{
+	mMenuLayout->addWidget(mNewCaptureButton);
+	mMenuLayout->addWidget(mSaveButton);
+	mMenuLayout->addWidget(mCopyToClipboardButton); 
+	mMenuLayout->addWidget(mToolBar);
+	mMenuLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+	
+	mWindowLayout->addLayout(mMenuLayout);
+	mWindowLayout->addWidget(mCaptureView);
+	setLayout(mWindowLayout);
+}
+
 
 
 

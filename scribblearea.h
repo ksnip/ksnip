@@ -38,6 +38,8 @@ protected:
     virtual void	  	       mousePressEvent(QGraphicsSceneMouseEvent *);   /* Function called when mouse button down event happens  */
     virtual void	           mouseMoveEvent(QGraphicsSceneMouseEvent *);    /* Function called when mouse move event happens         */
 	virtual void               mouseReleaseEvent(QGraphicsSceneMouseEvent *); /* Function called when mouse button was released        */
+	virtual void	           keyPressEvent(QKeyEvent *);
+	virtual void	           keyReleaseEvent(QKeyEvent *);
     
 private:
     QList<QGraphicsPathItem *> mList;                                         /* List holding all paint paths                          */
@@ -45,11 +47,13 @@ private:
     QPainterPathStroker        mStroker;                                      /* Stroker used for setting the path width               */
     QPen                       mPen;                                          /* QPen used for drawing the path outline                */
 	QBrush                     mBrush;                                        /* QBrush used to fill the drawing path                  */
+	bool                       mIsSnapping;
     ScribbleMode               mCurrentScribbleMode;                          /* Current scribble mode                                 */
 	void                       addNewPath(QPointF);                           /* Function called when a new path is created            */
 	void                       addToCurrentPath(QPointF);                     /* Adds a new point to current path                      */
 	bool                       erasePath();                                   /* Erases path under mouse                               */
 	void                       setupPainter(enum ScribbleMode);               /* Changing path properties based on drawing tool        */ 
+	
 };
 
 #endif // SCRIBBLEAREA_H

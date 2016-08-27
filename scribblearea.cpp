@@ -18,6 +18,7 @@
  *
  */
 #include <QtGui>
+#include <iostream>
 
 #include "scribblearea.h"
 
@@ -29,6 +30,7 @@ ScribbleArea::ScribbleArea() : QGraphicsScene()
 	mCurrentPath = NULL;
     mCurrentScribbleMode = Paint;
 	setupPainter(Paint);
+	mIsSnapping = false;
 }
 
 /*
@@ -79,17 +81,15 @@ void ScribbleArea::mousePressEvent ( QGraphicsSceneMouseEvent* event)
 	{
 		switch (mCurrentScribbleMode)
 		{
-		  case Paint:
-			addNewPath(event->lastScenePos());
-			break;
-		  case Mark:
-			addNewPath(event->lastScenePos());
-			break;
-		  case Shape:
-			break;
-		  case Erase:
-			erasePath();
-			break;
+		    case Paint:
+		    case Mark:
+			    addNewPath(event->scenePos());
+			    break;
+		    case Shape:
+			    break;
+		    case Erase:
+			    erasePath();
+			    break;
 		}
 	}
     QGraphicsScene::mousePressEvent(event);
@@ -106,17 +106,15 @@ void ScribbleArea::mouseMoveEvent ( QGraphicsSceneMouseEvent* event)
 	{
 		switch (mCurrentScribbleMode)
 		{
-		  case Paint:
-			addToCurrentPath(event->lastScenePos());
-			break;
-		  case Mark:
-			addToCurrentPath(event->lastScenePos());
-			break;
-		  case Shape:
-			break;
-		  case Erase:
-			erasePath();
-			break;
+		    case Paint:
+		    case Mark:
+			    addToCurrentPath(event->scenePos());
+			    break;
+		    case Shape:
+			    break;
+		    case Erase:
+			    erasePath();
+			    break;
 		}
 	}
 	QGraphicsScene::mouseMoveEvent(event);
@@ -129,10 +127,27 @@ void ScribbleArea::mouseMoveEvent ( QGraphicsSceneMouseEvent* event)
 void ScribbleArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
 {
 	if (event->button() != Qt::LeftButton)
-		mCurrentPath = NULL;
+	    mCurrentPath = NULL;
 	
     QGraphicsScene::mouseReleaseEvent(event);
 }
+
+void ScribbleArea::keyPressEvent(QKeyEvent* event)
+{
+    if (event->key() == Qt::Key_Shift)
+	    mIsSnapping = true;
+	
+    QGraphicsScene::keyPressEvent(event);
+}
+
+void ScribbleArea::keyReleaseEvent(QKeyEvent* event)
+{
+    if (event->key() == Qt::Key_Shift)
+	    mIsSnapping = false;
+	
+    QGraphicsScene::keyReleaseEvent(event);
+}
+
 
 /*
  * Creates a new painter path which is added to pointer mCurrentPath, further, 
@@ -154,13 +169,17 @@ void ScribbleArea::addNewPath(QPointF mousePos)
  */
 void ScribbleArea::addToCurrentPath(QPointF mousePos)
 {
-	if(mCurrentPath == NULL)
+	if ( mCurrentPath == NULL )
 	{
 	    qCritical("ScribbleArea::addToCurrentPath: Unable to add point to path, current path set to NULL");
 		return;
 	}
+			
+	if ( mIsSnapping && mCurrentPath->elementAt(mCurrentPath->elementCount() - 1).isLineTo() )
+		mCurrentPath->setElementPositionAt(mCurrentPath->elementCount() - 1, mousePos.x(), mousePos.y());
+	else
+		mCurrentPath->lineTo(mousePos);
 	
-	mCurrentPath->lineTo(mousePos);
 	mList[mList.count()-1]->setPath(mStroker.createStroke(*mCurrentPath));
 }
 

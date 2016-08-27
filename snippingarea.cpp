@@ -69,7 +69,7 @@ void SnippingArea::mouseReleaseEvent (QMouseEvent* event)
 void SnippingArea::mouseMoveEvent (QMouseEvent* event)
 {
     if (!mMouseIsDown)
-      return;
+		return;
     
     mCaptureArea = calculateArea(mMouseDownPosition, event->pos());
     this->update();
@@ -87,15 +87,15 @@ void SnippingArea::paintEvent (QPaintEvent* event)
     QPainter painter(this);
     
     if (mMouseIsDown)
-	painter.setClipRegion(QRegion(QRect(QPoint(), this->size())).subtracted(QRegion(mCaptureArea)));
+		painter.setClipRegion(QRegion(QRect(QPoint(), this->size())).subtracted(QRegion(mCaptureArea)));
 
     painter.setBrush(QColor(0, 0, 0, 150));
     painter.drawRect(QRect(QPoint(), this->size()));
     
     if (mMouseIsDown)
     {
-	painter.setPen(QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
-	painter.drawRect(mCaptureArea); 
+		painter.setPen(QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+		painter.drawRect(mCaptureArea); 
     }  
     QWidget::paintEvent(event);
 }
@@ -105,7 +105,7 @@ void SnippingArea::paintEvent (QPaintEvent* event)
  */
 QRect SnippingArea::calculateArea(QPoint pointA, QPoint pointB)
 { 
-  return QRect(QPoint((pointA.x() <= pointB.x() ? pointA.x() : pointB.x()), 
+	return QRect(QPoint((pointA.x() <= pointB.x() ? pointA.x() : pointB.x()), 
 		      (pointA.y() <= pointB.y() ? pointA.y() : pointB.y())), 
 	       QPoint((pointA.x() >= pointB.x() ? pointA.x() : pointB.x()), 
 		     (pointA.y() >= pointB.y() ? pointA.y() : pointB.y())));

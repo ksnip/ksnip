@@ -30,22 +30,22 @@ class SnippingArea : public QWidget
 {
     Q_OBJECT
 public:
-    SnippingArea(QWidget *);            	   /* Constructor                                                 */
-    
+    SnippingArea ( QWidget * );            	 /* Constructor                                                 */
+
 signals:
-    void areaSelected(QRect);                      /* Signal sent when user finished selecting capture area       */
-  
+    void areaSelected ( QRect );                   /* Signal sent when user finished selecting capture area       */
+
 protected:
-    void mousePressEvent(QMouseEvent *);           /* Function called when mouse button was pressed               */
-    void mouseReleaseEvent(QMouseEvent *);         /* Function called when mouse button was released              */
-    void mouseMoveEvent(QMouseEvent *);            /* Function called when the mouse is moved on the widget       */
-    void paintEvent(QPaintEvent *);                /* Function called when the widget is drawn                    */
-    
+    void mousePressEvent ( QMouseEvent * );        /* Function called when mouse button was pressed               */
+    void mouseReleaseEvent ( QMouseEvent * );      /* Function called when mouse button was released              */
+    void mouseMoveEvent ( QMouseEvent * );         /* Function called when the mouse is moved on the widget       */
+    void paintEvent ( QPaintEvent * );             /* Function called when the widget is drawn                    */
+
 private:
     QPoint         mMouseDownPosition;             /* Screen Position where the mouse button was pressed          */
     bool           mMouseIsDown;                   /* True when the user is currently drawing the capture area    */
     QRect          mCaptureArea;                   /* Area that will be captured                                  */
-    QRect          calculateArea(QPoint, QPoint);  /* Function that calculates the correct area between two point */
+    QRect          calculateArea ( QPoint, QPoint ); /* Function that calculates the correct area between two point */
 };
 
 #endif // SNIPPINGAREA_H

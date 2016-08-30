@@ -21,10 +21,10 @@
 
 #include "customtoolbutton.h"
 
-CustomToolButton::CustomToolButton(QWidget *parent) : QToolButton(parent)
+CustomToolButton::CustomToolButton( QWidget *parent ) : QToolButton( parent )
 {
-  setPopupMode(QToolButton::MenuButtonPopup);
-  
-  QObject::connect(this, SIGNAL(triggered(QAction*)),
-				   this, SLOT(setDefaultAction(QAction*)));
+    setPopupMode( QToolButton::MenuButtonPopup );
+
+    QObject::connect( this, SIGNAL( triggered( QAction* ) ),
+                      this, SLOT( setDefaultAction( QAction* ) ) );
 }

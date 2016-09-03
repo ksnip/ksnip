@@ -18,13 +18,29 @@
  *
  */
 
+#ifndef PAINTSTROKE_H
+#define PAINTSTROKE_H
 
-#include "customtoolbutton.h"
+#include <QGraphicsItem>
+#include <QPainter>
 
-CustomToolButton::CustomToolButton( QWidget *parent ) : QToolButton( parent )
+class PaintStroke : public QGraphicsItem
 {
-    setPopupMode( QToolButton::MenuButtonPopup );
+public:
+    enum { Type = UserType + 1 };
+    PaintStroke ( QPointF, QPen, bool mIsTransparent = false );
+    QRectF boundingRect() const;
+    int type() const;
+    void lineTo ( QPointF );
+    void lastLineTo ( QPointF );
+    bool isUnderLocation ( QPointF );
 
-    QObject::connect( this, SIGNAL( triggered( QAction* ) ),
-                      this, SLOT( setDefaultAction( QAction* ) ) );
-}
+private:
+    QPainterPath mPath;
+    QPen mAttributes;
+    bool mIsTransparent;
+    QPainterPathStroker mStroker;
+    void paint ( QPainter *, const QStyleOptionGraphicsItem *, QWidget *widget = 0 );
+};
+
+#endif // PAINTSTROKE_H

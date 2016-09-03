@@ -7,7 +7,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
-set(ksnip_SRCS customtoolbutton.cpp scribblearea.cpp mainwindow.cpp snippingarea.cpp main.cpp)
+set(ksnip_SRCS PaintStroke.cpp CustomToolButton.cpp PaintArea.cpp MainWindow.cpp SnippingArea.cpp main.cpp)
 
 qt4_automoc(${ksnip_SRCS})
 add_executable(ksnip ${ksnip_SRCS})

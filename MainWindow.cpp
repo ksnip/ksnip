@@ -19,7 +19,7 @@
  */
 #include <QtGui>
 
-#include "mainwindow.h"
+#include "MainWindow.h"
 
 /*
  * Constructor
@@ -31,10 +31,10 @@ MainWindow::MainWindow() : QWidget(),
     mMenu( new QMenu ),
     mToolBar( new QToolBar ),
     mToolButton( new CustomToolButton ),
-    mPaintAction( new QAction( this ) ),
-    mMarkAction( new QAction( this ) ),
+    mPenAction( new QAction( this ) ),
+    mMarkerAction( new QAction( this ) ),
     mEraseAction( new QAction( this ) ),
-    mCaptureScene( new ScribbleArea ),
+    mCaptureScene( new PaintArea ),
     mCaptureView( new QGraphicsView( mCaptureScene ) ),
     mMenuLayout( new QHBoxLayout ),
     mWindowLayout( new QVBoxLayout ),
@@ -61,14 +61,9 @@ MainWindow::MainWindow() : QWidget(),
     // Create a connection between the snipping area and and the main window
     connect( mSnippingArea, SIGNAL( areaSelected( QRect ) ), this, SLOT( areaSelected( QRect ) ) );
 
-    mCaptureView->setRenderHints( QPainter::Antialiasing );
+    mCaptureView->setRenderHints( QPainter::Antialiasing | QPainter::SmoothPixmapTransform );
 }
 
-/*
- *  This function is supposed to be called when we want to show an image that we have capture.
- *  First, we clean the Graphical View from any previous captures and setup the environment
- *  for the new capture. In case the picture is not valid we call the default show.
- */
 void MainWindow::show( QPixmap screenshot )
 {
     setWindowOpacity( 1.0 );
@@ -91,10 +86,6 @@ void MainWindow::show( QPixmap screenshot )
     QWidget::show();
 }
 
-/*
- * When the show without provided capture is called the capture view is hidden as this
- * would be the case when we open the window up for the first time.
- */
 void MainWindow::show()
 {
     mCaptureView->hide();
@@ -103,21 +94,12 @@ void MainWindow::show()
     QWidget::show();
 }
 
-/*
- * Called when the New Capture button was clicked, hides itself and show the snipping area
- * window.
- */
 void MainWindow::newCaptureClicked()
 {
     setWindowOpacity( 0.0 );
     mSnippingArea->show();
 }
 
-/*
- * This function is called when the save button is clicked, it will open a new dialog where
- * the user can pick a location where to save the file. By default the home directory is
- * picked with name "Untitled" and file format png.
- */
 void MainWindow::saveCaptureClicked()
 {
     QString format = "png";
@@ -148,42 +130,26 @@ void MainWindow::saveCaptureClicked()
     setWindowTitle( "ksnip" );
 }
 
-/*
- * Copy the image currently present to the OS clipboard.
- */
 void MainWindow::copyToClipboardClicked()
 {
     mClipboard->setPixmap( QPixmap::grabWidget( mCaptureView ) );
 }
 
-/*
- * Select painting tool
- */
-void MainWindow::paintClicked()
+void MainWindow::penClicked()
 {
-    mCaptureScene->setScribbleMode( ScribbleArea::Paint );
+    mCaptureScene->setScribbleMode( PaintArea::Pen );
 }
 
-/*
- * Select marker tool
- */
-void MainWindow::markClicked()
+void MainWindow::markerClicked()
 {
-    mCaptureScene->setScribbleMode( ScribbleArea::Mark );
+    mCaptureScene->setScribbleMode( PaintArea::Marker );
 }
 
-/*
- * Select erase tool
- */
 void MainWindow::eraseClicked()
 {
-    mCaptureScene->setScribbleMode( ScribbleArea::Erase );
+    mCaptureScene->setScribbleMode( PaintArea::Erase );
 }
 
-/*
- * Detect if escape key was pressed while the snipping area was open, if yes,
- * switches back to the ksnip tool and hides the snipping area.
- */
 void MainWindow::keyPressEvent( QKeyEvent* event )
 {
     if ( event->key() == Qt::Key_Escape )
@@ -191,24 +157,16 @@ void MainWindow::keyPressEvent( QKeyEvent* event )
         mSnippingArea->hide();
         setWindowOpacity( 1.0 );
     }
-    
+
     QWidget::keyPressEvent( event );
 }
 
-/*
- * Called by a signal from snipping area window when finished selecting an area
- * so that we can proceed with capturing the image
- */
 void MainWindow::areaSelected( QRect rect )
 {
     delay( 300 );
     show( grabScreen( rect ) );
 }
 
-/*
- * Captures the screen at the area selected by the rectangle provided as
- * argument
- */
 QPixmap MainWindow::grabScreen( QRect rect )
 {
     QPixmap screenshot;
@@ -221,10 +179,6 @@ QPixmap MainWindow::grabScreen( QRect rect )
     return screenshot;
 }
 
-/*
- * Stops the executions for the time provided in milliseconds effectively
- * adding delay so that the hide() call can be propagated.
- */
 void MainWindow::delay( int ms )
 {
     QTime dieTime = QTime::currentTime().addMSecs( ms );
@@ -234,9 +188,6 @@ void MainWindow::delay( int ms )
     }
 }
 
-/*
- * Sets up all button properties
- */
 void MainWindow::createButtons()
 {
     mNewCaptureButton->setText( "New" );
@@ -256,36 +207,30 @@ void MainWindow::createButtons()
     mCopyToClipboardButton->connect( mCopyToClipboardButton, SIGNAL( clicked() ), this, SLOT( copyToClipboardClicked() ) );
 }
 
-/*
- * Sets up tool bar
- */
 void MainWindow::createToolBar()
 {
-    mPaintAction->setText( "Paint" );
-    mPaintAction->setIcon( QIcon::fromTheme( "tool_pen" ) );
-    connect( mPaintAction, SIGNAL( triggered() ), this, SLOT( paintClicked() ) );
+    mPenAction->setText( "Paint" );
+    mPenAction->setIcon( QIcon::fromTheme( "tool_pen" ) );
+    connect( mPenAction, SIGNAL( triggered() ), this, SLOT( penClicked() ) );
 
-    mMarkAction->setText( "Mark" );
-    mMarkAction->setIcon( QIcon::fromTheme( "draw-brush" ) );
-    connect( mMarkAction, SIGNAL( triggered() ), this, SLOT( markClicked() ) );
+    mMarkerAction->setText( "Mark" );
+    mMarkerAction->setIcon( QIcon::fromTheme( "draw-brush" ) );
+    connect( mMarkerAction, SIGNAL( triggered() ), this, SLOT( markerClicked() ) );
 
     mEraseAction->setText( "Erase" );
     mEraseAction->setIcon( QIcon::fromTheme( "draw-eraser" ) );
     connect( mEraseAction, SIGNAL( triggered() ), this, SLOT( eraseClicked() ) );
 
-    mMenu->addAction( mPaintAction );
-    mMenu->addAction( mMarkAction );
+    mMenu->addAction( mPenAction );
+    mMenu->addAction( mMarkerAction );
     mMenu->addAction( mEraseAction );
 
     mToolButton->setMenu( mMenu );
-    mToolButton->setDefaultAction( mPaintAction );
+    mToolButton->setDefaultAction( mPenAction );
     mToolBar->addWidget( mToolButton );
     mToolBar->setEnabled( false );
 }
 
-/*
- * Sets up window layout
- */
 void MainWindow::createLayout()
 {
     mMenuLayout->addWidget( mNewCaptureButton );

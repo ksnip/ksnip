@@ -18,11 +18,8 @@
  */
 #include <QtGui>
 
-#include "snippingarea.h"
+#include "SnippingArea.h"
 
-/*
- * Constructor
- */
 SnippingArea::SnippingArea( QWidget *parent ) : QWidget( parent )
 {
     // Hide the widget background, we will draw it manually on the paint event
@@ -33,10 +30,6 @@ SnippingArea::SnippingArea( QWidget *parent ) : QWidget( parent )
     setFixedSize( QDesktopWidget().size() );
 }
 
-/*
- * Detect mouse button down event and continue only when the pressed
- * button was the LMB, store the position where the button was pressed.
- */
 void SnippingArea::mousePressEvent( QMouseEvent* event )
 {
     if ( event->button() != Qt::LeftButton )
@@ -48,11 +41,6 @@ void SnippingArea::mousePressEvent( QMouseEvent* event )
     mMouseIsDown = true;
 }
 
-/*
- * Detect when a mouse button was released and only continue when the
- * released button was the LMB, store the position and emit an event
- * so that other can be informed.
-*/
 void SnippingArea::mouseReleaseEvent( QMouseEvent* event )
 {
     if ( event->button() != Qt::LeftButton )
@@ -65,11 +53,6 @@ void SnippingArea::mouseReleaseEvent( QMouseEvent* event )
     emit areaSelected( mCaptureArea );
 }
 
-/*
- * Called when mouse is moved and updates mouse current position and
- * also calls the update function to draw the screen with the rectangle
- * that the user wants to capture.
- */
 void SnippingArea::mouseMoveEvent( QMouseEvent* event )
 {
     if ( !mMouseIsDown )
@@ -83,11 +66,6 @@ void SnippingArea::mouseMoveEvent( QMouseEvent* event )
     QWidget::mouseMoveEvent( event );
 }
 
-/*
- * This event is called when the widget is drawn, in any case we draw the background
- * as it's transparent by default, next, in case the mouse is down, we also skip drawing
- * the rectangle that was selected for capture and draw a border around that region.
- */
 void SnippingArea::paintEvent( QPaintEvent* event )
 {
     QPainter painter( this );
@@ -109,7 +87,8 @@ void SnippingArea::paintEvent( QPaintEvent* event )
 }
 
 /*
- * Calculates a rectangle area based on two points provided.
+ * Calculate area for the screen capture, between the first mouse down location
+ * and current mouse position.
  */
 QRect SnippingArea::calculateArea( QPoint pointA, QPoint pointB )
 {

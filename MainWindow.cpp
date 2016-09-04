@@ -21,6 +21,8 @@
 
 #include "MainWindow.h"
 
+#include <iostream>
+
 /*
  * Constructor
  */
@@ -75,7 +77,7 @@ void MainWindow::show( QPixmap screenshot )
     }
 
     mCaptureScene->loadCapture( screenshot );
-    resize( mCaptureScene->getAreaSize() + QSize( 100, 100 ) );
+    resize( mCaptureScene->getAreaSize() + QSize( 100, 100 ) ); 
 
     mCaptureView->show();
     mCaptureView->setFocus();
@@ -120,19 +122,19 @@ void MainWindow::saveCaptureClicked()
         return;
     }
 
-    if ( !QPixmap::grabWidget( mCaptureView ).save( fileName, format.toAscii() ) )
+    if ( !mCaptureScene->exportAsImage().save(fileName) )
     {
         qCritical( "PaintWindow::saveCaptureClicked: Failed to save image, something went wrong." );
         return;
     }
-
+    
     mSaveButton->setEnabled( false );
     setWindowTitle( "ksnip" );
 }
 
 void MainWindow::copyToClipboardClicked()
 {
-    mClipboard->setPixmap( QPixmap::grabWidget( mCaptureView ) );
+    mClipboard->setImage(mCaptureScene->exportAsImage());
 }
 
 void MainWindow::penClicked()

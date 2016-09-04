@@ -56,6 +56,18 @@ PaintArea::PaintMode PaintArea::getPaintMode()
     return mCurrentPaintMode;
 }
 
+QImage PaintArea::exportAsImage()
+{
+    QImage image( sceneRect().size().toSize(), QImage::Format_ARGB32 ); 
+    image.fill( Qt::transparent );                                           
+
+    QPainter painter( &image );
+    painter.setRenderHint(QPainter::Antialiasing);
+    render( &painter );
+    return image;
+}
+
+
 void PaintArea::mousePressEvent( QGraphicsSceneMouseEvent* event )
 {
     if ( event->button() != Qt::LeftButton )

@@ -35,6 +35,7 @@ public:
     QSize getAreaSize();
     void setScribbleMode ( enum PaintMode );
     PaintMode getPaintMode();
+    QImage exportAsImage();
 
 protected:
     virtual void mousePressEvent ( QGraphicsSceneMouseEvent * );

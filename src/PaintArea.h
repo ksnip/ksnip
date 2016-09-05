@@ -25,6 +25,8 @@
 
 #include "PaintStroke.h"
 
+
+
 class PaintArea : public QGraphicsScene
 {
     Q_OBJECT
@@ -37,6 +39,9 @@ public:
     PaintMode getPaintMode();
     QImage exportAsImage();
 
+signals:
+    void imageChanged();
+    
 protected:
     virtual void mousePressEvent ( QGraphicsSceneMouseEvent * );
     virtual void mouseMoveEvent ( QGraphicsSceneMouseEvent * );

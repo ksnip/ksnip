@@ -67,40 +67,30 @@ QImage PaintArea::exportAsImage()
     return image;
 }
 
-
 void PaintArea::mousePressEvent( QGraphicsSceneMouseEvent* event )
 {
     if ( event->button() != Qt::LeftButton )
-    {
         return;
-    }
-
+        
+    emit imageChanged();
+    
     if ( mCurrentPaintMode == Erase )
-    {
         erasePaintStroke( event->scenePos() );
-    }
     else
-    {
         addNewPaintStroke( event->scenePos() );
-    }
+        
     QGraphicsScene::mousePressEvent( event );
 }
 
 void PaintArea::mouseMoveEvent( QGraphicsSceneMouseEvent* event )
 {
     if ( event->buttons() != Qt::LeftButton )
-    {
         return;
-    }
 
     if ( mCurrentPaintMode == Erase )
-    {
         erasePaintStroke( event->scenePos() );
-    }
     else
-    {
         addToCurrentPaintStroke( event->scenePos() );
-    }
 
     QGraphicsScene::mouseMoveEvent( event );
 }
@@ -108,9 +98,7 @@ void PaintArea::mouseMoveEvent( QGraphicsSceneMouseEvent* event )
 void PaintArea::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )
 {
     if ( event->button() != Qt::LeftButton )
-    {
         mCurrentPaintStroke = NULL;
-    }
 
     QGraphicsScene::mouseReleaseEvent( event );
 }
@@ -118,9 +106,7 @@ void PaintArea::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )
 void PaintArea::keyPressEvent( QKeyEvent* event )
 {
     if ( event->key() == Qt::Key_Shift )
-    {
         mIsSnapping = true;
-    }
 
     QGraphicsScene::keyPressEvent( event );
 }
@@ -128,9 +114,7 @@ void PaintArea::keyPressEvent( QKeyEvent* event )
 void PaintArea::keyReleaseEvent( QKeyEvent* event )
 {
     if ( event->key() == Qt::Key_Shift )
-    {
         mIsSnapping = false;
-    }
 
     QGraphicsScene::keyReleaseEvent( event );
 }
@@ -138,13 +122,10 @@ void PaintArea::keyReleaseEvent( QKeyEvent* event )
 void PaintArea::addNewPaintStroke( QPointF mousePosition )
 {
     if ( mCurrentPaintMode == Pen )
-    {
         mCurrentPaintStroke = new PaintStroke( mousePosition, mPen );
-    }
     else
-    {
         mCurrentPaintStroke = new PaintStroke( mousePosition, mMarker, true );
-    }
+    
     addItem( mCurrentPaintStroke );
 }
 
@@ -157,13 +138,9 @@ void PaintArea::addToCurrentPaintStroke( QPointF mousePosistion )
     }
 
     if ( mIsSnapping )
-    {
         mCurrentPaintStroke->lastLineTo( mousePosistion );
-    }
     else
-    {
         mCurrentPaintStroke->lineTo( mousePosistion );
-    }
 
     mCurrentPaintStroke->lineTo( mousePosistion );
 }

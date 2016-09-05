@@ -43,8 +43,8 @@ class MainWindow : public QWidget
 public:
     MainWindow();
     void show ( QPixmap );
-    void show();
-
+    void show();    
+        
 private slots:
     void newCaptureClicked();
     void saveCaptureClicked();
@@ -54,6 +54,7 @@ private slots:
     void eraseClicked();
     void keyPressEvent ( QKeyEvent * );
     void areaSelected ( QRect );
+    void imageChanged();
 
 private:
     QPushButton *mNewCaptureButton;
@@ -64,7 +65,7 @@ private:
     QMenu *mMenu;
     QAction *mPenAction;
     QAction *mMarkerAction;
-    QAction*mEraseAction;
+    QAction *mEraseAction;
     QHBoxLayout *mMenuLayout;
     QVBoxLayout *mWindowLayout;
     PaintArea *mCaptureScene;
@@ -73,6 +74,7 @@ private:
     SnippingArea *mSnippingArea;
     QPixmap grabScreen ( QRect );
     void delay ( int ms );
+    void setSaveAble( bool );
     void createButtons();
     void createToolBar();
     void createLayout();

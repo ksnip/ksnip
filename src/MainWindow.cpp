@@ -36,7 +36,7 @@ MainWindow::MainWindow() : QWidget(),
     mPenAction( new QAction( this ) ),
     mMarkerAction( new QAction( this ) ),
     mEraseAction( new QAction( this ) ),
-    mCaptureScene( new PaintArea ),
+    mCaptureScene( new PaintArea() ),
     mCaptureView( new QGraphicsView( mCaptureScene ) ),
     mMenuLayout( new QHBoxLayout ),
     mWindowLayout( new QVBoxLayout ),
@@ -60,8 +60,9 @@ MainWindow::MainWindow() : QWidget(),
     setWindowIcon( QIcon::fromTheme( "preferences-desktop-screensaver" ) );
     move( 200, 200 );
 
-    // Create a connection between the snipping area and and the main window
+    // Create a connection with other widget elements
     connect( mSnippingArea, SIGNAL( areaSelected( QRect ) ), this, SLOT( areaSelected( QRect ) ) );
+    connect( mCaptureScene, SIGNAL(imageChanged()), this, SLOT(imageChanged()));
 
     mCaptureView->setRenderHints( QPainter::Antialiasing | QPainter::SmoothPixmapTransform );
 }
@@ -81,9 +82,8 @@ void MainWindow::show( QPixmap screenshot )
 
     mCaptureView->show();
     mCaptureView->setFocus();
-    mSaveButton->setEnabled( true );
     mToolBar->setEnabled( true );
-    setWindowTitle( "*ksnip - Unsaved" );
+    setSaveAble(true);
 
     QWidget::show();
 }
@@ -91,8 +91,7 @@ void MainWindow::show( QPixmap screenshot )
 void MainWindow::show()
 {
     mCaptureView->hide();
-    mSaveButton->setEnabled( false );
-    setWindowTitle( "ksnip" );
+    setSaveAble(false);
     QWidget::show();
 }
 
@@ -128,8 +127,7 @@ void MainWindow::saveCaptureClicked()
         return;
     }
     
-    mSaveButton->setEnabled( false );
-    setWindowTitle( "ksnip" );
+    setSaveAble(false);
 }
 
 void MainWindow::copyToClipboardClicked()
@@ -169,6 +167,16 @@ void MainWindow::areaSelected( QRect rect )
     show( grabScreen( rect ) );
 }
 
+/*
+ * Should be called when ever the paintArea was changed, like new
+ * drawing and similar
+ */
+void MainWindow::imageChanged()
+{
+    setSaveAble(true);
+}
+
+
 QPixmap MainWindow::grabScreen( QRect rect )
 {
     QPixmap screenshot;
@@ -187,6 +195,25 @@ void MainWindow::delay( int ms )
     while ( QTime::currentTime() < dieTime )
     {
         QCoreApplication::processEvents( QEventLoop::AllEvents, 100 );
+    }
+}
+
+/*
+ * Sets the state of the widget when the image was changed or save, depending
+ * on the provided boolean value. If true, the save button is enabled and
+ * the title changed. 
+ */
+void MainWindow::setSaveAble( bool saveAble )
+{
+    if (saveAble)
+    {
+        mSaveButton->setEnabled( true );
+        setWindowTitle( "*ksnip - Unsaved" );
+    }
+    else
+    {
+        mSaveButton->setEnabled( false );
+        setWindowTitle( "ksnip" );
     }
 }
 

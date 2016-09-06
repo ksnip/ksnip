@@ -27,20 +27,20 @@
  * Constructor
  */
 MainWindow::MainWindow() : QWidget(),
-    mNewCaptureButton( new QPushButton ),
-    mSaveButton( new QPushButton ),
-    mCopyToClipboardButton( new QPushButton ),
-    mMenu( new QMenu ),
-    mToolBar( new QToolBar ),
-    mToolButton( new CustomToolButton ),
-    mPenAction( new QAction( this ) ),
-    mMarkerAction( new QAction( this ) ),
-    mEraseAction( new QAction( this ) ),
-    mCaptureScene( new PaintArea() ),
-    mCaptureView( new QGraphicsView( mCaptureScene ) ),
-    mMenuLayout( new QHBoxLayout ),
-    mWindowLayout( new QVBoxLayout ),
-    mSnippingArea( new SnippingArea( this ) )
+    mNewCaptureButton(new QPushButton),
+    mSaveButton(new QPushButton),
+    mCopyToClipboardButton(new QPushButton),
+    mMenu(new QMenu),
+    mToolBar(new QToolBar),
+    mToolButton(new CustomToolButton),
+    mPenAction(new QAction(this)),
+    mMarkerAction(new QAction(this)),
+    mEraseAction(new QAction(this)),
+    mCaptureScene(new PaintArea()),
+    mCaptureView(new QGraphicsView(mCaptureScene)),
+    mMenuLayout(new QHBoxLayout),
+    mWindowLayout(new QVBoxLayout),
+    mSnippingArea(new SnippingArea(this))
 
 {
     createButtons();
@@ -49,40 +49,39 @@ MainWindow::MainWindow() : QWidget(),
 
 
     // Disable frame around the image and hide it as on startup it's empty
-    mCaptureView->setFrameStyle( 0 );
+    mCaptureView->setFrameStyle(0);
     mCaptureView->hide();
 
     // Setup the clipboard that we will use to copy images when required.
     mClipboard = QApplication::clipboard();
 
     // Setup application properties
-    setWindowTitle( "ksnip" );
-    setWindowIcon( QIcon::fromTheme( "preferences-desktop-screensaver" ) );
-    move( 200, 200 );
+    setWindowTitle("ksnip");
+    setWindowIcon(QIcon::fromTheme("preferences-desktop-screensaver"));
+    move(200, 200);
 
     // Create a connection with other widget elements
-    connect( mSnippingArea, SIGNAL( areaSelected( QRect ) ), this, SLOT( areaSelected( QRect ) ) );
-    connect( mCaptureScene, SIGNAL(imageChanged()), this, SLOT(imageChanged()));
+    connect(mSnippingArea, SIGNAL(areaSelected(QRect)), this, SLOT(areaSelected(QRect)));
+    connect(mCaptureScene, SIGNAL(imageChanged()), this, SLOT(imageChanged()));
 
-    mCaptureView->setRenderHints( QPainter::Antialiasing | QPainter::SmoothPixmapTransform );
+    mCaptureView->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 }
 
-void MainWindow::show( QPixmap screenshot )
+void MainWindow::show(QPixmap screenshot)
 {
-    setWindowOpacity( 1.0 );
+    setWindowOpacity(1.0);
 
-    if ( screenshot.isNull() )
-    {
-        qCritical( "PaintWindow::showWindow: No image provided to but it was expected." );
+    if (screenshot.isNull()) {
+        qCritical("PaintWindow::showWindow: No image provided to but it was expected.");
         return show();
     }
 
-    mCaptureScene->loadCapture( screenshot );
-    resize( mCaptureScene->getAreaSize() + QSize( 100, 100 ) ); 
+    mCaptureScene->loadCapture(screenshot);
+    resize(mCaptureScene->getAreaSize() + QSize(100, 100));
 
     mCaptureView->show();
     mCaptureView->setFocus();
-    mToolBar->setEnabled( true );
+    mToolBar->setEnabled(true);
     setSaveAble(true);
 
     QWidget::show();
@@ -97,36 +96,34 @@ void MainWindow::show()
 
 void MainWindow::newCaptureClicked()
 {
-    setWindowOpacity( 0.0 );
+    setWindowOpacity(0.0);
     mSnippingArea->show();
 }
 
 void MainWindow::saveCaptureClicked()
 {
     QString format = "png";
-    QString initialPath = QDir::homePath() + tr( "/untitled." ) + format;
+    QString initialPath = QDir::homePath() + tr("/untitled.") + format;
 
-    QString fileName = QFileDialog::getSaveFileName( this, tr( "Save As" ),
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save As"),
                        initialPath,
-                       tr( "%1 Files (*.%2);;All Files (*)" )
-                       .arg( format.toUpper() )
-                       .arg( format ) );
+                       tr("%1 Files (*.%2);;All Files (*)")
+                       .arg(format.toUpper())
+                       .arg(format));
 
-    if ( fileName.isEmpty() )
-    {
+    if (fileName.isEmpty()) {
         QMessageBox msgBox;
-        msgBox.setWindowTitle( tr( "Unable to save" ) );
-        msgBox.setText( tr( "Filename is empty, unable to save the image." ) );
+        msgBox.setWindowTitle(tr("Unable to save"));
+        msgBox.setText(tr("Filename is empty, unable to save the image."));
         msgBox.exec();
         return;
     }
 
-    if ( !mCaptureScene->exportAsImage().save(fileName) )
-    {
-        qCritical( "PaintWindow::saveCaptureClicked: Failed to save image, something went wrong." );
+    if (!mCaptureScene->exportAsImage().save(fileName)) {
+        qCritical("PaintWindow::saveCaptureClicked: Failed to save image, something went wrong.");
         return;
     }
-    
+
     setSaveAble(false);
 }
 
@@ -137,34 +134,33 @@ void MainWindow::copyToClipboardClicked()
 
 void MainWindow::penClicked()
 {
-    mCaptureScene->setScribbleMode( PaintArea::Pen );
+    mCaptureScene->setScribbleMode(PaintArea::Pen);
 }
 
 void MainWindow::markerClicked()
 {
-    mCaptureScene->setScribbleMode( PaintArea::Marker );
+    mCaptureScene->setScribbleMode(PaintArea::Marker);
 }
 
 void MainWindow::eraseClicked()
 {
-    mCaptureScene->setScribbleMode( PaintArea::Erase );
+    mCaptureScene->setScribbleMode(PaintArea::Erase);
 }
 
-void MainWindow::keyPressEvent( QKeyEvent* event )
+void MainWindow::keyPressEvent(QKeyEvent* event)
 {
-    if ( event->key() == Qt::Key_Escape )
-    {
+    if (event->key() == Qt::Key_Escape) {
         mSnippingArea->hide();
-        setWindowOpacity( 1.0 );
+        setWindowOpacity(1.0);
     }
 
-    QWidget::keyPressEvent( event );
+    QWidget::keyPressEvent(event);
 }
 
-void MainWindow::areaSelected( QRect rect )
+void MainWindow::areaSelected(QRect rect)
 {
-    delay( 300 );
-    show( grabScreen( rect ) );
+    delay(300);
+    show(grabScreen(rect));
 }
 
 /*
@@ -177,100 +173,96 @@ void MainWindow::imageChanged()
 }
 
 
-QPixmap MainWindow::grabScreen( QRect rect )
+QPixmap MainWindow::grabScreen(QRect rect)
 {
     QPixmap screenshot;
     screenshot = QPixmap();
-    screenshot = QPixmap::grabWindow( QApplication::desktop()->winId(),
-                                      rect.topLeft().x(),
-                                      rect.topLeft().y(),
-                                      rect.width(),
-                                      rect.height() );
+    screenshot = QPixmap::grabWindow(QApplication::desktop()->winId(),
+                                     rect.topLeft().x(),
+                                     rect.topLeft().y(),
+                                     rect.width(),
+                                     rect.height());
     return screenshot;
 }
 
-void MainWindow::delay( int ms )
+void MainWindow::delay(int ms)
 {
-    QTime dieTime = QTime::currentTime().addMSecs( ms );
-    while ( QTime::currentTime() < dieTime )
-    {
-        QCoreApplication::processEvents( QEventLoop::AllEvents, 100 );
+    QTime dieTime = QTime::currentTime().addMSecs(ms);
+    while (QTime::currentTime() < dieTime) {
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     }
 }
 
 /*
  * Sets the state of the widget when the image was changed or save, depending
  * on the provided boolean value. If true, the save button is enabled and
- * the title changed. 
+ * the title changed.
  */
-void MainWindow::setSaveAble( bool saveAble )
+void MainWindow::setSaveAble(bool saveAble)
 {
-    if (saveAble)
-    {
-        mSaveButton->setEnabled( true );
-        setWindowTitle( "*ksnip - Unsaved" );
-    }
-    else
-    {
-        mSaveButton->setEnabled( false );
-        setWindowTitle( "ksnip" );
+    if (saveAble) {
+        mSaveButton->setEnabled(true);
+        setWindowTitle("*ksnip - Unsaved");
+    } else {
+        mSaveButton->setEnabled(false);
+        setWindowTitle("ksnip");
     }
 }
 
 void MainWindow::createButtons()
 {
-    mNewCaptureButton->setText( "New" );
-    mNewCaptureButton->setToolTip( "Make new Screen Capture" );
-    mNewCaptureButton->setIcon( QIcon::fromTheme( "edit-cut" ) );
-    mNewCaptureButton->connect( mNewCaptureButton, SIGNAL( clicked() ), this, SLOT( newCaptureClicked() ) );
+    mNewCaptureButton->setText("New");
+    mNewCaptureButton->setToolTip("Make new Screen Capture");
+    mNewCaptureButton->setIcon(QIcon::fromTheme("edit-cut"));
+    mNewCaptureButton->connect(mNewCaptureButton, SIGNAL(clicked()), this, SLOT(newCaptureClicked()));
 
-    mSaveButton->setText( "Save" );
-    mSaveButton->setToolTip( "Save Screen Capture to file system" );
-    mSaveButton->setIcon( QIcon::fromTheme( "document-save-as" ) );
-    mSaveButton->connect( mSaveButton, SIGNAL( clicked() ), this, SLOT( saveCaptureClicked() ) );
-    mSaveButton->setEnabled( false );
+    mSaveButton->setText("Save");
+    mSaveButton->setToolTip("Save Screen Capture to file system");
+    mSaveButton->setIcon(QIcon::fromTheme("document-save-as"));
+    mSaveButton->connect(mSaveButton, SIGNAL(clicked()), this, SLOT(saveCaptureClicked()));
+    mSaveButton->setEnabled(false);
 
-    mCopyToClipboardButton->setText( "Copy" );
-    mCopyToClipboardButton->setToolTip( "Copy Screen Capture to clipboard" );
-    mCopyToClipboardButton->setIcon( QIcon::fromTheme( "edit-copy" ) );
-    mCopyToClipboardButton->connect( mCopyToClipboardButton, SIGNAL( clicked() ), this, SLOT( copyToClipboardClicked() ) );
+    mCopyToClipboardButton->setText("Copy");
+    mCopyToClipboardButton->setToolTip("Copy Screen Capture to clipboard");
+    mCopyToClipboardButton->setIcon(QIcon::fromTheme("edit-copy"));
+    mCopyToClipboardButton->connect(mCopyToClipboardButton, SIGNAL(clicked()), this, SLOT(copyToClipboardClicked()));
 }
 
 void MainWindow::createToolBar()
 {
-    mPenAction->setText( "Paint" );
-    mPenAction->setIcon( QIcon::fromTheme( "tool_pen" ) );
-    connect( mPenAction, SIGNAL( triggered() ), this, SLOT( penClicked() ) );
+    mPenAction->setText("Paint");
+    mPenAction->setIcon(QIcon::fromTheme("tool_pen"));
+    connect(mPenAction, SIGNAL(triggered()), this, SLOT(penClicked()));
 
-    mMarkerAction->setText( "Mark" );
-    mMarkerAction->setIcon( QIcon::fromTheme( "draw-brush" ) );
-    connect( mMarkerAction, SIGNAL( triggered() ), this, SLOT( markerClicked() ) );
+    mMarkerAction->setText("Mark");
+    mMarkerAction->setIcon(QIcon::fromTheme("draw-brush"));
+    connect(mMarkerAction, SIGNAL(triggered()), this, SLOT(markerClicked()));
 
-    mEraseAction->setText( "Erase" );
-    mEraseAction->setIcon( QIcon::fromTheme( "draw-eraser" ) );
-    connect( mEraseAction, SIGNAL( triggered() ), this, SLOT( eraseClicked() ) );
+    mEraseAction->setText("Erase");
+    mEraseAction->setIcon(QIcon::fromTheme("draw-eraser"));
+    connect(mEraseAction, SIGNAL(triggered()), this, SLOT(eraseClicked()));
 
-    mMenu->addAction( mPenAction );
-    mMenu->addAction( mMarkerAction );
-    mMenu->addAction( mEraseAction );
+    mMenu->addAction(mPenAction);
+    mMenu->addAction(mMarkerAction);
+    mMenu->addAction(mEraseAction);
 
-    mToolButton->setMenu( mMenu );
-    mToolButton->setDefaultAction( mPenAction );
-    mToolBar->addWidget( mToolButton );
-    mToolBar->setEnabled( false );
+    mToolButton->setMenu(mMenu);
+    mToolButton->setDefaultAction(mPenAction);
+    mToolBar->addWidget(mToolButton);
+    mToolBar->setEnabled(false);
 }
 
 void MainWindow::createLayout()
 {
-    mMenuLayout->addWidget( mNewCaptureButton );
-    mMenuLayout->addWidget( mSaveButton );
-    mMenuLayout->addWidget( mCopyToClipboardButton );
-    mMenuLayout->addWidget( mToolBar );
-    mMenuLayout->setAlignment( Qt::AlignTop | Qt::AlignLeft );
+    mMenuLayout->addWidget(mNewCaptureButton);
+    mMenuLayout->addWidget(mSaveButton);
+    mMenuLayout->addWidget(mCopyToClipboardButton);
+    mMenuLayout->addWidget(mToolBar);
+    mMenuLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
-    mWindowLayout->addLayout( mMenuLayout );
-    mWindowLayout->addWidget( mCaptureView );
-    setLayout( mWindowLayout );
+    mWindowLayout->addLayout(mMenuLayout);
+    mWindowLayout->addWidget(mCaptureView);
+    setLayout(mWindowLayout);
 }
 
 

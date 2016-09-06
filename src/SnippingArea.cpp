@@ -20,82 +20,77 @@
 
 #include "SnippingArea.h"
 
-SnippingArea::SnippingArea( QWidget *parent ) : QWidget( parent )
+SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent)
 {
     // Hide the widget background, we will draw it manually on the paint event
-    setAttribute( Qt::WA_TranslucentBackground, true );
+    setAttribute(Qt::WA_TranslucentBackground, true);
 
     // Make the frame span across the screen and show above any other widget
-    setWindowFlags( Qt::FramelessWindowHint | Qt::ToolTip );
-    setFixedSize( QDesktopWidget().size() );
+    setWindowFlags(Qt::FramelessWindowHint | Qt::ToolTip);
+    setFixedSize(QDesktopWidget().size());
 }
 
-void SnippingArea::mousePressEvent( QMouseEvent* event )
+void SnippingArea::mousePressEvent(QMouseEvent* event)
 {
-    if ( event->button() != Qt::LeftButton )
-    {
+    if (event->button() != Qt::LeftButton) {
         return;
     }
     mMouseDownPosition = event->pos();
-    mCaptureArea =  calculateArea( event->pos(), event->pos() );
+    mCaptureArea =  calculateArea(event->pos(), event->pos());
     mMouseIsDown = true;
 }
 
-void SnippingArea::mouseReleaseEvent( QMouseEvent* event )
+void SnippingArea::mouseReleaseEvent(QMouseEvent* event)
 {
-    if ( event->button() != Qt::LeftButton )
-    {
+    if (event->button() != Qt::LeftButton) {
         return;
     }
 
     mMouseIsDown = false;
     hide();
-    emit areaSelected( mCaptureArea );
+    emit areaSelected(mCaptureArea);
 }
 
-void SnippingArea::mouseMoveEvent( QMouseEvent* event )
+void SnippingArea::mouseMoveEvent(QMouseEvent* event)
 {
-    if ( !mMouseIsDown )
-    {
+    if (!mMouseIsDown) {
         return;
     }
 
-    mCaptureArea = calculateArea( mMouseDownPosition, event->pos() );
+    mCaptureArea = calculateArea(mMouseDownPosition, event->pos());
     this->update();
 
-    QWidget::mouseMoveEvent( event );
+    QWidget::mouseMoveEvent(event);
 }
 
-void SnippingArea::paintEvent( QPaintEvent* event )
+void SnippingArea::paintEvent(QPaintEvent* event)
 {
-    QPainter painter( this );
+    QPainter painter(this);
 
-    if ( mMouseIsDown )
-    {
-        painter.setClipRegion( QRegion( QRect( QPoint(), this->size() ) ).subtracted( QRegion( mCaptureArea ) ) );
+    if (mMouseIsDown) {
+        painter.setClipRegion(QRegion(QRect(QPoint(), this->size())).subtracted(QRegion(mCaptureArea)));
     }
 
-    painter.setBrush( QColor( 0, 0, 0, 150 ) );
-    painter.drawRect( QRect( QPoint(), this->size() ) );
+    painter.setBrush(QColor(0, 0, 0, 150));
+    painter.drawRect(QRect(QPoint(), this->size()));
 
-    if ( mMouseIsDown )
-    {
-        painter.setPen( QPen( Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin ) );
-        painter.drawRect( mCaptureArea );
+    if (mMouseIsDown) {
+        painter.setPen(QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+        painter.drawRect(mCaptureArea);
     }
-    QWidget::paintEvent( event );
+    QWidget::paintEvent(event);
 }
 
 /*
  * Calculate area for the screen capture, between the first mouse down location
  * and current mouse position.
  */
-QRect SnippingArea::calculateArea( QPoint pointA, QPoint pointB )
+QRect SnippingArea::calculateArea(QPoint pointA, QPoint pointB)
 {
-    return QRect( QPoint( ( pointA.x() <= pointB.x() ? pointA.x() : pointB.x() ),
-                          ( pointA.y() <= pointB.y() ? pointA.y() : pointB.y() ) ),
-                  QPoint( ( pointA.x() >= pointB.x() ? pointA.x() : pointB.x() ),
-                          ( pointA.y() >= pointB.y() ? pointA.y() : pointB.y() ) ) );
+    return QRect(QPoint((pointA.x() <= pointB.x() ? pointA.x() : pointB.x()),
+                        (pointA.y() <= pointB.y() ? pointA.y() : pointB.y())),
+                 QPoint((pointA.x() >= pointB.x() ? pointA.x() : pointB.x()),
+                        (pointA.y() >= pointB.y() ? pointA.y() : pointB.y())));
 }
 
 

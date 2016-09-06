@@ -43,8 +43,8 @@ class MainWindow : public QWidget
 public:
     MainWindow();
     void show ( QPixmap );
-    void show();    
-        
+    void show();
+
 private slots:
     void newCaptureClicked();
     void saveCaptureClicked();
@@ -52,29 +52,29 @@ private slots:
     void penClicked();
     void markerClicked();
     void eraseClicked();
-    void keyPressEvent ( QKeyEvent * );
+    void keyPressEvent ( QKeyEvent* );
     void areaSelected ( QRect );
     void imageChanged();
 
 private:
-    QPushButton *mNewCaptureButton;
-    QPushButton *mSaveButton;
-    QPushButton *mCopyToClipboardButton;
-    QToolBar *mToolBar;
-    CustomToolButton *mToolButton;
-    QMenu *mMenu;
-    QAction *mPenAction;
-    QAction *mMarkerAction;
-    QAction *mEraseAction;
-    QHBoxLayout *mMenuLayout;
-    QVBoxLayout *mWindowLayout;
-    PaintArea *mCaptureScene;
-    QGraphicsView *mCaptureView;
-    QClipboard *mClipboard;
-    SnippingArea *mSnippingArea;
+    QPushButton* mNewCaptureButton;
+    QPushButton* mSaveButton;
+    QPushButton* mCopyToClipboardButton;
+    QToolBar* mToolBar;
+    CustomToolButton* mToolButton;
+    QMenu* mMenu;
+    QAction* mPenAction;
+    QAction* mMarkerAction;
+    QAction* mEraseAction;
+    QHBoxLayout* mMenuLayout;
+    QVBoxLayout* mWindowLayout;
+    PaintArea* mCaptureScene;
+    QGraphicsView* mCaptureView;
+    QClipboard* mClipboard;
+    SnippingArea* mSnippingArea;
     QPixmap grabScreen ( QRect );
     void delay ( int ms );
-    void setSaveAble( bool );
+    void setSaveAble ( bool );
     void createButtons();
     void createToolBar();
     void createLayout();

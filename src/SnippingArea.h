@@ -30,16 +30,16 @@ class SnippingArea : public QWidget
 {
     Q_OBJECT
 public:
-    SnippingArea ( QWidget * );
+    SnippingArea ( QWidget* );
 
 signals:
     void areaSelected ( QRect );
 
 protected:
-    void mousePressEvent ( QMouseEvent * );
-    void mouseReleaseEvent ( QMouseEvent * );
-    void mouseMoveEvent ( QMouseEvent * );
-    void paintEvent ( QPaintEvent * );
+    void mousePressEvent ( QMouseEvent* );
+    void mouseReleaseEvent ( QMouseEvent* );
+    void mouseMoveEvent ( QMouseEvent* );
+    void paintEvent ( QPaintEvent* );
 
 private:
     QPoint mMouseDownPosition;

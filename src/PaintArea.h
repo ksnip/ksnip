@@ -41,16 +41,16 @@ public:
 
 signals:
     void imageChanged();
-    
+
 protected:
-    virtual void mousePressEvent ( QGraphicsSceneMouseEvent * );
-    virtual void mouseMoveEvent ( QGraphicsSceneMouseEvent * );
-    virtual void mouseReleaseEvent ( QGraphicsSceneMouseEvent * );
-    virtual void keyPressEvent ( QKeyEvent * );
-    virtual void keyReleaseEvent ( QKeyEvent * );
+    virtual void mousePressEvent ( QGraphicsSceneMouseEvent* );
+    virtual void mouseMoveEvent ( QGraphicsSceneMouseEvent* );
+    virtual void mouseReleaseEvent ( QGraphicsSceneMouseEvent* );
+    virtual void keyPressEvent ( QKeyEvent* );
+    virtual void keyReleaseEvent ( QKeyEvent* );
 
 private:
-    PaintStroke *mCurrentPaintStroke;
+    PaintStroke* mCurrentPaintStroke;
     QPen mPen;
     QPen mMarker;
     bool mIsSnapping;

@@ -27,7 +27,7 @@ class CustomToolButton : public QToolButton
 {
     Q_OBJECT
 public:
-    explicit CustomToolButton ( QWidget *parent = 0 );
+    explicit CustomToolButton ( QWidget* parent = 0 );
 };
 
 #endif // CUSTOMTOOLBUTTON_H

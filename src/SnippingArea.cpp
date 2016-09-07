@@ -58,7 +58,7 @@ void SnippingArea::mouseMoveEvent(QMouseEvent* event)
     }
 
     mCaptureArea = calculateArea(mMouseDownPosition, event->pos());
-    this->update();
+    update();
 
     QWidget::mouseMoveEvent(event);
 }

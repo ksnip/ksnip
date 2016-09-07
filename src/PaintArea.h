@@ -51,8 +51,8 @@ protected:
 
 private:
     PaintStroke *mCurrentPaintStroke;
-    QPen         mPen;
-    QPen         mMarker;
+    QPen        *mPen;
+    QPen        *mMarker;
     bool         mIsSnapping;
     PaintMode    mCurrentPaintMode;
     void addNewPaintStroke ( QPointF );

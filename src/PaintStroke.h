@@ -36,10 +36,10 @@ public:
     bool isUnderLocation ( QPointF );
 
 private:
-    QPainterPath       *mPath;
-    QPen                mAttributes;
-    bool                mIsTransparent;
-    QPainterPathStroker mStroker;
+    QPainterPath        *mPath;
+    QPen                *mAttributes;
+    QPainterPathStroker *mStroker;
+    bool                 mIsTransparent;
     void paint ( QPainter*, const QStyleOptionGraphicsItem*, QWidget* widget = 0 );
 };
 

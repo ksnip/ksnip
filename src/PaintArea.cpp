@@ -21,17 +21,19 @@
 
 #include "PaintArea.h"
 
-PaintArea::PaintArea() : QGraphicsScene()
+PaintArea::PaintArea() : QGraphicsScene(),
+                         mPen(new QPen),
+                         mMarker(new QPen)
 {
     mCurrentPaintStroke = NULL;
     mCurrentPaintMode = Pen;
     mIsSnapping = false;
 
-    mPen.setWidth(3);
-    mPen.setColor(Qt::red);
+    mPen->setWidth(3);
+    mPen->setColor(Qt::red);
 
-    mMarker.setWidth(20);
-    mMarker.setColor(QColor(255, 255, 0, 255));
+    mMarker->setWidth(20);
+    mMarker->setColor(QColor(255, 255, 0, 255));
 }
 
 void PaintArea::loadCapture(QPixmap pixmap)
@@ -129,9 +131,9 @@ void PaintArea::keyReleaseEvent(QKeyEvent* event)
 void PaintArea::addNewPaintStroke(QPointF mousePosition)
 {
     if (mCurrentPaintMode == Pen) {
-        mCurrentPaintStroke = new PaintStroke(mousePosition, mPen);
+        mCurrentPaintStroke = new PaintStroke(mousePosition, *mPen);
     } else {
-        mCurrentPaintStroke = new PaintStroke(mousePosition, mMarker, true);
+        mCurrentPaintStroke = new PaintStroke(mousePosition, *mMarker, true);
     }
 
     addItem(mCurrentPaintStroke);

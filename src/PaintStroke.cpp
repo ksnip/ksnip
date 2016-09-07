@@ -20,27 +20,28 @@
 
 #include "PaintStroke.h"
 
-PaintStroke::PaintStroke(QPointF startingPoint, 
-                         QPen attributes, 
+PaintStroke::PaintStroke(QPointF startingPoint,
+                         QPen attributes,
                          bool isTransparent) : QGraphicsItem(),
-                         mPath( new QPainterPath)
+                                               mPath(new QPainterPath),
+                                               mAttributes( new QPen(attributes)),
+                                               mStroker(new QPainterPathStroker)
 {
-    mAttributes = attributes;
     mIsTransparent = isTransparent;
 
     // Place the path at the right location and draw the first point
     mPath->moveTo(startingPoint);
-    mPath->addRect(startingPoint.x(), startingPoint.y(), mAttributes.widthF() / 20, mAttributes.widthF() / 20);
+    mPath->addRect(startingPoint.x(), startingPoint.y(), mAttributes->widthF() / 20, mAttributes->widthF() / 20);
 
     //setup the stroker which we use to draw the path
-    mStroker.setCapStyle(Qt::RoundCap);
-    mStroker.setJoinStyle(Qt::RoundJoin);
-    mStroker.setWidth(mAttributes.width());
+    mStroker->setCapStyle(Qt::RoundCap);
+    mStroker->setJoinStyle(Qt::RoundJoin);
+    mStroker->setWidth(mAttributes->width());
 }
 
 QRectF PaintStroke::boundingRect() const
 {
-    return mStroker.createStroke(*mPath).boundingRect();
+    return mStroker->createStroke(*mPath).boundingRect();
 }
 
 int PaintStroke::type() const
@@ -80,9 +81,9 @@ void PaintStroke::paint(QPainter* painter, const QStyleOptionGraphicsItem* , QWi
     if (mIsTransparent) {
         painter->setCompositionMode(QPainter::CompositionMode_ColorBurn);
     }
-    painter->setPen(mAttributes.color());
-    painter->setBrush(mAttributes.color());
-    painter->drawPath(mStroker.createStroke(*mPath));
+    painter->setPen(mAttributes->color());
+    painter->setBrush(mAttributes->color());
+    painter->drawPath(mStroker->createStroke(*mPath));
 }
 
 

@@ -21,11 +21,6 @@
 
 #include "MainWindow.h"
 
-#include <iostream>
-
-/*
- * Constructor
- */
 MainWindow::MainWindow() : QWidget(),
     mNewCaptureButton(new QPushButton),
     mSaveButton(new QPushButton),
@@ -47,9 +42,9 @@ MainWindow::MainWindow() : QWidget(),
     createToolBar();
     createLayout();
 
-
-    // Disable frame around the image and hide it as on startup it's empty
+    // Disable frame around the image and hide it as on startup it's empty and enable Antialiasing
     mCaptureView->setFrameStyle(0);
+    mCaptureView->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
     mCaptureView->hide();
 
     // Setup the clipboard that we will use to copy images when required.
@@ -58,13 +53,17 @@ MainWindow::MainWindow() : QWidget(),
     // Setup application properties
     setWindowTitle("ksnip");
     setWindowIcon(QIcon::fromTheme("preferences-desktop-screensaver"));
-    move(200, 200);
 
     // Create a connection with other widget elements
     connect(mSnippingArea, SIGNAL(areaSelected(QRect)), this, SLOT(areaSelected(QRect)));
     connect(mCaptureScene, SIGNAL(imageChanged()), this, SLOT(imageChanged()));
-
-    mCaptureView->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+  
+    // Setup application properties that are required for saving settings
+    QCoreApplication::setOrganizationName("ksnip");
+    QCoreApplication::setOrganizationDomain("ksnip.local");
+    QCoreApplication::setApplicationName("ksnip");
+    
+    loadSettings();
 }
 
 void MainWindow::show(QPixmap screenshot)
@@ -93,6 +92,14 @@ void MainWindow::show()
     setSaveAble(false);
     QWidget::show();
 }
+
+void MainWindow::moveEvent(QMoveEvent *event)
+{
+    QSettings settings;
+    settings.setValue("MainWindow/Position", pos());
+    QWidget::moveEvent(event);
+}
+
 
 void MainWindow::newCaptureClicked()
 {
@@ -134,17 +141,17 @@ void MainWindow::copyToClipboardClicked()
 
 void MainWindow::penClicked()
 {
-    mCaptureScene->setScribbleMode(PaintArea::Pen);
+    mCaptureScene->setPaintMode(PaintArea::Pen);
 }
 
 void MainWindow::markerClicked()
 {
-    mCaptureScene->setScribbleMode(PaintArea::Marker);
+    mCaptureScene->setPaintMode(PaintArea::Marker);
 }
 
 void MainWindow::eraseClicked()
 {
-    mCaptureScene->setScribbleMode(PaintArea::Erase);
+    mCaptureScene->setPaintMode(PaintArea::Erase);
 }
 
 void MainWindow::keyPressEvent(QKeyEvent* event)
@@ -264,6 +271,13 @@ void MainWindow::createLayout()
     mWindowLayout->addWidget(mCaptureView);
     setLayout(mWindowLayout);
 }
+
+void MainWindow::loadSettings()
+{
+    QSettings settings;
+    move(settings.value("MainWindow/Position").value<QPoint>());
+}
+
 
 
 

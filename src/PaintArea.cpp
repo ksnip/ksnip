@@ -46,9 +46,9 @@ QSize PaintArea::getAreaSize()
     return sceneRect().size().toSize();
 }
 
-void PaintArea::setScribbleMode(PaintMode scribbleMode)
+void PaintArea::setPaintMode(PaintMode paintMode)
 {
-    mCurrentPaintMode = scribbleMode;
+    mCurrentPaintMode = paintMode;
 }
 
 PaintArea::PaintMode PaintArea::getPaintMode()

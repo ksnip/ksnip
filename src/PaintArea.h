@@ -35,7 +35,7 @@ public:
     enum PaintMode { Pen, Marker, Shape, Erase };
     void loadCapture ( QPixmap );
     QSize getAreaSize();
-    void setScribbleMode ( enum PaintMode );
+    void setPaintMode ( enum PaintMode );
     PaintMode getPaintMode();
     QImage exportAsImage();
 
@@ -50,11 +50,11 @@ protected:
     virtual void keyReleaseEvent ( QKeyEvent* );
 
 private:
-    PaintStroke* mCurrentPaintStroke;
-    QPen mPen;
-    QPen mMarker;
-    bool mIsSnapping;
-    PaintMode mCurrentPaintMode;
+    PaintStroke *mCurrentPaintStroke;
+    QPen         mPen;
+    QPen         mMarker;
+    bool         mIsSnapping;
+    PaintMode    mCurrentPaintMode;
     void addNewPaintStroke ( QPointF );
     void addToCurrentPaintStroke ( QPointF );
     bool erasePaintStroke ( QPointF );

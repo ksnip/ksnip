@@ -36,9 +36,9 @@ public:
     bool isUnderLocation ( QPointF );
 
 private:
-    QPainterPath mPath;
-    QPen mAttributes;
-    bool mIsTransparent;
+    QPainterPath       *mPath;
+    QPen                mAttributes;
+    bool                mIsTransparent;
     QPainterPathStroker mStroker;
     void paint ( QPainter*, const QStyleOptionGraphicsItem*, QWidget* widget = 0 );
 };

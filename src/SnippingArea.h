@@ -43,7 +43,7 @@ protected:
 
 private:
     QPoint mMouseDownPosition;
-    bool mMouseIsDown;
+    bool   mMouseIsDown;
     QRect  mCaptureArea;
     QRect calculateArea ( QPoint, QPoint );
 };

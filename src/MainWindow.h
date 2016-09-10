@@ -66,7 +66,7 @@ private:
     QPushButton*      mSaveButton;
     QPushButton*      mCopyToClipboardButton;
     QToolBar*         mToolBar;
-    QMenuBar*         mMenuBar;
+//     QMenuBar*         mMenuBar;
     CustomToolButton* mToolButton;
     QMenu*            mMenu;
     QAction*          mPenAction;

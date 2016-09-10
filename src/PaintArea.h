@@ -32,11 +32,10 @@ class PaintArea : public QGraphicsScene
     Q_OBJECT
 public:
     PaintArea();
-    enum PaintMode { Pen, Marker, Shape, Erase };
+    enum PaintMode { Pen, Marker, Erase };
     void loadCapture ( QPixmap );
     QSize getAreaSize();
     void setPaintMode ( enum PaintMode );
-    void setPaintMode ( int );
     PaintMode getPaintMode();
     QImage exportAsImage();
 

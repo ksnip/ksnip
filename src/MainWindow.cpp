@@ -30,7 +30,7 @@ MainWindow::MainWindow() : QWidget(),
     mMenu(new QMenu),
     mToolBar(new QToolBar),
     mToolButton(new CustomToolButton),
-    mMenuBar(new QMenuBar),
+//     mMenuBar(new QMenuBar),
     mPenAction(new QAction(this)),
     mMarkerAction(new QAction(this)),
     mEraseAction(new QAction(this)),
@@ -214,7 +214,7 @@ void MainWindow::setSaveAble(bool saveAble)
 {
     if (saveAble) {
         mSaveButton->setEnabled(true);
-        setWindowTitle("*ksnip - Unsaved");
+        setWindowTitle("*ksnip - " + tr("Unsaved"));
     } else {
         mSaveButton->setEnabled(false);
         setWindowTitle("ksnip");
@@ -223,18 +223,18 @@ void MainWindow::setSaveAble(bool saveAble)
 
 void MainWindow::createButtons()
 {
-    mNewCaptureButton->setText("New");
+    mNewCaptureButton->setText(tr("New"));
     mNewCaptureButton->setToolTip("Make new Screen Capture");
     mNewCaptureButton->setIcon(QIcon::fromTheme("edit-cut"));
     mNewCaptureButton->connect(mNewCaptureButton, SIGNAL(clicked()), this, SLOT(newCaptureClicked()));
 
-    mSaveButton->setText("Save");
+    mSaveButton->setText(tr("Save"));
     mSaveButton->setToolTip("Save Screen Capture to file system");
     mSaveButton->setIcon(QIcon::fromTheme("document-save-as"));
     mSaveButton->connect(mSaveButton, SIGNAL(clicked()), this, SLOT(saveCaptureClicked()));
     mSaveButton->setEnabled(false);
 
-    mCopyToClipboardButton->setText("Copy");
+    mCopyToClipboardButton->setText(tr("Copy"));
     mCopyToClipboardButton->setToolTip("Copy Screen Capture to clipboard");
     mCopyToClipboardButton->setIcon(QIcon::fromTheme("edit-copy"));
     mCopyToClipboardButton->connect(mCopyToClipboardButton, SIGNAL(clicked()), this, SLOT(copyToClipboardClicked()));
@@ -242,15 +242,15 @@ void MainWindow::createButtons()
 
 void MainWindow::createToolBar()
 {
-    mPenAction->setText("Pen");
+    mPenAction->setText(tr("Pen"));
     mPenAction->setIcon(QIcon::fromTheme("tool_pen"));
     connect(mPenAction, SIGNAL(triggered()), this, SLOT(penClicked()));
 
-    mMarkerAction->setText("Mark");
+    mMarkerAction->setText(tr("Mark"));
     mMarkerAction->setIcon(QIcon::fromTheme("draw-brush"));
     connect(mMarkerAction, SIGNAL(triggered()), this, SLOT(markerClicked()));
 
-    mEraseAction->setText("Erase");
+    mEraseAction->setText(tr("Erase"));
     mEraseAction->setIcon(QIcon::fromTheme("draw-eraser"));
     connect(mEraseAction, SIGNAL(triggered()), this, SLOT(eraseClicked()));
 
@@ -278,13 +278,13 @@ void MainWindow::createLayout()
     setLayout(mWindowLayout);
 }
 
-void MainWindow::createMenuBar()
-{
-    mMenuBar->addMenu(tr("File"));
-    mMenuBar->addMenu(tr("&Edit"));
-    mMenuBar->addMenu(tr("&Settings"));
-    mMenuBar->addMenu(tr("&Help"));
-}
+// void MainWindow::createMenuBar()
+// {
+//     mMenuBar->addMenu(tr("File"));
+//     mMenuBar->addMenu(tr("&Edit"));
+//     mMenuBar->addMenu(tr("&Settings"));
+//     mMenuBar->addMenu(tr("&Help"));
+// }
 
 void MainWindow::saveSetting(QString key, QVariant value)
 {

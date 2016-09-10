@@ -37,6 +37,7 @@ class SnippingArea;
 class QKeyEvent;
 class QMoveEvent;
 class QToolBar;
+class QMenuBar;
 
 class MainWindow : public QWidget
 {
@@ -61,27 +62,30 @@ private slots:
     void imageChanged();
 
 private:
-    QPushButton      *mNewCaptureButton;
-    QPushButton      *mSaveButton;
-    QPushButton      *mCopyToClipboardButton;
-    QToolBar         *mToolBar;
-    CustomToolButton *mToolButton;
-    QMenu            *mMenu;
-    QAction          *mPenAction;
-    QAction          *mMarkerAction;
-    QAction          *mEraseAction;
-    QHBoxLayout      *mMenuLayout;
-    QVBoxLayout      *mWindowLayout;
-    PaintArea        *mCaptureScene;
-    QGraphicsView    *mCaptureView;
-    QClipboard       *mClipboard;
-    SnippingArea     *mSnippingArea;
+    QPushButton*      mNewCaptureButton;
+    QPushButton*      mSaveButton;
+    QPushButton*      mCopyToClipboardButton;
+    QToolBar*         mToolBar;
+    QMenuBar*         mMenuBar;
+    CustomToolButton* mToolButton;
+    QMenu*            mMenu;
+    QAction*          mPenAction;
+    QAction*          mMarkerAction;
+    QAction*          mEraseAction;
+    QHBoxLayout*      mMenuLayout;
+    QVBoxLayout*      mWindowLayout;
+    PaintArea*        mCaptureScene;
+    QGraphicsView*    mCaptureView;
+    QClipboard*       mClipboard;
+    SnippingArea*     mSnippingArea;
     QPixmap grabScreen ( QRect );
     void delay ( int ms );
     void setSaveAble ( bool );
     void createButtons();
     void createToolBar();
     void createLayout();
+    void createMenuBar();
+    void saveSetting ( QString, QVariant );
     void loadSettings();
 };
 

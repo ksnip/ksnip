@@ -19,6 +19,8 @@
  */
 #include <QtGui>
 
+#include <iostream>
+
 #include "MainWindow.h"
 
 MainWindow::MainWindow() : QWidget(),
@@ -28,6 +30,7 @@ MainWindow::MainWindow() : QWidget(),
     mMenu(new QMenu),
     mToolBar(new QToolBar),
     mToolButton(new CustomToolButton),
+    mMenuBar(new QMenuBar),
     mPenAction(new QAction(this)),
     mMarkerAction(new QAction(this)),
     mEraseAction(new QAction(this)),
@@ -40,6 +43,7 @@ MainWindow::MainWindow() : QWidget(),
 {
     createButtons();
     createToolBar();
+    //createMenuBar();
     createLayout();
 
     // Disable frame around the image and hide it as on startup it's empty and enable Antialiasing
@@ -76,7 +80,7 @@ void MainWindow::show(QPixmap screenshot)
     }
 
     mCaptureScene->loadCapture(screenshot);
-    resize(mCaptureScene->getAreaSize() + QSize(100, 100));
+    resize(mCaptureScene->getAreaSize() + QSize(100, 150));
 
     mCaptureView->show();
     mCaptureView->setFocus();
@@ -95,8 +99,7 @@ void MainWindow::show()
 
 void MainWindow::moveEvent(QMoveEvent *event)
 {
-    QSettings settings;
-    settings.setValue("MainWindow/Position", pos());
+    saveSetting("MainWindow/Position", pos());
     QWidget::moveEvent(event);
 }
 
@@ -142,11 +145,13 @@ void MainWindow::copyToClipboardClicked()
 void MainWindow::penClicked()
 {
     mCaptureScene->setPaintMode(PaintArea::Pen);
+    saveSetting("MainWindow/PaintMode", PaintArea::Pen);
 }
 
 void MainWindow::markerClicked()
 {
     mCaptureScene->setPaintMode(PaintArea::Marker);
+    saveSetting("MainWindow/PaintMode", PaintArea::Marker);
 }
 
 void MainWindow::eraseClicked()
@@ -237,7 +242,7 @@ void MainWindow::createButtons()
 
 void MainWindow::createToolBar()
 {
-    mPenAction->setText("Paint");
+    mPenAction->setText("Pen");
     mPenAction->setIcon(QIcon::fromTheme("tool_pen"));
     connect(mPenAction, SIGNAL(triggered()), this, SLOT(penClicked()));
 
@@ -254,7 +259,7 @@ void MainWindow::createToolBar()
     mMenu->addAction(mEraseAction);
 
     mToolButton->setMenu(mMenu);
-    mToolButton->setDefaultAction(mPenAction);
+    //mToolButton->setDefaultAction(mPenAction);
     mToolBar->addWidget(mToolButton);
     mToolBar->setEnabled(false);
 }
@@ -267,15 +272,39 @@ void MainWindow::createLayout()
     mMenuLayout->addWidget(mToolBar);
     mMenuLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
+    //mWindowLayout->addWidget(mMenuBar);
     mWindowLayout->addLayout(mMenuLayout);
     mWindowLayout->addWidget(mCaptureView);
     setLayout(mWindowLayout);
 }
 
+void MainWindow::createMenuBar()
+{
+    mMenuBar->addMenu(tr("File"));
+    mMenuBar->addMenu(tr("&Edit"));
+    mMenuBar->addMenu(tr("&Settings"));
+    mMenuBar->addMenu(tr("&Help"));
+}
+
+void MainWindow::saveSetting(QString key, QVariant value)
+{
+    QSettings settings;
+    settings.setValue(key, value);
+}
+
 void MainWindow::loadSettings()
 {
     QSettings settings;
+    
     move(settings.value("MainWindow/Position").value<QPoint>());
+
+    if (settings.value("MainWindow/PaintMode").toInt() == PaintArea::Marker) {    
+        mCaptureScene->setPaintMode(PaintArea::Marker);
+        mToolButton->setDefaultAction(mMarkerAction);
+    } else {
+        mCaptureScene->setPaintMode(PaintArea::Pen);
+        mToolButton->setDefaultAction(mPenAction);
+    }
 }
 
 

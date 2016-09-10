@@ -36,6 +36,7 @@ public:
     void loadCapture ( QPixmap );
     QSize getAreaSize();
     void setPaintMode ( enum PaintMode );
+    void setPaintMode ( int );
     PaintMode getPaintMode();
     QImage exportAsImage();
 

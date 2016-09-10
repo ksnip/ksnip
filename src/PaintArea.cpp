@@ -53,6 +53,22 @@ void PaintArea::setPaintMode(PaintMode paintMode)
     mCurrentPaintMode = paintMode;
 }
 
+void PaintArea::setPaintMode(int paintMode)
+{
+//     switch(paintMode)
+//     {
+//         case 3:
+//             mCurrentPaintMode = Erase
+//             break;
+//         case 2:
+//             break;
+//         case 1:
+//             break;
+//         default:
+//     }
+}
+
+
 PaintArea::PaintMode PaintArea::getPaintMode()
 {
     return mCurrentPaintMode;

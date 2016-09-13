@@ -24,26 +24,29 @@
 #include "MainWindow.h"
 
 MainWindow::MainWindow() : QWidget(),
-    mNewCaptureButton(new QPushButton),
-    mSaveButton(new QPushButton),
-    mCopyToClipboardButton(new QPushButton),
-    mMenu(new QMenu),
+    mPaintToolMenu(new QMenu),
+    mNewCaptureMenu(new QMenu),
     mToolBar(new QToolBar),
-    mToolButton(new CustomToolButton),
-//     mMenuBar(new QMenuBar),
+    mNewCaptureButton(new CustomToolButton),
+    mSaveButton(new QToolButton),
+    mCopyToClipboardButton(new QToolButton),
+    mPaintToolButton(new CustomToolButton), 
+    mMenuBar(new QMenuBar),
+    mNewRectCaptureAction(new QAction(this)),
+    mNewScreenCaptureAction(new QAction(this)),
+    mNewDelayCaptureAction(new QAction(this)),
     mPenAction(new QAction(this)),
     mMarkerAction(new QAction(this)),
     mEraseAction(new QAction(this)),
     mCaptureScene(new PaintArea()),
     mCaptureView(new QGraphicsView(mCaptureScene)),
-    mMenuLayout(new QHBoxLayout),
     mWindowLayout(new QVBoxLayout),
     mSnippingArea(new SnippingArea(this))
 
 {
-    createButtons();
+    createToolButtons();
     createToolBar();
-    //createMenuBar();
+    createMenuBar();
     createLayout();
 
     // Disable frame around the image and hide it as on startup it's empty and enable Antialiasing
@@ -84,7 +87,6 @@ void MainWindow::show(QPixmap screenshot)
 
     mCaptureView->show();
     mCaptureView->setFocus();
-    mToolBar->setEnabled(true);
     setSaveAble(true);
 
     QWidget::show();
@@ -189,7 +191,7 @@ QPixmap MainWindow::grabScreen(QRect rect)
 {
     QPixmap screenshot;
     screenshot = QPixmap();
-    screenshot = QPixmap::grabWindow(QApplication::desktop()->winId(),
+    screenshot = QPixmap::grabWindow(QApplication::desktop()->winId(), 
                                      rect.topLeft().x(),
                                      rect.topLeft().y(),
                                      rect.width(),
@@ -221,27 +223,45 @@ void MainWindow::setSaveAble(bool saveAble)
     }
 }
 
-void MainWindow::createButtons()
+void MainWindow::createToolButtons()
 {
-    mNewCaptureButton->setText(tr("New"));
-    mNewCaptureButton->setToolTip("Make new Screen Capture");
-    mNewCaptureButton->setIcon(QIcon::fromTheme("edit-cut"));
-    mNewCaptureButton->connect(mNewCaptureButton, SIGNAL(clicked()), this, SLOT(newCaptureClicked()));
-
+    // Create tool button for selecting new capture mode
+    mNewRectCaptureAction->setText(tr("Area"));
+    mNewRectCaptureAction->setIcon(QIcon::fromTheme("tool_rectangle"));
+    connect(mNewRectCaptureAction, SIGNAL(triggered()), this, SLOT(newCaptureClicked()));
+    
+    mNewScreenCaptureAction->setText(tr("Screen"));
+    mNewScreenCaptureAction->setIcon(QIcon::fromTheme("view-fullscreen"));
+    
+    mNewDelayCaptureAction->setText(tr("Delay"));
+    mNewDelayCaptureAction->setIcon(QIcon::fromTheme("accept_time_event"));
+    
+    mNewCaptureMenu->addAction(mNewRectCaptureAction);
+    mNewCaptureMenu->addAction(mNewScreenCaptureAction);
+    mNewCaptureMenu->addAction(mNewDelayCaptureAction);
+        
+    mNewCaptureButton->setMenu(mNewCaptureMenu);
+    mNewCaptureButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    mNewCaptureButton->setDefaultAction(mNewRectCaptureAction);
+    
+    // Create save tool button
     mSaveButton->setText(tr("Save"));
     mSaveButton->setToolTip("Save Screen Capture to file system");
     mSaveButton->setIcon(QIcon::fromTheme("document-save-as"));
     mSaveButton->connect(mSaveButton, SIGNAL(clicked()), this, SLOT(saveCaptureClicked()));
+    mSaveButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mSaveButton->setEnabled(false);
-
+    mSaveButton->sizeHint();
+        
+    // Create copy to clipboard tool button
     mCopyToClipboardButton->setText(tr("Copy"));
     mCopyToClipboardButton->setToolTip("Copy Screen Capture to clipboard");
     mCopyToClipboardButton->setIcon(QIcon::fromTheme("edit-copy"));
-    mCopyToClipboardButton->connect(mCopyToClipboardButton, SIGNAL(clicked()), this, SLOT(copyToClipboardClicked()));
-}
-
-void MainWindow::createToolBar()
-{
+    mCopyToClipboardButton->connect(mCopyToClipboardButton, SIGNAL(clicked()), this, 
+                                     SLOT(copyToClipboardClicked()));
+    mCopyToClipboardButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    
+    // Create tool button for selecting paint tool
     mPenAction->setText(tr("Pen"));
     mPenAction->setIcon(QIcon::fromTheme("tool_pen"));
     connect(mPenAction, SIGNAL(triggered()), this, SLOT(penClicked()));
@@ -254,37 +274,41 @@ void MainWindow::createToolBar()
     mEraseAction->setIcon(QIcon::fromTheme("draw-eraser"));
     connect(mEraseAction, SIGNAL(triggered()), this, SLOT(eraseClicked()));
 
-    mMenu->addAction(mPenAction);
-    mMenu->addAction(mMarkerAction);
-    mMenu->addAction(mEraseAction);
+    mPaintToolMenu->addAction(mPenAction);
+    mPaintToolMenu->addAction(mMarkerAction);
+    mPaintToolMenu->addAction(mEraseAction);
 
-    mToolButton->setMenu(mMenu);
-    //mToolButton->setDefaultAction(mPenAction);
-    mToolBar->addWidget(mToolButton);
-    mToolBar->setEnabled(false);
+    mPaintToolButton->setMenu(mPaintToolMenu);
+    mPaintToolButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+}
+
+void MainWindow::createToolBar()
+{
+    mToolBar->addWidget(mNewCaptureButton);
+    mToolBar->addSeparator();
+    mToolBar->addWidget(mSaveButton);
+    mToolBar->addWidget(mCopyToClipboardButton);
+    mToolBar->addSeparator();
+    mToolBar->addWidget(mPaintToolButton);
 }
 
 void MainWindow::createLayout()
 {
-    mMenuLayout->addWidget(mNewCaptureButton);
-    mMenuLayout->addWidget(mSaveButton);
-    mMenuLayout->addWidget(mCopyToClipboardButton);
-    mMenuLayout->addWidget(mToolBar);
-    mMenuLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-
-    //mWindowLayout->addWidget(mMenuBar);
-    mWindowLayout->addLayout(mMenuLayout);
+    mWindowLayout->addWidget(mMenuBar);
+    mWindowLayout->addWidget(mToolBar);
     mWindowLayout->addWidget(mCaptureView);
+    mWindowLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    mWindowLayout->setContentsMargins(0,0,0,0);
     setLayout(mWindowLayout);
 }
 
-// void MainWindow::createMenuBar()
-// {
-//     mMenuBar->addMenu(tr("File"));
-//     mMenuBar->addMenu(tr("&Edit"));
-//     mMenuBar->addMenu(tr("&Settings"));
-//     mMenuBar->addMenu(tr("&Help"));
-// }
+void MainWindow::createMenuBar()
+{
+    mMenuBar->addMenu(tr("File"));
+    mMenuBar->addMenu(tr("&Edit"));
+    mMenuBar->addMenu(tr("&Settings"));
+    mMenuBar->addMenu(tr("&Help"));
+}
 
 void MainWindow::saveSetting(QString key, QVariant value)
 {
@@ -300,10 +324,10 @@ void MainWindow::loadSettings()
 
     if (settings.value("MainWindow/PaintMode").toInt() == PaintArea::Marker) {    
         mCaptureScene->setPaintMode(PaintArea::Marker);
-        mToolButton->setDefaultAction(mMarkerAction);
+        mPaintToolButton->setDefaultAction(mMarkerAction);
     } else {
         mCaptureScene->setPaintMode(PaintArea::Pen);
-        mToolButton->setDefaultAction(mPenAction);
+        mPaintToolButton->setDefaultAction(mPenAction);
     }
 }
 

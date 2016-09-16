@@ -51,7 +51,10 @@ protected:
     void moveEvent ( QMoveEvent* );
 
 private slots:
-    void newCaptureClicked();
+    void newRectAreaCaptureClicked();
+    void newCurrentScreenCaptureClicked();
+    void mNewFullScreenCaptureClicked();
+    void newWindowCaptureClicked();
     void saveCaptureClicked();
     void copyToClipboardClicked();
     void penClicked();
@@ -60,8 +63,10 @@ private slots:
     void keyPressEvent ( QKeyEvent * );
     void areaSelected ( QRect );
     void imageChanged();
+    void setCaptureDelay(int);
 
 private:
+    int               captureDelay;
     QToolBar         *mToolBar;
     QMenuBar         *mMenuBar;
     CustomToolButton *mNewCaptureButton;
@@ -70,9 +75,10 @@ private:
     CustomToolButton *mPaintToolButton;
     QMenu            *mPaintToolMenu;
     QMenu            *mNewCaptureMenu;
-    QAction          *mNewRectCaptureAction;
-    QAction          *mNewScreenCaptureAction;
-    QAction          *mNewDelayCaptureAction;
+    QAction          *mNewRectAreaCaptureAction;
+    QAction          *mNewCurrentScreenCaptureAction;
+    QAction          *mNewFullScreenCaptureAction;
+    QAction          *mNewActiveWindowCaptureAction;
     QAction          *mPenAction;
     QAction          *mMarkerAction;
     QAction          *mEraseAction;
@@ -90,6 +96,8 @@ private:
     void createMenuBar();
     void saveSetting ( QString, QVariant );
     void loadSettings();
+    QRect getCurrectScreenGeometry();
+    QRect getFullScreenGeometry();
 };
 
 #endif // MAINWINDOW_H

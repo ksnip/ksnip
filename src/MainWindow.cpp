@@ -32,9 +32,10 @@ MainWindow::MainWindow() : QWidget(),
     mCopyToClipboardButton(new QToolButton),
     mPaintToolButton(new CustomToolButton), 
     mMenuBar(new QMenuBar),
-    mNewRectCaptureAction(new QAction(this)),
-    mNewScreenCaptureAction(new QAction(this)),
-    mNewDelayCaptureAction(new QAction(this)),
+    mNewRectAreaCaptureAction(new QAction(this)),
+    mNewFullScreenCaptureAction(new QAction(this)),
+    mNewCurrentScreenCaptureAction(new QAction(this)),
+    mNewActiveWindowCaptureAction(new QAction(this)),
     mPenAction(new QAction(this)),
     mMarkerAction(new QAction(this)),
     mEraseAction(new QAction(this)),
@@ -42,7 +43,6 @@ MainWindow::MainWindow() : QWidget(),
     mCaptureView(new QGraphicsView(mCaptureScene)),
     mWindowLayout(new QVBoxLayout),
     mSnippingArea(new SnippingArea(this))
-
 {
     createToolButtons();
     createToolBar();
@@ -70,11 +70,15 @@ MainWindow::MainWindow() : QWidget(),
     QCoreApplication::setOrganizationDomain("ksnip.local");
     QCoreApplication::setApplicationName("ksnip");
     
+    // Temporary setting capture delay to 4000 for testing purpose
+    setCaptureDelay(300);
+    
     loadSettings();
 }
 
 void MainWindow::show(QPixmap screenshot)
 {
+    setWindowState(Qt::WindowActive);
     setWindowOpacity(1.0);
 
     if (screenshot.isNull()) {
@@ -83,7 +87,15 @@ void MainWindow::show(QPixmap screenshot)
     }
 
     mCaptureScene->loadCapture(screenshot);
-    resize(mCaptureScene->getAreaSize() + QSize(100, 150));
+    
+    if (mCaptureScene->getAreaSize().width() > getCurrectScreenGeometry().width() ||
+        mCaptureScene->getAreaSize().height() > getCurrectScreenGeometry().height()) {
+        setWindowState(Qt::WindowMaximized);
+    }
+
+    else {
+        resize(mCaptureScene->getAreaSize() + QSize(100, 150) );
+    }
 
     mCaptureView->show();
     mCaptureView->setFocus();
@@ -94,6 +106,7 @@ void MainWindow::show(QPixmap screenshot)
 
 void MainWindow::show()
 {
+    setWindowState(Qt::WindowActive);
     mCaptureView->hide();
     setSaveAble(false);
     QWidget::show();
@@ -106,10 +119,32 @@ void MainWindow::moveEvent(QMoveEvent *event)
 }
 
 
-void MainWindow::newCaptureClicked()
+void MainWindow::newRectAreaCaptureClicked()
 {
     setWindowOpacity(0.0);
+    delay(captureDelay);
     mSnippingArea->show();
+}
+
+void MainWindow::newCurrentScreenCaptureClicked()
+{
+    setWindowOpacity(0.0);
+    setWindowState(Qt::WindowMinimized);
+    delay(captureDelay);
+    show(grabScreen(getCurrectScreenGeometry()));
+}
+
+void MainWindow::mNewFullScreenCaptureClicked()
+{
+    setWindowOpacity(0.0);
+    setWindowState(Qt::WindowMinimized);
+    delay(captureDelay);
+    show(grabScreen(getFullScreenGeometry()));
+}
+
+void MainWindow::newWindowCaptureClicked()
+{
+
 }
 
 void MainWindow::saveCaptureClicked()
@@ -173,7 +208,7 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
 
 void MainWindow::areaSelected(QRect rect)
 {
-    delay(300);
+    delay(captureDelay);
     show(grabScreen(rect));
 }
 
@@ -184,6 +219,14 @@ void MainWindow::areaSelected(QRect rect)
 void MainWindow::imageChanged()
 {
     setSaveAble(true);
+}
+
+void MainWindow::setCaptureDelay(int ms)
+{
+    if (ms < 300)
+        captureDelay = 300;
+    else
+        captureDelay = ms;
 }
 
 
@@ -226,24 +269,44 @@ void MainWindow::setSaveAble(bool saveAble)
 void MainWindow::createToolButtons()
 {
     // Create tool button for selecting new capture mode
-    mNewRectCaptureAction->setText(tr("Area"));
-    mNewRectCaptureAction->setIcon(QIcon::fromTheme("tool_rectangle"));
-    connect(mNewRectCaptureAction, SIGNAL(triggered()), this, SLOT(newCaptureClicked()));
-    
-    mNewScreenCaptureAction->setText(tr("Screen"));
-    mNewScreenCaptureAction->setIcon(QIcon::fromTheme("view-fullscreen"));
-    
-    mNewDelayCaptureAction->setText(tr("Delay"));
-    mNewDelayCaptureAction->setIcon(QIcon::fromTheme("accept_time_event"));
-    
-    mNewCaptureMenu->addAction(mNewRectCaptureAction);
-    mNewCaptureMenu->addAction(mNewScreenCaptureAction);
-    mNewCaptureMenu->addAction(mNewDelayCaptureAction);
-        
+    mNewRectAreaCaptureAction->setIconText(tr("Rectangular Area"));
+    mNewRectAreaCaptureAction->setIcon(QIcon::fromTheme("tool_rectangle"));
+    connect(mNewRectAreaCaptureAction,
+            SIGNAL(triggered()),
+            this,
+            SLOT(newRectAreaCaptureClicked()));
+
+    mNewCurrentScreenCaptureAction->setIconText(tr("Current Screen"));
+    mNewCurrentScreenCaptureAction->setIcon(QIcon::fromTheme("view-fullscreen"));
+    connect(mNewCurrentScreenCaptureAction,
+            SIGNAL(triggered()),
+            this,
+            SLOT(newCurrentScreenCaptureClicked()));
+
+    mNewFullScreenCaptureAction->setIconText(tr("Full Screen (All Monitors)"));
+    mNewFullScreenCaptureAction->setIcon(QIcon::fromTheme("view-fullscreen"));
+    connect(mNewFullScreenCaptureAction,
+            SIGNAL(triggered()),
+            this,
+            SLOT(mNewFullScreenCaptureClicked()));
+
+    mNewActiveWindowCaptureAction->setIconText(tr("Active Window"));
+    mNewActiveWindowCaptureAction->setIcon(QIcon::fromTheme("window"));
+    connect(mNewActiveWindowCaptureAction,
+            SIGNAL(triggered()),
+            this,
+            SLOT(newWindowCaptureClicked()));
+
+    mNewCaptureMenu->addAction(mNewRectAreaCaptureAction);
+    mNewCaptureMenu->addAction(mNewFullScreenCaptureAction);
+    mNewCaptureMenu->addAction(mNewCurrentScreenCaptureAction);
+    mNewCaptureMenu->addAction(mNewActiveWindowCaptureAction);
+
     mNewCaptureButton->setMenu(mNewCaptureMenu);
     mNewCaptureButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    mNewCaptureButton->setDefaultAction(mNewRectCaptureAction);
-    
+    mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
+    mNewCaptureButton->setButtonText(tr("New"));
+
     // Create save tool button
     mSaveButton->setText(tr("Save"));
     mSaveButton->setToolTip("Save Screen Capture to file system");
@@ -252,21 +315,21 @@ void MainWindow::createToolButtons()
     mSaveButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mSaveButton->setEnabled(false);
     mSaveButton->sizeHint();
-        
+
     // Create copy to clipboard tool button
     mCopyToClipboardButton->setText(tr("Copy"));
     mCopyToClipboardButton->setToolTip("Copy Screen Capture to clipboard");
     mCopyToClipboardButton->setIcon(QIcon::fromTheme("edit-copy"));
-    mCopyToClipboardButton->connect(mCopyToClipboardButton, SIGNAL(clicked()), this, 
-                                     SLOT(copyToClipboardClicked()));
+    mCopyToClipboardButton->connect(mCopyToClipboardButton, SIGNAL(clicked()), this,
+                                    SLOT(copyToClipboardClicked()));
     mCopyToClipboardButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    
+
     // Create tool button for selecting paint tool
     mPenAction->setText(tr("Pen"));
     mPenAction->setIcon(QIcon::fromTheme("tool_pen"));
     connect(mPenAction, SIGNAL(triggered()), this, SLOT(penClicked()));
 
-    mMarkerAction->setText(tr("Mark"));
+    mMarkerAction->setText(tr("Marker"));
     mMarkerAction->setIcon(QIcon::fromTheme("draw-brush"));
     connect(mMarkerAction, SIGNAL(triggered()), this, SLOT(markerClicked()));
 
@@ -330,6 +393,17 @@ void MainWindow::loadSettings()
         mPaintToolButton->setDefaultAction(mPenAction);
     }
 }
+
+QRect MainWindow::getCurrectScreenGeometry()
+{
+    return QApplication::desktop()->screenGeometry();
+}
+
+QRect MainWindow::getFullScreenGeometry()
+{
+    return QApplication::desktop()->screen()->geometry();
+}
+
 
 
 

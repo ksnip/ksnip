@@ -22,17 +22,19 @@
 #define CUSTOMTOOLBUTTON_H
 
 #include <QToolButton>
-#include <QMenu>
 
 class CustomToolButton : public QToolButton
 {
     Q_OBJECT
 public:
     explicit CustomToolButton ( QWidget* parent = 0 );
-    void setMenu(QMenu *);
-    
+    void setButtonText ( const QString& );
+
+public slots:
+    void    setDefaultAction ( QAction* );
+
 private:
-    int getLargestWidth( QList<QAction*>);
+    QString buttonText;
 };
 
 #endif // CUSTOMTOOLBUTTON_H

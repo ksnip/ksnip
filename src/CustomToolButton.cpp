@@ -23,27 +23,27 @@
 
 #include <iostream>
 
-CustomToolButton::CustomToolButton(QWidget* parent) : QToolButton(parent)
+CustomToolButton::CustomToolButton ( QWidget *parent ) : QToolButton ( parent )
 {
-    setPopupMode(QToolButton::MenuButtonPopup);
-    QObject::connect(this, SIGNAL(triggered(QAction*)), this, SLOT(setDefaultAction(QAction*)));
+    setPopupMode ( QToolButton::MenuButtonPopup );
+    QObject::connect ( this, SIGNAL ( triggered ( QAction * ) ), this, SLOT ( setDefaultAction ( QAction * ) ) );
 }
 
 /*
  * Overriding setDefaultAction function to prevent changing of text when a new action is selected,
  * the main text on the button is supposed to stay the same.
  */
-void CustomToolButton::setDefaultAction(QAction *action)
+void CustomToolButton::setDefaultAction ( QAction *action )
 {
-    QToolButton::setDefaultAction(action);
-    setText(buttonText);
+    QToolButton::setDefaultAction ( action );
+    setText ( buttonText );
 }
 
 /*
  * Function used to set main button text
  */
-void CustomToolButton::setButtonText(const QString& text)
+void CustomToolButton::setButtonText ( const QString &text )
 {
     buttonText = text;
-    QToolButton::setText(text);
+    QToolButton::setText ( text );
 }

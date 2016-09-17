@@ -19,51 +19,53 @@
  */
 
 #include "ImageGrabber.h"
-#include "MainWindow.h"
 
-#include <iostream>
-
-ImageGrabber::ImageGrabber(MainWindow *parent) : QObject()
+ImageGrabber::ImageGrabber ( QWidget *parent ) : QObject()
 {
     mParent = parent;
 }
 
-QPixmap ImageGrabber::grabImage(CaptureMode mode, QRect* rect)
+QPixmap ImageGrabber::grabImage ( CaptureMode mode, QRect *rect )
 {
-    switch (mode) {
+    switch ( mode ) {
     case RectArea:
-        if (!rect) {
-            qCritical("ImageGrabber::grabImage: rect not provided but was expected.");
+        if ( !rect ) {
+            qCritical ( "ImageGrabber::grabImage: rect not provided but was expected." );
             return 0;
         }
-        return grabRect(*rect);
+
+        return grabRect ( *rect );
+
     case FullScreen:
-        return grabRect(getFullScreenRect());
+        return grabRect ( getFullScreenRect() );
+
     case CurrentScreen:
-        return grabRect(getCurrectScreenRect());
+        return grabRect ( getCurrectScreenRect() );
+
     case ActiveWindow:
-        return grabRect(getActiveWindowRect());
+        return grabRect ( getActiveWindowRect() );
+
     default:
-        qCritical("ImageGrabber::grabImage: Unknown CaptureMode provided.");
+        qCritical ( "ImageGrabber::grabImage: Unknown CaptureMode provided." );
         return 0;
     }
 }
 
-QPixmap ImageGrabber::grabRect(QRect rect)
+QPixmap ImageGrabber::grabRect ( QRect rect )
 {
     QPixmap screenshot;
     screenshot = QPixmap();
-    screenshot = QPixmap::grabWindow(QApplication::desktop()->winId(), 
-                                     rect.topLeft().x(),
-                                     rect.topLeft().y(),
-                                     rect.width(),
-                                     rect.height());
+    screenshot = QPixmap::grabWindow ( QApplication::desktop()->winId(),
+                                       rect.topLeft().x(),
+                                       rect.topLeft().y(),
+                                       rect.width(),
+                                       rect.height() );
     return screenshot;
 }
 
 QRect ImageGrabber::getCurrectScreenRect()
 {
-    return QApplication::desktop()->screenGeometry(QApplication::desktop()->screenNumber(mParent));
+    return QApplication::desktop()->screenGeometry ( QApplication::desktop()->screenNumber ( mParent ) );
 }
 
 QRect ImageGrabber::getFullScreenRect()
@@ -71,10 +73,50 @@ QRect ImageGrabber::getFullScreenRect()
     return QApplication::desktop()->screen()->geometry();
 }
 
-QRect ImageGrabber::getActiveWindowRect()
+Window ImageGrabber::getToplevelParent ( Display *display, Window window )
 {
-    return QApplication::desktop()->screenGeometry();
+    Window parentWindow;
+    Window rootWindow;
+    Window *childrenWindows;
+    unsigned int numberOfChildren;
+
+    while ( 1 ) {
+        if ( XQueryTree ( display, window, &rootWindow, &parentWindow, &childrenWindows,
+                          &numberOfChildren ) == 0 ) {
+            qCritical ( "ImageGrabber::getToplevelParent: XQueryTree Error" );
+            return 0;
+        }
+
+        if ( childrenWindows ) {
+            XFree ( childrenWindows );
+        }
+
+        if ( window == rootWindow || parentWindow == rootWindow ) {
+            return window;
+        }
+        else {
+            window = parentWindow;
+        }
+    }
 }
 
+QRect ImageGrabber::getActiveWindowRect()
+{
 
+    Display *display = XOpenDisplay ( NULL );
+    Window focusWindow, parentOfFocusedWindow;
+    XWindowAttributes attrributes;
+    int revert;
+
+    XGetInputFocus ( display, &focusWindow, &revert );
+    parentOfFocusedWindow = getToplevelParent ( display, focusWindow );
+
+    if ( !parentOfFocusedWindow ) {
+        qCritical ( "ImageGrabber::getActiveWindowRect: Unable to get window, returning screen." );
+        return getCurrectScreenRect();
+    }
+
+    XGetWindowAttributes ( display, parentOfFocusedWindow, &attrributes );
+    return QRect ( attrributes.x, attrributes.y, attrributes.width, attrributes.height );
+}
 

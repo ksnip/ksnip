@@ -40,7 +40,7 @@ private:
     QPen                *mAttributes;
     QPainterPathStroker *mStroker;
     bool                 mIsTransparent;
-    void paint ( QPainter*, const QStyleOptionGraphicsItem*, QWidget* widget = 0 );
+    void paint ( QPainter *, const QStyleOptionGraphicsItem *, QWidget *widget = 0 );
 };
 
 #endif // PAINTSTROKE_H

@@ -22,25 +22,25 @@
 #include "PaintArea.h"
 
 PaintArea::PaintArea() : QGraphicsScene(),
-                         mPen(new QPen),
-                         mMarker(new QPen)
+    mPen ( new QPen ),
+    mMarker ( new QPen )
 {
     mCurrentPaintStroke = NULL;
     mCurrentPaintMode = Pen;
     mIsSnapping = false;
 
-    mPen->setWidth(3);
-    mPen->setColor(Qt::red);
+    mPen->setWidth ( 3 );
+    mPen->setColor ( Qt::red );
 
-    mMarker->setWidth(20);
-    mMarker->setColor(QColor(255, 255, 0, 255));
+    mMarker->setWidth ( 20 );
+    mMarker->setColor ( QColor ( 255, 255, 0, 255 ) );
 }
 
-void PaintArea::loadCapture(QPixmap pixmap)
+void PaintArea::loadCapture ( QPixmap pixmap )
 {
     clear();
-    addPixmap(pixmap);
-    setSceneRect(0, 0, pixmap.width(), pixmap.height());
+    addPixmap ( pixmap );
+    setSceneRect ( 0, 0, pixmap.width(), pixmap.height() );
 }
 
 QSize PaintArea::getAreaSize()
@@ -48,7 +48,7 @@ QSize PaintArea::getAreaSize()
     return sceneRect().size().toSize();
 }
 
-void PaintArea::setPaintMode(PaintMode paintMode)
+void PaintArea::setPaintMode ( PaintMode paintMode )
 {
     mCurrentPaintMode = paintMode;
 }
@@ -60,111 +60,117 @@ PaintArea::PaintMode PaintArea::getPaintMode()
 
 QImage PaintArea::exportAsImage()
 {
-    QImage image(sceneRect().size().toSize(), QImage::Format_ARGB32);
-    image.fill(Qt::transparent);
+    QImage image ( sceneRect().size().toSize(), QImage::Format_ARGB32 );
+    image.fill ( Qt::transparent );
 
-    QPainter painter(&image);
-    painter.setRenderHint(QPainter::Antialiasing);
-    render(&painter);
+    QPainter painter ( &image );
+    painter.setRenderHint ( QPainter::Antialiasing );
+    render ( &painter );
     return image;
 }
 
-void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
+void PaintArea::mousePressEvent ( QGraphicsSceneMouseEvent *event )
 {
-    if (event->button() != Qt::LeftButton) {
+    if ( event->button() != Qt::LeftButton ) {
         return;
     }
 
     emit imageChanged();
 
-    if (mCurrentPaintMode == Erase) {
-        erasePaintStroke(event->scenePos());
-    } else {
-        addNewPaintStroke(event->scenePos());
+    if ( mCurrentPaintMode == Erase ) {
+        erasePaintStroke ( event->scenePos() );
+    }
+    else {
+        addNewPaintStroke ( event->scenePos() );
     }
 
-    QGraphicsScene::mousePressEvent(event);
+    QGraphicsScene::mousePressEvent ( event );
 }
 
-void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
+void PaintArea::mouseMoveEvent ( QGraphicsSceneMouseEvent *event )
 {
-    if (event->buttons() != Qt::LeftButton) {
+    if ( event->buttons() != Qt::LeftButton ) {
         return;
     }
 
-    if (mCurrentPaintMode == Erase) {
-        erasePaintStroke(event->scenePos());
-    } else {
-        addToCurrentPaintStroke(event->scenePos());
+    if ( mCurrentPaintMode == Erase ) {
+        erasePaintStroke ( event->scenePos() );
+    }
+    else {
+        addToCurrentPaintStroke ( event->scenePos() );
     }
 
-    QGraphicsScene::mouseMoveEvent(event);
+    QGraphicsScene::mouseMoveEvent ( event );
 }
 
-void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
+void PaintArea::mouseReleaseEvent ( QGraphicsSceneMouseEvent *event )
 {
-    if (event->button() != Qt::LeftButton) {
+    if ( event->button() != Qt::LeftButton ) {
         mCurrentPaintStroke = NULL;
     }
 
-    QGraphicsScene::mouseReleaseEvent(event);
+    QGraphicsScene::mouseReleaseEvent ( event );
 }
 
-void PaintArea::keyPressEvent(QKeyEvent* event)
+void PaintArea::keyPressEvent ( QKeyEvent *event )
 {
-    if (event->key() == Qt::Key_Shift) {
+    if ( event->key() == Qt::Key_Shift ) {
         mIsSnapping = true;
     }
 
-    QGraphicsScene::keyPressEvent(event);
+    QGraphicsScene::keyPressEvent ( event );
 }
 
-void PaintArea::keyReleaseEvent(QKeyEvent* event)
+void PaintArea::keyReleaseEvent ( QKeyEvent *event )
 {
-    if (event->key() == Qt::Key_Shift) {
+    if ( event->key() == Qt::Key_Shift ) {
         mIsSnapping = false;
     }
 
-    QGraphicsScene::keyReleaseEvent(event);
+    QGraphicsScene::keyReleaseEvent ( event );
 }
 
-void PaintArea::addNewPaintStroke(QPointF mousePosition)
+void PaintArea::addNewPaintStroke ( QPointF mousePosition )
 {
-    if (mCurrentPaintMode == Pen) {
-        mCurrentPaintStroke = new PaintStroke(mousePosition, *mPen);
-    } else {
-        mCurrentPaintStroke = new PaintStroke(mousePosition, *mMarker, true);
+    if ( mCurrentPaintMode == Pen ) {
+        mCurrentPaintStroke = new PaintStroke ( mousePosition, *mPen );
+    }
+    else {
+        mCurrentPaintStroke = new PaintStroke ( mousePosition, *mMarker, true );
     }
 
-    addItem(mCurrentPaintStroke);
+    addItem ( mCurrentPaintStroke );
 }
 
-void PaintArea::addToCurrentPaintStroke(QPointF mousePosistion)
+void PaintArea::addToCurrentPaintStroke ( QPointF mousePosistion )
 {
-    if (mCurrentPaintStroke == NULL) {
-        qCritical("PaintArea::addToCurrentPaintStroke: Unable to add point to path, current path set to NULL");
+    if ( mCurrentPaintStroke == NULL ) {
+        qCritical ( "PaintArea::addToCurrentPaintStroke: Unable to add point to path, current path set to NULL" );
         return;
     }
 
-    if (mIsSnapping) {
-        mCurrentPaintStroke->lastLineTo(mousePosistion);
-    } else {
-        mCurrentPaintStroke->lineTo(mousePosistion);
+    if ( mIsSnapping ) {
+        mCurrentPaintStroke->lastLineTo ( mousePosistion );
+    }
+    else {
+        mCurrentPaintStroke->lineTo ( mousePosistion );
     }
 
-    mCurrentPaintStroke->lineTo(mousePosistion);
+    mCurrentPaintStroke->lineTo ( mousePosistion );
 }
 
-bool PaintArea::erasePaintStroke(QPointF mousePosition)
+bool PaintArea::erasePaintStroke ( QPointF mousePosition )
 {
-    PaintStroke* item = NULL;
+    PaintStroke *item = NULL;
 
-    for (int i = 0 ; i < items().count() ; i++) {
-        item = qgraphicsitem_cast<PaintStroke*>(items().at(i));
-        if (item && item->isUnderLocation(mousePosition)) {
-            removeItem(items().at(i));
+    for ( int i = 0 ; i < items().count() ; i++ ) {
+        item = qgraphicsitem_cast<PaintStroke *> ( items().at ( i ) );
+
+        if ( item && item->isUnderLocation ( mousePosition ) ) {
+            removeItem ( items().at ( i ) );
             return true;
         }
     }
+
     return false;
 }

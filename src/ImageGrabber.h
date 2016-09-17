@@ -26,22 +26,26 @@
 #include <QApplication>
 #include <QDesktopWidget>
 
+#include <X11/Xlib.h>
+
 class MainWindow;
 
 class ImageGrabber : public QObject
 {
-    Q_OBJECT
+//     Q_OBJECT
 public:
     enum CaptureMode { RectArea, FullScreen, CurrentScreen, ActiveWindow };
-    ImageGrabber ( MainWindow * );
-    QPixmap grabImage ( enum CaptureMode, QRect* rect = 0 );
+    ImageGrabber ( QWidget * );
+    QPixmap grabImage ( enum CaptureMode, QRect *rect = 0 );
     QRect getCurrectScreenRect();
     QRect getFullScreenRect();
     QRect getActiveWindowRect();
 
 private:
+
+    QWidget *mParent;
     QPixmap grabRect ( QRect );
-    MainWindow * mParent;
+    Window getToplevelParent ( Display * , Window );
 };
 
 #endif // IMAGEGRABBER_H

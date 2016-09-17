@@ -11,6 +11,6 @@ set(ksnip_SRCS src/ImageGrabber.cpp src/PaintStroke.cpp src/CustomToolButton.cpp
 
 qt4_automoc(${ksnip_SRCS})
 add_executable(ksnip ${ksnip_SRCS})
-target_link_libraries(ksnip ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY})
+target_link_libraries(ksnip ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} X11 )
 
 install(TARGETS ksnip RUNTIME DESTINATION bin)

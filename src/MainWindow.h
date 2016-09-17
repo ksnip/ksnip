@@ -47,9 +47,9 @@ public:
     MainWindow();
     void show ( QPixmap );
     void show();
-    
+
 protected:
-    void moveEvent ( QMoveEvent* );
+    void moveEvent ( QMoveEvent * );
 
 private slots:
     void newRectAreaCaptureClicked();
@@ -64,7 +64,7 @@ private slots:
     void keyPressEvent ( QKeyEvent * );
     void areaSelected ( QRect );
     void imageChanged();
-    void setCaptureDelay(int);
+    void setCaptureDelay ( int );
 
 private:
     int               captureDelay;

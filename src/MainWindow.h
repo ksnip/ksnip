@@ -26,6 +26,7 @@
 #include "SnippingArea.h"
 #include "PaintArea.h"
 #include "CustomToolButton.h"
+#include "ImageGrabber.h"
 
 class QPushButton;
 class QHBoxLayout;
@@ -54,7 +55,7 @@ private slots:
     void newRectAreaCaptureClicked();
     void newCurrentScreenCaptureClicked();
     void mNewFullScreenCaptureClicked();
-    void newWindowCaptureClicked();
+    void newActiveWindowCaptureClicked();
     void saveCaptureClicked();
     void copyToClipboardClicked();
     void penClicked();
@@ -87,17 +88,15 @@ private:
     QGraphicsView    *mCaptureView;
     QClipboard       *mClipboard;
     SnippingArea     *mSnippingArea;
-    QPixmap grabScreen ( QRect );
+    ImageGrabber     *mImageGrabber;
     void delay ( int ms );
     void setSaveAble ( bool );
+    void saveSetting ( QString, QVariant );
+    void loadSettings();
     void createToolBar();
     void createToolButtons();
     void createLayout();
     void createMenuBar();
-    void saveSetting ( QString, QVariant );
-    void loadSettings();
-    QRect getCurrectScreenGeometry();
-    QRect getFullScreenGeometry();
 };
 
 #endif // MAINWINDOW_H

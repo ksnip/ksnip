@@ -30,7 +30,7 @@ MainWindow::MainWindow() : QWidget(),
     mNewCaptureButton(new CustomToolButton),
     mSaveButton(new QToolButton),
     mCopyToClipboardButton(new QToolButton),
-    mPaintToolButton(new CustomToolButton), 
+    mPaintToolButton(new CustomToolButton),
     mMenuBar(new QMenuBar),
     mNewRectAreaCaptureAction(new QAction(this)),
     mNewFullScreenCaptureAction(new QAction(this)),
@@ -42,7 +42,8 @@ MainWindow::MainWindow() : QWidget(),
     mCaptureScene(new PaintArea()),
     mCaptureView(new QGraphicsView(mCaptureScene)),
     mWindowLayout(new QVBoxLayout),
-    mSnippingArea(new SnippingArea(this))
+    mSnippingArea(new SnippingArea(this)),
+    mImageGrabber(new ImageGrabber(this))
 {
     createToolButtons();
     createToolBar();
@@ -64,15 +65,15 @@ MainWindow::MainWindow() : QWidget(),
     // Create a connection with other widget elements
     connect(mSnippingArea, SIGNAL(areaSelected(QRect)), this, SLOT(areaSelected(QRect)));
     connect(mCaptureScene, SIGNAL(imageChanged()), this, SLOT(imageChanged()));
-  
+
     // Setup application properties that are required for saving settings
     QCoreApplication::setOrganizationName("ksnip");
     QCoreApplication::setOrganizationDomain("ksnip.local");
     QCoreApplication::setApplicationName("ksnip");
-    
+
     // Temporary setting capture delay to 4000 for testing purpose
     setCaptureDelay(300);
-    
+
     loadSettings();
 }
 
@@ -87,14 +88,14 @@ void MainWindow::show(QPixmap screenshot)
     }
 
     mCaptureScene->loadCapture(screenshot);
-    
-    if (mCaptureScene->getAreaSize().width() > getCurrectScreenGeometry().width() ||
-        mCaptureScene->getAreaSize().height() > getCurrectScreenGeometry().height()) {
+
+    if (mCaptureScene->getAreaSize().width() > mImageGrabber->getCurrectScreenRect().width() ||
+            mCaptureScene->getAreaSize().height() > mImageGrabber->getCurrectScreenRect().height()) {
         setWindowState(Qt::WindowMaximized);
     }
 
     else {
-        resize(mCaptureScene->getAreaSize() + QSize(100, 150) );
+        resize(mCaptureScene->getAreaSize() + QSize(100, 150));
     }
 
     mCaptureView->show();
@@ -112,17 +113,15 @@ void MainWindow::show()
     QWidget::show();
 }
 
-void MainWindow::moveEvent(QMoveEvent *event)
+void MainWindow::moveEvent(QMoveEvent* event)
 {
     saveSetting("MainWindow/Position", pos());
     QWidget::moveEvent(event);
 }
 
-
 void MainWindow::newRectAreaCaptureClicked()
 {
     setWindowOpacity(0.0);
-    delay(captureDelay);
     mSnippingArea->show();
 }
 
@@ -131,7 +130,7 @@ void MainWindow::newCurrentScreenCaptureClicked()
     setWindowOpacity(0.0);
     setWindowState(Qt::WindowMinimized);
     delay(captureDelay);
-    show(grabScreen(getCurrectScreenGeometry()));
+    show(mImageGrabber->grabImage(ImageGrabber::CurrentScreen));
 }
 
 void MainWindow::mNewFullScreenCaptureClicked()
@@ -139,12 +138,15 @@ void MainWindow::mNewFullScreenCaptureClicked()
     setWindowOpacity(0.0);
     setWindowState(Qt::WindowMinimized);
     delay(captureDelay);
-    show(grabScreen(getFullScreenGeometry()));
+    show(mImageGrabber->grabImage(ImageGrabber::FullScreen));
 }
 
-void MainWindow::newWindowCaptureClicked()
+void MainWindow::newActiveWindowCaptureClicked()
 {
-
+    setWindowOpacity(0.0);
+    setWindowState(Qt::WindowMinimized);
+    delay(captureDelay);
+    show(mImageGrabber->grabImage(ImageGrabber::ActiveWindow));
 }
 
 void MainWindow::saveCaptureClicked()
@@ -202,44 +204,34 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
         mSnippingArea->hide();
         setWindowOpacity(1.0);
     }
-
     QWidget::keyPressEvent(event);
 }
 
 void MainWindow::areaSelected(QRect rect)
 {
     delay(captureDelay);
-    show(grabScreen(rect));
+    show(mImageGrabber->grabImage(ImageGrabber::RectArea, &rect));
 }
 
 /*
- * Should be called when ever the paintArea was changed, like new
- * drawing and similar
+ * Should be called when ever the paintArea was changed, like new drawing and similar
  */
 void MainWindow::imageChanged()
 {
     setSaveAble(true);
 }
 
+/*
+ * Delay is never set below 300ms to leave enough time for the ksnip window to disappear before
+ * taking the screenshot. 
+ */
 void MainWindow::setCaptureDelay(int ms)
 {
-    if (ms < 300)
+    if (ms < 300) {
         captureDelay = 300;
-    else
+    } else {
         captureDelay = ms;
-}
-
-
-QPixmap MainWindow::grabScreen(QRect rect)
-{
-    QPixmap screenshot;
-    screenshot = QPixmap();
-    screenshot = QPixmap::grabWindow(QApplication::desktop()->winId(), 
-                                     rect.topLeft().x(),
-                                     rect.topLeft().y(),
-                                     rect.width(),
-                                     rect.height());
-    return screenshot;
+    }
 }
 
 void MainWindow::delay(int ms)
@@ -263,6 +255,27 @@ void MainWindow::setSaveAble(bool saveAble)
     } else {
         mSaveButton->setEnabled(false);
         setWindowTitle("ksnip");
+    }
+}
+
+void MainWindow::saveSetting(QString key, QVariant value)
+{
+    QSettings settings;
+    settings.setValue(key, value);
+}
+
+void MainWindow::loadSettings()
+{
+    QSettings settings;
+
+    move(settings.value("MainWindow/Position").value<QPoint>());
+
+    if (settings.value("MainWindow/PaintMode").toInt() == PaintArea::Marker) {
+        mCaptureScene->setPaintMode(PaintArea::Marker);
+        mPaintToolButton->setDefaultAction(mMarkerAction);
+    } else {
+        mCaptureScene->setPaintMode(PaintArea::Pen);
+        mPaintToolButton->setDefaultAction(mPenAction);
     }
 }
 
@@ -295,7 +308,7 @@ void MainWindow::createToolButtons()
     connect(mNewActiveWindowCaptureAction,
             SIGNAL(triggered()),
             this,
-            SLOT(newWindowCaptureClicked()));
+            SLOT(newActiveWindowCaptureClicked()));
 
     mNewCaptureMenu->addAction(mNewRectAreaCaptureAction);
     mNewCaptureMenu->addAction(mNewFullScreenCaptureAction);
@@ -361,7 +374,7 @@ void MainWindow::createLayout()
     mWindowLayout->addWidget(mToolBar);
     mWindowLayout->addWidget(mCaptureView);
     mWindowLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-    mWindowLayout->setContentsMargins(0,0,0,0);
+    mWindowLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(mWindowLayout);
 }
 
@@ -372,41 +385,3 @@ void MainWindow::createMenuBar()
     mMenuBar->addMenu(tr("&Settings"));
     mMenuBar->addMenu(tr("&Help"));
 }
-
-void MainWindow::saveSetting(QString key, QVariant value)
-{
-    QSettings settings;
-    settings.setValue(key, value);
-}
-
-void MainWindow::loadSettings()
-{
-    QSettings settings;
-    
-    move(settings.value("MainWindow/Position").value<QPoint>());
-
-    if (settings.value("MainWindow/PaintMode").toInt() == PaintArea::Marker) {    
-        mCaptureScene->setPaintMode(PaintArea::Marker);
-        mPaintToolButton->setDefaultAction(mMarkerAction);
-    } else {
-        mCaptureScene->setPaintMode(PaintArea::Pen);
-        mPaintToolButton->setDefaultAction(mPenAction);
-    }
-}
-
-QRect MainWindow::getCurrectScreenGeometry()
-{
-    return QApplication::desktop()->screenGeometry();
-}
-
-QRect MainWindow::getFullScreenGeometry()
-{
-    return QApplication::desktop()->screen()->geometry();
-}
-
-
-
-
-
-
-

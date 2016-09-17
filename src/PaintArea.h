@@ -25,8 +25,6 @@
 
 #include "PaintStroke.h"
 
-
-
 class PaintArea : public QGraphicsScene
 {
     Q_OBJECT

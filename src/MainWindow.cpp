@@ -123,6 +123,7 @@ void MainWindow::newRectAreaCaptureClicked()
 {
     setWindowOpacity ( 0.0 );
     mSnippingArea->show();
+    saveSetting ( "ImageGrabber/CaptureMode", ImageGrabber::RectArea );
 }
 
 void MainWindow::newCurrentScreenCaptureClicked()
@@ -131,6 +132,7 @@ void MainWindow::newCurrentScreenCaptureClicked()
     setWindowState ( Qt::WindowMinimized );
     delay ( captureDelay );
     show ( mImageGrabber->grabImage ( ImageGrabber::CurrentScreen ) );
+    saveSetting ( "ImageGrabber/CaptureMode", ImageGrabber::CurrentScreen);
 }
 
 void MainWindow::mNewFullScreenCaptureClicked()
@@ -139,6 +141,7 @@ void MainWindow::mNewFullScreenCaptureClicked()
     setWindowState ( Qt::WindowMinimized );
     delay ( captureDelay );
     show ( mImageGrabber->grabImage ( ImageGrabber::FullScreen ) );
+    saveSetting ( "ImageGrabber/CaptureMode", ImageGrabber::FullScreen );
 }
 
 void MainWindow::newActiveWindowCaptureClicked()
@@ -147,6 +150,7 @@ void MainWindow::newActiveWindowCaptureClicked()
     setWindowState ( Qt::WindowMinimized );
     delay ( captureDelay );
     show ( mImageGrabber->grabImage ( ImageGrabber::ActiveWindow ) );
+    saveSetting ( "ImageGrabber/CaptureMode", ImageGrabber::ActiveWindow );
 }
 
 void MainWindow::saveCaptureClicked()
@@ -184,13 +188,13 @@ void MainWindow::copyToClipboardClicked()
 void MainWindow::penClicked()
 {
     mCaptureScene->setPaintMode ( PaintArea::Pen );
-    saveSetting ( "MainWindow/PaintMode", PaintArea::Pen );
+    saveSetting ( "Painter/PaintMode", PaintArea::Pen );
 }
 
 void MainWindow::markerClicked()
 {
     mCaptureScene->setPaintMode ( PaintArea::Marker );
-    saveSetting ( "MainWindow/PaintMode", PaintArea::Marker );
+    saveSetting ( "Painter/PaintMode", PaintArea::Marker );
 }
 
 void MainWindow::eraseClicked()
@@ -274,13 +278,29 @@ void MainWindow::loadSettings()
 
     move ( settings.value ( "MainWindow/Position" ).value<QPoint>() );
 
-    if ( settings.value ( "MainWindow/PaintMode" ).toInt() == PaintArea::Marker ) {
+    if ( settings.value ( "Painter/PaintMode" ).toInt() == PaintArea::Marker ) {
         mCaptureScene->setPaintMode ( PaintArea::Marker );
         mPaintToolButton->setDefaultAction ( mMarkerAction );
     }
     else {
         mCaptureScene->setPaintMode ( PaintArea::Pen );
         mPaintToolButton->setDefaultAction ( mPenAction );
+    }
+    
+    switch (settings.value ( "ImageGrabber/CaptureMode" ).toInt())
+    
+    {
+        case ImageGrabber::ActiveWindow:
+            mNewCaptureButton->setDefaultAction(mNewActiveWindowCaptureAction);
+            break;
+        case ImageGrabber::CurrentScreen:
+            mNewCaptureButton->setDefaultAction(mNewCurrentScreenCaptureAction);
+            break;
+        case ImageGrabber::FullScreen:
+            mNewCaptureButton->setDefaultAction(mNewFullScreenCaptureAction);
+            break;
+        default:
+            mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
     }
 }
 

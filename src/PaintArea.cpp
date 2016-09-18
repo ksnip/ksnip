@@ -145,7 +145,8 @@ void PaintArea::addNewPaintStroke ( QPointF mousePosition )
 void PaintArea::addToCurrentPaintStroke ( QPointF mousePosistion )
 {
     if ( mCurrentPaintStroke == NULL ) {
-        qCritical ( "PaintArea::addToCurrentPaintStroke: Unable to add point to path, current path set to NULL" );
+        qCritical ( "PaintArea::addToCurrentPaintStroke: Unable to add point to path, \
+        current path set to NULL" );
         return;
     }
 

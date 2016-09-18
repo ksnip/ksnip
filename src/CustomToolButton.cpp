@@ -22,6 +22,7 @@
 #include "CustomToolButton.h"
 
 #include <iostream>
+#include <QAction>
 
 CustomToolButton::CustomToolButton ( QWidget *parent ) : QToolButton ( parent )
 {
@@ -37,6 +38,13 @@ void CustomToolButton::setDefaultAction ( QAction *action )
 {
     QToolButton::setDefaultAction ( action );
     setText ( buttonText );
+}
+
+void CustomToolButton::trigger()
+{
+    if ( defaultAction() != 0 ) {
+        defaultAction()->trigger();
+    }
 }
 
 /*

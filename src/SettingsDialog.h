@@ -18,24 +18,29 @@
  *
  */
 
-#ifndef CUSTOMTOOLBUTTON_H
-#define CUSTOMTOOLBUTTON_H
+#ifndef SETTINGSDIALOG_H
+#define SETTINGSDIALOG_H
 
-#include <QToolButton>
+#include <QDialog>
+#include <QGroupBox>
+#include <QCheckBox>
+#include <QVBoxLayout>
 
-class CustomToolButton : public QToolButton
+class SettingsDialog : public QDialog
 {
-    Q_OBJECT
 public:
-    explicit CustomToolButton ( QWidget *parent = 0 );
-    void setButtonText ( const QString & );
-
-public slots:
-    void    setDefaultAction ( QAction * );
-    void    trigger();
-
+    SettingsDialog();
+    
 private:
-    QString buttonText;
+    QVBoxLayout *mMainLayout;
+    QGroupBox   *mApplicationSettingsGroupbox;
+    QVBoxLayout *mApplicationSettingsLayout;
+    QCheckBox   *mAlwaysCopyToClipboardCheckbox;
+    QCheckBox   *mPromptToSaveBeforeExitCheckbox;
+    QCheckBox   *mSaveKsnipPositionCheckbox;
+    QCheckBox   *mSaveKsnipSelectionCheckbox;
+    void createCheckboxes();
+    void createLayouts();
 };
 
-#endif // CUSTOMTOOLBUTTON_H
+#endif // SETTINGSDIALOG_H

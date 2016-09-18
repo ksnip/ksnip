@@ -36,15 +36,21 @@ MainWindow::MainWindow() : QWidget(),
     mNewFullScreenCaptureAction ( new QAction ( this ) ),
     mNewCurrentScreenCaptureAction ( new QAction ( this ) ),
     mNewActiveWindowCaptureAction ( new QAction ( this ) ),
+    mSaveAction ( new QAction ( this ) ),
+    mCopyToClipboardAction ( new QAction ( this ) ),
     mPenAction ( new QAction ( this ) ),
     mMarkerAction ( new QAction ( this ) ),
     mEraseAction ( new QAction ( this ) ),
+    mNewCaptureAction( new QAction ( this ) ),
+    mQuitAction( new QAction (this) ),
+    mSettingsDialogAction ( new QAction ( this ) ),
     mCaptureScene ( new PaintArea() ),
     mCaptureView ( new QGraphicsView ( mCaptureScene ) ),
     mWindowLayout ( new QVBoxLayout ),
     mSnippingArea ( new SnippingArea ( this ) ),
     mImageGrabber ( new ImageGrabber ( this ) )
 {
+    createActions();
     createToolButtons();
     createToolBar();
     createMenuBar();
@@ -132,7 +138,7 @@ void MainWindow::newCurrentScreenCaptureClicked()
     setWindowState ( Qt::WindowMinimized );
     delay ( captureDelay );
     show ( mImageGrabber->grabImage ( ImageGrabber::CurrentScreen ) );
-    saveSetting ( "ImageGrabber/CaptureMode", ImageGrabber::CurrentScreen);
+    saveSetting ( "ImageGrabber/CaptureMode", ImageGrabber::CurrentScreen );
 }
 
 void MainWindow::mNewFullScreenCaptureClicked()
@@ -240,6 +246,12 @@ void MainWindow::setCaptureDelay ( int ms )
     }
 }
 
+void MainWindow::openSettingsDialog()
+{
+    SettingsDialog settingsDialog;
+    settingsDialog.exec();
+}
+
 void MainWindow::delay ( int ms )
 {
     QTime dieTime = QTime::currentTime().addMSecs ( ms );
@@ -251,7 +263,7 @@ void MainWindow::delay ( int ms )
 
 /*
  * Sets the state of the widget when the image was changed or save, depending
- * on the provided boolean value. If true, the save button is enabled and
+ * on the provided boolean value. If true, the save action is enabled and
  * the title changed.
  */
 void MainWindow::setSaveAble ( bool saveAble )
@@ -261,7 +273,7 @@ void MainWindow::setSaveAble ( bool saveAble )
         setWindowTitle ( "*ksnip - " + tr ( "Unsaved" ) );
     }
     else {
-        mSaveButton->setEnabled ( false );
+        mSaveAction->setEnabled ( false );
         setWindowTitle ( "ksnip" );
     }
 }
@@ -286,27 +298,31 @@ void MainWindow::loadSettings()
         mCaptureScene->setPaintMode ( PaintArea::Pen );
         mPaintToolButton->setDefaultAction ( mPenAction );
     }
-    
-    switch (settings.value ( "ImageGrabber/CaptureMode" ).toInt())
-    
+
+    switch ( settings.value ( "ImageGrabber/CaptureMode" ).toInt() )
+
     {
-        case ImageGrabber::ActiveWindow:
-            mNewCaptureButton->setDefaultAction(mNewActiveWindowCaptureAction);
-            break;
-        case ImageGrabber::CurrentScreen:
-            mNewCaptureButton->setDefaultAction(mNewCurrentScreenCaptureAction);
-            break;
-        case ImageGrabber::FullScreen:
-            mNewCaptureButton->setDefaultAction(mNewFullScreenCaptureAction);
-            break;
-        default:
-            mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
+    case ImageGrabber::ActiveWindow:
+        mNewCaptureButton->setDefaultAction ( mNewActiveWindowCaptureAction );
+        break;
+
+    case ImageGrabber::CurrentScreen:
+        mNewCaptureButton->setDefaultAction ( mNewCurrentScreenCaptureAction );
+        break;
+
+    case ImageGrabber::FullScreen:
+        mNewCaptureButton->setDefaultAction ( mNewFullScreenCaptureAction );
+        break;
+
+    default
+            :
+        mNewCaptureButton->setDefaultAction ( mNewRectAreaCaptureAction );
     }
 }
 
-void MainWindow::createToolButtons()
+void MainWindow::createActions()
 {
-    // Create tool button for selecting new capture mode
+    // Create actions for capture modes
     mNewRectAreaCaptureAction->setIconText ( tr ( "Rectangular Area" ) );
     mNewRectAreaCaptureAction->setIcon ( QIcon::fromTheme ( "tool_rectangle" ) );
     connect ( mNewRectAreaCaptureAction,
@@ -335,34 +351,24 @@ void MainWindow::createToolButtons()
               this,
               SLOT ( newActiveWindowCaptureClicked() ) );
 
-    mNewCaptureMenu->addAction ( mNewRectAreaCaptureAction );
-    mNewCaptureMenu->addAction ( mNewFullScreenCaptureAction );
-    mNewCaptureMenu->addAction ( mNewCurrentScreenCaptureAction );
-    mNewCaptureMenu->addAction ( mNewActiveWindowCaptureAction );
+    // Create action for save button
+    mSaveAction->setText ( tr ( "Save" ) );
+    mSaveAction->setToolTip ( tr ( "Save Screen Capture to file system" ) );
+    mSaveAction->setIcon ( QIcon::fromTheme ( "document-save-as" ) );
+    mSaveAction->setShortcuts(QKeySequence::Save);
+    mSaveAction->connect ( mSaveAction, SIGNAL ( triggered() ), this, 
+                           SLOT ( saveCaptureClicked() ) );
+    mSaveAction->setEnabled ( false );
 
-    mNewCaptureButton->setMenu ( mNewCaptureMenu );
-    mNewCaptureButton->setToolButtonStyle ( Qt::ToolButtonTextBesideIcon );
-    mNewCaptureButton->setDefaultAction ( mNewRectAreaCaptureAction );
-    mNewCaptureButton->setButtonText ( tr ( "New" ) );
-
-    // Create save tool button
-    mSaveButton->setText ( tr ( "Save" ) );
-    mSaveButton->setToolTip ( "Save Screen Capture to file system" );
-    mSaveButton->setIcon ( QIcon::fromTheme ( "document-save-as" ) );
-    mSaveButton->connect ( mSaveButton, SIGNAL ( clicked() ), this, SLOT ( saveCaptureClicked() ) );
-    mSaveButton->setToolButtonStyle ( Qt::ToolButtonTextBesideIcon );
-    mSaveButton->setEnabled ( false );
-    mSaveButton->sizeHint();
-
-    // Create copy to clipboard tool button
-    mCopyToClipboardButton->setText ( tr ( "Copy" ) );
-    mCopyToClipboardButton->setToolTip ( "Copy Screen Capture to clipboard" );
-    mCopyToClipboardButton->setIcon ( QIcon::fromTheme ( "edit-copy" ) );
-    mCopyToClipboardButton->connect ( mCopyToClipboardButton, SIGNAL ( clicked() ), this,
+    // Create action for copy to clipboard button
+    mCopyToClipboardAction->setText ( tr ( "Copy" ) );
+    mCopyToClipboardAction->setToolTip ( "Copy Screen Capture to clipboard" );
+    mCopyToClipboardAction->setIcon ( QIcon::fromTheme ( "edit-copy" ) );
+    mCopyToClipboardAction->setShortcut(QKeySequence::Copy);
+    mCopyToClipboardAction->connect ( mCopyToClipboardButton, SIGNAL ( clicked() ), this,
                                       SLOT ( copyToClipboardClicked() ) );
-    mCopyToClipboardButton->setToolButtonStyle ( Qt::ToolButtonTextBesideIcon );
 
-    // Create tool button for selecting paint tool
+    // Create actions for paint mode
     mPenAction->setText ( tr ( "Pen" ) );
     mPenAction->setIcon ( QIcon::fromTheme ( "tool_pen" ) );
     connect ( mPenAction, SIGNAL ( triggered() ), this, SLOT ( penClicked() ) );
@@ -374,7 +380,46 @@ void MainWindow::createToolButtons()
     mEraseAction->setText ( tr ( "Erase" ) );
     mEraseAction->setIcon ( QIcon::fromTheme ( "draw-eraser" ) );
     connect ( mEraseAction, SIGNAL ( triggered() ), this, SLOT ( eraseClicked() ) );
+    
+    // Create action for new capture, this will be only used in the menu bar
+    mNewCaptureAction->setText( tr ("New"));
+    mNewCaptureAction->setShortcut(QKeySequence::New);
+    connect( mNewCaptureAction, SIGNAL(triggered()), mNewCaptureButton, SLOT(trigger()));
+    
+    // Create exit action
+    mQuitAction->setText(tr("Quit"));
+    mQuitAction->setShortcut(QKeySequence::Quit);
+    connect( mQuitAction, SIGNAL(triggered()), this, SLOT(close()));
+    
+    // Create action for opening settings dialog
+    mSettingsDialogAction->setText ( tr ( "Settings" ) );
+    connect ( mSettingsDialogAction, SIGNAL ( triggered() ), this, SLOT ( openSettingsDialog() ) );
+}
 
+void MainWindow::createToolButtons()
+{
+    // Create tool button for selecting new capture mode
+    mNewCaptureMenu->addAction ( mNewRectAreaCaptureAction );
+    mNewCaptureMenu->addAction ( mNewFullScreenCaptureAction );
+    mNewCaptureMenu->addAction ( mNewCurrentScreenCaptureAction );
+    mNewCaptureMenu->addAction ( mNewActiveWindowCaptureAction );
+
+    mNewCaptureButton->setMenu ( mNewCaptureMenu );
+    mNewCaptureButton->setToolButtonStyle ( Qt::ToolButtonTextBesideIcon );
+    mNewCaptureButton->setDefaultAction ( mNewRectAreaCaptureAction );
+    mNewCaptureButton->setButtonText ( tr ( "New" ) );
+
+    // Create save tool button
+    mSaveButton->setToolButtonStyle ( Qt::ToolButtonTextBesideIcon );
+    mSaveButton->addAction ( mSaveAction );
+    mSaveButton->setDefaultAction ( mSaveAction );
+
+    // Create copy to clipboard tool button
+    mCopyToClipboardButton->setToolButtonStyle ( Qt::ToolButtonTextBesideIcon );
+    mCopyToClipboardButton->addAction ( mCopyToClipboardAction );
+    mCopyToClipboardButton->setDefaultAction ( mCopyToClipboardAction );
+
+    // Create tool button for selecting paint tool
     mPaintToolMenu->addAction ( mPenAction );
     mPaintToolMenu->addAction ( mMarkerAction );
     mPaintToolMenu->addAction ( mEraseAction );
@@ -405,8 +450,16 @@ void MainWindow::createLayout()
 
 void MainWindow::createMenuBar()
 {
-    mMenuBar->addMenu ( tr ( "File" ) );
-    mMenuBar->addMenu ( tr ( "&Edit" ) );
-    mMenuBar->addMenu ( tr ( "&Settings" ) );
-    mMenuBar->addMenu ( tr ( "&Help" ) );
+    QMenu *tmpMenu;
+
+    tmpMenu = mMenuBar->addMenu ( tr ( "File" ) );
+    tmpMenu->addAction ( mNewCaptureAction );
+    tmpMenu->addAction ( mSaveAction );
+    tmpMenu->addSeparator();
+    tmpMenu->addAction(mQuitAction);
+    tmpMenu = mMenuBar->addMenu ( tr ( "&Edit" ) );
+    tmpMenu->addAction(mCopyToClipboardAction);
+    tmpMenu = mMenuBar->addMenu ( tr ( "&Options" ) );
+    tmpMenu->addAction ( mSettingsDialogAction );
+    tmpMenu = mMenuBar->addMenu ( tr ( "&Help" ) );
 }

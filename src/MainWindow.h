@@ -27,6 +27,7 @@
 #include "PaintArea.h"
 #include "CustomToolButton.h"
 #include "ImageGrabber.h"
+#include "SettingsDialog.h"
 
 class QPushButton;
 class QHBoxLayout;
@@ -65,6 +66,7 @@ private slots:
     void areaSelected ( QRect );
     void imageChanged();
     void setCaptureDelay ( int );
+    void openSettingsDialog();
 
 private:
     int               captureDelay;
@@ -80,9 +82,14 @@ private:
     QAction          *mNewCurrentScreenCaptureAction;
     QAction          *mNewFullScreenCaptureAction;
     QAction          *mNewActiveWindowCaptureAction;
+    QAction          *mSaveAction;
+    QAction          *mCopyToClipboardAction;
     QAction          *mPenAction;
     QAction          *mMarkerAction;
     QAction          *mEraseAction;
+    QAction          *mNewCaptureAction;
+    QAction          *mQuitAction;
+    QAction          *mSettingsDialogAction;
     QVBoxLayout      *mWindowLayout;
     PaintArea        *mCaptureScene;
     QGraphicsView    *mCaptureView;
@@ -93,8 +100,9 @@ private:
     void setSaveAble ( bool );
     void saveSetting ( QString, QVariant );
     void loadSettings();
-    void createToolBar();
+    void createActions();
     void createToolButtons();
+    void createToolBar();
     void createLayout();
     void createMenuBar();
 };

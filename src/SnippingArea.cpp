@@ -16,8 +16,6 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor,
  *  Boston, MA 02110-1301, USA.
  */
-#include <QtGui>
-
 #include "SnippingArea.h"
 
 SnippingArea::SnippingArea ( QWidget *parent ) : QWidget ( parent )
@@ -29,6 +27,10 @@ SnippingArea::SnippingArea ( QWidget *parent ) : QWidget ( parent )
     setWindowFlags ( Qt::FramelessWindowHint | Qt::ToolTip );
     setFixedSize ( QDesktopWidget().size() );
 }
+
+//
+// Protected Functions
+//
 
 void SnippingArea::mousePressEvent ( QMouseEvent *event )
 {
@@ -82,6 +84,10 @@ void SnippingArea::paintEvent ( QPaintEvent *event )
 
     QWidget::paintEvent ( event );
 }
+
+//
+// Private Functions
+//
 
 /*
  * Calculate area for the screen capture, between the first mouse down location

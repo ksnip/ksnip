@@ -39,6 +39,10 @@ PaintStroke::PaintStroke ( QPointF startingPoint, QPen attributes, bool isTransp
     mStroker->setWidth ( mAttributes->width() );
 }
 
+//
+// Public Functions
+//
+
 QRectF PaintStroke::boundingRect() const
 {
     return mStroker->createStroke ( *mPath ).boundingRect();
@@ -79,13 +83,19 @@ bool PaintStroke::isUnderLocation ( QPointF p )
     return mPath->intersects ( QRectF ( p.x() - 2, p.y() - 2, 4, 4 ) );
 }
 
+//
+// Private Functions
+//
 void PaintStroke::paint ( QPainter *painter, const QStyleOptionGraphicsItem * , QWidget * )
 {
     if ( mIsTransparent ) {
         painter->setCompositionMode ( QPainter::CompositionMode_ColorBurn );
+        painter->setPen ( Qt::NoPen );
+    }
+    else {
+        painter->setPen ( mAttributes->color() );
     }
 
-    painter->setPen ( mAttributes->color() );
     painter->setBrush ( mAttributes->color() );
     painter->drawPath ( mStroker->createStroke ( *mPath ) );
 }

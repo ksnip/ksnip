@@ -20,6 +20,7 @@
 #ifndef SNIPPINGAREA_H
 #define SNIPPINGAREA_H
 
+#include <QtGui>
 #include <QWidget>
 
 #include "MainWindow.h"

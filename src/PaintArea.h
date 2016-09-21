@@ -21,6 +21,7 @@
 #ifndef SCRIBBLEAREA_H
 #define SCRIBBLEAREA_H
 
+#include <QtGui>
 #include <QGraphicsScene>
 
 #include "PaintStroke.h"
@@ -36,6 +37,10 @@ public:
     void setPaintMode ( enum PaintMode );
     PaintMode getPaintMode();
     QImage exportAsImage();
+    void setPenProperties ( QColor, int );
+    QPen getPenProperties();
+    void setMarkerProperties ( QColor, int );
+    QPen getMarkerProperties();
 
 signals:
     void imageChanged();

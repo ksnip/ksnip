@@ -18,31 +18,25 @@
  *
  */
 
-#ifndef IMAGEGRABBER_H
-#define IMAGEGRABBER_H
+#ifndef SIZECOMBOBOX_H
+#define SIZECOMBOBOX_H
 
-#include <QObject>
-#include <QPixmap>
-#include <QApplication>
-#include <QDesktopWidget>
-#include <X11/Xlib.h>
+#include <QComboBox>
 
-class MainWindow;
+class QWidget;
 
-class ImageGrabber : public QObject
+class SizeComboBox : public QComboBox
 {
+    Q_OBJECT
+
 public:
-    enum CaptureMode { RectArea, FullScreen, CurrentScreen, ActiveWindow };
-    ImageGrabber ( QWidget * );
-    QPixmap grabImage ( enum CaptureMode, QRect *rect = 0 );
-    QRect getCurrectScreenRect();
-    QRect getFullScreenRect();
-    QRect getActiveWindowRect();
+    SizeComboBox ( int, int, int, QWidget *widget = 0 );
+    int size() const;
+    void setSize ( int );
+    void setDefault ( int );
 
 private:
-    QWidget *mParent;
-    QPixmap grabRect ( QRect );
-    Window getToplevelParent ( Display * , Window );
+    void populateList ( int, int, int );
 };
 
-#endif // IMAGEGRABBER_H
+#endif // SIZECOMBOBOX_H

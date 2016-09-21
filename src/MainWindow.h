@@ -21,7 +21,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QWidget>
+#include <QtGui>
 
 #include "SnippingArea.h"
 #include "PaintArea.h"
@@ -48,6 +48,18 @@ public:
     MainWindow();
     void show ( QPixmap );
     void show();
+    void setAlwaysCopyToClipboard(bool);
+    bool getAlwaysCopyToClipboard();
+    void setPromptSaveBeforeExit(bool);
+    bool getPromptSaveBeforeExit();
+    void setSaveKsnipPosition(bool);
+    bool getSaveKsnipPosition();
+    void setSaveKsnipToolSelection(bool);
+    bool getSaveKsnipToolSelection();
+    void setPenProperties(QColor, int);
+    QPen getPenProperties();
+    void setMarkerProperties(QColor, int);
+    QPen getMarkerProperties();
 
 protected:
     void moveEvent ( QMoveEvent * );
@@ -69,7 +81,11 @@ private slots:
     void openSettingsDialog();
 
 private:
-    int               captureDelay;
+    int               mCaptureDelay;
+    bool              mAlwaysCopyToClipboard;
+    bool              mPromptSaveBeforeExit;
+    bool              mSaveKsnipPosition;
+    bool              mSaveKsnipToolSelection;
     QToolBar         *mToolBar;
     QMenuBar         *mMenuBar;
     CustomToolButton *mNewCaptureButton;
@@ -98,8 +114,10 @@ private:
     ImageGrabber     *mImageGrabber;
     void delay ( int ms );
     void setSaveAble ( bool );
-    void saveSetting ( QString, QVariant );
     void loadSettings();
+    void saveSetting ( QString, QVariant );
+    QPoint positionAtCenter();
+    void copyToClipboard();
     void createActions();
     void createToolButtons();
     void createToolBar();

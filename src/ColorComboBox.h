@@ -18,31 +18,25 @@
  *
  */
 
-#ifndef IMAGEGRABBER_H
-#define IMAGEGRABBER_H
+#ifndef COLORCOMBOBOX_H
+#define COLORCOMBOBOX_H
 
-#include <QObject>
-#include <QPixmap>
-#include <QApplication>
-#include <QDesktopWidget>
-#include <X11/Xlib.h>
+#include <QComboBox>
 
-class MainWindow;
+class QColor;
+class QWidget;
 
-class ImageGrabber : public QObject
+class ColorComboBox : public QComboBox
 {
+    Q_OBJECT
+
 public:
-    enum CaptureMode { RectArea, FullScreen, CurrentScreen, ActiveWindow };
-    ImageGrabber ( QWidget * );
-    QPixmap grabImage ( enum CaptureMode, QRect *rect = 0 );
-    QRect getCurrectScreenRect();
-    QRect getFullScreenRect();
-    QRect getActiveWindowRect();
+    ColorComboBox ( QStringList, QWidget *widget = 0 );
+    QColor color() const;
+    void setColor ( QColor );
 
 private:
-    QWidget *mParent;
-    QPixmap grabRect ( QRect );
-    Window getToplevelParent ( Display * , Window );
+    void populateList( QStringList );
 };
 
-#endif // IMAGEGRABBER_H
+#endif // COLORCOMBOBOX_H

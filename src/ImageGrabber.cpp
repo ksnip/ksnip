@@ -25,6 +25,10 @@ ImageGrabber::ImageGrabber ( QWidget *parent ) : QObject()
     mParent = parent;
 }
 
+//
+// Public Functions
+//
+
 QPixmap ImageGrabber::grabImage ( CaptureMode mode, QRect *rect )
 {
     switch ( mode ) {
@@ -51,29 +55,26 @@ QPixmap ImageGrabber::grabImage ( CaptureMode mode, QRect *rect )
     }
 }
 
-QPixmap ImageGrabber::grabRect ( QRect rect )
-{
-    QPixmap screenshot;
-    screenshot = QPixmap();
-    screenshot = QPixmap::grabWindow ( QApplication::desktop()->winId(),
-                                       rect.topLeft().x(),
-                                       rect.topLeft().y(),
-                                       rect.width(),
-                                       rect.height() );
-    return screenshot;
-}
-
+/*
+ * Returns the rect of the screen where ksnip is currently located
+ */
 QRect ImageGrabber::getCurrectScreenRect()
 {
     unsigned short int screen = QApplication::desktop()->screenNumber ( mParent );
     return QApplication::desktop()->screenGeometry ( screen );
 }
 
+/*
+ * Returns a rect covering the full screen, including several windows.
+ */
 QRect ImageGrabber::getFullScreenRect()
 {
     return QApplication::desktop()->screen()->geometry();
 }
 
+/*
+ * Get the position and size of the current top window which has focus.
+ */
 QRect ImageGrabber::getActiveWindowRect()
 {
 
@@ -94,6 +95,27 @@ QRect ImageGrabber::getActiveWindowRect()
     return QRect ( attrributes.x, attrributes.y, attrributes.width, attrributes.height );
 }
 
+//
+// Private Functions
+//
+
+QPixmap ImageGrabber::grabRect ( QRect rect )
+{
+    QPixmap screenshot;
+    screenshot = QPixmap();
+    screenshot = QPixmap::grabWindow ( QApplication::desktop()->winId(),
+                                       rect.topLeft().x(),
+                                       rect.topLeft().y(),
+                                       rect.width(),
+                                       rect.height() );
+    return screenshot;
+}
+
+/*
+ * The returned top window can consist of several "windows", therefor this function is used
+ * to find the child window that is currently at the top. Credit goes to Doug from StackOverflow:
+ * http://stackoverflow.com/questions/3909713/xlib-xgetwindowattributes-always-returns-1x1
+ */
 Window ImageGrabber::getToplevelParent ( Display *display, Window window )
 {
     Window parentWindow;

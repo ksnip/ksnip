@@ -17,8 +17,6 @@
 * Boston, MA 02110-1301, USA.
 *
 */
-#include <QtGui>
-
 #include "PaintArea.h"
 
 PaintArea::PaintArea() : QGraphicsScene(),
@@ -28,14 +26,16 @@ PaintArea::PaintArea() : QGraphicsScene(),
     mCurrentPaintStroke = NULL;
     mCurrentPaintMode = Pen;
     mIsSnapping = false;
-
-    mPen->setWidth ( 3 );
-    mPen->setColor ( Qt::red );
-
-    mMarker->setWidth ( 20 );
-    mMarker->setColor ( QColor ( 255, 255, 0, 255 ) );
 }
 
+//
+// Public Functions
+//
+
+/*
+ * Load new captured image and add it to the scene and set the scene size to the size of the loaded
+ * image.
+ */
 void PaintArea::loadCapture ( QPixmap pixmap )
 {
     clear();
@@ -58,6 +58,10 @@ PaintArea::PaintMode PaintArea::getPaintMode()
     return mCurrentPaintMode;
 }
 
+/*
+ * In order to export the scene as Image we must use a QPainter to draw all scene items to a new
+ * image which we can the export.
+ */
 QImage PaintArea::exportAsImage()
 {
     QImage image ( sceneRect().size().toSize(), QImage::Format_ARGB32 );
@@ -69,13 +73,37 @@ QImage PaintArea::exportAsImage()
     return image;
 }
 
+void PaintArea::setPenProperties ( QColor color, int width )
+{
+    mPen->setColor ( color );
+    mPen->setWidth ( width );
+}
+
+QPen PaintArea::getPenProperties()
+{
+    return *mPen;
+}
+
+void PaintArea::setMarkerProperties ( QColor color, int width )
+{
+    mMarker->setColor ( color );
+    mMarker->setWidth ( width );
+}
+
+QPen PaintArea::getMarkerProperties()
+{
+    return *mMarker;
+}
+
+//
+// Protected Functions
+//
+
 void PaintArea::mousePressEvent ( QGraphicsSceneMouseEvent *event )
 {
     if ( event->button() != Qt::LeftButton ) {
         return;
     }
-
-    emit imageChanged();
 
     if ( mCurrentPaintMode == Erase ) {
         erasePaintStroke ( event->scenePos() );
@@ -105,8 +133,12 @@ void PaintArea::mouseMoveEvent ( QGraphicsSceneMouseEvent *event )
 
 void PaintArea::mouseReleaseEvent ( QGraphicsSceneMouseEvent *event )
 {
-    if ( event->button() != Qt::LeftButton ) {
+    if ( event->button() == Qt::LeftButton ) {
         mCurrentPaintStroke = NULL;
+        
+        // Inform the MainWindow that something was drawn on the image so the user should be able to
+        // save again.
+        emit imageChanged();
     }
 
     QGraphicsScene::mouseReleaseEvent ( event );
@@ -130,6 +162,9 @@ void PaintArea::keyReleaseEvent ( QKeyEvent *event )
     QGraphicsScene::keyReleaseEvent ( event );
 }
 
+//
+// Private Functions
+//
 void PaintArea::addNewPaintStroke ( QPointF mousePosition )
 {
     if ( mCurrentPaintMode == Pen ) {

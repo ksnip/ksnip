@@ -22,6 +22,7 @@
 #define CUSTOMTOOLBUTTON_H
 
 #include <QToolButton>
+#include <QAction>
 
 class CustomToolButton : public QToolButton
 {

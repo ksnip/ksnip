@@ -17,10 +17,6 @@
  * Boston, MA 02110-1301, USA.
  *
  */
-#include <QtGui>
-
-#include <iostream>
-
 #include "MainWindow.h"
 
 MainWindow::MainWindow() : QWidget(),
@@ -69,7 +65,10 @@ MainWindow::MainWindow() : QWidget(),
     setWindowIcon ( QIcon::fromTheme ( "preferences-desktop-screensaver" ) );
 
     // Create a connection with other widget elements
-    connect ( mSnippingArea, SIGNAL ( areaSelected ( QRect ) ), this, SLOT ( areaSelected ( QRect ) ) );
+    connect ( mSnippingArea, 
+              SIGNAL ( areaSelected ( QRect ) ), 
+              this, 
+              SLOT ( areaSelected ( QRect ) ) );
     connect ( mCaptureScene, SIGNAL ( imageChanged() ), this, SLOT ( imageChanged() ) );
 
     // Setup application properties that are required for saving settings
@@ -82,6 +81,10 @@ MainWindow::MainWindow() : QWidget(),
 
     loadSettings();
 }
+
+//
+// Public Functions
+//
 
 void MainWindow::show ( QPixmap screenshot )
 {
@@ -108,6 +111,10 @@ void MainWindow::show ( QPixmap screenshot )
     mCaptureView->setFocus();
     setSaveAble ( true );
 
+    if ( mAlwaysCopyToClipboard ) {
+        copyToClipboard();
+    }
+
     QWidget::show();
 }
 
@@ -119,11 +126,87 @@ void MainWindow::show()
     QWidget::show();
 }
 
+void MainWindow::setAlwaysCopyToClipboard ( bool alwaysCopyToClipboard )
+{
+    mAlwaysCopyToClipboard = alwaysCopyToClipboard;
+    saveSetting ( "Application/AlwaysCopyToClipboard", mAlwaysCopyToClipboard );
+}
+
+bool MainWindow::getAlwaysCopyToClipboard()
+{
+    return mAlwaysCopyToClipboard;
+}
+
+void MainWindow::setPromptSaveBeforeExit ( bool promptSaveBeforeExit )
+{
+    mPromptSaveBeforeExit = promptSaveBeforeExit;
+    saveSetting ( "Application/PromptSaveBeforeExit" , mPromptSaveBeforeExit );
+}
+
+bool MainWindow::getPromptSaveBeforeExit()
+{
+    return mPromptSaveBeforeExit;
+}
+
+void MainWindow::setSaveKsnipPosition ( bool saveKsnipPosition )
+{
+    mSaveKsnipPosition = saveKsnipPosition;
+    saveSetting ( "Application/SaveKsnipPosition", mSaveKsnipPosition );
+}
+
+bool MainWindow::getSaveKsnipPosition()
+{
+    return mSaveKsnipPosition;
+}
+
+void MainWindow::setSaveKsnipToolSelection ( bool saveKsnipToolSelection )
+{
+    mSaveKsnipToolSelection = saveKsnipToolSelection;
+    saveSetting ( "Application/SaveKsnipToolsSelection", mSaveKsnipToolSelection );
+}
+
+bool MainWindow::getSaveKsnipToolSelection()
+{
+    return mSaveKsnipToolSelection;
+}
+
+void MainWindow::setPenProperties ( QColor color, int width)
+{
+    mCaptureScene->setPenProperties(color, width);
+    saveSetting("Painter/PenColor", color);
+    saveSetting("Painter/PenSize", width);
+}
+
+QPen MainWindow::getPenProperties()
+{
+    return mCaptureScene->getPenProperties();
+}
+
+void MainWindow::setMarkerProperties ( QColor color, int width )
+{
+    mCaptureScene->setMarkerProperties(color, width);
+    saveSetting("Painter/MarkerColor", color);
+    saveSetting("Painter/MarkerSize", width);
+}
+
+QPen MainWindow::getMarkerProperties()
+{
+    return mCaptureScene->getMarkerProperties();
+}
+
+//
+// Protected Functions
+// 
+
 void MainWindow::moveEvent ( QMoveEvent *event )
 {
     saveSetting ( "MainWindow/Position", pos() );
     QWidget::moveEvent ( event );
 }
+
+//
+// Private Slots
+//
 
 void MainWindow::newRectAreaCaptureClicked()
 {
@@ -136,7 +219,7 @@ void MainWindow::newCurrentScreenCaptureClicked()
 {
     setWindowOpacity ( 0.0 );
     setWindowState ( Qt::WindowMinimized );
-    delay ( captureDelay );
+    delay ( mCaptureDelay );
     show ( mImageGrabber->grabImage ( ImageGrabber::CurrentScreen ) );
     saveSetting ( "ImageGrabber/CaptureMode", ImageGrabber::CurrentScreen );
 }
@@ -145,7 +228,7 @@ void MainWindow::mNewFullScreenCaptureClicked()
 {
     setWindowOpacity ( 0.0 );
     setWindowState ( Qt::WindowMinimized );
-    delay ( captureDelay );
+    delay ( mCaptureDelay );
     show ( mImageGrabber->grabImage ( ImageGrabber::FullScreen ) );
     saveSetting ( "ImageGrabber/CaptureMode", ImageGrabber::FullScreen );
 }
@@ -154,7 +237,7 @@ void MainWindow::newActiveWindowCaptureClicked()
 {
     setWindowOpacity ( 0.0 );
     setWindowState ( Qt::WindowMinimized );
-    delay ( captureDelay );
+    delay ( mCaptureDelay );
     show ( mImageGrabber->grabImage ( ImageGrabber::ActiveWindow ) );
     saveSetting ( "ImageGrabber/CaptureMode", ImageGrabber::ActiveWindow );
 }
@@ -188,7 +271,7 @@ void MainWindow::saveCaptureClicked()
 
 void MainWindow::copyToClipboardClicked()
 {
-    mClipboard->setImage ( mCaptureScene->exportAsImage() );
+    copyToClipboard();
 }
 
 void MainWindow::penClicked()
@@ -220,7 +303,7 @@ void MainWindow::keyPressEvent ( QKeyEvent *event )
 
 void MainWindow::areaSelected ( QRect rect )
 {
-    delay ( captureDelay );
+    delay ( mCaptureDelay );
     show ( mImageGrabber->grabImage ( ImageGrabber::RectArea, &rect ) );
 }
 
@@ -230,6 +313,10 @@ void MainWindow::areaSelected ( QRect rect )
 void MainWindow::imageChanged()
 {
     setSaveAble ( true );
+
+    if ( mAlwaysCopyToClipboard ) {
+        copyToClipboard();
+    }
 }
 
 /*
@@ -239,18 +326,22 @@ void MainWindow::imageChanged()
 void MainWindow::setCaptureDelay ( int ms )
 {
     if ( ms < 300 ) {
-        captureDelay = 300;
+        mCaptureDelay = 300;
     }
     else {
-        captureDelay = ms;
+        mCaptureDelay = ms;
     }
 }
 
 void MainWindow::openSettingsDialog()
 {
-    SettingsDialog settingsDialog;
+    SettingsDialog settingsDialog(this);
     settingsDialog.exec();
 }
+
+//
+// Private Functions
+//
 
 void MainWindow::delay ( int ms )
 {
@@ -278,46 +369,103 @@ void MainWindow::setSaveAble ( bool saveAble )
     }
 }
 
+/*
+ * This function loads all settings for ksnip and it also loads a default settings for that variable
+ * in case there is no valid previously saved value. 
+ */
+void MainWindow::loadSettings()
+{
+    QSettings settings;
+    
+    // Default False
+    mAlwaysCopyToClipboard = settings.value ( "Application/AlwaysCopyToClipboard", false ).toBool();
+
+    // Default False
+    mPromptSaveBeforeExit = settings.value ( "Application/PromptSaveBeforeExit", false ).toBool();
+
+    // Default true
+    mSaveKsnipPosition = settings.value ( "Application/SaveKsnipPosition", true ).toBool();
+
+    // Default true
+    mSaveKsnipToolSelection = settings.value ( "Application/SaveKsnipToolsSelection", 
+                                               true ).toBool();
+
+    if ( mSaveKsnipPosition ) {
+        // Default Position Center of the screen
+        move ( settings.value ( "MainWindow/Position", positionAtCenter() ).value<QPoint>() );
+    }
+    else {
+        move ( positionAtCenter() );
+    }
+    
+    if ( mSaveKsnipToolSelection ) {
+        // Default is Pen
+        if ( settings.value ( "Painter/PaintMode" ).toInt() == PaintArea::Marker ) {
+            mCaptureScene->setPaintMode ( PaintArea::Marker );
+            mPaintToolButton->setDefaultAction ( mMarkerAction );
+        }
+        else {
+            mCaptureScene->setPaintMode ( PaintArea::Pen );
+            mPaintToolButton->setDefaultAction ( mPenAction );
+        }
+
+        // Default is Rect Area Capture
+        switch ( settings.value ( "ImageGrabber/CaptureMode" ).toInt() ) {
+        case ImageGrabber::ActiveWindow:
+            mNewCaptureButton->setDefaultAction ( mNewActiveWindowCaptureAction );
+            break;
+
+        case ImageGrabber::CurrentScreen:
+            mNewCaptureButton->setDefaultAction ( mNewCurrentScreenCaptureAction );
+            break;
+
+        case ImageGrabber::FullScreen:
+            mNewCaptureButton->setDefaultAction ( mNewFullScreenCaptureAction );
+            break;
+
+        default
+                :
+            mNewCaptureButton->setDefaultAction ( mNewRectAreaCaptureAction );
+        }
+
+        // Default Pen Color=Red and Size=3
+        mCaptureScene->setPenProperties ( settings.value ( "Painter/PenColor",
+                                          QColor ( "Red" ) ).value<QColor>(),
+                                          settings.value ( "Painter/PenSize",
+                                                  3 ).toInt() );
+
+        // Default Marker Color=Yellow and Size=20
+        mCaptureScene->setMarkerProperties ( settings.value ( "Painter/MarkerColor",
+                                             QColor ( "Yellow" ) ).value<QColor>(),
+                                             settings.value ( "Painter/MarkerSize", 20 ).toInt() );
+    }
+    else {
+        // Default Pen Color=Red and Size=3
+        mCaptureScene->setPenProperties ( QColor ( "Red" ), 3 );
+
+        // Default Marker Color=Yellow and Size=20
+        mCaptureScene->setMarkerProperties ( QColor ( "Yellow" ),  20 );
+    }
+}
+
 void MainWindow::saveSetting ( QString key, QVariant value )
 {
     QSettings settings;
     settings.setValue ( key, value );
 }
 
-void MainWindow::loadSettings()
+/*
+ * Calculate the position for ksnip so that it's at the center of the current screen
+ */
+QPoint MainWindow::positionAtCenter()
 {
-    QSettings settings;
+    return QPoint( mImageGrabber->getActiveWindowRect().width() / 2 - sizeHint().width() / 2, 
+                   mImageGrabber->getActiveWindowRect().height() / 2 - sizeHint().height() / 2);
+}
 
-    move ( settings.value ( "MainWindow/Position" ).value<QPoint>() );
-
-    if ( settings.value ( "Painter/PaintMode" ).toInt() == PaintArea::Marker ) {
-        mCaptureScene->setPaintMode ( PaintArea::Marker );
-        mPaintToolButton->setDefaultAction ( mMarkerAction );
-    }
-    else {
-        mCaptureScene->setPaintMode ( PaintArea::Pen );
-        mPaintToolButton->setDefaultAction ( mPenAction );
-    }
-
-    switch ( settings.value ( "ImageGrabber/CaptureMode" ).toInt() )
-
-    {
-    case ImageGrabber::ActiveWindow:
-        mNewCaptureButton->setDefaultAction ( mNewActiveWindowCaptureAction );
-        break;
-
-    case ImageGrabber::CurrentScreen:
-        mNewCaptureButton->setDefaultAction ( mNewCurrentScreenCaptureAction );
-        break;
-
-    case ImageGrabber::FullScreen:
-        mNewCaptureButton->setDefaultAction ( mNewFullScreenCaptureAction );
-        break;
-
-    default
-            :
-        mNewCaptureButton->setDefaultAction ( mNewRectAreaCaptureAction );
-    }
+void MainWindow::copyToClipboard()
+{
+    mClipboard->setImage ( mCaptureScene->exportAsImage() );
 }
 
 void MainWindow::createActions()
@@ -426,16 +574,18 @@ void MainWindow::createToolButtons()
 
     mPaintToolButton->setMenu ( mPaintToolMenu );
     mPaintToolButton->setToolButtonStyle ( Qt::ToolButtonTextBesideIcon );
+    mPaintToolButton->setDefaultAction( mPenAction );
 }
 
 void MainWindow::createToolBar()
-{
+{   
     mToolBar->addWidget ( mNewCaptureButton );
     mToolBar->addSeparator();
     mToolBar->addWidget ( mSaveButton );
     mToolBar->addWidget ( mCopyToClipboardButton );
     mToolBar->addSeparator();
     mToolBar->addWidget ( mPaintToolButton );
+    mToolBar->setFixedSize(mToolBar->sizeHint());
 }
 
 void MainWindow::createLayout()

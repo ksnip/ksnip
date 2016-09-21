@@ -18,31 +18,36 @@
  *
  */
 
-#ifndef IMAGEGRABBER_H
-#define IMAGEGRABBER_H
+#include "ColorComboBox.h"
 
-#include <QObject>
-#include <QPixmap>
-#include <QApplication>
-#include <QDesktopWidget>
-#include <X11/Xlib.h>
-
-class MainWindow;
-
-class ImageGrabber : public QObject
+ColorComboBox::ColorComboBox ( QStringList colorList, QWidget *parent ) : QComboBox ( parent )
 {
-public:
-    enum CaptureMode { RectArea, FullScreen, CurrentScreen, ActiveWindow };
-    ImageGrabber ( QWidget * );
-    QPixmap grabImage ( enum CaptureMode, QRect *rect = 0 );
-    QRect getCurrectScreenRect();
-    QRect getFullScreenRect();
-    QRect getActiveWindowRect();
+    populateList(colorList);
+}
 
-private:
-    QWidget *mParent;
-    QPixmap grabRect ( QRect );
-    Window getToplevelParent ( Display * , Window );
-};
+//
+// Public Functions
+//
+QColor ColorComboBox::color() const
+{
+    return qvariant_cast<QColor> ( itemData ( currentIndex() ) );
+}
 
-#endif // IMAGEGRABBER_H
+void ColorComboBox::setColor ( QColor color )
+{
+    setCurrentIndex ( findData ( color ));
+}
+
+//
+// Private Functions
+//
+void ColorComboBox::populateList(QStringList colorList)
+{
+    for ( int i = 0; i < colorList.size(); ++i ) {
+        QColor color ( colorList[i] );
+        QPixmap px ( 20, 20 );
+        px.fill ( color );
+        QIcon icon ( px );
+        addItem ( icon, colorList[i], color );
+    }
+}

@@ -21,14 +21,31 @@
 
 #include "CustomToolButton.h"
 
-#include <iostream>
-#include <QAction>
+
 
 CustomToolButton::CustomToolButton ( QWidget *parent ) : QToolButton ( parent )
 {
     setPopupMode ( QToolButton::MenuButtonPopup );
     QObject::connect ( this, SIGNAL ( triggered ( QAction * ) ), this, SLOT ( setDefaultAction ( QAction * ) ) );
 }
+
+//
+// Public Functions
+//
+
+/*
+ * Function used to set main button text, overriding the usual behavior where the text of the
+ * selected action is set
+ */
+void CustomToolButton::setButtonText ( const QString &text )
+{
+    buttonText = text;
+    QToolButton::setText ( text );
+}
+
+//
+// Public Slots
+//
 
 /*
  * Overriding setDefaultAction function to prevent changing of text when a new action is selected,
@@ -45,13 +62,4 @@ void CustomToolButton::trigger()
     if ( defaultAction() != 0 ) {
         defaultAction()->trigger();
     }
-}
-
-/*
- * Function used to set main button text
- */
-void CustomToolButton::setButtonText ( const QString &text )
-{
-    buttonText = text;
-    QToolButton::setText ( text );
 }

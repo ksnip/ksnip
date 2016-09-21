@@ -25,21 +25,54 @@
 #include <QGroupBox>
 #include <QCheckBox>
 #include <QVBoxLayout>
+#include <QLabel>
+#include <QPushButton>
+#include <QSettings>
+
+#include "MainWindow.h"
+#include "ColorComboBox.h"
+#include "SizeComboBox.h"
 
 class SettingsDialog : public QDialog
 {
+    Q_OBJECT
 public:
-    SettingsDialog();
-    
+    SettingsDialog(MainWindow *parent = 0);
+        
+public slots:
+    void okButtonClicked();
+    void cancelButtonClicked();
+
 private:
-    QVBoxLayout *mMainLayout;
-    QGroupBox   *mApplicationSettingsGroupbox;
-    QVBoxLayout *mApplicationSettingsLayout;
-    QCheckBox   *mAlwaysCopyToClipboardCheckbox;
-    QCheckBox   *mPromptToSaveBeforeExitCheckbox;
-    QCheckBox   *mSaveKsnipPositionCheckbox;
-    QCheckBox   *mSaveKsnipSelectionCheckbox;
+    MainWindow    *mParent;
+    QVBoxLayout   *mMainLayout;
+    QGroupBox     *mApplicationSettingsGroupbox;
+    QGroupBox     *mPenSettingsGroupbox;
+    QGroupBox     *mMarkerSettingsGroupbox;
+    QVBoxLayout   *mApplicationSettingsLayout;
+    QGridLayout   *mPenSettingsLayout;
+    QGridLayout   *mMarkerSettingsLayout;
+    QHBoxLayout   *mButtonLayout;
+    QCheckBox     *mAlwaysCopyToClipboardCheckbox;
+    QCheckBox     *mPromptToSaveBeforeExitCheckbox;
+    QCheckBox     *mSaveKsnipPositionCheckbox;
+    QCheckBox     *mSaveKsnipToolSelectionCheckbox;
+    QLabel        *mPenColorLabel;
+    QLabel        *mPenSizeLabel;
+    QLabel        *mMarkerColorLabel;
+    QLabel        *mMarkerSizeLabel;
+    ColorComboBox *mPenColorCombobox;
+    SizeComboBox  *mPenSizeCombobox;
+    ColorComboBox *mMarkerColorCombobox;
+    SizeComboBox  *mMarkerSizeCombobox;
+    QPushButton   *mOkButton;
+    QPushButton   *mCancelButton;
+    void loadSettings();
+    void saveSettings();
     void createCheckboxes();
+    void createLabels();
+    void createCombobox();
+    void createButtons();
     void createLayouts();
 };
 

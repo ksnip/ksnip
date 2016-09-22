@@ -25,15 +25,14 @@
 
 class QWidget;
 
-class SizeComboBox : public QComboBox
+class NumericComboBox : public QComboBox
 {
     Q_OBJECT
 
 public:
-    SizeComboBox ( int, int, int, QWidget *widget = 0 );
-    int size() const;
-    void setSize ( int );
-    void setDefault ( int );
+    NumericComboBox ( int, int, int, QWidget *widget = 0 );
+    int value() const;
+    void setValue ( int );
 
 private:
     void populateList ( int, int, int );

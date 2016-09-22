@@ -36,7 +36,7 @@ public:
     void setColor ( QColor );
 
 private:
-    void populateList( QStringList );
+    void populateList ( QStringList );
 };
 
 #endif // COLORCOMBOBOX_H

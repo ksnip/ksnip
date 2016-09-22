@@ -20,23 +20,23 @@
 
 #include "PaintStroke.h"
 
-PaintStroke::PaintStroke ( QPointF startingPoint, QPen attributes, bool isTransparent ) : 
-                           QGraphicsItem(),
-                           mPath ( new QPainterPath ),
-                           mAttributes ( new QPen ( attributes ) ),
-                           mStroker ( new QPainterPathStroker )
+PaintStroke::PaintStroke( QPointF startingPoint, QPen attributes, bool isTransparent ) :
+    QGraphicsItem(),
+    mPath( new QPainterPath ),
+    mAttributes( new QPen( attributes ) ),
+    mStroker( new QPainterPathStroker )
 {
     mIsTransparent = isTransparent;
 
     // Place the path at the right location and draw the first point, which is actually a line just
     // moved one pixel as QT won't draw a line if the point B is equal to point A
-    mPath->moveTo ( startingPoint );
-    mPath->lineTo ( startingPoint + QPointF ( 1, 1 ) );
+    mPath->moveTo( startingPoint );
+    mPath->lineTo( startingPoint + QPointF( 1, 1 ) );
 
     //setup the stroker which we use to draw the path
-    mStroker->setCapStyle ( Qt::RoundCap );
-    mStroker->setJoinStyle ( Qt::RoundJoin );
-    mStroker->setWidth ( mAttributes->width() );
+    mStroker->setCapStyle( Qt::RoundCap );
+    mStroker->setJoinStyle( Qt::RoundJoin );
+    mStroker->setWidth( mAttributes->width() );
 }
 
 //
@@ -45,7 +45,7 @@ PaintStroke::PaintStroke ( QPointF startingPoint, QPen attributes, bool isTransp
 
 QRectF PaintStroke::boundingRect() const
 {
-    return mStroker->createStroke ( *mPath ).boundingRect();
+    return mStroker->createStroke( *mPath ).boundingRect();
 }
 
 int PaintStroke::type() const
@@ -53,51 +53,51 @@ int PaintStroke::type() const
     return Type;
 }
 
-void PaintStroke::lineTo ( QPointF p )
+void PaintStroke::lineTo( QPointF p )
 {
     prepareGeometryChange();
-    mPath->lineTo ( p );
+    mPath->lineTo( p );
 }
 
 /*
  * Moves last point of the path to new location, can be used to draw
  * straight lines.
  */
-void PaintStroke::lastLineTo ( QPointF p )
+void PaintStroke::lastLineTo( QPointF p )
 {
-    if ( mPath->elementAt ( mPath->elementCount() - 1 ).isLineTo() ) {
+    if ( mPath->elementAt( mPath->elementCount() - 1 ).isLineTo() ) {
         prepareGeometryChange();
-        mPath->setElementPositionAt ( mPath->elementCount() - 1, p.x(), p.y() );
+        mPath->setElementPositionAt( mPath->elementCount() - 1, p.x(), p.y() );
     }
     else {
-        lineTo ( p );
+        lineTo( p );
     }
 }
 
-/* 
+/*
  *  Build a small rect at the provided point location and check if it  intersects with the path.
- *  This is used to detect overlapping, for features like removing/erasing the path 
+ *  This is used to detect overlapping, for features like removing/erasing the path
  */
-bool PaintStroke::isUnderLocation ( QPointF p )
+bool PaintStroke::isUnderLocation( QPointF p )
 {
-    return mPath->intersects ( QRectF ( p.x() - 2, p.y() - 2, 4, 4 ) );
+    return mPath->intersects( QRectF( p.x() - 2, p.y() - 2, 4, 4 ) );
 }
 
 //
 // Private Functions
 //
-void PaintStroke::paint ( QPainter *painter, const QStyleOptionGraphicsItem * , QWidget * )
+void PaintStroke::paint( QPainter *painter, const QStyleOptionGraphicsItem * , QWidget * )
 {
     if ( mIsTransparent ) {
-        painter->setCompositionMode ( QPainter::CompositionMode_ColorBurn );
-        painter->setPen ( Qt::NoPen );
+        painter->setCompositionMode( QPainter::CompositionMode_ColorBurn );
+        painter->setPen( Qt::NoPen );
     }
     else {
-        painter->setPen ( mAttributes->color() );
+        painter->setPen( mAttributes->color() );
     }
 
-    painter->setBrush ( mAttributes->color() );
-    painter->drawPath ( mStroker->createStroke ( *mPath ) );
+    painter->setBrush( mAttributes->color() );
+    painter->drawPath( mStroker->createStroke( *mPath ) );
 }
 
 

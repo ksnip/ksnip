@@ -48,21 +48,24 @@ public:
     MainWindow();
     void show ( QPixmap );
     void show();
-    void setAlwaysCopyToClipboard(bool);
+    void setAlwaysCopyToClipboard ( bool );
     bool getAlwaysCopyToClipboard();
-    void setPromptSaveBeforeExit(bool);
+    void setPromptSaveBeforeExit ( bool );
     bool getPromptSaveBeforeExit();
-    void setSaveKsnipPosition(bool);
+    void setSaveKsnipPosition ( bool );
     bool getSaveKsnipPosition();
-    void setSaveKsnipToolSelection(bool);
+    void setSaveKsnipToolSelection ( bool );
     bool getSaveKsnipToolSelection();
-    void setPenProperties(QColor, int);
+    void setPenProperties ( QColor, int );
     QPen getPenProperties();
-    void setMarkerProperties(QColor, int);
+    void setMarkerProperties ( QColor, int );
     QPen getMarkerProperties();
+    void setCaptureDelay ( int );
+    int getCaptureDelay();
 
 protected:
     void moveEvent ( QMoveEvent * );
+    void closeEvent ( QCloseEvent * );
 
 private slots:
     void newRectAreaCaptureClicked();
@@ -77,11 +80,11 @@ private slots:
     void keyPressEvent ( QKeyEvent * );
     void areaSelected ( QRect );
     void imageChanged();
-    void setCaptureDelay ( int );
     void openSettingsDialog();
 
 private:
     int               mCaptureDelay;
+    bool              mIsUnsaved;
     bool              mAlwaysCopyToClipboard;
     bool              mPromptSaveBeforeExit;
     bool              mSaveKsnipPosition;
@@ -118,6 +121,7 @@ private:
     void saveSetting ( QString, QVariant );
     QPoint positionAtCenter();
     void copyToClipboard();
+    bool popupQuestion ( QString, QString );
     void createActions();
     void createToolButtons();
     void createToolBar();

@@ -20,7 +20,7 @@
 
 #include "ImageGrabber.h"
 
-ImageGrabber::ImageGrabber ( QWidget *parent ) : QObject()
+ImageGrabber::ImageGrabber( QWidget *parent ) : QObject()
 {
     mParent = parent;
 }
@@ -29,28 +29,29 @@ ImageGrabber::ImageGrabber ( QWidget *parent ) : QObject()
 // Public Functions
 //
 
-QPixmap ImageGrabber::grabImage ( CaptureMode mode, QRect *rect )
+QPixmap ImageGrabber::grabImage( CaptureMode mode, QRect *rect )
 {
     switch ( mode ) {
     case RectArea:
         if ( !rect ) {
-            qCritical ( "ImageGrabber::grabImage: No rect provided but it was expected." );
+            qCritical( "ImageGrabber::grabImage: No rect provided but it was expected." );
             return 0;
         }
 
-        return grabRect ( *rect );
+        return grabRect( *rect );
 
     case FullScreen:
-        return grabRect ( getFullScreenRect() );
+        return grabRect( getFullScreenRect() );
 
     case CurrentScreen:
-        return grabRect ( getCurrectScreenRect() );
+        return grabRect( getCurrectScreenRect() );
 
     case ActiveWindow:
-        return grabRect ( getActiveWindowRect() );
+        return grabRect( getActiveWindowRect() );
 
-    default:
-        qCritical ( "ImageGrabber::grabImage: Unknown CaptureMode provided." );
+    default
+            :
+        qCritical( "ImageGrabber::grabImage: Unknown CaptureMode provided." );
         return 0;
     }
 }
@@ -60,8 +61,8 @@ QPixmap ImageGrabber::grabImage ( CaptureMode mode, QRect *rect )
  */
 QRect ImageGrabber::getCurrectScreenRect()
 {
-    unsigned short int screen = QApplication::desktop()->screenNumber ( mParent );
-    return QApplication::desktop()->screenGeometry ( screen );
+    unsigned short int screen = QApplication::desktop()->screenNumber( mParent );
+    return QApplication::desktop()->screenGeometry( screen );
 }
 
 /*
@@ -78,36 +79,36 @@ QRect ImageGrabber::getFullScreenRect()
 QRect ImageGrabber::getActiveWindowRect()
 {
 
-    Display *display = XOpenDisplay ( NULL );
+    Display *display = XOpenDisplay( NULL );
     Window focusWindow, parentOfFocusedWindow;
     XWindowAttributes attrributes;
     int revert;
 
-    XGetInputFocus ( display, &focusWindow, &revert );
-    parentOfFocusedWindow = getToplevelParent ( display, focusWindow );
+    XGetInputFocus( display, &focusWindow, &revert );
+    parentOfFocusedWindow = getToplevelParent( display, focusWindow );
 
     if ( !parentOfFocusedWindow ) {
-        qCritical ( "ImageGrabber::getActiveWindowRect: Unable to get window, returning screen." );
+        qCritical( "ImageGrabber::getActiveWindowRect: Unable to get window, returning screen." );
         return getCurrectScreenRect();
     }
 
-    XGetWindowAttributes ( display, parentOfFocusedWindow, &attrributes );
-    return QRect ( attrributes.x, attrributes.y, attrributes.width, attrributes.height );
+    XGetWindowAttributes( display, parentOfFocusedWindow, &attrributes );
+    return QRect( attrributes.x, attrributes.y, attrributes.width, attrributes.height );
 }
 
 //
 // Private Functions
 //
 
-QPixmap ImageGrabber::grabRect ( QRect rect )
+QPixmap ImageGrabber::grabRect( QRect rect )
 {
     QPixmap screenshot;
     screenshot = QPixmap();
-    screenshot = QPixmap::grabWindow ( QApplication::desktop()->winId(),
-                                       rect.topLeft().x(),
-                                       rect.topLeft().y(),
-                                       rect.width(),
-                                       rect.height() );
+    screenshot = QPixmap::grabWindow( QApplication::desktop()->winId(),
+                                      rect.topLeft().x(),
+                                      rect.topLeft().y(),
+                                      rect.width(),
+                                      rect.height() );
     return screenshot;
 }
 
@@ -116,7 +117,7 @@ QPixmap ImageGrabber::grabRect ( QRect rect )
  * to find the child window that is currently at the top. Credit goes to Doug from StackOverflow:
  * http://stackoverflow.com/questions/3909713/xlib-xgetwindowattributes-always-returns-1x1
  */
-Window ImageGrabber::getToplevelParent ( Display *display, Window window )
+Window ImageGrabber::getToplevelParent( Display *display, Window window )
 {
     Window parentWindow;
     Window rootWindow;
@@ -124,14 +125,14 @@ Window ImageGrabber::getToplevelParent ( Display *display, Window window )
     unsigned int numberOfChildren;
 
     while ( 1 ) {
-        if ( XQueryTree ( display, window, &rootWindow, &parentWindow, &childrenWindows,
-                          &numberOfChildren ) == 0 ) {
-            qCritical ( "ImageGrabber::getToplevelParent: XQueryTree Error" );
+        if ( XQueryTree( display, window, &rootWindow, &parentWindow, &childrenWindows,
+                         &numberOfChildren ) == 0 ) {
+            qCritical( "ImageGrabber::getToplevelParent: XQueryTree Error" );
             return 0;
         }
 
         if ( childrenWindows ) {
-            XFree ( childrenWindows );
+            XFree( childrenWindows );
         }
 
         if ( window == rootWindow || parentWindow == rootWindow ) {

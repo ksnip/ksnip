@@ -20,8 +20,8 @@
 #include "PaintArea.h"
 
 PaintArea::PaintArea() : QGraphicsScene(),
-    mPen ( new QPen ),
-    mMarker ( new QPen )
+    mPen( new QPen ),
+    mMarker( new QPen )
 {
     mCurrentPaintStroke = NULL;
     mCurrentPaintMode = Pen;
@@ -36,11 +36,11 @@ PaintArea::PaintArea() : QGraphicsScene(),
  * Load new captured image and add it to the scene and set the scene size to the size of the loaded
  * image.
  */
-void PaintArea::loadCapture ( QPixmap pixmap )
+void PaintArea::loadCapture( QPixmap pixmap )
 {
     clear();
-    addPixmap ( pixmap );
-    setSceneRect ( 0, 0, pixmap.width(), pixmap.height() );
+    addPixmap( pixmap );
+    setSceneRect( 0, 0, pixmap.width(), pixmap.height() );
 }
 
 QSize PaintArea::getAreaSize()
@@ -48,7 +48,7 @@ QSize PaintArea::getAreaSize()
     return sceneRect().size().toSize();
 }
 
-void PaintArea::setPaintMode ( PaintMode paintMode )
+void PaintArea::setPaintMode( PaintMode paintMode )
 {
     mCurrentPaintMode = paintMode;
 }
@@ -64,19 +64,19 @@ PaintArea::PaintMode PaintArea::getPaintMode()
  */
 QImage PaintArea::exportAsImage()
 {
-    QImage image ( sceneRect().size().toSize(), QImage::Format_ARGB32 );
-    image.fill ( Qt::transparent );
+    QImage image( sceneRect().size().toSize(), QImage::Format_ARGB32 );
+    image.fill( Qt::transparent );
 
-    QPainter painter ( &image );
-    painter.setRenderHint ( QPainter::Antialiasing );
-    render ( &painter );
+    QPainter painter( &image );
+    painter.setRenderHint( QPainter::Antialiasing );
+    render( &painter );
     return image;
 }
 
-void PaintArea::setPenProperties ( QColor color, int width )
+void PaintArea::setPenProperties( QColor color, int width )
 {
-    mPen->setColor ( color );
-    mPen->setWidth ( width );
+    mPen->setColor( color );
+    mPen->setWidth( width );
 }
 
 QPen PaintArea::getPenProperties()
@@ -84,10 +84,10 @@ QPen PaintArea::getPenProperties()
     return *mPen;
 }
 
-void PaintArea::setMarkerProperties ( QColor color, int width )
+void PaintArea::setMarkerProperties( QColor color, int width )
 {
-    mMarker->setColor ( color );
-    mMarker->setWidth ( width );
+    mMarker->setColor( color );
+    mMarker->setWidth( width );
 }
 
 QPen PaintArea::getMarkerProperties()
@@ -99,111 +99,111 @@ QPen PaintArea::getMarkerProperties()
 // Protected Functions
 //
 
-void PaintArea::mousePressEvent ( QGraphicsSceneMouseEvent *event )
+void PaintArea::mousePressEvent( QGraphicsSceneMouseEvent *event )
 {
     if ( event->button() != Qt::LeftButton ) {
         return;
     }
 
     if ( mCurrentPaintMode == Erase ) {
-        erasePaintStroke ( event->scenePos() );
+        erasePaintStroke( event->scenePos() );
     }
     else {
-        addNewPaintStroke ( event->scenePos() );
+        addNewPaintStroke( event->scenePos() );
     }
 
-    QGraphicsScene::mousePressEvent ( event );
+    QGraphicsScene::mousePressEvent( event );
 }
 
-void PaintArea::mouseMoveEvent ( QGraphicsSceneMouseEvent *event )
+void PaintArea::mouseMoveEvent( QGraphicsSceneMouseEvent *event )
 {
     if ( event->buttons() != Qt::LeftButton ) {
         return;
     }
 
     if ( mCurrentPaintMode == Erase ) {
-        erasePaintStroke ( event->scenePos() );
+        erasePaintStroke( event->scenePos() );
     }
     else {
-        addToCurrentPaintStroke ( event->scenePos() );
+        addToCurrentPaintStroke( event->scenePos() );
     }
 
-    QGraphicsScene::mouseMoveEvent ( event );
+    QGraphicsScene::mouseMoveEvent( event );
 }
 
-void PaintArea::mouseReleaseEvent ( QGraphicsSceneMouseEvent *event )
+void PaintArea::mouseReleaseEvent( QGraphicsSceneMouseEvent *event )
 {
     if ( event->button() == Qt::LeftButton ) {
         mCurrentPaintStroke = NULL;
-        
+
         // Inform the MainWindow that something was drawn on the image so the user should be able to
         // save again.
         emit imageChanged();
     }
 
-    QGraphicsScene::mouseReleaseEvent ( event );
+    QGraphicsScene::mouseReleaseEvent( event );
 }
 
-void PaintArea::keyPressEvent ( QKeyEvent *event )
+void PaintArea::keyPressEvent( QKeyEvent *event )
 {
     if ( event->key() == Qt::Key_Shift ) {
         mIsSnapping = true;
     }
 
-    QGraphicsScene::keyPressEvent ( event );
+    QGraphicsScene::keyPressEvent( event );
 }
 
-void PaintArea::keyReleaseEvent ( QKeyEvent *event )
+void PaintArea::keyReleaseEvent( QKeyEvent *event )
 {
     if ( event->key() == Qt::Key_Shift ) {
         mIsSnapping = false;
     }
 
-    QGraphicsScene::keyReleaseEvent ( event );
+    QGraphicsScene::keyReleaseEvent( event );
 }
 
 //
 // Private Functions
 //
-void PaintArea::addNewPaintStroke ( QPointF mousePosition )
+void PaintArea::addNewPaintStroke( QPointF mousePosition )
 {
     if ( mCurrentPaintMode == Pen ) {
-        mCurrentPaintStroke = new PaintStroke ( mousePosition, *mPen );
+        mCurrentPaintStroke = new PaintStroke( mousePosition, *mPen );
     }
     else {
-        mCurrentPaintStroke = new PaintStroke ( mousePosition, *mMarker, true );
+        mCurrentPaintStroke = new PaintStroke( mousePosition, *mMarker, true );
     }
 
-    addItem ( mCurrentPaintStroke );
+    addItem( mCurrentPaintStroke );
 }
 
-void PaintArea::addToCurrentPaintStroke ( QPointF mousePosistion )
+void PaintArea::addToCurrentPaintStroke( QPointF mousePosistion )
 {
     if ( mCurrentPaintStroke == NULL ) {
-        qCritical ( "PaintArea::addToCurrentPaintStroke: Unable to add point to path, \
+        qCritical( "PaintArea::addToCurrentPaintStroke: Unable to add point to path, \
         current path set to NULL" );
         return;
     }
 
     if ( mIsSnapping ) {
-        mCurrentPaintStroke->lastLineTo ( mousePosistion );
+        mCurrentPaintStroke->lastLineTo( mousePosistion );
     }
     else {
-        mCurrentPaintStroke->lineTo ( mousePosistion );
+        mCurrentPaintStroke->lineTo( mousePosistion );
     }
 
-    mCurrentPaintStroke->lineTo ( mousePosistion );
+    mCurrentPaintStroke->lineTo( mousePosistion );
 }
 
-bool PaintArea::erasePaintStroke ( QPointF mousePosition )
+bool PaintArea::erasePaintStroke( QPointF mousePosition )
 {
     PaintStroke *item = NULL;
 
     for ( int i = 0 ; i < items().count() ; i++ ) {
-        item = qgraphicsitem_cast<PaintStroke *> ( items().at ( i ) );
+        item = qgraphicsitem_cast<PaintStroke *> ( items().at( i ) );
 
-        if ( item && item->isUnderLocation ( mousePosition ) ) {
-            removeItem ( items().at ( i ) );
+        if ( item && item->isUnderLocation( mousePosition ) ) {
+            removeItem( items().at( i ) );
             return true;
         }
     }

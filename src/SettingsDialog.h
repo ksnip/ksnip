@@ -31,42 +31,46 @@
 
 #include "MainWindow.h"
 #include "ColorComboBox.h"
-#include "SizeComboBox.h"
+#include "NumericComboBox.h"
 
 class SettingsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    SettingsDialog(MainWindow *parent = 0);
-        
+    SettingsDialog ( MainWindow *parent = 0 );
+
 public slots:
     void okButtonClicked();
     void cancelButtonClicked();
 
 private:
-    MainWindow    *mParent;
-    QVBoxLayout   *mMainLayout;
-    QGroupBox     *mApplicationSettingsGroupbox;
-    QGroupBox     *mPenSettingsGroupbox;
-    QGroupBox     *mMarkerSettingsGroupbox;
-    QVBoxLayout   *mApplicationSettingsLayout;
-    QGridLayout   *mPenSettingsLayout;
-    QGridLayout   *mMarkerSettingsLayout;
-    QHBoxLayout   *mButtonLayout;
-    QCheckBox     *mAlwaysCopyToClipboardCheckbox;
-    QCheckBox     *mPromptToSaveBeforeExitCheckbox;
-    QCheckBox     *mSaveKsnipPositionCheckbox;
-    QCheckBox     *mSaveKsnipToolSelectionCheckbox;
-    QLabel        *mPenColorLabel;
-    QLabel        *mPenSizeLabel;
-    QLabel        *mMarkerColorLabel;
-    QLabel        *mMarkerSizeLabel;
-    ColorComboBox *mPenColorCombobox;
-    SizeComboBox  *mPenSizeCombobox;
-    ColorComboBox *mMarkerColorCombobox;
-    SizeComboBox  *mMarkerSizeCombobox;
-    QPushButton   *mOkButton;
-    QPushButton   *mCancelButton;
+    MainWindow      *mParent;
+    QVBoxLayout     *mMainLayout;
+    QGroupBox       *mApplicationSettingsGroupbox;
+    QGroupBox       *mImageGrabberGroupbox;
+    QGroupBox       *mPenSettingsGroupbox;
+    QGroupBox       *mMarkerSettingsGroupbox;
+    QVBoxLayout     *mApplicationSettingsLayout;
+    QGridLayout     *mImageGrabberLayout;
+    QGridLayout     *mPenSettingsLayout;
+    QGridLayout     *mMarkerSettingsLayout;
+    QHBoxLayout     *mButtonLayout;
+    QCheckBox       *mAlwaysCopyToClipboardCheckbox;
+    QCheckBox       *mPromptToSaveBeforeExitCheckbox;
+    QCheckBox       *mSaveKsnipPositionCheckbox;
+    QCheckBox       *mSaveKsnipToolSelectionCheckbox;
+    QLabel          *mCaptureDelayLabel;
+    QLabel          *mPenColorLabel;
+    QLabel          *mPenSizeLabel;
+    QLabel          *mMarkerColorLabel;
+    QLabel          *mMarkerSizeLabel;
+    ColorComboBox   *mPenColorCombobox;
+    ColorComboBox   *mMarkerColorCombobox;
+    NumericComboBox *mPenSizeCombobox;
+    NumericComboBox *mMarkerSizeCombobox;
+    NumericComboBox *mCaptureDelayCombobox;
+    QPushButton     *mOkButton;
+    QPushButton     *mCancelButton;
     void loadSettings();
     void saveSettings();
     void createCheckboxes();

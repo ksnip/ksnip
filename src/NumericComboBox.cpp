@@ -18,32 +18,32 @@
  *
  */
 
-#include "SizeComboBox.h"
+#include "NumericComboBox.h"
 
-SizeComboBox::SizeComboBox ( int start, int increment, int steps, QWidget *parent ) : QComboBox ( parent )
+NumericComboBox::NumericComboBox( int start, int increment, int steps, QWidget *parent ) : QComboBox( parent )
 {
-    populateList(start, increment, steps);
+    populateList( start, increment, steps );
 }
 
 //
 // Public Functions
 //
-int SizeComboBox::size() const
+int NumericComboBox::value() const
 {
-    return itemData ( currentIndex() ).toInt();
+    return itemData( currentIndex() ).toInt();
 }
 
-void SizeComboBox::setSize ( int size )
+void NumericComboBox::setValue( int value )
 {
-    setCurrentIndex ( findData ( size ) );
+    setCurrentIndex( findData( value ) );
 }
 
 //
 // Private Functions
 //
-void SizeComboBox::populateList ( int start, int increment, int steps )
+void NumericComboBox::populateList( int start, int increment, int steps )
 {
     for ( int i = 0; i < steps; i++ ) {
-        addItem ( QString::number ( start + i * increment ), start + i * increment );
+        addItem( QString::number( start + i * increment ), start + i * increment );
     }
 }

@@ -28,6 +28,7 @@
 #include "CustomToolButton.h"
 #include "ImageGrabber.h"
 #include "SettingsDialog.h"
+#include "AboutDialog.h"
 
 class QPushButton;
 class QHBoxLayout;
@@ -81,6 +82,7 @@ private slots:
     void areaSelected ( QRect );
     void imageChanged();
     void openSettingsDialog();
+    void aboutKsnip();
 
 private:
     int               mCaptureDelay;
@@ -109,6 +111,7 @@ private:
     QAction          *mNewCaptureAction;
     QAction          *mQuitAction;
     QAction          *mSettingsDialogAction;
+    QAction          *mAboutKsnipAction;
     QVBoxLayout      *mWindowLayout;
     PaintArea        *mCaptureScene;
     QGraphicsView    *mCaptureView;

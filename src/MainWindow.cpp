@@ -40,6 +40,7 @@ MainWindow::MainWindow() : QWidget(),
     mNewCaptureAction( new QAction( this ) ),
     mQuitAction( new QAction( this ) ),
     mSettingsDialogAction( new QAction( this ) ),
+    mAboutKsnipAction( new QAction( this ) ),
     mCaptureScene( new PaintArea() ),
     mCaptureView( new QGraphicsView( mCaptureScene ) ),
     mWindowLayout( new QVBoxLayout ),
@@ -362,6 +363,12 @@ void MainWindow::openSettingsDialog()
     settingsDialog.exec();
 }
 
+void MainWindow::aboutKsnip()
+{    
+    AboutDialog aboutDialog( this );
+    aboutDialog.exec();
+}
+
 //
 // Private Functions
 //
@@ -448,8 +455,7 @@ void MainWindow::loadSettings()
             mNewCaptureButton->setDefaultAction( mNewFullScreenCaptureAction );
             break;
 
-        default
-                :
+        default:
             mNewCaptureButton->setDefaultAction( mNewRectAreaCaptureAction );
         }
 
@@ -590,6 +596,9 @@ void MainWindow::createActions()
     // Create action for opening settings dialog
     mSettingsDialogAction->setText( tr( "Settings" ) );
     connect( mSettingsDialogAction, SIGNAL( triggered() ), this, SLOT( openSettingsDialog() ) );
+    
+    mAboutKsnipAction->setText( tr( "&About"));
+    connect( mAboutKsnipAction, SIGNAL(triggered()), this, SLOT(aboutKsnip()));
 }
 
 void MainWindow::createToolButtons()
@@ -659,5 +668,6 @@ void MainWindow::createMenuBar()
     tmpMenu->addAction( mCopyToClipboardAction );
     tmpMenu = mMenuBar->addMenu( tr( "&Options" ) );
     tmpMenu->addAction( mSettingsDialogAction );
-    tmpMenu = mMenuBar->addMenu( tr( "&Help" ) );
+    tmpMenu = mMenuBar->addMenu( tr ("&Help"));
+    tmpMenu->addAction( mAboutKsnipAction );
 }

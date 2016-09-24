@@ -17,5 +17,7 @@ Screenshot tool inspired by Windows Snipping Tool and made with Qt for Linux.
 4. Create the makefile and build the project:  
     `> cmake ..`  
     `> make`  
+5. Now install the application, eventually you need to run it with sudo:
+    `> sudo make install`
 5. Run the application:  
-    `> ./ksnip`
+    `> ksnip`

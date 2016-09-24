@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file alias="ksnip-48x48.png">icons/ksnip-icon-48x48.png</file>
+    <file alias="ksnip-32x32.png">icons/ksnip-icon-32x32.png</file>
+    <file alias="ksnip-16x16.png">icons/ksnip-icon-16x16.png</file>
+</qresource>
+</RCC>

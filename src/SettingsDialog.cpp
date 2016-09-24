@@ -226,8 +226,9 @@ void SettingsDialog::createLayouts()
     mMarkerSettingsGroupbox->setTitle( tr( "Marker Settings" ) );
     mMarkerSettingsGroupbox->setLayout( mMarkerSettingsLayout );
 
-    mButtonLayout->addWidget( mOkButton,  Qt::AlignRight );
-    mButtonLayout->addWidget( mCancelButton, Qt::AlignRight );
+    mButtonLayout->addWidget( mOkButton );
+    mButtonLayout->addWidget( mCancelButton );
+    mButtonLayout->setAlignment(Qt::AlignRight);
 
     mMainLayout->addWidget( mApplicationSettingsGroupbox );
     mMainLayout->addWidget( mImageGrabberGroupbox );

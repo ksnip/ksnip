@@ -63,8 +63,8 @@ MainWindow::MainWindow() : QWidget(),
 
     // Setup application properties
     setWindowTitle( "ksnip" );
-    setWindowIcon( QIcon::fromTheme( "preferences-desktop-screensaver" ) );
-
+    setWindowIcon( QIcon(":/ksnip-16x16.png"));
+    
     // Create a connection with other widget elements
     connect( mSnippingArea,
              SIGNAL( areaSelected( QRect ) ),

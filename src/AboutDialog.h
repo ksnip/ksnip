@@ -34,11 +34,13 @@ public:
 private:
     MainWindow  *mParent;
     QVBoxLayout *mMainLayout;
+    QHBoxLayout *mHeaderLayout;
     QTabWidget  *mTabWidget;
     QWidget     *mAboutWidget;
     QWidget     *mVersionWidget;
     QWidget     *mAuthorWidget;
-    QPushButton *mCloseButton;    
+    QPushButton *mCloseButton; 
+    void createHeader();
     void createAboutTab();
     void createVersionTab();
     void createAuthorTab();

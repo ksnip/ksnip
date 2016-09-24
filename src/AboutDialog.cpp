@@ -22,6 +22,7 @@
 
 AboutDialog::AboutDialog( MainWindow *parent ) : QDialog( parent ),
     mMainLayout( new QVBoxLayout ),
+    mHeaderLayout( new QHBoxLayout ),
     mTabWidget( new QTabWidget ),
     mAboutWidget( new QWidget ),
     mVersionWidget( new QWidget ),
@@ -32,6 +33,7 @@ AboutDialog::AboutDialog( MainWindow *parent ) : QDialog( parent ),
 
     setWindowTitle( tr( "About " ) + "ksnip" );
     
+    createHeader();
     createAboutTab();
     createVersionTab();
     createAuthorTab();
@@ -44,7 +46,7 @@ AboutDialog::AboutDialog( MainWindow *parent ) : QDialog( parent ),
     mCloseButton->setText( tr( "Close" ) );
     connect(mCloseButton, SIGNAL(clicked()), this, SLOT(close()));
     
-    mMainLayout->addWidget(new QLabel("<h2>ksnip</h2>"));
+    mMainLayout->addLayout(mHeaderLayout);
     mMainLayout->addWidget( mTabWidget );
     mMainLayout->addWidget( mCloseButton, 1, Qt::AlignRight );
 
@@ -56,6 +58,20 @@ AboutDialog::AboutDialog( MainWindow *parent ) : QDialog( parent ),
 //
 // Private Functions
 //
+
+void AboutDialog::createHeader()
+{
+    QPixmap *pixmap = new QPixmap(":/ksnip-48x48.png");
+    QLabel *label = new QLabel();
+    mHeaderLayout = new QHBoxLayout();
+    label->setPixmap(*pixmap);
+    label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    mHeaderLayout->addWidget(label);
+    label = new QLabel("<h2>ksnip</h2>");
+    label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    mHeaderLayout->addWidget(label);
+    mHeaderLayout->setAlignment(Qt::AlignLeft);
+}
 
 void AboutDialog::createAboutTab()
 {

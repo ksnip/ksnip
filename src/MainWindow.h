@@ -63,6 +63,7 @@ public:
     QPen getMarkerProperties();
     void setCaptureDelay ( int );
     int getCaptureDelay();
+    QString getVersion();
 
 protected:
     void moveEvent ( QMoveEvent * );
@@ -85,6 +86,7 @@ private slots:
     void aboutKsnip();
 
 private:
+    QString           mVersion;
     int               mCaptureDelay;
     bool              mIsUnsaved;
     bool              mAlwaysCopyToClipboard;

@@ -20,17 +20,17 @@
 #include "MainWindow.h"
 
 MainWindow::MainWindow() : QWidget(),
-    mPaintToolMenu( new QMenu ),
-    mNewCaptureMenu( new QMenu ),
     mToolBar( new QToolBar ),
+    mMenuBar( new QMenuBar ),
     mNewCaptureButton( new CustomToolButton ),
     mSaveButton( new QToolButton ),
     mCopyToClipboardButton( new QToolButton ),
     mPaintToolButton( new CustomToolButton ),
-    mMenuBar( new QMenuBar ),
+    mPaintToolMenu( new QMenu ),
+    mNewCaptureMenu( new QMenu ),
     mNewRectAreaCaptureAction( new QAction( this ) ),
-    mNewFullScreenCaptureAction( new QAction( this ) ),
     mNewCurrentScreenCaptureAction( new QAction( this ) ),
+    mNewFullScreenCaptureAction( new QAction( this ) ),
     mNewActiveWindowCaptureAction( new QAction( this ) ),
     mSaveAction( new QAction( this ) ),
     mCopyToClipboardAction( new QAction( this ) ),
@@ -41,9 +41,10 @@ MainWindow::MainWindow() : QWidget(),
     mQuitAction( new QAction( this ) ),
     mSettingsDialogAction( new QAction( this ) ),
     mAboutKsnipAction( new QAction( this ) ),
+    mWindowLayout( new QVBoxLayout ),
     mCaptureScene( new PaintArea() ),
     mCaptureView( new QGraphicsView( mCaptureScene ) ),
-    mWindowLayout( new QVBoxLayout ),
+    mClipboard( QApplication::clipboard() ),
     mSnippingArea( new SnippingArea( this ) ),
     mImageGrabber( new ImageGrabber( this ) )
 {
@@ -52,14 +53,13 @@ MainWindow::MainWindow() : QWidget(),
     createToolBar();
     createMenuBar();
     createLayout();
+    
+    mVersion = "0.1 Beta";
 
     // Disable frame around the image and hide it as on startup it's empty and enable Antialiasing
     mCaptureView->setFrameStyle( 0 );
     mCaptureView->setRenderHints( QPainter::Antialiasing | QPainter::SmoothPixmapTransform );
     mCaptureView->hide();
-
-    // Setup the clipboard that we will use to copy images when required.
-    mClipboard = QApplication::clipboard();
 
     // Setup application properties
     setWindowTitle( "ksnip" );
@@ -211,6 +211,11 @@ void MainWindow::setCaptureDelay( int ms )
 int MainWindow::getCaptureDelay()
 {
     return mCaptureDelay;
+}
+
+QString MainWindow::getVersion()
+{
+    return mVersion;
 }
 
 //

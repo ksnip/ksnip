@@ -64,13 +64,13 @@ private:
     QLabel          *mPenSizeLabel;
     QLabel          *mMarkerColorLabel;
     QLabel          *mMarkerSizeLabel;
-    ColorComboBox   *mPenColorCombobox;
-    ColorComboBox   *mMarkerColorCombobox;
     NumericComboBox *mPenSizeCombobox;
     NumericComboBox *mMarkerSizeCombobox;
     NumericComboBox *mCaptureDelayCombobox;
     QPushButton     *mOkButton;
     QPushButton     *mCancelButton;
+    ColorComboBox   *mPenColorCombobox;
+    ColorComboBox   *mMarkerColorCombobox;
     void loadSettings();
     void saveSettings();
     void createCheckboxes();

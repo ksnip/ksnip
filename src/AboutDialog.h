@@ -25,6 +25,8 @@
 
 #include "MainWindow.h"
 
+class QLabel;
+
 class AboutDialog : public QDialog
 {
     Q_OBJECT
@@ -39,7 +41,7 @@ private:
     QWidget     *mAboutWidget;
     QWidget     *mVersionWidget;
     QWidget     *mAuthorWidget;
-    QPushButton *mCloseButton; 
+    QPushButton *mCloseButton;
     void createHeader();
     void createAboutTab();
     void createVersionTab();

@@ -22,6 +22,7 @@
 
 SettingsDialog::SettingsDialog( MainWindow *parent ) :
     QDialog( parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint ),
+    mParent( parent ),
     mMainLayout( new QVBoxLayout ),
     mApplicationSettingsGroupbox( new QGroupBox ),
     mImageGrabberGroupbox( new QGroupBox ),
@@ -41,14 +42,12 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
     mPenSizeLabel( new QLabel ),
     mMarkerColorLabel( new QLabel ),
     mMarkerSizeLabel( new QLabel ),
-    mCaptureDelayCombobox( new NumericComboBox( 0, 1, 11, this ) ),
     mPenSizeCombobox( new NumericComboBox( 1, 1, 10, this ) ),
     mMarkerSizeCombobox( new NumericComboBox( 10, 2, 11, this ) ),
+    mCaptureDelayCombobox( new NumericComboBox( 0, 1, 11, this ) ),
     mOkButton( new QPushButton ),
     mCancelButton( new QPushButton )
 {
-    mParent = parent;
-
     setWindowTitle( "ksnip - " + tr( "Settings" ) );
 
     createCheckboxes();

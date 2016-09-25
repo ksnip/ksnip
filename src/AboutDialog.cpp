@@ -21,6 +21,7 @@
 #include "AboutDialog.h"
 
 AboutDialog::AboutDialog( MainWindow *parent ) : QDialog( parent ),
+    mParent( parent ),
     mMainLayout( new QVBoxLayout ),
     mHeaderLayout( new QHBoxLayout ),
     mTabWidget( new QTabWidget ),
@@ -29,10 +30,8 @@ AboutDialog::AboutDialog( MainWindow *parent ) : QDialog( parent ),
     mAuthorWidget( new QWidget ),
     mCloseButton( new QPushButton )
 {
-    mParent = parent;
-
     setWindowTitle( tr( "About " ) + "ksnip" );
-    
+
     createHeader();
     createAboutTab();
     createVersionTab();
@@ -41,18 +40,18 @@ AboutDialog::AboutDialog( MainWindow *parent ) : QDialog( parent ),
     mTabWidget->addTab( mAboutWidget, tr( "About" ) );
     mTabWidget->addTab( mVersionWidget, tr( "Version" ) );
     mTabWidget->addTab( mAuthorWidget, tr( "Author" ) );
-    mTabWidget->setMinimumSize(mTabWidget->sizeHint());
+    mTabWidget->setMinimumSize( mTabWidget->sizeHint() );
 
     mCloseButton->setText( tr( "Close" ) );
-    connect(mCloseButton, SIGNAL(clicked()), this, SLOT(close()));
-    
-    mMainLayout->addLayout(mHeaderLayout);
+    connect( mCloseButton, SIGNAL( clicked() ), this, SLOT( close() ) );
+
+    mMainLayout->addLayout( mHeaderLayout );
     mMainLayout->addWidget( mTabWidget );
     mMainLayout->addWidget( mCloseButton, 1, Qt::AlignRight );
 
     setLayout( mMainLayout );
-    
-    setFixedSize( sizeHint() + QSize(10,0) );
+
+    setFixedSize( sizeHint() + QSize( 10, 0 ) );
 }
 
 //
@@ -61,61 +60,60 @@ AboutDialog::AboutDialog( MainWindow *parent ) : QDialog( parent ),
 
 void AboutDialog::createHeader()
 {
-    QPixmap *pixmap = new QPixmap(":/ksnip-48x48.png");
+    QPixmap *pixmap = new QPixmap( ":/ksnip-48x48.png" );
     QLabel *label = new QLabel();
     mHeaderLayout = new QHBoxLayout();
-    label->setPixmap(*pixmap);
-    label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-    mHeaderLayout->addWidget(label);
-    label = new QLabel("<h2>ksnip</h2>");
-    label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-    mHeaderLayout->addWidget(label);
-    mHeaderLayout->setAlignment(Qt::AlignLeft);
+    label->setPixmap( *pixmap );
+    label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
+    mHeaderLayout->addWidget( label );
+    label = new QLabel( "<h2>ksnip</h2>" );
+    label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
+    mHeaderLayout->addWidget( label );
+    mHeaderLayout->setAlignment( Qt::AlignLeft );
 }
 
 void AboutDialog::createAboutTab()
 {
     QVBoxLayout *layout = new QVBoxLayout();
-
-    layout->addWidget( new QLabel(tr("ksnip Screenshot Tool")) );
-    layout->addWidget( new QLabel(tr("\n(C) 2016 Damir Porobic")));
-    
     QLabel *label = new QLabel();
-    label->setText(tr("License: ") + 
-                   "<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU" + 
-                   " General Public License Version 2</a>" );
-    label->setTextFormat(Qt::RichText);
-    label->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    label->setOpenExternalLinks(true);
-    layout->addWidget(label);
-    mAboutWidget->setLayout(layout);
+    label->setText( tr( "ksnip Screenshot Tool" ) + "<br/><br/>" +
+                    tr( "(C) 2016 Damir Porobic" ) + "<br/><br/>" +
+                    tr( "License: " ) +
+                    "<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU" +
+                    " General Public License Version 2</a>" );
+    label->setTextFormat( Qt::RichText );
+    label->setTextInteractionFlags( Qt::TextBrowserInteraction );
+    label->setOpenExternalLinks( true );
+    layout->addWidget( label );
+    mAboutWidget->setLayout( layout );
 }
 
 void AboutDialog::createVersionTab()
 {
     QVBoxLayout *layout = new QVBoxLayout();
 
-    layout->addWidget( new QLabel(tr("<b>Version 0.1</b>")) );
-    layout->addWidget( new QLabel ( tr ("Using :") + "<ul><li>Qt 4.8</li><li>X11</li><br />"));
-    mVersionWidget->setLayout(layout);
+    QLabel *label = new QLabel();
+    label->setText( "<b>" + tr( "Version " ) + mParent->getVersion() + "</b>" + "<br/><br/>" +
+                    tr( "Using :" ) +
+                    "<ul><li>Qt 4.8</li><li>X11</li><li>KDE4</li><br />" );
+    layout->addWidget( label );
+    mVersionWidget->setLayout( layout );
 }
 
 void AboutDialog::createAuthorTab()
 {
     QVBoxLayout *layout = new QVBoxLayout();
     QLabel *label = new QLabel();
-    label->setText(tr("Please use ") + 
-                   "<a href=\"https://github.com/damirporobic/ksnip/issues/\">GitHub</a>" + 
-                   tr(" to report bugs.") );
-    label->setTextFormat(Qt::RichText);
-    label->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    label->setOpenExternalLinks(true);
+    label->setText( tr( "Please use " ) +
+                    "<a href=\"https://github.com/damirporobic/ksnip/issues/\">GitHub</a>" +
+                    tr( " to report bugs." ) + "<br/><br/>" +
+                    tr( "The author, <b>Damir Porobic</b>, can be contacted via " ) +
+                    "<a href=\"mailto:damir_porobic@live.com\" target=\"_top\">Email</a>" + "." );
+    label->setTextFormat( Qt::RichText );
+    label->setTextInteractionFlags( Qt::TextBrowserInteraction );
+    label->setOpenExternalLinks( true );
 
-    layout->addWidget( label);
-    
-    label = new QLabel();
-    label->setText(tr("The author, <b>Damir Porobic</b>, can be contacted via ") + 
-                      "<a href=\"mailto:damir_porobic@live.com\" target=\"_top\">Email</a>" + ".");
     layout->addWidget( label );
-    mAuthorWidget->setLayout(layout);
+
+    mAuthorWidget->setLayout( layout );
 }

@@ -127,6 +127,7 @@ private:
     QPoint positionAtCenter();
     void copyToClipboard();
     bool popupQuestion ( QString, QString );
+    QIcon createIcon( QString );
     void createActions();
     void createToolButtons();
     void createToolBar();

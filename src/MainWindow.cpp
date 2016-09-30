@@ -54,7 +54,7 @@ MainWindow::MainWindow() : QWidget(),
     createMenuBar();
     createLayout();
     
-    mVersion = "0.1 Beta";
+    mVersion = "v1.0.0";
 
     // Disable frame around the image and hide it as on startup it's empty and enable Antialiasing
     mCaptureView->setFrameStyle( 0 );
@@ -63,7 +63,7 @@ MainWindow::MainWindow() : QWidget(),
 
     // Setup application properties
     setWindowTitle( "ksnip" );
-    setWindowIcon( QIcon(":/ksnip-16x16.png"));
+    setWindowIcon( createIcon("ksnip"));
     
     // Create a connection with other widget elements
     connect( mSnippingArea,
@@ -527,32 +527,48 @@ bool MainWindow::popupQuestion( QString title, QString question )
     }
 }
 
+/*
+ * Checks what png icons are available for that button and adds them to the icon which can then be
+ * added to a button, action or similar.
+ */
+QIcon MainWindow::createIcon( QString name )
+{
+    QIcon tmpIcon;
+
+    for ( int i = 16; i <= 64; i = i * 2 ) {
+        if ( QResource( ":" + name + QString::number( i ) + ".png" ).isValid() )
+            tmpIcon.addFile( ( ":" + name + QString::number( i ) + ".png" ), QSize( i, i ) );
+    }
+
+    return tmpIcon;
+}
+
 void MainWindow::createActions()
 {
     // Create actions for capture modes
     mNewRectAreaCaptureAction->setIconText( tr( "Rectangular Area" ) );
-    mNewRectAreaCaptureAction->setIcon( QIcon::fromTheme( "tool_rectangle" ) );
+    mNewRectAreaCaptureAction->setIcon( createIcon( "drawRect" ) ) ;
     connect( mNewRectAreaCaptureAction,
              SIGNAL( triggered() ),
              this,
              SLOT( newRectAreaCaptureClicked() ) );
 
-    mNewCurrentScreenCaptureAction->setIconText( tr( "Current Screen" ) );
-    mNewCurrentScreenCaptureAction->setIcon( QIcon::fromTheme( "view-fullscreen" ) );
-    connect( mNewCurrentScreenCaptureAction,
-             SIGNAL( triggered() ),
-             this,
-             SLOT( newCurrentScreenCaptureClicked() ) );
-
     mNewFullScreenCaptureAction->setIconText( tr( "Full Screen (All Monitors)" ) );
-    mNewFullScreenCaptureAction->setIcon( QIcon::fromTheme( "view-fullscreen" ) );
+    mNewFullScreenCaptureAction->setIcon( createIcon( "fullScreen" ) );
     connect( mNewFullScreenCaptureAction,
              SIGNAL( triggered() ),
              this,
              SLOT( mNewFullScreenCaptureClicked() ) );
-
+    
+    mNewCurrentScreenCaptureAction->setIconText( tr( "Current Screen" ) );
+    mNewCurrentScreenCaptureAction->setIcon( createIcon("currentScreen") );
+    connect( mNewCurrentScreenCaptureAction,
+             SIGNAL( triggered() ),
+             this,
+             SLOT( newCurrentScreenCaptureClicked() ) );
+    
     mNewActiveWindowCaptureAction->setIconText( tr( "Active Window" ) );
-    mNewActiveWindowCaptureAction->setIcon( QIcon::fromTheme( "window" ) );
+    mNewActiveWindowCaptureAction->setIcon( createIcon("activeWindow") );
     connect( mNewActiveWindowCaptureAction,
              SIGNAL( triggered() ),
              this,
@@ -561,7 +577,7 @@ void MainWindow::createActions()
     // Create action for save button
     mSaveAction->setText( tr( "Save" ) );
     mSaveAction->setToolTip( tr( "Save Screen Capture to file system" ) );
-    mSaveAction->setIcon( QIcon::fromTheme( "document-save-as" ) );
+    mSaveAction->setIcon( createIcon( "save" ) );
     mSaveAction->setShortcuts( QKeySequence::Save );
     mSaveAction->connect( mSaveAction, SIGNAL( triggered() ), this,
                           SLOT( saveCaptureClicked() ) );
@@ -570,22 +586,22 @@ void MainWindow::createActions()
     // Create action for copy to clipboard button
     mCopyToClipboardAction->setText( tr( "Copy" ) );
     mCopyToClipboardAction->setToolTip( "Copy Screen Capture to clipboard" );
-    mCopyToClipboardAction->setIcon( QIcon::fromTheme( "edit-copy" ) );
+    mCopyToClipboardAction->setIcon( createIcon( "copyToClipboard" ) ) ;
     mCopyToClipboardAction->setShortcut( QKeySequence::Copy );
     mCopyToClipboardAction->connect( mCopyToClipboardButton, SIGNAL( clicked() ), this,
                                      SLOT( copyToClipboardClicked() ) );
 
     // Create actions for paint mode
     mPenAction->setText( tr( "Pen" ) );
-    mPenAction->setIcon( QIcon::fromTheme( "tool_pen" ) );
+    mPenAction->setIcon( createIcon( "pen" ) );
     connect( mPenAction, SIGNAL( triggered() ), this, SLOT( penClicked() ) );
 
     mMarkerAction->setText( tr( "Marker" ) );
-    mMarkerAction->setIcon( QIcon::fromTheme( "draw-brush" ) );
+    mMarkerAction->setIcon( createIcon( "marker" ) );
     connect( mMarkerAction, SIGNAL( triggered() ), this, SLOT( markerClicked() ) );
 
     mEraseAction->setText( tr( "Erase" ) );
-    mEraseAction->setIcon( QIcon::fromTheme( "draw-eraser" ) );
+    mEraseAction->setIcon( createIcon( "eraser" ) );
     connect( mEraseAction, SIGNAL( triggered() ), this, SLOT( eraseClicked() ) );
 
     // Create action for new capture, this will be only used in the menu bar

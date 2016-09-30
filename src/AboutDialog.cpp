@@ -60,7 +60,7 @@ AboutDialog::AboutDialog( MainWindow *parent ) : QDialog( parent ),
 
 void AboutDialog::createHeader()
 {
-    QPixmap *pixmap = new QPixmap( ":/ksnip-48x48.png" );
+    QPixmap *pixmap = new QPixmap( ":/ksnip64.png" );
     QLabel *label = new QLabel();
     mHeaderLayout = new QHBoxLayout();
     label->setPixmap( *pixmap );
@@ -95,7 +95,7 @@ void AboutDialog::createVersionTab()
     QLabel *label = new QLabel();
     label->setText( "<b>" + tr( "Version " ) + mParent->getVersion() + "</b>" + "<br/><br/>" +
                     tr( "Using :" ) +
-                    "<ul><li>Qt 4.8</li><li>X11</li><li>KDE4</li><br />" );
+                    "<ul><li>Qt 4.8</li><li>X11</li><br />" );
     layout->addWidget( label );
     mVersionWidget->setLayout( layout );
 }
@@ -108,7 +108,7 @@ void AboutDialog::createAuthorTab()
                     "<a href=\"https://github.com/damirporobic/ksnip/issues/\">GitHub</a>" +
                     tr( " to report bugs." ) + "<br/><br/>" +
                     tr( "The author, <b>Damir Porobic</b>, can be contacted via " ) +
-                    "<a href=\"mailto:damir_porobic@live.com\" target=\"_top\">Email</a>" + "." );
+                    "<a href=\"mailto:damir.porobic@gmx.com\" target=\"_top\">Email</a>" + "." );
     label->setTextFormat( Qt::RichText );
     label->setTextInteractionFlags( Qt::TextBrowserInteraction );
     label->setOpenExternalLinks( true );

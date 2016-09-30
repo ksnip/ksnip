@@ -1,7 +1,22 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-    <file alias="ksnip-48x48.png">icons/ksnip-icon-48x48.png</file>
-    <file alias="ksnip-32x32.png">icons/ksnip-icon-32x32.png</file>
-    <file alias="ksnip-16x16.png">icons/ksnip-icon-16x16.png</file>
+    <file alias="ksnip64.png">icons/64x64/ksnip.64.png</file>
+    <file alias="ksnip48.png">icons/48x48/ksnip.48.png</file>
+    <file alias="ksnip32.png">icons/32x32/ksnip.32.png</file>
+    <file alias="ksnip16.png">icons/16x16/ksnip.16.png</file>
+    <file alias="pen64.png">icons/64x64/pen.64.png</file>
+    <file alias="marker64.png">icons/64x64/marker.64.png</file>
+    <file alias="eraser64.png">icons/64x64/eraser.64.png</file>
+    <file alias="copyToClipboard64.png">icons/64x64/copyToClipboard.64.png</file>
+    <file alias="save64.png">icons/64x64/save.64.png</file>
+    <file alias="drawRect64.png">icons/64x64/drawRect.64.png</file>
+    <file alias="drawRect32.png">icons/32x32/drawRect.32.png</file>
+    <file alias="drawRect16.png">icons/16x16/drawRect.16.png</file>
+    <file alias="activeWindow32.png">icons/32x32/activeWindow.32.png</file>
+    <file alias="activeWindow16.png">icons/16x16/activeWindow.16.png</file>
+    <file alias="currentScreen32.png">icons/32x32/currentScreen.32.png</file>
+    <file alias="currentScreen16.png">icons/16x16/currentScreen.16.png</file>
+    <file alias="fullScreen32.png">icons/32x32/fullScreen.32.png</file>
+    <file alias="fullScreen16.png">icons/16x16/fullScreen.16.png</file>
 </qresource>
 </RCC>

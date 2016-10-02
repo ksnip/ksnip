@@ -18,34 +18,23 @@
  *
  */
 
-#ifndef ABOUTDIALOG_H
-#define ABOUTDIALOG_H
+#ifndef CUSTOMCURSOR_H
+#define CUSTOMCURSOR_H
 
-#include <QDialog>
+#include <QCursor>
+#include <QColor>
+#include <QPainter>
 
-#include "MainWindow.h"
-
-class QLabel;
-
-class AboutDialog : public QDialog
+class CustomCursor : public QCursor
 {
-    Q_OBJECT
 public:
-    AboutDialog ( MainWindow *parent = 0 );
+    enum CursorShape { Rect, Circle, cross};
+    CustomCursor ( CursorShape, QColor, int );
+    CustomCursor ( CursorShape );
 
 private:
-    MainWindow  *mParent;
-    QVBoxLayout *mMainLayout;
-    QHBoxLayout *mHeaderLayout;
-    QTabWidget  *mTabWidget;
-    QWidget     *mAboutWidget;
-    QWidget     *mVersionWidget;
-    QWidget     *mAuthorWidget;
-    QPushButton *mCloseButton;
-    void createHeader();
-    void createAboutTab();
-    void createVersionTab();
-    void createAuthorTab();
+    QPixmap createPixmap ( CursorShape, QColor, int );
+    QPixmap createPixmap ( CursorShape );
 };
 
-#endif // ABOUTDIALOG_H
+#endif // CUSTOMCURSOR_H

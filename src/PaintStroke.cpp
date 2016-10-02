@@ -80,7 +80,7 @@ void PaintStroke::lastLineTo( QPointF p )
  */
 bool PaintStroke::isUnderLocation( QPointF p )
 {
-    return mPath->intersects( QRectF( p.x() - 2, p.y() - 2, 4, 4 ) );
+    return mPath->intersects( QRectF( p.x() - 3, p.y() - 3, 6, 6 ) );
 }
 
 //

@@ -25,6 +25,7 @@
 #include <QGraphicsScene>
 
 #include "PaintStroke.h"
+#include "widgets/CustomCursor.h"
 
 class PaintArea : public QGraphicsScene
 {
@@ -51,16 +52,20 @@ protected:
     virtual void mouseReleaseEvent ( QGraphicsSceneMouseEvent * );
     virtual void keyPressEvent ( QKeyEvent * );
     virtual void keyReleaseEvent ( QKeyEvent * );
+    virtual bool event(QEvent * );
 
 private:
-    PaintStroke *mCurrentPaintStroke;
-    QPen        *mPen;
-    QPen        *mMarker;
-    bool         mIsSnapping;
-    PaintMode    mCurrentPaintMode;
+    PaintStroke  *mCurrentPaintStroke;
+    QPen         *mPen;
+    QPen         *mMarker;
+    CustomCursor *mCursor;
+    bool          mIsSnapping;
+    PaintMode     mCurrentPaintMode;
     void addNewPaintStroke ( QPointF );
     void addToCurrentPaintStroke ( QPointF );
     bool erasePaintStroke ( QPointF );
+    void setCursorOnPaintArea();
+    CustomCursor* getCursor();
 };
 
 #endif // SCRIBBLEAREA_H

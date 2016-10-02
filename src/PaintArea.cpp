@@ -21,6 +21,7 @@
 
 PaintArea::PaintArea() : QGraphicsScene(),
     mPen( new QPen ),
+    mCursor( NULL ),
     mMarker( new QPen )
 {
     mCurrentPaintStroke = NULL;
@@ -162,6 +163,17 @@ void PaintArea::keyReleaseEvent( QKeyEvent *event )
     QGraphicsScene::keyReleaseEvent( event );
 }
 
+/*
+ * Capture the mouse enter and leave event so we can set the correct mouse cursor.
+ */
+bool PaintArea::event( QEvent *event )
+{
+    if ( event->type() == QEvent::Enter )
+        setCursorOnPaintArea();
+
+    return QGraphicsScene::event( event );
+}
+
 //
 // Private Functions
 //
@@ -209,4 +221,40 @@ bool PaintArea::erasePaintStroke( QPointF mousePosition )
     }
 
     return false;
+}
+
+/*
+ * Set the mouse cursor on all views that show this scene to a specif cursor that represents the
+ * currently selected paint tool
+ */
+void PaintArea::setCursorOnPaintArea()
+{
+    if (mCursor != NULL)
+        delete mCursor;
+    mCursor = getCursor();
+    
+    for (int i = 0; i < views().length(); i++)
+    {
+        views().at(i)->setCursor(*mCursor);
+    }
+}
+
+/*
+ * Returns a new custom cursor based on currently selected paint tool
+ */
+CustomCursor* PaintArea::getCursor()
+{
+    switch ( mCurrentPaintMode ) {
+    case Pen:
+        return new CustomCursor( CustomCursor::Circle, mPen->color(), mPen->width());
+        break;
+
+    case Marker:
+        return new CustomCursor( CustomCursor::Circle, mMarker->color(), mMarker->width());
+        break;
+
+    case Erase:
+        return new CustomCursor( CustomCursor::Rect, QColor("white"), 6);
+        break;
+    }
 }

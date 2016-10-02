@@ -24,6 +24,7 @@
 #include <QWidget>
 
 #include "MainWindow.h"
+#include "src/widgets/CustomCursor.h"
 
 class MainWindow;
 
@@ -43,9 +44,10 @@ protected:
     void paintEvent ( QPaintEvent * );
 
 private:
-    QPoint mMouseDownPosition;
-    bool   mMouseIsDown;
-    QRect  mCaptureArea;
+    QPoint        mMouseDownPosition;
+    bool          mMouseIsDown;
+    QRect         mCaptureArea;
+    CustomCursor *mCursor;
     QRect calculateArea ( QPoint, QPoint );
 };
 

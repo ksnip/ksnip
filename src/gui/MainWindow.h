@@ -24,9 +24,9 @@
 #include <QtGui>
 
 #include "SnippingArea.h"
-#include "PaintArea.h"
-#include "CustomToolButton.h"
-#include "ImageGrabber.h"
+#include "src/PaintArea.h"
+#include "src/widgets/CustomToolButton.h"
+#include "src/ImageGrabber.h"
 #include "SettingsDialog.h"
 #include "AboutDialog.h"
 

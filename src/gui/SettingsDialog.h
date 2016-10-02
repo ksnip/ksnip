@@ -30,8 +30,8 @@
 #include <QSettings>
 
 #include "MainWindow.h"
-#include "ColorComboBox.h"
-#include "NumericComboBox.h"
+#include "src/widgets/ColorComboBox.h"
+#include "src/widgets/NumericComboBox.h"
 
 class SettingsDialog : public QDialog
 {

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Exec=ksnip
-Icon=ksnip.png
+Icon=ksnip
 Terminal=false
 Name=ksnip
 GenericName=ksnip Screenshot Tool

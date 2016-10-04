@@ -22,7 +22,6 @@
 #define IMAGEGRABBER_H
 
 #include <QObject>
-#include <QPixmap>
 #include <QApplication>
 #include <QDesktopWidget>
 #include <X11/Xlib.h>

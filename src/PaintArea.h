@@ -52,7 +52,6 @@ protected:
     virtual void mouseReleaseEvent ( QGraphicsSceneMouseEvent * );
     virtual void keyPressEvent ( QKeyEvent * );
     virtual void keyReleaseEvent ( QKeyEvent * );
-    virtual bool event(QEvent * );
 
 private:
     PaintStroke  *mCurrentPaintStroke;
@@ -64,7 +63,7 @@ private:
     void addNewPaintStroke ( QPointF );
     void addToCurrentPaintStroke ( QPointF );
     bool erasePaintStroke ( QPointF );
-    void setCursorOnPaintArea();
+    void setCursorForPaintArea();
     CustomCursor* getCursor();
 };
 

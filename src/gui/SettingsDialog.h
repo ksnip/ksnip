@@ -22,12 +22,6 @@
 #define SETTINGSDIALOG_H
 
 #include <QDialog>
-#include <QGroupBox>
-#include <QCheckBox>
-#include <QVBoxLayout>
-#include <QLabel>
-#include <QPushButton>
-#include <QSettings>
 
 #include "MainWindow.h"
 #include "src/widgets/ColorComboBox.h"

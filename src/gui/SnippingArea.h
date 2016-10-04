@@ -21,7 +21,6 @@
 #define SNIPPINGAREA_H
 
 #include <QtGui>
-#include <QWidget>
 
 #include "MainWindow.h"
 #include "src/widgets/CustomCursor.h"

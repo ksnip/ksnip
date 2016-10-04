@@ -22,7 +22,6 @@
 #define CUSTOMCURSOR_H
 
 #include <QCursor>
-#include <QColor>
 #include <QPainter>
 
 class CustomCursor : public QCursor

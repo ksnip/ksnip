@@ -1,17 +1,16 @@
 # ksnip
 
-Currently in Beta!
-
 Screenshot tool inspired by Windows Snipping Tool and made with Qt for Linux. 
+
+Version v1.0.0
 
 ### Building from source
 
-1. Download the package from GitHub either by downloading the zip [here](https://github.com/damirporobic/ksnip/archive/master.zip) or by cloning the repository if you prefer git:  
-    `> git clone https://github.com/damirporobic/ksnip.git  
+1. Get latest release from GitHub by downloading either the zip or tar.gz package from https://github.com/damirporobic/ksnip/releases  
 2. Change to download directory, unpack the package and go to new directory:  
-    `> cd ~/Downloads`  
-    `> unzip ksnip-master.zip`  
-    `> cd ksnip-master`  
+    `> cd ~/Downloads`    
+    `> unzip ksnip-1.x.x.zip`
+    `> cd ksnip-1.x.x`
 3. Make new build directory and enter it:  
     `> mkdir build`  
     `> cd build`  

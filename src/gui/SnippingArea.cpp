@@ -75,11 +75,11 @@ void SnippingArea::paintEvent( QPaintEvent *event )
     QPainter painter( this );
 
     if ( mMouseIsDown ) {
-        painter.setClipRegion( QRegion( QRect( QPoint(), this->size() ) ).subtracted( QRegion( mCaptureArea ) ) );
+        painter.setClipRegion( QRegion( geometry() ).subtracted( QRegion( mCaptureArea ) ) );
     }
 
     painter.setBrush( QColor( 0, 0, 0, 150 ) );
-    painter.drawRect( QRect( QPoint(), this->size() ) );
+    painter.drawRect( geometry() );
 
     if ( mMouseIsDown ) {
         painter.setPen( QPen( Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin ) );

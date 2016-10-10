@@ -28,6 +28,7 @@ class CustomCursor : public QCursor
 {
 public:
     enum CursorShape { Rect, Circle, cross};
+    CustomCursor();
     CustomCursor ( CursorShape, QColor, int );
     CustomCursor ( CursorShape );
 

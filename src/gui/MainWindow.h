@@ -29,6 +29,7 @@
 #include "src/ImageGrabber.h"
 #include "SettingsDialog.h"
 #include "AboutDialog.h"
+#include "src/CaptureView.h"
 
 class QPushButton;
 class QHBoxLayout;
@@ -79,6 +80,7 @@ private slots:
     void penClicked();
     void markerClicked();
     void eraseClicked();
+    void cropClicked();
     void keyPressEvent ( QKeyEvent * );
     void areaSelected ( QRect );
     void imageChanged();
@@ -110,13 +112,14 @@ private:
     QAction          *mPenAction;
     QAction          *mMarkerAction;
     QAction          *mEraseAction;
+    QAction          *mCropAction;
     QAction          *mNewCaptureAction;
     QAction          *mQuitAction;
     QAction          *mSettingsDialogAction;
     QAction          *mAboutKsnipAction;
     QVBoxLayout      *mWindowLayout;
     PaintArea        *mCaptureScene;
-    QGraphicsView    *mCaptureView;
+    CaptureView      *mCaptureView;
     QClipboard       *mClipboard;
     SnippingArea     *mSnippingArea;
     ImageGrabber     *mImageGrabber;

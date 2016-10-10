@@ -20,6 +20,11 @@
 
 #include "CustomCursor.h"
 
+CustomCursor::CustomCursor( ) : QCursor()
+{
+
+}
+
 CustomCursor::CustomCursor( CursorShape shape, QColor color, int size ) :
     QCursor( createPixmap( shape, color, size ) )
 {

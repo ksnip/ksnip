@@ -42,6 +42,10 @@ public:
     QPen getPenProperties();
     void setMarkerProperties ( QColor, int );
     QPen getMarkerProperties();
+    void setIsEnabled(bool);
+    bool getIsEnabled();
+    bool getIsValid();
+    void crop ( QRect );
 
 signals:
     void imageChanged();
@@ -54,12 +58,14 @@ protected:
     virtual void keyReleaseEvent ( QKeyEvent * );
 
 private:
-    PaintStroke  *mCurrentPaintStroke;
-    QPen         *mPen;
-    QPen         *mMarker;
-    CustomCursor *mCursor;
-    bool          mIsSnapping;
-    PaintMode     mCurrentPaintMode;
+    bool                 mIsEnabled;
+    QGraphicsPixmapItem *mPixmap;
+    PaintStroke         *mCurrentPaintStroke;
+    QPen                *mPen;
+    QPen                *mMarker;
+    CustomCursor        *mCursor;
+    bool                 mIsSnapping;
+    PaintMode            mCurrentPaintMode;
     void addNewPaintStroke ( QPointF );
     void addToCurrentPaintStroke ( QPointF );
     bool erasePaintStroke ( QPointF );

@@ -19,14 +19,19 @@
 */
 #include "PaintArea.h"
 
+#include <iostream>
+
 PaintArea::PaintArea() : QGraphicsScene(),
     mPen( new QPen ),
-    mCursor( NULL ),
+    mCursor( getCursor() ),
     mMarker( new QPen )
 {
     mCurrentPaintStroke = NULL;
     mCurrentPaintMode = Pen;
     mIsSnapping = false;
+    
+    // Set pixamp to null
+    mPixmap = NULL;  
 }
 
 //
@@ -40,7 +45,7 @@ PaintArea::PaintArea() : QGraphicsScene(),
 void PaintArea::loadCapture( QPixmap pixmap )
 {
     clear();
-    addPixmap( pixmap );
+    mPixmap = addPixmap( pixmap );
     setSceneRect( 0, 0, pixmap.width(), pixmap.height() );
 }
 
@@ -62,10 +67,14 @@ PaintArea::PaintMode PaintArea::getPaintMode()
 
 /*
  * In order to export the scene as Image we must use a QPainter to draw all scene items to a new
- * image which we can the export.
+ * image which we can the export. If no pixmap has been loaded return a null image.
  */
 QImage PaintArea::exportAsImage()
-{
+{   
+    if ( !getIsValid() ) {
+        return QImage();
+    }
+    
     QImage image( sceneRect().size().toSize(), QImage::Format_ARGB32 );
     image.fill( Qt::transparent );
 
@@ -105,15 +114,13 @@ QPen PaintArea::getMarkerProperties()
 
 void PaintArea::mousePressEvent( QGraphicsSceneMouseEvent *event )
 {
-    if ( event->button() != Qt::LeftButton ) {
-        return;
-    }
-
-    if ( mCurrentPaintMode == Erase ) {
-        erasePaintStroke( event->scenePos() );
-    }
-    else {
-        addNewPaintStroke( event->scenePos() );
+    if ( event->button() == Qt::LeftButton && mIsEnabled ) {
+        if ( mCurrentPaintMode == Erase ) {
+            erasePaintStroke( event->scenePos() );
+        }
+        else {
+            addNewPaintStroke( event->scenePos() );
+        }
     }
 
     QGraphicsScene::mousePressEvent( event );
@@ -121,15 +128,14 @@ void PaintArea::mousePressEvent( QGraphicsSceneMouseEvent *event )
 
 void PaintArea::mouseMoveEvent( QGraphicsSceneMouseEvent *event )
 {
-    if ( event->buttons() != Qt::LeftButton ) {
-        return;
-    }
+    if ( event->buttons() == Qt::LeftButton && mIsEnabled ) {
 
-    if ( mCurrentPaintMode == Erase ) {
-        erasePaintStroke( event->scenePos() );
-    }
-    else {
-        addToCurrentPaintStroke( event->scenePos() );
+        if ( mCurrentPaintMode == Erase ) {
+            erasePaintStroke( event->scenePos() );
+        }
+        else {
+            addToCurrentPaintStroke( event->scenePos() );
+        }
     }
 
     QGraphicsScene::mouseMoveEvent( event );
@@ -137,7 +143,7 @@ void PaintArea::mouseMoveEvent( QGraphicsSceneMouseEvent *event )
 
 void PaintArea::mouseReleaseEvent( QGraphicsSceneMouseEvent *event )
 {
-    if ( event->button() == Qt::LeftButton ) {
+    if ( event->button() == Qt::LeftButton && mIsEnabled) {
         mCurrentPaintStroke = NULL;
 
         // Inform the MainWindow that something was drawn on the image so the user should be able to
@@ -166,11 +172,46 @@ void PaintArea::keyReleaseEvent( QKeyEvent *event )
     QGraphicsScene::keyReleaseEvent( event );
 }
 
+void PaintArea::setIsEnabled( bool isEnabled )
+{
+    mIsEnabled = isEnabled;
+    setCursorForPaintArea();
+}
+
+bool PaintArea::getIsEnabled()
+{
+    return mIsEnabled;
+}
+
+/*
+ * The scene is only valid if a pixmap has been loaded 
+ */
+bool PaintArea::getIsValid()
+{
+    if ( mPixmap == NULL ) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+/*
+ * Crop the capture image to the provided rect and set the scene rect to this rect
+ */
+void PaintArea::crop( QRect rect)
+{
+    setSceneRect( rect );
+    mPixmap->setPixmap(mPixmap->pixmap().copy(rect));
+    mPixmap->setPos(rect.x(), rect.y());
+}
+
+
 //
 // Private Functions
 //
 void PaintArea::addNewPaintStroke( QPointF mousePosition )
-{
+{   
     if ( mCurrentPaintMode == Pen ) {
         mCurrentPaintStroke = new PaintStroke( mousePosition, *mPen );
     }
@@ -182,7 +223,7 @@ void PaintArea::addNewPaintStroke( QPointF mousePosition )
 }
 
 void PaintArea::addToCurrentPaintStroke( QPointF mousePosistion )
-{
+{   
     if ( mCurrentPaintStroke == NULL ) {
         qCritical( "PaintArea::addToCurrentPaintStroke: Unable to add point to path, \
         current path set to NULL" );
@@ -200,7 +241,7 @@ void PaintArea::addToCurrentPaintStroke( QPointF mousePosistion )
 }
 
 bool PaintArea::erasePaintStroke( QPointF mousePosition )
-{
+{    
     PaintStroke *item = NULL;
 
     for ( int i = 0 ; i < items().count() ; i++ ) {
@@ -217,13 +258,11 @@ bool PaintArea::erasePaintStroke( QPointF mousePosition )
 
 /*
  * Set the mouse cursor on all views that show this scene to a specif cursor that represents the
- * currently selected paint tool
+ * currently selected paint tool. 
  */
 void PaintArea::setCursorForPaintArea()
-{
-    if ( mCursor != NULL )
-        delete mCursor;
-
+{   
+    delete mCursor;
     mCursor = getCursor();
 
     for ( int i = 0; i < views().length(); i++ ) {
@@ -232,10 +271,15 @@ void PaintArea::setCursorForPaintArea()
 }
 
 /*
- * Returns a new custom cursor based on currently selected paint tool
+ * Returns a new custom cursor based on currently selected paint tool, if the scene is disabled 
+ * return to default cursor.
  */
 CustomCursor *PaintArea::getCursor()
 {
+    if ( !mIsEnabled ) {
+        return new CustomCursor();
+    }
+    
     switch ( mCurrentPaintMode ) {
     case Pen:
         return new CustomCursor( CustomCursor::Circle, mPen->color(), mPen->width() );

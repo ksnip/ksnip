@@ -37,13 +37,14 @@ MainWindow::MainWindow() : QWidget(),
     mPenAction( new QAction( this ) ),
     mMarkerAction( new QAction( this ) ),
     mEraseAction( new QAction( this ) ),
+    mCropAction( new QAction( this ) ),
     mNewCaptureAction( new QAction( this ) ),
     mQuitAction( new QAction( this ) ),
     mSettingsDialogAction( new QAction( this ) ),
     mAboutKsnipAction( new QAction( this ) ),
     mWindowLayout( new QVBoxLayout ),
     mCaptureScene( new PaintArea() ),
-    mCaptureView( new QGraphicsView( mCaptureScene ) ),
+    mCaptureView( new CaptureView( mCaptureScene ) ),
     mClipboard( QApplication::clipboard() ),
     mSnippingArea( new SnippingArea( this ) ),
     mImageGrabber( new ImageGrabber( this ) )
@@ -56,9 +57,6 @@ MainWindow::MainWindow() : QWidget(),
     
     mVersion = "v1.0.0";
 
-    // Disable frame around the image and hide it as on startup it's empty and enable Antialiasing
-    mCaptureView->setFrameStyle( 0 );
-    mCaptureView->setRenderHints( QPainter::Antialiasing | QPainter::SmoothPixmapTransform );
     mCaptureView->hide();
 
     // Setup application properties
@@ -106,7 +104,6 @@ void MainWindow::show( QPixmap screenshot )
     }
 
     mCaptureView->show();
-    mCaptureView->setFocus();
     setSaveAble( true );
 
     if ( mAlwaysCopyToClipboard ) {
@@ -332,6 +329,11 @@ void MainWindow::markerClicked()
 void MainWindow::eraseClicked()
 {
     mCaptureScene->setPaintMode( PaintArea::Erase );
+}
+
+void MainWindow::cropClicked()
+{
+    mCaptureView->setIsCropping(true);
 }
 
 void MainWindow::keyPressEvent( QKeyEvent *event )
@@ -578,18 +580,24 @@ void MainWindow::createActions()
     mSaveAction->setText( tr( "Save" ) );
     mSaveAction->setToolTip( tr( "Save Screen Capture to file system" ) );
     mSaveAction->setIcon( createIcon( "save" ) );
-    mSaveAction->setShortcuts( QKeySequence::Save );
+    mSaveAction->setShortcut( QKeySequence::Save );
     mSaveAction->connect( mSaveAction, SIGNAL( triggered() ), this,
                           SLOT( saveCaptureClicked() ) );
     mSaveAction->setEnabled( false );
 
     // Create action for copy to clipboard button
     mCopyToClipboardAction->setText( tr( "Copy" ) );
-    mCopyToClipboardAction->setToolTip( "Copy Screen Capture to clipboard" );
+    mCopyToClipboardAction->setToolTip( tr("Copy Screen Capture to clipboard") );
     mCopyToClipboardAction->setIcon( createIcon( "copyToClipboard" ) ) ;
     mCopyToClipboardAction->setShortcut( QKeySequence::Copy );
-    mCopyToClipboardAction->connect( mCopyToClipboardButton, SIGNAL( clicked() ), this,
+    mCopyToClipboardAction->connect( mCopyToClipboardAction, SIGNAL(triggered()), this,
                                      SLOT( copyToClipboardClicked() ) );
+    
+    // Create crop action
+    mCropAction->setText( tr( "Crop" ) );
+    mCropAction->setToolTip( tr( "Crop Screen Capture" ) );
+    mCropAction->setShortcut(Qt::SHIFT + Qt::Key_C);
+    mCropAction->connect( mCropAction, SIGNAL( triggered() ), this, SLOT( cropClicked() ) );
 
     // Create actions for paint mode
     mPenAction->setText( tr( "Pen" ) );
@@ -687,6 +695,7 @@ void MainWindow::createMenuBar()
     tmpMenu->addAction( mQuitAction );
     tmpMenu = mMenuBar->addMenu( tr( "&Edit" ) );
     tmpMenu->addAction( mCopyToClipboardAction );
+    tmpMenu->addAction( mCropAction );
     tmpMenu = mMenuBar->addMenu( tr( "&Options" ) );
     tmpMenu->addAction( mSettingsDialogAction );
     tmpMenu = mMenuBar->addMenu( tr ("&Help"));

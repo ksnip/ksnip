@@ -18,20 +18,21 @@
 *
 */
 #include "PaintArea.h"
-
-#include <iostream>
+#include "src/backend/KsnipConfig.h"
 
 PaintArea::PaintArea() : QGraphicsScene(),
-    mPen( new QPen ),
-    mCursor( getCursor() ),
-    mMarker( new QPen )
+    mCursor( cursor() )
 {
     mCurrentPaintStroke = NULL;
     mCurrentPaintMode = Pen;
     mIsSnapping = false;
-    
-    // Set pixamp to null
-    mPixmap = NULL;  
+
+    // Set pixamp to null so we can check if anything was loaded
+    mPixmap = NULL;
+
+    // Connect to update signal so that we are informed any time the config changes, we use that to
+    // set the correct mouse cursor
+    connect( KsnipConfig::instance(), SIGNAL( painterUpdated() ), this, SLOT( setCursor() ) );
 }
 
 //
@@ -49,7 +50,8 @@ void PaintArea::loadCapture( QPixmap pixmap )
     setSceneRect( 0, 0, pixmap.width(), pixmap.height() );
 }
 
-QSize PaintArea::getAreaSize()
+// Return scene rect which is the current size of the area
+QSize PaintArea::areaSize()
 {
     return sceneRect().size().toSize();
 }
@@ -57,12 +59,7 @@ QSize PaintArea::getAreaSize()
 void PaintArea::setPaintMode( PaintMode paintMode )
 {
     mCurrentPaintMode = paintMode;
-    setCursorForPaintArea();
-}
-
-PaintArea::PaintMode PaintArea::getPaintMode()
-{
-    return mCurrentPaintMode;
+    setCursor();
 }
 
 /*
@@ -70,11 +67,11 @@ PaintArea::PaintMode PaintArea::getPaintMode()
  * image which we can the export. If no pixmap has been loaded return a null image.
  */
 QImage PaintArea::exportAsImage()
-{   
-    if ( !getIsValid() ) {
+{
+    if ( !isValid() ) {
         return QImage();
     }
-    
+
     QImage image( sceneRect().size().toSize(), QImage::Format_ARGB32 );
     image.fill( Qt::transparent );
 
@@ -84,29 +81,40 @@ QImage PaintArea::exportAsImage()
     return image;
 }
 
-void PaintArea::setPenProperties( QColor color, int width )
+void PaintArea::setIsEnabled( bool enabled )
 {
-    mPen->setColor( color );
-    mPen->setWidth( width );
-    setCursorForPaintArea();
+    mIsEnabled = enabled;
+    setCursor();
 }
 
-QPen PaintArea::getPenProperties()
+bool PaintArea::isEnabled()
 {
-    return *mPen;
+    return mIsEnabled;
 }
 
-void PaintArea::setMarkerProperties( QColor color, int width )
+/*
+ * The scene is only valid if a pixmap has been loaded
+ */
+bool PaintArea::isValid()
 {
-    mMarker->setColor( color );
-    mMarker->setWidth( width );
-    setCursorForPaintArea();
+    if ( mPixmap == NULL ) {
+        return false;
+    }
+    else {
+        return true;
+    }
 }
 
-QPen PaintArea::getMarkerProperties()
+/*
+ * Crop the capture image to the provided rect and set the scene rect appropriately
+ */
+void PaintArea::crop( QRect rect )
 {
-    return *mMarker;
+    setSceneRect( rect );
+    mPixmap->setPixmap( mPixmap->pixmap().copy( rect ) );
+    mPixmap->setPos( rect.x(), rect.y() );
 }
+
 
 //
 // Protected Functions
@@ -143,7 +151,7 @@ void PaintArea::mouseMoveEvent( QGraphicsSceneMouseEvent *event )
 
 void PaintArea::mouseReleaseEvent( QGraphicsSceneMouseEvent *event )
 {
-    if ( event->button() == Qt::LeftButton && mIsEnabled) {
+    if ( event->button() == Qt::LeftButton && mIsEnabled ) {
         mCurrentPaintStroke = NULL;
 
         // Inform the MainWindow that something was drawn on the image so the user should be able to
@@ -172,58 +180,23 @@ void PaintArea::keyReleaseEvent( QKeyEvent *event )
     QGraphicsScene::keyReleaseEvent( event );
 }
 
-void PaintArea::setIsEnabled( bool isEnabled )
-{
-    mIsEnabled = isEnabled;
-    setCursorForPaintArea();
-}
-
-bool PaintArea::getIsEnabled()
-{
-    return mIsEnabled;
-}
-
-/*
- * The scene is only valid if a pixmap has been loaded 
- */
-bool PaintArea::getIsValid()
-{
-    if ( mPixmap == NULL ) {
-        return false;
-    }
-    else {
-        return true;
-    }
-}
-
-/*
- * Crop the capture image to the provided rect and set the scene rect to this rect
- */
-void PaintArea::crop( QRect rect)
-{
-    setSceneRect( rect );
-    mPixmap->setPixmap(mPixmap->pixmap().copy(rect));
-    mPixmap->setPos(rect.x(), rect.y());
-}
-
-
 //
 // Private Functions
 //
-void PaintArea::addNewPaintStroke( QPointF mousePosition )
-{   
+void PaintArea::addNewPaintStroke( QPointF position )
+{
     if ( mCurrentPaintMode == Pen ) {
-        mCurrentPaintStroke = new PaintStroke( mousePosition, *mPen );
+        mCurrentPaintStroke = new PaintStroke( position, KsnipConfig::instance()->pen() );
     }
     else {
-        mCurrentPaintStroke = new PaintStroke( mousePosition, *mMarker, true );
+        mCurrentPaintStroke = new PaintStroke( position, KsnipConfig::instance()->marker(), true );
     }
 
     addItem( mCurrentPaintStroke );
 }
 
-void PaintArea::addToCurrentPaintStroke( QPointF mousePosistion )
-{   
+void PaintArea::addToCurrentPaintStroke( QPointF position )
+{
     if ( mCurrentPaintStroke == NULL ) {
         qCritical( "PaintArea::addToCurrentPaintStroke: Unable to add point to path, \
         current path set to NULL" );
@@ -231,17 +204,17 @@ void PaintArea::addToCurrentPaintStroke( QPointF mousePosistion )
     }
 
     if ( mIsSnapping ) {
-        mCurrentPaintStroke->lastLineTo( mousePosistion );
+        mCurrentPaintStroke->lastLineTo( position );
     }
     else {
-        mCurrentPaintStroke->lineTo( mousePosistion );
+        mCurrentPaintStroke->lineTo( position );
     }
 
-    mCurrentPaintStroke->lineTo( mousePosistion );
+    mCurrentPaintStroke->lineTo( position );
 }
 
 bool PaintArea::erasePaintStroke( QPointF mousePosition )
-{    
+{
     PaintStroke *item = NULL;
 
     for ( int i = 0 ; i < items().count() ; i++ ) {
@@ -258,12 +231,12 @@ bool PaintArea::erasePaintStroke( QPointF mousePosition )
 
 /*
  * Set the mouse cursor on all views that show this scene to a specif cursor that represents the
- * currently selected paint tool. 
+ * currently selected paint tool.
  */
-void PaintArea::setCursorForPaintArea()
-{   
+void PaintArea::setCursor()
+{
     delete mCursor;
-    mCursor = getCursor();
+    mCursor = cursor();
 
     for ( int i = 0; i < views().length(); i++ ) {
         views().at( i )->setCursor( *mCursor );
@@ -271,22 +244,26 @@ void PaintArea::setCursorForPaintArea()
 }
 
 /*
- * Returns a new custom cursor based on currently selected paint tool, if the scene is disabled 
+ * Returns a new custom cursor based on currently selected paint tool, if the scene is disabled
  * return to default cursor.
  */
-CustomCursor *PaintArea::getCursor()
+CustomCursor *PaintArea::cursor()
 {
     if ( !mIsEnabled ) {
         return new CustomCursor();
     }
-    
+
     switch ( mCurrentPaintMode ) {
     case Pen:
-        return new CustomCursor( CustomCursor::Circle, mPen->color(), mPen->width() );
+        return new CustomCursor( CustomCursor::Circle,
+                                 KsnipConfig::instance()->penColor(),
+                                 KsnipConfig::instance()->penSize() );
         break;
 
     case Marker:
-        return new CustomCursor( CustomCursor::Circle, mMarker->color(), mMarker->width() );
+        return new CustomCursor( CustomCursor::Circle,
+                                 KsnipConfig::instance()->markerColor(),
+                                 KsnipConfig::instance()->markerSize() );
         break;
 
     case Erase:

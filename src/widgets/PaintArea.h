@@ -25,7 +25,7 @@
 #include <QGraphicsScene>
 
 #include "PaintStroke.h"
-#include "widgets/CustomCursor.h"
+#include "src/widgets/CustomCursor.h"
 
 class PaintArea : public QGraphicsScene
 {
@@ -33,44 +33,40 @@ class PaintArea : public QGraphicsScene
 public:
     PaintArea();
     enum PaintMode { Pen, Marker, Erase };
-    void loadCapture ( QPixmap );
-    QSize getAreaSize();
-    void setPaintMode ( enum PaintMode );
-    PaintMode getPaintMode();
+    void loadCapture ( QPixmap pixmap );
+    QSize areaSize();
+    void setPaintMode ( PaintMode paintMode );
     QImage exportAsImage();
-    void setPenProperties ( QColor, int );
-    QPen getPenProperties();
-    void setMarkerProperties ( QColor, int );
-    QPen getMarkerProperties();
-    void setIsEnabled(bool);
-    bool getIsEnabled();
-    bool getIsValid();
-    void crop ( QRect );
+    void setIsEnabled ( bool enabled );
+    bool isEnabled();
+    bool isValid();
+    void crop ( QRect rect );
 
 signals:
     void imageChanged();
 
 protected:
-    virtual void mousePressEvent ( QGraphicsSceneMouseEvent * );
-    virtual void mouseMoveEvent ( QGraphicsSceneMouseEvent * );
-    virtual void mouseReleaseEvent ( QGraphicsSceneMouseEvent * );
-    virtual void keyPressEvent ( QKeyEvent * );
-    virtual void keyReleaseEvent ( QKeyEvent * );
+    virtual void mousePressEvent ( QGraphicsSceneMouseEvent *event );
+    virtual void mouseMoveEvent ( QGraphicsSceneMouseEvent *event );
+    virtual void mouseReleaseEvent ( QGraphicsSceneMouseEvent *event );
+    virtual void keyPressEvent ( QKeyEvent *event );
+    virtual void keyReleaseEvent ( QKeyEvent *event );
 
 private:
     bool                 mIsEnabled;
     QGraphicsPixmapItem *mPixmap;
     PaintStroke         *mCurrentPaintStroke;
-    QPen                *mPen;
-    QPen                *mMarker;
     CustomCursor        *mCursor;
     bool                 mIsSnapping;
     PaintMode            mCurrentPaintMode;
-    void addNewPaintStroke ( QPointF );
-    void addToCurrentPaintStroke ( QPointF );
-    bool erasePaintStroke ( QPointF );
-    void setCursorForPaintArea();
-    CustomCursor* getCursor();
+
+    void addNewPaintStroke ( QPointF position );
+    void addToCurrentPaintStroke ( QPointF position );
+    bool erasePaintStroke ( QPointF position );
+    CustomCursor *cursor();
+
+private slots:
+    void setCursor();
 };
 
 #endif // SCRIBBLEAREA_H

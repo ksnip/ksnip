@@ -48,16 +48,13 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
     mOkButton( new QPushButton ),
     mCancelButton( new QPushButton )
 {
-    setWindowTitle( "ksnip - " + tr( "Settings" ) );
+    setWindowTitle( QApplication::applicationName() + " - " + tr( "Settings" ) );
 
-    createCheckboxes();
-    createLabels();
-    createCombobox();
-    createButtons();
-    createLayouts();
+    initGui();
 
     setLayout( mMainLayout );
 
+    // We don't want the window to be resizable
     setFixedSize( sizeHint() );
 
     loadSettings();
@@ -81,99 +78,89 @@ void SettingsDialog::cancelButtonClicked()
 //
 // Private Functions
 //
-
 void SettingsDialog::loadSettings()
 {
-    QSettings settings;
-
-    if ( mParent->getAlwaysCopyToClipboard() ) {
+    if ( KsnipConfig::instance()->alwaysCopyToClipboard() ) {
         mAlwaysCopyToClipboardCheckbox->setCheckState( Qt::Checked );
     }
     else {
         mAlwaysCopyToClipboardCheckbox->setCheckState( Qt::Unchecked );
     }
 
-    if ( mParent->getPromptSaveBeforeExit() ) {
+    if ( KsnipConfig::instance()->promptSaveBeforeExit() ) {
         mPromptToSaveBeforeExitCheckbox->setCheckState( Qt::Checked );
     }
     else {
         mPromptToSaveBeforeExitCheckbox->setCheckState( Qt::Unchecked );
     }
 
-    if ( mParent->getSaveKsnipPosition() ) {
+    if ( KsnipConfig::instance()->saveKsnipPosition() ) {
         mSaveKsnipPositionCheckbox->setCheckState( Qt::Checked );
     }
     else {
         mSaveKsnipPositionCheckbox->setCheckState( Qt::Unchecked );
     }
 
-    if ( mParent->getSaveKsnipToolSelection() ) {
+    if ( KsnipConfig::instance()->saveKsnipToolSelection() ) {
         mSaveKsnipToolSelectionCheckbox->setCheckState( Qt::Checked );
     }
     else {
         mSaveKsnipToolSelectionCheckbox->setCheckState( Qt::Unchecked );
     }
 
-    mPenColorCombobox->setColor( mParent->getPenProperties().color() );
-    mPenSizeCombobox->setValue( mParent->getPenProperties().width() );
+    mPenColorCombobox->setColor( KsnipConfig::instance()->penColor() );
+    mPenSizeCombobox->setValue( KsnipConfig::instance()->penSize() );
 
-    mMarkerColorCombobox->setColor( mParent->getMarkerProperties().color() );
-    mMarkerSizeCombobox->setValue( mParent->getMarkerProperties().width() );
+    mMarkerColorCombobox->setColor( KsnipConfig::instance()->markerColor() );
+    mMarkerSizeCombobox->setValue( KsnipConfig::instance()->markerSize() );
 
-    mCaptureDelayCombobox->setValue( mParent->getCaptureDelay() / 1000 );
+    mCaptureDelayCombobox->setValue( KsnipConfig::instance()->captureDelay() / 1000 );
 }
 
 void SettingsDialog::saveSettings()
 {
-    QSettings settings;
+    KsnipConfig::instance()->setAlwaysCopyToClipboard( mAlwaysCopyToClipboardCheckbox->isChecked() );
 
-    mParent->setAlwaysCopyToClipboard( mAlwaysCopyToClipboardCheckbox->isChecked() );
+    KsnipConfig::instance()->setPromptSaveBeforeExit( mPromptToSaveBeforeExitCheckbox->isChecked() );
 
-    mParent->setPromptSaveBeforeExit( mPromptToSaveBeforeExitCheckbox->isChecked() );
+    KsnipConfig::instance()->setSaveKsnipPosition( mSaveKsnipPositionCheckbox->isChecked() );
 
-    mParent->setSaveKsnipPosition( mSaveKsnipPositionCheckbox->isChecked() );
+    KsnipConfig::instance()->setSaveKsnipToolSelection( mSaveKsnipToolSelectionCheckbox->isChecked() );
 
-    mParent->setSaveKsnipToolSelection( mSaveKsnipToolSelectionCheckbox->isChecked() );
+    KsnipConfig::instance()->setPenColor( mPenColorCombobox->color() );
+    KsnipConfig::instance()->setPenSize( mPenSizeCombobox->value() );
 
-    mParent->setPenProperties( mPenColorCombobox->color(), mPenSizeCombobox->value() );
+    KsnipConfig::instance()->setMarkerColor( mMarkerColorCombobox->color() );
+    KsnipConfig::instance()->setMarkerSize( mMarkerSizeCombobox->value() );
 
-    mParent->setMarkerProperties( mMarkerColorCombobox->color(), mMarkerSizeCombobox->value() );
-
-    mParent->setCaptureDelay( mCaptureDelayCombobox->value() * 1000 );
+    KsnipConfig::instance()->setCaptureDelay( mCaptureDelayCombobox->value() * 1000 );
 }
 
-void SettingsDialog::createCheckboxes()
+void SettingsDialog::initGui()
 {
+    // Setup checkbox
     mAlwaysCopyToClipboardCheckbox->setText( tr( "Always copy capture to clipboard." ) );
-
     mPromptToSaveBeforeExitCheckbox->setText( tr( "Prompt to save before exiting ksnip." ) );
-
     mSaveKsnipPositionCheckbox->setText( tr( "Save ksnip position on move and load on startup." ) );
-
     mSaveKsnipToolSelectionCheckbox->setText( tr( "Save ksnip tool selection and "
             "load on startup." ) );
-}
 
-void SettingsDialog::createLabels()
-{
+    // Create Labels
     mCaptureDelayLabel->setText( tr( "Delay (sec)" ) );
-
     mPenColorLabel->setText( tr( "Pen Color" ) );
     mPenSizeLabel->setText( tr( "Pen Size" ) );
-
     mMarkerColorLabel->setText( tr( "Marker Color" ) );
     mMarkerSizeLabel->setText( tr( "Marker Size" ) );
-}
 
-void SettingsDialog::createCombobox()
-{
+    // Setup combo box, to avoid creating the same variable twice and adding once the pen color set
+    // then marker color set, we add it this way, in the second run we just add additional colors
+    // at specific position so it's ordered
     QStringList colorNames;
     colorNames.append( "Blue" );
     colorNames.append( "Cyan" );
     colorNames.append( "Orange" );
     colorNames.append( "Red" );
     colorNames.append( "Yellow" );
-
     mMarkerColorCombobox = new ColorComboBox( colorNames, this );
 
     colorNames.insert( 0, "Black" );
@@ -183,21 +170,16 @@ void SettingsDialog::createCombobox()
     colorNames.insert( 7, "Pink" );
     colorNames.insert( 8, "Purple" );
     colorNames.insert( 10, "White" );
-
     mPenColorCombobox = new ColorComboBox( colorNames, this );
-}
 
-void SettingsDialog::createButtons()
-{
+    // Create push buttons
     mOkButton->setText( tr( "OK" ) );
     connect( mOkButton, SIGNAL( clicked() ), this, SLOT( okButtonClicked() ) );
 
     mCancelButton->setText( tr( "Cancel" ) );
     connect( mCancelButton, SIGNAL( clicked() ), this, SLOT( cancelButtonClicked() ) );
-}
 
-void SettingsDialog::createLayouts()
-{
+    // Setup Layout
     mApplicationSettingsLayout->addWidget( mAlwaysCopyToClipboardCheckbox );
     mApplicationSettingsLayout->addWidget( mPromptToSaveBeforeExitCheckbox );
     mApplicationSettingsLayout->addWidget( mSaveKsnipPositionCheckbox );
@@ -227,7 +209,7 @@ void SettingsDialog::createLayouts()
 
     mButtonLayout->addWidget( mOkButton );
     mButtonLayout->addWidget( mCancelButton );
-    mButtonLayout->setAlignment(Qt::AlignRight);
+    mButtonLayout->setAlignment( Qt::AlignRight );
 
     mMainLayout->addWidget( mApplicationSettingsGroupbox );
     mMainLayout->addWidget( mImageGrabberGroupbox );

@@ -24,12 +24,13 @@
 #include <QtGui>
 
 #include "SnippingArea.h"
-#include "src/PaintArea.h"
-#include "src/widgets/CustomToolButton.h"
-#include "src/ImageGrabber.h"
 #include "SettingsDialog.h"
 #include "AboutDialog.h"
-#include "src/CaptureView.h"
+#include "src/widgets/PaintArea.h"
+#include "src/widgets/CustomToolButton.h"
+#include "src/widgets/CaptureView.h"
+#include "src/backend/ImageGrabber.h"
+#include "src/backend//KsnipConfig.h"
 
 class QPushButton;
 class QHBoxLayout;
@@ -48,53 +49,20 @@ class MainWindow : public QWidget
     Q_OBJECT
 public:
     MainWindow();
-    void show ( QPixmap );
+    void show ( QPixmap screenshot );
     void show();
-    void setAlwaysCopyToClipboard ( bool );
-    bool getAlwaysCopyToClipboard();
-    void setPromptSaveBeforeExit ( bool );
-    bool getPromptSaveBeforeExit();
-    void setSaveKsnipPosition ( bool );
-    bool getSaveKsnipPosition();
-    void setSaveKsnipToolSelection ( bool );
-    bool getSaveKsnipToolSelection();
-    void setPenProperties ( QColor, int );
-    QPen getPenProperties();
-    void setMarkerProperties ( QColor, int );
-    QPen getMarkerProperties();
-    void setCaptureDelay ( int );
-    int getCaptureDelay();
-    QString getVersion();
+    int captureDelay();
+
+public slots:
+    void setCaptureDelay ( int ms );
 
 protected:
-    void moveEvent ( QMoveEvent * );
-    void closeEvent ( QCloseEvent * );
-
-private slots:
-    void newRectAreaCaptureClicked();
-    void newCurrentScreenCaptureClicked();
-    void mNewFullScreenCaptureClicked();
-    void newActiveWindowCaptureClicked();
-    void saveCaptureClicked();
-    void copyToClipboardClicked();
-    void penClicked();
-    void markerClicked();
-    void eraseClicked();
-    void cropClicked();
-    void keyPressEvent ( QKeyEvent * );
-    void areaSelected ( QRect );
-    void imageChanged();
-    void openSettingsDialog();
-    void aboutKsnip();
+    void moveEvent ( QMoveEvent *event );
+    void closeEvent ( QCloseEvent *event );
 
 private:
-    QString           mVersion;
     int               mCaptureDelay;
     bool              mIsUnsaved;
-    bool              mAlwaysCopyToClipboard;
-    bool              mPromptSaveBeforeExit;
-    bool              mSaveKsnipPosition;
-    bool              mSaveKsnipToolSelection;
     QToolBar         *mToolBar;
     QMenuBar         *mMenuBar;
     CustomToolButton *mNewCaptureButton;
@@ -123,19 +91,31 @@ private:
     QClipboard       *mClipboard;
     SnippingArea     *mSnippingArea;
     ImageGrabber     *mImageGrabber;
+
     void delay ( int ms );
-    void setSaveAble ( bool );
+    void setSaveAble ( bool enabled );
     void loadSettings();
-    void saveSetting ( QString, QVariant );
-    QPoint positionAtCenter();
     void copyToClipboard();
-    bool popupQuestion ( QString, QString );
-    QIcon createIcon( QString );
-    void createActions();
-    void createToolButtons();
-    void createToolBar();
-    void createLayout();
-    void createMenuBar();
+    bool popupQuestion ( QString title, QString question );
+    QIcon createIcon ( QString name );
+    void initGui();
+
+private slots:
+    void newRectAreaCaptureClicked();
+    void newCurrentScreenCaptureClicked();
+    void newFullScreenCaptureClicked();
+    void newActiveWindowCaptureClicked();
+    void saveCaptureClicked();
+    void copyToClipboardClicked();
+    void penClicked();
+    void markerClicked();
+    void eraseClicked();
+    void cropClicked();
+    void keyPressEvent ( QKeyEvent *event );
+    void areaSelected ( QRect rect );
+    void imageChanged();
+    void openSettingsDialog();
+    void openAboutDialog();
 };
 
 #endif // MAINWINDOW_H

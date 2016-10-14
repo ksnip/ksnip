@@ -86,7 +86,7 @@ bool PaintStroke::isUnderLocation( QPointF p )
 //
 // Private Functions
 //
-void PaintStroke::paint( QPainter *painter, const QStyleOptionGraphicsItem * , QWidget * )
+void PaintStroke::paint( QPainter *painter, const QStyleOptionGraphicsItem * , QWidget *widget )
 {
     if ( mIsTransparent ) {
         painter->setCompositionMode( QPainter::CompositionMode_ColorBurn );
@@ -99,12 +99,3 @@ void PaintStroke::paint( QPainter *painter, const QStyleOptionGraphicsItem * , Q
     painter->setBrush( mAttributes->color() );
     painter->drawPath( mStroker->createStroke( *mPath ) );
 }
-
-
-
-
-
-
-
-
-

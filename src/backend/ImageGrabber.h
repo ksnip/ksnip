@@ -18,29 +18,32 @@
  *
  */
 
-#ifndef PAINTSTROKE_H
-#define PAINTSTROKE_H
+#ifndef IMAGEGRABBER_H
+#define IMAGEGRABBER_H
 
-#include <QGraphicsItem>
-#include <QPainter>
+#include <QObject>
+#include <QApplication>
+#include <QDesktopWidget>
+#include <X11/Xlib.h>
 
-class PaintStroke : public QGraphicsItem
+class MainWindow;
+
+class ImageGrabber : public QObject
 {
 public:
-    enum { Type = UserType + 1 };
-    PaintStroke ( QPointF, QPen, bool mIsTransparent = false );
-    QRectF boundingRect() const;
-    int type() const;
-    void lineTo ( QPointF );
-    void lastLineTo ( QPointF );
-    bool isUnderLocation ( QPointF );
+    enum CaptureMode { RectArea, FullScreen, CurrentScreen, ActiveWindow };
+
+    ImageGrabber ( QWidget * );
+    QPixmap grabImage ( CaptureMode captureMode, QRect *rect = 0 );
+    QRect currectScreenRect();
+    QRect fullScreenRect();
+    QRect activeWindowRect();
 
 private:
-    QPainterPath        *mPath;
-    QPen                *mAttributes;
-    QPainterPathStroker *mStroker;
-    bool                 mIsTransparent;
-    void paint ( QPainter *, const QStyleOptionGraphicsItem *, QWidget *widget = 0 );
+    QWidget *mParent;
+
+    QPixmap grabRect ( QRect rect );
+    Window getToplevelParent ( Display *display , Window window );
 };
 
-#endif // PAINTSTROKE_H
+#endif // IMAGEGRABBER_H

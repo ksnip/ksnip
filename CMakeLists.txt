@@ -9,11 +9,12 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
 set(ksnip_SRCS src/main.cpp 
-               src/CaptureView.cpp 
-               src/ImageGrabber.cpp 
-               src/PaintStroke.cpp 
+               src/backend/KsnipConfig.cpp
+               src/widgets/CaptureView.cpp 
+               src/backend/ImageGrabber.cpp 
+               src/widgets/PaintStroke.cpp 
                src/widgets/CustomToolButton.cpp 
-               src/PaintArea.cpp 
+               src/widgets/PaintArea.cpp 
                src/gui/MainWindow.cpp 
                src/gui/SnippingArea.cpp 
                src/gui/SettingsDialog.cpp

@@ -23,7 +23,7 @@
 
 #include <QGraphicsView>
 
-#include <src/PaintArea.h>
+#include "src/widgets/PaintArea.h"
 
 class CaptureView : public QGraphicsView
 {

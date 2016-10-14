@@ -50,7 +50,7 @@ PaintArea *CaptureView::scene()
 void CaptureView::setIsCropping( bool isCropping )
 {
     // We can't crop if there was no pixmap loaded to the scene
-    if ( !scene()->getIsValid() ) {
+    if ( !scene()->isValid() ) {
         return;
     }
 
@@ -91,7 +91,7 @@ void CaptureView::keyPressEvent( QKeyEvent *event )
     if ( event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return ) {
         setIsCropping( false );
         scene()->crop( mSelectedRect );
-        parentWidget()->resize( scene()->getAreaSize() + QSize( 100, 150 ) );
+        parentWidget()->resize( scene()->areaSize() + QSize( 100, 150 ) );
     }
 
     QGraphicsView::keyPressEvent( event );

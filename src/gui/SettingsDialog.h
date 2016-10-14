@@ -26,6 +26,7 @@
 #include "MainWindow.h"
 #include "src/widgets/ColorComboBox.h"
 #include "src/widgets/NumericComboBox.h"
+#include "src/backend/KsnipConfig.h"
 
 class SettingsDialog : public QDialog
 {
@@ -67,11 +68,7 @@ private:
     ColorComboBox   *mMarkerColorCombobox;
     void loadSettings();
     void saveSettings();
-    void createCheckboxes();
-    void createLabels();
-    void createCombobox();
-    void createButtons();
-    void createLayouts();
+    void initGui();
 };
 
 #endif // SETTINGSDIALOG_H

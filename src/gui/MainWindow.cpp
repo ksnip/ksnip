@@ -115,6 +115,32 @@ int MainWindow::captureDelay()
     return mCaptureDelay;
 }
 
+/*
+ * Function for instant capturing used from command line. The function grabs the image and saves it
+ * directly to disk. If some delay was set it will be added, otherwise delay is set to 0 and skipped
+ */
+void MainWindow::instantCapture( ImageGrabber::CaptureMode captureMode, int seconds )
+{
+    delay( seconds * 1000 );
+    
+    switch ( captureMode ) {
+    case ImageGrabber::RectArea:
+        break;
+
+    case ImageGrabber::CurrentScreen:
+        instantSave(mImageGrabber->grabImage( ImageGrabber::CurrentScreen ));
+        break;
+
+    case ImageGrabber::ActiveWindow:
+        instantSave(mImageGrabber->grabImage( ImageGrabber::ActiveWindow ));
+        break;
+    
+    case ImageGrabber::FullScreen:
+    default:
+        instantSave(mImageGrabber->grabImage( ImageGrabber::FullScreen ));
+    }
+}
+
 //
 // Public Slots
 //
@@ -226,8 +252,7 @@ void MainWindow::loadSettings()
         mNewCaptureButton->setDefaultAction( mNewFullScreenCaptureAction );
         break;
 
-    default
-            :
+    default:
         mNewCaptureButton->setDefaultAction( mNewRectAreaCaptureAction );
     }
 }
@@ -269,6 +294,19 @@ QIcon MainWindow::createIcon( QString name )
     }
 
     return tmpIcon;
+}
+
+/*
+ * This function when called saves the provided pixmap directly to the default save location without
+ * asking the user for a new path. Existing images are not overwritten, just names with increasing
+ * number.
+ */
+void MainWindow::instantSave( QPixmap pixmap )
+{       
+    pixmap.save(QDir::homePath() + 
+                "/ksnip_" + 
+                QDateTime::currentDateTime().toString("yyyyMMdd-hhmmss") + 
+                ".png") ;
 }
 
 void MainWindow::initGui()

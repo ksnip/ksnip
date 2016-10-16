@@ -32,17 +32,7 @@
 #include "src/backend/ImageGrabber.h"
 #include "src/backend//KsnipConfig.h"
 
-class QPushButton;
-class QHBoxLayout;
-class QVBoxLayout;
-class QGraphicsScene;
-class QGraphicsView;
-class QClipboard;
 class SnippingArea;
-class QKeyEvent;
-class QMoveEvent;
-class QToolBar;
-class QMenuBar;
 
 class MainWindow : public QWidget
 {
@@ -52,6 +42,7 @@ public:
     void show ( QPixmap screenshot );
     void show();
     int captureDelay();
+    void instantCapture(ImageGrabber::CaptureMode captureMode, int delay = 0);
 
 public slots:
     void setCaptureDelay ( int ms );
@@ -98,6 +89,7 @@ private:
     void copyToClipboard();
     bool popupQuestion ( QString title, QString question );
     QIcon createIcon ( QString name );
+    void instantSave( QPixmap pixmap);
     void initGui();
 
 private slots:

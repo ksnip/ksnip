@@ -25,7 +25,7 @@ int main( int argc, char **argv )
     parser.addOption( "m", "Capture the current monitor", "current" );
     parser.addOption( "a", "Capture the active window", "activewindow" );
     parser.addOption( "d", "Delay before taking the screenshot, in seconds. " 
-                           "Only used with capture.", "delay" );
+                           "Only used with capture", "delay" );
 
     MainWindow window;
     QStringList arguments = QCoreApplication::arguments();

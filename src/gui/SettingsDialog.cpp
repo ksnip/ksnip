@@ -28,7 +28,7 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
     mImageGrabberGroupbox( new QGroupBox ),
     mPenSettingsGroupbox( new QGroupBox ),
     mMarkerSettingsGroupbox( new QGroupBox ),
-    mApplicationSettingsLayout( new QVBoxLayout ),
+    mApplicationSettingsLayout( new QGridLayout ),
     mImageGrabberLayout( new QGridLayout ),
     mPenSettingsLayout( new QGridLayout ),
     mMarkerSettingsLayout( new QGridLayout ),
@@ -37,7 +37,9 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
     mPromptToSaveBeforeExitCheckbox( new QCheckBox ),
     mSaveKsnipPositionCheckbox( new QCheckBox ),
     mSaveKsnipToolSelectionCheckbox( new QCheckBox ),
+    mSaveLocationLineEdit( new QLineEdit),
     mCaptureDelayLabel( new QLabel ),
+    mSaveLocationLabel( new QLabel),
     mPenColorLabel( new QLabel ),
     mPenSizeLabel( new QLabel ),
     mMarkerColorLabel( new QLabel ),
@@ -45,6 +47,7 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
     mPenSizeCombobox( new NumericComboBox( 1, 1, 10, this ) ),
     mMarkerSizeCombobox( new NumericComboBox( 10, 2, 11, this ) ),
     mCaptureDelayCombobox( new NumericComboBox( 0, 1, 11, this ) ),
+    mBrowseButton(new QPushButton),
     mOkButton( new QPushButton ),
     mCancelButton( new QPushButton )
 {
@@ -63,6 +66,16 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
 //
 // Public Slots
 //
+
+void SettingsDialog::browseButtonClicked()
+{
+    mSaveLocationLineEdit->setText( QFileDialog::getOpenFileName(this,
+                                    tr("Capture save location"), 
+                                    KsnipConfig::instance()->saveDirectory() +
+                                    KsnipConfig::instance()->saveFilename() +
+                                    KsnipConfig::instance()->saveFormat(), 
+                                    tr("All")));
+}
 
 void SettingsDialog::okButtonClicked()
 {
@@ -134,6 +147,12 @@ void SettingsDialog::saveSettings()
     KsnipConfig::instance()->setMarkerSize( mMarkerSizeCombobox->value() );
 
     KsnipConfig::instance()->setCaptureDelay( mCaptureDelayCombobox->value() * 1000 );
+    
+    KsnipConfig::instance()->setSaveDirectory(StringManip::instance()->extractPath(mSaveLocationLineEdit->displayText()));
+    
+    KsnipConfig::instance()->setSaveFilename(StringManip::instance()->extractFilename(mSaveLocationLineEdit->displayText()));
+    
+    KsnipConfig::instance()->setSaveFormat(StringManip::instance()->extractFormat(mSaveLocationLineEdit->displayText()));
 }
 
 void SettingsDialog::initGui()
@@ -143,14 +162,22 @@ void SettingsDialog::initGui()
     mPromptToSaveBeforeExitCheckbox->setText( tr( "Prompt to save before exiting ksnip." ) );
     mSaveKsnipPositionCheckbox->setText( tr( "Save ksnip position on move and load on startup." ) );
     mSaveKsnipToolSelectionCheckbox->setText( tr( "Save ksnip tool selection and "
-            "load on startup." ) );
+                                                  "load on startup." ) );
 
+    // Setup Line edits
+    mSaveLocationLineEdit->setText(KsnipConfig::instance()->saveDirectory() +
+                                   KsnipConfig::instance()->saveFilename() +
+                                   KsnipConfig::instance()->saveFormat()
+    );
+    mSaveLocationLineEdit->setToolTip("Filename can contain $Y, $M, $D for date and $T for time.");
+    
     // Create Labels
-    mCaptureDelayLabel->setText( tr( "Delay (sec)" ) );
-    mPenColorLabel->setText( tr( "Pen Color" ) );
-    mPenSizeLabel->setText( tr( "Pen Size" ) );
-    mMarkerColorLabel->setText( tr( "Marker Color" ) );
-    mMarkerSizeLabel->setText( tr( "Marker Size" ) );
+    mSaveLocationLabel->setText( tr("Capture save location and filename") + ":");
+    mCaptureDelayLabel->setText( tr( "Delay (sec)" ) + ":" );
+    mPenColorLabel->setText( tr( "Pen Color" ) + ":" );
+    mPenSizeLabel->setText( tr( "Pen Size" ) + ":" );
+    mMarkerColorLabel->setText( tr( "Marker Color" )  + ":" );
+    mMarkerSizeLabel->setText( tr( "Marker Size" ) + ":" );
 
     // Setup combo box, to avoid creating the same variable twice and adding once the pen color set
     // then marker color set, we add it this way, in the second run we just add additional colors
@@ -173,6 +200,9 @@ void SettingsDialog::initGui()
     mPenColorCombobox = new ColorComboBox( colorNames, this );
 
     // Create push buttons
+    mBrowseButton->setText(tr("Browse"));
+    connect(mBrowseButton, SIGNAL(clicked()), this, SLOT(browseButtonClicked()));
+    
     mOkButton->setText( tr( "OK" ) );
     connect( mOkButton, SIGNAL( clicked() ), this, SLOT( okButtonClicked() ) );
 
@@ -180,11 +210,13 @@ void SettingsDialog::initGui()
     connect( mCancelButton, SIGNAL( clicked() ), this, SLOT( cancelButtonClicked() ) );
 
     // Setup Layout
-    mApplicationSettingsLayout->addWidget( mAlwaysCopyToClipboardCheckbox );
-    mApplicationSettingsLayout->addWidget( mPromptToSaveBeforeExitCheckbox );
-    mApplicationSettingsLayout->addWidget( mSaveKsnipPositionCheckbox );
-    mApplicationSettingsLayout->addWidget( mSaveKsnipToolSelectionCheckbox );
-    mApplicationSettingsLayout->addStretch( 1 );
+    mApplicationSettingsLayout->addWidget( mAlwaysCopyToClipboardCheckbox, 1, 1, 1, -1 );
+    mApplicationSettingsLayout->addWidget( mPromptToSaveBeforeExitCheckbox, 2, 1, 1, -1 );
+    mApplicationSettingsLayout->addWidget( mSaveKsnipPositionCheckbox, 3, 1, 1, -1 );
+    mApplicationSettingsLayout->addWidget( mSaveKsnipToolSelectionCheckbox, 4, 1, 1, -1 );
+    mApplicationSettingsLayout->addWidget( mSaveLocationLabel, 5, 1);
+    mApplicationSettingsLayout->addWidget( mSaveLocationLineEdit, 6, 1, 1, 3);
+    mApplicationSettingsLayout->addWidget( mBrowseButton, 6, 4);
     mApplicationSettingsGroupbox->setTitle( tr( "Application Settings" ) );
     mApplicationSettingsGroupbox->setLayout( mApplicationSettingsLayout );
 

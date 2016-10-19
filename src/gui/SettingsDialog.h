@@ -27,6 +27,7 @@
 #include "src/widgets/ColorComboBox.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/backend/KsnipConfig.h"
+#include "src/backend/StringManip.h"
 
 class SettingsDialog : public QDialog
 {
@@ -35,6 +36,7 @@ public:
     SettingsDialog ( MainWindow *parent = 0 );
 
 public slots:
+    void browseButtonClicked();
     void okButtonClicked();
     void cancelButtonClicked();
 
@@ -45,7 +47,7 @@ private:
     QGroupBox       *mImageGrabberGroupbox;
     QGroupBox       *mPenSettingsGroupbox;
     QGroupBox       *mMarkerSettingsGroupbox;
-    QVBoxLayout     *mApplicationSettingsLayout;
+    QGridLayout     *mApplicationSettingsLayout;
     QGridLayout     *mImageGrabberLayout;
     QGridLayout     *mPenSettingsLayout;
     QGridLayout     *mMarkerSettingsLayout;
@@ -54,7 +56,9 @@ private:
     QCheckBox       *mPromptToSaveBeforeExitCheckbox;
     QCheckBox       *mSaveKsnipPositionCheckbox;
     QCheckBox       *mSaveKsnipToolSelectionCheckbox;
+    QLineEdit       *mSaveLocationLineEdit;
     QLabel          *mCaptureDelayLabel;
+    QLabel          *mSaveLocationLabel;
     QLabel          *mPenColorLabel;
     QLabel          *mPenSizeLabel;
     QLabel          *mMarkerColorLabel;
@@ -62,6 +66,7 @@ private:
     NumericComboBox *mPenSizeCombobox;
     NumericComboBox *mMarkerSizeCombobox;
     NumericComboBox *mCaptureDelayCombobox;
+    QPushButton     *mBrowseButton;
     QPushButton     *mOkButton;
     QPushButton     *mCancelButton;
     ColorComboBox   *mPenColorCombobox;

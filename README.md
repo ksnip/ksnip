@@ -1,6 +1,6 @@
 # ksnip
 
-Currently in Beta!
+Version v1.1.0
 
 Screenshot tool inspired by Windows Snipping Tool and made with Qt for Linux. 
 

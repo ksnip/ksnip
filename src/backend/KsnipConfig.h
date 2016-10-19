@@ -76,6 +76,15 @@ public:
 
     int captureDelay() const;
     void setCaptureDelay ( int delay );
+    
+    QString saveDirectory();
+    void setSaveDirectory(QString path);
+    
+    QString saveFilename();
+    void setSaveFilename(QString filename);
+    
+    QString saveFormat();
+    void setSaveFormat(QString format);
 
 signals:
     void painterUpdated();

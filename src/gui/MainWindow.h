@@ -30,7 +30,8 @@
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/CaptureView.h"
 #include "src/backend/ImageGrabber.h"
-#include "src/backend//KsnipConfig.h"
+#include "src/backend/KsnipConfig.h"
+#include "src/backend/StringManip.h"
 
 class SnippingArea;
 

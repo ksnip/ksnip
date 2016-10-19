@@ -303,10 +303,13 @@ QIcon MainWindow::createIcon( QString name )
  */
 void MainWindow::instantSave( QPixmap pixmap )
 {       
-    pixmap.save(QDir::homePath() + 
-                "/ksnip_" + 
-                QDateTime::currentDateTime().toString("yyyyMMdd-hhmmss") + 
-                ".png") ;
+    QString savePath = KsnipConfig::instance()->saveDirectory() + 
+                       StringManip::instance()->updateTimeAndDate(KsnipConfig::instance()->saveFilename()) +
+                       KsnipConfig::instance()->saveFormat();
+    
+    // Turn any special characters, like $Y into a valid date and time value.
+    if(!pixmap.save(savePath))
+        qCritical( "MainWindow::instantSave: Unable to save capture at " + savePath.toLatin1());
 }
 
 void MainWindow::initGui()
@@ -503,29 +506,22 @@ void MainWindow::newActiveWindowCaptureClicked()
 
 void MainWindow::saveCaptureClicked()
 {
-    QString format = "png";
-    QString initialPath = QDir::homePath() + tr( "/untitled." ) + format;
+    QFileDialog saveDialog( this, tr( "Save As" ),
+                            KsnipConfig::instance()->saveDirectory() + tr( "untiteled" ) +
+                            KsnipConfig::instance()->saveFormat(),
+                            tr( "Images" ) + " (*.png *.gif *.jpg);;" + tr( "All Files" ) + "(*)" );
+    saveDialog.setAcceptMode( QFileDialog::AcceptSave );
 
-    QString fileName = QFileDialog::getSaveFileName( this, tr( "Save As" ),
-                       initialPath,
-                       tr( "%1 Files (*.%2);;All Files (*)" )
-                       .arg( format.toUpper() )
-                       .arg( format ) );
+    if ( saveDialog.exec() == QDialog::Accepted ) {
 
-    if ( fileName.isEmpty() ) {
-        QMessageBox msgBox;
-        msgBox.setWindowTitle( tr( "Unable to save" ) );
-        msgBox.setText( tr( "Filename is empty, unable to save the image." ) );
-        msgBox.exec();
-        return;
+        if ( !mCaptureScene->exportAsImage().save( saveDialog.selectedFiles().first() ) ) {
+            qCritical( "PaintWindow::saveCaptureClicked: Unable to save file " + 
+                        saveDialog.selectedFiles().first().toLatin1() );
+            return;
+        }
+
+        setSaveAble( false );
     }
-
-    if ( !mCaptureScene->exportAsImage().save( fileName ) ) {
-        qCritical( "PaintWindow::saveCaptureClicked: Failed to save image, something went wrong." );
-        return;
-    }
-
-    setSaveAble( false );
 }
 
 void MainWindow::copyToClipboardClicked()

@@ -23,19 +23,19 @@
 
 #include <QObject>
 #include <QDateTime>
+#include <QFile>
 
 class StringManip
 {
 public:
     StringManip();
 
-    static StringManip *instance();
+    static QString extractPath ( QString path );
+    static QString extractFilename ( QString path );
+    static QString extractFormat ( QString path );
 
-    QString extractPath ( QString path );
-    QString extractFilename ( QString path );
-    QString extractFormat ( QString path );
-
-    QString updateTimeAndDate ( QString filename );
+    static QString updateTimeAndDate ( QString filename );
+    static QString makeUniqueFilename(QString path, QString filename, QString exension = 0);
 };
 
 #endif // STRINGMANIP_H

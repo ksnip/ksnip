@@ -29,12 +29,6 @@ StringManip::StringManip()
 // Public Functions
 //
 
-StringManip *StringManip::instance()
-{
-    static StringManip instance;
-    return &instance;
-}
-
 /*
  * Split the path into sections each divided by forward slash and return everything from begin to
  * the last part just before the filename.
@@ -81,4 +75,17 @@ QString StringManip::updateTimeAndDate( QString filename )
     filename.replace( "$D", QDateTime::currentDateTime().toString( "dd" ) );
     filename.replace( "$T", QDateTime::currentDateTime().toString( "hhmmss" ) );
     return filename;
+}
+
+QString StringManip::makeUniqueFilename( QString path, QString filename, QString exension )
+{
+    if (!QFile::exists(path + filename + exension))
+        return path + filename + exension;
+    
+    int i = 1;
+    while (QFile::exists(path + filename + "(" + QString::number(i) + ")" + exension))
+    {
+        i++;
+    }
+    return path + filename + "(" + QString::number(i) + ")" + exension;
 }

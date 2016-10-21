@@ -148,11 +148,11 @@ void SettingsDialog::saveSettings()
 
     KsnipConfig::instance()->setCaptureDelay( mCaptureDelayCombobox->value() * 1000 );
     
-    KsnipConfig::instance()->setSaveDirectory(StringManip::instance()->extractPath(mSaveLocationLineEdit->displayText()));
+    KsnipConfig::instance()->setSaveDirectory(StringManip::extractPath(mSaveLocationLineEdit->displayText()));
     
-    KsnipConfig::instance()->setSaveFilename(StringManip::instance()->extractFilename(mSaveLocationLineEdit->displayText()));
+    KsnipConfig::instance()->setSaveFilename(StringManip::extractFilename(mSaveLocationLineEdit->displayText()));
     
-    KsnipConfig::instance()->setSaveFormat(StringManip::instance()->extractFormat(mSaveLocationLineEdit->displayText()));
+    KsnipConfig::instance()->setSaveFormat(StringManip::extractFormat(mSaveLocationLineEdit->displayText()));
 }
 
 void SettingsDialog::initGui()

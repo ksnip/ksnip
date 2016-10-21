@@ -214,7 +214,7 @@ void MainWindow::setSaveAble( bool enabled )
         mIsUnsaved = true;
     }
     else {
-        mSaveAction->setEnabled( false );
+        mSaveButton->setEnabled( false );
         setWindowTitle( QApplication::applicationName() );
         mIsUnsaved = false;
     }
@@ -302,14 +302,15 @@ QIcon MainWindow::createIcon( QString name )
  * number.
  */
 void MainWindow::instantSave( QPixmap pixmap )
-{       
-    QString savePath = KsnipConfig::instance()->saveDirectory() + 
-                       StringManip::instance()->updateTimeAndDate(KsnipConfig::instance()->saveFilename()) +
-                       KsnipConfig::instance()->saveFormat();
+{                             
+    QString savePath = StringManip::makeUniqueFilename(KsnipConfig::instance()->saveDirectory(), 
+                       StringManip::updateTimeAndDate(KsnipConfig::instance()->saveFilename()), 
+                       KsnipConfig::instance()->saveFormat());
     
     // Turn any special characters, like $Y into a valid date and time value.
-    if(!pixmap.save(savePath))
+    if(!pixmap.save(savePath)){
         qCritical( "MainWindow::instantSave: Unable to save capture at " + savePath.toLatin1());
+    }
 }
 
 void MainWindow::initGui()
@@ -507,7 +508,7 @@ void MainWindow::newActiveWindowCaptureClicked()
 void MainWindow::saveCaptureClicked()
 {
     QFileDialog saveDialog( this, tr( "Save As" ),
-                            KsnipConfig::instance()->saveDirectory() + tr( "untiteled" ) +
+                            KsnipConfig::instance()->saveDirectory() + tr( "untitled" ) +
                             KsnipConfig::instance()->saveFormat(),
                             tr( "Images" ) + " (*.png *.gif *.jpg);;" + tr( "All Files" ) + "(*)" );
     saveDialog.setAcceptMode( QFileDialog::AcceptSave );

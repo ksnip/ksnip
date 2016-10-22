@@ -319,6 +319,7 @@ void MainWindow::initGui()
 
     // Create actions for capture modes
     mNewRectAreaCaptureAction->setIconText( tr( "Rectangular Area" ) );
+    mNewRectAreaCaptureAction->setToolTip( tr( "Draw a rectangular area with your mouse." ) );
     mNewRectAreaCaptureAction->setIcon( createIcon( "drawRect" ) ) ;
     connect( mNewRectAreaCaptureAction,
              SIGNAL( triggered() ),
@@ -326,6 +327,7 @@ void MainWindow::initGui()
              SLOT( newRectAreaCaptureClicked() ) );
 
     mNewFullScreenCaptureAction->setIconText( tr( "Full Screen (All Monitors)" ) );
+    mNewFullScreenCaptureAction->setToolTip( tr( "Capture full screen including all monitors." ) );
     mNewFullScreenCaptureAction->setIcon( createIcon( "fullScreen" ) );
     connect( mNewFullScreenCaptureAction,
              SIGNAL( triggered() ),
@@ -333,6 +335,7 @@ void MainWindow::initGui()
              SLOT( newFullScreenCaptureClicked() ) );
 
     mNewCurrentScreenCaptureAction->setIconText( tr( "Current Screen" ) );
+    mNewCurrentScreenCaptureAction->setToolTip( tr( "Capture screen where the mouse is located." ) );
     mNewCurrentScreenCaptureAction->setIcon( createIcon( "currentScreen" ) );
     connect( mNewCurrentScreenCaptureAction,
              SIGNAL( triggered() ),
@@ -340,6 +343,7 @@ void MainWindow::initGui()
              SLOT( newCurrentScreenCaptureClicked() ) );
 
     mNewActiveWindowCaptureAction->setIconText( tr( "Active Window" ) );
+    mNewActiveWindowCaptureAction->setToolTip( tr( "Capture window that currently has focus." ) );
     mNewActiveWindowCaptureAction->setIcon( createIcon( "activeWindow" ) );
     connect( mNewActiveWindowCaptureAction,
              SIGNAL( triggered() ),

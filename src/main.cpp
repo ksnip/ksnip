@@ -21,11 +21,11 @@ int main( int argc, char **argv )
     // Add command line options
     parser.addOption( "h", "Displays this help", "help" );
     parser.addOption( "v", "Displays version information", "version" );
-    parser.addOption( "f", "Capture the entire desktop", "fullscreen" );
-    parser.addOption( "m", "Capture the current monitor", "current" );
-    parser.addOption( "a", "Capture the active window", "activewindow" );
-    parser.addOption( "d", "Delay before taking the screenshot, in seconds. " 
-                           "Only used with capture", "delay" );
+    parser.addOption( "f", "Capture the fullscreen including all monitors", "fullscreen" );
+    parser.addOption( "m", "Capture the screen where the mouse is currently located.", "current" );
+    parser.addOption( "a", "Capture the window that currently has focus", "activewindow" );
+    parser.addOption( "d", "Delay before taking the screenshot, in seconds. "
+                      "Only used with capture", "delay" );
 
     MainWindow window;
     QStringList arguments = QCoreApplication::arguments();

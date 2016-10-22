@@ -57,11 +57,11 @@ QPixmap ImageGrabber::grabImage( CaptureMode captureMode, QRect *rect )
 }
 
 /*
- * Returns the rect of the screen where ksnip is currently located
+ * Returns the rect of the screen where the mouse cursor is currently located
  */
 QRect ImageGrabber::currectScreenRect()
-{
-    unsigned short int screen = QApplication::desktop()->screenNumber( mParent );
+{   
+    unsigned short int screen = QApplication::desktop()->screenNumber(QCursor::pos());
     return QApplication::desktop()->screenGeometry( screen );
 }
 

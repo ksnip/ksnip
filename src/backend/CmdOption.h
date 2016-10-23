@@ -18,23 +18,37 @@
  *
  */
 
-#ifndef CUSTOMCURSOR_H
-#define CUSTOMCURSOR_H
+#include <QObject>
 
-#include <QCursor>
-#include <QPainter>
+#ifndef CMDOPTION_H
+#define CMDOPTION_H
 
-class CustomCursor : public QCursor
+class CmdOption
 {
 public:
-    enum CursorShape { Rect, Circle, cross};
-    CustomCursor();
-    CustomCursor ( CursorShape, QColor, int );
-    CustomCursor ( CursorShape );
+    CmdOption ( QString name, QString description, QString longName = 0 );
+
+    QString name() const;
+    void setName ( QString name );
+
+    QString longName() const;
+    void setLongName ( QString longName );
+
+    QString description() const;
+    void setDescription ( QString description );
+
+    bool isSet() const;
+    void set ( bool enabled );
+
+    QString value() const;
+    void setValue ( QString value );
 
 private:
-    QPixmap createPixmap ( CursorShape, QColor, int );
-    QPixmap createPixmap ( CursorShape );
+    QString mName;
+    QString mLongName;
+    QString mDescription;
+    bool    mIsSet; 
+    QString mValue;
 };
 
-#endif // CUSTOMCURSOR_H
+#endif // CMDOPTION_H

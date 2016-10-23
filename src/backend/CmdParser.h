@@ -18,23 +18,36 @@
  *
  */
 
-#ifndef CUSTOMCURSOR_H
-#define CUSTOMCURSOR_H
+#ifndef CMDPARSER_H
+#define CMDPARSER_H
 
-#include <QCursor>
-#include <QPainter>
+#include <QObject>
+#include <QApplication>
+#include <QStringList>
+#include <iostream>
+#include <iomanip>
 
-class CustomCursor : public QCursor
+#include "CmdOption.h"
+
+class CmdParser
 {
 public:
-    enum CursorShape { Rect, Circle, cross};
-    CustomCursor();
-    CustomCursor ( CursorShape, QColor, int );
-    CustomCursor ( CursorShape );
+    CmdParser();
+
+    bool addOption ( QString name, QString description, QString longName = 0 );
+    bool parse ( QStringList arguments );
+    void showHelp();
+    void showVersion();
+    bool isSet ( QString name );
+    QString value ( QString name );
 
 private:
-    QPixmap createPixmap ( CursorShape, QColor, int );
-    QPixmap createPixmap ( CursorShape );
+    QList<CmdOption>  mOptions;
+    QStringList       mUnknownOptions;
+
+    CmdOption *setOption ( QString name );
+    void setUnknownOption ( QString name );
+    bool showError();
 };
 
-#endif // CUSTOMCURSOR_H
+#endif // CMDPARSER_H

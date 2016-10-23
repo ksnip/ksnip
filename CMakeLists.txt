@@ -8,18 +8,24 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
-set(ksnip_SRCS src/main.cpp
-               src/ImageGrabber.cpp 
-               src/PaintStroke.cpp 
+set(ksnip_SRCS src/main.cpp 
+               src/backend/StringManip.cpp
+               src/backend/KsnipConfig.cpp
+               src/backend/ImageGrabber.cpp 
+               src/backend/CmdParser.cpp
+               src/backend/CmdOption.cpp
+               src/widgets/CaptureView.cpp 
+               src/widgets/PaintStroke.cpp 
                src/widgets/CustomToolButton.cpp 
-               src/PaintArea.cpp 
+               src/widgets/PaintArea.cpp 
+               src/widgets/CustomCursor.cpp 
+               src/widgets/NumericComboBox.cpp 
+               src/widgets/ColorComboBox.cpp
                src/gui/MainWindow.cpp 
                src/gui/SnippingArea.cpp 
                src/gui/SettingsDialog.cpp
                src/gui/AboutDialog.cpp 
-               src/widgets/CustomCursor.cpp 
-               src/widgets/NumericComboBox.cpp 
-               src/widgets/ColorComboBox.cpp)
+               )
                
 SET(ksnip_RES icons/resources.qrc)
 qt4_add_resources(ksnip_RES_RCC ${ksnip_RES})

@@ -18,23 +18,24 @@
  *
  */
 
-#ifndef CUSTOMCURSOR_H
-#define CUSTOMCURSOR_H
+#ifndef STRINGMANIP_H
+#define STRINGMANIP_H
 
-#include <QCursor>
-#include <QPainter>
+#include <QObject>
+#include <QDateTime>
+#include <QFile>
 
-class CustomCursor : public QCursor
+class StringManip
 {
 public:
-    enum CursorShape { Rect, Circle, cross};
-    CustomCursor();
-    CustomCursor ( CursorShape, QColor, int );
-    CustomCursor ( CursorShape );
+    StringManip();
 
-private:
-    QPixmap createPixmap ( CursorShape, QColor, int );
-    QPixmap createPixmap ( CursorShape );
+    static QString extractPath ( QString path );
+    static QString extractFilename ( QString path );
+    static QString extractFormat ( QString path );
+
+    static QString updateTimeAndDate ( QString filename );
+    static QString makeUniqueFilename(QString path, QString filename, QString exension = 0);
 };
 
-#endif // CUSTOMCURSOR_H
+#endif // STRINGMANIP_H

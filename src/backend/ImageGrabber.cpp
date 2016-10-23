@@ -29,9 +29,9 @@ ImageGrabber::ImageGrabber( QWidget *parent ) : QObject()
 // Public Functions
 //
 
-QPixmap ImageGrabber::grabImage( CaptureMode mode, QRect *rect )
+QPixmap ImageGrabber::grabImage( CaptureMode captureMode, QRect *rect )
 {
-    switch ( mode ) {
+    switch ( captureMode ) {
     case RectArea:
         if ( !rect ) {
             qCritical( "ImageGrabber::grabImage: No rect provided but it was expected." );
@@ -41,13 +41,13 @@ QPixmap ImageGrabber::grabImage( CaptureMode mode, QRect *rect )
         return grabRect( *rect );
 
     case FullScreen:
-        return grabRect( getFullScreenRect() );
+        return grabRect( fullScreenRect() );
 
     case CurrentScreen:
-        return grabRect( getCurrectScreenRect() );
+        return grabRect( currectScreenRect() );
 
     case ActiveWindow:
-        return grabRect( getActiveWindowRect() );
+        return grabRect( activeWindowRect() );
 
     default
             :
@@ -57,18 +57,18 @@ QPixmap ImageGrabber::grabImage( CaptureMode mode, QRect *rect )
 }
 
 /*
- * Returns the rect of the screen where ksnip is currently located
+ * Returns the rect of the screen where the mouse cursor is currently located
  */
-QRect ImageGrabber::getCurrectScreenRect()
-{
-    unsigned short int screen = QApplication::desktop()->screenNumber( mParent );
+QRect ImageGrabber::currectScreenRect()
+{   
+    unsigned short int screen = QApplication::desktop()->screenNumber(QCursor::pos());
     return QApplication::desktop()->screenGeometry( screen );
 }
 
 /*
  * Returns a rect covering the full screen, including several windows.
  */
-QRect ImageGrabber::getFullScreenRect()
+QRect ImageGrabber::fullScreenRect()
 {
     return QApplication::desktop()->screen()->geometry();
 }
@@ -76,7 +76,7 @@ QRect ImageGrabber::getFullScreenRect()
 /*
  * Get the position and size of the current top window which has focus.
  */
-QRect ImageGrabber::getActiveWindowRect()
+QRect ImageGrabber::activeWindowRect()
 {
 
     Display *display = XOpenDisplay( NULL );
@@ -89,7 +89,7 @@ QRect ImageGrabber::getActiveWindowRect()
 
     if ( !parentOfFocusedWindow ) {
         qCritical( "ImageGrabber::getActiveWindowRect: Unable to get window, returning screen." );
-        return getCurrectScreenRect();
+        return currectScreenRect();
     }
 
     XGetWindowAttributes( display, parentOfFocusedWindow, &attrributes );

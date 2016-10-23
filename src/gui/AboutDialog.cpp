@@ -30,7 +30,7 @@ AboutDialog::AboutDialog( MainWindow *parent ) : QDialog( parent ),
     mAuthorWidget( new QWidget ),
     mCloseButton( new QPushButton )
 {
-    setWindowTitle( tr( "About " ) + "ksnip" );
+    setWindowTitle( tr( "About " ) + QApplication::applicationName() );
 
     createHeader();
     createAboutTab();
@@ -66,7 +66,7 @@ void AboutDialog::createHeader()
     label->setPixmap( *pixmap );
     label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
     mHeaderLayout->addWidget( label );
-    label = new QLabel( "<h2>ksnip</h2>" );
+    label = new QLabel( "<h2>" + QApplication::applicationName() + "</h2>" );
     label->setAlignment( Qt::AlignLeft | Qt::AlignVCenter );
     mHeaderLayout->addWidget( label );
     mHeaderLayout->setAlignment( Qt::AlignLeft );
@@ -76,7 +76,9 @@ void AboutDialog::createAboutTab()
 {
     QVBoxLayout *layout = new QVBoxLayout();
     QLabel *label = new QLabel();
-    label->setText( tr( "ksnip Screenshot Tool" ) + "<br/><br/>" +
+    label->setText( QApplication::applicationName() + 
+                    " " + 
+                    tr( "Screenshot Tool" ) + "<br/><br/>" +
                     tr( "(C) 2016 Damir Porobic" ) + "<br/><br/>" +
                     tr( "License: " ) +
                     "<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU" +
@@ -93,7 +95,7 @@ void AboutDialog::createVersionTab()
     QVBoxLayout *layout = new QVBoxLayout();
 
     QLabel *label = new QLabel();
-    label->setText( "<b>" + tr( "Version " ) + mParent->getVersion() + "</b>" + "<br/><br/>" +
+    label->setText( "<b>" + tr( "Version " ) + QApplication::applicationVersion() + "</b>" + "<br/><br/>" +
                     tr( "Using :" ) +
                     "<ul><li>Qt 4.8</li><li>X11</li><br />" );
     layout->addWidget( label );

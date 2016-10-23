@@ -1,8 +1,8 @@
 Ksnip follows the KDELibs (see https://community.kde.org/Policies/Kdelibs_Coding_Style)
 coding style, with a few exceptions:
 
-    1. The access modifier ordering is: public, signals, public slots,
-       protected slots, protected, private slots, private. Member variables
+    1. The access modifier ordering is: public, public slots, signals,
+       protected, protected slots, , private, private slots. Member variables
        come come at beginning, before all member functions. This is not strictly
        enforced, but is a good rule to follow.
 

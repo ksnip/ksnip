@@ -123,10 +123,20 @@ void PaintArea::crop( QRect rect )
 void PaintArea::mousePressEvent( QGraphicsSceneMouseEvent *event )
 {
     if ( event->button() == Qt::LeftButton && mIsEnabled ) {
-        if ( mCurrentPaintMode == Erase ) {
+        switch ( mCurrentPaintMode ) {
+        case Erase:
             erasePaintStroke( event->scenePos() );
-        }
-        else {
+            break;
+
+        case Move:
+            if ( getObjectForMove( event->scenePos() ) ) {
+                setCursor();
+            }
+            break;
+            
+        case Pen:
+        case Marker:
+        default:
             addNewPaintStroke( event->scenePos() );
         }
     }
@@ -137,11 +147,18 @@ void PaintArea::mousePressEvent( QGraphicsSceneMouseEvent *event )
 void PaintArea::mouseMoveEvent( QGraphicsSceneMouseEvent *event )
 {
     if ( event->buttons() == Qt::LeftButton && mIsEnabled ) {
-
-        if ( mCurrentPaintMode == Erase ) {
+        switch ( mCurrentPaintMode ) {
+        case Erase:
             erasePaintStroke( event->scenePos() );
-        }
-        else {
+            break;
+
+        case Move:
+            moveObject( event->scenePos() );
+            break;
+
+        case Pen:
+        case Marker:
+        default:
             addToCurrentPaintStroke( event->scenePos() );
         }
     }
@@ -152,7 +169,22 @@ void PaintArea::mouseMoveEvent( QGraphicsSceneMouseEvent *event )
 void PaintArea::mouseReleaseEvent( QGraphicsSceneMouseEvent *event )
 {
     if ( event->button() == Qt::LeftButton && mIsEnabled ) {
-        mCurrentPaintStroke = NULL;
+        switch ( mCurrentPaintMode ) {
+        case Erase:
+            erasePaintStroke( event->scenePos() );
+            break;
+
+        case Move:
+            mCurrentPaintStroke = NULL;
+            setCursor();
+            mMoveOffset = QPointF(); // Set offset to 0,0
+            break;
+
+        case Pen:
+        case Marker:
+        default:
+            mCurrentPaintStroke = NULL;
+        }
 
         // Inform the MainWindow that something was drawn on the image so the user should be able to
         // save again.
@@ -220,13 +252,41 @@ bool PaintArea::erasePaintStroke( QPointF mousePosition )
     for ( int i = 0 ; i < items().count() ; i++ ) {
         item = qgraphicsitem_cast<PaintStroke *> ( items().at( i ) );
 
-        if ( item && item->isUnderLocation( mousePosition ) ) {
+        if ( item && item->isUnderLocation( mousePosition , 6) ) {
             removeItem( items().at( i ) );
             return true;
         }
     }
 
     return false;
+}
+
+/*
+ * Check if any of the paths is under this position, if yes grab it.
+ */
+bool PaintArea::getObjectForMove( QPointF position )
+{
+    for ( int i = 0 ; i < items().count() ; i++ ) {
+        mCurrentPaintStroke = qgraphicsitem_cast<PaintStroke *> ( items().at( i ) );
+
+        if ( mCurrentPaintStroke && mCurrentPaintStroke->isUnderLocation( position, 10 ) ) {
+            mMoveOffset = position - mCurrentPaintStroke->boundingRect().topLeft();
+            return true;
+        }
+    }
+
+    // Have not found any path under location
+    mCurrentPaintStroke = NULL;
+    return false;
+}
+
+void PaintArea::moveObject( QPointF position )
+{
+    if ( mCurrentPaintStroke == NULL ) {
+        return;
+    }
+
+    mCurrentPaintStroke->setPos( position - mMoveOffset );
 }
 
 /*
@@ -247,7 +307,7 @@ void PaintArea::setCursor()
  * Returns a new custom cursor based on currently selected paint tool, if the scene is disabled
  * return to default cursor.
  */
-CustomCursor *PaintArea::cursor()
+QCursor *PaintArea::cursor()
 {
     if ( !mIsEnabled ) {
         return new CustomCursor();
@@ -258,16 +318,19 @@ CustomCursor *PaintArea::cursor()
         return new CustomCursor( CustomCursor::Circle,
                                  KsnipConfig::instance()->penColor(),
                                  KsnipConfig::instance()->penSize() );
-        break;
 
     case Marker:
         return new CustomCursor( CustomCursor::Circle,
                                  KsnipConfig::instance()->markerColor(),
                                  KsnipConfig::instance()->markerSize() );
-        break;
 
     case Erase:
         return new CustomCursor( CustomCursor::Rect, QColor( "white" ), 6 );
-        break;
+        
+    case Move:
+        if (mCurrentPaintStroke == NULL)
+            return new QCursor(Qt::OpenHandCursor);
+        else
+            return new QCursor(Qt::ClosedHandCursor);
     }
 }

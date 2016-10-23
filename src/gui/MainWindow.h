@@ -72,6 +72,7 @@ private:
     QAction          *mPenAction;
     QAction          *mMarkerAction;
     QAction          *mEraseAction;
+    QAction          *mMoveAction;
     QAction          *mCropAction;
     QAction          *mNewCaptureAction;
     QAction          *mQuitAction;
@@ -103,6 +104,7 @@ private slots:
     void penClicked();
     void markerClicked();
     void eraseClicked();
+    void moveClicked();
     void cropClicked();
     void keyPressEvent ( QKeyEvent *event );
     void areaSelected ( QRect rect );

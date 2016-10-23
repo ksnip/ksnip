@@ -7,6 +7,7 @@
     <file alias="pen64.png">64x64/pen.64.png</file>
     <file alias="marker64.png">64x64/marker.64.png</file>
     <file alias="eraser64.png">64x64/eraser.64.png</file>
+    <file alias="move64.png">64x64/move.64.png</file>
     <file alias="copyToClipboard64.png">64x64/copyToClipboard.64.png</file>
     <file alias="save64.png">64x64/save.64.png</file>
     <file alias="drawRect64.png">64x64/drawRect.64.png</file>

@@ -32,7 +32,7 @@ class PaintArea : public QGraphicsScene
     Q_OBJECT
 public:
     PaintArea();
-    enum PaintMode { Pen, Marker, Erase };
+    enum PaintMode { Pen, Marker, Erase, Move };
     void loadCapture ( QPixmap pixmap );
     QSize areaSize();
     void setPaintMode ( PaintMode paintMode );
@@ -56,14 +56,17 @@ private:
     bool                 mIsEnabled;
     QGraphicsPixmapItem *mPixmap;
     PaintStroke         *mCurrentPaintStroke;
-    CustomCursor        *mCursor;
+    QCursor             *mCursor;
     bool                 mIsSnapping;
     PaintMode            mCurrentPaintMode;
+    QPointF              mMoveOffset;
 
     void addNewPaintStroke ( QPointF position );
     void addToCurrentPaintStroke ( QPointF position );
     bool erasePaintStroke ( QPointF position );
-    CustomCursor *cursor();
+    bool getObjectForMove ( QPointF position );
+    void moveObject( QPointF position );
+    QCursor *cursor();
 
 private slots:
     void setCursor();

@@ -53,34 +53,48 @@ int PaintStroke::type() const
     return Type;
 }
 
-void PaintStroke::lineTo( QPointF p )
+void PaintStroke::lineTo( QPointF pos )
 {
     prepareGeometryChange();
-    mPath->lineTo( p );
+    mPath->lineTo( pos );
 }
 
 /*
  * Moves last point of the path to new location, can be used to draw
  * straight lines.
  */
-void PaintStroke::lastLineTo( QPointF p )
+void PaintStroke::lastLineTo( QPointF pos )
 {
     if ( mPath->elementAt( mPath->elementCount() - 1 ).isLineTo() ) {
         prepareGeometryChange();
-        mPath->setElementPositionAt( mPath->elementCount() - 1, p.x(), p.y() );
+        mPath->setElementPositionAt( mPath->elementCount() - 1, pos.x(), pos.y() );
     }
     else {
-        lineTo( p );
+        lineTo( pos );
     }
 }
 
 /*
  *  Build a small rect at the provided point location and check if it  intersects with the path.
- *  This is used to detect overlapping, for features like removing/erasing the path
+ *  This is used to detect overlapping, for features like removing/erasing the path or moving it.
+ *  The provided short is used to draw a rectangle against which we check if there is as a collision
  */
-bool PaintStroke::isUnderLocation( QPointF p )
+bool PaintStroke::isUnderLocation( QPointF pos, short rectSize)
 {
-    return mPath->intersects( QRectF( p.x() - 3, p.y() - 3, 6, 6 ) );
+    return mPath->intersects( QRectF( pos.x() - rectSize / 2, 
+                                      pos.y() - rectSize / 2, 
+                                      rectSize, 
+                                      rectSize ) );
+}
+
+/*
+ * Moves the path to the provided position. The path position is calculated for the top left corner.
+ * Offset is not calculated, it should be already included.
+ */
+void PaintStroke::setPos( QPointF pos )
+{
+    mPath->translate( pos - boundingRect().topLeft() );
+    prepareGeometryChange();
 }
 
 //
@@ -95,7 +109,7 @@ void PaintStroke::paint( QPainter *painter, const QStyleOptionGraphicsItem * , Q
     else {
         painter->setPen( mAttributes->color() );
     }
-
+       
     painter->setBrush( mAttributes->color() );
     painter->drawPath( mStroker->createStroke( *mPath ) );
 }

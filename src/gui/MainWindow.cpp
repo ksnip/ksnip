@@ -37,6 +37,7 @@ MainWindow::MainWindow() : QWidget(),
     mPenAction( new QAction( this ) ),
     mMarkerAction( new QAction( this ) ),
     mEraseAction( new QAction( this ) ),
+    mMoveAction( new QAction( this ) ),
     mCropAction( new QAction( this ) ),
     mNewCaptureAction( new QAction( this ) ),
     mQuitAction( new QAction( this ) ),
@@ -385,6 +386,10 @@ void MainWindow::initGui()
     mEraseAction->setText( tr( "Erase" ) );
     mEraseAction->setIcon( createIcon( "eraser" ) );
     connect( mEraseAction, SIGNAL( triggered() ), this, SLOT( eraseClicked() ) );
+    
+    mMoveAction->setText( tr("Move") );
+    mMoveAction->setIcon( createIcon( "move" ) );
+    connect( mMoveAction, SIGNAL(triggered()), this, SLOT(moveClicked()));
 
     // Create action for new capture, this will be only used in the menu bar
     mNewCaptureAction->setText( tr( "New" ) );
@@ -430,6 +435,7 @@ void MainWindow::initGui()
     mPaintToolMenu->addAction( mPenAction );
     mPaintToolMenu->addAction( mMarkerAction );
     mPaintToolMenu->addAction( mEraseAction );
+    mPaintToolMenu->addAction( mMoveAction );
 
     mPaintToolButton->setMenu( mPaintToolMenu );
     mPaintToolButton->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );
@@ -549,6 +555,11 @@ void MainWindow::markerClicked()
 void MainWindow::eraseClicked()
 {
     mCaptureScene->setPaintMode( PaintArea::Erase );
+}
+
+void MainWindow::moveClicked()
+{
+    mCaptureScene->setPaintMode( PaintArea::Move );
 }
 
 void MainWindow::cropClicked()

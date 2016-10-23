@@ -31,9 +31,10 @@ public:
     PaintStroke ( QPointF startingPoint, QPen attributes, bool isTransparent = false );
     QRectF boundingRect() const;
     int type() const;
-    void lineTo ( QPointF p );
-    void lastLineTo ( QPointF p );
-    bool isUnderLocation ( QPointF p );
+    void lineTo ( QPointF pos );
+    void lastLineTo ( QPointF pos );
+    bool isUnderLocation ( QPointF pos, short rectSize );
+    void setPos( QPointF pos);
 
 private:
     QPainterPath        *mPath;

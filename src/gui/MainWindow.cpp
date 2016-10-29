@@ -38,6 +38,7 @@ MainWindow::MainWindow() : QWidget(),
     mMarkerAction( new QAction( this ) ),
     mEraseAction( new QAction( this ) ),
     mMoveAction( new QAction( this ) ),
+    mUploadAction( new QAction( this ) ), // TEST
     mCropAction( new QAction( this ) ),
     mNewCaptureAction( new QAction( this ) ),
     mQuitAction( new QAction( this ) ),
@@ -48,7 +49,8 @@ MainWindow::MainWindow() : QWidget(),
     mCaptureView( new CaptureView( mCaptureScene ) ),
     mClipboard( QApplication::clipboard() ),
     mSnippingArea( new SnippingArea( this ) ),
-    mImageGrabber( new ImageGrabber( this ) )
+    mImageGrabber( new ImageGrabber( this ) ),
+    mImageUploader(new ImgurUploader(this) )
 {
     initGui();
 
@@ -60,10 +62,10 @@ MainWindow::MainWindow() : QWidget(),
     // Create a connection with other widget elements
     connect( mSnippingArea, SIGNAL( areaSelected( QRect ) ), this, SLOT( areaSelected( QRect ) ) );
     connect( mCaptureScene, SIGNAL( imageChanged() ), this, SLOT( imageChanged() ) );
-    connect( KsnipConfig::instance(),
-             SIGNAL( captureDelayUpdated( int ) ),
-             this,
-             SLOT( setCaptureDelay( int ) ) );
+    connect( KsnipConfig::instance(),SIGNAL( captureDelayUpdated( int ) ),
+             this, SLOT( setCaptureDelay( int ) ) );
+    connect( mImageUploader, SIGNAL(uploadFinished(QString, ImgurUploader::Result)), 
+             this, SLOT(uploadFinished(QString, ImgurUploader::Result)));
 
     loadSettings();
 }
@@ -367,6 +369,12 @@ void MainWindow::initGui()
     mCopyToClipboardAction->setShortcut( QKeySequence::Copy );
     mCopyToClipboardAction->connect( mCopyToClipboardAction, SIGNAL( triggered() ), this,
                                      SLOT( copyToClipboardClicked() ) );
+    
+    // TEST 
+    mUploadAction->setText( tr("Upload"));
+    mUploadAction->setToolTip( tr("Upload capture image anonymously to imgur.com"));
+    mUploadAction->connect(mUploadAction, SIGNAL(triggered()), this, SLOT(uploadClicked()));
+    
 
     // Create crop action
     mCropAction->setText( tr( "Crop" ) );
@@ -457,6 +465,7 @@ void MainWindow::initGui()
     tmpMenu = mMenuBar->addMenu( tr( "File" ) );
     tmpMenu->addAction( mNewCaptureAction );
     tmpMenu->addAction( mSaveAction );
+    tmpMenu->addAction(mUploadAction);   // TEST
     tmpMenu->addSeparator();
     tmpMenu->addAction( mQuitAction );
     tmpMenu = mMenuBar->addMenu( tr( "&Edit" ) );
@@ -562,6 +571,12 @@ void MainWindow::moveClicked()
     mCaptureScene->setPaintMode( PaintArea::Move );
 }
 
+// TEST
+void MainWindow::uploadClicked()
+{
+    mImageUploader->startUploadAnonymous(mCaptureScene->exportAsImage());
+}
+
 void MainWindow::cropClicked()
 {
     mCaptureView->setIsCropping( true );
@@ -592,6 +607,29 @@ void MainWindow::imageChanged()
 
     if ( KsnipConfig::instance()->alwaysCopyToClipboard() ) {
         copyToClipboard();
+    }
+}
+
+// TEST
+/*
+ * Called when the upload to a file sharing site has finished. Depending on the result value the 
+ * message either contains the link to the image on the hosting site or the error message
+ */
+void MainWindow::uploadFinished( QString message, ImgurUploader::Result result )
+{
+    if ( result == ImgurUploader::Successful ) {
+        
+        // Open the link in the default browser
+        QDesktopServices::openUrl ( message );
+        
+        // If we always copy to clipboard is enabled then copy the link to clipboard
+        if ( KsnipConfig::instance()->alwaysCopyToClipboard() ) {
+            mClipboard->setText(message);
+        }
+    }
+    else {
+        // An error occurred, write the error message
+        qCritical( message.toLatin1() );
     }
 }
 

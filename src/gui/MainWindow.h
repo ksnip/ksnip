@@ -32,6 +32,7 @@
 #include "src/backend/ImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/StringManip.h"
+#include "src/backend/ImgurUploader.h"
 
 class SnippingArea;
 
@@ -73,6 +74,7 @@ private:
     QAction          *mMarkerAction;
     QAction          *mEraseAction;
     QAction          *mMoveAction;
+    QAction          *mUploadAction;  // TEST 
     QAction          *mCropAction;
     QAction          *mNewCaptureAction;
     QAction          *mQuitAction;
@@ -84,6 +86,7 @@ private:
     QClipboard       *mClipboard;
     SnippingArea     *mSnippingArea;
     ImageGrabber     *mImageGrabber;
+    ImgurUploader    *mImageUploader;   // TEST
 
     void delay ( int ms );
     void setSaveAble ( bool enabled );
@@ -105,10 +108,12 @@ private slots:
     void markerClicked();
     void eraseClicked();
     void moveClicked();
+    void uploadClicked();  // TEST
     void cropClicked();
     void keyPressEvent ( QKeyEvent *event );
     void areaSelected ( QRect rect );
     void imageChanged();
+    void uploadFinished( QString message, ImgurUploader::Result result); // TEST
     void openSettingsDialog();
     void openAboutDialog();
 };

@@ -18,33 +18,37 @@
  *
  */
 
-#ifndef IMAGEGRABBER_H
-#define IMAGEGRABBER_H
+#ifndef IMAGEUPLOADER_H
+#define IMAGEUPLOADER_H
 
 #include <QObject>
-#include <QApplication>
-#include <QDesktopWidget>
-#include <X11/Xlib.h>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QDomDocument>
+#include <QImage>
+#include <QBuffer>
 
-class MainWindow;
-
-class ImageGrabber : public QObject
+class ImgurUploader : public QObject
 {
+    Q_OBJECT
 public:
-    enum CaptureMode { RectArea, FullScreen, CurrentScreen, ActiveWindow };
+    enum Result { Successful, Error };
+    
+public:
+    ImgurUploader ( QObject *parent = 0 );
+    void startUploadAnonymous ( QImage image );
 
-public:
-    ImageGrabber ( QWidget * );
-    QPixmap grabImage ( CaptureMode captureMode, QRect *rect = 0 );
-    QRect currectScreenRect();
-    QRect fullScreenRect();
-    QRect activeWindowRect();
+signals:
+    void uploadFinished ( const QString message, ImgurUploader::Result result = Error );
 
 private:
-    QWidget *mParent;
+    QNetworkAccessManager *mAccessManager;
+    QByteArray             mClientID;
+    void printHeader ( QNetworkReply *reply );
 
-    QPixmap grabRect ( QRect rect );
-    Window getToplevelParent ( Display *display , Window window );
+private slots:
+    void handleReply ( QNetworkReply *reply );
 };
 
-#endif // IMAGEGRABBER_H
+#endif // IMAGEUPLOADER_H

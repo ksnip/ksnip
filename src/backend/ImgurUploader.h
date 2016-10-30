@@ -21,7 +21,7 @@
 #ifndef IMAGEUPLOADER_H
 #define IMAGEUPLOADER_H
 
-#include <QObject>
+#include <QCoreApplication>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
@@ -37,14 +37,23 @@ public:
     
 public:
     ImgurUploader ( QObject *parent = 0 );
-    void startUploadAnonymous ( QImage image );
+    void startUpload ( QImage image, QByteArray accessToken = 0);
+    void getAccessToken (QByteArray pin);
+    QUrl pinRequestUrl();
 
 signals:
     void uploadFinished ( const QString message, ImgurUploader::Result result = Error );
+    void tokenUpdated (const QString accessToken, const QString refreshTocken, const QString username, ImgurUploader::Result result);
 
 private:
     QNetworkAccessManager *mAccessManager;
-    QByteArray             mClientID;
+    QByteArray             mClientId;
+    QByteArray             mClientSecret;
+    void uploadAsAnonymous (QImage image);
+    void uploadToAccount (QImage image, QByteArray accessToken);
+    void handleDataResponse (QDomElement element);
+    void handleTokenResponse (QDomElement element);
+    void handleErrorResponse (QDomElement element);
     void printHeader ( QNetworkReply *reply );
 
 private slots:

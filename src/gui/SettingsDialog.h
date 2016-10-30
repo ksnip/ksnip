@@ -28,6 +28,7 @@
 #include "src/widgets/NumericComboBox.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/StringManip.h"
+#include "src/backend/ImgurUploader.h"
 
 class SettingsDialog : public QDialog
 {
@@ -35,20 +36,17 @@ class SettingsDialog : public QDialog
 public:
     SettingsDialog ( MainWindow *parent = 0 );
 
-public slots:
-    void browseButtonClicked();
-    void okButtonClicked();
-    void cancelButtonClicked();
-
 private:
     MainWindow      *mParent;
     QVBoxLayout     *mMainLayout;
     QGroupBox       *mApplicationSettingsGroupbox;
     QGroupBox       *mImageGrabberGroupbox;
+    QGroupBox       *mImgurGroupbox;
     QGroupBox       *mPenSettingsGroupbox;
     QGroupBox       *mMarkerSettingsGroupbox;
     QGridLayout     *mApplicationSettingsLayout;
     QGridLayout     *mImageGrabberLayout;
+    QGridLayout     *mImgurLayout;
     QGridLayout     *mPenSettingsLayout;
     QGridLayout     *mMarkerSettingsLayout;
     QHBoxLayout     *mButtonLayout;
@@ -57,8 +55,12 @@ private:
     QCheckBox       *mSaveKsnipPositionCheckbox;
     QCheckBox       *mSaveKsnipToolSelectionCheckbox;
     QLineEdit       *mSaveLocationLineEdit;
+    QLineEdit       *mImgurPinLineEdit;
     QLabel          *mCaptureDelayLabel;
     QLabel          *mSaveLocationLabel;
+    QLabel          *mImgurUsernameLabel;
+    QLabel          *mImgurUsernameValueLabel;
+    QLabel          *mImgurGetPinLabel;
     QLabel          *mPenColorLabel;
     QLabel          *mPenSizeLabel;
     QLabel          *mMarkerColorLabel;
@@ -67,13 +69,23 @@ private:
     NumericComboBox *mMarkerSizeCombobox;
     NumericComboBox *mCaptureDelayCombobox;
     QPushButton     *mBrowseButton;
+    QPushButton     *mImgurGetTokenButton;
     QPushButton     *mOkButton;
     QPushButton     *mCancelButton;
     ColorComboBox   *mPenColorCombobox;
     ColorComboBox   *mMarkerColorCombobox;
+    ImgurUploader   *mImgurUploader;
     void loadSettings();
     void saveSettings();
     void initGui();
+    
+private slots:
+    void browseButtonClicked();
+    void getTokenButtonClicked();
+    void okButtonClicked();
+    void cancelButtonClicked();
+    void imgurPinEntered(QString text);
+    void imgurTokenUpdated(const QString accessToken, const QString refreshTocken, const QString username, ImgurUploader::Result result);
 };
 
 #endif // SETTINGSDIALOG_H

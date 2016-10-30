@@ -77,14 +77,23 @@ public:
     int captureDelay() const;
     void setCaptureDelay ( int delay );
     
-    QString saveDirectory();
+    QString saveDirectory() const;
     void setSaveDirectory(QString path);
     
-    QString saveFilename();
+    QString saveFilename() const;
     void setSaveFilename(QString filename);
     
-    QString saveFormat();
+    QString saveFormat() const;
     void setSaveFormat(QString format);
+    
+    QString imgurUsername() const;
+    void setImgurUsername(QString username);
+    
+    QString imgurAccessToken() const;
+    void setImgurAccessToken(QString accessToken);
+    
+    QString imgurRefreshToken() const;
+    void setImgurRefreshToken(QString refreshToken);
 
 signals:
     void painterUpdated();

@@ -86,7 +86,7 @@ private:
     QClipboard       *mClipboard;
     SnippingArea     *mSnippingArea;
     ImageGrabber     *mImageGrabber;
-    ImgurUploader    *mImageUploader;   // TEST
+    ImgurUploader    *mImgurUploader;   // TEST
 
     void delay ( int ms );
     void setSaveAble ( bool enabled );

@@ -50,7 +50,7 @@ MainWindow::MainWindow() : QWidget(),
     mClipboard( QApplication::clipboard() ),
     mSnippingArea( new SnippingArea( this ) ),
     mImageGrabber( new ImageGrabber( this ) ),
-    mImageUploader(new ImgurUploader(this) )
+    mImgurUploader(new ImgurUploader(this) )
 {
     initGui();
 
@@ -64,7 +64,7 @@ MainWindow::MainWindow() : QWidget(),
     connect( mCaptureScene, SIGNAL( imageChanged() ), this, SLOT( imageChanged() ) );
     connect( KsnipConfig::instance(),SIGNAL( captureDelayUpdated( int ) ),
              this, SLOT( setCaptureDelay( int ) ) );
-    connect( mImageUploader, SIGNAL(uploadFinished(QString, ImgurUploader::Result)), 
+    connect( mImgurUploader, SIGNAL(uploadFinished(QString, ImgurUploader::Result)), 
              this, SLOT(uploadFinished(QString, ImgurUploader::Result)));
 
     loadSettings();
@@ -574,7 +574,8 @@ void MainWindow::moveClicked()
 // TEST
 void MainWindow::uploadClicked()
 {
-    mImageUploader->startUploadAnonymous(mCaptureScene->exportAsImage());
+    mImgurUploader->startUpload(mCaptureScene->exportAsImage(), 
+                                KsnipConfig::instance()->imgurAccessToken().toUtf8());
 }
 
 void MainWindow::cropClicked()

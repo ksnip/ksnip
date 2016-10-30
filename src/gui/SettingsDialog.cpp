@@ -26,10 +26,12 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
     mMainLayout( new QVBoxLayout ),
     mApplicationSettingsGroupbox( new QGroupBox ),
     mImageGrabberGroupbox( new QGroupBox ),
+    mImgurGroupbox( new QGroupBox),
     mPenSettingsGroupbox( new QGroupBox ),
     mMarkerSettingsGroupbox( new QGroupBox ),
     mApplicationSettingsLayout( new QGridLayout ),
     mImageGrabberLayout( new QGridLayout ),
+    mImgurLayout( new QGridLayout),
     mPenSettingsLayout( new QGridLayout ),
     mMarkerSettingsLayout( new QGridLayout ),
     mButtonLayout( new QHBoxLayout ),
@@ -38,8 +40,12 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
     mSaveKsnipPositionCheckbox( new QCheckBox ),
     mSaveKsnipToolSelectionCheckbox( new QCheckBox ),
     mSaveLocationLineEdit( new QLineEdit),
+    mImgurPinLineEdit( new QLineEdit),
     mCaptureDelayLabel( new QLabel ),
     mSaveLocationLabel( new QLabel),
+    mImgurUsernameLabel(new QLabel),
+    mImgurUsernameValueLabel (new QLabel),
+    mImgurGetPinLabel(new QLabel),
     mPenColorLabel( new QLabel ),
     mPenSizeLabel( new QLabel ),
     mMarkerColorLabel( new QLabel ),
@@ -48,8 +54,10 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
     mMarkerSizeCombobox( new NumericComboBox( 10, 2, 11, this ) ),
     mCaptureDelayCombobox( new NumericComboBox( 0, 1, 11, this ) ),
     mBrowseButton(new QPushButton),
+    mImgurGetTokenButton( new QPushButton),
     mOkButton( new QPushButton ),
-    mCancelButton( new QPushButton )
+    mCancelButton( new QPushButton ),
+    mImgurUploader(new ImgurUploader)
 {
     setWindowTitle( QApplication::applicationName() + " - " + tr( "Settings" ) );
 
@@ -61,31 +69,8 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
     setFixedSize( sizeHint() );
 
     loadSettings();
-}
-
-//
-// Public Slots
-//
-
-void SettingsDialog::browseButtonClicked()
-{
-    mSaveLocationLineEdit->setText( QFileDialog::getOpenFileName(this,
-                                    tr("Capture save location"), 
-                                    KsnipConfig::instance()->saveDirectory() +
-                                    KsnipConfig::instance()->saveFilename() +
-                                    KsnipConfig::instance()->saveFormat(), 
-                                    tr("All")));
-}
-
-void SettingsDialog::okButtonClicked()
-{
-    saveSettings();
-    close();
-}
-
-void SettingsDialog::cancelButtonClicked()
-{
-    close();
+    
+    connect(mImgurUploader, SIGNAL(tokenUpdated(QString,QString,QString,ImgurUploader::Result)), this, SLOT(imgurTokenUpdated(QString,QString,QString,ImgurUploader::Result)));
 }
 
 //
@@ -120,6 +105,8 @@ void SettingsDialog::loadSettings()
     else {
         mSaveKsnipToolSelectionCheckbox->setCheckState( Qt::Unchecked );
     }
+    
+    mImgurUsernameValueLabel->setText(KsnipConfig::instance()->imgurUsername());
 
     mPenColorCombobox->setColor( KsnipConfig::instance()->penColor() );
     mPenSizeCombobox->setValue( KsnipConfig::instance()->penSize() );
@@ -169,11 +156,20 @@ void SettingsDialog::initGui()
                                    KsnipConfig::instance()->saveFilename() +
                                    KsnipConfig::instance()->saveFormat()
     );
-    mSaveLocationLineEdit->setToolTip("Filename can contain $Y, $M, $D for date and $T for time.");
+    mSaveLocationLineEdit->setToolTip(tr ("Filename can contain $Y, $M, $D for date and $T for time."));
+    
+    mImgurPinLineEdit->setPlaceholderText( tr( "PIN" ) );
+    mImgurPinLineEdit->setToolTip( tr( "Enter imgur Pin which will be exchanged for a token." ) );
+    connect(mImgurPinLineEdit, SIGNAL(textChanged(QString)), this, SLOT(imgurPinEntered(QString)));
     
     // Create Labels
     mSaveLocationLabel->setText( tr("Capture save location and filename") + ":");
     mCaptureDelayLabel->setText( tr( "Delay (sec)" ) + ":" );
+    mImgurUsernameLabel->setText( tr( "Username" ) + ":" );
+    mImgurGetPinLabel->setText("<a href=\"" + mImgurUploader->pinRequestUrl().toString() + "\">Get PIN</a>");
+    mImgurGetPinLabel->setTextFormat(Qt::RichText);
+    mImgurGetPinLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mImgurGetPinLabel->setOpenExternalLinks(true);
     mPenColorLabel->setText( tr( "Pen Color" ) + ":" );
     mPenSizeLabel->setText( tr( "Pen Size" ) + ":" );
     mMarkerColorLabel->setText( tr( "Marker Color" )  + ":" );
@@ -203,6 +199,10 @@ void SettingsDialog::initGui()
     mBrowseButton->setText(tr("Browse"));
     connect(mBrowseButton, SIGNAL(clicked()), this, SLOT(browseButtonClicked()));
     
+    mImgurGetTokenButton->setText( tr("Get Token"));
+    connect(mImgurGetTokenButton, SIGNAL(clicked()), this, SLOT(getTokenButtonClicked()));
+    mImgurGetTokenButton->setEnabled(false);
+    
     mOkButton->setText( tr( "OK" ) );
     connect( mOkButton, SIGNAL( clicked() ), this, SLOT( okButtonClicked() ) );
 
@@ -224,7 +224,15 @@ void SettingsDialog::initGui()
     mImageGrabberLayout->addWidget( mCaptureDelayCombobox, 1, 2, 1, 3 );
     mImageGrabberGroupbox->setTitle( tr( "Image Grabber" ) );
     mImageGrabberGroupbox->setLayout( mImageGrabberLayout );
-
+    
+    mImgurLayout->addWidget(mImgurUsernameLabel, 1, 1);
+    mImgurLayout->addWidget(mImgurUsernameValueLabel, 1, 2);
+    mImgurLayout->addWidget(mImgurGetPinLabel, 1, 4, Qt::AlignCenter);
+    mImgurLayout->addWidget(mImgurPinLineEdit, 2, 1, 1, 3);
+    mImgurLayout->addWidget(mImgurGetTokenButton, 2, 4);
+    mImgurGroupbox->setTitle( tr("Imgur Uploader"));
+    mImgurGroupbox->setLayout(mImgurLayout);
+    
     mPenSettingsLayout->addWidget( mPenColorLabel, 1, 1 );
     mPenSettingsLayout->addWidget( mPenColorCombobox, 1, 2, 1, 3 );
     mPenSettingsLayout->addWidget( mPenSizeLabel, 2, 1 );
@@ -245,9 +253,63 @@ void SettingsDialog::initGui()
 
     mMainLayout->addWidget( mApplicationSettingsGroupbox );
     mMainLayout->addWidget( mImageGrabberGroupbox );
+    mMainLayout->addWidget( mImgurGroupbox);
     mMainLayout->addWidget( mPenSettingsGroupbox );
     mMainLayout->addWidget( mMarkerSettingsGroupbox );
     mMainLayout->addLayout( mButtonLayout );
     mMainLayout->addStretch( 1 );
     mMainLayout->addSpacing( 12 );
+}
+
+//
+// Public Slots
+//
+
+void SettingsDialog::browseButtonClicked()
+{
+    mSaveLocationLineEdit->setText( QFileDialog::getOpenFileName(this,
+                                    tr("Capture save location"), 
+                                    KsnipConfig::instance()->saveDirectory() +
+                                    KsnipConfig::instance()->saveFilename() +
+                                    KsnipConfig::instance()->saveFormat(), 
+                                    tr("All")));
+}
+
+void SettingsDialog::getTokenButtonClicked()
+{
+    mImgurUploader->getAccessToken(mImgurPinLineEdit->text().toUtf8());
+    mImgurPinLineEdit->clear();
+}
+
+void SettingsDialog::okButtonClicked()
+{
+    saveSettings();
+    close();
+}
+
+void SettingsDialog::cancelButtonClicked()
+{
+    close();
+}
+
+void SettingsDialog::imgurPinEntered( QString text )
+{
+    if (text.length() > 8){
+        mImgurGetTokenButton->setEnabled(true);
+    }
+    else{
+        mImgurGetTokenButton->setEnabled(false);
+    }
+}
+
+void SettingsDialog::imgurTokenUpdated( const QString accessToken, const QString refreshTocken, const QString username, ImgurUploader::Result result )
+{
+    if (result == ImgurUploader::Successful)
+    {
+        KsnipConfig::instance()->setImgurAccessToken(accessToken);
+        KsnipConfig::instance()->setImgurRefreshToken(refreshTocken);
+        KsnipConfig::instance()->setImgurUsername(username);
+        
+        mImgurUsernameValueLabel->setText(username);
+    }
 }

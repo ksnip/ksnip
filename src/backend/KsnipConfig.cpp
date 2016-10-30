@@ -221,7 +221,7 @@ void KsnipConfig::setCaptureDelay( int delay )
     emit captureDelayUpdated(delay);
 }
 
-QString KsnipConfig::saveDirectory()
+QString KsnipConfig::saveDirectory() const
 {
     if ( !mConfig.value( "Application/SaveDirectory", QDir::homePath() ).toString().isEmpty() ) {
         return mConfig.value( "Application/SaveDirectory", QDir::homePath() ).toString() + "/";
@@ -236,7 +236,7 @@ void KsnipConfig::setSaveDirectory( QString path )
     mConfig.setValue( "Application/SaveDirectory", path );
 }
 
-QString KsnipConfig::saveFilename()
+QString KsnipConfig::saveFilename() const
 {
     return mConfig.value( "Application/SaveFilename", "ksnip_$Y$M$D$" ).toString();
 }
@@ -246,7 +246,7 @@ void KsnipConfig::setSaveFilename( QString filename )
     mConfig.setValue( "Application/SaveFilename", filename );
 }
 
-QString KsnipConfig::saveFormat()
+QString KsnipConfig::saveFormat() const
 {
     if ( !mConfig.value( "Application/SaveFormat", "png" ).toString().isEmpty() ) {
         return "." + mConfig.value( "Application/SaveFormat", "png" ).toString();
@@ -259,4 +259,34 @@ QString KsnipConfig::saveFormat()
 void KsnipConfig::setSaveFormat( QString format )
 {
     mConfig.setValue( "Application/SaveFormat", format );
+}
+
+QString KsnipConfig::imgurUsername() const
+{
+    return mConfig.value( "Imgur/Username", "" ).toString();
+}
+
+void KsnipConfig::setImgurUsername( QString username )
+{
+    mConfig.setValue( "Imgur/Username", username );
+}
+
+QString KsnipConfig::imgurAccessToken() const
+{
+    return mConfig.value( "Imgur/AccessToken", "" ).toString();
+}
+
+void KsnipConfig::setImgurAccessToken( QString accessToken )
+{
+    mConfig.setValue( "Imgur/AccessToken", accessToken );
+}
+
+QString KsnipConfig::imgurRefreshToken() const
+{
+    return mConfig.value( "Imgur/RefreshToken", "" ).toString();
+}
+
+void KsnipConfig::setImgurRefreshToken( QString refreshToken )
+{
+    mConfig.setValue( "Imgur/RefreshToken", refreshToken );
 }

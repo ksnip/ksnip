@@ -19,9 +19,7 @@
  */
 #include "MainWindow.h"
 
-MainWindow::MainWindow() : QWidget(),
-    mToolBar( new QToolBar ),
-    mMenuBar( new QMenuBar ),
+MainWindow::MainWindow() : QMainWindow(),
     mNewCaptureButton( new CustomToolButton ),
     mSaveButton( new QToolButton ),
     mCopyToClipboardButton( new QToolButton ),
@@ -44,7 +42,6 @@ MainWindow::MainWindow() : QWidget(),
     mQuitAction( new QAction( this ) ),
     mSettingsDialogAction( new QAction( this ) ),
     mAboutKsnipAction( new QAction( this ) ),
-    mWindowLayout( new QVBoxLayout ),
     mCaptureScene( new PaintArea() ),
     mCaptureView( new CaptureView( mCaptureScene ) ),
     mClipboard( QApplication::clipboard() ),
@@ -449,41 +446,38 @@ void MainWindow::initGui()
     mPaintToolButton->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );
     mPaintToolButton->setDefaultAction( mPenAction );
 
-    // Create toolbar
-
-    mToolBar->addWidget( mNewCaptureButton );
-    mToolBar->addSeparator();
-    mToolBar->addWidget( mSaveButton );
-    mToolBar->addWidget( mCopyToClipboardButton );
-    mToolBar->addSeparator();
-    mToolBar->addWidget( mPaintToolButton );
-    mToolBar->setFixedSize( mToolBar->sizeHint() );
-
     // Create menu bar
+    QMenu *menu;
+    menu = menuBar()->addMenu( tr( "File" ) );
+    menu->addAction( mNewCaptureAction );
+    menu->addAction( mSaveAction );
+    menu->addAction(mUploadAction);   // TEST
+    menu->addSeparator();
+    menu->addAction( mQuitAction );
+    menu = menuBar()->addMenu( tr( "&Edit" ) );
+    menu->addAction( mCopyToClipboardAction );
+    menu->addAction( mCropAction );
+    menu = menuBar()->addMenu( tr( "&Options" ) );
+    menu->addAction( mSettingsDialogAction );
+    menu = menuBar()->addMenu( tr( "&Help" ) );
+    menu->addAction( mAboutKsnipAction );
 
-    QMenu *tmpMenu;
-    tmpMenu = mMenuBar->addMenu( tr( "File" ) );
-    tmpMenu->addAction( mNewCaptureAction );
-    tmpMenu->addAction( mSaveAction );
-    tmpMenu->addAction(mUploadAction);   // TEST
-    tmpMenu->addSeparator();
-    tmpMenu->addAction( mQuitAction );
-    tmpMenu = mMenuBar->addMenu( tr( "&Edit" ) );
-    tmpMenu->addAction( mCopyToClipboardAction );
-    tmpMenu->addAction( mCropAction );
-    tmpMenu = mMenuBar->addMenu( tr( "&Options" ) );
-    tmpMenu->addAction( mSettingsDialogAction );
-    tmpMenu = mMenuBar->addMenu( tr( "&Help" ) );
-    tmpMenu->addAction( mAboutKsnipAction );
-
-    // Create Layout
-
-    mWindowLayout->addWidget( mMenuBar );
-    mWindowLayout->addWidget( mToolBar );
-    mWindowLayout->addWidget( mCaptureView );
-    mWindowLayout->setAlignment( Qt::AlignTop | Qt::AlignLeft );
-    mWindowLayout->setContentsMargins( 0, 0, 0, 0 );
-    setLayout( mWindowLayout );
+    // Create toolbar
+    QToolBar *toolBar;
+    toolBar = addToolBar("Tools");
+    toolBar->setFloatable(false);
+    toolBar->setMovable(false);
+    toolBar->setAllowedAreas(Qt::BottomToolBarArea);
+    toolBar->addWidget( mNewCaptureButton );
+    toolBar->addSeparator();
+    toolBar->addWidget( mSaveButton );
+    toolBar->addWidget( mCopyToClipboardButton );
+    toolBar->addSeparator();
+    toolBar->addWidget( mPaintToolButton );
+    toolBar->setFixedSize( toolBar->sizeHint() );
+    
+    setCentralWidget(mCaptureView);  
+    resize(minimumSize());
 }
 
 //

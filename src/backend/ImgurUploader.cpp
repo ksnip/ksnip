@@ -57,9 +57,14 @@ void ImgurUploader::getAccessToken( QByteArray pin )
     params.append("&client_secret=" + mClientSecret);
     params.append("&grant_type=pin");
     params.append("&pin=" + pin);
-    
+
     // Request the token
     mAccessManager->post( request, params );
+}
+
+void ImgurUploader::refreshToken( QByteArray refreshTocken )
+{
+
 }
 
 QUrl ImgurUploader::pinRequestUrl()

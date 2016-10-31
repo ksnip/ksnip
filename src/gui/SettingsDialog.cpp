@@ -23,18 +23,6 @@
 SettingsDialog::SettingsDialog( MainWindow *parent ) :
     QDialog( parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint ),
     mParent( parent ),
-    mMainLayout( new QVBoxLayout ),
-    mApplicationSettingsGroupbox( new QGroupBox ),
-    mImageGrabberGroupbox( new QGroupBox ),
-    mImgurGroupbox( new QGroupBox),
-    mPenSettingsGroupbox( new QGroupBox ),
-    mMarkerSettingsGroupbox( new QGroupBox ),
-    mApplicationSettingsLayout( new QGridLayout ),
-    mImageGrabberLayout( new QGridLayout ),
-    mImgurLayout( new QGridLayout),
-    mPenSettingsLayout( new QGridLayout ),
-    mMarkerSettingsLayout( new QGridLayout ),
-    mButtonLayout( new QHBoxLayout ),
     mAlwaysCopyToClipboardCheckbox( new QCheckBox ),
     mPromptToSaveBeforeExitCheckbox( new QCheckBox ),
     mSaveKsnipPositionCheckbox( new QCheckBox ),
@@ -57,13 +45,13 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
     mImgurGetTokenButton( new QPushButton),
     mOkButton( new QPushButton ),
     mCancelButton( new QPushButton ),
-    mImgurUploader(new ImgurUploader)
+    mImgurUploader(new ImgurUploader),
+    mListWidget(new QListWidget),
+    mStackedLayout (new QStackedLayout)
 {
     setWindowTitle( QApplication::applicationName() + " - " + tr( "Settings" ) );
 
     initGui();
-
-    setLayout( mMainLayout );
 
     // We don't want the window to be resizable
     setFixedSize( sizeHint() );
@@ -71,6 +59,7 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
     loadSettings();
     
     connect(mImgurUploader, SIGNAL(tokenUpdated(QString,QString,QString,ImgurUploader::Result)), this, SLOT(imgurTokenUpdated(QString,QString,QString,ImgurUploader::Result)));
+    connect(mListWidget, SIGNAL(itemSelectionChanged()), this, SLOT(listSelectionChanged()));
 }
 
 //
@@ -144,20 +133,20 @@ void SettingsDialog::saveSettings()
 
 void SettingsDialog::initGui()
 {
-    // Setup checkbox
+    // Create Application Settings 
     mAlwaysCopyToClipboardCheckbox->setText( tr( "Always copy capture to clipboard." ) );
     mPromptToSaveBeforeExitCheckbox->setText( tr( "Prompt to save before exiting ksnip." ) );
     mSaveKsnipPositionCheckbox->setText( tr( "Save ksnip position on move and load on startup." ) );
     mSaveKsnipToolSelectionCheckbox->setText( tr( "Save ksnip tool selection and "
                                                   "load on startup." ) );
 
-    // Setup Line edits
     mSaveLocationLineEdit->setText(KsnipConfig::instance()->saveDirectory() +
                                    KsnipConfig::instance()->saveFilename() +
                                    KsnipConfig::instance()->saveFormat()
     );
-    mSaveLocationLineEdit->setToolTip(tr ("Filename can contain $Y, $M, $D for date and $T for time."));
+    mSaveLocationLineEdit->setToolTip(tr ("Filename can contain $Y, $M, $D for date and $T for time."));  
     
+    // Create Imgur Uploader Settings
     mImgurPinLineEdit->setPlaceholderText( tr( "PIN" ) );
     mImgurPinLineEdit->setToolTip( tr( "Enter imgur Pin which will be exchanged for a token." ) );
     connect(mImgurPinLineEdit, SIGNAL(textChanged(QString)), this, SLOT(imgurPinEntered(QString)));
@@ -195,7 +184,7 @@ void SettingsDialog::initGui()
     colorNames.insert( 10, "White" );
     mPenColorCombobox = new ColorComboBox( colorNames, this );
 
-    // Create push buttons
+    // Create Push
     mBrowseButton->setText(tr("Browse"));
     connect(mBrowseButton, SIGNAL(clicked()), this, SLOT(browseButtonClicked()));
     
@@ -209,56 +198,85 @@ void SettingsDialog::initGui()
     mCancelButton->setText( tr( "Cancel" ) );
     connect( mCancelButton, SIGNAL( clicked() ), this, SLOT( cancelButtonClicked() ) );
 
-    // Setup Layout
-    mApplicationSettingsLayout->addWidget( mAlwaysCopyToClipboardCheckbox, 1, 1, 1, -1 );
-    mApplicationSettingsLayout->addWidget( mPromptToSaveBeforeExitCheckbox, 2, 1, 1, -1 );
-    mApplicationSettingsLayout->addWidget( mSaveKsnipPositionCheckbox, 3, 1, 1, -1 );
-    mApplicationSettingsLayout->addWidget( mSaveKsnipToolSelectionCheckbox, 4, 1, 1, -1 );
-    mApplicationSettingsLayout->addWidget( mSaveLocationLabel, 5, 1);
-    mApplicationSettingsLayout->addWidget( mSaveLocationLineEdit, 6, 1, 1, 3);
-    mApplicationSettingsLayout->addWidget( mBrowseButton, 6, 4);
-    mApplicationSettingsGroupbox->setTitle( tr( "Application Settings" ) );
-    mApplicationSettingsGroupbox->setLayout( mApplicationSettingsLayout );
-
-    mImageGrabberLayout->addWidget( mCaptureDelayLabel, 1, 1 );
-    mImageGrabberLayout->addWidget( mCaptureDelayCombobox, 1, 2, 1, 3 );
-    mImageGrabberGroupbox->setTitle( tr( "Image Grabber" ) );
-    mImageGrabberGroupbox->setLayout( mImageGrabberLayout );
+    // Setup application settings layout
+    QGridLayout *applicationGrid = new QGridLayout;
+    applicationGrid->setAlignment(Qt::AlignTop);
+    applicationGrid->addWidget( mAlwaysCopyToClipboardCheckbox, 1, 1, 1, -1 );
+    applicationGrid->addWidget( mPromptToSaveBeforeExitCheckbox, 2, 1, 1, -1 );
+    applicationGrid->addWidget( mSaveKsnipPositionCheckbox, 3, 1, 1, -1 );
+    applicationGrid->addWidget( mSaveKsnipToolSelectionCheckbox, 4, 1, 1, -1 );
+    applicationGrid->addWidget( mSaveLocationLabel, 5, 1);
+    applicationGrid->addWidget( mSaveLocationLineEdit, 6, 1, 1, 3);
+    applicationGrid->addWidget( mBrowseButton, 6, 4);
     
-    mImgurLayout->addWidget(mImgurUsernameLabel, 1, 1);
-    mImgurLayout->addWidget(mImgurUsernameValueLabel, 1, 2);
-    mImgurLayout->addWidget(mImgurGetPinLabel, 1, 4, Qt::AlignCenter);
-    mImgurLayout->addWidget(mImgurPinLineEdit, 2, 1, 1, 3);
-    mImgurLayout->addWidget(mImgurGetTokenButton, 2, 4);
-    mImgurGroupbox->setTitle( tr("Imgur Uploader"));
-    mImgurGroupbox->setLayout(mImgurLayout);
+    QGroupBox *applicationGrpBox = new QGroupBox( tr( "Application Settings" ) );
+    applicationGrpBox->setLayout( applicationGrid );
+
+    // Setup image grabber layout
+    QGridLayout *imageGrabberGrid = new QGridLayout;
+    imageGrabberGrid->setAlignment(Qt::AlignTop);
+    imageGrabberGrid->addWidget( mCaptureDelayLabel, 0, 1);
+    imageGrabberGrid->addWidget( mCaptureDelayCombobox, 0, 2, 1, 3); 
+            
+    QGroupBox *imageGrabberGrpBox = new QGroupBox( tr( "Image Grabber" ) );
+    imageGrabberGrpBox->setLayout( imageGrabberGrid );
     
-    mPenSettingsLayout->addWidget( mPenColorLabel, 1, 1 );
-    mPenSettingsLayout->addWidget( mPenColorCombobox, 1, 2, 1, 3 );
-    mPenSettingsLayout->addWidget( mPenSizeLabel, 2, 1 );
-    mPenSettingsLayout->addWidget( mPenSizeCombobox, 2, 2, 1, 3 );
-    mPenSettingsGroupbox->setTitle( tr( "Pen Settings" ) );
-    mPenSettingsGroupbox->setLayout( mPenSettingsLayout );
+    // Setup imgur uploader layout
+    QGridLayout *imgurUploaderGrid = new QGridLayout;
+    imgurUploaderGrid->setAlignment(Qt::AlignTop);
+    imgurUploaderGrid->addWidget(mImgurUsernameLabel, 1, 1);
+    imgurUploaderGrid->addWidget(mImgurUsernameValueLabel, 1, 2);
+    imgurUploaderGrid->addWidget(mImgurGetPinLabel, 1, 4, Qt::AlignCenter);
+    imgurUploaderGrid->addWidget(mImgurPinLineEdit, 2, 1, 1, 3);
+    imgurUploaderGrid->addWidget(mImgurGetTokenButton, 2, 4);
+    
+    QGroupBox *imgurUploaderGrpBox = new QGroupBox(tr("Imgur Uploader"));
+    imgurUploaderGrpBox->setLayout(imgurUploaderGrid);
+    
+    // Setup painter layout
+    QGridLayout *painterGrid = new QGridLayout;
+    painterGrid->setAlignment(Qt::AlignTop);
+    painterGrid->addWidget( mPenColorLabel, 1, 1 );
+    painterGrid->addWidget( mPenColorCombobox, 1, 2, 1, 3 );
+    painterGrid->addWidget( mPenSizeLabel, 2, 1 );
+    painterGrid->addWidget( mPenSizeCombobox, 2, 2, 1, 3 );
+    painterGrid->addWidget( mMarkerColorLabel, 3, 1 );
+    painterGrid->addWidget( mMarkerColorCombobox, 3, 2, 1, 3 );
+    painterGrid->addWidget( mMarkerSizeLabel, 4, 1 );
+    painterGrid->addWidget( mMarkerSizeCombobox, 4, 2, 1, 3 );
+    
+    QGroupBox *painterGrpBox = new QGroupBox( tr( "Painter Settings" ) );
+    painterGrpBox->setLayout( painterGrid );
 
-    mMarkerSettingsLayout->addWidget( mMarkerColorLabel, 1, 1 );
-    mMarkerSettingsLayout->addWidget( mMarkerColorCombobox, 1, 2, 1, 3 );
-    mMarkerSettingsLayout->addWidget( mMarkerSizeLabel, 2, 1 );
-    mMarkerSettingsLayout->addWidget( mMarkerSizeCombobox, 2, 2, 1, 3 );
-    mMarkerSettingsGroupbox->setTitle( tr( "Marker Settings" ) );
-    mMarkerSettingsGroupbox->setLayout( mMarkerSettingsLayout );
-
-    mButtonLayout->addWidget( mOkButton );
-    mButtonLayout->addWidget( mCancelButton );
-    mButtonLayout->setAlignment( Qt::AlignRight );
-
-    mMainLayout->addWidget( mApplicationSettingsGroupbox );
-    mMainLayout->addWidget( mImageGrabberGroupbox );
-    mMainLayout->addWidget( mImgurGroupbox);
-    mMainLayout->addWidget( mPenSettingsGroupbox );
-    mMainLayout->addWidget( mMarkerSettingsGroupbox );
-    mMainLayout->addLayout( mButtonLayout );
-    mMainLayout->addStretch( 1 );
-    mMainLayout->addSpacing( 12 );
+    // Setup push button layout
+    QHBoxLayout *buttonLayout = new QHBoxLayout;
+    buttonLayout = new QHBoxLayout;
+    buttonLayout->addWidget( mOkButton );
+    buttonLayout->addWidget( mCancelButton );
+    buttonLayout->setAlignment( Qt::AlignRight );
+    
+    // Populate Stacked layout and listview
+    mStackedLayout->addWidget(applicationGrpBox);
+    mStackedLayout->addWidget(imageGrabberGrpBox);
+    mStackedLayout->addWidget(imgurUploaderGrpBox);
+    mStackedLayout->addWidget(painterGrpBox);
+    
+    mListWidget->addItem(tr ("Application"));
+    mListWidget->addItem(tr("Image Grabber"));
+    mListWidget->addItem(tr("Imgur Uploader"));
+    mListWidget->addItem(tr("Painter"));
+    mListWidget->setFixedWidth(mListWidget->sizeHintForColumn(0) + 20);
+    
+    // Setup main window layout
+    QHBoxLayout *listAndStackLayout = new QHBoxLayout;
+    listAndStackLayout->addWidget(mListWidget);
+    listAndStackLayout->addLayout(mStackedLayout);
+    
+    QVBoxLayout *mainLayout = new QVBoxLayout();
+    mainLayout->addLayout( listAndStackLayout );
+    mainLayout->addLayout( buttonLayout );
+    
+    setLayout( mainLayout );
 }
 
 //
@@ -287,6 +305,15 @@ void SettingsDialog::okButtonClicked()
     close();
 }
 
+/*
+ * Called when the list view selection has changed, it will change the selected stacked layout
+ * providing the effect of switching between the different settings option
+ */
+void SettingsDialog::listSelectionChanged()
+{
+    mStackedLayout->setCurrentIndex(mListWidget->currentRow());
+}
+
 void SettingsDialog::cancelButtonClicked()
 {
     close();
@@ -302,7 +329,8 @@ void SettingsDialog::imgurPinEntered( QString text )
     }
 }
 
-void SettingsDialog::imgurTokenUpdated( const QString accessToken, const QString refreshTocken, const QString username, ImgurUploader::Result result )
+void SettingsDialog::imgurTokenUpdated( const QString accessToken, const QString refreshTocken, 
+                                        const QString username, ImgurUploader::Result result )
 {
     if (result == ImgurUploader::Successful)
     {

@@ -36,7 +36,7 @@
 
 class SnippingArea;
 
-class MainWindow : public QWidget
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
@@ -56,8 +56,6 @@ protected:
 private:
     int               mCaptureDelay;
     bool              mIsUnsaved;
-    QToolBar         *mToolBar;
-    QMenuBar         *mMenuBar;
     CustomToolButton *mNewCaptureButton;
     QToolButton      *mSaveButton;
     QToolButton      *mCopyToClipboardButton;
@@ -80,7 +78,6 @@ private:
     QAction          *mQuitAction;
     QAction          *mSettingsDialogAction;
     QAction          *mAboutKsnipAction;
-    QVBoxLayout      *mWindowLayout;
     PaintArea        *mCaptureScene;
     CaptureView      *mCaptureView;
     QClipboard       *mClipboard;

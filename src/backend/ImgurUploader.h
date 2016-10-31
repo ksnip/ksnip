@@ -39,6 +39,7 @@ public:
     ImgurUploader ( QObject *parent = 0 );
     void startUpload ( QImage image, QByteArray accessToken = 0);
     void getAccessToken (QByteArray pin);
+    void refreshToken (QByteArray refreshTocken);
     QUrl pinRequestUrl();
 
 signals:

@@ -38,18 +38,6 @@ public:
 
 private:
     MainWindow      *mParent;
-    QVBoxLayout     *mMainLayout;
-    QGroupBox       *mApplicationSettingsGroupbox;
-    QGroupBox       *mImageGrabberGroupbox;
-    QGroupBox       *mImgurGroupbox;
-    QGroupBox       *mPenSettingsGroupbox;
-    QGroupBox       *mMarkerSettingsGroupbox;
-    QGridLayout     *mApplicationSettingsLayout;
-    QGridLayout     *mImageGrabberLayout;
-    QGridLayout     *mImgurLayout;
-    QGridLayout     *mPenSettingsLayout;
-    QGridLayout     *mMarkerSettingsLayout;
-    QHBoxLayout     *mButtonLayout;
     QCheckBox       *mAlwaysCopyToClipboardCheckbox;
     QCheckBox       *mPromptToSaveBeforeExitCheckbox;
     QCheckBox       *mSaveKsnipPositionCheckbox;
@@ -75,6 +63,8 @@ private:
     ColorComboBox   *mPenColorCombobox;
     ColorComboBox   *mMarkerColorCombobox;
     ImgurUploader   *mImgurUploader;
+    QListWidget     *mListWidget;
+    QStackedLayout  *mStackedLayout;
     void loadSettings();
     void saveSettings();
     void initGui();
@@ -83,6 +73,7 @@ private slots:
     void browseButtonClicked();
     void getTokenButtonClicked();
     void okButtonClicked();
+    void listSelectionChanged();
     void cancelButtonClicked();
     void imgurPinEntered(QString text);
     void imgurTokenUpdated(const QString accessToken, const QString refreshTocken, const QString username, ImgurUploader::Result result);

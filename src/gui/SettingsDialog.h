@@ -28,6 +28,7 @@
 #include "src/widgets/NumericComboBox.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/StringManip.h"
+#include "src/backend/ImgurUploader.h"
 
 class SettingsDialog : public QDialog
 {
@@ -35,30 +36,22 @@ class SettingsDialog : public QDialog
 public:
     SettingsDialog ( MainWindow *parent = 0 );
 
-public slots:
-    void browseButtonClicked();
-    void okButtonClicked();
-    void cancelButtonClicked();
-
 private:
     MainWindow      *mParent;
-    QVBoxLayout     *mMainLayout;
-    QGroupBox       *mApplicationSettingsGroupbox;
-    QGroupBox       *mImageGrabberGroupbox;
-    QGroupBox       *mPenSettingsGroupbox;
-    QGroupBox       *mMarkerSettingsGroupbox;
-    QGridLayout     *mApplicationSettingsLayout;
-    QGridLayout     *mImageGrabberLayout;
-    QGridLayout     *mPenSettingsLayout;
-    QGridLayout     *mMarkerSettingsLayout;
-    QHBoxLayout     *mButtonLayout;
     QCheckBox       *mAlwaysCopyToClipboardCheckbox;
     QCheckBox       *mPromptToSaveBeforeExitCheckbox;
     QCheckBox       *mSaveKsnipPositionCheckbox;
     QCheckBox       *mSaveKsnipToolSelectionCheckbox;
+    QCheckBox       *mImgurForceAnonymousCheckbox;
+    QCheckBox       *mImgurDirectLinkToImageCheckbox;
+    QCheckBox       *mImgurAlwaysCopyToClipboardCheckBox;
     QLineEdit       *mSaveLocationLineEdit;
+    QLineEdit       *mImgurClientIdLineEdit;
+    QLineEdit       *mImgurClientSecretLineEdit;
+    QLineEdit       *mImgurPinLineEdit;
     QLabel          *mCaptureDelayLabel;
     QLabel          *mSaveLocationLabel;
+    QLabel          *mImgurUsernameLabel;
     QLabel          *mPenColorLabel;
     QLabel          *mPenSizeLabel;
     QLabel          *mMarkerColorLabel;
@@ -67,13 +60,30 @@ private:
     NumericComboBox *mMarkerSizeCombobox;
     NumericComboBox *mCaptureDelayCombobox;
     QPushButton     *mBrowseButton;
+    QPushButton     *mImgurGetPinButton;
+    QPushButton     *mImgurGetTokenButton;
     QPushButton     *mOkButton;
     QPushButton     *mCancelButton;
     ColorComboBox   *mPenColorCombobox;
     ColorComboBox   *mMarkerColorCombobox;
+    ImgurUploader   *mImgurUploader;
+    QListWidget     *mListWidget;
+    QStackedLayout  *mStackedLayout;
     void loadSettings();
     void saveSettings();
     void initGui();
+    
+private slots:
+    void browseButtonClicked();
+    void getPinButtonClicked();
+    void getTokenButtonClicked();
+    void okButtonClicked();
+    void listSelectionChanged();
+    void cancelButtonClicked();
+    void imgurPinEntered(QString text);
+    void imgurClientEntered(QString text);
+    void imgurTokenUpdated(const QString accessToken, const QString refreshTocken, const QString username);
+    void imgurTokenError (const QString message);
 };
 
 #endif // SETTINGSDIALOG_H

@@ -9,6 +9,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
 set(ksnip_SRCS src/main.cpp 
+               src/backend/ImgurUploader.cpp
                src/backend/StringManip.cpp
                src/backend/KsnipConfig.cpp
                src/backend/ImageGrabber.cpp 
@@ -34,7 +35,7 @@ qt4_automoc(${ksnip_SRCS})
  
 add_executable(ksnip ${ksnip_SRCS} ${ksnip_RES_RCC})
 
-target_link_libraries(ksnip ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} X11 )
+target_link_libraries(ksnip ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTNETWORK_LIBRARY} ${QT_QTXML_LIBRARY} X11 )
 
 install(TARGETS ksnip RUNTIME DESTINATION /bin)
 

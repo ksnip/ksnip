@@ -134,7 +134,8 @@ ImageGrabber::CaptureMode KsnipConfig::captureMode() const
     case ImageGrabber::FullScreen:
         return ImageGrabber::FullScreen;
 
-    default:
+    default
+            :
         return ImageGrabber::RectArea;
     }
 }
@@ -218,10 +219,10 @@ void KsnipConfig::setCaptureDelay( int delay )
 {
     mConfig.setValue( "ImageGrabber/CaptureDelay", delay );
     mConfig.sync();
-    emit captureDelayUpdated(delay);
+    emit captureDelayUpdated( delay );
 }
 
-QString KsnipConfig::saveDirectory()
+QString KsnipConfig::saveDirectory() const
 {
     if ( !mConfig.value( "Application/SaveDirectory", QDir::homePath() ).toString().isEmpty() ) {
         return mConfig.value( "Application/SaveDirectory", QDir::homePath() ).toString() + "/";
@@ -236,7 +237,7 @@ void KsnipConfig::setSaveDirectory( QString path )
     mConfig.setValue( "Application/SaveDirectory", path );
 }
 
-QString KsnipConfig::saveFilename()
+QString KsnipConfig::saveFilename() const
 {
     return mConfig.value( "Application/SaveFilename", "ksnip_$Y$M$D$" ).toString();
 }
@@ -246,7 +247,7 @@ void KsnipConfig::setSaveFilename( QString filename )
     mConfig.setValue( "Application/SaveFilename", filename );
 }
 
-QString KsnipConfig::saveFormat()
+QString KsnipConfig::saveFormat() const
 {
     if ( !mConfig.value( "Application/SaveFormat", "png" ).toString().isEmpty() ) {
         return "." + mConfig.value( "Application/SaveFormat", "png" ).toString();
@@ -259,4 +260,84 @@ QString KsnipConfig::saveFormat()
 void KsnipConfig::setSaveFormat( QString format )
 {
     mConfig.setValue( "Application/SaveFormat", format );
+}
+
+QString KsnipConfig::imgurUsername() const
+{
+    return mConfig.value( "Imgur/Username", "" ).toString();
+}
+
+void KsnipConfig::setImgurUsername( QString username )
+{
+    mConfig.setValue( "Imgur/Username", username );
+}
+
+QByteArray KsnipConfig::imgurClientId() const
+{
+    return mConfig.value( "Imgur/ClientId", "" ).toByteArray();
+}
+
+void KsnipConfig::setImgurClientId( QString clientId )
+{
+    mConfig.setValue( "Imgur/ClientId", clientId );
+}
+
+QByteArray KsnipConfig::imgurClientSecret() const
+{
+    return mConfig.value( "Imgur/ClientSecret", "" ).toByteArray();
+}
+
+void KsnipConfig::setImgurClientSecret( QString clientSecret )
+{
+    mConfig.setValue( "Imgur/ClientSecret", clientSecret );
+}
+
+QByteArray KsnipConfig::imgurAccessToken() const
+{
+    return mConfig.value( "Imgur/AccessToken", "" ).toByteArray();
+}
+
+void KsnipConfig::setImgurAccessToken( QString accessToken )
+{
+    mConfig.setValue( "Imgur/AccessToken", accessToken );
+}
+
+QByteArray KsnipConfig::imgurRefreshToken() const
+{
+    return mConfig.value( "Imgur/RefreshToken", "" ).toByteArray();
+}
+
+void KsnipConfig::setImgurRefreshToken( QString refreshToken )
+{
+    mConfig.setValue( "Imgur/RefreshToken", refreshToken );
+}
+
+bool KsnipConfig::imgurForceAnonymous() const
+{
+    return mConfig.value( "Imgur/ForceAnonymous", false ).toBool();
+}
+
+void KsnipConfig::setImgurForceAnonymous( bool enabled )
+{
+    mConfig.setValue( "Imgur/ForceAnonymous", enabled );
+}
+
+bool KsnipConfig::imgurOpenLinkDirectlyToImage() const
+{
+    return mConfig.value( "Imgur/OpenLinkDirectlyToImage", false ).toBool();
+}
+
+void KsnipConfig::setImgurOpenLinkDirectlyToImage( bool enabled )
+{
+    mConfig.setValue( "Imgur/OpenLinkDirectlyToImage", enabled );
+}
+
+bool KsnipConfig::imgurAlwaysCopyToClipboard() const
+{
+    return mConfig.value( "Imgur/AlwaysCopyToClipboard", false ).toBool();
+}
+
+void KsnipConfig::setImgurAlwaysCopyToClipboard( bool enabled )
+{
+    mConfig.setValue( "Imgur/AlwaysCopyToClipboard", enabled );
 }

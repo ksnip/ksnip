@@ -76,19 +76,43 @@ public:
 
     int captureDelay() const;
     void setCaptureDelay ( int delay );
-    
-    QString saveDirectory();
-    void setSaveDirectory(QString path);
-    
-    QString saveFilename();
-    void setSaveFilename(QString filename);
-    
-    QString saveFormat();
-    void setSaveFormat(QString format);
+
+    QString saveDirectory() const;
+    void setSaveDirectory ( QString path );
+
+    QString saveFilename() const;
+    void setSaveFilename ( QString filename );
+
+    QString saveFormat() const;
+    void setSaveFormat ( QString format );
+
+    QString imgurUsername() const;
+    void setImgurUsername ( QString username );
+
+    QByteArray imgurClientId() const;
+    void setImgurClientId ( QString clientId );
+
+    QByteArray imgurClientSecret() const;
+    void setImgurClientSecret ( QString clientSecret );
+
+    QByteArray imgurAccessToken() const;
+    void setImgurAccessToken ( QString accessToken );
+
+    QByteArray imgurRefreshToken() const;
+    void setImgurRefreshToken ( QString refreshToken );
+
+    bool imgurForceAnonymous() const;
+    void setImgurForceAnonymous ( bool enabled );
+
+    bool imgurOpenLinkDirectlyToImage() const;
+    void setImgurOpenLinkDirectlyToImage ( bool enabled );
+
+    bool imgurAlwaysCopyToClipboard() const;
+    void setImgurAlwaysCopyToClipboard ( bool enabled );
 
 signals:
     void painterUpdated();
-    void captureDelayUpdated(int delay);
+    void captureDelayUpdated ( int delay );
 
 private:
     QSettings mConfig;

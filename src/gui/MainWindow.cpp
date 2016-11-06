@@ -19,9 +19,7 @@
  */
 #include "MainWindow.h"
 
-MainWindow::MainWindow() : QWidget(),
-    mToolBar( new QToolBar ),
-    mMenuBar( new QMenuBar ),
+MainWindow::MainWindow() : QMainWindow(),
     mNewCaptureButton( new CustomToolButton ),
     mSaveButton( new QToolButton ),
     mCopyToClipboardButton( new QToolButton ),
@@ -38,17 +36,18 @@ MainWindow::MainWindow() : QWidget(),
     mMarkerAction( new QAction( this ) ),
     mEraseAction( new QAction( this ) ),
     mMoveAction( new QAction( this ) ),
+    mUploadToImgurAction( new QAction( this ) ),
     mCropAction( new QAction( this ) ),
     mNewCaptureAction( new QAction( this ) ),
     mQuitAction( new QAction( this ) ),
     mSettingsDialogAction( new QAction( this ) ),
     mAboutKsnipAction( new QAction( this ) ),
-    mWindowLayout( new QVBoxLayout ),
     mCaptureScene( new PaintArea() ),
     mCaptureView( new CaptureView( mCaptureScene ) ),
     mClipboard( QApplication::clipboard() ),
     mSnippingArea( new SnippingArea( this ) ),
-    mImageGrabber( new ImageGrabber( this ) )
+    mImageGrabber( new ImageGrabber( this ) ),
+    mImgurUploader(new ImgurUploader(this) )
 {
     initGui();
 
@@ -60,10 +59,12 @@ MainWindow::MainWindow() : QWidget(),
     // Create a connection with other widget elements
     connect( mSnippingArea, SIGNAL( areaSelected( QRect ) ), this, SLOT( areaSelected( QRect ) ) );
     connect( mCaptureScene, SIGNAL( imageChanged() ), this, SLOT( imageChanged() ) );
-    connect( KsnipConfig::instance(),
-             SIGNAL( captureDelayUpdated( int ) ),
-             this,
-             SLOT( setCaptureDelay( int ) ) );
+    connect( KsnipConfig::instance(),SIGNAL( captureDelayUpdated( int ) ),
+             this, SLOT( setCaptureDelay( int ) ) );
+    connect( mImgurUploader, SIGNAL(uploadFinished(QString)), this, SLOT(imgurUploadFinished(QString)));
+    connect( mImgurUploader, SIGNAL(error(QString)), this, SLOT(imgurError(QString)));
+    connect( mImgurUploader, SIGNAL(tokenUpdated(QString,QString,QString)), this, SLOT(imgurTokenUpdated(QString,QString,QString)));
+    connect( mImgurUploader, SIGNAL(tokenRefreshRequired()), this, SLOT(imgurTokenRefresh()));
 
     loadSettings();
 }
@@ -90,7 +91,7 @@ void MainWindow::show( QPixmap screenshot )
     }
 
     else {
-        resize( mCaptureScene->areaSize() + QSize( 100, 150 ) );
+        resize();
     }
 
     mCaptureView->show();
@@ -139,6 +140,23 @@ void MainWindow::instantCapture( ImageGrabber::CaptureMode captureMode, int seco
     case ImageGrabber::FullScreen:
     default:
         instantSave(mImageGrabber->grabImage( ImageGrabber::FullScreen ));
+    }
+}
+
+/*
+ * Sets the Main Window size to fit all content correctly, it takes into account if an image was 
+ * loaded or not,  if the status bar is show or not, and so on. If no image is loaded the status bar
+ * is hidden too.
+ */
+void MainWindow::resize()
+{
+    if ( !mCaptureScene->isValid() ) {
+        statusBar()->setHidden(true);
+        QWidget::resize( minimumSize() );
+    }
+    else {
+        statusBar()->setHidden(false);
+        QWidget::resize( mCaptureScene->areaSize() + QSize( 100, 150 ) );
     }
 }
 
@@ -210,12 +228,12 @@ void MainWindow::delay( int ms )
 void MainWindow::setSaveAble( bool enabled )
 {
     if ( enabled ) {
-        mSaveButton->setEnabled( true );
+        mSaveAction->setEnabled( true );
         setWindowTitle( "*" + QApplication::applicationName() + " - " + tr( "Unsaved" ) );
         mIsUnsaved = true;
     }
     else {
-        mSaveButton->setEnabled( false );
+        mSaveAction->setEnabled( false );
         setWindowTitle( QApplication::applicationName() );
         mIsUnsaved = false;
     }
@@ -367,6 +385,12 @@ void MainWindow::initGui()
     mCopyToClipboardAction->setShortcut( QKeySequence::Copy );
     mCopyToClipboardAction->connect( mCopyToClipboardAction, SIGNAL( triggered() ), this,
                                      SLOT( copyToClipboardClicked() ) );
+    
+    // Create Action for imgur.com uploader
+    mUploadToImgurAction->setText( tr("Upload"));
+    mUploadToImgurAction->setToolTip( tr("Upload capture image to imgur.com"));
+    mUploadToImgurAction->connect(mUploadToImgurAction, SIGNAL(triggered()), this, SLOT(imgurUploadClicked()));
+    
 
     // Create crop action
     mCropAction->setText( tr( "Crop" ) );
@@ -441,40 +465,38 @@ void MainWindow::initGui()
     mPaintToolButton->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );
     mPaintToolButton->setDefaultAction( mPenAction );
 
-    // Create toolbar
-
-    mToolBar->addWidget( mNewCaptureButton );
-    mToolBar->addSeparator();
-    mToolBar->addWidget( mSaveButton );
-    mToolBar->addWidget( mCopyToClipboardButton );
-    mToolBar->addSeparator();
-    mToolBar->addWidget( mPaintToolButton );
-    mToolBar->setFixedSize( mToolBar->sizeHint() );
-
     // Create menu bar
+    QMenu *menu;
+    menu = menuBar()->addMenu( tr( "File" ) );
+    menu->addAction( mNewCaptureAction );
+    menu->addAction( mSaveAction );
+    menu->addAction(mUploadToImgurAction); 
+    menu->addSeparator();
+    menu->addAction( mQuitAction );
+    menu = menuBar()->addMenu( tr( "&Edit" ) );
+    menu->addAction( mCopyToClipboardAction );
+    menu->addAction( mCropAction );
+    menu = menuBar()->addMenu( tr( "&Options" ) );
+    menu->addAction( mSettingsDialogAction );
+    menu = menuBar()->addMenu( tr( "&Help" ) );
+    menu->addAction( mAboutKsnipAction );
 
-    QMenu *tmpMenu;
-    tmpMenu = mMenuBar->addMenu( tr( "File" ) );
-    tmpMenu->addAction( mNewCaptureAction );
-    tmpMenu->addAction( mSaveAction );
-    tmpMenu->addSeparator();
-    tmpMenu->addAction( mQuitAction );
-    tmpMenu = mMenuBar->addMenu( tr( "&Edit" ) );
-    tmpMenu->addAction( mCopyToClipboardAction );
-    tmpMenu->addAction( mCropAction );
-    tmpMenu = mMenuBar->addMenu( tr( "&Options" ) );
-    tmpMenu->addAction( mSettingsDialogAction );
-    tmpMenu = mMenuBar->addMenu( tr( "&Help" ) );
-    tmpMenu->addAction( mAboutKsnipAction );
-
-    // Create Layout
-
-    mWindowLayout->addWidget( mMenuBar );
-    mWindowLayout->addWidget( mToolBar );
-    mWindowLayout->addWidget( mCaptureView );
-    mWindowLayout->setAlignment( Qt::AlignTop | Qt::AlignLeft );
-    mWindowLayout->setContentsMargins( 0, 0, 0, 0 );
-    setLayout( mWindowLayout );
+    // Create toolbar
+    QToolBar *toolBar;
+    toolBar = addToolBar("Tools");
+    toolBar->setFloatable(false);
+    toolBar->setMovable(false);
+    toolBar->setAllowedAreas(Qt::BottomToolBarArea);
+    toolBar->addWidget( mNewCaptureButton );
+    toolBar->addSeparator();
+    toolBar->addWidget( mSaveButton );
+    toolBar->addWidget( mCopyToClipboardButton );
+    toolBar->addSeparator();
+    toolBar->addWidget( mPaintToolButton );
+    toolBar->setFixedSize( toolBar->sizeHint() );
+    
+    setCentralWidget(mCaptureView);  
+    resize();
 }
 
 //
@@ -562,6 +584,31 @@ void MainWindow::moveClicked()
     mCaptureScene->setPaintMode( PaintArea::Move );
 }
 
+/*
+ * Upload Image to Imgur page, this function only starts the upload, if the upload was successful
+ * is determent by the uploadToImgurFinished function.
+ */
+void MainWindow::imgurUploadClicked()
+{
+    // If we have no capture, abort here.
+    if (!mCaptureScene->isValid()){
+        return;
+    }
+    
+    // Upload to Imgur Account
+    if ( !KsnipConfig::instance()->imgurForceAnonymous() &&
+            !KsnipConfig::instance()->imgurAccessToken().isEmpty() ) {
+        mImgurUploader->startUpload( mCaptureScene->exportAsImage(),
+                                     KsnipConfig::instance()->imgurAccessToken() );
+    }
+    // Upload Anonymous
+    else {
+        mImgurUploader->startUpload( mCaptureScene->exportAsImage() );
+    }
+
+    statusBar()->showMessage( tr( "Waiting for imgur.com..." ) );
+}
+
 void MainWindow::cropClicked()
 {
     mCaptureView->setIsCropping( true );
@@ -593,6 +640,69 @@ void MainWindow::imageChanged()
     if ( KsnipConfig::instance()->alwaysCopyToClipboard() ) {
         copyToClipboard();
     }
+}
+
+/*
+ * Called when the upload to a file sharing site has finished. Depending on the result value the
+ * message either contains the link to the image on the hosting site or the error message
+ */
+void MainWindow::imgurUploadFinished( QString message )
+{
+    // When the file extension is provided in the link, it opens the image directly on a blank
+    // white background. If the link is opened without the extension then the usual Imgur page
+    // is shown
+    if ( !KsnipConfig::instance()->imgurOpenLinkDirectlyToImage() ) {
+        message = message.remove( ".png" );
+    }
+
+    // Open the link in the default browser
+    QDesktopServices::openUrl( message );
+
+    // If we always copy to clipboard is enabled then copy the link to clipboard
+    if ( KsnipConfig::instance()->imgurAlwaysCopyToClipboard() ) {
+        mClipboard->setText( message );
+    }
+
+    statusBar()->showMessage( tr( "Upload to imgur.com finished!" ), 3000 );
+}
+
+/*
+ * Some error happened while uploading and we are not able to proceed.
+ */
+void MainWindow::imgurError( QString message )
+{
+    qCritical( message.toLatin1() );
+    statusBar()->showMessage( tr( "An error occurred while uploading to imgur.com." ), 3000 );
+}
+
+/*
+ * New token received from imgur, this could be the case when we have refreshed the token.
+ */
+void MainWindow::imgurTokenUpdated( const QString accessToken,
+                                    const QString refreshTocken,
+                                    const QString username )
+{
+    KsnipConfig::instance()->setImgurAccessToken( accessToken.toUtf8() );
+    KsnipConfig::instance()->setImgurRefreshToken( refreshTocken.toUtf8() );
+    KsnipConfig::instance()->setImgurUsername( username );
+
+    // Currently we presume that a token update here only happens when we were trying to upload an
+    // image and the token was expired, so right after the token has been refreshed, we try to
+    // upload again.
+    statusBar()->showMessage( "Received new token, trying upload again..." );
+    imgurUploadClicked();
+}
+
+/*
+ * The imgur uploader informs us that the token must be refreshed so we refresh it right away
+ */
+void MainWindow::imgurTokenRefresh()
+{
+    mImgurUploader->refreshToken( KsnipConfig::instance()->imgurRefreshToken(),
+                                  KsnipConfig::instance()->imgurClientId(),
+                                  KsnipConfig::instance()->imgurClientSecret() );
+
+    statusBar()->showMessage( "Imgur token has expired, requesting new token..." );
 }
 
 void MainWindow::openSettingsDialog()

@@ -33,6 +33,7 @@ class ImageGrabber : public QObject
 public:
     enum CaptureMode { RectArea, FullScreen, CurrentScreen, ActiveWindow };
 
+public:
     ImageGrabber ( QWidget * );
     QPixmap grabImage ( CaptureMode captureMode, QRect *rect = 0 );
     QRect currectScreenRect();

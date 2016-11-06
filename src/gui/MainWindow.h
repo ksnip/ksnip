@@ -32,10 +32,11 @@
 #include "src/backend/ImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/StringManip.h"
+#include "src/backend/ImgurUploader.h"
 
 class SnippingArea;
 
-class MainWindow : public QWidget
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
@@ -43,7 +44,8 @@ public:
     void show ( QPixmap screenshot );
     void show();
     int captureDelay();
-    void instantCapture(ImageGrabber::CaptureMode captureMode, int delay = 0);
+    void instantCapture ( ImageGrabber::CaptureMode captureMode, int delay = 0 );
+    void resize();
 
 public slots:
     void setCaptureDelay ( int ms );
@@ -55,8 +57,6 @@ protected:
 private:
     int               mCaptureDelay;
     bool              mIsUnsaved;
-    QToolBar         *mToolBar;
-    QMenuBar         *mMenuBar;
     CustomToolButton *mNewCaptureButton;
     QToolButton      *mSaveButton;
     QToolButton      *mCopyToClipboardButton;
@@ -73,17 +73,18 @@ private:
     QAction          *mMarkerAction;
     QAction          *mEraseAction;
     QAction          *mMoveAction;
+    QAction          *mUploadToImgurAction;
     QAction          *mCropAction;
     QAction          *mNewCaptureAction;
     QAction          *mQuitAction;
     QAction          *mSettingsDialogAction;
     QAction          *mAboutKsnipAction;
-    QVBoxLayout      *mWindowLayout;
     PaintArea        *mCaptureScene;
     CaptureView      *mCaptureView;
     QClipboard       *mClipboard;
     SnippingArea     *mSnippingArea;
     ImageGrabber     *mImageGrabber;
+    ImgurUploader    *mImgurUploader;
 
     void delay ( int ms );
     void setSaveAble ( bool enabled );
@@ -91,7 +92,7 @@ private:
     void copyToClipboard();
     bool popupQuestion ( QString title, QString question );
     QIcon createIcon ( QString name );
-    void instantSave( QPixmap pixmap);
+    void instantSave ( QPixmap pixmap );
     void initGui();
 
 private slots:
@@ -105,10 +106,15 @@ private slots:
     void markerClicked();
     void eraseClicked();
     void moveClicked();
+    void imgurUploadClicked();
     void cropClicked();
     void keyPressEvent ( QKeyEvent *event );
     void areaSelected ( QRect rect );
     void imageChanged();
+    void imgurUploadFinished ( QString message );
+    void imgurError ( QString message );
+    void imgurTokenUpdated ( const QString accessToken, const QString refreshTocken, const QString username );
+    void imgurTokenRefresh();
     void openSettingsDialog();
     void openAboutDialog();
 };

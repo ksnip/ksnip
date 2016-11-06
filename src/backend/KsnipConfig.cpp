@@ -134,7 +134,8 @@ ImageGrabber::CaptureMode KsnipConfig::captureMode() const
     case ImageGrabber::FullScreen:
         return ImageGrabber::FullScreen;
 
-    default:
+    default
+            :
         return ImageGrabber::RectArea;
     }
 }
@@ -218,7 +219,7 @@ void KsnipConfig::setCaptureDelay( int delay )
 {
     mConfig.setValue( "ImageGrabber/CaptureDelay", delay );
     mConfig.sync();
-    emit captureDelayUpdated(delay);
+    emit captureDelayUpdated( delay );
 }
 
 QString KsnipConfig::saveDirectory() const
@@ -271,9 +272,29 @@ void KsnipConfig::setImgurUsername( QString username )
     mConfig.setValue( "Imgur/Username", username );
 }
 
-QString KsnipConfig::imgurAccessToken() const
+QByteArray KsnipConfig::imgurClientId() const
 {
-    return mConfig.value( "Imgur/AccessToken", "" ).toString();
+    return mConfig.value( "Imgur/ClientId", "" ).toByteArray();
+}
+
+void KsnipConfig::setImgurClientId( QString clientId )
+{
+    mConfig.setValue( "Imgur/ClientId", clientId );
+}
+
+QByteArray KsnipConfig::imgurClientSecret() const
+{
+    return mConfig.value( "Imgur/ClientSecret", "" ).toByteArray();
+}
+
+void KsnipConfig::setImgurClientSecret( QString clientSecret )
+{
+    mConfig.setValue( "Imgur/ClientSecret", clientSecret );
+}
+
+QByteArray KsnipConfig::imgurAccessToken() const
+{
+    return mConfig.value( "Imgur/AccessToken", "" ).toByteArray();
 }
 
 void KsnipConfig::setImgurAccessToken( QString accessToken )
@@ -281,12 +302,42 @@ void KsnipConfig::setImgurAccessToken( QString accessToken )
     mConfig.setValue( "Imgur/AccessToken", accessToken );
 }
 
-QString KsnipConfig::imgurRefreshToken() const
+QByteArray KsnipConfig::imgurRefreshToken() const
 {
-    return mConfig.value( "Imgur/RefreshToken", "" ).toString();
+    return mConfig.value( "Imgur/RefreshToken", "" ).toByteArray();
 }
 
 void KsnipConfig::setImgurRefreshToken( QString refreshToken )
 {
     mConfig.setValue( "Imgur/RefreshToken", refreshToken );
+}
+
+bool KsnipConfig::imgurForceAnonymous() const
+{
+    return mConfig.value( "Imgur/ForceAnonymous", false ).toBool();
+}
+
+void KsnipConfig::setImgurForceAnonymous( bool enabled )
+{
+    mConfig.setValue( "Imgur/ForceAnonymous", enabled );
+}
+
+bool KsnipConfig::imgurOpenLinkDirectlyToImage() const
+{
+    return mConfig.value( "Imgur/OpenLinkDirectlyToImage", false ).toBool();
+}
+
+void KsnipConfig::setImgurOpenLinkDirectlyToImage( bool enabled )
+{
+    mConfig.setValue( "Imgur/OpenLinkDirectlyToImage", enabled );
+}
+
+bool KsnipConfig::imgurAlwaysCopyToClipboard() const
+{
+    return mConfig.value( "Imgur/AlwaysCopyToClipboard", false ).toBool();
+}
+
+void KsnipConfig::setImgurAlwaysCopyToClipboard( bool enabled )
+{
+    mConfig.setValue( "Imgur/AlwaysCopyToClipboard", enabled );
 }

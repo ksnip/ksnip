@@ -19,60 +19,111 @@
  */
 
 #include "ImgurUploader.h"
-#include <iostream>
 
 ImgurUploader::ImgurUploader( QObject *parent ) : QObject( parent ),
     mAccessManager( new QNetworkAccessManager( this ) )
 {
-    connect( mAccessManager, SIGNAL( finished( QNetworkReply * ) ), 
+    connect( mAccessManager, SIGNAL( finished( QNetworkReply * ) ),
              this, SLOT( handleReply( QNetworkReply * ) ) );
-    
-    mClientId = "4d16d91e0d930c1";
-    mClientSecret = "a810f6ee22788be04b52457a16e893449933ecad";
+
+    // Client ID that will only be used for anonymous upload
+    mClientId = "16d41e28a3ba71e";
 }
 
+/*
+ * This function starts the upload, depending if an access token was provided this will be either
+ * an account upload on an anonymous upload. If the upload was successful the uploadFisished signal
+ * will be emitted which holds the url to the image.
+ */
 void ImgurUploader::startUpload( QImage image, QByteArray accessToken )
 {
-    if (accessToken.isEmpty()){
-        uploadAsAnonymous(image);
-    }
-    else {
-        uploadToAccount(image, accessToken);
-    }
-    
-}
+    // Convert the image into a byteArray
+    QByteArray imageByteArray;
+    QBuffer buffer( &imageByteArray );
+    image.save( &buffer, "PNG" );
 
-void ImgurUploader::getAccessToken( QByteArray pin )
-{
+    // Create the network request for posting the image
     QNetworkRequest request;
-    
-    // Build the URL that we will request the token from. The XML indicates we want the response in
-    // XML format
-    request.setUrl( QUrl( "https://api.imgur.com/oauth2/token.xml" ));
+    QUrl url( "https://api.imgur.com/3/upload.xml" );
+
+    // Add params that we send with the picture
+    url.addQueryItem( "title", "Ksnip Screenshot" );
+    url.addQueryItem( "description", "Screenshot uploaded via Ksnip" );
+
+    request.setUrl( url );
     request.setHeader( QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded" );
 
-    // Prepare the params
+    // If an access token was sent, we upload to account, otherwise we upload to anonymously
+    if ( accessToken.isEmpty() ) {
+        request.setRawHeader( "Authorization", "Client-ID " + mClientId );
+    }
+    else {
+        request.setRawHeader( "Authorization", "Bearer " + accessToken );
+    }
+
+    // Post the image
+    mAccessManager->post( request, imageByteArray );
+}
+
+/*
+ * This functions requests an access token, it only starts the request, the topenUpdate signal will
+ * be emitted if the request was successful or otherwise the tokenError.
+ */
+void ImgurUploader::getAccessToken( QByteArray pin, QByteArray clientId, QByteArray clientSecret )
+{
+    QNetworkRequest request;
+
+    // Build the URL that we will request the token from. The XML indicates we want the response in
+    // XML format
+    request.setUrl( QUrl( "https://api.imgur.com/oauth2/token.xml" ) );
+    request.setHeader( QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded" );
+
+    // Prepare the params that we send with the request
     QByteArray params;
-    params.append("client_id=" + mClientId);
-    params.append("&client_secret=" + mClientSecret);
-    params.append("&grant_type=pin");
-    params.append("&pin=" + pin);
+    params.append( "client_id=" + clientId );
+    params.append( "&client_secret=" + clientSecret );
+    params.append( "&grant_type=pin" );
+    params.append( "&pin=" + pin );
 
     // Request the token
     mAccessManager->post( request, params );
 }
 
-void ImgurUploader::refreshToken( QByteArray refreshTocken )
+/*
+ * The imgur token expires after some time, when this happens and you try to post an image the
+ * server responds with 403 and we emit the tokenRefreshRequired signal, after which this function
+ * should be called to refresh the token.
+ */
+void ImgurUploader::refreshToken( QByteArray refreshToken, QByteArray clientId, QByteArray clientSecret )
 {
+    QNetworkRequest request;
 
+    // Build the URL that we will request the token from. The XML indicates we want the response in
+    // XML format
+    request.setUrl( QUrl( "https://api.imgur.com/oauth2/token.xml" ) );
+    request.setHeader( QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded" );
+
+    // Prepare the params
+    QByteArray params;
+    params.append( "refresh_token=" + refreshToken );
+    params.append( "&client_id=" + clientId );
+    params.append( "&client_secret=" + clientSecret );
+    params.append( "&grant_type=refresh_token" );
+
+    // Request the token
+    mAccessManager->post( request, params );
 }
 
-QUrl ImgurUploader::pinRequestUrl()
-{    
-    QUrl url("https://api.imgur.com/oauth2/authorize");
-    url.addQueryItem("client_id", QString(mClientId));
-    url.addQueryItem("response_type", "pin");
-    
+/*
+ * Returns a URL that can be opened in a browser to request the pin. The function is not opening
+ * the pin window in the browser, it only returns the correct url to it.
+ */
+QUrl ImgurUploader::pinRequestUrl( QString clientId )
+{
+    QUrl url( "https://api.imgur.com/oauth2/authorize" );
+    url.addQueryItem( "client_id", clientId );
+    url.addQueryItem( "response_type", "pin" );
+
     return url;
 }
 
@@ -80,67 +131,34 @@ QUrl ImgurUploader::pinRequestUrl()
 // Private Functions
 //
 
-void ImgurUploader::uploadAsAnonymous( QImage image )
-{   
-    // Convert the image into a byteArray
-    QByteArray imageByteArray;
-    QBuffer buffer( &imageByteArray );
-    image.save( &buffer, "PNG" );
-
-    // Create the params that will be sent with the image
-    QList<QPair<QString, QString> > urlQuery;
-    urlQuery.append( qMakePair( QString( "title" ), QString( "Ksnip Screenshot" ) ) );
-    urlQuery.append( qMakePair( QString( "description" ), QString( "Screenshot uploaded via Ksnip" ) ) );
-
-    // Create the network request for posting the image
-    QNetworkRequest request;
-    QUrl url( "https://api.imgur.com/3/upload.xml" );
-    url.setQueryItems( urlQuery );
-    request.setUrl( url );
-    request.setHeader( QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded" );
-    request.setRawHeader( "Authorization", "Client-ID " + mClientId );
-
-    // Post the image
-    mAccessManager->post( request, imageByteArray );
-}
-
-void ImgurUploader::uploadToAccount( QImage image, QByteArray accessToken )
-{
-    // Convert the image into a byteArray
-    QByteArray imageByteArray;
-    QBuffer buffer( &imageByteArray );
-    image.save( &buffer, "PNG" );
-
-    // Create the params that will be sent with the image
-    QList<QPair<QString, QString> > urlQuery;
-    urlQuery.append( qMakePair( QString( "title" ), QString( "Ksnip Screenshot" ) ) );
-    urlQuery.append( qMakePair( QString( "description" ), QString( "Screenshot uploaded via Ksnip" ) ) );
-
-    // Create the network request for posting the image
-    QNetworkRequest request;
-    QUrl url( "https://api.imgur.com/3/upload.xml" );
-    url.setQueryItems( urlQuery );
-    request.setUrl( url );
-    request.setHeader( QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded" );
-    request.setRawHeader( "Authorization", "Bearer " + accessToken );
-
-    // Post the image
-    mAccessManager->post( request, imageByteArray );
-    
-}
-
+/*
+ * This function handles the default response, a 200OK and any error message is returned in a data
+ * root element. 200OK is returned when posting an image was successful, 403 is mostly returned
+ * when a token has expired, anything else is an error that we currently cannot handle
+ */
 void ImgurUploader::handleDataResponse( QDomElement element )
 {
-    if ( !element.elementsByTagName( "link" ).isEmpty() ) {
-        emit uploadFinished( element.elementsByTagName( "link" ).at( 0 ).toElement().text(),
-                             Successful );
+    if ( element.attribute( "status" ) == "200" && !element.elementsByTagName( "link" ).isEmpty() ) {
+        emit uploadFinished( element.elementsByTagName( "link" ).at( 0 ).toElement().text() );
     }
-    else {
-        emit uploadFinished( "No Link from image in reply provided.", Error );
-    }
-
+    else
+        if ( element.attribute( "status" ) == "403" ) {
+            emit tokenRefreshRequired();
+        }
+        else {
+            if ( element.elementsByTagName( "error" ).isEmpty() ) {
+                emit error( "Server responded with " + element.attribute( "status" ) );
+            }
+            else {
+                emit error( "Server responded with " + element.attribute( "status" ) + ": " +
+                            element.elementsByTagName( "error" ).at( 0 ).toElement().text() );
+            }
+        }
 }
 
+/*
+ * Called when a new token was received, either when first time getting access or refreshing a token
+ */
 void ImgurUploader::handleTokenResponse( QDomElement element )
 {
     if ( !element.elementsByTagName( "access_token" ).isEmpty() &&
@@ -149,40 +167,11 @@ void ImgurUploader::handleTokenResponse( QDomElement element )
        ) {
         emit tokenUpdated( element.elementsByTagName( "access_token" ).at( 0 ).toElement().text(),
                            element.elementsByTagName( "refresh_token" ).at( 0 ).toElement().text(),
-                           element.elementsByTagName( "account_username" ).at( 0 ).toElement().text(),
-                           Successful
+                           element.elementsByTagName( "account_username" ).at( 0 ).toElement().text()
                          );
     }
-    else
-        emit tokenUpdated("","","", Error);
-}
-
-void ImgurUploader::handleErrorResponse( QDomElement element )
-{
-    if ( !element.elementsByTagName( "message" ).isEmpty() ) {
-        emit uploadFinished( element.elementsByTagName( "message" ).at( 0 ).toElement().text(),
-                             Error );
-    }
     else {
-        emit uploadFinished( "Reccived unexpected reply from web service.", Error );
-    }
-}
-
-/*
- * Prints all currently relevant headers, mostly for troubleshooting.
- */
-void ImgurUploader::printHeader( QNetworkReply *reply )
-{
-    std::cout << reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toString().toStdString() << "\n";
-    std::cout << reply->attribute( QNetworkRequest::HttpReasonPhraseAttribute ).toString().toStdString() << "\n";
-    std::cout << reply->attribute( QNetworkRequest::RedirectionTargetAttribute ).toString().toStdString() << "\n";
-    std::cout << reply->url().toString().toStdString() << "\n";
-    std::cout << "Reply code: " << QString(reply->readAll()).toStdString()<< "\n";
-    std::cout << "-------------------------------------------------------------\n";
-
-    for ( int i = 0; i < reply->rawHeaderList().count(); i++ ) {
-        std::cout << QString( reply->rawHeaderPairs().at( i ).first ).toStdString() << " "
-                  << QString( reply->rawHeaderPairs().at( i ).second ).toStdString() << "\n";
+        emit error( "Expected token response was received, something went wrong." );
     }
 }
 
@@ -194,18 +183,15 @@ void ImgurUploader::printHeader( QNetworkReply *reply )
  * This function will be called when we've got the reply from imgur
  */
 void ImgurUploader::handleReply( QNetworkReply *reply )
-{           
+{
+//     // Only for troubleshooting, if reply->readAll is called the parser will fail!
+//     std::cout << "----------------------------------------------------------------\n";
+//     std::cout << "Reply code:\n" << QString( reply->readAll() ).toStdString() << "\n";
+//     std::cout << "----------------------------------------------------------------\n";
+      
     // Check return code for any network errors
     if ( reply->error() != QNetworkReply::NoError ) {
-        emit uploadFinished( "Network Error: " + reply->error(), Error);
-        reply->deleteLater();
-        return;
-    }
-    
-    // Check if we have got a 200OK reply back from server, anything else is an error
-    if ( reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt() != 200 ) {
-        emit uploadFinished( "A none 200 OK reply was received from server, unable to proceed.", 
-                             Error );
+        emit error( "Network Error: " + reply->errorString() );
         reply->deleteLater();
         return;
     }
@@ -217,10 +203,8 @@ void ImgurUploader::handleReply( QNetworkReply *reply )
 
     // Try to parse reply into xml reader
     if ( !doc.setContent( reply->readAll(), false, &errorMessage, &errorLine, &errorColumn ) ) {
-        emit uploadFinished( "Parse error: " + errorMessage +
-                             ", line:" + errorLine +
-                             ", column:" + errorColumn,
-                             Error );
+        emit error( "Parse error: " + errorMessage + ", line:" + errorLine +
+                    ", column:" + errorColumn );
         reply->deleteLater();
         return;
     }
@@ -236,10 +220,9 @@ void ImgurUploader::handleReply( QNetworkReply *reply )
             handleTokenResponse( rootElement );
         }
 
-        else
-            if ( rootElement.tagName() == "error" ) {
-                handleErrorResponse( rootElement );
-            }
+        else {
+            emit error( "Received unexpected reply from imgur server." );
+        }
 
     reply->deleteLater();
 }

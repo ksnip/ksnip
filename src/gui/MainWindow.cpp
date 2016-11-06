@@ -590,6 +590,11 @@ void MainWindow::moveClicked()
  */
 void MainWindow::imgurUploadClicked()
 {
+    // If we have no capture, abort here.
+    if (!mCaptureScene->isValid()){
+        return;
+    }
+    
     // Upload to Imgur Account
     if ( !KsnipConfig::instance()->imgurForceAnonymous() &&
             !KsnipConfig::instance()->imgurAccessToken().isEmpty() ) {

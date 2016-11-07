@@ -35,7 +35,7 @@ qt4_automoc(${ksnip_SRCS})
  
 add_executable(ksnip ${ksnip_SRCS} ${ksnip_RES_RCC})
 
-target_link_libraries(ksnip ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTNETWORK_LIBRARY} ${QT_QTXML_LIBRARY} X11 )
+target_link_libraries(ksnip ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTNETWORK_LIBRARY} ${QT_QTXML_LIBRARY} X11 Xfixes )
 
 install(TARGETS ksnip RUNTIME DESTINATION /bin)
 

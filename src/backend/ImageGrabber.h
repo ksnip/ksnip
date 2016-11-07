@@ -23,8 +23,10 @@
 
 #include <QObject>
 #include <QApplication>
+#include <QPainter>
 #include <QDesktopWidget>
 #include <X11/Xlib.h>
+#include <X11/extensions/Xfixes.h>
 
 class MainWindow;
 
@@ -35,7 +37,7 @@ public:
 
 public:
     ImageGrabber ( QWidget * );
-    QPixmap grabImage ( CaptureMode captureMode, QRect *rect = 0 );
+    QPixmap grabImage ( CaptureMode captureMode, bool capureMouse, QRect *rect = 0 );
     QRect currectScreenRect();
     QRect fullScreenRect();
     QRect activeWindowRect();
@@ -43,7 +45,7 @@ public:
 private:
     QWidget *mParent;
 
-    QPixmap grabRect ( QRect rect );
+    QPixmap grabRect ( QRect rect, bool capureMouse );
     Window getToplevelParent ( Display *display , Window window );
 };
 

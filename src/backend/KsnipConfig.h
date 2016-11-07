@@ -36,6 +36,8 @@ public:
     KsnipConfig ( QObject *parent = 0 );
 
     static KsnipConfig *instance();
+    
+    // Application
 
     bool saveKsnipPosition() const;
     void setSaveKsnipPosition ( bool enabled );
@@ -57,6 +59,17 @@ public:
 
     ImageGrabber::CaptureMode captureMode() const;
     void setCaptureMode ( ImageGrabber::CaptureMode captureMode );
+    
+    QString saveDirectory() const;
+    void setSaveDirectory ( QString path );
+
+    QString saveFilename() const;
+    void setSaveFilename ( QString filename );
+
+    QString saveFormat() const;
+    void setSaveFormat ( QString format );
+    
+    // Painter
 
     QPen pen() const;
 
@@ -73,18 +86,16 @@ public:
 
     int markerSize() const;
     void setMarkerSize ( int size );
+    
+    // Image Grabber 
+    
+    bool captureMouse() const;
+    void setCaptureMouse ( bool enabled );
 
     int captureDelay() const;
     void setCaptureDelay ( int delay );
-
-    QString saveDirectory() const;
-    void setSaveDirectory ( QString path );
-
-    QString saveFilename() const;
-    void setSaveFilename ( QString filename );
-
-    QString saveFormat() const;
-    void setSaveFormat ( QString format );
+    
+    // Imgur Uploader
 
     QString imgurUsername() const;
     void setImgurUsername ( QString username );

@@ -63,7 +63,8 @@ MainWindow::MainWindow() : QMainWindow(),
              this, SLOT( setCaptureDelay( int ) ) );
     connect( mImgurUploader, SIGNAL(uploadFinished(QString)), this, SLOT(imgurUploadFinished(QString)));
     connect( mImgurUploader, SIGNAL(error(QString)), this, SLOT(imgurError(QString)));
-    connect( mImgurUploader, SIGNAL(tokenUpdated(QString,QString,QString)), this, SLOT(imgurTokenUpdated(QString,QString,QString)));
+    connect( mImgurUploader, SIGNAL(tokenUpdated(QString,QString,QString)), 
+             this, SLOT(imgurTokenUpdated(QString,QString,QString)));
     connect( mImgurUploader, SIGNAL(tokenRefreshRequired()), this, SLOT(imgurTokenRefresh()));
 
     loadSettings();
@@ -130,16 +131,19 @@ void MainWindow::instantCapture( ImageGrabber::CaptureMode captureMode, int seco
         break;
 
     case ImageGrabber::CurrentScreen:
-        instantSave(mImageGrabber->grabImage( ImageGrabber::CurrentScreen ));
+        instantSave(mImageGrabber->grabImage( ImageGrabber::CurrentScreen, 
+                                              KsnipConfig::instance()->captureMouse() ));
         break;
 
     case ImageGrabber::ActiveWindow:
-        instantSave(mImageGrabber->grabImage( ImageGrabber::ActiveWindow ));
+        instantSave(mImageGrabber->grabImage( ImageGrabber::ActiveWindow, 
+                                              KsnipConfig::instance()->captureMouse() ));
         break;
     
     case ImageGrabber::FullScreen:
     default:
-        instantSave(mImageGrabber->grabImage( ImageGrabber::FullScreen ));
+        instantSave(mImageGrabber->grabImage( ImageGrabber::FullScreen, 
+                                              KsnipConfig::instance()->captureMouse() ));
     }
 }
 
@@ -515,7 +519,8 @@ void MainWindow::newCurrentScreenCaptureClicked()
     setWindowOpacity( 0.0 );
     setWindowState( Qt::WindowMinimized );
     delay( mCaptureDelay );
-    show( mImageGrabber->grabImage( ImageGrabber::CurrentScreen ) );
+    show( mImageGrabber->grabImage( ImageGrabber::CurrentScreen, 
+                                    KsnipConfig::instance()->captureMouse() ) );
     KsnipConfig::instance()->setCaptureMode( ImageGrabber::CurrentScreen );
 }
 
@@ -524,7 +529,8 @@ void MainWindow::newFullScreenCaptureClicked()
     setWindowOpacity( 0.0 );
     setWindowState( Qt::WindowMinimized );
     delay( mCaptureDelay );
-    show( mImageGrabber->grabImage( ImageGrabber::FullScreen ) );
+    show( mImageGrabber->grabImage( ImageGrabber::FullScreen, 
+                                    KsnipConfig::instance()->captureMouse() ) );
     KsnipConfig::instance()->setCaptureMode( ImageGrabber::FullScreen );
 }
 
@@ -533,7 +539,8 @@ void MainWindow::newActiveWindowCaptureClicked()
     setWindowOpacity( 0.0 );
     setWindowState( Qt::WindowMinimized );
     delay( mCaptureDelay );
-    show( mImageGrabber->grabImage( ImageGrabber::ActiveWindow ) );
+    show( mImageGrabber->grabImage( ImageGrabber::ActiveWindow, 
+                                    KsnipConfig::instance()->captureMouse() ) );
     KsnipConfig::instance()->setCaptureMode( ImageGrabber::ActiveWindow );
 }
 
@@ -627,7 +634,9 @@ void MainWindow::keyPressEvent( QKeyEvent *event )
 void MainWindow::areaSelected( QRect rect )
 {
     delay( mCaptureDelay );
-    show( mImageGrabber->grabImage( ImageGrabber::RectArea, &rect ) );
+    show( mImageGrabber->grabImage( ImageGrabber::RectArea, 
+                                    KsnipConfig::instance()->captureMouse(), 
+                                    &rect ) );
 }
 
 /*

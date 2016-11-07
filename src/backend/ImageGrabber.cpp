@@ -29,7 +29,7 @@ ImageGrabber::ImageGrabber( QWidget *parent ) : QObject()
 // Public Functions
 //
 
-QPixmap ImageGrabber::grabImage( CaptureMode captureMode, QRect *rect )
+QPixmap ImageGrabber::grabImage( CaptureMode captureMode, bool capureMouse, QRect *rect )
 {
     switch ( captureMode ) {
     case RectArea:
@@ -38,19 +38,18 @@ QPixmap ImageGrabber::grabImage( CaptureMode captureMode, QRect *rect )
             return 0;
         }
 
-        return grabRect( *rect );
+        return grabRect( *rect, capureMouse );
 
     case FullScreen:
-        return grabRect( fullScreenRect() );
+        return grabRect( fullScreenRect(), capureMouse );
 
     case CurrentScreen:
-        return grabRect( currectScreenRect() );
+        return grabRect( currectScreenRect(), capureMouse );
 
     case ActiveWindow:
-        return grabRect( activeWindowRect() );
+        return grabRect( activeWindowRect(), capureMouse );
 
-    default
-            :
+    default:
         qCritical( "ImageGrabber::grabImage: Unknown CaptureMode provided." );
         return 0;
     }
@@ -99,17 +98,41 @@ QRect ImageGrabber::activeWindowRect()
 //
 // Private Functions
 //
-
-QPixmap ImageGrabber::grabRect( QRect rect )
+QPixmap ImageGrabber::grabRect( QRect rect, bool capureMouse )
 {
-    QPixmap screenshot;
-    screenshot = QPixmap();
-    screenshot = QPixmap::grabWindow( QApplication::desktop()->winId(),
-                                      rect.topLeft().x(),
-                                      rect.topLeft().y(),
-                                      rect.width(),
-                                      rect.height() );
-    return screenshot;
+    QPixmap screenshot = QPixmap::grabWindow( QApplication::desktop()->winId(),
+                                              rect.topLeft().x(),
+                                              rect.topLeft().y(),
+                                              rect.width(),
+                                              rect.height() );
+    
+    // Check if we should draw the cursor on the capture.
+    if ( rect.contains( QCursor::pos() ) && capureMouse ) {
+        
+        QPoint mousePos = QCursor::pos() - rect.topLeft();
+
+        XFixesCursorImage *xfcursorImage = XFixesGetCursorImage( XOpenDisplay( NULL ) );
+        
+        // Converting long to uint as just using long on a 64bit system doesn't work out 
+        uint *uintCursor = ( uint * )malloc( ( xfcursorImage->width * xfcursorImage->height ) * sizeof( uint ) );
+        for ( int i = 0; i <= ( xfcursorImage->width * xfcursorImage->height ); i++ )
+            uintCursor[i] = xfcursorImage->pixels[i];
+
+        // Create image of cursor
+        QImage mouseCursor( ( uchar * )uintCursor, xfcursorImage->width, 
+                            xfcursorImage->height, QImage::Format_ARGB32_Premultiplied );
+
+        // Cursor offset
+        mousePos = mousePos - QPoint( xfcursorImage->xhot, xfcursorImage->yhot );
+
+        // Draw the cursor image on the screenshot
+        QPainter p( &screenshot );
+        p.drawImage( mousePos, mouseCursor );
+
+        free( uintCursor );
+    }
+    
+   return screenshot;
 }
 
 /*

@@ -27,6 +27,7 @@ SettingsDialog::SettingsDialog( MainWindow *parent ) :
     mPromptToSaveBeforeExitCheckbox( new QCheckBox ),
     mSaveKsnipPositionCheckbox( new QCheckBox ),
     mSaveKsnipToolSelectionCheckbox( new QCheckBox ),
+    mCaptureMouseCheckbox( new QCheckBox ),
     mImgurForceAnonymousCheckbox( new QCheckBox ),
     mImgurDirectLinkToImageCheckbox( new QCheckBox ),
     mImgurAlwaysCopyToClipboardCheckBox( new QCheckBox ),
@@ -74,6 +75,8 @@ void SettingsDialog::loadSettings()
     mPromptToSaveBeforeExitCheckbox->setChecked( KsnipConfig::instance()->promptSaveBeforeExit() );
     mSaveKsnipPositionCheckbox->setChecked( KsnipConfig::instance()->saveKsnipPosition() );
     mSaveKsnipToolSelectionCheckbox->setChecked( KsnipConfig::instance()->saveKsnipToolSelection() );
+    
+    mCaptureMouseCheckbox->setChecked( KsnipConfig::instance()->captureMouse() );
 
     mImgurForceAnonymousCheckbox->setChecked( KsnipConfig::instance()->imgurForceAnonymous() );
     mImgurDirectLinkToImageCheckbox->setChecked( KsnipConfig::instance()->imgurOpenLinkDirectlyToImage() );
@@ -97,12 +100,11 @@ void SettingsDialog::loadSettings()
 void SettingsDialog::saveSettings()
 {
     KsnipConfig::instance()->setAlwaysCopyToClipboard( mAlwaysCopyToClipboardCheckbox->isChecked() );
-
     KsnipConfig::instance()->setPromptSaveBeforeExit( mPromptToSaveBeforeExitCheckbox->isChecked() );
-
     KsnipConfig::instance()->setSaveKsnipPosition( mSaveKsnipPositionCheckbox->isChecked() );
-
     KsnipConfig::instance()->setSaveKsnipToolSelection( mSaveKsnipToolSelectionCheckbox->isChecked() );
+    
+    KsnipConfig::instance()->setCaptureMouse( mCaptureMouseCheckbox->isChecked());
 
     KsnipConfig::instance()->setImgurForceAnonymous( mImgurForceAnonymousCheckbox->isChecked() );
     KsnipConfig::instance()->setImgurOpenLinkDirectlyToImage( mImgurDirectLinkToImageCheckbox->isChecked() );
@@ -144,6 +146,7 @@ void SettingsDialog::initGui()
     connect( mBrowseButton, SIGNAL( clicked() ), this, SLOT( browseButtonClicked() ) );
 
     // Create Image Grabber Settings
+    mCaptureMouseCheckbox->setText( tr ("Capture mouse cursor on screenshot."));
     mCaptureDelayLabel->setText( tr( "Delay (sec)" ) + ":" );
 
     // Create Imgur Uploader Settings
@@ -224,8 +227,10 @@ void SettingsDialog::initGui()
     QGridLayout *imageGrabberGrid = new QGridLayout;
     imageGrabberGrid->setAlignment( Qt::AlignTop );
     imageGrabberGrid->setColumnStretch( 1, 1 );
-    imageGrabberGrid->addWidget( mCaptureDelayLabel, 0, 0 );
-    imageGrabberGrid->addWidget( mCaptureDelayCombobox, 0, 1 );
+    imageGrabberGrid->addWidget( mCaptureMouseCheckbox, 0, 0, 1, 2 );
+    imageGrabberGrid->setRowMinimumHeight( 1, 15 );
+    imageGrabberGrid->addWidget( mCaptureDelayLabel, 2, 0 );
+    imageGrabberGrid->addWidget( mCaptureDelayCombobox, 2, 1 );
 
     QGroupBox *imageGrabberGrpBox = new QGroupBox( tr( "Image Grabber" ) );
     imageGrabberGrpBox->setLayout( imageGrabberGrid );

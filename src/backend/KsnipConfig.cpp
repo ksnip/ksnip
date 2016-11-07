@@ -36,6 +36,8 @@ KsnipConfig *KsnipConfig::instance()
     return &instance;
 }
 
+// Application
+
 bool KsnipConfig::saveKsnipPosition() const
 {
     return mConfig.value( "Application/SaveKsnipPosition", true ).toBool();
@@ -146,6 +148,51 @@ void KsnipConfig::setCaptureMode( ImageGrabber::CaptureMode captureMode )
     mConfig.sync();
 }
 
+QString KsnipConfig::saveDirectory() const
+{
+    if ( !mConfig.value( "Application/SaveDirectory", QDir::homePath() ).toString().isEmpty() ) {
+        return mConfig.value( "Application/SaveDirectory", QDir::homePath() ).toString() + "/";
+    }
+    else {
+        return QString();
+    }
+}
+
+void KsnipConfig::setSaveDirectory( QString path )
+{
+    mConfig.setValue( "Application/SaveDirectory", path );
+    mConfig.sync();
+}
+
+QString KsnipConfig::saveFilename() const
+{
+    return mConfig.value( "Application/SaveFilename", "ksnip_$Y$M$D$" ).toString();
+}
+
+void KsnipConfig::setSaveFilename( QString filename )
+{
+    mConfig.setValue( "Application/SaveFilename", filename );
+    mConfig.sync();
+}
+
+QString KsnipConfig::saveFormat() const
+{
+    if ( !mConfig.value( "Application/SaveFormat", "png" ).toString().isEmpty() ) {
+        return "." + mConfig.value( "Application/SaveFormat", "png" ).toString();
+    }
+    else {
+        return QString();
+    }
+}
+
+void KsnipConfig::setSaveFormat( QString format )
+{
+    mConfig.setValue( "Application/SaveFormat", format );
+    mConfig.sync();
+}
+
+// Painter 
+
 QPen KsnipConfig::pen() const
 {
     QPen pen;
@@ -210,6 +257,19 @@ void KsnipConfig::setMarkerSize( int size )
     emit painterUpdated();
 }
 
+// Image Grabber 
+
+bool KsnipConfig::captureMouse() const
+{
+    return mConfig.value("ImageGrabber/CaptureMouse", false).toBool();
+}
+
+void KsnipConfig::setCaptureMouse( bool enabled )
+{
+    mConfig.setValue("ImageGrabber/CaptureMouse", enabled);
+    mConfig.sync();
+}
+
 int KsnipConfig::captureDelay() const
 {
     return mConfig.value( "ImageGrabber/CaptureDelay", 300 ).toInt() ;
@@ -222,45 +282,7 @@ void KsnipConfig::setCaptureDelay( int delay )
     emit captureDelayUpdated( delay );
 }
 
-QString KsnipConfig::saveDirectory() const
-{
-    if ( !mConfig.value( "Application/SaveDirectory", QDir::homePath() ).toString().isEmpty() ) {
-        return mConfig.value( "Application/SaveDirectory", QDir::homePath() ).toString() + "/";
-    }
-    else {
-        return QString();
-    }
-}
-
-void KsnipConfig::setSaveDirectory( QString path )
-{
-    mConfig.setValue( "Application/SaveDirectory", path );
-}
-
-QString KsnipConfig::saveFilename() const
-{
-    return mConfig.value( "Application/SaveFilename", "ksnip_$Y$M$D$" ).toString();
-}
-
-void KsnipConfig::setSaveFilename( QString filename )
-{
-    mConfig.setValue( "Application/SaveFilename", filename );
-}
-
-QString KsnipConfig::saveFormat() const
-{
-    if ( !mConfig.value( "Application/SaveFormat", "png" ).toString().isEmpty() ) {
-        return "." + mConfig.value( "Application/SaveFormat", "png" ).toString();
-    }
-    else {
-        return QString();
-    }
-}
-
-void KsnipConfig::setSaveFormat( QString format )
-{
-    mConfig.setValue( "Application/SaveFormat", format );
-}
+// Imgur Uploader
 
 QString KsnipConfig::imgurUsername() const
 {
@@ -270,6 +292,7 @@ QString KsnipConfig::imgurUsername() const
 void KsnipConfig::setImgurUsername( QString username )
 {
     mConfig.setValue( "Imgur/Username", username );
+    mConfig.sync();
 }
 
 QByteArray KsnipConfig::imgurClientId() const
@@ -280,6 +303,7 @@ QByteArray KsnipConfig::imgurClientId() const
 void KsnipConfig::setImgurClientId( QString clientId )
 {
     mConfig.setValue( "Imgur/ClientId", clientId );
+    mConfig.sync();
 }
 
 QByteArray KsnipConfig::imgurClientSecret() const
@@ -290,6 +314,7 @@ QByteArray KsnipConfig::imgurClientSecret() const
 void KsnipConfig::setImgurClientSecret( QString clientSecret )
 {
     mConfig.setValue( "Imgur/ClientSecret", clientSecret );
+    mConfig.sync();
 }
 
 QByteArray KsnipConfig::imgurAccessToken() const
@@ -300,6 +325,7 @@ QByteArray KsnipConfig::imgurAccessToken() const
 void KsnipConfig::setImgurAccessToken( QString accessToken )
 {
     mConfig.setValue( "Imgur/AccessToken", accessToken );
+    mConfig.sync();
 }
 
 QByteArray KsnipConfig::imgurRefreshToken() const
@@ -310,6 +336,7 @@ QByteArray KsnipConfig::imgurRefreshToken() const
 void KsnipConfig::setImgurRefreshToken( QString refreshToken )
 {
     mConfig.setValue( "Imgur/RefreshToken", refreshToken );
+    mConfig.sync();
 }
 
 bool KsnipConfig::imgurForceAnonymous() const
@@ -320,6 +347,7 @@ bool KsnipConfig::imgurForceAnonymous() const
 void KsnipConfig::setImgurForceAnonymous( bool enabled )
 {
     mConfig.setValue( "Imgur/ForceAnonymous", enabled );
+    mConfig.sync();
 }
 
 bool KsnipConfig::imgurOpenLinkDirectlyToImage() const
@@ -330,6 +358,7 @@ bool KsnipConfig::imgurOpenLinkDirectlyToImage() const
 void KsnipConfig::setImgurOpenLinkDirectlyToImage( bool enabled )
 {
     mConfig.setValue( "Imgur/OpenLinkDirectlyToImage", enabled );
+    mConfig.sync();
 }
 
 bool KsnipConfig::imgurAlwaysCopyToClipboard() const
@@ -340,4 +369,5 @@ bool KsnipConfig::imgurAlwaysCopyToClipboard() const
 void KsnipConfig::setImgurAlwaysCopyToClipboard( bool enabled )
 {
     mConfig.setValue( "Imgur/AlwaysCopyToClipboard", enabled );
+    mConfig.sync();
 }

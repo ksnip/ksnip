@@ -85,6 +85,7 @@ void MainWindow::show( QPixmap screenshot )
     }
 
     mCaptureScene->loadCapture( screenshot );
+    mCaptureScene->setIsEnabled(true);
 
     if ( mCaptureScene->areaSize().width() > mImageGrabber->currectScreenRect().width() ||
             mCaptureScene->areaSize().height() > mImageGrabber->currectScreenRect().height() ) {
@@ -511,6 +512,7 @@ void MainWindow::newRectAreaCaptureClicked()
 {
     setWindowOpacity( 0.0 );
     mSnippingArea->show();
+    mCaptureScene->setIsEnabled(false);
     KsnipConfig::instance()->setCaptureMode( ImageGrabber::RectArea );
 }
 
@@ -518,6 +520,7 @@ void MainWindow::newCurrentScreenCaptureClicked()
 {
     setWindowOpacity( 0.0 );
     setWindowState( Qt::WindowMinimized );
+    mCaptureScene->setIsEnabled(false);
     delay( mCaptureDelay );
     show( mImageGrabber->grabImage( ImageGrabber::CurrentScreen, 
                                     KsnipConfig::instance()->captureMouse() ) );
@@ -528,6 +531,7 @@ void MainWindow::newFullScreenCaptureClicked()
 {
     setWindowOpacity( 0.0 );
     setWindowState( Qt::WindowMinimized );
+    mCaptureScene->setIsEnabled(false);
     delay( mCaptureDelay );
     show( mImageGrabber->grabImage( ImageGrabber::FullScreen, 
                                     KsnipConfig::instance()->captureMouse() ) );
@@ -538,6 +542,7 @@ void MainWindow::newActiveWindowCaptureClicked()
 {
     setWindowOpacity( 0.0 );
     setWindowState( Qt::WindowMinimized );
+    mCaptureScene->setIsEnabled(false);
     delay( mCaptureDelay );
     show( mImageGrabber->grabImage( ImageGrabber::ActiveWindow, 
                                     KsnipConfig::instance()->captureMouse() ) );
@@ -626,6 +631,7 @@ void MainWindow::keyPressEvent( QKeyEvent *event )
     if ( event->key() == Qt::Key_Escape ) {
         mSnippingArea->hide();
         setWindowOpacity( 1.0 );
+        mCaptureScene->setIsEnabled(true);
     }
 
     QWidget::keyPressEvent( event );

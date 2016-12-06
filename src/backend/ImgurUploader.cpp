@@ -188,9 +188,12 @@ void ImgurUploader::handleReply( QNetworkReply *reply )
 //     std::cout << "----------------------------------------------------------------\n";
 //     std::cout << "Reply code:\n" << QString( reply->readAll() ).toStdString() << "\n";
 //     std::cout << "----------------------------------------------------------------\n";
-      
+    
     // Check return code for any network errors
     if ( reply->error() != QNetworkReply::NoError ) {
+        // TODO Check if the returned code is a 403 Forbidden, this is actually not an error but
+        // TODO rather a challenge for authentication so we should proceed in this case.
+        // TODO Maybe check for QNetworkReply::AuthenticationRequiredError
         emit error( "Network Error: " + reply->errorString() );
         reply->deleteLater();
         return;

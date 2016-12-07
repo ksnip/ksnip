@@ -184,18 +184,16 @@ void ImgurUploader::handleTokenResponse( QDomElement element )
  */
 void ImgurUploader::handleReply( QNetworkReply *reply )
 {
-//     // Only for troubleshooting, if reply->readAll is called the parser will fail!
+    // Only for troubleshooting, if reply->readAll is called the parser will fail!
 //     std::cout << "----------------------------------------------------------------\n";
 //     std::cout << "Reply code:\n" << QString( reply->readAll() ).toStdString() << "\n";
 //     std::cout << "----------------------------------------------------------------\n";
     
-    // Check return code for any network errors
-    if ( reply->error() != QNetworkReply::NoError ) {
-        // TODO Check if the returned code is a 403 Forbidden, this is actually not an error but
-        // TODO rather a challenge for authentication so we should proceed in this case.
-        // TODO Maybe check for QNetworkReply::AuthenticationRequiredError
-        
-        emit error( "Network Error: " + reply->errorString() );
+    // Check network return code, if we get no error or if we get a status 202, proceed, the 202 is
+    // returned for invalid token, we will request a new token.
+    if ( reply->error() != QNetworkReply::NoError && 
+         reply->error() != QNetworkReply::ContentOperationNotPermittedError ) {
+        emit error( "Network Error(" + QString::number(reply->error()) + "): " + reply->errorString() );
         reply->deleteLater();
         return;
     }

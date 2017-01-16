@@ -29,6 +29,7 @@
 #include "src/widgets/PaintArea.h"
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/CaptureView.h"
+#include "src/widgets/CropPanel.h"
 #include "src/backend/ImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/StringManip.h"
@@ -49,6 +50,8 @@ public:
 
 public slots:
     void setCaptureDelay ( int ms );
+    void openCrop();
+    void closeCrop();
 
 protected:
     void moveEvent ( QMoveEvent *event );
@@ -85,6 +88,7 @@ private:
     SnippingArea     *mSnippingArea;
     ImageGrabber     *mImageGrabber;
     ImgurUploader    *mImgurUploader;
+    CropPanel        *mCropPanel;
 
     void delay ( int ms );
     void setSaveAble ( bool enabled );
@@ -107,7 +111,6 @@ private slots:
     void eraseClicked();
     void moveClicked();
     void imgurUploadClicked();
-    void cropClicked();
     void keyPressEvent ( QKeyEvent *event );
     void areaSelected ( QRect rect );
     void imageChanged();

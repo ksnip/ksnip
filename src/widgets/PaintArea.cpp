@@ -29,6 +29,8 @@ PaintArea::PaintArea() : QGraphicsScene(),
 
     // Set pixamp to null so we can check if anything was loaded
     mPixmap = NULL;
+    
+    mCropOffset = QPoint(0,0);
 
     // Connect to update signal so that we are informed any time the config changes, we use that to
     // set the correct mouse cursor
@@ -48,6 +50,7 @@ void PaintArea::loadCapture( QPixmap pixmap )
     clear();
     mPixmap = addPixmap( pixmap );
     setSceneRect( 0, 0, pixmap.width(), pixmap.height() );
+    mCropOffset = QPoint(0,0);
 }
 
 // Return scene rect which is the current size of the area
@@ -110,11 +113,20 @@ bool PaintArea::isValid()
  */
 void PaintArea::crop( QRect rect )
 {
+    // Store offset of crop, we will need it in case of cropping again.
+    mCropOffset = rect.topLeft() - mCropOffset;
+    
+    rect.moveTo(mCropOffset);
     setSceneRect( rect );
+    
     mPixmap->setPixmap( mPixmap->pixmap().copy( rect ) );
     mPixmap->setPos( rect.x(), rect.y() );
 }
 
+QPoint PaintArea::getCropOffset()
+{
+    return mCropOffset;
+}
 
 //
 // Protected Functions

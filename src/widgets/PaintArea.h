@@ -41,6 +41,7 @@ public:
     bool isEnabled();
     bool isValid();
     void crop ( QRect rect );
+    QPoint getCropOffset();
 
 signals:
     void imageChanged();
@@ -60,6 +61,7 @@ private:
     bool                 mIsSnapping;
     PaintMode            mCurrentPaintMode;
     QPointF              mMoveOffset;
+    QPoint               mCropOffset;
 
     void addNewPaintStroke ( QPointF position );
     void addToCurrentPaintStroke ( QPointF position );

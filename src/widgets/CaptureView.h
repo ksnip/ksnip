@@ -27,12 +27,20 @@
 
 class CaptureView : public QGraphicsView
 {
+    Q_OBJECT
+    
 public:
     CaptureView ( QGraphicsScene * );
     void show();
     PaintArea *scene();
+    void crop();
     void setIsCropping ( bool );
     bool getIsCropping();
+    QRect getSelectedRect();
+    void setSelectedRect(QRect rect);
+    
+signals:
+    void selectedRectChanged(QRect rect);
 
 protected:
     virtual void keyPressEvent ( QKeyEvent * );
@@ -49,10 +57,11 @@ private:
     QPoint mClickOffset;
     QRect  mSelectedRect;
     QRect  mBorderPoints[8];
+    
     void moveBorderPoint ( int, QPoint );
     void setupBorderPoints ( QRect );
     QPoint restrictPointToScene ( QPoint );
-    QPoint restrictRectToScene ( QRect, QPoint );
+    QPoint restrictRectMoveToScene ( QRect, QPoint );
     void setCursor ( QPoint );
 };
 

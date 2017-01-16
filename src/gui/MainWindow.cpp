@@ -47,7 +47,8 @@ MainWindow::MainWindow() : QMainWindow(),
     mClipboard( QApplication::clipboard() ),
     mSnippingArea( new SnippingArea( this ) ),
     mImageGrabber( new ImageGrabber( this ) ),
-    mImgurUploader(new ImgurUploader(this) )
+    mImgurUploader( new ImgurUploader(this) ),
+    mCropPanel( new CropPanel(mCaptureView) )
 {
     initGui();
 
@@ -66,6 +67,7 @@ MainWindow::MainWindow() : QMainWindow(),
     connect( mImgurUploader, SIGNAL(tokenUpdated(QString,QString,QString)), 
              this, SLOT(imgurTokenUpdated(QString,QString,QString)));
     connect( mImgurUploader, SIGNAL(tokenRefreshRequired()), this, SLOT(imgurTokenRefresh()));
+    connect( mCropPanel, SIGNAL(close()), this, SLOT(closeCrop()));
 
     loadSettings();
 }
@@ -98,6 +100,7 @@ void MainWindow::show( QPixmap screenshot )
 
     mCaptureView->show();
     setSaveAble( true );
+    closeCrop();
 
     if ( KsnipConfig::instance()->alwaysCopyToClipboard() ) {
         copyToClipboard();
@@ -111,6 +114,7 @@ void MainWindow::show()
     setWindowState( Qt::WindowActive );
     mCaptureView->hide();
     setSaveAble( false );
+    closeCrop();
     QWidget::show();
 }
 
@@ -181,6 +185,22 @@ void MainWindow::setCaptureDelay( int ms )
     else {
         mCaptureDelay = ms;
     }
+}
+
+void MainWindow::openCrop()
+{
+    if(!mCaptureScene->isValid()){
+        return;
+    }
+    statusBar()->addPermanentWidget(mCropPanel, 1);
+    mCropPanel->show();
+    statusBar()->setHidden(false);
+}
+
+void MainWindow::closeCrop()
+{
+    statusBar()->removeWidget(mCropPanel);
+    statusBar()->setHidden(true);
 }
 
 //
@@ -401,7 +421,7 @@ void MainWindow::initGui()
     mCropAction->setText( tr( "Crop" ) );
     mCropAction->setToolTip( tr( "Crop Screen Capture" ) );
     mCropAction->setShortcut( Qt::SHIFT + Qt::Key_C );
-    mCropAction->connect( mCropAction, SIGNAL( triggered() ), this, SLOT( cropClicked() ) );
+    mCropAction->connect( mCropAction, SIGNAL( triggered() ), this, SLOT( openCrop() ) );
 
     // Create actions for paint mode
     mPenAction->setText( tr( "Pen" ) );
@@ -500,7 +520,7 @@ void MainWindow::initGui()
     toolBar->addWidget( mPaintToolButton );
     toolBar->setFixedSize( toolBar->sizeHint() );
     
-    setCentralWidget(mCaptureView);  
+    setCentralWidget(mCaptureView);
     resize();
 }
 
@@ -619,11 +639,6 @@ void MainWindow::imgurUploadClicked()
     }
 
     statusBar()->showMessage( tr( "Waiting for imgur.com..." ) );
-}
-
-void MainWindow::cropClicked()
-{
-    mCaptureView->setIsCropping( true );
 }
 
 void MainWindow::keyPressEvent( QKeyEvent *event )

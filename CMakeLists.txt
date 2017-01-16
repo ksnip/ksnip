@@ -8,7 +8,8 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
-set(ksnip_SRCS src/main.cpp 
+set(ksnip_SRCS src/main.cpp
+               src/widgets/CropPanel.cpp
                src/backend/ImgurUploader.cpp
                src/backend/StringManip.cpp
                src/backend/KsnipConfig.cpp

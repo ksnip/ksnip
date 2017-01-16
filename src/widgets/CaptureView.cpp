@@ -47,6 +47,13 @@ PaintArea *CaptureView::scene()
     return static_cast<PaintArea *>( QGraphicsView::scene() );
 }
 
+void CaptureView::crop()
+{
+    setIsCropping( false );
+    scene()->crop( mSelectedRect );
+    parentWidget()->resize( scene()->areaSize() + QSize( 100, 150 ) );
+}
+
 void CaptureView::setIsCropping( bool isCropping )
 {
     // We can't crop if there was no pixmap loaded to the scene
@@ -67,6 +74,7 @@ void CaptureView::setIsCropping( bool isCropping )
     else {
         scene()->setIsEnabled( true );
         setMouseTracking( false );
+        
     }
 
     scene()->update();
@@ -75,6 +83,26 @@ void CaptureView::setIsCropping( bool isCropping )
 bool CaptureView::getIsCropping()
 {
     return mIsCropping;
+}
+
+QRect CaptureView::getSelectedRect()
+{
+    // Take into account offset of any previous crops
+    QRect rect = mSelectedRect.normalized();
+    rect.moveTo(rect.topLeft() - scene()->getCropOffset());
+    return rect;
+}
+
+/*
+ * Sets the selectedRect to the provided rect. Boundary checks should be done by the caller.
+ * Takes crop offset into account.
+ */
+void CaptureView::setSelectedRect( QRect rect )
+{
+    rect.moveTo(rect.topLeft() + scene()->getCropOffset());
+    mSelectedRect = rect;
+    setupBorderPoints( mSelectedRect );
+    scene()->update();
 }
 
 //
@@ -89,9 +117,7 @@ void CaptureView::keyPressEvent( QKeyEvent *event )
 
     // We have selected an area and want to crop it
     if ( event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return ) {
-        setIsCropping( false );
-        scene()->crop( mSelectedRect );
-        parentWidget()->resize( scene()->areaSize() + QSize( 100, 150 ) );
+        crop();
     }
 
     QGraphicsView::keyPressEvent( event );
@@ -139,14 +165,20 @@ void CaptureView::mouseMoveEvent( QMouseEvent *event )
             // new border point position
             moveBorderPoint( mSelectedBorderPoint, mapToScene( event->pos() ).toPoint() );
             scene()->update();
+            
+            // Inform anyone all stakeholders that the selection has changed 
+            emit selectedRectChanged(getSelectedRect());
         }
 
         if ( mIsMovingSelection ) {
-            mSelectedRect.moveTo( restrictRectToScene( mSelectedRect,
+            mSelectedRect.moveTo( restrictRectMoveToScene( mSelectedRect,
                                   mapToScene( event->pos() ).toPoint()
                                   - mClickOffset )
                                 );
             scene()->update();
+            
+            // Inform anyone all stakeholders that the selection has changed 
+            emit selectedRectChanged(getSelectedRect());
         }
 
         setCursor( mapToScene( event->pos() ).toPoint() );
@@ -297,19 +329,19 @@ void CaptureView::setupBorderPoints( QRect rect )
 QPoint CaptureView::restrictPointToScene( QPoint point )
 {
     if ( point.x() < sceneRect().left() ) {
-        point.setX( sceneRect().left() );
+        point.setX( sceneRect().left()  );
     }
     else
-        if ( point.x() > sceneRect().right() ) {
-            point.setX( sceneRect().right() );
+        if ( point.x() >= sceneRect().right() - 1 ) {
+            point.setX( sceneRect().right() - 1 );
         }
 
     if ( point.y() < sceneRect().top() ) {
         point.setY( sceneRect().top() );
     }
     else
-        if ( point.y() > sceneRect().bottom() ) {
-            point.setY( sceneRect().bottom() );
+        if ( point.y() >= sceneRect().bottom() - 1 ) {
+            point.setY( sceneRect().bottom() - 1 );
         }
 
     return point;
@@ -318,7 +350,7 @@ QPoint CaptureView::restrictPointToScene( QPoint point )
 /*
  * Restrict rect movement only to current scene rect
  */
-QPoint CaptureView::restrictRectToScene( QRect rect, QPoint newPos )
+QPoint CaptureView::restrictRectMoveToScene( QRect rect, QPoint newPos )
 {
     if ( newPos.x() < sceneRect().left() ) {
         newPos.setX( sceneRect().left() );
@@ -335,7 +367,7 @@ QPoint CaptureView::restrictRectToScene( QRect rect, QPoint newPos )
         if ( newPos.y() + rect.height() > sceneRect().bottom() ) {
             newPos.setY( sceneRect().bottom() - rect.height() );
         }
-
+    
     return newPos;
 }
 

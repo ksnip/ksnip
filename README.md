@@ -4,6 +4,22 @@ Version v1.2.0
 
 Ksnip is a Qt 4.8 based Linux screenshot tool inspired by the Window Snipping Tool.
 
+### Features
+Latest ksnip version contains following features:
+* Taking Screenshot of a custom rectangular area that can be drawn with mouse cursor.
+* Taking screenshot of the screen/monitor where the mouse cursor is currently located.
+* Taking screenshot of full screen, including all screens/monitors.
+* Taking screenshot of window that currently has focus.
+* Take screenshot with or without mouse cursor.
+* Customizable capture delay.
+* Upload screenshots directly to imgur.com in anonymous or user mode. 
+* Drawing on captured screenshot with two different tools, pen (opaque) and maker (semi-transparent).
+* Customizable color and size for drawing tool.
+* Any drawing can be moved around without deleting it by simply dragging it to new location.
+* Cropping captured screensshot, including any drawing on the captured image.
+* Command line support, for taking screenshot and saving it to default location, filename and format.
+* Customizable default location, filename and format for saving new screenshots with wildcards for Year ($Y), Month ($M), Day ($D) and Time ($T).  
+
 
 ### Building from source
 
@@ -22,3 +38,11 @@ Ksnip is a Qt 4.8 based Linux screenshot tool inspired by the Window Snipping To
     `$ sudo make install`  
 5. Run the application:  
     `$ ksnip`  
+
+
+### Bug report
+Please report any bugs or feature requests on the github page under the issue section https://github.com/DamirPorobic/ksnip/issues. 
+
+
+### Other
+For Gentoo, check out this link https://github.com/mrbitt/mrbit-overlay/blob/master/x11-apps/ksnip/ksnip-1.2.0.ebuild

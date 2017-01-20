@@ -20,12 +20,12 @@
 #include "PaintArea.h"
 #include "src/backend/KsnipConfig.h"
 
-PaintArea::PaintArea() : QGraphicsScene(),
-    mCursor( cursor() )
+PaintArea::PaintArea() : QGraphicsScene()
 {
     mCurrentPaintStroke = NULL;
     mCurrentPaintMode = Pen;
     mIsSnapping = false;
+    mCursor = NULL;
 
     // Set pixamp to null so we can check if anything was loaded
     mPixmap = NULL;
@@ -345,4 +345,5 @@ QCursor *PaintArea::cursor()
         else
             return new QCursor(Qt::ClosedHandCursor);
     }
+    
 }

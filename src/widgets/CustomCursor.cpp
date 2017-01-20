@@ -22,13 +22,11 @@
 
 CustomCursor::CustomCursor( ) : QCursor()
 {
-
 }
 
 CustomCursor::CustomCursor( CursorShape shape, QColor color, int size ) :
     QCursor( createPixmap( shape, color, size ) )
 {
-
 }
 
 CustomCursor::CustomCursor( CursorShape shape ) : QCursor( createPixmap( shape ) )

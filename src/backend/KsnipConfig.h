@@ -25,7 +25,7 @@
 #include <QPoint>
 #include <QSettings>
 
-#include "src/widgets/PaintArea.h"
+#include "src/painter/PaintArea.h"
 #include "ImageGrabber.h"
 
 class KsnipConfig : public QObject

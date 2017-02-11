@@ -26,7 +26,7 @@
 #include "SnippingArea.h"
 #include "SettingsDialog.h"
 #include "AboutDialog.h"
-#include "src/widgets/PaintArea.h"
+#include "src/painter/PaintArea.h"
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/CaptureView.h"
 #include "src/widgets/CropPanel.h"

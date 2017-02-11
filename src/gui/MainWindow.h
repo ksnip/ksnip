@@ -49,7 +49,7 @@ public:
     void resize();
 
 public slots:
-    void setCaptureDelay ( int ms );
+    void setCaptureDelay (int ms);
     void openCrop();
     void closeCrop();
 
@@ -77,6 +77,7 @@ private:
     QAction          *mEraseAction;
     QAction          *mMoveAction;
     QAction          *mUploadToImgurAction;
+    QAction          *mPrintImage;
     QAction          *mCropAction;
     QAction          *mNewCaptureAction;
     QAction          *mQuitAction;
@@ -111,6 +112,7 @@ private slots:
     void eraseClicked();
     void moveClicked();
     void imgurUploadClicked();
+    void printClicked();
     void keyPressEvent ( QKeyEvent *event );
     void areaSelected ( QRect rect );
     void imageChanged();

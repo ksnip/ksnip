@@ -20,35 +20,36 @@
 #include "MainWindow.h"
 
 MainWindow::MainWindow() : QMainWindow(),
-    mNewCaptureButton( new CustomToolButton ),
-    mSaveButton( new QToolButton ),
-    mCopyToClipboardButton( new QToolButton ),
-    mPaintToolButton( new CustomToolButton ),
-    mPaintToolMenu( new QMenu ),
-    mNewCaptureMenu( new QMenu ),
-    mNewRectAreaCaptureAction( new QAction( this ) ),
-    mNewCurrentScreenCaptureAction( new QAction( this ) ),
-    mNewFullScreenCaptureAction( new QAction( this ) ),
-    mNewActiveWindowCaptureAction( new QAction( this ) ),
-    mSaveAction( new QAction( this ) ),
-    mCopyToClipboardAction( new QAction( this ) ),
-    mPenAction( new QAction( this ) ),
-    mMarkerAction( new QAction( this ) ),
-    mEraseAction( new QAction( this ) ),
-    mMoveAction( new QAction( this ) ),
-    mUploadToImgurAction( new QAction( this ) ),
-    mCropAction( new QAction( this ) ),
-    mNewCaptureAction( new QAction( this ) ),
-    mQuitAction( new QAction( this ) ),
-    mSettingsDialogAction( new QAction( this ) ),
-    mAboutKsnipAction( new QAction( this ) ),
-    mCaptureScene( new PaintArea() ),
-    mCaptureView( new CaptureView( mCaptureScene ) ),
-    mClipboard( QApplication::clipboard() ),
-    mSnippingArea( new SnippingArea( this ) ),
-    mImageGrabber( new ImageGrabber( this ) ),
-    mImgurUploader( new ImgurUploader(this) ),
-    mCropPanel( new CropPanel(mCaptureView) )
+    mNewCaptureButton(new CustomToolButton),
+    mSaveButton(new QToolButton),
+    mCopyToClipboardButton(new QToolButton),
+    mPaintToolButton(new CustomToolButton),
+    mPaintToolMenu(new QMenu),
+    mNewCaptureMenu(new QMenu),
+    mNewRectAreaCaptureAction(new QAction(this)),
+    mNewCurrentScreenCaptureAction(new QAction(this)),
+    mNewFullScreenCaptureAction(new QAction(this)),
+    mNewActiveWindowCaptureAction(new QAction(this)),
+    mSaveAction(new QAction(this)),
+    mCopyToClipboardAction(new QAction(this)),
+    mPenAction(new QAction(this)),
+    mMarkerAction(new QAction(this)),
+    mEraseAction(new QAction(this)),
+    mMoveAction(new QAction(this)),
+    mUploadToImgurAction(new QAction(this)),
+    mPrintImage(new QAction(this)),
+    mCropAction(new QAction(this)),
+    mNewCaptureAction(new QAction(this)),
+    mQuitAction(new QAction(this)),
+    mSettingsDialogAction(new QAction(this)),
+    mAboutKsnipAction(new QAction(this)),
+    mCaptureScene(new PaintArea()),
+    mCaptureView(new CaptureView(mCaptureScene)),
+    mClipboard(QApplication::clipboard()),
+    mSnippingArea(new SnippingArea(this)),
+    mImageGrabber(new ImageGrabber(this)),
+    mImgurUploader(new ImgurUploader(this)),
+    mCropPanel(new CropPanel(mCaptureView))
 {
     initGui();
 
@@ -130,7 +131,7 @@ int MainWindow::captureDelay()
 void MainWindow::instantCapture( ImageGrabber::CaptureMode captureMode, int seconds )
 {
     delay( seconds * 1000 );
-    
+
     switch ( captureMode ) {
     case ImageGrabber::RectArea:
         break;
@@ -144,7 +145,7 @@ void MainWindow::instantCapture( ImageGrabber::CaptureMode captureMode, int seco
         instantSave(mImageGrabber->grabImage( ImageGrabber::ActiveWindow, 
                                               KsnipConfig::instance()->captureMouse() ));
         break;
-    
+
     case ImageGrabber::FullScreen:
     default:
         instantSave(mImageGrabber->grabImage( ImageGrabber::FullScreen, 
@@ -181,8 +182,7 @@ void MainWindow::setCaptureDelay( int ms )
 {
     if ( ms < 300 ) {
         mCaptureDelay = 300;
-    }
-    else {
+    } else {
         mCaptureDelay = ms;
     }
 }
@@ -346,11 +346,11 @@ QIcon MainWindow::createIcon( QString name )
  * number.
  */
 void MainWindow::instantSave( QPixmap pixmap )
-{                             
+{
     QString savePath = StringManip::makeUniqueFilename(KsnipConfig::instance()->saveDirectory(), 
                        StringManip::updateTimeAndDate(KsnipConfig::instance()->saveFilename()), 
                        KsnipConfig::instance()->saveFormat());
-    
+
     // Turn any special characters, like $Y into a valid date and time value.
     if(!pixmap.save(savePath)){
         qCritical( "MainWindow::instantSave: Unable to save capture at " + savePath.toLatin1());
@@ -404,51 +404,57 @@ void MainWindow::initGui()
     mSaveAction->setEnabled( false );
 
     // Create action for copy to clipboard button
-    mCopyToClipboardAction->setText( tr( "Copy" ) );
-    mCopyToClipboardAction->setToolTip( tr( "Copy Screen Capture to clipboard" ) );
-    mCopyToClipboardAction->setIcon( createIcon( "copyToClipboard" ) ) ;
-    mCopyToClipboardAction->setShortcut( QKeySequence::Copy );
-    mCopyToClipboardAction->connect( mCopyToClipboardAction, SIGNAL( triggered() ), this,
-                                     SLOT( copyToClipboardClicked() ) );
-    
+    mCopyToClipboardAction->setText(tr("Copy"));
+    mCopyToClipboardAction->setToolTip(tr("Copy Screen Capture to clipboard"));
+    mCopyToClipboardAction->setIcon(createIcon("copyToClipboard")) ;
+    mCopyToClipboardAction->setShortcut(QKeySequence::Copy);
+    mCopyToClipboardAction->connect(mCopyToClipboardAction, SIGNAL(triggered()), this,
+                                    SLOT(copyToClipboardClicked()));
+
     // Create Action for imgur.com uploader
-    mUploadToImgurAction->setText( tr("Upload"));
-    mUploadToImgurAction->setToolTip( tr("Upload capture image to imgur.com"));
-    mUploadToImgurAction->connect(mUploadToImgurAction, SIGNAL(triggered()), this, SLOT(imgurUploadClicked()));
-    
+    mUploadToImgurAction->setText(tr("Upload"));
+    mUploadToImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
+    connect(mUploadToImgurAction, SIGNAL(triggered()),
+                                  this, SLOT(imgurUploadClicked()));
+
+    // Create print action
+    mPrintImage->setText(tr("Print"));
+    mPrintImage->setToolTip(tr("Open printer dialog and provide option to print image."));
+    mPrintImage->setShortcut(QKeySequence::Print);
+    connect(mPrintImage, SIGNAL(triggered()), this, SLOT(printClicked()));
 
     // Create crop action
-    mCropAction->setText( tr( "Crop" ) );
-    mCropAction->setToolTip( tr( "Crop Screen Capture" ) );
-    mCropAction->setShortcut( Qt::SHIFT + Qt::Key_C );
-    mCropAction->connect( mCropAction, SIGNAL( triggered() ), this, SLOT( openCrop() ) );
+    mCropAction->setText(tr("Crop"));
+    mCropAction->setToolTip(tr("Crop Screen Capture"));
+    mCropAction->setShortcut(Qt::SHIFT + Qt::Key_C);
+    connect(mCropAction, SIGNAL(triggered()), this, SLOT(openCrop()));
 
     // Create actions for paint mode
-    mPenAction->setText( tr( "Pen" ) );
-    mPenAction->setIcon( createIcon( "pen" ) );
-    connect( mPenAction, SIGNAL( triggered() ), this, SLOT( penClicked() ) );
+    mPenAction->setText(tr("Pen"));
+    mPenAction->setIcon(createIcon("pen"));
+    connect(mPenAction, SIGNAL(triggered()), this, SLOT(penClicked()));
 
-    mMarkerAction->setText( tr( "Marker" ) );
-    mMarkerAction->setIcon( createIcon( "marker" ) );
-    connect( mMarkerAction, SIGNAL( triggered() ), this, SLOT( markerClicked() ) );
+    mMarkerAction->setText(tr("Marker"));
+    mMarkerAction->setIcon(createIcon("marker"));
+    connect(mMarkerAction, SIGNAL(triggered()), this, SLOT(markerClicked()));
 
-    mEraseAction->setText( tr( "Erase" ) );
-    mEraseAction->setIcon( createIcon( "eraser" ) );
-    connect( mEraseAction, SIGNAL( triggered() ), this, SLOT( eraseClicked() ) );
-    
-    mMoveAction->setText( tr("Move") );
-    mMoveAction->setIcon( createIcon( "move" ) );
-    connect( mMoveAction, SIGNAL(triggered()), this, SLOT(moveClicked()));
+    mEraseAction->setText(tr("Erase"));
+    mEraseAction->setIcon(createIcon("eraser"));
+    connect(mEraseAction, SIGNAL(triggered()), this, SLOT(eraseClicked()));
+
+    mMoveAction->setText(tr("Move"));
+    mMoveAction->setIcon(createIcon("move"));
+    connect(mMoveAction, SIGNAL(triggered()), this, SLOT(moveClicked()));
 
     // Create action for new capture, this will be only used in the menu bar
-    mNewCaptureAction->setText( tr( "New" ) );
-    mNewCaptureAction->setShortcut( QKeySequence::New );
-    connect( mNewCaptureAction, SIGNAL( triggered() ), mNewCaptureButton, SLOT( trigger() ) );
+    mNewCaptureAction->setText(tr("New"));
+    mNewCaptureAction->setShortcut(QKeySequence::New);
+    connect(mNewCaptureAction, SIGNAL(triggered()), mNewCaptureButton, SLOT(trigger()));
 
     // Create exit action
-    mQuitAction->setText( tr( "Quit" ) );
-    mQuitAction->setShortcut( QKeySequence::Quit );
-    connect( mQuitAction, SIGNAL( triggered() ), this, SLOT( close() ) );
+    mQuitAction->setText(tr("Quit"));
+    mQuitAction->setShortcut(QKeySequence::Quit);
+    connect(mQuitAction, SIGNAL(triggered()), this, SLOT(close()));
 
     // Create action for opening settings dialog
     mSettingsDialogAction->setText( tr( "Settings" ) );
@@ -492,19 +498,20 @@ void MainWindow::initGui()
 
     // Create menu bar
     QMenu *menu;
-    menu = menuBar()->addMenu( tr( "File" ) );
-    menu->addAction( mNewCaptureAction );
-    menu->addAction( mSaveAction );
-    menu->addAction(mUploadToImgurAction); 
+    menu = menuBar()->addMenu(tr("File"));
+    menu->addAction(mNewCaptureAction);
+    menu->addAction(mSaveAction);
+    menu->addAction(mUploadToImgurAction);
+    menu->addAction(mPrintImage);
     menu->addSeparator();
-    menu->addAction( mQuitAction );
-    menu = menuBar()->addMenu( tr( "&Edit" ) );
-    menu->addAction( mCopyToClipboardAction );
-    menu->addAction( mCropAction );
-    menu = menuBar()->addMenu( tr( "&Options" ) );
-    menu->addAction( mSettingsDialogAction );
-    menu = menuBar()->addMenu( tr( "&Help" ) );
-    menu->addAction( mAboutKsnipAction );
+    menu->addAction(mQuitAction);
+    menu = menuBar()->addMenu(tr("&Edit"));
+    menu->addAction(mCopyToClipboardAction);
+    menu->addAction(mCropAction);
+    menu = menuBar()->addMenu(tr("&Options"));
+    menu->addAction(mSettingsDialogAction);
+    menu = menuBar()->addMenu(tr("&Help"));
+    menu->addAction(mAboutKsnipAction);
 
     // Create toolbar
     QToolBar *toolBar;
@@ -519,7 +526,7 @@ void MainWindow::initGui()
     toolBar->addSeparator();
     toolBar->addWidget( mPaintToolButton );
     toolBar->setFixedSize( toolBar->sizeHint() );
-    
+
     setCentralWidget(mCaptureView);
     resize();
 }
@@ -623,22 +630,37 @@ void MainWindow::moveClicked()
 void MainWindow::imgurUploadClicked()
 {
     // If we have no capture, abort here.
-    if (!mCaptureScene->isValid()){
+    if (!mCaptureScene->isValid()) {
         return;
     }
-    
+
     // Upload to Imgur Account
-    if ( !KsnipConfig::instance()->imgurForceAnonymous() &&
-            !KsnipConfig::instance()->imgurAccessToken().isEmpty() ) {
-        mImgurUploader->startUpload( mCaptureScene->exportAsImage(),
-                                     KsnipConfig::instance()->imgurAccessToken() );
-    }
-    // Upload Anonymous
-    else {
-        mImgurUploader->startUpload( mCaptureScene->exportAsImage() );
+    if (!KsnipConfig::instance()->imgurForceAnonymous() &&
+            !KsnipConfig::instance()->imgurAccessToken().isEmpty()) {
+        mImgurUploader->startUpload(mCaptureScene->exportAsImage(),
+                                    KsnipConfig::instance()->imgurAccessToken());
+    } else {
+        // Upload Anonymous
+        mImgurUploader->startUpload(mCaptureScene->exportAsImage());
     }
 
     statusBar()->showMessage( tr( "Waiting for imgur.com..." ) );
+}
+
+void MainWindow::printClicked()
+{
+    if (!mCaptureScene->isValid()) {
+        return;
+    }
+
+    QPrinter printer(QPrinter::HighResolution);
+    QPrintDialog* dlg = new QPrintDialog(&printer);
+    if (dlg->exec() == QDialog::Accepted) {
+        QPainter painter(&printer);
+        painter.drawImage(QPoint(0, 0), mCaptureScene->exportAsImage());
+        painter.end();
+    }
+    delete dlg;
 }
 
 void MainWindow::keyPressEvent( QKeyEvent *event )
@@ -655,8 +677,8 @@ void MainWindow::keyPressEvent( QKeyEvent *event )
 void MainWindow::areaSelected( QRect rect )
 {
     delay( mCaptureDelay );
-    show( mImageGrabber->grabImage( ImageGrabber::RectArea, 
-                                    KsnipConfig::instance()->captureMouse(), 
+    show( mImageGrabber->grabImage( ImageGrabber::RectArea,
+                                    KsnipConfig::instance()->captureMouse(),
                                     &rect ) );
 }
 

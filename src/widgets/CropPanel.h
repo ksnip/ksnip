@@ -24,26 +24,26 @@
 #include <src/widgets/CaptureView.h>
 
 class CropPanel : public QWidget
-{ 
+{
     Q_OBJECT
 public:
     CropPanel(CaptureView *captureView);
     void show();
-    
+
 signals:
     void close();
-    
+
 private:
     CaptureView *mCaptureView;
-    QPushButton *mCropButton; 
-    QPushButton *mCancelButton; 
+    QPushButton *mCropButton;
+    QPushButton *mCancelButton;
     QLineEdit   *mPositionXLineEdit;
     QLineEdit   *mPositionYLineEdit;
     QLineEdit   *mWidthLineEdit;
     QLineEdit   *mHeightLineEdit;
-    
+
     void initGui();
-    
+
 private slots:
     void closeClicked();
     void cropClicked();

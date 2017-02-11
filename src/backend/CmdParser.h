@@ -34,19 +34,19 @@ class CmdParser
 public:
     CmdParser();
 
-    bool addOption ( QString name, QString description, QString longName = 0 );
-    bool parse ( QStringList arguments );
+    bool addOption(QString name, QString description, QString longName = 0);
+    bool parse(QStringList arguments);
     void showHelp();
     void showVersion();
-    bool isSet ( QString name );
-    QString value ( QString name );
+    bool isSet(QString name);
+    QString value(QString name);
 
 private:
     QList<CmdOption>  mOptions;
     QStringList       mUnknownOptions;
 
-    CmdOption *setOption ( QString name );
-    void setUnknownOption ( QString name );
+    CmdOption *setOption(QString name);
+    void setUnknownOption(QString name);
     bool showError();
 };
 

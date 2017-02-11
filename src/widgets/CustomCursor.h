@@ -29,12 +29,12 @@ class CustomCursor : public QCursor
 public:
     enum CursorShape { Rect, Circle, cross};
     CustomCursor();
-    CustomCursor ( CursorShape, QColor, int );
-    CustomCursor ( CursorShape );
+    CustomCursor(CursorShape, QColor, int);
+    CustomCursor(CursorShape);
 
 private:
-    QPixmap createPixmap ( CursorShape, QColor, int );
-    QPixmap createPixmap ( CursorShape );
+    QPixmap createPixmap(CursorShape, QColor, int);
+    QPixmap createPixmap(CursorShape);
 };
 
 #endif // CUSTOMCURSOR_H

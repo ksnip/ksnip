@@ -29,12 +29,12 @@ PaintArea::PaintArea() : QGraphicsScene()
 
     // Set pixamp to null so we can check if anything was loaded
     mPixmap = NULL;
-    
-    mCropOffset = QPoint(0,0);
+
+    mCropOffset = QPoint(0, 0);
 
     // Connect to update signal so that we are informed any time the config changes, we use that to
     // set the correct mouse cursor
-    connect( KsnipConfig::instance(), SIGNAL( painterUpdated() ), this, SLOT( setCursor() ) );
+    connect(KsnipConfig::instance(), SIGNAL(painterUpdated()), this, SLOT(setCursor()));
 }
 
 //
@@ -45,12 +45,12 @@ PaintArea::PaintArea() : QGraphicsScene()
  * Load new captured image and add it to the scene and set the scene size to the size of the loaded
  * image.
  */
-void PaintArea::loadCapture( QPixmap pixmap )
+void PaintArea::loadCapture(QPixmap pixmap)
 {
     clear();
-    mPixmap = addPixmap( pixmap );
-    setSceneRect( 0, 0, pixmap.width(), pixmap.height() );
-    mCropOffset = QPoint(0,0);
+    mPixmap = addPixmap(pixmap);
+    setSceneRect(0, 0, pixmap.width(), pixmap.height());
+    mCropOffset = QPoint(0, 0);
 }
 
 // Return scene rect which is the current size of the area
@@ -59,7 +59,7 @@ QSize PaintArea::areaSize()
     return sceneRect().size().toSize();
 }
 
-void PaintArea::setPaintMode( PaintMode paintMode )
+void PaintArea::setPaintMode(PaintMode paintMode)
 {
     mCurrentPaintMode = paintMode;
     setCursor();
@@ -71,20 +71,20 @@ void PaintArea::setPaintMode( PaintMode paintMode )
  */
 QImage PaintArea::exportAsImage()
 {
-    if ( !isValid() ) {
+    if (!isValid()) {
         return QImage();
     }
 
-    QImage image( sceneRect().size().toSize(), QImage::Format_ARGB32 );
-    image.fill( Qt::transparent );
+    QImage image(sceneRect().size().toSize(), QImage::Format_ARGB32);
+    image.fill(Qt::transparent);
 
-    QPainter painter( &image );
-    painter.setRenderHint( QPainter::Antialiasing );
-    render( &painter );
+    QPainter painter(&image);
+    painter.setRenderHint(QPainter::Antialiasing);
+    render(&painter);
     return image;
 }
 
-void PaintArea::setIsEnabled( bool enabled )
+void PaintArea::setIsEnabled(bool enabled)
 {
     mIsEnabled = enabled;
     setCursor();
@@ -100,10 +100,9 @@ bool PaintArea::isEnabled()
  */
 bool PaintArea::isValid()
 {
-    if ( mPixmap == NULL ) {
+    if (mPixmap == NULL) {
         return false;
-    }
-    else {
+    } else {
         return true;
     }
 }
@@ -111,16 +110,16 @@ bool PaintArea::isValid()
 /*
  * Crop the capture image to the provided rect and set the scene rect appropriately
  */
-void PaintArea::crop( QRect rect )
+void PaintArea::crop(QRect rect)
 {
     // Store offset of crop, we will need it in case of cropping again.
     mCropOffset = rect.topLeft() - mCropOffset;
-    
+
     rect.moveTo(mCropOffset);
-    setSceneRect( rect );
-    
-    mPixmap->setPixmap( mPixmap->pixmap().copy( rect ) );
-    mPixmap->setPos( rect.x(), rect.y() );
+    setSceneRect(rect);
+
+    mPixmap->setPixmap(mPixmap->pixmap().copy(rect));
+    mPixmap->setPos(rect.x(), rect.y());
 }
 
 QPoint PaintArea::getCropOffset()
@@ -132,58 +131,58 @@ QPoint PaintArea::getCropOffset()
 // Protected Functions
 //
 
-void PaintArea::mousePressEvent( QGraphicsSceneMouseEvent *event )
+void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
 {
-    if ( event->button() == Qt::LeftButton && mIsEnabled ) {
-        switch ( mCurrentPaintMode ) {
+    if (event->button() == Qt::LeftButton && mIsEnabled) {
+        switch (mCurrentPaintMode) {
         case Erase:
-            erasePaintStroke( event->scenePos() );
+            erasePaintStroke(event->scenePos());
             break;
 
         case Move:
-            if ( getObjectForMove( event->scenePos() ) ) {
+            if (getObjectForMove(event->scenePos())) {
                 setCursor();
             }
             break;
-            
+
         case Pen:
         case Marker:
         default:
-            addNewPaintStroke( event->scenePos() );
+            addNewPaintStroke(event->scenePos());
         }
     }
 
-    QGraphicsScene::mousePressEvent( event );
+    QGraphicsScene::mousePressEvent(event);
 }
 
-void PaintArea::mouseMoveEvent( QGraphicsSceneMouseEvent *event )
+void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 {
-    if ( event->buttons() == Qt::LeftButton && mIsEnabled ) {
-        switch ( mCurrentPaintMode ) {
+    if (event->buttons() == Qt::LeftButton && mIsEnabled) {
+        switch (mCurrentPaintMode) {
         case Erase:
-            erasePaintStroke( event->scenePos() );
+            erasePaintStroke(event->scenePos());
             break;
 
         case Move:
-            moveObject( event->scenePos() );
+            moveObject(event->scenePos());
             break;
 
         case Pen:
         case Marker:
         default:
-            addToCurrentPaintStroke( event->scenePos() );
+            addToCurrentPaintStroke(event->scenePos());
         }
     }
 
-    QGraphicsScene::mouseMoveEvent( event );
+    QGraphicsScene::mouseMoveEvent(event);
 }
 
-void PaintArea::mouseReleaseEvent( QGraphicsSceneMouseEvent *event )
+void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
 {
-    if ( event->button() == Qt::LeftButton && mIsEnabled ) {
-        switch ( mCurrentPaintMode ) {
+    if (event->button() == Qt::LeftButton && mIsEnabled) {
+        switch (mCurrentPaintMode) {
         case Erase:
-            erasePaintStroke( event->scenePos() );
+            erasePaintStroke(event->scenePos());
             break;
 
         case Move:
@@ -203,69 +202,67 @@ void PaintArea::mouseReleaseEvent( QGraphicsSceneMouseEvent *event )
         emit imageChanged();
     }
 
-    QGraphicsScene::mouseReleaseEvent( event );
+    QGraphicsScene::mouseReleaseEvent(event);
 }
 
-void PaintArea::keyPressEvent( QKeyEvent *event )
+void PaintArea::keyPressEvent(QKeyEvent* event)
 {
-    if ( event->key() == Qt::Key_Shift ) {
+    if (event->key() == Qt::Key_Shift) {
         mIsSnapping = true;
     }
 
-    QGraphicsScene::keyPressEvent( event );
+    QGraphicsScene::keyPressEvent(event);
 }
 
-void PaintArea::keyReleaseEvent( QKeyEvent *event )
+void PaintArea::keyReleaseEvent(QKeyEvent* event)
 {
-    if ( event->key() == Qt::Key_Shift ) {
+    if (event->key() == Qt::Key_Shift) {
         mIsSnapping = false;
     }
 
-    QGraphicsScene::keyReleaseEvent( event );
+    QGraphicsScene::keyReleaseEvent(event);
 }
 
 //
 // Private Functions
 //
-void PaintArea::addNewPaintStroke( QPointF position )
+void PaintArea::addNewPaintStroke(QPointF position)
 {
-    if ( mCurrentPaintMode == Pen ) {
-        mCurrentPaintStroke = new PaintStroke( position, KsnipConfig::instance()->pen() );
-    }
-    else {
-        mCurrentPaintStroke = new PaintStroke( position, KsnipConfig::instance()->marker(), true );
+    if (mCurrentPaintMode == Pen) {
+        mCurrentPaintStroke = new PaintStroke(position, KsnipConfig::instance()->pen());
+    } else {
+        mCurrentPaintStroke = new PaintStroke(position, KsnipConfig::instance()->marker(), true);
     }
 
-    addItem( mCurrentPaintStroke );
+    addItem(mCurrentPaintStroke);
 }
 
-void PaintArea::addToCurrentPaintStroke( QPointF position )
+void PaintArea::addToCurrentPaintStroke(QPointF position)
 {
-    if ( mCurrentPaintStroke == NULL ) {
-        qCritical( "PaintArea::addToCurrentPaintStroke: Unable to add point to path, \
-        current path set to NULL" );
+    if (mCurrentPaintStroke == NULL) {
+        qCritical("PaintArea::addToCurrentPaintStroke: Unable to add point to path, \
+        current path set to NULL");
         return;
     }
 
-    if ( mIsSnapping ) {
-        mCurrentPaintStroke->lastLineTo( position );
-    }
-    else {
-        mCurrentPaintStroke->lineTo( position );
+    if (mIsSnapping) {
+        mCurrentPaintStroke->lastLineTo(position);
+    } else {
+        mCurrentPaintStroke->lineTo(position);
     }
 
-    mCurrentPaintStroke->lineTo( position );
+    mCurrentPaintStroke->lineTo(position);
 }
 
-bool PaintArea::erasePaintStroke( QPointF mousePosition )
+bool PaintArea::erasePaintStroke(QPointF mousePosition)
 {
-    PaintStroke *item = NULL;
+    PaintStroke* item = NULL;
 
-    for ( int i = 0 ; i < items().count() ; i++ ) {
-        item = qgraphicsitem_cast<PaintStroke *> ( items().at( i ) );
+    for (int i = 0 ; i < items().count() ; i++) {
+        item = qgraphicsitem_cast<PaintStroke*> (items().at(i));
 
-        if ( item && item->isUnderLocation( mousePosition , 6) ) {
-            removeItem( items().at( i ) );
+        if (item && item->isUnderLocation(mousePosition , 6)) {
+            removeItem(items().at(i));
             return true;
         }
     }
@@ -276,12 +273,12 @@ bool PaintArea::erasePaintStroke( QPointF mousePosition )
 /*
  * Check if any of the paths is under this position, if yes grab it.
  */
-bool PaintArea::getObjectForMove( QPointF position )
+bool PaintArea::getObjectForMove(QPointF position)
 {
-    for ( int i = 0 ; i < items().count() ; i++ ) {
-        mCurrentPaintStroke = qgraphicsitem_cast<PaintStroke *> ( items().at( i ) );
+    for (int i = 0 ; i < items().count() ; i++) {
+        mCurrentPaintStroke = qgraphicsitem_cast<PaintStroke*> (items().at(i));
 
-        if ( mCurrentPaintStroke && mCurrentPaintStroke->isUnderLocation( position, 10 ) ) {
+        if (mCurrentPaintStroke && mCurrentPaintStroke->isUnderLocation(position, 10)) {
             mMoveOffset = position - mCurrentPaintStroke->boundingRect().topLeft();
             return true;
         }
@@ -292,13 +289,13 @@ bool PaintArea::getObjectForMove( QPointF position )
     return false;
 }
 
-void PaintArea::moveObject( QPointF position )
+void PaintArea::moveObject(QPointF position)
 {
-    if ( mCurrentPaintStroke == NULL ) {
+    if (mCurrentPaintStroke == NULL) {
         return;
     }
 
-    mCurrentPaintStroke->setPos( position - mMoveOffset );
+    mCurrentPaintStroke->setPos(position - mMoveOffset);
 }
 
 /*
@@ -310,8 +307,8 @@ void PaintArea::setCursor()
     delete mCursor;
     mCursor = cursor();
 
-    for ( int i = 0; i < views().length(); i++ ) {
-        views().at( i )->setCursor( *mCursor );
+    for (int i = 0; i < views().length(); i++) {
+        views().at(i)->setCursor(*mCursor);
     }
 }
 
@@ -319,31 +316,32 @@ void PaintArea::setCursor()
  * Returns a new custom cursor based on currently selected paint tool, if the scene is disabled
  * return to default cursor.
  */
-QCursor *PaintArea::cursor()
+QCursor* PaintArea::cursor()
 {
-    if ( !mIsEnabled ) {
+    if (!mIsEnabled) {
         return new CustomCursor();
     }
 
-    switch ( mCurrentPaintMode ) {
+    switch (mCurrentPaintMode) {
     case Pen:
-        return new CustomCursor( CustomCursor::Circle,
-                                 KsnipConfig::instance()->penColor(),
-                                 KsnipConfig::instance()->penSize() );
+        return new CustomCursor(CustomCursor::Circle,
+                                KsnipConfig::instance()->penColor(),
+                                KsnipConfig::instance()->penSize());
 
     case Marker:
-        return new CustomCursor( CustomCursor::Circle,
-                                 KsnipConfig::instance()->markerColor(),
-                                 KsnipConfig::instance()->markerSize() );
+        return new CustomCursor(CustomCursor::Circle,
+                                KsnipConfig::instance()->markerColor(),
+                                KsnipConfig::instance()->markerSize());
 
     case Erase:
-        return new CustomCursor( CustomCursor::Rect, QColor( "white" ), 6 );
-        
+        return new CustomCursor(CustomCursor::Rect, QColor("white"), 6);
+
     case Move:
-        if (mCurrentPaintStroke == NULL)
+        if (mCurrentPaintStroke == NULL) {
             return new QCursor(Qt::OpenHandCursor);
-        else
+        } else {
             return new QCursor(Qt::ClosedHandCursor);
+        }
     }
-    
+
 }

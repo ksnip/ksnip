@@ -30,11 +30,11 @@ class StringManip
 public:
     StringManip();
 
-    static QString extractPath ( QString path );
-    static QString extractFilename ( QString path );
-    static QString extractFormat ( QString path );
+    static QString extractPath(QString path);
+    static QString extractFilename(QString path);
+    static QString extractFormat(QString path);
 
-    static QString updateTimeAndDate ( QString filename );
+    static QString updateTimeAndDate(QString filename);
     static QString makeUniqueFilename(QString path, QString filename, QString exension = 0);
 };
 

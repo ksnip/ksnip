@@ -20,7 +20,7 @@
 
 #include "CmdOption.h"
 
-CmdOption::CmdOption( QString name, QString description, QString longName )
+CmdOption::CmdOption(QString name, QString description, QString longName)
 {
     mName = name;
     mDescription = description;
@@ -40,7 +40,7 @@ QString CmdOption::name() const
     return mName;
 }
 
-void CmdOption::setName( QString name )
+void CmdOption::setName(QString name)
 {
     mName = name;
 }
@@ -53,7 +53,7 @@ QString CmdOption::longName() const
     return mLongName;
 }
 
-void CmdOption::setLongName( QString longName )
+void CmdOption::setLongName(QString longName)
 {
     mLongName = longName;
 }
@@ -63,7 +63,7 @@ QString CmdOption::description() const
     return mDescription;
 }
 
-void CmdOption::setDescription( QString description )
+void CmdOption::setDescription(QString description)
 {
     mDescription = description;
 }
@@ -76,7 +76,7 @@ bool CmdOption::isSet() const
     return mIsSet;
 }
 
-void CmdOption::set( bool enabled )
+void CmdOption::set(bool enabled)
 {
     mIsSet = enabled;
 }
@@ -90,7 +90,7 @@ QString CmdOption::value() const
     return mValue;
 }
 
-void CmdOption::setValue( QString value )
+void CmdOption::setValue(QString value)
 {
     mValue = value;
 }

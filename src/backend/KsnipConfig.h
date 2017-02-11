@@ -33,97 +33,97 @@ class KsnipConfig : public QObject
     Q_OBJECT
 
 public:
-    KsnipConfig ( QObject *parent = 0 );
+    KsnipConfig(QObject *parent = 0);
 
     static KsnipConfig *instance();
-    
+
     // Application
 
     bool saveKsnipPosition() const;
-    void setSaveKsnipPosition ( bool enabled );
+    void setSaveKsnipPosition(bool enabled);
 
     bool promptSaveBeforeExit() const;
-    void setPromptSaveBeforeExit ( bool enabled );
+    void setPromptSaveBeforeExit(bool enabled);
 
     bool alwaysCopyToClipboard() const;
-    void setAlwaysCopyToClipboard ( bool enabled );
+    void setAlwaysCopyToClipboard(bool enabled);
 
     bool saveKsnipToolSelection() const;
-    void setSaveKsnipToolSelection ( bool enabled );
+    void setSaveKsnipToolSelection(bool enabled);
 
     QPoint windowPosition() const;
-    void setWindowPosition ( QPoint position );
+    void setWindowPosition(QPoint position);
 
     PaintArea::PaintMode paintMode() const;
-    void setPaintMode ( PaintArea::PaintMode paintMode );
+    void setPaintMode(PaintArea::PaintMode paintMode);
 
     ImageGrabber::CaptureMode captureMode() const;
-    void setCaptureMode ( ImageGrabber::CaptureMode captureMode );
-    
+    void setCaptureMode(ImageGrabber::CaptureMode captureMode);
+
     QString saveDirectory() const;
-    void setSaveDirectory ( QString path );
+    void setSaveDirectory(QString path);
 
     QString saveFilename() const;
-    void setSaveFilename ( QString filename );
+    void setSaveFilename(QString filename);
 
     QString saveFormat() const;
-    void setSaveFormat ( QString format );
-    
+    void setSaveFormat(QString format);
+
     // Painter
 
     QPen pen() const;
 
     QColor penColor() const;
-    void setPenColor ( QColor color );
+    void setPenColor(QColor color);
 
     int penSize() const;
-    void setPenSize ( int size );
+    void setPenSize(int size);
 
     QPen marker() const;
 
     QColor markerColor() const;
-    void setMarkerColor ( QColor color );
+    void setMarkerColor(QColor color);
 
     int markerSize() const;
-    void setMarkerSize ( int size );
-    
-    // Image Grabber 
-    
+    void setMarkerSize(int size);
+
+    // Image Grabber
+
     bool captureMouse() const;
-    void setCaptureMouse ( bool enabled );
+    void setCaptureMouse(bool enabled);
 
     int captureDelay() const;
-    void setCaptureDelay ( int delay );
-    
+    void setCaptureDelay(int delay);
+
     // Imgur Uploader
 
     QString imgurUsername() const;
-    void setImgurUsername ( QString username );
+    void setImgurUsername(QString username);
 
     QByteArray imgurClientId() const;
-    void setImgurClientId ( QString clientId );
+    void setImgurClientId(QString clientId);
 
     QByteArray imgurClientSecret() const;
-    void setImgurClientSecret ( QString clientSecret );
+    void setImgurClientSecret(QString clientSecret);
 
     QByteArray imgurAccessToken() const;
-    void setImgurAccessToken ( QString accessToken );
+    void setImgurAccessToken(QString accessToken);
 
     QByteArray imgurRefreshToken() const;
-    void setImgurRefreshToken ( QString refreshToken );
+    void setImgurRefreshToken(QString refreshToken);
 
     bool imgurForceAnonymous() const;
-    void setImgurForceAnonymous ( bool enabled );
+    void setImgurForceAnonymous(bool enabled);
 
     bool imgurOpenLinkDirectlyToImage() const;
-    void setImgurOpenLinkDirectlyToImage ( bool enabled );
+    void setImgurOpenLinkDirectlyToImage(bool enabled);
 
     bool imgurAlwaysCopyToClipboard() const;
-    void setImgurAlwaysCopyToClipboard ( bool enabled );
+    void setImgurAlwaysCopyToClipboard(bool enabled);
 
 signals:
     void painterUpdated();
-    void captureDelayUpdated ( int delay );
+    void captureDelayUpdated(int delay);
 
 private:
     QSettings mConfig;

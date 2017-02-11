@@ -36,8 +36,8 @@ public:
     enum CaptureMode { RectArea, FullScreen, CurrentScreen, ActiveWindow };
 
 public:
-    ImageGrabber ( QWidget * );
-    QPixmap grabImage ( CaptureMode captureMode, bool capureMouse, QRect *rect = 0 );
+    ImageGrabber(QWidget *);
+    QPixmap grabImage(CaptureMode captureMode, bool capureMouse, QRect *rect = 0);
     QRect currectScreenRect();
     QRect fullScreenRect();
     QRect activeWindowRect();
@@ -45,8 +45,8 @@ public:
 private:
     QWidget *mParent;
 
-    QPixmap grabRect ( QRect rect, bool capureMouse );
-    Window getToplevelParent ( Display *display , Window window );
+    QPixmap grabRect(QRect rect, bool capureMouse);
+    Window getToplevelParent(Display *display , Window window);
 };
 
 #endif // IMAGEGRABBER_H

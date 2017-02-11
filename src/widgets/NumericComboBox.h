@@ -30,12 +30,12 @@ class NumericComboBox : public QComboBox
     Q_OBJECT
 
 public:
-    NumericComboBox ( int, int, int, QWidget *widget = 0 );
+    NumericComboBox(int, int, int, QWidget *widget = 0);
     int value() const;
-    void setValue ( int );
+    void setValue(int);
 
 private:
-    void populateList ( int, int, int );
+    void populateList(int, int, int);
 };
 
 #endif // SIZECOMBOBOX_H

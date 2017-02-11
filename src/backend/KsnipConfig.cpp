@@ -21,7 +21,7 @@
 #include "KsnipConfig.h"
 #include <iostream>
 
-KsnipConfig::KsnipConfig( QObject *parent ) : QObject( parent )
+KsnipConfig::KsnipConfig(QObject* parent) : QObject(parent)
 {
 
 }
@@ -30,7 +30,7 @@ KsnipConfig::KsnipConfig( QObject *parent ) : QObject( parent )
 // Public Functions
 //
 
-KsnipConfig *KsnipConfig::instance()
+KsnipConfig* KsnipConfig::instance()
 {
     static KsnipConfig instance;
     return &instance;
@@ -40,93 +40,92 @@ KsnipConfig *KsnipConfig::instance()
 
 bool KsnipConfig::saveKsnipPosition() const
 {
-    return mConfig.value( "Application/SaveKsnipPosition", true ).toBool();
+    return mConfig.value("Application/SaveKsnipPosition", true).toBool();
 }
 
-void KsnipConfig::setSaveKsnipPosition( bool enabled )
+void KsnipConfig::setSaveKsnipPosition(bool enabled)
 {
-    mConfig.setValue( "Application/SaveKsnipPosition", enabled );
+    mConfig.setValue("Application/SaveKsnipPosition", enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::promptSaveBeforeExit() const
 {
-    return mConfig.value( "Application/PromptSaveBeforeExit", false ).toBool();
+    return mConfig.value("Application/PromptSaveBeforeExit", false).toBool();
 }
 
-void KsnipConfig::setPromptSaveBeforeExit( bool enabled )
+void KsnipConfig::setPromptSaveBeforeExit(bool enabled)
 {
-    mConfig.setValue( "Application/PromptSaveBeforeExit", enabled );
+    mConfig.setValue("Application/PromptSaveBeforeExit", enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::alwaysCopyToClipboard() const
 {
-    return mConfig.value( "Application/AlwaysCopyToClipboard", false ).toBool();
+    return mConfig.value("Application/AlwaysCopyToClipboard", false).toBool();
 }
 
-void KsnipConfig::setAlwaysCopyToClipboard( bool enabled )
+void KsnipConfig::setAlwaysCopyToClipboard(bool enabled)
 {
-    mConfig.setValue( "Application/AlwaysCopyToClipboard", enabled );
+    mConfig.setValue("Application/AlwaysCopyToClipboard", enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::saveKsnipToolSelection() const
 {
-    return mConfig.value( "Application/SaveKsnipToolsSelection", true ).toBool();
+    return mConfig.value("Application/SaveKsnipToolsSelection", true).toBool();
 }
 
-void KsnipConfig::setSaveKsnipToolSelection( bool enabled )
+void KsnipConfig::setSaveKsnipToolSelection(bool enabled)
 {
-    mConfig.setValue( "Application/SaveKsnipToolsSelection", enabled );
+    mConfig.setValue("Application/SaveKsnipToolsSelection", enabled);
     mConfig.sync();
 }
 
 QPoint KsnipConfig::windowPosition() const
 {
     // If we are not saving the position we return the default and ignore what has been save earlier
-    if ( !saveKsnipPosition() ) {
-        return QPoint( 200, 200 );
+    if (!saveKsnipPosition()) {
+        return QPoint(200, 200);
     }
 
-    return mConfig.value( "MainWindow/Position", QPoint( 200, 200 ) ).value<QPoint>();
+    return mConfig.value("MainWindow/Position", QPoint(200, 200)).value<QPoint>();
 }
 
-void KsnipConfig::setWindowPosition( QPoint position )
+void KsnipConfig::setWindowPosition(QPoint position)
 {
-    mConfig.setValue( "MainWindow/Position", position );
+    mConfig.setValue("MainWindow/Position", position);
     mConfig.sync();
 }
 
 PaintArea::PaintMode KsnipConfig::paintMode() const
 {
     // If we are not storing the tool selection, always return the pen as default
-    if ( !saveKsnipToolSelection() ) {
+    if (!saveKsnipToolSelection()) {
         return PaintArea::Pen;
     }
 
-    if ( mConfig.value( "Painter/PaintMode" ).toInt() == PaintArea::Marker ) {
+    if (mConfig.value("Painter/PaintMode").toInt() == PaintArea::Marker) {
         return PaintArea::Marker;
-    }
-    else {
+    } else {
         return PaintArea::Pen;
     }
 }
 
-void KsnipConfig::setPaintMode( PaintArea::PaintMode paintMode )
+void KsnipConfig::setPaintMode(PaintArea::PaintMode paintMode)
 {
-    mConfig.setValue( "Painter/PaintMode", paintMode );
+    mConfig.setValue("Painter/PaintMode", paintMode);
     mConfig.sync();
 }
 
 ImageGrabber::CaptureMode KsnipConfig::captureMode() const
 {
     // If we are not storing the tool selection, always return the rect area as default
-    if ( !saveKsnipToolSelection() ) {
+    if (!saveKsnipToolSelection()) {
         return ImageGrabber::RectArea;
     }
 
-    switch ( mConfig.value( "ImageGrabber/CaptureMode" ).toInt() ) {
+    switch (mConfig.value("ImageGrabber/CaptureMode").toInt()) {
     case ImageGrabber::ActiveWindow:
         return ImageGrabber::ActiveWindow;
 
@@ -136,91 +135,88 @@ ImageGrabber::CaptureMode KsnipConfig::captureMode() const
     case ImageGrabber::FullScreen:
         return ImageGrabber::FullScreen;
 
-    default
-            :
+    default:
         return ImageGrabber::RectArea;
     }
 }
 
-void KsnipConfig::setCaptureMode( ImageGrabber::CaptureMode captureMode )
+void KsnipConfig::setCaptureMode(ImageGrabber::CaptureMode captureMode)
 {
-    mConfig.setValue( "ImageGrabber/CaptureMode", captureMode );
+    mConfig.setValue("ImageGrabber/CaptureMode", captureMode);
     mConfig.sync();
 }
 
 QString KsnipConfig::saveDirectory() const
 {
-    if ( !mConfig.value( "Application/SaveDirectory", QDir::homePath() ).toString().isEmpty() ) {
-        return mConfig.value( "Application/SaveDirectory", QDir::homePath() ).toString() + "/";
-    }
-    else {
+    if (!mConfig.value("Application/SaveDirectory", QDir::homePath()).toString().isEmpty()) {
+        return mConfig.value("Application/SaveDirectory", QDir::homePath()).toString() + "/";
+    } else {
         return QString();
     }
 }
 
-void KsnipConfig::setSaveDirectory( QString path )
+void KsnipConfig::setSaveDirectory(QString path)
 {
-    mConfig.setValue( "Application/SaveDirectory", path );
+    mConfig.setValue("Application/SaveDirectory", path);
     mConfig.sync();
 }
 
 QString KsnipConfig::saveFilename() const
 {
-    return mConfig.value( "Application/SaveFilename", "ksnip_$Y$M$D$" ).toString();
+    return mConfig.value("Application/SaveFilename", "ksnip_$Y$M$D$").toString();
 }
 
-void KsnipConfig::setSaveFilename( QString filename )
+void KsnipConfig::setSaveFilename(QString filename)
 {
-    mConfig.setValue( "Application/SaveFilename", filename );
+    mConfig.setValue("Application/SaveFilename", filename);
     mConfig.sync();
 }
 
 QString KsnipConfig::saveFormat() const
 {
-    if ( !mConfig.value( "Application/SaveFormat", "png" ).toString().isEmpty() ) {
-        return "." + mConfig.value( "Application/SaveFormat", "png" ).toString();
-    }
-    else {
+    if (!mConfig.value("Application/SaveFormat", "png").toString().isEmpty()) {
+        return "." + mConfig.value("Application/SaveFormat", "png").toString();
+    } else {
         return QString();
     }
 }
 
-void KsnipConfig::setSaveFormat( QString format )
+void KsnipConfig::setSaveFormat(QString format)
 {
-    mConfig.setValue( "Application/SaveFormat", format );
+    mConfig.setValue("Application/SaveFormat", format);
     mConfig.sync();
 }
 
-// Painter 
+// Painter
 
 QPen KsnipConfig::pen() const
 {
     QPen pen;
-    pen.setColor( penColor() );
-    pen.setWidth( penSize() );
+    pen.setColor(penColor());
+    pen.setWidth(penSize());
     return pen;
 }
 
 QColor KsnipConfig::penColor() const
 {
-    return mConfig.value( "Painter/PenColor", QColor( "Red" ) ).value<QColor>();
+    return mConfig.value("Painter/PenColor", QColor("Red")).value<QColor>();
 }
 
-void KsnipConfig::setPenColor( QColor color )
+void KsnipConfig::setPenColor(QColor color)
 {
-    mConfig.setValue( "Painter/PenColor", color );
+    mConfig.setValue("Painter/PenColor", color);
     mConfig.sync();
     emit painterUpdated();
 }
 
 int KsnipConfig::penSize() const
 {
-    return mConfig.value( "Painter/PenSize", 3 ).toInt();
+    return mConfig.value("Painter/PenSize", 3).toInt();
 }
 
-void KsnipConfig::setPenSize( int size )
+void KsnipConfig::setPenSize(int size)
 {
-    mConfig.setValue( "Painter/PenSize", size );
+    mConfig.setValue("Painter/PenSize", size);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -228,43 +224,43 @@ void KsnipConfig::setPenSize( int size )
 QPen KsnipConfig::marker() const
 {
     QPen marker;
-    marker.setColor( markerColor() );
-    marker.setWidth( markerSize() );
+    marker.setColor(markerColor());
+    marker.setWidth(markerSize());
     return marker;
 }
 
 QColor KsnipConfig::markerColor() const
 {
-    return mConfig.value( "Painter/MarkerColor", QColor( "Yellow" ) ).value<QColor>();
+    return mConfig.value("Painter/MarkerColor", QColor("Yellow")).value<QColor>();
 }
 
-void KsnipConfig::setMarkerColor( QColor color )
+void KsnipConfig::setMarkerColor(QColor color)
 {
-    mConfig.setValue( "Painter/MarkerColor", color );
+    mConfig.setValue("Painter/MarkerColor", color);
     mConfig.sync();
     emit painterUpdated();
 }
 
 int KsnipConfig::markerSize() const
 {
-    return mConfig.value( "Painter/MarkerSize", 20 ).toInt();
+    return mConfig.value("Painter/MarkerSize", 20).toInt();
 }
 
-void KsnipConfig::setMarkerSize( int size )
+void KsnipConfig::setMarkerSize(int size)
 {
-    mConfig.setValue( "Painter/MarkerSize", size );
+    mConfig.setValue("Painter/MarkerSize", size);
     mConfig.sync();
     emit painterUpdated();
 }
 
-// Image Grabber 
+// Image Grabber
 
 bool KsnipConfig::captureMouse() const
 {
     return mConfig.value("ImageGrabber/CaptureMouse", false).toBool();
 }
 
-void KsnipConfig::setCaptureMouse( bool enabled )
+void KsnipConfig::setCaptureMouse(bool enabled)
 {
     mConfig.setValue("ImageGrabber/CaptureMouse", enabled);
     mConfig.sync();
@@ -272,102 +268,102 @@ void KsnipConfig::setCaptureMouse( bool enabled )
 
 int KsnipConfig::captureDelay() const
 {
-    return mConfig.value( "ImageGrabber/CaptureDelay", 300 ).toInt() ;
+    return mConfig.value("ImageGrabber/CaptureDelay", 300).toInt() ;
 }
 
-void KsnipConfig::setCaptureDelay( int delay )
+void KsnipConfig::setCaptureDelay(int delay)
 {
-    mConfig.setValue( "ImageGrabber/CaptureDelay", delay );
+    mConfig.setValue("ImageGrabber/CaptureDelay", delay);
     mConfig.sync();
-    emit captureDelayUpdated( delay );
+    emit captureDelayUpdated(delay);
 }
 
 // Imgur Uploader
 
 QString KsnipConfig::imgurUsername() const
 {
-    return mConfig.value( "Imgur/Username", "" ).toString();
+    return mConfig.value("Imgur/Username", "").toString();
 }
 
-void KsnipConfig::setImgurUsername( QString username )
+void KsnipConfig::setImgurUsername(QString username)
 {
-    mConfig.setValue( "Imgur/Username", username );
+    mConfig.setValue("Imgur/Username", username);
     mConfig.sync();
 }
 
 QByteArray KsnipConfig::imgurClientId() const
 {
-    return mConfig.value( "Imgur/ClientId", "" ).toByteArray();
+    return mConfig.value("Imgur/ClientId", "").toByteArray();
 }
 
-void KsnipConfig::setImgurClientId( QString clientId )
+void KsnipConfig::setImgurClientId(QString clientId)
 {
-    mConfig.setValue( "Imgur/ClientId", clientId );
+    mConfig.setValue("Imgur/ClientId", clientId);
     mConfig.sync();
 }
 
 QByteArray KsnipConfig::imgurClientSecret() const
 {
-    return mConfig.value( "Imgur/ClientSecret", "" ).toByteArray();
+    return mConfig.value("Imgur/ClientSecret", "").toByteArray();
 }
 
-void KsnipConfig::setImgurClientSecret( QString clientSecret )
+void KsnipConfig::setImgurClientSecret(QString clientSecret)
 {
-    mConfig.setValue( "Imgur/ClientSecret", clientSecret );
+    mConfig.setValue("Imgur/ClientSecret", clientSecret);
     mConfig.sync();
 }
 
 QByteArray KsnipConfig::imgurAccessToken() const
 {
-    return mConfig.value( "Imgur/AccessToken", "" ).toByteArray();
+    return mConfig.value("Imgur/AccessToken", "").toByteArray();
 }
 
-void KsnipConfig::setImgurAccessToken( QString accessToken )
+void KsnipConfig::setImgurAccessToken(QString accessToken)
 {
-    mConfig.setValue( "Imgur/AccessToken", accessToken );
+    mConfig.setValue("Imgur/AccessToken", accessToken);
     mConfig.sync();
 }
 
 QByteArray KsnipConfig::imgurRefreshToken() const
 {
-    return mConfig.value( "Imgur/RefreshToken", "" ).toByteArray();
+    return mConfig.value("Imgur/RefreshToken", "").toByteArray();
 }
 
-void KsnipConfig::setImgurRefreshToken( QString refreshToken )
+void KsnipConfig::setImgurRefreshToken(QString refreshToken)
 {
-    mConfig.setValue( "Imgur/RefreshToken", refreshToken );
+    mConfig.setValue("Imgur/RefreshToken", refreshToken);
     mConfig.sync();
 }
 
 bool KsnipConfig::imgurForceAnonymous() const
 {
-    return mConfig.value( "Imgur/ForceAnonymous", false ).toBool();
+    return mConfig.value("Imgur/ForceAnonymous", false).toBool();
 }
 
-void KsnipConfig::setImgurForceAnonymous( bool enabled )
+void KsnipConfig::setImgurForceAnonymous(bool enabled)
 {
-    mConfig.setValue( "Imgur/ForceAnonymous", enabled );
+    mConfig.setValue("Imgur/ForceAnonymous", enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::imgurOpenLinkDirectlyToImage() const
 {
-    return mConfig.value( "Imgur/OpenLinkDirectlyToImage", false ).toBool();
+    return mConfig.value("Imgur/OpenLinkDirectlyToImage", false).toBool();
 }
 
-void KsnipConfig::setImgurOpenLinkDirectlyToImage( bool enabled )
+void KsnipConfig::setImgurOpenLinkDirectlyToImage(bool enabled)
 {
-    mConfig.setValue( "Imgur/OpenLinkDirectlyToImage", enabled );
+    mConfig.setValue("Imgur/OpenLinkDirectlyToImage", enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::imgurAlwaysCopyToClipboard() const
 {
-    return mConfig.value( "Imgur/AlwaysCopyToClipboard", false ).toBool();
+    return mConfig.value("Imgur/AlwaysCopyToClipboard", false).toBool();
 }
 
-void KsnipConfig::setImgurAlwaysCopyToClipboard( bool enabled )
+void KsnipConfig::setImgurAlwaysCopyToClipboard(bool enabled)
 {
-    mConfig.setValue( "Imgur/AlwaysCopyToClipboard", enabled );
+    mConfig.setValue("Imgur/AlwaysCopyToClipboard", enabled);
     mConfig.sync();
 }

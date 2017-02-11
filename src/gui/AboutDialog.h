@@ -32,7 +32,7 @@ class AboutDialog : public QDialog
 {
     Q_OBJECT
 public:
-    AboutDialog ( MainWindow *parent = 0 );
+    AboutDialog(MainWindow *parent = 0);
 
 private:
     MainWindow  *mParent;

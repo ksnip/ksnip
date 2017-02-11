@@ -31,12 +31,12 @@ class ColorComboBox : public QComboBox
     Q_OBJECT
 
 public:
-    ColorComboBox ( QStringList, QWidget *widget = 0 );
+    ColorComboBox(QStringList, QWidget *widget = 0);
     QColor color() const;
-    void setColor ( QColor );
+    void setColor(QColor);
 
 private:
-    void populateList ( QStringList );
+    void populateList(QStringList);
 };
 
 #endif // COLORCOMBOBOX_H

@@ -55,20 +55,20 @@ MainWindow::MainWindow() : QMainWindow(),
 
     mCaptureView->hide();
 
-    setWindowIcon( createIcon( "ksnip" ) );
-    move( KsnipConfig::instance()->windowPosition() );
+    setWindowIcon(createIcon("ksnip"));
+    move(KsnipConfig::instance()->windowPosition());
 
     // Create a connection with other widget elements
-    connect( mSnippingArea, SIGNAL( areaSelected( QRect ) ), this, SLOT( areaSelected( QRect ) ) );
-    connect( mCaptureScene, SIGNAL( imageChanged() ), this, SLOT( imageChanged() ) );
-    connect( KsnipConfig::instance(),SIGNAL( captureDelayUpdated( int ) ),
-             this, SLOT( setCaptureDelay( int ) ) );
-    connect( mImgurUploader, SIGNAL(uploadFinished(QString)), this, SLOT(imgurUploadFinished(QString)));
-    connect( mImgurUploader, SIGNAL(error(QString)), this, SLOT(imgurError(QString)));
-    connect( mImgurUploader, SIGNAL(tokenUpdated(QString,QString,QString)), 
-             this, SLOT(imgurTokenUpdated(QString,QString,QString)));
-    connect( mImgurUploader, SIGNAL(tokenRefreshRequired()), this, SLOT(imgurTokenRefresh()));
-    connect( mCropPanel, SIGNAL(close()), this, SLOT(closeCrop()));
+    connect(mSnippingArea, SIGNAL(areaSelected(QRect)), this, SLOT(areaSelected(QRect)));
+    connect(mCaptureScene, SIGNAL(imageChanged()), this, SLOT(imageChanged()));
+    connect(KsnipConfig::instance(), SIGNAL(captureDelayUpdated(int)),
+            this, SLOT(setCaptureDelay(int)));
+    connect(mImgurUploader, SIGNAL(uploadFinished(QString)), this, SLOT(imgurUploadFinished(QString)));
+    connect(mImgurUploader, SIGNAL(error(QString)), this, SLOT(imgurError(QString)));
+    connect(mImgurUploader, SIGNAL(tokenUpdated(QString, QString, QString)),
+            this, SLOT(imgurTokenUpdated(QString, QString, QString)));
+    connect(mImgurUploader, SIGNAL(tokenRefreshRequired()), this, SLOT(imgurTokenRefresh()));
+    connect(mCropPanel, SIGNAL(close()), this, SLOT(closeCrop()));
 
     loadSettings();
 }
@@ -77,33 +77,32 @@ MainWindow::MainWindow() : QMainWindow(),
 // Public Functions
 //
 
-void MainWindow::show( QPixmap screenshot )
+void MainWindow::show(QPixmap screenshot)
 {
-    setWindowState( Qt::WindowActive );
-    setWindowOpacity( 1.0 );
+    setWindowState(Qt::WindowActive);
+    setWindowOpacity(1.0);
 
-    if ( screenshot.isNull() ) {
-        qCritical( "PaintWindow::showWindow: No image provided to but it was expected." );
+    if (screenshot.isNull()) {
+        qCritical("PaintWindow::showWindow: No image provided to but it was expected.");
         return show();
     }
 
-    mCaptureScene->loadCapture( screenshot );
+    mCaptureScene->loadCapture(screenshot);
     mCaptureScene->setIsEnabled(true);
 
-    if ( mCaptureScene->areaSize().width() > mImageGrabber->currectScreenRect().width() ||
-            mCaptureScene->areaSize().height() > mImageGrabber->currectScreenRect().height() ) {
-        setWindowState( Qt::WindowMaximized );
-    }
-
-    else {
+    if (mCaptureScene->areaSize().width() > mImageGrabber->currectScreenRect().width() ||
+            mCaptureScene->areaSize().height() > mImageGrabber->currectScreenRect().height()) {
+        setWindowState(Qt::WindowMaximized);
+    } else {
         resize();
     }
 
     mCaptureView->show();
-    setSaveAble( true );
+    setSaveAble(true);
+    setEnablements(true);
     closeCrop();
 
-    if ( KsnipConfig::instance()->alwaysCopyToClipboard() ) {
+    if (KsnipConfig::instance()->alwaysCopyToClipboard()) {
         copyToClipboard();
     }
 
@@ -112,14 +111,15 @@ void MainWindow::show( QPixmap screenshot )
 
 void MainWindow::show()
 {
-    setWindowState( Qt::WindowActive );
+    setWindowState(Qt::WindowActive);
     mCaptureView->hide();
-    setSaveAble( false );
+    setSaveAble(false);
+    setEnablements(false);
     closeCrop();
     QWidget::show();
 }
 
-int MainWindow::captureDelay()
+int MainWindow::captureDelay() const
 {
     return mCaptureDelay;
 }
@@ -128,45 +128,44 @@ int MainWindow::captureDelay()
  * Function for instant capturing used from command line. The function grabs the image and saves it
  * directly to disk. If some delay was set it will be added, otherwise delay is set to 0 and skipped
  */
-void MainWindow::instantCapture( ImageGrabber::CaptureMode captureMode, int seconds )
+void MainWindow::instantCapture(ImageGrabber::CaptureMode captureMode, int seconds)
 {
-    delay( seconds * 1000 );
+    delay(seconds * 1000);
 
-    switch ( captureMode ) {
+    switch (captureMode) {
     case ImageGrabber::RectArea:
         break;
 
     case ImageGrabber::CurrentScreen:
-        instantSave(mImageGrabber->grabImage( ImageGrabber::CurrentScreen, 
-                                              KsnipConfig::instance()->captureMouse() ));
+        instantSave(mImageGrabber->grabImage(ImageGrabber::CurrentScreen,
+                                             KsnipConfig::instance()->captureMouse()));
         break;
 
     case ImageGrabber::ActiveWindow:
-        instantSave(mImageGrabber->grabImage( ImageGrabber::ActiveWindow, 
-                                              KsnipConfig::instance()->captureMouse() ));
+        instantSave(mImageGrabber->grabImage(ImageGrabber::ActiveWindow,
+                                             KsnipConfig::instance()->captureMouse()));
         break;
 
     case ImageGrabber::FullScreen:
     default:
-        instantSave(mImageGrabber->grabImage( ImageGrabber::FullScreen, 
-                                              KsnipConfig::instance()->captureMouse() ));
+        instantSave(mImageGrabber->grabImage(ImageGrabber::FullScreen,
+                                             KsnipConfig::instance()->captureMouse()));
     }
 }
 
 /*
- * Sets the Main Window size to fit all content correctly, it takes into account if an image was 
+ * Sets the Main Window size to fit all content correctly, it takes into account if an image was
  * loaded or not,  if the status bar is show or not, and so on. If no image is loaded the status bar
  * is hidden too.
  */
 void MainWindow::resize()
 {
-    if ( !mCaptureScene->isValid() ) {
+    if (!mCaptureScene->isValid()) {
         statusBar()->setHidden(true);
-        QWidget::resize( minimumSize() );
-    }
-    else {
+        QWidget::resize(minimumSize());
+    } else {
         statusBar()->setHidden(false);
-        QWidget::resize( mCaptureScene->areaSize() + QSize( 100, 150 ) );
+        QWidget::resize(mCaptureScene->areaSize() + QSize(100, 150));
     }
 }
 
@@ -178,9 +177,9 @@ void MainWindow::resize()
  * Delay is never set below 300ms to leave enough time for the ksnip window to disappear before
  * taking the screenshot.
  */
-void MainWindow::setCaptureDelay( int ms )
+void MainWindow::setCaptureDelay(int ms)
 {
-    if ( ms < 300 ) {
+    if (ms < 300) {
         mCaptureDelay = 300;
     } else {
         mCaptureDelay = ms;
@@ -189,7 +188,7 @@ void MainWindow::setCaptureDelay( int ms )
 
 void MainWindow::openCrop()
 {
-    if(!mCaptureScene->isValid()){
+    if (!mCaptureScene->isValid()) {
         return;
     }
     statusBar()->addPermanentWidget(mCropPanel, 1);
@@ -203,31 +202,37 @@ void MainWindow::closeCrop()
     statusBar()->setHidden(true);
 }
 
+QMenu* MainWindow::createPopupMenu()
+{
+    // Filtering out the option to hide main toolbar which should no be allowed.
+    QMenu* filteredMenu = QMainWindow::createPopupMenu();
+    filteredMenu->removeAction(mToolBar->toggleViewAction());
+    return filteredMenu;
+}
+
 //
 // Protected Functions
 //
 
-void MainWindow::moveEvent( QMoveEvent *event )
+void MainWindow::moveEvent(QMoveEvent* event)
 {
-    KsnipConfig::instance()->setWindowPosition( pos() );
-    QWidget::moveEvent( event );
+    KsnipConfig::instance()->setWindowPosition(pos());
+    QWidget::moveEvent(event);
 }
 
-void MainWindow::closeEvent( QCloseEvent *event )
+void MainWindow::closeEvent(QCloseEvent* event)
 {
-    if ( KsnipConfig::instance()->promptSaveBeforeExit() && mIsUnsaved ) {
-        bool reply = popupQuestion( tr( "Warning - " ) + QApplication::applicationName(),
-                                    tr( "The capture has been modified.\nDo you want to save it?" ) );
+    if (KsnipConfig::instance()->promptSaveBeforeExit() && mIsUnsaved) {
+        bool reply = popupQuestion(tr("Warning - ") + QApplication::applicationName(),
+                                   tr("The capture has been modified.\nDo you want to save it?"));
 
-        if ( reply ) {
+        if (reply) {
             saveCaptureClicked();
             event->ignore();
-        }
-        else {
+        } else {
             event->accept();
         }
-    }
-    else {
+    } else {
         event->accept();
     }
 }
@@ -236,12 +241,12 @@ void MainWindow::closeEvent( QCloseEvent *event )
 // Private Functions
 //
 
-void MainWindow::delay( int ms )
+void MainWindow::delay(int ms)
 {
-    QTime dieTime = QTime::currentTime().addMSecs( ms );
+    QTime dieTime = QTime::currentTime().addMSecs(ms);
 
-    while ( QTime::currentTime() < dieTime ) {
-        QCoreApplication::processEvents( QEventLoop::AllEvents, 100 );
+    while (QTime::currentTime() < dieTime) {
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     }
 }
 
@@ -250,19 +255,37 @@ void MainWindow::delay( int ms )
  * on the provided boolean value. If true, the save action is enabled and
  * the title changed.
  */
-void MainWindow::setSaveAble( bool enabled )
+void MainWindow::setSaveAble(bool enabled)
 {
-    if ( enabled ) {
-        mSaveAction->setEnabled( true );
-        setWindowTitle( "*" + QApplication::applicationName() + " - " + tr( "Unsaved" ) );
+    if (enabled) {
+        mSaveAction->setEnabled(true);
+        setWindowTitle("*" + QApplication::applicationName() + " - " + tr("Unsaved"));
         mIsUnsaved = true;
-    }
-    else {
-        mSaveAction->setEnabled( false );
-        setWindowTitle( QApplication::applicationName() );
+    } else {
+        mSaveAction->setEnabled(false);
+        setWindowTitle(QApplication::applicationName());
         mIsUnsaved = false;
     }
 }
+
+/*
+ * Sets and disables image related buttons
+ */
+void MainWindow::setEnablements(bool enabled)
+{
+    if (enabled) {
+        mCropAction->setEnabled(true);
+        mPrintImage->setEnabled(true);
+        mUploadToImgurAction->setEnabled(true);
+        mCopyToClipboardAction->setEnabled(true);
+    } else {
+        mCropAction->setEnabled(false);
+        mPrintImage->setEnabled(false);
+        mUploadToImgurAction->setEnabled(false);
+        mCopyToClipboardAction->setEnabled(false);
+    }
+}
+
 
 /*
  * This loads ksnip settings from the config file
@@ -270,55 +293,53 @@ void MainWindow::setSaveAble( bool enabled )
 void MainWindow::loadSettings()
 {
     // Load capture delay setting
-    setCaptureDelay( KsnipConfig::instance()->captureDelay() );
+    setCaptureDelay(KsnipConfig::instance()->captureDelay());
 
     // Load paintmode setting
-    if ( KsnipConfig::instance()->paintMode() == PaintArea::Marker ) {
-        mCaptureScene->setPaintMode( PaintArea::Marker );
-        mPaintToolButton->setDefaultAction( mMarkerAction );
-    }
-    else {
-        mCaptureScene->setPaintMode( PaintArea::Pen );
-        mPaintToolButton->setDefaultAction( mPenAction );
+    if (KsnipConfig::instance()->paintMode() == PaintArea::Marker) {
+        mCaptureScene->setPaintMode(PaintArea::Marker);
+        mPaintToolButton->setDefaultAction(mMarkerAction);
+    } else {
+        mCaptureScene->setPaintMode(PaintArea::Pen);
+        mPaintToolButton->setDefaultAction(mPenAction);
     }
 
     // Load capture mode setting
-    switch ( KsnipConfig::instance()->captureMode() ) {
+    switch (KsnipConfig::instance()->captureMode()) {
     case ImageGrabber::ActiveWindow:
-        mNewCaptureButton->setDefaultAction( mNewActiveWindowCaptureAction );
+        mNewCaptureButton->setDefaultAction(mNewActiveWindowCaptureAction);
         break;
 
     case ImageGrabber::CurrentScreen:
-        mNewCaptureButton->setDefaultAction( mNewCurrentScreenCaptureAction );
+        mNewCaptureButton->setDefaultAction(mNewCurrentScreenCaptureAction);
         break;
 
     case ImageGrabber::FullScreen:
-        mNewCaptureButton->setDefaultAction( mNewFullScreenCaptureAction );
+        mNewCaptureButton->setDefaultAction(mNewFullScreenCaptureAction);
         break;
 
     default:
-        mNewCaptureButton->setDefaultAction( mNewRectAreaCaptureAction );
+        mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
     }
 }
 
 void MainWindow::copyToClipboard()
 {
-    mClipboard->setImage( mCaptureScene->exportAsImage() );
+    mClipboard->setImage(mCaptureScene->exportAsImage());
 }
 
 /*
  * Generic function that can be used to display a simple yes/no question and return appropriate
  * boolean feedback.
  */
-bool MainWindow::popupQuestion( QString title, QString question )
+bool MainWindow::popupQuestion(QString title, QString question)
 {
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question( this, title, question, QMessageBox::Yes | QMessageBox::No );
+    reply = QMessageBox::question(this, title, question, QMessageBox::Yes | QMessageBox::No);
 
-    if ( reply == QMessageBox::Yes ) {
+    if (reply == QMessageBox::Yes) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -327,13 +348,13 @@ bool MainWindow::popupQuestion( QString title, QString question )
  * Checks what png icons are available for that button and adds them to the icon which can then be
  * added to a button, action or similar.
  */
-QIcon MainWindow::createIcon( QString name )
+QIcon MainWindow::createIcon(QString name)
 {
     QIcon tmpIcon;
 
-    for ( int i = 16; i <= 64; i = i * 2 ) {
-        if ( QResource( ":" + name + QString::number( i ) + ".png" ).isValid() ) {
-            tmpIcon.addFile( ( ":" + name + QString::number( i ) + ".png" ), QSize( i, i ) );
+    for (int i = 16; i <= 64; i = i * 2) {
+        if (QResource(":" + name + QString::number(i) + ".png").isValid()) {
+            tmpIcon.addFile((":" + name + QString::number(i) + ".png"), QSize(i, i));
         }
     }
 
@@ -345,15 +366,15 @@ QIcon MainWindow::createIcon( QString name )
  * asking the user for a new path. Existing images are not overwritten, just names with increasing
  * number.
  */
-void MainWindow::instantSave( QPixmap pixmap )
+void MainWindow::instantSave(QPixmap pixmap)
 {
-    QString savePath = StringManip::makeUniqueFilename(KsnipConfig::instance()->saveDirectory(), 
-                       StringManip::updateTimeAndDate(KsnipConfig::instance()->saveFilename()), 
+    QString savePath = StringManip::makeUniqueFilename(KsnipConfig::instance()->saveDirectory(),
+                       StringManip::updateTimeAndDate(KsnipConfig::instance()->saveFilename()),
                        KsnipConfig::instance()->saveFormat());
 
     // Turn any special characters, like $Y into a valid date and time value.
-    if(!pixmap.save(savePath)){
-        qCritical( "MainWindow::instantSave: Unable to save capture at " + savePath.toLatin1());
+    if (!pixmap.save(savePath)) {
+        qCritical("MainWindow::instantSave: Unable to save capture at " + savePath.toLatin1());
     }
 }
 
@@ -362,46 +383,46 @@ void MainWindow::initGui()
     // Create actions
 
     // Create actions for capture modes
-    mNewRectAreaCaptureAction->setIconText( tr( "Rectangular Area" ) );
-    mNewRectAreaCaptureAction->setToolTip( tr( "Draw a rectangular area with your mouse." ) );
-    mNewRectAreaCaptureAction->setIcon( createIcon( "drawRect" ) ) ;
-    connect( mNewRectAreaCaptureAction,
-             SIGNAL( triggered() ),
-             this,
-             SLOT( newRectAreaCaptureClicked() ) );
+    mNewRectAreaCaptureAction->setIconText(tr("Rectangular Area"));
+    mNewRectAreaCaptureAction->setToolTip(tr("Draw a rectangular area with your mouse."));
+    mNewRectAreaCaptureAction->setIcon(createIcon("drawRect")) ;
+    connect(mNewRectAreaCaptureAction,
+            SIGNAL(triggered()),
+            this,
+            SLOT(newRectAreaCaptureClicked()));
 
-    mNewFullScreenCaptureAction->setIconText( tr( "Full Screen (All Monitors)" ) );
-    mNewFullScreenCaptureAction->setToolTip( tr( "Capture full screen including all monitors." ) );
-    mNewFullScreenCaptureAction->setIcon( createIcon( "fullScreen" ) );
-    connect( mNewFullScreenCaptureAction,
-             SIGNAL( triggered() ),
-             this,
-             SLOT( newFullScreenCaptureClicked() ) );
+    mNewFullScreenCaptureAction->setIconText(tr("Full Screen (All Monitors)"));
+    mNewFullScreenCaptureAction->setToolTip(tr("Capture full screen including all monitors."));
+    mNewFullScreenCaptureAction->setIcon(createIcon("fullScreen"));
+    connect(mNewFullScreenCaptureAction,
+            SIGNAL(triggered()),
+            this,
+            SLOT(newFullScreenCaptureClicked()));
 
-    mNewCurrentScreenCaptureAction->setIconText( tr( "Current Screen" ) );
-    mNewCurrentScreenCaptureAction->setToolTip( tr( "Capture screen where the mouse is located." ) );
-    mNewCurrentScreenCaptureAction->setIcon( createIcon( "currentScreen" ) );
-    connect( mNewCurrentScreenCaptureAction,
-             SIGNAL( triggered() ),
-             this,
-             SLOT( newCurrentScreenCaptureClicked() ) );
+    mNewCurrentScreenCaptureAction->setIconText(tr("Current Screen"));
+    mNewCurrentScreenCaptureAction->setToolTip(tr("Capture screen where the mouse is located."));
+    mNewCurrentScreenCaptureAction->setIcon(createIcon("currentScreen"));
+    connect(mNewCurrentScreenCaptureAction,
+            SIGNAL(triggered()),
+            this,
+            SLOT(newCurrentScreenCaptureClicked()));
 
-    mNewActiveWindowCaptureAction->setIconText( tr( "Active Window" ) );
-    mNewActiveWindowCaptureAction->setToolTip( tr( "Capture window that currently has focus." ) );
-    mNewActiveWindowCaptureAction->setIcon( createIcon( "activeWindow" ) );
-    connect( mNewActiveWindowCaptureAction,
-             SIGNAL( triggered() ),
-             this,
-             SLOT( newActiveWindowCaptureClicked() ) );
+    mNewActiveWindowCaptureAction->setIconText(tr("Active Window"));
+    mNewActiveWindowCaptureAction->setToolTip(tr("Capture window that currently has focus."));
+    mNewActiveWindowCaptureAction->setIcon(createIcon("activeWindow"));
+    connect(mNewActiveWindowCaptureAction,
+            SIGNAL(triggered()),
+            this,
+            SLOT(newActiveWindowCaptureClicked()));
 
     // Create action for save button
-    mSaveAction->setText( tr( "Save" ) );
-    mSaveAction->setToolTip( tr( "Save Screen Capture to file system" ) );
-    mSaveAction->setIcon( createIcon( "save" ) );
-    mSaveAction->setShortcut( QKeySequence::Save );
-    mSaveAction->connect( mSaveAction, SIGNAL( triggered() ), this,
-                          SLOT( saveCaptureClicked() ) );
-    mSaveAction->setEnabled( false );
+    mSaveAction->setText(tr("Save"));
+    mSaveAction->setToolTip(tr("Save Screen Capture to file system"));
+    mSaveAction->setIcon(createIcon("save"));
+    mSaveAction->setShortcut(QKeySequence::Save);
+    mSaveAction->connect(mSaveAction, SIGNAL(triggered()), this,
+                         SLOT(saveCaptureClicked()));
+    mSaveAction->setEnabled(false);
 
     // Create action for copy to clipboard button
     mCopyToClipboardAction->setText(tr("Copy"));
@@ -415,7 +436,7 @@ void MainWindow::initGui()
     mUploadToImgurAction->setText(tr("Upload"));
     mUploadToImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
     connect(mUploadToImgurAction, SIGNAL(triggered()),
-                                  this, SLOT(imgurUploadClicked()));
+            this, SLOT(imgurUploadClicked()));
 
     // Create print action
     mPrintImage->setText(tr("Print"));
@@ -457,47 +478,47 @@ void MainWindow::initGui()
     connect(mQuitAction, SIGNAL(triggered()), this, SLOT(close()));
 
     // Create action for opening settings dialog
-    mSettingsDialogAction->setText( tr( "Settings" ) );
-    connect( mSettingsDialogAction, SIGNAL( triggered() ), this, SLOT( openSettingsDialog() ) );
+    mSettingsDialogAction->setText(tr("Settings"));
+    connect(mSettingsDialogAction, SIGNAL(triggered()), this, SLOT(openSettingsDialog()));
 
-    mAboutKsnipAction->setText( tr( "&About" ) );
-    connect( mAboutKsnipAction, SIGNAL( triggered() ), this, SLOT( openAboutDialog() ) );
+    mAboutKsnipAction->setText(tr("&About"));
+    connect(mAboutKsnipAction, SIGNAL(triggered()), this, SLOT(openAboutDialog()));
 
     // Create tool buttons
 
     // Create tool button for selecting new capture mode
-    mNewCaptureMenu->addAction( mNewRectAreaCaptureAction );
-    mNewCaptureMenu->addAction( mNewFullScreenCaptureAction );
-    mNewCaptureMenu->addAction( mNewCurrentScreenCaptureAction );
-    mNewCaptureMenu->addAction( mNewActiveWindowCaptureAction );
+    mNewCaptureMenu->addAction(mNewRectAreaCaptureAction);
+    mNewCaptureMenu->addAction(mNewFullScreenCaptureAction);
+    mNewCaptureMenu->addAction(mNewCurrentScreenCaptureAction);
+    mNewCaptureMenu->addAction(mNewActiveWindowCaptureAction);
 
-    mNewCaptureButton->setMenu( mNewCaptureMenu );
-    mNewCaptureButton->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );
-    mNewCaptureButton->setDefaultAction( mNewRectAreaCaptureAction );
-    mNewCaptureButton->setButtonText( tr( "New" ) );
+    mNewCaptureButton->setMenu(mNewCaptureMenu);
+    mNewCaptureButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
+    mNewCaptureButton->setButtonText(tr("New"));
 
     // Create save tool button
-    mSaveButton->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );
-    mSaveButton->addAction( mSaveAction );
-    mSaveButton->setDefaultAction( mSaveAction );
+    mSaveButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    mSaveButton->addAction(mSaveAction);
+    mSaveButton->setDefaultAction(mSaveAction);
 
     // Create copy to clipboard tool button
-    mCopyToClipboardButton->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );
-    mCopyToClipboardButton->addAction( mCopyToClipboardAction );
-    mCopyToClipboardButton->setDefaultAction( mCopyToClipboardAction );
+    mCopyToClipboardButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    mCopyToClipboardButton->addAction(mCopyToClipboardAction);
+    mCopyToClipboardButton->setDefaultAction(mCopyToClipboardAction);
 
     // Create tool button for selecting paint tool
-    mPaintToolMenu->addAction( mPenAction );
-    mPaintToolMenu->addAction( mMarkerAction );
-    mPaintToolMenu->addAction( mEraseAction );
-    mPaintToolMenu->addAction( mMoveAction );
+    mPaintToolMenu->addAction(mPenAction);
+    mPaintToolMenu->addAction(mMarkerAction);
+    mPaintToolMenu->addAction(mEraseAction);
+    mPaintToolMenu->addAction(mMoveAction);
 
-    mPaintToolButton->setMenu( mPaintToolMenu );
-    mPaintToolButton->setToolButtonStyle( Qt::ToolButtonTextBesideIcon );
-    mPaintToolButton->setDefaultAction( mPenAction );
+    mPaintToolButton->setMenu(mPaintToolMenu);
+    mPaintToolButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    mPaintToolButton->setDefaultAction(mPenAction);
 
     // Create menu bar
-    QMenu *menu;
+    QMenu* menu;
     menu = menuBar()->addMenu(tr("File"));
     menu->addAction(mNewCaptureAction);
     menu->addAction(mSaveAction);
@@ -514,18 +535,17 @@ void MainWindow::initGui()
     menu->addAction(mAboutKsnipAction);
 
     // Create toolbar
-    QToolBar *toolBar;
-    toolBar = addToolBar("Tools");
-    toolBar->setFloatable(false);
-    toolBar->setMovable(false);
-    toolBar->setAllowedAreas(Qt::BottomToolBarArea);
-    toolBar->addWidget( mNewCaptureButton );
-    toolBar->addSeparator();
-    toolBar->addWidget( mSaveButton );
-    toolBar->addWidget( mCopyToClipboardButton );
-    toolBar->addSeparator();
-    toolBar->addWidget( mPaintToolButton );
-    toolBar->setFixedSize( toolBar->sizeHint() );
+    mToolBar = addToolBar("Tools");
+    mToolBar->setFloatable(false);
+    mToolBar->setMovable(false);
+    mToolBar->setAllowedAreas(Qt::BottomToolBarArea);
+    mToolBar->addWidget(mNewCaptureButton);
+    mToolBar->addSeparator();
+    mToolBar->addWidget(mSaveButton);
+    mToolBar->addWidget(mCopyToClipboardButton);
+    mToolBar->addSeparator();
+    mToolBar->addWidget(mPaintToolButton);
+    mToolBar->setFixedSize(mToolBar->sizeHint());
 
     setCentralWidget(mCaptureView);
     resize();
@@ -537,62 +557,62 @@ void MainWindow::initGui()
 
 void MainWindow::newRectAreaCaptureClicked()
 {
-    setWindowOpacity( 0.0 );
+    setWindowOpacity(0.0);
     mSnippingArea->show();
     mCaptureScene->setIsEnabled(false);
-    KsnipConfig::instance()->setCaptureMode( ImageGrabber::RectArea );
+    KsnipConfig::instance()->setCaptureMode(ImageGrabber::RectArea);
 }
 
 void MainWindow::newCurrentScreenCaptureClicked()
 {
-    setWindowOpacity( 0.0 );
-    setWindowState( Qt::WindowMinimized );
+    setWindowOpacity(0.0);
+    setWindowState(Qt::WindowMinimized);
     mCaptureScene->setIsEnabled(false);
-    delay( mCaptureDelay );
-    show( mImageGrabber->grabImage( ImageGrabber::CurrentScreen, 
-                                    KsnipConfig::instance()->captureMouse() ) );
-    KsnipConfig::instance()->setCaptureMode( ImageGrabber::CurrentScreen );
+    delay(mCaptureDelay);
+    show(mImageGrabber->grabImage(ImageGrabber::CurrentScreen,
+                                  KsnipConfig::instance()->captureMouse()));
+    KsnipConfig::instance()->setCaptureMode(ImageGrabber::CurrentScreen);
 }
 
 void MainWindow::newFullScreenCaptureClicked()
 {
-    setWindowOpacity( 0.0 );
-    setWindowState( Qt::WindowMinimized );
+    setWindowOpacity(0.0);
+    setWindowState(Qt::WindowMinimized);
     mCaptureScene->setIsEnabled(false);
-    delay( mCaptureDelay );
-    show( mImageGrabber->grabImage( ImageGrabber::FullScreen, 
-                                    KsnipConfig::instance()->captureMouse() ) );
-    KsnipConfig::instance()->setCaptureMode( ImageGrabber::FullScreen );
+    delay(mCaptureDelay);
+    show(mImageGrabber->grabImage(ImageGrabber::FullScreen,
+                                  KsnipConfig::instance()->captureMouse()));
+    KsnipConfig::instance()->setCaptureMode(ImageGrabber::FullScreen);
 }
 
 void MainWindow::newActiveWindowCaptureClicked()
 {
-    setWindowOpacity( 0.0 );
-    setWindowState( Qt::WindowMinimized );
+    setWindowOpacity(0.0);
+    setWindowState(Qt::WindowMinimized);
     mCaptureScene->setIsEnabled(false);
-    delay( mCaptureDelay );
-    show( mImageGrabber->grabImage( ImageGrabber::ActiveWindow, 
-                                    KsnipConfig::instance()->captureMouse() ) );
-    KsnipConfig::instance()->setCaptureMode( ImageGrabber::ActiveWindow );
+    delay(mCaptureDelay);
+    show(mImageGrabber->grabImage(ImageGrabber::ActiveWindow,
+                                  KsnipConfig::instance()->captureMouse()));
+    KsnipConfig::instance()->setCaptureMode(ImageGrabber::ActiveWindow);
 }
 
 void MainWindow::saveCaptureClicked()
 {
-    QFileDialog saveDialog( this, tr( "Save As" ),
-                            KsnipConfig::instance()->saveDirectory() + tr( "untitled" ) +
-                            KsnipConfig::instance()->saveFormat(),
-                            tr( "Images" ) + " (*.png *.gif *.jpg);;" + tr( "All Files" ) + "(*)" );
-    saveDialog.setAcceptMode( QFileDialog::AcceptSave );
+    QFileDialog saveDialog(this, tr("Save As"),
+                           KsnipConfig::instance()->saveDirectory() + tr("untitled") +
+                           KsnipConfig::instance()->saveFormat(),
+                           tr("Images") + " (*.png *.gif *.jpg);;" + tr("All Files") + "(*)");
+    saveDialog.setAcceptMode(QFileDialog::AcceptSave);
 
-    if ( saveDialog.exec() == QDialog::Accepted ) {
+    if (saveDialog.exec() == QDialog::Accepted) {
 
-        if ( !mCaptureScene->exportAsImage().save( saveDialog.selectedFiles().first() ) ) {
-            qCritical( "PaintWindow::saveCaptureClicked: Unable to save file " + 
-                        saveDialog.selectedFiles().first().toLatin1() );
+        if (!mCaptureScene->exportAsImage().save(saveDialog.selectedFiles().first())) {
+            qCritical("PaintWindow::saveCaptureClicked: Unable to save file " +
+                      saveDialog.selectedFiles().first().toLatin1());
             return;
         }
 
-        setSaveAble( false );
+        setSaveAble(false);
     }
 }
 
@@ -603,24 +623,24 @@ void MainWindow::copyToClipboardClicked()
 
 void MainWindow::penClicked()
 {
-    mCaptureScene->setPaintMode( PaintArea::Pen );
-    KsnipConfig::instance()->setPaintMode( PaintArea::Pen );
+    mCaptureScene->setPaintMode(PaintArea::Pen);
+    KsnipConfig::instance()->setPaintMode(PaintArea::Pen);
 }
 
 void MainWindow::markerClicked()
 {
-    mCaptureScene->setPaintMode( PaintArea::Marker );
-    KsnipConfig::instance()->setPaintMode( PaintArea::Marker );
+    mCaptureScene->setPaintMode(PaintArea::Marker);
+    KsnipConfig::instance()->setPaintMode(PaintArea::Marker);
 }
 
 void MainWindow::eraseClicked()
 {
-    mCaptureScene->setPaintMode( PaintArea::Erase );
+    mCaptureScene->setPaintMode(PaintArea::Erase);
 }
 
 void MainWindow::moveClicked()
 {
-    mCaptureScene->setPaintMode( PaintArea::Move );
+    mCaptureScene->setPaintMode(PaintArea::Move);
 }
 
 /*
@@ -644,7 +664,7 @@ void MainWindow::imgurUploadClicked()
         mImgurUploader->startUpload(mCaptureScene->exportAsImage());
     }
 
-    statusBar()->showMessage( tr( "Waiting for imgur.com..." ) );
+    statusBar()->showMessage(tr("Waiting for imgur.com..."));
 }
 
 void MainWindow::printClicked()
@@ -663,23 +683,23 @@ void MainWindow::printClicked()
     delete dlg;
 }
 
-void MainWindow::keyPressEvent( QKeyEvent *event )
+void MainWindow::keyPressEvent(QKeyEvent* event)
 {
-    if ( event->key() == Qt::Key_Escape ) {
+    if (event->key() == Qt::Key_Escape) {
         mSnippingArea->hide();
-        setWindowOpacity( 1.0 );
+        setWindowOpacity(1.0);
         mCaptureScene->setIsEnabled(true);
     }
 
-    QWidget::keyPressEvent( event );
+    QWidget::keyPressEvent(event);
 }
 
-void MainWindow::areaSelected( QRect rect )
+void MainWindow::areaSelected(QRect rect)
 {
-    delay( mCaptureDelay );
-    show( mImageGrabber->grabImage( ImageGrabber::RectArea,
-                                    KsnipConfig::instance()->captureMouse(),
-                                    &rect ) );
+    delay(mCaptureDelay);
+    show(mImageGrabber->grabImage(ImageGrabber::RectArea,
+                                  KsnipConfig::instance()->captureMouse(),
+                                  &rect));
 }
 
 /*
@@ -687,9 +707,9 @@ void MainWindow::areaSelected( QRect rect )
  */
 void MainWindow::imageChanged()
 {
-    setSaveAble( true );
+    setSaveAble(true);
 
-    if ( KsnipConfig::instance()->alwaysCopyToClipboard() ) {
+    if (KsnipConfig::instance()->alwaysCopyToClipboard()) {
         copyToClipboard();
     }
 }
@@ -698,50 +718,50 @@ void MainWindow::imageChanged()
  * Called when the upload to a file sharing site has finished. Depending on the result value the
  * message either contains the link to the image on the hosting site or the error message
  */
-void MainWindow::imgurUploadFinished( QString message )
+void MainWindow::imgurUploadFinished(QString message)
 {
     // When the file extension is provided in the link, it opens the image directly on a blank
     // white background. If the link is opened without the extension then the usual Imgur page
     // is shown
-    if ( !KsnipConfig::instance()->imgurOpenLinkDirectlyToImage() ) {
-        message = message.remove( ".png" );
+    if (!KsnipConfig::instance()->imgurOpenLinkDirectlyToImage()) {
+        message = message.remove(".png");
     }
 
     // Open the link in the default browser
-    QDesktopServices::openUrl( message );
+    QDesktopServices::openUrl(message);
 
     // If we always copy to clipboard is enabled then copy the link to clipboard
-    if ( KsnipConfig::instance()->imgurAlwaysCopyToClipboard() ) {
-        mClipboard->setText( message );
+    if (KsnipConfig::instance()->imgurAlwaysCopyToClipboard()) {
+        mClipboard->setText(message);
     }
 
-    statusBar()->showMessage( tr( "Upload to imgur.com finished!" ), 3000 );
+    statusBar()->showMessage(tr("Upload to imgur.com finished!"), 3000);
 }
 
 /*
  * Some error happened while uploading and we are not able to proceed.
  */
-void MainWindow::imgurError( QString message )
+void MainWindow::imgurError(QString message)
 {
-    qCritical( message.toLatin1() );
-    statusBar()->showMessage( tr( "An error occurred while uploading to imgur.com." ), 3000 );
+    qCritical(message.toLatin1());
+    statusBar()->showMessage(tr("An error occurred while uploading to imgur.com."), 3000);
 }
 
 /*
  * New token received from imgur, this could be the case when we have refreshed the token.
  */
-void MainWindow::imgurTokenUpdated( const QString accessToken,
-                                    const QString refreshTocken,
-                                    const QString username )
+void MainWindow::imgurTokenUpdated(const QString accessToken,
+                                   const QString refreshTocken,
+                                   const QString username)
 {
-    KsnipConfig::instance()->setImgurAccessToken( accessToken.toUtf8() );
-    KsnipConfig::instance()->setImgurRefreshToken( refreshTocken.toUtf8() );
-    KsnipConfig::instance()->setImgurUsername( username );
+    KsnipConfig::instance()->setImgurAccessToken(accessToken.toUtf8());
+    KsnipConfig::instance()->setImgurRefreshToken(refreshTocken.toUtf8());
+    KsnipConfig::instance()->setImgurUsername(username);
 
     // Currently we presume that a token update here only happens when we were trying to upload an
     // image and the token was expired, so right after the token has been refreshed, we try to
     // upload again.
-    statusBar()->showMessage( "Received new token, trying upload again..." );
+    statusBar()->showMessage("Received new token, trying upload again...");
     imgurUploadClicked();
 }
 
@@ -750,21 +770,21 @@ void MainWindow::imgurTokenUpdated( const QString accessToken,
  */
 void MainWindow::imgurTokenRefresh()
 {
-    mImgurUploader->refreshToken( KsnipConfig::instance()->imgurRefreshToken(),
-                                  KsnipConfig::instance()->imgurClientId(),
-                                  KsnipConfig::instance()->imgurClientSecret() );
+    mImgurUploader->refreshToken(KsnipConfig::instance()->imgurRefreshToken(),
+                                 KsnipConfig::instance()->imgurClientId(),
+                                 KsnipConfig::instance()->imgurClientSecret());
 
-    statusBar()->showMessage( "Imgur token has expired, requesting new token..." );
+    statusBar()->showMessage("Imgur token has expired, requesting new token...");
 }
 
 void MainWindow::openSettingsDialog()
 {
-    SettingsDialog settingsDialog( this );
+    SettingsDialog settingsDialog(this);
     settingsDialog.exec();
 }
 
 void MainWindow::openAboutDialog()
 {
-    AboutDialog aboutDialog( this );
+    AboutDialog aboutDialog(this);
     aboutDialog.exec();
 }

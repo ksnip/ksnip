@@ -33,26 +33,26 @@ class ImgurUploader : public QObject
 {
     Q_OBJECT
 public:
-    ImgurUploader ( QObject *parent = 0 );
-    void startUpload ( QImage image, QByteArray accessToken = 0 );
-    void getAccessToken ( QByteArray pin, QByteArray clientId, QByteArray clientSecret );
-    void refreshToken ( QByteArray refreshToken, QByteArray clientId, QByteArray clientSecret );
-    QUrl pinRequestUrl ( QString clientId );
+    ImgurUploader(QObject *parent = 0);
+    void startUpload(QImage image, QByteArray accessToken = 0);
+    void getAccessToken(QByteArray pin, QByteArray clientId, QByteArray clientSecret);
+    void refreshToken(QByteArray refreshToken, QByteArray clientId, QByteArray clientSecret);
+    QUrl pinRequestUrl(QString clientId);
 
 signals:
-    void uploadFinished ( const QString message );
-    void error ( const QString message );
-    void tokenUpdated ( const QString accessToken, const QString refreshTocken, const QString username );
+    void uploadFinished(const QString message);
+    void error(const QString message);
+    void tokenUpdated(const QString accessToken, const QString refreshTocken, const QString username);
     void tokenRefreshRequired();
 
 private:
     QNetworkAccessManager *mAccessManager;
     QByteArray             mClientId;
-    void handleDataResponse ( QDomElement element );
-    void handleTokenResponse ( QDomElement element );
+    void handleDataResponse(QDomElement element);
+    void handleTokenResponse(QDomElement element);
 
 private slots:
-    void handleReply ( QNetworkReply *reply );
+    void handleReply(QNetworkReply *reply);
 };
 
 #endif // IMAGEUPLOADER_H

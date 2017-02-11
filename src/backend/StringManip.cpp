@@ -33,9 +33,9 @@ StringManip::StringManip()
  * Split the path into sections each divided by forward slash and return everything from begin to
  * the last part just before the filename.
  */
-QString StringManip::extractPath( QString path )
+QString StringManip::extractPath(QString path)
 {
-    return path.section( "/", 0, -2 );
+    return path.section("/", 0, -2);
 }
 
 /*
@@ -43,13 +43,12 @@ QString StringManip::extractPath( QString path )
  * which could be used as demarcation for the file format, we need to remove it. If no file format
  * was provided, just return the last section.
  */
-QString StringManip::extractFilename( QString path )
+QString StringManip::extractFilename(QString path)
 {
-    if ( path.section( "/", -1 ).contains( "." ) ) {
-        return path.section( "/", -1 ).section( ".", 0, -2 );
-    }
-    else {
-        return path.section( "/", -1 );
+    if (path.section("/", -1).contains(".")) {
+        return path.section("/", -1).section(".", 0, -2);
+    } else {
+        return path.section("/", -1);
     }
 }
 
@@ -58,33 +57,32 @@ QString StringManip::extractFilename( QString path )
  * again and return the part after the last dot. If no dot was found, return empty string, we have
  * no file format.
  */
-QString StringManip::extractFormat( QString path )
+QString StringManip::extractFormat(QString path)
 {
-    if ( path.section( "/", -1 ).contains( "." ) ) {
-        return path.section( ".", -1 );
-    }
-    else {
+    if (path.section("/", -1).contains(".")) {
+        return path.section(".", -1);
+    } else {
         return QString();
     }
 }
 
-QString StringManip::updateTimeAndDate( QString filename )
+QString StringManip::updateTimeAndDate(QString filename)
 {
-    filename.replace( "$Y", QDateTime::currentDateTime().toString( "yyyy" ) );
-    filename.replace( "$M", QDateTime::currentDateTime().toString( "MM" ) );
-    filename.replace( "$D", QDateTime::currentDateTime().toString( "dd" ) );
-    filename.replace( "$T", QDateTime::currentDateTime().toString( "hhmmss" ) );
+    filename.replace("$Y", QDateTime::currentDateTime().toString("yyyy"));
+    filename.replace("$M", QDateTime::currentDateTime().toString("MM"));
+    filename.replace("$D", QDateTime::currentDateTime().toString("dd"));
+    filename.replace("$T", QDateTime::currentDateTime().toString("hhmmss"));
     return filename;
 }
 
-QString StringManip::makeUniqueFilename( QString path, QString filename, QString exension )
+QString StringManip::makeUniqueFilename(QString path, QString filename, QString exension)
 {
-    if (!QFile::exists(path + filename + exension))
+    if (!QFile::exists(path + filename + exension)) {
         return path + filename + exension;
-    
+    }
+
     int i = 1;
-    while (QFile::exists(path + filename + "(" + QString::number(i) + ")" + exension))
-    {
+    while (QFile::exists(path + filename + "(" + QString::number(i) + ")" + exension)) {
         i++;
     }
     return path + filename + "(" + QString::number(i) + ")" + exension;

@@ -28,26 +28,26 @@
 class CaptureView : public QGraphicsView
 {
     Q_OBJECT
-    
+
 public:
-    CaptureView ( QGraphicsScene * );
+    CaptureView(QGraphicsScene *);
     void show();
     PaintArea *scene();
     void crop();
-    void setIsCropping ( bool );
+    void setIsCropping(bool);
     bool getIsCropping();
     QRect getSelectedRect();
     void setSelectedRect(QRect rect);
-    
+
 signals:
     void selectedRectChanged(QRect rect);
 
 protected:
-    virtual void keyPressEvent ( QKeyEvent * );
-    virtual void mousePressEvent ( QMouseEvent * );
-    virtual void mouseReleaseEvent ( QMouseEvent * );
-    virtual void mouseMoveEvent ( QMouseEvent * );
-    virtual void drawForeground ( QPainter *painter, const QRectF &rect );
+    virtual void keyPressEvent(QKeyEvent *);
+    virtual void mousePressEvent(QMouseEvent *);
+    virtual void mouseReleaseEvent(QMouseEvent *);
+    virtual void mouseMoveEvent(QMouseEvent *);
+    virtual void drawForeground(QPainter *painter, const QRectF &rect);
 
 private:
     int    mRectSize;
@@ -57,12 +57,12 @@ private:
     QPoint mClickOffset;
     QRect  mSelectedRect;
     QRect  mBorderPoints[8];
-    
-    void moveBorderPoint ( int, QPoint );
-    void setupBorderPoints ( QRect );
-    QPoint restrictPointToScene ( QPoint );
-    QPoint restrictRectMoveToScene ( QRect, QPoint );
-    void setCursor ( QPoint );
+
+    void moveBorderPoint(int, QPoint);
+    void setupBorderPoints(QRect);
+    QPoint restrictPointToScene(QPoint);
+    QPoint restrictRectMoveToScene(QRect, QPoint);
+    void setCursor(QPoint);
 };
 
 #endif // CAPTUREVIEW_H

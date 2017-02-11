@@ -28,13 +28,13 @@ class PaintStroke : public QGraphicsItem
 {
 public:
     enum { Type = UserType + 1 };
-    PaintStroke ( QPointF startingPoint, QPen attributes, bool isTransparent = false );
+    PaintStroke(QPointF startingPoint, QPen attributes, bool isTransparent = false);
     QRectF boundingRect() const;
     int type() const;
-    void lineTo ( QPointF pos );
-    void lastLineTo ( QPointF pos );
-    bool isUnderLocation ( QPointF pos, short rectSize );
-    void setPos( QPointF pos);
+    void lineTo(QPointF pos);
+    void lastLineTo(QPointF pos);
+    bool isUnderLocation(QPointF pos, short rectSize);
+    void setPos(QPointF pos);
 
 private:
     QPainterPath        *mPath;
@@ -42,7 +42,7 @@ private:
     QPainterPathStroker *mStroker;
     bool                 mIsTransparent;
 
-    void paint ( QPainter *, const QStyleOptionGraphicsItem *, QWidget *widget = 0 );
+    void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *widget = 0);
 };
 
 #endif // PAINTSTROKE_H

@@ -20,17 +20,17 @@
 
 #include "CropPanel.h"
 
-CropPanel::CropPanel(CaptureView *captureView) : QWidget(),
-    mCropButton( new QPushButton() ),
-    mCancelButton( new QPushButton() ),
-    mPositionXLineEdit( new QLineEdit() ),
-    mPositionYLineEdit( new QLineEdit() ),
-    mWidthLineEdit( new QLineEdit() ),
-    mHeightLineEdit( new QLineEdit() )
+CropPanel::CropPanel(CaptureView* captureView) : QWidget(),
+    mCropButton(new QPushButton()),
+    mCancelButton(new QPushButton()),
+    mPositionXLineEdit(new QLineEdit()),
+    mPositionYLineEdit(new QLineEdit()),
+    mWidthLineEdit(new QLineEdit()),
+    mHeightLineEdit(new QLineEdit())
 {
     mCaptureView = captureView;
     initGui();
-    
+
     connect(mCaptureView, SIGNAL(selectedRectChanged(QRect)), this, SLOT(selectedRectChanged(QRect)));
 }
 
@@ -39,7 +39,7 @@ CropPanel::CropPanel(CaptureView *captureView) : QWidget(),
 //
 void CropPanel::show()
 {
-    mCaptureView->setIsCropping( true );
+    mCaptureView->setIsCropping(true);
     selectedRectChanged(mCaptureView->getSelectedRect());
     QWidget::show();
 }
@@ -51,49 +51,49 @@ void CropPanel::initGui()
 {
     mCropButton->setText(tr("Crop"));
     connect(mCropButton, SIGNAL(clicked()), this, SLOT(cropClicked()));
-    
+
     mCancelButton->setText(tr("Cancel"));
     connect(mCancelButton, SIGNAL(clicked()), this, SLOT(closeClicked()));
-    
-    
-    QHBoxLayout *layout = new QHBoxLayout();
+
+
+    QHBoxLayout* layout = new QHBoxLayout();
     layout->setAlignment(Qt::AlignCenter);
-    
-    QLabel *label = new QLabel(tr("X:"));
+
+    QLabel* label = new QLabel(tr("X:"));
     layout->addWidget(label, 0, Qt::AlignCenter);
-    
-    mPositionXLineEdit->setValidator(new QIntValidator(0,9999, mPositionXLineEdit));
+
+    mPositionXLineEdit->setValidator(new QIntValidator(0, 9999, mPositionXLineEdit));
     mPositionXLineEdit->setFixedSize(40, mPositionXLineEdit->minimumSizeHint().height());
     connect(mPositionXLineEdit, SIGNAL(textEdited(QString)), this, SLOT(xChanged(QString)));
     layout->addWidget(mPositionXLineEdit, 0, Qt::AlignCenter);
-    
+
     label = new QLabel(tr("Y:"));
     layout->addWidget(label, 0, Qt::AlignCenter);
-    
-    mPositionYLineEdit->setValidator(new QIntValidator(0,9999, mPositionYLineEdit));
+
+    mPositionYLineEdit->setValidator(new QIntValidator(0, 9999, mPositionYLineEdit));
     mPositionYLineEdit->setFixedSize(40, mPositionYLineEdit->minimumSizeHint().height());
     connect(mPositionYLineEdit, SIGNAL(textEdited(QString)), this, SLOT(yChanged(QString)));
     layout->addWidget(mPositionYLineEdit, 0, Qt::AlignCenter);
-    
+
     label = new QLabel(tr("W:"));
     layout->addWidget(label, 0, Qt::AlignCenter);
-    
-    mWidthLineEdit->setValidator(new QIntValidator(0,9999, mWidthLineEdit));
+
+    mWidthLineEdit->setValidator(new QIntValidator(0, 9999, mWidthLineEdit));
     mWidthLineEdit->setFixedSize(40, mWidthLineEdit->minimumSizeHint().height());
     connect(mWidthLineEdit, SIGNAL(textEdited(QString)), this, SLOT(widthChanged(QString)));
     layout->addWidget(mWidthLineEdit, 0, Qt::AlignCenter);
-    
+
     label = new QLabel(tr("H:"));
     layout->addWidget(label, 0, Qt::AlignCenter);
-    
-    mHeightLineEdit->setValidator(new QIntValidator(0,9999, mHeightLineEdit));
+
+    mHeightLineEdit->setValidator(new QIntValidator(0, 9999, mHeightLineEdit));
     mHeightLineEdit->setFixedSize(40, mHeightLineEdit->minimumSizeHint().height());
     connect(mHeightLineEdit, SIGNAL(textEdited(QString)), this, SLOT(heightChanged(QString)));
     layout->addWidget(mHeightLineEdit, 0, Qt::AlignCenter);
-    
+
     layout->addWidget(mCropButton, 0, Qt::AlignCenter);
     layout->addWidget(mCancelButton, 0, Qt::AlignCenter);
-    
+
     setLayout(layout);
 }
 
@@ -103,18 +103,18 @@ void CropPanel::initGui()
 
 void CropPanel::closeClicked()
 {
-    mCaptureView->setIsCropping( false );
+    mCaptureView->setIsCropping(false);
     emit close();
 }
 
 void CropPanel::cropClicked()
 {
     mCaptureView->crop();
-    mCaptureView->setIsCropping( false );
+    mCaptureView->setIsCropping(false);
     emit close();
 }
 
-void CropPanel::selectedRectChanged( QRect rect )
+void CropPanel::selectedRectChanged(QRect rect)
 {
     mPositionXLineEdit->setText(QString::number(rect.topLeft().x()));
     mPositionYLineEdit->setText(QString::number(rect.topLeft().y()));
@@ -122,68 +122,64 @@ void CropPanel::selectedRectChanged( QRect rect )
     mHeightLineEdit->setText(QString::number(rect.height()));
 }
 
-void CropPanel::xChanged( QString text )
+void CropPanel::xChanged(QString text)
 {
     int x = text.toInt();
     QRect rect = mCaptureView->getSelectedRect();
-    
+
     // Can't enter negative number
-    if ((x + rect.width()) <= mCaptureView->sceneRect().width()){
+    if ((x + rect.width()) <= mCaptureView->sceneRect().width()) {
         rect.moveTo(x, rect.y());
         mCaptureView->setSelectedRect(rect);
-    }
-    else{
+    } else {
         rect.moveTo(mCaptureView->sceneRect().width() - rect.width(), rect.y());
         mCaptureView->setSelectedRect(rect);
         selectedRectChanged(rect);
     }
 }
 
-void CropPanel::yChanged( QString text )
+void CropPanel::yChanged(QString text)
 {
     int y = text.toInt();
     QRect rect = mCaptureView->getSelectedRect();
-    
+
     // Can't enter negative number
-    if ((y + rect.height()) <= mCaptureView->sceneRect().height()){
+    if ((y + rect.height()) <= mCaptureView->sceneRect().height()) {
         rect.moveTo(rect.x(), y);
         mCaptureView->setSelectedRect(rect);
-    }
-    else{
+    } else {
         rect.moveTo(rect.x(), mCaptureView->sceneRect().height() - rect.height());
         mCaptureView->setSelectedRect(rect);
         selectedRectChanged(rect);
     }
 }
 
-void CropPanel::widthChanged( QString text )
+void CropPanel::widthChanged(QString text)
 {
     int width = text.toInt();
     QRect rect = mCaptureView->getSelectedRect();
-    
+
     // Can't enter negative number
-    if ((rect.x() + width) <= mCaptureView->sceneRect().width()){
+    if ((rect.x() + width) <= mCaptureView->sceneRect().width()) {
         rect.setWidth(width);
         mCaptureView->setSelectedRect(rect);
-    }
-    else{
+    } else {
         rect.setWidth(mCaptureView->sceneRect().width() - rect.x());
         mCaptureView->setSelectedRect(rect);
         selectedRectChanged(rect);
     }
 }
 
-void CropPanel::heightChanged( QString text )
+void CropPanel::heightChanged(QString text)
 {
     int height = text.toInt();
     QRect rect = mCaptureView->getSelectedRect();
-    
+
     // Can't enter negative number
-    if ((rect.y() + height) <= mCaptureView->sceneRect().height()){
+    if ((rect.y() + height) <= mCaptureView->sceneRect().height()) {
         rect.setHeight(height);
         mCaptureView->setSelectedRect(rect);
-    }
-    else{
+    } else {
         rect.setHeight(mCaptureView->sceneRect().height() - rect.y());
         mCaptureView->setSelectedRect(rect);
         selectedRectChanged(rect);

@@ -34,7 +34,7 @@ class SettingsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    SettingsDialog ( MainWindow *parent = 0 );
+    SettingsDialog(MainWindow *parent = 0);
 
 private:
     MainWindow      *mParent;
@@ -73,7 +73,7 @@ private:
     void loadSettings();
     void saveSettings();
     void initGui();
-    
+
 private slots:
     void browseButtonClicked();
     void getPinButtonClicked();
@@ -84,7 +84,7 @@ private slots:
     void imgurPinEntered(QString text);
     void imgurClientEntered(QString text);
     void imgurTokenUpdated(const QString accessToken, const QString refreshTocken, const QString username);
-    void imgurTokenError (const QString message);
+    void imgurTokenError(const QString message);
 };
 
 #endif // SETTINGSDIALOG_H

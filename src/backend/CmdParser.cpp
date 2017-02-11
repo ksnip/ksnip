@@ -33,15 +33,15 @@ CmdParser::CmdParser()
  * Add option to list, is success full, returns true, otherwise, in case the option was added
  * already, returns false.
  */
-bool CmdParser::addOption( QString name, QString description, QString longName )
+bool CmdParser::addOption(QString name, QString description, QString longName)
 {
-    for ( int i = 0; i < mOptions.count(); i++ ) {
-        if ( mOptions.at( i ).name() == name || mOptions.at( i ).longName() == longName ) {
+    for (int i = 0; i < mOptions.count(); i++) {
+        if (mOptions.at(i).name() == name || mOptions.at(i).longName() == longName) {
             return false;
         }
     }
 
-    mOptions.append( CmdOption( name, description, longName ) );
+    mOptions.append(CmdOption(name, description, longName));
     return true;
 }
 
@@ -49,51 +49,48 @@ bool CmdParser::addOption( QString name, QString description, QString longName )
  * Checks the provided arguments and sets the options list accordingly if an option has been
  * detected it will be set (isSet).
  */
-bool CmdParser::parse( QStringList arguments )
+bool CmdParser::parse(QStringList arguments)
 {
     // Points always to last set option
-    CmdOption *lastOption = NULL;
+    CmdOption* lastOption = NULL;
 
     // Loop through all arguments
-    for ( int i = 1; i < arguments.count(); i++ ) {
+    for (int i = 1; i < arguments.count(); i++) {
         // Check if we are matching a long name option
-        if ( arguments.at( i ).startsWith( "--" ) /*&& arguments.at( i ).count() > 2*/ ) {
+        if (arguments.at(i).startsWith("--") /*&& arguments.at( i ).count() > 2*/) {
             // Check if we have a matching option, if yes, get a pointer to is
-            lastOption = setOption( arguments[i].remove( "--" ) );
+            lastOption = setOption(arguments[i].remove("--"));
 
             // If this is an unknown option, the pointer will be set to NULL so let's add it to the
             // unknown list.
-            if ( lastOption == NULL ) {
-                setUnknownOption( arguments[i].remove( "--" ) );
+            if (lastOption == NULL) {
+                setUnknownOption(arguments[i].remove("--"));
             }
-        }
-        else
+        } else
             // Check if we are matching a short name option
-            if ( arguments.at( i ).startsWith( "-" ) && arguments.at( i ).count() > 1 ) {
-                for ( int j = 1; j < arguments.at( i ).count(); j++ ) {
-                    lastOption = setOption( arguments.at( i ).at( j ) );
+            if (arguments.at(i).startsWith("-") && arguments.at(i).count() > 1) {
+                for (int j = 1; j < arguments.at(i).count(); j++) {
+                    lastOption = setOption(arguments.at(i).at(j));
 
-                    if ( lastOption == NULL ) {
-                        setUnknownOption( arguments.at( i ).at( j ) );
+                    if (lastOption == NULL) {
+                        setUnknownOption(arguments.at(i).at(j));
                     }
                 }
-            }
-            else {
+            } else {
                 // If the argument wasn't neither a long or short option, we will treat it as a value
                 // of the last option and add it appropriately
-                if ( lastOption != NULL ) {
-                    lastOption->setValue( arguments.at( i ) );
-                }
-                else {
+                if (lastOption != NULL) {
+                    lastOption->setValue(arguments.at(i));
+                } else {
                     // If the last entry was not an option and we haven't seen any option earlier,
                     // we will threat this as an invalid parameter.
-                    setUnknownOption( arguments[i].remove("-") );
+                    setUnknownOption(arguments[i].remove("-"));
                 }
             }
     }
 
     // Check if we have seen any errors, if yes, we print the error message and return false.
-    if ( showError() ) {
+    if (showError()) {
         showHelp();
         return false;
     }
@@ -108,11 +105,11 @@ void CmdParser::showHelp()
 
     std::cout << std::left;
 
-    for ( int i = 0; i < mOptions.count(); i++ ) {
+    for (int i = 0; i < mOptions.count(); i++) {
         std::cout << "  " <<
-                  std::setw( 4 ) << "-" + mOptions.at( i ).name().toStdString() + "," <<
-                  std::setw( 25 ) << "--" + mOptions.at( i ).longName().toStdString() <<
-                  std::setw( 30 ) << mOptions.at( i ).description().toStdString() + "." << "\n";
+                  std::setw(4) << "-" + mOptions.at(i).name().toStdString() + "," <<
+                  std::setw(25) << "--" + mOptions.at(i).longName().toStdString() <<
+                  std::setw(30) << mOptions.at(i).description().toStdString() + "." << "\n";
     }
 }
 
@@ -123,10 +120,10 @@ void CmdParser::showVersion()
               QApplication::applicationVersion().toStdString()  << "\n";
 }
 
-bool CmdParser::isSet( QString name )
+bool CmdParser::isSet(QString name)
 {
-    for ( int i = 0; i < mOptions.count(); i++ ) {
-        if ( ( mOptions.at( i ).name() == name || mOptions.at( i ).longName() == name ) && mOptions.at( i ).isSet() ) {
+    for (int i = 0; i < mOptions.count(); i++) {
+        if ((mOptions.at(i).name() == name || mOptions.at(i).longName() == name) && mOptions.at(i).isSet()) {
             return true;
         }
     }
@@ -138,11 +135,11 @@ bool CmdParser::isSet( QString name )
 // Private Functions
 //
 
-CmdOption *CmdParser::setOption( QString name )
+CmdOption* CmdParser::setOption(QString name)
 {
-    for ( int i = 0; i < mOptions.count(); i++ ) {
-        if ( mOptions.at( i ).name() == name || mOptions.at( i ).longName() == name ) {
-            mOptions[i].set( true );
+    for (int i = 0; i < mOptions.count(); i++) {
+        if (mOptions.at(i).name() == name || mOptions.at(i).longName() == name) {
+            mOptions[i].set(true);
             return &mOptions[i];
         }
     }
@@ -153,15 +150,15 @@ CmdOption *CmdParser::setOption( QString name )
 /*
  * Keep a list of all unknown option so we can print an error message.
  */
-void CmdParser::setUnknownOption( QString name )
+void CmdParser::setUnknownOption(QString name)
 {
-    for ( int i = 0; i < mUnknownOptions.count(); i++ ) {
-        if ( mUnknownOptions.at( i ) == name ) {
+    for (int i = 0; i < mUnknownOptions.count(); i++) {
+        if (mUnknownOptions.at(i) == name) {
             return;
         }
     }
 
-    mUnknownOptions.append( name );
+    mUnknownOptions.append(name);
 }
 
 /*
@@ -169,19 +166,18 @@ void CmdParser::setUnknownOption( QString name )
  */
 bool CmdParser::showError()
 {
-    if ( mUnknownOptions.count() == 0 ) {
+    if (mUnknownOptions.count() == 0) {
         return false;
     }
 
     std::cout << "Unknown options: ";
 
-    for ( int i = 0; i < mUnknownOptions.count(); i++ ) {
-        std::cout << " " << mUnknownOptions.at( i ).toStdString();
+    for (int i = 0; i < mUnknownOptions.count(); i++) {
+        std::cout << " " << mUnknownOptions.at(i).toStdString();
 
-        if ( i == mUnknownOptions.count() - 1 ) {
+        if (i == mUnknownOptions.count() - 1) {
             std::cout << ".\n";
-        }
-        else {
+        } else {
             std::cout << ",";
         }
     }
@@ -189,11 +185,11 @@ bool CmdParser::showError()
     return true;
 }
 
-QString CmdParser::value( QString name )
+QString CmdParser::value(QString name)
 {
-    for ( int i = 0; i < mOptions.count(); i++ ) {
-        if ( ( mOptions.at( i ).name() == name || mOptions.at( i ).longName() == name ) && mOptions.at( i ).isSet() ) {
-            return mOptions.at( i ).value();
+    for (int i = 0; i < mOptions.count(); i++) {
+        if ((mOptions.at(i).name() == name || mOptions.at(i).longName() == name) && mOptions.at(i).isSet()) {
+            return mOptions.at(i).value();
         }
     }
 

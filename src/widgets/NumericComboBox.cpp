@@ -20,9 +20,9 @@
 
 #include "NumericComboBox.h"
 
-NumericComboBox::NumericComboBox( int start, int increment, int steps, QWidget *parent ) : QComboBox( parent )
+NumericComboBox::NumericComboBox(int start, int increment, int steps, QWidget* parent) : QComboBox(parent)
 {
-    populateList( start, increment, steps );
+    populateList(start, increment, steps);
 }
 
 //
@@ -30,20 +30,20 @@ NumericComboBox::NumericComboBox( int start, int increment, int steps, QWidget *
 //
 int NumericComboBox::value() const
 {
-    return itemData( currentIndex() ).toInt();
+    return itemData(currentIndex()).toInt();
 }
 
-void NumericComboBox::setValue( int value )
+void NumericComboBox::setValue(int value)
 {
-    setCurrentIndex( findData( value ) );
+    setCurrentIndex(findData(value));
 }
 
 //
 // Private Functions
 //
-void NumericComboBox::populateList( int start, int increment, int steps )
+void NumericComboBox::populateList(int start, int increment, int steps)
 {
-    for ( int i = 0; i < steps; i++ ) {
-        addItem( QString::number( start + i * increment ), start + i * increment );
+    for (int i = 0; i < steps; i++) {
+        addItem(QString::number(start + i * increment), start + i * increment);
     }
 }

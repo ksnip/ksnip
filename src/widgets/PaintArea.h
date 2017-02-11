@@ -33,25 +33,25 @@ class PaintArea : public QGraphicsScene
 public:
     PaintArea();
     enum PaintMode { Pen, Marker, Erase, Move };
-    void loadCapture ( QPixmap pixmap );
+    void loadCapture(QPixmap pixmap);
     QSize areaSize();
-    void setPaintMode ( PaintMode paintMode );
+    void setPaintMode(PaintMode paintMode);
     QImage exportAsImage();
-    void setIsEnabled ( bool enabled );
+    void setIsEnabled(bool enabled);
     bool isEnabled();
     bool isValid();
-    void crop ( QRect rect );
+    void crop(QRect rect);
     QPoint getCropOffset();
 
 signals:
     void imageChanged();
 
 protected:
-    virtual void mousePressEvent ( QGraphicsSceneMouseEvent *event );
-    virtual void mouseMoveEvent ( QGraphicsSceneMouseEvent *event );
-    virtual void mouseReleaseEvent ( QGraphicsSceneMouseEvent *event );
-    virtual void keyPressEvent ( QKeyEvent *event );
-    virtual void keyReleaseEvent ( QKeyEvent *event );
+    virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+    virtual void keyPressEvent(QKeyEvent *event);
+    virtual void keyReleaseEvent(QKeyEvent *event);
 
 private:
     bool                 mIsEnabled;
@@ -63,11 +63,11 @@ private:
     QPointF              mMoveOffset;
     QPoint               mCropOffset;
 
-    void addNewPaintStroke ( QPointF position );
-    void addToCurrentPaintStroke ( QPointF position );
-    bool erasePaintStroke ( QPointF position );
-    bool getObjectForMove ( QPointF position );
-    void moveObject( QPointF position );
+    void addNewPaintStroke(QPointF position);
+    void addToCurrentPaintStroke(QPointF position);
+    bool erasePaintStroke(QPointF position);
+    bool getObjectForMove(QPointF position);
+    void moveObject(QPointF position);
     QCursor *cursor();
 
 private slots:

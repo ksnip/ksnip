@@ -20,9 +20,9 @@
 
 #include "ColorComboBox.h"
 
-ColorComboBox::ColorComboBox( QStringList colorList, QWidget *parent ) : QComboBox( parent )
+ColorComboBox::ColorComboBox(QStringList colorList, QWidget* parent) : QComboBox(parent)
 {
-    populateList( colorList );
+    populateList(colorList);
 }
 
 //
@@ -30,24 +30,24 @@ ColorComboBox::ColorComboBox( QStringList colorList, QWidget *parent ) : QComboB
 //
 QColor ColorComboBox::color() const
 {
-    return qvariant_cast<QColor> ( itemData( currentIndex() ) );
+    return qvariant_cast<QColor> (itemData(currentIndex()));
 }
 
-void ColorComboBox::setColor( QColor color )
+void ColorComboBox::setColor(QColor color)
 {
-    setCurrentIndex( findData( color ) );
+    setCurrentIndex(findData(color));
 }
 
 //
 // Private Functions
 //
-void ColorComboBox::populateList( QStringList colorList )
+void ColorComboBox::populateList(QStringList colorList)
 {
-    for ( int i = 0; i < colorList.size(); ++i ) {
-        QColor color( colorList[i] );
-        QPixmap px( 20, 20 );
-        px.fill( color );
-        QIcon icon( px );
-        addItem( icon, colorList[i], color );
+    for (int i = 0; i < colorList.size(); ++i) {
+        QColor color(colorList[i]);
+        QPixmap px(20, 20);
+        px.fill(color);
+        QIcon icon(px);
+        addItem(icon, colorList[i], color);
     }
 }

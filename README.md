@@ -18,7 +18,8 @@ Latest ksnip version contains following features:
 * Any drawing can be moved around without deleting it by simply dragging it to new location.
 * Cropping captured screensshot, including any drawing on the captured image.
 * Command line support, for taking screenshot and saving it to default location, filename and format.
-* Customizable default location, filename and format for saving new screenshots with wildcards for Year ($Y), Month ($M), Day ($D) and Time ($T).  
+* Customizable default location, filename and format for saving new screenshots with wildcards for Year ($Y), Month ($M), Day ($D) and Time ($T).
+* Print screenshot or save is to prf/ps
 
 
 ### Building from source
@@ -45,4 +46,4 @@ Please report any bugs or feature requests on the github page under the issue se
 
 
 ### Other
-For Gentoo, check out this link https://github.com/mrbitt/mrbit-overlay/blob/master/x11-apps/ksnip/ksnip-1.2.0.ebuild
+For Gentoo, check out this link https://github.com/mrbitt/mrbit-overlay/blob/master/x11-apps/ksnip/ksnip-1.2.1.ebuild

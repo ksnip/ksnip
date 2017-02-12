@@ -37,7 +37,8 @@ MainWindow::MainWindow() : QMainWindow(),
     mEraseAction(new QAction(this)),
     mMoveAction(new QAction(this)),
     mUploadToImgurAction(new QAction(this)),
-    mPrintImage(new QAction(this)),
+    mPrintAction(new QAction(this)),
+    mPrintPreviewAction(new QAction(this)),
     mCropAction(new QAction(this)),
     mNewCaptureAction(new QAction(this)),
     mQuitAction(new QAction(this)),
@@ -269,18 +270,21 @@ void MainWindow::setSaveAble(bool enabled)
 }
 
 /*
- * Sets and disables image related buttons
+ * Sets and disables image related buttons, only save button related stuff is
+ * set under setSaveAble
  */
 void MainWindow::setEnablements(bool enabled)
 {
     if (enabled) {
         mCropAction->setEnabled(true);
-        mPrintImage->setEnabled(true);
+        mPrintAction->setEnabled(true);
+        mPrintPreviewAction->setEnabled(true);
         mUploadToImgurAction->setEnabled(true);
         mCopyToClipboardAction->setEnabled(true);
     } else {
         mCropAction->setEnabled(false);
-        mPrintImage->setEnabled(false);
+        mPrintAction->setEnabled(false);
+        mPrintPreviewAction->setEnabled(false);
         mUploadToImgurAction->setEnabled(false);
         mCopyToClipboardAction->setEnabled(false);
     }
@@ -385,64 +389,62 @@ void MainWindow::initGui()
     // Create actions for capture modes
     mNewRectAreaCaptureAction->setIconText(tr("Rectangular Area"));
     mNewRectAreaCaptureAction->setToolTip(tr("Draw a rectangular area with your mouse."));
-    mNewRectAreaCaptureAction->setIcon(createIcon("drawRect")) ;
-    connect(mNewRectAreaCaptureAction,
-            SIGNAL(triggered()),
-            this,
-            SLOT(newRectAreaCaptureClicked()));
+    mNewRectAreaCaptureAction->setIcon(createIcon("drawRect"));
+    connect(mNewRectAreaCaptureAction, SIGNAL(triggered()),
+            this, SLOT(newRectAreaCaptureClicked()));
 
     mNewFullScreenCaptureAction->setIconText(tr("Full Screen (All Monitors)"));
     mNewFullScreenCaptureAction->setToolTip(tr("Capture full screen including all monitors."));
     mNewFullScreenCaptureAction->setIcon(createIcon("fullScreen"));
-    connect(mNewFullScreenCaptureAction,
-            SIGNAL(triggered()),
-            this,
-            SLOT(newFullScreenCaptureClicked()));
+    connect(mNewFullScreenCaptureAction, SIGNAL(triggered()),
+            this, SLOT(newFullScreenCaptureClicked()));
 
     mNewCurrentScreenCaptureAction->setIconText(tr("Current Screen"));
     mNewCurrentScreenCaptureAction->setToolTip(tr("Capture screen where the mouse is located."));
     mNewCurrentScreenCaptureAction->setIcon(createIcon("currentScreen"));
-    connect(mNewCurrentScreenCaptureAction,
-            SIGNAL(triggered()),
-            this,
-            SLOT(newCurrentScreenCaptureClicked()));
+    connect(mNewCurrentScreenCaptureAction, SIGNAL(triggered()),
+            this, SLOT(newCurrentScreenCaptureClicked()));
 
     mNewActiveWindowCaptureAction->setIconText(tr("Active Window"));
     mNewActiveWindowCaptureAction->setToolTip(tr("Capture window that currently has focus."));
     mNewActiveWindowCaptureAction->setIcon(createIcon("activeWindow"));
-    connect(mNewActiveWindowCaptureAction,
-            SIGNAL(triggered()),
-            this,
-            SLOT(newActiveWindowCaptureClicked()));
+    connect(mNewActiveWindowCaptureAction, SIGNAL(triggered()),
+            this, SLOT(newActiveWindowCaptureClicked()));
 
     // Create action for save button
     mSaveAction->setText(tr("Save"));
     mSaveAction->setToolTip(tr("Save Screen Capture to file system"));
     mSaveAction->setIcon(createIcon("save"));
     mSaveAction->setShortcut(QKeySequence::Save);
-    mSaveAction->connect(mSaveAction, SIGNAL(triggered()), this,
-                         SLOT(saveCaptureClicked()));
-    mSaveAction->setEnabled(false);
+    connect(mSaveAction, SIGNAL(triggered()), this, SLOT(saveCaptureClicked()));
 
     // Create action for copy to clipboard button
     mCopyToClipboardAction->setText(tr("Copy"));
     mCopyToClipboardAction->setToolTip(tr("Copy Screen Capture to clipboard"));
-    mCopyToClipboardAction->setIcon(createIcon("copyToClipboard")) ;
+    mCopyToClipboardAction->setIcon(createIcon("copyToClipboard"));
     mCopyToClipboardAction->setShortcut(QKeySequence::Copy);
-    mCopyToClipboardAction->connect(mCopyToClipboardAction, SIGNAL(triggered()), this,
-                                    SLOT(copyToClipboardClicked()));
+    connect(mCopyToClipboardAction, SIGNAL(triggered()),
+            this, SLOT(copyToClipboardClicked()));
 
     // Create Action for imgur.com uploader
     mUploadToImgurAction->setText(tr("Upload"));
     mUploadToImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
-    connect(mUploadToImgurAction, SIGNAL(triggered()),
-            this, SLOT(imgurUploadClicked()));
+    mUploadToImgurAction->setShortcut(Qt::SHIFT + Qt::Key_U);
+    connect(mUploadToImgurAction, SIGNAL(triggered()), this, SLOT(imgurUploadClicked()));
 
     // Create print action
-    mPrintImage->setText(tr("Print"));
-    mPrintImage->setToolTip(tr("Open printer dialog and provide option to print image."));
-    mPrintImage->setShortcut(QKeySequence::Print);
-    connect(mPrintImage, SIGNAL(triggered()), this, SLOT(printClicked()));
+    mPrintAction->setText(tr("Print"));
+    mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image."));
+    mPrintAction->setShortcut(QKeySequence::Print);
+    mPrintAction->setIcon(QIcon::fromTheme("document-print"));
+    connect(mPrintAction, SIGNAL(triggered()), this, SLOT(printClicked()));
+
+    // Create print preview action
+    mPrintPreviewAction->setText(tr("Print Preview"));
+    mPrintPreviewAction->setToolTip(tr("Opens Print Preview dialog where the image "
+                                       "orientation can be changed."));
+    mPrintPreviewAction->setIcon(QIcon::fromTheme("document-print-preview"));
+    connect(mPrintPreviewAction, SIGNAL(triggered()), this, SLOT(printPreviewClicked()));
 
     // Create crop action
     mCropAction->setText(tr("Crop"));
@@ -475,13 +477,16 @@ void MainWindow::initGui()
     // Create exit action
     mQuitAction->setText(tr("Quit"));
     mQuitAction->setShortcut(QKeySequence::Quit);
+    mQuitAction->setIcon(QIcon::fromTheme("application-exit"));
     connect(mQuitAction, SIGNAL(triggered()), this, SLOT(close()));
 
     // Create action for opening settings dialog
     mSettingsDialogAction->setText(tr("Settings"));
+    mSettingsDialogAction->setIcon(QIcon::fromTheme("emblem-system"));
     connect(mSettingsDialogAction, SIGNAL(triggered()), this, SLOT(openSettingsDialog()));
 
     mAboutKsnipAction->setText(tr("&About"));
+    mAboutKsnipAction->setIcon(createIcon("ksnip"));
     connect(mAboutKsnipAction, SIGNAL(triggered()), this, SLOT(openAboutDialog()));
 
     // Create tool buttons
@@ -523,7 +528,9 @@ void MainWindow::initGui()
     menu->addAction(mNewCaptureAction);
     menu->addAction(mSaveAction);
     menu->addAction(mUploadToImgurAction);
-    menu->addAction(mPrintImage);
+    menu->addSeparator();
+    menu->addAction(mPrintAction);
+    menu->addAction(mPrintPreviewAction);
     menu->addSeparator();
     menu->addAction(mQuitAction);
     menu = menuBar()->addMenu(tr("&Edit"));
@@ -673,14 +680,46 @@ void MainWindow::printClicked()
         return;
     }
 
-    QPrinter printer(QPrinter::HighResolution);
-    QPrintDialog* dlg = new QPrintDialog(&printer);
-    if (dlg->exec() == QDialog::Accepted) {
-        QPainter painter(&printer);
-        painter.drawImage(QPoint(0, 0), mCaptureScene->exportAsImage());
-        painter.end();
+    QPrinter printer;
+    printer.setOutputFileName(KsnipConfig::instance()->saveDirectory() + "untitled.pdf");
+    printer.setOutputFormat(QPrinter::NativeFormat);
+    QPrintDialog* printDialog = new QPrintDialog(&printer, 0);
+    if (printDialog->exec() == QDialog::Accepted) {
+        printCapture(&printer);
     }
-    delete dlg;
+
+    delete printDialog;
+}
+
+void MainWindow::printPreviewClicked()
+{
+    if (!mCaptureScene->isValid()) {
+        return;
+    }
+
+    // Opens a print preview dialog where the user change orientation of the print
+    QPrinter printer;
+    printer.setOutputFileName(KsnipConfig::instance()->saveDirectory() + "untitled.pdf");
+    printer.setOutputFormat(QPrinter::NativeFormat);
+    QPrintPreviewDialog* pd = new QPrintPreviewDialog(&printer);
+    connect(pd, SIGNAL(paintRequested(QPrinter*)), this, SLOT(printCapture(QPrinter*)));
+    pd->exec();
+}
+
+void MainWindow::printCapture(QPrinter* p)
+{
+    QPainter painter;
+    painter.begin(p);
+    QImage image = mCaptureScene->exportAsImage();
+    double xscale = p->pageRect().width() / double(image.width());
+    double yscale = p->pageRect().height() / double(image.height());
+    double scale = qMin(xscale, yscale);
+    painter.translate(p->paperRect().x() + p->pageRect().width() / 2,
+                      p->paperRect().y() + p->pageRect().height() / 2);
+    painter.scale(scale, scale);
+    painter.translate(-image.width() / 2, -image.height() / 2);
+    painter.drawImage(QPoint(0, 0), image);
+    painter.end();
 }
 
 void MainWindow::keyPressEvent(QKeyEvent* event)

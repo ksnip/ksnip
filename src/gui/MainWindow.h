@@ -52,7 +52,7 @@ public slots:
     void setCaptureDelay(int ms);
     void openCrop();
     void closeCrop();
-    QMenu* createPopupMenu();
+    QMenu *createPopupMenu();
 
 protected:
     void moveEvent(QMoveEvent *event);
@@ -78,7 +78,8 @@ private:
     QAction          *mEraseAction;
     QAction          *mMoveAction;
     QAction          *mUploadToImgurAction;
-    QAction          *mPrintImage;
+    QAction          *mPrintAction;
+    QAction          *mPrintPreviewAction;
     QAction          *mCropAction;
     QAction          *mNewCaptureAction;
     QAction          *mQuitAction;
@@ -116,6 +117,8 @@ private slots:
     void moveClicked();
     void imgurUploadClicked();
     void printClicked();
+    void printPreviewClicked();
+    void printCapture(QPrinter *p);
     void keyPressEvent(QKeyEvent *event);
     void areaSelected(QRect rect);
     void imageChanged();

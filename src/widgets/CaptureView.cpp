@@ -88,7 +88,7 @@ QRect CaptureView::getSelectedRect()
 {
     // Take into account offset of any previous crops
     QRect rect = mSelectedRect.normalized();
-    rect.moveTo(rect.topLeft() - scene()->getCropOffset());
+    rect.moveTo(rect.topLeft() - scene()->cropOffset());
     return rect;
 }
 
@@ -98,7 +98,7 @@ QRect CaptureView::getSelectedRect()
  */
 void CaptureView::setSelectedRect(QRect rect)
 {
-    rect.moveTo(rect.topLeft() + scene()->getCropOffset());
+    rect.moveTo(rect.topLeft() + scene()->cropOffset());
     mSelectedRect = rect;
     setupBorderPoints(mSelectedRect);
     scene()->update();

@@ -105,11 +105,7 @@ PaintArea::PaintMode KsnipConfig::paintMode() const
         return PaintArea::Pen;
     }
 
-    if (mConfig.value("Painter/PaintMode").toInt() == PaintArea::Marker) {
-        return PaintArea::Marker;
-    } else {
-        return PaintArea::Pen;
-    }
+    return PaintArea::PaintMode(mConfig.value("Painter/PaintMode").toInt());
 }
 
 void KsnipConfig::setPaintMode(PaintArea::PaintMode paintMode)

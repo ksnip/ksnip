@@ -18,30 +18,43 @@
  *
  */
 
-#ifndef SCRIBBLEAREA_H
-#define SCRIBBLEAREA_H
+#ifndef PAINTAREA_H
+#define PAINTAREA_H
 
 #include <QtGui>
 #include <QGraphicsScene>
 
 #include "PaintStroke.h"
+#include "PainterPath.h"
+#include "PainterRect.h"
+#include "PainterEllipse.h"
 #include "src/widgets/CustomCursor.h"
 
 class PaintArea : public QGraphicsScene
 {
     Q_OBJECT
 public:
+    enum PaintMode {
+        Pen,
+        Marker,
+        Rect,
+        Ellipse,
+        Text,
+        Erase,
+        Move
+    };
+
+public:
     PaintArea();
-    enum PaintMode { Pen, Marker, Erase, Move };
     void loadCapture(QPixmap pixmap);
-    QSize areaSize();
+    QSize areaSize() const;
     void setPaintMode(PaintMode paintMode);
     QImage exportAsImage();
     void setIsEnabled(bool enabled);
-    bool isEnabled();
-    bool isValid();
+    bool isEnabled() const;
+    bool isValid() const;
     void crop(QRect rect);
-    QPoint getCropOffset();
+    QPoint cropOffset();
 
 signals:
     void imageChanged();
@@ -56,22 +69,19 @@ protected:
 private:
     bool                 mIsEnabled;
     QGraphicsPixmapItem *mPixmap;
-    PaintStroke         *mCurrentPaintStroke;
+    PainterBaseItem     *mCurrentItem;
     QCursor             *mCursor;
-    bool                 mIsSnapping;
+    bool                 mModifierPressed;
     PaintMode            mCurrentPaintMode;
-    QPointF              mMoveOffset;
     QPoint               mCropOffset;
 
-    void addNewPaintStroke(QPointF position);
-    void addToCurrentPaintStroke(QPointF position);
-    bool erasePaintStroke(QPointF position);
-    bool getObjectForMove(QPointF position);
-    void moveObject(QPointF position);
+    bool eraseItem(QPointF position);
+    bool grabItem(QPointF position);
+    void moveItem(QPointF position);
     QCursor *cursor();
 
 private slots:
     void setCursor();
 };
 
-#endif // SCRIBBLEAREA_H
+#endif // PAINTAREA_H

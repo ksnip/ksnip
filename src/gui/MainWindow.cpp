@@ -34,6 +34,9 @@ MainWindow::MainWindow() : QMainWindow(),
     mCopyToClipboardAction(new QAction(this)),
     mPenAction(new QAction(this)),
     mMarkerAction(new QAction(this)),
+    mRectAction(new QAction(this)),
+    mEllipseAction(new QAction(this)),
+    mTextAction(new QAction(this)),
     mEraseAction(new QAction(this)),
     mMoveAction(new QAction(this)),
     mUploadToImgurAction(new QAction(this)),
@@ -300,10 +303,29 @@ void MainWindow::loadSettings()
     setCaptureDelay(KsnipConfig::instance()->captureDelay());
 
     // Load paintmode setting
-    if (KsnipConfig::instance()->paintMode() == PaintArea::Marker) {
+    KsnipConfig::instance()->paintMode();
+    switch (KsnipConfig::instance()->paintMode()) {
+    case PaintArea::Pen:
+        mCaptureScene->setPaintMode(PaintArea::Pen);
+        mPaintToolButton->setDefaultAction(mPenAction);
+        break;
+    case PaintArea::Marker:
         mCaptureScene->setPaintMode(PaintArea::Marker);
         mPaintToolButton->setDefaultAction(mMarkerAction);
-    } else {
+        break;
+    case PaintArea::Rect:
+        mCaptureScene->setPaintMode(PaintArea::Rect);
+        mPaintToolButton->setDefaultAction(mRectAction);
+        break;
+    case PaintArea::Ellipse:
+        mCaptureScene->setPaintMode(PaintArea::Ellipse);
+        mPaintToolButton->setDefaultAction(mEllipseAction);
+        break;
+    case PaintArea::Text:
+        mCaptureScene->setPaintMode(PaintArea::Text);
+        mPaintToolButton->setDefaultAction(mTextAction);
+        break;
+    default:
         mCaptureScene->setPaintMode(PaintArea::Pen);
         mPaintToolButton->setDefaultAction(mPenAction);
     }
@@ -461,6 +483,18 @@ void MainWindow::initGui()
     mMarkerAction->setIcon(createIcon("marker"));
     connect(mMarkerAction, SIGNAL(triggered()), this, SLOT(markerClicked()));
 
+    mRectAction->setText(tr("Rect"));
+    mRectAction->setIcon(createIcon("rect"));
+    connect(mRectAction, SIGNAL(triggered()), this, SLOT(rectClicked()));
+
+    mEllipseAction->setText(tr("Ellipse"));
+    mEllipseAction->setIcon(createIcon("ellipse"));
+    connect(mEllipseAction, SIGNAL(triggered()), this, SLOT(ellipseClicked()));
+
+    mTextAction->setText(tr("Text"));
+    mTextAction->setIcon(createIcon("text"));
+    connect(mTextAction, SIGNAL(triggered()), this, SLOT(textClicked()));
+
     mEraseAction->setText(tr("Erase"));
     mEraseAction->setIcon(createIcon("eraser"));
     connect(mEraseAction, SIGNAL(triggered()), this, SLOT(eraseClicked()));
@@ -515,6 +549,9 @@ void MainWindow::initGui()
     // Create tool button for selecting paint tool
     mPaintToolMenu->addAction(mPenAction);
     mPaintToolMenu->addAction(mMarkerAction);
+    mPaintToolMenu->addAction(mRectAction);
+    mPaintToolMenu->addAction(mEllipseAction);
+//     mPaintToolMenu->addAction(mTextAction);
     mPaintToolMenu->addAction(mEraseAction);
     mPaintToolMenu->addAction(mMoveAction);
 
@@ -638,6 +675,24 @@ void MainWindow::markerClicked()
 {
     mCaptureScene->setPaintMode(PaintArea::Marker);
     KsnipConfig::instance()->setPaintMode(PaintArea::Marker);
+}
+
+void MainWindow::rectClicked()
+{
+    mCaptureScene->setPaintMode(PaintArea::Rect);
+    KsnipConfig::instance()->setPaintMode(PaintArea::Rect);
+}
+
+void MainWindow::ellipseClicked()
+{
+    mCaptureScene->setPaintMode(PaintArea::Ellipse);
+    KsnipConfig::instance()->setPaintMode(PaintArea::Ellipse);
+}
+
+void MainWindow::textClicked()
+{
+    mCaptureScene->setPaintMode(PaintArea::Text);
+    KsnipConfig::instance()->setPaintMode(PaintArea::Text);
 }
 
 void MainWindow::eraseClicked()

@@ -5,6 +5,7 @@ find_package(Qt4 REQUIRED)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
@@ -16,8 +17,11 @@ set(ksnip_SRCS src/main.cpp
                src/backend/ImageGrabber.cpp
                src/backend/CmdParser.cpp
                src/backend/CmdOption.cpp
-               src/painter/PaintStroke.cpp
                src/painter/PaintArea.cpp
+               src/painter/PainterBaseItem.cpp
+               src/painter/PainterPath.cpp
+               src/painter/PainterRect.cpp
+               src/painter/PainterEllipse.cpp
                src/widgets/CaptureView.cpp
                src/widgets/CustomToolButton.cpp
                src/widgets/CustomCursor.cpp

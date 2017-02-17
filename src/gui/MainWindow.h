@@ -75,6 +75,9 @@ private:
     QAction          *mCopyToClipboardAction;
     QAction          *mPenAction;
     QAction          *mMarkerAction;
+    QAction          *mRectAction;
+    QAction          *mEllipseAction;
+    QAction          *mTextAction;
     QAction          *mEraseAction;
     QAction          *mMoveAction;
     QAction          *mUploadToImgurAction;
@@ -113,6 +116,9 @@ private slots:
     void copyToClipboardClicked();
     void penClicked();
     void markerClicked();
+    void rectClicked();
+    void ellipseClicked();
+    void textClicked();
     void eraseClicked();
     void moveClicked();
     void imgurUploadClicked();

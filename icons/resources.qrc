@@ -6,6 +6,9 @@
     <file alias="ksnip16.png">16x16/ksnip.16.png</file>
     <file alias="pen64.png">64x64/pen.64.png</file>
     <file alias="marker64.png">64x64/marker.64.png</file>
+    <file alias="rect64.png">64x64/rect.64.png</file>
+    <file alias="ellipse64.png">64x64/ellipse.64.png</file>
+    <file alias="text64.png">64x64/text.64.png</file>
     <file alias="eraser64.png">64x64/eraser.64.png</file>
     <file alias="move64.png">64x64/move.64.png</file>
     <file alias="copyToClipboard64.png">64x64/copyToClipboard.64.png</file>

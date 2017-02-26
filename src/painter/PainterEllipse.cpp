@@ -42,12 +42,12 @@ QRectF PainterEllipse::boundingRect() const
 
 void PainterEllipse::addPoint(QPointF pos, bool modifier)
 {
-    prepareGeometryChange();
     mRect.setBottomRight(pos);
     if (modifier) {
         mRect.setHeight(smallesLenght(mRect.height(), mRect.width()));
         mRect.setWidth(smallesLenght(mRect.width(), mRect.height()));
     }
+    prepareGeometryChange();
 }
 
 void PainterEllipse::moveTo(QPointF newPos)

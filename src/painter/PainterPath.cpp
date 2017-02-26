@@ -48,14 +48,13 @@ QRectF PainterPath::boundingRect() const
 
 void PainterPath::addPoint(QPointF pos, bool modifier)
 {
-    prepareGeometryChange();
     if (mPath->elementAt(mPath->elementCount() - 1).isLineTo() && modifier) {
         prepareGeometryChange();
         mPath->setElementPositionAt(mPath->elementCount() - 1, pos.x(), pos.y());
     } else {
         mPath->lineTo(pos);
     }
-
+    prepareGeometryChange();
 }
 
 void PainterPath::moveTo(QPointF newPos)

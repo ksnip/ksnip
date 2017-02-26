@@ -145,7 +145,7 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             addItem(mCurrentItem);
             break;
         case Ellipse:
-            mCurrentItem = new PainterEllipse(event->scenePos(), KsnipConfig::instance()->pen(), true);
+            mCurrentItem = new PainterEllipse(event->scenePos(), KsnipConfig::instance()->pen());
             addItem(mCurrentItem);
             break;
         case Text:
@@ -309,8 +309,12 @@ QCursor* PaintArea::cursor()
         return new CustomCursor();
     }
     switch (mCurrentPaintMode) {
-    case Pen:
     case Marker:
+        return new CustomCursor(CustomCursor::Circle,
+                                KsnipConfig::instance()->markerColor(),
+                                KsnipConfig::instance()->markerSize());
+        break;
+    case Pen:
     case Rect:
     case Ellipse:
         return new CustomCursor(CustomCursor::Circle,

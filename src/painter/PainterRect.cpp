@@ -21,7 +21,7 @@
 
 namespace
 {
-qreal smallesLenght(qreal lenght1, qreal lenght2)
+qreal smallesLenght(double lenght1, double lenght2)
 {
     qreal l = (std::abs(lenght1) < std::abs(lenght2)) ? std::abs(lenght1) : std::abs(lenght2);
     return (lenght1 < 0) ? -l : l;
@@ -42,12 +42,12 @@ QRectF PainterRect::boundingRect() const
 
 void PainterRect::addPoint(QPointF pos, bool modifier)
 {
-    prepareGeometryChange();
     mRect.setBottomRight(pos);
     if (modifier) {
         mRect.setHeight(smallesLenght(mRect.height(), mRect.width()));
         mRect.setWidth(smallesLenght(mRect.width(), mRect.height()));
     }
+    prepareGeometryChange();
 }
 
 void PainterRect::moveTo(QPointF newPos)

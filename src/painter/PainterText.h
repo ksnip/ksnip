@@ -48,12 +48,12 @@ public:
     virtual void addPoint(QPointF pos, bool modifier = 0);
     virtual bool containsRect(QPointF topLeft, QSize size) const;
     virtual bool isValid() const;
-    QFont* font() const;
+    QFont *font() const;
     void setFont(const QFont &font);
 
 protected:
-    virtual void keyPressEvent(QKeyEvent * event);
-    virtual void focusOutEvent(QFocusEvent * event);
+    virtual void keyPressEvent(QKeyEvent *event);
+    virtual void focusOutEvent(QFocusEvent *event);
 
 private:
     QRectF        mRect;

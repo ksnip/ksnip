@@ -19,10 +19,14 @@
 
 #include "PainterPath.h"
 
+//
+// Public Functions
+//
+
 PainterPath::PainterPath(QPointF pos, QPen attributes, bool transparent) : PainterBaseItem(Path, attributes),
-                                                                           mPath(new QPainterPath),
-                                                                           mStroker(new QPainterPathStroker),
-                                                                           mTransparent(transparent)
+    mPath(new QPainterPath),
+    mStroker(new QPainterPathStroker),
+    mTransparent(transparent)
 {
     // Place the path at the right location and draw the first point, which is actually a line just
     // moved one pixel as QT won't draw a line if the point B is equal to point A
@@ -71,6 +75,10 @@ bool PainterPath::containsRect(QPointF topLeft, QSize size) const
                                     size.height()));
 }
 
+//
+// Private Functions
+//
+
 void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget* widget)
 {
     if (mTransparent) {
@@ -82,4 +90,3 @@ void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWid
     painter->setBrush(attributes()->color());
     painter->drawPath(mStroker->createStroke(*mPath));
 }
-

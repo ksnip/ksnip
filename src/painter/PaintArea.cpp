@@ -21,12 +21,12 @@
 #include "src/backend/KsnipConfig.h"
 
 PaintArea::PaintArea() : QGraphicsScene(),
-                         mPixmap(nullptr),
-                         mCurrentItem(nullptr),
-                         mCursor(nullptr),
-                         mModifierPressed(false),
-                         mCurrentPaintMode(Pen),
-                         mCropOffset(QPoint())
+    mPixmap(nullptr),
+    mCurrentItem(nullptr),
+    mCursor(nullptr),
+    mModifierPressed(false),
+    mCurrentPaintMode(Pen),
+    mCropOffset(QPoint())
 {
     // Connect to update signal so that we are informed any time the config changes, we use that to
     // set the correct mouse cursor
@@ -159,7 +159,7 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             // The subtraction of the QPoint is to align the text with the cursor as
             // the IBeam cursor is centered so new text is written at the middle
             // instead of at the top.
-            mCurrentItem = new PainterText(event->scenePos() - QPointF(0,12), KsnipConfig::instance()->pen());
+            mCurrentItem = new PainterText(event->scenePos() - QPointF(0, 12), KsnipConfig::instance()->pen());
             addItem(mCurrentItem);
             break;
         case Erase:
@@ -228,7 +228,7 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
             mCurrentItem = nullptr;
         }
     }
-    // Inform the MainWindow that something was drawn on the image so the user 
+    // Inform the MainWindow that something was drawn on the image so the user
     // should be able to save again.
     emit imageChanged();
 

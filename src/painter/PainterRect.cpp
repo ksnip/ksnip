@@ -29,8 +29,12 @@ qreal smallesLenght(double lenght1, double lenght2)
 
 }
 
+//
+// Public Functions
+//
+
 PainterRect::PainterRect(QPointF pos, QPen attributes, bool filled) : PainterBaseItem(Rect, attributes),
-                                                                      mFilled(filled)
+    mFilled(filled)
 {
     mRect.moveTo(pos);
 }
@@ -82,10 +86,9 @@ bool PainterRect::containsRect(QPointF topLeft, QSize size) const
     }
 }
 
-QRectF PainterRect::rect() const
-{
-    return mRect;
-}
+//
+// Private Functions
+//
 
 void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {

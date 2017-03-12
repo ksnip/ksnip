@@ -19,8 +19,11 @@
 
 #include "PainterBaseItem.h"
 
+//
+// Public Functions
+//
 PainterBaseItem::PainterBaseItem(PaintItemShape shape, QPen attributes) : mItemType(shape),
-                                                                          mAttributes(new QPen(attributes))
+    mAttributes(new QPen(attributes))
 {
 }
 
@@ -40,7 +43,7 @@ bool PainterBaseItem::isValid() const
 }
 
 /*
- * Returns the item position within local space, same as top left of the 
+ * Returns the item position within local space, same as top left of the
  * bounding rect.
  */
 QPointF PainterBaseItem::position() const

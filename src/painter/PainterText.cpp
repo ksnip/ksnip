@@ -32,12 +32,16 @@ int textBoxMargin()
 
 }
 
+//
+// Public Functions
+//
+
 PainterText::PainterText(QPointF pos, QPen attributes) : PainterBaseItem(Text, attributes),
-                                                         mFont(new QFont("Arial", 15, QFont::Bold)),
-                                                         mFontMetric(new QFontMetrics(*mFont)),
-                                                         mCursorBlinkTimer(new QTimer(this)),
-                                                         mEditable(true),
-                                                         mCursorVisible(true)
+    mFont(new QFont("Arial", 15, QFont::Bold)),
+    mFontMetric(new QFontMetrics(*mFont)),
+    mCursorBlinkTimer(new QTimer(this)),
+    mEditable(true),
+    mCursorVisible(true)
 {
     mCursorPos = 0;
     setFlags(QGraphicsItem::ItemIsFocusable);
@@ -96,12 +100,16 @@ QFont* PainterText::font() const
     return mFont;
 }
 
-void PainterText::setFont(const QFont &font)
+void PainterText::setFont(const QFont& font)
 {
 
     delete mFont;
     mFont = new QFont(font);
 }
+
+//
+// Protected Functions
+//
 
 void PainterText::keyPressEvent(QKeyEvent* event)
 {
@@ -156,6 +164,10 @@ void PainterText::focusOutEvent(QFocusEvent* event)
 {
     finishEditing();
 }
+
+//
+// Private Functions
+//
 
 void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
 {
@@ -234,7 +246,7 @@ void PainterText::moveCursor(PainterText::CursorPos direction)
     mCursorVisible = true;
 }
 
-void PainterText::insertChar(const QString &c)
+void PainterText::insertChar(const QString& c)
 {
     mText.insert(mCursorPos, c);
     moveCursor(Next);
@@ -265,7 +277,7 @@ void PainterText::removeChar(PainterText::CursorPos direction)
 /*
  * Should be called any time editing was finished, returns true if after calling
  * this function the object is still valid, otherwise returns false. If false
- * was returned, this object should not be longer used as it's eventually going 
+ * was returned, this object should not be longer used as it's eventually going
  * to be deleted if it's empty.
  */
 bool PainterText::finishEditing()
@@ -293,7 +305,7 @@ void PainterText::updateRect()
 
 void PainterText::pasteClipboard()
 {
-    QClipboard *clipboard = QApplication::clipboard();
+    QClipboard* clipboard = QApplication::clipboard();
     if (clipboard->text().isEmpty()) {
         return;
     }
@@ -301,6 +313,9 @@ void PainterText::pasteClipboard()
     mCursorPos += clipboard->text().length();
 }
 
+//
+// Private Slots
+//
 void PainterText::cursorBlink()
 {
     mCursorVisible = !mCursorVisible;

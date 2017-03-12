@@ -29,6 +29,10 @@ qreal smallesLenght(qreal lenght1, qreal lenght2)
 
 }
 
+//
+// Public Functions
+//
+
 PainterEllipse::PainterEllipse(QPointF pos, QPen attributes, bool filled) : PainterBaseItem(Rect, attributes),
     mFilled(filled)
 {
@@ -79,6 +83,10 @@ bool PainterEllipse::containsRect(QPointF topLeft, QSize size) const
                                               size.height()));
     }
 }
+
+//
+// Private Functions
+//
 
 void PainterEllipse::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {

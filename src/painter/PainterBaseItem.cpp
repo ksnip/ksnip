@@ -34,9 +34,18 @@ int PainterBaseItem::type() const
     return Type;
 }
 
-bool PainterBaseItem::isValid()
+bool PainterBaseItem::isValid() const
 {
     return true;
+}
+
+/*
+ * Returns the item position within local space, same as top left of the 
+ * bounding rect.
+ */
+QPointF PainterBaseItem::position() const
+{
+    return boundingRect().topLeft();
 }
 
 QPen* PainterBaseItem::attributes() const

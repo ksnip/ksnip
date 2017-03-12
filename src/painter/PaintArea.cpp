@@ -108,9 +108,17 @@ bool PaintArea::isValid() const
  */
 void PaintArea::crop(QRect rect)
 {
-    // Store offset of crop, we will need it in case of cropping again.
+    // Move all painter items to old offset, if this is not done, on the second
+    // crop the items are positioned incorrectly bug#27
+    for (QGraphicsItem* item : items()) {
+        PainterBaseItem* baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
+        if (baseItem) {
+            baseItem->moveTo(baseItem->position() - mCropOffset);
+        }
+    }
     mCropOffset = rect.topLeft() - mCropOffset;
 
+    // Store offset of crop, we will need it in case of cropping again.
     rect.moveTo(mCropOffset);
     setSceneRect(rect);
 

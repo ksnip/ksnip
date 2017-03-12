@@ -46,7 +46,8 @@ public:
     virtual void addPoint(QPointF pos, bool modifier = 0) = 0;
     virtual void moveTo(QPointF newPos) = 0;
     virtual bool containsRect(QPointF topLeft, QSize size) const = 0;
-    virtual bool isValid();
+    virtual bool isValid() const;
+    virtual QPointF position() const;
     virtual QPen *attributes() const;
     virtual PaintItemShape ItemShape() const;
     virtual QPointF offset() const;

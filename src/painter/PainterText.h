@@ -47,7 +47,7 @@ public:
     virtual void moveTo(QPointF newPos);
     virtual void addPoint(QPointF pos, bool modifier = 0);
     virtual bool containsRect(QPointF topLeft, QSize size) const;
-    virtual bool isValid();
+    virtual bool isValid() const;
     QFont* font() const;
     void setFont(const QFont &font);
 

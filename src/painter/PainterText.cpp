@@ -82,7 +82,7 @@ bool PainterText::containsRect(QPointF topLeft, QSize size) const
                                    size.height()));
 }
 
-bool PainterText::isValid()
+bool PainterText::isValid() const
 {
     if (mText.length() <= 0) {
         return false;

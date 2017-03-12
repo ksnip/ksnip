@@ -19,7 +19,6 @@
  */
 
 #include "CropPanel.h"
-#include <iostream>
 
 CropPanel::CropPanel(CaptureView* captureView) : QWidget(),
     mCropButton(new QPushButton()),

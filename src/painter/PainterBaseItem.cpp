@@ -34,6 +34,11 @@ int PainterBaseItem::type() const
     return Type;
 }
 
+bool PainterBaseItem::isValid()
+{
+    return true;
+}
+
 QPen* PainterBaseItem::attributes() const
 {
     return mAttributes;
@@ -67,4 +72,19 @@ void PainterBaseItem::setJoinStyle(Qt::PenJoinStyle join)
 void PainterBaseItem::setCapStyle(Qt::PenCapStyle cap)
 {
     mAttributes->setCapStyle(cap);
+}
+
+void PainterBaseItem::setOutlineStyle(Qt::PenStyle penStyle)
+{
+    mAttributes->setStyle(penStyle);
+}
+
+void PainterBaseItem::setOutlineWidth(int width)
+{
+    mAttributes->setWidth(width);
+}
+
+void PainterBaseItem::setOutlineColor(QColor color)
+{
+    mAttributes->setColor(color);
 }

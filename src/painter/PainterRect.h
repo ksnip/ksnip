@@ -31,6 +31,9 @@ public:
     virtual void moveTo(QPointF newPos);
     virtual bool containsRect(QPointF topLeft, QSize size) const;
 
+protected:
+    QRectF rect() const;
+
 private:
     QRectF mRect;
     bool   mFilled;

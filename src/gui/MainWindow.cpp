@@ -551,7 +551,7 @@ void MainWindow::initGui()
     mPaintToolMenu->addAction(mMarkerAction);
     mPaintToolMenu->addAction(mRectAction);
     mPaintToolMenu->addAction(mEllipseAction);
-//     mPaintToolMenu->addAction(mTextAction);
+    mPaintToolMenu->addAction(mTextAction);
     mPaintToolMenu->addAction(mEraseAction);
     mPaintToolMenu->addAction(mMoveAction);
 

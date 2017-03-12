@@ -82,6 +82,11 @@ bool PainterRect::containsRect(QPointF topLeft, QSize size) const
     }
 }
 
+QRectF PainterRect::rect() const
+{
+    return mRect;
+}
+
 void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     if (mFilled) {

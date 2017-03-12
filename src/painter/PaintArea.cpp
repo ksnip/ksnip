@@ -19,7 +19,6 @@
 */
 #include "PaintArea.h"
 #include "src/backend/KsnipConfig.h"
-#include <iostream>
 
 PaintArea::PaintArea() : QGraphicsScene(),
                          mPixmap(nullptr),
@@ -149,6 +148,11 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             addItem(mCurrentItem);
             break;
         case Text:
+            // The subtraction of the QPoint is to align the text with the cursor as
+            // the IBeam cursor is centered so new text is written at the middle
+            // instead of at the top.
+            mCurrentItem = new PainterText(event->scenePos() - QPointF(0,12), KsnipConfig::instance()->pen());
+            addItem(mCurrentItem);
             break;
         case Erase:
             eraseItem(event->scenePos());
@@ -175,9 +179,8 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
         case Marker:
         case Rect:
         case Ellipse:
-            mCurrentItem->addPoint(event->scenePos(), mModifierPressed);
-            break;
         case Text:
+            mCurrentItem->addPoint(event->scenePos(), mModifierPressed);
             break;
         case Erase:
             eraseItem(event->scenePos());
@@ -201,9 +204,8 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
         case Marker:
         case Rect:
         case Ellipse:
-            mCurrentItem = nullptr;
-            break;
         case Text:
+            mCurrentItem = nullptr;
             break;
         case Erase:
             break;
@@ -218,8 +220,8 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
             mCurrentItem = nullptr;
         }
     }
-    // Inform the MainWindow that something was drawn on the image so the user should be able to
-    // save again.
+    // Inform the MainWindow that something was drawn on the image so the user 
+    // should be able to save again.
     emit imageChanged();
 
     QGraphicsScene::mouseReleaseEvent(event);
@@ -230,7 +232,6 @@ void PaintArea::keyPressEvent(QKeyEvent* event)
     if (event->key() == Qt::Key_Shift) {
         mModifierPressed = true;
     }
-
     QGraphicsScene::keyPressEvent(event);
 }
 
@@ -322,7 +323,7 @@ QCursor* PaintArea::cursor()
                                 KsnipConfig::instance()->penSize());
         break;
     case Text:
-        return new CustomCursor();
+        return new QCursor(Qt::IBeamCursor);
         break;
     case Erase:
         return new CustomCursor(CustomCursor::Rect, QColor("white"), 6);

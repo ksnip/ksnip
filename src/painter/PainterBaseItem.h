@@ -46,12 +46,16 @@ public:
     virtual void addPoint(QPointF pos, bool modifier = 0) = 0;
     virtual void moveTo(QPointF newPos) = 0;
     virtual bool containsRect(QPointF topLeft, QSize size) const = 0;
+    virtual bool isValid();
     virtual QPen *attributes() const;
     virtual PaintItemShape ItemShape() const;
     virtual QPointF offset() const;
     virtual void setOffset(QPointF offset);
     virtual void setJoinStyle(Qt::PenJoinStyle join);
     virtual void setCapStyle(Qt::PenCapStyle cap);
+    virtual void setOutlineStyle(Qt::PenStyle penStyle);
+    virtual void setOutlineWidth(int width);
+    virtual void setOutlineColor(QColor color);
 
 private:
     PaintItemShape  mItemType;

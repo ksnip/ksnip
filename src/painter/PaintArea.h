@@ -24,10 +24,10 @@
 #include <QtGui>
 #include <QGraphicsScene>
 
-#include "PaintStroke.h"
 #include "PainterPath.h"
 #include "PainterRect.h"
 #include "PainterEllipse.h"
+#include "PainterText.h"
 #include "src/widgets/CustomCursor.h"
 
 class PaintArea : public QGraphicsScene

@@ -109,16 +109,15 @@ void CaptureView::setSelectedRect(QRect rect)
 //
 void CaptureView::keyPressEvent(QKeyEvent* event)
 {
-    // Cancel cropping
-    if (event->key() == Qt::Key_Escape) {
-        setIsCropping(false);
+    if (mIsCropping) {
+        // Cancel cropping
+        if (event->key() == Qt::Key_Escape) {
+            setIsCropping(false);
+        } else if (event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return) {
+            // We have selected an area and want to crop it
+            crop();
+        }
     }
-
-    // We have selected an area and want to crop it
-    if (event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return) {
-        crop();
-    }
-
     QGraphicsView::keyPressEvent(event);
 }
 

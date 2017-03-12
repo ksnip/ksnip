@@ -41,6 +41,7 @@ public:
 
 signals:
     void selectedRectChanged(QRect rect);
+    void closeCrop();
 
 protected:
     virtual void keyPressEvent(QKeyEvent *);

@@ -33,6 +33,9 @@ public:
 signals:
     void close();
 
+protected:
+    virtual void keyPressEvent(QKeyEvent * event);
+
 private:
     CaptureView *mCaptureView;
     QPushButton *mCropButton;

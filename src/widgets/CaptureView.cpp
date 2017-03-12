@@ -113,9 +113,11 @@ void CaptureView::keyPressEvent(QKeyEvent* event)
         // Cancel cropping
         if (event->key() == Qt::Key_Escape) {
             setIsCropping(false);
+            emit closeCrop();
         } else if (event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return) {
             // We have selected an area and want to crop it
             crop();
+            emit closeCrop();
         }
     }
     QGraphicsView::keyPressEvent(event);

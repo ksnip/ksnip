@@ -73,6 +73,7 @@ MainWindow::MainWindow() : QMainWindow(),
             this, SLOT(imgurTokenUpdated(QString, QString, QString)));
     connect(mImgurUploader, SIGNAL(tokenRefreshRequired()), this, SLOT(imgurTokenRefresh()));
     connect(mCropPanel, SIGNAL(close()), this, SLOT(closeCrop()));
+    connect(mCaptureView, SIGNAL(closeCrop()), this, SLOT(closeCrop()));
 
     loadSettings();
 }

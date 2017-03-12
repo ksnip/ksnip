@@ -19,6 +19,7 @@
  */
 
 #include "CropPanel.h"
+#include <iostream>
 
 CropPanel::CropPanel(CaptureView* captureView) : QWidget(),
     mCropButton(new QPushButton()),
@@ -42,6 +43,19 @@ void CropPanel::show()
     mCaptureView->setIsCropping(true);
     selectedRectChanged(mCaptureView->getSelectedRect());
     QWidget::show();
+}
+
+//
+// Protected Functions
+//
+void CropPanel::keyPressEvent(QKeyEvent* event)
+{
+    if (event->key() == Qt::Key_Escape) {
+        closeClicked();
+    } else if (event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return) {
+        cropClicked();
+    }
+    QWidget::keyPressEvent(event);
 }
 
 //
@@ -111,7 +125,7 @@ void CropPanel::cropClicked()
 {
     mCaptureView->crop();
     mCaptureView->setIsCropping(false);
-    emit close();
+    emit  close();
 }
 
 void CropPanel::selectedRectChanged(QRect rect)

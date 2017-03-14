@@ -30,6 +30,7 @@
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/CaptureView.h"
 #include "src/widgets/CropPanel.h"
+#include "src/widgets/PainterSettingsPicker.h"
 #include "src/backend/ImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/StringManip.h"
@@ -65,6 +66,7 @@ private:
     QToolButton      *mSaveButton;
     QToolButton      *mCopyToClipboardButton;
     CustomToolButton *mPaintToolButton;
+    PainterSettingsPicker *mPainterSettingsButton; // TEST
     QMenu            *mPaintToolMenu;
     QMenu            *mNewCaptureMenu;
     QAction          *mNewRectAreaCaptureAction;

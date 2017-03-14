@@ -24,6 +24,7 @@ MainWindow::MainWindow() : QMainWindow(),
     mSaveButton(new QToolButton),
     mCopyToClipboardButton(new QToolButton),
     mPaintToolButton(new CustomToolButton),
+    mPainterSettingsButton(new PainterSettingsPicker), // TEST
     mPaintToolMenu(new QMenu),
     mNewCaptureMenu(new QMenu),
     mNewRectAreaCaptureAction(new QAction(this)),
@@ -537,6 +538,20 @@ void MainWindow::initGui()
     mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
     mNewCaptureButton->setButtonText(tr("New"));
 
+    // TEST
+    mPainterSettingsButton->insertColor(QColor("white"), "White");
+    mPainterSettingsButton->insertColor(QColor("black"), "Black");
+    mPainterSettingsButton->insertColor(QColor("green"), "Green");
+    mPainterSettingsButton->insertColor(QColor("darkGreen"), "Dark green");
+    mPainterSettingsButton->insertColor(QColor("blue"), "Blue");
+    mPainterSettingsButton->insertColor(QColor("darkBlue"), "Dark blue");
+    mPainterSettingsButton->insertColor(QColor("cyan"), "Cyan");
+    mPainterSettingsButton->insertColor(QColor("darkCyan"), "Dark cyan");
+    mPainterSettingsButton->insertColor(QColor("magenta"), "Magenta");
+    mPainterSettingsButton->insertColor(QColor("darkMagenta"), "Dark magenta");
+    mPainterSettingsButton->insertColor(QColor("yellow"), "Yellow");
+    mPainterSettingsButton->insertColor(QColor("grey"), "Grey");
+
     // Create save tool button
     mSaveButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mSaveButton->addAction(mSaveAction);
@@ -590,6 +605,7 @@ void MainWindow::initGui()
     mToolBar->addWidget(mCopyToClipboardButton);
     mToolBar->addSeparator();
     mToolBar->addWidget(mPaintToolButton);
+    mToolBar->addWidget(mPainterSettingsButton); // TEST
     mToolBar->setFixedSize(mToolBar->sizeHint());
 
     setCentralWidget(mCaptureView);

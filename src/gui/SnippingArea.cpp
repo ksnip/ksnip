@@ -19,7 +19,7 @@
 #include "SnippingArea.h"
 
 SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent),
-    mCursor(new CustomCursor(CustomCursor::cross))
+    mCursor(new CustomCursor(CustomCursor::Cross))
 {
     // Hide the widget background, we will draw it manually on the paint event
     setAttribute(Qt::WA_TranslucentBackground, true);

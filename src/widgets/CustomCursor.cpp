@@ -24,12 +24,12 @@ CustomCursor::CustomCursor() : QCursor()
 {
 }
 
-CustomCursor::CustomCursor(CursorShape shape, QColor color, int size) :
+CustomCursor::CustomCursor(const CursorShape &shape, const QColor &color, const int &size) :
     QCursor(createPixmap(shape, color, size))
 {
 }
 
-CustomCursor::CustomCursor(CursorShape shape) : QCursor(createPixmap(shape))
+CustomCursor::CustomCursor(const CursorShape &shape, const QColor &color) : QCursor(createPixmap(shape, color))
 {
 
 }
@@ -39,10 +39,10 @@ CustomCursor::CustomCursor(CursorShape shape) : QCursor(createPixmap(shape))
 //
 
 /*
- * Create a custom pixmap based on provided enum, color and shape, drawing either a colored circle
- * or rectangle
+ * Create a custom pixmap based on provided enum, color and shape, drawing either
+ * a colored circle or rectangle.
  */
-QPixmap CustomCursor::createPixmap(CursorShape shape, QColor color, int size)
+QPixmap CustomCursor::createPixmap(const CursorShape &shape, const QColor &color, const int &size) const
 {
     QPixmap pixmap(QSize(size + 2, size + 2));
     pixmap.fill(Qt::transparent);
@@ -66,15 +66,20 @@ QPixmap CustomCursor::createPixmap(CursorShape shape, QColor color, int size)
 /*
  * Create custom pixmap with a cross, eventually more shapes can be added later on
  */
-QPixmap CustomCursor::createPixmap(CursorShape shape)
+QPixmap CustomCursor::createPixmap(const CursorShape &shape, const QColor &color) const
 {
+    QColor c = color;
+    if (!c.isValid()) {
+        c.setRgb(93, 91, 89);
+    }
+
     QPixmap pixmap(QSize(22, 22));
     pixmap.fill(Qt::transparent);
 
     QPainter painter(&pixmap);
 
-    if (shape == cross) {
-        painter.setPen(QPen(QColor(93, 91, 89), 2, Qt::SolidLine));
+    if (shape == Cross) {
+        painter.setPen(QPen(c, 2, Qt::SolidLine));
         painter.drawLine(4, 13, 24, 13);
         painter.drawLine(13, 4, 13, 24);
     }

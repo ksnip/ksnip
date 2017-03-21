@@ -33,7 +33,8 @@ qreal smallesLenght(qreal lenght1, qreal lenght2)
 // Public Functions
 //
 
-PainterEllipse::PainterEllipse(QPointF pos, QPen attributes, bool filled) : PainterBaseItem(Rect, attributes),
+PainterEllipse::PainterEllipse(QPointF pos, QPen attributes, bool filled) :
+    PainterBaseItem(Rect, attributes),
     mFilled(filled)
 {
     mRect.moveTo(pos);
@@ -41,7 +42,8 @@ PainterEllipse::PainterEllipse(QPointF pos, QPen attributes, bool filled) : Pain
 
 QRectF PainterEllipse::boundingRect() const
 {
-    return mRect.normalized();
+    qreal w = attributes()->widthF();
+    return mRect.normalized().adjusted(-w / 2, -w / 2, w, w);
 }
 
 void PainterEllipse::addPoint(QPointF pos, bool modifier)

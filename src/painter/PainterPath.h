@@ -37,7 +37,7 @@ private:
     QPainterPathStroker *mStroker;
     bool                 mTransparent;
 
-    void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *widget = 0);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *widget = 0);
 };
 
 #endif // PAINTERPATH_H

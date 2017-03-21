@@ -18,7 +18,6 @@
  */
 
 #include "PainterSettingsPicker.h"
-#include <iostream>
 
 PainterSettingsPicker::PainterSettingsPicker(QWidget* parent, int colons) :
                                              QToolButton(parent),

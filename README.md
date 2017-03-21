@@ -12,14 +12,16 @@ Latest ksnip version contains following features:
 * Taking screenshot of window that currently has focus.
 * Take screenshot with or without mouse cursor.
 * Customizable capture delay.
-* Upload screenshots directly to imgur.com in anonymous or user mode. 
+* Upload screenshots directly to imgur.com in anonymous or user mode.
 * Drawing on captured screenshot with two different tools, pen (opaque) and maker (semi-transparent).
+* Drawing two shapes ellipse and rectangle, with and without fill.
+* Writing text on screenshots.
 * Customizable color and size for drawing tool.
 * Any drawing can be moved around without deleting it by simply dragging it to new location.
 * Cropping captured screensshot, including any drawing on the captured image.
 * Command line support, for taking screenshot and saving it to default location, filename and format.
 * Customizable default location, filename and format for saving new screenshots with wildcards for Year ($Y), Month ($M), Day ($D) and Time ($T).
-* Print screenshot or save is to prf/ps
+* Print screenshot or save is to prf/ps.
 
 
 ### Building from source

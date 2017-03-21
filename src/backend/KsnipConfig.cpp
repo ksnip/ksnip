@@ -43,7 +43,7 @@ bool KsnipConfig::saveKsnipPosition() const
     return mConfig.value("Application/SaveKsnipPosition", true).toBool();
 }
 
-void KsnipConfig::setSaveKsnipPosition(bool enabled)
+void KsnipConfig::setSaveKsnipPosition(const bool &enabled)
 {
     mConfig.setValue("Application/SaveKsnipPosition", enabled);
     mConfig.sync();
@@ -54,7 +54,7 @@ bool KsnipConfig::promptSaveBeforeExit() const
     return mConfig.value("Application/PromptSaveBeforeExit", false).toBool();
 }
 
-void KsnipConfig::setPromptSaveBeforeExit(bool enabled)
+void KsnipConfig::setPromptSaveBeforeExit(const bool &enabled)
 {
     mConfig.setValue("Application/PromptSaveBeforeExit", enabled);
     mConfig.sync();
@@ -65,7 +65,7 @@ bool KsnipConfig::alwaysCopyToClipboard() const
     return mConfig.value("Application/AlwaysCopyToClipboard", false).toBool();
 }
 
-void KsnipConfig::setAlwaysCopyToClipboard(bool enabled)
+void KsnipConfig::setAlwaysCopyToClipboard(const bool &enabled)
 {
     mConfig.setValue("Application/AlwaysCopyToClipboard", enabled);
     mConfig.sync();
@@ -76,7 +76,7 @@ bool KsnipConfig::saveKsnipToolSelection() const
     return mConfig.value("Application/SaveKsnipToolsSelection", true).toBool();
 }
 
-void KsnipConfig::setSaveKsnipToolSelection(bool enabled)
+void KsnipConfig::setSaveKsnipToolSelection(const bool &enabled)
 {
     mConfig.setValue("Application/SaveKsnipToolsSelection", enabled);
     mConfig.sync();
@@ -93,7 +93,7 @@ QPoint KsnipConfig::windowPosition() const
     return mConfig.value("MainWindow/Position", QPoint(200, 200)).value<QPoint>();
 }
 
-void KsnipConfig::setWindowPosition(QPoint position)
+void KsnipConfig::setWindowPosition(const QPoint &position)
 {
     mConfig.setValue("MainWindow/Position", position);
     mConfig.sync();
@@ -109,7 +109,7 @@ PaintArea::PaintMode KsnipConfig::paintMode() const
     return PaintArea::PaintMode(mConfig.value("Painter/PaintMode").toInt());
 }
 
-void KsnipConfig::setPaintMode(PaintArea::PaintMode paintMode)
+void KsnipConfig::setPaintMode(const PaintArea::PaintMode &paintMode)
 {
     mConfig.setValue("Painter/PaintMode", paintMode);
     mConfig.sync();
@@ -137,7 +137,7 @@ ImageGrabber::CaptureMode KsnipConfig::captureMode() const
     }
 }
 
-void KsnipConfig::setCaptureMode(ImageGrabber::CaptureMode captureMode)
+void KsnipConfig::setCaptureMode(const ImageGrabber::CaptureMode &captureMode)
 {
     mConfig.setValue("ImageGrabber/CaptureMode", captureMode);
     mConfig.sync();
@@ -152,7 +152,7 @@ QString KsnipConfig::saveDirectory() const
     }
 }
 
-void KsnipConfig::setSaveDirectory(QString path)
+void KsnipConfig::setSaveDirectory(const QString &path)
 {
     mConfig.setValue("Application/SaveDirectory", path);
     mConfig.sync();
@@ -163,7 +163,7 @@ QString KsnipConfig::saveFilename() const
     return mConfig.value("Application/SaveFilename", "ksnip_$Y$M$D$").toString();
 }
 
-void KsnipConfig::setSaveFilename(QString filename)
+void KsnipConfig::setSaveFilename(const QString &filename)
 {
     mConfig.setValue("Application/SaveFilename", filename);
     mConfig.sync();
@@ -178,7 +178,7 @@ QString KsnipConfig::saveFormat() const
     }
 }
 
-void KsnipConfig::setSaveFormat(QString format)
+void KsnipConfig::setSaveFormat(const QString &format)
 {
     mConfig.setValue("Application/SaveFormat", format);
     mConfig.sync();
@@ -199,7 +199,7 @@ QColor KsnipConfig::penColor() const
     return mConfig.value("Painter/PenColor", QColor("Red")).value<QColor>();
 }
 
-void KsnipConfig::setPenColor(QColor color)
+void KsnipConfig::setPenColor(const QColor &color)
 {
     mConfig.setValue("Painter/PenColor", color);
     mConfig.sync();
@@ -211,7 +211,7 @@ int KsnipConfig::penSize() const
     return mConfig.value("Painter/PenSize", 3).toInt();
 }
 
-void KsnipConfig::setPenSize(int size)
+void KsnipConfig::setPenSize(const int &size)
 {
     mConfig.setValue("Painter/PenSize", size);
     mConfig.sync();
@@ -231,7 +231,7 @@ QColor KsnipConfig::markerColor() const
     return mConfig.value("Painter/MarkerColor", QColor("Yellow")).value<QColor>();
 }
 
-void KsnipConfig::setMarkerColor(QColor color)
+void KsnipConfig::setMarkerColor(const QColor &color)
 {
     mConfig.setValue("Painter/MarkerColor", color);
     mConfig.sync();
@@ -243,7 +243,7 @@ int KsnipConfig::markerSize() const
     return mConfig.value("Painter/MarkerSize", 20).toInt();
 }
 
-void KsnipConfig::setMarkerSize(int size)
+void KsnipConfig::setMarkerSize(const int &size)
 {
     mConfig.setValue("Painter/MarkerSize", size);
     mConfig.sync();

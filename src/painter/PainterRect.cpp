@@ -33,15 +33,18 @@ qreal smallesLenght(double lenght1, double lenght2)
 // Public Functions
 //
 
-PainterRect::PainterRect(QPointF pos, QPen attributes, bool filled) : PainterBaseItem(Rect, attributes),
+PainterRect::PainterRect(QPointF pos, QPen attributes, bool filled) :
+    PainterBaseItem(Rect, attributes),
     mFilled(filled)
 {
     mRect.moveTo(pos);
+    setJoinStyle(Qt::MiterJoin);
 }
 
 QRectF PainterRect::boundingRect() const
 {
-    return mRect.normalized();
+    qreal w = attributes()->widthF();
+    return mRect.normalized().adjusted(-w / 2, -w / 2, w, w);
 }
 
 void PainterRect::addPoint(QPointF pos, bool modifier)
@@ -66,31 +69,33 @@ bool PainterRect::containsRect(QPointF topLeft, QSize size) const
                                             topLeft.y() - size.height() / 2,
                                             size.width(),
                                             size.height()));
-    if (contains) {
-        if (mFilled) {
-            return contains;
-        } else {
-            // When the rect is not filled, do not allow grabbing the empty space.
-            // TODO Improve this function, could be eventually more efficient.
-            QRegion r1(mRect.normalized().toRect());
-            QRegion r2(mRect.normalized().adjusted((attributes()->width()),
-                                                   (attributes()->width()),
-                                                   -(attributes()->width()),
-                                                   -(attributes()->width())).toRect());
-
-            return r1.subtract(r2).contains(QRect(topLeft.x() - size.width() / 2,
-                                                  topLeft.y() - size.height() / 2,
-                                                  size.width(),
-                                                  size.height()));
-        }
+    if (!contains) {
+        return false;
     }
+
+    if (mFilled) {
+        return contains;
+    } else {
+        // When the rect is not filled, do not allow grabbing the empty space.
+        // TODO Improve this function, could be eventually more efficient.
+        QRegion r1(mRect.normalized().toRect());
+        QRegion r2(mRect.normalized().adjusted((attributes()->width()),
+                                               (attributes()->width()),
+                                               -(attributes()->width()),
+                                               -(attributes()->width())).toRect());
+
+        return r1.subtract(r2).contains(QRect(topLeft.x() - size.width() / 2,
+                                              topLeft.y() - size.height() / 2,
+                                              size.width(),
+                                              size.height()));
+    }
+
 }
 
 //
 // Private Functions
 //
-
-void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget)
+void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     if (mFilled) {
         painter->setBrush(attributes()->color());

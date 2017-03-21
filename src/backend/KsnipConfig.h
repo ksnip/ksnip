@@ -40,52 +40,52 @@ public:
     // Application
 
     bool saveKsnipPosition() const;
-    void setSaveKsnipPosition(bool enabled);
+    void setSaveKsnipPosition(const bool &enabled);
 
     bool promptSaveBeforeExit() const;
-    void setPromptSaveBeforeExit(bool enabled);
+    void setPromptSaveBeforeExit(const bool &enabled);
 
     bool alwaysCopyToClipboard() const;
-    void setAlwaysCopyToClipboard(bool enabled);
+    void setAlwaysCopyToClipboard(const bool &enabled);
 
     bool saveKsnipToolSelection() const;
-    void setSaveKsnipToolSelection(bool enabled);
+    void setSaveKsnipToolSelection(const bool &enabled);
 
     QPoint windowPosition() const;
-    void setWindowPosition(QPoint position);
+    void setWindowPosition(const QPoint &position);
 
     PaintArea::PaintMode paintMode() const;
-    void setPaintMode(PaintArea::PaintMode paintMode);
+    void setPaintMode(const PaintArea::PaintMode &paintMode);
 
     ImageGrabber::CaptureMode captureMode() const;
-    void setCaptureMode(ImageGrabber::CaptureMode captureMode);
+    void setCaptureMode(const ImageGrabber::CaptureMode &captureMode);
 
     QString saveDirectory() const;
-    void setSaveDirectory(QString path);
+    void setSaveDirectory(const QString &path);
 
     QString saveFilename() const;
-    void setSaveFilename(QString filename);
+    void setSaveFilename(const QString &filename);
 
     QString saveFormat() const;
-    void setSaveFormat(QString format);
+    void setSaveFormat(const QString &format);
 
     // Painter
 
     QPen pen() const;
 
     QColor penColor() const;
-    void setPenColor(QColor color);
+    void setPenColor(const QColor &color);
 
     int penSize() const;
-    void setPenSize(int size);
+    void setPenSize(const int &size);
 
     QPen marker() const;
 
     QColor markerColor() const;
-    void setMarkerColor(QColor color);
+    void setMarkerColor(const QColor &color);
 
     int markerSize() const;
-    void setMarkerSize(int size);
+    void setMarkerSize(const int &size);
 
     QPen rect() const;
 

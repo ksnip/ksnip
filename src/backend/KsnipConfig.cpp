@@ -84,7 +84,8 @@ void KsnipConfig::setSaveKsnipToolSelection(bool enabled)
 
 QPoint KsnipConfig::windowPosition() const
 {
-    // If we are not saving the position we return the default and ignore what has been save earlier
+    // If we are not saving the position we return the default and ignore what 
+    // has been save earlier
     if (!saveKsnipPosition()) {
         return QPoint(200, 200);
     }
@@ -245,6 +246,138 @@ int KsnipConfig::markerSize() const
 void KsnipConfig::setMarkerSize(int size)
 {
     mConfig.setValue("Painter/MarkerSize", size);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+QPen KsnipConfig::rect() const
+{
+    QPen rect;
+    rect.setColor(rectColor());
+    rect.setWidth(rectSize());
+    return rect;
+}
+
+QColor KsnipConfig::rectColor() const
+{
+    return mConfig.value("Painter/RectColor", QColor("Blue")).value<QColor>();
+}
+
+void KsnipConfig::setRectColor(const QColor& color)
+{
+    mConfig.setValue("Painter/RectColor", color);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+int KsnipConfig::rectSize() const
+{
+    return mConfig.value("Painter/RectSize", 3).toInt();
+}
+
+void KsnipConfig::setRectSize(const int& size)
+{
+    mConfig.setValue("Painter/RectSize", size);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+bool KsnipConfig::rectFill() const
+{
+    return mConfig.value("Painter/RectFill", false).toBool();
+}
+
+void KsnipConfig::setRectFill(const bool& fill)
+{
+    mConfig.setValue("Painter/RectFill", fill);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+QPen KsnipConfig::ellipse() const
+{
+    QPen ellipse;
+    ellipse.setColor(ellipseColor());
+    ellipse.setWidth(ellipseSize());
+    return ellipse;
+}
+
+QColor KsnipConfig::ellipseColor() const
+{
+    return mConfig.value("Painter/EllipseColor", QColor("Blue")).value<QColor>();
+}
+
+void KsnipConfig::setEllipseColor(const QColor& color)
+{
+    mConfig.setValue("Painter/EllipseColor", color);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+int KsnipConfig::ellipseSize() const
+{
+    return mConfig.value("Painter/EllipseSize", 3).toInt();
+}
+
+void KsnipConfig::setEllipseSize(const int& size)
+{
+    mConfig.setValue("Painter/EllipseSize", size);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+bool KsnipConfig::ellipseFill() const
+{
+    return mConfig.value("Painter/EllipseFill", false).toBool();
+}
+
+void KsnipConfig::setEllipseFill(const bool& fill)
+{
+    mConfig.setValue("Painter/EllipseFill", fill);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+QPen KsnipConfig::text() const
+{
+    QPen text;
+    text.setColor(textColor());
+    text.setWidth(textSize());
+    return text;
+}
+
+QColor KsnipConfig::textColor() const
+{
+    return mConfig.value("Painter/TextColor", QColor("Black")).value<QColor>();
+}
+
+void KsnipConfig::setTextColor(const QColor& color)
+{
+    mConfig.setValue("Painter/TextColor", color);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+int KsnipConfig::textSize() const
+{
+    return mConfig.value("Painter/TextSize", 12).toInt();
+}
+
+void KsnipConfig::setTextSize(const int& size)
+{
+    mConfig.setValue("Painter/TextSize", size);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+int KsnipConfig::eraseSize() const
+{
+    return mConfig.value("Painter/EraseSize", 5).toInt();
+}
+
+void KsnipConfig::setEraseSize(const int& size)
+{
+    mConfig.setValue("Painter/EraseSize", size);
     mConfig.sync();
     emit painterUpdated();
 }

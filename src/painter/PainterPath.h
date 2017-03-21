@@ -25,7 +25,7 @@
 class PainterPath : public PainterBaseItem
 {
 public:
-    PainterPath(QPointF pos, QPen attributes, bool transparen = 0);
+    PainterPath(QPointF pos, QPen attributes, bool transparen = false);
     ~PainterPath();
     virtual QRectF boundingRect() const;
     virtual void addPoint(QPointF pos, bool modifier = 0);

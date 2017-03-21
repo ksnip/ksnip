@@ -87,6 +87,39 @@ public:
     int markerSize() const;
     void setMarkerSize(int size);
 
+    QPen rect() const;
+
+    QColor rectColor() const;
+    void setRectColor(const QColor &color);
+
+    int rectSize() const;
+    void setRectSize(const int &size);
+
+    bool rectFill() const;
+    void setRectFill(const bool &fill);
+
+    QPen ellipse() const;
+
+    QColor ellipseColor() const;
+    void setEllipseColor(const QColor &color);
+
+    int ellipseSize() const;
+    void setEllipseSize(const int &size);
+
+    bool ellipseFill() const;
+    void setEllipseFill(const bool &fill);
+
+    QPen text() const;
+
+    QColor textColor() const;
+    void setTextColor(const QColor &color);
+
+    int textSize() const;
+    void setTextSize(const int &size);
+
+    int eraseSize() const;
+    void setEraseSize(const int &size);
+
     // Image Grabber
 
     bool captureMouse() const;

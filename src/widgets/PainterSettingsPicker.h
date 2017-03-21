@@ -28,36 +28,20 @@
 #include <QDesktopWidget>
 #include <QPainter>
 #include <QFrame>
-#include <QMap>
 #include <QEventLoop>
 #include <QMouseEvent>
 #include <QGridLayout>
 #include <QToolButton>
-#include <QStyle>
 #include <QColorDialog>
-#include <QIcon>
-
-#if defined(Q_WS_WIN)
-#  if !defined(PAINTERSETTINGSPICKER_EXPORT) && !defined(PAINTERSETTINGSPICKER_IMPORT)
-#    define PAINTERSETTINGSPICKER_EXPORT
-#  elif defined(PAINTERSETTINGSPICKER_IMPORT)
-#    if defined(PAINTERSETTINGSPICKER_EXPORT)
-#      undef PAINTERSETTINGSPICKER_EXPORT
-#    endif
-#    define PAINTERSETTINGSPICKER_EXPORT __declspec(dllimport)
-#  elif defined(PAINTERSETTINGSPICKER_EXPORT)
-#    undef PAINTERSETTINGSPICKER_EXPORT
-#    define PAINTERSETTINGSPICKER_EXPORT __declspec(dllexport)
-#  endif
-#else
-#  define PAINTERSETTINGSPICKER_EXPORT
-#endif
+#include <QCheckBox>
+#include <QSlider>
+#include <QLabel>
 
 /*
- *   A class  that acts very much  like a QPushButton. It's not styled,
- *   so we  can  expect  the  exact  same    look,  feel and   geometry
- *   everywhere.     Also,  this  button     always emits   clicked  on
- *   mouseRelease, even if the mouse button was  not pressed inside the
+ *   A class  that acts very much like a QPushButton. It's not styled,
+ *   so we  can expect  the  exact same look, feel and geometry
+ *   everywhere. Also, this  button always emits clicked on
+ *   mouseRelease, even if the mouse button was not pressed inside the
  *   widget.
  */
 class PainterSettingsButton : public QFrame
@@ -71,16 +55,15 @@ signals:
     void clicked();
 
 protected:
-    void mousePressEvent(QMouseEvent *e);
-    void mouseMoveEvent(QMouseEvent *e);
-    void mouseReleaseEvent(QMouseEvent *e);
-    void keyPressEvent(QKeyEvent *e);
-    void keyReleaseEvent(QKeyEvent *e);
-    void paintEvent(QPaintEvent *e);
-    void focusInEvent(QFocusEvent *e);
-    void focusOutEvent(QFocusEvent *e);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+    void keyPressEvent(QKeyEvent *event);
+    void keyReleaseEvent(QKeyEvent *event);
+    void paintEvent(QPaintEvent *event);
+    void focusInEvent(QFocusEvent *event);
+    void focusOutEvent(QFocusEvent *event);
 };
-
 
 
 /*
@@ -94,12 +77,11 @@ public:
     PainterSettingsColorItem(const QColor &color = Qt::white, const QString &text = QString::null,
                              QWidget *parent = 0);
     ~PainterSettingsColorItem();
-
     QColor color() const;
     QString text() const;
-
-    void setSelected(bool);
+    void setSelected(bool selected);
     bool isSelected() const;
+
 signals:
     void clicked();
     void selected();
@@ -108,109 +90,119 @@ public slots:
     void setColor(const QColor &color, const QString &text = QString());
 
 protected:
-    void mousePressEvent(QMouseEvent *e);
-    void mouseReleaseEvent(QMouseEvent *e);
-    void mouseMoveEvent(QMouseEvent *e);
-    void paintEvent(QPaintEvent *e);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void paintEvent(QPaintEvent *event);
 
 private:
-    QColor c;
-    QString t;
-    bool sel;
+    QColor  mColor;
+    QString mText;
+    bool    mSelected;
 };
 
 /*
- * Color Popup
+ * Settings popup that host the color grid and size slider
  */
-class PainterSettingsColorPopup : public QFrame
+class PainterSettingsPopup : public QFrame
 {
     Q_OBJECT
 
 public:
-    PainterSettingsColorPopup(int width, bool withColorDialog,
-                              QWidget *parent = 0);
-    ~PainterSettingsColorPopup();
-
-    void insertColor(const QColor &col, const QString &text, int index);
+    PainterSettingsPopup(int width, QWidget *parent = 0);
+    ~PainterSettingsPopup();
+    void insertColor(const QColor &color, const QString &text, int index);
     void exec();
-
-    void setExecFlag();
-
-    QColor lastSelected() const;
-
-    PainterSettingsColorItem *find(const QColor &col) const;
-    QColor color(int index) const;
+    QColor color() const;
+    void setColor(const QColor &color);
+    bool fill() const;
+    void setFill(const bool &fill);
+    int size() const;
+    void setSize(const int &size);
+    PainterSettingsColorItem *findColor(const QColor &color) const;
+    QColor colorAt(int index) const;
+    void addColorGrid(const bool &colorDialog = true, const bool &fillCheckbox = true);
+    void addSizeSlider(const int min, const int max, const int interval);
+    bool isEmpty() const;
+    void clear();
 
 signals:
-    void selected(const QColor &);
+    void colorChanged(const QColor &);
+    void fillChanged(const bool &);
+    void sizeChanged(const int &);
     void hid();
 
 public slots:
     void getColorFromDialog();
 
 protected slots:
-    void updateSelected();
+    void updateColor();
+    void updateFill();
+    void updateSize();
+    void updateSizeLabel(int size);
 
 protected:
-    void keyPressEvent(QKeyEvent *e);
     void showEvent(QShowEvent *e);
     void hideEvent(QHideEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
-
-    void regenerateGrid();
+    void regenerateColorGrid();
 
 private:
-    QMap<int, QMap<int, QWidget *> > widgetAt;
-    QList<PainterSettingsColorItem *> items;
-    QGridLayout *grid;
-    PainterSettingsButton *moreButton;
-    QEventLoop *eventLoop;
+    QList<PainterSettingsColorItem *> mColorItems;
+    QVBoxLayout                       *mLayout;
+    QGridLayout                       *mColorGrid;
+    PainterSettingsButton             *mMoreButton;
+    QEventLoop                        *mEventLoop;
+    QCheckBox                         *mFillCheckBox;
+    QLabel                            *mSizeLabel;
+    QSlider                           *mSizeSlider;
+    QFrame                            *mSeparator;
 
-    int lastPos;
-    int cols;
-    QColor lastSel;
+    int mLastSelectedColorPos;
+    int mColorColumns;
+    QColor mColor;
 };
 
 /*
- * Main widget
+ * Tool button that holds all settings
  */
-class PAINTERSETTINGSPICKER_EXPORT PainterSettingsPicker : public QToolButton
+class PainterSettingsPicker : public QToolButton
 {
     Q_OBJECT
 
-    Q_PROPERTY(bool colorDialog READ colorDialogEnabled WRITE setColorDialogEnabled)
-
 public:
-    PainterSettingsPicker(QWidget *parent = 0,
-                          int columns = -1, bool enableColorDialog = true);
+    PainterSettingsPicker(QWidget *parent = 0, int columns = -1);
     ~PainterSettingsPicker();
     void insertColor(const QColor &color, const QString &text = QString::null, int index = -1);
-    QColor currentColor() const;
-    QColor color(int index) const;
-    void setColorDialogEnabled(bool enabled);
-    bool colorDialogEnabled() const;
-    void setStandardColors();
-    static QColor getColor(const QPoint &pos, bool allowCustomColors = true);
+    QColor color() const;
+    void setColor(const QColor &color);
+    bool fill() const;
+    void setFill(const bool &fill);
+    int size() const;
+    void setSize(const int &size);
+    void addPopupColorGrid(const bool &colorDialog = true,
+                           const bool &fillCheckbox = true,
+                           const bool &standardColor = true);
+    void addPopupSizeSlider(const int min, const int max, const int interval);
+    void insertStandardColor();
+    void clearPopup();
 
-public Q_SLOTS:
-    void setCurrentColor(const QColor &col);
+public slots:
+    void updateColor(const QColor &color);
+    void updateFill(const bool &fill);
+    void updateSize(const int &size);
 
-Q_SIGNALS:
+signals:
     void colorChanged(const QColor &);
+    void fillChanged(const bool &);
+    void sizeChanged(const int &);
 
-protected:
-    void paintEvent(QPaintEvent *e);
-
-private Q_SLOTS:
-    void buttonPressed(bool toggled);
+private slots:
+    void buttonPressed();
     void popupClosed();
 
 private:
-    PainterSettingsColorPopup *popup;
-    QColor col;
-    bool withColorDialog;
-    bool dirty;
-    bool firstInserted;
+    PainterSettingsPopup *mPopup;
 };
 
 #endif // PAINTERSETTINGSPICKER_H

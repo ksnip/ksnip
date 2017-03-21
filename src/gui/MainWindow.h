@@ -54,6 +54,9 @@ public slots:
     void openCrop();
     void closeCrop();
     QMenu *createPopupMenu();
+    void colorChanged(const QColor &color);
+    void fillChanged(const bool &fill);
+    void sizeChanged(const int &size);
 
 protected:
     void moveEvent(QMoveEvent *event);
@@ -66,7 +69,7 @@ private:
     QToolButton      *mSaveButton;
     QToolButton      *mCopyToClipboardButton;
     CustomToolButton *mPaintToolButton;
-    PainterSettingsPicker *mPainterSettingsButton; // TEST
+    PainterSettingsPicker *mPainterSettingsButton;
     QMenu            *mPaintToolMenu;
     QMenu            *mNewCaptureMenu;
     QAction          *mNewRectAreaCaptureAction;
@@ -136,6 +139,7 @@ private slots:
     void imgurTokenRefresh();
     void openSettingsDialog();
     void openAboutDialog();
+    void setPaintMode(const PaintArea::PaintMode &mode, const bool &save = true);
 };
 
 #endif // MAINWINDOW_H

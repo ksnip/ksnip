@@ -49,6 +49,7 @@ public:
     void loadCapture(QPixmap pixmap);
     QSize areaSize() const;
     void setPaintMode(PaintMode paintMode);
+    PaintMode paintMode() const;
     QImage exportAsImage();
     void setIsEnabled(bool enabled);
     bool isEnabled() const;
@@ -75,7 +76,7 @@ private:
     PaintMode            mCurrentPaintMode;
     QPoint               mCropOffset;
 
-    bool eraseItem(QPointF position);
+    bool eraseItem(const QPointF &position, const int &size);
     bool grabItem(QPointF position);
     void moveItem(QPointF position);
     QCursor *cursor();

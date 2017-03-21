@@ -18,441 +18,556 @@
  */
 
 #include "PainterSettingsPicker.h"
+#include <iostream>
 
-PainterSettingsPicker::PainterSettingsPicker(QWidget *parent, int cols, bool enableColorDialog) : 
-                                             QToolButton(parent), popup(0), withColorDialog(enableColorDialog)
+PainterSettingsPicker::PainterSettingsPicker(QWidget* parent, int colons) :
+                                             QToolButton(parent),
+                                             mPopup(nullptr)
 {
     setFocusPolicy(Qt::StrongFocus);
     setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
-//     setAutoDefault(false);
-//     setAutoFillBackground(true);
-    setCheckable(true);
-
-    // Set text
-    setText(tr("Black"));
-    firstInserted = false;
-
-    // Create and set icon
-    col = Qt::black;
-    dirty = true;
 
     // Create color grid popup and connect to it.
-    popup = new PainterSettingsColorPopup(cols, withColorDialog, this);
-    connect(popup, SIGNAL(selected(const QColor &)),
-            SLOT(setCurrentColor(const QColor &)));
-    connect(popup, SIGNAL(hid()), SLOT(popupClosed()));
+    mPopup = new PainterSettingsPopup(colons, this);
+
+    connect(mPopup, SIGNAL(colorChanged(const QColor&)), SLOT(updateColor(const QColor&)));
+    connect(mPopup, SIGNAL(fillChanged(const bool&)), SLOT(updateFill(const bool&)));
+    connect(mPopup, SIGNAL(sizeChanged(const int&)), SLOT(updateSize(const int&)));
+    connect(mPopup, SIGNAL(hid()), SLOT(popupClosed()));
 
     // Connect this push button's pressed() signal.
-    connect(this, SIGNAL(toggled(bool)), SLOT(buttonPressed(bool)));
+    connect(this, SIGNAL(released()), SLOT(buttonPressed()));
 
-    setIcon(QIcon::fromTheme("preferences-system"));
+    setPopupMode(QToolButton::InstantPopup);
 }
 
 PainterSettingsPicker::~PainterSettingsPicker()
 {
 }
 
-void PainterSettingsPicker::buttonPressed(bool toggled)
+void PainterSettingsPicker::buttonPressed()
 {
-    if (!toggled)
+    // Don't try to show popup when it's empty
+    if (mPopup->isEmpty()) {
         return;
+    }
 
     const QRect desktop = QApplication::desktop()->geometry();
+
     // Make sure the popup is inside the desktop.
     QPoint pos = mapToGlobal(rect().bottomLeft());
-    if (pos.x() < desktop.left())
+    if (pos.x() < desktop.left()) {
         pos.setX(desktop.left());
-    if (pos.y() < desktop.top())
+    }
+    if (pos.y() < desktop.top()) {
         pos.setY(desktop.top());
+    }
 
-    if ((pos.x() + popup->sizeHint().width()) > desktop.width())
-        pos.setX(desktop.width() - popup->sizeHint().width());
-    if ((pos.y() + popup->sizeHint().height()) > desktop.bottom())
-        pos.setY(desktop.bottom() - popup->sizeHint().height());
-    popup->move(pos);
-
-    if (PainterSettingsColorItem *item = popup->find(col))
-        item->setSelected(true);
+    if ((pos.x() + mPopup->sizeHint().width()) > desktop.width()) {
+        pos.setX(desktop.width() - mPopup->sizeHint().width());
+    }
+    if ((pos.y() + mPopup->sizeHint().height()) > desktop.bottom()) {
+        pos.setY(desktop.bottom() - mPopup->sizeHint().height());
+    }
+    mPopup->move(pos);
 
     // Remove focus from this widget, preventing the focus rect
     // from showing when the popup is shown. Order an update to
     // make sure the focus rect is cleared.
+
     clearFocus();
     update();
+    setDown(true);
 
     // Allow keyboard navigation as soon as the popup shows.
-    popup->setFocus();
+    mPopup->setFocus();
 
     // Execute the popup. The popup will enter the event loop.
-    popup->show();
-}
-
-void PainterSettingsPicker::paintEvent(QPaintEvent *e)
-{
-    if (dirty) {
-        int iconSize = style()->pixelMetric(QStyle::PM_SmallIconSize);
-        QPixmap pix(iconSize, iconSize);
-        pix.fill(palette().button().color());
-
-        QPainter p(&pix);
-
-        int w = pix.width();   // width of cell in pixels
-        int h = pix.height();  // height of cell in pixels
-        p.setPen(QPen(Qt::gray));
-        p.setBrush(col);
-        p.drawRect(2, 2, w - 5, h - 5);
-//         setIcon(QIcon(pix));
-
-        dirty = false;
-    }
-    QToolButton::paintEvent(e);
+    mPopup->show();
 }
 
 void PainterSettingsPicker::popupClosed()
 {
-    setChecked(false);
+    setDown(false);
     setFocus();
 }
 
-QColor PainterSettingsPicker::currentColor() const
+/*
+ * Returns the currently selected color
+ */
+QColor PainterSettingsPicker::color() const
 {
-    return col;
+    return mPopup->color();
 }
 
-QColor PainterSettingsPicker::color(int index) const
+/*
+ * Sets the currently selected color
+ */
+void PainterSettingsPicker::setColor(const QColor& color)
 {
-    return popup->color(index);
+    mPopup->setColor(color);
 }
 
-void PainterSettingsPicker::setStandardColors()
+/*
+ * Returns the true if fill is requested, otherwise false.
+ */
+bool PainterSettingsPicker::fill() const
 {
-    insertColor(Qt::black, tr("Black"));
-    insertColor(Qt::white, tr("White"));
-    insertColor(Qt::red, tr("Red"));
-    insertColor(Qt::darkRed, tr("Dark red"));
-    insertColor(Qt::green, tr("Green"));
-    insertColor(Qt::darkGreen, tr("Dark green"));
-    insertColor(Qt::blue, tr("Blue"));
-    insertColor(Qt::darkBlue, tr("Dark blue"));
-    insertColor(Qt::cyan, tr("Cyan"));
-    insertColor(Qt::darkCyan, tr("Dark cyan"));
-    insertColor(Qt::magenta, tr("Magenta"));
-    insertColor(Qt::darkMagenta, tr("Dark magenta"));
-    insertColor(Qt::yellow, tr("Yellow"));
-    insertColor(Qt::darkYellow, tr("Dark yellow"));
-    insertColor(Qt::gray, tr("Gray"));
-    insertColor(Qt::darkGray, tr("Dark gray"));
-    insertColor(Qt::lightGray, tr("Light gray"));
+    return mPopup->fill();
 }
 
-void PainterSettingsPicker::setCurrentColor(const QColor &color)
+void PainterSettingsPicker::setFill(const bool& fill)
 {
-    if (col == color || !color.isValid())
-        return;
+    mPopup->setFill(fill);
+}
 
-    PainterSettingsColorItem *item = popup->find(color);
-    if (!item) {
-        insertColor(color, tr("Custom"));
-        item = popup->find(color);
+/*
+ * Returns requested size, if size slider is not used, returns 0
+ */
+int PainterSettingsPicker::size() const
+{
+    return mPopup->size();
+}
+
+void PainterSettingsPicker::setSize(const int& size)
+{
+    mPopup->setSize(size);
+}
+
+/*
+ * Adds a color grid to the popup, additionally, the more button and fill
+ * checkbox can be added. The color grid can also be filled with default colors
+ */
+void PainterSettingsPicker::addPopupColorGrid(const bool& colorDialog,
+                                              const bool& fillCheckbox,
+                                              const bool& standardColor)
+{
+    mPopup->addColorGrid(colorDialog, fillCheckbox);
+    if (standardColor) {
+        insertStandardColor();
     }
+}
 
-    col = color;
-    setText(item->text());
+void PainterSettingsPicker::addPopupSizeSlider(const int min, const int max, const int interval)
+{
+    mPopup->addSizeSlider(min, max, interval);
+}
 
-    dirty = true;
+/*
+ * Inserts a set of predefined colors
+ */
+void PainterSettingsPicker::insertStandardColor()
+{
+    mPopup->insertColor(QColor("white"), "White", -1);
+    mPopup->insertColor(QColor("black"), "Black", -1);
+    mPopup->insertColor(QColor("green"), "Green", -1);
+    mPopup->insertColor(QColor("darkGreen"), "Dark green", -1);
+    mPopup->insertColor(QColor("blue"), "Blue", -1);
+    mPopup->insertColor(QColor("darkBlue"), "Dark blue", -1);
+    mPopup->insertColor(QColor("cyan"), "Cyan", -1);
+    mPopup->insertColor(QColor("darkCyan"), "Dark cyan", -1);
+    mPopup->insertColor(QColor("magenta"), "Magenta", -1);
+    mPopup->insertColor(QColor("darkMagenta"), "Dark magenta", -1);
+    mPopup->insertColor(QColor("red"), "red", -1);
+    mPopup->insertColor(QColor("yellow"), "Yellow", -1);
+    mPopup->insertColor(QColor("grey"), "Grey", -1);
+}
 
-    popup->hide();
-    repaint();
+/*
+ * Remove all elements from popup
+ */
+void PainterSettingsPicker::clearPopup()
+{
+    mPopup->clear();
+}
 
-    item->setSelected(true);
+/*
+ * Called when a new color was selected on the color grid, further emits a
+ * signal to inform other about this change.
+ */
+void PainterSettingsPicker::updateColor(const QColor& color)
+{
     emit colorChanged(color);
 }
 
-void PainterSettingsPicker::insertColor(const QColor &color, const QString &text, int index)
+/*
+ * Same as updateColor only for fill.
+ */
+void PainterSettingsPicker::updateFill(const bool& fill)
 {
-    popup->insertColor(color, text, index);
-    if (!firstInserted) {
-        col = color;
-        setText(text);
-        firstInserted = true;
-    }
+    emit fillChanged(fill);
 }
 
-void PainterSettingsPicker::setColorDialogEnabled(bool enabled)
+/*
+ * Same as updateColor only for size
+ */
+void PainterSettingsPicker::updateSize(const int& size)
 {
-    withColorDialog = enabled;
+    emit sizeChanged(size);
 }
 
-bool PainterSettingsPicker::colorDialogEnabled() const
+/*
+ * Adds a color to the color grid
+ */
+void PainterSettingsPicker::insertColor(const QColor& color, const QString& text, int index)
 {
-    return withColorDialog;
+    mPopup->insertColor(color, text, index);
 }
 
-QColor PainterSettingsPicker::getColor(const QPoint &point, bool allowCustomColors)
-{
-    PainterSettingsColorPopup popup(-1, allowCustomColors);
-
-    popup.insertColor(Qt::black, tr("Black"), 0);
-    popup.insertColor(Qt::white, tr("White"), 1);
-    popup.insertColor(Qt::red, tr("Red"), 2);
-    popup.insertColor(Qt::darkRed, tr("Dark red"), 3);
-    popup.insertColor(Qt::green, tr("Green"), 4);
-    popup.insertColor(Qt::darkGreen, tr("Dark green"), 5);
-    popup.insertColor(Qt::blue, tr("Blue"), 6);
-    popup.insertColor(Qt::darkBlue, tr("Dark blue"), 7);
-    popup.insertColor(Qt::cyan, tr("Cyan"), 8);
-    popup.insertColor(Qt::darkCyan, tr("Dark cyan"), 9);
-    popup.insertColor(Qt::magenta, tr("Magenta"), 10);
-    popup.insertColor(Qt::darkMagenta, tr("Dark magenta"), 11);
-    popup.insertColor(Qt::yellow, tr("Yellow"), 12);
-    popup.insertColor(Qt::darkYellow, tr("Dark yellow"), 13);
-    popup.insertColor(Qt::gray, tr("Gray"), 14);
-    popup.insertColor(Qt::darkGray, tr("Dark gray"), 15);
-    popup.insertColor(Qt::lightGray, tr("Light gray"), 16);
-
-    popup.move(point);
-    popup.exec();
-    return popup.lastSelected();
-}
-
-PainterSettingsColorPopup::PainterSettingsColorPopup(int width, bool withColorDialog, QWidget *parent) : 
-                                                     QFrame(parent, Qt::Popup)
+//
+// PainterSettingsPopup
+//
+PainterSettingsPopup::PainterSettingsPopup(int width, QWidget* parent) :
+    QFrame(parent, Qt::Popup),
+    mLayout(new QVBoxLayout(this)),
+    mColorGrid(nullptr),
+    mMoreButton(nullptr),
+    mEventLoop(nullptr),
+    mFillCheckBox(nullptr),
+    mSizeLabel(nullptr),
+    mSizeSlider(nullptr),
+    mSeparator(nullptr),
+    mColorColumns(width)
 {
     setFrameStyle(QFrame::StyledPanel);
     setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
+    mLayout->setContentsMargins(2, 2, 2, 2);
+    mLayout->setSpacing(0);
+
     setFocusPolicy(Qt::StrongFocus);
     setMouseTracking(true);
-    cols = width;
 
-    if (withColorDialog) {
-        moreButton = new PainterSettingsButton(this);
-        moreButton->setFixedWidth(24);
-        moreButton->setFixedHeight(21);
-        moreButton->setFrameRect(QRect(2, 2, 20, 17));
-        connect(moreButton, SIGNAL(clicked()), SLOT(getColorFromDialog()));
-    } else {
-        moreButton = 0;
+    regenerateColorGrid();
+}
+
+
+PainterSettingsPopup::~PainterSettingsPopup()
+{
+    if (mEventLoop) {
+        mEventLoop->exit();
+    }
+    delete mSizeLabel;
+    delete mFillCheckBox;
+    delete mMoreButton;
+    delete mColorGrid;
+    delete mLayout;
+
+}
+
+
+void PainterSettingsPopup::insertColor(const QColor& color, const QString& text, int index)
+{
+    if (!mColorGrid) {
+        return;
     }
 
-    eventLoop = 0;
-    grid = 0;
-    regenerateGrid();
-}
-
-
-PainterSettingsColorPopup::~PainterSettingsColorPopup()
-{
-    if (eventLoop)
-        eventLoop->exit();
-}
-
-PainterSettingsColorItem *PainterSettingsColorPopup::find(const QColor &col) const
-{
-    for (int i = 0; i < items.size(); ++i) {
-        if (items.at(i) && items.at(i)->color() == col)
-            return items.at(i);
-    }
-
-    return 0;
-}
-
-void PainterSettingsColorPopup::insertColor(const QColor &col, const QString &text, int index)
-{
     // Don't add colors that we have already.
-    PainterSettingsColorItem *existingItem = find(col);
-    PainterSettingsColorItem *lastSelectedItem = find(lastSelected());
+    PainterSettingsColorItem* existingItem = findColor(color);
+    PainterSettingsColorItem* lastSelectedItem = findColor(mColor);
 
     if (existingItem) {
-        if (lastSelectedItem && existingItem != lastSelectedItem)
+        if (lastSelectedItem && existingItem != lastSelectedItem) {
             lastSelectedItem->setSelected(false);
+        }
         existingItem->setFocus();
         existingItem->setSelected(true);
         return;
     }
 
-    PainterSettingsColorItem *item = new PainterSettingsColorItem(col, text, this);
+    PainterSettingsColorItem* item = new PainterSettingsColorItem(color, text, this);
 
     if (lastSelectedItem) {
         lastSelectedItem->setSelected(false);
-    }
-    else {
+    } else {
         item->setSelected(true);
-        lastSel = col;
+        mColor = color;
     }
     item->setFocus();
 
-    connect(item, SIGNAL(selected()), SLOT(updateSelected()));
+    connect(item, SIGNAL(selected()), SLOT(updateColor()));
 
-    if (index == -1)
-        index = items.count();
+    if (index == -1) {
+        index = mColorItems.count();
+    }
 
-    items.insert((unsigned int)index, item);
-    regenerateGrid();
-
+    mColorItems.insert((unsigned int)index, item);
+    regenerateColorGrid();
     update();
 }
 
-QColor PainterSettingsColorPopup::color(int index) const
-{
-    if (index < 0 || index > (int) items.count() - 1)
-        return QColor();
-
-    PainterSettingsColorPopup *that = (PainterSettingsColorPopup *)this;
-    return that->items.at(index)->color();
-}
-
-void PainterSettingsColorPopup::exec()
+void PainterSettingsPopup::exec()
 {
     show();
 
     QEventLoop e;
-    eventLoop = &e;
+    mEventLoop = &e;
     (void) e.exec();
-    eventLoop = 0;
+    mEventLoop = 0;
 }
 
-void PainterSettingsColorPopup::updateSelected()
+QColor PainterSettingsPopup::color() const
 {
-    QLayoutItem *layoutItem;
-    int i = 0;
-    while ((layoutItem = grid->itemAt(i)) != 0) {
-        QWidget *w = layoutItem->widget();
-        if (w && w->inherits("PainterSettingsColorItem")) {
-            PainterSettingsColorItem *litem = reinterpret_cast<PainterSettingsColorItem *>(layoutItem->widget());
-            if (litem != sender())
-                litem->setSelected(false);
+    return mColor;
+}
+
+/*
+ * Sets the color grid to the specified color, if this color is not already in
+ * the grid, it adds it to the end.
+ */
+void PainterSettingsPopup::setColor(const QColor& color)
+{
+    PainterSettingsColorItem* newSelected = findColor(color);
+    if (!newSelected) {
+        insertColor(color, tr("Custom"), -1);
+        newSelected = findColor(color);
+    }
+
+    for (PainterSettingsColorItem* item : mColorItems) {
+        if (item->isSelected()) {
+            item->setSelected(false);
         }
-        ++i;
     }
 
-    if (sender() && sender()->inherits("PainterSettingsColorItem")) {
-        PainterSettingsColorItem *item = (PainterSettingsColorItem *)sender();
-        lastSel = item->color();
-        emit selected(item->color());
+    newSelected->setSelected(true);
+    emit colorChanged(color);
+}
+
+bool PainterSettingsPopup::fill() const
+{
+    if (mFillCheckBox == nullptr) {
+        return false;
+    }
+    return mFillCheckBox->isChecked();
+}
+
+void PainterSettingsPopup::setFill(const bool& fill)
+{
+    if (mFillCheckBox == nullptr || mFillCheckBox->isChecked() == fill) {
+        return;
+    }
+    mFillCheckBox->setChecked(fill);
+    emit fillChanged(fill);
+}
+
+int PainterSettingsPopup::size() const
+{
+    if (!mSizeSlider) {
+        return 0;
+    }
+    return mSizeSlider->value();
+}
+
+void PainterSettingsPopup::setSize(const int& size)
+{
+    if (!mSizeSlider) {
+        return;
+    }
+    int s = size;
+    if (size < mSizeSlider->minimum() || size < 0) {
+        s = mSizeSlider->minimum();
+    } else if (size > mSizeSlider->maximum()) {
+        s = mSizeSlider->maximum();
+    }
+    mSizeSlider->setValue(s);
+    updateSizeLabel(s);
+    emit sizeChanged(s);
+}
+
+PainterSettingsColorItem* PainterSettingsPopup::findColor(const QColor& color) const
+{
+    for (PainterSettingsColorItem* item : mColorItems) {
+        if (item->color() == color) {
+            return item;
+        }
     }
 
+    return nullptr;
+}
+
+QColor PainterSettingsPopup::colorAt(int index) const
+{
+    if (index < 0 || index > (int) mColorItems.count() - 1) {
+        return QColor();
+    }
+
+    PainterSettingsPopup* that = (PainterSettingsPopup*)this;
+    return that->mColorItems.at(index)->color();
+}
+
+void PainterSettingsPopup::addColorGrid(const bool& colorDialog, const bool& fillCheckbox)
+{
+    if (!mColorGrid) {
+        mColorGrid = new QGridLayout();
+        mColorGrid->setMargin(1);
+        mColorGrid->setSpacing(0);
+    }
+
+    if (!mMoreButton && colorDialog) {
+        mMoreButton = new PainterSettingsButton(this);
+        mMoreButton->setFixedWidth(24);
+        mMoreButton->setFixedHeight(21);
+        mMoreButton->setFrameRect(QRect(2, 2, 20, 17));
+        connect(mMoreButton, SIGNAL(clicked()), SLOT(getColorFromDialog()));
+    }
+
+    if (!mFillCheckBox && fillCheckbox) {
+        mFillCheckBox = new QCheckBox(tr("Solid Fill"));
+        mFillCheckBox->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        connect(mFillCheckBox, SIGNAL(clicked()), this, SLOT(updateFill()));
+        mLayout->insertWidget(1, mFillCheckBox);
+    }
+    regenerateColorGrid();
+    update();
+}
+
+void PainterSettingsPopup::addSizeSlider(const int min, const int max, const int interval)
+{
+    if (!mSizeSlider) {
+        // Only add a separator when we have a color grid
+        if (mColorGrid) {
+            mSeparator = new QFrame();
+            mSeparator->setFrameShape(QFrame::HLine);
+            mSeparator->setMinimumHeight(15);
+            mLayout->insertWidget(2, mSeparator);
+            mLayout->insertWidget(2, mSeparator);
+        }
+
+        mSizeLabel = new QLabel();
+        mSizeLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        mLayout->insertWidget(3, mSizeLabel);
+        updateSizeLabel(0);
+
+        mSizeSlider = new QSlider(Qt::Orientation::Horizontal);
+        mSizeSlider->setTickInterval(interval);
+        mSizeSlider->setMinimum(min);
+        mSizeSlider->setMaximum(max);
+        mSizeSlider->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        connect(mSizeSlider, SIGNAL(sliderReleased()), SLOT(updateSize()));
+        connect(mSizeSlider, SIGNAL(valueChanged(int)), SLOT(updateSizeLabel(int)));
+        mLayout->insertWidget(4, mSizeSlider);
+    }
+}
+
+/*
+ * Returns true is no elements have been added to the popup so there is no point
+ * in showing the popup.
+ */
+bool PainterSettingsPopup::isEmpty() const
+{
+    if (!mColorGrid && !mSizeSlider) {
+        return true;
+    }
+    return false;
+}
+
+/*
+ * Removes all popup elements, leaves a clean popup that can be filled again.
+ * Should be used before initializing the popup again
+ */
+void PainterSettingsPopup::clear()
+{
+    delete mMoreButton;
+    mMoreButton = nullptr;
+
+    delete mFillCheckBox;
+    mFillCheckBox = nullptr;
+
+    delete mSizeSlider;
+    mSizeSlider = nullptr;
+
+    delete mSizeLabel;
+    mSizeLabel = nullptr;
+
+    delete mColorGrid;
+    mColorGrid = nullptr;
+
+    delete mSeparator;
+    mSeparator = nullptr;
+
+    for (PainterSettingsColorItem* item : mColorItems) {
+        mColorItems.removeOne(item);
+        delete item;
+    }
+}
+
+/*
+ * Opens a color dialog and lets the user select a color, the new selected color
+ * is added to the color grid if not already in there and set to the current
+ * color
+ */
+void PainterSettingsPopup::getColorFromDialog()
+{
+    QColor color = QColorDialog::getColor(mColor, parentWidget());
+    if (!color.isValid()) {
+        return;
+    }
+    setColor(color);
+}
+
+/*
+ * Called when one of the colors was selected, it emits the colorChange signal
+ * to inform everyone of the change.
+ */
+void PainterSettingsPopup::updateColor()
+{
+    if (!mColorGrid) {
+        return;
+    }
+
+    for (PainterSettingsColorItem* item : mColorItems) {
+        if (item != sender()) {
+            item->setSelected(false);
+        } else {
+            mColor = item->color();
+            emit colorChanged(item->color());
+        }
+    }
     hide();
 }
 
-void PainterSettingsColorPopup::mouseReleaseEvent(QMouseEvent *e)
+/*
+ * Called when the checkbox state has changed, emit the fillChanged signal to
+ * inform everyone of the changed state.
+ */
+void PainterSettingsPopup::updateFill()
 {
-    if (!rect().contains(e->pos()))
-        hide();
+    emit fillChanged(mFillCheckBox->isChecked());
+    hide();
 }
 
-void PainterSettingsColorPopup::keyPressEvent(QKeyEvent *e)
+void PainterSettingsPopup::updateSize()
 {
-    int curRow = 0;
-    int curCol = 0;
-
-    bool foundFocus = false;
-    for (int j = 0; !foundFocus && j < grid->rowCount(); ++j) {
-        for (int i = 0; !foundFocus && i < grid->columnCount(); ++i) {
-            if (widgetAt[j][i] && widgetAt[j][i]->hasFocus()) {
-                curRow = j;
-                curCol = i;
-                foundFocus = true;
-                break;
-            }
-        }
-    }
-
-    switch (e->key()) {
-    case Qt::Key_Left:
-        if (curCol > 0) --curCol;
-        else if (curRow > 0) {
-            --curRow;
-            curCol = grid->columnCount() - 1;
-        }
-        break;
-    case Qt::Key_Right:
-        if (curCol < grid->columnCount() - 1 && widgetAt[curRow][curCol + 1]) ++curCol;
-        else if (curRow < grid->rowCount() - 1) {
-            ++curRow;
-            curCol = 0;
-        }
-        break;
-    case Qt::Key_Up:
-        if (curRow > 0) --curRow;
-        else curCol = 0;
-        break;
-    case Qt::Key_Down:
-        if (curRow < grid->rowCount() - 1) {
-            QWidget *w = widgetAt[curRow + 1][curCol];
-            if (w) {
-                ++curRow;
-            } else for (int i = 1; i < grid->columnCount(); ++i) {
-                    if (!widgetAt[curRow + 1][i]) {
-                        curCol = i - 1;
-                        ++curRow;
-                        break;
-                    }
-                }
-        }
-        break;
-    case Qt::Key_Space:
-    case Qt::Key_Return:
-    case Qt::Key_Enter: {
-        QWidget *w = widgetAt[curRow][curCol];
-        if (w && w->inherits("PainterSettingsColorItem")) {
-            PainterSettingsColorItem *wi = reinterpret_cast<PainterSettingsColorItem *>(w);
-            wi->setSelected(true);
-
-            QLayoutItem *layoutItem;
-            int i = 0;
-            while ((layoutItem = grid->itemAt(i)) != 0) {
-                QWidget *w = layoutItem->widget();
-                if (w && w->inherits("PainterSettingsColorItem")) {
-                    PainterSettingsColorItem *litem
-                        = reinterpret_cast<PainterSettingsColorItem *>(layoutItem->widget());
-                    if (litem != wi)
-                        litem->setSelected(false);
-                }
-                ++i;
-            }
-
-            lastSel = wi->color();
-            emit selected(wi->color());
-            hide();
-        } else if (w && w->inherits("QPushButton")) {
-            PainterSettingsColorItem *wi = reinterpret_cast<PainterSettingsColorItem *>(w);
-            wi->setSelected(true);
-
-            QLayoutItem *layoutItem;
-            int i = 0;
-            while ((layoutItem = grid->itemAt(i)) != 0) {
-                QWidget *w = layoutItem->widget();
-                if (w && w->inherits("PainterSettingsColorItem")) {
-                    PainterSettingsColorItem *litem
-                        = reinterpret_cast<PainterSettingsColorItem *>(layoutItem->widget());
-                    if (litem != wi)
-                        litem->setSelected(false);
-                }
-                ++i;
-            }
-
-            lastSel = wi->color();
-            emit selected(wi->color());
-            hide();
-        }
-    }
-    break;
-    case Qt::Key_Escape:
-        hide();
-        break;
-    default:
-        e->ignore();
-        break;
-    }
-
-    widgetAt[curRow][curCol]->setFocus();
+    emit sizeChanged(mSizeSlider->value());
+    hide();
 }
 
-void PainterSettingsColorPopup::hideEvent(QHideEvent *e)
+void PainterSettingsPopup::updateSizeLabel(int size)
 {
-    if (eventLoop) {
-        eventLoop->exit();
+    mSizeLabel->setText(tr("Size") + ": " + QString::number(size) + "px");
+
+    // When the users clicks somewhere outside the slider, the value is changed
+    // but no release event is triggered so we check here if the value was
+    // changed while the selider was not done, if yes, simulate release event.
+    if (mSizeSlider && !mSizeSlider->isSliderDown()) {
+        updateSize();
+    }
+}
+
+void PainterSettingsPopup::showEvent(QShowEvent*)
+{
+    for (PainterSettingsColorItem* item : mColorItems) {
+        if (item->isSelected()) {
+            item->setFocus();
+            break;
+        }
+    }
+}
+
+void PainterSettingsPopup::hideEvent(QHideEvent* e)
+{
+    if (mEventLoop) {
+        mEventLoop->exit();
     }
 
     setFocus();
@@ -461,56 +576,38 @@ void PainterSettingsColorPopup::hideEvent(QHideEvent *e)
     QFrame::hideEvent(e);
 }
 
-QColor PainterSettingsColorPopup::lastSelected() const
+void PainterSettingsPopup::mouseReleaseEvent(QMouseEvent* e)
 {
-    return lastSel;
-}
-
-void PainterSettingsColorPopup::showEvent(QShowEvent *)
-{
-    bool foundSelected = false;
-    for (int i = 0; i < grid->columnCount(); ++i) {
-        for (int j = 0; j < grid->rowCount(); ++j) {
-            QWidget *w = widgetAt[j][i];
-            if (w && w->inherits("PainterSettingsColorItem")) {
-                if (((PainterSettingsColorItem *)w)->isSelected()) {
-                    w->setFocus();
-                    foundSelected = true;
-                    break;
-                }
-            }
-        }
-    }
-
-    if (!foundSelected) {
-        if (items.count() == 0)
-            setFocus();
-        else
-            widgetAt[0][0]->setFocus();
+    if (!rect().contains(e->pos())) {
+        hide();
     }
 }
 
-void PainterSettingsColorPopup::regenerateGrid()
+void PainterSettingsPopup::regenerateColorGrid()
 {
-    widgetAt.clear();
+    if (!mColorGrid) {
+        return;
+    }
 
-    int columns = cols;
-    if (columns == -1)
-        columns = (int) ceil(sqrt((float) items.count()));
+    int columns = mColorColumns;
+    if (columns == -1) {
+        columns = (int) ceil(sqrt((float) mColorItems.count()));
+    }
 
     // When the number of columns grows, the number of rows will
     // fall. There's no way to shrink a grid, so we create a new
     // one.
-    if (grid) delete grid;
-    grid = new QGridLayout(this);
-    grid->setMargin(1);
-    grid->setSpacing(0);
+    if (mColorGrid) {
+        delete mColorGrid;
+    }
+    mColorGrid = new QGridLayout();
+    mColorGrid->setMargin(1);
+    mColorGrid->setSpacing(0);
 
     int ccol = 0, crow = 0;
-    for (int i = 0; i < items.size(); ++i) {
-        if (items.at(i)) {
-            widgetAt[crow][ccol] = items.at(i);
-            grid->addWidget(items.at(i), crow, ccol++);
+    for (int i = 0; i < mColorItems.size(); ++i) {
+        if (mColorItems.at(i)) {
+            mColorGrid->addWidget(mColorItems.at(i), crow, ccol++);
             if (ccol == columns) {
                 ++crow;
                 ccol = 0;
@@ -518,30 +615,20 @@ void PainterSettingsColorPopup::regenerateGrid()
         }
     }
 
-    if (moreButton) {
-        grid->addWidget(moreButton, crow, ccol);
-        widgetAt[crow][ccol] = moreButton;
+    if (mMoreButton) {
+        mColorGrid->addWidget(mMoreButton, crow, ccol);
     }
-    updateGeometry();
+    mLayout->insertLayout(0, mColorGrid);
 }
 
-void PainterSettingsColorPopup::getColorFromDialog()
-{
-    bool ok;
-    QRgb rgb = QColorDialog::getRgba(lastSel.rgba(), &ok, parentWidget());
-    if (!ok)
-        return;
+//
+// PainterSettingsColorItem
+//
 
-    QColor col = QColor::fromRgba(rgb);
-    insertColor(col, tr("Custom"), -1);
-    lastSel = col;
-    emit selected(col);
-}
-
-PainterSettingsColorItem::PainterSettingsColorItem(const QColor &color, const QString &text, QWidget *parent) : 
-                                                   QFrame(parent), c(color), t(text), sel(false)
+PainterSettingsColorItem::PainterSettingsColorItem(const QColor& color, const QString& text, QWidget* parent) :
+    QFrame(parent), mColor(color), mText(text), mSelected(false)
 {
-    setToolTip(t);
+    setToolTip(mText);
     setFixedWidth(24);
     setFixedHeight(21);
 }
@@ -552,146 +639,145 @@ PainterSettingsColorItem::~PainterSettingsColorItem()
 
 QColor PainterSettingsColorItem::color() const
 {
-    return c;
+    return mColor;
 }
 
 QString PainterSettingsColorItem::text() const
 {
-    return t;
+    return mText;
 }
 
 bool PainterSettingsColorItem::isSelected() const
 {
-    return sel;
+    return mSelected;
 }
 
 void PainterSettingsColorItem::setSelected(bool selected)
 {
-    sel = selected;
+    mSelected = selected;
     update();
 }
 
-void PainterSettingsColorItem::setColor(const QColor &color, const QString &text)
+void PainterSettingsColorItem::setColor(const QColor& color, const QString& text)
 {
-    c = color;
-    t = text;
-    setToolTip(t);
+    mColor = color;
+    mText = text;
+    setToolTip(mText);
     update();
 }
 
-void PainterSettingsColorItem::mouseMoveEvent(QMouseEvent *)
+void PainterSettingsColorItem::mouseMoveEvent(QMouseEvent* event)
 {
     setFocus();
     update();
 }
 
-void PainterSettingsColorItem::mouseReleaseEvent(QMouseEvent *)
+void PainterSettingsColorItem::mouseReleaseEvent(QMouseEvent* event)
 {
-    sel = true;
+    mSelected = true;
     emit selected();
 }
 
-void PainterSettingsColorItem::mousePressEvent(QMouseEvent *)
+void PainterSettingsColorItem::mousePressEvent(QMouseEvent* event)
 {
     setFocus();
     update();
 }
 
-void PainterSettingsColorItem::paintEvent(QPaintEvent *)
+void PainterSettingsColorItem::paintEvent(QPaintEvent* event)
 {
     QPainter p(this);
-    int w = width();			// width of cell in pixels
-    int h = height();			// height of cell in pixels
+    int w = width();            // width of cell in pixels
+    int h = height();           // height of cell in pixels
 
-    p.setPen( QPen( Qt::gray, 0, Qt::SolidLine ) );
+    p.setPen(QPen(Qt::gray, 0, Qt::SolidLine));
 
-    if (sel)
+    if (mSelected) {
         p.drawRect(1, 1, w - 3, h - 3);
+    }
 
-    p.setPen( QPen( Qt::black, 0, Qt::SolidLine ) );
+    p.setPen(QPen(Qt::black, 0, Qt::SolidLine));
     p.drawRect(3, 3, w - 7, h - 7);
-    p.fillRect(QRect(4, 4, w - 8, h - 8), QBrush(c));
+    p.fillRect(QRect(4, 4, w - 8, h - 8), QBrush(mColor));
 
-    if (hasFocus())
+    if (hasFocus()) {
         p.drawRect(0, 0, w - 1, h - 1);
+    }
 }
 
 //
 // PainterSettingsButton
 //
-PainterSettingsButton::PainterSettingsButton(QWidget *parent) : QFrame(parent)
+PainterSettingsButton::PainterSettingsButton(QWidget* parent) : QFrame(parent)
 {
     setFrameStyle(StyledPanel);
 }
 
-void PainterSettingsButton::mousePressEvent(QMouseEvent *)
+void PainterSettingsButton::mousePressEvent(QMouseEvent* event)
 {
     setFrameShadow(Sunken);
     update();
 }
 
-void PainterSettingsButton::mouseMoveEvent(QMouseEvent *)
+void PainterSettingsButton::mouseMoveEvent(QMouseEvent* event)
 {
     setFocus();
     update();
 }
 
-void PainterSettingsButton::mouseReleaseEvent(QMouseEvent *)
+void PainterSettingsButton::mouseReleaseEvent(QMouseEvent* event)
 {
     setFrameShadow(Raised);
     repaint();
     emit clicked();
 }
 
-void PainterSettingsButton::keyPressEvent(QKeyEvent *e)
+void PainterSettingsButton::keyPressEvent(QKeyEvent* event)
 {
-    if (e->key() == Qt::Key_Up
-            || e->key() == Qt::Key_Down
-            || e->key() == Qt::Key_Left
-            || e->key() == Qt::Key_Right) {
-        qApp->sendEvent(parent(), e);
-    } else if (e->key() == Qt::Key_Enter || e->key() == Qt::Key_Space || e->key() == Qt::Key_Return) {
+    if (event->key() == Qt::Key_Up || event->key() == Qt::Key_Down
+            || event->key() == Qt::Key_Left || event->key() == Qt::Key_Right) {
+        qApp->sendEvent(parent(), event);
+    } else if (event->key() == Qt::Key_Enter
+               || event->key() == Qt::Key_Space || event->key() == Qt::Key_Return) {
         setFrameShadow(Sunken);
         update();
     } else {
-        QFrame::keyPressEvent(e);
+        QFrame::keyPressEvent(event);
     }
 }
 
-void PainterSettingsButton::keyReleaseEvent(QKeyEvent *e)
+void PainterSettingsButton::keyReleaseEvent(QKeyEvent* event)
 {
-    if (e->key() == Qt::Key_Up
-            || e->key() == Qt::Key_Down
-            || e->key() == Qt::Key_Left
-            || e->key() == Qt::Key_Right) {
-        qApp->sendEvent(parent(), e);
-    } else if (e->key() == Qt::Key_Enter || e->key() == Qt::Key_Space || e->key() == Qt::Key_Return) {
+    if (event->key() == Qt::Key_Up || event->key() == Qt::Key_Down
+            || event->key() == Qt::Key_Left || event->key() == Qt::Key_Right) {
+        qApp->sendEvent(parent(), event);
+    } else if (event->key() == Qt::Key_Enter || event->key() == Qt::Key_Space
+               || event->key() == Qt::Key_Return) {
         setFrameShadow(Raised);
         repaint();
         emit clicked();
     } else {
-        QFrame::keyReleaseEvent(e);
+        QFrame::keyReleaseEvent(event);
     }
-
 }
 
-void PainterSettingsButton::focusInEvent(QFocusEvent *e)
+void PainterSettingsButton::focusInEvent(QFocusEvent* event)
 {
     setFrameShadow(Raised);
     update();
-    QFrame::focusOutEvent(e);
+    QFrame::focusOutEvent(event);
 }
 
-void PainterSettingsButton::focusOutEvent(QFocusEvent *e)
+void PainterSettingsButton::focusOutEvent(QFocusEvent* event)
 {
     setFrameShadow(Raised);
     update();
-    QFrame::focusOutEvent(e);
+    QFrame::focusOutEvent(event);
 }
 
-void PainterSettingsButton::paintEvent(QPaintEvent *e)
+void PainterSettingsButton::paintEvent(QPaintEvent* event)
 {
-    QFrame::paintEvent(e);
+    QFrame::paintEvent(event);
 
     QPainter p(this);
     p.fillRect(contentsRect(), palette().button());
@@ -707,7 +793,7 @@ void PainterSettingsButton::paintEvent(QPaintEvent *e)
     p.drawRect(r.center().x() + offset    , r.center().y() + offset, 1, 1);
     p.drawRect(r.center().x() + offset + 4, r.center().y() + offset, 1, 1);
     if (hasFocus()) {
-        p.setPen( QPen( Qt::black, 0, Qt::SolidLine ) );
+        p.setPen(QPen(Qt::black, 0, Qt::SolidLine));
         p.drawRect(0, 0, width() - 1, height() - 1);
     }
 

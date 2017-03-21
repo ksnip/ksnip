@@ -17,6 +17,7 @@
  * Boston, MA 02110-1301, USA.
  *
  */
+
 #include "MainWindow.h"
 
 MainWindow::MainWindow() : QMainWindow(),
@@ -24,7 +25,7 @@ MainWindow::MainWindow() : QMainWindow(),
     mSaveButton(new QToolButton),
     mCopyToClipboardButton(new QToolButton),
     mPaintToolButton(new CustomToolButton),
-    mPainterSettingsButton(new PainterSettingsPicker), // TEST
+    mPainterSettingsButton(new PainterSettingsPicker(this, 5)),
     mPaintToolMenu(new QMenu),
     mNewCaptureMenu(new QMenu),
     mNewRectAreaCaptureAction(new QAction(this)),
@@ -216,6 +217,83 @@ QMenu* MainWindow::createPopupMenu()
     return filteredMenu;
 }
 
+/*
+ * Called by signals from painter settings picker tool button to change the
+ * color of the current tool.
+ */
+void MainWindow::colorChanged(const QColor& color)
+{
+    KsnipConfig* config = KsnipConfig::instance();
+    switch (mCaptureScene->paintMode()) {
+    case PaintArea::Pen:
+        config->setPenColor(color);
+        break;
+    case PaintArea::Marker:
+        config->setMarkerColor(color);
+        break;
+    case PaintArea::Rect:
+        config->setRectColor(color);
+        break;
+    case PaintArea::Ellipse:
+        config->setEllipseColor(color);
+        break;
+    case PaintArea::Text:
+        config->setTextColor(color);
+        break;
+    default:
+        break;
+    }
+}
+
+/*
+ * Called by signals from painter settings picker tool button to change the
+ * fill of the current tool.
+ */
+void MainWindow::fillChanged(const bool& fill)
+{
+    KsnipConfig* config = KsnipConfig::instance();
+    switch (mCaptureScene->paintMode()) {
+    case PaintArea::Rect:
+        config->setRectFill(fill);
+        break;
+    case PaintArea::Ellipse:
+        config->setEllipseFill(fill);
+        break;
+    default:
+        break;
+    }
+}
+
+/*
+ * Called by signals from painter settings picker tool button to change the
+ * size of the current tool.
+ */
+void MainWindow::sizeChanged(const int& size)
+{
+    KsnipConfig* config = KsnipConfig::instance();
+    switch (mCaptureScene->paintMode()) {
+    case PaintArea::Pen:
+        config->setPenSize(size);
+        break;
+    case PaintArea::Marker:
+        config->setMarkerSize(size);
+        break;
+    case PaintArea::Rect:
+        config->setRectSize(size);
+        break;
+    case PaintArea::Ellipse:
+        config->setEllipseSize(size);
+        break;
+    case PaintArea::Text:
+        config->setTextSize(size);
+        break;
+    case PaintArea::Erase:
+        config->setEraseSize(size);
+    default:
+        break;
+    }
+}
+
 //
 // Protected Functions
 //
@@ -308,27 +386,27 @@ void MainWindow::loadSettings()
     KsnipConfig::instance()->paintMode();
     switch (KsnipConfig::instance()->paintMode()) {
     case PaintArea::Pen:
-        mCaptureScene->setPaintMode(PaintArea::Pen);
+        setPaintMode(PaintArea::Pen, false);
         mPaintToolButton->setDefaultAction(mPenAction);
         break;
     case PaintArea::Marker:
-        mCaptureScene->setPaintMode(PaintArea::Marker);
+        setPaintMode(PaintArea::Marker, false);
         mPaintToolButton->setDefaultAction(mMarkerAction);
         break;
     case PaintArea::Rect:
-        mCaptureScene->setPaintMode(PaintArea::Rect);
+        setPaintMode(PaintArea::Rect, false);
         mPaintToolButton->setDefaultAction(mRectAction);
         break;
     case PaintArea::Ellipse:
-        mCaptureScene->setPaintMode(PaintArea::Ellipse);
+        setPaintMode(PaintArea::Ellipse, false);
         mPaintToolButton->setDefaultAction(mEllipseAction);
         break;
     case PaintArea::Text:
-        mCaptureScene->setPaintMode(PaintArea::Text);
+        setPaintMode(PaintArea::Text, false);
         mPaintToolButton->setDefaultAction(mTextAction);
         break;
     default:
-        mCaptureScene->setPaintMode(PaintArea::Pen);
+        setPaintMode(PaintArea::Pen, false);
         mPaintToolButton->setDefaultAction(mPenAction);
     }
 
@@ -538,20 +616,6 @@ void MainWindow::initGui()
     mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
     mNewCaptureButton->setButtonText(tr("New"));
 
-    // TEST
-    mPainterSettingsButton->insertColor(QColor("white"), "White");
-    mPainterSettingsButton->insertColor(QColor("black"), "Black");
-    mPainterSettingsButton->insertColor(QColor("green"), "Green");
-    mPainterSettingsButton->insertColor(QColor("darkGreen"), "Dark green");
-    mPainterSettingsButton->insertColor(QColor("blue"), "Blue");
-    mPainterSettingsButton->insertColor(QColor("darkBlue"), "Dark blue");
-    mPainterSettingsButton->insertColor(QColor("cyan"), "Cyan");
-    mPainterSettingsButton->insertColor(QColor("darkCyan"), "Dark cyan");
-    mPainterSettingsButton->insertColor(QColor("magenta"), "Magenta");
-    mPainterSettingsButton->insertColor(QColor("darkMagenta"), "Dark magenta");
-    mPainterSettingsButton->insertColor(QColor("yellow"), "Yellow");
-    mPainterSettingsButton->insertColor(QColor("grey"), "Grey");
-
     // Create save tool button
     mSaveButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mSaveButton->addAction(mSaveAction);
@@ -570,6 +634,19 @@ void MainWindow::initGui()
     mPaintToolMenu->addAction(mTextAction);
     mPaintToolMenu->addAction(mEraseAction);
     mPaintToolMenu->addAction(mMoveAction);
+
+    // Create painter settings tool button;
+    mPainterSettingsButton->setIcon(createIcon("painterSettings"));
+    mPainterSettingsButton->setToolTip(tr("Setting Painter tool configuration."));
+    connect(mPainterSettingsButton,
+            SIGNAL(colorChanged(const QColor&)),
+            SLOT(colorChanged(const QColor&)));
+    connect(mPainterSettingsButton,
+            SIGNAL(fillChanged(const bool&)),
+            SLOT(fillChanged(const bool&)));
+    connect(mPainterSettingsButton,
+            SIGNAL(sizeChanged(const int&)),
+            SLOT(sizeChanged(const int&)));
 
     mPaintToolButton->setMenu(mPaintToolMenu);
     mPaintToolButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -605,7 +682,7 @@ void MainWindow::initGui()
     mToolBar->addWidget(mCopyToClipboardButton);
     mToolBar->addSeparator();
     mToolBar->addWidget(mPaintToolButton);
-    mToolBar->addWidget(mPainterSettingsButton); // TEST
+    mToolBar->addWidget(mPainterSettingsButton);
     mToolBar->setFixedSize(mToolBar->sizeHint());
 
     setCentralWidget(mCaptureView);
@@ -665,16 +742,17 @@ void MainWindow::saveCaptureClicked()
                            tr("Images") + " (*.png *.gif *.jpg);;" + tr("All Files") + "(*)");
     saveDialog.setAcceptMode(QFileDialog::AcceptSave);
 
-    if (saveDialog.exec() == QDialog::Accepted) {
-
-        if (!mCaptureScene->exportAsImage().save(saveDialog.selectedFiles().first())) {
-            qCritical("PaintWindow::saveCaptureClicked: Unable to save file " +
-                      saveDialog.selectedFiles().first().toLatin1());
-            return;
-        }
-
-        setSaveAble(false);
+    if (saveDialog.exec() != QDialog::Accepted) {
+        return;
     }
+
+    if (!mCaptureScene->exportAsImage().save(saveDialog.selectedFiles().first())) {
+        qCritical("PaintWindow::saveCaptureClicked: Unable to save file " +
+                  saveDialog.selectedFiles().first().toLatin1());
+        return;
+    }
+
+    setSaveAble(false);
 }
 
 void MainWindow::copyToClipboardClicked()
@@ -684,47 +762,63 @@ void MainWindow::copyToClipboardClicked()
 
 void MainWindow::penClicked()
 {
-    mCaptureScene->setPaintMode(PaintArea::Pen);
-    KsnipConfig::instance()->setPaintMode(PaintArea::Pen);
+    if (mCaptureScene->paintMode() == PaintArea::Pen) {
+        return;
+    }
+    setPaintMode(PaintArea::Pen);
 }
 
 void MainWindow::markerClicked()
 {
-    mCaptureScene->setPaintMode(PaintArea::Marker);
-    KsnipConfig::instance()->setPaintMode(PaintArea::Marker);
+    if (mCaptureScene->paintMode() == PaintArea::Marker) {
+        return;
+    }
+    setPaintMode(PaintArea::Marker);
 }
 
 void MainWindow::rectClicked()
 {
-    mCaptureScene->setPaintMode(PaintArea::Rect);
-    KsnipConfig::instance()->setPaintMode(PaintArea::Rect);
+    if (mCaptureScene->paintMode() == PaintArea::Rect) {
+        return;
+    }
+    setPaintMode(PaintArea::Rect);
 }
 
 void MainWindow::ellipseClicked()
 {
-    mCaptureScene->setPaintMode(PaintArea::Ellipse);
-    KsnipConfig::instance()->setPaintMode(PaintArea::Ellipse);
+    if (mCaptureScene->paintMode() == PaintArea::Ellipse) {
+        return;
+    }
+    setPaintMode(PaintArea::Ellipse);
 }
 
 void MainWindow::textClicked()
 {
-    mCaptureScene->setPaintMode(PaintArea::Text);
-    KsnipConfig::instance()->setPaintMode(PaintArea::Text);
+    if (mCaptureScene->paintMode() == PaintArea::Text) {
+        return;
+    }
+    setPaintMode(PaintArea::Text);
 }
 
 void MainWindow::eraseClicked()
 {
-    mCaptureScene->setPaintMode(PaintArea::Erase);
+    if (mCaptureScene->paintMode() == PaintArea::Erase) {
+        return;
+    }
+    setPaintMode(PaintArea::Erase);
 }
 
 void MainWindow::moveClicked()
 {
-    mCaptureScene->setPaintMode(PaintArea::Move);
+    if (mCaptureScene->paintMode() == PaintArea::Move) {
+        return;
+    }
+    setPaintMode(PaintArea::Move);
 }
 
 /*
- * Upload Image to Imgur page, this function only starts the upload, if the upload was successful
- * is determent by the uploadToImgurFinished function.
+ * Upload Image to Imgur page, this function only starts the upload, if the
+ * upload was successful is determent by the uploadToImgurFinished function.
  */
 void MainWindow::imgurUploadClicked()
 {
@@ -898,4 +992,61 @@ void MainWindow::openAboutDialog()
 {
     AboutDialog aboutDialog(this);
     aboutDialog.exec();
+}
+
+void MainWindow::setPaintMode(const PaintArea::PaintMode& mode, const bool& save)
+{
+    KsnipConfig* config = KsnipConfig::instance();
+    mCaptureScene->setPaintMode(mode);
+
+    if (save && mode != PaintArea::Erase && mode != PaintArea::Move) {
+        config->setPaintMode(mode);
+    }
+
+    mPainterSettingsButton->clearPopup();
+    switch (mode) {
+    case PaintArea::Pen:
+        mPainterSettingsButton->addPopupColorGrid(true, false, true);
+        mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
+        mPainterSettingsButton->setColor(config->penColor());
+        mPainterSettingsButton->setSize(config->penSize());
+        break;
+    case PaintArea::Marker:
+        mPainterSettingsButton->addPopupColorGrid(false, false, false);
+        mPainterSettingsButton->insertColor("yellow");
+        mPainterSettingsButton->insertColor("blue");
+        mPainterSettingsButton->insertColor("cyan");
+        mPainterSettingsButton->insertColor("orange");
+        mPainterSettingsButton->insertColor("red");
+        mPainterSettingsButton->addPopupSizeSlider(10, 30, 2);
+        mPainterSettingsButton->setColor(config->markerColor());
+        mPainterSettingsButton->setSize(config->markerSize());
+        break;
+    case PaintArea::Rect:
+        mPainterSettingsButton->addPopupColorGrid(true, true, true);
+        mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
+        mPainterSettingsButton->setColor(config->rectColor());
+        mPainterSettingsButton->setSize(config->rectSize());
+        mPainterSettingsButton->setFill(config->rectFill());
+        break;
+    case PaintArea::Ellipse:
+        mPainterSettingsButton->addPopupColorGrid(true, true, true);
+        mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
+        mPainterSettingsButton->setColor(config->ellipseColor());
+        mPainterSettingsButton->setSize(config->ellipseSize());
+        mPainterSettingsButton->setFill(config->ellipseFill());
+        break;
+    case PaintArea::Text:
+        mPainterSettingsButton->addPopupColorGrid(true, false, true);
+        mPainterSettingsButton->addPopupSizeSlider(10, 20, 1);
+        mPainterSettingsButton->setColor(config->textColor());
+        mPainterSettingsButton->setSize(config->textSize());
+        break;
+    case PaintArea::Erase:
+        mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
+        mPainterSettingsButton->setSize(config->eraseSize());
+        break;
+    case PaintArea::Move:
+        break;
+    }
 }

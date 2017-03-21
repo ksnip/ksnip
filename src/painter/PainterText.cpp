@@ -37,7 +37,7 @@ int textBoxMargin()
 //
 
 PainterText::PainterText(QPointF pos, QPen attributes) : PainterBaseItem(Text, attributes),
-    mFont(new QFont("Arial", 15, QFont::Bold)),
+    mFont(new QFont("Arial", attributes.width(), QFont::Bold)),
     mFontMetric(new QFontMetrics(*mFont)),
     mCursorBlinkTimer(new QTimer(this)),
     mEditable(true),

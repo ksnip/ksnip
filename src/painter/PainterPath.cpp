@@ -81,6 +81,7 @@ bool PainterPath::containsRect(QPointF topLeft, QSize size) const
 
 void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget* widget)
 {
+
     if (mTransparent) {
         painter->setCompositionMode(QPainter::CompositionMode_ColorBurn);
         painter->setPen(Qt::NoPen);

@@ -21,8 +21,6 @@
 
 #include "CustomToolButton.h"
 
-
-
 CustomToolButton::CustomToolButton(QWidget* parent) : QToolButton(parent)
 {
     setPopupMode(QToolButton::MenuButtonPopup);

@@ -57,8 +57,16 @@ QSize PaintArea::areaSize() const
 
 void PaintArea::setPaintMode(PaintMode paintMode)
 {
+    if (mCurrentPaintMode == paintMode) {
+        return;
+    }
     mCurrentPaintMode = paintMode;
     setCursor();
+}
+
+PaintArea::PaintMode PaintArea::paintMode() const
+{
+    return mCurrentPaintMode;
 }
 
 /*
@@ -138,41 +146,44 @@ QPoint PaintArea::cropOffset()
 void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton && mIsEnabled) {
+        KsnipConfig* config = KsnipConfig::instance();
         switch (mCurrentPaintMode) {
         case Pen:
-            mCurrentItem = new PainterPath(event->scenePos(), KsnipConfig::instance()->pen());
+            mCurrentItem = new PainterPath(event->scenePos(), config->pen());
             addItem(mCurrentItem);
             break;
         case Marker:
-            mCurrentItem = new PainterPath(event->scenePos(), KsnipConfig::instance()->marker(), true);
+            mCurrentItem = new PainterPath(event->scenePos(), config->marker(), true);
             addItem(mCurrentItem);
             break;
         case Rect:
-            mCurrentItem = new PainterRect(event->scenePos(), KsnipConfig::instance()->pen());
+            mCurrentItem = new PainterRect(event->scenePos(),
+                                           config->rect(),
+                                           config->rectFill());
             addItem(mCurrentItem);
             break;
         case Ellipse:
-            mCurrentItem = new PainterEllipse(event->scenePos(), KsnipConfig::instance()->pen());
+            mCurrentItem = new PainterEllipse(event->scenePos(),
+                                              config->ellipse(),
+                                              config->ellipseFill());
             addItem(mCurrentItem);
             break;
         case Text:
             // The subtraction of the QPoint is to align the text with the cursor as
             // the IBeam cursor is centered so new text is written at the middle
             // instead of at the top.
-            mCurrentItem = new PainterText(event->scenePos() - QPointF(0, 12), KsnipConfig::instance()->pen());
+            mCurrentItem = new PainterText(event->scenePos() - QPointF(0, 12),
+                                           config->text());
             addItem(mCurrentItem);
             break;
         case Erase:
-            eraseItem(event->scenePos());
+            eraseItem(event->scenePos(), config->eraseSize());
             break;
         case Move:
             if (grabItem(event->scenePos())) {
                 setCursor();
             }
             break;
-        default:
-            mCurrentItem = new PainterPath(event->scenePos(), KsnipConfig::instance()->pen());
-            addItem(mCurrentItem);
         }
     }
 
@@ -191,13 +202,11 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
             mCurrentItem->addPoint(event->scenePos(), mModifierPressed);
             break;
         case Erase:
-            eraseItem(event->scenePos());
+            eraseItem(event->scenePos(), KsnipConfig::instance()->eraseSize());
             break;
         case Move:
             moveItem(event->scenePos());
             break;
-        default:
-            mCurrentItem->addPoint(event->scenePos());
         }
     }
 
@@ -224,8 +233,6 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
             mCurrentItem = nullptr;
             setCursor();
             break;
-        default:
-            mCurrentItem = nullptr;
         }
     }
     // Inform the MainWindow that something was drawn on the image so the user
@@ -252,11 +259,11 @@ void PaintArea::keyReleaseEvent(QKeyEvent* event)
     QGraphicsScene::keyReleaseEvent(event);
 }
 
-bool PaintArea::eraseItem(QPointF mousePosition)
+bool PaintArea::eraseItem(const QPointF& position, const int& size)
 {
     for (QGraphicsItem* item : items()) {
         PainterBaseItem* baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
-        if (baseItem && baseItem->containsRect(mousePosition , QSize(6, 6))) {
+        if (baseItem && baseItem->containsRect(position , QSize(size, size))) {
             removeItem(item);
             delete item;
             return true;
@@ -295,8 +302,8 @@ void PaintArea::moveItem(QPointF position)
 }
 
 /*
- * Set the mouse cursor on all views that show this scene to a specif cursor that represents the
- * currently selected paint tool.
+ * Set the mouse cursor on all views that show this scene to a specif cursor
+ * that represents the currently selected paint tool.
  */
 void PaintArea::setCursor()
 {
@@ -309,33 +316,36 @@ void PaintArea::setCursor()
 }
 
 /*
- * Returns a new custom cursor based on currently selected paint tool, if the scene is disabled
- * return to default cursor.
+ * Returns a new custom cursor based on currently selected paint tool, if the
+ * scene is disabled return to default cursor.
  */
 QCursor* PaintArea::cursor()
 {
     if (!mIsEnabled) {
         return new CustomCursor();
     }
+    KsnipConfig* config = KsnipConfig::instance();
     switch (mCurrentPaintMode) {
+    case Pen:
+        return new CustomCursor(CustomCursor::Circle,
+                                config->penColor(),
+                                config->penSize());
     case Marker:
         return new CustomCursor(CustomCursor::Circle,
-                                KsnipConfig::instance()->markerColor(),
-                                KsnipConfig::instance()->markerSize());
-        break;
-    case Pen:
+                                config->markerColor(),
+                                config->markerSize());
     case Rect:
+        return new CustomCursor(CustomCursor::Circle,
+                                config->rectColor(),
+                                config->rectSize());
     case Ellipse:
         return new CustomCursor(CustomCursor::Circle,
-                                KsnipConfig::instance()->penColor(),
-                                KsnipConfig::instance()->penSize());
-        break;
+                                config->ellipseColor(),
+                                config->ellipseSize());
     case Text:
         return new QCursor(Qt::IBeamCursor);
-        break;
     case Erase:
-        return new CustomCursor(CustomCursor::Rect, QColor("white"), 6);
-        break;
+        return new CustomCursor(CustomCursor::Rect, QColor("white"), config->eraseSize());
     case Move:
         if (mCurrentItem == nullptr) {
             return new QCursor(Qt::OpenHandCursor);

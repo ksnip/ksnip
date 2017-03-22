@@ -117,6 +117,18 @@ public:
     int textSize() const;
     void setTextSize(const int &size);
 
+    bool textBold() const;
+    void setTextBold(const bool &bold);
+
+    bool textItalic() const;
+    void setTextItalic(const bool &italic);
+
+    bool textUnderline() const;
+    void setTextUnderline(const bool &underline);
+
+    QFont textFont() const;
+    void setTextFont(const QFont &font);
+
     int eraseSize() const;
     void setEraseSize(const int &size);
 

@@ -24,7 +24,6 @@
 #include <QDialog>
 
 #include "MainWindow.h"
-#include "src/widgets/ColorComboBox.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/StringManip.h"
@@ -53,23 +52,21 @@ private:
     QLabel          *mCaptureDelayLabel;
     QLabel          *mSaveLocationLabel;
     QLabel          *mImgurUsernameLabel;
-    QLabel          *mPenColorLabel;
-    QLabel          *mPenSizeLabel;
-    QLabel          *mMarkerColorLabel;
-    QLabel          *mMarkerSizeLabel;
-    NumericComboBox *mPenSizeCombobox;
-    NumericComboBox *mMarkerSizeCombobox;
+    QLabel          *mTextFontLabel;
     NumericComboBox *mCaptureDelayCombobox;
+    QFontComboBox   *mTextFontCombobox;
     QPushButton     *mBrowseButton;
     QPushButton     *mImgurGetPinButton;
     QPushButton     *mImgurGetTokenButton;
     QPushButton     *mOkButton;
     QPushButton     *mCancelButton;
-    ColorComboBox   *mPenColorCombobox;
-    ColorComboBox   *mMarkerColorCombobox;
+    QPushButton     *mTextBoldButton;
+    QPushButton     *mTextItalicButton;
+    QPushButton     *mTextUnderlineButton;
     ImgurUploader   *mImgurUploader;
     QListWidget     *mListWidget;
     QStackedLayout  *mStackedLayout;
+    KsnipConfig     *mConfig;
     void loadSettings();
     void saveSettings();
     void initGui();

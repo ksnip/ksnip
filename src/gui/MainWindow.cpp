@@ -490,25 +490,25 @@ void MainWindow::initGui()
 
     // Create actions for capture modes
     mNewRectAreaCaptureAction->setIconText(tr("Rectangular Area"));
-    mNewRectAreaCaptureAction->setToolTip(tr("Draw a rectangular area with your mouse."));
+    mNewRectAreaCaptureAction->setToolTip(tr("Draw a rectangular area with your mouse"));
     mNewRectAreaCaptureAction->setIcon(createIcon("drawRect"));
     connect(mNewRectAreaCaptureAction, SIGNAL(triggered()),
             this, SLOT(newRectAreaCaptureClicked()));
 
     mNewFullScreenCaptureAction->setIconText(tr("Full Screen (All Monitors)"));
-    mNewFullScreenCaptureAction->setToolTip(tr("Capture full screen including all monitors."));
+    mNewFullScreenCaptureAction->setToolTip(tr("Capture full screen including all monitors"));
     mNewFullScreenCaptureAction->setIcon(createIcon("fullScreen"));
     connect(mNewFullScreenCaptureAction, SIGNAL(triggered()),
             this, SLOT(newFullScreenCaptureClicked()));
 
     mNewCurrentScreenCaptureAction->setIconText(tr("Current Screen"));
-    mNewCurrentScreenCaptureAction->setToolTip(tr("Capture screen where the mouse is located."));
+    mNewCurrentScreenCaptureAction->setToolTip(tr("Capture screen where the mouse is located"));
     mNewCurrentScreenCaptureAction->setIcon(createIcon("currentScreen"));
     connect(mNewCurrentScreenCaptureAction, SIGNAL(triggered()),
             this, SLOT(newCurrentScreenCaptureClicked()));
 
     mNewActiveWindowCaptureAction->setIconText(tr("Active Window"));
-    mNewActiveWindowCaptureAction->setToolTip(tr("Capture window that currently has focus."));
+    mNewActiveWindowCaptureAction->setToolTip(tr("Capture window that currently has focus"));
     mNewActiveWindowCaptureAction->setIcon(createIcon("activeWindow"));
     connect(mNewActiveWindowCaptureAction, SIGNAL(triggered()),
             this, SLOT(newActiveWindowCaptureClicked()));
@@ -536,7 +536,7 @@ void MainWindow::initGui()
 
     // Create print action
     mPrintAction->setText(tr("Print"));
-    mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image."));
+    mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
     mPrintAction->setShortcut(QKeySequence::Print);
     mPrintAction->setIcon(QIcon::fromTheme("document-print"));
     connect(mPrintAction, SIGNAL(triggered()), this, SLOT(printClicked()));
@@ -544,7 +544,7 @@ void MainWindow::initGui()
     // Create print preview action
     mPrintPreviewAction->setText(tr("Print Preview"));
     mPrintPreviewAction->setToolTip(tr("Opens Print Preview dialog where the image "
-                                       "orientation can be changed."));
+                                       "orientation can be changed"));
     mPrintPreviewAction->setIcon(QIcon::fromTheme("document-print-preview"));
     connect(mPrintPreviewAction, SIGNAL(triggered()), this, SLOT(printPreviewClicked()));
 
@@ -637,7 +637,7 @@ void MainWindow::initGui()
 
     // Create painter settings tool button;
     mPainterSettingsButton->setIcon(createIcon("painterSettings"));
-    mPainterSettingsButton->setToolTip(tr("Setting Painter tool configuration."));
+    mPainterSettingsButton->setToolTip(tr("Setting Painter tool configuration"));
     connect(mPainterSettingsButton,
             SIGNAL(colorChanged(const QColor&)),
             SLOT(colorChanged(const QColor&)));

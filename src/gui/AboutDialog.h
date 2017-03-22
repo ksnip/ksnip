@@ -24,7 +24,6 @@
 #include <QDialog>
 
 #include "MainWindow.h"
-#include "src/widgets/ColorComboBox.h"
 
 class QLabel;
 

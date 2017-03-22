@@ -360,12 +360,90 @@ void KsnipConfig::setTextColor(const QColor& color)
 
 int KsnipConfig::textSize() const
 {
-    return mConfig.value("Painter/TextSize", 12).toInt();
+    return textFont().pointSize();
 }
 
 void KsnipConfig::setTextSize(const int& size)
 {
-    mConfig.setValue("Painter/TextSize", size);
+    if (textSize() == size) {
+        return;
+    }
+    QFont font = textFont();
+    font.setPointSize(size);
+
+    mConfig.setValue("Painter/TextFont", font);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+bool KsnipConfig::textBold() const
+{
+    return textFont().bold();
+}
+
+void KsnipConfig::setTextBold(const bool& bold)
+{
+    if (textBold() == bold) {
+        return;
+    }
+    QFont font = textFont();
+    font.setBold(bold);
+
+    mConfig.setValue("Painter/TextFont", font);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+bool KsnipConfig::textItalic() const
+{
+    return textFont().italic();
+}
+
+void KsnipConfig::setTextItalic(const bool& italic)
+{
+    if (textItalic() == italic) {
+        return;
+    }
+    QFont font = textFont();
+    font.setItalic(italic);
+
+    mConfig.setValue("Painter/TextFont", font);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+bool KsnipConfig::textUnderline() const
+{
+    return textFont().underline();
+}
+
+void KsnipConfig::setTextUnderline(const bool& underline)
+{
+    if (textUnderline() == underline) {
+        return;
+    }
+    QFont font = textFont();
+    font.setUnderline(underline);
+
+    mConfig.setValue("Painter/TextFont", font);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+QFont KsnipConfig::textFont() const
+{
+    return mConfig.value("Painter/TextFont", QFont("Arial", 12)).value<QFont>();
+}
+
+void KsnipConfig::setTextFont(const QFont &font)
+{
+    if (textFont().family() == font.family()) {
+        return;
+    }
+    QFont tmpfont = textFont();
+    tmpfont.setFamily(font.family());
+
+    mConfig.setValue("Painter/TextFont", tmpfont);
     mConfig.sync();
     emit painterUpdated();
 }

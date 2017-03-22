@@ -173,7 +173,7 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             // the IBeam cursor is centered so new text is written at the middle
             // instead of at the top.
             mCurrentItem = new PainterText(event->scenePos() - QPointF(0, 12),
-                                           config->text());
+                                           config->text(), config->textFont());
             addItem(mCurrentItem);
             break;
         case Erase:

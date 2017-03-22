@@ -38,22 +38,22 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mCaptureDelayLabel(new QLabel),
     mSaveLocationLabel(new QLabel),
     mImgurUsernameLabel(new QLabel),
-    mPenColorLabel(new QLabel),
-    mPenSizeLabel(new QLabel),
-    mMarkerColorLabel(new QLabel),
-    mMarkerSizeLabel(new QLabel),
-    mPenSizeCombobox(new NumericComboBox(1, 1, 10, this)),
-    mMarkerSizeCombobox(new NumericComboBox(10, 2, 11, this)),
+    mTextFontLabel(new QLabel),
     mCaptureDelayCombobox(new NumericComboBox(0, 1, 11, this)),
+    mTextFontCombobox(new QFontComboBox(this)),
     mBrowseButton(new QPushButton),
     mImgurGetPinButton(new QPushButton),
     mImgurGetTokenButton(new QPushButton),
     mOkButton(new QPushButton),
     mCancelButton(new QPushButton),
+    mTextBoldButton(new QPushButton),
+    mTextItalicButton(new QPushButton),
+    mTextUnderlineButton(new QPushButton),
     mImgurUploader(new ImgurUploader),
     mListWidget(new QListWidget),
     mStackedLayout(new QStackedLayout)
 {
+    mConfig = KsnipConfig::instance();
     setWindowTitle(QApplication::applicationName() + " - " + tr("Settings"));
 
     initGui();
@@ -71,58 +71,51 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
 //
 void SettingsDialog::loadSettings()
 {
-    mAlwaysCopyToClipboardCheckbox->setChecked(KsnipConfig::instance()->alwaysCopyToClipboard());
-    mPromptToSaveBeforeExitCheckbox->setChecked(KsnipConfig::instance()->promptSaveBeforeExit());
-    mSaveKsnipPositionCheckbox->setChecked(KsnipConfig::instance()->saveKsnipPosition());
-    mSaveKsnipToolSelectionCheckbox->setChecked(KsnipConfig::instance()->saveKsnipToolSelection());
+    mAlwaysCopyToClipboardCheckbox->setChecked(mConfig->alwaysCopyToClipboard());
+    mPromptToSaveBeforeExitCheckbox->setChecked(mConfig->promptSaveBeforeExit());
+    mSaveKsnipPositionCheckbox->setChecked(mConfig->saveKsnipPosition());
+    mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveKsnipToolSelection());
 
-    mCaptureMouseCheckbox->setChecked(KsnipConfig::instance()->captureMouse());
+    mCaptureMouseCheckbox->setChecked(mConfig->captureMouse());
 
-    mImgurForceAnonymousCheckbox->setChecked(KsnipConfig::instance()->imgurForceAnonymous());
-    mImgurDirectLinkToImageCheckbox->setChecked(KsnipConfig::instance()->imgurOpenLinkDirectlyToImage());
-    mImgurAlwaysCopyToClipboardCheckBox->setChecked(KsnipConfig::instance()->imgurAlwaysCopyToClipboard());
+    mImgurForceAnonymousCheckbox->setChecked(mConfig->imgurForceAnonymous());
+    mImgurDirectLinkToImageCheckbox->setChecked(mConfig->imgurOpenLinkDirectlyToImage());
+    mImgurAlwaysCopyToClipboardCheckBox->setChecked(mConfig->imgurAlwaysCopyToClipboard());
 
-    mImgurUsernameLabel->setText(tr("Username") + ": " + KsnipConfig::instance()->imgurUsername());
-
-    if (!KsnipConfig::instance()->imgurClientId().isEmpty()) {
-        mImgurClientIdLineEdit->setPlaceholderText(KsnipConfig::instance()->imgurClientId());
+    mImgurUsernameLabel->setText(tr("Username") + ": " + mConfig->imgurUsername());
+    if (!mConfig->imgurClientId().isEmpty()) {
+        mImgurClientIdLineEdit->setPlaceholderText(mConfig->imgurClientId());
     }
+    mCaptureDelayCombobox->setValue(mConfig->captureDelay() / 1000);
 
-    mPenColorCombobox->setColor(KsnipConfig::instance()->penColor());
-    mPenSizeCombobox->setValue(KsnipConfig::instance()->penSize());
-
-    mMarkerColorCombobox->setColor(KsnipConfig::instance()->markerColor());
-    mMarkerSizeCombobox->setValue(KsnipConfig::instance()->markerSize());
-
-    mCaptureDelayCombobox->setValue(KsnipConfig::instance()->captureDelay() / 1000);
+    mTextFontCombobox->setCurrentFont(mConfig->textFont());
+    mTextBoldButton->setChecked(mConfig->textBold());
+    mTextItalicButton->setChecked(mConfig->textItalic());
+    mTextUnderlineButton->setChecked(mConfig->textUnderline());
 }
 
 void SettingsDialog::saveSettings()
 {
-    KsnipConfig::instance()->setAlwaysCopyToClipboard(mAlwaysCopyToClipboardCheckbox->isChecked());
-    KsnipConfig::instance()->setPromptSaveBeforeExit(mPromptToSaveBeforeExitCheckbox->isChecked());
-    KsnipConfig::instance()->setSaveKsnipPosition(mSaveKsnipPositionCheckbox->isChecked());
-    KsnipConfig::instance()->setSaveKsnipToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
+    mConfig->setAlwaysCopyToClipboard(mAlwaysCopyToClipboardCheckbox->isChecked());
+    mConfig->setPromptSaveBeforeExit(mPromptToSaveBeforeExitCheckbox->isChecked());
+    mConfig->setSaveKsnipPosition(mSaveKsnipPositionCheckbox->isChecked());
+    mConfig->setSaveKsnipToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
 
-    KsnipConfig::instance()->setCaptureMouse(mCaptureMouseCheckbox->isChecked());
+    mConfig->setCaptureMouse(mCaptureMouseCheckbox->isChecked());
 
-    KsnipConfig::instance()->setImgurForceAnonymous(mImgurForceAnonymousCheckbox->isChecked());
-    KsnipConfig::instance()->setImgurOpenLinkDirectlyToImage(mImgurDirectLinkToImageCheckbox->isChecked());
-    KsnipConfig::instance()->setImgurAlwaysCopyToClipboard(mImgurAlwaysCopyToClipboardCheckBox->isChecked());
+    mConfig->setImgurForceAnonymous(mImgurForceAnonymousCheckbox->isChecked());
+    mConfig->setImgurOpenLinkDirectlyToImage(mImgurDirectLinkToImageCheckbox->isChecked());
+    mConfig->setImgurAlwaysCopyToClipboard(mImgurAlwaysCopyToClipboardCheckBox->isChecked());
 
-    KsnipConfig::instance()->setPenColor(mPenColorCombobox->color());
-    KsnipConfig::instance()->setPenSize(mPenSizeCombobox->value());
+    mConfig->setCaptureDelay(mCaptureDelayCombobox->value() * 1000);
+    mConfig->setSaveDirectory(StringManip::extractPath(mSaveLocationLineEdit->displayText()));
+    mConfig->setSaveFilename(StringManip::extractFilename(mSaveLocationLineEdit->displayText()));
+    mConfig->setSaveFormat(StringManip::extractFormat(mSaveLocationLineEdit->displayText()));
 
-    KsnipConfig::instance()->setMarkerColor(mMarkerColorCombobox->color());
-    KsnipConfig::instance()->setMarkerSize(mMarkerSizeCombobox->value());
-
-    KsnipConfig::instance()->setCaptureDelay(mCaptureDelayCombobox->value() * 1000);
-
-    KsnipConfig::instance()->setSaveDirectory(StringManip::extractPath(mSaveLocationLineEdit->displayText()));
-
-    KsnipConfig::instance()->setSaveFilename(StringManip::extractFilename(mSaveLocationLineEdit->displayText()));
-
-    KsnipConfig::instance()->setSaveFormat(StringManip::extractFormat(mSaveLocationLineEdit->displayText()));
+    mConfig->setTextFont(mTextFontCombobox->currentFont());
+    mConfig->setTextBold(mTextBoldButton->isChecked());
+    mConfig->setTextItalic(mTextItalicButton->isChecked());
+    mConfig->setTextUnderline(mTextUnderlineButton->isChecked());
 }
 
 void SettingsDialog::initGui()
@@ -136,10 +129,9 @@ void SettingsDialog::initGui()
 
     mSaveLocationLabel->setText(tr("Capture save location and filename") + ":");
 
-    mSaveLocationLineEdit->setText(KsnipConfig::instance()->saveDirectory() +
-                                   KsnipConfig::instance()->saveFilename() +
-                                   KsnipConfig::instance()->saveFormat()
-                                  );
+    mSaveLocationLineEdit->setText(mConfig->saveDirectory() +
+                                   mConfig->saveFilename() +
+                                   mConfig->saveFormat());
     mSaveLocationLineEdit->setToolTip(tr("Filename can contain $Y, $M, $D for date and $T for time."));
 
     mBrowseButton->setText(tr("Browse"));
@@ -175,30 +167,29 @@ void SettingsDialog::initGui()
     mImgurGetTokenButton->setEnabled(false);
 
     // Create Painter Settings
-    mPenColorLabel->setText(tr("Pen Color") + ":");
-    mPenSizeLabel->setText(tr("Pen Size") + ":");
-    mMarkerColorLabel->setText(tr("Marker Color")  + ":");
-    mMarkerSizeLabel->setText(tr("Marker Size") + ":");
+    mTextFontLabel->setText(tr("Text Font") + ":");
+    mTextFontCombobox->setEditable(false);
 
-    // Setup combo box, to avoid creating the same variable twice and adding once the pen color set
-    // then marker color set, we add it this way, in the second run we just add additional colors
-    // at specific position so it's ordered
-    QStringList colorNames;
-    colorNames.append("Blue");
-    colorNames.append("Cyan");
-    colorNames.append("Orange");
-    colorNames.append("Red");
-    colorNames.append("Yellow");
-    mMarkerColorCombobox = new ColorComboBox(colorNames, this);
+    // Setting the button to same square size as the height of the combobox
+    int wh = mTextFontCombobox->minimumSizeHint().height();
 
-    colorNames.insert(0, "Black");
-    colorNames.insert(2, "Brown");
-    colorNames.insert(4, "Green");
-    colorNames.insert(5, "Grey");
-    colorNames.insert(7, "Pink");
-    colorNames.insert(8, "Purple");
-    colorNames.insert(10, "White");
-    mPenColorCombobox = new ColorComboBox(colorNames, this);
+    mTextBoldButton->setText(tr("B"));
+    mTextBoldButton->setToolTip(tr("Bold"));
+    mTextBoldButton->setCheckable(true);
+    mTextBoldButton->setFixedSize(wh, wh);
+    mTextBoldButton->setStyleSheet("QPushButton { font-size: 18pt; font-weight: bold; }");
+
+    mTextItalicButton->setText(tr("I"));
+    mTextItalicButton->setToolTip(tr("Italic"));
+    mTextItalicButton->setCheckable(true);
+    mTextItalicButton->setFixedSize(wh, wh);
+    mTextItalicButton->setStyleSheet("QPushButton { font-size: 18pt; font-style: italic; }");
+
+    mTextUnderlineButton->setText(tr("U"));
+    mTextUnderlineButton->setToolTip(tr("Underline"));
+    mTextUnderlineButton->setCheckable(true);
+    mTextUnderlineButton->setFixedSize(wh, wh);
+    mTextUnderlineButton->setStyleSheet("QPushButton { font-size: 18pt; text-decoration: underline; }");
 
     // Create Push Buttons
     mOkButton->setText(tr("OK"));
@@ -257,15 +248,11 @@ void SettingsDialog::initGui()
     QGridLayout* painterGrid = new QGridLayout;
     painterGrid->setAlignment(Qt::AlignTop);
     painterGrid->setColumnStretch(1, 1);
-    painterGrid->addWidget(mPenColorLabel, 0, 0);
-    painterGrid->addWidget(mPenColorCombobox, 0, 1);
-    painterGrid->addWidget(mPenSizeLabel, 1, 0);
-    painterGrid->addWidget(mPenSizeCombobox, 1, 1);
-    painterGrid->setRowMinimumHeight(2, 15);
-    painterGrid->addWidget(mMarkerColorLabel, 3, 0);
-    painterGrid->addWidget(mMarkerColorCombobox, 3, 1);
-    painterGrid->addWidget(mMarkerSizeLabel, 4, 0);
-    painterGrid->addWidget(mMarkerSizeCombobox, 4, 1);
+    painterGrid->addWidget(mTextFontLabel, 0, 0);
+    painterGrid->addWidget(mTextFontCombobox, 0, 1);
+    painterGrid->addWidget(mTextBoldButton, 0, 2);
+    painterGrid->addWidget(mTextItalicButton, 0, 3);
+    painterGrid->addWidget(mTextUnderlineButton, 0, 4);
 
     QGroupBox* painterGrpBox = new QGroupBox(tr("Painter Settings"));
     painterGrpBox->setLayout(painterGrid);
@@ -308,9 +295,9 @@ void SettingsDialog::browseButtonClicked()
 {
     mSaveLocationLineEdit->setText(QFileDialog::getOpenFileName(this,
                                    tr("Capture save location"),
-                                   KsnipConfig::instance()->saveDirectory() +
-                                   KsnipConfig::instance()->saveFilename() +
-                                   KsnipConfig::instance()->saveFormat(),
+                                   mConfig->saveDirectory() +
+                                   mConfig->saveFilename() +
+                                   mConfig->saveFormat(),
                                    tr("All")));
 }
 
@@ -321,8 +308,8 @@ void SettingsDialog::browseButtonClicked()
 void SettingsDialog::getPinButtonClicked()
 {
     // Save client ID and Secret to config file
-    KsnipConfig::instance()->setImgurClientId(mImgurClientIdLineEdit->text().toUtf8());
-    KsnipConfig::instance()->setImgurClientSecret(mImgurClientSecretLineEdit->text().toUtf8());
+    mConfig->setImgurClientId(mImgurClientIdLineEdit->text().toUtf8());
+    mConfig->setImgurClientSecret(mImgurClientSecretLineEdit->text().toUtf8());
 
     // Open the pin request in the default browser
     QDesktopServices::openUrl(mImgurUploader->pinRequestUrl(mImgurClientIdLineEdit->text()));
@@ -340,8 +327,8 @@ void SettingsDialog::getPinButtonClicked()
 void SettingsDialog::getTokenButtonClicked()
 {
     mImgurUploader->getAccessToken(mImgurPinLineEdit->text().toUtf8(),
-                                   KsnipConfig::instance()->imgurClientId(),
-                                   KsnipConfig::instance()->imgurClientSecret());
+                                   mConfig->imgurClientId(),
+                                   mConfig->imgurClientSecret());
     mImgurPinLineEdit->clear();
     mParent->statusBar()->showMessage(tr("Waiting for imgur.com..."));
 }
@@ -391,9 +378,9 @@ void SettingsDialog::imgurClientEntered(QString text)
 void SettingsDialog::imgurTokenUpdated(const QString accessToken, const QString refreshTocken,
                                        const QString username)
 {
-    KsnipConfig::instance()->setImgurAccessToken(accessToken.toUtf8());
-    KsnipConfig::instance()->setImgurRefreshToken(refreshTocken.toUtf8());
-    KsnipConfig::instance()->setImgurUsername(username);
+    mConfig->setImgurAccessToken(accessToken.toUtf8());
+    mConfig->setImgurRefreshToken(refreshTocken.toUtf8());
+    mConfig->setImgurUsername(username);
 
     mImgurUsernameLabel->setText(tr("Username") + ": " + username);
     mParent->statusBar()->showMessage(tr("Imgur.com token successfully updated."), 3000);

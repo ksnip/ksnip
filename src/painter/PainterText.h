@@ -41,14 +41,14 @@ private:
     };
 
 public:
-    PainterText(QPointF pos, QPen attributes);
+    PainterText(QPointF pos, QPen attributes, QFont font);
     ~PainterText();
     virtual QRectF boundingRect() const;
     virtual void moveTo(QPointF newPos);
     virtual void addPoint(QPointF pos, bool modifier = 0);
     virtual bool containsRect(QPointF topLeft, QSize size) const;
     virtual bool isValid() const;
-    QFont *font() const;
+    QFont font() const;
     void setFont(const QFont &font);
 
 protected:
@@ -58,7 +58,7 @@ protected:
 private:
     QRectF        mRect;
     QString       mText;
-    QFont        *mFont;
+    QFont         mFont;
     QFontMetrics *mFontMetric;
     QTimer       *mCursorBlinkTimer;
     bool          mEditable;

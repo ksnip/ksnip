@@ -36,9 +36,10 @@ int textBoxMargin()
 // Public Functions
 //
 
-PainterText::PainterText(QPointF pos, QPen attributes) : PainterBaseItem(Text, attributes),
-    mFont(new QFont("Arial", attributes.width(), QFont::Bold)),
-    mFontMetric(new QFontMetrics(*mFont)),
+PainterText::PainterText(QPointF pos, QPen attributes, QFont font) :
+    PainterBaseItem(Text, attributes),
+    mFont(font),
+    mFontMetric(new QFontMetrics(mFont)),
     mCursorBlinkTimer(new QTimer(this)),
     mEditable(true),
     mCursorVisible(true)
@@ -57,7 +58,6 @@ PainterText::PainterText(QPointF pos, QPen attributes) : PainterBaseItem(Text, a
 
 PainterText::~PainterText()
 {
-    delete mFont;
     delete mFontMetric;
     delete mCursorBlinkTimer;
 }
@@ -95,16 +95,14 @@ bool PainterText::isValid() const
     }
 }
 
-QFont* PainterText::font() const
+QFont PainterText::font() const
 {
     return mFont;
 }
 
 void PainterText::setFont(const QFont& font)
 {
-
-    delete mFont;
-    mFont = new QFont(font);
+    mFont = font;
 }
 
 //
@@ -183,7 +181,7 @@ void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem* style
         int blpos = block.position();
         int bllen = block.length();
         QTextLayout textLayout(block);
-        textLayout.setFont(*mFont);
+        textLayout.setFont(mFont);
         int leading = mFontMetric->leading();
         qreal blockHeight = 0;
         textLayout.setCacheEnabled(true);

@@ -55,10 +55,10 @@ public:
     void setWindowPosition(const QPoint &position);
 
     PaintArea::PaintMode paintMode() const;
-    void setPaintMode(const PaintArea::PaintMode &paintMode);
+    void setPaintMode(const PaintArea::PaintMode &mode);
 
     ImageGrabber::CaptureMode captureMode() const;
-    void setCaptureMode(const ImageGrabber::CaptureMode &captureMode);
+    void setCaptureMode(const ImageGrabber::CaptureMode &mode);
 
     QString saveDirectory() const;
     void setSaveDirectory(const QString &path);

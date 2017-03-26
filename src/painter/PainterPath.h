@@ -31,6 +31,7 @@ public:
     virtual void addPoint(QPointF pos, bool modifier = 0);
     virtual void moveTo(QPointF newPos);
     virtual bool containsRect(QPointF topLeft, QSize size) const;
+    void smoothOut();
 
 private:
     QPainterPath        *mPath;

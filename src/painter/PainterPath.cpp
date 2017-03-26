@@ -18,6 +18,7 @@
  */
 
 #include "PainterPath.h"
+#include <iostream>
 
 //
 // Public Functions
@@ -73,6 +74,19 @@ bool PainterPath::containsRect(QPointF topLeft, QSize size) const
                                     topLeft.y() - size.height() / 2,
                                     size.width(),
                                     size.height()));
+}
+
+void PainterPath::smoothOut()
+{
+    QPainterPath *path = new QPainterPath(mPath->elementAt(0));
+    for (int i = 1; i < mPath->elementCount() - 2; i = i + 2) {
+        QPoint a(mPath->elementAt(i).x, mPath->elementAt(i).y);
+        QPoint b(mPath->elementAt(i + 2).x, mPath->elementAt(i + 2).y);
+        path->quadTo(a, b);
+    }
+    delete mPath;
+    mPath = path;
+    prepareGeometryChange();
 }
 
 //

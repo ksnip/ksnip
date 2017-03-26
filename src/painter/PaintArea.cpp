@@ -245,6 +245,8 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
     if (event->button() == Qt::LeftButton && mIsEnabled) {
         switch (mPaintMode) {
         case Pen:
+            (qgraphicsitem_cast<PainterPath*> (mCurrentItem))->smoothOut();
+            break;
         case Marker:
         case Rect:
         case Ellipse:

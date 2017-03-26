@@ -43,6 +43,8 @@ PaintArea::PaintArea() : QGraphicsScene(),
  */
 void PaintArea::loadCapture(const QPixmap& pixmap)
 {
+
+    clearItem();
     mUndoStack->clear();
     clear();
     mScreenshot = addPixmap(pixmap);

@@ -34,7 +34,7 @@ signals:
     void close();
 
 protected:
-    virtual void keyPressEvent(QKeyEvent * event);
+    virtual void keyPressEvent(QKeyEvent *event);
 
 private:
     CaptureView *mCaptureView;
@@ -50,11 +50,11 @@ private:
 private slots:
     void closeClicked();
     void cropClicked();
-    void selectedRectChanged(QRect rect);
-    void xChanged(QString text);
-    void yChanged(QString text);
-    void widthChanged(QString text);
-    void heightChanged(QString text);
+    void selectedRectChanged(const QRectF &rect);
+    void xChanged(const QString &text);
+    void yChanged(const QString &text);
+    void widthChanged(const QString &text);
+    void heightChanged(const QString &text);
 };
 
 #endif // CROPPANEL_H

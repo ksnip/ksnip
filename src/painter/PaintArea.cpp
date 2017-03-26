@@ -41,7 +41,7 @@ PaintArea::PaintArea() : QGraphicsScene(),
  * Load new captured image and add it to the scene and set the scene size to the size of the loaded
  * image.
  */
-void PaintArea::loadCapture(QPixmap pixmap)
+void PaintArea::loadCapture(const QPixmap& pixmap)
 {
     mUndoStack->clear();
     clear();
@@ -66,7 +66,7 @@ QSize PaintArea::areaSize() const
     return sceneRect().size().toSize();
 }
 
-void PaintArea::setPaintMode(PaintMode paintMode)
+void PaintArea::setPaintMode(const PaintMode& paintMode)
 {
     if (mPaintMode == paintMode) {
         return;
@@ -99,7 +99,7 @@ QImage PaintArea::exportAsImage()
     return image;
 }
 
-void PaintArea::setIsEnabled(bool enabled)
+void PaintArea::setIsEnabled(const bool& enabled)
 {
     mIsEnabled = enabled;
     setCursor();
@@ -125,12 +125,12 @@ bool PaintArea::isValid() const
 /*
  * Crop the capture image to the provided rect and set the scene rect appropriately
  */
-void PaintArea::crop(QRectF rect)
+void PaintArea::crop(const QRectF& rect)
 {
     mUndoStack->push(new CropCommand(mScreenshot, rect, this));
 }
 
-QPointF PaintArea::cropOffset()
+QPointF PaintArea::cropOffset() const
 {
     return mScreenshot->offset();
 }
@@ -304,7 +304,7 @@ bool PaintArea::eraseItem(const QPointF& position, const int& size)
 /*
  * Check if any of the paths is under this position, if yes grab it.
  */
-bool PaintArea::grabItem(QPointF position)
+bool PaintArea::grabItem(const QPointF& position)
 {
     for (QGraphicsItem* item : items()) {
         mCurrentItem = qgraphicsitem_cast<PainterBaseItem*> (item);
@@ -320,7 +320,7 @@ bool PaintArea::grabItem(QPointF position)
     return false;
 }
 
-void PaintArea::moveItem(QPointF position)
+void PaintArea::moveItem(const QPointF& position)
 {
     if (mCurrentItem == nullptr) {
         return;

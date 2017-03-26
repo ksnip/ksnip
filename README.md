@@ -22,6 +22,7 @@ Latest ksnip version contains following features:
 * Command line support, for taking screenshot and saving it to default location, filename and format.
 * Customizable default location, filename and format for saving new screenshots with wildcards for Year ($Y), Month ($M), Day ($D) and Time ($T).
 * Print screenshot or save is to prf/ps.
+* Undo/Redo for paint and crop operations.
 
 
 ### Building from source

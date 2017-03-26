@@ -30,17 +30,17 @@ class CaptureView : public QGraphicsView
     Q_OBJECT
 
 public:
-    CaptureView(QGraphicsScene *);
+    CaptureView(QGraphicsScene *scene);
     void show();
-    PaintArea *scene();
+    PaintArea *scene() const;
     void crop();
-    void setIsCropping(bool);
-    bool getIsCropping();
-    QRectF getSelectedRect();
-    void setSelectedRect(QRectF rect);
+    void setIsCropping(const bool &isCropping);
+    bool getIsCropping() const;
+    QRectF getSelectedRect() const;
+    void setSelectedRect(const QRectF &rect);
 
 signals:
-    void selectedRectChanged(QRect rect);
+    void selectedRectChanged(const QRectF &rect);
     void closeCrop();
 
 protected:
@@ -51,19 +51,19 @@ protected:
     virtual void drawForeground(QPainter *painter, const QRectF &rect);
 
 private:
-    int    mRectSize;
-    int    mSelectedBorderPoint;
-    bool   mIsCropping;
-    bool   mIsMovingSelection;
+    int     mRectSize;
+    int     mSelectedBorderPoint;
+    bool    mIsCropping;
+    bool    mIsMovingSelection;
     QPointF mClickOffset;
-    QRectF mSelectedRect;
-    QRectF mBorderPoints[8];
+    QRectF  mSelectedRect;
+    QRectF  mBorderPoints[8];
 
-    void moveBorderPoint(int, QPoint);
-    void setupBorderPoints(QRectF);
-    QPointF restrictPointToScene(QPointF);
-    QPointF restrictRectMoveToScene(QRectF, QPointF);
-    void setCursor(QPointF);
+    void moveBorderPoint(const int &borderPoint, const QPointF &pos);
+    void setupBorderPoints(const QRectF &rect);
+    QPointF restrictPointToScene(const QPointF &point) const;
+    QPointF restrictRectMoveToScene(const QRectF &rect, const QPointF &newPos) const;
+    void setCursor(const QPointF &pos);
 };
 
 #endif // CAPTUREVIEW_H

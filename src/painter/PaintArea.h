@@ -47,19 +47,19 @@ public:
 
 public:
     PaintArea();
-    void loadCapture(QPixmap pixmap);
+    void loadCapture(const QPixmap &pixmap);
     void fitViewToParent();
     QSize areaSize() const;
-    void setPaintMode(PaintMode paintMode);
+    void setPaintMode(const PaintMode &paintMode);
     PaintMode paintMode() const;
     QImage exportAsImage();
-    void setIsEnabled(bool enabled);
+    void setIsEnabled(const bool &enabled);
     bool isEnabled() const;
     bool isValid() const;
-    void crop(QRectF rect);
-    QPointF cropOffset();
-    QAction* createUndoAction();
-    QAction* createRedoAction();
+    void crop(const QRectF &rect);
+    QPointF cropOffset() const;
+    QAction *createUndoAction();
+    QAction *createRedoAction();
 
 signals:
     void imageChanged();
@@ -81,8 +81,8 @@ private:
     QUndoStack          *mUndoStack;
 
     bool eraseItem(const QPointF &position, const int &size);
-    bool grabItem(QPointF position);
-    void moveItem(QPointF position);
+    bool grabItem(const QPointF &position);
+    void moveItem(const QPointF &position);
     QCursor *cursor();
 
 private slots:

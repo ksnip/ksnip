@@ -20,7 +20,10 @@
 #include "UndoCommands.h"
 #include "src/painter/PaintArea.h"
 
-MoveCommand::MoveCommand(PainterBaseItem *painterItem, const QPointF &newPos, QUndoCommand *parent)
+//
+// Move Command
+//
+MoveCommand::MoveCommand(PainterBaseItem* painterItem, const QPointF& newPos, QUndoCommand* parent)
     : QUndoCommand(parent)
 {
     mPainterItem = painterItem;
@@ -28,10 +31,10 @@ MoveCommand::MoveCommand(PainterBaseItem *painterItem, const QPointF &newPos, QU
     mOldPos = mPainterItem->position();
 }
 
-bool MoveCommand::mergeWith(const QUndoCommand *command)
+bool MoveCommand::mergeWith(const QUndoCommand* command)
 {
-    const MoveCommand *moveCommand = static_cast<const MoveCommand *>(command);
-    PainterBaseItem *item = moveCommand->mPainterItem;
+    const MoveCommand* moveCommand = static_cast<const MoveCommand*>(command);
+    PainterBaseItem* item = moveCommand->mPainterItem;
 
     if (mPainterItem != item) {
         return false;
@@ -52,8 +55,10 @@ void MoveCommand::redo()
     mPainterItem->moveTo(mNewPos);
 }
 
-
-DeleteCommand::DeleteCommand(PainterBaseItem *painterItem, PaintArea *scene, QUndoCommand *parent)
+//
+// Delete Command
+//
+DeleteCommand::DeleteCommand(PainterBaseItem* painterItem, PaintArea* scene, QUndoCommand* parent)
     : QUndoCommand(parent)
 {
     mScene = scene;
@@ -71,8 +76,10 @@ void DeleteCommand::redo()
     mScene->removeItem(mPainterItem);
 }
 
-
-AddCommand::AddCommand(PainterBaseItem *painterItem, PaintArea *scene, QUndoCommand *parent)
+//
+// Add Command
+//
+AddCommand::AddCommand(PainterBaseItem* painterItem, PaintArea* scene, QUndoCommand* parent)
     : QUndoCommand(parent)
 {
     mScene = scene;
@@ -99,8 +106,10 @@ void AddCommand::redo()
     mScene->update();
 }
 
-
-CropCommand::CropCommand(QGraphicsPixmapItem * pixmapItem, const QRectF &newRect, PaintArea *scene, QUndoCommand *parent)
+//
+// Crop Command
+//
+CropCommand::CropCommand(QGraphicsPixmapItem* pixmapItem, const QRectF& newRect, PaintArea* scene, QUndoCommand* parent)
 {
     mScene = scene;
     mPixmapItem = pixmapItem;

@@ -20,8 +20,6 @@
 #include "PaintArea.h"
 #include "src/backend/KsnipConfig.h"
 
-#include <iostream>
-
 PaintArea::PaintArea() : QGraphicsScene(),
     mScreenshot(nullptr),
     mCurrentItem(nullptr),
@@ -57,7 +55,7 @@ void PaintArea::loadCapture(QPixmap pixmap)
  */
 void PaintArea::fitViewToParent()
 {
-    for (QGraphicsView *view : views()) {
+    for (QGraphicsView* view : views()) {
         view->parentWidget()->resize(areaSize() + QSize(100, 150));
     }
 }
@@ -154,23 +152,30 @@ QAction* PaintArea::createRedoAction()
     return mUndoStack->createRedoAction(this, tr("Redo"));
 }
 
-
 //
 // Protected Functions
 //
 
 void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
 {
-    if (event->button() == Qt::LeftButton && mIsEnabled) {
+    if (!mIsEnabled) {
+        return;
+    }
 
-        if (mCurrentItem) {
-            if (!mCurrentItem->isValid()) {
-                mUndoStack->undo();
-                mUndoStack->push(new QUndoCommand(""));
-                mUndoStack->undo();
-            }
-            mCurrentItem = nullptr;
+    // When clicked with any button somewhere on the scene, the paint item
+    // looses focus so we check if the paint item is valid at that time, if not
+    // we remove it. Mostly used to check if empty text item was left on the
+    // scene.
+    if (mCurrentItem) {
+        if (!mCurrentItem->isValid()) {
+            mUndoStack->undo();
+            mUndoStack->push(new QUndoCommand(""));
+            mUndoStack->undo();
         }
+        mCurrentItem = nullptr;
+    }
+
+    if (event->button() == Qt::LeftButton) {
 
         KsnipConfig* config = KsnipConfig::instance();
         switch (mPaintMode) {
@@ -247,10 +252,7 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
         case Marker:
         case Rect:
         case Ellipse:
-            mCurrentItem = nullptr;
-            break;
         case Text:
-            break;
         case Erase:
             break;
         case Move:

@@ -72,6 +72,7 @@ void PaintArea::setPaintMode(const PaintMode& paintMode)
         return;
     }
     mPaintMode = paintMode;
+    clearItem();
     setCursor();
 }
 
@@ -166,14 +167,7 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
     // looses focus so we check if the paint item is valid at that time, if not
     // we remove it. Mostly used to check if empty text item was left on the
     // scene.
-    if (mCurrentItem) {
-        if (!mCurrentItem->isValid()) {
-            mUndoStack->undo();
-            mUndoStack->push(new QUndoCommand(""));
-            mUndoStack->undo();
-        }
-        mCurrentItem = nullptr;
-    }
+    clearItem();
 
     if (event->button() == Qt::LeftButton) {
 
@@ -326,6 +320,19 @@ void PaintArea::moveItem(const QPointF& position)
         return;
     }
     mUndoStack->push(new MoveCommand(mCurrentItem, position));
+}
+
+void PaintArea::clearItem()
+{
+    if (!mCurrentItem) {
+        return;
+    }
+    if (!mCurrentItem->isValid()) {
+        mUndoStack->undo();
+        mUndoStack->push(new QUndoCommand(""));
+        mUndoStack->undo();
+    }
+    mCurrentItem = nullptr;
 }
 
 /*

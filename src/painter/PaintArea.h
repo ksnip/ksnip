@@ -83,6 +83,7 @@ private:
     bool eraseItem(const QPointF &position, const int &size);
     bool grabItem(const QPointF &position);
     void moveItem(const QPointF &position);
+    void clearItem();
     QCursor *cursor();
 
 private slots:

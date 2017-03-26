@@ -69,7 +69,7 @@ private:
     void moveCursor(CursorPos direction);
     void insertChar(const QString &c);
     void removeChar(CursorPos direction);
-    bool finishEditing();
+    void finishEditing();
     void updateRect();
     void pasteClipboard();
 

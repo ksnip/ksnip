@@ -36,8 +36,8 @@ public:
     void crop();
     void setIsCropping(bool);
     bool getIsCropping();
-    QRect getSelectedRect();
-    void setSelectedRect(QRect rect);
+    QRectF getSelectedRect();
+    void setSelectedRect(QRectF rect);
 
 signals:
     void selectedRectChanged(QRect rect);
@@ -55,15 +55,15 @@ private:
     int    mSelectedBorderPoint;
     bool   mIsCropping;
     bool   mIsMovingSelection;
-    QPoint mClickOffset;
-    QRect  mSelectedRect;
-    QRect  mBorderPoints[8];
+    QPointF mClickOffset;
+    QRectF mSelectedRect;
+    QRectF mBorderPoints[8];
 
     void moveBorderPoint(int, QPoint);
-    void setupBorderPoints(QRect);
-    QPoint restrictPointToScene(QPoint);
-    QPoint restrictRectMoveToScene(QRect, QPoint);
-    void setCursor(QPoint);
+    void setupBorderPoints(QRectF);
+    QPointF restrictPointToScene(QPointF);
+    QPointF restrictRectMoveToScene(QRectF, QPointF);
+    void setCursor(QPointF);
 };
 
 #endif // CAPTUREVIEW_H

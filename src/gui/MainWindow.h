@@ -94,8 +94,10 @@ private:
     QAction          *mSettingsDialogAction;
     QAction          *mAboutKsnipAction;
     QToolBar         *mToolBar;
-    PaintArea        *mCaptureScene;
+    PaintArea        *mPaintArea;
     CaptureView      *mCaptureView;
+    QAction          *mUndoAction;
+    QAction          *mRedoAction;
     QClipboard       *mClipboard;
     SnippingArea     *mSnippingArea;
     ImageGrabber     *mImageGrabber;

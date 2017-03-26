@@ -29,6 +29,7 @@
 #include "PainterEllipse.h"
 #include "PainterText.h"
 #include "src/widgets/CustomCursor.h"
+#include "src/widgets/UndoCommands.h"
 
 class PaintArea : public QGraphicsScene
 {
@@ -47,6 +48,7 @@ public:
 public:
     PaintArea();
     void loadCapture(QPixmap pixmap);
+    void fitViewToParent();
     QSize areaSize() const;
     void setPaintMode(PaintMode paintMode);
     PaintMode paintMode() const;
@@ -54,8 +56,10 @@ public:
     void setIsEnabled(bool enabled);
     bool isEnabled() const;
     bool isValid() const;
-    void crop(QRect rect);
-    QPoint cropOffset();
+    void crop(QRectF rect);
+    QPointF cropOffset();
+    QAction* createUndoAction();
+    QAction* createRedoAction();
 
 signals:
     void imageChanged();
@@ -69,12 +73,12 @@ protected:
 
 private:
     bool                 mIsEnabled;
-    QGraphicsPixmapItem *mPixmap;
+    QGraphicsPixmapItem *mScreenshot;
     PainterBaseItem     *mCurrentItem;
     QCursor             *mCursor;
     bool                 mModifierPressed;
-    PaintMode            mCurrentPaintMode;
-    QPoint               mCropOffset;
+    PaintMode            mPaintMode;
+    QUndoStack          *mUndoStack;
 
     bool eraseItem(const QPointF &position, const int &size);
     bool grabItem(QPointF position);

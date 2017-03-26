@@ -20,13 +20,15 @@
 #include "PaintArea.h"
 #include "src/backend/KsnipConfig.h"
 
+#include <iostream>
+
 PaintArea::PaintArea() : QGraphicsScene(),
-    mPixmap(nullptr),
+    mScreenshot(nullptr),
     mCurrentItem(nullptr),
     mCursor(nullptr),
     mModifierPressed(false),
-    mCurrentPaintMode(Pen),
-    mCropOffset(QPoint())
+    mPaintMode(Pen),
+    mUndoStack(new QUndoStack(this))
 {
     // Connect to update signal so that we are informed any time the config changes, we use that to
     // set the correct mouse cursor
@@ -43,10 +45,21 @@ PaintArea::PaintArea() : QGraphicsScene(),
  */
 void PaintArea::loadCapture(QPixmap pixmap)
 {
+    mUndoStack->clear();
     clear();
-    mPixmap = addPixmap(pixmap);
-    setSceneRect(0, 0, pixmap.width(), pixmap.height());
-    mCropOffset = QPoint(0, 0);
+    mScreenshot = addPixmap(pixmap);
+    setSceneRect(pixmap.rect());
+}
+
+/*
+ * Makes all parent view resize their parent widgets to fit the scene with some
+ * additional space around it.
+ */
+void PaintArea::fitViewToParent()
+{
+    for (QGraphicsView *view : views()) {
+        view->parentWidget()->resize(areaSize() + QSize(100, 150));
+    }
 }
 
 // Return scene rect which is the current size of the area
@@ -57,16 +70,16 @@ QSize PaintArea::areaSize() const
 
 void PaintArea::setPaintMode(PaintMode paintMode)
 {
-    if (mCurrentPaintMode == paintMode) {
+    if (mPaintMode == paintMode) {
         return;
     }
-    mCurrentPaintMode = paintMode;
+    mPaintMode = paintMode;
     setCursor();
 }
 
 PaintArea::PaintMode PaintArea::paintMode() const
 {
-    return mCurrentPaintMode;
+    return mPaintMode;
 }
 
 /*
@@ -104,7 +117,7 @@ bool PaintArea::isEnabled() const
  */
 bool PaintArea::isValid() const
 {
-    if (mPixmap == nullptr) {
+    if (mScreenshot == nullptr) {
         return false;
     } else {
         return true;
@@ -114,30 +127,33 @@ bool PaintArea::isValid() const
 /*
  * Crop the capture image to the provided rect and set the scene rect appropriately
  */
-void PaintArea::crop(QRect rect)
+void PaintArea::crop(QRectF rect)
 {
-    // Move all painter items to old offset, if this is not done, on the second
-    // crop the items are positioned incorrectly bug#27
-    for (QGraphicsItem* item : items()) {
-        PainterBaseItem* baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
-        if (baseItem) {
-            baseItem->moveTo(baseItem->position() - mCropOffset);
-        }
-    }
-    mCropOffset = rect.topLeft() - mCropOffset;
-
-    // Store offset of crop, we will need it in case of cropping again.
-    rect.moveTo(mCropOffset);
-    setSceneRect(rect);
-
-    mPixmap->setPixmap(mPixmap->pixmap().copy(rect));
-    mPixmap->setPos(rect.x(), rect.y());
+    mUndoStack->push(new CropCommand(mScreenshot, rect, this));
 }
 
-QPoint PaintArea::cropOffset()
+QPointF PaintArea::cropOffset()
 {
-    return mCropOffset;
+    return mScreenshot->offset();
 }
+
+/*
+ * Creates a pointer to the undo action so that it can be directly used without
+ * creating custom functions and slots.
+ */
+QAction* PaintArea::createUndoAction()
+{
+    return mUndoStack->createUndoAction(this, tr("Undo"));
+}
+
+/*
+ * Same as createUndoAction
+ */
+QAction* PaintArea::createRedoAction()
+{
+    return mUndoStack->createRedoAction(this, tr("Redo"));
+}
+
 
 //
 // Protected Functions
@@ -146,27 +162,37 @@ QPoint PaintArea::cropOffset()
 void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton && mIsEnabled) {
+
+        if (mCurrentItem) {
+            if (!mCurrentItem->isValid()) {
+                mUndoStack->undo();
+                mUndoStack->push(new QUndoCommand(""));
+                mUndoStack->undo();
+            }
+            mCurrentItem = nullptr;
+        }
+
         KsnipConfig* config = KsnipConfig::instance();
-        switch (mCurrentPaintMode) {
+        switch (mPaintMode) {
         case Pen:
             mCurrentItem = new PainterPath(event->scenePos(), config->pen());
-            addItem(mCurrentItem);
+            mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Marker:
             mCurrentItem = new PainterPath(event->scenePos(), config->marker(), true);
-            addItem(mCurrentItem);
+            mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Rect:
             mCurrentItem = new PainterRect(event->scenePos(),
                                            config->rect(),
                                            config->rectFill());
-            addItem(mCurrentItem);
+            mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Ellipse:
             mCurrentItem = new PainterEllipse(event->scenePos(),
                                               config->ellipse(),
                                               config->ellipseFill());
-            addItem(mCurrentItem);
+            mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Text:
             // The subtraction of the QPoint is to align the text with the cursor as
@@ -174,7 +200,7 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             // instead of at the top.
             mCurrentItem = new PainterText(event->scenePos() - QPointF(0, 12),
                                            config->text(), config->textFont());
-            addItem(mCurrentItem);
+            mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Erase:
             eraseItem(event->scenePos(), config->eraseSize());
@@ -193,7 +219,7 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
 void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 {
     if (event->buttons() == Qt::LeftButton && mIsEnabled) {
-        switch (mCurrentPaintMode) {
+        switch (mPaintMode) {
         case Pen:
         case Marker:
         case Rect:
@@ -216,13 +242,14 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton && mIsEnabled) {
-        switch (mCurrentPaintMode) {
+        switch (mPaintMode) {
         case Pen:
         case Marker:
         case Rect:
         case Ellipse:
-        case Text:
             mCurrentItem = nullptr;
+            break;
+        case Text:
             break;
         case Erase:
             break;
@@ -264,8 +291,7 @@ bool PaintArea::eraseItem(const QPointF& position, const int& size)
     for (QGraphicsItem* item : items()) {
         PainterBaseItem* baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
         if (baseItem && baseItem->containsRect(position , QSize(size, size))) {
-            removeItem(item);
-            delete item;
+            mUndoStack->push(new DeleteCommand(baseItem, this));
             return true;
         }
     }
@@ -297,22 +323,7 @@ void PaintArea::moveItem(QPointF position)
     if (mCurrentItem == nullptr) {
         return;
     }
-
-    mCurrentItem->moveTo(position);
-}
-
-/*
- * Set the mouse cursor on all views that show this scene to a specif cursor
- * that represents the currently selected paint tool.
- */
-void PaintArea::setCursor()
-{
-    delete mCursor;
-    mCursor = cursor();
-
-    for (QGraphicsItem* item : items()) {
-        item->setCursor(*mCursor);
-    }
+    mUndoStack->push(new MoveCommand(mCurrentItem, position));
 }
 
 /*
@@ -325,7 +336,7 @@ QCursor* PaintArea::cursor()
         return new CustomCursor();
     }
     KsnipConfig* config = KsnipConfig::instance();
-    switch (mCurrentPaintMode) {
+    switch (mPaintMode) {
     case Pen:
         return new CustomCursor(CustomCursor::Circle,
                                 config->penColor(),
@@ -356,5 +367,19 @@ QCursor* PaintArea::cursor()
     default:
         return new CustomCursor();
 
+    }
+}
+
+/*
+ * Set the mouse cursor on all views that show this scene to a specif cursor
+ * that represents the currently selected paint tool.
+ */
+void PaintArea::setCursor()
+{
+    delete mCursor;
+    mCursor = cursor();
+
+    for (QGraphicsItem* item : items()) {
+        item->setCursor(*mCursor);
     }
 }

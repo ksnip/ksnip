@@ -51,7 +51,6 @@ void CaptureView::crop()
 {
     setIsCropping(false);
     scene()->crop(mSelectedRect);
-    parentWidget()->resize(scene()->areaSize() + QSize(100, 150));
 }
 
 void CaptureView::setIsCropping(bool isCropping)
@@ -84,10 +83,10 @@ bool CaptureView::getIsCropping()
     return mIsCropping;
 }
 
-QRect CaptureView::getSelectedRect()
+QRectF CaptureView::getSelectedRect()
 {
     // Take into account offset of any previous crops
-    QRect rect = mSelectedRect.normalized();
+    QRectF rect = mSelectedRect.normalized();
     rect.moveTo(rect.topLeft() - scene()->cropOffset());
     return rect;
 }
@@ -96,7 +95,7 @@ QRect CaptureView::getSelectedRect()
  * Sets the selectedRect to the provided rect. Boundary checks should be done by the caller.
  * Takes crop offset into account.
  */
-void CaptureView::setSelectedRect(QRect rect)
+void CaptureView::setSelectedRect(QRectF rect)
 {
     rect.moveTo(rect.topLeft() + scene()->cropOffset());
     mSelectedRect = rect;
@@ -129,7 +128,7 @@ void CaptureView::mousePressEvent(QMouseEvent* event)
         for (int i = 0; i < 8; i++) {
             if (mBorderPoints[i].contains(mapToScene(event->pos()).toPoint())) {
                 mSelectedBorderPoint = i;
-                mClickOffset = mapToScene(event->pos()).toPoint() - mBorderPoints[i].topLeft();
+                mClickOffset = mapToScene(event->pos()) - mBorderPoints[i].topLeft();
                 break;
             }
         }
@@ -167,18 +166,17 @@ void CaptureView::mouseMoveEvent(QMouseEvent* event)
             scene()->update();
 
             // Inform anyone all stakeholders that the selection has changed
-            emit selectedRectChanged(getSelectedRect());
+            emit selectedRectChanged(getSelectedRect().toRect());
         }
 
         if (mIsMovingSelection) {
             mSelectedRect.moveTo(restrictRectMoveToScene(mSelectedRect,
-                                 mapToScene(event->pos()).toPoint()
-                                 - mClickOffset)
+                                 mapToScene(event->pos()) - mClickOffset)
                                 );
             scene()->update();
 
             // Inform anyone all stakeholders that the selection has changed
-            emit selectedRectChanged(getSelectedRect());
+            emit selectedRectChanged(getSelectedRect().toRect());
         }
 
         setCursor(mapToScene(event->pos()).toPoint());
@@ -192,7 +190,7 @@ void CaptureView::drawForeground(QPainter* painter, const QRectF& rect)
     if (mIsCropping) {
         // Draw semi transparent background for not selected area
         painter->setClipRegion(QRegion(sceneRect().toRect()).subtracted(
-                                   QRegion(mSelectedRect.normalized()))
+                                   QRegion(mSelectedRect.normalized().toRect()))
                               );
         painter->setBrush(QColor(0, 0, 0, 150));
         painter->drawRect(sceneRect().toRect());
@@ -274,7 +272,7 @@ void CaptureView::moveBorderPoint(int borderPoint, QPoint pos)
 /*
  * Base on the provided rect, calculate new border point position.
  */
-void CaptureView::setupBorderPoints(QRect rect)
+void CaptureView::setupBorderPoints(QRectF rect)
 {
     // Top Left
     mBorderPoints[0].setRect(rect.x(),     // x
@@ -326,7 +324,7 @@ void CaptureView::setupBorderPoints(QRect rect)
 /*
  * Restrict point movement only to current scene rect
  */
-QPoint CaptureView::restrictPointToScene(QPoint point)
+QPointF CaptureView::restrictPointToScene(QPointF point)
 {
     if (point.x() < sceneRect().left()) {
         point.setX(sceneRect().left());
@@ -346,7 +344,7 @@ QPoint CaptureView::restrictPointToScene(QPoint point)
 /*
  * Restrict rect movement only to current scene rect
  */
-QPoint CaptureView::restrictRectMoveToScene(QRect rect, QPoint newPos)
+QPointF CaptureView::restrictRectMoveToScene(QRectF rect, QPointF newPos)
 {
     if (newPos.x() < sceneRect().left()) {
         newPos.setX(sceneRect().left());
@@ -366,7 +364,7 @@ QPoint CaptureView::restrictRectMoveToScene(QRect rect, QPoint newPos)
 /*
  * Sets the mouse cursor based on the current status
  */
-void CaptureView::setCursor(QPoint pos)
+void CaptureView::setCursor(QPointF pos)
 {
     if (!mIsCropping) {
         return;

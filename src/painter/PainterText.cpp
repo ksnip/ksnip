@@ -123,10 +123,8 @@ void PainterText::keyPressEvent(QKeyEvent* event)
         removeChar(Next);
         break;
     case Qt::Key_Escape:
-        if (!finishEditing()) {
-            return;
-        }
-        break;
+        clearFocus();
+        return;
     case Qt::Key_Left:
         moveCursor(Previous);
         break;
@@ -141,6 +139,7 @@ void PainterText::keyPressEvent(QKeyEvent* event)
         break;
     case Qt::Key_Paste:
         pasteClipboard();
+        break;
     default:
         if (event->text().isEmpty()) {
             return;
@@ -149,11 +148,8 @@ void PainterText::keyPressEvent(QKeyEvent* event)
             pasteClipboard();
             break;
         }
-
         insertChar(event->text());
-
     }
-
     updateRect();
     prepareGeometryChange();
 }
@@ -273,26 +269,16 @@ void PainterText::removeChar(PainterText::CursorPos direction)
 }
 
 /*
- * Should be called any time editing was finished, returns true if after calling
- * this function the object is still valid, otherwise returns false. If false
- * was returned, this object should not be longer used as it's eventually going
- * to be deleted if it's empty.
+ * Should be called any time editing was finished, if the text is empty at this
+ * point we will add some dummy text as placeholder
  */
-bool PainterText::finishEditing()
+void PainterText::finishEditing()
 {
-    if (!isValid()) {
-        // If editing finished and we have no text, delete self, otherwise we're
-        // not able to access this object.
-        delete this;
-
-        return false;
-    }
     mEditable = false;
     mCursorBlinkTimer->stop();
     mCursorVisible = false;
     updateRect();
-
-    return true;
+    prepareGeometryChange();
 }
 
 void PainterText::updateRect()

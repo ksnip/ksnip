@@ -49,8 +49,10 @@ MainWindow::MainWindow() : QMainWindow(),
     mQuitAction(new QAction(this)),
     mSettingsDialogAction(new QAction(this)),
     mAboutKsnipAction(new QAction(this)),
-    mCaptureScene(new PaintArea()),
-    mCaptureView(new CaptureView(mCaptureScene)),
+    mPaintArea(new PaintArea()),
+    mCaptureView(new CaptureView(mPaintArea)),
+    mUndoAction(mPaintArea->createUndoAction()),
+    mRedoAction(mPaintArea->createRedoAction()),
     mClipboard(QApplication::clipboard()),
     mSnippingArea(new SnippingArea(this)),
     mImageGrabber(new ImageGrabber(this)),
@@ -66,7 +68,7 @@ MainWindow::MainWindow() : QMainWindow(),
 
     // Create a connection with other widget elements
     connect(mSnippingArea, SIGNAL(areaSelected(QRect)), this, SLOT(areaSelected(QRect)));
-    connect(mCaptureScene, SIGNAL(imageChanged()), this, SLOT(imageChanged()));
+    connect(mPaintArea, SIGNAL(imageChanged()), this, SLOT(imageChanged()));
     connect(KsnipConfig::instance(), SIGNAL(captureDelayUpdated(int)),
             this, SLOT(setCaptureDelay(int)));
     connect(mImgurUploader, SIGNAL(uploadFinished(QString)), this, SLOT(imgurUploadFinished(QString)));
@@ -94,11 +96,11 @@ void MainWindow::show(QPixmap screenshot)
         return show();
     }
 
-    mCaptureScene->loadCapture(screenshot);
-    mCaptureScene->setIsEnabled(true);
+    mPaintArea->loadCapture(screenshot);
+    mPaintArea->setIsEnabled(true);
 
-    if (mCaptureScene->areaSize().width() > mImageGrabber->currectScreenRect().width() ||
-            mCaptureScene->areaSize().height() > mImageGrabber->currectScreenRect().height()) {
+    if (mPaintArea->areaSize().width() > mImageGrabber->currectScreenRect().width() ||
+            mPaintArea->areaSize().height() > mImageGrabber->currectScreenRect().height()) {
         setWindowState(Qt::WindowMaximized);
     } else {
         resize();
@@ -167,12 +169,12 @@ void MainWindow::instantCapture(ImageGrabber::CaptureMode captureMode, int secon
  */
 void MainWindow::resize()
 {
-    if (!mCaptureScene->isValid()) {
+    if (!mPaintArea->isValid()) {
         statusBar()->setHidden(true);
         QWidget::resize(minimumSize());
     } else {
         statusBar()->setHidden(false);
-        QWidget::resize(mCaptureScene->areaSize() + QSize(100, 150));
+        mPaintArea->fitViewToParent();
     }
 }
 
@@ -195,7 +197,7 @@ void MainWindow::setCaptureDelay(int ms)
 
 void MainWindow::openCrop()
 {
-    if (!mCaptureScene->isValid()) {
+    if (!mPaintArea->isValid()) {
         return;
     }
     statusBar()->addPermanentWidget(mCropPanel, 1);
@@ -224,7 +226,7 @@ QMenu* MainWindow::createPopupMenu()
 void MainWindow::colorChanged(const QColor& color)
 {
     KsnipConfig* config = KsnipConfig::instance();
-    switch (mCaptureScene->paintMode()) {
+    switch (mPaintArea->paintMode()) {
     case PaintArea::Pen:
         config->setPenColor(color);
         break;
@@ -252,7 +254,7 @@ void MainWindow::colorChanged(const QColor& color)
 void MainWindow::fillChanged(const bool& fill)
 {
     KsnipConfig* config = KsnipConfig::instance();
-    switch (mCaptureScene->paintMode()) {
+    switch (mPaintArea->paintMode()) {
     case PaintArea::Rect:
         config->setRectFill(fill);
         break;
@@ -271,7 +273,7 @@ void MainWindow::fillChanged(const bool& fill)
 void MainWindow::sizeChanged(const int& size)
 {
     KsnipConfig* config = KsnipConfig::instance();
-    switch (mCaptureScene->paintMode()) {
+    switch (mPaintArea->paintMode()) {
     case PaintArea::Pen:
         config->setPenSize(size);
         break;
@@ -431,7 +433,7 @@ void MainWindow::loadSettings()
 
 void MainWindow::copyToClipboard()
 {
-    mClipboard->setImage(mCaptureScene->exportAsImage());
+    mClipboard->setImage(mPaintArea->exportAsImage());
 }
 
 /*
@@ -603,6 +605,14 @@ void MainWindow::initGui()
     mAboutKsnipAction->setIcon(createIcon("ksnip"));
     connect(mAboutKsnipAction, SIGNAL(triggered()), this, SLOT(openAboutDialog()));
 
+    // Undo and redo actions, the action itself is created in the paintarea
+    // class and only a pointer returned here.
+    mUndoAction->setIcon(QIcon::fromTheme("edit-undo"));
+    mUndoAction->setShortcut(QKeySequence::Undo);
+
+    mRedoAction->setIcon(QIcon::fromTheme("edit-redo"));
+    mRedoAction->setShortcut(QKeySequence::Redo);
+
     // Create tool buttons
 
     // Create tool button for selecting new capture mode
@@ -664,6 +674,9 @@ void MainWindow::initGui()
     menu->addSeparator();
     menu->addAction(mQuitAction);
     menu = menuBar()->addMenu(tr("&Edit"));
+    menu->addAction(mUndoAction);
+    menu->addAction(mRedoAction);
+    menu->addSeparator();
     menu->addAction(mCopyToClipboardAction);
     menu->addAction(mCropAction);
     menu = menuBar()->addMenu(tr("&Options"));
@@ -697,7 +710,7 @@ void MainWindow::newRectAreaCaptureClicked()
 {
     setWindowOpacity(0.0);
     mSnippingArea->show();
-    mCaptureScene->setIsEnabled(false);
+    mPaintArea->setIsEnabled(false);
     KsnipConfig::instance()->setCaptureMode(ImageGrabber::RectArea);
 }
 
@@ -705,7 +718,7 @@ void MainWindow::newCurrentScreenCaptureClicked()
 {
     setWindowOpacity(0.0);
     setWindowState(Qt::WindowMinimized);
-    mCaptureScene->setIsEnabled(false);
+    mPaintArea->setIsEnabled(false);
     delay(mCaptureDelay);
     show(mImageGrabber->grabImage(ImageGrabber::CurrentScreen,
                                   KsnipConfig::instance()->captureMouse()));
@@ -716,7 +729,7 @@ void MainWindow::newFullScreenCaptureClicked()
 {
     setWindowOpacity(0.0);
     setWindowState(Qt::WindowMinimized);
-    mCaptureScene->setIsEnabled(false);
+    mPaintArea->setIsEnabled(false);
     delay(mCaptureDelay);
     show(mImageGrabber->grabImage(ImageGrabber::FullScreen,
                                   KsnipConfig::instance()->captureMouse()));
@@ -727,7 +740,7 @@ void MainWindow::newActiveWindowCaptureClicked()
 {
     setWindowOpacity(0.0);
     setWindowState(Qt::WindowMinimized);
-    mCaptureScene->setIsEnabled(false);
+    mPaintArea->setIsEnabled(false);
     delay(mCaptureDelay);
     show(mImageGrabber->grabImage(ImageGrabber::ActiveWindow,
                                   KsnipConfig::instance()->captureMouse()));
@@ -746,7 +759,7 @@ void MainWindow::saveCaptureClicked()
         return;
     }
 
-    if (!mCaptureScene->exportAsImage().save(saveDialog.selectedFiles().first())) {
+    if (!mPaintArea->exportAsImage().save(saveDialog.selectedFiles().first())) {
         qCritical("PaintWindow::saveCaptureClicked: Unable to save file " +
                   saveDialog.selectedFiles().first().toLatin1());
         return;
@@ -762,7 +775,7 @@ void MainWindow::copyToClipboardClicked()
 
 void MainWindow::penClicked()
 {
-    if (mCaptureScene->paintMode() == PaintArea::Pen) {
+    if (mPaintArea->paintMode() == PaintArea::Pen) {
         return;
     }
     setPaintMode(PaintArea::Pen);
@@ -770,7 +783,7 @@ void MainWindow::penClicked()
 
 void MainWindow::markerClicked()
 {
-    if (mCaptureScene->paintMode() == PaintArea::Marker) {
+    if (mPaintArea->paintMode() == PaintArea::Marker) {
         return;
     }
     setPaintMode(PaintArea::Marker);
@@ -778,7 +791,7 @@ void MainWindow::markerClicked()
 
 void MainWindow::rectClicked()
 {
-    if (mCaptureScene->paintMode() == PaintArea::Rect) {
+    if (mPaintArea->paintMode() == PaintArea::Rect) {
         return;
     }
     setPaintMode(PaintArea::Rect);
@@ -786,7 +799,7 @@ void MainWindow::rectClicked()
 
 void MainWindow::ellipseClicked()
 {
-    if (mCaptureScene->paintMode() == PaintArea::Ellipse) {
+    if (mPaintArea->paintMode() == PaintArea::Ellipse) {
         return;
     }
     setPaintMode(PaintArea::Ellipse);
@@ -794,7 +807,7 @@ void MainWindow::ellipseClicked()
 
 void MainWindow::textClicked()
 {
-    if (mCaptureScene->paintMode() == PaintArea::Text) {
+    if (mPaintArea->paintMode() == PaintArea::Text) {
         return;
     }
     setPaintMode(PaintArea::Text);
@@ -802,7 +815,7 @@ void MainWindow::textClicked()
 
 void MainWindow::eraseClicked()
 {
-    if (mCaptureScene->paintMode() == PaintArea::Erase) {
+    if (mPaintArea->paintMode() == PaintArea::Erase) {
         return;
     }
     setPaintMode(PaintArea::Erase);
@@ -810,7 +823,7 @@ void MainWindow::eraseClicked()
 
 void MainWindow::moveClicked()
 {
-    if (mCaptureScene->paintMode() == PaintArea::Move) {
+    if (mPaintArea->paintMode() == PaintArea::Move) {
         return;
     }
     setPaintMode(PaintArea::Move);
@@ -823,18 +836,18 @@ void MainWindow::moveClicked()
 void MainWindow::imgurUploadClicked()
 {
     // If we have no capture, abort here.
-    if (!mCaptureScene->isValid()) {
+    if (!mPaintArea->isValid()) {
         return;
     }
 
     // Upload to Imgur Account
     if (!KsnipConfig::instance()->imgurForceAnonymous() &&
             !KsnipConfig::instance()->imgurAccessToken().isEmpty()) {
-        mImgurUploader->startUpload(mCaptureScene->exportAsImage(),
+        mImgurUploader->startUpload(mPaintArea->exportAsImage(),
                                     KsnipConfig::instance()->imgurAccessToken());
     } else {
         // Upload Anonymous
-        mImgurUploader->startUpload(mCaptureScene->exportAsImage());
+        mImgurUploader->startUpload(mPaintArea->exportAsImage());
     }
 
     statusBar()->showMessage(tr("Waiting for imgur.com..."));
@@ -842,7 +855,7 @@ void MainWindow::imgurUploadClicked()
 
 void MainWindow::printClicked()
 {
-    if (!mCaptureScene->isValid()) {
+    if (!mPaintArea->isValid()) {
         return;
     }
 
@@ -859,7 +872,7 @@ void MainWindow::printClicked()
 
 void MainWindow::printPreviewClicked()
 {
-    if (!mCaptureScene->isValid()) {
+    if (!mPaintArea->isValid()) {
         return;
     }
 
@@ -876,7 +889,7 @@ void MainWindow::printCapture(QPrinter* p)
 {
     QPainter painter;
     painter.begin(p);
-    QImage image = mCaptureScene->exportAsImage();
+    QImage image = mPaintArea->exportAsImage();
     double xscale = p->pageRect().width() / double(image.width());
     double yscale = p->pageRect().height() / double(image.height());
     double scale = qMin(xscale, yscale);
@@ -893,7 +906,7 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
     if (event->key() == Qt::Key_Escape) {
         mSnippingArea->hide();
         setWindowOpacity(1.0);
-        mCaptureScene->setIsEnabled(true);
+        mPaintArea->setIsEnabled(true);
     }
 
     QWidget::keyPressEvent(event);
@@ -997,7 +1010,7 @@ void MainWindow::openAboutDialog()
 void MainWindow::setPaintMode(const PaintArea::PaintMode& mode, const bool& save)
 {
     KsnipConfig* config = KsnipConfig::instance();
-    mCaptureScene->setPaintMode(mode);
+    mPaintArea->setPaintMode(mode);
 
     if (save && mode != PaintArea::Erase && mode != PaintArea::Move) {
         config->setPaintMode(mode);

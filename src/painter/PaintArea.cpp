@@ -43,12 +43,12 @@ PaintArea::PaintArea() : QGraphicsScene(),
  */
 void PaintArea::loadCapture(const QPixmap& pixmap)
 {
-
     clearItem();
     mUndoStack->clear();
     clear();
     mScreenshot = addPixmap(pixmap);
     setSceneRect(pixmap.rect());
+    qDebug("New capture loaded into paint area.");
 }
 
 /*
@@ -90,6 +90,7 @@ PaintArea::PaintMode PaintArea::paintMode() const
 QImage PaintArea::exportAsImage()
 {
     if (!isValid()) {
+        qWarning("PainteArea::exportAsImage: Unable to export image, image invalid.");
         return QImage();
     }
 
@@ -338,6 +339,7 @@ void PaintArea::clearItem()
         return;
     }
     if (!mCurrentItem->isValid()) {
+        qDebug("PaintArea::clearItem: Removed inavlif paint item.");
         mUndoStack->undo();
         mUndoStack->push(new QUndoCommand(""));
         mUndoStack->undo();

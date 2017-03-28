@@ -1,5 +1,4 @@
 #include <QtGui/QApplication>
-#include <iostream>
 
 #include "gui/MainWindow.h"
 #include "src/backend/CmdParser.h"
@@ -15,7 +14,7 @@ int main(int argc, char** argv)
     app.setOrganizationName("ksnip");
     app.setOrganizationDomain("ksnip.local");
     app.setApplicationName("ksnip");
-    app.setApplicationVersion("v1.3.0-beta");
+    app.setApplicationVersion("v1.3.0");
 
     CmdParser parser;
     // Add command line options

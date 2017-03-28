@@ -482,7 +482,7 @@ void MainWindow::instantSave(QPixmap pixmap)
 
     // Turn any special characters, like $Y into a valid date and time value.
     if (!pixmap.save(savePath)) {
-        qCritical("MainWindow::instantSave: Unable to save capture at " + savePath.toLatin1());
+        qCritical("MainWindow::instantSave: Failed to save file at '%s'", qPrintable(savePath));
     }
 }
 
@@ -760,8 +760,8 @@ void MainWindow::saveCaptureClicked()
     }
 
     if (!mPaintArea->exportAsImage().save(saveDialog.selectedFiles().first())) {
-        qCritical("PaintWindow::saveCaptureClicked: Unable to save file " +
-                  saveDialog.selectedFiles().first().toLatin1());
+        qCritical("PaintWindow::saveCaptureClicked: Unable to save file '%s'",
+                  qPrintable(saveDialog.selectedFiles().first()));
         return;
     }
 
@@ -961,7 +961,7 @@ void MainWindow::imgurUploadFinished(QString message)
  */
 void MainWindow::imgurError(QString message)
 {
-    qCritical(message.toLatin1());
+    qCritical("MainWindow: Imgur uploader returned error: '%s'", qPrintable(message));
     statusBar()->showMessage(tr("An error occurred while uploading to imgur.com."), 3000);
 }
 

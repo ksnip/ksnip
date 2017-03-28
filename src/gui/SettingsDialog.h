@@ -82,10 +82,10 @@ private slots:
     void listSelectionChanged();
     void cancelButtonClicked();
     void smootPathCheckboxClicked(bool checked);
-    void imgurPinEntered(QString text);
-    void imgurClientEntered(QString text);
-    void imgurTokenUpdated(const QString accessToken, const QString refreshTocken, const QString username);
-    void imgurTokenError(const QString message);
+    void imgurPinEntered(const QString &text);
+    void imgurClientEntered(const QString &text);
+    void imgurTokenUpdated(const QString &accessToken, const QString &refreshTocken, const QString &username);
+    void imgurTokenError(const QString &message);
 };
 
 #endif // SETTINGSDIALOG_H

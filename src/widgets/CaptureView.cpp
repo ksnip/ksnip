@@ -51,6 +51,7 @@ void CaptureView::crop()
 {
     setIsCropping(false);
     scene()->crop(mSelectedRect);
+    qDebug("CaptureView::crop: Capture Cropped.");
 }
 
 void CaptureView::setIsCropping(const bool& isCropping)
@@ -86,7 +87,6 @@ bool CaptureView::getIsCropping() const
 QRectF CaptureView::getSelectedRect() const
 {
     // Take into account offset of any previous crops
-    QGraphicsScene* s = scene();
     QRectF rect = mSelectedRect.normalized();
     rect.moveTo(rect.topLeft() - scene()->cropOffset());
     return rect;

@@ -384,7 +384,7 @@ void SettingsDialog::smootPathCheckboxClicked(bool checked)
     mSmoothFactorCombobox->setEnabled(checked);
 }
 
-void SettingsDialog::imgurPinEntered(QString text)
+void SettingsDialog::imgurPinEntered(const QString &text)
 {
     if (text.length() > 8) {
         mImgurGetTokenButton->setEnabled(true);
@@ -393,7 +393,7 @@ void SettingsDialog::imgurPinEntered(QString text)
     }
 }
 
-void SettingsDialog::imgurClientEntered(QString text)
+void SettingsDialog::imgurClientEntered(const QString &text)
 {
     if (!mImgurClientIdLineEdit->text().isEmpty() && !mImgurClientSecretLineEdit->text().isEmpty()) {
         mImgurGetPinButton->setEnabled(true);
@@ -406,8 +406,8 @@ void SettingsDialog::imgurClientEntered(QString text)
  * We have received a new token from imgur.com, now we save it to config for later use and inform
  * the user about it.
  */
-void SettingsDialog::imgurTokenUpdated(const QString accessToken, const QString refreshTocken,
-                                       const QString username)
+void SettingsDialog::imgurTokenUpdated(const QString &accessToken, const QString &refreshTocken,
+                                       const QString &username)
 {
     mConfig->setImgurAccessToken(accessToken.toUtf8());
     mConfig->setImgurRefreshToken(refreshTocken.toUtf8());
@@ -421,8 +421,8 @@ void SettingsDialog::imgurTokenUpdated(const QString accessToken, const QString 
  * Something went wrong while requesting a new token, we write the message to shell and inform the
  * user via statusbar.
  */
-void SettingsDialog::imgurTokenError(const QString message)
+void SettingsDialog::imgurTokenError(const QString &message)
 {
-    qCritical(message.toLatin1());
+    qCritical("SettingsDialog returned error: '%s'", qPrintable(message));
     mParent->statusBar()->showMessage(tr("Imgur.com token update error."), 3000);
 }

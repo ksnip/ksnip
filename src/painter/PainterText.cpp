@@ -141,12 +141,12 @@ void PainterText::keyPressEvent(QKeyEvent* event)
         pasteClipboard();
         break;
     default:
-        if (event->text().isEmpty()) {
-            return;
-        }
         if (event->matches(QKeySequence::Paste)) {
             pasteClipboard();
             break;
+        }
+        if (event->text().isEmpty() || event->modifiers() == Qt::ControlModifier) {
+            return;
         }
         insertChar(event->text());
     }

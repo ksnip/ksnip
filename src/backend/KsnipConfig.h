@@ -132,6 +132,12 @@ public:
     int eraseSize() const;
     void setEraseSize(const int &size);
 
+    bool smoothPath() const;
+    void setSmoothPath(const bool &enabled);
+
+    int smoothFactor() const;
+    void setSmoothFactor(const int &factor);
+
     // Image Grabber
 
     bool captureMouse() const;

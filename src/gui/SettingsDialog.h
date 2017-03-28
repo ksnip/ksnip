@@ -45,6 +45,7 @@ private:
     QCheckBox       *mImgurForceAnonymousCheckbox;
     QCheckBox       *mImgurDirectLinkToImageCheckbox;
     QCheckBox       *mImgurAlwaysCopyToClipboardCheckBox;
+    QCheckBox       *mSmoothPathCheckbox;
     QLineEdit       *mSaveLocationLineEdit;
     QLineEdit       *mImgurClientIdLineEdit;
     QLineEdit       *mImgurClientSecretLineEdit;
@@ -53,7 +54,9 @@ private:
     QLabel          *mSaveLocationLabel;
     QLabel          *mImgurUsernameLabel;
     QLabel          *mTextFontLabel;
+    QLabel          *mSmoothFactorLabel;
     NumericComboBox *mCaptureDelayCombobox;
+    NumericComboBox *mSmoothFactorCombobox;
     QFontComboBox   *mTextFontCombobox;
     QPushButton     *mBrowseButton;
     QPushButton     *mImgurGetPinButton;
@@ -78,6 +81,7 @@ private slots:
     void okButtonClicked();
     void listSelectionChanged();
     void cancelButtonClicked();
+    void smootPathCheckboxClicked(bool checked);
     void imgurPinEntered(QString text);
     void imgurClientEntered(QString text);
     void imgurTokenUpdated(const QString accessToken, const QString refreshTocken, const QString username);

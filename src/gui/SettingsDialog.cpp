@@ -31,6 +31,7 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mImgurForceAnonymousCheckbox(new QCheckBox),
     mImgurDirectLinkToImageCheckbox(new QCheckBox),
     mImgurAlwaysCopyToClipboardCheckBox(new QCheckBox),
+    mSmoothPathCheckbox(new QCheckBox),
     mSaveLocationLineEdit(new QLineEdit),
     mImgurClientIdLineEdit(new QLineEdit),
     mImgurClientSecretLineEdit(new QLineEdit),
@@ -39,7 +40,9 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mSaveLocationLabel(new QLabel),
     mImgurUsernameLabel(new QLabel),
     mTextFontLabel(new QLabel),
-    mCaptureDelayCombobox(new NumericComboBox(0, 1, 11, this)),
+    mSmoothFactorLabel(new QLabel),
+    mCaptureDelayCombobox(new NumericComboBox(0, 1, 11)),
+    mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
     mTextFontCombobox(new QFontComboBox(this)),
     mBrowseButton(new QPushButton),
     mImgurGetPinButton(new QPushButton),
@@ -92,6 +95,10 @@ void SettingsDialog::loadSettings()
     mTextBoldButton->setChecked(mConfig->textBold());
     mTextItalicButton->setChecked(mConfig->textItalic());
     mTextUnderlineButton->setChecked(mConfig->textUnderline());
+
+    mSmoothPathCheckbox->setChecked(mConfig->smoothPath());
+    mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
+    smootPathCheckboxClicked(mConfig->smoothPath());
 }
 
 void SettingsDialog::saveSettings()
@@ -116,6 +123,9 @@ void SettingsDialog::saveSettings()
     mConfig->setTextBold(mTextBoldButton->isChecked());
     mConfig->setTextItalic(mTextItalicButton->isChecked());
     mConfig->setTextUnderline(mTextUnderlineButton->isChecked());
+
+    mConfig->setSmoothPath(mSmoothPathCheckbox->isChecked());
+    mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
 }
 
 void SettingsDialog::initGui()
@@ -156,17 +166,28 @@ void SettingsDialog::initGui()
 
     mImgurPinLineEdit->setPlaceholderText(tr("PIN"));
     mImgurPinLineEdit->setToolTip(tr("Enter imgur Pin which will be exchanged for a token."));
-    connect(mImgurPinLineEdit, SIGNAL(textChanged(QString)), this, SLOT(imgurPinEntered(QString)));
+    connect(mImgurPinLineEdit, SIGNAL(textChanged(QString)), SLOT(imgurPinEntered(QString)));
 
     mImgurGetPinButton->setText(tr("Get PIN"));
-    connect(mImgurGetPinButton, SIGNAL(clicked()), this, SLOT(getPinButtonClicked()));
+    connect(mImgurGetPinButton, SIGNAL(clicked()), SLOT(getPinButtonClicked()));
     mImgurGetPinButton->setEnabled(false);
 
     mImgurGetTokenButton->setText(tr("Get Token"));
-    connect(mImgurGetTokenButton, SIGNAL(clicked()), this, SLOT(getTokenButtonClicked()));
+    connect(mImgurGetTokenButton, SIGNAL(clicked()), SLOT(getTokenButtonClicked()));
     mImgurGetTokenButton->setEnabled(false);
 
     // Create Painter Settings
+    mSmoothPathCheckbox->setText(tr("Smooth Paths"));
+    mSmoothPathCheckbox->setToolTip(tr("When enabled smooths out pen and \n"
+                                       "marker paths after finished drawing."));
+    connect(mSmoothPathCheckbox, SIGNAL(clicked(bool)), SLOT(smootPathCheckboxClicked(bool)));
+
+    mSmoothFactorLabel->setText(tr("Smooth Factor") + ":");
+    mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"
+                                      "precisions for pen and marker but will \n"
+                                      "make them more smooth."));
+    mSmoothFactorCombobox->setToolTip(mSmoothFactorLabel->toolTip());
+
     mTextFontLabel->setText(tr("Text Font") + ":");
     mTextFontCombobox->setEditable(false);
 
@@ -248,11 +269,15 @@ void SettingsDialog::initGui()
     QGridLayout* painterGrid = new QGridLayout;
     painterGrid->setAlignment(Qt::AlignTop);
     painterGrid->setColumnStretch(1, 1);
-    painterGrid->addWidget(mTextFontLabel, 0, 0);
-    painterGrid->addWidget(mTextFontCombobox, 0, 1);
-    painterGrid->addWidget(mTextBoldButton, 0, 2);
-    painterGrid->addWidget(mTextItalicButton, 0, 3);
-    painterGrid->addWidget(mTextUnderlineButton, 0, 4);
+    painterGrid->addWidget(mSmoothPathCheckbox, 0, 0);
+    painterGrid->addWidget(mSmoothFactorLabel, 1, 0);
+    painterGrid->addWidget(mSmoothFactorCombobox, 1, 1);
+    painterGrid->setRowMinimumHeight(2, 15);
+    painterGrid->addWidget(mTextFontLabel, 3, 0);
+    painterGrid->addWidget(mTextFontCombobox, 3, 1);
+    painterGrid->addWidget(mTextBoldButton, 3, 2);
+    painterGrid->addWidget(mTextItalicButton, 3, 3);
+    painterGrid->addWidget(mTextUnderlineButton, 3, 4);
 
     QGroupBox* painterGrpBox = new QGroupBox(tr("Painter Settings"));
     painterGrpBox->setLayout(painterGrid);
@@ -351,6 +376,12 @@ void SettingsDialog::listSelectionChanged()
 void SettingsDialog::cancelButtonClicked()
 {
     close();
+}
+
+void SettingsDialog::smootPathCheckboxClicked(bool checked)
+{
+    mSmoothFactorLabel->setEnabled(checked);
+    mSmoothFactorCombobox->setEnabled(checked);
 }
 
 void SettingsDialog::imgurPinEntered(QString text)

@@ -23,6 +23,7 @@ Latest ksnip version contains following features:
 * Customizable default location, filename and format for saving new screenshots with wildcards for Year ($Y), Month ($M), Day ($D) and Time ($T).
 * Print screenshot or save is to prf/ps.
 * Undo/Redo for paint and crop operations.
+* Smooth out free hand pen and marker lines (can be disabled in settings).
 
 
 ### Building from source

@@ -526,6 +526,36 @@ void KsnipConfig::setEraseSize(const int& size)
     emit painterUpdated();
 }
 
+bool KsnipConfig::smoothPath() const
+{
+    return mConfig.value("Painter/SmoothPath", true).toBool();
+}
+
+void KsnipConfig::setSmoothPath(const bool& enabled)
+{
+    if (smoothPath() == enabled) {
+        return;
+    }
+
+    mConfig.setValue("Painter/SmoothPath", enabled);
+    mConfig.sync();
+}
+
+int KsnipConfig::smoothFactor() const
+{
+    return mConfig.value("Painter/SmoothPathFactor", 7).toInt();
+}
+
+void KsnipConfig::setSmoothFactor(const int& factor)
+{
+    if (smoothFactor() == factor) {
+        return;
+    }
+
+    mConfig.setValue("Painter/SmoothPathFactor", factor);
+    mConfig.sync();
+}
+
 // Image Grabber
 
 bool KsnipConfig::captureMouse() const

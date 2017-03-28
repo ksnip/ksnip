@@ -17,8 +17,47 @@
  * Boston, MA 02110-1301, USA.
  */
 
+/*
+ * Credit for the smooth algorithm goes to Bojan Kverh, see his post here:
+ * https://www.toptal.com/c-plus-plus/rounded-corners-bezier-curves-qpainter
+ */
+
 #include "PainterPath.h"
-#include <iostream>
+
+namespace
+{
+float distance(const QPointF& pt1, const QPointF& pt2)
+{
+    float hd = (pt1.x() - pt2.x()) * (pt1.x() - pt2.x());
+    float vd = (pt1.y() - pt2.y()) * (pt1.y() - pt2.y());
+    return sqrtf(hd + vd);
+}
+
+QPointF getLineStart(const QPointF& pt1, const QPointF& pt2)
+{
+    QPointF pt;
+    float rat = 10.0 / distance(pt1, pt2);
+    if (rat > 0.5) {
+        rat = 0.5;
+    }
+    pt.setX((1.0 - rat) * pt1.x() + rat * pt2.x());
+    pt.setY((1.0 - rat) * pt1.y() + rat * pt2.y());
+    return pt;
+}
+
+QPointF getLineEnd(const QPointF& pt1, const QPointF& pt2)
+{
+    QPointF pt;
+    float rat = 10.0 / distance(pt1, pt2);
+    if (rat > 0.5) {
+        rat = 0.5;
+    }
+    pt.setX(rat * pt1.x() + (1.0 - rat)*pt2.x());
+    pt.setY(rat * pt1.y() + (1.0 - rat)*pt2.y());
+    return pt;
+}
+
+}
 
 //
 // Public Functions
@@ -76,14 +115,48 @@ bool PainterPath::containsRect(QPointF topLeft, QSize size) const
                                     size.height()));
 }
 
-void PainterPath::smoothOut()
+/*
+ * Simple function that smooths out the existing path. The function basically
+ * collects all points in a path and skips points that are too close to each
+ * other, to close points prevent smoothing out. Then in next step on every
+ * point we remove the corner between two lines and replace it with an quadTo
+ * Bezier curve. The min factor is used to test the distance between two points,
+ * distance below min is ignored and points skipped.
+ */
+void PainterPath::smoothOut(const float& factor)
 {
-    QPainterPath *path = new QPainterPath(mPath->elementAt(0));
-    for (int i = 1; i < mPath->elementCount() - 2; i = i + 2) {
-        QPoint a(mPath->elementAt(i).x, mPath->elementAt(i).y);
-        QPoint b(mPath->elementAt(i + 2).x, mPath->elementAt(i + 2).y);
-        path->quadTo(a, b);
+    QList<QPointF> points;
+    QPointF p;
+    for (int i = 0; i < mPath->elementCount() - 1; i++) {
+        p = QPointF(mPath->elementAt(i).x, mPath->elementAt(i).y);
+
+        // Except for first and last points, check what the distance between two
+        // points is and if its less the min, don't add them to the list.
+        if (points.count() > 1 && (i < mPath->elementCount() - 2) && (distance(points.last(), p) < factor)) {
+            continue;
+        }
+        points.append(p);
     }
+
+    // Don't proceed if we only have 3 or less points.
+    if (points.count() < 3) {
+        return;
+    }
+
+    QPointF pt1;
+    QPointF pt2;
+    QPainterPath* path = new QPainterPath();
+    for (int i = 0; i < points.count() - 1; i++) {
+        pt1 = getLineStart(points[i], points[i + 1]);
+        if (i == 0) {
+            path->moveTo(pt1);
+        } else {
+            path->quadTo(points[i], pt1);
+        }
+        pt2 = getLineEnd(points[i], points[i + 1]);
+        path->lineTo(pt2);
+    }
+
     delete mPath;
     mPath = path;
     prepareGeometryChange();

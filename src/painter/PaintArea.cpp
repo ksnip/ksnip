@@ -226,7 +226,9 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
         case Rect:
         case Ellipse:
         case Text:
-            mCurrentItem->addPoint(event->scenePos(), mModifierPressed);
+            if (mCurrentItem) {
+                mCurrentItem->addPoint(event->scenePos(), mModifierPressed);
+            }
             break;
         case Erase:
             eraseItem(event->scenePos(), KsnipConfig::instance()->eraseSize());

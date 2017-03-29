@@ -334,7 +334,7 @@ QPointF CaptureView::restrictPointToScene(const QPointF& point) const
         p.setY(sceneRect().bottom() - 1);
     }
 
-    return point;
+    return p;
 }
 
 /*

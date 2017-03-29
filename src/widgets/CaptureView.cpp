@@ -169,8 +169,7 @@ void CaptureView::mouseMoveEvent(QMouseEvent* event)
 
         if (mIsMovingSelection) {
             mSelectedRect.moveTo(restrictRectMoveToScene(mSelectedRect,
-                                 mapToScene(event->pos()) - mClickOffset)
-                                );
+                                 mapToScene(event->pos()) - mClickOffset));
             scene()->update();
 
             // Inform anyone all stakeholders that the selection has changed
@@ -356,7 +355,7 @@ QPointF CaptureView::restrictRectMoveToScene(const QRectF& rect, const QPointF& 
         p.setY(sceneRect().bottom() - rect.height());
     }
 
-    return newPos;
+    return p;
 }
 
 /*

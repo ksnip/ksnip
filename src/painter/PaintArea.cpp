@@ -48,7 +48,6 @@ void PaintArea::loadCapture(const QPixmap& pixmap)
     clear();
     mScreenshot = addPixmap(pixmap);
     setSceneRect(pixmap.rect());
-    qDebug("New capture loaded into paint area.");
 }
 
 /*
@@ -339,7 +338,6 @@ void PaintArea::clearItem()
         return;
     }
     if (!mCurrentItem->isValid()) {
-        qDebug("PaintArea::clearItem: Removed inavlif paint item.");
         mUndoStack->undo();
         mUndoStack->push(new QUndoCommand(""));
         mUndoStack->undo();
@@ -400,7 +398,7 @@ void PaintArea::setCursor()
     delete mCursor;
     mCursor = cursor();
 
-    for (QGraphicsItem* item : items()) {
-        item->setCursor(*mCursor);
+    for (QGraphicsView *view : views()){
+        view->setCursor(*mCursor);
     }
 }

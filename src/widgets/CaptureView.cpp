@@ -51,7 +51,6 @@ void CaptureView::crop()
 {
     setIsCropping(false);
     scene()->crop(mSelectedRect);
-    qDebug("CaptureView::crop: Capture Cropped.");
 }
 
 void CaptureView::setIsCropping(const bool& isCropping)
@@ -69,13 +68,10 @@ void CaptureView::setIsCropping(const bool& isCropping)
         scene()->setIsEnabled(false);
         mSelectedRect = sceneRect();
         setupBorderPoints(mSelectedRect);
-        setMouseTracking(true);
     } else {
         scene()->setIsEnabled(true);
-        setMouseTracking(false);
-
     }
-
+    setCursor(QCursor::pos());
     scene()->update();
 }
 
@@ -138,8 +134,8 @@ void CaptureView::mousePressEvent(QMouseEvent* event)
             mIsMovingSelection = true;
             mClickOffset = mapToScene(event->pos()).toPoint() - mSelectedRect.topLeft();
         }
+        setCursor(mapToScene(event->pos()).toPoint());
     }
-
     QGraphicsView::mousePressEvent(event);
 }
 
@@ -152,6 +148,7 @@ void CaptureView::mouseReleaseEvent(QMouseEvent* event)
 
     mSelectedRect = mSelectedRect.normalized();
     setupBorderPoints(mSelectedRect);
+    setCursor(mapToScene(event->pos()).toPoint());
 
     scene()->update();
     QGraphicsView::mouseReleaseEvent(event);
@@ -179,8 +176,6 @@ void CaptureView::mouseMoveEvent(QMouseEvent* event)
             // Inform anyone all stakeholders that the selection has changed
             emit selectedRectChanged(getSelectedRect());
         }
-
-        setCursor(mapToScene(event->pos()).toPoint());
     }
 
     QGraphicsView::mouseMoveEvent(event);
@@ -277,9 +272,9 @@ void CaptureView::setupBorderPoints(const QRectF& rect)
 {
     // Top Left
     mBorderPoints[0].setRect(rect.x(),     // x
-                             rect.y(),    // y
-                             mRectSize,   // w
-                             mRectSize);  // h
+                             rect.y(),     // y
+                             mRectSize,    // w
+                             mRectSize);   // h
     // Top
     mBorderPoints[1].setRect(rect.x() + (rect.width() / 2) - (mRectSize / 2),
                              rect.y(),
@@ -374,40 +369,9 @@ void CaptureView::setCursor(const QPointF& pos)
     }
 
     // If we are dragging border point, set resize arrows
-    if (mSelectedBorderPoint != -1) {
-        switch (mSelectedBorderPoint) {
-        case 0:
-        case 4:
-            QGraphicsView::setCursor(QCursor(Qt::SizeFDiagCursor));
-            break;
-
-        case 1:
-        case 5:
-            QGraphicsView::setCursor(QCursor(Qt::SizeVerCursor));
-            break;
-
-        case 2:
-        case 6:
-            QGraphicsView::setCursor(QCursor(Qt::SizeBDiagCursor));
-            break;
-
-        case 3:
-        case 7:
-            QGraphicsView::setCursor(QCursor(Qt::SizeHorCursor));
-            break;
-        }
+    if (mSelectedBorderPoint != -1 || mIsMovingSelection) {
+        QGraphicsView::setCursor(Qt::ClosedHandCursor);
     } else {
-        // If the cursor is over the selected area set to hand
-        if (mSelectedRect.contains(pos)) {
-            QGraphicsView::setCursor(QCursor(Qt::OpenHandCursor));
-
-            // If we are moving the selection area, set closed hand
-            if (mIsMovingSelection) {
-                QGraphicsView::setCursor(QCursor(Qt::ClosedHandCursor));
-            }
-        } else {
-            // If we are outside the selected area, set default arrow
-            QGraphicsView::setCursor(QCursor(Qt::ArrowCursor));
-        }
+        QGraphicsView::setCursor(Qt::OpenHandCursor);
     }
 }

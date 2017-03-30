@@ -20,6 +20,7 @@
 #ifndef PAINTERPATH_H
 #define PAINTERPATH_H
 
+// #include <cmath>
 #include "PainterBaseItem.h"
 
 class PainterPath : public PainterBaseItem

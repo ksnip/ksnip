@@ -23,6 +23,7 @@
  */
 
 #include "PainterPath.h"
+#include <cmath>
 
 namespace
 {
@@ -30,7 +31,7 @@ float distance(const QPointF& pt1, const QPointF& pt2)
 {
     float hd = (pt1.x() - pt2.x()) * (pt1.x() - pt2.x());
     float vd = (pt1.y() - pt2.y()) * (pt1.y() - pt2.y());
-    return sqrtf(hd + vd);
+    return std::sqrt(hd + vd);
 }
 
 QPointF getLineStart(const QPointF& pt1, const QPointF& pt2)

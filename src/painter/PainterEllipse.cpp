@@ -18,12 +18,14 @@
  */
 
 #include "PainterEllipse.h"
+#include <cmath>
 
 namespace
 {
-qreal smallesLenght(qreal lenght1, qreal lenght2)
+
+float smallesLenght(float lenght1, float lenght2)
 {
-    qreal l = (std::abs(lenght1) < std::abs(lenght2)) ? std::abs(lenght1) : std::abs(lenght2);
+    float l = (std::abs(lenght1) < std::abs(lenght2)) ? std::abs(lenght1) : std::abs(lenght2);
     return (lenght1 < 0) ? -l : l;
 }
 

@@ -18,6 +18,7 @@
  */
 
 #include "PainterSettingsPicker.h"
+#include <cmath>
 
 PainterSettingsPicker::PainterSettingsPicker(QWidget* parent, int colons) :
                                              QToolButton(parent),
@@ -590,7 +591,7 @@ void PainterSettingsPopup::regenerateColorGrid()
 
     int columns = mColorColumns;
     if (columns == -1) {
-        columns = (int) ceil(sqrt((float) mColorItems.count()));
+        columns = (int) std::ceil(std::sqrt((float) mColorItems.count()));
     }
 
     // When the number of columns grows, the number of rows will

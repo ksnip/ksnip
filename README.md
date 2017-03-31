@@ -50,4 +50,4 @@ Please report any bugs or feature requests on the github page under the issue se
 
 
 ### Other
-For Gentoo, check out this link https://github.com/mrbitt/mrbit-overlay/blob/master/x11-apps/ksnip/ksnip-1.2.1.ebuild
+For Gentoo, check out this link https://github.com/mrbitt/mrbit-overlay/blob/master/x11-apps/ksnip/ksnip-1.3.0.ebuild

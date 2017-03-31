@@ -14,7 +14,7 @@ int main(int argc, char** argv)
     app.setOrganizationName("ksnip");
     app.setOrganizationDomain("ksnip.local");
     app.setApplicationName("ksnip");
-    app.setApplicationVersion("v1.3.0");
+    app.setApplicationVersion("v1.3.1");
 
     CmdParser parser;
     // Add command line options

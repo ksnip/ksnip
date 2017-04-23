@@ -14,20 +14,20 @@ int main(int argc, char** argv)
     app.setOrganizationName("ksnip");
     app.setOrganizationDomain("ksnip.local");
     app.setApplicationName("ksnip");
-    app.setApplicationVersion("v1.4.0");
+    app.setApplicationVersion("v1.4.0-alpha");
 
     CmdParser parser;
     // Add command line options
     parser.addOption("h", "Displays this help", "help");
     parser.addOption("v", "Displays version information", "version");
     parser.addOption("f", "Capture the fullscreen including all monitors", "fullscreen");
-    parser.addOption("m", "Capture the screen where the mouse is currently located.", "current");
+    parser.addOption("m", "Capture the screen where the mouse is currently located", "current");
     parser.addOption("a", "Capture the window that currently has focus", "activewindow");
     parser.addOption("d", "Delay before taking the screenshot, in seconds. "
                      "Only used with capture", "delay");
 
     MainWindow window;
-    QStringList arguments = QCoreApplication::arguments();
+    auto arguments = QCoreApplication::arguments();
 
     // If there are no options except the the ksnip executable name, just run the application
     if (arguments.count() <= 1) {

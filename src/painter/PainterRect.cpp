@@ -18,6 +18,7 @@
  */
 
 #include "PainterRect.h"
+#include "PainterBaseItem.h"
 #include <cmath>
 
 namespace
@@ -34,7 +35,7 @@ float smallesLenght(float lenght1, float lenght2)
 // Public Functions
 //
 
-PainterRect::PainterRect(QPointF pos, QPen attributes, bool filled) :
+PainterRect::PainterRect(const QPointF& pos, const QPen& attributes, bool filled) :
     PainterBaseItem(Rect, attributes),
     mFilled(filled)
 {
@@ -48,7 +49,7 @@ QRectF PainterRect::boundingRect() const
     return mRect.normalized().adjusted(-w / 2, -w / 2, w, w);
 }
 
-void PainterRect::addPoint(QPointF pos, bool modifier)
+void PainterRect::addPoint(const QPointF& pos, bool modifier)
 {
     mRect.setBottomRight(pos);
     if (modifier) {
@@ -58,13 +59,13 @@ void PainterRect::addPoint(QPointF pos, bool modifier)
     prepareGeometryChange();
 }
 
-void PainterRect::moveTo(QPointF newPos)
+void PainterRect::moveTo(const QPointF& newPos)
 {
     prepareGeometryChange();
     mRect.translate(newPos - offset() - boundingRect().topLeft());
 }
 
-bool PainterRect::containsRect(QPointF topLeft, QSize size) const
+bool PainterRect::containsRect(const QPointF& topLeft, const QSize& size) const
 {
     bool contains = mRect.intersects(QRectF(topLeft.x() - size.width() / 2,
                                             topLeft.y() - size.height() / 2,
@@ -85,10 +86,10 @@ bool PainterRect::containsRect(QPointF topLeft, QSize size) const
                                                -(attributes()->width()),
                                                -(attributes()->width())).toRect());
 
-        return r1.subtract(r2).contains(QRect(topLeft.x() - size.width() / 2,
-                                              topLeft.y() - size.height() / 2,
-                                              size.width(),
-                                              size.height()));
+        return r1.subtracted(r2).contains(QRect(topLeft.x() - size.width() / 2,
+                                                topLeft.y() - size.height() / 2,
+                                                size.width(),
+                                                size.height()));
     }
 
 }

@@ -19,3 +19,7 @@ coding style, with a few exceptions:
     4. Source files are mixed case, named the same as the class they
        contain. i.e., SomeClass will be defined in SomeClass.cpp, not
        someclass.cpp
+
+    5. Function parameters, if classes, should be past as const references, if
+       basic types like bool, int float, enum, can be passed by value. Functions
+       that do not change anything on the class (like getters), should be const.

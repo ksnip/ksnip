@@ -21,7 +21,13 @@
 #ifndef CROPPANEL_H
 #define CROPPANEL_H
 
-#include <src/widgets/CaptureView.h>
+#include <QPushButton>
+#include <QLineEdit>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QIntValidator>
+
+#include "src/widgets/CaptureView.h"
 
 class CropPanel : public QWidget
 {
@@ -31,10 +37,10 @@ public:
     void show();
 
 signals:
-    void close();
+    void closing();
 
 protected:
-    virtual void keyPressEvent(QKeyEvent *event);
+    virtual void keyPressEvent(QKeyEvent *event) override;
 
 private:
     CaptureView *mCaptureView;
@@ -48,8 +54,8 @@ private:
     void initGui();
 
 private slots:
-    void closeClicked();
-    void cropClicked();
+    void close();
+    void crop();
     void selectedRectChanged(const QRectF &rect);
     void xChanged(const QString &text);
     void yChanged(const QString &text);

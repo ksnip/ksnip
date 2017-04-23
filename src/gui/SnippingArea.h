@@ -20,7 +20,7 @@
 #ifndef SNIPPINGAREA_H
 #define SNIPPINGAREA_H
 
-#include <QtGui>
+#include <QWidget>
 
 #include "MainWindow.h"
 #include "src/widgets/CustomCursor.h"
@@ -37,17 +37,18 @@ signals:
     void areaSelected(QRect);
 
 protected:
-    void mousePressEvent(QMouseEvent *);
-    void mouseReleaseEvent(QMouseEvent *);
-    void mouseMoveEvent(QMouseEvent *);
-    void paintEvent(QPaintEvent *);
+    virtual void mousePressEvent(QMouseEvent *event) override;
+    virtual void mouseReleaseEvent(QMouseEvent *event) override;
+    virtual void mouseMoveEvent(QMouseEvent *event) override;
+    virtual void paintEvent(QPaintEvent *event) override;
 
 private:
     QPoint        mMouseDownPosition;
     bool          mMouseIsDown;
     QRect         mCaptureArea;
     CustomCursor *mCursor;
-    QRect calculateArea(QPoint, QPoint);
+
+    QRect calculateArea(const QPoint &pointA, const QPoint &pointB);
 };
 
 #endif // SNIPPINGAREA_H

@@ -97,7 +97,7 @@ void SnippingArea::paintEvent(QPaintEvent* event)
  * Calculate area for the screen capture, between the first mouse down location
  * and current mouse position.
  */
-QRect SnippingArea::calculateArea(QPoint pointA, QPoint pointB)
+QRect SnippingArea::calculateArea(const QPoint& pointA, const QPoint& pointB)
 {
     return QRect(QPoint((pointA.x() <= pointB.x() ? pointA.x() : pointB.x()),
                         (pointA.y() <= pointB.y() ? pointA.y() : pointB.y())),

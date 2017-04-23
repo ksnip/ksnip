@@ -24,12 +24,12 @@ CustomCursor::CustomCursor() : QCursor()
 {
 }
 
-CustomCursor::CustomCursor(const CursorShape &shape, const QColor &color, const int &size) :
+CustomCursor::CustomCursor(CursorShape shape, const QColor& color, int size) :
     QCursor(createPixmap(shape, color, size))
 {
 }
 
-CustomCursor::CustomCursor(const CursorShape &shape, const QColor &color) : QCursor(createPixmap(shape, color))
+CustomCursor::CustomCursor(CursorShape shape, const QColor& color) : QCursor(createPixmap(shape, color))
 {
 
 }
@@ -42,7 +42,7 @@ CustomCursor::CustomCursor(const CursorShape &shape, const QColor &color) : QCur
  * Create a custom pixmap based on provided enum, color and shape, drawing either
  * a colored circle or rectangle.
  */
-QPixmap CustomCursor::createPixmap(const CursorShape &shape, const QColor &color, const int &size) const
+QPixmap CustomCursor::createPixmap(CursorShape shape, const QColor& color, int size) const
 {
     QPixmap pixmap(QSize(size + 2, size + 2));
     pixmap.fill(Qt::transparent);
@@ -66,9 +66,9 @@ QPixmap CustomCursor::createPixmap(const CursorShape &shape, const QColor &color
 /*
  * Create custom pixmap with a cross, eventually more shapes can be added later on
  */
-QPixmap CustomCursor::createPixmap(const CursorShape &shape, const QColor &color) const
+QPixmap CustomCursor::createPixmap(CursorShape shape, const QColor& color) const
 {
-    QColor c = color;
+    auto c = color;
     if (!c.isValid()) {
         c.setRgb(93, 91, 89);
     }

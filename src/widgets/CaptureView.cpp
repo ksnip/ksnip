@@ -37,8 +37,8 @@ CaptureView::CaptureView(QGraphicsScene* scene) : QGraphicsView(scene)
 
 void CaptureView::show()
 {
-    setFocus();
     setIsCropping(false);
+    grabKeyboard();
     QGraphicsView::show();
 }
 
@@ -53,17 +53,18 @@ void CaptureView::crop()
     scene()->crop(mSelectedRect);
 }
 
-void CaptureView::setIsCropping(const bool& isCropping)
+void CaptureView::setIsCropping(bool isCropping)
 {
     // We can't crop if there was no pixmap loaded to the scene
     if (!scene()->isValid()) {
+        mIsCropping = false;
         return;
     }
 
     mIsCropping = isCropping;
 
-    // Disable paint area, set selected area to full scene size, we haven't selected anything yet
-    // last setup the border points
+    // Disable paint area, set selected area to full scene size, we haven't
+    // selected anything yet last setup the border points.
     if (mIsCropping) {
         scene()->setIsEnabled(false);
         mSelectedRect = sceneRect();
@@ -71,7 +72,7 @@ void CaptureView::setIsCropping(const bool& isCropping)
     } else {
         scene()->setIsEnabled(true);
     }
-    setCursor(QCursor::pos());
+    setCursor();
     scene()->update();
 }
 
@@ -83,14 +84,14 @@ bool CaptureView::getIsCropping() const
 QRectF CaptureView::getSelectedRect() const
 {
     // Take into account offset of any previous crops
-    QRectF rect = mSelectedRect.normalized();
+    auto rect = mSelectedRect.normalized();
     rect.moveTo(rect.topLeft() - scene()->cropOffset());
     return rect;
 }
 
 /*
- * Sets the selectedRect to the provided rect. Boundary checks should be done by the caller.
- * Takes crop offset into account.
+ * Sets the selectedRect to the provided rect. Boundary checks should be done by
+ * the caller. Takes crop offset into account.
  */
 void CaptureView::setSelectedRect(const QRectF& rect)
 {
@@ -122,7 +123,7 @@ void CaptureView::keyPressEvent(QKeyEvent* event)
 void CaptureView::mousePressEvent(QMouseEvent* event)
 {
     if (event->buttons() == Qt::LeftButton && mIsCropping) {
-        for (int i = 0; i < 8; i++) {
+        for (auto i = 0; i < 8; i++) {
             if (mBorderPoints[i].contains(mapToScene(event->pos()).toPoint())) {
                 mSelectedBorderPoint = i;
                 mClickOffset = mapToScene(event->pos()) - mBorderPoints[i].topLeft();
@@ -134,7 +135,7 @@ void CaptureView::mousePressEvent(QMouseEvent* event)
             mIsMovingSelection = true;
             mClickOffset = mapToScene(event->pos()).toPoint() - mSelectedRect.topLeft();
         }
-        setCursor(mapToScene(event->pos()).toPoint());
+        setCursor();
     }
     QGraphicsView::mousePressEvent(event);
 }
@@ -148,7 +149,7 @@ void CaptureView::mouseReleaseEvent(QMouseEvent* event)
 
     mSelectedRect = mSelectedRect.normalized();
     setupBorderPoints(mSelectedRect);
-    setCursor(mapToScene(event->pos()).toPoint());
+    setCursor();
 
     scene()->update();
     QGraphicsView::mouseReleaseEvent(event);
@@ -158,8 +159,8 @@ void CaptureView::mouseMoveEvent(QMouseEvent* event)
 {
     if (mIsCropping) {
         if (mSelectedBorderPoint != -1) {
-            // If we we are dragging one of the border points and have moved the mouse, calculate
-            // new border point position
+            // If we we are dragging one of the border points and have moved the
+            // mouse, calculate new border point position.
             moveBorderPoint(mSelectedBorderPoint, mapToScene(event->pos()).toPoint());
             scene()->update();
 
@@ -197,11 +198,12 @@ void CaptureView::drawForeground(QPainter* painter, const QRectF& rect)
         painter->setPen(QPen(Qt::red, 2, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
         painter->drawRect(mSelectedRect.normalized());
 
-        // Draw border points but only when we are not currently dragging borderpoints
+        // Draw border points but only when we are not currently dragging
+        // borderpoints
         if (mSelectedBorderPoint == -1 && mIsMovingSelection == false) {
             painter->setBrush(QColor(255, 0, 0, 150));
 
-            for (int i = 0; i < 8; i++) {
+            for (auto i = 0; i < 8; i++) {
                 painter->drawRect(mBorderPoints[i]);
             }
         }
@@ -217,7 +219,7 @@ void CaptureView::drawForeground(QPainter* painter, const QRectF& rect)
 /*
  * Move the border point under the provided index to new position
  */
-void CaptureView::moveBorderPoint(const int& borderPoint, const QPointF& pos)
+void CaptureView::moveBorderPoint(int borderPoint, const QPointF& pos)
 {
     if (borderPoint == -1 || !mIsCropping) {
         return;
@@ -321,7 +323,7 @@ void CaptureView::setupBorderPoints(const QRectF& rect)
  */
 QPointF CaptureView::restrictPointToScene(const QPointF& point) const
 {
-    QPointF p = point;
+    auto p = point;
     if (point.x() < sceneRect().left()) {
         p.setX(sceneRect().left());
     } else if (point.x() >= sceneRect().right() - 1) {
@@ -340,9 +342,10 @@ QPointF CaptureView::restrictPointToScene(const QPointF& point) const
 /*
  * Restrict rect movement only to current scene rect
  */
-QPointF CaptureView::restrictRectMoveToScene(const QRectF& rect, const QPointF& newPos) const
+QPointF CaptureView::restrictRectMoveToScene(const QRectF& rect,
+        const QPointF& newPos) const
 {
-    QPointF p = newPos;
+    auto p = newPos;
     if (newPos.x() < sceneRect().left()) {
         p.setX(sceneRect().left());
     } else if (newPos.x() + rect.width() > sceneRect().right()) {
@@ -361,7 +364,7 @@ QPointF CaptureView::restrictRectMoveToScene(const QRectF& rect, const QPointF& 
 /*
  * Sets the mouse cursor based on the current status
  */
-void CaptureView::setCursor(const QPointF& pos)
+void CaptureView::setCursor()
 {
     if (!mIsCropping) {
         return;

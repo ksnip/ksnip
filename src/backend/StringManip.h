@@ -21,7 +21,7 @@
 #ifndef STRINGMANIP_H
 #define STRINGMANIP_H
 
-#include <QObject>
+#include <QString>
 #include <QDateTime>
 #include <QFile>
 
@@ -30,12 +30,14 @@ class StringManip
 public:
     StringManip();
 
-    static QString extractPath(QString path);
-    static QString extractFilename(QString path);
-    static QString extractFormat(QString path);
+    static QString extractPath(const QString &path);
+    static QString extractFilename(const QString &path);
+    static QString extractFormat(const QString &path);
 
     static QString updateTimeAndDate(QString filename);
-    static QString makeUniqueFilename(QString path, QString filename, QString exension = 0);
+    static QString makeUniqueFilename(const QString &path,
+                                      const QString &filename,
+                                      const QString &exension = 0);
 };
 
 #endif // STRINGMANIP_H

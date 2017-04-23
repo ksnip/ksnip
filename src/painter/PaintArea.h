@@ -21,8 +21,11 @@
 #ifndef PAINTAREA_H
 #define PAINTAREA_H
 
-#include <QtGui>
 #include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QGraphicsSceneMouseEvent>
+#include <QAction>
+
 
 #include "PainterPath.h"
 #include "PainterRect.h"
@@ -30,6 +33,8 @@
 #include "PainterText.h"
 #include "src/widgets/CustomCursor.h"
 #include "src/widgets/UndoCommands.h"
+
+class KsnipConfig;
 
 class PaintArea : public QGraphicsScene
 {
@@ -50,26 +55,26 @@ public:
     void loadCapture(const QPixmap &pixmap);
     void fitViewToParent();
     QSize areaSize() const;
-    void setPaintMode(const PaintMode &paintMode);
+    void setPaintMode(PaintMode paintMode);
     PaintMode paintMode() const;
     QImage exportAsImage();
-    void setIsEnabled(const bool &enabled);
+    void setIsEnabled(bool enabled);
     bool isEnabled() const;
     bool isValid() const;
     void crop(const QRectF &rect);
     QPointF cropOffset() const;
-    QAction *createUndoAction();
-    QAction *createRedoAction();
+    QAction *getUndoAction();
+    QAction *getRedoAction();
 
 signals:
     void imageChanged();
 
 protected:
-    virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
-    virtual void keyPressEvent(QKeyEvent *event);
-    virtual void keyReleaseEvent(QKeyEvent *event);
+    virtual void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+    virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+    virtual void keyPressEvent(QKeyEvent *event) override;
+    virtual void keyReleaseEvent(QKeyEvent *event)override;
 
 private:
     bool                 mIsEnabled;
@@ -79,8 +84,11 @@ private:
     bool                 mModifierPressed;
     PaintMode            mPaintMode;
     QUndoStack          *mUndoStack;
+    QAction             *mUndoAction;
+    QAction             *mRedoAction;
+    KsnipConfig         *mConfig;
 
-    bool eraseItem(const QPointF &position, const int &size);
+    bool eraseItem(const QPointF &position, int size);
     bool grabItem(const QPointF &position);
     void moveItem(const QPointF &position);
     void clearItem();

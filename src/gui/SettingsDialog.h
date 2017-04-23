@@ -75,14 +75,9 @@ private:
     void initGui();
 
 private slots:
-    void browseButtonClicked();
     void getPinButtonClicked();
     void getTokenButtonClicked();
-    void okButtonClicked();
-    void listSelectionChanged();
-    void cancelButtonClicked();
     void smootPathCheckboxClicked(bool checked);
-    void imgurPinEntered(const QString &text);
     void imgurClientEntered(const QString &text);
     void imgurTokenUpdated(const QString &accessToken, const QString &refreshTocken, const QString &username);
     void imgurTokenError(const QString &message);

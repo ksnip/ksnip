@@ -22,6 +22,7 @@
 #define KSNIPCONFIG_H
 
 #include <QObject>
+#include <QDirModel>
 #include <QPoint>
 #include <QSettings>
 
@@ -40,25 +41,25 @@ public:
     // Application
 
     bool saveKsnipPosition() const;
-    void setSaveKsnipPosition(const bool &enabled);
+    void setSaveKsnipPosition(bool enabled);
 
     bool promptSaveBeforeExit() const;
-    void setPromptSaveBeforeExit(const bool &enabled);
+    void setPromptSaveBeforeExit(bool enabled);
 
     bool alwaysCopyToClipboard() const;
-    void setAlwaysCopyToClipboard(const bool &enabled);
+    void setAlwaysCopyToClipboard(bool enabled);
 
     bool saveKsnipToolSelection() const;
-    void setSaveKsnipToolSelection(const bool &enabled);
+    void setSaveKsnipToolSelection(bool enabled);
 
     QPoint windowPosition() const;
     void setWindowPosition(const QPoint &position);
 
     PaintArea::PaintMode paintMode() const;
-    void setPaintMode(const PaintArea::PaintMode &mode);
+    void setPaintMode(PaintArea::PaintMode mode);
 
     ImageGrabber::CaptureMode captureMode() const;
-    void setCaptureMode(const ImageGrabber::CaptureMode &mode);
+    void setCaptureMode(ImageGrabber::CaptureMode mode);
 
     QString saveDirectory() const;
     void setSaveDirectory(const QString &path);
@@ -77,7 +78,7 @@ public:
     void setPenColor(const QColor &color);
 
     int penSize() const;
-    void setPenSize(const int &size);
+    void setPenSize(int size);
 
     QPen marker() const;
 
@@ -85,7 +86,7 @@ public:
     void setMarkerColor(const QColor &color);
 
     int markerSize() const;
-    void setMarkerSize(const int &size);
+    void setMarkerSize(int size);
 
     QPen rect() const;
 
@@ -93,10 +94,10 @@ public:
     void setRectColor(const QColor &color);
 
     int rectSize() const;
-    void setRectSize(const int &size);
+    void setRectSize(int size);
 
     bool rectFill() const;
-    void setRectFill(const bool &fill);
+    void setRectFill(bool fill);
 
     QPen ellipse() const;
 
@@ -104,10 +105,10 @@ public:
     void setEllipseColor(const QColor &color);
 
     int ellipseSize() const;
-    void setEllipseSize(const int &size);
+    void setEllipseSize(int size);
 
     bool ellipseFill() const;
-    void setEllipseFill(const bool &fill);
+    void setEllipseFill(bool fill);
 
     QPen text() const;
 
@@ -115,28 +116,28 @@ public:
     void setTextColor(const QColor &color);
 
     int textSize() const;
-    void setTextSize(const int &size);
+    void setTextSize(int size);
 
     bool textBold() const;
-    void setTextBold(const bool &bold);
+    void setTextBold(bool bold);
 
     bool textItalic() const;
-    void setTextItalic(const bool &italic);
+    void setTextItalic(bool italic);
 
     bool textUnderline() const;
-    void setTextUnderline(const bool &underline);
+    void setTextUnderline(bool underline);
 
     QFont textFont() const;
     void setTextFont(const QFont &font);
 
     int eraseSize() const;
-    void setEraseSize(const int &size);
+    void setEraseSize(int size);
 
     bool smoothPath() const;
-    void setSmoothPath(const bool &enabled);
+    void setSmoothPath(bool enabled);
 
     int smoothFactor() const;
-    void setSmoothFactor(const int &factor);
+    void setSmoothFactor(int factor);
 
     // Image Grabber
 
@@ -149,19 +150,19 @@ public:
     // Imgur Uploader
 
     QString imgurUsername() const;
-    void setImgurUsername(QString username);
+    void setImgurUsername(const QString &username);
 
     QByteArray imgurClientId() const;
-    void setImgurClientId(QString clientId);
+    void setImgurClientId(const QString &clientId);
 
     QByteArray imgurClientSecret() const;
-    void setImgurClientSecret(QString clientSecret);
+    void setImgurClientSecret(const QString &clientSecret);
 
     QByteArray imgurAccessToken() const;
-    void setImgurAccessToken(QString accessToken);
+    void setImgurAccessToken(const QString &accessToken);
 
     QByteArray imgurRefreshToken() const;
-    void setImgurRefreshToken(QString refreshToken);
+    void setImgurRefreshToken(const QString &refreshToken);
 
     bool imgurForceAnonymous() const;
     void setImgurForceAnonymous(bool enabled);
@@ -173,8 +174,8 @@ public:
     void setImgurAlwaysCopyToClipboard(bool enabled);
 
 signals:
-    void painterUpdated();
-    void captureDelayUpdated(int delay);
+    void painterUpdated() const;
+    void captureDelayUpdated(int delay) const;
 
 private:
     QSettings mConfig;

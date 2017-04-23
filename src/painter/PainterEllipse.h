@@ -25,16 +25,16 @@
 class PainterEllipse : public PainterBaseItem
 {
 public:
-    PainterEllipse(QPointF pos, QPen attributes, bool filled = 0);
-    virtual QRectF boundingRect() const;
-    virtual void addPoint(QPointF pos, bool modifier = 0);
-    virtual void moveTo(QPointF newPos);
-    virtual bool containsRect(QPointF topLeft, QSize size) const;
+    PainterEllipse(const QPointF &pos, const QPen &attributes, bool filled = 0);
+    virtual QRectF boundingRect() const override;
+    virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
+    virtual void moveTo(const QPointF &newPos) override;
+    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
 
 private:
     QRectF mRect;
     bool   mFilled;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
 
 };
 

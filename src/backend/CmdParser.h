@@ -21,9 +21,8 @@
 #ifndef CMDPARSER_H
 #define CMDPARSER_H
 
-#include <QObject>
+#include <QString>
 #include <QApplication>
-#include <QStringList>
 #include <iostream>
 #include <iomanip>
 
@@ -34,20 +33,22 @@ class CmdParser
 public:
     CmdParser();
 
-    bool addOption(QString name, QString description, QString longName = 0);
-    bool parse(QStringList arguments);
-    void showHelp();
-    void showVersion();
-    bool isSet(QString name);
-    QString value(QString name);
+    bool addOption(const QString &name,
+                   const QString &description,
+                   const QString &longName = 0);
+    bool parse(const QStringList &arguments);
+    void showHelp() const;
+    void showVersion() const;
+    bool isSet(const QString &name);
+    QString value(const QString &name);
 
 private:
     QList<CmdOption>  mOptions;
     QStringList       mUnknownOptions;
 
-    CmdOption *setOption(QString name);
-    void setUnknownOption(QString name);
-    bool showError();
+    CmdOption *setOption(const QString &name);
+    void setUnknownOption(const QString &name);
+    bool showError() const;
 };
 
 #endif // CMDPARSER_H

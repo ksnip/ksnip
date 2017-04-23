@@ -35,12 +35,12 @@ public:
 
 public:
     CustomCursor();
-    CustomCursor(const CursorShape &shape, const QColor &color, const int &size);
-    CustomCursor(const CursorShape &shape, const QColor &color = nullptr);
+    CustomCursor(CursorShape shape, const QColor &color, int size);
+    CustomCursor(CursorShape shape, const QColor &color = nullptr);
 
 private:
-    QPixmap createPixmap(const CursorShape &shape, const QColor &color, const int &size) const;
-    QPixmap createPixmap(const CursorShape &shape, const QColor &color = nullptr) const;
+    QPixmap createPixmap(CursorShape shape, const QColor &color, int size) const;
+    QPixmap createPixmap(CursorShape shape, const QColor &color = nullptr) const;
 };
 
 #endif // CUSTOMCURSOR_H

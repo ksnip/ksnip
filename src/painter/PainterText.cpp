@@ -36,7 +36,7 @@ int textBoxMargin()
 // Public Functions
 //
 
-PainterText::PainterText(QPointF pos, QPen attributes, QFont font) :
+PainterText::PainterText(const QPointF& pos, const QPen& attributes, const QFont& font) :
     PainterBaseItem(Text, attributes),
     mFont(font),
     mFontMetric(new QFontMetrics(mFont)),
@@ -52,7 +52,11 @@ PainterText::PainterText(QPointF pos, QPen attributes, QFont font) :
     updateRect();
 
     // Trigger cursor blinking
-    connect(mCursorBlinkTimer, SIGNAL(timeout()), this, SLOT(cursorBlink()));
+    connect(mCursorBlinkTimer, &QTimer::timeout, [this]() {
+        mCursorVisible = !mCursorVisible;
+        prepareGeometryChange();
+    });
+
     mCursorBlinkTimer->start(1000);
 }
 
@@ -67,18 +71,18 @@ QRectF PainterText::boundingRect() const
     return mRect;
 }
 
-void PainterText::moveTo(QPointF newPos)
+void PainterText::moveTo(const QPointF& newPos)
 {
     prepareGeometryChange();
     mRect.translate(newPos - offset() - boundingRect().topLeft());
 }
 
-void PainterText::addPoint(QPointF pos, bool modifier)
+void PainterText::addPoint(const QPointF&, bool)
 {
     // Not supported for text
 }
 
-bool PainterText::containsRect(QPointF topLeft, QSize size) const
+bool PainterText::containsRect(const QPointF& topLeft, const QSize& size) const
 {
     return mRect.intersects(QRectF(topLeft.x() - size.width() / 2,
                                    topLeft.y() - size.height() / 2,
@@ -154,7 +158,7 @@ void PainterText::keyPressEvent(QKeyEvent* event)
     prepareGeometryChange();
 }
 
-void PainterText::focusOutEvent(QFocusEvent* event)
+void PainterText::focusOutEvent(QFocusEvent*)
 {
     finishEditing();
 }
@@ -163,7 +167,7 @@ void PainterText::focusOutEvent(QFocusEvent* event)
 // Private Functions
 //
 
-void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
+void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     painter->setPen(*attributes());
 
@@ -171,19 +175,19 @@ void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem* style
         painter->drawRect(mRect);
     }
 
-    qreal boxHeight = 0;
+    auto boxHeight = 0;
     QTextDocument doc(mText);
-    for (QTextBlock block = doc.begin(); block != doc.end(); block = block.next()) {
-        int blpos = block.position();
-        int bllen = block.length();
+    for (auto block = doc.begin(); block != doc.end(); block = block.next()) {
+        auto blpos = block.position();
+        auto bllen = block.length();
         QTextLayout textLayout(block);
         textLayout.setFont(mFont);
-        int leading = mFontMetric->leading();
-        qreal blockHeight = 0;
+        auto leading = mFontMetric->leading();
+        auto blockHeight = 0;
         textLayout.setCacheEnabled(true);
         textLayout.beginLayout();
         while (1) {
-            QTextLine line = textLayout.createLine();
+            auto line = textLayout.createLine();
             if (!line.isValid()) {
                 break;
             }
@@ -220,11 +224,11 @@ void PainterText::moveCursor(PainterText::CursorPos direction)
     case Up:
     case Down:
         QTextDocument doc(mText);
-        QTextBlock block = doc.findBlock(mCursorPos);
+        auto block = doc.findBlock(mCursorPos);
         if ((direction == Up && block == doc.firstBlock()) || (direction == Down && block == doc.lastBlock())) {
             break;
         }
-        int blpos = block.position();
+        auto blpos = block.position();
         if (direction == Up) {
             block = block.previous();
         } else {
@@ -289,19 +293,10 @@ void PainterText::updateRect()
 
 void PainterText::pasteClipboard()
 {
-    QClipboard* clipboard = QApplication::clipboard();
+    auto clipboard = QApplication::clipboard();
     if (clipboard->text().isEmpty()) {
         return;
     }
     mText.insert(mCursorPos, clipboard->text());
     mCursorPos += clipboard->text().length();
-}
-
-//
-// Private Slots
-//
-void PainterText::cursorBlink()
-{
-    mCursorVisible = !mCursorVisible;
-    prepareGeometryChange();
 }

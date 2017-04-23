@@ -22,7 +22,8 @@
 //
 // Public Functions
 //
-PainterBaseItem::PainterBaseItem(PaintItemShape shape, QPen attributes) : mItemType(shape),
+PainterBaseItem::PainterBaseItem(PaintItemShape shape, const QPen& attributes) :
+    mItemType(shape),
     mAttributes(new QPen(attributes))
 {
 }
@@ -71,7 +72,7 @@ QPointF PainterBaseItem::offset() const
     return mOffset;
 }
 
-void PainterBaseItem::setOffset(QPointF offset)
+void PainterBaseItem::setOffset(const QPointF& offset)
 {
     mOffset = offset;
 }
@@ -96,7 +97,7 @@ void PainterBaseItem::setOutlineWidth(int width)
     mAttributes->setWidth(width);
 }
 
-void PainterBaseItem::setOutlineColor(QColor color)
+void PainterBaseItem::setOutlineColor(const QColor& color)
 {
     mAttributes->setColor(color);
 }

@@ -30,20 +30,21 @@ StringManip::StringManip()
 //
 
 /*
- * Split the path into sections each divided by forward slash and return everything from begin to
- * the last part just before the filename.
+ * Split the path into sections each divided by forward slash and return
+ * everything from begin to the last part just before the filename.
  */
-QString StringManip::extractPath(QString path)
+QString StringManip::extractPath(const QString& path)
 {
     return path.section("/", 0, -2);
 }
 
 /*
- * Split the path in section divided by forward slash. Check if the last section contains a dot
- * which could be used as demarcation for the file format, we need to remove it. If no file format
- * was provided, just return the last section.
+ * Split the path in section divided by forward slash. Check if the last section
+ * contains a dot which could be used as demarcation for the file format, we
+ * need to remove it. If no file format was provided, just return the last
+ * section.
  */
-QString StringManip::extractFilename(QString path)
+QString StringManip::extractFilename(const QString& path)
 {
     if (path.section("/", -1).contains(".")) {
         return path.section("/", -1).section(".", 0, -2);
@@ -53,11 +54,11 @@ QString StringManip::extractFilename(QString path)
 }
 
 /*
- * Split the path in section divided by forward slash. If the last section contains a dot, split it
- * again and return the part after the last dot. If no dot was found, return empty string, we have
- * no file format.
+ * Split the path in section divided by forward slash. If the last section
+ * contains a dot, split it again and return the part after the last dot. If no
+ * dot was found, return empty string, we have no file format.
  */
-QString StringManip::extractFormat(QString path)
+QString StringManip::extractFormat(const QString& path)
 {
     if (path.section("/", -1).contains(".")) {
         return path.section(".", -1);
@@ -75,13 +76,15 @@ QString StringManip::updateTimeAndDate(QString filename)
     return filename;
 }
 
-QString StringManip::makeUniqueFilename(QString path, QString filename, QString exension)
+QString StringManip::makeUniqueFilename(const QString& path,
+                                        const QString& filename,
+                                        const QString& exension)
 {
     if (!QFile::exists(path + filename + exension)) {
         return path + filename + exension;
     }
 
-    int i = 1;
+    auto i = 1;
     while (QFile::exists(path + filename + "(" + QString::number(i) + ")" + exension)) {
         i++;
     }

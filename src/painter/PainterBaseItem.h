@@ -39,24 +39,24 @@ public:
     };
 
 public:
-    PainterBaseItem(PaintItemShape shape, QPen attributes);
+    PainterBaseItem(PaintItemShape shape, const QPen &attributes);
     ~PainterBaseItem();
-    virtual int type() const;
-    virtual QRectF boundingRect() const = 0;
-    virtual void addPoint(QPointF pos, bool modifier = 0) = 0;
-    virtual void moveTo(QPointF newPos) = 0;
-    virtual bool containsRect(QPointF topLeft, QSize size) const = 0;
+    virtual int type() const override;
+    virtual QRectF boundingRect() const override = 0;
+    virtual void addPoint(const QPointF &pos, bool modifier = 0) = 0;
+    virtual void moveTo(const QPointF &newPos) = 0;
+    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const = 0;
     virtual bool isValid() const;
     virtual QPointF position() const;
     virtual QPen *attributes() const;
     virtual PaintItemShape ItemShape() const;
     virtual QPointF offset() const;
-    virtual void setOffset(QPointF offset);
+    virtual void setOffset(const QPointF &offset);
     virtual void setJoinStyle(Qt::PenJoinStyle join);
     virtual void setCapStyle(Qt::PenCapStyle cap);
     virtual void setOutlineStyle(Qt::PenStyle penStyle);
     virtual void setOutlineWidth(int width);
-    virtual void setOutlineColor(QColor color);
+    virtual void setOutlineColor(const QColor &color);
 
 private:
     PaintItemShape  mItemType;

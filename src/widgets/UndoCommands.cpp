@@ -33,8 +33,8 @@ MoveCommand::MoveCommand(PainterBaseItem* painterItem, const QPointF& newPos, QU
 
 bool MoveCommand::mergeWith(const QUndoCommand* command)
 {
-    const MoveCommand* moveCommand = static_cast<const MoveCommand*>(command);
-    PainterBaseItem* item = moveCommand->mPainterItem;
+    const auto moveCommand = static_cast<const MoveCommand*>(command);
+    auto item = moveCommand->mPainterItem;
 
     if (mPainterItem != item) {
         return false;
@@ -58,7 +58,9 @@ void MoveCommand::redo()
 //
 // Delete Command
 //
-DeleteCommand::DeleteCommand(PainterBaseItem* painterItem, PaintArea* scene, QUndoCommand* parent)
+DeleteCommand::DeleteCommand(PainterBaseItem* painterItem,
+                             PaintArea* scene,
+                             QUndoCommand* parent)
     : QUndoCommand(parent)
 {
     mScene = scene;
@@ -79,7 +81,9 @@ void DeleteCommand::redo()
 //
 // Add Command
 //
-AddCommand::AddCommand(PainterBaseItem* painterItem, PaintArea* scene, QUndoCommand* parent)
+AddCommand::AddCommand(PainterBaseItem* painterItem,
+                       PaintArea* scene,
+                       QUndoCommand* parent)
     : QUndoCommand(parent)
 {
     mScene = scene;
@@ -109,13 +113,14 @@ void AddCommand::redo()
 //
 // Crop Command
 //
-CropCommand::CropCommand(QGraphicsPixmapItem* pixmapItem, const QRectF& newRect, PaintArea* scene, QUndoCommand* parent)
+CropCommand::CropCommand(QGraphicsPixmapItem* pixmapItem, const QRectF& newRect,
+                         PaintArea* scene, QUndoCommand* parent)
 {
     mScene = scene;
     mPixmapItem = pixmapItem;
     mNewRect = newRect;
     mOldRect = mScene->sceneRect();
-    QPointF offset = mNewRect.topLeft() - mPixmapItem->offset();
+    auto offset = mNewRect.topLeft() - mPixmapItem->offset();
     mNewRect.moveTo(offset);
     mOldPixmap = new QPixmap(pixmapItem->pixmap());
     mNewPixmap = new QPixmap(pixmapItem->pixmap().copy(mNewRect.toRect()));
@@ -131,7 +136,7 @@ CropCommand::~CropCommand()
 
 void CropCommand::undo()
 {
-    for (QGraphicsItem* item : mScene->items()) {
+    for (auto item : mScene->items()) {
         PainterBaseItem* baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
         if (baseItem) {
             baseItem->moveTo(baseItem->position() + mOldOffset);
@@ -148,7 +153,7 @@ void CropCommand::redo()
 {
     // Move all painter items to old offset, if this is not done, on the second
     // crop the items are positioned incorrectly bug#27
-    for (QGraphicsItem* item : mScene->items()) {
+    for (auto item : mScene->items()) {
         PainterBaseItem* baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
         if (baseItem) {
             baseItem->moveTo(baseItem->position() - mPixmapItem->offset());

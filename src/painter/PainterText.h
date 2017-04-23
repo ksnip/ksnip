@@ -41,19 +41,19 @@ private:
     };
 
 public:
-    PainterText(QPointF pos, QPen attributes, QFont font);
+    PainterText(const QPointF &pos, const QPen &attributes, const QFont &font);
     ~PainterText();
-    virtual QRectF boundingRect() const;
-    virtual void moveTo(QPointF newPos);
-    virtual void addPoint(QPointF pos, bool modifier = 0);
-    virtual bool containsRect(QPointF topLeft, QSize size) const;
-    virtual bool isValid() const;
+    virtual QRectF boundingRect() const override;
+    virtual void moveTo(const QPointF &newPos) override;
+    virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
+    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
+    virtual bool isValid() const override;
     QFont font() const;
     void setFont(const QFont &font);
 
 protected:
-    virtual void keyPressEvent(QKeyEvent *event);
-    virtual void focusOutEvent(QFocusEvent *event);
+    virtual void keyPressEvent(QKeyEvent *event) override;
+    virtual void focusOutEvent(QFocusEvent *event) override;
 
 private:
     QRectF        mRect;
@@ -65,7 +65,7 @@ private:
     int           mCursorPos;
     bool          mCursorVisible;
 
-    void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *widget = 0);
+    virtual void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) override;
     void moveCursor(CursorPos direction);
     void insertChar(const QString &c);
     void removeChar(CursorPos direction);
@@ -73,8 +73,6 @@ private:
     void updateRect();
     void pasteClipboard();
 
-private slots:
-    void cursorBlink();
 };
 
 #endif // PAINTERTEXT_H

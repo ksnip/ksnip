@@ -26,11 +26,14 @@ PaintArea::PaintArea() : QGraphicsScene(),
     mCursor(nullptr),
     mModifierPressed(false),
     mPaintMode(Pen),
-    mUndoStack(new QUndoStack(this))
+    mUndoStack(new QUndoStack(this)),
+    mUndoAction(nullptr),
+    mRedoAction(nullptr),
+    mConfig(KsnipConfig::instance())
 {
-    // Connect to update signal so that we are informed any time the config changes, we use that to
-    // set the correct mouse cursor
-    connect(KsnipConfig::instance(), SIGNAL(painterUpdated()), this, SLOT(setCursor()));
+    // Connect to update signal so that we are informed any time the config
+    // changes, we use that to set the correct mouse cursor.
+    connect(mConfig, &KsnipConfig::painterUpdated, this, &PaintArea::setCursor);
 }
 
 //
@@ -38,8 +41,8 @@ PaintArea::PaintArea() : QGraphicsScene(),
 //
 
 /*
- * Load new captured image and add it to the scene and set the scene size to the size of the loaded
- * image.
+ * Load new captured image and add it to the scene and set the scene size to the
+ * size of the loaded image.
  */
 void PaintArea::loadCapture(const QPixmap& pixmap)
 {
@@ -56,7 +59,7 @@ void PaintArea::loadCapture(const QPixmap& pixmap)
  */
 void PaintArea::fitViewToParent()
 {
-    for (QGraphicsView* view : views()) {
+    for (auto view : views()) {
         view->parentWidget()->resize(areaSize() + QSize(100, 150));
     }
 }
@@ -67,7 +70,7 @@ QSize PaintArea::areaSize() const
     return sceneRect().size().toSize();
 }
 
-void PaintArea::setPaintMode(const PaintMode& paintMode)
+void PaintArea::setPaintMode(PaintMode paintMode)
 {
     if (mPaintMode == paintMode) {
         return;
@@ -83,8 +86,9 @@ PaintArea::PaintMode PaintArea::paintMode() const
 }
 
 /*
- * In order to export the scene as Image we must use a QPainter to draw all scene items to a new
- * image which we can the export. If no pixmap has been loaded return a null image.
+ * In order to export the scene as Image we must use a QPainter to draw all
+ * scene items to a new image which we can the export. If no pixmap has been
+ * loaded return a null image.
  */
 QImage PaintArea::exportAsImage()
 {
@@ -102,9 +106,11 @@ QImage PaintArea::exportAsImage()
     return image;
 }
 
-void PaintArea::setIsEnabled(const bool& enabled)
+void PaintArea::setIsEnabled(bool enabled)
 {
     mIsEnabled = enabled;
+    mUndoAction->setEnabled(enabled);
+    mRedoAction->setEnabled(enabled);
     setCursor();
 }
 
@@ -114,7 +120,7 @@ bool PaintArea::isEnabled() const
 }
 
 /*
- * The scene is only valid if a pixmap has been loaded
+ * The scene is only valid if a pixmap has been loaded.
  */
 bool PaintArea::isValid() const
 {
@@ -126,7 +132,8 @@ bool PaintArea::isValid() const
 }
 
 /*
- * Crop the capture image to the provided rect and set the scene rect appropriately
+ * Crop the capture image to the provided rect and set the scene rect
+ * appropriately.
  */
 void PaintArea::crop(const QRectF& rect)
 {
@@ -142,17 +149,25 @@ QPointF PaintArea::cropOffset() const
  * Creates a pointer to the undo action so that it can be directly used without
  * creating custom functions and slots.
  */
-QAction* PaintArea::createUndoAction()
+QAction* PaintArea::getUndoAction()
 {
-    return mUndoStack->createUndoAction(this, tr("Undo"));
+    if (!mUndoAction) {
+        mUndoAction = mUndoStack->createUndoAction(this, tr("Undo"));
+    }
+
+    return mUndoAction;
 }
 
 /*
  * Same as createUndoAction
  */
-QAction* PaintArea::createRedoAction()
+QAction* PaintArea::getRedoAction()
 {
-    return mUndoStack->createRedoAction(this, tr("Redo"));
+    if (!mRedoAction) {
+        mRedoAction = mUndoStack->createRedoAction(this, tr("Redo"));
+    }
+
+    return mRedoAction;
 }
 
 //
@@ -173,26 +188,25 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
 
     if (event->button() == Qt::LeftButton) {
 
-        KsnipConfig* config = KsnipConfig::instance();
         switch (mPaintMode) {
         case Pen:
-            mCurrentItem = new PainterPath(event->scenePos(), config->pen());
+            mCurrentItem = new PainterPath(event->scenePos(), mConfig->pen());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Marker:
-            mCurrentItem = new PainterPath(event->scenePos(), config->marker(), true);
+            mCurrentItem = new PainterPath(event->scenePos(), mConfig->marker(), true);
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Rect:
             mCurrentItem = new PainterRect(event->scenePos(),
-                                           config->rect(),
-                                           config->rectFill());
+                                           mConfig->rect(),
+                                           mConfig->rectFill());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Ellipse:
             mCurrentItem = new PainterEllipse(event->scenePos(),
-                                              config->ellipse(),
-                                              config->ellipseFill());
+                                              mConfig->ellipse(),
+                                              mConfig->ellipseFill());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Text:
@@ -200,11 +214,11 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             // the IBeam cursor is centered so new text is written at the middle
             // instead of at the top.
             mCurrentItem = new PainterText(event->scenePos() - QPointF(0, 12),
-                                           config->text(), config->textFont());
+                                           mConfig->text(), mConfig->textFont());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Erase:
-            eraseItem(event->scenePos(), config->eraseSize());
+            eraseItem(event->scenePos(), mConfig->eraseSize());
             break;
         case Move:
             if (grabItem(event->scenePos())) {
@@ -231,7 +245,7 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
             }
             break;
         case Erase:
-            eraseItem(event->scenePos(), KsnipConfig::instance()->eraseSize());
+            eraseItem(event->scenePos(), mConfig->eraseSize());
             break;
         case Move:
             moveItem(event->scenePos());
@@ -247,15 +261,13 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
     if (event->button() == Qt::LeftButton && mIsEnabled) {
         switch (mPaintMode) {
         case Pen:
-        case Marker: {
+        case Marker:
             PainterPath* path;
-            KsnipConfig* config = KsnipConfig::instance();
-            if (config->smoothPath() &&
+            if (mConfig->smoothPath() &&
                     (path = qgraphicsitem_cast<PainterPath*> (mCurrentItem))) {
-                path->smoothOut(config->smoothFactor());
+                path->smoothOut(mConfig->smoothFactor());
+                break;
             }
-            break;
-        }
         case Rect:
         case Ellipse:
         case Text:
@@ -294,10 +306,10 @@ void PaintArea::keyReleaseEvent(QKeyEvent* event)
     QGraphicsScene::keyReleaseEvent(event);
 }
 
-bool PaintArea::eraseItem(const QPointF& position, const int& size)
+bool PaintArea::eraseItem(const QPointF& position, int size)
 {
-    for (QGraphicsItem* item : items()) {
-        PainterBaseItem* baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
+    for (auto item : items()) {
+        auto baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
         if (baseItem && baseItem->containsRect(position , QSize(size, size))) {
             mUndoStack->push(new DeleteCommand(baseItem, this));
             return true;
@@ -312,7 +324,7 @@ bool PaintArea::eraseItem(const QPointF& position, const int& size)
  */
 bool PaintArea::grabItem(const QPointF& position)
 {
-    for (QGraphicsItem* item : items()) {
+    for (auto item : items()) {
         mCurrentItem = qgraphicsitem_cast<PainterBaseItem*> (item);
 
         if (mCurrentItem && mCurrentItem->containsRect(position, QSize(10, 10))) {
@@ -356,28 +368,27 @@ QCursor* PaintArea::cursor()
     if (!mIsEnabled) {
         return new CustomCursor();
     }
-    KsnipConfig* config = KsnipConfig::instance();
     switch (mPaintMode) {
     case Pen:
         return new CustomCursor(CustomCursor::Circle,
-                                config->penColor(),
-                                config->penSize());
+                                mConfig->penColor(),
+                                mConfig->penSize());
     case Marker:
         return new CustomCursor(CustomCursor::Circle,
-                                config->markerColor(),
-                                config->markerSize());
+                                mConfig->markerColor(),
+                                mConfig->markerSize());
     case Rect:
         return new CustomCursor(CustomCursor::Circle,
-                                config->rectColor(),
-                                config->rectSize());
+                                mConfig->rectColor(),
+                                mConfig->rectSize());
     case Ellipse:
         return new CustomCursor(CustomCursor::Circle,
-                                config->ellipseColor(),
-                                config->ellipseSize());
+                                mConfig->ellipseColor(),
+                                mConfig->ellipseSize());
     case Text:
         return new QCursor(Qt::IBeamCursor);
     case Erase:
-        return new CustomCursor(CustomCursor::Rect, QColor("white"), config->eraseSize());
+        return new CustomCursor(CustomCursor::Rect, QColor("white"), mConfig->eraseSize());
     case Move:
         if (mCurrentItem == nullptr) {
             return new QCursor(Qt::OpenHandCursor);
@@ -400,7 +411,7 @@ void PaintArea::setCursor()
     delete mCursor;
     mCursor = cursor();
 
-    for (QGraphicsView *view : views()){
+    for (auto view : views()) {
         view->setCursor(*mCursor);
     }
 }

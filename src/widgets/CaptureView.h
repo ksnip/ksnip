@@ -34,7 +34,7 @@ public:
     void show();
     PaintArea *scene() const;
     void crop();
-    void setIsCropping(const bool &isCropping);
+    void setIsCropping(bool isCropping);
     bool getIsCropping() const;
     QRectF getSelectedRect() const;
     void setSelectedRect(const QRectF &rect);
@@ -44,11 +44,11 @@ signals:
     void closeCrop();
 
 protected:
-    virtual void keyPressEvent(QKeyEvent *);
-    virtual void mousePressEvent(QMouseEvent *);
-    virtual void mouseReleaseEvent(QMouseEvent *);
-    virtual void mouseMoveEvent(QMouseEvent *);
-    virtual void drawForeground(QPainter *painter, const QRectF &rect);
+    virtual void keyPressEvent(QKeyEvent *event) override;
+    virtual void mousePressEvent(QMouseEvent *event) override;
+    virtual void mouseReleaseEvent(QMouseEvent *event) override;
+    virtual void mouseMoveEvent(QMouseEvent *event) override;
+    virtual void drawForeground(QPainter *painter, const QRectF &rect) override;
 
 private:
     int     mRectSize;
@@ -59,11 +59,11 @@ private:
     QRectF  mSelectedRect;
     QRectF  mBorderPoints[8];
 
-    void moveBorderPoint(const int &borderPoint, const QPointF &pos);
+    void moveBorderPoint(int borderPoint, const QPointF &pos);
     void setupBorderPoints(const QRectF &rect);
     QPointF restrictPointToScene(const QPointF &point) const;
     QPointF restrictRectMoveToScene(const QRectF &rect, const QPointF &newPos) const;
-    void setCursor(const QPointF &pos);
+    void setCursor();
 };
 
 #endif // CAPTUREVIEW_H

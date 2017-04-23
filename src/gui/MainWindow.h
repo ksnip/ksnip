@@ -21,7 +21,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QtGui>
+#include <QtWidgets>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrintPreviewDialog>
 
 #include "SnippingArea.h"
 #include "SettingsDialog.h"
@@ -43,24 +46,25 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 public:
     MainWindow();
-    void show(QPixmap screenshot);
+    void show(const QPixmap &screenshot);
     void show();
     int captureDelay() const;
     void instantCapture(ImageGrabber::CaptureMode captureMode, int delay = 0);
     void resize();
+    virtual QMenu *createPopupMenu() override;
 
 public slots:
     void setCaptureDelay(int ms);
     void openCrop();
     void closeCrop();
-    QMenu *createPopupMenu();
     void colorChanged(const QColor &color);
-    void fillChanged(const bool &fill);
-    void sizeChanged(const int &size);
+    void fillChanged(bool fill);
+    void sizeChanged(int size);
 
 protected:
-    void moveEvent(QMoveEvent *event);
-    void closeEvent(QCloseEvent *event);
+    virtual void moveEvent(QMoveEvent *event) override;
+    virtual void closeEvent(QCloseEvent *event) override;
+    virtual void keyPressEvent(QKeyEvent *event) override;
 
 private:
     int               mCaptureDelay;
@@ -103,45 +107,32 @@ private:
     ImageGrabber     *mImageGrabber;
     ImgurUploader    *mImgurUploader;
     CropPanel        *mCropPanel;
+    KsnipConfig      *mConfig;
 
     void delay(int ms);
     void setSaveAble(bool enabled);
     void setEnablements(bool enabled);
     void loadSettings();
     void copyToClipboard();
-    bool popupQuestion(QString title, QString question);
-    QIcon createIcon(QString name);
-    void instantSave(QPixmap pixmap);
+    bool popupQuestion(const QString &title, const QString &question);
+    QIcon createIcon(const QString &name);
+    void instantSave(const QPixmap &pixmap);
+    void hide();
     void initGui();
 
 private slots:
-    void newRectAreaCaptureClicked();
-    void newCurrentScreenCaptureClicked();
-    void newFullScreenCaptureClicked();
-    void newActiveWindowCaptureClicked();
     void saveCaptureClicked();
-    void copyToClipboardClicked();
-    void penClicked();
-    void markerClicked();
-    void rectClicked();
-    void ellipseClicked();
-    void textClicked();
-    void eraseClicked();
-    void moveClicked();
     void imgurUploadClicked();
     void printClicked();
     void printPreviewClicked();
     void printCapture(QPrinter *p);
-    void keyPressEvent(QKeyEvent *event);
-    void areaSelected(QRect rect);
-    void imageChanged();
     void imgurUploadFinished(QString message);
-    void imgurError(QString message);
-    void imgurTokenUpdated(const QString accessToken, const QString refreshTocken, const QString username);
+    void imgurError(const QString &message);
+    void imgurTokenUpdated(const QString &accessToken,
+                           const QString &refreshTocken,
+                           const QString &username);
     void imgurTokenRefresh();
-    void openSettingsDialog();
-    void openAboutDialog();
-    void setPaintMode(const PaintArea::PaintMode &mode, const bool &save = true);
+    void setPaintMode(PaintArea::PaintMode mode, bool save = true);
 };
 
 #endif // MAINWINDOW_H

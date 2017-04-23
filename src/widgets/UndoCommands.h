@@ -36,7 +36,10 @@ public:
     void undo() override;
     void redo() override;
     bool mergeWith(const QUndoCommand *command) override;
-    int id() const override { return Id; }
+    int id() const override
+    {
+        return Id;
+    }
 
 private:
     PainterBaseItem *mPainterItem;

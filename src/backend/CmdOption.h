@@ -18,36 +18,37 @@
  *
  */
 
-#include <QObject>
-
 #ifndef CMDOPTION_H
 #define CMDOPTION_H
 
+#include <QString>
+
 class CmdOption
 {
+
 public:
-    CmdOption ( QString name, QString description, QString longName = 0 );
+    CmdOption(const QString &name, const QString &description, const QString &longName = 0);
 
     QString name() const;
-    void setName ( QString name );
+    void setName(const QString &name);
 
     QString longName() const;
-    void setLongName ( QString longName );
+    void setLongName(const QString &longName);
 
     QString description() const;
-    void setDescription ( QString description );
+    void setDescription(const QString &description);
 
     bool isSet() const;
-    void set ( bool enabled );
+    void set(bool enabled);
 
     QString value() const;
-    void setValue ( QString value );
+    void setValue(const QString &value);
 
 private:
     QString mName;
     QString mLongName;
     QString mDescription;
-    bool    mIsSet; 
+    bool    mIsSet;
     QString mValue;
 };
 

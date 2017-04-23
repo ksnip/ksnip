@@ -35,7 +35,7 @@ float smallesLenght(float lenght1, float lenght2)
 // Public Functions
 //
 
-PainterEllipse::PainterEllipse(QPointF pos, QPen attributes, bool filled) :
+PainterEllipse::PainterEllipse(const QPointF& pos, const QPen& attributes, bool filled) :
     PainterBaseItem(Rect, attributes),
     mFilled(filled)
 {
@@ -48,7 +48,7 @@ QRectF PainterEllipse::boundingRect() const
     return mRect.normalized().adjusted(-w / 2, -w / 2, w, w);
 }
 
-void PainterEllipse::addPoint(QPointF pos, bool modifier)
+void PainterEllipse::addPoint(const QPointF& pos, bool modifier)
 {
     mRect.setBottomRight(pos);
     if (modifier) {
@@ -58,13 +58,13 @@ void PainterEllipse::addPoint(QPointF pos, bool modifier)
     prepareGeometryChange();
 }
 
-void PainterEllipse::moveTo(QPointF newPos)
+void PainterEllipse::moveTo(const QPointF& newPos)
 {
     mRect.translate(newPos - offset() - boundingRect().topLeft());
     prepareGeometryChange();
 }
 
-bool PainterEllipse::containsRect(QPointF topLeft, QSize size) const
+bool PainterEllipse::containsRect(const QPointF& topLeft, const QSize& size) const
 {
     if (mFilled) {
         QRegion r(mRect.toRect(), QRegion::Ellipse);
@@ -79,12 +79,13 @@ bool PainterEllipse::containsRect(QPointF topLeft, QSize size) const
         QRegion r2(mRect.normalized().adjusted((attributes()->width()),
                                                (attributes()->width()),
                                                -(attributes()->width()),
-                                               -(attributes()->width())).toRect(), QRegion::Ellipse);
+                                               -(attributes()->width())).toRect(),
+                   QRegion::Ellipse);
 
-        return r1.subtract(r2).contains(QRect(topLeft.x() - size.width() / 2,
-                                              topLeft.y() - size.height() / 2,
-                                              size.width(),
-                                              size.height()));
+        return r1.subtracted(r2).contains(QRect(topLeft.x() - size.width() / 2,
+                                                topLeft.y() - size.height() / 2,
+                                                size.width(),
+                                                size.height()));
     }
 }
 
@@ -92,7 +93,7 @@ bool PainterEllipse::containsRect(QPointF topLeft, QSize size) const
 // Private Functions
 //
 
-void PainterEllipse::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget)
+void PainterEllipse::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     if (mFilled) {
         painter->setBrush(attributes()->color());

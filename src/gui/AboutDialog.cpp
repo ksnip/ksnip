@@ -43,7 +43,7 @@ AboutDialog::AboutDialog(MainWindow* parent) : QDialog(parent),
     mTabWidget->setMinimumSize(mTabWidget->sizeHint());
 
     mCloseButton->setText(tr("Close"));
-    connect(mCloseButton, SIGNAL(clicked()), this, SLOT(close()));
+    connect(mCloseButton, &QPushButton::clicked, &AboutDialog::close);
 
     mMainLayout->addLayout(mHeaderLayout);
     mMainLayout->addWidget(mTabWidget);
@@ -60,8 +60,8 @@ AboutDialog::AboutDialog(MainWindow* parent) : QDialog(parent),
 
 void AboutDialog::createHeader()
 {
-    QPixmap* pixmap = new QPixmap(":/ksnip64.png");
-    QLabel* label = new QLabel();
+    auto pixmap = new QPixmap(":/ksnip64.png");
+    auto label = new QLabel();
     mHeaderLayout = new QHBoxLayout();
     label->setPixmap(*pixmap);
     label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
@@ -74,8 +74,8 @@ void AboutDialog::createHeader()
 
 void AboutDialog::createAboutTab()
 {
-    QVBoxLayout* layout = new QVBoxLayout();
-    QLabel* label = new QLabel();
+    auto layout = new QVBoxLayout();
+    auto label = new QLabel();
     label->setText(QApplication::applicationName() +
                    " " +
                    tr("Screenshot Tool") + "<br/><br/>" +
@@ -92,20 +92,20 @@ void AboutDialog::createAboutTab()
 
 void AboutDialog::createVersionTab()
 {
-    QVBoxLayout* layout = new QVBoxLayout();
-
-    QLabel* label = new QLabel();
-    label->setText("<b>" + tr("Version ") + QApplication::applicationVersion() + "</b>" + "<br/><br/>" +
+    auto layout = new QVBoxLayout();
+    auto label = new QLabel();
+    label->setText("<b>" + tr("Version ") + QApplication::applicationVersion() +
+                   "</b>" + "<br/><br/>" +
                    tr("Using :") +
-                   "<ul><li>Qt 4.8</li><li>X11</li><br />");
+                   "<ul><li>Qt5</li><li>X11</li><br />");
     layout->addWidget(label);
     mVersionWidget->setLayout(layout);
 }
 
 void AboutDialog::createAuthorTab()
 {
-    QVBoxLayout* layout = new QVBoxLayout();
-    QLabel* label = new QLabel();
+    auto layout = new QVBoxLayout();
+    auto label = new QLabel();
     label->setText(tr("Please use ") +
                    "<a href=\"https://github.com/damirporobic/ksnip/issues/\">GitHub</a>" +
                    tr(" to report bugs.") + "<br/><br/>" +

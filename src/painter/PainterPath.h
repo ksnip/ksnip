@@ -25,20 +25,20 @@
 class PainterPath : public PainterBaseItem
 {
 public:
-    PainterPath(QPointF pos, QPen attributes, bool transparen = false);
+    PainterPath(const QPointF &pos, const QPen &attributes, bool transparen = false);
     ~PainterPath();
-    virtual QRectF boundingRect() const;
-    virtual void addPoint(QPointF pos, bool modifier = 0);
-    virtual void moveTo(QPointF newPos);
-    virtual bool containsRect(QPointF topLeft, QSize size) const;
-    void smoothOut(const float &factor);
+    virtual QRectF boundingRect() const override;
+    virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
+    virtual void moveTo(const QPointF &newPos) override;
+    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
+    void smoothOut(float factor);
 
 private:
     QPainterPath        *mPath;
     QPainterPathStroker *mStroker;
     bool                 mTransparent;
 
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *widget = 0);
+    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
 };
 
 #endif // PAINTERPATH_H

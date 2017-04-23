@@ -1,13 +1,13 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 project(ksnip)
 
-find_package(Qt4 REQUIRED)
-
-set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_AUTOMOC ON)
 
-include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
+set(QT_MIN_VERSION "5.4.0")
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Widgets Network Xml PrintSupport)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(ksnip_SRCS src/main.cpp
                src/widgets/CropPanel.cpp
@@ -36,13 +36,15 @@ set(ksnip_SRCS src/main.cpp
                )
 
 SET(ksnip_RES icons/resources.qrc)
-qt4_add_resources(ksnip_RES_RCC ${ksnip_RES})
-
-qt4_automoc(${ksnip_SRCS})
+qt5_add_resources(ksnip_RES_RCC ${ksnip_RES})
 
 add_executable(ksnip ${ksnip_SRCS} ${ksnip_RES_RCC})
 
-target_link_libraries(ksnip ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${QT_QTNETWORK_LIBRARY} ${QT_QTXML_LIBRARY} X11 Xfixes )
+target_link_libraries(ksnip Qt5::Widgets
+                            Qt5::Network
+                            Qt5::Xml
+                            Qt5::PrintSupport
+                            )
 
 install(TARGETS ksnip RUNTIME DESTINATION /bin)
 

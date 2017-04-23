@@ -54,19 +54,22 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mTextUnderlineButton(new QPushButton),
     mImgurUploader(new ImgurUploader),
     mListWidget(new QListWidget),
-    mStackedLayout(new QStackedLayout)
+    mStackedLayout(new QStackedLayout),
+    mConfig(KsnipConfig::instance())
 {
-    mConfig = KsnipConfig::instance();
     setWindowTitle(QApplication::applicationName() + " - " + tr("Settings"));
 
     initGui();
 
     loadSettings();
 
-    connect(mImgurUploader, SIGNAL(tokenUpdated(QString, QString, QString)),
-            this, SLOT(imgurTokenUpdated(QString, QString, QString)));
-    connect(mImgurUploader, SIGNAL(error(QString)), this, SLOT(imgurTokenError(QString)));
-    connect(mListWidget, SIGNAL(itemSelectionChanged()), this, SLOT(listSelectionChanged()));
+    connect(mImgurUploader, &ImgurUploader::tokenUpdated,
+            this, &SettingsDialog::imgurTokenUpdated);
+    connect(mImgurUploader, &ImgurUploader::error,
+            this, &SettingsDialog::imgurTokenError);
+    connect(mListWidget, &QListWidget::itemSelectionChanged, [this]() {
+        mStackedLayout->setCurrentIndex(mListWidget->currentRow());
+    });
 }
 
 //
@@ -145,7 +148,14 @@ void SettingsDialog::initGui()
     mSaveLocationLineEdit->setToolTip(tr("Filename can contain $Y, $M, $D for date and $T for time."));
 
     mBrowseButton->setText(tr("Browse"));
-    connect(mBrowseButton, SIGNAL(clicked()), this, SLOT(browseButtonClicked()));
+    connect(mBrowseButton, &QPushButton::clicked, [this]() {
+        mSaveLocationLineEdit->setText(QFileDialog::getOpenFileName(this,
+                                       tr("Capture save location"),
+                                       mConfig->saveDirectory() +
+                                       mConfig->saveFilename() +
+                                       mConfig->saveFormat(),
+                                       tr("All")));
+    });
 
     // Create Image Grabber Settings
     mCaptureMouseCheckbox->setText(tr("Capture mouse cursor on screenshot."));
@@ -157,30 +167,39 @@ void SettingsDialog::initGui()
     mImgurAlwaysCopyToClipboardCheckBox->setText(tr("Always copy Imgur link to clipboard."));
 
     mImgurClientIdLineEdit->setPlaceholderText(tr("Client ID"));
-    connect(mImgurClientIdLineEdit, SIGNAL(textChanged(QString)),
-            this, SLOT(imgurClientEntered(QString)));
+    connect(mImgurClientIdLineEdit, &QLineEdit::textChanged,
+            this, &SettingsDialog::imgurClientEntered);
 
     mImgurClientSecretLineEdit->setPlaceholderText(tr("Client Secret"));
-    connect(mImgurClientSecretLineEdit, SIGNAL(textChanged(QString)),
-            this, SLOT(imgurClientEntered(QString)));
+    connect(mImgurClientSecretLineEdit, &QLineEdit::textChanged,
+            this, &SettingsDialog::imgurClientEntered);
 
     mImgurPinLineEdit->setPlaceholderText(tr("PIN"));
     mImgurPinLineEdit->setToolTip(tr("Enter imgur Pin which will be exchanged for a token."));
-    connect(mImgurPinLineEdit, SIGNAL(textChanged(QString)), SLOT(imgurPinEntered(QString)));
+    connect(mImgurPinLineEdit, &QLineEdit::textChanged, [this](const QString & text) {
+        if (text.length() > 8) {
+            mImgurGetTokenButton->setEnabled(true);
+        } else {
+            mImgurGetTokenButton->setEnabled(false);
+        }
+    });
 
     mImgurGetPinButton->setText(tr("Get PIN"));
-    connect(mImgurGetPinButton, SIGNAL(clicked()), SLOT(getPinButtonClicked()));
+    connect(mImgurGetPinButton, &QPushButton::clicked,
+            this, &SettingsDialog::getPinButtonClicked);
     mImgurGetPinButton->setEnabled(false);
 
     mImgurGetTokenButton->setText(tr("Get Token"));
-    connect(mImgurGetTokenButton, SIGNAL(clicked()), SLOT(getTokenButtonClicked()));
+    connect(mImgurGetTokenButton, &QPushButton::clicked,
+            this, &SettingsDialog::getTokenButtonClicked);
     mImgurGetTokenButton->setEnabled(false);
 
     // Create Painter Settings
     mSmoothPathCheckbox->setText(tr("Smooth Paths"));
     mSmoothPathCheckbox->setToolTip(tr("When enabled smooths out pen and \n"
                                        "marker paths after finished drawing."));
-    connect(mSmoothPathCheckbox, SIGNAL(clicked(bool)), SLOT(smootPathCheckboxClicked(bool)));
+    connect(mSmoothPathCheckbox, &QCheckBox::clicked,
+            this, &SettingsDialog::smootPathCheckboxClicked);
 
     mSmoothFactorLabel->setText(tr("Smooth Factor") + ":");
     mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"
@@ -214,13 +233,18 @@ void SettingsDialog::initGui()
 
     // Create Push Buttons
     mOkButton->setText(tr("OK"));
-    connect(mOkButton, SIGNAL(clicked()), this, SLOT(okButtonClicked()));
+    connect(mOkButton, &QPushButton::clicked, [this]() {
+        saveSettings();
+        close();
+    });
 
     mCancelButton->setText(tr("Cancel"));
-    connect(mCancelButton, SIGNAL(clicked()), this, SLOT(cancelButtonClicked()));
+    connect(mCancelButton, &QPushButton::clicked, [this]() {
+        close();
+    });
 
     // Setup Application Settings Layout
-    QGridLayout* applicationGrid = new QGridLayout;
+    auto applicationGrid = new QGridLayout;
     applicationGrid->setAlignment(Qt::AlignTop);
     applicationGrid->setColumnStretch(0, 1);
     applicationGrid->addWidget(mAlwaysCopyToClipboardCheckbox, 0, 0);
@@ -232,11 +256,11 @@ void SettingsDialog::initGui()
     applicationGrid->addWidget(mSaveLocationLineEdit, 6, 0);
     applicationGrid->addWidget(mBrowseButton, 6, 3);
 
-    QGroupBox* applicationGrpBox = new QGroupBox(tr("Application Settings"));
+    auto applicationGrpBox = new QGroupBox(tr("Application Settings"));
     applicationGrpBox->setLayout(applicationGrid);
 
     // Setup Image Grabber Layout
-    QGridLayout* imageGrabberGrid = new QGridLayout;
+    auto imageGrabberGrid = new QGridLayout;
     imageGrabberGrid->setAlignment(Qt::AlignTop);
     imageGrabberGrid->setColumnStretch(1, 1);
     imageGrabberGrid->addWidget(mCaptureMouseCheckbox, 0, 0, 1, 2);
@@ -244,11 +268,11 @@ void SettingsDialog::initGui()
     imageGrabberGrid->addWidget(mCaptureDelayLabel, 2, 0);
     imageGrabberGrid->addWidget(mCaptureDelayCombobox, 2, 1);
 
-    QGroupBox* imageGrabberGrpBox = new QGroupBox(tr("Image Grabber"));
+    auto imageGrabberGrpBox = new QGroupBox(tr("Image Grabber"));
     imageGrabberGrpBox->setLayout(imageGrabberGrid);
 
     // Setup Imgur Uploader Layout
-    QGridLayout* imgurUploaderGrid = new QGridLayout;
+    auto imgurUploaderGrid = new QGridLayout;
     imgurUploaderGrid->setAlignment(Qt::AlignTop);
     imgurUploaderGrid->setColumnStretch(0, 1);
     imgurUploaderGrid->addWidget(mImgurForceAnonymousCheckbox, 0, 0);
@@ -262,11 +286,11 @@ void SettingsDialog::initGui()
     imgurUploaderGrid->addWidget(mImgurPinLineEdit, 7, 0);
     imgurUploaderGrid->addWidget(mImgurGetTokenButton, 7, 3);
 
-    QGroupBox* imgurUploaderGrpBox = new QGroupBox(tr("Imgur Uploader"));
+    auto imgurUploaderGrpBox = new QGroupBox(tr("Imgur Uploader"));
     imgurUploaderGrpBox->setLayout(imgurUploaderGrid);
 
     // Setup Painter Layout
-    QGridLayout* painterGrid = new QGridLayout;
+    auto painterGrid = new QGridLayout;
     painterGrid->setAlignment(Qt::AlignTop);
     painterGrid->setColumnStretch(1, 1);
     painterGrid->addWidget(mSmoothPathCheckbox, 0, 0);
@@ -279,11 +303,11 @@ void SettingsDialog::initGui()
     painterGrid->addWidget(mTextItalicButton, 3, 3);
     painterGrid->addWidget(mTextUnderlineButton, 3, 4);
 
-    QGroupBox* painterGrpBox = new QGroupBox(tr("Painter Settings"));
+    auto painterGrpBox = new QGroupBox(tr("Painter Settings"));
     painterGrpBox->setLayout(painterGrid);
 
     // Setup Push Button Layout
-    QHBoxLayout* buttonLayout = new QHBoxLayout;
+    auto buttonLayout = new QHBoxLayout;
     buttonLayout = new QHBoxLayout;
     buttonLayout->addWidget(mOkButton);
     buttonLayout->addWidget(mCancelButton);
@@ -302,11 +326,11 @@ void SettingsDialog::initGui()
     mListWidget->setFixedWidth(mListWidget->sizeHintForColumn(0) + 20);
 
     // Setup Main Window Layout
-    QHBoxLayout* listAndStackLayout = new QHBoxLayout;
+    auto listAndStackLayout = new QHBoxLayout;
     listAndStackLayout->addWidget(mListWidget);
     listAndStackLayout->addLayout(mStackedLayout);
 
-    QVBoxLayout* mainLayout = new QVBoxLayout();
+    auto mainLayout = new QVBoxLayout();
     mainLayout->addLayout(listAndStackLayout);
     mainLayout->addLayout(buttonLayout);
 
@@ -316,15 +340,6 @@ void SettingsDialog::initGui()
 //
 // Public Slots
 //
-void SettingsDialog::browseButtonClicked()
-{
-    mSaveLocationLineEdit->setText(QFileDialog::getOpenFileName(this,
-                                   tr("Capture save location"),
-                                   mConfig->saveDirectory() +
-                                   mConfig->saveFilename() +
-                                   mConfig->saveFormat(),
-                                   tr("All")));
-}
 
 /*
  * Based on the entered client id and client secret we create a pin request and open it up in the
@@ -358,42 +373,13 @@ void SettingsDialog::getTokenButtonClicked()
     mParent->statusBar()->showMessage(tr("Waiting for imgur.com..."));
 }
 
-void SettingsDialog::okButtonClicked()
-{
-    saveSettings();
-    close();
-}
-
-/*
- * Called when the list view selection has changed, it will change the selected stacked layout
- * providing the effect of switching between the different settings option
- */
-void SettingsDialog::listSelectionChanged()
-{
-    mStackedLayout->setCurrentIndex(mListWidget->currentRow());
-}
-
-void SettingsDialog::cancelButtonClicked()
-{
-    close();
-}
-
 void SettingsDialog::smootPathCheckboxClicked(bool checked)
 {
     mSmoothFactorLabel->setEnabled(checked);
     mSmoothFactorCombobox->setEnabled(checked);
 }
 
-void SettingsDialog::imgurPinEntered(const QString &text)
-{
-    if (text.length() > 8) {
-        mImgurGetTokenButton->setEnabled(true);
-    } else {
-        mImgurGetTokenButton->setEnabled(false);
-    }
-}
-
-void SettingsDialog::imgurClientEntered(const QString &text)
+void SettingsDialog::imgurClientEntered(const QString&)
 {
     if (!mImgurClientIdLineEdit->text().isEmpty() && !mImgurClientSecretLineEdit->text().isEmpty()) {
         mImgurGetPinButton->setEnabled(true);
@@ -403,11 +389,12 @@ void SettingsDialog::imgurClientEntered(const QString &text)
 }
 
 /*
- * We have received a new token from imgur.com, now we save it to config for later use and inform
- * the user about it.
+ * We have received a new token from imgur.com, now we save it to config for
+ * later use and inform the user about it.
  */
-void SettingsDialog::imgurTokenUpdated(const QString &accessToken, const QString &refreshTocken,
-                                       const QString &username)
+void SettingsDialog::imgurTokenUpdated(const QString& accessToken,
+                                       const QString& refreshTocken,
+                                       const QString& username)
 {
     mConfig->setImgurAccessToken(accessToken.toUtf8());
     mConfig->setImgurRefreshToken(refreshTocken.toUtf8());
@@ -418,10 +405,10 @@ void SettingsDialog::imgurTokenUpdated(const QString &accessToken, const QString
 }
 
 /*
- * Something went wrong while requesting a new token, we write the message to shell and inform the
- * user via statusbar.
+ * Something went wrong while requesting a new token, we write the message to
+ * shell and inform the user via statusbar.
  */
-void SettingsDialog::imgurTokenError(const QString &message)
+void SettingsDialog::imgurTokenError(const QString& message)
 {
     qCritical("SettingsDialog returned error: '%s'", qPrintable(message));
     mParent->statusBar()->showMessage(tr("Imgur.com token update error."), 3000);

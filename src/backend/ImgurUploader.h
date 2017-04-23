@@ -21,9 +21,9 @@
 #ifndef IMAGEUPLOADER_H
 #define IMAGEUPLOADER_H
 
-#include <QCoreApplication>
-#include <QNetworkAccessManager>
-#include <QNetworkRequest>
+#include <QObject>
+#include <QUrl>
+#include <QUrlQuery>
 #include <QNetworkReply>
 #include <QDomDocument>
 #include <QImage>
@@ -34,22 +34,29 @@ class ImgurUploader : public QObject
     Q_OBJECT
 public:
     ImgurUploader(QObject *parent = 0);
-    void startUpload(QImage image, QByteArray accessToken = 0);
-    void getAccessToken(QByteArray pin, QByteArray clientId, QByteArray clientSecret);
-    void refreshToken(QByteArray refreshToken, QByteArray clientId, QByteArray clientSecret);
-    QUrl pinRequestUrl(QString clientId);
+    void startUpload(const QImage &image, const QByteArray &accessToken = 0) const;
+    void getAccessToken(const QByteArray &pin,
+                        const QByteArray &clientId,
+                        const QByteArray &clientSecret) const;
+    void refreshToken(const QByteArray &refreshToken,
+                      const QByteArray &clientId,
+                      const QByteArray &clientSecret) const;
+    QUrl pinRequestUrl(const QString &clientId) const;
 
 signals:
-    void uploadFinished(const QString message);
-    void error(const QString message);
-    void tokenUpdated(const QString accessToken, const QString refreshTocken, const QString username);
-    void tokenRefreshRequired();
+    void uploadFinished(const QString &message) const;
+    void error(const QString &message) const;
+    void tokenUpdated(const QString &accessToken,
+                      const QString &refreshTocken,
+                      const QString &username) const;
+    void tokenRefreshRequired() const;
 
 private:
     QNetworkAccessManager *mAccessManager;
     QByteArray             mClientId;
-    void handleDataResponse(QDomElement element);
-    void handleTokenResponse(QDomElement element);
+
+    void handleDataResponse(const QDomElement &element) const;
+    void handleTokenResponse(const QDomElement &element) const;
 
 private slots:
     void handleReply(QNetworkReply *reply);

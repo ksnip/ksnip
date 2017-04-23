@@ -55,14 +55,14 @@ signals:
     void clicked();
 
 protected:
-    void mousePressEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
-    void keyPressEvent(QKeyEvent *event);
-    void keyReleaseEvent(QKeyEvent *event);
-    void paintEvent(QPaintEvent *event);
-    void focusInEvent(QFocusEvent *event);
-    void focusOutEvent(QFocusEvent *event);
+    virtual void mousePressEvent(QMouseEvent *event) override;
+    virtual void mouseMoveEvent(QMouseEvent *event) override;
+    virtual void mouseReleaseEvent(QMouseEvent *event) override;
+    virtual void keyPressEvent(QKeyEvent *event) override;
+    virtual void keyReleaseEvent(QKeyEvent *event) override;
+    virtual void paintEvent(QPaintEvent *event) override;
+    virtual void focusInEvent(QFocusEvent *event) override;
+    virtual void focusOutEvent(QFocusEvent *event) override;
 };
 
 
@@ -74,7 +74,8 @@ class PainterSettingsColorItem : public QFrame
     Q_OBJECT
 
 public:
-    PainterSettingsColorItem(const QColor &color = Qt::white, const QString &text = QString::null,
+    PainterSettingsColorItem(const QColor &color = Qt::white,
+                             const QString &text = QString::null,
                              QWidget *parent = 0);
     ~PainterSettingsColorItem();
     QColor color() const;
@@ -90,10 +91,10 @@ public slots:
     void setColor(const QColor &color, const QString &text = QString());
 
 protected:
-    void mousePressEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
-    void paintEvent(QPaintEvent *event);
+    virtual void mousePressEvent(QMouseEvent *event) override;
+    virtual void mouseReleaseEvent(QMouseEvent *event) override;
+    virtual void mouseMoveEvent(QMouseEvent *event) override;
+    virtual void paintEvent(QPaintEvent *event) override;
 
 private:
     QColor  mColor;
@@ -116,20 +117,20 @@ public:
     QColor color() const;
     void setColor(const QColor &color);
     bool fill() const;
-    void setFill(const bool &fill);
+    void setFill(bool fill);
     int size() const;
-    void setSize(const int &size);
+    void setSize(int size);
     PainterSettingsColorItem *findColor(const QColor &color) const;
     QColor colorAt(int index) const;
-    void addColorGrid(const bool &colorDialog = true, const bool &fillCheckbox = true);
-    void addSizeSlider(const int min, const int max, const int interval);
+    void addColorGrid(bool colorDialog = true, bool fillCheckbox = true);
+    void addSizeSlider(int  min, int  max, int  interval);
     bool isEmpty() const;
     void clear();
 
 signals:
     void colorChanged(const QColor &);
-    void fillChanged(const bool &);
-    void sizeChanged(const int &);
+    void fillChanged(bool);
+    void sizeChanged(int);
     void hid();
 
 public slots:
@@ -142,9 +143,9 @@ protected slots:
     void updateSizeLabel(int size);
 
 protected:
-    void showEvent(QShowEvent *e);
-    void hideEvent(QHideEvent *e);
-    void mouseReleaseEvent(QMouseEvent *e);
+    virtual void showEvent(QShowEvent *e) override;
+    virtual void hideEvent(QHideEvent *e) override;
+    virtual void mouseReleaseEvent(QMouseEvent *e) override;
     void regenerateColorGrid();
 
 private:
@@ -177,25 +178,25 @@ public:
     QColor color() const;
     void setColor(const QColor &color);
     bool fill() const;
-    void setFill(const bool &fill);
+    void setFill(bool fill);
     int size() const;
-    void setSize(const int &size);
-    void addPopupColorGrid(const bool &colorDialog = true,
-                           const bool &fillCheckbox = true,
-                           const bool &standardColor = true);
-    void addPopupSizeSlider(const int min, const int max, const int interval);
+    void setSize(int size);
+    void addPopupColorGrid(bool colorDialog = true,
+                           bool fillCheckbox = true,
+                           bool standardColor = true);
+    void addPopupSizeSlider(int  min, int  max, int  interval);
     void insertStandardColor();
     void clearPopup();
 
 public slots:
     void updateColor(const QColor &color);
-    void updateFill(const bool &fill);
-    void updateSize(const int &size);
+    void updateFill(bool fill);
+    void updateSize(int size);
 
 signals:
     void colorChanged(const QColor &);
-    void fillChanged(const bool &);
-    void sizeChanged(const int &);
+    void fillChanged(bool);
+    void sizeChanged(int);
 
 private slots:
     void buttonPressed();

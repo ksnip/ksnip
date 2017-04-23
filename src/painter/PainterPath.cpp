@@ -29,15 +29,15 @@ namespace
 {
 float distance(const QPointF& pt1, const QPointF& pt2)
 {
-    float hd = (pt1.x() - pt2.x()) * (pt1.x() - pt2.x());
-    float vd = (pt1.y() - pt2.y()) * (pt1.y() - pt2.y());
+    auto hd = (pt1.x() - pt2.x()) * (pt1.x() - pt2.x());
+    auto vd = (pt1.y() - pt2.y()) * (pt1.y() - pt2.y());
     return std::sqrt(hd + vd);
 }
 
 QPointF getLineStart(const QPointF& pt1, const QPointF& pt2)
 {
     QPointF pt;
-    float rat = 10.0 / distance(pt1, pt2);
+    auto rat = 10.0 / distance(pt1, pt2);
     if (rat > 0.5) {
         rat = 0.5;
     }
@@ -49,7 +49,7 @@ QPointF getLineStart(const QPointF& pt1, const QPointF& pt2)
 QPointF getLineEnd(const QPointF& pt1, const QPointF& pt2)
 {
     QPointF pt;
-    float rat = 10.0 / distance(pt1, pt2);
+    auto rat = 10.0 / distance(pt1, pt2);
     if (rat > 0.5) {
         rat = 0.5;
     }
@@ -64,13 +64,15 @@ QPointF getLineEnd(const QPointF& pt1, const QPointF& pt2)
 // Public Functions
 //
 
-PainterPath::PainterPath(QPointF pos, QPen attributes, bool transparent) : PainterBaseItem(Path, attributes),
+PainterPath::PainterPath(const QPointF& pos, const QPen& attributes, bool transparent) :
+    PainterBaseItem(Path, attributes),
     mPath(new QPainterPath),
     mStroker(new QPainterPathStroker),
     mTransparent(transparent)
 {
-    // Place the path at the right location and draw the first point, which is actually a line just
-    // moved one pixel as QT won't draw a line if the point B is equal to point A
+    // Place the path at the right location and draw the first point, which is
+    // actually a line just moved one pixel as QT won't draw a line if the point
+    // B is equal to point A
     mPath->moveTo(pos);
     mPath->lineTo(pos + QPointF(1, 1));
 
@@ -91,7 +93,7 @@ QRectF PainterPath::boundingRect() const
     return mStroker->createStroke(*mPath).boundingRect();
 }
 
-void PainterPath::addPoint(QPointF pos, bool modifier)
+void PainterPath::addPoint(const QPointF& pos, bool modifier)
 {
     if (mPath->elementAt(mPath->elementCount() - 1).isLineTo() && modifier) {
         prepareGeometryChange();
@@ -102,13 +104,13 @@ void PainterPath::addPoint(QPointF pos, bool modifier)
     prepareGeometryChange();
 }
 
-void PainterPath::moveTo(QPointF newPos)
+void PainterPath::moveTo(const QPointF& newPos)
 {
     prepareGeometryChange();
     mPath->translate(newPos - offset() - boundingRect().topLeft());
 }
 
-bool PainterPath::containsRect(QPointF topLeft, QSize size) const
+bool PainterPath::containsRect(const QPointF& topLeft, const QSize& size) const
 {
     return mPath->intersects(QRectF(topLeft.x() - size.width() / 2,
                                     topLeft.y() - size.height() / 2,
@@ -124,11 +126,11 @@ bool PainterPath::containsRect(QPointF topLeft, QSize size) const
  * Bezier curve. The min factor is used to test the distance between two points,
  * distance below min is ignored and points skipped.
  */
-void PainterPath::smoothOut(const float& factor)
+void PainterPath::smoothOut(float factor)
 {
     QList<QPointF> points;
     QPointF p;
-    for (int i = 0; i < mPath->elementCount() - 1; i++) {
+    for (auto i = 0; i < mPath->elementCount() - 1; i++) {
         p = QPointF(mPath->elementAt(i).x, mPath->elementAt(i).y);
 
         // Except for first and last points, check what the distance between two
@@ -147,7 +149,7 @@ void PainterPath::smoothOut(const float& factor)
     QPointF pt1;
     QPointF pt2;
     QPainterPath* path = new QPainterPath();
-    for (int i = 0; i < points.count() - 1; i++) {
+    for (auto i = 0; i < points.count() - 1; i++) {
         pt1 = getLineStart(points[i], points[i + 1]);
         if (i == 0) {
             path->moveTo(pt1);
@@ -167,7 +169,7 @@ void PainterPath::smoothOut(const float& factor)
 // Private Functions
 //
 
-void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget* widget)
+void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 
     if (mTransparent) {

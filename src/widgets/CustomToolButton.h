@@ -29,10 +29,10 @@ class CustomToolButton : public QToolButton
     Q_OBJECT
 public:
     explicit CustomToolButton(QWidget *parent = 0);
-    void setButtonText(const QString &);
+    void setButtonText(const QString &text);
 
 public slots:
-    void    setDefaultAction(QAction *);
+    void    setDefaultAction(QAction *action);
     void    trigger();
 
 private:

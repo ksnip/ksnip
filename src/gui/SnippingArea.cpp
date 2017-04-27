@@ -25,7 +25,7 @@ SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent),
     setAttribute(Qt::WA_TranslucentBackground, true);
 
     // Make the frame span across the screen and show above any other widget
-    setWindowFlags(Qt::FramelessWindowHint | Qt::ToolTip);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Popup);
     setFixedSize(QDesktopWidget().size());
 
     // Set the default cursor for this widget to a custom cursor
@@ -87,6 +87,14 @@ void SnippingArea::paintEvent(QPaintEvent* event)
     }
 
     QWidget::paintEvent(event);
+}
+
+void SnippingArea::keyPressEvent(QKeyEvent* event)
+{
+    if (event->key() == Qt::Key_Escape) {
+        emit cancel();
+    }
+    QWidget::keyPressEvent(event);
 }
 
 //

@@ -64,7 +64,6 @@ public slots:
 protected:
     virtual void moveEvent(QMoveEvent *event) override;
     virtual void closeEvent(QCloseEvent *event) override;
-    virtual void keyPressEvent(QKeyEvent *event) override;
 
 private:
     int               mCaptureDelay;

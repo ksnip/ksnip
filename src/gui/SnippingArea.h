@@ -34,12 +34,14 @@ public:
     SnippingArea(QWidget *);
 
 signals:
-    void areaSelected(QRect);
+    void areaSelected(const QRect &);
+    void cancel();
 
 protected:
     virtual void mousePressEvent(QMouseEvent *event) override;
     virtual void mouseReleaseEvent(QMouseEvent *event) override;
     virtual void mouseMoveEvent(QMouseEvent *event) override;
+    virtual void keyPressEvent(QKeyEvent * event) override;
     virtual void paintEvent(QPaintEvent *event) override;
 
 private:

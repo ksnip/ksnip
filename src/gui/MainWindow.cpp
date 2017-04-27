@@ -19,6 +19,7 @@
  */
 
 #include "MainWindow.h"
+#include <iostream>
 
 MainWindow::MainWindow() : QMainWindow(),
     mNewCaptureButton(new CustomToolButton(this)),
@@ -73,6 +74,12 @@ MainWindow::MainWindow() : QMainWindow(),
         show(mImageGrabber->grabImage(ImageGrabber::RectArea,
                                       mConfig->captureMouse(),
                                       &rect));
+    });
+
+    connect(mSnippingArea, &SnippingArea::cancel, [this]() {
+        setWindowOpacity(1.0);
+        mPaintArea->setIsEnabled(true);
+
     });
 
     connect(mPaintArea, &PaintArea::imageChanged, [this]() {
@@ -133,8 +140,7 @@ void MainWindow::show(const QPixmap& screenshot)
         copyToClipboard();
     }
 
-    setFocus();
-    QWidget::show();
+    QMainWindow::show();
 }
 
 void MainWindow::show()
@@ -144,7 +150,7 @@ void MainWindow::show()
     setSaveAble(false);
     setEnablements(false);
     closeCrop();
-    QWidget::show();
+    QMainWindow::show();
 }
 
 int MainWindow::captureDelay() const
@@ -340,17 +346,6 @@ void MainWindow::closeEvent(QCloseEvent* event)
     } else {
         event->accept();
     }
-}
-
-void MainWindow::keyPressEvent(QKeyEvent* event)
-{
-    if (event->key() == Qt::Key_Escape) {
-        mSnippingArea->hide();
-        setWindowOpacity(1.0);
-        mPaintArea->setIsEnabled(true);
-    }
-
-    QWidget::keyPressEvent(event);
 }
 
 //
@@ -582,7 +577,6 @@ void MainWindow::initGui()
     mSaveAction->setToolTip(tr("Save Screen Capture to file system"));
     mSaveAction->setIcon(createIcon("save"));
     mSaveAction->setShortcut(QKeySequence::Save);
-    mSaveAction->setShortcutContext(Qt::ApplicationShortcut);
     connect(mSaveAction, &QAction::triggered, this, &MainWindow::saveCaptureClicked);
 
     // Create action for copy to clipboard button
@@ -590,7 +584,6 @@ void MainWindow::initGui()
     mCopyToClipboardAction->setToolTip(tr("Copy Screen Capture to clipboard"));
     mCopyToClipboardAction->setIcon(createIcon("copyToClipboard"));
     mCopyToClipboardAction->setShortcut(QKeySequence::Copy);
-    mCopyToClipboardAction->setShortcutContext(Qt::ApplicationShortcut);
     connect(mCopyToClipboardAction, &QAction::triggered, [this]() {
         copyToClipboard();
     });
@@ -599,7 +592,6 @@ void MainWindow::initGui()
     mUploadToImgurAction->setText(tr("Upload"));
     mUploadToImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
     mUploadToImgurAction->setShortcut(Qt::SHIFT + Qt::Key_U);
-    mUploadToImgurAction->setShortcutContext(Qt::ApplicationShortcut);
     connect(mUploadToImgurAction, &QAction::triggered,
             this, &MainWindow::imgurUploadClicked);
 
@@ -607,7 +599,6 @@ void MainWindow::initGui()
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
     mPrintAction->setShortcut(QKeySequence::Print);
-    mPrintAction->setShortcutContext(Qt::ApplicationShortcut);
     mPrintAction->setIcon(QIcon::fromTheme("document-print"));
     connect(mPrintAction, &QAction::triggered, this, &MainWindow::printClicked);
 
@@ -623,7 +614,6 @@ void MainWindow::initGui()
     mCropAction->setText(tr("Crop"));
     mCropAction->setToolTip(tr("Crop Screen Capture"));
     mCropAction->setShortcut(Qt::SHIFT + Qt::Key_C);
-    mCropAction->setShortcutContext(Qt::ApplicationShortcut);
     connect(mCropAction, &QAction::triggered, this, &MainWindow::openCrop);
 
     // Create actions for paint mode
@@ -686,14 +676,12 @@ void MainWindow::initGui()
     // Create action for new capture, this will be only used in the menu bar
     mNewCaptureAction->setText(tr("New"));
     mNewCaptureAction->setShortcut(QKeySequence::New);
-    mNewCaptureAction->setShortcutContext(Qt::ApplicationShortcut);
     connect(mNewCaptureAction, &QAction::triggered,
             mNewCaptureButton, &CustomToolButton::trigger);
 
     // Create exit action
     mQuitAction->setText(tr("Quit"));
     mQuitAction->setShortcut(QKeySequence::Quit);
-    mQuitAction->setShortcutContext(Qt::ApplicationShortcut);
     mQuitAction->setIcon(QIcon::fromTheme("application-exit"));
     connect(mQuitAction, &QAction::triggered, this, &MainWindow::close);
 
@@ -716,11 +704,9 @@ void MainWindow::initGui()
     // class and only a pointer returned here.
     mUndoAction->setIcon(QIcon::fromTheme("edit-undo"));
     mUndoAction->setShortcut(QKeySequence::Undo);
-    mUndoAction->setShortcutContext(Qt::ApplicationShortcut);
 
     mRedoAction->setIcon(QIcon::fromTheme("edit-redo"));
     mRedoAction->setShortcut(QKeySequence::Redo);
-    mRedoAction->setShortcutContext(Qt::ApplicationShortcut);
 
     // Create tool buttons
 

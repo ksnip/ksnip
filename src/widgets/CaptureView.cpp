@@ -31,14 +31,14 @@ CaptureView::CaptureView(QGraphicsScene* scene) : QGraphicsView(scene)
     mRectSize = 15;
 }
 
-//
+//C
 // Public Functions
 //
 
 void CaptureView::show()
 {
     setIsCropping(false);
-    grabKeyboard();
+    setFocus();
     QGraphicsView::show();
 }
 

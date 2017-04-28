@@ -49,7 +49,7 @@ public:
     void show(const QPixmap &screenshot);
     void show();
     int captureDelay() const;
-    void instantCapture(ImageGrabber::CaptureMode captureMode, int delay = 0);
+    void instantCapture(ImageGrabber::CaptureMode captureMode, int delay = 0, bool capureMouse = false);
     void resize();
     virtual QMenu *createPopupMenu() override;
 

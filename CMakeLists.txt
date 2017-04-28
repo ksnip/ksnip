@@ -30,8 +30,6 @@ set(ksnip_SRCS src/main.cpp
                src/backend/StringManip.cpp
                src/backend/KsnipConfig.cpp
                src/backend/ImageGrabber.cpp
-               src/backend/CmdParser.cpp
-               src/backend/CmdOption.cpp
                src/painter/PaintArea.cpp
                src/painter/PainterBaseItem.cpp
                src/painter/PainterPath.cpp

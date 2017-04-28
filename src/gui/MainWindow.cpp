@@ -163,29 +163,17 @@ int MainWindow::captureDelay() const
  * image and saves it directly to disk. If some delay was set it will be added,
  * otherwise delay is set to 0 and skipped
  */
-void MainWindow::instantCapture(ImageGrabber::CaptureMode captureMode, int  seconds)
+void MainWindow::instantCapture(ImageGrabber::CaptureMode captureMode,
+                                int seconds,
+                                bool captureMouse)
 {
-    delay(seconds * 1000);
-
-    switch (captureMode) {
-    case ImageGrabber::RectArea:
-        break;
-
-    case ImageGrabber::CurrentScreen:
-        instantSave(mImageGrabber->grabImage(ImageGrabber::CurrentScreen,
-                                             mConfig->captureMouse()));
-        break;
-
-    case ImageGrabber::ActiveWindow:
-        instantSave(mImageGrabber->grabImage(ImageGrabber::ActiveWindow,
-                                             mConfig->captureMouse()));
-        break;
-
-    case ImageGrabber::FullScreen:
-    default:
-        instantSave(mImageGrabber->grabImage(ImageGrabber::FullScreen,
-                                             mConfig->captureMouse()));
+    // Check if rect capture was selected, if yes, aboard, we don't support that
+    // yet for instant capture.
+    if (captureMode == ImageGrabber::RectArea) {
+        return;
     }
+    delay(seconds * 1000);
+    instantSave(mImageGrabber->grabImage(captureMode, captureMouse));
 }
 
 /*
@@ -221,8 +209,6 @@ void MainWindow::setCaptureDelay(int  ms)
 //
 // Public Slots
 //
-
-
 void MainWindow::openCrop()
 {
     if (!mPaintArea->isValid()) {
@@ -522,6 +508,7 @@ void MainWindow::instantSave(const QPixmap& pixmap)
 void MainWindow::hide()
 {
     setWindowOpacity(0.0);
+    showMinimized();
     mPaintArea->setIsEnabled(false);
 }
 

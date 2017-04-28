@@ -7,6 +7,21 @@ set(CMAKE_AUTOMOC ON)
 set(QT_MIN_VERSION "5.4.0")
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Widgets Network Xml PrintSupport)
 
+# Without ECM we're unable to load XCB
+find_package(ECM REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+
+# Check for required XCB components
+find_package(XCB COMPONENTS XFIXES)
+
+if (XCB_FOUND)
+    find_package(Qt5X11Extras ${QT_MIN_VERSION} REQUIRED)
+endif()
+
+if(NOT XCB_XFIXES_FOUND)
+    message(FATAL_ERROR "Required XCB Components missing: XCB-XFIXES")
+endif()
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(ksnip_SRCS src/main.cpp
@@ -32,8 +47,7 @@ set(ksnip_SRCS src/main.cpp
                src/gui/MainWindow.cpp
                src/gui/SnippingArea.cpp
                src/gui/SettingsDialog.cpp
-               src/gui/AboutDialog.cpp
-               )
+               src/gui/AboutDialog.cpp)
 
 SET(ksnip_RES icons/resources.qrc)
 qt5_add_resources(ksnip_RES_RCC ${ksnip_RES})
@@ -44,7 +58,8 @@ target_link_libraries(ksnip Qt5::Widgets
                             Qt5::Network
                             Qt5::Xml
                             Qt5::PrintSupport
-                            )
+                            Qt5::X11Extras
+                            XCB::XFIXES)
 
 install(TARGETS ksnip RUNTIME DESTINATION /bin)
 

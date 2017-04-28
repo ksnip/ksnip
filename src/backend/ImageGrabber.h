@@ -26,8 +26,8 @@
 #include <QPainter>
 #include <QDesktopWidget>
 #include <QScreen>
-// #include <X11/Xlib.h>
-// #include <X11/extensions/Xfixes.h>
+#include <QX11Info>
+#include <xcb/xfixes.h>
 
 class MainWindow;
 
@@ -43,17 +43,28 @@ public:
     };
 
 public:
-    ImageGrabber(QWidget *);
-    QPixmap grabImage(CaptureMode captureMode, bool capureMouse, const QRect *rect = nullptr);
-    QRect currectScreenRect();
-    QRect fullScreenRect();
-    QRect activeWindowRect();
+    ImageGrabber();
+    QPixmap grabImage(CaptureMode captureMode, bool capureMouse, const QRect *rect = nullptr) const;
+    QRect currectScreenRect() const;
+    QRect fullScreenRect() const;
 
 private:
-    QWidget *mParent;
+    QPixmap grabRect(const QRect &rect, bool capureMouse) const;
+    xcb_window_t getActiveWindow() const;
+    QRect getWindowRect(xcb_window_t window) const;
+    QPixmap blendCursorImage(const QPixmap &pixmap, const QRect &rect) const;
+    QPoint getNativeCursorPosition() const;
+};
 
-    QPixmap grabRect(QRect rect, bool capureMouse);
-//     Window getToplevelParent(Display *display , Window window);
+/*
+ * QScopedPointer class overwritten to free pointers that need to be freed by
+ * free() instead of delete.
+ */
+template <typename T>
+class ScopedCPointer : public QScopedPointer<T, QScopedPointerPodDeleter>
+{
+public:
+    ScopedCPointer(T *p = 0) : QScopedPointer<T, QScopedPointerPodDeleter>(p) {}
 };
 
 #endif // IMAGEGRABBER_H

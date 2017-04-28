@@ -18,18 +18,23 @@
  *
  */
 
+/*
+ * blendCursorImage() and getNativeCursorPosition() functions have been taken
+ * from KDE Spectacle X11ImageGrabber and slightly modified to fit this
+ * implementation.
+ */
+
 #include "ImageGrabber.h"
 
-ImageGrabber::ImageGrabber(QWidget* parent) : QObject()
+ImageGrabber::ImageGrabber() : QObject()
 {
-    mParent = parent;
 }
 
 //
 // Public Functions
 //
 
-QPixmap ImageGrabber::grabImage(CaptureMode captureMode, bool capureMouse, const QRect *rect)
+QPixmap ImageGrabber::grabImage(CaptureMode captureMode, bool capureMouse, const QRect* rect) const
 {
     switch (captureMode) {
     case RectArea:
@@ -46,9 +51,14 @@ QPixmap ImageGrabber::grabImage(CaptureMode captureMode, bool capureMouse, const
     case CurrentScreen:
         return grabRect(currectScreenRect(), capureMouse);
 
-    case ActiveWindow:
-        return grabRect(activeWindowRect(), capureMouse);
-
+    case ActiveWindow: {
+        xcb_window_t wId = getActiveWindow();
+        if (wId == 0) {
+            qWarning("ImageGrabber::getActiveWindow: Found no window with focus");
+            return grabRect(currectScreenRect(), capureMouse);
+        }
+        return grabRect(getWindowRect(wId), capureMouse);
+    }
     default:
         qCritical("ImageGrabber::grabImage: Unknown CaptureMode provided.");
         return QPixmap();
@@ -58,119 +68,133 @@ QPixmap ImageGrabber::grabImage(CaptureMode captureMode, bool capureMouse, const
 /*
  * Returns the rect of the screen where the mouse cursor is currently located
  */
-QRect ImageGrabber::currectScreenRect()
+QRect ImageGrabber::currectScreenRect() const
 {
     auto screen = QApplication::desktop()->screenNumber(QCursor::pos());
     return QApplication::desktop()->screenGeometry(screen);
 }
 
 /*
- * Returns a rect covering the full screen, including several windows.
+ * Returns a rect covering the full screen, including several monitors.
  */
-QRect ImageGrabber::fullScreenRect()
+QRect ImageGrabber::fullScreenRect() const
 {
-    return QApplication::desktop()->screen()->geometry();
-}
-
-/*
- * Get the position and size of the current top window which has focus.
- */
-QRect ImageGrabber::activeWindowRect()
-{
-
-//     Display* display = XOpenDisplay(NULL);
-//     Window focusWindow, parentOfFocusedWindow;
-//     XWindowAttributes attrributes;
-//     int revert;
-// 
-//     XGetInputFocus(display, &focusWindow, &revert);
-//     parentOfFocusedWindow = getToplevelParent(display, focusWindow);
-// 
-//     if (!parentOfFocusedWindow) {
-//         qCritical("ImageGrabber::getActiveWindowRect: Unable to get window, returning screen.");
-//         return currectScreenRect();
-//     }
-// 
-//     XGetWindowAttributes(display, parentOfFocusedWindow, &attrributes);
-//     return QRect(attrributes.x, attrributes.y, attrributes.width, attrributes.height);
-    return QRect(100,100,100,100);
+    xcb_window_t rootWindow = QX11Info::appRootWindow();
+    return getWindowRect(rootWindow);
 }
 
 //
 // Private Functions
 //
-QPixmap ImageGrabber::grabRect(QRect rect, bool capureMouse)
+QPixmap ImageGrabber::grabRect(const QRect& rect, bool capureMouse) const
 {
-//     QPixmap screenshot = QPixmap::grabWindow(QApplication::desktop()->winId(),
-//                          rect.topLeft().x(),
-//                          rect.topLeft().y(),
-//                          rect.width(),
-//                          rect.height());
-
     auto screen = QGuiApplication::primaryScreen();
     QPixmap screenshot = screen->grabWindow(QApplication::desktop()->winId(),
-                         rect.topLeft().x(),
-                         rect.topLeft().y(),
-                         rect.width(),
-                         rect.height());
+                                            rect.topLeft().x(),
+                                            rect.topLeft().y(),
+                                            rect.width(),
+                                            rect.height());
 
-//     // Check if we should draw the cursor on the capture.
-//     if (rect.contains(QCursor::pos()) && capureMouse) {
-// 
-//         QPoint mousePos = QCursor::pos() - rect.topLeft();
-// 
-//         XFixesCursorImage* xfcursorImage = XFixesGetCursorImage(XOpenDisplay(NULL));
-// 
-//         // Converting long to uint as just using long on a 64bit system doesn't work out
-//         uint* uintCursor = (uint*)malloc((xfcursorImage->width * xfcursorImage->height) * sizeof(uint));
-//         for (int i = 0; i <= (xfcursorImage->width * xfcursorImage->height); i++) {
-//             uintCursor[i] = xfcursorImage->pixels[i];
-//         }
-// 
-//         // Create image of cursor
-//         QImage mouseCursor((uchar*)uintCursor, xfcursorImage->width,
-//                            xfcursorImage->height, QImage::Format_ARGB32_Premultiplied);
-// 
-//         // Cursor offset
-//         mousePos = mousePos - QPoint(xfcursorImage->xhot, xfcursorImage->yhot);
-// 
-//         // Draw the cursor image on the screenshot
-//         QPainter p(&screenshot);
-//         p.drawImage(mousePos, mouseCursor);
-// 
-//         free(uintCursor);
-//     }
+    // If requested, add cursor image to screenshot
+    if (capureMouse) {
+        screenshot = blendCursorImage(screenshot, rect);
+    }
 
     return screenshot;
 }
 
-// /*
-//  * The returned top window can consist of several "windows", therefor this function is used
-//  * to find the child window that is currently at the top. Credit goes to Doug from StackOverflow:
-//  * http://stackoverflow.com/questions/3909713/xlib-xgetwindowattributes-always-returns-1x1
-//  */
-// Window ImageGrabber::getToplevelParent(Display* display, Window window)
-// {
-//     Window parentWindow;
-//     Window rootWindow;
-//     Window* childrenWindows;
-//     unsigned int numberOfChildren;
-// 
-//     while (1) {
-//         if (XQueryTree(display, window, &rootWindow, &parentWindow, &childrenWindows,
-//                        &numberOfChildren) == 0) {
-//             qCritical("ImageGrabber::getToplevelParent: XQueryTree Error");
-//             return 0;
-//         }
-// 
-//         if (childrenWindows) {
-//             XFree(childrenWindows);
-//         }
-// 
-//         if (window == rootWindow || parentWindow == rootWindow) {
-//             return window;
-//         } else {
-//             window = parentWindow;
-//         }
-//     }
-// }
+xcb_window_t ImageGrabber::getActiveWindow() const
+{
+    xcb_query_tree_cookie_t treeCookie;
+    auto connection = QX11Info::connection();
+    ScopedCPointer<xcb_get_input_focus_reply_t> focusReply(xcb_get_input_focus_reply(connection, xcb_get_input_focus(connection), nullptr));
+
+    auto window = focusReply->focus;
+    while (1) {
+        treeCookie = xcb_query_tree_unchecked(connection, window);
+        ScopedCPointer<xcb_query_tree_reply_t> treeReply(xcb_query_tree_reply(connection, treeCookie, nullptr));
+        if (!treeReply) {
+            return 0;
+        }
+        if (window == treeReply->root || treeReply->parent == treeReply->root) {
+            return window;
+        } else {
+            window = treeReply->parent;
+        }
+    }
+}
+
+/*
+ * Return geometry rect for provided window id. If window id 0, returns a null
+ * QRect.
+ */
+QRect ImageGrabber::getWindowRect(xcb_window_t window) const
+{
+    // In case of window id 0 return empty rect
+    if (window == 0) {
+        return QRect();
+    }
+
+    auto connection = QX11Info::connection();
+    auto geomCookie = xcb_get_geometry_unchecked(connection, window);
+    ScopedCPointer<xcb_get_geometry_reply_t> geomReply(xcb_get_geometry_reply(connection, geomCookie, nullptr));
+
+    return QRect(geomReply->x, geomReply->y, geomReply->width, geomReply->height);
+}
+
+// Note: x, y, width and height are measured in device pixels
+QPixmap ImageGrabber::blendCursorImage(const QPixmap& pixmap, const QRect& rect) const
+{
+    auto cursorPos = getNativeCursorPosition();
+
+    if (!rect.contains(cursorPos)) {
+        return pixmap;
+    }
+
+    // now we can get the image and start processing
+
+    auto xcbConn = QX11Info::connection();
+
+    auto  cursorCookie = xcb_xfixes_get_cursor_image_unchecked(xcbConn);
+    ScopedCPointer<xcb_xfixes_get_cursor_image_reply_t>  cursorReply(xcb_xfixes_get_cursor_image_reply(xcbConn, cursorCookie, nullptr));
+    if (cursorReply.isNull()) {
+        return pixmap;
+    }
+
+    quint32* pixelData = xcb_xfixes_get_cursor_image_cursor_image(cursorReply.data());
+    if (!pixelData) {
+        return pixmap;
+    }
+
+    // process the image into a QImage
+    QImage cursorImage = QImage((quint8*)pixelData,
+                                cursorReply->width,
+                                cursorReply->height,
+                                QImage::Format_ARGB32_Premultiplied);
+
+    // a small fix for the cursor position for fancier cursors
+    cursorPos -= QPoint(cursorReply->xhot, cursorReply->yhot);
+
+    // now we translate the cursor point to our screen rectangle
+    cursorPos -= QPoint(rect.x(), rect.y());
+
+    // and do the painting
+    QPixmap blendedPixmap = pixmap;
+    QPainter painter(&blendedPixmap);
+    painter.drawImage(cursorPos, cursorImage);
+
+    return blendedPixmap;
+}
+
+QPoint ImageGrabber::getNativeCursorPosition() const
+{
+    // QCursor::pos() is not used because it requires additional calculations.
+    // Its value is the offset to the origin of the current screen is in
+    // device-independent pixels while the origin itself uses native pixels.
+
+    auto xcbConn = QX11Info::connection();
+    auto pointerCookie = xcb_query_pointer_unchecked(xcbConn, QX11Info::appRootWindow());
+    ScopedCPointer<xcb_query_pointer_reply_t> pointerReply(xcb_query_pointer_reply(xcbConn, pointerCookie, nullptr));
+
+    return QPoint(pointerReply->root_x, pointerReply->root_y);
+}

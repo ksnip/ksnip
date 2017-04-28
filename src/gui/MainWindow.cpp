@@ -56,7 +56,7 @@ MainWindow::MainWindow() : QMainWindow(),
     mRedoAction(mPaintArea->getRedoAction()),
     mClipboard(QApplication::clipboard()),
     mSnippingArea(new SnippingArea(this)),
-    mImageGrabber(new ImageGrabber(this)),
+    mImageGrabber(new ImageGrabber()),
     mImgurUploader(new ImgurUploader(this)),
     mCropPanel(new CropPanel(mCaptureView)),
     mConfig(KsnipConfig::instance())

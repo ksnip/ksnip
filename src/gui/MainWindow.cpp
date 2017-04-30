@@ -156,7 +156,6 @@ void MainWindow::showCapture(const QPixmap& screenshot)
         resize();
     }
 
-    mCaptureView->show();
     setSaveAble(true);
     setEnablements(true);
     closeCrop();
@@ -165,6 +164,7 @@ void MainWindow::showCapture(const QPixmap& screenshot)
         copyToClipboard();
     }
 
+    mCaptureView->show();
     QMainWindow::show();
 }
 

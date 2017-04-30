@@ -21,17 +21,17 @@
 #define SNIPPINGAREA_H
 
 #include <QWidget>
+#include <QMouseEvent>
+#include <QDesktopWidget>
 
-#include "MainWindow.h"
 #include "src/widgets/CustomCursor.h"
-
-class MainWindow;
 
 class SnippingArea : public QWidget
 {
     Q_OBJECT
 public:
-    SnippingArea(QWidget *);
+    SnippingArea(QWidget *parent);
+    void show();
 
 signals:
     void areaSelected(const QRect &);
@@ -41,7 +41,7 @@ protected:
     virtual void mousePressEvent(QMouseEvent *event) override;
     virtual void mouseReleaseEvent(QMouseEvent *event) override;
     virtual void mouseMoveEvent(QMouseEvent *event) override;
-    virtual void keyPressEvent(QKeyEvent * event) override;
+    virtual void keyPressEvent(QKeyEvent *event) override;
     virtual void paintEvent(QPaintEvent *event) override;
 
 private:

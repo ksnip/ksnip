@@ -49,6 +49,11 @@ void CropPanel::show()
 //
 // Protected Functions
 //
+
+/*
+ * Handles key press input when the crop panel has focus, when the captureView
+ * has focus events are handled there.
+ */
 void CropPanel::keyPressEvent(QKeyEvent* event)
 {
     if (event->key() == Qt::Key_Escape) {

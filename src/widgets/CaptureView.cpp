@@ -31,7 +31,7 @@ CaptureView::CaptureView(QGraphicsScene* scene) : QGraphicsView(scene)
     mRectSize = 15;
 }
 
-//C
+//
 // Public Functions
 //
 
@@ -40,6 +40,9 @@ void CaptureView::show()
     setIsCropping(false);
     setWindowState(Qt::WindowActive);
     QGraphicsView::show();
+
+    // Calling here focus in order to allow key press events to reach PaintArea
+    setFocus();
 }
 
 PaintArea* CaptureView::scene() const
@@ -74,6 +77,7 @@ void CaptureView::setIsCropping(bool isCropping)
     }
     setCursor();
     scene()->update();
+    setFocus();
 }
 
 bool CaptureView::getIsCropping() const
@@ -104,6 +108,11 @@ void CaptureView::setSelectedRect(const QRectF& rect)
 //
 // Protected Function
 //
+
+/*
+ * Handles only events when the crop panel is not in focus, otherwise events are
+ * handled there.
+ */
 void CaptureView::keyPressEvent(QKeyEvent* event)
 {
     if (mIsCropping) {

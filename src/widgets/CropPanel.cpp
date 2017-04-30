@@ -30,6 +30,7 @@ CropPanel::CropPanel(CaptureView* captureView) : QWidget(),
 {
     mCaptureView = captureView;
     initGui();
+    setFocusPolicy(Qt::NoFocus);
 
     connect(mCaptureView, &CaptureView::selectedRectChanged,
             this, &CropPanel::selectedRectChanged);

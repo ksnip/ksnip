@@ -26,7 +26,6 @@
 #include <QtPrintSupport/QPrintDialog>
 #include <QtPrintSupport/QPrintPreviewDialog>
 
-#include "SnippingArea.h"
 #include "SettingsDialog.h"
 #include "AboutDialog.h"
 #include "src/painter/PaintArea.h"
@@ -39,22 +38,27 @@
 #include "src/backend/StringManip.h"
 #include "src/backend/ImgurUploader.h"
 
-class SnippingArea;
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    MainWindow();
-    void show(const QPixmap &screenshot);
+    enum RunMode {
+        GUI,
+        CLI
+    };
+
+public:
+    MainWindow(RunMode mode = GUI);
     void show();
-    int captureDelay() const;
-    void instantCapture(ImageGrabber::CaptureMode captureMode, int delay = 0, bool capureMouse = false);
+    void instantCapture(ImageGrabber::CaptureMode captureMode,
+                        bool capureCursor = true,
+                        int delay = 0);
     void resize();
+    RunMode getMode() const;
     virtual QMenu *createPopupMenu() override;
 
 public slots:
-    void setCaptureDelay(int ms);
+    void showCapture(const QPixmap &screenshot);
     void openCrop();
     void closeCrop();
     void colorChanged(const QColor &color);
@@ -66,8 +70,9 @@ protected:
     virtual void closeEvent(QCloseEvent *event) override;
 
 private:
-    int               mCaptureDelay;
+    RunMode           mMode;
     bool              mIsUnsaved;
+    bool              mHidden;
     CustomToolButton *mNewCaptureButton;
     QToolButton      *mSaveButton;
     QToolButton      *mCopyToClipboardButton;
@@ -102,21 +107,19 @@ private:
     QAction          *mUndoAction;
     QAction          *mRedoAction;
     QClipboard       *mClipboard;
-    SnippingArea     *mSnippingArea;
     ImageGrabber     *mImageGrabber;
     ImgurUploader    *mImgurUploader;
     CropPanel        *mCropPanel;
     KsnipConfig      *mConfig;
 
-    void delay(int ms);
     void setSaveAble(bool enabled);
     void setEnablements(bool enabled);
     void loadSettings();
     void copyToClipboard();
     bool popupQuestion(const QString &title, const QString &question);
     QIcon createIcon(const QString &name);
-    void instantSave(const QPixmap &pixmap);
-    void hide();
+    void setHidden(bool isHidden);
+    bool hidden() const;
     void initGui();
 
 private slots:
@@ -132,6 +135,7 @@ private slots:
                            const QString &username);
     void imgurTokenRefresh();
     void setPaintMode(PaintArea::PaintMode mode, bool save = true);
+    void instantSave(const QPixmap &pixmap);
 };
 
 #endif // MAINWINDOW_H

@@ -41,7 +41,7 @@ private:
     QCheckBox       *mPromptToSaveBeforeExitCheckbox;
     QCheckBox       *mSaveKsnipPositionCheckbox;
     QCheckBox       *mSaveKsnipToolSelectionCheckbox;
-    QCheckBox       *mCaptureMouseCheckbox;
+    QCheckBox       *mCaptureCursorCheckbox;
     QCheckBox       *mImgurForceAnonymousCheckbox;
     QCheckBox       *mImgurDirectLinkToImageCheckbox;
     QCheckBox       *mImgurAlwaysCopyToClipboardCheckBox;

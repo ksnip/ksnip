@@ -141,8 +141,8 @@ public:
 
     // Image Grabber
 
-    bool captureMouse() const;
-    void setCaptureMouse(bool enabled);
+    bool captureCursor() const;
+    void setCaptureCursor(bool enabled);
 
     int captureDelay() const;
     void setCaptureDelay(int delay);
@@ -175,7 +175,6 @@ public:
 
 signals:
     void painterUpdated() const;
-    void captureDelayUpdated(int delay) const;
 
 private:
     QSettings mConfig;

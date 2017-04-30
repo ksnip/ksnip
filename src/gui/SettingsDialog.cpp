@@ -27,7 +27,7 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mPromptToSaveBeforeExitCheckbox(new QCheckBox),
     mSaveKsnipPositionCheckbox(new QCheckBox),
     mSaveKsnipToolSelectionCheckbox(new QCheckBox),
-    mCaptureMouseCheckbox(new QCheckBox),
+    mCaptureCursorCheckbox(new QCheckBox),
     mImgurForceAnonymousCheckbox(new QCheckBox),
     mImgurDirectLinkToImageCheckbox(new QCheckBox),
     mImgurAlwaysCopyToClipboardCheckBox(new QCheckBox),
@@ -82,7 +82,7 @@ void SettingsDialog::loadSettings()
     mSaveKsnipPositionCheckbox->setChecked(mConfig->saveKsnipPosition());
     mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveKsnipToolSelection());
 
-    mCaptureMouseCheckbox->setChecked(mConfig->captureMouse());
+    mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());
 
     mImgurForceAnonymousCheckbox->setChecked(mConfig->imgurForceAnonymous());
     mImgurDirectLinkToImageCheckbox->setChecked(mConfig->imgurOpenLinkDirectlyToImage());
@@ -111,7 +111,7 @@ void SettingsDialog::saveSettings()
     mConfig->setSaveKsnipPosition(mSaveKsnipPositionCheckbox->isChecked());
     mConfig->setSaveKsnipToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
 
-    mConfig->setCaptureMouse(mCaptureMouseCheckbox->isChecked());
+    mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
 
     mConfig->setImgurForceAnonymous(mImgurForceAnonymousCheckbox->isChecked());
     mConfig->setImgurOpenLinkDirectlyToImage(mImgurDirectLinkToImageCheckbox->isChecked());
@@ -158,7 +158,7 @@ void SettingsDialog::initGui()
     });
 
     // Create Image Grabber Settings
-    mCaptureMouseCheckbox->setText(tr("Capture mouse cursor on screenshot."));
+    mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot."));
     mCaptureDelayLabel->setText(tr("Delay (sec)") + ":");
 
     // Create Imgur Uploader Settings
@@ -263,7 +263,7 @@ void SettingsDialog::initGui()
     auto imageGrabberGrid = new QGridLayout;
     imageGrabberGrid->setAlignment(Qt::AlignTop);
     imageGrabberGrid->setColumnStretch(1, 1);
-    imageGrabberGrid->addWidget(mCaptureMouseCheckbox, 0, 0, 1, 2);
+    imageGrabberGrid->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 2);
     imageGrabberGrid->setRowMinimumHeight(1, 15);
     imageGrabberGrid->addWidget(mCaptureDelayLabel, 2, 0);
     imageGrabberGrid->addWidget(mCaptureDelayCombobox, 2, 1);

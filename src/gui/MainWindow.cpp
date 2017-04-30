@@ -19,9 +19,9 @@
  */
 
 #include "MainWindow.h"
-#include <iostream>
 
-MainWindow::MainWindow() : QMainWindow(),
+MainWindow::MainWindow(RunMode mode) : QMainWindow(),
+    mMode(mode),
     mNewCaptureButton(new CustomToolButton(this)),
     mSaveButton(new QToolButton(this)),
     mCopyToClipboardButton(new QToolButton(this)),
@@ -55,32 +55,26 @@ MainWindow::MainWindow() : QMainWindow(),
     mUndoAction(mPaintArea->getUndoAction()),
     mRedoAction(mPaintArea->getRedoAction()),
     mClipboard(QApplication::clipboard()),
-    mSnippingArea(new SnippingArea(this)),
-    mImageGrabber(new ImageGrabber()),
+    mImageGrabber(new ImageGrabber(this)),
     mImgurUploader(new ImgurUploader(this)),
     mCropPanel(new CropPanel(mCaptureView)),
     mConfig(KsnipConfig::instance())
 {
+    // When we run in CLI only mode we don't need to setup gui, but only need
+    // to connect imagegrabber signals to mainwindow slots to handle the
+    // feedback.
+    if (mMode == RunMode::CLI) {
+        connect(mImageGrabber, &ImageGrabber::finished, this, &MainWindow::instantSave);
+        connect(mImageGrabber, &ImageGrabber::canceled, this, &MainWindow::close);
+        return;
+    }
+
     initGui();
 
     mCaptureView->hide();
 
     setWindowIcon(createIcon("ksnip"));
     move(mConfig->windowPosition());
-
-    // Create a connection with other widget elements
-    connect(mSnippingArea, &SnippingArea::areaSelected, [this](const QRect & rect) {
-        delay(mCaptureDelay);
-        show(mImageGrabber->grabImage(ImageGrabber::RectArea,
-                                      mConfig->captureMouse(),
-                                      &rect));
-    });
-
-    connect(mSnippingArea, &SnippingArea::cancel, [this]() {
-        setWindowOpacity(1.0);
-        mPaintArea->setIsEnabled(true);
-
-    });
 
     connect(mPaintArea, &PaintArea::imageChanged, [this]() {
         setSaveAble(true);
@@ -89,8 +83,12 @@ MainWindow::MainWindow() : QMainWindow(),
         }
     });
 
-    connect(mConfig, &KsnipConfig::captureDelayUpdated,
-            this, &MainWindow::setCaptureDelay);
+
+    connect(mImageGrabber, &ImageGrabber::finished, this, &MainWindow::showCapture);
+    connect(mImageGrabber, &ImageGrabber::canceled, [this]() {
+        setHidden(false);
+    });
+
     connect(mImgurUploader, &ImgurUploader::uploadFinished,
             this, &MainWindow::imgurUploadFinished);
     connect(mImgurUploader, &ImgurUploader::error,
@@ -111,16 +109,43 @@ MainWindow::MainWindow() : QMainWindow(),
 // Public Functions
 //
 
-void MainWindow::show(const QPixmap& screenshot)
+/*
+ * Function for instant capturing used from command line. The function grabs the
+ * image and saves it directly to disk. If some delay was set it will be added,
+ * otherwise delay is set to 0 and skipped
+ */
+void MainWindow::instantCapture(ImageGrabber::CaptureMode captureMode,
+                                bool captureCursor,
+                                int delay)
 {
-    setWindowState(Qt::WindowActive);
-    setWindowOpacity(1.0);
+    mImageGrabber->grabImage(captureMode, captureCursor, delay);
+}
 
+/*
+ * Sets the Main Window size to fit all content correctly, it takes into account
+ * if an image was loaded or not,  if the status bar is show or not, and so on.
+ * If no image is loaded the status bar
+ * is hidden too.
+ */
+void MainWindow::resize()
+{
+    if (!mPaintArea->isValid()) {
+        statusBar()->setHidden(true);
+        QWidget::resize(minimumSize());
+    } else {
+        statusBar()->setHidden(false);
+        mPaintArea->fitViewToParent();
+    }
+}
+
+void MainWindow::showCapture(const QPixmap& screenshot)
+{
     if (screenshot.isNull()) {
         qCritical("PaintWindow::showWindow: No image provided to but it was expected.");
         return show();
     }
 
+    setHidden(false);
     mPaintArea->loadCapture(screenshot);
     mPaintArea->setIsEnabled(true);
 
@@ -145,65 +170,12 @@ void MainWindow::show(const QPixmap& screenshot)
 
 void MainWindow::show()
 {
-    setWindowState(Qt::WindowActive);
+    setHidden(false);
     mCaptureView->hide();
     setSaveAble(false);
     setEnablements(false);
     closeCrop();
     QMainWindow::show();
-}
-
-int MainWindow::captureDelay() const
-{
-    return mCaptureDelay;
-}
-
-/*
- * Function for instant capturing used from command line. The function grabs the
- * image and saves it directly to disk. If some delay was set it will be added,
- * otherwise delay is set to 0 and skipped
- */
-void MainWindow::instantCapture(ImageGrabber::CaptureMode captureMode,
-                                int seconds,
-                                bool captureMouse)
-{
-    // Check if rect capture was selected, if yes, aboard, we don't support that
-    // yet for instant capture.
-    if (captureMode == ImageGrabber::RectArea) {
-        return;
-    }
-    delay(seconds * 1000);
-    instantSave(mImageGrabber->grabImage(captureMode, captureMouse));
-}
-
-/*
- * Sets the Main Window size to fit all content correctly, it takes into account
- * if an image was loaded or not,  if the status bar is show or not, and so on.
- * If no image is loaded the status bar
- * is hidden too.
- */
-void MainWindow::resize()
-{
-    if (!mPaintArea->isValid()) {
-        statusBar()->setHidden(true);
-        QWidget::resize(minimumSize());
-    } else {
-        statusBar()->setHidden(false);
-        mPaintArea->fitViewToParent();
-    }
-}
-
-/*
- * Delay is never set below 300ms to leave enough time for the ksnip window to
- * disappear before taking the screenshot.
- */
-void MainWindow::setCaptureDelay(int  ms)
-{
-    if (ms < 300) {
-        mCaptureDelay = 300;
-    } else {
-        mCaptureDelay = ms;
-    }
 }
 
 //
@@ -223,6 +195,11 @@ void MainWindow::closeCrop()
 {
     statusBar()->removeWidget(mCropPanel);
     statusBar()->setHidden(true);
+}
+
+MainWindow::RunMode MainWindow::getMode() const
+{
+    return mMode;
 }
 
 QMenu* MainWindow::createPopupMenu()
@@ -338,15 +315,6 @@ void MainWindow::closeEvent(QCloseEvent* event)
 // Private Functions
 //
 
-void MainWindow::delay(int  ms)
-{
-    auto dieTime = QTime::currentTime().addMSecs(ms);
-
-    while (QTime::currentTime() < dieTime) {
-        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-    }
-}
-
 /*
  * Sets the state of the widget when the image was changed or save, depending
  * on the provided boolean value. If true, the save action is enabled and
@@ -392,9 +360,6 @@ void MainWindow::setEnablements(bool enabled)
  */
 void MainWindow::loadSettings()
 {
-    // Load capture delay setting
-    setCaptureDelay(mConfig->captureDelay());
-
     // Load paintmode setting
     switch (mConfig->paintMode()) {
     case PaintArea::Pen:
@@ -484,32 +449,30 @@ QIcon MainWindow::createIcon(const QString& name)
 }
 
 /*
- * This function when called saves the provided pixmap directly to the default
- * save location without asking the user for a new path. Existing images are not
- * overwritten, just names with increasing number.
- */
-void MainWindow::instantSave(const QPixmap& pixmap)
-{
-    QString savePath = StringManip::makeUniqueFilename(mConfig->saveDirectory(),
-                       StringManip::updateTimeAndDate(mConfig->saveFilename()),
-                       mConfig->saveFormat());
-
-    // Turn any special characters, like $Y into a valid date and time value.
-    if (!pixmap.save(savePath)) {
-        qCritical("MainWindow::instantSave: Failed to save file at '%s'",
-                  qPrintable(savePath));
-    }
-}
-
-/*
  * Usually called before we take a screenshot so we move the mainwindow out of
  * the way.
  */
-void MainWindow::hide()
+void MainWindow::setHidden(bool isHidden)
 {
-    setWindowOpacity(0.0);
-    showMinimized();
-    mPaintArea->setIsEnabled(false);
+    if (isHidden == hidden()) {
+        return;
+    }
+
+    mHidden = isHidden;
+    if (mHidden) {
+        setWindowOpacity(0.0);
+        showMinimized();
+        mPaintArea->setIsEnabled(false);
+    } else {
+        setWindowOpacity(1.0);
+        setWindowState(Qt::WindowActive);
+        mPaintArea->setIsEnabled(true);
+    }
+}
+
+bool MainWindow::hidden() const
+{
+    return mHidden;
 }
 
 void MainWindow::initGui()
@@ -521,8 +484,10 @@ void MainWindow::initGui()
     mNewRectAreaCaptureAction->setToolTip(tr("Draw a rectangular area with your mouse"));
     mNewRectAreaCaptureAction->setIcon(createIcon("drawRect"));
     connect(mNewRectAreaCaptureAction, &QAction::triggered, [this]() {
-        hide();
-        mSnippingArea->show();
+        setHidden(true);
+        mImageGrabber->grabImage(ImageGrabber::RectArea,
+                                 mConfig->captureCursor(),
+                                 mConfig->captureDelay());
         mConfig->setCaptureMode(ImageGrabber::RectArea);
     });
 
@@ -530,10 +495,10 @@ void MainWindow::initGui()
     mNewFullScreenCaptureAction->setToolTip(tr("Capture full screen including all monitors"));
     mNewFullScreenCaptureAction->setIcon(createIcon("fullScreen"));
     connect(mNewFullScreenCaptureAction, &QAction::triggered, [this]() {
-        hide();
-        delay(mCaptureDelay);
-        show(mImageGrabber->grabImage(ImageGrabber::FullScreen,
-                                      mConfig->captureMouse()));
+        setHidden(true);
+        mImageGrabber->grabImage(ImageGrabber::FullScreen,
+                                 mConfig->captureCursor(),
+                                 mConfig->captureDelay());
         mConfig->setCaptureMode(ImageGrabber::FullScreen);
     });
 
@@ -541,10 +506,10 @@ void MainWindow::initGui()
     mNewCurrentScreenCaptureAction->setToolTip(tr("Capture screen where the mouse is located"));
     mNewCurrentScreenCaptureAction->setIcon(createIcon("currentScreen"));
     connect(mNewCurrentScreenCaptureAction, &QAction::triggered, [this]() {
-        hide();
-        delay(mCaptureDelay);
-        show(mImageGrabber->grabImage(ImageGrabber::CurrentScreen,
-                                      mConfig->captureMouse()));
+        setHidden(true);
+        mImageGrabber->grabImage(ImageGrabber::CurrentScreen,
+                                 mConfig->captureCursor(),
+                                 mConfig->captureDelay());
         mConfig->setCaptureMode(ImageGrabber::CurrentScreen);
     });
 
@@ -552,10 +517,10 @@ void MainWindow::initGui()
     mNewActiveWindowCaptureAction->setToolTip(tr("Capture window that currently has focus"));
     mNewActiveWindowCaptureAction->setIcon(createIcon("activeWindow"));
     connect(mNewActiveWindowCaptureAction, &QAction::triggered, [this]() {
-        hide();
-        delay(mCaptureDelay);
-        show(mImageGrabber->grabImage(ImageGrabber::ActiveWindow,
-                                      mConfig->captureMouse()));
+        setHidden(true);
+        mImageGrabber->grabImage(ImageGrabber::ActiveWindow,
+                                 mConfig->captureCursor(),
+                                 mConfig->captureDelay());
         mConfig->setCaptureMode(ImageGrabber::ActiveWindow);
     });
 
@@ -1001,5 +966,29 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         break;
     case PaintArea::Move:
         break;
+    }
+}
+
+/*
+ * This function when called saves the provided pixmap directly to the default
+ * save location without asking the user for a new path. Existing images are not
+ * overwritten, just names with increasing number.
+ */
+void MainWindow::instantSave(const QPixmap& pixmap)
+{
+    QString savePath = StringManip::makeUniqueFilename(mConfig->saveDirectory(),
+                       StringManip::updateTimeAndDate(mConfig->saveFilename()),
+                       mConfig->saveFormat());
+
+    if (pixmap.save(savePath)) {
+        qInfo("Screenshot saved to: %s", qPrintable(savePath));
+    } else {
+        qCritical("MainWindow::instantSave: Failed to save file at '%s'",
+                  qPrintable(savePath));
+    }
+
+    // If we are running CLI mode, this is the exit point.
+    if (mMode == CLI) {
+        close();
     }
 }

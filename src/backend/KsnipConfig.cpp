@@ -557,23 +557,23 @@ void KsnipConfig::setSmoothFactor(int  factor)
 
 // Image Grabber
 
-bool KsnipConfig::captureMouse() const
+bool KsnipConfig::captureCursor() const
 {
-    return mConfig.value("ImageGrabber/CaptureMouse", false).toBool();
+    return mConfig.value("ImageGrabber/CaptureCursor", true).toBool();
 }
 
-void KsnipConfig::setCaptureMouse(bool  enabled)
+void KsnipConfig::setCaptureCursor(bool  enabled)
 {
-    if (captureMouse() == enabled) {
+    if (captureCursor() == enabled) {
         return;
     }
-    mConfig.setValue("ImageGrabber/CaptureMouse", enabled);
+    mConfig.setValue("ImageGrabber/CaptureCursor", enabled);
     mConfig.sync();
 }
 
 int KsnipConfig::captureDelay() const
 {
-    return mConfig.value("ImageGrabber/CaptureDelay", 300).toInt() ;
+    return mConfig.value("ImageGrabber/CaptureDelay", 0).toInt() ;
 }
 
 void KsnipConfig::setCaptureDelay(int  delay)
@@ -583,7 +583,6 @@ void KsnipConfig::setCaptureDelay(int  delay)
     }
     mConfig.setValue("ImageGrabber/CaptureDelay", delay);
     mConfig.sync();
-    emit captureDelayUpdated(delay);
 }
 
 // Imgur Uploader

@@ -38,7 +38,7 @@ CaptureView::CaptureView(QGraphicsScene* scene) : QGraphicsView(scene)
 void CaptureView::show()
 {
     setIsCropping(false);
-    setFocus();
+    setWindowState(Qt::WindowActive);
     QGraphicsView::show();
 }
 

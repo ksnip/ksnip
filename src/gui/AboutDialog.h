@@ -26,6 +26,7 @@
 #include "MainWindow.h"
 
 class QLabel;
+class MainWindow;
 
 class AboutDialog : public QDialog
 {

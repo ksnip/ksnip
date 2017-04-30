@@ -41,11 +41,14 @@ int main(int argc, char** argv)
 
     // Add custom options
     parser.addOptions({
+        {   {"r", "rectarea"},
+            QCoreApplication::translate("main", "Select a rectangular area from where to take a screenshot.")
+        },
         {   {"f", "fullscreen"},
             QCoreApplication::translate("main", "Capture the fullscreen including all monitors.")
         },
         {   {"m", "current"},
-            QCoreApplication::translate("main", "Capture the screen (monitor) where the mouse is currently located. <Default option>")
+            QCoreApplication::translate("main", "Capture the screen (monitor) where the mouse cursor is currently located.")
         },
         {   {"a", "active"},
             QCoreApplication::translate("main", "Capture the window that currently has input focus.")
@@ -60,15 +63,18 @@ int main(int argc, char** argv)
     });
     parser.process(app);
 
-    MainWindow window;
     auto arguments = QCoreApplication::arguments();
+    MainWindow* window;
 
     // If there are no options except the the ksnip executable name, just run
     // the application
     if (arguments.count() <= 1) {
-        window.show();
+        window = new MainWindow(MainWindow::GUI);
+        window->show();
         return app.exec();
     }
+    // If we have reached this point, we are running CLI mode
+    window = new MainWindow(MainWindow::CLI);
 
     // Check if delay was selected, if yes, make sure a valid number was provided
     int delay = 0;
@@ -85,15 +91,19 @@ int main(int argc, char** argv)
     bool cursor = parser.isSet("c");
     ImageGrabber::CaptureMode mode;
 
-    if (parser.isSet("f")) {
+    if (parser.isSet("r")) {
+        mode = ImageGrabber::RectArea;
+    } else if (parser.isSet("f")) {
         mode = ImageGrabber::FullScreen;
+    } else if (parser.isSet("m")) {
+        mode = ImageGrabber::CurrentScreen;
     } else if (parser.isSet("a")) {
         mode = ImageGrabber::ActiveWindow;
     } else {
-        // Default option is current screen
-        mode = ImageGrabber::CurrentScreen;
+        qWarning("Please select capture mode.");
+        return 1;
     }
 
-    window.instantCapture(mode, cursor, delay);
-    return 0;
+    window->instantCapture(mode, cursor, delay * 1000);
+    return app.exec();
 }

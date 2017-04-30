@@ -25,7 +25,7 @@ SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent),
     setAttribute(Qt::WA_TranslucentBackground, true);
 
     // Make the frame span across the screen and show above any other widget
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Popup);
+    setWindowFlags(Qt::ToolTip | Qt::FramelessWindowHint);
     setFixedSize(QDesktopWidget().size());
 
     // Set the default cursor for this widget to a custom cursor

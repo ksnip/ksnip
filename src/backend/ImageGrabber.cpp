@@ -26,43 +26,56 @@
 
 #include "ImageGrabber.h"
 
-ImageGrabber::ImageGrabber() : QObject()
+#include "src/gui/MainWindow.h"
+#include "src/gui/SnippingArea.h"
+
+ImageGrabber::ImageGrabber(MainWindow* parent) : QObject(), mParent(parent)
 {
+    mSnippingArea = nullptr;
+}
+
+ImageGrabber::~ImageGrabber()
+{
+    delete mSnippingArea;
 }
 
 //
 // Public Functions
 //
 
-QPixmap ImageGrabber::grabImage(CaptureMode captureMode, bool capureMouse, const QRect* rect) const
+void ImageGrabber::grabImage(CaptureMode captureMode, bool capureCursor, int delay)
 {
+    mCaptureCursor = capureCursor;
+
+    // Prevent negative delays
+    mCaptureDelay = (delay < 0) ? 0 : delay;
+
     switch (captureMode) {
     case RectArea:
-        if (!rect) {
-            qCritical("ImageGrabber::grabImage: No rect provided but it was expected.");
-            return QPixmap();
-        }
-
-        return grabRect(*rect, capureMouse);
-
+        getRectArea();
+        return;
     case FullScreen:
-        return grabRect(fullScreenRect(), capureMouse);
-
+        mCaptureRect = fullScreenRect();
+        break;
     case CurrentScreen:
-        return grabRect(currectScreenRect(), capureMouse);
-
+        mCaptureRect = currectScreenRect();
+        break;
     case ActiveWindow: {
         xcb_window_t wId = getActiveWindow();
         if (wId == 0) {
             qWarning("ImageGrabber::getActiveWindow: Found no window with focus");
-            return grabRect(currectScreenRect(), capureMouse);
+            mCaptureRect = currectScreenRect();
+            break;
         }
-        return grabRect(getWindowRect(wId), capureMouse);
+        mCaptureRect = getWindowRect(wId);
+        break;
     }
     default:
         qCritical("ImageGrabber::grabImage: Unknown CaptureMode provided.");
-        return QPixmap();
+        emit canceled();
+        return;
     }
+    QTimer::singleShot(getDelay(), this, &ImageGrabber::grabRect);
 }
 
 /*
@@ -79,80 +92,24 @@ QRect ImageGrabber::currectScreenRect() const
  */
 QRect ImageGrabber::fullScreenRect() const
 {
-    xcb_window_t rootWindow = QX11Info::appRootWindow();
-    return getWindowRect(rootWindow);
+    return getWindowRect(QX11Info::appRootWindow());
 }
 
 //
 // Private Functions
 //
-QPixmap ImageGrabber::grabRect(const QRect& rect, bool capureMouse) const
-{
-    auto screen = QGuiApplication::primaryScreen();
-    QPixmap screenshot = screen->grabWindow(QApplication::desktop()->winId(),
-                                            rect.topLeft().x(),
-                                            rect.topLeft().y(),
-                                            rect.width(),
-                                            rect.height());
-
-    // If requested, add cursor image to screenshot
-    if (capureMouse) {
-        screenshot = blendCursorImage(screenshot, rect);
-    }
-
-    return screenshot;
-}
-
-xcb_window_t ImageGrabber::getActiveWindow() const
-{
-    xcb_query_tree_cookie_t treeCookie;
-    auto connection = QX11Info::connection();
-    ScopedCPointer<xcb_get_input_focus_reply_t> focusReply(xcb_get_input_focus_reply(connection, xcb_get_input_focus(connection), nullptr));
-
-    auto window = focusReply->focus;
-    while (1) {
-        treeCookie = xcb_query_tree_unchecked(connection, window);
-        ScopedCPointer<xcb_query_tree_reply_t> treeReply(xcb_query_tree_reply(connection, treeCookie, nullptr));
-        if (!treeReply) {
-            return 0;
-        }
-        if (window == treeReply->root || treeReply->parent == treeReply->root) {
-            return window;
-        } else {
-            window = treeReply->parent;
-        }
-    }
-}
-
-/*
- * Return geometry rect for provided window id. If window id 0, returns a null
- * QRect.
- */
-QRect ImageGrabber::getWindowRect(xcb_window_t window) const
-{
-    // In case of window id 0 return empty rect
-    if (window == 0) {
-        return QRect();
-    }
-
-    auto connection = QX11Info::connection();
-    auto geomCookie = xcb_get_geometry_unchecked(connection, window);
-    ScopedCPointer<xcb_get_geometry_reply_t> geomReply(xcb_get_geometry_reply(connection, geomCookie, nullptr));
-
-    return QRect(geomReply->x, geomReply->y, geomReply->width, geomReply->height);
-}
 
 // Note: x, y, width and height are measured in device pixels
 QPixmap ImageGrabber::blendCursorImage(const QPixmap& pixmap, const QRect& rect) const
 {
     auto cursorPos = getNativeCursorPosition();
 
+    // If cursor not within rect that we capture, then nothing to do here
     if (!rect.contains(cursorPos)) {
         return pixmap;
     }
 
     // now we can get the image and start processing
-
     auto xcbConn = QX11Info::connection();
 
     auto  cursorCookie = xcb_xfixes_get_cursor_image_unchecked(xcbConn);
@@ -186,6 +143,49 @@ QPixmap ImageGrabber::blendCursorImage(const QPixmap& pixmap, const QRect& rect)
     return blendedPixmap;
 }
 
+xcb_window_t ImageGrabber::getActiveWindow() const
+{
+    xcb_query_tree_cookie_t treeCookie;
+    auto connection = QX11Info::connection();
+    ScopedCPointer<xcb_get_input_focus_reply_t> focusReply(xcb_get_input_focus_reply(connection, xcb_get_input_focus(connection), nullptr));
+
+    // Get ID of focused window, however, this must not always be the top level
+    // window so we loop through parents and search for the top level window.
+    auto window = focusReply->focus;
+    while (1) {
+        treeCookie = xcb_query_tree_unchecked(connection, window);
+        ScopedCPointer<xcb_query_tree_reply_t> treeReply(xcb_query_tree_reply(connection, treeCookie, nullptr));
+        if (!treeReply) {
+            return 0;
+        }
+        // If the root window it is equal to the parent or the window ID itself
+        // the this must be the top level window.
+        if (window == treeReply->root || treeReply->parent == treeReply->root) {
+            return window;
+        } else {
+            window = treeReply->parent;
+        }
+    }
+}
+
+/*
+ * Return geometry rect for provided window id. If window id 0, returns a null
+ * QRect.
+ */
+QRect ImageGrabber::getWindowRect(xcb_window_t window) const
+{
+    // In case of window id 0 return empty rect
+    if (window == 0) {
+        return QRect();
+    }
+
+    auto connection = QX11Info::connection();
+    auto geomCookie = xcb_get_geometry_unchecked(connection, window);
+    ScopedCPointer<xcb_get_geometry_reply_t> geomReply(xcb_get_geometry_reply(connection, geomCookie, nullptr));
+
+    return QRect(geomReply->x, geomReply->y, geomReply->width, geomReply->height);
+}
+
 QPoint ImageGrabber::getNativeCursorPosition() const
 {
     // QCursor::pos() is not used because it requires additional calculations.
@@ -197,4 +197,52 @@ QPoint ImageGrabber::getNativeCursorPosition() const
     ScopedCPointer<xcb_query_pointer_reply_t> pointerReply(xcb_query_pointer_reply(xcbConn, pointerCookie, nullptr));
 
     return QPoint(pointerReply->root_x, pointerReply->root_y);
+}
+
+/*
+ * Start snipping area and let the user select an area. We connect to signals
+ * and wait for feedback from the snipping area.
+ */
+void ImageGrabber::getRectArea()
+{
+    if (!mSnippingArea) {
+        mSnippingArea = new SnippingArea(mParent);
+        connect(mSnippingArea, &SnippingArea::areaSelected, [this](const QRect & rect) {
+            mCaptureRect = rect;
+            QTimer::singleShot(getDelay(), this, &ImageGrabber::grabRect);
+        });
+        connect(mSnippingArea, &SnippingArea::cancel, [this]() {
+            emit canceled();
+        });
+    }
+    mSnippingArea->show();
+}
+
+/*
+ * Returns delay in msec. On the user chosen delay we add a default delay of 200
+ * msec so the mainwindow has enough time to hide before we take screenshot.
+ * When we run CLI mode we don't need this buffer as the mainwindow is not shown
+ */
+int ImageGrabber::getDelay() const
+{
+    if (mParent->getMode() == MainWindow::CLI) {
+        return mCaptureDelay;
+    }
+    return mCaptureDelay + 200;
+}
+
+void ImageGrabber::grabRect() const
+{
+    auto screen = QGuiApplication::primaryScreen();
+    QPixmap screenshot = screen->grabWindow(QApplication::desktop()->winId(),
+                                            mCaptureRect.topLeft().x(),
+                                            mCaptureRect.topLeft().y(),
+                                            mCaptureRect.width(),
+                                            mCaptureRect.height());
+
+    // If requested, add cursor image to screenshot
+    if (mCaptureCursor) {
+        screenshot = blendCursorImage(screenshot, mCaptureRect);
+    }
+    emit finished(screenshot);
 }

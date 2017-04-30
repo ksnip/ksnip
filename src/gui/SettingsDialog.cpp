@@ -323,6 +323,7 @@ void SettingsDialog::initGui()
     mListWidget->addItem(tr("Image Grabber"));
     mListWidget->addItem(tr("Imgur Uploader"));
     mListWidget->addItem(tr("Painter"));
+    mListWidget->setCurrentRow(0);
     mListWidget->setFixedWidth(mListWidget->sizeHintForColumn(0) + 20);
 
     // Setup Main Window Layout

@@ -213,6 +213,25 @@ void KsnipConfig::setSaveFormat(const QString& format)
     mConfig.sync();
 }
 
+/*
+ * Returns fully formatted save path ready to use. Custom format can be provided
+ * to replace the configured format, if not format provided, teh default will be
+ * used.
+ */
+QString KsnipConfig::savePath(const QString& format) const
+{
+    QString f;
+    if (format.isNull()) {
+        f = saveFormat();
+    } else {
+        f = (format.startsWith(".") ? format : "." + format);
+    }
+
+    return StringManip::makeUniqueFilename(saveDirectory(),
+                                           StringManip::updateTimeAndDate(saveFilename()),
+                                           f);
+}
+
 // Painter
 
 QPen KsnipConfig::pen() const

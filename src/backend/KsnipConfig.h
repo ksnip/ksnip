@@ -26,8 +26,9 @@
 #include <QPoint>
 #include <QSettings>
 
-#include "src/painter/PaintArea.h"
 #include "ImageGrabber.h"
+#include "StringManip.h"
+#include "src/painter/PaintArea.h"
 
 class KsnipConfig : public QObject
 {
@@ -69,6 +70,8 @@ public:
 
     QString saveFormat() const;
     void setSaveFormat(const QString &format);
+
+    QString savePath(const QString &format = QString()) const;
 
     // Painter
 

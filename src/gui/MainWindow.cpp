@@ -753,8 +753,7 @@ void MainWindow::initGui()
 void MainWindow::saveCaptureClicked()
 {
     QFileDialog saveDialog(this, tr("Save As"),
-                           mConfig->saveDirectory() + tr("untitled")
-                           + mConfig->saveFormat(),
+                           mConfig->savePath(),
                            tr("Images") + " (*.png *.gif *.jpg);;"
                            + tr("All Files") + "(*)");
     saveDialog.setAcceptMode(QFileDialog::AcceptSave);
@@ -802,7 +801,7 @@ void MainWindow::printClicked()
     }
 
     QPrinter printer;
-    printer.setOutputFileName(mConfig->saveDirectory() + "untitled.pdf");
+    printer.setOutputFileName(mConfig->savePath("pdf"));
     printer.setOutputFormat(QPrinter::NativeFormat);
     auto printDialog = new QPrintDialog(&printer, 0);
     if (printDialog->exec() == QDialog::Accepted) {
@@ -821,7 +820,7 @@ void MainWindow::printPreviewClicked()
     // Opens a print preview dialog where the user change orientation of the
     // print
     QPrinter printer;
-    printer.setOutputFileName(mConfig->saveDirectory() + "untitled.pdf");
+    printer.setOutputFileName(mConfig->savePath("pdf"));
     printer.setOutputFormat(QPrinter::NativeFormat);
     auto printDialog = new QPrintPreviewDialog(&printer);
     connect(printDialog, &QPrintPreviewDialog::paintRequested,
@@ -976,9 +975,7 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
  */
 void MainWindow::instantSave(const QPixmap& pixmap)
 {
-    QString savePath = StringManip::makeUniqueFilename(mConfig->saveDirectory(),
-                       StringManip::updateTimeAndDate(mConfig->saveFilename()),
-                       mConfig->saveFormat());
+    QString savePath = mConfig->savePath();
 
     if (pixmap.save(savePath)) {
         qInfo("Screenshot saved to: %s", qPrintable(savePath));

@@ -35,7 +35,6 @@
 #include "src/widgets/PainterSettingsPicker.h"
 #include "src/backend/ImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
-#include "src/backend/StringManip.h"
 #include "src/backend/ImgurUploader.h"
 
 class MainWindow : public QMainWindow

@@ -75,12 +75,10 @@ void CustomMenu::showEvent(QShowEvent* event)
 {
     QMenu::showEvent(event);
 
-    // Workaround for Qt bug where on first time opening the button text is 
+    // Workaround for Qt bug where on first time opening the button text is
     // changed to the default action, introduced with Qt5
-    CustomToolButton *p;
+    CustomToolButton* p;
     if ((p = static_cast<CustomToolButton*>(parent()))) {
         p->refreshText();
     }
 }
-
-

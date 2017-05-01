@@ -311,6 +311,33 @@ void MainWindow::closeEvent(QCloseEvent* event)
     }
 }
 
+bool MainWindow::eventFilter(QObject* watched, QEvent* event)
+{
+    if (event->type() == QEvent::Shortcut && mPaintArea->isTextEditing()) {
+        auto  shortcutEvent = static_cast<QShortcutEvent*>(event);
+        auto s = shortcutEvent->key().toString().toLower();
+
+        // If Ctrl or Alt was pressed we can ignore those events as they
+        // don't result in printable characters. Other shortcuts are
+        // currently not used.
+        if (s.contains("ctrl") || s.contains("alt")) {
+            return true;
+        }
+
+        // If the string contains shift, upper case was requested, we remove
+        // the shift and + character and make the character uppercase
+        if (s.contains("shift")) {
+            s = s.remove("shift+").toUpper();
+        }
+
+        // Create new event and send it to the focused item.
+        auto myEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_unknown, Qt::NoModifier, s);
+        QCoreApplication::postEvent(QApplication::focusWidget(), myEvent);
+        return true;
+    }
+    return QObject::eventFilter(watched, event);
+}
+
 //
 // Private Functions
 //
@@ -571,6 +598,7 @@ void MainWindow::initGui()
     // Create actions for paint mode
     mPenAction->setText(tr("Pen"));
     mPenAction->setIcon(createIcon("pen"));
+    mPenAction->setShortcut(Qt::Key_P);
     connect(mPenAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != PaintArea::Pen) {
             setPaintMode(PaintArea::Pen);
@@ -579,6 +607,7 @@ void MainWindow::initGui()
 
     mMarkerAction->setText(tr("Marker"));
     mMarkerAction->setIcon(createIcon("marker"));
+    mMarkerAction->setShortcut(Qt::Key_B);
     connect(mMarkerAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != PaintArea::Marker) {
             setPaintMode(PaintArea::Marker);
@@ -587,6 +616,7 @@ void MainWindow::initGui()
 
     mRectAction->setText(tr("Rect"));
     mRectAction->setIcon(createIcon("rect"));
+    mRectAction->setShortcut(Qt::Key_R);
     connect(mRectAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != PaintArea::Rect) {
             setPaintMode(PaintArea::Rect);
@@ -595,6 +625,7 @@ void MainWindow::initGui()
 
     mEllipseAction->setText(tr("Ellipse"));
     mEllipseAction->setIcon(createIcon("ellipse"));
+    mEllipseAction->setShortcut(Qt::Key_E);
     connect(mEllipseAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != PaintArea::Ellipse) {
             setPaintMode(PaintArea::Ellipse);
@@ -603,6 +634,7 @@ void MainWindow::initGui()
 
     mTextAction->setText(tr("Text"));
     mTextAction->setIcon(createIcon("text"));
+    mTextAction->setShortcut(Qt::Key_T);
     connect(mTextAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != PaintArea::Text) {
             setPaintMode(PaintArea::Text);
@@ -611,6 +643,7 @@ void MainWindow::initGui()
 
     mEraseAction->setText(tr("Erase"));
     mEraseAction->setIcon(createIcon("eraser"));
+    mEraseAction->setShortcut(Qt::Key_A);
     connect(mEraseAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != PaintArea::Erase) {
             setPaintMode(PaintArea::Erase);
@@ -619,6 +652,7 @@ void MainWindow::initGui()
 
     mMoveAction->setText(tr("Move"));
     mMoveAction->setIcon(createIcon("move"));
+    mMoveAction->setShortcut(Qt::Key_M);
     connect(mMoveAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != PaintArea::Move) {
             setPaintMode(PaintArea::Move);
@@ -921,6 +955,10 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
     }
 
     mPainterSettingsButton->clearPopup();
+
+    // Only Text input requires event filter
+    QApplication::instance()->removeEventFilter(this);
+
     switch (mode) {
     case PaintArea::Pen:
         mPainterSettingsButton->addPopupColorGrid(true, false, true);
@@ -958,6 +996,10 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         mPainterSettingsButton->addPopupSizeSlider(10, 20, 1);
         mPainterSettingsButton->setColor(mConfig->textColor());
         mPainterSettingsButton->setSize(mConfig->textSize());
+        // Special case with Text items, when we are editing text we don't want
+        // shotcuts to be accept by the application, otherwise some characters
+        // would be blocked.
+        QApplication::instance()->installEventFilter(this);
         break;
     case PaintArea::Erase:
         mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);

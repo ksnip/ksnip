@@ -61,6 +61,7 @@ public:
     void setIsEnabled(bool enabled);
     bool isEnabled() const;
     bool isValid() const;
+    bool isTextEditing() const;
     void crop(const QRectF &rect);
     QPointF cropOffset() const;
     QAction *getUndoAction();

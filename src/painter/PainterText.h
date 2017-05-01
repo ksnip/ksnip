@@ -48,6 +48,7 @@ public:
     virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
     virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
     virtual bool isValid() const override;
+    bool isEditable() const;
     QFont font() const;
     void setFont(const QFont &font);
 

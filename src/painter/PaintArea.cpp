@@ -132,6 +132,20 @@ bool PaintArea::isValid() const
 }
 
 /*
+ * Return true if the user is currently editing a text item, otherwise returns
+ * false
+ */
+bool PaintArea::isTextEditing() const
+{
+    if (mCurrentItem && mCurrentItem->ItemShape() == PainterBaseItem::Text) {
+        if (static_cast<PainterText*>(mCurrentItem)->isEditable()) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/*
  * Crop the capture image to the provided rect and set the scene rect
  * appropriately.
  */

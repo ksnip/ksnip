@@ -67,6 +67,7 @@ public slots:
 protected:
     virtual void moveEvent(QMoveEvent *event) override;
     virtual void closeEvent(QCloseEvent *event) override;
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     RunMode           mMode;

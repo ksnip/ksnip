@@ -24,7 +24,7 @@
 CustomToolButton::CustomToolButton(QWidget* parent) : QToolButton(parent)
 {
     setPopupMode(QToolButton::MenuButtonPopup);
-    connect(this, &QToolButton::triggered, this, &CustomToolButton::setDefaultAction);
+    connect(this, &CustomToolButton::triggered, this, &CustomToolButton::setDefaultAction);
 }
 
 //
@@ -69,6 +69,9 @@ void CustomToolButton::refreshText()
 
 CustomMenu::CustomMenu(QWidget* parent) : QMenu(parent)
 {
+    if (auto p = static_cast<CustomToolButton*>(parent)) {
+        connect(this, &CustomMenu::triggered, p, &CustomToolButton::setDefaultAction);
+    }
 }
 
 void CustomMenu::showEvent(QShowEvent* event)
@@ -77,8 +80,7 @@ void CustomMenu::showEvent(QShowEvent* event)
 
     // Workaround for Qt bug where on first time opening the button text is
     // changed to the default action, introduced with Qt5
-    CustomToolButton* p;
-    if ((p = static_cast<CustomToolButton*>(parent()))) {
+    if (auto p = static_cast<CustomToolButton*>(parent())) {
         p->refreshText();
     }
 }

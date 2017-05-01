@@ -99,6 +99,11 @@ bool PainterText::isValid() const
     }
 }
 
+bool PainterText::isEditable() const
+{
+    return mEditable;
+}
+
 QFont PainterText::font() const
 {
     return mFont;

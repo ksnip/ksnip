@@ -27,8 +27,8 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     mCopyToClipboardButton(new QToolButton(this)),
     mPaintToolButton(new CustomToolButton(this)),
     mPainterSettingsButton(new PainterSettingsPicker(this, 5)),
-    mPaintToolMenu(new QMenu(this)),
-    mNewCaptureMenu(new QMenu(this)),
+    mPaintToolMenu(new CustomMenu(mPaintToolButton)),
+    mNewCaptureMenu(new CustomMenu(mNewCaptureButton)),
     mNewRectAreaCaptureAction(new QAction(this)),
     mNewCurrentScreenCaptureAction(new QAction(this)),
     mNewFullScreenCaptureAction(new QAction(this)),
@@ -703,7 +703,7 @@ void MainWindow::initGui()
             this, &MainWindow::sizeChanged);
 
     mPaintToolButton->setMenu(mPaintToolMenu);
-    mPaintToolButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    mPaintToolButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
     mPaintToolButton->setDefaultAction(mPenAction);
 
     // Create menu bar

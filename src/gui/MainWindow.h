@@ -78,8 +78,8 @@ private:
     QToolButton      *mCopyToClipboardButton;
     CustomToolButton *mPaintToolButton;
     PainterSettingsPicker *mPainterSettingsButton;
-    QMenu            *mPaintToolMenu;
-    QMenu            *mNewCaptureMenu;
+    CustomMenu       *mPaintToolMenu;
+    CustomMenu       *mNewCaptureMenu;
     QAction          *mNewRectAreaCaptureAction;
     QAction          *mNewCurrentScreenCaptureAction;
     QAction          *mNewFullScreenCaptureAction;

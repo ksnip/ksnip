@@ -18,15 +18,18 @@
  */
 #include "SnippingArea.h"
 
+#include "src/backend/KsnipConfig.h"
+
 SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent),
     mCursor(new CustomCursor(CustomCursor::Cross))
 {
     // Hide the widget background, we will draw it manually on the paint event
     setAttribute(Qt::WA_TranslucentBackground, true);
+    setAutoFillBackground(false);
+    setStyleSheet("QFrame#ImageFrame { background-color: transparent; }");
 
     // Make the frame span across the screen and show above any other widget
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool);
-
 
     // Set the default cursor for this widget to a custom cursor
     QWidget::setCursor(*mCursor);

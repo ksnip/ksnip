@@ -23,6 +23,7 @@
 
 #include <QToolButton>
 #include <QAction>
+#include <QMenu>
 
 class CustomToolButton : public QToolButton
 {
@@ -32,11 +33,21 @@ public:
     void setButtonText(const QString &text);
 
 public slots:
-    void    setDefaultAction(QAction *action);
-    void    trigger();
+    void setDefaultAction(QAction *action);
+    void trigger();
+    void refreshText();
 
 private:
-    QString buttonText;
+    QString mButtonText;
+};
+
+class CustomMenu : public QMenu
+{
+public:
+    CustomMenu(QWidget *parent = nullptr);
+
+protected:
+    virtual void showEvent(QShowEvent *event) override;
 };
 
 #endif // CUSTOMTOOLBUTTON_H

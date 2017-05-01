@@ -171,7 +171,6 @@ void PainterPath::smoothOut(float factor)
 
 void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-
     if (mTransparent) {
         painter->setCompositionMode(QPainter::CompositionMode_ColorBurn);
         painter->setPen(Qt::NoPen);

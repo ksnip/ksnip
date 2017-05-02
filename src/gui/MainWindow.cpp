@@ -103,6 +103,14 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
             this, &MainWindow::closeCrop);
 
     loadSettings();
+
+    // If requested by user, run capture on startup which will afterward show
+    // the mainwindow, otherwise show the mainwindow right away.
+    if (mConfig->captureOnStartup()) {
+        capture(mConfig->captureMode());
+    } else {
+        show();
+    }
 }
 
 //
@@ -110,9 +118,7 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
 //
 
 /*
- * Function for instant capturing used from command line. The function grabs the
- * image and saves it directly to disk. If some delay was set it will be added,
- * otherwise delay is set to 0 and skipped
+ * Function for instant capturing used from command line.
  */
 void MainWindow::instantCapture(ImageGrabber::CaptureMode captureMode,
                                 bool captureCursor,
@@ -502,6 +508,17 @@ bool MainWindow::hidden() const
     return mHidden;
 }
 
+/*
+ * Default capture trigger, all captures from GUI should happen via this
+ * function.
+ */
+void MainWindow::capture(ImageGrabber::CaptureMode captureMode)
+{
+    setHidden(true);
+    mImageGrabber->grabImage(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
+    mConfig->setCaptureMode(captureMode);
+}
+
 void MainWindow::initGui()
 {
     // Create actions
@@ -511,44 +528,28 @@ void MainWindow::initGui()
     mNewRectAreaCaptureAction->setToolTip(tr("Draw a rectangular area with your mouse"));
     mNewRectAreaCaptureAction->setIcon(createIcon("drawRect"));
     connect(mNewRectAreaCaptureAction, &QAction::triggered, [this]() {
-        setHidden(true);
-        mImageGrabber->grabImage(ImageGrabber::RectArea,
-                                 mConfig->captureCursor(),
-                                 mConfig->captureDelay());
-        mConfig->setCaptureMode(ImageGrabber::RectArea);
+        capture(ImageGrabber::RectArea);
     });
 
     mNewFullScreenCaptureAction->setIconText(tr("Full Screen (All Monitors)"));
     mNewFullScreenCaptureAction->setToolTip(tr("Capture full screen including all monitors"));
     mNewFullScreenCaptureAction->setIcon(createIcon("fullScreen"));
     connect(mNewFullScreenCaptureAction, &QAction::triggered, [this]() {
-        setHidden(true);
-        mImageGrabber->grabImage(ImageGrabber::FullScreen,
-                                 mConfig->captureCursor(),
-                                 mConfig->captureDelay());
-        mConfig->setCaptureMode(ImageGrabber::FullScreen);
+        capture(ImageGrabber::FullScreen);
     });
 
     mNewCurrentScreenCaptureAction->setIconText(tr("Current Screen"));
     mNewCurrentScreenCaptureAction->setToolTip(tr("Capture screen where the mouse is located"));
     mNewCurrentScreenCaptureAction->setIcon(createIcon("currentScreen"));
     connect(mNewCurrentScreenCaptureAction, &QAction::triggered, [this]() {
-        setHidden(true);
-        mImageGrabber->grabImage(ImageGrabber::CurrentScreen,
-                                 mConfig->captureCursor(),
-                                 mConfig->captureDelay());
-        mConfig->setCaptureMode(ImageGrabber::CurrentScreen);
+        capture(ImageGrabber::CurrentScreen);
     });
 
     mNewActiveWindowCaptureAction->setIconText(tr("Active Window"));
     mNewActiveWindowCaptureAction->setToolTip(tr("Capture window that currently has focus"));
     mNewActiveWindowCaptureAction->setIcon(createIcon("activeWindow"));
     connect(mNewActiveWindowCaptureAction, &QAction::triggered, [this]() {
-        setHidden(true);
-        mImageGrabber->grabImage(ImageGrabber::ActiveWindow,
-                                 mConfig->captureCursor(),
-                                 mConfig->captureDelay());
-        mConfig->setCaptureMode(ImageGrabber::ActiveWindow);
+        capture(ImageGrabber::ActiveWindow);
     });
 
     // Create action for save button

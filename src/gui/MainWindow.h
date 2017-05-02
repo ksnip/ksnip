@@ -120,6 +120,7 @@ private:
     QIcon createIcon(const QString &name);
     void setHidden(bool isHidden);
     bool hidden() const;
+    void capture(ImageGrabber::CaptureMode captureMode);
     void initGui();
 
 private slots:

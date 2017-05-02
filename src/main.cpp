@@ -70,7 +70,6 @@ int main(int argc, char** argv)
     // the application
     if (arguments.count() <= 1) {
         window = new MainWindow(MainWindow::GUI);
-        window->show();
         return app.exec();
     }
     // If we have reached this point, we are running CLI mode

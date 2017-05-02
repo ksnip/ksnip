@@ -53,6 +53,9 @@ public:
     bool saveKsnipToolSelection() const;
     void setSaveKsnipToolSelection(bool enabled);
 
+    bool captureOnStartup() const;
+    void setCaptureOnStartup(bool enabled);
+
     QPoint windowPosition() const;
     void setWindowPosition(const QPoint &position);
 

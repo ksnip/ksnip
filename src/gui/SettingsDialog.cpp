@@ -27,6 +27,7 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mPromptToSaveBeforeExitCheckbox(new QCheckBox),
     mSaveKsnipPositionCheckbox(new QCheckBox),
     mSaveKsnipToolSelectionCheckbox(new QCheckBox),
+    mCaptureOnStartupCheckbox(new QCheckBox),
     mCaptureCursorCheckbox(new QCheckBox),
     mImgurForceAnonymousCheckbox(new QCheckBox),
     mImgurDirectLinkToImageCheckbox(new QCheckBox),
@@ -81,6 +82,7 @@ void SettingsDialog::loadSettings()
     mPromptToSaveBeforeExitCheckbox->setChecked(mConfig->promptSaveBeforeExit());
     mSaveKsnipPositionCheckbox->setChecked(mConfig->saveKsnipPosition());
     mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveKsnipToolSelection());
+    mCaptureOnStartupCheckbox->setChecked(mConfig->captureOnStartup());
 
     mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());
 
@@ -110,6 +112,7 @@ void SettingsDialog::saveSettings()
     mConfig->setPromptSaveBeforeExit(mPromptToSaveBeforeExitCheckbox->isChecked());
     mConfig->setSaveKsnipPosition(mSaveKsnipPositionCheckbox->isChecked());
     mConfig->setSaveKsnipToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
+    mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
 
     mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
 
@@ -138,7 +141,8 @@ void SettingsDialog::initGui()
     mPromptToSaveBeforeExitCheckbox->setText(tr("Prompt to save before exiting ksnip."));
     mSaveKsnipPositionCheckbox->setText(tr("Save ksnip position on move and load on startup."));
     mSaveKsnipToolSelectionCheckbox->setText(tr("Save ksnip tool selection and "
-            "load on startup."));
+                                                "load on startup."));
+    mCaptureOnStartupCheckbox->setText(tr("Capture screenshot at startup with default mode."));
 
     mSaveLocationLabel->setText(tr("Capture save location and filename") + ":");
 
@@ -251,10 +255,11 @@ void SettingsDialog::initGui()
     applicationGrid->addWidget(mPromptToSaveBeforeExitCheckbox, 1, 0);
     applicationGrid->addWidget(mSaveKsnipPositionCheckbox, 2, 0);
     applicationGrid->addWidget(mSaveKsnipToolSelectionCheckbox, 3, 0);
-    applicationGrid->setRowMinimumHeight(4, 15);
-    applicationGrid->addWidget(mSaveLocationLabel, 5, 0);
-    applicationGrid->addWidget(mSaveLocationLineEdit, 6, 0);
-    applicationGrid->addWidget(mBrowseButton, 6, 3);
+    applicationGrid->addWidget(mCaptureOnStartupCheckbox, 4, 0);
+    applicationGrid->setRowMinimumHeight(5, 15);
+    applicationGrid->addWidget(mSaveLocationLabel, 6, 0);
+    applicationGrid->addWidget(mSaveLocationLineEdit, 7, 0);
+    applicationGrid->addWidget(mBrowseButton, 7, 3);
 
     auto applicationGrpBox = new QGroupBox(tr("Application Settings"));
     applicationGrpBox->setLayout(applicationGrid);

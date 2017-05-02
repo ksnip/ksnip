@@ -93,6 +93,20 @@ void KsnipConfig::setSaveKsnipToolSelection(bool  enabled)
     mConfig.sync();
 }
 
+bool KsnipConfig::captureOnStartup() const
+{
+    return mConfig.value("Application/CaptureOnStartup", false).toBool();
+}
+
+void KsnipConfig::setCaptureOnStartup(bool enabled)
+{
+    if (captureOnStartup() == enabled) {
+        return;
+    }
+    mConfig.setValue("Application/CaptureOnStartup", enabled);
+    mConfig.sync();
+}
+
 QPoint KsnipConfig::windowPosition() const
 {
     // If we are not saving the position we return the default and ignore what

@@ -168,7 +168,6 @@ QAction* PaintArea::getUndoAction()
     if (!mUndoAction) {
         mUndoAction = mUndoStack->createUndoAction(this, tr("Undo"));
     }
-
     return mUndoAction;
 }
 
@@ -180,7 +179,6 @@ QAction* PaintArea::getRedoAction()
     if (!mRedoAction) {
         mRedoAction = mUndoStack->createRedoAction(this, tr("Redo"));
     }
-
     return mRedoAction;
 }
 
@@ -316,7 +314,6 @@ void PaintArea::keyReleaseEvent(QKeyEvent* event)
     if (event->key() == Qt::Key_Shift) {
         mModifierPressed = false;
     }
-
     QGraphicsScene::keyReleaseEvent(event);
 }
 
@@ -329,7 +326,6 @@ bool PaintArea::eraseItem(const QPointF& position, int size)
             return true;
         }
     }
-
     return false;
 }
 

@@ -43,6 +43,10 @@ PainterRect::PainterRect(const QPointF& pos, const QPen& attributes, bool filled
     setJoinStyle(Qt::MiterJoin);
 }
 
+PainterRect::~PainterRect()
+{
+}
+
 QRectF PainterRect::boundingRect() const
 {
     qreal w = attributes()->widthF();
@@ -67,10 +71,10 @@ void PainterRect::moveTo(const QPointF& newPos)
 
 bool PainterRect::containsRect(const QPointF& topLeft, const QSize& size) const
 {
-    bool contains = mRect.intersects(QRectF(topLeft.x() - size.width() / 2,
-                                            topLeft.y() - size.height() / 2,
-                                            size.width(),
-                                            size.height()));
+    bool contains = mRect.normalized().intersects(QRectF(topLeft.x() - size.width() / 2,
+                    topLeft.y() - size.height() / 2,
+                    size.width(),
+                    size.height()));
     if (!contains) {
         return false;
     }

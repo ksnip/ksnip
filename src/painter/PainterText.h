@@ -42,7 +42,7 @@ private:
 
 public:
     PainterText(const QPointF &pos, const QPen &attributes, const QFont &font);
-    ~PainterText();
+    virtual ~PainterText() override;
     virtual QRectF boundingRect() const override;
     virtual void moveTo(const QPointF &newPos) override;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) override;

@@ -40,7 +40,7 @@ public:
 
 public:
     PainterBaseItem(PaintItemShape shape, const QPen &attributes);
-    ~PainterBaseItem();
+    virtual ~PainterBaseItem();
     virtual int type() const override;
     virtual QRectF boundingRect() const override = 0;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) = 0;

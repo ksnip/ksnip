@@ -42,6 +42,10 @@ PainterEllipse::PainterEllipse(const QPointF& pos, const QPen& attributes, bool 
     mRect.moveTo(pos);
 }
 
+PainterEllipse::~PainterEllipse()
+{
+}
+
 QRectF PainterEllipse::boundingRect() const
 {
     qreal w = attributes()->widthF();
@@ -67,11 +71,11 @@ void PainterEllipse::moveTo(const QPointF& newPos)
 bool PainterEllipse::containsRect(const QPointF& topLeft, const QSize& size) const
 {
     if (mFilled) {
-        QRegion r(mRect.toRect(), QRegion::Ellipse);
-        return r.intersects(QRect(topLeft.x() - size.width() / 2,
-                                  topLeft.y() - size.height() / 2,
-                                  size.width(),
-                                  size.height()));
+        QRegion r(mRect.normalized().toRect(), QRegion::Ellipse);
+        return r.contains(QRect(topLeft.x() - size.width() / 2,
+                                topLeft.y() - size.height() / 2,
+                                size.width(),
+                                size.height()));
     } else {
         // When the rect is not filled, do not allow grabbing the empty space.
         // TODO Improve this function, could be eventually more efficient.

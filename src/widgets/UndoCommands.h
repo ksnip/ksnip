@@ -33,10 +33,10 @@ public:
     enum { Id = 1234 };
 
     MoveCommand(PainterBaseItem *painterItem, const QPointF &newPos, QUndoCommand *parent = 0);
-    void undo() override;
-    void redo() override;
-    bool mergeWith(const QUndoCommand *command) override;
-    int id() const override
+    virtual void undo() override;
+    virtual void redo() override;
+    virtual bool mergeWith(const QUndoCommand *command) override;
+    virtual int id() const override
     {
         return Id;
     }
@@ -52,8 +52,8 @@ class DeleteCommand : public QUndoCommand
 {
 public:
     explicit DeleteCommand(PainterBaseItem *painterItem, PaintArea *scene, QUndoCommand *parent = 0);
-    void undo() override;
-    void redo() override;
+    virtual void undo() override;
+    virtual void redo() override;
 
 private:
     PainterBaseItem *mPainterItem;
@@ -66,8 +66,8 @@ class AddCommand : public QUndoCommand
 public:
     AddCommand(PainterBaseItem *painterItem, PaintArea *scene, QUndoCommand *parent = 0);
     ~AddCommand();
-    void undo() override;
-    void redo() override;
+    virtual void undo() override;
+    virtual void redo() override;
 
 private:
     PainterBaseItem *mPainterItem;
@@ -81,8 +81,8 @@ class CropCommand : public QUndoCommand
 public:
     CropCommand(QGraphicsPixmapItem *pixmap, const QRectF &newRect, PaintArea *scene, QUndoCommand *parent = 0);
     ~CropCommand();
-    void undo() override;
-    void redo() override;
+    virtual void undo() override;
+    virtual void redo() override;
 
 private:
     PaintArea           *mScene;

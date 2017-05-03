@@ -26,6 +26,7 @@ class PainterRect : public PainterBaseItem
 {
 public:
     PainterRect(const QPointF &pos, const QPen &attributes, bool filled = 0);
+    virtual ~PainterRect() override;
     virtual QRectF boundingRect() const override;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
     virtual void moveTo(const QPointF &newPos) override;

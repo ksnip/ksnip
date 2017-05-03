@@ -53,6 +53,7 @@ void MoveCommand::undo()
 void MoveCommand::redo()
 {
     mPainterItem->moveTo(mNewPos);
+    mPainterItem->scene()->update();
 }
 
 //
@@ -70,12 +71,19 @@ DeleteCommand::DeleteCommand(PainterBaseItem* painterItem,
 void DeleteCommand::undo()
 {
     mScene->addItem(mPainterItem);
+    mPainterItem->show();
     mScene->update();
 }
 
 void DeleteCommand::redo()
 {
     mScene->removeItem(mPainterItem);
+    // Items that are out of the scene rect sometimes even after removing them
+    // from the scene are still shown on the View as they are not deleted due to
+    // being still used by the undo/redo framework. We hide those items anytime
+    // we remove the from the scene.
+    mPainterItem->hide();
+    mScene->update();
 }
 
 //
@@ -93,20 +101,20 @@ AddCommand::AddCommand(PainterBaseItem* painterItem,
 
 AddCommand::~AddCommand()
 {
-    if (!mPainterItem->scene()) {
-        delete mPainterItem;
-    }
+    delete mPainterItem;
 }
 
 void AddCommand::undo()
 {
     mScene->removeItem(mPainterItem);
+    mPainterItem->hide();
     mScene->update();
 }
 
 void AddCommand::redo()
 {
     mScene->addItem(mPainterItem);
+    mPainterItem->show();
     mScene->update();
 }
 
@@ -114,7 +122,7 @@ void AddCommand::redo()
 // Crop Command
 //
 CropCommand::CropCommand(QGraphicsPixmapItem* pixmapItem, const QRectF& newRect,
-                         PaintArea* scene, QUndoCommand* parent)
+                         PaintArea* scene, QUndoCommand* parent) : QUndoCommand(parent)
 {
     mScene = scene;
     mPixmapItem = pixmapItem;

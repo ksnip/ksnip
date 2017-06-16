@@ -23,6 +23,7 @@
 CaptureView::CaptureView(QGraphicsScene* scene) : QGraphicsView(scene)
 {
     setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+    setRubberBandSelectionMode(Qt::ContainsItemShape);
 
     setIsCropping(false);
     mSelectedBorderPoint = -1;   // -1 means no border point selected
@@ -56,6 +57,11 @@ void CaptureView::crop()
     scene()->crop(mSelectedRect);
 }
 
+bool CaptureView::isCropping() const
+{
+    return mIsCropping;
+}
+
 void CaptureView::setIsCropping(bool isCropping)
 {
     // We can't crop if there was no pixmap loaded to the scene
@@ -80,12 +86,7 @@ void CaptureView::setIsCropping(bool isCropping)
     setFocus();
 }
 
-bool CaptureView::getIsCropping() const
-{
-    return mIsCropping;
-}
-
-QRectF CaptureView::getSelectedRect() const
+QRectF CaptureView::cropRect() const
 {
     // Take into account offset of any previous crops
     auto rect = mSelectedRect.normalized();
@@ -97,7 +98,7 @@ QRectF CaptureView::getSelectedRect() const
  * Sets the selectedRect to the provided rect. Boundary checks should be done by
  * the caller. Takes crop offset into account.
  */
-void CaptureView::setSelectedRect(const QRectF& rect)
+void CaptureView::setCropRect(const QRectF& rect)
 {
     mSelectedRect = rect;
     mSelectedRect.moveTo(rect.topLeft() + scene()->cropOffset());
@@ -174,7 +175,7 @@ void CaptureView::mouseMoveEvent(QMouseEvent* event)
             scene()->update();
 
             // Inform anyone all stakeholders that the selection has changed
-            emit selectedRectChanged(getSelectedRect());
+            emit cropRectChanged(cropRect());
         }
 
         if (mIsMovingSelection) {
@@ -183,7 +184,7 @@ void CaptureView::mouseMoveEvent(QMouseEvent* event)
             scene()->update();
 
             // Inform anyone all stakeholders that the selection has changed
-            emit selectedRectChanged(getSelectedRect());
+            emit cropRectChanged(cropRect());
         }
     }
 

@@ -42,6 +42,7 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     mTextAction(new QAction(this)),
     mEraseAction(new QAction(this)),
     mMoveAction(new QAction(this)),
+    mSelectAction(new QAction(this)),
     mUploadToImgurAction(new QAction(this)),
     mPrintAction(new QAction(this)),
     mPrintPreviewAction(new QAction(this)),
@@ -660,6 +661,15 @@ void MainWindow::initGui()
         }
     });
 
+    mSelectAction->setText(tr("Select"));
+//     mSelectAction->setIcon(createIcon("move")); //TODO
+    mSelectAction->setShortcut(Qt::Key_S);
+    connect(mSelectAction, &QAction::triggered, [this]() {
+        if (mPaintArea->paintMode() != PaintArea::Select) {
+            setPaintMode(PaintArea::Select);
+        }
+    });
+
     // Create action for new capture, this will be only used in the menu bar
     mNewCaptureAction->setText(tr("New"));
     mNewCaptureAction->setShortcut(QKeySequence::New);
@@ -726,6 +736,7 @@ void MainWindow::initGui()
     mPaintToolMenu->addAction(mTextAction);
     mPaintToolMenu->addAction(mEraseAction);
     mPaintToolMenu->addAction(mMoveAction);
+    mPaintToolMenu->addAction(mSelectAction);
 
     // Create painter settings tool button;
     mPainterSettingsButton->setIcon(createIcon("painterSettings"));
@@ -1007,6 +1018,8 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         mPainterSettingsButton->setSize(mConfig->eraseSize());
         break;
     case PaintArea::Move:
+        break;
+    case PaintArea::Select:
         break;
     }
 }

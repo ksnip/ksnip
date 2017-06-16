@@ -32,7 +32,7 @@ CropPanel::CropPanel(CaptureView* captureView) : QWidget(),
     initGui();
     setFocusPolicy(Qt::NoFocus);
 
-    connect(mCaptureView, &CaptureView::selectedRectChanged,
+    connect(mCaptureView, &CaptureView::cropRectChanged,
             this, &CropPanel::selectedRectChanged);
 }
 
@@ -42,7 +42,7 @@ CropPanel::CropPanel(CaptureView* captureView) : QWidget(),
 void CropPanel::show()
 {
     mCaptureView->setIsCropping(true);
-    selectedRectChanged(mCaptureView->getSelectedRect());
+    selectedRectChanged(mCaptureView->cropRect());
     QWidget::show();
 }
 
@@ -145,15 +145,15 @@ void CropPanel::selectedRectChanged(const QRectF& rect)
 void CropPanel::xChanged(const QString& text)
 {
     auto x = text.toInt();
-    auto rect = mCaptureView->getSelectedRect();
+    auto rect = mCaptureView->cropRect();
 
     // Can't enter negative number
     if ((x + rect.width()) <= mCaptureView->sceneRect().width()) {
         rect.moveTo(x, rect.y());
-        mCaptureView->setSelectedRect(rect);
+        mCaptureView->setCropRect(rect);
     } else {
         rect.moveTo(mCaptureView->sceneRect().width() - rect.width(), rect.y());
-        mCaptureView->setSelectedRect(rect);
+        mCaptureView->setCropRect(rect);
         selectedRectChanged(rect);
     }
 }
@@ -161,15 +161,15 @@ void CropPanel::xChanged(const QString& text)
 void CropPanel::yChanged(const QString& text)
 {
     auto y = text.toInt();
-    auto rect = mCaptureView->getSelectedRect();
+    auto rect = mCaptureView->cropRect();
 
     // Can't enter negative number
     if ((y + rect.height()) <= mCaptureView->sceneRect().height()) {
         rect.moveTo(rect.x(), y);
-        mCaptureView->setSelectedRect(rect);
+        mCaptureView->setCropRect(rect);
     } else {
         rect.moveTo(rect.x(), mCaptureView->sceneRect().height() - rect.height());
-        mCaptureView->setSelectedRect(rect);
+        mCaptureView->setCropRect(rect);
         selectedRectChanged(rect);
     }
 }
@@ -177,15 +177,15 @@ void CropPanel::yChanged(const QString& text)
 void CropPanel::widthChanged(const QString& text)
 {
     auto width = text.toInt();
-    auto rect = mCaptureView->getSelectedRect();
+    auto rect = mCaptureView->cropRect();
 
     // Can't enter negative number
     if ((rect.x() + width) <= mCaptureView->sceneRect().width()) {
         rect.setWidth(width);
-        mCaptureView->setSelectedRect(rect);
+        mCaptureView->setCropRect(rect);
     } else {
         rect.setWidth(mCaptureView->sceneRect().width() - rect.x());
-        mCaptureView->setSelectedRect(rect);
+        mCaptureView->setCropRect(rect);
         selectedRectChanged(rect);
     }
 }
@@ -193,15 +193,15 @@ void CropPanel::widthChanged(const QString& text)
 void CropPanel::heightChanged(const QString& text)
 {
     auto height = text.toInt();
-    auto rect = mCaptureView->getSelectedRect();
+    auto rect = mCaptureView->cropRect();
 
     // Can't enter negative number
     if ((rect.y() + height) <= mCaptureView->sceneRect().height()) {
         rect.setHeight(height);
-        mCaptureView->setSelectedRect(rect);
+        mCaptureView->setCropRect(rect);
     } else {
         rect.setHeight(mCaptureView->sceneRect().height() - rect.y());
-        mCaptureView->setSelectedRect(rect);
+        mCaptureView->setCropRect(rect);
         selectedRectChanged(rect);
     }
 }

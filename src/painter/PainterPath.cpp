@@ -177,6 +177,9 @@ void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWid
     } else {
         painter->setPen(attributes()->color());
     }
+    if (isSelected()) {
+        painter->setPen(Qt::red);
+    }
     painter->setBrush(attributes()->color());
     painter->drawPath(mStroker->createStroke(*mPath));
 }

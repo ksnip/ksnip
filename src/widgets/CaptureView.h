@@ -34,13 +34,13 @@ public:
     void show();
     PaintArea *scene() const;
     void crop();
+    bool isCropping() const;
     void setIsCropping(bool isCropping);
-    bool getIsCropping() const;
-    QRectF getSelectedRect() const;
-    void setSelectedRect(const QRectF &rect);
+    QRectF cropRect() const;
+    void setCropRect(const QRectF &rect);
 
 signals:
-    void selectedRectChanged(const QRectF &rect);
+    void cropRectChanged(const QRectF &rect);
     void closeCrop();
 
 protected:

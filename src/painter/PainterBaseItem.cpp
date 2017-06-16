@@ -26,6 +26,7 @@ PainterBaseItem::PainterBaseItem(PaintItemShape shape, const QPen& attributes) :
     mItemType(shape),
     mAttributes(new QPen(attributes))
 {
+    setFlag(QGraphicsItem::ItemIsSelectable);
 }
 
 PainterBaseItem::~PainterBaseItem()

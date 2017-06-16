@@ -25,7 +25,7 @@
 #include <QGraphicsView>
 #include <QGraphicsSceneMouseEvent>
 #include <QAction>
-
+#include <QRubberBand>
 
 #include "PainterPath.h"
 #include "PainterRect.h"
@@ -47,7 +47,8 @@ public:
         Ellipse,
         Text,
         Erase,
-        Move
+        Move,
+        Select
     };
 
 public:
@@ -81,6 +82,8 @@ private:
     bool                 mIsEnabled;
     QGraphicsPixmapItem *mScreenshot;
     PainterBaseItem     *mCurrentItem;
+    QRubberBand         *mRubberBand;
+    QPoint               mRubberBandOrigin;
     QCursor             *mCursor;
     bool                 mModifierPressed;
     PaintMode            mPaintMode;
@@ -94,6 +97,9 @@ private:
     void moveItem(const QPointF &position);
     void clearItem();
     QCursor *cursor();
+    QPoint mapToView(const QPointF &point) const;
+    QRectF mapFromView(const QRectF &rect) const;
+    void setSelectionArea(const QRectF &rect);
 
 private slots:
     void setCursor();

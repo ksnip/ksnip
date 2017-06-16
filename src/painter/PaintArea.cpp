@@ -19,10 +19,12 @@
 */
 #include "PaintArea.h"
 #include "src/backend/KsnipConfig.h"
+#include "src/widgets/CaptureView.h"
 
 PaintArea::PaintArea() : QGraphicsScene(),
     mScreenshot(nullptr),
     mCurrentItem(nullptr),
+    mRubberBand(nullptr),
     mCursor(nullptr),
     mModifierPressed(false),
     mPaintMode(Pen),
@@ -75,7 +77,9 @@ void PaintArea::setPaintMode(PaintMode paintMode)
     if (mPaintMode == paintMode) {
         return;
     }
+
     mPaintMode = paintMode;
+
     clearItem();
     setCursor();
 }
@@ -237,6 +241,21 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
                 setCursor();
             }
             break;
+        case Select:
+            // We need the view as parent for the rubberband, can't proceed 
+            // without it
+            if (views().isEmpty()) {
+                break;
+            }
+            mRubberBandOrigin = mapToView(event->scenePos());
+            if (!mRubberBand) {
+                // As the QGraphicsScene doesn't inherit QWidget we can't use it
+                // as parent so we use the hosting view.
+                mRubberBand = new QRubberBand(QRubberBand::Rectangle, views().first());
+            }
+            mRubberBand->setGeometry(QRect(mRubberBandOrigin, QSize()));
+            mRubberBand->show();
+            break;
         }
     }
 
@@ -262,6 +281,12 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
         case Move:
             moveItem(event->scenePos());
             break;
+        case Select:
+            if (mRubberBand) {
+                mRubberBand->setGeometry(QRect(mRubberBandOrigin,
+                                               mapToView(event->scenePos())).normalized());
+            }
+            break;
         }
     }
 
@@ -286,11 +311,17 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
         case Erase:
             break;
         case Move:
-            if (mCurrentItem != nullptr) {
+            if (mCurrentItem) {
                 mCurrentItem->setOffset(QPointF());
             }
             mCurrentItem = nullptr;
             setCursor();
+            break;
+        case Select:
+            if (mRubberBand) {
+                mRubberBand->hide();
+                setSelectionArea(mapFromView(mRubberBand->geometry()));
+            }
             break;
         }
     }
@@ -408,7 +439,6 @@ QCursor* PaintArea::cursor()
         break;
     default:
         return new CustomCursor();
-
     }
 }
 
@@ -424,4 +454,31 @@ void PaintArea::setCursor()
     for (auto view : views()) {
         view->setCursor(*mCursor);
     }
+}
+
+QPoint PaintArea::mapToView(const QPointF &point) const
+{
+    if (views().isEmpty()) {
+        return point.toPoint();
+    }
+    return views().first()->mapFromScene(point);
+}
+
+QRectF PaintArea::mapFromView(const QRectF &rect) const
+{
+    if (views().isEmpty()) {
+        return rect.toRect();
+    }
+    return views().first()->mapToScene(rect.toRect()).boundingRect();
+}
+
+/*
+ * The QGraphicsScene setSelectionArea only accepts paths so we use this 
+ * function as a workaround and turn the rect into a path.
+ */
+void PaintArea::setSelectionArea(const QRectF& rect)
+{
+    QPainterPath path;
+    path.addRect(rect);
+    QGraphicsScene::setSelectionArea(path, Qt::ContainsItemShape);
 }

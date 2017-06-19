@@ -20,13 +20,12 @@
 #include "PainterBaseItem.h"
 
 //
-// Public Functions
+// Public Methods
 //
 PainterBaseItem::PainterBaseItem(PaintItemShape shape, const QPen& attributes) :
     mItemType(shape),
     mAttributes(new QPen(attributes))
 {
-    setFlag(QGraphicsItem::ItemIsSelectable);
 }
 
 PainterBaseItem::~PainterBaseItem()
@@ -101,4 +100,31 @@ void PainterBaseItem::setOutlineWidth(int width)
 void PainterBaseItem::setOutlineColor(const QColor& color)
 {
     mAttributes->setColor(color);
+}
+
+bool PainterBaseItem::selectable() const
+{
+    return flags().testFlag(QGraphicsItem::ItemIsSelectable);
+}
+
+void PainterBaseItem::setSelectable(bool enabled)
+{
+    if (selectable() == enabled) {
+        return;
+    }
+    setFlag(QGraphicsItem::ItemIsSelectable, enabled);
+}
+
+//
+// Protected Methods
+//
+void PainterBaseItem::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
+{
+    // Used by all items to draw border around them when selected. Must be
+    // explicitly called from parent.
+    if (isSelected() && isValid()) {
+        painter->setBrush(Qt::NoBrush);
+        painter->setPen(Qt::red);
+        painter->drawRect(boundingRect());
+    }
 }

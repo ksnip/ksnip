@@ -57,12 +57,16 @@ public:
     virtual void setOutlineStyle(Qt::PenStyle penStyle);
     virtual void setOutlineWidth(int width);
     virtual void setOutlineColor(const QColor &color);
+    virtual bool selectable() const;
+    virtual void setSelectable(bool enabled);
+
+protected:
+    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
 
 private:
     PaintItemShape  mItemType;
     QPen           *mAttributes;
     QPointF         mOffset;
-
 };
 
 #endif // PAINTERBASEITEM_H

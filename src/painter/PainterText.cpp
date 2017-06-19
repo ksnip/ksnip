@@ -33,7 +33,7 @@ int textBoxMargin()
 }
 
 //
-// Public Functions
+// Public Methods
 //
 
 PainterText::PainterText(const QPointF& pos, const QPen& attributes, const QFont& font) :
@@ -45,7 +45,7 @@ PainterText::PainterText(const QPointF& pos, const QPen& attributes, const QFont
     mCursorVisible(true)
 {
     mCursorPos = 0;
-    setFlags(QGraphicsItem::ItemIsFocusable);
+    setFlag(QGraphicsItem::ItemIsFocusable, true);
     setOutlineStyle(Qt::DashLine);
     setOutlineWidth(1);
     mRect.moveTo(pos);
@@ -115,7 +115,7 @@ void PainterText::setFont(const QFont& font)
 }
 
 //
-// Protected Functions
+// Protected Methods
 //
 
 void PainterText::keyPressEvent(QKeyEvent* event)
@@ -169,10 +169,10 @@ void PainterText::focusOutEvent(QFocusEvent*)
 }
 
 //
-// Private Functions
+// Private Methods
 //
 
-void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
+void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
 {
     painter->setPen(*attributes());
 
@@ -209,6 +209,8 @@ void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWid
         }
         boxHeight += blockHeight;
     }
+
+    PainterBaseItem::paint(painter, style, widget);
 }
 
 void PainterText::moveCursor(PainterText::CursorPos direction)
@@ -287,11 +289,11 @@ void PainterText::finishEditing()
     mCursorBlinkTimer->stop();
     mCursorVisible = false;
     updateRect();
-    prepareGeometryChange();
 }
 
 void PainterText::updateRect()
 {
+    prepareGeometryChange();
     mRect = mFontMetric->boundingRect(mRect.toRect(), Qt::AlignLeft, mText);
     mRect.adjust(0, 0, textBoxMargin() * 2, textBoxMargin() * 2);
 }

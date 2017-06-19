@@ -206,34 +206,41 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
 
         switch (mPaintMode) {
         case Pen:
+            clearSelection();
             mCurrentItem = new PainterPath(event->scenePos(), mConfig->pen());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Marker:
+            clearSelection();
             mCurrentItem = new PainterPath(event->scenePos(), mConfig->marker(), true);
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Rect:
+            clearSelection();
             mCurrentItem = new PainterRect(event->scenePos(),
                                            mConfig->rect(),
                                            mConfig->rectFill());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Ellipse:
+            clearSelection();
             mCurrentItem = new PainterEllipse(event->scenePos(),
                                               mConfig->ellipse(),
                                               mConfig->ellipseFill());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Text:
+            clearSelection();
             // The subtraction of the QPoint is to align the text with the cursor as
             // the IBeam cursor is centered so new text is written at the middle
             // instead of at the top.
             mCurrentItem = new PainterText(event->scenePos() - QPointF(0, 12),
                                            mConfig->text(), mConfig->textFont());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
+            mCurrentItem->setFocus();
             break;
         case Erase:
+            clearSelection();
             eraseItem(event->scenePos(), mConfig->eraseSize());
             break;
         case Move:
@@ -259,7 +266,7 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
         }
     }
 
-    QGraphicsScene::mousePressEvent(event);
+//     QGraphicsScene::mousePressEvent(event);
 }
 
 void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
@@ -303,11 +310,14 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
             if (mConfig->smoothPath() &&
                     (path = qgraphicsitem_cast<PainterPath*> (mCurrentItem))) {
                 path->smoothOut(mConfig->smoothFactor());
-                break;
             }
         case Rect:
         case Ellipse:
         case Text:
+            if (mCurrentItem) {
+                mCurrentItem->setSelectable(true);
+            }
+            break;
         case Erase:
             break;
         case Move:

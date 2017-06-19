@@ -61,7 +61,7 @@ QPointF getLineEnd(const QPointF& pt1, const QPointF& pt2)
 }
 
 //
-// Public Functions
+// Public Methods
 //
 
 PainterPath::PainterPath(const QPointF& pos, const QPen& attributes, bool transparent) :
@@ -95,13 +95,12 @@ QRectF PainterPath::boundingRect() const
 
 void PainterPath::addPoint(const QPointF& pos, bool modifier)
 {
+    prepareGeometryChange();
     if (mPath->elementAt(mPath->elementCount() - 1).isLineTo() && modifier) {
-        prepareGeometryChange();
         mPath->setElementPositionAt(mPath->elementCount() - 1, pos.x(), pos.y());
     } else {
         mPath->lineTo(pos);
     }
-    prepareGeometryChange();
 }
 
 void PainterPath::moveTo(const QPointF& newPos)
@@ -161,15 +160,15 @@ void PainterPath::smoothOut(float factor)
     }
 
     delete mPath;
-    mPath = path;
     prepareGeometryChange();
+    mPath = path;
 }
 
 //
-// Private Functions
+// Private Methods
 //
 
-void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
+void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
 {
     if (mTransparent) {
         painter->setCompositionMode(QPainter::CompositionMode_ColorBurn);
@@ -177,9 +176,9 @@ void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWid
     } else {
         painter->setPen(attributes()->color());
     }
-    if (isSelected()) {
-        painter->setPen(Qt::red);
-    }
+
     painter->setBrush(attributes()->color());
     painter->drawPath(mStroker->createStroke(*mPath));
+
+    PainterBaseItem::paint(painter, style, widget);
 }

@@ -32,7 +32,7 @@ float smallesLenght(float lenght1, float lenght2)
 }
 
 //
-// Public Functions
+// Public Methods
 //
 
 PainterRect::PainterRect(const QPointF& pos, const QPen& attributes, bool filled) :
@@ -99,13 +99,15 @@ bool PainterRect::containsRect(const QPointF& topLeft, const QSize& size) const
 }
 
 //
-// Private Functions
+// Private Methods
 //
-void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
+void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
 {
     if (mFilled) {
         painter->setBrush(attributes()->color());
     }
     painter->setPen(*attributes());
     painter->drawRect(mRect.normalized());
+
+    PainterBaseItem::paint(painter, style, widget);
 }

@@ -32,7 +32,7 @@ float smallesLenght(float lenght1, float lenght2)
 }
 
 //
-// Public Functions
+// Public Methods
 //
 
 PainterEllipse::PainterEllipse(const QPointF& pos, const QPen& attributes, bool filled) :
@@ -94,14 +94,16 @@ bool PainterEllipse::containsRect(const QPointF& topLeft, const QSize& size) con
 }
 
 //
-// Private Functions
+// Private Methods
 //
 
-void PainterEllipse::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
+void PainterEllipse::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
 {
     if (mFilled) {
         painter->setBrush(attributes()->color());
     }
     painter->setPen(*attributes());
     painter->drawEllipse(mRect.normalized());
+
+    PainterBaseItem::paint(painter, style, widget);
 }

@@ -32,7 +32,13 @@ class MoveCommand : public QUndoCommand
 public:
     enum { Id = 1234 };
 
-    MoveCommand(PainterBaseItem *painterItem, const QPointF &newPos, QUndoCommand *parent = 0);
+    struct MoveEntry{
+        PainterBaseItem* item;
+        QPointF oldPos;
+        QPointF newPos;
+    };
+
+    MoveCommand(PaintArea *scene, const QPointF &newPos, QUndoCommand *parent = 0);
     virtual void undo() override;
     virtual void redo() override;
     virtual bool mergeWith(const QUndoCommand *command) override;
@@ -42,9 +48,8 @@ public:
     }
 
 private:
-    PainterBaseItem *mPainterItem;
-    QPointF mOldPos;
-    QPointF mNewPos;
+    QList<MoveEntry> mItems;
+    PaintArea *mScene;
 };
 
 

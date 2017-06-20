@@ -23,37 +23,46 @@
 //
 // Move Command
 //
-MoveCommand::MoveCommand(PainterBaseItem* painterItem, const QPointF& newPos, QUndoCommand* parent)
+MoveCommand::MoveCommand(PaintArea* scene, const QPointF& newPos, QUndoCommand* parent)
     : QUndoCommand(parent)
 {
-    mPainterItem = painterItem;
-    mNewPos = newPos;
-    mOldPos = mPainterItem->position();
+    mScene = scene;
+    for (auto item : scene->selectedItems()) {
+        if (item) {
+            MoveEntry e;
+            e.item = item;
+            e.newPos = newPos;
+            e.oldPos = item->position();
+            mItems.append(e);
+        }
+    }
 }
 
 bool MoveCommand::mergeWith(const QUndoCommand* command)
 {
     const auto moveCommand = static_cast<const MoveCommand*>(command);
-    auto item = moveCommand->mPainterItem;
+    auto items = moveCommand->mItems;
 
-    if (mPainterItem != item) {
-        return false;
+    for (auto i = 0; i < items.count(); i++) {
+        mItems[i].newPos = items.at(i).item->position();
     }
-
-    mNewPos = item->position();
     return true;
 }
 
 void MoveCommand::undo()
 {
-    mPainterItem->moveTo(mOldPos);
-    mPainterItem->scene()->update();
+    for (auto i : mItems) {
+        i.item->moveTo(i.oldPos);
+    }
+    mScene->update();
 }
 
 void MoveCommand::redo()
 {
-    mPainterItem->moveTo(mNewPos);
-    mPainterItem->scene()->update();
+    for (auto i : mItems) {
+        i.item->moveTo(i.newPos);
+    }
+    mScene->update();
 }
 
 //

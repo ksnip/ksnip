@@ -66,7 +66,7 @@ private:
     int           mCursorPos;
     bool          mCursorVisible;
 
-    virtual void paint(QPainter *, const QStyleOptionGraphicsItem *style, QWidget *widget) override;
+    virtual void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) override;
     void moveCursor(CursorPos direction);
     void insertChar(const QString &c);
     void removeChar(CursorPos direction);

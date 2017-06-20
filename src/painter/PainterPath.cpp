@@ -79,7 +79,7 @@ PainterPath::PainterPath(const QPointF& pos, const QPen& attributes, bool transp
     //setup the stroker which we use to draw the path
     mStroker->setCapStyle(Qt::RoundCap);
     mStroker->setJoinStyle(Qt::RoundJoin);
-    mStroker->setWidth(this->attributes()->width());
+    mStroker->setWidth(this->attributes().width());
 }
 
 PainterPath::~PainterPath()
@@ -168,17 +168,15 @@ void PainterPath::smoothOut(float factor)
 // Private Methods
 //
 
-void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
+void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     if (mTransparent) {
         painter->setCompositionMode(QPainter::CompositionMode_ColorBurn);
         painter->setPen(Qt::NoPen);
     } else {
-        painter->setPen(attributes()->color());
+        painter->setPen(attributes().color());
     }
 
-    painter->setBrush(attributes()->color());
+    painter->setBrush(attributes().color());
     painter->drawPath(mStroker->createStroke(*mPath));
-
-    PainterBaseItem::paint(painter, style, widget);
 }

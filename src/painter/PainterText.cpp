@@ -174,7 +174,7 @@ void PainterText::focusOutEvent(QFocusEvent*)
 
 void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
 {
-    painter->setPen(*attributes());
+    painter->setPen(attributes());
 
     if (mEditable) {
         painter->drawRect(mRect);
@@ -209,8 +209,6 @@ void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem* style
         }
         boxHeight += blockHeight;
     }
-
-    PainterBaseItem::paint(painter, style, widget);
 }
 
 void PainterText::moveCursor(PainterText::CursorPos direction)

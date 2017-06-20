@@ -67,6 +67,7 @@ public:
     QPointF cropOffset() const;
     QAction *getUndoAction();
     QAction *getRedoAction();
+    QList<PainterBaseItem*> selectedItems() const;
 
 signals:
     void imageChanged();

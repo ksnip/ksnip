@@ -244,8 +244,13 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             eraseItem(event->scenePos(), mConfig->eraseSize());
             break;
         case Move:
-            if (grabItem(event->scenePos())) {
-                setCursor();
+//             if (grabItem(event->scenePos())) {
+//                 setCursor();
+//             }
+            for (auto item : selectedItems()) {
+                if (item) {
+                    item->setOffset(event->scenePos() - item->position());
+                }
             }
             break;
         case Select:
@@ -314,6 +319,8 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
         case Rect:
         case Ellipse:
         case Text:
+            // We enable select first after the item was successfully added to
+            // the scene, to prevent selection border around it while drawing.
             if (mCurrentItem) {
                 mCurrentItem->setSelectable(true);
             }
@@ -321,11 +328,11 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
         case Erase:
             break;
         case Move:
-            if (mCurrentItem) {
-                mCurrentItem->setOffset(QPointF());
+            for (auto item : selectedItems()) {
+                if (item) {
+                    item->setOffset(QPointF());
+                }
             }
-            mCurrentItem = nullptr;
-            setCursor();
             break;
         case Select:
             if (mRubberBand) {
@@ -391,10 +398,9 @@ bool PaintArea::grabItem(const QPointF& position)
 
 void PaintArea::moveItem(const QPointF& position)
 {
-    if (mCurrentItem == nullptr) {
-        return;
+    if (selectedItems().count() > 0) {
+        mUndoStack->push(new MoveCommand(this, position));
     }
-    mUndoStack->push(new MoveCommand(mCurrentItem, position));
 }
 
 void PaintArea::clearItem()
@@ -491,4 +497,16 @@ void PaintArea::setSelectionArea(const QRectF& rect)
     QPainterPath path;
     path.addRect(rect);
     QGraphicsScene::setSelectionArea(path, Qt::ContainsItemShape);
+}
+
+QList<PainterBaseItem*> PaintArea::selectedItems() const
+{
+    QList<PainterBaseItem*> list;
+    for (auto item : items()) {
+        auto base = static_cast<PainterBaseItem*>(item);
+        if (base && base->isSelected()) {
+            list.append(base);
+        }
+    }
+    return list;
 }

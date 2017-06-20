@@ -48,7 +48,7 @@ PainterEllipse::~PainterEllipse()
 
 QRectF PainterEllipse::boundingRect() const
 {
-    qreal w = attributes()->widthF();
+    qreal w = attributes().widthF();
     return mRect.normalized().adjusted(-w / 2, -w / 2, w, w);
 }
 
@@ -80,11 +80,8 @@ bool PainterEllipse::containsRect(const QPointF& topLeft, const QSize& size) con
         // When the rect is not filled, do not allow grabbing the empty space.
         // TODO Improve this function, could be eventually more efficient.
         QRegion r1(mRect.normalized().toRect(), QRegion::Ellipse);
-        QRegion r2(mRect.normalized().adjusted((attributes()->width()),
-                                               (attributes()->width()),
-                                               -(attributes()->width()),
-                                               -(attributes()->width())).toRect(),
-                   QRegion::Ellipse);
+        auto w = attributes().width();
+        QRegion r2(mRect.normalized().adjusted(w, w, -w, -w).toRect(), QRegion::Ellipse);
 
         return r1.subtracted(r2).contains(QRect(topLeft.x() - size.width() / 2,
                                                 topLeft.y() - size.height() / 2,
@@ -97,13 +94,12 @@ bool PainterEllipse::containsRect(const QPointF& topLeft, const QSize& size) con
 // Private Methods
 //
 
-void PainterEllipse::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
+void PainterEllipse::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     if (mFilled) {
-        painter->setBrush(attributes()->color());
+        painter->setBrush(attributes().color());
     }
-    painter->setPen(*attributes());
-    painter->drawEllipse(mRect.normalized());
 
-    PainterBaseItem::paint(painter, style, widget);
+    painter->setPen(attributes());
+    painter->drawEllipse(mRect.normalized());
 }

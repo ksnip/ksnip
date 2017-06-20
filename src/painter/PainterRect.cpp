@@ -35,7 +35,7 @@ float smallesLenght(float lenght1, float lenght2)
 // Public Methods
 //
 
-PainterRect::PainterRect(const QPointF& pos, const QPen& attributes, bool filled) :
+PainterRect::PainterRect(const QPointF& pos, const QPen &attributes, bool filled) :
     PainterBaseItem(Rect, attributes),
     mFilled(filled)
 {
@@ -49,7 +49,7 @@ PainterRect::~PainterRect()
 
 QRectF PainterRect::boundingRect() const
 {
-    qreal w = attributes()->widthF();
+    qreal w = attributes().widthF();
     return mRect.normalized().adjusted(-w / 2, -w / 2, w, w);
 }
 
@@ -85,10 +85,8 @@ bool PainterRect::containsRect(const QPointF& topLeft, const QSize& size) const
         // When the rect is not filled, do not allow grabbing the empty space.
         // TODO Improve this function, could be eventually more efficient.
         QRegion r1(mRect.normalized().toRect());
-        QRegion r2(mRect.normalized().adjusted((attributes()->width()),
-                                               (attributes()->width()),
-                                               -(attributes()->width()),
-                                               -(attributes()->width())).toRect());
+        auto w = attributes().width();
+        QRegion r2(mRect.normalized().adjusted(w, w, -w, -w).toRect());
 
         return r1.subtracted(r2).contains(QRect(topLeft.x() - size.width() / 2,
                                                 topLeft.y() - size.height() / 2,
@@ -101,13 +99,11 @@ bool PainterRect::containsRect(const QPointF& topLeft, const QSize& size) const
 //
 // Private Methods
 //
-void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
+void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     if (mFilled) {
-        painter->setBrush(attributes()->color());
+        painter->setBrush(attributes().color());
     }
-    painter->setPen(*attributes());
+    painter->setPen(attributes());
     painter->drawRect(mRect.normalized());
-
-    PainterBaseItem::paint(painter, style, widget);
 }

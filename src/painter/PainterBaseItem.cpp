@@ -23,14 +23,10 @@
 // Public Methods
 //
 PainterBaseItem::PainterBaseItem(PaintItemShape shape, const QPen& attributes) :
-    mItemType(shape),
-    mAttributes(new QPen(attributes))
+    mItemType(shape)
 {
-}
-
-PainterBaseItem::~PainterBaseItem()
-{
-    delete mAttributes;
+    mAttributes = attributes;
+    mSelectColor.setRgb(82,187,229); // Color used for painting selected items
 }
 
 int PainterBaseItem::type() const
@@ -52,8 +48,15 @@ QPointF PainterBaseItem::position() const
     return boundingRect().topLeft();
 }
 
-QPen* PainterBaseItem::attributes() const
+QPen PainterBaseItem::attributes() const
 {
+    // We check here if the item was selected, in which case we return a
+    // specific caller, same for all items that are selected.
+    if (isSelected()) {
+        QPen p(mAttributes);
+        p.setColor(selectColor());
+        return p;
+    }
     return mAttributes;
 }
 
@@ -79,27 +82,27 @@ void PainterBaseItem::setOffset(const QPointF& offset)
 
 void PainterBaseItem::setJoinStyle(Qt::PenJoinStyle join)
 {
-    mAttributes->setJoinStyle(join);
+    mAttributes.setJoinStyle(join);
 }
 
 void PainterBaseItem::setCapStyle(Qt::PenCapStyle cap)
 {
-    mAttributes->setCapStyle(cap);
+    mAttributes.setCapStyle(cap);
 }
 
 void PainterBaseItem::setOutlineStyle(Qt::PenStyle penStyle)
 {
-    mAttributes->setStyle(penStyle);
+    mAttributes.setStyle(penStyle);
 }
 
 void PainterBaseItem::setOutlineWidth(int width)
 {
-    mAttributes->setWidth(width);
+    mAttributes.setWidth(width);
 }
 
 void PainterBaseItem::setOutlineColor(const QColor& color)
 {
-    mAttributes->setColor(color);
+    mAttributes.setColor(color);
 }
 
 bool PainterBaseItem::selectable() const
@@ -115,16 +118,10 @@ void PainterBaseItem::setSelectable(bool enabled)
     setFlag(QGraphicsItem::ItemIsSelectable, enabled);
 }
 
-//
-// Protected Methods
-//
-void PainterBaseItem::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
+QColor PainterBaseItem::selectColor() const
 {
-    // Used by all items to draw border around them when selected. Must be
-    // explicitly called from parent.
-    if (isSelected() && isValid()) {
-        painter->setBrush(Qt::NoBrush);
-        painter->setPen(Qt::red);
-        painter->drawRect(boundingRect());
+    if (mSelectColor == mAttributes.color()) {
+        return mSelectColor.darker();
     }
+    return mSelectColor;
 }

@@ -40,7 +40,6 @@ public:
 
 public:
     PainterBaseItem(PaintItemShape shape, const QPen &attributes);
-    virtual ~PainterBaseItem();
     virtual int type() const override;
     virtual QRectF boundingRect() const override = 0;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) = 0;
@@ -48,7 +47,7 @@ public:
     virtual bool containsRect(const QPointF &topLeft, const QSize &size) const = 0;
     virtual bool isValid() const;
     virtual QPointF position() const;
-    virtual QPen *attributes() const;
+    virtual QPen attributes() const;
     virtual PaintItemShape ItemShape() const;
     virtual QPointF offset() const;
     virtual void setOffset(const QPointF &offset);
@@ -59,13 +58,12 @@ public:
     virtual void setOutlineColor(const QColor &color);
     virtual bool selectable() const;
     virtual void setSelectable(bool enabled);
-
-protected:
-    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
+    virtual QColor selectColor() const;
 
 private:
     PaintItemShape  mItemType;
-    QPen           *mAttributes;
+    QPen            mAttributes;
+    QColor          mSelectColor;
     QPointF         mOffset;
 };
 

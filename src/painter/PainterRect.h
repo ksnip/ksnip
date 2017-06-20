@@ -35,7 +35,7 @@ public:
 private:
     QRectF mRect;
     bool   mFilled;
-    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *style, QWidget *widget) override;
+    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
 };
 
 #endif // PAINTERRECT_H

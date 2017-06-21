@@ -26,7 +26,7 @@ PainterBaseItem::PainterBaseItem(PaintItemShape shape, const QPen& attributes) :
     mItemType(shape)
 {
     mAttributes = attributes;
-    mSelectColor.setRgb(82,187,229); // Color used for painting selected items
+    mSelectColor.setRgb(255, 0, 102); // Color used for painting selected items
 }
 
 int PainterBaseItem::type() const

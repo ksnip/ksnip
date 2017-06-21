@@ -244,13 +244,21 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             eraseItem(event->scenePos(), mConfig->eraseSize());
             break;
         case Move:
-//             if (grabItem(event->scenePos())) {
-//                 setCursor();
-//             }
-            for (auto item : selectedItems()) {
-                if (item) {
-                    item->setOffset(event->scenePos() - item->position());
+            if (grabItem(event->scenePos())) {
+                setCursor();
+                if (selectedItems().contains(mCurrentItem)) {
+                    for (auto item : selectedItems()) {
+                        if (item) {
+                            item->setOffset(event->scenePos() - item->position());
+                        }
+                    }
+                } else {
+                    clearSelection();
+                    mCurrentItem->setSelected(true);
+                    mCurrentItem->setOffset(event->scenePos() - mCurrentItem->position());
                 }
+            } else {
+                clearSelection();
             }
             break;
         case Select:
@@ -333,6 +341,8 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
                     item->setOffset(QPointF());
                 }
             }
+            mCurrentItem = nullptr;
+            setCursor();
             break;
         case Select:
             if (mRubberBand) {

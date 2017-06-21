@@ -32,10 +32,15 @@ class MoveCommand : public QUndoCommand
 public:
     enum { Id = 1234 };
 
-    struct MoveEntry{
-        PainterBaseItem* item;
+    struct Entry {
+        PainterBaseItem *item;
         QPointF oldPos;
         QPointF newPos;
+
+        bool operator==(const Entry &entry) const
+        {
+            return (this->item == entry.item);
+        }
     };
 
     MoveCommand(PaintArea *scene, const QPointF &newPos, QUndoCommand *parent = 0);
@@ -48,7 +53,7 @@ public:
     }
 
 private:
-    QList<MoveEntry> mItems;
+    QList<Entry> mItems;
     PaintArea *mScene;
 };
 

@@ -29,7 +29,7 @@ MoveCommand::MoveCommand(PaintArea* scene, const QPointF& newPos, QUndoCommand* 
     mScene = scene;
     for (auto item : scene->selectedItems()) {
         if (item) {
-            MoveEntry e;
+            Entry e;
             e.item = item;
             e.newPos = newPos;
             e.oldPos = item->position();
@@ -43,13 +43,13 @@ bool MoveCommand::mergeWith(const QUndoCommand* command)
     const auto moveCommand = static_cast<const MoveCommand*>(command);
     auto items = moveCommand->mItems;
 
+    // Check if lists are equal, if not, don't merge
     if (mItems != items) {
         return false;
     }
 
     for (auto i = 0; i < items.count(); i++) {
         mItems[i].newPos = items.at(i).item->position();
-
     }
     return true;
 }

@@ -662,7 +662,7 @@ void MainWindow::initGui()
     });
 
     mSelectAction->setText(tr("Select"));
-//     mSelectAction->setIcon(createIcon("move")); //TODO
+    mSelectAction->setIcon(createIcon("select"));
     mSelectAction->setShortcut(Qt::Key_S);
     connect(mSelectAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != PaintArea::Select) {

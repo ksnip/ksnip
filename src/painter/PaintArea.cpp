@@ -26,7 +26,7 @@ PaintArea::PaintArea() : QGraphicsScene(),
     mCurrentItem(nullptr),
     mRubberBand(nullptr),
     mCursor(nullptr),
-    mModifierPressed(false),
+    mShiftPressed(false),
     mPaintMode(Pen),
     mUndoStack(new QUndoStack(this)),
     mUndoAction(nullptr),
@@ -39,7 +39,7 @@ PaintArea::PaintArea() : QGraphicsScene(),
 }
 
 //
-// Public Functions
+// Public Methods
 //
 
 /*
@@ -51,6 +51,7 @@ void PaintArea::loadCapture(const QPixmap& pixmap)
     clearItem();
     mUndoStack->clear();
     clear();
+    clearSelection();
     mScreenshot = addPixmap(pixmap);
     setSceneRect(pixmap.rect());
 }
@@ -100,6 +101,8 @@ QImage PaintArea::exportAsImage()
         qWarning("PainteArea::exportAsImage: Unable to export image, image invalid.");
         return QImage();
     }
+    // Prevent saving selection color
+    clearSelection();
 
     QImage image(sceneRect().size().toSize(), QImage::Format_ARGB32);
     image.fill(Qt::transparent);
@@ -187,7 +190,7 @@ QAction* PaintArea::getRedoAction()
 }
 
 //
-// Protected Functions
+// Protected Methods
 //
 
 void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
@@ -247,17 +250,20 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             if (grabItem(event->scenePos())) {
                 setCursor();
                 if (selectedItems().contains(mCurrentItem)) {
+                    // Check if we have clicked on one of the selected items
                     for (auto item : selectedItems()) {
                         if (item) {
                             item->setOffset(event->scenePos() - item->position());
                         }
                     }
                 } else {
+                    // We have clicked on an item but not one of the selected
                     clearSelection();
                     mCurrentItem->setSelected(true);
                     mCurrentItem->setOffset(event->scenePos() - mCurrentItem->position());
                 }
             } else {
+                // We have haven't clicked on any item
                 clearSelection();
             }
             break;
@@ -292,7 +298,7 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
         case Ellipse:
         case Text:
             if (mCurrentItem) {
-                mCurrentItem->addPoint(event->scenePos(), mModifierPressed);
+                mCurrentItem->addPoint(event->scenePos(), mShiftPressed);
             }
             break;
         case Erase:
@@ -345,10 +351,20 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
             setCursor();
             break;
         case Select:
-            if (mRubberBand) {
-                mRubberBand->hide();
-                setSelectionArea(mapFromView(mRubberBand->geometry()));
+            if (mRubberBandOrigin == mapToView(event->scenePos())) {
+                clearSelection();
+                grabItem(event->scenePos());
+                if (mCurrentItem) {
+                    mCurrentItem->setSelected(true);
+                }
+            } else {
+                if (mRubberBand) {
+                    mRubberBand->hide();
+                    setSelectionArea(mapFromView(mRubberBand->geometry()));
+                }
             }
+            mRubberBandOrigin = QPoint();
+            mCurrentItem = nullptr;
             break;
         }
     }
@@ -362,7 +378,7 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
 void PaintArea::keyPressEvent(QKeyEvent* event)
 {
     if (event->key() == Qt::Key_Shift) {
-        mModifierPressed = true;
+        mShiftPressed = true;
     }
     QGraphicsScene::keyPressEvent(event);
 }
@@ -370,7 +386,7 @@ void PaintArea::keyPressEvent(QKeyEvent* event)
 void PaintArea::keyReleaseEvent(QKeyEvent* event)
 {
     if (event->key() == Qt::Key_Shift) {
-        mModifierPressed = false;
+        mShiftPressed = false;
     }
     QGraphicsScene::keyReleaseEvent(event);
 }

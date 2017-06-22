@@ -86,7 +86,8 @@ private:
     QRubberBand         *mRubberBand;
     QPoint               mRubberBandOrigin;
     QCursor             *mCursor;
-    bool                 mModifierPressed;
+    bool                 mShiftPressed;
+    bool                 mCtrlPressed;
     PaintMode            mPaintMode;
     QUndoStack          *mUndoStack;
     QAction             *mUndoAction;

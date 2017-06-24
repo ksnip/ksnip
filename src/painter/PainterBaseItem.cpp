@@ -26,7 +26,8 @@ PainterBaseItem::PainterBaseItem(PaintItemShape shape, const QPen& attributes) :
     mItemType(shape)
 {
     mAttributes = attributes;
-    mSelectColor.setRgb(255, 0, 102); // Color used for painting selected items
+    mSelectAttr.setColor(Qt::red);
+    mSelectAttr.setStyle(Qt::DotLine);
 }
 
 int PainterBaseItem::type() const
@@ -48,15 +49,8 @@ QPointF PainterBaseItem::position() const
     return boundingRect().topLeft();
 }
 
-QPen PainterBaseItem::attributes() const
+const QPen& PainterBaseItem::attributes() const
 {
-    // We check here if the item was selected, in which case we return a
-    // specific caller, same for all items that are selected.
-    if (isSelected()) {
-        QPen p(mAttributes);
-        p.setColor(selectColor());
-        return p;
-    }
     return mAttributes;
 }
 
@@ -118,10 +112,25 @@ void PainterBaseItem::setSelectable(bool enabled)
     setFlag(QGraphicsItem::ItemIsSelectable, enabled);
 }
 
-QColor PainterBaseItem::selectColor() const
+const QPen& PainterBaseItem::selectColor() const
 {
-    if (mSelectColor == mAttributes.color()) {
-        return mSelectColor.darker();
+    return mSelectAttr;
+}
+
+//
+// Protected Methods
+//
+
+/*
+ * Paints selection decoration to passed painter object. The function checks if
+ * the owning item is selected and paints decoration depending on it. If the
+ * item is not selected, the function does nothing.
+ */
+void PainterBaseItem::paintDecoration(QPainter* painter)
+{
+    if (isSelected()) {
+        painter->setPen(selectColor());
+        painter->setBrush(Qt::NoBrush);
+        painter->drawRect(boundingRect());
     }
-    return mSelectColor;
 }

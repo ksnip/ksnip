@@ -102,4 +102,6 @@ void PainterEllipse::paint(QPainter* painter, const QStyleOptionGraphicsItem*, Q
 
     painter->setPen(attributes());
     painter->drawEllipse(mRect.normalized());
+
+    paintDecoration(painter);
 }

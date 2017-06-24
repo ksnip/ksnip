@@ -29,10 +29,7 @@ MoveCommand::MoveCommand(PaintArea* scene, const QPointF& newPos, QUndoCommand* 
     mScene = scene;
     for (auto item : scene->selectedItems()) {
         if (item) {
-            Entry e;
-            e.item = item;
-            e.newPos = newPos;
-            e.oldPos = item->position();
+            Entry e(item, item->position(), newPos);
             mItems.append(e);
         }
     }

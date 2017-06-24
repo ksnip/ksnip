@@ -106,4 +106,6 @@ void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWid
     }
     painter->setPen(attributes());
     painter->drawRect(mRect.normalized());
+
+    paintDecoration(painter);
 }

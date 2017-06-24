@@ -37,6 +37,13 @@ public:
         QPointF oldPos;
         QPointF newPos;
 
+        Entry(PainterBaseItem *item, const QPointF &oldPos,  QPointF newPos)
+        {
+            this->item = item;
+            this->oldPos = oldPos;
+            this->newPos = newPos;
+        }
+
         bool operator==(const Entry &entry) const
         {
             return (this->item == entry.item);

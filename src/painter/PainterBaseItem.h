@@ -47,7 +47,7 @@ public:
     virtual bool containsRect(const QPointF &topLeft, const QSize &size) const = 0;
     virtual bool isValid() const;
     virtual QPointF position() const;
-    virtual QPen attributes() const;
+    virtual const QPen &attributes() const;
     virtual PaintItemShape ItemShape() const;
     virtual QPointF offset() const;
     virtual void setOffset(const QPointF &offset);
@@ -58,12 +58,15 @@ public:
     virtual void setOutlineColor(const QColor &color);
     virtual bool selectable() const;
     virtual void setSelectable(bool enabled);
-    virtual QColor selectColor() const;
+    virtual const QPen &selectColor() const;
+
+protected:
+    void paintDecoration(QPainter *painter);
 
 private:
     PaintItemShape  mItemType;
     QPen            mAttributes;
-    QColor          mSelectColor;
+    QPen            mSelectAttr;
     QPointF         mOffset;
 };
 

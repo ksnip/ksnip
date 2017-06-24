@@ -962,7 +962,10 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
 {
     mPaintArea->setPaintMode(mode);
 
-    if (save && mode != PaintArea::Erase && mode != PaintArea::Move) {
+    if (save
+            && mode != PaintArea::Erase
+            && mode != PaintArea::Move
+            && mode != PaintArea::Select) {
         mConfig->setPaintMode(mode);
     }
 
@@ -973,12 +976,14 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
 
     switch (mode) {
     case PaintArea::Pen:
+        mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, false, true);
         mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
         mPainterSettingsButton->setColor(mConfig->penColor());
         mPainterSettingsButton->setSize(mConfig->penSize());
         break;
     case PaintArea::Marker:
+        mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(false, false, false);
         mPainterSettingsButton->insertColor("yellow");
         mPainterSettingsButton->insertColor("blue");
@@ -990,6 +995,7 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         mPainterSettingsButton->setSize(mConfig->markerSize());
         break;
     case PaintArea::Rect:
+        mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, true, true);
         mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
         mPainterSettingsButton->setColor(mConfig->rectColor());
@@ -997,6 +1003,7 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         mPainterSettingsButton->setFill(mConfig->rectFill());
         break;
     case PaintArea::Ellipse:
+        mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, true, true);
         mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
         mPainterSettingsButton->setColor(mConfig->ellipseColor());
@@ -1004,6 +1011,7 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         mPainterSettingsButton->setFill(mConfig->ellipseFill());
         break;
     case PaintArea::Text:
+        mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, false, true);
         mPainterSettingsButton->addPopupSizeSlider(10, 20, 1);
         mPainterSettingsButton->setColor(mConfig->textColor());
@@ -1014,12 +1022,15 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         QApplication::instance()->installEventFilter(this);
         break;
     case PaintArea::Erase:
+        mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
         mPainterSettingsButton->setSize(mConfig->eraseSize());
         break;
     case PaintArea::Move:
+        mPainterSettingsButton->setEnabled(false);
         break;
     case PaintArea::Select:
+        mPainterSettingsButton->setEnabled(false);
         break;
     }
 }

@@ -179,4 +179,6 @@ void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWid
 
     painter->setBrush(attributes().color());
     painter->drawPath(mStroker->createStroke(*mPath));
+
+    paintDecoration(painter);
 }

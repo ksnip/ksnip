@@ -209,6 +209,8 @@ void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem* style
         }
         boxHeight += blockHeight;
     }
+
+    paintDecoration(painter);
 }
 
 void PainterText::moveCursor(PainterText::CursorPos direction)

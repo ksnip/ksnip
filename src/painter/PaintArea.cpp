@@ -285,6 +285,8 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
         }
     }
 
+    // Not propagating the mouse press event as it overwrites our select
+    // behavior and selects always items when we click on them.
 //     QGraphicsScene::mousePressEvent(event);
 }
 
@@ -352,10 +354,18 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
             break;
         case Select:
             if (mRubberBandOrigin == mapToView(event->scenePos())) {
-                clearSelection();
+                if (!mCtrlPressed) {
+                    clearSelection();
+                }
+                // Check if we have clicked on an item, if yes, select it if its
+                // not selected, otherwise, unselect it.
                 grabItem(event->scenePos());
                 if (mCurrentItem) {
-                    mCurrentItem->setSelected(true);
+                    if (mCurrentItem->isSelected()) {
+                        mCurrentItem->setSelected(false);
+                    } else {
+                        mCurrentItem->setSelected(true);
+                    }
                 }
             } else {
                 if (mRubberBand) {
@@ -377,16 +387,26 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
 
 void PaintArea::keyPressEvent(QKeyEvent* event)
 {
-    if (event->key() == Qt::Key_Shift) {
-        mShiftPressed = true;
+    switch (event->key()) {
+        case Qt::Key_Shift:
+            mShiftPressed = true;
+            break;
+        case Qt::Key_Control:
+            mCtrlPressed = true;
+            break;
     }
     QGraphicsScene::keyPressEvent(event);
 }
 
 void PaintArea::keyReleaseEvent(QKeyEvent* event)
 {
-    if (event->key() == Qt::Key_Shift) {
-        mShiftPressed = false;
+    switch (event->key()) {
+        case Qt::Key_Shift:
+            mShiftPressed = false;
+            break;
+        case Qt::Key_Control:
+            mCtrlPressed = false;
+            break;
     }
     QGraphicsScene::keyReleaseEvent(event);
 }

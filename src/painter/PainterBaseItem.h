@@ -26,6 +26,8 @@
 
 class PainterBaseItem :  public QGraphicsItem
 {
+    static int mOrder;
+
 public:
     enum {
         Type = UserType + 1
@@ -40,6 +42,7 @@ public:
 
 public:
     PainterBaseItem(PaintItemShape shape, const QPen &attributes);
+    ~PainterBaseItem();
     virtual int type() const override;
     virtual QRectF boundingRect() const override = 0;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) = 0;
@@ -59,6 +62,7 @@ public:
     virtual bool selectable() const;
     virtual void setSelectable(bool enabled);
     virtual const QPen &selectColor() const;
+    static int order();
 
 protected:
     void paintDecoration(QPainter *painter);

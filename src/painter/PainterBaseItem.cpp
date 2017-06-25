@@ -19,6 +19,8 @@
 
 #include "PainterBaseItem.h"
 
+int PainterBaseItem::mOrder = 1;
+
 //
 // Public Methods
 //
@@ -28,6 +30,13 @@ PainterBaseItem::PainterBaseItem(PaintItemShape shape, const QPen& attributes) :
     mAttributes = attributes;
     mSelectAttr.setColor(Qt::red);
     mSelectAttr.setStyle(Qt::DotLine);
+
+    setZValue(mOrder++);
+}
+
+PainterBaseItem::~PainterBaseItem()
+{
+    mOrder--;
 }
 
 int PainterBaseItem::type() const
@@ -115,6 +124,14 @@ void PainterBaseItem::setSelectable(bool enabled)
 const QPen& PainterBaseItem::selectColor() const
 {
     return mSelectAttr;
+}
+
+/*
+ * Returns highest item order, the zValue of the top most item.
+ */
+int PainterBaseItem::order()
+{
+    return mOrder;
 }
 
 //

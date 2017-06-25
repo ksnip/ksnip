@@ -26,6 +26,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QAction>
 #include <QRubberBand>
+#include <QMenu>
 
 #include "PainterPath.h"
 #include "PainterRect.h"
@@ -78,6 +79,7 @@ protected:
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
     virtual void keyPressEvent(QKeyEvent *event) override;
     virtual void keyReleaseEvent(QKeyEvent *event)override;
+    virtual void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override;
 
 private:
     bool                 mIsEnabled;
@@ -94,14 +96,19 @@ private:
     QAction             *mRedoAction;
     KsnipConfig         *mConfig;
 
-    bool eraseItem(const QPointF &position, int size);
-    bool grabItem(const QPointF &position);
-    void moveItem(const QPointF &position);
+    bool eraseItemAt(const QPointF &position, int size);
+    PainterBaseItem *findItemAt(const QPointF &position);
+    void moveItems(const QPointF &position);
     void clearItem();
     QCursor *cursor();
     QPoint mapToView(const QPointF &point) const;
     QRectF mapFromView(const QRectF &rect) const;
+    PainterBaseItem *selectItemAt(const QPointF &point);
     void setSelectionArea(const QRectF &rect);
+    void bringForward(QList<PainterBaseItem*> selection);
+    void bringToFront(QList<PainterBaseItem*> selection);
+    void sendBackward(QList<PainterBaseItem*> selection);
+    void sendToBack(QList<PainterBaseItem*> selection);
 
 private slots:
     void setCursor();

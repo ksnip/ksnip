@@ -189,6 +189,18 @@ QAction* PaintArea::getRedoAction()
     return mRedoAction;
 }
 
+QList<PainterBaseItem*> PaintArea::selectedItems() const
+{
+    QList<PainterBaseItem*> list;
+    for (auto item : items()) {
+        auto base = static_cast<PainterBaseItem*>(item);
+        if (base && base->isSelected()) {
+            list.append(base);
+        }
+    }
+    return list;
+}
+
 //
 // Protected Methods
 //
@@ -244,31 +256,19 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             break;
         case Erase:
             clearSelection();
-            eraseItem(event->scenePos(), mConfig->eraseSize());
+            eraseItemAt(event->scenePos(), mConfig->eraseSize());
             break;
         case Move:
-            if (grabItem(event->scenePos())) {
-                setCursor();
-                if (selectedItems().contains(mCurrentItem)) {
-                    // Check if we have clicked on one of the selected items
-                    for (auto item : selectedItems()) {
-                        if (item) {
-                            item->setOffset(event->scenePos() - item->position());
-                        }
-                    }
-                } else {
-                    // We have clicked on an item but not one of the selected
-                    clearSelection();
-                    mCurrentItem->setSelected(true);
-                    mCurrentItem->setOffset(event->scenePos() - mCurrentItem->position());
+            mCurrentItem = selectItemAt(event->scenePos());
+            setCursor();
+            for (auto item : selectedItems()) {
+                if (item) {
+                    item->setOffset(event->scenePos() - item->position());
                 }
-            } else {
-                // We have haven't clicked on any item
-                clearSelection();
             }
             break;
         case Select:
-            // We need the view as parent for the rubberband, can't proceed 
+            // We need the view as parent for the rubberband, can't proceed
             // without it
             if (views().isEmpty()) {
                 break;
@@ -304,10 +304,10 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
             }
             break;
         case Erase:
-            eraseItem(event->scenePos(), mConfig->eraseSize());
+            eraseItemAt(event->scenePos(), mConfig->eraseSize());
             break;
         case Move:
-            moveItem(event->scenePos());
+            moveItems(event->scenePos());
             break;
         case Select:
             if (mRubberBand) {
@@ -359,7 +359,7 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
                 }
                 // Check if we have clicked on an item, if yes, select it if its
                 // not selected, otherwise, unselect it.
-                grabItem(event->scenePos());
+                mCurrentItem = findItemAt(event->scenePos());
                 if (mCurrentItem) {
                     if (mCurrentItem->isSelected()) {
                         mCurrentItem->setSelected(false);
@@ -411,7 +411,28 @@ void PaintArea::keyReleaseEvent(QKeyEvent* event)
     QGraphicsScene::keyReleaseEvent(event);
 }
 
-bool PaintArea::eraseItem(const QPointF& position, int size)
+void PaintArea::contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
+{
+    auto item = selectItemAt(event->scenePos());
+    if (!item) {
+        return;
+    }
+
+    QMenu contextMenu;
+    QMenu * arrangeSubMenu = contextMenu.addMenu(tr("Arrange"));
+    QAction * bringForwardAction = arrangeSubMenu->addAction(tr("Bring Forward"));
+    QAction * sentBackwardAction = arrangeSubMenu->addAction(tr("Sent Backward"));
+    contextMenu.addAction(tr("Cancel"));
+    QAction *selectedAction = contextMenu.exec(event->screenPos());
+
+    if (selectedAction == bringForwardAction) {
+        bringForward(selectedItems());
+    } else if (selectedAction == sentBackwardAction) {
+        sendBackward(selectedItems());
+    }
+}
+
+bool PaintArea::eraseItemAt(const QPointF& position, int size)
 {
     for (auto item : items()) {
         auto baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
@@ -424,25 +445,25 @@ bool PaintArea::eraseItem(const QPointF& position, int size)
 }
 
 /*
- * Check if any of the paths is under this position, if yes grab it.
+ * Check if any item is under this position, if yes, sets offset of this item 
+ * and returns pointer to this to it.
  */
-bool PaintArea::grabItem(const QPointF& position)
+PainterBaseItem* PaintArea::findItemAt(const QPointF& position)
 {
     for (auto item : items()) {
-        mCurrentItem = qgraphicsitem_cast<PainterBaseItem*> (item);
+        auto baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
 
-        if (mCurrentItem && mCurrentItem->containsRect(position, QSize(10, 10))) {
-            mCurrentItem->setOffset(position - mCurrentItem->boundingRect().topLeft());
-            return true;
+        if (baseItem && baseItem->containsRect(position, QSize(10, 10))) {
+            baseItem->setOffset(position - baseItem->boundingRect().topLeft());
+            return baseItem;
         }
     }
 
     // Have not found any path under location
-    mCurrentItem = nullptr;
-    return false;
+    return nullptr;
 }
 
-void PaintArea::moveItem(const QPointF& position)
+void PaintArea::moveItems(const QPointF& position)
 {
     if (selectedItems().count() > 0) {
         mUndoStack->push(new MoveCommand(this, position));
@@ -535,7 +556,28 @@ QRectF PaintArea::mapFromView(const QRectF &rect) const
 }
 
 /*
- * The QGraphicsScene setSelectionArea only accepts paths so we use this 
+ * Checks the scene at the specified location for any item, if it doesn't find
+ * one, unselects all, if it finds an item it checks if the items is already
+ * among the selected items, if yes, does nothing, if not, unselects all and
+ * selects only this item. Leaves mCurrentItem pointing to the found item.
+ */
+PainterBaseItem* PaintArea::selectItemAt(const QPointF& point)
+{
+    auto item = findItemAt(point);
+    if (!item) {
+        clearSelection();
+        return nullptr;
+    }
+
+    if (!selectedItems().contains(item)) {
+        clearSelection();
+    }
+    item->setSelected(true);
+    return item;
+}
+
+/*
+ * The QGraphicsScene setSelectionArea only accepts paths so we use this
  * function as a workaround and turn the rect into a path.
  */
 void PaintArea::setSelectionArea(const QRectF& rect)
@@ -545,14 +587,41 @@ void PaintArea::setSelectionArea(const QRectF& rect)
     QGraphicsScene::setSelectionArea(path, Qt::ContainsItemShape);
 }
 
-QList<PainterBaseItem*> PaintArea::selectedItems() const
+void PaintArea::bringForward(QList<PainterBaseItem*> selection)
 {
-    QList<PainterBaseItem*> list;
-    for (auto item : items()) {
-        auto base = static_cast<PainterBaseItem*>(item);
-        if (base && base->isSelected()) {
-            list.append(base);
+    for (auto selected : selection) {
+        for (auto item : items(Qt::AscendingOrder)) {
+            // Top most item, nothing to search for.
+            if (item->zValue() == PainterBaseItem::order()) {
+                break;
+            }
+            auto baseItem = static_cast<PainterBaseItem*>(item);
+            if (baseItem->zValue() > selected->zValue()) {
+                auto tmp = baseItem->zValue();
+                baseItem->setZValue(selected->zValue());
+                selected->setZValue(tmp);
+                break;
+            }
         }
     }
-    return list;
 }
+
+void PaintArea::sendBackward(QList<PainterBaseItem*> selection)
+{
+    for (auto selected : selection) {
+        for (auto item : items()) {
+            // Lowest item, nothing to search for
+            if (item->zValue() == 0) {
+                break;
+            }
+            auto baseItem = static_cast<PainterBaseItem*>(item);
+            if (baseItem->zValue() < selected->zValue()) {
+                auto tmp = baseItem->zValue();
+                baseItem->setZValue(selected->zValue());
+                selected->setZValue(tmp);
+                break;
+            }
+        }
+    }
+}
+

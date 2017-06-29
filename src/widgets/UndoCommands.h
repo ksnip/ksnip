@@ -68,13 +68,13 @@ private:
 class DeleteCommand : public QUndoCommand
 {
 public:
-    explicit DeleteCommand(PainterBaseItem *painterItem, PaintArea *scene, QUndoCommand *parent = 0);
+    explicit DeleteCommand(PaintArea *scene, QUndoCommand *parent = 0);
     virtual void undo() override;
     virtual void redo() override;
 
 private:
-    PainterBaseItem *mPainterItem;
-    PaintArea       *mScene;
+    QList<PainterBaseItem *>  mItems;
+    PaintArea               *mScene;
 };
 
 

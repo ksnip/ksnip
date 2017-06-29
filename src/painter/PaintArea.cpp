@@ -258,7 +258,6 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             mCurrentItem->setFocus();
             break;
         case Erase:
-            clearSelection();
             eraseItemAt(event->scenePos(), mConfig->eraseSize());
             break;
         case Move:
@@ -434,6 +433,8 @@ void PaintArea::contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
     QAction* sentBackwardAction = arrangeSubMenu->addAction(tr("Sent Backward"));
     QAction* sentToBackAction = arrangeSubMenu->addAction(tr("Sent to Back"));
     contextMenu.addSeparator();
+    QAction* eraseAction = contextMenu.addAction(tr("Erase"));
+    contextMenu.addSeparator();
     contextMenu.addAction(tr("Cancel"));
 
     // Show context menu and wait for it to finish, grab the action that was
@@ -448,31 +449,37 @@ void PaintArea::contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
         sendBackward();
     } else if (selectedAction == sentToBackAction) {
         sendBackward(true);
+    } else if (selectedAction == eraseAction) {
+        mUndoStack->push(new DeleteCommand(this));
     }
-}
-
-bool PaintArea::eraseItemAt(const QPointF& position, int size)
-{
-    for (auto item : items()) {
-        auto baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
-        if (baseItem && baseItem->containsRect(position , QSize(size, size))) {
-            mUndoStack->push(new DeleteCommand(baseItem, this));
-            return true;
-        }
-    }
-    return false;
 }
 
 /*
- * Check if any item is under this position, if yes, sets offset of this item 
+ * Tries to select item at provided point, if there is an item it deletes all
+ * selected item, including the one found. If there is no item at this position
+ * it unselects all selected items. True is returned if any item was deleted,
+ * otherwise false.
+ */
+bool PaintArea::eraseItemAt(const QPointF& position, int size)
+{
+    auto item = selectItemAt(position, size);
+    if (!item) {
+        return false;
+    }
+    mUndoStack->push(new DeleteCommand(this));
+    return true;
+}
+
+/*
+ * Check if any item is under this position, if yes, sets offset of this item
  * and returns pointer to this to it.
  */
-PainterBaseItem* PaintArea::findItemAt(const QPointF& position)
+PainterBaseItem* PaintArea::findItemAt(const QPointF& position, int size)
 {
     for (auto item : items()) {
         auto baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
 
-        if (baseItem && baseItem->containsRect(position, QSize(10, 10))) {
+        if (baseItem && baseItem->containsRect(position, QSize(size, size))) {
             baseItem->setOffset(position - baseItem->boundingRect().topLeft());
             return baseItem;
         }
@@ -482,13 +489,21 @@ PainterBaseItem* PaintArea::findItemAt(const QPointF& position)
     return nullptr;
 }
 
+/*
+ * Moves all selected items to new provided position. Items own offset is taken
+ * into account.
+ */
 void PaintArea::moveItems(const QPointF& position)
 {
-    if (selectedItems().count() > 0) {
+    if (!selectedItems().isEmpty()) {
         mUndoStack->push(new MoveCommand(this, position));
     }
 }
 
+/*
+ * Removes current item from undo stack in case the item is invalid. An invalid
+ * item is an item that returns false for isValid().
+ */
 void PaintArea::clearItem()
 {
     if (!mCurrentItem) {
@@ -580,9 +595,9 @@ QRectF PaintArea::mapFromView(const QRectF &rect) const
  * among the selected items, if yes, does nothing, if not, unselects all and
  * selects only this item. Leaves mCurrentItem pointing to the found item.
  */
-PainterBaseItem* PaintArea::selectItemAt(const QPointF& point)
+PainterBaseItem* PaintArea::selectItemAt(const QPointF& point, int size)
 {
-    auto item = findItemAt(point);
+    auto item = findItemAt(point, size);
     if (!item) {
         clearSelection();
         return nullptr;

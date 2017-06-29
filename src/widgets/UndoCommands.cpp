@@ -70,30 +70,33 @@ void MoveCommand::redo()
 //
 // Delete Command
 //
-DeleteCommand::DeleteCommand(PainterBaseItem* painterItem,
-                             PaintArea* scene,
+DeleteCommand::DeleteCommand(PaintArea* scene,
                              QUndoCommand* parent)
     : QUndoCommand(parent)
 {
+    mItems = scene->selectedItems();
     mScene = scene;
-    mPainterItem = painterItem;
 }
 
 void DeleteCommand::undo()
 {
-    mScene->addItem(mPainterItem);
-    mPainterItem->show();
+    for (auto item : mItems) {
+        mScene->addItem(item);
+        item->show();
+    }
     mScene->update();
 }
 
 void DeleteCommand::redo()
 {
-    mScene->removeItem(mPainterItem);
-    // Items that are out of the scene rect sometimes even after removing them
-    // from the scene are still shown on the View as they are not deleted due to
-    // being still used by the undo/redo framework. We hide those items anytime
-    // we remove the from the scene.
-    mPainterItem->hide();
+    for (auto item : mItems) {
+        mScene->removeItem(item);
+        // Items that are out of the scene rect sometimes even after removing them
+        // from the scene are still shown on the View as they are not deleted due to
+        // being still used by the undo/redo framework. We hide those items anytime
+        // we remove the from the scene.
+        item->hide();
+    }
     mScene->update();
 }
 

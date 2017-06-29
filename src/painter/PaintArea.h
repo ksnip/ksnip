@@ -96,14 +96,14 @@ private:
     QAction             *mRedoAction;
     KsnipConfig         *mConfig;
 
-    bool eraseItemAt(const QPointF &position, int size);
-    PainterBaseItem *findItemAt(const QPointF &position);
+    bool eraseItemAt(const QPointF &position, int size = 10);
+    PainterBaseItem *findItemAt(const QPointF &position, int size = 10);
     void moveItems(const QPointF &position);
     void clearItem();
     QCursor *cursor();
     QPoint mapToView(const QPointF &point) const;
     QRectF mapFromView(const QRectF &rect) const;
-    PainterBaseItem *selectItemAt(const QPointF &point);
+    PainterBaseItem *selectItemAt(const QPointF &point, int size = 10);
     void setSelectionArea(const QRectF &rect);
     void bringForward(bool toFront = false);
     void sendBackward(bool toBack = false);

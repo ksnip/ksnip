@@ -21,6 +21,8 @@
 #include "src/backend/KsnipConfig.h"
 #include "src/widgets/CaptureView.h"
 
+#include <iostream>
+
 PaintArea::PaintArea() : QGraphicsScene(),
     mScreenshot(nullptr),
     mCurrentItem(nullptr),
@@ -52,6 +54,7 @@ void PaintArea::loadCapture(const QPixmap& pixmap)
     mUndoStack->clear();
     clear();
     clearSelection();
+    PainterBaseItem::resetOrder();
     mScreenshot = addPixmap(pixmap);
     setSceneRect(pixmap.rect());
 }
@@ -189,10 +192,10 @@ QAction* PaintArea::getRedoAction()
     return mRedoAction;
 }
 
-QList<PainterBaseItem*> PaintArea::selectedItems() const
+QList<PainterBaseItem*> PaintArea::selectedItems(Qt::SortOrder order) const
 {
     QList<PainterBaseItem*> list;
-    for (auto item : items()) {
+    for (auto item : items(order)) {
         auto base = static_cast<PainterBaseItem*>(item);
         if (base && base->isSelected()) {
             list.append(base);
@@ -411,24 +414,40 @@ void PaintArea::keyReleaseEvent(QKeyEvent* event)
     QGraphicsScene::keyReleaseEvent(event);
 }
 
+/*
+ * Called when the user requests a context menu on one of the painter items.
+ */
 void PaintArea::contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
 {
+    // Check if the user has clicked on any item and only show context menu if
+    // an item was clicked. The clicked item is selected.
     auto item = selectItemAt(event->scenePos());
     if (!item) {
         return;
     }
 
+    // Create context menu. Cancel at the end is only for hiding the menu
     QMenu contextMenu;
-    QMenu * arrangeSubMenu = contextMenu.addMenu(tr("Arrange"));
-    QAction * bringForwardAction = arrangeSubMenu->addAction(tr("Bring Forward"));
-    QAction * sentBackwardAction = arrangeSubMenu->addAction(tr("Sent Backward"));
+    QMenu* arrangeSubMenu = contextMenu.addMenu(tr("Arrange"));
+    QAction* bringForwardAction = arrangeSubMenu->addAction(tr("Bring Forward"));
+    QAction* bringToFrontAction = arrangeSubMenu->addAction(tr("Bring to Front"));
+    QAction* sentBackwardAction = arrangeSubMenu->addAction(tr("Sent Backward"));
+    QAction* sentToBackAction = arrangeSubMenu->addAction(tr("Sent to Back"));
+    contextMenu.addSeparator();
     contextMenu.addAction(tr("Cancel"));
-    QAction *selectedAction = contextMenu.exec(event->screenPos());
+
+    // Show context menu and wait for it to finish, grab the action that was
+    // clicked.
+    QAction* selectedAction = contextMenu.exec(event->screenPos());
 
     if (selectedAction == bringForwardAction) {
-        bringForward(selectedItems());
+        bringForward();
+    } else if (selectedAction == bringToFrontAction) {
+        bringForward(true);
     } else if (selectedAction == sentBackwardAction) {
-        sendBackward(selectedItems());
+        sendBackward();
+    } else if (selectedAction == sentToBackAction) {
+        sendBackward(true);
     }
 }
 
@@ -587,41 +606,60 @@ void PaintArea::setSelectionArea(const QRectF& rect)
     QGraphicsScene::setSelectionArea(path, Qt::ContainsItemShape);
 }
 
-void PaintArea::bringForward(QList<PainterBaseItem*> selection)
+/*
+ * Bring items forward by swapping their z value. If to front is selected, we
+ * will bring the items to the top, otherwise, we bring them only one layer up.
+ */
+void PaintArea::bringForward(bool toFront)
 {
+    auto list = new QList<QPair<QGraphicsItem*, QGraphicsItem*>>();
+    auto selection = selectedItems();
     for (auto selected : selection) {
+        // Loop through all items on the scene
         for (auto item : items(Qt::AscendingOrder)) {
-            // Top most item, nothing to search for.
-            if (item->zValue() == PainterBaseItem::order()) {
-                break;
-            }
-            auto baseItem = static_cast<PainterBaseItem*>(item);
-            if (baseItem->zValue() > selected->zValue()) {
-                auto tmp = baseItem->zValue();
-                baseItem->setZValue(selected->zValue());
-                selected->setZValue(tmp);
-                break;
+            // Swap with any item that has a bigger z value, except items that
+            // are among the selected items, this is because we are not swapping
+            // the items here but later in the undo/redo command so the item is
+            // not yet bubbling up yet.
+            if (item->zValue() > selected->zValue()
+                    && !selection.contains((PainterBaseItem*)item)) {
+                list->append(qMakePair(item, selected));
+                if (!toFront) {
+                    break;
+                }
             }
         }
     }
+    // Check if we have any swapping, if yes, create a new undo/redo command
+    if (!list->isEmpty()) {
+        mUndoStack->push(new ReOrderCommand(list));
+    }
 }
 
-void PaintArea::sendBackward(QList<PainterBaseItem*> selection)
+void PaintArea::sendBackward(bool toBack)
 {
+    auto list = new QList<QPair<QGraphicsItem*, QGraphicsItem*>>();
+    auto selection = selectedItems(Qt::AscendingOrder);
     for (auto selected : selection) {
+        // Loop through all items on the scene
         for (auto item : items()) {
-            // Lowest item, nothing to search for
-            if (item->zValue() == 0) {
-                break;
-            }
-            auto baseItem = static_cast<PainterBaseItem*>(item);
-            if (baseItem->zValue() < selected->zValue()) {
-                auto tmp = baseItem->zValue();
-                baseItem->setZValue(selected->zValue());
-                selected->setZValue(tmp);
-                break;
+            // Swap with any item that has a smaller z value, except items that
+            // are among the selected items, this is because we are not swapping
+            // the items here but later in the undo/redo command so the item is
+            // not yet bubbling up yet.
+            if (item->zValue() < selected->zValue()
+                    && item->zValue() > 0
+                    && !selection.contains((PainterBaseItem*)item)) {
+                list->append(qMakePair(item, selected));
+                if (!toBack) {
+                    break;
+                }
             }
         }
+    }
+    // Check if we have any swapping, if yes, create a new undo/redo command
+    if (!list->isEmpty()) {
+        mUndoStack->push(new ReOrderCommand(list));
     }
 }
 

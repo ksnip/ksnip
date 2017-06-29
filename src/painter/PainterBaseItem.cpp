@@ -134,6 +134,11 @@ int PainterBaseItem::order()
     return mOrder;
 }
 
+void PainterBaseItem::resetOrder()
+{
+    mOrder = 1;
+}
+
 //
 // Protected Methods
 //

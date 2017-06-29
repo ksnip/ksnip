@@ -112,4 +112,16 @@ private:
     QPointF             mNewOffset;
 };
 
+class ReOrderCommand : public QUndoCommand
+{
+public:
+    ReOrderCommand(QList<QPair<QGraphicsItem*, QGraphicsItem*>> *list, QUndoCommand *parent = 0);
+    ~ReOrderCommand();
+    virtual void undo() override;
+    virtual void redo() override;
+
+private:
+    QList<QPair<QGraphicsItem*, QGraphicsItem*>> *mList;
+};
+
 #endif // UNDOCOMMANDS_H

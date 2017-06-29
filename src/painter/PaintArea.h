@@ -68,7 +68,7 @@ public:
     QPointF cropOffset() const;
     QAction *getUndoAction();
     QAction *getRedoAction();
-    QList<PainterBaseItem*> selectedItems() const;
+    QList<PainterBaseItem *> selectedItems(Qt::SortOrder order = Qt::DescendingOrder) const;
 
 signals:
     void imageChanged();
@@ -105,10 +105,8 @@ private:
     QRectF mapFromView(const QRectF &rect) const;
     PainterBaseItem *selectItemAt(const QPointF &point);
     void setSelectionArea(const QRectF &rect);
-    void bringForward(QList<PainterBaseItem*> selection);
-    void bringToFront(QList<PainterBaseItem*> selection);
-    void sendBackward(QList<PainterBaseItem*> selection);
-    void sendToBack(QList<PainterBaseItem*> selection);
+    void bringForward(bool toFront = false);
+    void sendBackward(bool toBack = false);
 
 private slots:
     void setCursor();

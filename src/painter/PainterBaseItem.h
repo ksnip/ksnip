@@ -63,6 +63,7 @@ public:
     virtual void setSelectable(bool enabled);
     virtual const QPen &selectColor() const;
     static int order();
+    static void resetOrder();
 
 protected:
     void paintDecoration(QPainter *painter);

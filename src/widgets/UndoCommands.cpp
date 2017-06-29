@@ -185,3 +185,35 @@ void CropCommand::redo()
     mScene->setSceneRect(mNewRect);
     mScene->fitViewToParent();
 }
+
+//
+// ReOrder Command
+//
+ReOrderCommand::ReOrderCommand(QList<QPair<QGraphicsItem*, QGraphicsItem*> >* list,
+                               QUndoCommand*)
+{
+    mList = list;
+}
+
+ReOrderCommand::~ReOrderCommand()
+{
+    delete mList;
+}
+
+void ReOrderCommand::undo()
+{
+    for (auto i = mList->count() - 1; i >= 0; i--) {
+        auto tmp = mList->at(i).first->zValue();
+        mList->at(i).first->setZValue(mList->at(i).second->zValue());
+        mList->at(i).second->setZValue(tmp);
+    }
+}
+
+void ReOrderCommand::redo()
+{
+    for (auto item : *mList) {
+        auto tmp = item.first->zValue();
+        item.first->setZValue(item.second->zValue());
+        item.second->setZValue(tmp);
+    }
+}

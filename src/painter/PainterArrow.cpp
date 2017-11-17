@@ -24,9 +24,10 @@
 PainterArrow::PainterArrow(const QPointF& pos, const QPen& attributes) :
     PainterLine(pos, attributes)
 {
-    mArrowHeadLength = 20;
-    mArrowHeadWidth = 10;
-    mArrowHeadMid = 17;
+    mScale = attributes.width();
+    mArrowHeadLength = 20 * mScale;
+    mArrowHeadWidth = 10 * mScale;
+    mArrowHeadMid = 17 * mScale;
 }
 
 QRectF PainterArrow::boundingRect() const
@@ -53,17 +54,17 @@ void PainterArrow::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWi
 
 bool PainterArrow::isLineToShort() const
 {
-    return mLine->length() < mMinLength;
+    return mLine->length() < (mMinLength * mScale);
 }
 
 QPolygonF PainterArrow::createArrow() const
 {
     QPointF p0(0, 0);
     QPointF p1(-mArrowHeadLength, mArrowHeadWidth);
-    QPointF p2(-mArrowHeadMid, 1);
-    QPointF p3(-mLine->length(), 1);
-    QPointF p4(-mLine->length(), -1);
-    QPointF p5(-mArrowHeadMid, -1);
+    QPointF p2(-mArrowHeadMid, mScale);
+    QPointF p3(-mLine->length(), mScale);
+    QPointF p4(-mLine->length(), -mScale);
+    QPointF p5(-mArrowHeadMid, -mScale);
     QPointF p6(-mArrowHeadLength,-mArrowHeadWidth);
 
     QPolygonF arrow;

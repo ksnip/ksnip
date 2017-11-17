@@ -292,6 +292,8 @@ void MainWindow::sizeChanged(int size)
     case PaintArea::Line:
         mConfig->setLineSize(size);
         break;
+    case PaintArea::Arrow:
+        mConfig->setArrowSize(size);
     case PaintArea::Text:
         mConfig->setTextSize(size);
         break;
@@ -1057,7 +1059,9 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
     case PaintArea::Arrow:
         mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, false, true);
+        mPainterSettingsButton->addPopupSizeSlider(1, 5, 1);
         mPainterSettingsButton->setColor(mConfig->arrowColor());
+        mPainterSettingsButton->setSize(mConfig->arrowSize());
         break;
     case PaintArea::Text:
         mPainterSettingsButton->setEnabled(true);

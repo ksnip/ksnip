@@ -33,6 +33,7 @@ private:
     int mArrowHeadLength;
     int mArrowHeadMid;
     int mArrowHeadWidth;
+    int mScale;
 
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
     bool isLineToShort() const;

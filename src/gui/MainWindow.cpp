@@ -39,6 +39,8 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     mMarkerAction(new QAction(this)),
     mRectAction(new QAction(this)),
     mEllipseAction(new QAction(this)),
+    mLineAction(new QAction(this)),
+    mArrowAction(new QAction(this)),
     mTextAction(new QAction(this)),
     mEraseAction(new QAction(this)),
     mMoveAction(new QAction(this)),
@@ -236,6 +238,12 @@ void MainWindow::colorChanged(const QColor& color)
     case PaintArea::Ellipse:
         mConfig->setEllipseColor(color);
         break;
+    case PaintArea::Line:
+        mConfig->setLineColor(color);
+        break;
+    case PaintArea::Arrow:
+        mConfig->setArrowColor(color);
+        break;
     case PaintArea::Text:
         mConfig->setTextColor(color);
         break;
@@ -266,7 +274,7 @@ void MainWindow::fillChanged(bool fill)
  * Called by signals from painter settings picker tool button to change the
  * size of the current tool.
  */
-void MainWindow::sizeChanged(int  size)
+void MainWindow::sizeChanged(int size)
 {
     switch (mPaintArea->paintMode()) {
     case PaintArea::Pen:
@@ -280,6 +288,9 @@ void MainWindow::sizeChanged(int  size)
         break;
     case PaintArea::Ellipse:
         mConfig->setEllipseSize(size);
+        break;
+    case PaintArea::Line:
+        mConfig->setLineSize(size);
         break;
     case PaintArea::Text:
         mConfig->setTextSize(size);
@@ -411,6 +422,14 @@ void MainWindow::loadSettings()
     case PaintArea::Ellipse:
         setPaintMode(PaintArea::Ellipse, false);
         mPaintToolButton->setDefaultAction(mEllipseAction);
+        break;
+    case PaintArea::Line:
+        setPaintMode(PaintArea::Line, false);
+        mPaintToolButton->setDefaultAction(mLineAction);
+        break;
+    case PaintArea::Arrow:
+        setPaintMode(PaintArea::Arrow, false);
+        mPaintToolButton->setDefaultAction(mArrowAction);
         break;
     case PaintArea::Text:
         setPaintMode(PaintArea::Text, false);
@@ -634,6 +653,22 @@ void MainWindow::initGui()
         }
     });
 
+    mLineAction->setText(tr("Line"));
+    mLineAction->setIcon(createIcon("line"));
+    connect(mLineAction, &QAction::triggered, [this]() {
+        if (mPaintArea->paintMode() != PaintArea::Line) {
+            setPaintMode(PaintArea::Line);
+        }
+    });
+
+    mArrowAction->setText(tr("Arrow"));
+    mArrowAction->setIcon(createIcon("arrow"));
+    connect(mArrowAction, &QAction::triggered, [this]() {
+        if (mPaintArea->paintMode() != PaintArea::Arrow) {
+            setPaintMode(PaintArea::Arrow);
+        }
+    });
+
     mTextAction->setText(tr("Text"));
     mTextAction->setIcon(createIcon("text"));
     mTextAction->setShortcut(Qt::Key_T);
@@ -733,6 +768,8 @@ void MainWindow::initGui()
     mPaintToolMenu->addAction(mMarkerAction);
     mPaintToolMenu->addAction(mRectAction);
     mPaintToolMenu->addAction(mEllipseAction);
+    mPaintToolMenu->addAction(mLineAction);
+    mPaintToolMenu->addAction(mArrowAction);
     mPaintToolMenu->addAction(mTextAction);
     mPaintToolMenu->addAction(mEraseAction);
     mPaintToolMenu->addAction(mMoveAction);
@@ -1009,6 +1046,18 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         mPainterSettingsButton->setColor(mConfig->ellipseColor());
         mPainterSettingsButton->setSize(mConfig->ellipseSize());
         mPainterSettingsButton->setFill(mConfig->ellipseFill());
+        break;
+    case PaintArea::Line:
+        mPainterSettingsButton->setEnabled(true);
+        mPainterSettingsButton->addPopupColorGrid(true, false, true);
+        mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
+        mPainterSettingsButton->setColor(mConfig->lineColor());
+        mPainterSettingsButton->setSize(mConfig->lineSize());
+        break;
+    case PaintArea::Arrow:
+        mPainterSettingsButton->setEnabled(true);
+        mPainterSettingsButton->addPopupColorGrid(true, false, true);
+        mPainterSettingsButton->setColor(mConfig->arrowColor());
         break;
     case PaintArea::Text:
         mPainterSettingsButton->setEnabled(true);

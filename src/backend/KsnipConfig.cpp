@@ -430,6 +430,112 @@ void KsnipConfig::setEllipseFill(bool  fill)
     emit painterUpdated();
 }
 
+QPen KsnipConfig::line() const
+{
+    QPen line;
+    line.setColor(lineColor());
+    line.setWidth(lineSize());
+    return line;
+}
+
+QColor KsnipConfig::lineColor() const
+{
+    return mConfig.value("Painter/LineColor", QColor("Blue")).value<QColor>();
+}
+
+void KsnipConfig::setLineColor(const QColor& color)
+{
+    if (lineColor() == color) {
+        return;
+    }
+    mConfig.setValue("Painter/LineColor", color);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+int KsnipConfig::lineSize() const
+{
+    return mConfig.value("Painter/LineSize", 3).toInt();
+}
+
+void KsnipConfig::setLineSize(int size)
+{
+    if (lineSize() == size) {
+        return;
+    }
+    mConfig.setValue("Painter/LineSize", size);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+bool KsnipConfig::lineFill() const
+{
+    return mConfig.value("Painter/LineFill", false).toBool();
+}
+
+void KsnipConfig::setLineFill(bool fill)
+{
+    if (lineFill() == fill) {
+        return;
+    }
+    mConfig.setValue("Painter/LineFill", fill);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+QPen KsnipConfig::arrow() const
+{
+    QPen arrow;
+    arrow.setColor(arrowColor());
+    arrow.setWidth(arrowSize());
+    return arrow;
+}
+
+QColor KsnipConfig::arrowColor() const
+{
+    return mConfig.value("Painter/ArrowColor", QColor("Blue")).value<QColor>();
+}
+
+void KsnipConfig::setArrowColor(const QColor& color)
+{
+    if (arrowColor() == color) {
+        return;
+    }
+    mConfig.setValue("Painter/ArrowColor", color);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+int KsnipConfig::arrowSize() const
+{
+    return mConfig.value("Painter/ArrowSize", 3).toInt();
+}
+
+void KsnipConfig::setArrowSize(int size)
+{
+    if (arrowSize() == size) {
+        return;
+    }
+    mConfig.setValue("Painter/ArrowSize", size);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+bool KsnipConfig::arrowFill() const
+{
+    return mConfig.value("Painter/ArrowFill", false).toBool();
+}
+
+void KsnipConfig::setArrowFill(bool fill)
+{
+    if (arrowFill() == fill) {
+        return;
+    }
+    mConfig.setValue("Painter/ArrowFill", fill);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
 QPen KsnipConfig::text() const
 {
     QPen text;

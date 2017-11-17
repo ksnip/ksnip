@@ -21,8 +21,6 @@
 #include "src/backend/KsnipConfig.h"
 #include "src/widgets/CaptureView.h"
 
-#include <iostream>
-
 PaintArea::PaintArea() : QGraphicsScene(),
     mScreenshot(nullptr),
     mCurrentItem(nullptr),
@@ -35,8 +33,6 @@ PaintArea::PaintArea() : QGraphicsScene(),
     mRedoAction(nullptr),
     mConfig(KsnipConfig::instance())
 {
-    // Connect to update signal so that we are informed any time the config
-    // changes, we use that to set the correct mouse cursor.
     connect(mConfig, &KsnipConfig::painterUpdated, this, &PaintArea::setCursor);
 }
 
@@ -44,13 +40,9 @@ PaintArea::PaintArea() : QGraphicsScene(),
 // Public Methods
 //
 
-/*
- * Load new captured image and add it to the scene and set the scene size to the
- * size of the loaded image.
- */
 void PaintArea::loadCapture(const QPixmap& pixmap)
 {
-    clearItem();
+    clearCurrentItem();
     mUndoStack->clear();
     clear();
     clearSelection();
@@ -59,10 +51,6 @@ void PaintArea::loadCapture(const QPixmap& pixmap)
     setSceneRect(pixmap.rect());
 }
 
-/*
- * Makes all parent view resize their parent widgets to fit the scene with some
- * additional space around it.
- */
 void PaintArea::fitViewToParent()
 {
     for (auto view : views()) {
@@ -70,7 +58,6 @@ void PaintArea::fitViewToParent()
     }
 }
 
-// Return scene rect which is the current size of the area
 QSize PaintArea::areaSize() const
 {
     return sceneRect().size().toSize();
@@ -84,7 +71,7 @@ void PaintArea::setPaintMode(PaintMode paintMode)
 
     mPaintMode = paintMode;
 
-    clearItem();
+    clearCurrentItem();
     setCursor();
 }
 
@@ -93,18 +80,13 @@ PaintArea::PaintMode PaintArea::paintMode() const
     return mPaintMode;
 }
 
-/*
- * In order to export the scene as Image we must use a QPainter to draw all
- * scene items to a new image which we can the export. If no pixmap has been
- * loaded return a null image.
- */
 QImage PaintArea::exportAsImage()
 {
     if (!isValid()) {
         qWarning("PainteArea::exportAsImage: Unable to export image, image invalid.");
         return QImage();
     }
-    // Prevent saving selection color
+
     clearSelection();
 
     QImage image(sceneRect().size().toSize(), QImage::Format_ARGB32);
@@ -129,9 +111,6 @@ bool PaintArea::isEnabled() const
     return mIsEnabled;
 }
 
-/*
- * The scene is only valid if a pixmap has been loaded.
- */
 bool PaintArea::isValid() const
 {
     if (mScreenshot == nullptr) {
@@ -141,10 +120,6 @@ bool PaintArea::isValid() const
     }
 }
 
-/*
- * Return true if the user is currently editing a text item, otherwise returns
- * false
- */
 bool PaintArea::isTextEditing() const
 {
     if (mCurrentItem && mCurrentItem->ItemShape() == PainterBaseItem::Text) {
@@ -155,10 +130,6 @@ bool PaintArea::isTextEditing() const
     return false;
 }
 
-/*
- * Crop the capture image to the provided rect and set the scene rect
- * appropriately.
- */
 void PaintArea::crop(const QRectF& rect)
 {
     mUndoStack->push(new CropCommand(mScreenshot, rect, this));
@@ -169,10 +140,6 @@ QPointF PaintArea::cropOffset() const
     return mScreenshot->offset();
 }
 
-/*
- * Creates a pointer to the undo action so that it can be directly used without
- * creating custom functions and slots.
- */
 QAction* PaintArea::getUndoAction()
 {
     if (!mUndoAction) {
@@ -181,9 +148,6 @@ QAction* PaintArea::getUndoAction()
     return mUndoAction;
 }
 
-/*
- * Same as createUndoAction
- */
 QAction* PaintArea::getRedoAction()
 {
     if (!mRedoAction) {
@@ -204,21 +168,13 @@ QList<PainterBaseItem*> PaintArea::selectedItems(Qt::SortOrder order) const
     return list;
 }
 
-//
-// Protected Methods
-//
-
 void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
 {
     if (!mIsEnabled) {
         return;
     }
 
-    // When clicked with any button somewhere on the scene, the paint item
-    // looses focus so we check if the paint item is valid at that time, if not
-    // we remove it. Mostly used to check if empty text item was left on the
-    // scene.
-    clearItem();
+    clearCurrentItem();
 
     if (event->button() == Qt::LeftButton) {
 
@@ -245,6 +201,16 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             mCurrentItem = new PainterEllipse(event->scenePos(),
                                               mConfig->ellipse(),
                                               mConfig->ellipseFill());
+            mUndoStack->push(new AddCommand(mCurrentItem, this));
+            break;
+        case Line:
+            clearSelection();
+            mCurrentItem = new PainterLine(event->scenePos(), mConfig->line());
+            mUndoStack->push(new AddCommand(mCurrentItem, this));
+            break;
+        case Arrow:
+            clearSelection();
+            mCurrentItem = new PainterArrow(event->scenePos(), mConfig->arrow());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Text:
@@ -300,6 +266,8 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
         case Marker:
         case Rect:
         case Ellipse:
+        case Line:
+        case Arrow:
         case Text:
             if (mCurrentItem) {
                 mCurrentItem->addPoint(event->scenePos(), mShiftPressed);
@@ -336,6 +304,8 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
             }
         case Rect:
         case Ellipse:
+        case Line:
+        case Arrow:
         case Text:
             // We enable select first after the item was successfully added to
             // the scene, to prevent selection border around it while drawing.
@@ -413,19 +383,13 @@ void PaintArea::keyReleaseEvent(QKeyEvent* event)
     QGraphicsScene::keyReleaseEvent(event);
 }
 
-/*
- * Called when the user requests a context menu on one of the painter items.
- */
 void PaintArea::contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
 {
-    // Check if the user has clicked on any item and only show context menu if
-    // an item was clicked. The clicked item is selected.
     auto item = selectItemAt(event->scenePos());
     if (!item) {
         return;
     }
 
-    // Create context menu. Cancel at the end is only for hiding the menu
     QMenu contextMenu;
     QMenu* arrangeSubMenu = contextMenu.addMenu(tr("Arrange"));
     QAction* bringForwardAction = arrangeSubMenu->addAction(tr("Bring Forward"));
@@ -437,8 +401,6 @@ void PaintArea::contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
     contextMenu.addSeparator();
     contextMenu.addAction(tr("Cancel"));
 
-    // Show context menu and wait for it to finish, grab the action that was
-    // clicked.
     QAction* selectedAction = contextMenu.exec(event->screenPos());
 
     if (selectedAction == bringForwardAction) {
@@ -454,12 +416,6 @@ void PaintArea::contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
     }
 }
 
-/*
- * Tries to select item at provided point, if there is an item it deletes all
- * selected item, including the one found. If there is no item at this position
- * it unselects all selected items. True is returned if any item was deleted,
- * otherwise false.
- */
 bool PaintArea::eraseItemAt(const QPointF& position, int size)
 {
     auto item = selectItemAt(position, size);
@@ -470,10 +426,6 @@ bool PaintArea::eraseItemAt(const QPointF& position, int size)
     return true;
 }
 
-/*
- * Check if any item is under this position, if yes, sets offset of this item
- * and returns pointer to this to it.
- */
 PainterBaseItem* PaintArea::findItemAt(const QPointF& position, int size)
 {
     for (auto item : items()) {
@@ -500,11 +452,7 @@ void PaintArea::moveItems(const QPointF& position)
     }
 }
 
-/*
- * Removes current item from undo stack in case the item is invalid. An invalid
- * item is an item that returns false for isValid().
- */
-void PaintArea::clearItem()
+void PaintArea::clearCurrentItem()
 {
     if (!mCurrentItem) {
         return;
@@ -543,6 +491,14 @@ QCursor* PaintArea::cursor()
         return new CustomCursor(CustomCursor::Circle,
                                 mConfig->ellipseColor(),
                                 mConfig->ellipseSize());
+    case Line:
+        return new CustomCursor(CustomCursor::Circle,
+                                mConfig->lineColor(),
+                                mConfig->lineSize());
+    case Arrow:
+        return new CustomCursor(CustomCursor::Circle,
+                                mConfig->arrowColor(),
+                                mConfig->arrowSize());
     case Text:
         return new QCursor(Qt::IBeamCursor);
     case Erase:

@@ -37,6 +37,8 @@ public:
         Path,
         Rect,
         Circle,
+        Line,
+        Arrow,
         Text
     };
 

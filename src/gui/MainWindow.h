@@ -90,6 +90,8 @@ private:
     QAction          *mMarkerAction;
     QAction          *mRectAction;
     QAction          *mEllipseAction;
+    QAction          *mLineAction;
+    QAction          *mArrowAction;
     QAction          *mTextAction;
     QAction          *mEraseAction;
     QAction          *mMoveAction;

@@ -8,6 +8,8 @@
     <file alias="marker64.png">64x64/marker.64.png</file>
     <file alias="rect64.png">64x64/rect.64.png</file>
     <file alias="ellipse64.png">64x64/ellipse.64.png</file>
+    <file alias="arrow64.png">64x64/arrow.64.png</file>
+    <file alias="line64.png">64x64/line.64.png</file>
     <file alias="text64.png">64x64/text.64.png</file>
     <file alias="eraser64.png">64x64/eraser.64.png</file>
     <file alias="move64.png">64x64/move.64.png</file>

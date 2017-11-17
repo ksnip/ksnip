@@ -35,6 +35,8 @@ set(ksnip_SRCS src/main.cpp
                src/painter/PainterPath.cpp
                src/painter/PainterRect.cpp
                src/painter/PainterEllipse.cpp
+               src/painter/PainterLine.cpp
+               src/painter/PainterArrow.cpp
                src/painter/PainterText.cpp
                src/widgets/CaptureView.cpp
                src/widgets/CustomToolButton.cpp

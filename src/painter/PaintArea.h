@@ -31,6 +31,7 @@
 #include "PainterPath.h"
 #include "PainterRect.h"
 #include "PainterEllipse.h"
+#include "PainterArrow.h"
 #include "PainterText.h"
 #include "src/widgets/CustomCursor.h"
 #include "src/widgets/UndoCommands.h"
@@ -46,6 +47,8 @@ public:
         Marker,
         Rect,
         Ellipse,
+        Line,
+        Arrow,
         Text,
         Erase,
         Move,
@@ -99,7 +102,7 @@ private:
     bool eraseItemAt(const QPointF &position, int size = 10);
     PainterBaseItem *findItemAt(const QPointF &position, int size = 10);
     void moveItems(const QPointF &position);
-    void clearItem();
+    void clearCurrentItem();
     QCursor *cursor();
     QPoint mapToView(const QPointF &point) const;
     QRectF mapFromView(const QRectF &rect) const;

@@ -116,6 +116,28 @@ public:
     bool ellipseFill() const;
     void setEllipseFill(bool fill);
 
+    QPen line() const;
+
+    QColor lineColor() const;
+    void setLineColor(const QColor &color);
+
+    int lineSize() const;
+    void setLineSize(int size);
+
+    bool lineFill() const;
+    void setLineFill(bool fill);
+
+    QPen arrow() const;
+
+    QColor arrowColor() const;
+    void setArrowColor(const QColor &color);
+
+    int arrowSize() const;
+    void setArrowSize(int size);
+
+    bool arrowFill() const;
+    void setArrowFill(bool fill);
+
     QPen text() const;
 
     QColor textColor() const;

@@ -24,13 +24,13 @@ PainterItemFactory::PainterItemFactory()
     mConfig = KsnipConfig::instance();
 }
 
-PainterBaseItem* PainterItemFactory::createItem(Painter::Modes mode, const QPointF& pos)
+AbstractPainterItem* PainterItemFactory::createItem(Painter::Modes mode, const QPointF& pos)
 {
     switch (mode) {
     case Painter::Pen:
-        return new PainterPath(pos, mConfig->pen());
+        return new PainterPen(pos, mConfig->pen());
     case Painter::Marker:
-        return new PainterPath(pos, mConfig->marker(), true);
+        return new PainterMarker(pos, mConfig->marker());
     case Painter::Rect:
         return new PainterRect(pos, mConfig->rect(), mConfig->rectFill());
     case Painter::Ellipse:
@@ -39,11 +39,8 @@ PainterBaseItem* PainterItemFactory::createItem(Painter::Modes mode, const QPoin
         return new PainterLine(pos, mConfig->line());
     case Painter::Arrow:
         return new PainterArrow(pos, mConfig->arrow());
-    case Painter::Text: {
-        auto item = new PainterText(pos - QPointF(0, 12), mConfig->text(), mConfig->textFont());
-        item->setFocus();
-        return item;
-    }
+    case Painter::Text:
+        return new PainterText(pos - QPointF(0, 12), mConfig->text(), mConfig->textFont());
     case Painter::Number:
         return new PainterNumber(pos, mConfig->number(), mConfig->numberFont());
     default:

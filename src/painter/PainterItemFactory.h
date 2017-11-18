@@ -20,7 +20,8 @@
 #ifndef PAINTERITEMFACTORY_H
 #define PAINTERITEMFACTORY_H
 
-#include "PainterPath.h"
+#include "PainterPen.h"
+#include "PainterMarker.h"
 #include "PainterRect.h"
 #include "PainterEllipse.h"
 #include "PainterLine.h"
@@ -34,7 +35,7 @@ class PainterItemFactory
 {
 public:
     PainterItemFactory();
-    PainterBaseItem* createItem(Painter::Modes mode, const QPointF& pos);
+    AbstractPainterItem * createItem(Painter::Modes mode, const QPointF& pos);
 
 private:
     KsnipConfig *mConfig;

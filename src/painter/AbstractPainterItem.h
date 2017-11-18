@@ -17,14 +17,14 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef PAINTERBASEITEM_H
-#define PAINTERBASEITEM_H
+#ifndef ABSTRACTPAINTERITEM_H
+#define ABSTRACTPAINTERITEM_H
 
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QPen>
 
-class PainterBaseItem :  public QGraphicsItem
+class AbstractPainterItem :  public QGraphicsItem
 {
     static int mOrder;
 
@@ -33,20 +33,9 @@ public:
         Type = UserType + 1
     };
 
-    enum PaintItemShape {
-        Path,
-        Marker,
-        Rect,
-        Ellipse,
-        Line,
-        Arrow,
-        Text,
-        Number
-    };
-
 public:
-    PainterBaseItem(PaintItemShape shape, const QPen &attributes);
-    ~PainterBaseItem();
+    AbstractPainterItem(const QPen &attributes);
+    ~AbstractPainterItem();
     virtual int type() const override;
     virtual QRectF boundingRect() const override = 0;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) = 0;
@@ -55,7 +44,6 @@ public:
     virtual bool isValid() const;
     virtual QPointF position() const;
     virtual const QPen &attributes() const;
-    virtual PaintItemShape ItemShape() const;
     virtual QPointF offset() const;
     virtual void setOffset(const QPointF &offset);
     virtual void setJoinStyle(Qt::PenJoinStyle join);
@@ -73,10 +61,9 @@ protected:
     void paintDecoration(QPainter *painter);
 
 private:
-    PaintItemShape  mItemType;
     QPen            mAttributes;
     QPen            mSelectAttr;
     QPointF         mOffset;
 };
 
-#endif // PAINTERBASEITEM_H
+#endif // ABSTRACTPAINTERITEM_H

@@ -22,7 +22,7 @@
 int PainterNumber::mCounter = 1;
 
 PainterNumber::PainterNumber(const QPointF& pos, const QPen& attributes, const QFont &font) :
-    PainterBaseItem(Rect, attributes),
+    AbstractPainterItem(attributes),
     mFont(new QFont(font)),
     mFontMetric(new QFontMetrics(*mFont)),
     mTextColor(new QColor("white"))

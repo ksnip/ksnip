@@ -22,13 +22,12 @@
  * https://www.toptal.com/c-plus-plus/rounded-corners-bezier-curves-qpainter
  */
 
-#include "PainterPath.h"
+#include "PainterPen.h"
 
-PainterPath::PainterPath(const QPointF& pos, const QPen& attributes, bool transparent) :
-    PainterBaseItem(Path, attributes),
+PainterPen::PainterPen(const QPointF& pos, const QPen& attributes) :
+    AbstractPainterItem(attributes),
     mPath(new QPainterPath),
-    mStroker(new QPainterPathStroker),
-    mTransparent(transparent)
+    mStroker(new QPainterPathStroker)
 {
     // Place the path at the right location and draw the first point, which is
     // actually a line just moved one pixel as QT won't draw a line if the point
@@ -42,18 +41,18 @@ PainterPath::PainterPath(const QPointF& pos, const QPen& attributes, bool transp
     mStroker->setWidth(this->attributes().width());
 }
 
-PainterPath::~PainterPath()
+PainterPen::~PainterPen()
 {
     delete mPath;
     delete mStroker;
 }
 
-QRectF PainterPath::boundingRect() const
+QRectF PainterPen::boundingRect() const
 {
     return mStroker->createStroke(*mPath).boundingRect();
 }
 
-void PainterPath::addPoint(const QPointF& pos, bool modifier)
+void PainterPen::addPoint(const QPointF& pos, bool modifier)
 {
     prepareGeometryChange();
     if (mPath->elementAt(mPath->elementCount() - 1).isLineTo() && modifier) {
@@ -63,13 +62,13 @@ void PainterPath::addPoint(const QPointF& pos, bool modifier)
     }
 }
 
-void PainterPath::moveTo(const QPointF& newPos)
+void PainterPen::moveTo(const QPointF& newPos)
 {
     prepareGeometryChange();
     mPath->translate(newPos - offset() - boundingRect().topLeft());
 }
 
-bool PainterPath::containsRect(const QPointF& topLeft, const QSize& size) const
+bool PainterPen::containsRect(const QPointF& topLeft, const QSize& size) const
 {
     return mPath->intersects(QRectF(topLeft.x() - size.width() / 2,
                                     topLeft.y() - size.height() / 2,
@@ -85,7 +84,7 @@ bool PainterPath::containsRect(const QPointF& topLeft, const QSize& size) const
  * Bezier curve. The min factor is used to test the distance between two points,
  * distance below min is ignored and points skipped.
  */
-void PainterPath::smoothOut(float factor)
+void PainterPen::smoothOut(float factor)
 {
     QList<QPointF> points;
     QPointF p;
@@ -124,15 +123,9 @@ void PainterPath::smoothOut(float factor)
     mPath = path;
 }
 
-void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
+void PainterPen::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    if (mTransparent) {
-        painter->setCompositionMode(QPainter::CompositionMode_ColorBurn);
-        painter->setPen(Qt::NoPen);
-    } else {
-        painter->setPen(attributes().color());
-    }
-
+    painter->setPen(attributes().color());
     painter->setBrush(attributes().color());
     painter->drawPath(mStroker->createStroke(*mPath));
 

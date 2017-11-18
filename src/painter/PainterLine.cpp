@@ -20,7 +20,7 @@
 #include "PainterLine.h"
 
 PainterLine::PainterLine(const QPointF& pos, const QPen& attributes) :
-    PainterBaseItem(Line, attributes),
+    AbstractPainterItem(attributes),
     mLine(new QLineF)
 {
     mLine->setP1(pos);

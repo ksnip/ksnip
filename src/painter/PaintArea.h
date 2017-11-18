@@ -29,7 +29,7 @@
 #include <QMenu>
 
 #include "PainterItemFactory.h"
-#include "PainterPath.h"
+#include "PainterPen.h"
 #include "PainterRect.h"
 #include "PainterEllipse.h"
 #include "PainterArrow.h"
@@ -58,7 +58,7 @@ public:
     QPointF cropOffset() const;
     QAction *getUndoAction();
     QAction *getRedoAction();
-    QList<PainterBaseItem *> selectedItems(Qt::SortOrder order = Qt::DescendingOrder) const;
+    QList<AbstractPainterItem *> selectedItems(Qt::SortOrder order = Qt::DescendingOrder) const;
 
 signals:
     void imageChanged();
@@ -74,7 +74,7 @@ protected:
 private:
     bool                 mIsEnabled;
     QGraphicsPixmapItem *mScreenshot;
-    PainterBaseItem     *mCurrentItem;
+    AbstractPainterItem     *mCurrentItem;
     QRubberBand         *mRubberBand;
     QPoint               mRubberBandOrigin;
     QCursor             *mCursor;
@@ -88,13 +88,13 @@ private:
     PainterItemFactory  *mPaintItemFactory;
 
     bool eraseItemAt(const QPointF &position, int size = 10);
-    PainterBaseItem *findItemAt(const QPointF &position, int size = 10);
+    AbstractPainterItem *findItemAt(const QPointF &position, int size = 10);
     void moveItems(const QPointF &position);
     void clearCurrentItem();
     QCursor *cursor();
     QPoint mapToView(const QPointF &point) const;
     QRectF mapFromView(const QRectF &rect) const;
-    PainterBaseItem *selectItemAt(const QPointF &point, int size = 10);
+    AbstractPainterItem *selectItemAt(const QPointF &point, int size = 10);
     void setSelectionArea(const QRectF &rect);
     void bringForward(bool toFront = false);
     void sendBackward(bool toBack = false);

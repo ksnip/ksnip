@@ -17,25 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef PAINTERELLIPSE_H
-#define PAINTERELLIPSE_H
+#include "PainterMarker.h"
 
-#include "AbstractPainterItem.h"
-#include "src/helper/MathHelper.h"
-
-class PainterEllipse : public AbstractPainterItem
+PainterMarker::PainterMarker(const QPointF& pos, const QPen& attributes) : PainterPen(pos, attributes)
 {
-public:
-    PainterEllipse(const QPointF &pos, const QPen &attributes, bool filled = 0);
-    virtual QRectF boundingRect() const override;
-    virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
-    virtual void moveTo(const QPointF &newPos) override;
-    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
+}
 
-private:
-    QRectF mRect;
-    bool   mFilled;
-    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
-};
+void PainterMarker::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
+{
+    painter->setCompositionMode(QPainter::CompositionMode_ColorBurn);
+    painter->setPen(Qt::NoPen);
+    painter->setBrush(attributes().color());
+    painter->drawPath(mStroker->createStroke(*mPath));
 
-#endif // PAINTERELLIPSE_H
+    paintDecoration(painter);
+}

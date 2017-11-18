@@ -20,9 +20,9 @@
 #ifndef PAINTERLINE_H
 #define PAINTERLINE_H
 
-#include "PainterBaseItem.h"
+#include "AbstractPainterItem.h"
 
-class PainterLine : public PainterBaseItem
+class PainterLine : public AbstractPainterItem
 {
 public:
     PainterLine(const QPointF &pos, const QPen &attributes);

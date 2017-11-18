@@ -46,7 +46,7 @@ void PaintArea::loadCapture(const QPixmap& pixmap)
     mUndoStack->clear();
     clear();
     clearSelection();
-    PainterBaseItem::resetOrder();
+    AbstractPainterItem::resetOrder();
     mScreenshot = addPixmap(pixmap);
     setSceneRect(pixmap.rect());
 }
@@ -122,10 +122,9 @@ bool PaintArea::isValid() const
 
 bool PaintArea::isTextEditing() const
 {
-    if (mCurrentItem && mCurrentItem->ItemShape() == PainterBaseItem::Text) {
-        if (static_cast<PainterText*>(mCurrentItem)->isEditable()) {
-            return true;
-        }
+    auto textItem = dynamic_cast<PainterText*>(mCurrentItem);
+    if (textItem) {
+        return textItem->isEditable();
     }
     return false;
 }
@@ -156,11 +155,11 @@ QAction* PaintArea::getRedoAction()
     return mRedoAction;
 }
 
-QList<PainterBaseItem*> PaintArea::selectedItems(Qt::SortOrder order) const
+QList<AbstractPainterItem*> PaintArea::selectedItems(Qt::SortOrder order) const
 {
-    QList<PainterBaseItem*> list;
+    QList<AbstractPainterItem*> list;
     for (auto item : items(order)) {
-        auto base = static_cast<PainterBaseItem*>(item);
+        auto base = static_cast<AbstractPainterItem*>(item);
         if (base && base->isSelected()) {
             list.append(base);
         }
@@ -203,6 +202,10 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             clearSelection();
             mCurrentItem = mPaintItemFactory->createItem(mPaintMode, event->scenePos());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
+            auto textItem = dynamic_cast<PainterText*>(mCurrentItem);
+            if(textItem) {
+                textItem->setFocus();
+            }
         }
     }
 }
@@ -247,9 +250,9 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
         switch (mPaintMode) {
         case Painter::Pen:
         case Painter::Marker:
-            PainterPath* path;
+            PainterPen* path;
             if (mConfig->smoothPath() &&
-                    (path = qgraphicsitem_cast<PainterPath*> (mCurrentItem))) {
+                    (path = qgraphicsitem_cast<PainterPen*> (mCurrentItem))) {
                 path->smoothOut(mConfig->smoothFactor());
             }
         case Painter::Rect:
@@ -377,10 +380,10 @@ bool PaintArea::eraseItemAt(const QPointF& position, int size)
     return true;
 }
 
-PainterBaseItem* PaintArea::findItemAt(const QPointF& position, int size)
+AbstractPainterItem* PaintArea::findItemAt(const QPointF& position, int size)
 {
     for (auto item : items()) {
-        auto baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
+        auto baseItem = qgraphicsitem_cast<AbstractPainterItem*> (item);
 
         if (baseItem && baseItem->containsRect(position, QSize(size, size))) {
             baseItem->setOffset(position - baseItem->boundingRect().topLeft());
@@ -504,7 +507,7 @@ QRectF PaintArea::mapFromView(const QRectF &rect) const
  * among the selected items, if yes, does nothing, if not, unselects all and
  * selects only this item. Leaves mCurrentItem pointing to the found item.
  */
-PainterBaseItem* PaintArea::selectItemAt(const QPointF& point, int size)
+AbstractPainterItem* PaintArea::selectItemAt(const QPointF& point, int size)
 {
     auto item = findItemAt(point, size);
     if (!item) {
@@ -546,7 +549,7 @@ void PaintArea::bringForward(bool toFront)
             // the items here but later in the undo/redo command so the item is
             // not yet bubbling up yet.
             if (item->zValue() > selected->zValue()
-                    && !selection.contains((PainterBaseItem*)item)) {
+                    && !selection.contains((AbstractPainterItem*)item)) {
                 list->append(qMakePair(item, selected));
                 if (!toFront) {
                     break;
@@ -573,7 +576,7 @@ void PaintArea::sendBackward(bool toBack)
             // not yet bubbling up yet.
             if (item->zValue() < selected->zValue()
                     && item->zValue() > 0
-                    && !selection.contains((PainterBaseItem*)item)) {
+                    && !selection.contains((AbstractPainterItem*)item)) {
                 list->append(qMakePair(item, selected));
                 if (!toBack) {
                     break;

@@ -20,7 +20,7 @@
 #include "PainterEllipse.h"
 
 PainterEllipse::PainterEllipse(const QPointF& pos, const QPen& attributes, bool filled) :
-    PainterBaseItem(Rect, attributes),
+    AbstractPainterItem(attributes),
     mFilled(filled)
 {
     mRect.moveTo(pos);

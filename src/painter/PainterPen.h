@@ -17,25 +17,29 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef PAINTERELLIPSE_H
-#define PAINTERELLIPSE_H
+#ifndef PAINTERPEN_H
+#define PAINTERPEN_H
 
 #include "AbstractPainterItem.h"
 #include "src/helper/MathHelper.h"
 
-class PainterEllipse : public AbstractPainterItem
+class PainterPen : public AbstractPainterItem
 {
 public:
-    PainterEllipse(const QPointF &pos, const QPen &attributes, bool filled = 0);
+    PainterPen(const QPointF &pos, const QPen &attributes);
+    virtual ~PainterPen() override;
     virtual QRectF boundingRect() const override;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
     virtual void moveTo(const QPointF &newPos) override;
     virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
+    void smoothOut(float factor);
+
+protected:
+    QPainterPath        *mPath;
+    QPainterPathStroker *mStroker;
 
 private:
-    QRectF mRect;
-    bool   mFilled;
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
 };
 
-#endif // PAINTERELLIPSE_H
+#endif // PAINTERPEN_H

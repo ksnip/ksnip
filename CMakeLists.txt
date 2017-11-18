@@ -29,8 +29,9 @@ set(ksnip_SRCS src/main.cpp
                src/backend/KsnipConfig.cpp
                src/backend/ImageGrabber.cpp
                src/painter/PaintArea.cpp
-               src/painter/PainterBaseItem.cpp
-               src/painter/PainterPath.cpp
+               src/painter/AbstractPainterItem.cpp
+               src/painter/PainterPen.cpp
+               src/painter/PainterMarker.cpp
                src/painter/PainterRect.cpp
                src/painter/PainterEllipse.cpp
                src/painter/PainterLine.cpp

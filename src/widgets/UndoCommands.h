@@ -22,8 +22,8 @@
 
 #include <QUndoCommand>
 
+#include "src/painter/AbstractPainterItem.h"
 #include "src/painter/PaintArea.h"
-#include "src/painter/PainterBaseItem.h"
 
 class PaintArea;
 
@@ -33,11 +33,11 @@ public:
     enum { Id = 1234 };
 
     struct Entry {
-        PainterBaseItem *item;
+        AbstractPainterItem *item;
         QPointF oldPos;
         QPointF newPos;
 
-        Entry(PainterBaseItem *item, const QPointF &oldPos,  QPointF newPos)
+        Entry(AbstractPainterItem *item, const QPointF &oldPos,  QPointF newPos)
         {
             this->item = item;
             this->oldPos = oldPos;
@@ -73,7 +73,7 @@ public:
     virtual void redo() override;
 
 private:
-    QList<PainterBaseItem *>  mItems;
+    QList<AbstractPainterItem *>  mItems;
     PaintArea               *mScene;
 };
 
@@ -81,13 +81,13 @@ private:
 class AddCommand : public QUndoCommand
 {
 public:
-    AddCommand(PainterBaseItem *painterItem, PaintArea *scene, QUndoCommand *parent = 0);
+    AddCommand(AbstractPainterItem *painterItem, PaintArea *scene, QUndoCommand *parent = 0);
     ~AddCommand();
     virtual void undo() override;
     virtual void redo() override;
 
 private:
-    PainterBaseItem *mPainterItem;
+    AbstractPainterItem *mPainterItem;
     PaintArea       *mScene;
     QPointF mInitialPosition;
 };

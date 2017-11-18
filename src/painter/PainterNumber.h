@@ -20,9 +20,9 @@
 #ifndef PAINTERNUMBER_H
 #define PAINTERNUMBER_H
 
-#include "PainterBaseItem.h"
+#include "AbstractPainterItem.h"
 
-class PainterNumber : public PainterBaseItem
+class PainterNumber : public AbstractPainterItem
 {
 public:
     PainterNumber(const QPointF &pos, const QPen &attributes, const QFont &font);

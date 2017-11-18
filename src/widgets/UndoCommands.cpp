@@ -18,7 +18,6 @@
  */
 
 #include "UndoCommands.h"
-#include "src/painter/PaintArea.h"
 
 //
 // Move Command
@@ -103,7 +102,7 @@ void DeleteCommand::redo()
 //
 // Add Command
 //
-AddCommand::AddCommand(PainterBaseItem* painterItem,
+AddCommand::AddCommand(AbstractPainterItem* painterItem,
                        PaintArea* scene,
                        QUndoCommand* parent)
     : QUndoCommand(parent)
@@ -159,7 +158,7 @@ CropCommand::~CropCommand()
 void CropCommand::undo()
 {
     for (auto item : mScene->items()) {
-        PainterBaseItem* baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
+        AbstractPainterItem* baseItem = qgraphicsitem_cast<AbstractPainterItem*> (item);
         if (baseItem) {
             baseItem->moveTo(baseItem->position() + mOldOffset);
         }
@@ -176,7 +175,7 @@ void CropCommand::redo()
     // Move all painter items to old offset, if this is not done, on the second
     // crop the items are positioned incorrectly bug#27
     for (auto item : mScene->items()) {
-        PainterBaseItem* baseItem = qgraphicsitem_cast<PainterBaseItem*> (item);
+        AbstractPainterItem* baseItem = qgraphicsitem_cast<AbstractPainterItem*> (item);
         if (baseItem) {
             baseItem->moveTo(baseItem->position() - mPixmapItem->offset());
         }

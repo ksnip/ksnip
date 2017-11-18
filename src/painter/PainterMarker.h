@@ -17,29 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef PAINTERPATH_H
-#define PAINTERPATH_H
+#ifndef PAINTERMARKER_H
+#define PAINTERMARKER_H
 
-#include "PainterBaseItem.h"
-#include "src/helper/MathHelper.h"
+#include "PainterPen.h"
 
-class PainterPath : public PainterBaseItem
+class PainterMarker : public PainterPen
 {
 public:
-    PainterPath(const QPointF &pos, const QPen &attributes, bool transparen = false);
-    virtual ~PainterPath() override;
-    virtual QRectF boundingRect() const override;
-    virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
-    virtual void moveTo(const QPointF &newPos) override;
-    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
-    void smoothOut(float factor);
+    PainterMarker(const QPointF &pos, const QPen &attributes);
 
 private:
-    QPainterPath        *mPath;
-    QPainterPathStroker *mStroker;
-    bool                 mTransparent;
-
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
 };
 
-#endif // PAINTERPATH_H
+#endif // PAINTERMARKER_H

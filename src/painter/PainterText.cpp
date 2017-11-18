@@ -20,7 +20,7 @@
 #include "PainterText.h"
 
 PainterText::PainterText(const QPointF& pos, const QPen& attributes, const QFont& font) :
-    PainterBaseItem(Text, attributes),
+    AbstractPainterItem(attributes),
     mFont(font),
     mFontMetric(new QFontMetrics(mFont)),
     mCursorBlinkTimer(new QTimer(this)),

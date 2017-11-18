@@ -27,9 +27,9 @@
 #include <QApplication>
 #include <QClipboard>
 
-#include "PainterBaseItem.h"
+#include "AbstractPainterItem.h"
 
-class PainterText : public QObject, public PainterBaseItem
+class PainterText : public QObject, public AbstractPainterItem
 {
     Q_OBJECT
 private:

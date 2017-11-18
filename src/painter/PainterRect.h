@@ -20,10 +20,10 @@
 #ifndef PAINTERRECT_H
 #define PAINTERRECT_H
 
-#include "PainterBaseItem.h"
+#include "AbstractPainterItem.h"
 #include "src/helper/MathHelper.h"
 
-class PainterRect : public PainterBaseItem
+class PainterRect : public AbstractPainterItem
 {
 public:
     PainterRect(const QPointF &pos, const QPen &attributes, bool filled = 0);

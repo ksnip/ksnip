@@ -17,15 +17,14 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "PainterBaseItem.h"
+#include "AbstractPainterItem.h"
 
-int PainterBaseItem::mOrder = 1;
+int AbstractPainterItem::mOrder = 1;
 
 //
 // Public Methods
 //
-PainterBaseItem::PainterBaseItem(PaintItemShape shape, const QPen& attributes) :
-    mItemType(shape)
+AbstractPainterItem::AbstractPainterItem(const QPen& attributes)
 {
     mAttributes = attributes;
     mSelectAttr.setColor(Qt::red);
@@ -34,17 +33,17 @@ PainterBaseItem::PainterBaseItem(PaintItemShape shape, const QPen& attributes) :
     setZValue(mOrder++);
 }
 
-PainterBaseItem::~PainterBaseItem()
+AbstractPainterItem::~AbstractPainterItem()
 {
     mOrder--;
 }
 
-int PainterBaseItem::type() const
+int AbstractPainterItem::type() const
 {
     return Type;
 }
 
-bool PainterBaseItem::isValid() const
+bool AbstractPainterItem::isValid() const
 {
     return true;
 }
@@ -53,19 +52,14 @@ bool PainterBaseItem::isValid() const
  * Returns the item position within local space, same as top left of the
  * bounding rect.
  */
-QPointF PainterBaseItem::position() const
+QPointF AbstractPainterItem::position() const
 {
     return boundingRect().topLeft();
 }
 
-const QPen& PainterBaseItem::attributes() const
+const QPen& AbstractPainterItem::attributes() const
 {
     return mAttributes;
-}
-
-PainterBaseItem::PaintItemShape PainterBaseItem::ItemShape() const
-{
-    return mItemType;
 }
 
 /*
@@ -73,47 +67,47 @@ PainterBaseItem::PaintItemShape PainterBaseItem::ItemShape() const
  * position by the amount of offset. Setting the offset via setOffset(QPointF)
  * to a zero value disables the offset.
  */
-QPointF PainterBaseItem::offset() const
+QPointF AbstractPainterItem::offset() const
 {
     return mOffset;
 }
 
-void PainterBaseItem::setOffset(const QPointF& offset)
+void AbstractPainterItem::setOffset(const QPointF& offset)
 {
     mOffset = offset;
 }
 
-void PainterBaseItem::setJoinStyle(Qt::PenJoinStyle join)
+void AbstractPainterItem::setJoinStyle(Qt::PenJoinStyle join)
 {
     mAttributes.setJoinStyle(join);
 }
 
-void PainterBaseItem::setCapStyle(Qt::PenCapStyle cap)
+void AbstractPainterItem::setCapStyle(Qt::PenCapStyle cap)
 {
     mAttributes.setCapStyle(cap);
 }
 
-void PainterBaseItem::setOutlineStyle(Qt::PenStyle penStyle)
+void AbstractPainterItem::setOutlineStyle(Qt::PenStyle penStyle)
 {
     mAttributes.setStyle(penStyle);
 }
 
-void PainterBaseItem::setOutlineWidth(int width)
+void AbstractPainterItem::setOutlineWidth(int width)
 {
     mAttributes.setWidth(width);
 }
 
-void PainterBaseItem::setOutlineColor(const QColor& color)
+void AbstractPainterItem::setOutlineColor(const QColor& color)
 {
     mAttributes.setColor(color);
 }
 
-bool PainterBaseItem::selectable() const
+bool AbstractPainterItem::selectable() const
 {
     return flags().testFlag(QGraphicsItem::ItemIsSelectable);
 }
 
-void PainterBaseItem::setSelectable(bool enabled)
+void AbstractPainterItem::setSelectable(bool enabled)
 {
     if (selectable() == enabled) {
         return;
@@ -121,7 +115,7 @@ void PainterBaseItem::setSelectable(bool enabled)
     setFlag(QGraphicsItem::ItemIsSelectable, enabled);
 }
 
-const QPen& PainterBaseItem::selectColor() const
+const QPen& AbstractPainterItem::selectColor() const
 {
     return mSelectAttr;
 }
@@ -129,12 +123,12 @@ const QPen& PainterBaseItem::selectColor() const
 /*
  * Returns highest item order, the zValue of the top most item.
  */
-int PainterBaseItem::order()
+int AbstractPainterItem::order()
 {
     return mOrder;
 }
 
-void PainterBaseItem::resetOrder()
+void AbstractPainterItem::resetOrder()
 {
     mOrder = 1;
 }
@@ -148,7 +142,7 @@ void PainterBaseItem::resetOrder()
  * the owning item is selected and paints decoration depending on it. If the
  * item is not selected, the function does nothing.
  */
-void PainterBaseItem::paintDecoration(QPainter* painter)
+void AbstractPainterItem::paintDecoration(QPainter* painter)
 {
     if (isSelected()) {
         painter->setPen(selectColor());

@@ -35,11 +35,13 @@ public:
 
     enum PaintItemShape {
         Path,
+        Marker,
         Rect,
-        Circle,
+        Ellipse,
         Line,
         Arrow,
-        Text
+        Text,
+        Number
     };
 
 public:

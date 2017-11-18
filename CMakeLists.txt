@@ -37,6 +37,7 @@ set(ksnip_SRCS src/main.cpp
                src/painter/PainterArrow.cpp
                src/painter/PainterText.cpp
                src/painter/PainterNumber.cpp
+               src/painter/PainterItemFactory.cpp
                src/helper/StringFormattingHelper.cpp
                src/helper/MathHelper.cpp
                src/widgets/CropPanel.cpp

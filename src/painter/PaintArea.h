@@ -28,42 +28,27 @@
 #include <QRubberBand>
 #include <QMenu>
 
+#include "PainterItemFactory.h"
 #include "PainterPath.h"
 #include "PainterRect.h"
 #include "PainterEllipse.h"
 #include "PainterArrow.h"
 #include "PainterText.h"
 #include "PainterNumber.h"
+#include "PaintModes.h"
 #include "src/widgets/CustomCursor.h"
 #include "src/widgets/UndoCommands.h"
-
-class KsnipConfig;
 
 class PaintArea : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    enum PaintMode {
-        Pen,
-        Marker,
-        Rect,
-        Ellipse,
-        Line,
-        Arrow,
-        Text,
-        Number,
-        Erase,
-        Move,
-        Select
-    };
-
-public:
     PaintArea();
     void loadCapture(const QPixmap &pixmap);
     void fitViewToParent();
     QSize areaSize() const;
-    void setPaintMode(PaintMode paintMode);
-    PaintMode paintMode() const;
+    void setPaintMode(Painter::Modes paintMode);
+    Painter::Modes paintMode() const;
     QImage exportAsImage();
     void setIsEnabled(bool enabled);
     bool isEnabled() const;
@@ -95,11 +80,12 @@ private:
     QCursor             *mCursor;
     bool                 mShiftPressed;
     bool                 mCtrlPressed;
-    PaintMode            mPaintMode;
+    Painter::Modes    mPaintMode;
     QUndoStack          *mUndoStack;
     QAction             *mUndoAction;
     QAction             *mRedoAction;
     KsnipConfig         *mConfig;
+    PainterItemFactory  *mPaintItemFactory;
 
     bool eraseItemAt(const QPointF &position, int size = 10);
     PainterBaseItem *findItemAt(const QPointF &position, int size = 10);

@@ -227,28 +227,28 @@ QMenu* MainWindow::createPopupMenu()
 void MainWindow::colorChanged(const QColor& color)
 {
     switch (mPaintArea->paintMode()) {
-    case PaintArea::Pen:
+    case Painter::Pen:
         mConfig->setPenColor(color);
         break;
-    case PaintArea::Marker:
+    case Painter::Marker:
         mConfig->setMarkerColor(color);
         break;
-    case PaintArea::Rect:
+    case Painter::Rect:
         mConfig->setRectColor(color);
         break;
-    case PaintArea::Ellipse:
+    case Painter::Ellipse:
         mConfig->setEllipseColor(color);
         break;
-    case PaintArea::Line:
+    case Painter::Line:
         mConfig->setLineColor(color);
         break;
-    case PaintArea::Arrow:
+    case Painter::Arrow:
         mConfig->setArrowColor(color);
         break;
-    case PaintArea::Text:
+    case Painter::Text:
         mConfig->setTextColor(color);
         break;
-    case PaintArea::Number:
+    case Painter::Number:
         mConfig->setNumberColor(color);
         break;
     default:
@@ -263,10 +263,10 @@ void MainWindow::colorChanged(const QColor& color)
 void MainWindow::fillChanged(bool fill)
 {
     switch (mPaintArea->paintMode()) {
-    case PaintArea::Rect:
+    case Painter::Rect:
         mConfig->setRectFill(fill);
         break;
-    case PaintArea::Ellipse:
+    case Painter::Ellipse:
         mConfig->setEllipseFill(fill);
         break;
     default:
@@ -281,30 +281,30 @@ void MainWindow::fillChanged(bool fill)
 void MainWindow::sizeChanged(int size)
 {
     switch (mPaintArea->paintMode()) {
-    case PaintArea::Pen:
+    case Painter::Pen:
         mConfig->setPenSize(size);
         break;
-    case PaintArea::Marker:
+    case Painter::Marker:
         mConfig->setMarkerSize(size);
         break;
-    case PaintArea::Rect:
+    case Painter::Rect:
         mConfig->setRectSize(size);
         break;
-    case PaintArea::Ellipse:
+    case Painter::Ellipse:
         mConfig->setEllipseSize(size);
         break;
-    case PaintArea::Line:
+    case Painter::Line:
         mConfig->setLineSize(size);
         break;
-    case PaintArea::Arrow:
+    case Painter::Arrow:
         mConfig->setArrowSize(size);
-    case PaintArea::Text:
+    case Painter::Text:
         mConfig->setTextSize(size);
         break;
-    case PaintArea::Number:
+    case Painter::Number:
         mConfig->setNumberSize(size);
         break;
-    case PaintArea::Erase:
+    case Painter::Erase:
         mConfig->setEraseSize(size);
     default:
         break;
@@ -416,40 +416,40 @@ void MainWindow::loadSettings()
 {
     // Load paintmode setting
     switch (mConfig->paintMode()) {
-    case PaintArea::Pen:
-        setPaintMode(PaintArea::Pen, false);
+    case Painter::Pen:
+        setPaintMode(Painter::Pen, false);
         mPaintToolButton->setDefaultAction(mPenAction);
         break;
-    case PaintArea::Marker:
-        setPaintMode(PaintArea::Marker, false);
+    case Painter::Marker:
+        setPaintMode(Painter::Marker, false);
         mPaintToolButton->setDefaultAction(mMarkerAction);
         break;
-    case PaintArea::Rect:
-        setPaintMode(PaintArea::Rect, false);
+    case Painter::Rect:
+        setPaintMode(Painter::Rect, false);
         mPaintToolButton->setDefaultAction(mRectAction);
         break;
-    case PaintArea::Ellipse:
-        setPaintMode(PaintArea::Ellipse, false);
+    case Painter::Ellipse:
+        setPaintMode(Painter::Ellipse, false);
         mPaintToolButton->setDefaultAction(mEllipseAction);
         break;
-    case PaintArea::Line:
-        setPaintMode(PaintArea::Line, false);
+    case Painter::Line:
+        setPaintMode(Painter::Line, false);
         mPaintToolButton->setDefaultAction(mLineAction);
         break;
-    case PaintArea::Arrow:
-        setPaintMode(PaintArea::Arrow, false);
+    case Painter::Arrow:
+        setPaintMode(Painter::Arrow, false);
         mPaintToolButton->setDefaultAction(mArrowAction);
         break;
-    case PaintArea::Text:
-        setPaintMode(PaintArea::Text, false);
+    case Painter::Text:
+        setPaintMode(Painter::Text, false);
         mPaintToolButton->setDefaultAction(mTextAction);
         break;
-    case PaintArea::Number:
-        setPaintMode(PaintArea::Number, false);
+    case Painter::Number:
+        setPaintMode(Painter::Number, false);
         mPaintToolButton->setDefaultAction(mNumberAction);
         break;
     default:
-        setPaintMode(PaintArea::Pen, false);
+        setPaintMode(Painter::Pen, false);
         mPaintToolButton->setDefaultAction(mPenAction);
     }
 
@@ -634,8 +634,8 @@ void MainWindow::initGui()
     mPenAction->setIcon(createIcon("pen"));
     mPenAction->setShortcut(Qt::Key_P);
     connect(mPenAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != PaintArea::Pen) {
-            setPaintMode(PaintArea::Pen);
+        if (mPaintArea->paintMode() != Painter::Pen) {
+            setPaintMode(Painter::Pen);
         }
     });
 
@@ -643,8 +643,8 @@ void MainWindow::initGui()
     mMarkerAction->setIcon(createIcon("marker"));
     mMarkerAction->setShortcut(Qt::Key_B);
     connect(mMarkerAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != PaintArea::Marker) {
-            setPaintMode(PaintArea::Marker);
+        if (mPaintArea->paintMode() != Painter::Marker) {
+            setPaintMode(Painter::Marker);
         }
     });
 
@@ -652,8 +652,8 @@ void MainWindow::initGui()
     mRectAction->setIcon(createIcon("rect"));
     mRectAction->setShortcut(Qt::Key_R);
     connect(mRectAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != PaintArea::Rect) {
-            setPaintMode(PaintArea::Rect);
+        if (mPaintArea->paintMode() != Painter::Rect) {
+            setPaintMode(Painter::Rect);
         }
     });
 
@@ -661,8 +661,8 @@ void MainWindow::initGui()
     mEllipseAction->setIcon(createIcon("ellipse"));
     mEllipseAction->setShortcut(Qt::Key_E);
     connect(mEllipseAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != PaintArea::Ellipse) {
-            setPaintMode(PaintArea::Ellipse);
+        if (mPaintArea->paintMode() != Painter::Ellipse) {
+            setPaintMode(Painter::Ellipse);
         }
     });
 
@@ -670,8 +670,8 @@ void MainWindow::initGui()
     mLineAction->setIcon(createIcon("line"));
     mLineAction->setShortcut(Qt::Key_L);
     connect(mLineAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != PaintArea::Line) {
-            setPaintMode(PaintArea::Line);
+        if (mPaintArea->paintMode() != Painter::Line) {
+            setPaintMode(Painter::Line);
         }
     });
 
@@ -679,8 +679,8 @@ void MainWindow::initGui()
     mArrowAction->setIcon(createIcon("arrow"));
     mArrowAction->setShortcut(Qt::Key_A);
     connect(mArrowAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != PaintArea::Arrow) {
-            setPaintMode(PaintArea::Arrow);
+        if (mPaintArea->paintMode() != Painter::Arrow) {
+            setPaintMode(Painter::Arrow);
         }
     });
 
@@ -688,8 +688,8 @@ void MainWindow::initGui()
     mTextAction->setIcon(createIcon("text"));
     mTextAction->setShortcut(Qt::Key_T);
     connect(mTextAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != PaintArea::Text) {
-            setPaintMode(PaintArea::Text);
+        if (mPaintArea->paintMode() != Painter::Text) {
+            setPaintMode(Painter::Text);
         }
     });
 
@@ -697,8 +697,8 @@ void MainWindow::initGui()
     mNumberAction->setIcon(createIcon("number"));
     mNumberAction->setShortcut(Qt::Key_N);
     connect(mNumberAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != PaintArea::Number) {
-            setPaintMode(PaintArea::Number);
+        if (mPaintArea->paintMode() != Painter::Number) {
+            setPaintMode(Painter::Number);
         }
     });
 
@@ -706,8 +706,8 @@ void MainWindow::initGui()
     mEraseAction->setIcon(createIcon("eraser"));
     mEraseAction->setShortcut(Qt::Key_D);
     connect(mEraseAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != PaintArea::Erase) {
-            setPaintMode(PaintArea::Erase);
+        if (mPaintArea->paintMode() != Painter::Erase) {
+            setPaintMode(Painter::Erase);
         }
     });
 
@@ -715,8 +715,8 @@ void MainWindow::initGui()
     mMoveAction->setIcon(createIcon("move"));
     mMoveAction->setShortcut(Qt::Key_M);
     connect(mMoveAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != PaintArea::Move) {
-            setPaintMode(PaintArea::Move);
+        if (mPaintArea->paintMode() != Painter::Move) {
+            setPaintMode(Painter::Move);
         }
     });
 
@@ -724,8 +724,8 @@ void MainWindow::initGui()
     mSelectAction->setIcon(createIcon("select"));
     mSelectAction->setShortcut(Qt::Key_S);
     connect(mSelectAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != PaintArea::Select) {
-            setPaintMode(PaintArea::Select);
+        if (mPaintArea->paintMode() != Painter::Select) {
+            setPaintMode(Painter::Select);
         }
     });
 
@@ -1020,14 +1020,14 @@ void MainWindow::imgurTokenRefresh()
     statusBar()->showMessage("Imgur token has expired, requesting new token...");
 }
 
-void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
+void MainWindow::setPaintMode(Painter::Modes mode, bool save)
 {
     mPaintArea->setPaintMode(mode);
 
     if (save
-            && mode != PaintArea::Erase
-            && mode != PaintArea::Move
-            && mode != PaintArea::Select) {
+            && mode != Painter::Erase
+            && mode != Painter::Move
+            && mode != Painter::Select) {
         mConfig->setPaintMode(mode);
     }
 
@@ -1037,14 +1037,14 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
     QApplication::instance()->removeEventFilter(this);
 
     switch (mode) {
-    case PaintArea::Pen:
+    case Painter::Pen:
         mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, false, true);
         mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
         mPainterSettingsButton->setColor(mConfig->penColor());
         mPainterSettingsButton->setSize(mConfig->penSize());
         break;
-    case PaintArea::Marker:
+    case Painter::Marker:
         mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(false, false, false);
         mPainterSettingsButton->insertColor("yellow");
@@ -1056,7 +1056,7 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         mPainterSettingsButton->setColor(mConfig->markerColor());
         mPainterSettingsButton->setSize(mConfig->markerSize());
         break;
-    case PaintArea::Rect:
+    case Painter::Rect:
         mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, true, true);
         mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
@@ -1064,7 +1064,7 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         mPainterSettingsButton->setSize(mConfig->rectSize());
         mPainterSettingsButton->setFill(mConfig->rectFill());
         break;
-    case PaintArea::Ellipse:
+    case Painter::Ellipse:
         mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, true, true);
         mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
@@ -1072,21 +1072,21 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         mPainterSettingsButton->setSize(mConfig->ellipseSize());
         mPainterSettingsButton->setFill(mConfig->ellipseFill());
         break;
-    case PaintArea::Line:
+    case Painter::Line:
         mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, false, true);
         mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
         mPainterSettingsButton->setColor(mConfig->lineColor());
         mPainterSettingsButton->setSize(mConfig->lineSize());
         break;
-    case PaintArea::Arrow:
+    case Painter::Arrow:
         mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, false, true);
         mPainterSettingsButton->addPopupSizeSlider(1, 5, 1);
         mPainterSettingsButton->setColor(mConfig->arrowColor());
         mPainterSettingsButton->setSize(mConfig->arrowSize());
         break;
-    case PaintArea::Text:
+    case Painter::Text:
         mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, false, true);
         mPainterSettingsButton->addPopupSizeSlider(10, 20, 1);
@@ -1097,22 +1097,22 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         // would be blocked.
         QApplication::instance()->installEventFilter(this);
         break;
-    case PaintArea::Number:
+    case Painter::Number:
         mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, false, true);
         mPainterSettingsButton->addPopupSizeSlider(10, 40, 5);
         mPainterSettingsButton->setColor(mConfig->numberColor());
         mPainterSettingsButton->setSize(mConfig->numberSize());
         break;
-    case PaintArea::Erase:
+    case Painter::Erase:
         mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
         mPainterSettingsButton->setSize(mConfig->eraseSize());
         break;
-    case PaintArea::Move:
+    case Painter::Move:
         mPainterSettingsButton->setEnabled(false);
         break;
-    case PaintArea::Select:
+    case Painter::Select:
         mPainterSettingsButton->setEnabled(false);
         break;
     }

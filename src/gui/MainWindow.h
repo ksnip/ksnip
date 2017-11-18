@@ -29,6 +29,7 @@
 #include "SettingsDialog.h"
 #include "AboutDialog.h"
 #include "src/painter/PaintArea.h"
+#include "src/painter/PaintModes.h"
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/CaptureView.h"
 #include "src/widgets/CropPanel.h"
@@ -139,7 +140,7 @@ private slots:
                            const QString &refreshTocken,
                            const QString &username);
     void imgurTokenRefresh();
-    void setPaintMode(PaintArea::PaintMode mode, bool save = true);
+    void setPaintMode(Painter::Modes mode, bool save = true);
     void instantSave(const QPixmap &pixmap);
 };
 

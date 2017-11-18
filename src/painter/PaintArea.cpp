@@ -18,7 +18,6 @@
 *
 */
 #include "PaintArea.h"
-#include "src/backend/KsnipConfig.h"
 #include "src/widgets/CaptureView.h"
 
 PaintArea::PaintArea() : QGraphicsScene(),
@@ -27,11 +26,12 @@ PaintArea::PaintArea() : QGraphicsScene(),
     mRubberBand(nullptr),
     mCursor(nullptr),
     mShiftPressed(false),
-    mPaintMode(Pen),
+    mPaintMode(Painter::Pen),
     mUndoStack(new QUndoStack(this)),
     mUndoAction(nullptr),
     mRedoAction(nullptr),
-    mConfig(KsnipConfig::instance())
+    mConfig(KsnipConfig::instance()),
+    mPaintItemFactory(new PainterItemFactory())
 {
     connect(mConfig, &KsnipConfig::painterUpdated, this, &PaintArea::setCursor);
 }
@@ -63,7 +63,7 @@ QSize PaintArea::areaSize() const
     return sceneRect().size().toSize();
 }
 
-void PaintArea::setPaintMode(PaintMode paintMode)
+void PaintArea::setPaintMode(Painter::Modes paintMode)
 {
     if (mPaintMode == paintMode) {
         return;
@@ -75,7 +75,7 @@ void PaintArea::setPaintMode(PaintMode paintMode)
     setCursor();
 }
 
-PaintArea::PaintMode PaintArea::paintMode() const
+Painter::Modes PaintArea::paintMode() const
 {
     return mPaintMode;
 }
@@ -177,61 +177,9 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
     clearCurrentItem();
 
     if (event->button() == Qt::LeftButton) {
-
-        switch (mPaintMode) {
-        case Pen:
-            clearSelection();
-            mCurrentItem = new PainterPath(event->scenePos(), mConfig->pen());
-            mUndoStack->push(new AddCommand(mCurrentItem, this));
-            break;
-        case Marker:
-            clearSelection();
-            mCurrentItem = new PainterPath(event->scenePos(), mConfig->marker(), true);
-            mUndoStack->push(new AddCommand(mCurrentItem, this));
-            break;
-        case Rect:
-            clearSelection();
-            mCurrentItem = new PainterRect(event->scenePos(),
-                                           mConfig->rect(),
-                                           mConfig->rectFill());
-            mUndoStack->push(new AddCommand(mCurrentItem, this));
-            break;
-        case Ellipse:
-            clearSelection();
-            mCurrentItem = new PainterEllipse(event->scenePos(),
-                                              mConfig->ellipse(),
-                                              mConfig->ellipseFill());
-            mUndoStack->push(new AddCommand(mCurrentItem, this));
-            break;
-        case Line:
-            clearSelection();
-            mCurrentItem = new PainterLine(event->scenePos(), mConfig->line());
-            mUndoStack->push(new AddCommand(mCurrentItem, this));
-            break;
-        case Arrow:
-            clearSelection();
-            mCurrentItem = new PainterArrow(event->scenePos(), mConfig->arrow());
-            mUndoStack->push(new AddCommand(mCurrentItem, this));
-            break;
-        case Text:
-            clearSelection();
-            // The subtraction of the QPoint is to align the text with the cursor as
-            // the IBeam cursor is centered so new text is written at the middle
-            // instead of at the top.
-            mCurrentItem = new PainterText(event->scenePos() - QPointF(0, 12),
-                                           mConfig->text(), mConfig->textFont());
-            mUndoStack->push(new AddCommand(mCurrentItem, this));
-            mCurrentItem->setFocus();
-            break;
-        case Number:
-            clearSelection();
-            mCurrentItem = new PainterNumber(event->scenePos(), mConfig->number(), mConfig->numberFont());
-            mUndoStack->push(new AddCommand(mCurrentItem, this));
-            break;
-        case Erase:
+        if (mPaintMode == Painter::Erase) {
             eraseItemAt(event->scenePos(), mConfig->eraseSize());
-            break;
-        case Move:
+        } else if (mPaintMode == Painter::Move) {
             mCurrentItem = selectItemAt(event->scenePos());
             setCursor();
             for (auto item : selectedItems()) {
@@ -239,12 +187,9 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
                     item->setOffset(event->scenePos() - item->position());
                 }
             }
-            break;
-        case Select:
-            // We need the view as parent for the rubberband, can't proceed
-            // without it
+        } else if (mPaintMode == Painter::Select) {
             if (views().isEmpty()) {
-                break;
+                return;
             }
             mRubberBandOrigin = mapToView(event->scenePos());
             if (!mRubberBand) {
@@ -254,38 +199,37 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             }
             mRubberBand->setGeometry(QRect(mRubberBandOrigin, QSize()));
             mRubberBand->show();
-            break;
+        } else {
+            clearSelection();
+            mCurrentItem = mPaintItemFactory->createItem(mPaintMode, event->scenePos());
+            mUndoStack->push(new AddCommand(mCurrentItem, this));
         }
     }
-
-    // Not propagating the mouse press event as it overwrites our select
-    // behavior and selects always items when we click on them.
-//     QGraphicsScene::mousePressEvent(event);
 }
 
 void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 {
     if (event->buttons() == Qt::LeftButton && mIsEnabled) {
         switch (mPaintMode) {
-        case Pen:
-        case Marker:
-        case Rect:
-        case Ellipse:
-        case Line:
-        case Arrow:
-        case Text:
-        case Number:
+        case Painter::Pen:
+        case Painter::Marker:
+        case Painter::Rect:
+        case Painter::Ellipse:
+        case Painter::Line:
+        case Painter::Arrow:
+        case Painter::Text:
+        case Painter::Number:
             if (mCurrentItem) {
                 mCurrentItem->addPoint(event->scenePos(), mShiftPressed);
             }
             break;
-        case Erase:
+        case Painter::Erase:
             eraseItemAt(event->scenePos(), mConfig->eraseSize());
             break;
-        case Move:
+        case Painter::Move:
             moveItems(event->scenePos());
             break;
-        case Select:
+        case Painter::Select:
             if (mRubberBand) {
                 mRubberBand->setGeometry(QRect(mRubberBandOrigin,
                                                mapToView(event->scenePos())).normalized());
@@ -301,28 +245,28 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton && mIsEnabled) {
         switch (mPaintMode) {
-        case Pen:
-        case Marker:
+        case Painter::Pen:
+        case Painter::Marker:
             PainterPath* path;
             if (mConfig->smoothPath() &&
                     (path = qgraphicsitem_cast<PainterPath*> (mCurrentItem))) {
                 path->smoothOut(mConfig->smoothFactor());
             }
-        case Rect:
-        case Ellipse:
-        case Line:
-        case Arrow:
-        case Text:
-        case Number:
+        case Painter::Rect:
+        case Painter::Ellipse:
+        case Painter::Line:
+        case Painter::Arrow:
+        case Painter::Text:
+        case Painter::Number:
             // We enable select first after the item was successfully added to
             // the scene, to prevent selection border around it while drawing.
             if (mCurrentItem) {
                 mCurrentItem->setSelectable(true);
             }
             break;
-        case Erase:
+        case Painter::Erase:
             break;
-        case Move:
+        case Painter::Move:
             for (auto item : selectedItems()) {
                 if (item) {
                     item->setOffset(QPointF());
@@ -331,7 +275,7 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
             mCurrentItem = nullptr;
             setCursor();
             break;
-        case Select:
+        case Painter::Select:
             if (mRubberBandOrigin == mapToView(event->scenePos())) {
                 if (!mCtrlPressed) {
                     clearSelection();
@@ -482,37 +426,37 @@ QCursor* PaintArea::cursor()
         return new CustomCursor();
     }
     switch (mPaintMode) {
-    case Pen:
+    case Painter::Pen:
         return new CustomCursor(CustomCursor::Circle,
                                 mConfig->penColor(),
                                 mConfig->penSize());
-    case Marker:
+    case Painter::Marker:
         return new CustomCursor(CustomCursor::Circle,
                                 mConfig->markerColor(),
                                 mConfig->markerSize());
-    case Rect:
+    case Painter::Rect:
         return new CustomCursor(CustomCursor::Circle,
                                 mConfig->rectColor(),
                                 mConfig->rectSize());
-    case Ellipse:
+    case Painter::Ellipse:
         return new CustomCursor(CustomCursor::Circle,
                                 mConfig->ellipseColor(),
                                 mConfig->ellipseSize());
-    case Line:
+    case Painter::Line:
         return new CustomCursor(CustomCursor::Circle,
                                 mConfig->lineColor(),
                                 mConfig->lineSize());
-    case Arrow:
+    case Painter::Arrow:
         return new CustomCursor(CustomCursor::Circle,
                                 mConfig->arrowColor(),
                                 mConfig->arrowSize());
-    case Text:
+    case Painter::Text:
         return new QCursor(Qt::IBeamCursor);
-    case Number:
+    case Painter::Number:
         return new QCursor(Qt::PointingHandCursor);
-    case Erase:
+    case Painter::Erase:
         return new CustomCursor(CustomCursor::Rect, QColor("white"), mConfig->eraseSize());
-    case Move:
+    case Painter::Move:
         if (mCurrentItem == nullptr) {
             return new QCursor(Qt::OpenHandCursor);
         } else {

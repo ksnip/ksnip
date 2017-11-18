@@ -28,7 +28,7 @@
 
 #include "ImageGrabber.h"
 #include "src/helper/StringFormattingHelper.h"
-#include "src/painter/PaintArea.h"
+#include "src/painter/PaintModes.h"
 
 class KsnipConfig : public QObject
 {
@@ -59,8 +59,8 @@ public:
     QPoint windowPosition() const;
     void setWindowPosition(const QPoint &position);
 
-    PaintArea::PaintMode paintMode() const;
-    void setPaintMode(PaintArea::PaintMode mode);
+    Painter::Modes paintMode() const;
+    void setPaintMode(Painter::Modes mode);
 
     ImageGrabber::CaptureMode captureMode() const;
     void setCaptureMode(ImageGrabber::CaptureMode mode);

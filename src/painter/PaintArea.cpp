@@ -213,6 +213,11 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             mCurrentItem = new PainterArrow(event->scenePos(), mConfig->arrow());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
+        case Number:
+            clearSelection();
+            mCurrentItem = new PainterNumber(event->scenePos(), mConfig->arrow());
+            mUndoStack->push(new AddCommand(mCurrentItem, this));
+            break;
         case Text:
             clearSelection();
             // The subtraction of the QPoint is to align the text with the cursor as
@@ -269,6 +274,7 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
         case Line:
         case Arrow:
         case Text:
+        case Number:
             if (mCurrentItem) {
                 mCurrentItem->addPoint(event->scenePos(), mShiftPressed);
             }
@@ -307,6 +313,7 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
         case Line:
         case Arrow:
         case Text:
+        case Number:
             // We enable select first after the item was successfully added to
             // the scene, to prevent selection border around it while drawing.
             if (mCurrentItem) {

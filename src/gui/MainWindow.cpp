@@ -42,6 +42,7 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     mLineAction(new QAction(this)),
     mArrowAction(new QAction(this)),
     mTextAction(new QAction(this)),
+    mNumberAction(new QAction(this)),
     mEraseAction(new QAction(this)),
     mMoveAction(new QAction(this)),
     mSelectAction(new QAction(this)),
@@ -657,6 +658,7 @@ void MainWindow::initGui()
 
     mLineAction->setText(tr("Line"));
     mLineAction->setIcon(createIcon("line"));
+    mLineAction->setShortcut(Qt::Key_L);
     connect(mLineAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != PaintArea::Line) {
             setPaintMode(PaintArea::Line);
@@ -665,6 +667,7 @@ void MainWindow::initGui()
 
     mArrowAction->setText(tr("Arrow"));
     mArrowAction->setIcon(createIcon("arrow"));
+    mArrowAction->setShortcut(Qt::Key_A);
     connect(mArrowAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != PaintArea::Arrow) {
             setPaintMode(PaintArea::Arrow);
@@ -680,9 +683,18 @@ void MainWindow::initGui()
         }
     });
 
+    mNumberAction->setText(tr("Number"));
+    mNumberAction->setIcon(createIcon("number"));
+    mNumberAction->setShortcut(Qt::Key_N);
+    connect(mNumberAction, &QAction::triggered, [this]() {
+        if (mPaintArea->paintMode() != PaintArea::Number) {
+            setPaintMode(PaintArea::Number);
+        }
+    });
+
     mEraseAction->setText(tr("Erase"));
     mEraseAction->setIcon(createIcon("eraser"));
-    mEraseAction->setShortcut(Qt::Key_A);
+    mEraseAction->setShortcut(Qt::Key_D);
     connect(mEraseAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != PaintArea::Erase) {
             setPaintMode(PaintArea::Erase);
@@ -773,6 +785,7 @@ void MainWindow::initGui()
     mPaintToolMenu->addAction(mLineAction);
     mPaintToolMenu->addAction(mArrowAction);
     mPaintToolMenu->addAction(mTextAction);
+    mPaintToolMenu->addAction(mNumberAction);
     mPaintToolMenu->addAction(mEraseAction);
     mPaintToolMenu->addAction(mMoveAction);
     mPaintToolMenu->addAction(mSelectAction);

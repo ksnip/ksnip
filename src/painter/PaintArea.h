@@ -33,6 +33,7 @@
 #include "PainterEllipse.h"
 #include "PainterArrow.h"
 #include "PainterText.h"
+#include "PainterNumber.h"
 #include "src/widgets/CustomCursor.h"
 #include "src/widgets/UndoCommands.h"
 
@@ -50,6 +51,7 @@ public:
         Line,
         Arrow,
         Text,
+        Number,
         Erase,
         Move,
         Select

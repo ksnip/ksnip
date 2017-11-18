@@ -158,6 +158,17 @@ public:
     QFont textFont() const;
     void setTextFont(const QFont &font);
 
+    QPen number() const;
+
+    QColor numberColor() const;
+    void setNumberColor(const QColor &color);
+
+    int numberSize() const;
+    void setNumberSize(int size);
+
+    QFont numberFont() const;
+    void setNumberFont(const QFont &font);
+
     int eraseSize() const;
     void setEraseSize(int size);
 

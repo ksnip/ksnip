@@ -41,10 +41,12 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mSaveLocationLabel(new QLabel),
     mImgurUsernameLabel(new QLabel),
     mTextFontLabel(new QLabel),
+    mNumberFontLabel(new QLabel),
     mSmoothFactorLabel(new QLabel),
     mCaptureDelayCombobox(new NumericComboBox(0, 1, 11)),
     mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
     mTextFontCombobox(new QFontComboBox(this)),
+    mNumberFontCombobox(new QFontComboBox(this)),
     mBrowseButton(new QPushButton),
     mImgurGetPinButton(new QPushButton),
     mImgurGetTokenButton(new QPushButton),
@@ -101,6 +103,8 @@ void SettingsDialog::loadSettings()
     mTextItalicButton->setChecked(mConfig->textItalic());
     mTextUnderlineButton->setChecked(mConfig->textUnderline());
 
+    mNumberFontCombobox->setCurrentFont(mConfig->numberFont());
+
     mSmoothPathCheckbox->setChecked(mConfig->smoothPath());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
     smootPathCheckboxClicked(mConfig->smoothPath());
@@ -129,6 +133,8 @@ void SettingsDialog::saveSettings()
     mConfig->setTextBold(mTextBoldButton->isChecked());
     mConfig->setTextItalic(mTextItalicButton->isChecked());
     mConfig->setTextUnderline(mTextUnderlineButton->isChecked());
+
+    mConfig->setNumberFont(mNumberFontCombobox->currentFont());
 
     mConfig->setSmoothPath(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
@@ -235,6 +241,9 @@ void SettingsDialog::initGui()
     mTextUnderlineButton->setFixedSize(wh, wh);
     mTextUnderlineButton->setStyleSheet("QPushButton { font-size: 18pt; text-decoration: underline; }");
 
+    mNumberFontLabel->setText(tr("Numbering Font") + ":");
+    mNumberFontCombobox->setEditable(false);
+
     // Create Push Buttons
     mOkButton->setText(tr("OK"));
     connect(mOkButton, &QPushButton::clicked, [this]() {
@@ -307,6 +316,8 @@ void SettingsDialog::initGui()
     painterGrid->addWidget(mTextBoldButton, 3, 2);
     painterGrid->addWidget(mTextItalicButton, 3, 3);
     painterGrid->addWidget(mTextUnderlineButton, 3, 4);
+    painterGrid->addWidget(mNumberFontLabel, 4, 0);
+    painterGrid->addWidget(mNumberFontCombobox, 4, 1);
 
     auto painterGrpBox = new QGroupBox(tr("Painter Settings"));
     painterGrpBox->setLayout(painterGrid);

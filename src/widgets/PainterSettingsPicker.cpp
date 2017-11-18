@@ -429,7 +429,7 @@ void PainterSettingsPopup::addColorGrid(bool colorDialog, bool fillCheckbox)
     update();
 }
 
-void PainterSettingsPopup::addSizeSlider(int  min, int  max, int  interval)
+void PainterSettingsPopup::addSizeSlider(int min, int max, int interval)
 {
     if (!mSizeSlider) {
         // Only add a separator when we have a color grid
@@ -447,9 +447,9 @@ void PainterSettingsPopup::addSizeSlider(int  min, int  max, int  interval)
         updateSizeLabel(0);
 
         mSizeSlider = new QSlider(Qt::Orientation::Horizontal);
-        mSizeSlider->setTickInterval(interval);
         mSizeSlider->setMinimum(min);
         mSizeSlider->setMaximum(max);
+        mSizeSlider->setTickInterval(interval);
         mSizeSlider->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
         connect(mSizeSlider, &QSlider::sliderReleased,
                 this, &PainterSettingsPopup::updateSize);

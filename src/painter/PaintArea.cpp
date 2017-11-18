@@ -213,11 +213,6 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             mCurrentItem = new PainterArrow(event->scenePos(), mConfig->arrow());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
-        case Number:
-            clearSelection();
-            mCurrentItem = new PainterNumber(event->scenePos(), mConfig->arrow());
-            mUndoStack->push(new AddCommand(mCurrentItem, this));
-            break;
         case Text:
             clearSelection();
             // The subtraction of the QPoint is to align the text with the cursor as
@@ -227,6 +222,11 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
                                            mConfig->text(), mConfig->textFont());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             mCurrentItem->setFocus();
+            break;
+        case Number:
+            clearSelection();
+            mCurrentItem = new PainterNumber(event->scenePos(), mConfig->number(), mConfig->numberFont());
+            mUndoStack->push(new AddCommand(mCurrentItem, this));
             break;
         case Erase:
             eraseItemAt(event->scenePos(), mConfig->eraseSize());
@@ -508,6 +508,8 @@ QCursor* PaintArea::cursor()
                                 mConfig->arrowSize());
     case Text:
         return new QCursor(Qt::IBeamCursor);
+    case Number:
+        return new QCursor(Qt::PointingHandCursor);
     case Erase:
         return new CustomCursor(CustomCursor::Rect, QColor("white"), mConfig->eraseSize());
     case Move:

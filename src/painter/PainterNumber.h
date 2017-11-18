@@ -25,7 +25,7 @@
 class PainterNumber : public PainterBaseItem
 {
 public:
-    PainterNumber(const QPointF &pos, const QPen &attributes);
+    PainterNumber(const QPointF &pos, const QPen &attributes, const QFont &font);
     virtual ~PainterNumber();
     virtual QRectF boundingRect() const override;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) override;

@@ -641,10 +641,70 @@ void KsnipConfig::setTextFont(const QFont& font)
     if (textFont().family() == font.family()) {
         return;
     }
-    auto tmpfont = textFont();
-    tmpfont.setFamily(font.family());
+    auto tmpFont = textFont();
+    tmpFont.setFamily(font.family());
 
-    mConfig.setValue("Painter/TextFont", tmpfont);
+    mConfig.setValue("Painter/TextFont", tmpFont);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+QPen KsnipConfig::number() const
+{
+    QPen number;
+    number.setColor(numberColor());
+    number.setWidth(textSize());
+    return number;
+}
+
+QColor KsnipConfig::numberColor() const
+{
+    return mConfig.value("Painter/NumberColor", QColor("Red")).value<QColor>();
+}
+
+void KsnipConfig::setNumberColor(const QColor& color)
+{
+    if (numberColor() == color) {
+        return;
+    }
+    mConfig.setValue("Painter/NumberColor", color);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+int KsnipConfig::numberSize() const
+{
+    return numberFont().pointSize();
+}
+
+void KsnipConfig::setNumberSize(int  size)
+{
+    if (numberSize() == size) {
+        return;
+    }
+    auto font = numberFont();
+    font.setPointSize(size);
+
+    mConfig.setValue("Painter/NumberFont", font);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+QFont KsnipConfig::numberFont() const
+{
+    return mConfig.value("Painter/NumberFont", QFont("Comic Sans MS", 30, QFont::Bold)).value<QFont>();
+}
+
+void KsnipConfig::setNumberFont(const QFont& font)
+{
+    if (numberFont().family() == font.family()) {
+        return;
+    }
+    auto tmpFont = numberFont();
+    tmpFont.setFamily(font.family());
+    tmpFont.setBold(true);
+
+    mConfig.setValue("Painter/NumberFont", tmpFont);
     mConfig.sync();
     emit painterUpdated();
 }

@@ -21,9 +21,9 @@
 
 int PainterNumber::mCounter = 1;
 
-PainterNumber::PainterNumber(const QPointF& pos, const QPen& attributes) :
+PainterNumber::PainterNumber(const QPointF& pos, const QPen& attributes, const QFont &font) :
     PainterBaseItem(Rect, attributes),
-    mFont(new QFont("Helvetica [Cronyx]", 40, QFont::Bold)),
+    mFont(new QFont(font)),
     mFontMetric(new QFontMetrics(*mFont)),
     mTextColor(new QColor("white"))
 {
@@ -80,7 +80,7 @@ QRectF PainterNumber::getTextBoundingRect() const
 
 void PainterNumber::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
-    painter->setPen(attributes());
+    painter->setPen(attributes().color());
     painter->setBrush(attributes().color());
     painter->drawEllipse(mRect);
     painter->setFont(*mFont);

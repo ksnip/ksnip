@@ -55,10 +55,12 @@ private:
     QLabel          *mSaveLocationLabel;
     QLabel          *mImgurUsernameLabel;
     QLabel          *mTextFontLabel;
+    QLabel          *mNumberFontLabel;
     QLabel          *mSmoothFactorLabel;
     NumericComboBox *mCaptureDelayCombobox;
     NumericComboBox *mSmoothFactorCombobox;
     QFontComboBox   *mTextFontCombobox;
+    QFontComboBox   *mNumberFontCombobox;
     QPushButton     *mBrowseButton;
     QPushButton     *mImgurGetPinButton;
     QPushButton     *mImgurGetTokenButton;

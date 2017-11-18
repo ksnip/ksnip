@@ -248,6 +248,9 @@ void MainWindow::colorChanged(const QColor& color)
     case PaintArea::Text:
         mConfig->setTextColor(color);
         break;
+    case PaintArea::Number:
+        mConfig->setNumberColor(color);
+        break;
     default:
         break;
     }
@@ -297,6 +300,9 @@ void MainWindow::sizeChanged(int size)
         mConfig->setArrowSize(size);
     case PaintArea::Text:
         mConfig->setTextSize(size);
+        break;
+    case PaintArea::Number:
+        mConfig->setNumberSize(size);
         break;
     case PaintArea::Erase:
         mConfig->setEraseSize(size);
@@ -437,6 +443,10 @@ void MainWindow::loadSettings()
     case PaintArea::Text:
         setPaintMode(PaintArea::Text, false);
         mPaintToolButton->setDefaultAction(mTextAction);
+        break;
+    case PaintArea::Number:
+        setPaintMode(PaintArea::Number, false);
+        mPaintToolButton->setDefaultAction(mNumberAction);
         break;
     default:
         setPaintMode(PaintArea::Pen, false);
@@ -1086,6 +1096,13 @@ void MainWindow::setPaintMode(PaintArea::PaintMode mode, bool save)
         // shotcuts to be accept by the application, otherwise some characters
         // would be blocked.
         QApplication::instance()->installEventFilter(this);
+        break;
+    case PaintArea::Number:
+        mPainterSettingsButton->setEnabled(true);
+        mPainterSettingsButton->addPopupColorGrid(true, false, true);
+        mPainterSettingsButton->addPopupSizeSlider(10, 40, 5);
+        mPainterSettingsButton->setColor(mConfig->numberColor());
+        mPainterSettingsButton->setSize(mConfig->numberSize());
         break;
     case PaintArea::Erase:
         mPainterSettingsButton->setEnabled(true);

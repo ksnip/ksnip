@@ -19,23 +19,6 @@
 
 #include "PainterText.h"
 
-namespace
-{
-
-/*
- * Returns the margin that is placed between the textbox and the text inside it.
- */
-int textBoxMargin()
-{
-    return 2;
-}
-
-}
-
-//
-// Public Methods
-//
-
 PainterText::PainterText(const QPointF& pos, const QPen& attributes, const QFont& font) :
     PainterBaseItem(Text, attributes),
     mFont(font),
@@ -114,10 +97,6 @@ void PainterText::setFont(const QFont& font)
     mFont = font;
 }
 
-//
-// Protected Methods
-//
-
 void PainterText::keyPressEvent(QKeyEvent* event)
 {
     switch (event->key()) {
@@ -168,10 +147,6 @@ void PainterText::focusOutEvent(QFocusEvent*)
     finishEditing();
 }
 
-//
-// Private Methods
-//
-
 void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
 {
     painter->setPen(attributes());
@@ -199,7 +174,7 @@ void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem* style
 
             line.setLineWidth(mRect.width());
             blockHeight += leading;
-            line.setPosition(mRect.adjusted(textBoxMargin(), textBoxMargin(), 0, 0).topLeft());
+            line.setPosition(mRect.adjusted(mTextBoxMargine, mTextBoxMargine, 0, 0).topLeft());
             blockHeight += line.height();
         }
         textLayout.endLayout();
@@ -295,7 +270,7 @@ void PainterText::updateRect()
 {
     prepareGeometryChange();
     mRect = mFontMetric->boundingRect(mRect.toRect(), Qt::AlignLeft, mText);
-    mRect.adjust(0, 0, textBoxMargin() * 2, textBoxMargin() * 2);
+    mRect.adjust(0, 0, mTextBoxMargine * 2, mTextBoxMargine * 2);
 }
 
 void PainterText::pasteClipboard()

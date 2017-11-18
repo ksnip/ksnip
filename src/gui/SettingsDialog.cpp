@@ -125,9 +125,9 @@ void SettingsDialog::saveSettings()
     mConfig->setImgurAlwaysCopyToClipboard(mImgurAlwaysCopyToClipboardCheckBox->isChecked());
 
     mConfig->setCaptureDelay(mCaptureDelayCombobox->value() * 1000);
-    mConfig->setSaveDirectory(StringManip::extractPath(mSaveLocationLineEdit->displayText()));
-    mConfig->setSaveFilename(StringManip::extractFilename(mSaveLocationLineEdit->displayText()));
-    mConfig->setSaveFormat(StringManip::extractFormat(mSaveLocationLineEdit->displayText()));
+    mConfig->setSaveDirectory(StringFormattingHelper::extractPath(mSaveLocationLineEdit->displayText()));
+    mConfig->setSaveFilename(StringFormattingHelper::extractFilename(mSaveLocationLineEdit->displayText()));
+    mConfig->setSaveFormat(StringFormattingHelper::extractFormat(mSaveLocationLineEdit->displayText()));
 
     mConfig->setTextFont(mTextFontCombobox->currentFont());
     mConfig->setTextBold(mTextBoldButton->isChecked());

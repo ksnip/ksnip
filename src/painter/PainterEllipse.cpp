@@ -18,32 +18,12 @@
  */
 
 #include "PainterEllipse.h"
-#include <cmath>
-
-namespace
-{
-
-float smallesLenght(float lenght1, float lenght2)
-{
-    float l = (std::abs(lenght1) < std::abs(lenght2)) ? std::abs(lenght1) : std::abs(lenght2);
-    return (lenght1 < 0) ? -l : l;
-}
-
-}
-
-//
-// Public Methods
-//
 
 PainterEllipse::PainterEllipse(const QPointF& pos, const QPen& attributes, bool filled) :
     PainterBaseItem(Rect, attributes),
     mFilled(filled)
 {
     mRect.moveTo(pos);
-}
-
-PainterEllipse::~PainterEllipse()
-{
 }
 
 QRectF PainterEllipse::boundingRect() const
@@ -56,8 +36,8 @@ void PainterEllipse::addPoint(const QPointF& pos, bool modifier)
 {
     mRect.setBottomRight(pos);
     if (modifier) {
-        mRect.setHeight(smallesLenght(mRect.height(), mRect.width()));
-        mRect.setWidth(smallesLenght(mRect.width(), mRect.height()));
+        mRect.setHeight(MathHelper::smallerValue(mRect.height(), mRect.width()));
+        mRect.setWidth(MathHelper::smallerValue(mRect.width(), mRect.height()));
     }
     prepareGeometryChange();
 }
@@ -89,10 +69,6 @@ bool PainterEllipse::containsRect(const QPointF& topLeft, const QSize& size) con
                                                 size.height()));
     }
 }
-
-//
-// Private Methods
-//
 
 void PainterEllipse::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {

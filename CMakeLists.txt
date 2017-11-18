@@ -25,9 +25,7 @@ endif()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(ksnip_SRCS src/main.cpp
-               src/widgets/CropPanel.cpp
                src/backend/ImgurUploader.cpp
-               src/backend/StringManip.cpp
                src/backend/KsnipConfig.cpp
                src/backend/ImageGrabber.cpp
                src/painter/PaintArea.cpp
@@ -39,6 +37,9 @@ set(ksnip_SRCS src/main.cpp
                src/painter/PainterArrow.cpp
                src/painter/PainterText.cpp
                src/painter/PainterNumber.cpp
+               src/helper/StringFormattingHelper.cpp
+               src/helper/MathHelper.cpp
+               src/widgets/CropPanel.cpp
                src/widgets/CaptureView.cpp
                src/widgets/CustomToolButton.cpp
                src/widgets/CustomCursor.cpp

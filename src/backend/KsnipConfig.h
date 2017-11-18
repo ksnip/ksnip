@@ -27,7 +27,7 @@
 #include <QSettings>
 
 #include "ImageGrabber.h"
-#include "StringManip.h"
+#include "src/helper/StringFormattingHelper.h"
 #include "src/painter/PaintArea.h"
 
 class KsnipConfig : public QObject

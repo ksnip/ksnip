@@ -26,7 +26,7 @@
 #include "MainWindow.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/backend/KsnipConfig.h"
-#include "src/backend/StringManip.h"
+#include "src/helper/StringFormattingHelper.h"
 #include "src/backend/ImgurUploader.h"
 
 class SettingsDialog : public QDialog

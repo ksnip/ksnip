@@ -17,25 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef PAINTERRECT_H
-#define PAINTERRECT_H
+#ifndef MATHHELPER_H
+#define MATHHELPER_H
 
-#include "PainterBaseItem.h"
-#include "src/helper/MathHelper.h"
+#include <cmath>
+#include <QPointF>
 
-class PainterRect : public PainterBaseItem
+class MathHelper
 {
 public:
-    PainterRect(const QPointF &pos, const QPen &attributes, bool filled = 0);
-    virtual QRectF boundingRect() const override;
-    virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
-    virtual void moveTo(const QPointF &newPos) override;
-    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
-
-private:
-    QRectF mRect;
-    bool   mFilled;
-    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
+    static float distanceBetweenPoints(const QPointF& point1, const QPointF& point2);
+    static QPointF getLineStartPoint(const QPointF& point1, const QPointF& point2);
+    static QPointF getLineEndPoint(const QPointF& point1, const QPointF& point2);
+    static float smallerValue(float value1, float value2);
 };
 
-#endif // PAINTERRECT_H
+#endif // MATHHELPER_H

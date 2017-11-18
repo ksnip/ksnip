@@ -21,6 +21,7 @@
 #define PAINTERPATH_H
 
 #include "PainterBaseItem.h"
+#include "src/helper/MathHelper.h"
 
 class PainterPath : public PainterBaseItem
 {

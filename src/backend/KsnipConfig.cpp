@@ -234,16 +234,15 @@ void KsnipConfig::setSaveFormat(const QString& format)
  */
 QString KsnipConfig::savePath(const QString& format) const
 {
-    QString f;
+    QString selectedFormat;
     if (format.isNull()) {
-        f = saveFormat();
+        selectedFormat = saveFormat();
     } else {
-        f = (format.startsWith(".") ? format : "." + format);
+        selectedFormat = (format.startsWith(".") ? format : "." + format);
     }
 
-    return StringManip::makeUniqueFilename(saveDirectory(),
-                                           StringManip::updateTimeAndDate(saveFilename()),
-                                           f);
+    auto filename = StringFormattingHelper::updateTimeAndDate(saveFilename());
+    return StringFormattingHelper::makeUniqueFilename(saveDirectory(), filename, selectedFormat);
 }
 
 // Painter

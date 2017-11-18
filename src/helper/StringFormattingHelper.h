@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ *  Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -15,27 +15,27 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
+ *
  */
 
-#ifndef PAINTERRECT_H
-#define PAINTERRECT_H
+#ifndef STRINGFORMATTINGHELPER_H
+#define STRINGFORMATTINGHELPER_H
 
-#include "PainterBaseItem.h"
-#include "src/helper/MathHelper.h"
+#include <QString>
+#include <QDateTime>
+#include <QFile>
 
-class PainterRect : public PainterBaseItem
+class StringFormattingHelper
 {
 public:
-    PainterRect(const QPointF &pos, const QPen &attributes, bool filled = 0);
-    virtual QRectF boundingRect() const override;
-    virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
-    virtual void moveTo(const QPointF &newPos) override;
-    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
+    static QString extractPath(const QString &path);
+    static QString extractFilename(const QString &path);
+    static QString extractFormat(const QString &path);
 
-private:
-    QRectF mRect;
-    bool   mFilled;
-    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
+    static QString updateTimeAndDate(QString filename);
+    static QString makeUniqueFilename(const QString &path,
+                                      const QString &filename,
+                                      const QString &exension = 0);
 };
 
-#endif // PAINTERRECT_H
+#endif // STRINGFORMATTINGHELPER_H

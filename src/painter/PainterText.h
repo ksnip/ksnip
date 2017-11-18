@@ -57,14 +57,15 @@ protected:
     virtual void focusOutEvent(QFocusEvent *event) override;
 
 private:
-    QRectF        mRect;
-    QString       mText;
-    QFont         mFont;
+    const int mTextBoxMargine = 2;
+    QRectF mRect;
+    QString mText;
+    QFont mFont;
     QFontMetrics *mFontMetric;
-    QTimer       *mCursorBlinkTimer;
-    bool          mEditable;
-    int           mCursorPos;
-    bool          mCursorVisible;
+    QTimer *mCursorBlinkTimer;
+    bool mEditable;
+    int mCursorPos;
+    bool mCursorVisible;
 
     virtual void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) override;
     void moveCursor(CursorPos direction);

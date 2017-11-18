@@ -23,46 +23,6 @@
  */
 
 #include "PainterPath.h"
-#include <cmath>
-
-namespace
-{
-float distance(const QPointF& pt1, const QPointF& pt2)
-{
-    auto hd = (pt1.x() - pt2.x()) * (pt1.x() - pt2.x());
-    auto vd = (pt1.y() - pt2.y()) * (pt1.y() - pt2.y());
-    return std::sqrt(hd + vd);
-}
-
-QPointF getLineStart(const QPointF& pt1, const QPointF& pt2)
-{
-    QPointF pt;
-    auto rat = 10.0 / distance(pt1, pt2);
-    if (rat > 0.5) {
-        rat = 0.5;
-    }
-    pt.setX((1.0 - rat) * pt1.x() + rat * pt2.x());
-    pt.setY((1.0 - rat) * pt1.y() + rat * pt2.y());
-    return pt;
-}
-
-QPointF getLineEnd(const QPointF& pt1, const QPointF& pt2)
-{
-    QPointF pt;
-    auto rat = 10.0 / distance(pt1, pt2);
-    if (rat > 0.5) {
-        rat = 0.5;
-    }
-    pt.setX(rat * pt1.x() + (1.0 - rat)*pt2.x());
-    pt.setY(rat * pt1.y() + (1.0 - rat)*pt2.y());
-    return pt;
-}
-
-}
-
-//
-// Public Methods
-//
 
 PainterPath::PainterPath(const QPointF& pos, const QPen& attributes, bool transparent) :
     PainterBaseItem(Path, attributes),
@@ -134,7 +94,7 @@ void PainterPath::smoothOut(float factor)
 
         // Except for first and last points, check what the distance between two
         // points is and if its less the min, don't add them to the list.
-        if (points.count() > 1 && (i < mPath->elementCount() - 2) && (distance(points.last(), p) < factor)) {
+        if (points.count() > 1 && (i < mPath->elementCount() - 2) && (MathHelper::distanceBetweenPoints(points.last(), p) < factor)) {
             continue;
         }
         points.append(p);
@@ -149,13 +109,13 @@ void PainterPath::smoothOut(float factor)
     QPointF pt2;
     QPainterPath* path = new QPainterPath();
     for (auto i = 0; i < points.count() - 1; i++) {
-        pt1 = getLineStart(points[i], points[i + 1]);
+        pt1 = MathHelper::getLineStartPoint(points[i], points[i + 1]);
         if (i == 0) {
             path->moveTo(pt1);
         } else {
             path->quadTo(points[i], pt1);
         }
-        pt2 = getLineEnd(points[i], points[i + 1]);
+        pt2 = MathHelper::getLineEndPoint(points[i], points[i + 1]);
         path->lineTo(pt2);
     }
 
@@ -163,10 +123,6 @@ void PainterPath::smoothOut(float factor)
     prepareGeometryChange();
     mPath = path;
 }
-
-//
-// Private Methods
-//
 
 void PainterPath::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {

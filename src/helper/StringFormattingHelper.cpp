@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
+ *  Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -18,22 +18,13 @@
  *
  */
 
-#include "StringManip.h"
-
-StringManip::StringManip()
-{
-
-}
-
-//
-// Public Functions
-//
+#include "StringFormattingHelper.h"
 
 /*
  * Split the path into sections each divided by forward slash and return
  * everything from begin to the last part just before the filename.
  */
-QString StringManip::extractPath(const QString& path)
+QString StringFormattingHelper::extractPath(const QString& path)
 {
     return path.section("/", 0, -2);
 }
@@ -44,7 +35,7 @@ QString StringManip::extractPath(const QString& path)
  * need to remove it. If no file format was provided, just return the last
  * section.
  */
-QString StringManip::extractFilename(const QString& path)
+QString StringFormattingHelper::extractFilename(const QString& path)
 {
     if (path.section("/", -1).contains(".")) {
         return path.section("/", -1).section(".", 0, -2);
@@ -58,7 +49,7 @@ QString StringManip::extractFilename(const QString& path)
  * contains a dot, split it again and return the part after the last dot. If no
  * dot was found, return empty string, we have no file format.
  */
-QString StringManip::extractFormat(const QString& path)
+QString StringFormattingHelper::extractFormat(const QString& path)
 {
     if (path.section("/", -1).contains(".")) {
         return path.section(".", -1);
@@ -67,7 +58,7 @@ QString StringManip::extractFormat(const QString& path)
     }
 }
 
-QString StringManip::updateTimeAndDate(QString filename)
+QString StringFormattingHelper::updateTimeAndDate(QString filename)
 {
     filename.replace("$Y", QDateTime::currentDateTime().toString("yyyy"));
     filename.replace("$M", QDateTime::currentDateTime().toString("MM"));
@@ -76,7 +67,7 @@ QString StringManip::updateTimeAndDate(QString filename)
     return filename;
 }
 
-QString StringManip::makeUniqueFilename(const QString& path,
+QString StringFormattingHelper::makeUniqueFilename(const QString& path,
                                         const QString& filename,
                                         const QString& exension)
 {

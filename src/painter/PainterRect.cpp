@@ -18,22 +18,6 @@
  */
 
 #include "PainterRect.h"
-#include "PainterBaseItem.h"
-#include <cmath>
-
-namespace
-{
-float smallesLenght(float lenght1, float lenght2)
-{
-    float l = (std::abs(lenght1) < std::abs(lenght2)) ? std::abs(lenght1) : std::abs(lenght2);
-    return (lenght1 < 0) ? -l : l;
-}
-
-}
-
-//
-// Public Methods
-//
 
 PainterRect::PainterRect(const QPointF& pos, const QPen &attributes, bool filled) :
     PainterBaseItem(Rect, attributes),
@@ -41,10 +25,6 @@ PainterRect::PainterRect(const QPointF& pos, const QPen &attributes, bool filled
 {
     mRect.moveTo(pos);
     setJoinStyle(Qt::MiterJoin);
-}
-
-PainterRect::~PainterRect()
-{
 }
 
 QRectF PainterRect::boundingRect() const
@@ -57,8 +37,8 @@ void PainterRect::addPoint(const QPointF& pos, bool modifier)
 {
     mRect.setBottomRight(pos);
     if (modifier) {
-        mRect.setHeight(smallesLenght(mRect.height(), mRect.width()));
-        mRect.setWidth(smallesLenght(mRect.width(), mRect.height()));
+        mRect.setHeight(MathHelper::smallerValue(mRect.height(), mRect.width()));
+        mRect.setWidth(MathHelper::smallerValue(mRect.width(), mRect.height()));
     }
     prepareGeometryChange();
 }
@@ -96,9 +76,6 @@ bool PainterRect::containsRect(const QPointF& topLeft, const QSize& size) const
 
 }
 
-//
-// Private Methods
-//
 void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     if (mFilled) {

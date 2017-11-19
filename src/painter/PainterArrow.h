@@ -27,16 +27,19 @@ class PainterArrow : public PainterLine
 public:
     PainterArrow(const QPointF &pos, const QPen &attributes);
     virtual QRectF boundingRect() const override;
+    virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
+    virtual void moveTo(const QPointF &newPos) override;
 
 private:
-    static const int mMinLength = 15;
-    int mArrowHeadLength;
-    int mArrowHeadMid;
-    int mArrowHeadWidth;
-    int mScale;
+    int       mArrowHeadLength;
+    int       mArrowHeadMid;
+    int       mArrowHeadWidth;
+    int       mScale;
+    QPolygonF mArrow;
 
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
     bool isLineToShort() const;
+    void updateArrow();
     QPolygonF createArrow() const;
     QPolygonF positionAndRotateArrow(const QPolygonF& arrowHead) const;
 };

@@ -45,7 +45,6 @@ public:
     virtual ~PainterText() override;
     virtual QRectF boundingRect() const override;
     virtual void moveTo(const QPointF &newPos) override;
-    virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
     virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
     virtual bool isValid() const override;
     bool isEditable() const;

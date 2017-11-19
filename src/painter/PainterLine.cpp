@@ -29,7 +29,7 @@ PainterLine::PainterLine(const QPointF& pos, const QPen& attributes) :
 
 QRectF PainterLine::boundingRect() const
 {
-    auto offset = attributes().width();
+    auto offset = attributes().width() / 2;
     return QRectF(mLine->p1(), mLine->p2()).normalized().adjusted(-offset, -offset, offset, offset);
 }
 

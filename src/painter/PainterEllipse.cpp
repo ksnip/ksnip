@@ -20,32 +20,8 @@
 #include "PainterEllipse.h"
 
 PainterEllipse::PainterEllipse(const QPointF& pos, const QPen& attributes, bool filled) :
-    AbstractPainterItem(attributes),
-    mFilled(filled)
+    PainterRect(pos, attributes, filled)
 {
-    mRect.moveTo(pos);
-}
-
-QRectF PainterEllipse::boundingRect() const
-{
-    qreal w = attributes().widthF();
-    return mRect.normalized().adjusted(-w / 2, -w / 2, w, w);
-}
-
-void PainterEllipse::addPoint(const QPointF& pos, bool modifier)
-{
-    mRect.setBottomRight(pos);
-    if (modifier) {
-        mRect.setHeight(MathHelper::smallerValue(mRect.height(), mRect.width()));
-        mRect.setWidth(MathHelper::smallerValue(mRect.width(), mRect.height()));
-    }
-    prepareGeometryChange();
-}
-
-void PainterEllipse::moveTo(const QPointF& newPos)
-{
-    mRect.translate(newPos - offset() - boundingRect().topLeft());
-    prepareGeometryChange();
 }
 
 bool PainterEllipse::containsRect(const QPointF& topLeft, const QSize& size) const

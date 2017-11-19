@@ -19,8 +19,6 @@
 
 #include "PainterArrow.h"
 
-#include <cmath>
-
 PainterArrow::PainterArrow(const QPointF& pos, const QPen& attributes) :
     PainterLine(pos, attributes)
 {
@@ -32,8 +30,19 @@ PainterArrow::PainterArrow(const QPointF& pos, const QPen& attributes) :
 
 QRectF PainterArrow::boundingRect() const
 {
-    auto offset = mArrowHeadWidth;
-    return QRectF(mLine->p1(), mLine->p2()).normalized().adjusted(-offset, -offset, offset, offset);
+    return mArrow.boundingRect().normalized();
+}
+
+void PainterArrow::addPoint(const QPointF& pos, bool modifier)
+{
+    PainterLine::addPoint(pos, modifier);
+    updateArrow();
+}
+
+void PainterArrow::moveTo(const QPointF& newPos)
+{
+    PainterLine::moveTo(newPos);
+    updateArrow();
 }
 
 void PainterArrow::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
@@ -42,20 +51,24 @@ void PainterArrow::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWi
         return;
     }
 
-    auto arrow = createArrow();
-    arrow = positionAndRotateArrow(arrow);
-
     painter->setPen(attributes().color());
     painter->setBrush(attributes().color());
-    painter->drawPolygon(arrow);
+    painter->drawPolygon(mArrow);
 
     paintDecoration(painter);
 }
 
 bool PainterArrow::isLineToShort() const
 {
-    return mLine->length() < (mMinLength * mScale);
+    return mLine->length() < (mArrowHeadMid);
 }
+
+void PainterArrow::updateArrow()
+{
+    auto tmpArrow = createArrow();
+    mArrow = positionAndRotateArrow(tmpArrow);
+}
+
 
 QPolygonF PainterArrow::createArrow() const
 {

@@ -29,18 +29,18 @@ PainterRect::PainterRect(const QPointF& pos, const QPen &attributes, bool filled
 
 QRectF PainterRect::boundingRect() const
 {
-    qreal w = attributes().widthF();
-    return mRect.normalized().adjusted(-w / 2, -w / 2, w, w);
+    qreal width = attributes().widthF();
+    return mRect.normalized().adjusted(-width / 2, -width / 2, width, width);
 }
 
 void PainterRect::addPoint(const QPointF& pos, bool modifier)
 {
+    prepareGeometryChange();
     mRect.setBottomRight(pos);
     if (modifier) {
         mRect.setHeight(MathHelper::smallerValue(mRect.height(), mRect.width()));
         mRect.setWidth(MathHelper::smallerValue(mRect.width(), mRect.height()));
     }
-    prepareGeometryChange();
 }
 
 void PainterRect::moveTo(const QPointF& newPos)

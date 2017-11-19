@@ -55,11 +55,7 @@ QRectF PainterPen::boundingRect() const
 void PainterPen::addPoint(const QPointF& pos, bool modifier)
 {
     prepareGeometryChange();
-    if (mPath->elementAt(mPath->elementCount() - 1).isLineTo() && modifier) {
-        mPath->setElementPositionAt(mPath->elementCount() - 1, pos.x(), pos.y());
-    } else {
-        mPath->lineTo(pos);
-    }
+    mPath->lineTo(pos);
 }
 
 void PainterPen::moveTo(const QPointF& newPos)

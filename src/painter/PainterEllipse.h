@@ -20,21 +20,16 @@
 #ifndef PAINTERELLIPSE_H
 #define PAINTERELLIPSE_H
 
-#include "AbstractPainterItem.h"
+#include "PainterRect.h"
 #include "src/helper/MathHelper.h"
 
-class PainterEllipse : public AbstractPainterItem
+class PainterEllipse : public PainterRect
 {
 public:
     PainterEllipse(const QPointF &pos, const QPen &attributes, bool filled = 0);
-    virtual QRectF boundingRect() const override;
-    virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
-    virtual void moveTo(const QPointF &newPos) override;
     virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
 
 private:
-    QRectF mRect;
-    bool   mFilled;
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
 };
 

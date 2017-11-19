@@ -43,6 +43,10 @@ int AbstractPainterItem::type() const
     return Type;
 }
 
+void AbstractPainterItem::addPoint(const QPointF& pos, bool modifier)
+{
+}
+
 bool AbstractPainterItem::isValid() const
 {
     return true;

@@ -32,9 +32,11 @@ public:
     virtual void moveTo(const QPointF &newPos) override;
     virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
 
-private:
+protected:
     QRectF mRect;
     bool   mFilled;
+
+private:
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
 };
 

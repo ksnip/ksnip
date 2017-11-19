@@ -38,7 +38,7 @@ public:
     ~AbstractPainterItem();
     virtual int type() const override;
     virtual QRectF boundingRect() const override = 0;
-    virtual void addPoint(const QPointF &pos, bool modifier = 0) = 0;
+    virtual void addPoint(const QPointF &pos, bool modifier = 0);
     virtual void moveTo(const QPointF &newPos) = 0;
     virtual bool containsRect(const QPointF &topLeft, const QSize &size) const = 0;
     virtual bool isValid() const;

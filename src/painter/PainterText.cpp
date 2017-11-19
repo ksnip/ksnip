@@ -60,11 +60,6 @@ void PainterText::moveTo(const QPointF& newPos)
     mRect.translate(newPos - offset() - boundingRect().topLeft());
 }
 
-void PainterText::addPoint(const QPointF&, bool)
-{
-    // Not supported for text
-}
-
 bool PainterText::containsRect(const QPointF& topLeft, const QSize& size) const
 {
     return mRect.intersects(QRectF(topLeft.x() - size.width() / 2,

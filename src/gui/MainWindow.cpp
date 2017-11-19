@@ -1100,7 +1100,7 @@ void MainWindow::setPaintMode(Painter::Modes mode, bool save)
     case Painter::Number:
         mPainterSettingsButton->setEnabled(true);
         mPainterSettingsButton->addPopupColorGrid(true, false, true);
-        mPainterSettingsButton->addPopupSizeSlider(10, 40, 5);
+        mPainterSettingsButton->addPopupSizeSlider(10, 50, 5);
         mPainterSettingsButton->setColor(mConfig->numberColor());
         mPainterSettingsButton->setSize(mConfig->numberSize());
         break;

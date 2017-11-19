@@ -45,10 +45,6 @@ QRectF PainterNumber::boundingRect() const
     return mRect;
 }
 
-void PainterNumber::addPoint(const QPointF& pos, bool modifier)
-{
-}
-
 void PainterNumber::moveTo(const QPointF& newPos)
 {
     prepareGeometryChange();

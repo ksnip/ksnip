@@ -219,31 +219,15 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
 void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 {
     if (event->buttons() == Qt::LeftButton && mIsEnabled) {
-        switch (mPaintMode) {
-        case Painter::Pen:
-        case Painter::Marker:
-        case Painter::Rect:
-        case Painter::Ellipse:
-        case Painter::Line:
-        case Painter::Arrow:
-        case Painter::Text:
-        case Painter::Number:
-            if (mCurrentItem) {
-                mCurrentItem->addPoint(event->scenePos(), mShiftPressed);
-            }
-            break;
-        case Painter::Erase:
+        if (mPaintMode == Painter::Erase) {
             eraseItemAt(event->scenePos(), mConfig->eraseSize());
-            break;
-        case Painter::Move:
+        } else if (mPaintMode == Painter::Move) {
             moveItems(event->scenePos());
-            break;
-        case Painter::Select:
-            if (mRubberBand) {
-                mRubberBand->setGeometry(QRect(mRubberBandOrigin,
-                                               mapToView(event->scenePos())).normalized());
-            }
-            break;
+        } else if (mPaintMode == Painter::Select && mRubberBand) {
+            mRubberBand->setGeometry(QRect(mRubberBandOrigin,
+                                           mapToView(event->scenePos())).normalized());
+        } else if (mCurrentItem) {
+            mCurrentItem->addPoint(event->scenePos(), mShiftPressed);
         }
     }
 

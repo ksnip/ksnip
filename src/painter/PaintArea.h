@@ -36,14 +36,15 @@
 #include "PainterText.h"
 #include "PainterNumber.h"
 #include "PaintModes.h"
-#include "src/widgets/CustomCursor.h"
 #include "src/widgets/UndoCommands.h"
+#include "src/widgets/CursorFactory.h"
 
 class PaintArea : public QGraphicsScene
 {
     Q_OBJECT
 public:
     PaintArea();
+    ~PaintArea();
     void loadCapture(const QPixmap &pixmap);
     void fitViewToParent();
     QSize areaSize() const;
@@ -85,7 +86,8 @@ private:
     QAction             *mUndoAction;
     QAction             *mRedoAction;
     KsnipConfig         *mConfig;
-    PainterItemFactory  *mPaintItemFactory;
+    PainterItemFactory  *mPainterItemFactory;
+    CursorFactory       *mCursorFactory;
 
     bool eraseItemAt(const QPointF &position, int size = 10);
     AbstractPainterItem *findItemAt(const QPointF &position, int size = 10);

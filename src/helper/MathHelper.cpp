@@ -26,7 +26,7 @@ float MathHelper::distanceBetweenPoints(const QPointF& point1, const QPointF& po
     return std::sqrt(horizontalDistance + verticalDistance);
 }
 
-QPointF MathHelper::getLineStartPoint(const QPointF& point1, const QPointF& point2)
+QPointF MathHelper::getBeginOfRounding(const QPointF& point1, const QPointF& point2)
 {
     QPointF startPoint;
     auto rat = 10.0 / distanceBetweenPoints(point1, point2);
@@ -38,15 +38,15 @@ QPointF MathHelper::getLineStartPoint(const QPointF& point1, const QPointF& poin
     return startPoint;
 }
 
-QPointF MathHelper::getLineEndPoint(const QPointF& point1, const QPointF& point2)
+QPointF MathHelper::getEndOfRounding(const QPointF& point1, const QPointF& point2)
 {
     QPointF endPoint;
     auto rat = 10.0 / distanceBetweenPoints(point1, point2);
     if (rat > 0.5) {
         rat = 0.5;
     }
-    endPoint.setX(rat * point1.x() + (1.0 - rat)*point2.x());
-    endPoint.setY(rat * point1.y() + (1.0 - rat)*point2.y());
+    endPoint.setX(rat * point1.x() + (1.0 - rat) * point2.x());
+    endPoint.setY(rat * point1.y() + (1.0 - rat) * point2.y());
     return endPoint;
 }
 
@@ -54,4 +54,9 @@ float MathHelper::smallerValue(float value1, float value2)
 {
     float l = (std::abs(value1) < std::abs(value2)) ? std::abs(value1) : std::abs(value2);
     return (value1 < 0) ? -l : l;
+}
+
+QRect MathHelper::getRectBetweenTwoPoints(const QPoint& point1, const QPoint& point2)
+{
+    return QRect(point1, point2).normalized();
 }

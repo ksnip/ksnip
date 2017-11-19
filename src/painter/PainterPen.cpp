@@ -108,13 +108,13 @@ void PainterPen::smoothOut(float factor)
     QPointF pt2;
     QPainterPath* path = new QPainterPath();
     for (auto i = 0; i < points.count() - 1; i++) {
-        pt1 = MathHelper::getLineStartPoint(points[i], points[i + 1]);
+        pt1 = MathHelper::getBeginOfRounding(points[i], points[i + 1]);
         if (i == 0) {
             path->moveTo(pt1);
         } else {
             path->quadTo(points[i], pt1);
         }
-        pt2 = MathHelper::getLineEndPoint(points[i], points[i + 1]);
+        pt2 = MathHelper::getEndOfRounding(points[i], points[i + 1]);
         path->lineTo(pt2);
     }
 

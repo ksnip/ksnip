@@ -15,10 +15,8 @@
 * along with this program; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
-*
 */
 #include "PaintArea.h"
-#include "src/widgets/CaptureView.h"
 
 PaintArea::PaintArea() : QGraphicsScene(),
     mScreenshot(nullptr),
@@ -31,9 +29,17 @@ PaintArea::PaintArea() : QGraphicsScene(),
     mUndoAction(nullptr),
     mRedoAction(nullptr),
     mConfig(KsnipConfig::instance()),
-    mPaintItemFactory(new PainterItemFactory())
+    mPainterItemFactory(new PainterItemFactory()),
+    mCursorFactory(new CursorFactory())
 {
     connect(mConfig, &KsnipConfig::painterUpdated, this, &PaintArea::setCursor);
+}
+
+PaintArea::~PaintArea()
+{
+    delete mCursorFactory;
+    delete mPainterItemFactory;
+    delete mUndoStack;
 }
 
 //
@@ -200,7 +206,7 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
             mRubberBand->show();
         } else {
             clearSelection();
-            mCurrentItem = mPaintItemFactory->createItem(mPaintMode, event->scenePos());
+            mCurrentItem = mPainterItemFactory->createItem(mPaintMode, event->scenePos());
             mUndoStack->push(new AddCommand(mCurrentItem, this));
             auto textItem = dynamic_cast<PainterText*>(mCurrentItem);
             if(textItem) {
@@ -426,49 +432,10 @@ void PaintArea::clearCurrentItem()
 QCursor* PaintArea::cursor()
 {
     if (!mIsEnabled) {
-        return new CustomCursor();
+        return mCursorFactory->createDefaultCursor();
     }
-    switch (mPaintMode) {
-    case Painter::Pen:
-        return new CustomCursor(CustomCursor::Circle,
-                                mConfig->penColor(),
-                                mConfig->penSize());
-    case Painter::Marker:
-        return new CustomCursor(CustomCursor::Circle,
-                                mConfig->markerColor(),
-                                mConfig->markerSize());
-    case Painter::Rect:
-        return new CustomCursor(CustomCursor::Circle,
-                                mConfig->rectColor(),
-                                mConfig->rectSize());
-    case Painter::Ellipse:
-        return new CustomCursor(CustomCursor::Circle,
-                                mConfig->ellipseColor(),
-                                mConfig->ellipseSize());
-    case Painter::Line:
-        return new CustomCursor(CustomCursor::Circle,
-                                mConfig->lineColor(),
-                                mConfig->lineSize());
-    case Painter::Arrow:
-        return new CustomCursor(CustomCursor::Circle,
-                                mConfig->arrowColor(),
-                                mConfig->arrowSize());
-    case Painter::Text:
-        return new QCursor(Qt::IBeamCursor);
-    case Painter::Number:
-        return new QCursor(Qt::PointingHandCursor);
-    case Painter::Erase:
-        return new CustomCursor(CustomCursor::Rect, QColor("white"), mConfig->eraseSize());
-    case Painter::Move:
-        if (mCurrentItem == nullptr) {
-            return new QCursor(Qt::OpenHandCursor);
-        } else {
-            return new QCursor(Qt::ClosedHandCursor);
-        }
-        break;
-    default:
-        return new CustomCursor();
-    }
+
+    return mCursorFactory->createPainterCursor(mPaintMode, mCurrentItem);
 }
 
 /*

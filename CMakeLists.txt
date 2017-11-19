@@ -45,6 +45,7 @@ set(ksnip_SRCS src/main.cpp
                src/widgets/CaptureView.cpp
                src/widgets/CustomToolButton.cpp
                src/widgets/CustomCursor.cpp
+               src/widgets/CursorFactory.cpp
                src/widgets/NumericComboBox.cpp
                src/widgets/PainterSettingsPicker.cpp
                src/widgets/UndoCommands.cpp

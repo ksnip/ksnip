@@ -24,13 +24,15 @@
 #include <QMouseEvent>
 #include <QDesktopWidget>
 
-#include "src/widgets/CustomCursor.h"
+#include "src/widgets/CursorFactory.h"
+#include "src/helper/MathHelper.h"
 
 class SnippingArea : public QWidget
 {
     Q_OBJECT
 public:
     SnippingArea(QWidget *parent);
+    ~SnippingArea();
     void show();
 
 signals:
@@ -45,12 +47,10 @@ protected:
     virtual void paintEvent(QPaintEvent *event) override;
 
 private:
-    QPoint        mMouseDownPosition;
-    bool          mMouseIsDown;
-    QRect         mCaptureArea;
-    CustomCursor *mCursor;
-
-    QRect calculateArea(const QPoint &pointA, const QPoint &pointB);
+    QPoint         mMouseDownPosition;
+    bool           mMouseIsDown;
+    QRect          mCaptureArea;
+    CursorFactory *mCursorFactory;
 };
 
 #endif // SNIPPINGAREA_H

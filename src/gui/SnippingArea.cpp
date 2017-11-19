@@ -18,10 +18,8 @@
  */
 #include "SnippingArea.h"
 
-#include "src/backend/KsnipConfig.h"
-
 SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent),
-    mCursor(new CustomCursor(CustomCursor::Cross))
+    mCursorFactory(new CursorFactory())
 {
     // Hide the widget background, we will draw it manually on the paint event
     setAttribute(Qt::WA_TranslucentBackground, true);
@@ -32,7 +30,12 @@ SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent),
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool);
 
     // Set the default cursor for this widget to a custom cursor
-    QWidget::setCursor(*mCursor);
+    QWidget::setCursor(*mCursorFactory->createSnippingCursor());
+}
+
+SnippingArea::~SnippingArea()
+{
+    delete mCursorFactory;
 }
 
 void SnippingArea::show()
@@ -42,10 +45,6 @@ void SnippingArea::show()
     activateWindow();
 }
 
-//
-// Protected Functions
-//
-
 void SnippingArea::mousePressEvent(QMouseEvent* event)
 {
     if (event->button() != Qt::LeftButton) {
@@ -53,7 +52,7 @@ void SnippingArea::mousePressEvent(QMouseEvent* event)
     }
 
     mMouseDownPosition = event->pos();
-    mCaptureArea =  calculateArea(event->pos(), event->pos());
+    mCaptureArea =  MathHelper::getRectBetweenTwoPoints(event->pos(), event->pos());
     mMouseIsDown = true;
 }
 
@@ -74,7 +73,7 @@ void SnippingArea::mouseMoveEvent(QMouseEvent* event)
         return;
     }
 
-    mCaptureArea = calculateArea(mMouseDownPosition, event->pos());
+    mCaptureArea = MathHelper::getRectBetweenTwoPoints(mMouseDownPosition, event->pos());
     update();
 
     QWidget::mouseMoveEvent(event);
@@ -106,20 +105,4 @@ void SnippingArea::keyPressEvent(QKeyEvent* event)
         close();
     }
     QWidget::keyPressEvent(event);
-}
-
-//
-// Private Functions
-//
-
-/*
- * Calculate area for the screen capture, between the first mouse down location
- * and current mouse position.
- */
-QRect SnippingArea::calculateArea(const QPoint& pointA, const QPoint& pointB)
-{
-    return QRect(QPoint((pointA.x() <= pointB.x() ? pointA.x() : pointB.x()),
-                        (pointA.y() <= pointB.y() ? pointA.y() : pointB.y())),
-                 QPoint((pointA.x() >= pointB.x() ? pointA.x() : pointB.x()),
-                        (pointA.y() >= pointB.y() ? pointA.y() : pointB.y())));
 }

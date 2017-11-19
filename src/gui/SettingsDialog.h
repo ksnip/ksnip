@@ -47,6 +47,7 @@ private:
     QCheckBox       *mImgurDirectLinkToImageCheckbox;
     QCheckBox       *mImgurAlwaysCopyToClipboardCheckBox;
     QCheckBox       *mSmoothPathCheckbox;
+    QCheckBox       *mItemShadow;
     QLineEdit       *mSaveLocationLineEdit;
     QLineEdit       *mImgurClientIdLineEdit;
     QLineEdit       *mImgurClientSecretLineEdit;

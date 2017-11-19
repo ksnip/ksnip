@@ -39,6 +39,8 @@ public:
 
 private:
     KsnipConfig *mConfig;
+
+    AbstractPainterItem * createNewItem(Painter::Modes mode, const QPointF& pos);
 };
 
 #endif // PAINTERITEMFACTORY_H

@@ -26,6 +26,17 @@ PainterItemFactory::PainterItemFactory()
 
 AbstractPainterItem* PainterItemFactory::createItem(Painter::Modes mode, const QPointF& pos)
 {
+    auto item = createNewItem(mode, pos);
+
+    if (item && mode != Painter::Marker && mConfig->itemShadow()) {
+        item->addShadowEffect();
+    }
+
+    return item;
+}
+
+AbstractPainterItem* PainterItemFactory::createNewItem(Painter::Modes mode, const QPointF& pos)
+{
     switch (mode) {
     case Painter::Pen:
         return new PainterPen(pos, mConfig->pen());
@@ -47,3 +58,4 @@ AbstractPainterItem* PainterItemFactory::createItem(Painter::Modes mode, const Q
         return nullptr;
     }
 }
+

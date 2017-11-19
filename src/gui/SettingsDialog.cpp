@@ -33,6 +33,7 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mImgurDirectLinkToImageCheckbox(new QCheckBox),
     mImgurAlwaysCopyToClipboardCheckBox(new QCheckBox),
     mSmoothPathCheckbox(new QCheckBox),
+    mItemShadow(new QCheckBox),
     mSaveLocationLineEdit(new QLineEdit),
     mImgurClientIdLineEdit(new QLineEdit),
     mImgurClientSecretLineEdit(new QLineEdit),
@@ -105,6 +106,8 @@ void SettingsDialog::loadSettings()
 
     mNumberFontCombobox->setCurrentFont(mConfig->numberFont());
 
+    mItemShadow->setChecked(mConfig->itemShadow());
+
     mSmoothPathCheckbox->setChecked(mConfig->smoothPath());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
     smootPathCheckboxClicked(mConfig->smoothPath());
@@ -135,6 +138,8 @@ void SettingsDialog::saveSettings()
     mConfig->setTextUnderline(mTextUnderlineButton->isChecked());
 
     mConfig->setNumberFont(mNumberFontCombobox->currentFont());
+
+    mConfig->setItemShadow(mItemShadow->isChecked());
 
     mConfig->setSmoothPath(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
@@ -205,6 +210,9 @@ void SettingsDialog::initGui()
     mImgurGetTokenButton->setEnabled(false);
 
     // Create Painter Settings
+    mItemShadow->setText(tr("Item Shadows"));
+    mItemShadow->setToolTip(tr("When enabled, paint items cast shadows."));
+
     mSmoothPathCheckbox->setText(tr("Smooth Paths"));
     mSmoothPathCheckbox->setToolTip(tr("When enabled smooths out pen and \n"
                                        "marker paths after finished drawing."));
@@ -307,17 +315,19 @@ void SettingsDialog::initGui()
     auto painterGrid = new QGridLayout;
     painterGrid->setAlignment(Qt::AlignTop);
     painterGrid->setColumnStretch(1, 1);
-    painterGrid->addWidget(mSmoothPathCheckbox, 0, 0);
-    painterGrid->addWidget(mSmoothFactorLabel, 1, 0);
-    painterGrid->addWidget(mSmoothFactorCombobox, 1, 1);
-    painterGrid->setRowMinimumHeight(2, 15);
-    painterGrid->addWidget(mTextFontLabel, 3, 0);
-    painterGrid->addWidget(mTextFontCombobox, 3, 1);
-    painterGrid->addWidget(mTextBoldButton, 3, 2);
-    painterGrid->addWidget(mTextItalicButton, 3, 3);
-    painterGrid->addWidget(mTextUnderlineButton, 3, 4);
-    painterGrid->addWidget(mNumberFontLabel, 4, 0);
-    painterGrid->addWidget(mNumberFontCombobox, 4, 1);
+    painterGrid->addWidget(mItemShadow, 0, 0);
+    painterGrid->setRowMinimumHeight(1, 15);
+    painterGrid->addWidget(mSmoothPathCheckbox, 2, 0);
+    painterGrid->addWidget(mSmoothFactorLabel, 3, 0);
+    painterGrid->addWidget(mSmoothFactorCombobox, 3, 1);
+    painterGrid->setRowMinimumHeight(4, 15);
+    painterGrid->addWidget(mTextFontLabel, 5, 0);
+    painterGrid->addWidget(mTextFontCombobox, 5, 1);
+    painterGrid->addWidget(mTextBoldButton, 5, 2);
+    painterGrid->addWidget(mTextItalicButton, 5, 3);
+    painterGrid->addWidget(mTextUnderlineButton, 5, 4);
+    painterGrid->addWidget(mNumberFontLabel, 6, 0);
+    painterGrid->addWidget(mNumberFontCombobox, 6, 1);
 
     auto painterGrpBox = new QGroupBox(tr("Painter Settings"));
     painterGrpBox->setLayout(painterGrid);

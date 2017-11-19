@@ -723,6 +723,21 @@ void KsnipConfig::setEraseSize(int  size)
     emit painterUpdated();
 }
 
+bool KsnipConfig::itemShadow() const
+{
+    return mConfig.value("Painter/ItemShadow", true).toBool();
+}
+
+void KsnipConfig::setItemShadow(bool enabled)
+{
+    if (itemShadow() == enabled) {
+        return;
+    }
+
+    mConfig.setValue("Painter/ItemShadow", enabled);
+    mConfig.sync();
+}
+
 bool KsnipConfig::smoothPath() const
 {
     return mConfig.value("Painter/SmoothPath", true).toBool();

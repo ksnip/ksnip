@@ -23,6 +23,7 @@
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QPen>
+#include <QGraphicsDropShadowEffect>
 
 class AbstractPainterItem :  public QGraphicsItem
 {
@@ -54,6 +55,7 @@ public:
     virtual bool selectable() const;
     virtual void setSelectable(bool enabled);
     virtual const QPen &selectColor() const;
+    virtual void addShadowEffect();
     static int order();
     static void resetOrder();
 
@@ -61,9 +63,9 @@ protected:
     void paintDecoration(QPainter *painter);
 
 private:
-    QPen            mAttributes;
-    QPen            mSelectAttr;
-    QPointF         mOffset;
+    QPen    mAttributes;
+    QPen    mSelectAttr;
+    QPointF mOffset;
 };
 
 #endif // ABSTRACTPAINTERITEM_H

@@ -172,6 +172,9 @@ public:
     int eraseSize() const;
     void setEraseSize(int size);
 
+    bool itemShadow() const;
+    void setItemShadow(bool enabled);
+
     bool smoothPath() const;
     void setSmoothPath(bool enabled);
 

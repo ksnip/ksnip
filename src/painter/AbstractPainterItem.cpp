@@ -124,6 +124,18 @@ const QPen& AbstractPainterItem::selectColor() const
     return mSelectAttr;
 }
 
+void AbstractPainterItem::addShadowEffect()
+{
+    auto shadowEffect = dynamic_cast<QGraphicsDropShadowEffect*>(graphicsEffect());
+    if(!shadowEffect) {
+        shadowEffect = new QGraphicsDropShadowEffect();
+        shadowEffect->setColor(QColor(63, 63, 63, 190));
+        shadowEffect->setBlurRadius(7);
+        shadowEffect->setOffset(QPoint(2, 2));
+        this->setGraphicsEffect(shadowEffect);
+    }
+}
+
 /*
  * Returns highest item order, the zValue of the top most item.
  */
@@ -136,10 +148,6 @@ void AbstractPainterItem::resetOrder()
 {
     mOrder = 1;
 }
-
-//
-// Protected Methods
-//
 
 /*
  * Paints selection decoration to passed painter object. The function checks if

@@ -26,7 +26,7 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     mSaveButton(new QToolButton(this)),
     mCopyToClipboardButton(new QToolButton(this)),
     mPaintToolButton(new CustomToolButton(this)),
-    mPainterSettingsButton(new PainterSettingsPicker(this, 5)),
+    mSettingsButton(new SettingsPicker(this, 5)),
     mPaintToolMenu(new CustomMenu(mPaintToolButton)),
     mNewCaptureMenu(new CustomMenu(mNewCaptureButton)),
     mNewRectAreaCaptureAction(new QAction(this)),
@@ -62,7 +62,8 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     mImageGrabber(new ImageGrabber(this)),
     mImgurUploader(new ImgurUploader(this)),
     mCropPanel(new CropPanel(mCaptureView)),
-    mConfig(KsnipConfig::instance())
+    mConfig(KsnipConfig::instance()),
+    mSettingsPickerConfigurator(new SettingsPickerConfigurator())
 {
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
@@ -801,13 +802,13 @@ void MainWindow::initGui()
     mPaintToolMenu->addAction(mSelectAction);
 
     // Create painter settings tool button;
-    mPainterSettingsButton->setIcon(createIcon("painterSettings"));
-    mPainterSettingsButton->setToolTip(tr("Setting Painter tool configuration"));
-    connect(mPainterSettingsButton, &PainterSettingsPicker::colorChanged,
+    mSettingsButton->setIcon(createIcon("painterSettings"));
+    mSettingsButton->setToolTip(tr("Setting Painter tool configuration"));
+    connect(mSettingsButton, &SettingsPicker::colorChanged,
             this, &MainWindow::colorChanged);
-    connect(mPainterSettingsButton, &PainterSettingsPicker::fillChanged,
+    connect(mSettingsButton, &SettingsPicker::fillChanged,
             this, &MainWindow::fillChanged);
-    connect(mPainterSettingsButton, &PainterSettingsPicker::sizeChanged,
+    connect(mSettingsButton, &SettingsPicker::sizeChanged,
             this, &MainWindow::sizeChanged);
 
     mPaintToolButton->setMenu(mPaintToolMenu);
@@ -847,7 +848,7 @@ void MainWindow::initGui()
     mToolBar->addWidget(mCopyToClipboardButton);
     mToolBar->addSeparator();
     mToolBar->addWidget(mPaintToolButton);
-    mToolBar->addWidget(mPainterSettingsButton);
+    mToolBar->addWidget(mSettingsButton);
     mToolBar->setFixedSize(mToolBar->sizeHint());
 
     setCentralWidget(mCaptureView);
@@ -1031,90 +1032,12 @@ void MainWindow::setPaintMode(Painter::Modes mode, bool save)
         mConfig->setPaintMode(mode);
     }
 
-    mPainterSettingsButton->clearPopup();
+    mSettingsPickerConfigurator->setup(mSettingsButton, mode);
 
-    // Only Text input requires event filter
-    QApplication::instance()->removeEventFilter(this);
-
-    switch (mode) {
-    case Painter::Pen:
-        mPainterSettingsButton->setEnabled(true);
-        mPainterSettingsButton->addPopupColorGrid(true, false, true);
-        mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
-        mPainterSettingsButton->setColor(mConfig->penColor());
-        mPainterSettingsButton->setSize(mConfig->penSize());
-        break;
-    case Painter::Marker:
-        mPainterSettingsButton->setEnabled(true);
-        mPainterSettingsButton->addPopupColorGrid(false, false, false);
-        mPainterSettingsButton->insertColor("yellow");
-        mPainterSettingsButton->insertColor("blue");
-        mPainterSettingsButton->insertColor("cyan");
-        mPainterSettingsButton->insertColor("orange");
-        mPainterSettingsButton->insertColor("red");
-        mPainterSettingsButton->addPopupSizeSlider(10, 30, 2);
-        mPainterSettingsButton->setColor(mConfig->markerColor());
-        mPainterSettingsButton->setSize(mConfig->markerSize());
-        break;
-    case Painter::Rect:
-        mPainterSettingsButton->setEnabled(true);
-        mPainterSettingsButton->addPopupColorGrid(true, true, true);
-        mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
-        mPainterSettingsButton->setColor(mConfig->rectColor());
-        mPainterSettingsButton->setSize(mConfig->rectSize());
-        mPainterSettingsButton->setFill(mConfig->rectFill());
-        break;
-    case Painter::Ellipse:
-        mPainterSettingsButton->setEnabled(true);
-        mPainterSettingsButton->addPopupColorGrid(true, true, true);
-        mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
-        mPainterSettingsButton->setColor(mConfig->ellipseColor());
-        mPainterSettingsButton->setSize(mConfig->ellipseSize());
-        mPainterSettingsButton->setFill(mConfig->ellipseFill());
-        break;
-    case Painter::Line:
-        mPainterSettingsButton->setEnabled(true);
-        mPainterSettingsButton->addPopupColorGrid(true, false, true);
-        mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
-        mPainterSettingsButton->setColor(mConfig->lineColor());
-        mPainterSettingsButton->setSize(mConfig->lineSize());
-        break;
-    case Painter::Arrow:
-        mPainterSettingsButton->setEnabled(true);
-        mPainterSettingsButton->addPopupColorGrid(true, false, true);
-        mPainterSettingsButton->addPopupSizeSlider(1, 5, 1);
-        mPainterSettingsButton->setColor(mConfig->arrowColor());
-        mPainterSettingsButton->setSize(mConfig->arrowSize());
-        break;
-    case Painter::Text:
-        mPainterSettingsButton->setEnabled(true);
-        mPainterSettingsButton->addPopupColorGrid(true, false, true);
-        mPainterSettingsButton->addPopupSizeSlider(10, 20, 1);
-        mPainterSettingsButton->setColor(mConfig->textColor());
-        mPainterSettingsButton->setSize(mConfig->textSize());
-        // Special case with Text items, when we are editing text we don't want
-        // shotcuts to be accept by the application, otherwise some characters
-        // would be blocked.
+    if (mode == Painter::Text) {
         QApplication::instance()->installEventFilter(this);
-        break;
-    case Painter::Number:
-        mPainterSettingsButton->setEnabled(true);
-        mPainterSettingsButton->addPopupColorGrid(true, false, true);
-        mPainterSettingsButton->addPopupSizeSlider(10, 50, 5);
-        mPainterSettingsButton->setColor(mConfig->numberColor());
-        mPainterSettingsButton->setSize(mConfig->numberSize());
-        break;
-    case Painter::Erase:
-        mPainterSettingsButton->setEnabled(true);
-        mPainterSettingsButton->addPopupSizeSlider(1, 10, 1);
-        mPainterSettingsButton->setSize(mConfig->eraseSize());
-        break;
-    case Painter::Move:
-        mPainterSettingsButton->setEnabled(false);
-        break;
-    case Painter::Select:
-        mPainterSettingsButton->setEnabled(false);
-        break;
+    } else {
+        QApplication::instance()->removeEventFilter(this);
     }
 }
 

@@ -33,7 +33,7 @@
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/CaptureView.h"
 #include "src/widgets/CropPanel.h"
-#include "src/widgets/PainterSettingsPicker.h"
+#include "src/widgets/settingsPicker/SettingsPickerConfigurator.h"
 #include "src/backend/ImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/ImgurUploader.h"
@@ -78,7 +78,7 @@ private:
     QToolButton      *mSaveButton;
     QToolButton      *mCopyToClipboardButton;
     CustomToolButton *mPaintToolButton;
-    PainterSettingsPicker *mPainterSettingsButton;
+    SettingsPicker   *mSettingsButton;
     CustomMenu       *mPaintToolMenu;
     CustomMenu       *mNewCaptureMenu;
     QAction          *mNewRectAreaCaptureAction;
@@ -116,6 +116,7 @@ private:
     ImgurUploader    *mImgurUploader;
     CropPanel        *mCropPanel;
     KsnipConfig      *mConfig;
+    SettingsPickerConfigurator *mSettingsPickerConfigurator;
 
     void setSaveAble(bool enabled);
     void setEnablements(bool enabled);

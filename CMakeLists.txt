@@ -47,8 +47,12 @@ set(ksnip_SRCS src/main.cpp
                src/widgets/CustomCursor.cpp
                src/widgets/CursorFactory.cpp
                src/widgets/NumericComboBox.cpp
-               src/widgets/PainterSettingsPicker.cpp
                src/widgets/UndoCommands.cpp
+               src/widgets/settingsPicker/SettingsPicker.cpp
+               src/widgets/settingsPicker/SettingsPickerPopup.cpp
+               src/widgets/settingsPicker/SettingsPickerButton.cpp
+               src/widgets/settingsPicker/SettingsPickerColorItem.cpp
+               src/widgets/settingsPicker/SettingsPickerConfigurator.cpp
                src/gui/MainWindow.cpp
                src/gui/SnippingArea.cpp
                src/gui/SettingsDialog.cpp

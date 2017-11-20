@@ -15,15 +15,19 @@ Latest ksnip version contains following features:
 * Upload screenshots directly to imgur.com in anonymous or user mode.
 * Drawing on captured screenshot with two different tools, pen (opaque) and maker (semi-transparent).
 * Drawing two shapes ellipse and rectangle, with and without fill.
-* Customizable color and size (thickness) for drawing tools.
+* Drawing lines and arrows.
+* Customizable color and size (thickness) for all drawing tools.
 * Writing text on screenshots, with customizable font, size, color etc.
-* Any drawing can be moved around without deleting it by simply dragging it to new location.
+* Numbering tool with customizable font and color. 
+* Any drawing (or multiple selection) can be moved around without deleting it by simply dragging it to new location.
+* Ordering paint items (bring to front, send to back).
 * Cropping captured screensshot, including any drawing on the captured image.
 * Command line support, for taking screenshot and saving it to default location, filename and format.
 * Customizable default location, filename and format for saving new screenshots with wildcards for Year ($Y), Month ($M), Day ($D) and Time ($T).
-* Print screenshot or save is to prf/ps.
+* Print screenshot or save is to pdf/ps.
 * Undo/Redo for paint and crop operations.
 * Smooth out free hand pen and marker lines (can be disabled in settings).
+* Drop shadow for paint items (can be disabled in settings).
 
 
 ### Building from source

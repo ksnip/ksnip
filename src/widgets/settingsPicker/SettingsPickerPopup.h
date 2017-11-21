@@ -52,7 +52,6 @@ signals:
     void fillChanged(bool);
     void sizeChanged(int);
     void hid();
-    void hoverLeave();
 
 public slots:
     void getColorFromDialog();

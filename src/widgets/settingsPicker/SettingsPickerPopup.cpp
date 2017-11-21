@@ -389,11 +389,6 @@ void SettingsPickerPopup::mouseReleaseEvent(QMouseEvent* e)
     }
 }
 
-void SettingsPickerPopup::leaveEvent(QEvent* event)
-{
-    emit hoverLeave();
-}
-
 void SettingsPickerPopup::regenerateColorGrid()
 {
     if (!mColorGrid) {

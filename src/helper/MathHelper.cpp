@@ -19,11 +19,11 @@
 
 #include "MathHelper.h"
 
-float MathHelper::distanceBetweenPoints(const QPointF& point1, const QPointF& point2)
+qreal MathHelper::distanceBetweenPoints(const QPointF& point1, const QPointF& point2)
 {
     auto horizontalDistance = (point1.x() - point2.x()) * (point1.x() - point2.x());
     auto verticalDistance = (point1.y() - point2.y()) * (point1.y() - point2.y());
-    return std::sqrt(horizontalDistance + verticalDistance);
+    return qSqrt(horizontalDistance + verticalDistance);
 }
 
 QPointF MathHelper::getBeginOfRounding(const QPointF& point1, const QPointF& point2)
@@ -50,9 +50,9 @@ QPointF MathHelper::getEndOfRounding(const QPointF& point1, const QPointF& point
     return endPoint;
 }
 
-float MathHelper::smallerValue(float value1, float value2)
+qreal MathHelper::smallerValue(qreal value1, qreal value2)
 {
-    float l = (std::abs(value1) < std::abs(value2)) ? std::abs(value1) : std::abs(value2);
+    qreal l = (qAbs(value1) < qAbs(value2)) ? qAbs(value1) : qAbs(value2);
     return (value1 < 0) ? -l : l;
 }
 

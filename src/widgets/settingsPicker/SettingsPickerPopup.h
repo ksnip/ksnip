@@ -21,6 +21,7 @@
 #define SETTINGSPICKERPOPUP_H
 
 #include <QFrame>
+#include <QtMath>
 
 #include "SettingsPickerColorItem.h"
 #include "SettingsPickerButton.h"

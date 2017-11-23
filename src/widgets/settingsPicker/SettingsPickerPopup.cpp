@@ -160,20 +160,20 @@ int SettingsPickerPopup::size() const
     return mSizeSlider->value();
 }
 
-void SettingsPickerPopup::setSize(int  size)
+void SettingsPickerPopup::setSize(int  newSize)
 {
     if (!mSizeSlider) {
         return;
     }
-    auto s = size;
-    if (size < mSizeSlider->minimum() || size < 0) {
-        s = mSizeSlider->minimum();
-    } else if (size > mSizeSlider->maximum()) {
-        s = mSizeSlider->maximum();
+    auto size = newSize;
+    if (newSize < mSizeSlider->minimum() || newSize < 0) {
+        size = mSizeSlider->minimum();
+    } else if (newSize > mSizeSlider->maximum()) {
+        size = mSizeSlider->maximum();
     }
-    mSizeSlider->setValue(s);
-    updateSizeLabel(s);
-    emit sizeChanged(s);
+    mSizeSlider->setValue(size);
+    updateSizeLabel(size);
+    emit sizeChanged(size);
 }
 
 SettingsPickerColorItem* SettingsPickerPopup::findColor(const QColor& color) const
@@ -397,7 +397,7 @@ void SettingsPickerPopup::regenerateColorGrid()
 
     auto columns = mColorColumns;
     if (columns == -1) {
-        columns = (int) std::ceil(std::sqrt((float) mColorItems.count()));
+        columns = qCeil(qSqrt(mColorItems.count()));
     }
 
     // When the number of columns grows, the number of rows will

@@ -20,17 +20,17 @@
 #ifndef MATHHELPER_H
 #define MATHHELPER_H
 
-#include <cmath>
+#include <QtMath>
 #include <QPointF>
 #include <QRect>
 
 class MathHelper
 {
 public:
-    static float distanceBetweenPoints(const QPointF& point1, const QPointF& point2);
+    static qreal distanceBetweenPoints(const QPointF& point1, const QPointF& point2);
     static QPointF getBeginOfRounding(const QPointF& point1, const QPointF& point2);
     static QPointF getEndOfRounding(const QPointF& point1, const QPointF& point2);
-    static float smallerValue(float value1, float value2);
+    static qreal smallerValue(qreal value1, qreal value2);
     static QRect getRectBetweenTwoPoints(const QPoint& point1, const QPoint& point2);
 };
 

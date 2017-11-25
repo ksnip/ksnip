@@ -11,6 +11,8 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Widgets Network Xml PrintSupp
 find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
+find_package(X11 REQUIRED)
+
 # Check for required XCB components
 find_package(XCB COMPONENTS XFIXES)
 
@@ -41,6 +43,7 @@ set(ksnip_SRCS src/main.cpp
                src/painter/PainterItemFactory.cpp
                src/helper/StringFormattingHelper.cpp
                src/helper/MathHelper.cpp
+               src/helper/X11GraphicsHelper.cpp
                src/widgets/CropPanel.cpp
                src/widgets/CaptureView.cpp
                src/widgets/CustomToolButton.cpp
@@ -68,7 +71,8 @@ target_link_libraries(ksnip Qt5::Widgets
                             Qt5::Xml
                             Qt5::PrintSupport
                             Qt5::X11Extras
-                            XCB::XFIXES)
+                            XCB::XFIXES
+                            X11)
 
 install(TARGETS ksnip RUNTIME DESTINATION /bin)
 

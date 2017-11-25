@@ -19,23 +19,33 @@
 #include "SnippingArea.h"
 
 SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent),
-    mCursorFactory(new CursorFactory())
+    mCursorFactory(new CursorFactory()),
+    mBackground(nullptr)
 {
-    // Hide the widget background, we will draw it manually on the paint event
-    setAttribute(Qt::WA_TranslucentBackground, true);
-    setAutoFillBackground(false);
-    setStyleSheet("QFrame#ImageFrame { background-color: transparent; }");
-
     // Make the frame span across the screen and show above any other widget
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool);
 
-    // Set the default cursor for this widget to a custom cursor
     QWidget::setCursor(*mCursorFactory->createSnippingCursor());
 }
 
 SnippingArea::~SnippingArea()
 {
     delete mCursorFactory;
+    delete mBackground;
+}
+
+void SnippingArea::showWithoutBackground()
+{
+    setAttribute(Qt::WA_TranslucentBackground, true);
+    clearBackgroundImage();
+    show();
+}
+
+void SnippingArea::showWithBackground(const QPixmap& background)
+{
+    setAttribute(Qt::WA_TranslucentBackground, false);
+    setBackgroundImage(background);
+    show();
 }
 
 void SnippingArea::show()
@@ -43,6 +53,19 @@ void SnippingArea::show()
     setFixedSize(QDesktopWidget().size());
     QWidget::show();
     activateWindow();
+}
+
+void SnippingArea::setBackgroundImage(const QPixmap& background)
+{
+    clearBackgroundImage();
+    mBackground = new QPixmap(background);
+}
+
+void SnippingArea::clearBackgroundImage()
+{
+    if(mBackground != nullptr) {
+        delete mBackground;
+    }
 }
 
 void SnippingArea::mousePressEvent(QMouseEvent* event)
@@ -82,6 +105,10 @@ void SnippingArea::mouseMoveEvent(QMouseEvent* event)
 void SnippingArea::paintEvent(QPaintEvent* event)
 {
     QPainter painter(this);
+
+    if(mBackground != nullptr) {
+        painter.drawPixmap(geometry(), *mBackground);
+    }
 
     if (mMouseIsDown) {
         painter.setClipRegion(QRegion(geometry()).subtracted(QRegion(mCaptureArea)));

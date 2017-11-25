@@ -33,7 +33,8 @@ class SnippingArea : public QWidget
 public:
     SnippingArea(QWidget *parent);
     ~SnippingArea();
-    void show();
+    void showWithoutBackground();
+    void showWithBackground(const QPixmap& background);
 
 signals:
     void areaSelected(const QRect &);
@@ -51,6 +52,11 @@ private:
     bool           mMouseIsDown;
     QRect          mCaptureArea;
     CursorFactory *mCursorFactory;
+    QPixmap       *mBackground;
+
+    void show();
+    void setBackgroundImage(const QPixmap& background);
+    void clearBackgroundImage();
 };
 
 #endif // SNIPPINGAREA_H

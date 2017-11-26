@@ -28,6 +28,7 @@
 
 #include "src/gui/MainWindow.h"
 #include "src/gui/SnippingArea.h"
+#include "src/helper/X11GraphicsHelper.h"
 
 ImageGrabber::ImageGrabber(MainWindow* parent) : QObject(), mParent(parent)
 {
@@ -61,13 +62,13 @@ void ImageGrabber::grabImage(CaptureMode captureMode, bool capureCursor, int del
         mCaptureRect = currectScreenRect();
         break;
     case ActiveWindow: {
-        xcb_window_t wId = getActiveWindow();
-        if (wId == 0) {
+        xcb_window_t windowId = getActiveWindow();
+        if (windowId == 0) {
             qWarning("ImageGrabber::getActiveWindow: Found no window with focus");
             mCaptureRect = currectScreenRect();
             break;
         }
-        mCaptureRect = getWindowRect(wId);
+        mCaptureRect = getWindowRect(windowId);
         break;
     }
     default:
@@ -199,11 +200,44 @@ QPoint ImageGrabber::getNativeCursorPosition() const
     return QPoint(pointerReply->root_x, pointerReply->root_y);
 }
 
-/*
- * Start snipping area and let the user select an area. We connect to signals
- * and wait for feedback from the snipping area.
- */
 void ImageGrabber::getRectArea()
+{
+    initSnippingAreaIfRequired();
+
+    if (X11GraphicsHelper::isCompositorActive()) {
+        mSnippingArea->showWithoutBackground();
+    } else {
+        auto screenRect = fullScreenRect();
+        auto background = createPixmap(screenRect);
+        mSnippingArea->showWithBackground(background);
+    }
+}
+
+/*
+ * Returns delay in msec. On the user chosen delay we add a default delay of 200
+ * msec so the mainwindow has enough time to hide before we take screenshot.
+ * When we run CLI mode we don't need this buffer as the mainwindow is not shown
+ */
+int ImageGrabber::getDelay() const
+{
+    if (mParent->getMode() == MainWindow::CLI || mCaptureDelay >= mMinCaptureDelay) {
+        return mCaptureDelay;
+    }
+    return mCaptureDelay + 200;
+}
+
+QPixmap ImageGrabber::createPixmap(const QRect& rect) const
+{
+    auto screen = QGuiApplication::primaryScreen();
+    auto pixmap = screen->grabWindow(QApplication::desktop()->winId(),
+                                            rect.topLeft().x(),
+                                            rect.topLeft().y(),
+                                            rect.width(),
+                                            rect.height());
+    return pixmap;
+}
+
+void ImageGrabber::initSnippingAreaIfRequired()
 {
     if (!mSnippingArea) {
         mSnippingArea = new SnippingArea(mParent);
@@ -215,34 +249,14 @@ void ImageGrabber::getRectArea()
             emit canceled();
         });
     }
-    mSnippingArea->show();
-}
-
-/*
- * Returns delay in msec. On the user chosen delay we add a default delay of 200
- * msec so the mainwindow has enough time to hide before we take screenshot.
- * When we run CLI mode we don't need this buffer as the mainwindow is not shown
- */
-int ImageGrabber::getDelay() const
-{
-    if (mParent->getMode() == MainWindow::CLI) {
-        return mCaptureDelay;
-    }
-    return mCaptureDelay + 200;
 }
 
 void ImageGrabber::grabRect() const
 {
-    auto screen = QGuiApplication::primaryScreen();
-    QPixmap screenshot = screen->grabWindow(QApplication::desktop()->winId(),
-                                            mCaptureRect.topLeft().x(),
-                                            mCaptureRect.topLeft().y(),
-                                            mCaptureRect.width(),
-                                            mCaptureRect.height());
+    auto screenShot = createPixmap(mCaptureRect);
 
-    // If requested, add cursor image to screenshot
     if (mCaptureCursor) {
-        screenshot = blendCursorImage(screenshot, mCaptureRect);
+        screenShot = blendCursorImage(screenShot, mCaptureRect);
     }
-    emit finished(screenshot);
+    emit finished(screenShot);
 }

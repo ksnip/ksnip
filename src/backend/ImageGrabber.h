@@ -58,6 +58,7 @@ private:
     QRect         mCaptureRect;
     bool          mCaptureCursor;
     int           mCaptureDelay;
+    const int     mMinCaptureDelay = 200;
 
     QPixmap blendCursorImage(const QPixmap &pixmap, const QRect &rect) const;
     xcb_window_t getActiveWindow() const;
@@ -65,6 +66,10 @@ private:
     QPoint getNativeCursorPosition() const;
     void getRectArea();
     int getDelay() const;
+
+private:
+    QPixmap createPixmap(const QRect& rect) const;
+    void initSnippingAreaIfRequired();
 
 private slots:
     void grabRect() const;

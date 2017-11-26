@@ -49,6 +49,7 @@ private:
     QCheckBox       *mSmoothPathCheckbox;
     QCheckBox       *mItemShadowCheckbox;
     QCheckBox       *mCursorRulerCheckbox;
+    QCheckBox       *mCursorInfoCheckbox;
     QLineEdit       *mSaveLocationLineEdit;
     QLineEdit       *mImgurClientIdLineEdit;
     QLineEdit       *mImgurClientSecretLineEdit;

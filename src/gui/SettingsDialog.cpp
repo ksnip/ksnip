@@ -35,6 +35,7 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mSmoothPathCheckbox(new QCheckBox),
     mItemShadowCheckbox(new QCheckBox),
     mCursorRulerCheckbox(new QCheckBox),
+    mCursorInfoCheckbox(new QCheckBox),
     mSaveLocationLineEdit(new QLineEdit),
     mImgurClientIdLineEdit(new QLineEdit),
     mImgurClientSecretLineEdit(new QLineEdit),
@@ -100,6 +101,7 @@ void SettingsDialog::loadSettings()
     mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());
     mCaptureDelayCombobox->setValue(mConfig->captureDelay() / 1000);
     mCursorRulerCheckbox->setChecked(mConfig->cursorRulerEnabled());
+    mCursorInfoCheckbox->setChecked(mConfig->cursorInfoEnabled());
 
     mTextFontCombobox->setCurrentFont(mConfig->textFont());
     mTextBoldButton->setChecked(mConfig->textBold());
@@ -129,7 +131,8 @@ void SettingsDialog::saveSettings()
 
     mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
     mConfig->setCaptureDelay(mCaptureDelayCombobox->value() * 1000);
-    mConfig->setCursorRulerEnabled((mCursorRulerCheckbox->isChecked()));
+    mConfig->setCursorRulerEnabled(mCursorRulerCheckbox->isChecked());
+    mConfig->setCursorInfoEnabled(mCursorInfoCheckbox->isChecked());
 
     mConfig->setSaveDirectory(StringFormattingHelper::extractPath(mSaveLocationLineEdit->displayText()));
     mConfig->setSaveFilename(StringFormattingHelper::extractFilename(mSaveLocationLineEdit->displayText()));
@@ -176,9 +179,17 @@ void SettingsDialog::initGui()
     });
 
     // Create Image Grabber Settings
-    mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot."));
+    mCaptureCursorCheckbox->setText(tr("Capture mouse cursor."));
+    mCaptureCursorCheckbox->setToolTip(tr("Should mouse cursor be visible on\n"
+                                          "on screenshots."));
     mCaptureDelayLabel->setText(tr("Delay (sec)") + ":");
-    mCursorRulerCheckbox->setText(tr("Show cursor ruler on snipping area."));
+    mCursorRulerCheckbox->setText(tr("Show cursor ruler."));
+    mCursorRulerCheckbox->setToolTip(tr("Horizontal and vertical lines going from\n"
+                                        "desktop corner to cursor on snipping area."));
+    mCursorInfoCheckbox->setText(tr("Show cursor position info."));
+    mCursorInfoCheckbox->setToolTip(tr("When left mouse is not pressed the position\n"
+                                       "is show, when the mouse button is pressed,\n"
+                                       "the size of the select area is shown."));
 
     // Create Imgur Uploader Settings
     mImgurForceAnonymousCheckbox->setText(tr("Force anonymous upload."));
@@ -291,9 +302,10 @@ void SettingsDialog::initGui()
     imageGrabberGrid->setColumnStretch(1, 1);
     imageGrabberGrid->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 2);
     imageGrabberGrid->addWidget(mCursorRulerCheckbox, 1, 0);
-    imageGrabberGrid->setRowMinimumHeight(2, 15);
-    imageGrabberGrid->addWidget(mCaptureDelayLabel, 3, 0);
-    imageGrabberGrid->addWidget(mCaptureDelayCombobox, 3, 1);
+    imageGrabberGrid->addWidget(mCursorInfoCheckbox, 2, 0);
+    imageGrabberGrid->setRowMinimumHeight(3, 15);
+    imageGrabberGrid->addWidget(mCaptureDelayLabel, 4, 0);
+    imageGrabberGrid->addWidget(mCaptureDelayCombobox, 4, 1);
 
     auto imageGrabberGrpBox = new QGroupBox(tr("Image Grabber"));
     imageGrabberGrpBox->setLayout(imageGrabberGrid);

@@ -798,6 +798,20 @@ void KsnipConfig::setCursorRulerEnabled(bool enabled)
     mConfig.sync();
 }
 
+bool KsnipConfig::cursorInfoEnabled() const
+{
+    return mConfig.value("ImageGrabber/CursorInfoEnabled", true).toBool();
+}
+
+void KsnipConfig::setCursorInfoEnabled(bool enabled)
+{
+    if (cursorInfoEnabled() == enabled) {
+        return;
+    }
+    mConfig.setValue("ImageGrabber/CursorInfoEnabled", enabled);
+    mConfig.sync();
+}
+
 int KsnipConfig::captureDelay() const
 {
     return mConfig.value("ImageGrabber/CaptureDelay", 0).toInt() ;

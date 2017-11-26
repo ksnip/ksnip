@@ -72,8 +72,9 @@ void SnippingArea::clearBackgroundImage()
 
 void SnippingArea::init()
 {
-    mMouseRulerEnabled = mConfig->cursorRulerEnabled();
-    setMouseTracking(mMouseRulerEnabled);
+    mCursorRulerEnabled = mConfig->cursorRulerEnabled();
+    mCursorInfoEnabled = mConfig->cursorInfoEnabled();
+    setMouseTracking(mCursorRulerEnabled || mCursorInfoEnabled);
     mMouseIsDown = false;
 }
 
@@ -123,11 +124,12 @@ void SnippingArea::paintEvent(QPaintEvent* event)
     painter.setBrush(QColor(0, 0, 0, 150));
     painter.drawRect(geometry());
 
-    if (mMouseRulerEnabled) {
-        auto pos = QCursor::pos() + QPoint(2, 2);
-        painter.setPen(QPen(Qt::red, 1, Qt::DotLine, Qt::SquareCap, Qt::MiterJoin));
-        painter.drawLine(QPointF(pos.x(), geometry().bottom()), QPointF(pos.x(), geometry().top()));
-        painter.drawLine(QPointF(geometry().left(), pos.y()), QPointF(geometry().right(), pos.y()));
+    if (mCursorRulerEnabled) {
+        drawCursorRuler(painter);
+    }
+
+    if (mCursorInfoEnabled) {
+        drawCursorInfo(painter);
     }
 
     if (mMouseIsDown) {
@@ -151,3 +153,38 @@ void SnippingArea::updateCapturedArea(const QPoint& pos1, const QPoint& pos2)
 {
     mCaptureArea = MathHelper::getRectBetweenTwoPoints(pos1, pos2);
 }
+
+QString SnippingArea::createInfoText(int number1, int number2) const
+{
+    return QString::number(number1) + ", " + QString::number(number2);
+}
+
+QPoint SnippingArea::calculateInfoTextPosition(const QPoint& pos) const
+{
+    auto drawPos = pos + QPoint(6, 15);
+    if (mMouseIsDown && mCaptureArea.contains(drawPos)) {
+        drawPos = pos + QPoint(6, -5);
+    }
+    return drawPos;
+}
+
+void SnippingArea::drawCursorRuler(QPainter& painter) const
+{
+    auto pos = QCursor::pos() + QPoint(2, 2);
+    painter.setPen(QPen(Qt::red, 1, Qt::DotLine, Qt::SquareCap, Qt::MiterJoin));
+    painter.drawLine(QPointF(pos.x(), geometry().bottom()), QPointF(pos.x(), geometry().top()));
+    painter.drawLine(QPointF(geometry().left(), pos.y()), QPointF(geometry().right(), pos.y()));
+}
+
+void SnippingArea::drawCursorInfo(QPainter& painter) const
+{
+    auto pos = QCursor::pos();
+    painter.setPen(QPen(Qt::red, 1));
+    auto drawPos = calculateInfoTextPosition(pos);
+    if (mMouseIsDown) {
+        painter.drawText(drawPos, createInfoText(mCaptureArea.width(), mCaptureArea.height()));
+    } else {
+        painter.drawText(drawPos, createInfoText(pos.x(), pos.y()));
+    }
+}
+

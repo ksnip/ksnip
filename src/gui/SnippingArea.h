@@ -51,7 +51,8 @@ protected:
 private:
     QPoint         mMouseDownPosition;
     bool           mMouseIsDown;
-    bool           mMouseRulerEnabled;
+    bool           mCursorRulerEnabled;
+    bool           mCursorInfoEnabled;
     QRect          mCaptureArea;
     CursorFactory *mCursorFactory;
     QPixmap       *mBackground;
@@ -62,6 +63,10 @@ private:
     void clearBackgroundImage();
     void init();
     void updateCapturedArea(const QPoint &pos1, const QPoint &pos2);
+    QString createInfoText(int number1, int number2) const;
+    QPoint calculateInfoTextPosition(const QPoint& pos) const;
+    void drawCursorRuler(QPainter& painter) const;
+    void drawCursorInfo(QPainter& painter) const;
 };
 
 #endif // SNIPPINGAREA_H

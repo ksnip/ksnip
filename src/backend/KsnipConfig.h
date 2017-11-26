@@ -189,6 +189,9 @@ public:
     bool cursorRulerEnabled() const;
     void setCursorRulerEnabled(bool enabled);
 
+    bool cursorInfoEnabled() const;
+    void setCursorInfoEnabled(bool enabled);
+
     int captureDelay() const;
     void setCaptureDelay(int delay);
 

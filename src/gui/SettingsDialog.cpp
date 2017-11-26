@@ -33,7 +33,8 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mImgurDirectLinkToImageCheckbox(new QCheckBox),
     mImgurAlwaysCopyToClipboardCheckBox(new QCheckBox),
     mSmoothPathCheckbox(new QCheckBox),
-    mItemShadow(new QCheckBox),
+    mItemShadowCheckbox(new QCheckBox),
+    mCursorRulerCheckbox(new QCheckBox),
     mSaveLocationLineEdit(new QLineEdit),
     mImgurClientIdLineEdit(new QLineEdit),
     mImgurClientSecretLineEdit(new QLineEdit),
@@ -87,8 +88,6 @@ void SettingsDialog::loadSettings()
     mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveKsnipToolSelection());
     mCaptureOnStartupCheckbox->setChecked(mConfig->captureOnStartup());
 
-    mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());
-
     mImgurForceAnonymousCheckbox->setChecked(mConfig->imgurForceAnonymous());
     mImgurDirectLinkToImageCheckbox->setChecked(mConfig->imgurOpenLinkDirectlyToImage());
     mImgurAlwaysCopyToClipboardCheckBox->setChecked(mConfig->imgurAlwaysCopyToClipboard());
@@ -97,7 +96,10 @@ void SettingsDialog::loadSettings()
     if (!mConfig->imgurClientId().isEmpty()) {
         mImgurClientIdLineEdit->setPlaceholderText(mConfig->imgurClientId());
     }
+
+    mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());
     mCaptureDelayCombobox->setValue(mConfig->captureDelay() / 1000);
+    mCursorRulerCheckbox->setChecked(mConfig->cursorRulerEnabled());
 
     mTextFontCombobox->setCurrentFont(mConfig->textFont());
     mTextBoldButton->setChecked(mConfig->textBold());
@@ -106,11 +108,11 @@ void SettingsDialog::loadSettings()
 
     mNumberFontCombobox->setCurrentFont(mConfig->numberFont());
 
-    mItemShadow->setChecked(mConfig->itemShadow());
+    mItemShadowCheckbox->setChecked(mConfig->itemShadowEnabled());
 
-    mSmoothPathCheckbox->setChecked(mConfig->smoothPath());
+    mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
-    smootPathCheckboxClicked(mConfig->smoothPath());
+    smootPathCheckboxClicked(mConfig->smoothPathEnabled());
 }
 
 void SettingsDialog::saveSettings()
@@ -121,13 +123,14 @@ void SettingsDialog::saveSettings()
     mConfig->setSaveKsnipToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
     mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
 
-    mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
-
     mConfig->setImgurForceAnonymous(mImgurForceAnonymousCheckbox->isChecked());
     mConfig->setImgurOpenLinkDirectlyToImage(mImgurDirectLinkToImageCheckbox->isChecked());
     mConfig->setImgurAlwaysCopyToClipboard(mImgurAlwaysCopyToClipboardCheckBox->isChecked());
 
+    mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
     mConfig->setCaptureDelay(mCaptureDelayCombobox->value() * 1000);
+    mConfig->setCursorRulerEnabled((mCursorRulerCheckbox->isChecked()));
+
     mConfig->setSaveDirectory(StringFormattingHelper::extractPath(mSaveLocationLineEdit->displayText()));
     mConfig->setSaveFilename(StringFormattingHelper::extractFilename(mSaveLocationLineEdit->displayText()));
     mConfig->setSaveFormat(StringFormattingHelper::extractFormat(mSaveLocationLineEdit->displayText()));
@@ -139,9 +142,9 @@ void SettingsDialog::saveSettings()
 
     mConfig->setNumberFont(mNumberFontCombobox->currentFont());
 
-    mConfig->setItemShadow(mItemShadow->isChecked());
+    mConfig->setItemShadowEnabled(mItemShadowCheckbox->isChecked());
 
-    mConfig->setSmoothPath(mSmoothPathCheckbox->isChecked());
+    mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
 }
 
@@ -175,6 +178,7 @@ void SettingsDialog::initGui()
     // Create Image Grabber Settings
     mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot."));
     mCaptureDelayLabel->setText(tr("Delay (sec)") + ":");
+    mCursorRulerCheckbox->setText(tr("Show cursor ruler on snipping area."));
 
     // Create Imgur Uploader Settings
     mImgurForceAnonymousCheckbox->setText(tr("Force anonymous upload."));
@@ -210,8 +214,8 @@ void SettingsDialog::initGui()
     mImgurGetTokenButton->setEnabled(false);
 
     // Create Painter Settings
-    mItemShadow->setText(tr("Item Shadows"));
-    mItemShadow->setToolTip(tr("When enabled, paint items cast shadows."));
+    mItemShadowCheckbox->setText(tr("Item Shadows"));
+    mItemShadowCheckbox->setToolTip(tr("When enabled, paint items cast shadows."));
 
     mSmoothPathCheckbox->setText(tr("Smooth Paths"));
     mSmoothPathCheckbox->setToolTip(tr("When enabled smooths out pen and \n"
@@ -286,9 +290,10 @@ void SettingsDialog::initGui()
     imageGrabberGrid->setAlignment(Qt::AlignTop);
     imageGrabberGrid->setColumnStretch(1, 1);
     imageGrabberGrid->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 2);
-    imageGrabberGrid->setRowMinimumHeight(1, 15);
-    imageGrabberGrid->addWidget(mCaptureDelayLabel, 2, 0);
-    imageGrabberGrid->addWidget(mCaptureDelayCombobox, 2, 1);
+    imageGrabberGrid->addWidget(mCursorRulerCheckbox, 1, 0);
+    imageGrabberGrid->setRowMinimumHeight(2, 15);
+    imageGrabberGrid->addWidget(mCaptureDelayLabel, 3, 0);
+    imageGrabberGrid->addWidget(mCaptureDelayCombobox, 3, 1);
 
     auto imageGrabberGrpBox = new QGroupBox(tr("Image Grabber"));
     imageGrabberGrpBox->setLayout(imageGrabberGrid);
@@ -315,7 +320,7 @@ void SettingsDialog::initGui()
     auto painterGrid = new QGridLayout;
     painterGrid->setAlignment(Qt::AlignTop);
     painterGrid->setColumnStretch(1, 1);
-    painterGrid->addWidget(mItemShadow, 0, 0);
+    painterGrid->addWidget(mItemShadowCheckbox, 0, 0);
     painterGrid->setRowMinimumHeight(1, 15);
     painterGrid->addWidget(mSmoothPathCheckbox, 2, 0);
     painterGrid->addWidget(mSmoothFactorLabel, 3, 0);

@@ -241,7 +241,7 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
         case Painter::Pen:
         case Painter::Marker:
             PainterPen* path;
-            if (mConfig->smoothPath() &&
+            if (mConfig->smoothPathEnabled() &&
                     (path = qgraphicsitem_cast<PainterPen*> (mCurrentItem))) {
                 path->smoothOut(mConfig->smoothFactor());
             }

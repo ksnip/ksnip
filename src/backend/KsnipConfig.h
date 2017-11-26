@@ -172,11 +172,11 @@ public:
     int eraseSize() const;
     void setEraseSize(int size);
 
-    bool itemShadow() const;
-    void setItemShadow(bool enabled);
+    bool itemShadowEnabled() const;
+    void setItemShadowEnabled(bool enabled);
 
-    bool smoothPath() const;
-    void setSmoothPath(bool enabled);
+    bool smoothPathEnabled() const;
+    void setSmoothPathEnabled(bool enabled);
 
     int smoothFactor() const;
     void setSmoothFactor(int factor);
@@ -185,6 +185,9 @@ public:
 
     bool captureCursor() const;
     void setCaptureCursor(bool enabled);
+
+    bool cursorRulerEnabled() const;
+    void setCursorRulerEnabled(bool enabled);
 
     int captureDelay() const;
     void setCaptureDelay(int delay);

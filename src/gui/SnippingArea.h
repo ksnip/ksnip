@@ -26,6 +26,7 @@
 
 #include "src/widgets/CursorFactory.h"
 #include "src/helper/MathHelper.h"
+#include "src/backend/KsnipConfig.h"
 
 class SnippingArea : public QWidget
 {
@@ -50,13 +51,17 @@ protected:
 private:
     QPoint         mMouseDownPosition;
     bool           mMouseIsDown;
+    bool           mMouseRulerEnabled;
     QRect          mCaptureArea;
     CursorFactory *mCursorFactory;
     QPixmap       *mBackground;
+    KsnipConfig   *mConfig;
 
     void show();
     void setBackgroundImage(const QPixmap& background);
     void clearBackgroundImage();
+    void init();
+    void updateCapturedArea(const QPoint &pos1, const QPoint &pos2);
 };
 
 #endif // SNIPPINGAREA_H

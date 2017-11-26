@@ -28,7 +28,7 @@ AbstractPainterItem* PainterItemFactory::createItem(Painter::Modes mode, const Q
 {
     auto item = createNewItem(mode, pos);
 
-    if (item && mode != Painter::Marker && mConfig->itemShadow()) {
+    if (item && mode != Painter::Marker && mConfig->itemShadowEnabled()) {
         item->addShadowEffect();
     }
 

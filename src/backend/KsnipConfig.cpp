@@ -723,33 +723,33 @@ void KsnipConfig::setEraseSize(int  size)
     emit painterUpdated();
 }
 
-bool KsnipConfig::itemShadow() const
+bool KsnipConfig::itemShadowEnabled() const
 {
-    return mConfig.value("Painter/ItemShadow", true).toBool();
+    return mConfig.value("Painter/ItemShadowEnabled", true).toBool();
 }
 
-void KsnipConfig::setItemShadow(bool enabled)
+void KsnipConfig::setItemShadowEnabled(bool enabled)
 {
-    if (itemShadow() == enabled) {
+    if (itemShadowEnabled() == enabled) {
         return;
     }
 
-    mConfig.setValue("Painter/ItemShadow", enabled);
+    mConfig.setValue("Painter/ItemShadowEnabled", enabled);
     mConfig.sync();
 }
 
-bool KsnipConfig::smoothPath() const
+bool KsnipConfig::smoothPathEnabled() const
 {
-    return mConfig.value("Painter/SmoothPath", true).toBool();
+    return mConfig.value("Painter/SmoothPathEnabled", true).toBool();
 }
 
-void KsnipConfig::setSmoothPath(bool  enabled)
+void KsnipConfig::setSmoothPathEnabled(bool  enabled)
 {
-    if (smoothPath() == enabled) {
+    if (smoothPathEnabled() == enabled) {
         return;
     }
 
-    mConfig.setValue("Painter/SmoothPath", enabled);
+    mConfig.setValue("Painter/SmoothPathEnabled", enabled);
     mConfig.sync();
 }
 
@@ -781,6 +781,20 @@ void KsnipConfig::setCaptureCursor(bool  enabled)
         return;
     }
     mConfig.setValue("ImageGrabber/CaptureCursor", enabled);
+    mConfig.sync();
+}
+
+bool KsnipConfig::cursorRulerEnabled() const
+{
+    return mConfig.value("ImageGrabber/CursorRulerEnabled", true).toBool();
+}
+
+void KsnipConfig::setCursorRulerEnabled(bool enabled)
+{
+    if (cursorRulerEnabled() == enabled) {
+        return;
+    }
+    mConfig.setValue("ImageGrabber/CursorRulerEnabled", enabled);
     mConfig.sync();
 }
 

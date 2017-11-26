@@ -20,6 +20,7 @@
 
 SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent),
     mCursorFactory(new CursorFactory()),
+    mConfig(KsnipConfig::instance()),
     mBackground(nullptr)
 {
     // Make the frame span across the screen and show above any other widget
@@ -50,6 +51,7 @@ void SnippingArea::showWithBackground(const QPixmap& background)
 
 void SnippingArea::show()
 {
+    init();
     setFixedSize(QDesktopWidget().size());
     QWidget::show();
     activateWindow();
@@ -68,6 +70,13 @@ void SnippingArea::clearBackgroundImage()
     }
 }
 
+void SnippingArea::init()
+{
+    mMouseRulerEnabled = mConfig->cursorRulerEnabled();
+    setMouseTracking(mMouseRulerEnabled);
+    mMouseIsDown = false;
+}
+
 void SnippingArea::mousePressEvent(QMouseEvent* event)
 {
     if (event->button() != Qt::LeftButton) {
@@ -75,7 +84,7 @@ void SnippingArea::mousePressEvent(QMouseEvent* event)
     }
 
     mMouseDownPosition = event->pos();
-    mCaptureArea =  MathHelper::getRectBetweenTwoPoints(event->pos(), event->pos());
+    updateCapturedArea(mMouseDownPosition, event->pos());
     mMouseIsDown = true;
 }
 
@@ -92,13 +101,10 @@ void SnippingArea::mouseReleaseEvent(QMouseEvent* event)
 
 void SnippingArea::mouseMoveEvent(QMouseEvent* event)
 {
-    if (!mMouseIsDown) {
-        return;
+    if (mMouseIsDown) {
+        updateCapturedArea(mMouseDownPosition, event->pos());
     }
-
-    mCaptureArea = MathHelper::getRectBetweenTwoPoints(mMouseDownPosition, event->pos());
     update();
-
     QWidget::mouseMoveEvent(event);
 }
 
@@ -106,7 +112,7 @@ void SnippingArea::paintEvent(QPaintEvent* event)
 {
     QPainter painter(this);
 
-    if(mBackground != nullptr) {
+    if (mBackground != nullptr) {
         painter.drawPixmap(geometry(), *mBackground);
     }
 
@@ -116,6 +122,13 @@ void SnippingArea::paintEvent(QPaintEvent* event)
 
     painter.setBrush(QColor(0, 0, 0, 150));
     painter.drawRect(geometry());
+
+    if (mMouseRulerEnabled) {
+        auto pos = QCursor::pos() + QPoint(2, 2);
+        painter.setPen(QPen(Qt::red, 1, Qt::DotLine, Qt::SquareCap, Qt::MiterJoin));
+        painter.drawLine(QPointF(pos.x(), geometry().bottom()), QPointF(pos.x(), geometry().top()));
+        painter.drawLine(QPointF(geometry().left(), pos.y()), QPointF(geometry().right(), pos.y()));
+    }
 
     if (mMouseIsDown) {
         painter.setPen(QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
@@ -132,4 +145,9 @@ void SnippingArea::keyPressEvent(QKeyEvent* event)
         close();
     }
     QWidget::keyPressEvent(event);
+}
+
+void SnippingArea::updateCapturedArea(const QPoint& pos1, const QPoint& pos2)
+{
+    mCaptureArea = MathHelper::getRectBetweenTwoPoints(pos1, pos2);
 }

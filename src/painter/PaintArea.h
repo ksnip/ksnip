@@ -26,7 +26,6 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QAction>
 #include <QRubberBand>
-#include <QMenu>
 
 #include "PainterItemFactory.h"
 #include "PainterPen.h"
@@ -38,6 +37,7 @@
 #include "PaintModes.h"
 #include "src/widgets/UndoCommands.h"
 #include "src/widgets/CursorFactory.h"
+#include "src/widgets/ContextMenu.h"
 
 class PaintArea : public QGraphicsScene
 {
@@ -91,7 +91,7 @@ private:
     CursorFactory       *mCursorFactory;
     QList<AbstractPainterItem *> mCopiedItems;
 
-    bool eraseItemAt(const QPointF &position, int size = 10);
+    void eraseItemAt(const QPointF &position, int size = 10);
     AbstractPainterItem *findItemAt(const QPointF &position, int size = 10);
     void moveItems(const QPointF &position);
     void clearCurrentItem();
@@ -100,12 +100,15 @@ private:
     QRectF mapFromView(const QRectF &rect) const;
     AbstractPainterItem *selectItemAt(const QPointF &point, int size = 10);
     void setSelectionArea(const QRectF &rect);
-    void bringForward(bool toFront = false);
-    void sendBackward(bool toBack = false);
-    void copySelectedItems(const QPointF& pos);
+
 
 private slots:
     void setCursor();
+    void bringForward(bool toFront = false);
+    void sendBackward(bool toBack = false);
+    void copySelectedItems(const QPointF& pos);
+    void pastCopiedItems(const QPointF& pos);
+    void eraseSelectedItems();
 };
 
 #endif // PAINTAREA_H

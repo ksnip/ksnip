@@ -51,6 +51,7 @@ set(ksnip_SRCS src/main.cpp
                src/widgets/CursorFactory.cpp
                src/widgets/NumericComboBox.cpp
                src/widgets/UndoCommands.cpp
+               src/widgets/ContextMenu.cpp
                src/widgets/settingsPicker/SettingsPicker.cpp
                src/widgets/settingsPicker/SettingsPickerPopup.cpp
                src/widgets/settingsPicker/SettingsPickerButton.cpp

@@ -336,61 +336,43 @@ void PaintArea::contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
 {
     auto item = selectItemAt(event->scenePos());
 
-    QMenu contextMenu;
-    QAction* bringForwardAction = nullptr;
-    QAction* bringToFrontAction = nullptr;
-    QAction* sentBackwardAction = nullptr;
-    QAction* sentToBackAction = nullptr;
-    QAction* eraseAction = nullptr;
+    ContextMenu contextMenu;
+
     if (item) {
-        QMenu* arrangeSubMenu = contextMenu.addMenu(tr("Arrange"));
-        bringForwardAction = arrangeSubMenu->addAction(tr("Bring Forward"));
-        bringToFrontAction = arrangeSubMenu->addAction(tr("Bring to Front"));
-        sentBackwardAction = arrangeSubMenu->addAction(tr("Sent Backward"));
-        sentToBackAction = arrangeSubMenu->addAction(tr("Sent to Back"));
-        contextMenu.addSeparator();
-        eraseAction = contextMenu.addAction(tr("Erase"));
+        contextMenu.addArrangeMenu();
+        contextMenu.addEraseAction();
         contextMenu.addSeparator();
     }
-
-    QAction* copyAction = contextMenu.addAction(tr("Copy"));
-    if (!item) {
-        copyAction->setEnabled(false);
-    }
-    QAction* pastAction = contextMenu.addAction(tr("Past"));
-    if(mCopiedItems.count() == 0) {
-        pastAction->setEnabled(false);
-    }
+    contextMenu.addCopyAction(item != nullptr);
+    contextMenu.addPastAction(mCopiedItems.count() > 0);
     contextMenu.addSeparator();
-    contextMenu.addAction(tr("Cancel"));
+    contextMenu.addCancelAction();
 
-    QAction* selectedAction = contextMenu.exec(event->screenPos());
-
-    if (bringForwardAction && selectedAction == bringForwardAction) {
+    connect(&contextMenu, &ContextMenu::bringForwardTriggered, [this]() {
         bringForward();
-    } else if (bringToFrontAction && selectedAction == bringToFrontAction) {
+    });
+    connect(&contextMenu, &ContextMenu::bringToFrontTriggered, [this]() {
         bringForward(true);
-    } else if (sentBackwardAction && selectedAction == sentBackwardAction) {
+    });
+    connect(&contextMenu, &ContextMenu::sendBackwardTriggered, [this]() {
         sendBackward();
-    } else if (sentToBackAction && selectedAction == sentToBackAction) {
+    });
+    connect(&contextMenu, &ContextMenu::sendToBackTriggered, [this]() {
         sendBackward(true);
-    } else if (eraseAction && selectedAction == eraseAction) {
-        mUndoStack->push(new DeleteCommand(this));
-    } else if (selectedAction == copyAction) {
-        copySelectedItems(event->scenePos());
-    } else if (selectedAction == pastAction) {
-        mUndoStack->push(new PastCommand(this, event->scenePos()));
-    }
+    });
+    connect(&contextMenu, &ContextMenu::copyTriggered, this, &PaintArea::copySelectedItems);
+    connect(&contextMenu, &ContextMenu::pastTriggered, this, &PaintArea::pastCopiedItems);
+    connect(&contextMenu, &ContextMenu::eraseTriggered, this, &PaintArea::eraseSelectedItems);
+
+    contextMenu.exec(event->screenPos());
 }
 
-bool PaintArea::eraseItemAt(const QPointF& position, int size)
+void PaintArea::eraseItemAt(const QPointF& position, int size)
 {
     auto item = selectItemAt(position, size);
-    if (!item) {
-        return false;
+    if (item) {
+        eraseSelectedItems();
     }
-    mUndoStack->push(new DeleteCommand(this));
-    return true;
 }
 
 AbstractPainterItem* PaintArea::findItemAt(const QPointF& position, int size)
@@ -576,5 +558,17 @@ void PaintArea::copySelectedItems(const QPointF& pos)
         newItem->setOffset(pos - newItem->position());
         mCopiedItems.append(newItem);
     }
+}
+
+void PaintArea::pastCopiedItems(const QPointF& pos)
+{
+    if (mCopiedItems.count() > 0) {
+        mUndoStack->push(new PastCommand(this, pos));
+    }
+}
+
+void PaintArea::eraseSelectedItems()
+{
+    mUndoStack->push(new DeleteCommand(this));
 }
 

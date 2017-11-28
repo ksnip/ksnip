@@ -35,12 +35,13 @@ class PainterItemFactory
 {
 public:
     PainterItemFactory();
-    AbstractPainterItem * createItem(Painter::Modes mode, const QPointF& pos);
+    AbstractPainterItem *createItem(Painter::Modes mode, const QPointF &pos) const;
+    AbstractPainterItem *createCopyOfItem(AbstractPainterItem *other) const;
 
 private:
     KsnipConfig *mConfig;
 
-    AbstractPainterItem * createNewItem(Painter::Modes mode, const QPointF& pos);
+    AbstractPainterItem *createNewItem(Painter::Modes mode, const QPointF &pos) const;
 };
 
 #endif // PAINTERITEMFACTORY_H

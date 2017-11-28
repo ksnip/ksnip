@@ -28,6 +28,15 @@ PainterArrow::PainterArrow(const QPointF& pos, const QPen& attributes) :
     mArrowHeadMid = 17 * mScale;
 }
 
+PainterArrow::PainterArrow(const PainterArrow& other) : PainterLine(other)
+{
+    this->mScale = other.mScale;
+    this->mArrowHeadLength = other.mArrowHeadLength;
+    this->mArrowHeadWidth = other.mArrowHeadWidth;
+    this->mArrowHeadMid = other.mArrowHeadMid;
+    this->mArrow = other.mArrow;
+}
+
 QRectF PainterArrow::boundingRect() const
 {
     return mArrow.boundingRect().normalized();

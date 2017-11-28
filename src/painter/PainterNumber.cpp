@@ -32,6 +32,15 @@ PainterNumber::PainterNumber(const QPointF& pos, const QPen& attributes, const Q
     mRect.moveCenter(pos);
 }
 
+PainterNumber::PainterNumber(const PainterNumber& other) : AbstractPainterItem(other)
+{
+    this->mNumber = mCounter++;  // Should we copy here the number?
+    this->mRect = other.mRect;
+    this->mFont = new QFont(*other.mFont);
+    this->mFontMetric = new QFontMetrics(*other.mFontMetric);
+    this->mTextColor = new QColor(*other.mTextColor);
+}
+
 PainterNumber::~PainterNumber()
 {
     delete mFont;

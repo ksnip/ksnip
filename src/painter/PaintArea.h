@@ -60,6 +60,7 @@ public:
     QAction *getUndoAction();
     QAction *getRedoAction();
     QList<AbstractPainterItem *> selectedItems(Qt::SortOrder order = Qt::DescendingOrder) const;
+    QList<AbstractPainterItem *> copiedItems() const;
 
 signals:
     void imageChanged();
@@ -75,19 +76,20 @@ protected:
 private:
     bool                 mIsEnabled;
     QGraphicsPixmapItem *mScreenshot;
-    AbstractPainterItem     *mCurrentItem;
+    AbstractPainterItem *mCurrentItem;
     QRubberBand         *mRubberBand;
     QPoint               mRubberBandOrigin;
     QCursor             *mCursor;
     bool                 mShiftPressed;
     bool                 mCtrlPressed;
-    Painter::Modes    mPaintMode;
+    Painter::Modes       mPaintMode;
     QUndoStack          *mUndoStack;
     QAction             *mUndoAction;
     QAction             *mRedoAction;
     KsnipConfig         *mConfig;
     PainterItemFactory  *mPainterItemFactory;
     CursorFactory       *mCursorFactory;
+    QList<AbstractPainterItem *> mCopiedItems;
 
     bool eraseItemAt(const QPointF &position, int size = 10);
     AbstractPainterItem *findItemAt(const QPointF &position, int size = 10);
@@ -100,6 +102,7 @@ private:
     void setSelectionArea(const QRectF &rect);
     void bringForward(bool toFront = false);
     void sendBackward(bool toBack = false);
+    void copySelectedItems(const QPointF& pos);
 
 private slots:
     void setCursor();

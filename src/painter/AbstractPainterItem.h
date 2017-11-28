@@ -36,6 +36,7 @@ public:
 
 public:
     AbstractPainterItem(const QPen &attributes);
+    AbstractPainterItem(const AbstractPainterItem& other);
     ~AbstractPainterItem();
     virtual int type() const override;
     virtual QRectF boundingRect() const override = 0;
@@ -64,7 +65,7 @@ protected:
 
 private:
     QPen    mAttributes;
-    QPen    mSelectAttr;
+    QPen    mSelectAttributes;
     QPointF mOffset;
 };
 

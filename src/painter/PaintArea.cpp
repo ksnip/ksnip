@@ -173,6 +173,11 @@ QList<AbstractPainterItem*> PaintArea::selectedItems(Qt::SortOrder order) const
     return list;
 }
 
+QList<AbstractPainterItem *> PaintArea::copiedItems() const
+{
+    return mCopiedItems;
+}
+
 void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
 {
     if (!mIsEnabled) {
@@ -242,7 +247,7 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
         case Painter::Marker:
             PainterPen* path;
             if (mConfig->smoothPathEnabled() &&
-                    (path = qgraphicsitem_cast<PainterPen*> (mCurrentItem))) {
+                    (path = qgraphicsitem_cast<PainterPen*>(mCurrentItem))) {
                 path->smoothOut(mConfig->smoothFactor());
             }
         case Painter::Rect:
@@ -330,33 +335,51 @@ void PaintArea::keyReleaseEvent(QKeyEvent* event)
 void PaintArea::contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
 {
     auto item = selectItemAt(event->scenePos());
-    if (!item) {
-        return;
-    }
 
     QMenu contextMenu;
-    QMenu* arrangeSubMenu = contextMenu.addMenu(tr("Arrange"));
-    QAction* bringForwardAction = arrangeSubMenu->addAction(tr("Bring Forward"));
-    QAction* bringToFrontAction = arrangeSubMenu->addAction(tr("Bring to Front"));
-    QAction* sentBackwardAction = arrangeSubMenu->addAction(tr("Sent Backward"));
-    QAction* sentToBackAction = arrangeSubMenu->addAction(tr("Sent to Back"));
-    contextMenu.addSeparator();
-    QAction* eraseAction = contextMenu.addAction(tr("Erase"));
+    QAction* bringForwardAction = nullptr;
+    QAction* bringToFrontAction = nullptr;
+    QAction* sentBackwardAction = nullptr;
+    QAction* sentToBackAction = nullptr;
+    QAction* eraseAction = nullptr;
+    if (item) {
+        QMenu* arrangeSubMenu = contextMenu.addMenu(tr("Arrange"));
+        bringForwardAction = arrangeSubMenu->addAction(tr("Bring Forward"));
+        bringToFrontAction = arrangeSubMenu->addAction(tr("Bring to Front"));
+        sentBackwardAction = arrangeSubMenu->addAction(tr("Sent Backward"));
+        sentToBackAction = arrangeSubMenu->addAction(tr("Sent to Back"));
+        contextMenu.addSeparator();
+        eraseAction = contextMenu.addAction(tr("Erase"));
+        contextMenu.addSeparator();
+    }
+
+    QAction* copyAction = contextMenu.addAction(tr("Copy"));
+    if (!item) {
+        copyAction->setEnabled(false);
+    }
+    QAction* pastAction = contextMenu.addAction(tr("Past"));
+    if(mCopiedItems.count() == 0) {
+        pastAction->setEnabled(false);
+    }
     contextMenu.addSeparator();
     contextMenu.addAction(tr("Cancel"));
 
     QAction* selectedAction = contextMenu.exec(event->screenPos());
 
-    if (selectedAction == bringForwardAction) {
+    if (bringForwardAction && selectedAction == bringForwardAction) {
         bringForward();
-    } else if (selectedAction == bringToFrontAction) {
+    } else if (bringToFrontAction && selectedAction == bringToFrontAction) {
         bringForward(true);
-    } else if (selectedAction == sentBackwardAction) {
+    } else if (sentBackwardAction && selectedAction == sentBackwardAction) {
         sendBackward();
-    } else if (selectedAction == sentToBackAction) {
+    } else if (sentToBackAction && selectedAction == sentToBackAction) {
         sendBackward(true);
-    } else if (selectedAction == eraseAction) {
+    } else if (eraseAction && selectedAction == eraseAction) {
         mUndoStack->push(new DeleteCommand(this));
+    } else if (selectedAction == copyAction) {
+        copySelectedItems(event->scenePos());
+    } else if (selectedAction == pastAction) {
+        mUndoStack->push(new PastCommand(this, event->scenePos()));
     }
 }
 
@@ -538,6 +561,20 @@ void PaintArea::sendBackward(bool toBack)
     // Check if we have any swapping, if yes, create a new undo/redo command
     if (!list->isEmpty()) {
         mUndoStack->push(new ReOrderCommand(list));
+    }
+}
+
+void PaintArea::copySelectedItems(const QPointF& pos)
+{
+    for (auto copiedItem : mCopiedItems) {
+        delete copiedItem;
+    }
+    mCopiedItems.clear();
+
+    for (auto selectedItem : selectedItems(Qt::AscendingOrder)) {
+        auto newItem = mPainterItemFactory->createCopyOfItem(selectedItem);
+        newItem->setOffset(pos - newItem->position());
+        mCopiedItems.append(newItem);
     }
 }
 

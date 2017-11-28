@@ -42,6 +42,7 @@ private:
 
 public:
     PainterText(const QPointF &pos, const QPen &attributes, const QFont &font);
+    PainterText(const PainterText& other);
     virtual ~PainterText() override;
     virtual QRectF boundingRect() const override;
     virtual void moveTo(const QPointF &newPos) override;
@@ -57,14 +58,14 @@ protected:
 
 private:
     const int mTextBoxMargine = 2;
-    QRectF mRect;
-    QString mText;
-    QFont mFont;
+    QRectF        mRect;
+    QString       mText;
+    QFont         mFont;
     QFontMetrics *mFontMetric;
-    QTimer *mCursorBlinkTimer;
-    bool mEditable;
-    int mCursorPos;
-    bool mCursorVisible;
+    QTimer       *mCursorBlinkTimer;
+    bool          mEditable;
+    int           mCursorPos;
+    bool          mCursorVisible;
 
     virtual void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) override;
     void moveCursor(CursorPos direction);

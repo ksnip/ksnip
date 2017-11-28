@@ -24,6 +24,10 @@ PainterEllipse::PainterEllipse(const QPointF& pos, const QPen& attributes, bool 
 {
 }
 
+PainterEllipse::PainterEllipse(const PainterEllipse& other) : PainterRect(other)
+{
+}
+
 bool PainterEllipse::containsRect(const QPointF& topLeft, const QSize& size) const
 {
     if (mFilled) {

@@ -27,6 +27,16 @@ PainterLine::PainterLine(const QPointF& pos, const QPen& attributes) :
     mLine->setP2(pos + QPointF(1,1));
 }
 
+PainterLine::PainterLine(const PainterLine& other) : AbstractPainterItem(other)
+{
+    mLine = new QLineF(*other.mLine);
+}
+
+PainterLine::~PainterLine()
+{
+    delete mLine;
+}
+
 QRectF PainterLine::boundingRect() const
 {
     auto offset = attributes().width() / 2;

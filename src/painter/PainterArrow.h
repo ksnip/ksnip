@@ -26,6 +26,7 @@ class PainterArrow : public PainterLine
 {
 public:
     PainterArrow(const QPointF &pos, const QPen &attributes);
+    PainterArrow(const PainterArrow& other);
     virtual QRectF boundingRect() const override;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
     virtual void moveTo(const QPointF &newPos) override;

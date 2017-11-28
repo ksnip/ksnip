@@ -21,16 +21,24 @@
 
 int AbstractPainterItem::mOrder = 1;
 
-//
-// Public Methods
-//
 AbstractPainterItem::AbstractPainterItem(const QPen& attributes)
 {
     mAttributes = attributes;
-    mSelectAttr.setColor(Qt::red);
-    mSelectAttr.setStyle(Qt::DotLine);
+    mSelectAttributes.setColor(Qt::red);
+    mSelectAttributes.setStyle(Qt::DotLine);
 
     setZValue(mOrder++);
+}
+
+AbstractPainterItem::AbstractPainterItem(const AbstractPainterItem& other)
+{
+    this->mAttributes = other.mAttributes;
+    this->mSelectAttributes = other.mSelectAttributes;
+    if (other.graphicsEffect()) {
+        this->addShadowEffect();
+    }
+    this->setSelectable(other.selectable());
+    this->setOffset(other.offset());
 }
 
 AbstractPainterItem::~AbstractPainterItem()
@@ -121,7 +129,7 @@ void AbstractPainterItem::setSelectable(bool enabled)
 
 const QPen& AbstractPainterItem::selectColor() const
 {
-    return mSelectAttr;
+    return mSelectAttributes;
 }
 
 void AbstractPainterItem::addShadowEffect()

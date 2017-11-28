@@ -181,7 +181,6 @@ void CropCommand::redo()
         }
     }
 
-
     mPixmapItem->setPixmap(*mNewPixmap);
     mPixmapItem->setOffset(mNewOffset);
     mScene->setSceneRect(mNewRect);
@@ -218,4 +217,46 @@ void ReOrderCommand::redo()
         item.first->setZValue(item.second->zValue());
         item.second->setZValue(tmp);
     }
+}
+
+//
+// Past Command
+//
+
+PastCommand::PastCommand(PaintArea* scene, const QPointF& pos, QUndoCommand* parent)
+{
+    mScene = scene;
+    mPosition = pos;
+    PainterItemFactory paintItemFactory;
+    for (auto item : mScene->copiedItems()) {
+        auto newItem = paintItemFactory.createCopyOfItem(item);
+        mList.append(newItem);
+    }
+}
+
+PastCommand::~PastCommand()
+{
+    for (auto item : mList) {
+        delete item;
+    }
+    mList.clear();
+}
+
+void PastCommand::undo()
+{
+    for (auto item : mList) {
+        mScene->removeItem(item);
+        item->hide();
+    }
+    mScene->update();
+}
+
+void PastCommand::redo()
+{
+    for (auto item : mList) {
+        mScene->addItem(item);
+        item->moveTo(mPosition);
+        item->show();
+    }
+    mScene->update();
 }

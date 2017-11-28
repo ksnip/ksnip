@@ -27,6 +27,12 @@ PainterRect::PainterRect(const QPointF& pos, const QPen &attributes, bool filled
     setJoinStyle(Qt::MiterJoin);
 }
 
+PainterRect::PainterRect(const PainterRect& other) : AbstractPainterItem(other)
+{
+    this->mFilled = other.mFilled;
+    this->mRect = other.mRect;
+}
+
 QRectF PainterRect::boundingRect() const
 {
     qreal width = attributes().widthF();

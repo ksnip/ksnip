@@ -24,6 +24,7 @@
 
 #include "src/painter/AbstractPainterItem.h"
 #include "src/painter/PaintArea.h"
+#include "src/painter/PainterItemFactory.h"
 
 class PaintArea;
 
@@ -61,7 +62,7 @@ public:
 
 private:
     QList<Entry> mItems;
-    PaintArea *mScene;
+    PaintArea   *mScene;
 };
 
 
@@ -74,7 +75,7 @@ public:
 
 private:
     QList<AbstractPainterItem *>  mItems;
-    PaintArea               *mScene;
+    PaintArea                    *mScene;
 };
 
 
@@ -88,8 +89,8 @@ public:
 
 private:
     AbstractPainterItem *mPainterItem;
-    PaintArea       *mScene;
-    QPointF mInitialPosition;
+    PaintArea           *mScene;
+    QPointF              mInitialPosition;
 };
 
 
@@ -106,10 +107,10 @@ private:
     QPixmap             *mOldPixmap;
     QPixmap             *mNewPixmap;
     QGraphicsPixmapItem *mPixmapItem;
-    QRectF              mNewRect;
-    QRectF              mOldRect;
-    QPointF             mOldOffset;
-    QPointF             mNewOffset;
+    QRectF               mNewRect;
+    QRectF               mOldRect;
+    QPointF              mOldOffset;
+    QPointF              mNewOffset;
 };
 
 class ReOrderCommand : public QUndoCommand
@@ -122,6 +123,21 @@ public:
 
 private:
     QList<QPair<QGraphicsItem*, QGraphicsItem*>> *mList;
+};
+
+
+class PastCommand : public QUndoCommand
+{
+public:
+    PastCommand(PaintArea *scene, const QPointF& pos, QUndoCommand *parent = 0);
+    ~PastCommand();
+    virtual void undo() override;
+    virtual void redo() override;
+
+private:
+    QList<AbstractPainterItem*> mList;
+    PaintArea                  *mScene;
+    QPointF                     mPosition;
 };
 
 #endif // UNDOCOMMANDS_H

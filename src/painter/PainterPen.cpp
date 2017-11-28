@@ -27,7 +27,7 @@
 PainterPen::PainterPen(const QPointF& pos, const QPen& attributes) :
     AbstractPainterItem(attributes),
     mPath(new QPainterPath),
-    mStroker(new QPainterPathStroker)
+    mStroker(new QPainterPathStroker(this->attributes()))
 {
     // Place the path at the right location and draw the first point, which is
     // actually a line just moved one pixel as QT won't draw a line if the point
@@ -35,10 +35,17 @@ PainterPen::PainterPen(const QPointF& pos, const QPen& attributes) :
     mPath->moveTo(pos);
     mPath->lineTo(pos + QPointF(1, 1));
 
-    //setup the stroker which we use to draw the path
     mStroker->setCapStyle(Qt::RoundCap);
     mStroker->setJoinStyle(Qt::RoundJoin);
-    mStroker->setWidth(this->attributes().width());
+}
+
+PainterPen::PainterPen(const PainterPen& other) : AbstractPainterItem(other)
+{
+    this->mPath = new QPainterPath(*other.mPath);
+    this->mStroker = new QPainterPathStroker();
+    this->mStroker->setWidth(other.mStroker->width());
+    this->mStroker->setCapStyle(other.mStroker->capStyle());
+    this->mStroker->setJoinStyle(other.mStroker->joinStyle());
 }
 
 PainterPen::~PainterPen()

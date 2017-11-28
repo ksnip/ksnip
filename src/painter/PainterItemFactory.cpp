@@ -24,7 +24,7 @@ PainterItemFactory::PainterItemFactory()
     mConfig = KsnipConfig::instance();
 }
 
-AbstractPainterItem* PainterItemFactory::createItem(Painter::Modes mode, const QPointF& pos)
+AbstractPainterItem* PainterItemFactory::createItem(Painter::Modes mode, const QPointF& pos) const
 {
     auto item = createNewItem(mode, pos);
 
@@ -35,7 +35,30 @@ AbstractPainterItem* PainterItemFactory::createItem(Painter::Modes mode, const Q
     return item;
 }
 
-AbstractPainterItem* PainterItemFactory::createNewItem(Painter::Modes mode, const QPointF& pos)
+AbstractPainterItem * PainterItemFactory::createCopyOfItem(AbstractPainterItem* other) const
+{
+    if (auto item = dynamic_cast<PainterMarker*>(other)){
+        return new PainterMarker(*item);
+    } else if (auto item = dynamic_cast<PainterPen*>(other)) {
+        return new PainterPen(*item);
+    } else if (auto item = dynamic_cast<PainterArrow*>(other)) {
+        return new PainterArrow(*item);
+    } else if (auto item = dynamic_cast<PainterLine*>(other)) {
+        return new PainterLine(*item);
+    } else if (auto item = dynamic_cast<PainterEllipse*>(other)) {
+        return new PainterEllipse(*item);
+    } else if (auto item = dynamic_cast<PainterRect*>(other)) {
+        return new PainterRect(*item);
+    } else if (auto item = dynamic_cast<PainterNumber*>(other)) {
+        return new PainterNumber(*item);
+    } else if (auto item = dynamic_cast<PainterText*>(other)) {
+        return new PainterText(*item);
+    } else {
+        return nullptr;
+    }
+}
+
+AbstractPainterItem* PainterItemFactory::createNewItem(Painter::Modes mode, const QPointF& pos) const
 {
     switch (mode) {
     case Painter::Pen:

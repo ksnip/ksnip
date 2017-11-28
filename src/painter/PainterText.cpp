@@ -43,6 +43,18 @@ PainterText::PainterText(const QPointF& pos, const QPen& attributes, const QFont
     mCursorBlinkTimer->start(1000);
 }
 
+PainterText::PainterText(const PainterText& other) : AbstractPainterItem(other)
+{
+    this->mRect = other.mRect;
+    this->mText = other.mText;
+    this->mFont = other.mFont;
+    this->mFontMetric = new QFontMetrics(*other.mFontMetric);
+    this->mCursorBlinkTimer = new QTimer(this);
+    this->mEditable = other.mEditable;
+    this->mCursorPos = other.mCursorPos;
+    this->mCursorVisible = other.mCursorVisible;
+}
+
 PainterText::~PainterText()
 {
     delete mFontMetric;

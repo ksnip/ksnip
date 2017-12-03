@@ -165,18 +165,27 @@ QString SnippingArea::createPositionInfoText(int number1, int number2) const
 
 void SnippingArea::drawCursorRuler(QPainter& painter) const
 {
-    auto pos = QCursor::pos() + QPoint(2, 2);
+    auto pos = QCursor::pos();
+    int offset = 4;
+    QLine midToTop(QPoint(pos.x(), pos.y() - offset), QPoint(pos.x(), geometry().top()));
+    QLine midToRight(QPoint(pos.x() + offset, pos.y()), QPoint(geometry().right(), pos.y()));
+    QLine midToBottom(QPoint(pos.x(), pos.y() + offset), QPoint(pos.x(), geometry().bottom()));
+    QLine midToLeft(QPoint(pos.x() - offset, pos.y()), QPoint(geometry().left(), pos.y()));
+
     painter.setPen(QPen(Qt::red, 1, Qt::DotLine, Qt::SquareCap, Qt::MiterJoin));
-    painter.drawLine(QPointF(pos.x(), geometry().bottom()), QPointF(pos.x(), geometry().top()));
-    painter.drawLine(QPointF(geometry().left(), pos.y()), QPointF(geometry().right(), pos.y()));
+    painter.drawLine(midToTop);
+    painter.drawLine(midToRight);
+    painter.drawLine(midToBottom);
+    painter.drawLine(midToLeft);
 }
 
 void SnippingArea::drawCursorPositionInfo(QPainter& painter) const
 {
+    QPoint textOffset(10, 8);
     auto pos = QCursor::pos();
     auto text = createPositionInfoText(pos.x(), pos.y());
     auto textBoundingRect = getTextBounding(painter, text);
-    textBoundingRect.moveTopLeft(pos + QPoint(10, 8));
+    textBoundingRect.moveTopLeft(pos + textOffset);
     auto boxRect = textBoundingRect;
     textBoundingRect.adjust(0, 0, 4, 4);
     boxRect.adjust(-3, 0, 4, 0);
@@ -200,7 +209,7 @@ void SnippingArea::drawCursorWidthInfo(QPainter& painter) const
     QPoint lineOffset(0, -10);
     QPoint lineEndOffset(0, -3);
     QPoint widthTextOffset(0, -8);
-    QLine lineEndLeft(QPoint(0,0), QPoint(0,6));
+    QLine lineEndLeft(QPoint(0, 0), QPoint(0, 6));
     QLine lineEndRight(lineEndLeft);
     QLine line(mCaptureArea.topLeft(), mCaptureArea.topRight());
     auto widthText = QString::number(mCaptureArea.width());
@@ -212,7 +221,7 @@ void SnippingArea::drawCursorWidthInfo(QPainter& painter) const
     auto lineCenter = MathHelper::getLineCenter(line);
     auto widthTextBoundingRect = getTextBounding(painter, widthText);
     widthTextBoundingRect.moveCenter(lineCenter + widthTextOffset);
-    widthTextBoundingRect.adjust(0,0,2,2);
+    widthTextBoundingRect.adjust(0, 0, 2, 2);
 
     painter.drawLine(line);
     painter.drawLine(lineEndLeft);
@@ -225,7 +234,7 @@ void SnippingArea::drawCursorHeightInfo(QPainter& painter) const
     QPoint lineOffset(-10, 0);
     QPoint lineEndOffset(-3, 0);
     QPoint heightTextOffset(-5, 0);
-    QLine lineEndTop(QPoint(0,0), QPoint(6,0));
+    QLine lineEndTop(QPoint(0, 0), QPoint(6, 0));
     QLine lineEndBottom(lineEndTop);
     QLine line(mCaptureArea.topLeft(), mCaptureArea.bottomLeft());
     auto heightText = QString::number(mCaptureArea.height());
@@ -251,5 +260,3 @@ QRect SnippingArea::getTextBounding(const QPainter& painter, const QString& text
     auto fontMetric = painter.fontMetrics();
     return fontMetric.boundingRect(text);
 }
-
-

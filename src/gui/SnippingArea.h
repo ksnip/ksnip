@@ -55,8 +55,8 @@ private:
     bool           mCursorInfoEnabled;
     QRect          mCaptureArea;
     CursorFactory *mCursorFactory;
-    QPixmap       *mBackground;
     KsnipConfig   *mConfig;
+    QPixmap       *mBackground;
 
     void show();
     void setBackgroundImage(const QPixmap &background);

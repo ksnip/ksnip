@@ -42,7 +42,8 @@ private:
     QPixmap createCrossPixmap(const QColor &color = nullptr) const;
     QPixmap createCirclePixmap(const QColor &color, int size) const;
     QPixmap createRectPixmap(const QColor &color, int size) const;
-    QPixmap createEmptyPixmap(int size) const;
+    QPixmap createEmptyPixmap() const;
+    QPoint getPixmapCenter(const QPixmap &pixmap) const;
 };
 
 #endif // CUSTOMCURSOR_H

@@ -65,7 +65,7 @@ void SnippingArea::setBackgroundImage(const QPixmap& background)
 
 void SnippingArea::clearBackgroundImage()
 {
-    if(mBackground != nullptr) {
+    if (mBackground != nullptr) {
         delete mBackground;
     }
 }
@@ -124,12 +124,16 @@ void SnippingArea::paintEvent(QPaintEvent* event)
     painter.setBrush(QColor(0, 0, 0, 150));
     painter.drawRect(geometry());
 
-    if (mCursorRulerEnabled) {
+    if (mCursorRulerEnabled && !mMouseIsDown) {
         drawCursorRuler(painter);
     }
 
     if (mCursorInfoEnabled) {
-        drawCursorInfo(painter);
+        if (mMouseIsDown) {
+            drawCursorSizeInfo(painter);
+        } else {
+            drawCursorPositionInfo(painter);
+        }
     }
 
     if (mMouseIsDown) {
@@ -154,18 +158,9 @@ void SnippingArea::updateCapturedArea(const QPoint& pos1, const QPoint& pos2)
     mCaptureArea = MathHelper::getRectBetweenTwoPoints(pos1, pos2);
 }
 
-QString SnippingArea::createInfoText(int number1, int number2) const
+QString SnippingArea::createPositionInfoText(int number1, int number2) const
 {
     return QString::number(number1) + ", " + QString::number(number2);
-}
-
-QPoint SnippingArea::calculateInfoTextPosition(const QPoint& pos) const
-{
-    auto drawPos = pos + QPoint(6, 15);
-    if (mMouseIsDown && mCaptureArea.contains(drawPos)) {
-        drawPos = pos + QPoint(6, -5);
-    }
-    return drawPos;
 }
 
 void SnippingArea::drawCursorRuler(QPainter& painter) const
@@ -176,15 +171,85 @@ void SnippingArea::drawCursorRuler(QPainter& painter) const
     painter.drawLine(QPointF(geometry().left(), pos.y()), QPointF(geometry().right(), pos.y()));
 }
 
-void SnippingArea::drawCursorInfo(QPainter& painter) const
+void SnippingArea::drawCursorPositionInfo(QPainter& painter) const
 {
     auto pos = QCursor::pos();
+    auto text = createPositionInfoText(pos.x(), pos.y());
+    auto textBoundingRect = getTextBounding(painter, text);
+    textBoundingRect.moveTopLeft(pos + QPoint(10, 8));
+    auto boxRect = textBoundingRect;
+    textBoundingRect.adjust(0, 0, 4, 4);
+    boxRect.adjust(-3, 0, 4, 0);
+
     painter.setPen(QPen(Qt::red, 1));
-    auto drawPos = calculateInfoTextPosition(pos);
-    if (mMouseIsDown) {
-        painter.drawText(drawPos, createInfoText(mCaptureArea.width(), mCaptureArea.height()));
-    } else {
-        painter.drawText(drawPos, createInfoText(pos.x(), pos.y()));
-    }
+    painter.setBrush(QColor(0, 0, 0, 200));
+
+    painter.drawRoundedRect(boxRect, 2, 2);
+    painter.drawText(textBoundingRect, text);
 }
+
+void SnippingArea::drawCursorSizeInfo(QPainter& painter) const
+{
+    painter.setPen(QPen(Qt::red, 1));
+    drawCursorWidthInfo(painter);
+    drawCursorHeightInfo(painter);
+}
+
+void SnippingArea::drawCursorWidthInfo(QPainter& painter) const
+{
+    QPoint lineOffset(0, -10);
+    QPoint lineEndOffset(0, -3);
+    QPoint widthTextOffset(0, -8);
+    QLine lineEndLeft(QPoint(0,0), QPoint(0,6));
+    QLine lineEndRight(lineEndLeft);
+    QLine line(mCaptureArea.topLeft(), mCaptureArea.topRight());
+    auto widthText = QString::number(mCaptureArea.width());
+
+    line.translate(lineOffset);
+    lineEndLeft.translate(line.p1() + lineEndOffset);
+    lineEndRight.translate(line.p2() + lineEndOffset);
+
+    auto lineCenter = MathHelper::getLineCenter(line);
+    auto widthTextBoundingRect = getTextBounding(painter, widthText);
+    widthTextBoundingRect.moveCenter(lineCenter + widthTextOffset);
+    widthTextBoundingRect.adjust(0,0,2,2);
+
+    painter.drawLine(line);
+    painter.drawLine(lineEndLeft);
+    painter.drawLine(lineEndRight);
+    painter.drawText(widthTextBoundingRect, widthText);
+}
+
+void SnippingArea::drawCursorHeightInfo(QPainter& painter) const
+{
+    QPoint lineOffset(-10, 0);
+    QPoint lineEndOffset(-3, 0);
+    QPoint heightTextOffset(-5, 0);
+    QLine lineEndTop(QPoint(0,0), QPoint(6,0));
+    QLine lineEndBottom(lineEndTop);
+    QLine line(mCaptureArea.topLeft(), mCaptureArea.bottomLeft());
+    auto heightText = QString::number(mCaptureArea.height());
+
+    line.translate(lineOffset);
+    lineEndTop.translate(line.p1() + lineEndOffset);
+    lineEndBottom.translate(line.p2() + lineEndOffset);
+
+    auto lineCenter = MathHelper::getLineCenter(line);
+    auto heightTextBoundingRect = getTextBounding(painter, heightText);
+    heightTextOffset.setX(heightTextOffset.x() - (heightTextBoundingRect.width() / 2));
+    heightTextBoundingRect.moveCenter(lineCenter + heightTextOffset);
+
+    painter.drawLine(line);
+    painter.drawLine(lineEndTop);
+    painter.drawLine(lineEndBottom);
+    painter.drawText(heightTextBoundingRect, heightText);
+}
+
+
+QRect SnippingArea::getTextBounding(const QPainter& painter, const QString& text) const
+{
+    auto fontMetric = painter.fontMetrics();
+    return fontMetric.boundingRect(text);
+}
+
 

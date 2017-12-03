@@ -38,7 +38,7 @@ public:
     CustomCursor(CursorShape shape, const QColor &color = nullptr, int size = 22);
 
 private:
-    QPixmap createPixmap(CursorShape shape, const QColor &color, int size) const;
+    QPixmap getPixmapForShape(CursorShape shape, const QColor &color, int size) const;
     QPixmap createCrossPixmap(const QColor &color = nullptr) const;
     QPixmap createCirclePixmap(const QColor &color, int size) const;
     QPixmap createRectPixmap(const QColor &color, int size) const;

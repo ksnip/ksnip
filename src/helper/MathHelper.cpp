@@ -60,3 +60,14 @@ QRect MathHelper::getRectBetweenTwoPoints(const QPoint& point1, const QPoint& po
 {
     return QRect(point1, point2).normalized();
 }
+
+QPoint MathHelper::getLineCenter(const QLine& line)
+{
+    return (line.p1() + line.p2()) / 2;
+}
+
+QPoint MathHelper::getCenterBetweenPoints(const QPoint& p1, const QPoint& p2)
+{
+    return (p1 + p2) / 2;
+}
+

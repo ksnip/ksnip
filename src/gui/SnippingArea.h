@@ -59,14 +59,17 @@ private:
     KsnipConfig   *mConfig;
 
     void show();
-    void setBackgroundImage(const QPixmap& background);
+    void setBackgroundImage(const QPixmap &background);
     void clearBackgroundImage();
     void init();
     void updateCapturedArea(const QPoint &pos1, const QPoint &pos2);
-    QString createInfoText(int number1, int number2) const;
-    QPoint calculateInfoTextPosition(const QPoint& pos) const;
-    void drawCursorRuler(QPainter& painter) const;
-    void drawCursorInfo(QPainter& painter) const;
+    QString createPositionInfoText(int number1, int number2) const;
+    void drawCursorRuler(QPainter &painter) const;
+    void drawCursorPositionInfo(QPainter &painter) const;
+    void drawCursorSizeInfo(QPainter &painter) const;
+    void drawCursorWidthInfo(QPainter &painter) const;
+    void drawCursorHeightInfo(QPainter &painter) const;
+    QRect getTextBounding(const QPainter &painter, const QString &text) const;
 };
 
 #endif // SNIPPINGAREA_H

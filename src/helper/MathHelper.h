@@ -23,6 +23,7 @@
 #include <QtMath>
 #include <QPointF>
 #include <QRect>
+#include <QLine>
 
 class MathHelper
 {
@@ -32,6 +33,8 @@ public:
     static QPointF getEndOfRounding(const QPointF& point1, const QPointF& point2);
     static qreal smallerValue(qreal value1, qreal value2);
     static QRect getRectBetweenTwoPoints(const QPoint& point1, const QPoint& point2);
+    static QPoint getLineCenter(const QLine &line);
+    static QPoint getCenterBetweenPoints(const QPoint &p1, const QPoint &p2);
 };
 
 #endif // MATHHELPER_H

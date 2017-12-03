@@ -25,11 +25,11 @@ CustomCursor::CustomCursor() : QCursor()
 }
 
 CustomCursor::CustomCursor(CursorShape shape, const QColor& color, int size) :
-    QCursor(createPixmap(shape, color, size))
+    QCursor(getPixmapForShape(shape, color, size))
 {
 }
 
-QPixmap CustomCursor::createPixmap(CursorShape shape, const QColor& color, int size) const
+QPixmap CustomCursor::getPixmapForShape(CursorShape shape, const QColor& color, int size) const
 {
     switch(shape) {
         case Circle:

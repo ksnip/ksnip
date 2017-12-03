@@ -46,12 +46,12 @@ QPixmap CustomCursor::createCrossPixmap(const QColor& color) const
     auto pixmap = createEmptyPixmap();
     QPainter painter(&pixmap);
     painter.setPen(QPen(QColor("red"), 1, Qt::SolidLine));
-    painter.drawPoint(16,16);
+    painter.drawPoint(16, 16);
     painter.setPen(QPen(color, 1, Qt::SolidLine));
-    painter.drawLine(16,12, 16, 0);
-    painter.drawLine(16,20, 16, 32);
-    painter.drawLine(12,16, 0, 16);
-    painter.drawLine(20,16, 32, 16);
+    painter.drawLine(16, 12, 16, 0);
+    painter.drawLine(16, 20, 16, 32);
+    painter.drawLine(12, 16, 0, 16);
+    painter.drawLine(20, 16, 32, 16);
     return pixmap;
 }
 

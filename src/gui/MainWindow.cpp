@@ -709,7 +709,12 @@ void MainWindow::initGui()
 void MainWindow::newRectAreaCaptureClicked()
 {
     setWindowOpacity(0.0);
-    mSnippingArea->show();
+    if(!X11GraphicsHelper::isCompositorActive()) {
+        mSnippingArea->showWithoutBackground();
+    } else {
+        delay(200);
+        mSnippingArea->showWithBackground(mImageGrabber->grabImage(ImageGrabber::FullScreen, false));
+    }
     mPaintArea->setIsEnabled(false);
     KsnipConfig::instance()->setCaptureMode(ImageGrabber::RectArea);
 }

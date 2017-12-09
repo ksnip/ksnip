@@ -32,6 +32,8 @@ class SnippingArea : public QWidget
     Q_OBJECT
 public:
     SnippingArea(QWidget *);
+    void showWithoutBackground();
+    void showWithBackground(const QPixmap& background);
 
 signals:
     void areaSelected(QRect);
@@ -47,6 +49,12 @@ private:
     bool          mMouseIsDown;
     QRect         mCaptureArea;
     CustomCursor *mCursor;
+    QPixmap      *mBackground;
+
+    void show();
+    void setBackgroundImage(const QPixmap &background);
+    void clearBackgroundImage();
+    void init();
     QRect calculateArea(QPoint, QPoint);
 };
 

@@ -19,22 +19,55 @@
 #include "SnippingArea.h"
 
 SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent),
-    mCursor(new CustomCursor(CustomCursor::Cross))
+    mCursor(new CustomCursor(CustomCursor::Cross)),
+    mBackground(nullptr)
 {
-    // Hide the widget background, we will draw it manually on the paint event
-    setAttribute(Qt::WA_TranslucentBackground, true);
-
     // Make the frame span across the screen and show above any other widget
     setWindowFlags(Qt::FramelessWindowHint | Qt::ToolTip);
-    setFixedSize(QDesktopWidget().size());
 
     // Set the default cursor for this widget to a custom cursor
     QWidget::setCursor(*mCursor);
 }
 
-//
-// Protected Functions
-//
+void SnippingArea::showWithoutBackground()
+{
+    setAttribute(Qt::WA_TranslucentBackground, true);
+    clearBackgroundImage();
+    show();
+}
+
+void SnippingArea::showWithBackground(const QPixmap& background)
+{
+    setAttribute(Qt::WA_TranslucentBackground, false);
+    setBackgroundImage(background);
+    show();
+}
+
+void SnippingArea::show()
+{
+    init();
+    setFixedSize(QDesktopWidget().size());
+    QWidget::show();
+    activateWindow();
+}
+
+void SnippingArea::setBackgroundImage(const QPixmap& background)
+{
+    clearBackgroundImage();
+    mBackground = new QPixmap(background);
+}
+
+void SnippingArea::clearBackgroundImage()
+{
+    if (mBackground != nullptr) {
+        delete mBackground;
+    }
+}
+
+void SnippingArea::init()
+{
+    mMouseIsDown = false;
+}
 
 void SnippingArea::mousePressEvent(QMouseEvent* event)
 {
@@ -73,6 +106,11 @@ void SnippingArea::mouseMoveEvent(QMouseEvent* event)
 void SnippingArea::paintEvent(QPaintEvent* event)
 {
     QPainter painter(this);
+
+
+    if (mBackground != nullptr) {
+        painter.drawPixmap(geometry(), *mBackground);
+    }
 
     if (mMouseIsDown) {
         painter.setClipRegion(QRegion(geometry()).subtracted(QRegion(mCaptureArea)));

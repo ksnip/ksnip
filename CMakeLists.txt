@@ -33,6 +33,7 @@ set(ksnip_SRCS src/main.cpp
                src/gui/SnippingArea.cpp
                src/gui/SettingsDialog.cpp
                src/gui/AboutDialog.cpp
+               src/helper/X11GraphicsHelper.cpp
                )
 
 SET(ksnip_RES icons/resources.qrc)

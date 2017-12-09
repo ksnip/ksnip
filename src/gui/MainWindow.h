@@ -35,6 +35,7 @@
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/StringManip.h"
 #include "src/backend/ImgurUploader.h"
+#include "src/helper/X11GraphicsHelper.h"
 
 class SnippingArea;
 

@@ -709,7 +709,7 @@ void MainWindow::initGui()
 void MainWindow::newRectAreaCaptureClicked()
 {
     setWindowOpacity(0.0);
-    if(!X11GraphicsHelper::isCompositorActive()) {
+    if(X11GraphicsHelper::isCompositorActive()) {
         mSnippingArea->showWithoutBackground();
     } else {
         delay(200);

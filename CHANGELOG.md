@@ -1,5 +1,21 @@
 # Change log
 
+## Release 1.4.0
+* New: Info text (cursor position and selection area size) for snipping area cursor, can be enabled and disabled via settings.([#49](https://github.com/DamirPorobic/ksnip/issues/49))
+* New: Horizontal vertical guiding lines for snipping area cursor, can be enabled and disabled via settings. ([#48](https://github.com/DamirPorobic/ksnip/issues/48))
+* New: Drop shadow for paint items, can be enabled and disabled via settings ([#47](https://github.com/DamirPorobic/ksnip/issues/47))
+* New: Copy/past paint items. ([#46](https://github.com/DamirPorobic/ksnip/issues/46))
+* New: Numbering paint item. ([#45](https://github.com/DamirPorobic/ksnip/issues/45))
+* New: Arrow paint item. ([#44](https://github.com/DamirPorobic/ksnip/issues/44))
+* New: Select multiple paint items and perform operation on all selected at once. ([#42](https://github.com/DamirPorobic/ksnip/issues/42))
+* New: Run last or default capture on startup. ([#40](https://github.com/DamirPorobic/ksnip/issues/40))
+* New: Run rect capture from command line. ([#39](https://github.com/DamirPorobic/ksnip/issues/39))
+* New: Select between default and custom filename for saving screenshots. ([#36](https://github.com/DamirPorobic/ksnip/issues/36))
+* New: Keyboard shortcuts for paint tools. ([#43](https://github.com/DamirPorobic/ksnip/issues/43))
+* New: Bring to front and send to back paint items. ([#31](https://github.com/DamirPorobic/ksnip/issues/31))
+* Changed: Moving Ksnip from Qt4 to Qt5. ([#22](https://github.com/DamirPorobic/ksnip/issues/22))
+* Fixed: Settings window left hand side menu is not correctly selected when opening first time. ([#37](https://github.com/DamirPorobic/ksnip/issues/37))
+
 ## Release 1.3.2
 * Fixed: When compositor is disabled, rect are capture shows only black screen. Fix for Qt4 Ksnip version ([#35](https://github.com/DamirPorobic/ksnip/issues/35))
 

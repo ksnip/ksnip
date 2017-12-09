@@ -24,8 +24,6 @@
 #include <QObject>
 #include <QPainter>
 #include <QTimer>
-#include <QX11Info>
-#include <xcb/xfixes.h>
 
 class MainWindow;
 class SnippingArea;
@@ -46,7 +44,6 @@ public:
     ~ImageGrabber();
     void grabImage(CaptureMode captureMode, bool capureCursor = true, int delay = 0);
     QRect currectScreenRect() const;
-    QRect fullScreenRect() const;
 
 signals:
     void finished(const QPixmap &) const;
@@ -60,10 +57,6 @@ private:
     int           mCaptureDelay;
     const int     mMinCaptureDelay = 200;
 
-    QPixmap blendCursorImage(const QPixmap &pixmap, const QRect &rect) const;
-    xcb_window_t getActiveWindow() const;
-    QRect getWindowRect(xcb_window_t window) const;
-    QPoint getNativeCursorPosition() const;
     void getRectArea();
     int getDelay() const;
 
@@ -73,18 +66,6 @@ private:
 
 private slots:
     void grabRect() const;
-};
-
-
-/*
- * QScopedPointer class overwritten to free pointers that need to be freed by
- * free() instead of delete.
- */
-template <typename T>
-class ScopedCPointer : public QScopedPointer<T, QScopedPointerPodDeleter>
-{
-public:
-    ScopedCPointer(T *p = 0) : QScopedPointer<T, QScopedPointerPodDeleter>(p) {}
 };
 
 #endif // IMAGEGRABBER_H

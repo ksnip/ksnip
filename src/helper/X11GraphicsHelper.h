@@ -20,14 +20,37 @@
 #ifndef X11GRAPHICSHELPER_H
 #define X11GRAPHICSHELPER_H
 
-#include <X11/Xlib.h>
-#include <X11/Xatom.h>
+#include <xcb/xfixes.h>
 #include <stdio.h>
+#include <QX11Info>
+
+#include <QRect>
+#include <QPixmap>
+#include <QPainter>
 
 class X11GraphicsHelper
 {
 public:
     static bool isCompositorActive();
+    static QRect getFullScreenRect();
+    static QRect getActiveWindowRect();
+    static QPoint getNativeCursorPosition();
+    static QPixmap blendCursorImage(const QPixmap &pixmap, const QRect &rect);
+
+private:
+    static QRect getWindowRect(xcb_window_t window);
+    static xcb_window_t getActiveWindow();
+};
+
+/*
+ * QScopedPointer class overwritten to free pointers that need to be freed by
+ * free() instead of delete.
+ */
+template <typename T>
+class ScopedCPointer : public QScopedPointer<T, QScopedPointerPodDeleter>
+{
+public:
+    ScopedCPointer(T *p = 0) : QScopedPointer<T, QScopedPointerPodDeleter>(p) {}
 };
 
 #endif // X11GRAPHICSHELPER_H

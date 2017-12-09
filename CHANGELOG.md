@@ -1,7 +1,7 @@
 # Change log
 
 ## Release 1.3.2
-* Fixed: When compositor is disabled, rect are capture shows only black screen. Fix for Qt4 Ksnip versio ([#35](https://github.com/DamirPorobic/ksnip/issues/35))
+* Fixed: When compositor is disabled, rect are capture shows only black screen. Fix for Qt4 Ksnip version ([#35](https://github.com/DamirPorobic/ksnip/issues/35))
 
 ## Release 1.3.1
 * Fixed: Ksnip 1.3.0 fails to build - due to missing cmath library ([#29](https://github.com/DamirPorobic/ksnip/issues/29))

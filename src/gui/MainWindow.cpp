@@ -709,6 +709,7 @@ void MainWindow::initGui()
 void MainWindow::newRectAreaCaptureClicked()
 {
     setWindowOpacity(0.0);
+    setWindowState(Qt::WindowMinimized);
     if(X11GraphicsHelper::isCompositorActive()) {
         mSnippingArea->showWithoutBackground();
     } else {

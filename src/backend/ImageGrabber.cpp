@@ -41,41 +41,17 @@ ImageGrabber::~ImageGrabber()
 void ImageGrabber::grabImage(CaptureMode captureMode, bool capureCursor, int delay)
 {
     mCaptureCursor = capureCursor;
-
-    // Prevent negative delays
     mCaptureDelay = (delay < 0) ? 0 : delay;
+    mCaptureMode = captureMode;
 
-    switch (captureMode) {
-    case RectArea:
-        getRectArea();
-        return;
-    case FullScreen:
-        mCaptureRect = X11GraphicsHelper::getFullScreenRect();
-        break;
-    case CurrentScreen:
-        mCaptureRect = currectScreenRect();
-        break;
-    case ActiveWindow:
-        mCaptureRect = X11GraphicsHelper::getActiveWindowRect();
-        if (mCaptureRect.isNull()) {
-            qWarning("ImageGrabber::getActiveWindow: Found no window with focus");
-            mCaptureRect = currectScreenRect();
-        }
-        break;
+    if (mCaptureMode == RectArea) {
+        openSnippingArea();
+    } else {
+        QTimer::singleShot(getDelay(), this, &ImageGrabber::grabRect);
     }
-    QTimer::singleShot(getDelay(), this, &ImageGrabber::grabRect);
 }
 
-/*
- * Returns the rect of the screen where the mouse cursor is currently located
- */
-QRect ImageGrabber::currectScreenRect() const
-{
-    auto screen = QApplication::desktop()->screenNumber(QCursor::pos());
-    return QApplication::desktop()->screenGeometry(screen);
-}
-
-void ImageGrabber::getRectArea()
+void ImageGrabber::openSnippingArea()
 {
     initSnippingAreaIfRequired();
 
@@ -85,6 +61,19 @@ void ImageGrabber::getRectArea()
         auto screenRect = X11GraphicsHelper::getFullScreenRect();
         auto background = createPixmap(screenRect);
         mSnippingArea->showWithBackground(background);
+    }
+}
+
+void ImageGrabber::initSnippingAreaIfRequired()
+{
+    if (!mSnippingArea) {
+        mSnippingArea = new SnippingArea(mParent);
+        connect(mSnippingArea, &SnippingArea::finished, [this]() {
+            QTimer::singleShot(getDelay(), this, &ImageGrabber::grabRect);
+        });
+        connect(mSnippingArea, &SnippingArea::canceled, [this]() {
+            emit canceled();
+        });
     }
 }
 
@@ -101,6 +90,43 @@ int ImageGrabber::getDelay() const
     return mCaptureDelay + 200;
 }
 
+void ImageGrabber::setRectFromCorrectSource()
+{
+    if (mCaptureMode == RectArea) {
+        mCaptureRect = mSnippingArea->selectedRectArea();
+    } else if (mCaptureMode == FullScreen) {
+        mCaptureRect = X11GraphicsHelper::getFullScreenRect();
+    } else if (mCaptureMode == CurrentScreen) {
+        mCaptureRect = currectScreenRect();
+    } else if (mCaptureMode == ActiveWindow) {
+        mCaptureRect = X11GraphicsHelper::getActiveWindowRect();
+        if (mCaptureRect.isNull()) {
+            qWarning("ImageGrabber::getActiveWindow: Found no window with focus.");
+            mCaptureRect = currectScreenRect();
+        }
+    }
+}
+
+/*
+ * Returns the rect of the screen where the mouse cursor is currently located
+ */
+QRect ImageGrabber::currectScreenRect() const
+{
+    auto screen = QApplication::desktop()->screenNumber(QCursor::pos());
+    return QApplication::desktop()->screenGeometry(screen);
+}
+
+void ImageGrabber::grabRect()
+{
+    setRectFromCorrectSource();
+    auto screenShot = createPixmap(mCaptureRect);
+
+    if (mCaptureCursor) {
+        screenShot = X11GraphicsHelper::blendCursorImage(screenShot, mCaptureRect);
+    }
+    emit finished(screenShot);
+}
+
 QPixmap ImageGrabber::createPixmap(const QRect& rect) const
 {
     auto screen = QGuiApplication::primaryScreen();
@@ -110,28 +136,4 @@ QPixmap ImageGrabber::createPixmap(const QRect& rect) const
                                             rect.width(),
                                             rect.height());
     return pixmap;
-}
-
-void ImageGrabber::initSnippingAreaIfRequired()
-{
-    if (!mSnippingArea) {
-        mSnippingArea = new SnippingArea(mParent);
-        connect(mSnippingArea, &SnippingArea::areaSelected, [this](const QRect & rect) {
-            mCaptureRect = rect;
-            QTimer::singleShot(getDelay(), this, &ImageGrabber::grabRect);
-        });
-        connect(mSnippingArea, &SnippingArea::cancel, [this]() {
-            emit canceled();
-        });
-    }
-}
-
-void ImageGrabber::grabRect() const
-{
-    auto screenShot = createPixmap(mCaptureRect);
-
-    if (mCaptureCursor) {
-        screenShot = X11GraphicsHelper::blendCursorImage(screenShot, mCaptureRect);
-    }
-    emit finished(screenShot);
 }

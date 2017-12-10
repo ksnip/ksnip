@@ -56,16 +56,16 @@ private:
     bool          mCaptureCursor;
     int           mCaptureDelay;
     const int     mMinCaptureDelay = 200;
+    CaptureMode   mCaptureMode;
 
-    void getRectArea();
+    void openSnippingArea();
     int getDelay() const;
-
-private:
+    void setRectFromCorrectSource();
     QPixmap createPixmap(const QRect& rect) const;
     void initSnippingAreaIfRequired();
 
 private slots:
-    void grabRect() const;
+    void grabRect();
 };
 
 #endif // IMAGEGRABBER_H

@@ -49,6 +49,11 @@ void SnippingArea::showWithBackground(const QPixmap& background)
     show();
 }
 
+QRect SnippingArea::selectedRectArea() const
+{
+    return mCaptureArea;
+}
+
 void SnippingArea::show()
 {
     init();
@@ -97,7 +102,7 @@ void SnippingArea::mouseReleaseEvent(QMouseEvent* event)
 
     mMouseIsDown = false;
     hide();
-    emit areaSelected(mCaptureArea);
+    emit finished();
 }
 
 void SnippingArea::mouseMoveEvent(QMouseEvent* event)
@@ -147,7 +152,7 @@ void SnippingArea::paintEvent(QPaintEvent* event)
 void SnippingArea::keyPressEvent(QKeyEvent* event)
 {
     if (event->key() == Qt::Key_Escape) {
-        emit cancel();
+        emit canceled();
         close();
     }
     QWidget::keyPressEvent(event);

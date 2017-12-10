@@ -36,10 +36,11 @@ public:
     ~SnippingArea();
     void showWithoutBackground();
     void showWithBackground(const QPixmap& background);
+    QRect selectedRectArea() const;
 
 signals:
-    void areaSelected(const QRect &);
-    void cancel();
+    void finished();
+    void canceled();
 
 protected:
     virtual void mousePressEvent(QMouseEvent *event) override;

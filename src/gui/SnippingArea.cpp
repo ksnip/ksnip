@@ -24,7 +24,7 @@ SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent),
     mBackground(nullptr)
 {
     // Make the frame span across the screen and show above any other widget
-    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool);
+    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool | Qt::X11BypassWindowManagerHint);
 
     QWidget::setCursor(*mCursorFactory->createSnippingCursor());
 }
@@ -53,7 +53,7 @@ void SnippingArea::show()
 {
     init();
     setFixedSize(QDesktopWidget().size());
-    QWidget::show();
+    QWidget::showFullScreen();
     activateWindow();
 }
 

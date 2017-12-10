@@ -28,7 +28,7 @@ class PainterLine : public AbstractPainterItem
 public:
     PainterLine(const QPointF &pos, const QPen &attributes);
     PainterLine(const PainterLine& other);
-    ~PainterLine();
+    virtual ~PainterLine();
     virtual QRectF boundingRect() const override;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
     virtual void moveTo(const QPointF &newPos) override;

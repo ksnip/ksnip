@@ -15,6 +15,7 @@
 * New: Bring to front and send to back paint items. ([#31](https://github.com/DamirPorobic/ksnip/issues/31))
 * Changed: Moving Ksnip from Qt4 to Qt5. ([#22](https://github.com/DamirPorobic/ksnip/issues/22))
 * Fixed: Settings window left hand side menu is not correctly selected when opening first time. ([#37](https://github.com/DamirPorobic/ksnip/issues/37))
+* Fixed: Snipping area not correctly shown when started on non-primary screen. ([#52](https://github.com/DamirPorobic/ksnip/issues/52))
 
 ## Release 1.3.2
 * Fixed: When compositor is disabled, rect are capture shows only black screen. Fix for Qt4 Ksnip version ([#35](https://github.com/DamirPorobic/ksnip/issues/35))

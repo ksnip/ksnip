@@ -55,18 +55,13 @@ void ImageGrabber::grabImage(CaptureMode captureMode, bool capureCursor, int del
     case CurrentScreen:
         mCaptureRect = currectScreenRect();
         break;
-    case ActiveWindow: {
+    case ActiveWindow:
         mCaptureRect = X11GraphicsHelper::getActiveWindowRect();
         if (mCaptureRect.isNull()) {
             qWarning("ImageGrabber::getActiveWindow: Found no window with focus");
             mCaptureRect = currectScreenRect();
         }
         break;
-    }
-    default:
-        qCritical("ImageGrabber::grabImage: Unknown CaptureMode provided.");
-        emit canceled();
-        return;
     }
     QTimer::singleShot(getDelay(), this, &ImageGrabber::grabRect);
 }

@@ -21,7 +21,6 @@
 #define X11GRAPHICSHELPER_H
 
 #include <xcb/xfixes.h>
-#include <stdio.h>
 #include <QX11Info>
 
 #include <QRect>
@@ -39,7 +38,7 @@ public:
 
 private:
     static QRect getWindowRect(xcb_window_t window);
-    static xcb_window_t getActiveWindow();
+    static xcb_window_t getActiveWindowId();
 };
 
 /*

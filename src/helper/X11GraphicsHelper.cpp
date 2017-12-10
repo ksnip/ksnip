@@ -29,11 +29,8 @@
 
 bool X11GraphicsHelper::isCompositorActive()
 {
-    int screen = 0;
     auto display = XOpenDisplay(0);
-    char prop_name[20];
-    snprintf(prop_name, 20, "_NET_WM_CM_S%d", screen);
-    Atom prop_atom = XInternAtom(display, prop_name, False);
+    auto prop_atom = XInternAtom(display, "_NET_WM_CM_S0", False);
     return XGetSelectionOwner(display, prop_atom) != None;
 }
 
@@ -44,28 +41,25 @@ QRect X11GraphicsHelper::getFullScreenRect()
 
 QRect X11GraphicsHelper::getActiveWindowRect()
 {
-    xcb_window_t windowId = getActiveWindow();
-    if (windowId == 0) {
-
-    }
+    auto windowId = getActiveWindowId();
     return getWindowRect(windowId);
 }
 
-QRect X11GraphicsHelper::getWindowRect(xcb_window_t window)
+QRect X11GraphicsHelper::getWindowRect(xcb_window_t windowId)
 {
     // In case of window id 0 return empty rect
-    if (window == 0) {
+    if (windowId == 0) {
         return QRect();
     }
 
     auto connection = QX11Info::connection();
-    auto geomCookie = xcb_get_geometry_unchecked(connection, window);
+    auto geomCookie = xcb_get_geometry_unchecked(connection, windowId);
     ScopedCPointer<xcb_get_geometry_reply_t> geomReply(xcb_get_geometry_reply(connection, geomCookie, nullptr));
 
     return QRect(geomReply->x, geomReply->y, geomReply->width, geomReply->height);
 }
 
-xcb_window_t X11GraphicsHelper::getActiveWindow()
+xcb_window_t X11GraphicsHelper::getActiveWindowId()
 {
     xcb_query_tree_cookie_t treeCookie;
     auto connection = QX11Info::connection();
@@ -73,19 +67,19 @@ xcb_window_t X11GraphicsHelper::getActiveWindow()
 
     // Get ID of focused window, however, this must not always be the top level
     // window so we loop through parents and search for the top level window.
-    auto window = focusReply->focus;
+    auto windowId = focusReply->focus;
     while (1) {
-        treeCookie = xcb_query_tree_unchecked(connection, window);
+        treeCookie = xcb_query_tree_unchecked(connection, windowId);
         ScopedCPointer<xcb_query_tree_reply_t> treeReply(xcb_query_tree_reply(connection, treeCookie, nullptr));
         if (!treeReply) {
             return 0;
         }
         // If the root window it is equal to the parent or the window ID itself
         // the this must be the top level window.
-        if (window == treeReply->root || treeReply->parent == treeReply->root) {
-            return window;
+        if (windowId == treeReply->root || treeReply->parent == treeReply->root) {
+            return windowId;
         } else {
-            window = treeReply->parent;
+            windowId = treeReply->parent;
         }
     }
 }
@@ -122,7 +116,7 @@ QPixmap X11GraphicsHelper::blendCursorImage(const QPixmap& pixmap, const QRect& 
         return pixmap;
     }
 
-    quint32* pixelData = xcb_xfixes_get_cursor_image_cursor_image(cursorReply.data());
+    auto pixelData = xcb_xfixes_get_cursor_image_cursor_image(cursorReply.data());
     if (!pixelData) {
         return pixmap;
     }

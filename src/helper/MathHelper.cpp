@@ -71,3 +71,11 @@ QPoint MathHelper::getCenterBetweenPoints(const QPoint& p1, const QPoint& p2)
     return (p1 + p2) / 2;
 }
 
+qreal MathHelper::roundAngleTo(const qreal currentAngle, const int increments)
+{
+    auto modulo = (int)currentAngle % increments;
+    auto requiredRoundup = modulo < increments / 2 ? -modulo : increments - modulo;
+    auto newAngle = qFloor(currentAngle + requiredRoundup);
+    return newAngle;
+}
+

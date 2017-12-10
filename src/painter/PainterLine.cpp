@@ -47,6 +47,10 @@ void PainterLine::addPoint(const QPointF& pos, bool modifier)
 {
     prepareGeometryChange();
     mLine->setP2(pos);
+    if (modifier) {
+        auto newAngle = MathHelper::roundAngleTo(mLine->angle(), 45);
+        mLine->setAngle(newAngle);
+    }
 }
 
 void PainterLine::moveTo(const QPointF& newPos)

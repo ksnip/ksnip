@@ -21,6 +21,7 @@
 #define PAINTERLINE_H
 
 #include "AbstractPainterItem.h"
+#include "src/helper/MathHelper.h"
 
 class PainterLine : public AbstractPainterItem
 {

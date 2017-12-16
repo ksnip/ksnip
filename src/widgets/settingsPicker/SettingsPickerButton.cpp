@@ -90,23 +90,22 @@ void SettingsPickerButton::paintEvent(QPaintEvent* event)
 {
     QFrame::paintEvent(event);
 
-    QPainter p(this);
-    p.fillRect(contentsRect(), palette().button());
+    QPainter painter(this);
+    painter.fillRect(contentsRect(), palette().button());
 
     auto r = rect();
     auto offset = frameShadow() == Sunken ? 1 : 0;
 
     QPen pen(palette().buttonText(), 1);
-    p.setPen(pen);
+    painter.setPen(pen);
 
-    p.drawRect(r.center().x() + offset - 4, r.center().y() + offset, 1, 1);
-    p.drawRect(r.center().x() + offset    , r.center().y() + offset, 1, 1);
-    p.drawRect(r.center().x() + offset + 4, r.center().y() + offset, 1, 1);
+    painter.drawRect(r.center().x() + offset - 4, r.center().y() + offset, 1, 1);
+    painter.drawRect(r.center().x() + offset    , r.center().y() + offset, 1, 1);
+    painter.drawRect(r.center().x() + offset + 4, r.center().y() + offset, 1, 1);
     if (hasFocus()) {
-        p.setPen(QPen(Qt::black, 0, Qt::SolidLine));
-        p.drawRect(0, 0, width() - 1, height() - 1);
+        painter.setPen(QPen(Qt::black, 0, Qt::SolidLine));
+        painter.drawRect(0, 0, width() - 1, height() - 1);
     }
 
-    p.end();
-
+    painter.end();
 }

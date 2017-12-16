@@ -195,6 +195,12 @@ public:
     int captureDelay() const;
     void setCaptureDelay(int delay);
 
+    int snippingCursorSize() const;
+    void setSnippingCursorSize(int size);
+
+    QColor snippingCursorColor() const;
+    void setSnippingCursorColor(const QColor &color);
+
     // Imgur Uploader
 
     QString imgurUsername() const;

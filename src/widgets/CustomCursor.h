@@ -39,7 +39,7 @@ public:
 
 private:
     QPixmap getPixmapForShape(CursorShape shape, const QColor &color, int size) const;
-    QPixmap createCrossPixmap(const QColor &color = nullptr) const;
+    QPixmap createCrossPixmap(const QColor &color, int size) const;
     QPixmap createCirclePixmap(const QColor &color, int size) const;
     QPixmap createRectPixmap(const QColor &color, int size) const;
     QPixmap createEmptyPixmap() const;

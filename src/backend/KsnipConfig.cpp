@@ -814,15 +814,43 @@ void KsnipConfig::setCursorInfoEnabled(bool enabled)
 
 int KsnipConfig::captureDelay() const
 {
-    return mConfig.value("ImageGrabber/CaptureDelay", 0).toInt() ;
+    return mConfig.value("ImageGrabber/CaptureDelay", 0).toInt();
 }
 
-void KsnipConfig::setCaptureDelay(int  delay)
+void KsnipConfig::setCaptureDelay(int delay)
 {
     if (captureDelay() == delay) {
         return;
     }
     mConfig.setValue("ImageGrabber/CaptureDelay", delay);
+    mConfig.sync();
+}
+
+int KsnipConfig::snippingCursorSize() const
+{
+    return mConfig.value("ImageGrabber/SnippingCursorSize", 1).toInt();
+}
+
+void KsnipConfig::setSnippingCursorSize(int size)
+{
+    if (snippingCursorSize() == size) {
+        return;
+    }
+    mConfig.setValue("ImageGrabber/SnippingCursorSize", size);
+    mConfig.sync();
+}
+
+QColor KsnipConfig::snippingCursorColor() const
+{
+    return mConfig.value("ImageGrabber/SnippingCursorColor", QColor(27,20,77)).value<QColor>();
+}
+
+void KsnipConfig::setSnippingCursorColor(const QColor& color)
+{
+    if (snippingCursorColor() == color) {
+        return;
+    }
+    mConfig.setValue("ImageGrabber/SnippingCursorColor", color);
     mConfig.sync();
 }
 

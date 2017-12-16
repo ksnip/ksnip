@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -15,25 +15,29 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
- *
  */
 
-#ifndef SIZECOMBOBOX_H
-#define SIZECOMBOBOX_H
+#ifndef COLORBUTTON_H
+#define COLORBUTTON_H
 
-#include <QComboBox>
+#include <QPushButton>
+#include <QColorDialog>
 
-class NumericComboBox : public QComboBox
+class ColorButton : public QPushButton
 {
     Q_OBJECT
-
 public:
-    NumericComboBox(int start, int increment, int steps, QWidget *widget = 0);
-    int value() const;
-    void setValue(int value);
+    explicit ColorButton(QWidget *parent = 0);
+    void setColor(QColor &&color);
+    QColor color() const;
 
 private:
-    void populateList(int start, int increment, int steps);
+    QColor mColor;
+
+    QPixmap createPixmapFromColor(QColor &&color);
+
+private slots:
+    void openDialog();
 };
 
-#endif // SIZECOMBOBOX_H
+#endif // COLORBUTTON_H

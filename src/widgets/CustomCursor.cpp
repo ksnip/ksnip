@@ -37,17 +37,17 @@ QPixmap CustomCursor::getPixmapForShape(CursorShape shape, const QColor& color, 
         case Rect:
             return createRectPixmap(color, size);
         case Cross:
-            return createCrossPixmap(QColor(27,20,77));
+            return createCrossPixmap(color, size);
     }
 }
 
-QPixmap CustomCursor::createCrossPixmap(const QColor& color) const
+QPixmap CustomCursor::createCrossPixmap(const QColor& color, int size) const
 {
     auto pixmap = createEmptyPixmap();
     QPainter painter(&pixmap);
     painter.setPen(QPen(QColor("red"), 1, Qt::SolidLine));
     painter.drawPoint(16, 16);
-    painter.setPen(QPen(color, 1, Qt::SolidLine));
+    painter.setPen(QPen(color, size, Qt::SolidLine));
     painter.drawLine(16, 12, 16, 0);
     painter.drawLine(16, 20, 16, 32);
     painter.drawLine(12, 16, 0, 16);

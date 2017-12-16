@@ -46,8 +46,11 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mTextFontLabel(new QLabel),
     mNumberFontLabel(new QLabel),
     mSmoothFactorLabel(new QLabel),
+    mSnippingCursorSizeLabel(new QLabel),
+    mSnippingCursorColorLabel(new QLabel),
     mCaptureDelayCombobox(new NumericComboBox(0, 1, 11)),
     mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
+    mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
     mTextFontCombobox(new QFontComboBox(this)),
     mNumberFontCombobox(new QFontComboBox(this)),
     mBrowseButton(new QPushButton),
@@ -58,6 +61,7 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mTextBoldButton(new QPushButton),
     mTextItalicButton(new QPushButton),
     mTextUnderlineButton(new QPushButton),
+    mSnippingCursorColorButton(new ColorButton),
     mImgurUploader(new ImgurUploader),
     mListWidget(new QListWidget),
     mStackedLayout(new QStackedLayout),
@@ -102,6 +106,8 @@ void SettingsDialog::loadSettings()
     mCaptureDelayCombobox->setValue(mConfig->captureDelay() / 1000);
     mCursorRulerCheckbox->setChecked(mConfig->cursorRulerEnabled());
     mCursorInfoCheckbox->setChecked(mConfig->cursorInfoEnabled());
+    mSnippingCursorColorButton->setColor(mConfig->snippingCursorColor());
+    mSnippingCursorSizeCombobox->setValue(mConfig->snippingCursorSize());
 
     mTextFontCombobox->setCurrentFont(mConfig->textFont());
     mTextBoldButton->setChecked(mConfig->textBold());
@@ -133,6 +139,8 @@ void SettingsDialog::saveSettings()
     mConfig->setCaptureDelay(mCaptureDelayCombobox->value() * 1000);
     mConfig->setCursorRulerEnabled(mCursorRulerCheckbox->isChecked());
     mConfig->setCursorInfoEnabled(mCursorInfoCheckbox->isChecked());
+    mConfig->setSnippingCursorColor(mSnippingCursorColorButton->color());
+    mConfig->setSnippingCursorSize(mSnippingCursorSizeCombobox->value());
 
     mConfig->setSaveDirectory(StringFormattingHelper::extractPath(mSaveLocationLineEdit->displayText()));
     mConfig->setSaveFilename(StringFormattingHelper::extractFilename(mSaveLocationLineEdit->displayText()));
@@ -153,6 +161,8 @@ void SettingsDialog::saveSettings()
 
 void SettingsDialog::initGui()
 {
+    auto const fixedButtonSize = 100;
+
     // Create Application Settings
     mAlwaysCopyToClipboardCheckbox->setText(tr("Always copy capture to clipboard."));
     mPromptToSaveBeforeExitCheckbox->setText(tr("Prompt to save before exiting ksnip."));
@@ -183,6 +193,7 @@ void SettingsDialog::initGui()
     mCaptureCursorCheckbox->setToolTip(tr("Should mouse cursor be visible on\n"
                                           "on screenshots."));
     mCaptureDelayLabel->setText(tr("Delay (sec)") + ":");
+    mCaptureDelayCombobox->setMinimumWidth(fixedButtonSize);
     mCursorRulerCheckbox->setText(tr("Show cursor ruler."));
     mCursorRulerCheckbox->setToolTip(tr("Horizontal and vertical lines going from\n"
                                         "desktop corner to cursor on snipping area."));
@@ -190,6 +201,16 @@ void SettingsDialog::initGui()
     mCursorInfoCheckbox->setToolTip(tr("When left mouse is not pressed the position\n"
                                        "is show, when the mouse button is pressed,\n"
                                        "the size of the select area is shown."));
+    mSnippingCursorColorLabel->setText(tr("Cursor Color") + ":");
+    mSnippingCursorColorButton->setMinimumWidth(fixedButtonSize);
+    mSnippingCursorColorButton->setToolTip(tr("Sets the color of the snipping area\n"
+                                               "cursor. Change requires ksnip restart to\n"
+                                               "take effect."));
+    mSnippingCursorSizeLabel->setText(tr("Cursor Thickness") + ":");
+    mSnippingCursorSizeCombobox->setMinimumWidth(fixedButtonSize);
+    mSnippingCursorSizeCombobox->setToolTip(tr("Sets the thickness of the snipping area\n"
+                                               "cursor. Change requires ksnip restart to\n"
+                                               "take effect."));
 
     // Create Imgur Uploader Settings
     mImgurForceAnonymousCheckbox->setText(tr("Force anonymous upload."));
@@ -238,30 +259,31 @@ void SettingsDialog::initGui()
     mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"
                                       "precisions for pen and marker but will \n"
                                       "make them more smooth."));
+    mSmoothFactorCombobox->setMinimumWidth(fixedButtonSize);
     mSmoothFactorCombobox->setToolTip(mSmoothFactorLabel->toolTip());
 
     mTextFontLabel->setText(tr("Text Font") + ":");
     mTextFontCombobox->setEditable(false);
 
     // Setting the button to same square size as the height of the combobox
-    int wh = mTextFontCombobox->minimumSizeHint().height();
+    auto size = mTextFontCombobox->minimumSizeHint().height();
 
     mTextBoldButton->setText(tr("B"));
     mTextBoldButton->setToolTip(tr("Bold"));
     mTextBoldButton->setCheckable(true);
-    mTextBoldButton->setFixedSize(wh, wh);
+    mTextBoldButton->setFixedSize(size, size);
     mTextBoldButton->setStyleSheet("QPushButton { font-size: 18pt; font-weight: bold; }");
 
     mTextItalicButton->setText(tr("I"));
     mTextItalicButton->setToolTip(tr("Italic"));
     mTextItalicButton->setCheckable(true);
-    mTextItalicButton->setFixedSize(wh, wh);
+    mTextItalicButton->setFixedSize(size, size);
     mTextItalicButton->setStyleSheet("QPushButton { font-size: 18pt; font-style: italic; }");
 
     mTextUnderlineButton->setText(tr("U"));
     mTextUnderlineButton->setToolTip(tr("Underline"));
     mTextUnderlineButton->setCheckable(true);
-    mTextUnderlineButton->setFixedSize(wh, wh);
+    mTextUnderlineButton->setFixedSize(size, size);
     mTextUnderlineButton->setStyleSheet("QPushButton { font-size: 18pt; text-decoration: underline; }");
 
     mNumberFontLabel->setText(tr("Numbering Font") + ":");
@@ -301,11 +323,16 @@ void SettingsDialog::initGui()
     imageGrabberGrid->setAlignment(Qt::AlignTop);
     imageGrabberGrid->setColumnStretch(1, 1);
     imageGrabberGrid->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 2);
-    imageGrabberGrid->addWidget(mCursorRulerCheckbox, 1, 0);
-    imageGrabberGrid->addWidget(mCursorInfoCheckbox, 2, 0);
+    imageGrabberGrid->addWidget(mCursorRulerCheckbox, 1, 0, 1, 2);
+    imageGrabberGrid->addWidget(mCursorInfoCheckbox, 2, 0, 1, 2);
     imageGrabberGrid->setRowMinimumHeight(3, 15);
     imageGrabberGrid->addWidget(mCaptureDelayLabel, 4, 0);
-    imageGrabberGrid->addWidget(mCaptureDelayCombobox, 4, 1);
+    imageGrabberGrid->addWidget(mCaptureDelayCombobox, 4, 1, Qt::AlignLeft);
+    imageGrabberGrid->setRowMinimumHeight(5, 15);
+    imageGrabberGrid->addWidget(mSnippingCursorColorLabel, 6, 0);
+    imageGrabberGrid->addWidget(mSnippingCursorColorButton, 6, 1, Qt::AlignLeft);
+    imageGrabberGrid->addWidget(mSnippingCursorSizeLabel, 7, 0);
+    imageGrabberGrid->addWidget(mSnippingCursorSizeCombobox, 7, 1, Qt::AlignLeft);
 
     auto imageGrabberGrpBox = new QGroupBox(tr("Image Grabber"));
     imageGrabberGrpBox->setLayout(imageGrabberGrid);
@@ -332,11 +359,11 @@ void SettingsDialog::initGui()
     auto painterGrid = new QGridLayout;
     painterGrid->setAlignment(Qt::AlignTop);
     painterGrid->setColumnStretch(1, 1);
-    painterGrid->addWidget(mItemShadowCheckbox, 0, 0);
+    painterGrid->addWidget(mItemShadowCheckbox, 0, 0, 1, 2);
     painterGrid->setRowMinimumHeight(1, 15);
-    painterGrid->addWidget(mSmoothPathCheckbox, 2, 0);
+    painterGrid->addWidget(mSmoothPathCheckbox, 2, 0, 1, 2);
     painterGrid->addWidget(mSmoothFactorLabel, 3, 0);
-    painterGrid->addWidget(mSmoothFactorCombobox, 3, 1);
+    painterGrid->addWidget(mSmoothFactorCombobox, 3, 1, Qt::AlignLeft);
     painterGrid->setRowMinimumHeight(4, 15);
     painterGrid->addWidget(mTextFontLabel, 5, 0);
     painterGrid->addWidget(mTextFontCombobox, 5, 1);

@@ -78,21 +78,21 @@ void SettingsPickerColorItem::mousePressEvent(QMouseEvent* event)
 
 void SettingsPickerColorItem::paintEvent(QPaintEvent* event)
 {
-    QPainter p(this);
+    QPainter painter(this);
     auto w = width();            // width of cell in pixels
     auto h = height();           // height of cell in pixels
 
-    p.setPen(QPen(Qt::gray, 0, Qt::SolidLine));
+    painter.setPen(QPen(Qt::gray, 0, Qt::SolidLine));
 
     if (mSelected) {
-        p.drawRect(1, 1, w - 3, h - 3);
+        painter.drawRect(1, 1, w - 3, h - 3);
     }
 
-    p.setPen(QPen(Qt::black, 0, Qt::SolidLine));
-    p.drawRect(3, 3, w - 7, h - 7);
-    p.fillRect(QRect(4, 4, w - 8, h - 8), QBrush(mColor));
+    painter.setPen(QPen(Qt::black, 0, Qt::SolidLine));
+    painter.drawRect(3, 3, w - 7, h - 7);
+    painter.fillRect(QRect(4, 4, w - 8, h - 8), QBrush(mColor));
 
     if (hasFocus()) {
-        p.drawRect(0, 0, w - 1, h - 1);
+        painter.drawRect(0, 0, w - 1, h - 1);
     }
 }

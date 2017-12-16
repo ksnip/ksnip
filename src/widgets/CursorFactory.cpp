@@ -75,7 +75,7 @@ QCursor* CursorFactory::createDefaultCursor()
 
 QCursor* CursorFactory::createSnippingCursor()
 {
-    return new CustomCursor(CustomCursor::Cross);
+    return new CustomCursor(CustomCursor::Cross, mConfig->snippingCursorColor(), mConfig->snippingCursorSize());
 }
 
 

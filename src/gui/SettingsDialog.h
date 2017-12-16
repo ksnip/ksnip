@@ -25,6 +25,7 @@
 
 #include "MainWindow.h"
 #include "src/widgets/NumericComboBox.h"
+#include "src/widgets/ColorButton.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/helper/StringFormattingHelper.h"
 #include "src/backend/ImgurUploader.h"
@@ -60,8 +61,11 @@ private:
     QLabel          *mTextFontLabel;
     QLabel          *mNumberFontLabel;
     QLabel          *mSmoothFactorLabel;
+    QLabel          *mSnippingCursorSizeLabel;
+    QLabel          *mSnippingCursorColorLabel;
     NumericComboBox *mCaptureDelayCombobox;
     NumericComboBox *mSmoothFactorCombobox;
+    NumericComboBox *mSnippingCursorSizeCombobox;
     QFontComboBox   *mTextFontCombobox;
     QFontComboBox   *mNumberFontCombobox;
     QPushButton     *mBrowseButton;
@@ -72,10 +76,12 @@ private:
     QPushButton     *mTextBoldButton;
     QPushButton     *mTextItalicButton;
     QPushButton     *mTextUnderlineButton;
+    ColorButton     *mSnippingCursorColorButton;
     ImgurUploader   *mImgurUploader;
     QListWidget     *mListWidget;
     QStackedLayout  *mStackedLayout;
     KsnipConfig     *mConfig;
+
     void loadSettings();
     void saveSettings();
     void initGui();

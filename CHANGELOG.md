@@ -13,6 +13,7 @@
 * New: Select between default and custom filename for saving screenshots. ([#36](https://github.com/DamirPorobic/ksnip/issues/36))
 * New: Keyboard shortcuts for paint tools. ([#43](https://github.com/DamirPorobic/ksnip/issues/43))
 * New: Bring to front and send to back paint items. ([#31](https://github.com/DamirPorobic/ksnip/issues/31))
+* New: Configurable snipping cursor thickness and color. ([#54](https://github.com/DamirPorobic/ksnip/issues/54))
 * Changed: Moving Ksnip from Qt4 to Qt5. ([#22](https://github.com/DamirPorobic/ksnip/issues/22))
 * Fixed: Settings window left hand side menu is not correctly selected when opening first time. ([#37](https://github.com/DamirPorobic/ksnip/issues/37))
 * Fixed: Snipping area not correctly shown when started on non-primary screen. ([#52](https://github.com/DamirPorobic/ksnip/issues/52))

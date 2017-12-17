@@ -35,6 +35,7 @@ class SettingsDialog : public QDialog
     Q_OBJECT
 public:
     SettingsDialog(MainWindow *parent = 0);
+    ~SettingsDialog();
 
 private:
     MainWindow      *mParent;

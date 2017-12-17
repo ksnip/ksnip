@@ -82,9 +82,52 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     });
 }
 
-//
-// Private Functions
-//
+SettingsDialog::~SettingsDialog()
+{
+    delete mAlwaysCopyToClipboardCheckbox;
+    delete mPromptToSaveBeforeExitCheckbox;
+    delete mSaveKsnipPositionCheckbox;
+    delete mSaveKsnipToolSelectionCheckbox;
+    delete mCaptureOnStartupCheckbox;
+    delete mCaptureCursorCheckbox;
+    delete mImgurForceAnonymousCheckbox;
+    delete mImgurDirectLinkToImageCheckbox;
+    delete mImgurAlwaysCopyToClipboardCheckBox;
+    delete mSmoothPathCheckbox;
+    delete mItemShadowCheckbox;
+    delete mCursorRulerCheckbox;
+    delete mCursorInfoCheckbox;
+    delete mSaveLocationLineEdit;
+    delete mImgurClientIdLineEdit;
+    delete mImgurClientSecretLineEdit;
+    delete mImgurPinLineEdit;
+    delete mCaptureDelayLabel;
+    delete mSaveLocationLabel;
+    delete mImgurUsernameLabel;
+    delete mTextFontLabel;
+    delete mNumberFontLabel;
+    delete mSmoothFactorLabel;
+    delete mSnippingCursorSizeLabel;
+    delete mSnippingCursorColorLabel;
+    delete mCaptureDelayCombobox;
+    delete mSmoothFactorCombobox;
+    delete mSnippingCursorSizeCombobox;
+    delete mTextFontCombobox;
+    delete mNumberFontCombobox;
+    delete mBrowseButton;
+    delete mImgurGetPinButton;
+    delete mImgurGetTokenButton;
+    delete mOkButton;
+    delete mCancelButton;
+    delete mTextBoldButton;
+    delete mTextItalicButton;
+    delete mTextUnderlineButton;
+    delete mSnippingCursorColorButton;
+    delete mImgurUploader;
+    delete mListWidget;
+    delete mStackedLayout;
+}
+
 void SettingsDialog::loadSettings()
 {
     mAlwaysCopyToClipboardCheckbox->setChecked(mConfig->alwaysCopyToClipboard());
@@ -164,12 +207,11 @@ void SettingsDialog::initGui()
     auto const fixedButtonSize = 100;
 
     // Create Application Settings
-    mAlwaysCopyToClipboardCheckbox->setText(tr("Always copy capture to clipboard."));
-    mPromptToSaveBeforeExitCheckbox->setText(tr("Prompt to save before exiting ksnip."));
-    mSaveKsnipPositionCheckbox->setText(tr("Save ksnip position on move and load on startup."));
-    mSaveKsnipToolSelectionCheckbox->setText(tr("Save ksnip tool selection and "
-                                                "load on startup."));
-    mCaptureOnStartupCheckbox->setText(tr("Capture screenshot at startup with default mode."));
+    mAlwaysCopyToClipboardCheckbox->setText(tr("Always copy capture to clipboard"));
+    mPromptToSaveBeforeExitCheckbox->setText(tr("Prompt to save before exiting ksnip"));
+    mSaveKsnipPositionCheckbox->setText(tr("Save ksnip position on move and load on startup"));
+    mSaveKsnipToolSelectionCheckbox->setText(tr("Save ksnip tool selection and load on startup"));
+    mCaptureOnStartupCheckbox->setText(tr("Capture screenshot at startup with default mode"));
 
     mSaveLocationLabel->setText(tr("Capture save location and filename") + ":");
 
@@ -189,33 +231,40 @@ void SettingsDialog::initGui()
     });
 
     // Create Image Grabber Settings
-    mCaptureCursorCheckbox->setText(tr("Capture mouse cursor."));
+    mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot"));
     mCaptureCursorCheckbox->setToolTip(tr("Should mouse cursor be visible on\n"
-                                          "on screenshots."));
+                                          "screenshots."));
     mCaptureDelayLabel->setText(tr("Delay (sec)") + ":");
+    mCaptureDelayLabel->setToolTip(tr("Sets the delay between triggering a capture\n"
+                                      "and the moment when the capture is taken, in\n"
+                                      "seconds."));
+    mCaptureDelayCombobox->setToolTip(mCaptureDelayLabel->toolTip());
     mCaptureDelayCombobox->setMinimumWidth(fixedButtonSize);
-    mCursorRulerCheckbox->setText(tr("Show cursor ruler."));
+    mCursorRulerCheckbox->setText(tr("Show snipping cursor ruler"));
     mCursorRulerCheckbox->setToolTip(tr("Horizontal and vertical lines going from\n"
                                         "desktop corner to cursor on snipping area."));
-    mCursorInfoCheckbox->setText(tr("Show cursor position info."));
+    mCursorInfoCheckbox->setText(tr("Show cursor position info"));
     mCursorInfoCheckbox->setToolTip(tr("When left mouse is not pressed the position\n"
                                        "is show, when the mouse button is pressed,\n"
-                                       "the size of the select area is shown."));
+                                       "the size of the select area is shown left\n"
+                                       "and right from the captured area."));
     mSnippingCursorColorLabel->setText(tr("Cursor Color") + ":");
+    mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area\n"
+                                             "cursor. Change requires ksnip restart to\n"
+                                             "take effect."));
     mSnippingCursorColorButton->setMinimumWidth(fixedButtonSize);
-    mSnippingCursorColorButton->setToolTip(tr("Sets the color of the snipping area\n"
-                                               "cursor. Change requires ksnip restart to\n"
-                                               "take effect."));
+    mSnippingCursorColorButton->setToolTip(mSnippingCursorColorLabel->toolTip());
     mSnippingCursorSizeLabel->setText(tr("Cursor Thickness") + ":");
+    mSnippingCursorSizeLabel->setToolTip(tr("Sets the thickness of the snipping area\n"
+                                            "cursor. Change requires ksnip restart to\n"
+                                            "take effect."));
     mSnippingCursorSizeCombobox->setMinimumWidth(fixedButtonSize);
-    mSnippingCursorSizeCombobox->setToolTip(tr("Sets the thickness of the snipping area\n"
-                                               "cursor. Change requires ksnip restart to\n"
-                                               "take effect."));
+    mSnippingCursorSizeCombobox->setToolTip(mSnippingCursorSizeLabel->toolTip());
 
     // Create Imgur Uploader Settings
-    mImgurForceAnonymousCheckbox->setText(tr("Force anonymous upload."));
-    mImgurDirectLinkToImageCheckbox->setText(tr("Open link directly to image."));
-    mImgurAlwaysCopyToClipboardCheckBox->setText(tr("Always copy Imgur link to clipboard."));
+    mImgurForceAnonymousCheckbox->setText(tr("Force anonymous upload"));
+    mImgurDirectLinkToImageCheckbox->setText(tr("Open link directly to image"));
+    mImgurAlwaysCopyToClipboardCheckBox->setText(tr("Always copy Imgur link to clipboard"));
 
     mImgurClientIdLineEdit->setPlaceholderText(tr("Client ID"));
     connect(mImgurClientIdLineEdit, &QLineEdit::textChanged,
@@ -246,23 +295,25 @@ void SettingsDialog::initGui()
     mImgurGetTokenButton->setEnabled(false);
 
     // Create Painter Settings
-    mItemShadowCheckbox->setText(tr("Item Shadows"));
+    mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
     mItemShadowCheckbox->setToolTip(tr("When enabled, paint items cast shadows."));
 
-    mSmoothPathCheckbox->setText(tr("Smooth Paths"));
-    mSmoothPathCheckbox->setToolTip(tr("When enabled smooths out pen and \n"
+    mSmoothPathCheckbox->setText(tr("Smooth Painter Paths"));
+    mSmoothPathCheckbox->setToolTip(tr("When enabled smooths out pen and\n"
                                        "marker paths after finished drawing."));
     connect(mSmoothPathCheckbox, &QCheckBox::clicked,
             this, &SettingsDialog::smootPathCheckboxClicked);
 
     mSmoothFactorLabel->setText(tr("Smooth Factor") + ":");
     mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"
-                                      "precisions for pen and marker but will \n"
+                                      "precision for pen and marker but will\n"
                                       "make them more smooth."));
     mSmoothFactorCombobox->setMinimumWidth(fixedButtonSize);
     mSmoothFactorCombobox->setToolTip(mSmoothFactorLabel->toolTip());
 
     mTextFontLabel->setText(tr("Text Font") + ":");
+    mTextFontLabel->setToolTip(tr("Sets the font for the Text Paint Item."));
+    mTextFontCombobox->setToolTip(mTextFontLabel->toolTip());
     mTextFontCombobox->setEditable(false);
 
     // Setting the button to same square size as the height of the combobox
@@ -287,6 +338,8 @@ void SettingsDialog::initGui()
     mTextUnderlineButton->setStyleSheet("QPushButton { font-size: 18pt; text-decoration: underline; }");
 
     mNumberFontLabel->setText(tr("Numbering Font") + ":");
+    mNumberFontLabel->setToolTip(tr("Sets the font for the Numbering Paint Item."));
+    mNumberFontCombobox->setToolTip(mNumberFontLabel->toolTip());
     mNumberFontCombobox->setEditable(false);
 
     // Create Push Buttons
@@ -407,10 +460,6 @@ void SettingsDialog::initGui()
 
     setLayout(mainLayout);
 }
-
-//
-// Public Slots
-//
 
 /*
  * Based on the entered client id and client secret we create a pin request and open it up in the

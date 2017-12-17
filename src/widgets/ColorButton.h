@@ -28,13 +28,13 @@ class ColorButton : public QPushButton
     Q_OBJECT
 public:
     explicit ColorButton(QWidget *parent = 0);
-    void setColor(QColor &&color);
+    void setColor(const QColor &color);
     QColor color() const;
 
 private:
     QColor mColor;
 
-    QPixmap createPixmapFromColor(QColor &&color);
+    QPixmap createPixmapFromColor(const QColor &color);
 
 private slots:
     void openDialog();

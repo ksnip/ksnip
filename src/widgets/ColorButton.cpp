@@ -29,14 +29,14 @@ QColor ColorButton::color() const
     return mColor;
 }
 
-void ColorButton::setColor(QColor&& color)
+void ColorButton::setColor(const QColor& color)
 {
     mColor = color;
-    auto pixmapIcon = createPixmapFromColor(qMove(mColor));
+    auto pixmapIcon = createPixmapFromColor(mColor);
     setIcon(pixmapIcon);
 }
 
-QPixmap ColorButton::createPixmapFromColor(QColor&& color)
+QPixmap ColorButton::createPixmapFromColor(const QColor& color)
 {
     QPixmap pixmap(32, 32);
     pixmap.fill(color);
@@ -49,5 +49,5 @@ void ColorButton::openDialog()
     if (!color.isValid()) {
         return;
     }
-    setColor(qMove(color));
+    setColor(color);
 }

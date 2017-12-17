@@ -192,8 +192,8 @@ void SnippingArea::drawCursorPositionInfo(QPainter& painter) const
     auto textBoundingRect = getTextBounding(painter, text);
     textBoundingRect.moveTopLeft(pos + textOffset);
     auto boxRect = textBoundingRect;
-    textBoundingRect.adjust(0, 0, 4, 4);
-    boxRect.adjust(-3, 0, 4, 0);
+    textBoundingRect.adjust(0, 0, 7, 4);
+    boxRect.adjust(-3, 0, 5, 0);
 
     painter.setPen(QPen(Qt::red, 1));
     painter.setBrush(QColor(0, 0, 0, 200));

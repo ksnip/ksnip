@@ -59,7 +59,8 @@ void SnippingArea::show()
     init();
     setFixedSize(QDesktopWidget().size());
     QWidget::showFullScreen();
-    activateWindow();
+    QApplication::setActiveWindow(this);
+    grabKeyboard(); // Issue #57
 }
 
 void SnippingArea::setBackgroundImage(const QPixmap& background)
@@ -101,8 +102,14 @@ void SnippingArea::mouseReleaseEvent(QMouseEvent* event)
     }
 
     mMouseIsDown = false;
-    hide();
     emit finished();
+    close();
+}
+
+bool SnippingArea::close()
+{
+    releaseKeyboard(); // Issue #57
+    return QWidget::close();
 }
 
 void SnippingArea::mouseMoveEvent(QMouseEvent* event)
@@ -258,7 +265,6 @@ void SnippingArea::drawCursorHeightInfo(QPainter& painter) const
     painter.drawLine(lineEndBottom);
     painter.drawText(heightTextBoundingRect, heightText);
 }
-
 
 QRect SnippingArea::getTextBounding(const QPainter& painter, const QString& text) const
 {

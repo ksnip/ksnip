@@ -23,6 +23,7 @@
 #include <QWidget>
 #include <QMouseEvent>
 #include <QDesktopWidget>
+#include <QApplication>
 
 #include "src/widgets/CursorFactory.h"
 #include "src/helper/MathHelper.h"
@@ -37,6 +38,7 @@ public:
     void showWithoutBackground();
     void showWithBackground(const QPixmap& background);
     QRect selectedRectArea() const;
+    bool close();
 
 signals:
     void finished();

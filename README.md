@@ -1,8 +1,8 @@
 # ksnip
 
-Version v1.4.0-alpha
+Version v1.4.0
 
-Ksnip is a Qt based Linux screenshot tool inspired by the Window Snipping Tool.
+Ksnip is a Qt based Linux screenshot tool inspired by the Microsoft's Snipping Tool.
 
 ### Features
 Latest ksnip version contains following features:
@@ -18,7 +18,7 @@ Latest ksnip version contains following features:
 * Drawing lines and arrows.
 * Customizable color and size (thickness) for all drawing tools.
 * Writing text on screenshots, with customizable font, size, color etc.
-* Numbering tool with customizable font and color. 
+* Numbering tool with customizable font and color.
 * Any drawing (or multiple selection) can be moved around without deleting it by simply dragging it to new location.
 * Ordering paint items (bring to front, send to back).
 * Cropping captured screensshot, including any drawing on the captured image.
@@ -28,6 +28,7 @@ Latest ksnip version contains following features:
 * Undo/Redo for paint and crop operations.
 * Smooth out free hand pen and marker lines (can be disabled in settings).
 * Drop shadow for paint items (can be disabled in settings).
+* And other configuration options.
 
 
 ### Building from source
@@ -50,7 +51,7 @@ Latest ksnip version contains following features:
 
 
 ### Bug report
-Please report any bugs or feature requests on the github page under the issue section https://github.com/DamirPorobic/ksnip/issues. 
+Please report any bugs or feature requests on the github page under the issue section https://github.com/DamirPorobic/ksnip/issues.
 
 
 ### Other

@@ -2,7 +2,7 @@
 
 Version v1.4.0
 
-Ksnip is a Qt based Linux screenshot tool inspired by the Microsoft's Snipping Tool.
+Ksnip is a Qt based Linux screenshot tool inspired by Microsoft's Snipping Tool.
 
 ### Features
 Latest ksnip version contains following features:

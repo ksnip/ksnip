@@ -19,6 +19,7 @@
 * Fixed: Snipping area not correctly shown when started on non-primary screen. ([#52](https://github.com/DamirPorobic/ksnip/issues/52))
 * Fixed: Active window screenshot ignores delay. ([#53](https://github.com/DamirPorobic/ksnip/issues/53))
 * Fixed: Rectangular area screenshot is shifted to the right of actual selected area. ([#51](https://github.com/DamirPorobic/ksnip/issues/51))
+* Fixed: Snipping area not closing when pressing Esc on Ubuntu 16.04. ([#57](https://github.com/DamirPorobic/ksnip/issues/57))
 
 ## Release 1.3.2
 * Fixed: When compositor is disabled, rect are capture shows only black screen. Fix for Qt4 Ksnip version ([#35](https://github.com/DamirPorobic/ksnip/issues/35))

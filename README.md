@@ -36,7 +36,7 @@ Latest ksnip version contains following features:
 Starting with version 1.4.0 we provide an AppImage of Ksnip, which can be downloaded from the release page. 
 Starting with version 1.5.0 we have a continues build AppImage which is build after every commit and is uploaded to the release page as Continues Build release. Continues Build AppImages are considered alpha versions and work in progress. 
 
-In order to use AppImages, just download them from [here](https://github.com/damirporobic/ksnip/releases), make them executable and start using it, no installation required. 
+In order to use AppImages, just download them from [here](https://github.com/damirporobic/ksnip/releases), make them executable and start using it, no installation required.  
 `$ cd ~/Downloads`  
 `$ chmod a+x ksnip*.AppImage`  
 `$ ./ksnip*.AppImage`

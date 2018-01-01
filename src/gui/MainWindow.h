@@ -106,6 +106,7 @@ private:
     QAction          *mQuitAction;
     QAction          *mSettingsDialogAction;
     QAction          *mAboutKsnipAction;
+    QAction          *mOpenImageAction;
     QToolBar         *mToolBar;
     PaintArea        *mPaintArea;
     CaptureView      *mCaptureView;
@@ -143,6 +144,7 @@ private slots:
     void imgurTokenRefresh();
     void setPaintMode(Painter::Modes mode, bool save = true);
     void instantSave(const QPixmap &pixmap);
+    void loadImageFromFile();
 };
 
 #endif // MAINWINDOW_H

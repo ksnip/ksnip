@@ -1,7 +1,8 @@
 # Change log
 
 ## Release 1.5.0
-* New: Added Continues Build with Travis-CI that creates AppImages for every commit. (#64)
+* New: Added Continues Build with Travis-CI that creates AppImages for every commit. ([#63](https://github.com/DamirPorobic/ksnip/issues/63))
+* New: Added option to open image from file. ([#60](https://github.com/DamirPorobic/ksnip/issues/60))
 
 ## Release 1.4.0
 * New: Info text (cursor position and selection area size) for snipping area cursor, can be enabled and disabled via settings.([#49](https://github.com/DamirPorobic/ksnip/issues/49))

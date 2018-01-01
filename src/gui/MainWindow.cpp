@@ -54,6 +54,7 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     mQuitAction(new QAction(this)),
     mSettingsDialogAction(new QAction(this)),
     mAboutKsnipAction(new QAction(this)),
+    mOpenImageAction(new QAction(this)),
     mPaintArea(new PaintArea()),
     mCaptureView(new CaptureView(mPaintArea)),
     mUndoAction(mPaintArea->getUndoAction()),
@@ -765,6 +766,11 @@ void MainWindow::initGui()
     mRedoAction->setIcon(QIcon::fromTheme("edit-redo"));
     mRedoAction->setShortcut(QKeySequence::Redo);
 
+    mOpenImageAction->setText(tr("Open"));
+    mOpenImageAction->setIcon(QIcon::fromTheme("document-open"));
+    mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
+    connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::loadImageFromFile);
+
     // Create tool buttons
 
     // Create tool button for selecting new capture mode
@@ -819,6 +825,7 @@ void MainWindow::initGui()
     QMenu* menu;
     menu = menuBar()->addMenu(tr("File"));
     menu->addAction(mNewCaptureAction);
+    menu->addAction(mOpenImageAction);
     menu->addAction(mSaveAction);
     menu->addAction(mUploadToImgurAction);
     menu->addSeparator();
@@ -1061,4 +1068,14 @@ void MainWindow::instantSave(const QPixmap& pixmap)
     if (mMode == CLI) {
         close();
     }
+}
+
+void MainWindow::loadImageFromFile()
+{
+    auto pixmapFilename = QFileDialog::getOpenFileName(this,
+                          tr("Open Image"),
+                          mConfig->saveDirectory(),
+                          tr("Image Files (*.png *.jpg *.bmp)"));
+    QPixmap pixmap(pixmapFilename);
+    showCapture(pixmap);
 }

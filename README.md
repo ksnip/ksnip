@@ -1,4 +1,4 @@
-# ksnip
+# ksnip [![Build Status](https://travis-ci.org/DamirPorobic/ksnip.svg?branch=v1.5.0)](https://travis-ci.org/DamirPorobic/ksnip)
 
 Version v1.5.0 - alpha
 
@@ -32,9 +32,34 @@ Latest ksnip version contains following features:
 * And other configuration options.
 
 
-### Building from source
+### AppImage
+Starting with version 1.4.0 we provide an AppImage of Ksnip, which can be downloaded from the release page. 
+Starting with version 1.5.0 we have a continues build AppImage which is build after every commit and is uploaded to the release page as Continues Build release. Continues Build AppImages are considered alpha versions and work in progress. 
 
-1. Get latest release from GitHub by downloading either the zip or tar.gz package from https://github.com/damirporobic/ksnip/releases  
+In order to use AppImages, just download them from [here](https://github.com/damirporobic/ksnip/releases), make them executable and start using it, no installation required. 
+`$ cd ~/Downloads`  
+`$ chmod a+x ksnip*.AppImage`  
+`$ ./ksnip*.AppImage`
+
+More information about setting to executable can be found [here](https://discourse.appimage.org/t/how-to-make-an-appimage-executable/80).
+
+
+### RPM and DEB Binaries
+Starting with version 1.3.2 we provide ksnip as 32bit and 64bit DEB binariy and 64bit RPM binary. RPM and DEB binaries are created only at release of a version and currently we have no continues build that creates those binaries after every commit. RPM and DEB binaries can be downloaded from [here](https://discourse.appimage.org/t/how-to-make-an-appimage-executable/80).
+
+Installing RPM:  
+`$ cd ~/Downloads`  
+`$ rpm -Uvh ksnip*.rpm`  
+`$ ksnip`  
+
+Installing DEB:  
+`$ cd ~/Downloads`  
+`$ sudo dpkg -i ksnip*.deb`  
+`$ ksnip`  
+
+
+### Building from source
+1. Get latest release from GitHub by downloading either the zip or tar.gz package from [here](https://github.com/damirporobic/ksnip/releases).  
 2. Change to download directory, unpack the package and go to new directory:  
     `$ cd ~/Downloads`    
     `$ unzip ksnip-1.x.x.zip`
@@ -52,8 +77,4 @@ Latest ksnip version contains following features:
 
 
 ### Bug report
-Please report any bugs or feature requests on the github page under the issue section https://github.com/DamirPorobic/ksnip/issues.
-
-
-### Other
-For Gentoo ebuilds, check out this link https://github.com/mrbitt/mrbit-overlay/blob/master/x11-apps/ksnip/ksnip-1.3.1.ebuild
+Please report any bugs or feature requests on the github page under the [issue section](https://github.com/DamirPorobic/ksnip/issues).

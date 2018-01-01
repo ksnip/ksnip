@@ -1,8 +1,9 @@
 # ksnip
 
-Version v1.4.0
+Version v1.5.0 - alpha
 
-Ksnip is a Qt based Linux screenshot tool inspired by Microsoft's Snipping Tool.
+Ksnip is a Qt based Linux screenshot tool that provides many annotation features 
+for your screenshots.
 
 ### Features
 Latest ksnip version contains following features:
@@ -55,4 +56,4 @@ Please report any bugs or feature requests on the github page under the issue se
 
 
 ### Other
-For Gentoo, check out this link https://github.com/mrbitt/mrbit-overlay/blob/master/x11-apps/ksnip/ksnip-1.3.1.ebuild
+For Gentoo ebuilds, check out this link https://github.com/mrbitt/mrbit-overlay/blob/master/x11-apps/ksnip/ksnip-1.3.1.ebuild

@@ -32,7 +32,7 @@ int main(int argc, char** argv)
     app.setOrganizationName("ksnip");
     app.setOrganizationDomain("ksnip.local");
     app.setApplicationName("ksnip");
-    app.setApplicationVersion("v1.4.0");
+    app.setApplicationVersion("v1.5.0 - alpha");
 
     // Setup command line parser
     QCommandLineParser parser;

@@ -122,8 +122,8 @@ void PainterPen::smoothOut(float factor)
     }
 
     delete mPath;
-    prepareGeometryChange();
     mPath = path;
+    prepareGeometryChange();
 }
 
 void PainterPen::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)

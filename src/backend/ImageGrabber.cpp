@@ -24,7 +24,9 @@
 #include "src/gui/SnippingArea.h"
 #include "src/helper/X11GraphicsHelper.h"
 
-ImageGrabber::ImageGrabber(MainWindow* parent) : QObject(), mParent(parent)
+ImageGrabber::ImageGrabber(MainWindow* parent) : QObject(),
+    mParent(parent),
+    mCaptureCursor(false)
 {
     mSnippingArea = nullptr;
 }

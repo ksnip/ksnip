@@ -210,8 +210,7 @@ QColor SettingsPickerPopup::colorAt(int index) const
         return QColor();
     }
 
-    SettingsPickerPopup* that = (SettingsPickerPopup*)this;
-    return that->mColorItems.at(index)->color();
+    return this->mColorItems.at(index)->color();
 }
 
 void SettingsPickerPopup::addColorGrid(bool colorDialog, bool fillCheckbox)

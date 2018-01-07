@@ -506,7 +506,7 @@ void PaintArea::bringForward(bool toFront)
             // the items here but later in the undo/redo command so the item is
             // not yet bubbling up yet.
             if (item->zValue() > selected->zValue()
-                    && !selection.contains((AbstractPainterItem*)item)) {
+                    && !selection.contains(static_cast<AbstractPainterItem*>(item))) {
                 list->append(qMakePair(item, selected));
                 if (!toFront) {
                     break;

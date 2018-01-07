@@ -1,4 +1,4 @@
-# ksnip [![Build Status](https://travis-ci.org/DamirPorobic/ksnip.svg?branch=v1.5.0)](https://travis-ci.org/DamirPorobic/ksnip)
+# ksnip [![Build Status](https://travis-ci.org/DamirPorobic/ksnip.svg?branch=master)](https://travis-ci.org/DamirPorobic/ksnip)
 
 Version v1.5.0 - alpha
 

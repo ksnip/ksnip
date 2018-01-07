@@ -533,7 +533,7 @@ void PaintArea::sendBackward(bool toBack)
             // not yet bubbling up yet.
             if (item->zValue() < selected->zValue()
                     && item->zValue() > 0
-                    && !selection.contains((AbstractPainterItem*)item)) {
+                    && !selection.contains(static_cast<AbstractPainterItem*>(item))) {
                 list->append(qMakePair(item, selected));
                 if (!toBack) {
                     break;

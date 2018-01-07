@@ -26,7 +26,8 @@
 
 ImageGrabber::ImageGrabber(MainWindow* parent) : QObject(),
     mParent(parent),
-    mCaptureCursor(false)
+    mCaptureCursor(false),
+    mCaptureDelay(0)
 {
     mSnippingArea = nullptr;
 }

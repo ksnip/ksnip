@@ -191,7 +191,7 @@ void KsnipConfig::setSaveDirectory(const QString& path)
 
 QString KsnipConfig::saveFilename() const
 {
-    return mConfig.value("Application/SaveFilename", "ksnip_$Y$M$D$").toString();
+    return mConfig.value("Application/SaveFilename", "ksnip_$Y$M$D-$T").toString();
 }
 
 void KsnipConfig::setSaveFilename(const QString& filename)

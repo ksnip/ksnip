@@ -88,12 +88,13 @@ private:
     void initGui();
 
 private slots:
-    void getPinButtonClicked();
-    void getTokenButtonClicked();
+    void requestImgurPin();
+    void getImgurToken();
     void smootPathCheckboxClicked(bool checked);
     void imgurClientEntered(const QString &text);
     void imgurTokenUpdated(const QString &accessToken, const QString &refreshTocken, const QString &username);
     void imgurTokenError(const QString &message);
+    void chooseSaveDirectory();
 };
 
 #endif // SETTINGSDIALOG_H

@@ -221,14 +221,7 @@ void SettingsDialog::initGui()
     mSaveLocationLineEdit->setToolTip(tr("Filename can contain $Y, $M, $D for date and $T for time."));
 
     mBrowseButton->setText(tr("Browse"));
-    connect(mBrowseButton, &QPushButton::clicked, [this]() {
-        mSaveLocationLineEdit->setText(QFileDialog::getOpenFileName(this,
-                                       tr("Capture save location"),
-                                       mConfig->saveDirectory() +
-                                       mConfig->saveFilename() +
-                                       mConfig->saveFormat(),
-                                       tr("All")));
-    });
+    connect(mBrowseButton, &QPushButton::clicked, this, &SettingsDialog::chooseSaveDirectory);
 
     // Create Image Grabber Settings
     mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot"));
@@ -286,12 +279,12 @@ void SettingsDialog::initGui()
 
     mImgurGetPinButton->setText(tr("Get PIN"));
     connect(mImgurGetPinButton, &QPushButton::clicked,
-            this, &SettingsDialog::getPinButtonClicked);
+            this, &SettingsDialog::requestImgurPin);
     mImgurGetPinButton->setEnabled(false);
 
     mImgurGetTokenButton->setText(tr("Get Token"));
     connect(mImgurGetTokenButton, &QPushButton::clicked,
-            this, &SettingsDialog::getTokenButtonClicked);
+            this, &SettingsDialog::getImgurToken);
     mImgurGetTokenButton->setEnabled(false);
 
     // Create Painter Settings
@@ -465,7 +458,7 @@ void SettingsDialog::initGui()
  * Based on the entered client id and client secret we create a pin request and open it up in the
  * default browser.
  */
-void SettingsDialog::getPinButtonClicked()
+void SettingsDialog::requestImgurPin()
 {
     // Save client ID and Secret to config file
     mConfig->setImgurClientId(mImgurClientIdLineEdit->text().toUtf8());
@@ -484,7 +477,7 @@ void SettingsDialog::getPinButtonClicked()
 /*
  * Request a new token from imgur.com when clicked.
  */
-void SettingsDialog::getTokenButtonClicked()
+void SettingsDialog::getImgurToken()
 {
     mImgurUploader->getAccessToken(mImgurPinLineEdit->text().toUtf8(),
                                    mConfig->imgurClientId(),
@@ -532,4 +525,25 @@ void SettingsDialog::imgurTokenError(const QString& message)
 {
     qCritical("SettingsDialog returned error: '%s'", qPrintable(message));
     mParent->statusBar()->showMessage(tr("Imgur.com token update error."), 3000);
+}
+
+void SettingsDialog::chooseSaveDirectory()
+{
+    auto path = QFileDialog::getExistingDirectory(this,
+                tr("Capture save location"),
+                mConfig->saveDirectory());
+    if (!path.isEmpty()) {
+        auto filename = StringFormattingHelper::extractFilename(mSaveLocationLineEdit->text());
+        auto format = StringFormattingHelper::extractFormat(mSaveLocationLineEdit->text());
+
+        if (!filename.isEmpty()) {
+            path.append("/").append(filename);
+        }
+
+        if (!format.isEmpty()) {
+            path.append(".").append(format);
+        }
+
+        mSaveLocationLineEdit->setText(path);
+    }
 }

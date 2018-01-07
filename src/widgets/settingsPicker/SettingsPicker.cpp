@@ -29,18 +29,15 @@ SettingsPicker::SettingsPicker(QWidget* parent, int colons) :
     // Create color grid popup and connect to it.
     mPopup = new SettingsPickerPopup(colons, this);
 
-    connect(mPopup, &SettingsPickerPopup::colorChanged,
-            this, &SettingsPicker::updateColor);
-    connect(mPopup, &SettingsPickerPopup::fillChanged,
-            this, &SettingsPicker::updateFill);
-    connect(mPopup, &SettingsPickerPopup::sizeChanged,
-            this, &SettingsPicker::updateSize);
-    connect(mPopup, &SettingsPickerPopup::hid,
-            this, &SettingsPicker::popupClosed);
+    connect(mPopup, &SettingsPickerPopup::colorChanged, this, &SettingsPicker::colorSelected);
+    connect(mPopup, &SettingsPickerPopup::fillChanged, this, &SettingsPicker::fillSelected);
+    connect(mPopup, &SettingsPickerPopup::sizeChanged, this, &SettingsPicker::sizeSelected);
+    connect(mPopup, &SettingsPickerPopup::numberChanged, this, &SettingsPicker::numberSelected);
+
+    connect(mPopup, &SettingsPickerPopup::hid, this, &SettingsPicker::popupClosed);
 
     // Connect this push button's pressed() signal.
-    connect(this, &SettingsPicker::released,
-            this, &SettingsPicker::buttonPressed);
+    connect(this, &SettingsPicker::released, this, &SettingsPicker::buttonPressed);
 
     setPopupMode(QToolButton::InstantPopup);
 }
@@ -122,6 +119,17 @@ void SettingsPicker::setSize(int  size)
     mPopup->setSize(size);
 }
 
+int SettingsPicker::number() const
+{
+    mPopup->number();
+}
+
+void SettingsPicker::setNumber(int number)
+{
+    mPopup->setNumber(number);
+}
+
+
 void SettingsPicker::addPopupColorGrid(bool  colorDialog,
         bool  fillCheckbox,
         bool  standardColor)
@@ -135,6 +143,11 @@ void SettingsPicker::addPopupColorGrid(bool  colorDialog,
 void SettingsPicker::addPopupSizeSlider(int  min, int  max, int  interval)
 {
     mPopup->addSizeSlider(min, max, interval);
+}
+
+void SettingsPicker::addPopupNumberPicker(int min, int max)
+{
+    mPopup->addNumberPicker(min, max);
 }
 
 void SettingsPicker::insertStandardColor()
@@ -159,19 +172,9 @@ void SettingsPicker::clearPopup()
     mPopup->clear();
 }
 
-void SettingsPicker::updateColor(const QColor& color)
+void SettingsPicker::updateNumber(int number)
 {
-    emit colorChanged(color);
-}
-
-void SettingsPicker::updateFill(bool  fill)
-{
-    emit fillChanged(fill);
-}
-
-void SettingsPicker::updateSize(int  size)
-{
-    emit sizeChanged(size);
+    mPopup->setNumber(number);
 }
 
 void SettingsPicker::insertColor(const QColor& color, const QString& text, int index)

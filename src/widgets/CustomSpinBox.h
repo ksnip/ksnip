@@ -18,22 +18,22 @@
  *
  */
 
-#ifndef NUMERICCOMBOBOX_H
-#define NUMERICCOMBOBOX_H
+#ifndef CUSTOMSPINBOX_H
+#define CUSTOMSPINBOX_H
 
-#include <QComboBox>
+#include <QSpinBox>
 
-class NumericComboBox : public QComboBox
+class CustomSpinBox : public QSpinBox
 {
     Q_OBJECT
 
 public:
-    NumericComboBox(int start, int increment, int steps, QWidget *widget = 0);
+    CustomSpinBox(int min, int max, QWidget *widget = 0);
     int value() const;
     void setValue(int value);
 
-private:
-    void populateList(int start, int increment, int steps);
+signals:
+    void valueChanged(int);
 };
 
-#endif // NUMERICCOMBOBOX_H
+#endif // CUSTOMSPINBOX_H

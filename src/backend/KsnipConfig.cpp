@@ -19,12 +19,6 @@
  */
 
 #include "KsnipConfig.h"
-
-KsnipConfig::KsnipConfig(QObject* parent) : QObject(parent)
-{
-
-}
-
 //
 // Public Functions
 //

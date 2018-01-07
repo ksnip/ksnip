@@ -22,6 +22,7 @@
 PainterItemFactory::PainterItemFactory()
 {
     mConfig = KsnipConfig::instance();
+    mNumberSequencer = NumberSequencer::instance();
 }
 
 AbstractPainterItem* PainterItemFactory::createItem(Painter::Modes mode, const QPointF& pos) const
@@ -33,6 +34,11 @@ AbstractPainterItem* PainterItemFactory::createItem(Painter::Modes mode, const Q
     }
 
     return item;
+}
+
+void PainterItemFactory::reset()
+{
+    mNumberSequencer->resetNumber();
 }
 
 AbstractPainterItem * PainterItemFactory::createCopyOfItem(AbstractPainterItem* other) const
@@ -76,9 +82,8 @@ AbstractPainterItem* PainterItemFactory::createNewItem(Painter::Modes mode, cons
     case Painter::Text:
         return new PainterText(pos - QPointF(0, 12), mConfig->text(), mConfig->textFont());
     case Painter::Number:
-        return new PainterNumber(pos, mConfig->number(), mConfig->numberFont());
+        return new PainterNumber(pos, mConfig->number(), mConfig->numberFont(), mNumberSequencer->getNumberAndIncrement());
     default:
         return nullptr;
     }
 }
-

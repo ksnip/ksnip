@@ -2,7 +2,8 @@
 
 ## Release 1.5.0
 * New: Added Continues Build with Travis-CI that creates AppImages for every commit. ([#63](https://github.com/DamirPorobic/ksnip/issues/63))
-* New: Added option to open image from file. ([#60](https://github.com/DamirPorobic/ksnip/issues/60))
+* New: Added option to open image from file via gui. ([#60](https://github.com/DamirPorobic/ksnip/issues/60))
+* New: Added option to set next number for Numbering Paint Items via popup settings. ([#59](https://github.com/DamirPorobic/ksnip/issues/59))
 * Fixed: Crash on Ubuntu 17.10 caused by null painterPath pointer in smoothOut method. ([#67](https://github.com/DamirPorobic/ksnip/issues/67))
 
 ## Release 1.4.0

@@ -17,34 +17,36 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef PAINTERITEMFACTORY_H
-#define PAINTERITEMFACTORY_H
+#ifndef NUMBERSEQUENCER_H
+#define NUMBERSEQUENCER_H
 
-#include "PainterPen.h"
-#include "PainterMarker.h"
-#include "PainterRect.h"
-#include "PainterEllipse.h"
-#include "PainterLine.h"
-#include "PainterArrow.h"
-#include "PainterText.h"
-#include "PainterNumber.h"
-#include "PaintModes.h"
-#include "NumberSequencer.h"
-#include "src/backend/KsnipConfig.h"
+#include <QObject>
 
-class PainterItemFactory
+class NumberSequencer : public QObject
 {
+    Q_OBJECT
+
 public:
-    PainterItemFactory();
-    AbstractPainterItem *createItem(Painter::Modes mode, const QPointF &pos) const;
-    AbstractPainterItem *createCopyOfItem(AbstractPainterItem *other) const;
-    void reset();
+    static NumberSequencer *instance();
+
+    int getNumberAndIncrement();
+    int currentNumber();
+    void resetNumber();
+    int min() const;
+    int max() const;
+
+public slots:
+    void setNextNumber(int number);
+
+signals:
+    void numberChanged(int number);
 
 private:
-    KsnipConfig     *mConfig;
-    NumberSequencer *mNumberSequencer;
+    int mSequenceNumber = 1;
+    int minValue = 1;
+    int maxValue = 100;
 
-    AbstractPainterItem *createNewItem(Painter::Modes mode, const QPointF &pos) const;
+    NumberSequencer() {};
 };
 
-#endif // PAINTERITEMFACTORY_H
+#endif // NUMBERSEQUENCER_H

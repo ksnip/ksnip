@@ -38,22 +38,24 @@ public:
     void setFill(bool fill);
     int size() const;
     void setSize(int size);
+    int number() const;
+    void setNumber(int number);
     void addPopupColorGrid(bool colorDialog = true,
                            bool fillCheckbox = true,
                            bool standardColor = true);
     void addPopupSizeSlider(int  min, int  max, int  interval);
+    void addPopupNumberPicker(int min, int max);
     void insertStandardColor();
     void clearPopup();
 
 public slots:
-    void updateColor(const QColor &color);
-    void updateFill(bool fill);
-    void updateSize(int size);
+    void updateNumber(int number);
 
 signals:
-    void colorChanged(const QColor &);
-    void fillChanged(bool);
-    void sizeChanged(int);
+    void colorSelected(const QColor &);
+    void fillSelected(bool);
+    void sizeSelected(int);
+    void numberSelected(int);
 
 private slots:
     void buttonPressed();

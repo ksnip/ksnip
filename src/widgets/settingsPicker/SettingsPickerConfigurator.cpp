@@ -22,6 +22,7 @@
 SettingsPickerConfigurator::SettingsPickerConfigurator()
 {
     mConfig = KsnipConfig::instance();
+    mNumberSequencer = NumberSequencer::instance();
 }
 
 void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, Painter::Modes mode)
@@ -89,8 +90,11 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, Painter::
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, false, true);
         settingsPicker->addPopupSizeSlider(10, 50, 5);
+        settingsPicker->addPopupNumberPicker(mNumberSequencer->min(), mNumberSequencer->max());
         settingsPicker->setColor(mConfig->numberColor());
         settingsPicker->setSize(mConfig->numberSize());
+        connect(mNumberSequencer, &NumberSequencer::numberChanged, settingsPicker, &SettingsPicker::updateNumber);
+        connect(settingsPicker, &SettingsPicker::numberSelected, mNumberSequencer, &NumberSequencer::setNextNumber);
         break;
     case Painter::Erase:
         settingsPicker->setEnabled(true);

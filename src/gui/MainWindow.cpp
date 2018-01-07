@@ -810,11 +810,11 @@ void MainWindow::initGui()
     // Create painter settings tool button;
     mSettingsButton->setIcon(createIcon("painterSettings"));
     mSettingsButton->setToolTip(tr("Setting Painter tool configuration"));
-    connect(mSettingsButton, &SettingsPicker::colorChanged,
+    connect(mSettingsButton, &SettingsPicker::colorSelected,
             this, &MainWindow::colorChanged);
-    connect(mSettingsButton, &SettingsPicker::fillChanged,
+    connect(mSettingsButton, &SettingsPicker::fillSelected,
             this, &MainWindow::fillChanged);
-    connect(mSettingsButton, &SettingsPicker::sizeChanged,
+    connect(mSettingsButton, &SettingsPicker::sizeSelected,
             this, &MainWindow::sizeChanged);
 
     mPaintToolButton->setMenu(mPaintToolMenu);

@@ -28,7 +28,9 @@ SettingsPickerPopup::SettingsPickerPopup(int width, QWidget* parent) :
     mFillCheckBox(nullptr),
     mSizeLabel(nullptr),
     mSizeSlider(nullptr),
-    mSeparator(nullptr),
+    mFirstSeparator(nullptr),
+    mSecondSeperator(nullptr),
+    mNumberPicker(nullptr),
     mColorColumns(width)
 {
     setFrameStyle(QFrame::StyledPanel);
@@ -53,7 +55,7 @@ SettingsPickerPopup::~SettingsPickerPopup()
     delete mMoreButton;
     delete mColorGrid;
     delete mLayout;
-
+    delete mEventLoop;
 }
 
 
@@ -155,12 +157,12 @@ void SettingsPickerPopup::setFill(bool  fill)
 int SettingsPickerPopup::size() const
 {
     if (!mSizeSlider) {
-        return 0;
+        return -1;
     }
     return mSizeSlider->value();
 }
 
-void SettingsPickerPopup::setSize(int  newSize)
+void SettingsPickerPopup::setSize(int newSize)
 {
     if (!mSizeSlider) {
         return;
@@ -176,6 +178,22 @@ void SettingsPickerPopup::setSize(int  newSize)
     emit sizeChanged(size);
 }
 
+int SettingsPickerPopup::number() const
+{
+    if (!mNumberPicker) {
+        return -1;
+    }
+    return mNumberPicker->value();
+}
+
+void SettingsPickerPopup::setNumber(int number)
+{
+    if (!mNumberPicker) {
+        return;
+    }
+    mNumberPicker->setValue(number);
+}
+
 SettingsPickerColorItem* SettingsPickerPopup::findColor(const QColor& color) const
 {
     for (auto item : mColorItems) {
@@ -183,7 +201,6 @@ SettingsPickerColorItem* SettingsPickerPopup::findColor(const QColor& color) con
             return item;
         }
     }
-
     return nullptr;
 }
 
@@ -229,12 +246,11 @@ void SettingsPickerPopup::addSizeSlider(int min, int max, int interval)
 {
     if (!mSizeSlider) {
         // Only add a separator when we have a color grid
-        if (mColorGrid) {
-            mSeparator = new QFrame();
-            mSeparator->setFrameShape(QFrame::HLine);
-            mSeparator->setMinimumHeight(15);
-            mLayout->insertWidget(2, mSeparator);
-            mLayout->insertWidget(2, mSeparator);
+        if (mLayout->count() >= 1) {
+            mFirstSeparator = new QFrame();
+            mFirstSeparator->setFrameShape(QFrame::HLine);
+            mFirstSeparator->setMinimumHeight(15);
+            mLayout->insertWidget(-1, mFirstSeparator);
         }
 
         mSizeLabel = new QLabel();
@@ -251,7 +267,27 @@ void SettingsPickerPopup::addSizeSlider(int min, int max, int interval)
                 this, &SettingsPickerPopup::updateSize);
         connect(mSizeSlider, &QSlider::valueChanged,
                 this, &SettingsPickerPopup::updateSizeLabel);
+
         mLayout->insertWidget(4, mSizeSlider);
+    }
+}
+
+void SettingsPickerPopup::addNumberPicker(int min, int max)
+{
+    if (!mNumberPicker) {
+        // Only add a separator when we have a color grid or sizeSlider
+        if (mLayout->count() >= 1) {
+            mSecondSeperator = new QFrame();
+            mSecondSeperator->setFrameShape(QFrame::HLine);
+            mSecondSeperator->setMinimumHeight(15);
+            mLayout->insertWidget(-1, mSecondSeperator);
+        }
+
+        mNumberPicker = new CustomSpinBox(min, max);
+        connect(mNumberPicker, &CustomSpinBox::valueChanged, this, &SettingsPickerPopup::numberChanged);
+        connect(mNumberPicker, &CustomSpinBox::editingFinished, this, &SettingsPickerPopup::hide);
+
+        mLayout->insertWidget(-1, mNumberPicker);
     }
 }
 
@@ -288,8 +324,14 @@ void SettingsPickerPopup::clear()
     delete mColorGrid;
     mColorGrid = nullptr;
 
-    delete mSeparator;
-    mSeparator = nullptr;
+    delete mFirstSeparator;
+    mFirstSeparator = nullptr;
+
+    delete mSecondSeperator;
+    mSecondSeperator = nullptr;
+
+    delete mNumberPicker;
+    mNumberPicker = nullptr;
 
     for (auto item : mColorItems) {
         mColorItems.removeOne(item);

@@ -35,8 +35,6 @@ class KsnipConfig : public QObject
     Q_OBJECT
 
 public:
-    KsnipConfig(QObject *parent = 0);
-
     static KsnipConfig *instance();
 
     // Application
@@ -232,6 +230,8 @@ signals:
 
 private:
     QSettings mConfig;
+
+    KsnipConfig() {};
 };
 
 #endif // KSNIPCONFIG_H

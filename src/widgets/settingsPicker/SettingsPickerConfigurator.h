@@ -22,16 +22,20 @@
 
 #include "SettingsPicker.h"
 #include "src/painter/PaintModes.h"
+#include "src/painter/NumberSequencer.h"
 #include "src/backend/KsnipConfig.h"
 
-class SettingsPickerConfigurator
+class SettingsPickerConfigurator : QObject
 {
+    Q_OBJECT
+
 public:
     SettingsPickerConfigurator();
     void setup(SettingsPicker *settingsPicker, Painter::Modes mode);
 
 private:
-    KsnipConfig* mConfig;
+    KsnipConfig     *mConfig;
+    NumberSequencer *mNumberSequencer;
 };
 
 #endif // SETTINGSPICKERCONFIGURATOR_H

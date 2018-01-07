@@ -18,22 +18,29 @@
  *
  */
 
-#ifndef NUMERICCOMBOBOX_H
-#define NUMERICCOMBOBOX_H
+#include "CustomSpinBox.h"
 
-#include <QComboBox>
-
-class NumericComboBox : public QComboBox
+CustomSpinBox::CustomSpinBox(int min, int max, QWidget* parent) :
+    QSpinBox(parent)
 {
-    Q_OBJECT
+    setMinimum(min);
+    setMaximum(max);
+    setWrapping(true);
 
-public:
-    NumericComboBox(int start, int increment, int steps, QWidget *widget = 0);
-    int value() const;
-    void setValue(int value);
+    connect(this, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &CustomSpinBox::valueChanged);
+}
 
-private:
-    void populateList(int start, int increment, int steps);
-};
+int CustomSpinBox::value() const
+{
+    return QSpinBox::value();
+}
 
-#endif // NUMERICCOMBOBOX_H
+void CustomSpinBox::setValue(int value)
+{
+    // Don't emit valueChanged signal values set via this method
+    blockSignals(true);
+
+    QSpinBox::setValue(value);
+
+    blockSignals(false);
+}

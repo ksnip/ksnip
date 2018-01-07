@@ -50,6 +50,7 @@ void PaintArea::loadCapture(const QPixmap& pixmap)
 {
     clearCurrentItem();
     mUndoStack->clear();
+    mPainterItemFactory->reset();
     clear();
     clearSelection();
     AbstractPainterItem::resetOrder();
@@ -571,4 +572,3 @@ void PaintArea::eraseSelectedItems()
 {
     mUndoStack->push(new DeleteCommand(this));
 }
-

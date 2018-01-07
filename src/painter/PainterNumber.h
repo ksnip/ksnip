@@ -25,7 +25,7 @@
 class PainterNumber : public AbstractPainterItem
 {
 public:
-    PainterNumber(const QPointF &pos, const QPen &attributes, const QFont &font);
+    PainterNumber(const QPointF &pos, const QPen &attributes, const QFont &font, int number);
     PainterNumber(const PainterNumber& other);
     virtual ~PainterNumber();
     virtual QRectF boundingRect() const override;
@@ -33,7 +33,6 @@ public:
     virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
 
 private:
-    static int    mCounter;
     int           mNumber;
     QRectF        mRect;
     QFont        *mFont;

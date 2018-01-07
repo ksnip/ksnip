@@ -41,6 +41,7 @@ set(ksnip_SRCS src/main.cpp
                src/painter/PainterText.cpp
                src/painter/PainterNumber.cpp
                src/painter/PainterItemFactory.cpp
+               src/painter/NumberSequencer.cpp
                src/helper/StringFormattingHelper.cpp
                src/helper/MathHelper.cpp
                src/helper/X11GraphicsHelper.cpp
@@ -53,6 +54,7 @@ set(ksnip_SRCS src/main.cpp
                src/widgets/UndoCommands.cpp
                src/widgets/ContextMenu.cpp
                src/widgets/ColorButton.cpp
+               src/widgets/CustomSpinBox.cpp
                src/widgets/settingsPicker/SettingsPicker.cpp
                src/widgets/settingsPicker/SettingsPickerPopup.cpp
                src/widgets/settingsPicker/SettingsPickerButton.cpp

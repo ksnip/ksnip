@@ -19,22 +19,20 @@
 
 #include "PainterNumber.h"
 
-int PainterNumber::mCounter = 1;
-
-PainterNumber::PainterNumber(const QPointF& pos, const QPen& attributes, const QFont &font) :
+PainterNumber::PainterNumber(const QPointF& pos, const QPen& attributes, const QFont &font, int number) :
     AbstractPainterItem(attributes),
     mFont(new QFont(font)),
     mFontMetric(new QFontMetrics(*mFont)),
     mTextColor(new QColor("white"))
 {
-    mNumber = mCounter++;
+    mNumber = number;
     mRect = calculateBoundingRect();
     mRect.moveCenter(pos);
 }
 
 PainterNumber::PainterNumber(const PainterNumber& other) : AbstractPainterItem(other)
 {
-    this->mNumber = mCounter++;  // Should we copy here the number?
+    this->mNumber = other.mNumber;
     this->mRect = other.mRect;
     this->mFont = new QFont(*other.mFont);
     this->mFontMetric = new QFontMetrics(*other.mFontMetric);
@@ -46,7 +44,6 @@ PainterNumber::~PainterNumber()
     delete mFont;
     delete mFontMetric;
     delete mTextColor;
-    mCounter--;
 }
 
 QRectF PainterNumber::boundingRect() const

@@ -25,6 +25,7 @@
 
 #include "SettingsPickerColorItem.h"
 #include "SettingsPickerButton.h"
+#include "src/widgets/CustomSpinBox.h"
 
 class SettingsPickerPopup : public QFrame
 {
@@ -41,10 +42,13 @@ public:
     void setFill(bool fill);
     int size() const;
     void setSize(int size);
+    int number() const;
+    void setNumber(int number);
     SettingsPickerColorItem *findColor(const QColor &color) const;
     QColor colorAt(int index) const;
     void addColorGrid(bool colorDialog = true, bool fillCheckbox = true);
     void addSizeSlider(int  min, int  max, int  interval);
+    void addNumberPicker(int min, int max);
     bool isEmpty() const;
     void clear();
 
@@ -52,6 +56,7 @@ signals:
     void colorChanged(const QColor &);
     void fillChanged(bool);
     void sizeChanged(int);
+    void numberChanged(int);
     void hid();
 
 public slots:
@@ -78,7 +83,9 @@ private:
     QCheckBox                         *mFillCheckBox;
     QLabel                            *mSizeLabel;
     QSlider                           *mSizeSlider;
-    QFrame                            *mSeparator;
+    QFrame                            *mFirstSeparator;
+    QFrame                            *mSecondSeperator;
+    CustomSpinBox                     *mNumberPicker;
 
     int mLastSelectedColorPos;
     int mColorColumns;

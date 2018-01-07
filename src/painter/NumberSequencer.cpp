@@ -17,34 +17,49 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef PAINTERITEMFACTORY_H
-#define PAINTERITEMFACTORY_H
-
-#include "PainterPen.h"
-#include "PainterMarker.h"
-#include "PainterRect.h"
-#include "PainterEllipse.h"
-#include "PainterLine.h"
-#include "PainterArrow.h"
-#include "PainterText.h"
-#include "PainterNumber.h"
-#include "PaintModes.h"
 #include "NumberSequencer.h"
-#include "src/backend/KsnipConfig.h"
 
-class PainterItemFactory
+NumberSequencer* NumberSequencer::instance()
 {
-public:
-    PainterItemFactory();
-    AbstractPainterItem *createItem(Painter::Modes mode, const QPointF &pos) const;
-    AbstractPainterItem *createCopyOfItem(AbstractPainterItem *other) const;
-    void reset();
+    static NumberSequencer instance;
+    return &instance;
+}
 
-private:
-    KsnipConfig     *mConfig;
-    NumberSequencer *mNumberSequencer;
+int NumberSequencer::getNumberAndIncrement()
+{
+    auto currentNumber = mSequenceNumber;
+    setNextNumber(mSequenceNumber + 1);
+    emit numberChanged(mSequenceNumber);
+    return currentNumber;
+}
 
-    AbstractPainterItem *createNewItem(Painter::Modes mode, const QPointF &pos) const;
-};
+int NumberSequencer::currentNumber()
+{
+    return mSequenceNumber;
+}
 
-#endif // PAINTERITEMFACTORY_H
+void NumberSequencer::setNextNumber(int number)
+{
+    if (number > max()) {
+        mSequenceNumber = min();
+    } else if (number < min()) {
+        mSequenceNumber = min();
+    } else {
+        mSequenceNumber = number;
+    }
+}
+
+void NumberSequencer::resetNumber()
+{
+    mSequenceNumber = min();
+}
+
+int NumberSequencer::min() const
+{
+    return minValue;
+}
+
+int NumberSequencer::max() const
+{
+    return maxValue;
+}

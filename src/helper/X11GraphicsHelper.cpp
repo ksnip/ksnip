@@ -29,7 +29,7 @@
 
 bool X11GraphicsHelper::isCompositorActive()
 {
-    auto display = XOpenDisplay(0);
+    auto display = QX11Info::display();
     auto prop_atom = XInternAtom(display, "_NET_WM_CM_S0", False);
     return XGetSelectionOwner(display, prop_atom) != None;
 }

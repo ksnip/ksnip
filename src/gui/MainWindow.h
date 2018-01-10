@@ -37,6 +37,7 @@
 #include "src/backend/ImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/ImgurUploader.h"
+#include "src/backend/PlatformChecker.h"
 
 class MainWindow : public QMainWindow
 {

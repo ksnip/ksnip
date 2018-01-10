@@ -30,6 +30,7 @@ set(ksnip_SRCS src/main.cpp
                src/backend/ImgurUploader.cpp
                src/backend/KsnipConfig.cpp
                src/backend/ImageGrabber.cpp
+               src/backend/PlatformChecker.cpp
                src/painter/PaintArea.cpp
                src/painter/AbstractPainterItem.cpp
                src/painter/PainterPen.cpp

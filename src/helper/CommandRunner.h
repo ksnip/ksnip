@@ -17,44 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef PLATFORMCHECKER_H
-#define PLATFORMCHECKER_H
+#ifndef COMMANDRUNNER_H
+#define COMMANDRUNNER_H
 
 #include <QString>
 
-#include "src/helper/CommandRunner.h"
-
-class PlatformChecker
+class CommandRunner
 {
-    enum class Platform
-    {
-        X11,
-        Wayland,
-        Unknown
-    };
-
-    enum class Environment
-    {
-        Gnome,
-        KDE,
-        Unknown
-    };
-
 public:
-    static PlatformChecker *instance();
-
-    Platform platform() const;
-    Environment environment() const;
+    QString getEnviromentVariable(const QString &variable) const;
 
 private:
-    Platform   mPlatform;
-    Environment mEnvironment;
-
-    void checkPlatform();
-    void checkEnvironment();
-    bool outputContainsValue(const QString& output, const QString& value) const;
-
-    PlatformChecker();
+    const int mMaxBuffer = 256;
 };
 
-#endif // PLATFORMCHECKER_H
+#endif // COMMANDRUNNER_H

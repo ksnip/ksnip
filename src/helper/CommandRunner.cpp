@@ -17,44 +17,26 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef PLATFORMCHECKER_H
-#define PLATFORMCHECKER_H
+#include "CommandRunner.h"
 
-#include <QString>
-
-#include "src/helper/CommandRunner.h"
-
-class PlatformChecker
+QString CommandRunner::getEnviromentVariable(const QString& variable) const
 {
-    enum class Platform
-    {
-        X11,
-        Wayland,
-        Unknown
-    };
+    QString value;
+    char buffer[mMaxBuffer];
 
-    enum class Environment
-    {
-        Gnome,
-        KDE,
-        Unknown
-    };
+    auto command = variable.trimmed();
+    command.prepend("echo $");
+    command.append(" 2>&1");
 
-public:
-    static PlatformChecker *instance();
+    auto stream = popen(command.toLatin1(), "r");
 
-    Platform platform() const;
-    Environment environment() const;
-
-private:
-    Platform   mPlatform;
-    Environment mEnvironment;
-
-    void checkPlatform();
-    void checkEnvironment();
-    bool outputContainsValue(const QString& output, const QString& value) const;
-
-    PlatformChecker();
-};
-
-#endif // PLATFORMCHECKER_H
+    if (stream) {
+        while (!feof(stream)) {
+            if (fgets(buffer, mMaxBuffer, stream) != nullptr) {
+                value.append(buffer);
+            }
+        }
+        pclose(stream);
+    }
+    return value;
+}

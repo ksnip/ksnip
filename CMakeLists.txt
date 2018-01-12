@@ -46,6 +46,7 @@ set(ksnip_SRCS src/main.cpp
                src/helper/StringFormattingHelper.cpp
                src/helper/MathHelper.cpp
                src/helper/X11GraphicsHelper.cpp
+               src/helper/CommandRunner.cpp
                src/widgets/CropPanel.cpp
                src/widgets/CaptureView.cpp
                src/widgets/CustomToolButton.cpp

@@ -30,17 +30,19 @@ PlatformChecker::Platform PlatformChecker::platform() const
     return mPlatform;
 }
 
-PlatformChecker::DE PlatformChecker::de() const
+PlatformChecker::Environment PlatformChecker::environment() const
 {
-    return mDe;
+    return mEnvironment;
 }
 
 void PlatformChecker::checkPlatform()
 {
-    if (QX11Info::isPlatformX11()) {
+    CommandRunner runner;
+    auto output = runner.getEnviromentVariable("XDG_SESSION_TYPE");
+    if (outputContainsValue(output, "x11")) {
         qCritical("Platform: X11");
         mPlatform = Platform::X11;
-    } else if (QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
+    } else if (outputContainsValue(output, "wayland")) {
         qCritical("Platform: Wayland");
         mPlatform = Platform::Wayland;
     } else {
@@ -49,46 +51,29 @@ void PlatformChecker::checkPlatform()
     }
 }
 
-void PlatformChecker::checkDe()
+void PlatformChecker::checkEnvironment()
 {
-    auto output = getEnviromentVariable("XDG_CURRENT_DESKTOP");
-    if (output.contains(QLatin1String("kde"), Qt::CaseInsensitive)) {
+    CommandRunner runner;
+    auto output = runner.getEnviromentVariable("XDG_CURRENT_DESKTOP");
+    if (outputContainsValue(output, "kde")) {
         qCritical("Window Manager: KDE");
-        mDe = DE::KDE;
-    } else if (output.contains(QLatin1String("gnome"), Qt::CaseInsensitive)) {
+        mEnvironment = Environment::KDE;
+    } else if (outputContainsValue(output, "gnome")) {
         qCritical("Window Manager: Gnome");
-        mDe = DE::KDE;
+        mEnvironment = Environment::KDE;
     } else {
         qCritical("Window Manager: Unknown");
-        mDe = DE::Unknown;
+        mEnvironment = Environment::Unknown;
     }
+}
+
+bool PlatformChecker::outputContainsValue(const QString& output, const QString& value) const
+{
+    return output.contains(value.toLatin1(), Qt::CaseInsensitive);
 }
 
 PlatformChecker::PlatformChecker()
 {
     checkPlatform();
-    checkDe();
-}
-
-QString PlatformChecker::getEnviromentVariable(const QString& variable) const
-{
-    QString value;
-    FILE* stream;
-    const int max_buffer = 256;
-    char buffer[max_buffer];
-    auto command = variable.trimmed();
-    command.prepend("echo $");
-    command.append(" 2>&1");
-
-    stream = popen(command.toLatin1(), "r");
-
-    if (stream) {
-        while (!feof(stream)) {
-            if (fgets(buffer, max_buffer, stream) != NULL) {
-                value.append(buffer);
-            }
-        }
-        pclose(stream);
-    }
-    return value;
+    checkEnvironment();
 }

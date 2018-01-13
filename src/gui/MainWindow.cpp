@@ -60,21 +60,20 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     mUndoAction(mPaintArea->getUndoAction()),
     mRedoAction(mPaintArea->getRedoAction()),
     mClipboard(QApplication::clipboard()),
-    mImageGrabber(new X11ImageGrabber(this)),
     mImgurUploader(new ImgurUploader(this)),
     mCropPanel(new CropPanel(mCaptureView)),
     mConfig(KsnipConfig::instance()),
     mSettingsPickerConfigurator(new SettingsPickerConfigurator())
 {
-
-    PlatformChecker::instance()->platform();
+    ImageGrabberFactory imageGrabberFactory;
+    mImageGrabber = imageGrabberFactory.createImageGrabber();
 
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
     // feedback.
     if (mMode == RunMode::CLI) {
-        connect(mImageGrabber, &X11ImageGrabber::finished, this, &MainWindow::instantSave);
-        connect(mImageGrabber, &X11ImageGrabber::canceled, this, &MainWindow::close);
+        connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::instantSave);
+        connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::close);
         return;
     }
 
@@ -93,8 +92,8 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     });
 
 
-    connect(mImageGrabber, &X11ImageGrabber::finished, this, &MainWindow::showCapture);
-    connect(mImageGrabber, &X11ImageGrabber::canceled, [this]() {
+    connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::showCapture);
+    connect(mImageGrabber, &AbstractImageGrabber::canceled, [this]() {
         setHidden(false);
     });
 
@@ -131,6 +130,9 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
  */
 void MainWindow::instantCapture(CaptureModes captureMode, bool captureCursor, int delay)
 {
+    if (captureMode == CaptureModes::RectArea && delay < mMinCaptureDelay) {
+        delay = mMinCaptureDelay;
+    }
     mImageGrabber->grabImage(captureMode, captureCursor, delay);
 }
 
@@ -551,7 +553,13 @@ bool MainWindow::hidden() const
 void MainWindow::capture(CaptureModes captureMode)
 {
     setHidden(true);
-    mImageGrabber->grabImage(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
+
+    auto delay = mConfig->captureDelay();
+    if( delay < mMinCaptureDelay) {
+        delay = mMinCaptureDelay;
+    }
+
+    mImageGrabber->grabImage(captureMode, mConfig->captureCursor(), delay);
     mConfig->setCaptureMode(captureMode);
 }
 

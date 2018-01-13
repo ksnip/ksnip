@@ -20,83 +20,34 @@
 
 #include "X11ImageGrabber.h"
 
-#include "src/gui/MainWindow.h"
-#include "src/gui/SnippingArea.h"
-#include "src/helper/X11GraphicsHelper.h"
-
-X11ImageGrabber::X11ImageGrabber(MainWindow* parent) : QObject(),
-    mParent(parent),
-    mCaptureCursor(false),
-    mCaptureDelay(0)
-{
-    mSnippingArea = nullptr;
-}
-
-X11ImageGrabber::~X11ImageGrabber()
-{
-    delete mSnippingArea;
-}
-
-//
-// Public Functions
-//
-
 void X11ImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int delay)
 {
     mCaptureCursor = capureCursor;
-    mCaptureDelay = (delay < 0) ? 0 : delay;
+    mCaptureDelay = delay;
     mCaptureMode = captureMode;
 
     if (mCaptureMode == CaptureModes::RectArea) {
-        openSnippingArea();
+        getRectArea();
     } else {
-        QTimer::singleShot(getDelay(), this, &X11ImageGrabber::grabRect);
+        QTimer::singleShot(mCaptureDelay, this, &X11ImageGrabber::grabRect);
     }
 }
 
-void X11ImageGrabber::openSnippingArea()
+void X11ImageGrabber::getRectArea()
 {
-    initSnippingAreaIfRequired();
-
     if (X11GraphicsHelper::isCompositorActive()) {
-        mSnippingArea->showWithoutBackground();
+        openSnippingArea();
     } else {
         auto screenRect = X11GraphicsHelper::getFullScreenRect();
         auto background = createPixmap(screenRect);
-        mSnippingArea->showWithBackground(background);
+        openSnippingAreaWithBackground(background);
     }
-}
-
-void X11ImageGrabber::initSnippingAreaIfRequired()
-{
-    if (!mSnippingArea) {
-        mSnippingArea = new SnippingArea(mParent);
-        connect(mSnippingArea, &SnippingArea::finished, [this]() {
-            QTimer::singleShot(getDelay(), this, &X11ImageGrabber::grabRect);
-        });
-        connect(mSnippingArea, &SnippingArea::canceled, [this]() {
-            emit canceled();
-        });
-    }
-}
-
-/*
- * Returns delay in msec. On the user chosen delay we add a default delay of 200
- * msec so the mainwindow has enough time to hide before we take screenshot.
- * When we run CLI mode we don't need this buffer as the mainwindow is not shown
- */
-int X11ImageGrabber::getDelay() const
-{
-    if (mParent->getMode() == MainWindow::CLI || mCaptureDelay >= mMinCaptureDelay) {
-        return mCaptureDelay;
-    }
-    return mCaptureDelay + 200;
 }
 
 void X11ImageGrabber::setRectFromCorrectSource()
 {
     if (mCaptureMode == CaptureModes::RectArea) {
-        mCaptureRect = mSnippingArea->selectedRectArea();
+        mCaptureRect = selectedSnippingAreaRect();
     } else if (mCaptureMode == CaptureModes::FullScreen) {
         mCaptureRect = X11GraphicsHelper::getFullScreenRect();
     } else if (mCaptureMode == CaptureModes::CurrentScreen) {
@@ -108,15 +59,6 @@ void X11ImageGrabber::setRectFromCorrectSource()
             mCaptureRect = currectScreenRect();
         }
     }
-}
-
-/*
- * Returns the rect of the screen where the mouse cursor is currently located
- */
-QRect X11ImageGrabber::currectScreenRect() const
-{
-    auto screen = QApplication::desktop()->screenNumber(QCursor::pos());
-    return QApplication::desktop()->screenGeometry(screen);
 }
 
 void X11ImageGrabber::grabRect()

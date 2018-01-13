@@ -34,10 +34,9 @@
 #include "src/widgets/CaptureView.h"
 #include "src/widgets/CropPanel.h"
 #include "src/widgets/settingsPicker/SettingsPickerConfigurator.h"
-#include "src/backend/X11ImageGrabber.h"
+#include "src/backend/ImageGrabberFactory.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/ImgurUploader.h"
-#include "src/backend/PlatformChecker.h"
 
 class MainWindow : public QMainWindow
 {
@@ -51,9 +50,7 @@ public:
 public:
     MainWindow(RunMode mode = GUI);
     void show();
-    void instantCapture(CaptureModes captureMode,
-                        bool capureCursor = true,
-                        int delay = 0);
+    void instantCapture(CaptureModes captureMode, bool capureCursor = true, int delay = 0);
     void resize();
     RunMode getMode() const;
     virtual QMenu *createPopupMenu() override;
@@ -75,6 +72,7 @@ private:
     RunMode           mMode;
     bool              mIsUnsaved;
     bool              mHidden;
+    const int         mMinCaptureDelay = 200;
     CustomToolButton *mNewCaptureButton;
     QToolButton      *mSaveButton;
     QToolButton      *mCopyToClipboardButton;
@@ -114,7 +112,7 @@ private:
     QAction          *mUndoAction;
     QAction          *mRedoAction;
     QClipboard       *mClipboard;
-    X11ImageGrabber     *mImageGrabber;
+    AbstractImageGrabber *mImageGrabber;
     ImgurUploader    *mImgurUploader;
     CropPanel        *mCropPanel;
     KsnipConfig      *mConfig;

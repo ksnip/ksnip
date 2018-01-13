@@ -29,7 +29,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(ksnip_SRCS src/main.cpp
                src/backend/ImgurUploader.cpp
                src/backend/KsnipConfig.cpp
+               src/backend/AbstractImageGrabber.cpp
                src/backend/X11ImageGrabber.cpp
+               src/backend/ImageGrabberFactory.cpp
                src/backend/PlatformChecker.cpp
                src/painter/PaintArea.cpp
                src/painter/AbstractPainterItem.cpp

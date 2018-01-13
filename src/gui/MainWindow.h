@@ -34,7 +34,7 @@
 #include "src/widgets/CaptureView.h"
 #include "src/widgets/CropPanel.h"
 #include "src/widgets/settingsPicker/SettingsPickerConfigurator.h"
-#include "src/backend/ImageGrabberFactory.h"
+#include "src/backend/imageGrabber/ImageGrabberFactory.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/ImgurUploader.h"
 

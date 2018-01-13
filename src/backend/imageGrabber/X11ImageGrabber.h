@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -15,18 +15,31 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
+ *
  */
 
-#ifndef IMAGEGRABBERFACTORY_H
-#define IMAGEGRABBERFACTORY_H
+#ifndef X11IMAGEGRABBER_H
+#define X11IMAGEGRABBER_H
 
-#include "X11ImageGrabber.h"
-#include "PlatformChecker.h"
+#include "AbstractImageGrabber.h"
+#include "X11Wrapper.h"
 
-class ImageGrabberFactory
+class X11ImageGrabber : public AbstractImageGrabber
 {
 public:
-    AbstractImageGrabber* createImageGrabber();
+    X11ImageGrabber();
+    virtual ~X11ImageGrabber();
+    virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) override;
+
+protected:
+    virtual void grabRect() override;
+
+private:
+    X11Wrapper *mX11Wrapper;
+
+    void getRectArea();
+    void setRectFromCorrectSource();
+    QPixmap createPixmap(const QRect &rect) const;
 };
 
-#endif // IMAGEGRABBERFACTORY_H
+#endif // X11IMAGEGRABBER_H

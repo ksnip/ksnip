@@ -21,7 +21,7 @@
 #include <QCommandLineParser>
 
 #include "gui/MainWindow.h"
-#include "src/backend/CaptureModes.h"
+#include "src/backend/imageGrabber/CaptureModes.h"
 
 int main(int argc, char** argv)
 {

@@ -23,29 +23,29 @@
  * implementation.
  */
 
-#include "X11GraphicsHelper.h"
+#include "X11Wrapper.h"
 
 #include <X11/Xlib.h>
 
-bool X11GraphicsHelper::isCompositorActive()
+bool X11Wrapper::isCompositorActive() const
 {
     auto display = QX11Info::display();
     auto prop_atom = XInternAtom(display, "_NET_WM_CM_S0", False);
     return XGetSelectionOwner(display, prop_atom) != None;
 }
 
-QRect X11GraphicsHelper::getFullScreenRect()
+QRect X11Wrapper::getFullScreenRect() const
 {
     return getWindowRect(QX11Info::appRootWindow());
 }
 
-QRect X11GraphicsHelper::getActiveWindowRect()
+QRect X11Wrapper::getActiveWindowRect() const
 {
     auto windowId = getActiveWindowId();
     return getWindowRect(windowId);
 }
 
-QRect X11GraphicsHelper::getWindowRect(xcb_window_t windowId)
+QRect X11Wrapper::getWindowRect(xcb_window_t windowId) const
 {
     // In case of window id 0 return empty rect
     if (windowId == 0) {
@@ -59,7 +59,7 @@ QRect X11GraphicsHelper::getWindowRect(xcb_window_t windowId)
     return QRect(geomReply->x, geomReply->y, geomReply->width, geomReply->height);
 }
 
-xcb_window_t X11GraphicsHelper::getActiveWindowId()
+xcb_window_t X11Wrapper::getActiveWindowId() const
 {
     xcb_query_tree_cookie_t treeCookie;
     auto connection = QX11Info::connection();
@@ -84,7 +84,7 @@ xcb_window_t X11GraphicsHelper::getActiveWindowId()
     }
 }
 
-QPoint X11GraphicsHelper::getNativeCursorPosition()
+QPoint X11Wrapper::getNativeCursorPosition() const
 {
     // QCursor::pos() is not used because it requires additional calculations.
     // Its value is the offset to the origin of the current screen is in
@@ -98,7 +98,7 @@ QPoint X11GraphicsHelper::getNativeCursorPosition()
 }
 
 // Note: x, y, width and height are measured in device pixels
-QPixmap X11GraphicsHelper::blendCursorImage(const QPixmap& pixmap, const QRect& rect)
+QPixmap X11Wrapper::blendCursorImage(const QPixmap& pixmap, const QRect& rect) const
 {
     auto cursorPos = getNativeCursorPosition();
 

@@ -29,10 +29,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(ksnip_SRCS src/main.cpp
                src/backend/ImgurUploader.cpp
                src/backend/KsnipConfig.cpp
-               src/backend/AbstractImageGrabber.cpp
-               src/backend/X11ImageGrabber.cpp
-               src/backend/ImageGrabberFactory.cpp
                src/backend/PlatformChecker.cpp
+               src/backend/imageGrabber/AbstractImageGrabber.cpp
+               src/backend/imageGrabber/X11ImageGrabber.cpp
+               src/backend/imageGrabber/ImageGrabberFactory.cpp
+               src/backend/imageGrabber/X11Wrapper.cpp
                src/painter/PaintArea.cpp
                src/painter/AbstractPainterItem.cpp
                src/painter/PainterPen.cpp
@@ -47,7 +48,6 @@ set(ksnip_SRCS src/main.cpp
                src/painter/NumberSequencer.cpp
                src/helper/StringFormattingHelper.cpp
                src/helper/MathHelper.cpp
-               src/helper/X11GraphicsHelper.cpp
                src/helper/CommandRunner.cpp
                src/widgets/CropPanel.cpp
                src/widgets/CaptureView.cpp

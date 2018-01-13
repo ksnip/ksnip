@@ -20,6 +20,15 @@
 
 #include "X11ImageGrabber.h"
 
+X11ImageGrabber::X11ImageGrabber() : mX11Wrapper(new X11Wrapper)
+{
+}
+
+X11ImageGrabber::~X11ImageGrabber()
+{
+    delete mX11Wrapper;
+}
+
 void X11ImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int delay)
 {
     mCaptureCursor = capureCursor;
@@ -35,10 +44,10 @@ void X11ImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int
 
 void X11ImageGrabber::getRectArea()
 {
-    if (X11GraphicsHelper::isCompositorActive()) {
+    if (mX11Wrapper->isCompositorActive()) {
         openSnippingArea();
     } else {
-        auto screenRect = X11GraphicsHelper::getFullScreenRect();
+        auto screenRect = mX11Wrapper->getFullScreenRect();
         auto background = createPixmap(screenRect);
         openSnippingAreaWithBackground(background);
     }
@@ -49,11 +58,11 @@ void X11ImageGrabber::setRectFromCorrectSource()
     if (mCaptureMode == CaptureModes::RectArea) {
         mCaptureRect = selectedSnippingAreaRect();
     } else if (mCaptureMode == CaptureModes::FullScreen) {
-        mCaptureRect = X11GraphicsHelper::getFullScreenRect();
+        mCaptureRect = mX11Wrapper->getFullScreenRect();
     } else if (mCaptureMode == CaptureModes::CurrentScreen) {
         mCaptureRect = currectScreenRect();
     } else if (mCaptureMode == CaptureModes::ActiveWindow) {
-        mCaptureRect = X11GraphicsHelper::getActiveWindowRect();
+        mCaptureRect = mX11Wrapper->getActiveWindowRect();
         if (mCaptureRect.isNull()) {
             qWarning("ImageGrabber::getActiveWindow: Found no window with focus.");
             mCaptureRect = currectScreenRect();
@@ -67,7 +76,7 @@ void X11ImageGrabber::grabRect()
     auto screenShot = createPixmap(mCaptureRect);
 
     if (mCaptureCursor) {
-        screenShot = X11GraphicsHelper::blendCursorImage(screenShot, mCaptureRect);
+        screenShot = mX11Wrapper->blendCursorImage(screenShot, mCaptureRect);
     }
     emit finished(screenShot);
 }

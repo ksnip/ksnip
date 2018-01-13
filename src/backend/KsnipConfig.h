@@ -28,7 +28,7 @@
 #include <QFont>
 #include <QSettings>
 
-#include "CaptureModes.h"
+#include "src/backend/imageGrabber/CaptureModes.h"
 #include "src/helper/StringFormattingHelper.h"
 #include "src/painter/PaintModes.h"
 

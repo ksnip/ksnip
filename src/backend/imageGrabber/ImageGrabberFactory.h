@@ -21,6 +21,7 @@
 #define IMAGEGRABBERFACTORY_H
 
 #include "X11ImageGrabber.h"
+#include "KdeWaylandImageGrabber.h"
 #include "src/backend/PlatformChecker.h"
 
 class ImageGrabberFactory

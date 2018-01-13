@@ -19,8 +19,14 @@
 
 #include "ImageGrabberFactory.h"
 
-AbstractImageGrabber * ImageGrabberFactory::createImageGrabber()
+AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
 {
-    PlatformChecker::instance()->platform();
-    return new X11ImageGrabber();
+    if (PlatformChecker::instance()->isX11()) {
+        return new X11ImageGrabber();
+    } else if (PlatformChecker::instance()->isWayland() && PlatformChecker::instance()->isKde()) {
+        return new KdeWaylandImageGrabber();
+    } else {
+        qCritical("Unknown platform, using default X11 Image Grabber.");
+        return new X11ImageGrabber();
+    }
 }

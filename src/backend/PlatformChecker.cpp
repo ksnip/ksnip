@@ -25,14 +25,24 @@ PlatformChecker* PlatformChecker::instance()
     return &instance;
 }
 
-PlatformChecker::Platform PlatformChecker::platform() const
+bool PlatformChecker::isX11() const
 {
-    return mPlatform;
+    return mPlatform == Platform::X11;
 }
 
-PlatformChecker::Environment PlatformChecker::environment() const
+bool PlatformChecker::isWayland() const
 {
-    return mEnvironment;
+    return mPlatform == Platform::Wayland;
+}
+
+bool PlatformChecker::isKde() const
+{
+    return mEnvironment == Environment::KDE;
+}
+
+bool PlatformChecker::isGnome() const
+{
+    return mEnvironment == Environment::Gnome;
 }
 
 void PlatformChecker::checkPlatform()

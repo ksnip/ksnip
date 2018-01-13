@@ -32,6 +32,7 @@ set(ksnip_SRCS src/main.cpp
                src/backend/PlatformChecker.cpp
                src/backend/imageGrabber/AbstractImageGrabber.cpp
                src/backend/imageGrabber/X11ImageGrabber.cpp
+               src/backend/imageGrabber/KdeWaylandImageGrabber.cpp
                src/backend/imageGrabber/ImageGrabberFactory.cpp
                src/backend/imageGrabber/X11Wrapper.cpp
                src/painter/PaintArea.cpp

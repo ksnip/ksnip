@@ -17,46 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef PLATFORMCHECKER_H
-#define PLATFORMCHECKER_H
+#include "KdeWaylandImageGrabber.h"
 
-#include <QString>
-
-#include "src/helper/CommandRunner.h"
-
-class PlatformChecker
+void KdeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int delay)
 {
-    enum class Platform
-    {
-        X11,
-        Wayland,
-        Unknown
-    };
+    mCaptureCursor = capureCursor;
+    mCaptureDelay = delay;
+    mCaptureMode = captureMode;
 
-    enum class Environment
-    {
-        Gnome,
-        KDE,
-        Unknown
-    };
+    if (mCaptureMode == CaptureModes::RectArea) {
+        getRectArea();
+    } else {
+        QTimer::singleShot(mCaptureDelay, this, &KdeWaylandImageGrabber::grabRect);
+    }
+}
 
-public:
-    static PlatformChecker *instance();
+void KdeWaylandImageGrabber::getRectArea()
+{
+    openSnippingArea();
+}
 
-    bool isX11() const;
-    bool isWayland() const;
-    bool isKde() const;
-    bool isGnome() const;
-
-private:
-    Platform   mPlatform;
-    Environment mEnvironment;
-
-    void checkPlatform();
-    void checkEnvironment();
-    bool outputContainsValue(const QString& output, const QString& value) const;
-
-    PlatformChecker();
-};
-
-#endif // PLATFORMCHECKER_H
+void KdeWaylandImageGrabber::grabRect()
+{
+    emit finished(QPixmap());
+}

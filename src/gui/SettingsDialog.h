@@ -30,6 +30,8 @@
 #include "src/helper/StringFormattingHelper.h"
 #include "src/backend/ImgurUploader.h"
 
+class MainWindow;
+
 class SettingsDialog : public QDialog
 {
     Q_OBJECT

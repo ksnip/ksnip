@@ -24,9 +24,11 @@
 #include <QObject>
 #include <QDirModel>
 #include <QPoint>
+#include <QPen>
+#include <QFont>
 #include <QSettings>
 
-#include "ImageGrabber.h"
+#include "CaptureModes.h"
 #include "src/helper/StringFormattingHelper.h"
 #include "src/painter/PaintModes.h"
 
@@ -60,8 +62,8 @@ public:
     Painter::Modes paintMode() const;
     void setPaintMode(Painter::Modes mode);
 
-    ImageGrabber::CaptureMode captureMode() const;
-    void setCaptureMode(ImageGrabber::CaptureMode mode);
+    CaptureModes captureMode() const;
+    void setCaptureMode(CaptureModes mode);
 
     QString saveDirectory() const;
     void setSaveDirectory(const QString &path);

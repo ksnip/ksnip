@@ -18,13 +18,13 @@
  *
  */
 
-#include "ImageGrabber.h"
+#include "X11ImageGrabber.h"
 
 #include "src/gui/MainWindow.h"
 #include "src/gui/SnippingArea.h"
 #include "src/helper/X11GraphicsHelper.h"
 
-ImageGrabber::ImageGrabber(MainWindow* parent) : QObject(),
+X11ImageGrabber::X11ImageGrabber(MainWindow* parent) : QObject(),
     mParent(parent),
     mCaptureCursor(false),
     mCaptureDelay(0)
@@ -32,7 +32,7 @@ ImageGrabber::ImageGrabber(MainWindow* parent) : QObject(),
     mSnippingArea = nullptr;
 }
 
-ImageGrabber::~ImageGrabber()
+X11ImageGrabber::~X11ImageGrabber()
 {
     delete mSnippingArea;
 }
@@ -41,20 +41,20 @@ ImageGrabber::~ImageGrabber()
 // Public Functions
 //
 
-void ImageGrabber::grabImage(CaptureMode captureMode, bool capureCursor, int delay)
+void X11ImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int delay)
 {
     mCaptureCursor = capureCursor;
     mCaptureDelay = (delay < 0) ? 0 : delay;
     mCaptureMode = captureMode;
 
-    if (mCaptureMode == RectArea) {
+    if (mCaptureMode == CaptureModes::RectArea) {
         openSnippingArea();
     } else {
-        QTimer::singleShot(getDelay(), this, &ImageGrabber::grabRect);
+        QTimer::singleShot(getDelay(), this, &X11ImageGrabber::grabRect);
     }
 }
 
-void ImageGrabber::openSnippingArea()
+void X11ImageGrabber::openSnippingArea()
 {
     initSnippingAreaIfRequired();
 
@@ -67,12 +67,12 @@ void ImageGrabber::openSnippingArea()
     }
 }
 
-void ImageGrabber::initSnippingAreaIfRequired()
+void X11ImageGrabber::initSnippingAreaIfRequired()
 {
     if (!mSnippingArea) {
         mSnippingArea = new SnippingArea(mParent);
         connect(mSnippingArea, &SnippingArea::finished, [this]() {
-            QTimer::singleShot(getDelay(), this, &ImageGrabber::grabRect);
+            QTimer::singleShot(getDelay(), this, &X11ImageGrabber::grabRect);
         });
         connect(mSnippingArea, &SnippingArea::canceled, [this]() {
             emit canceled();
@@ -85,7 +85,7 @@ void ImageGrabber::initSnippingAreaIfRequired()
  * msec so the mainwindow has enough time to hide before we take screenshot.
  * When we run CLI mode we don't need this buffer as the mainwindow is not shown
  */
-int ImageGrabber::getDelay() const
+int X11ImageGrabber::getDelay() const
 {
     if (mParent->getMode() == MainWindow::CLI || mCaptureDelay >= mMinCaptureDelay) {
         return mCaptureDelay;
@@ -93,15 +93,15 @@ int ImageGrabber::getDelay() const
     return mCaptureDelay + 200;
 }
 
-void ImageGrabber::setRectFromCorrectSource()
+void X11ImageGrabber::setRectFromCorrectSource()
 {
-    if (mCaptureMode == RectArea) {
+    if (mCaptureMode == CaptureModes::RectArea) {
         mCaptureRect = mSnippingArea->selectedRectArea();
-    } else if (mCaptureMode == FullScreen) {
+    } else if (mCaptureMode == CaptureModes::FullScreen) {
         mCaptureRect = X11GraphicsHelper::getFullScreenRect();
-    } else if (mCaptureMode == CurrentScreen) {
+    } else if (mCaptureMode == CaptureModes::CurrentScreen) {
         mCaptureRect = currectScreenRect();
-    } else if (mCaptureMode == ActiveWindow) {
+    } else if (mCaptureMode == CaptureModes::ActiveWindow) {
         mCaptureRect = X11GraphicsHelper::getActiveWindowRect();
         if (mCaptureRect.isNull()) {
             qWarning("ImageGrabber::getActiveWindow: Found no window with focus.");
@@ -113,13 +113,13 @@ void ImageGrabber::setRectFromCorrectSource()
 /*
  * Returns the rect of the screen where the mouse cursor is currently located
  */
-QRect ImageGrabber::currectScreenRect() const
+QRect X11ImageGrabber::currectScreenRect() const
 {
     auto screen = QApplication::desktop()->screenNumber(QCursor::pos());
     return QApplication::desktop()->screenGeometry(screen);
 }
 
-void ImageGrabber::grabRect()
+void X11ImageGrabber::grabRect()
 {
     setRectFromCorrectSource();
     auto screenShot = createPixmap(mCaptureRect);
@@ -130,7 +130,7 @@ void ImageGrabber::grabRect()
     emit finished(screenShot);
 }
 
-QPixmap ImageGrabber::createPixmap(const QRect& rect) const
+QPixmap X11ImageGrabber::createPixmap(const QRect& rect) const
 {
     auto screen = QGuiApplication::primaryScreen();
     auto pixmap = screen->grabWindow(QApplication::desktop()->winId(),

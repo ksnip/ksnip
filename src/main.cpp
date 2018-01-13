@@ -21,7 +21,7 @@
 #include <QCommandLineParser>
 
 #include "gui/MainWindow.h"
-#include "src/backend/ImageGrabber.h"
+#include "src/backend/CaptureModes.h"
 
 int main(int argc, char** argv)
 {
@@ -89,16 +89,16 @@ int main(int argc, char** argv)
 
     // Check if the user wants the mouse cursor to be included
     bool cursor = parser.isSet("c");
-    ImageGrabber::CaptureMode mode;
+    CaptureModes mode;
 
     if (parser.isSet("r")) {
-        mode = ImageGrabber::RectArea;
+        mode = CaptureModes::RectArea;
     } else if (parser.isSet("f")) {
-        mode = ImageGrabber::FullScreen;
+        mode = CaptureModes::FullScreen;
     } else if (parser.isSet("m")) {
-        mode = ImageGrabber::CurrentScreen;
+        mode = CaptureModes::CurrentScreen;
     } else if (parser.isSet("a")) {
-        mode = ImageGrabber::ActiveWindow;
+        mode = CaptureModes::ActiveWindow;
     } else {
         qWarning("Please select capture mode.");
         return 1;

@@ -34,7 +34,7 @@
 #include "src/widgets/CaptureView.h"
 #include "src/widgets/CropPanel.h"
 #include "src/widgets/settingsPicker/SettingsPickerConfigurator.h"
-#include "src/backend/ImageGrabber.h"
+#include "src/backend/X11ImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/ImgurUploader.h"
 #include "src/backend/PlatformChecker.h"
@@ -51,7 +51,7 @@ public:
 public:
     MainWindow(RunMode mode = GUI);
     void show();
-    void instantCapture(ImageGrabber::CaptureMode captureMode,
+    void instantCapture(CaptureModes captureMode,
                         bool capureCursor = true,
                         int delay = 0);
     void resize();
@@ -114,7 +114,7 @@ private:
     QAction          *mUndoAction;
     QAction          *mRedoAction;
     QClipboard       *mClipboard;
-    ImageGrabber     *mImageGrabber;
+    X11ImageGrabber     *mImageGrabber;
     ImgurUploader    *mImgurUploader;
     CropPanel        *mCropPanel;
     KsnipConfig      *mConfig;
@@ -128,7 +128,7 @@ private:
     QIcon createIcon(const QString &name);
     void setHidden(bool isHidden);
     bool hidden() const;
-    void capture(ImageGrabber::CaptureMode captureMode);
+    void capture(CaptureModes captureMode);
     void initGui();
 
 private slots:

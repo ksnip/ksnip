@@ -140,34 +140,36 @@ void KsnipConfig::setPaintMode(Painter::Modes mode)
     mConfig.sync();
 }
 
-ImageGrabber::CaptureMode KsnipConfig::captureMode() const
+CaptureModes KsnipConfig::captureMode() const
 {
     // If we are not storing the tool selection, always return the rect area as default
     if (!saveKsnipToolSelection()) {
-        return ImageGrabber::RectArea;
+        return CaptureModes::RectArea;
     }
 
-    switch (mConfig.value("ImageGrabber/CaptureMode").toInt()) {
-    case ImageGrabber::ActiveWindow:
-        return ImageGrabber::ActiveWindow;
+    auto modeEnumAsInt = mConfig.value("ImageGrabber/CaptureMode").toInt();
+    auto mode = static_cast<CaptureModes>(modeEnumAsInt);
+    switch (mode) {
+    case CaptureModes::ActiveWindow:
+        return CaptureModes::ActiveWindow;
 
-    case ImageGrabber::CurrentScreen:
-        return ImageGrabber::CurrentScreen;
+    case CaptureModes::CurrentScreen:
+        return CaptureModes::CurrentScreen;
 
-    case ImageGrabber::FullScreen:
-        return ImageGrabber::FullScreen;
+    case CaptureModes::FullScreen:
+        return CaptureModes::FullScreen;
 
     default:
-        return ImageGrabber::RectArea;
+        return CaptureModes::RectArea;
     }
 }
 
-void KsnipConfig::setCaptureMode(ImageGrabber::CaptureMode mode)
+void KsnipConfig::setCaptureMode(CaptureModes mode)
 {
     if (captureMode() == mode) {
         return;
     }
-    mConfig.setValue("ImageGrabber/CaptureMode", mode);
+    mConfig.setValue("ImageGrabber/CaptureMode", static_cast<int>(mode));
     mConfig.sync();
 }
 

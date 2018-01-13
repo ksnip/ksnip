@@ -18,31 +18,25 @@
  *
  */
 
-#ifndef IMAGEGRABBER_H
-#define IMAGEGRABBER_H
+#ifndef X11IMAGEGRABBER_H
+#define X11IMAGEGRABBER_H
 
 #include <QObject>
 #include <QPainter>
 #include <QTimer>
 
+#include "CaptureModes.h"
+
 class MainWindow;
 class SnippingArea;
 
-class ImageGrabber : public QObject
+class X11ImageGrabber : public QObject
 {
     Q_OBJECT
 public:
-    enum CaptureMode {
-        RectArea,
-        FullScreen,
-        CurrentScreen,
-        ActiveWindow
-    };
-
-public:
-    ImageGrabber(MainWindow *parent);
-    ~ImageGrabber();
-    void grabImage(CaptureMode captureMode, bool capureCursor = true, int delay = 0);
+    X11ImageGrabber(MainWindow *parent);
+    ~X11ImageGrabber();
+    void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0);
     QRect currectScreenRect() const;
 
 signals:
@@ -56,7 +50,7 @@ private:
     bool          mCaptureCursor;
     int           mCaptureDelay;
     const int     mMinCaptureDelay = 200;
-    CaptureMode   mCaptureMode;
+    CaptureModes   mCaptureMode;
 
     void openSnippingArea();
     int getDelay() const;
@@ -68,4 +62,4 @@ private slots:
     void grabRect();
 };
 
-#endif // IMAGEGRABBER_H
+#endif // X11IMAGEGRABBER_H

@@ -60,7 +60,7 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     mUndoAction(mPaintArea->getUndoAction()),
     mRedoAction(mPaintArea->getRedoAction()),
     mClipboard(QApplication::clipboard()),
-    mImageGrabber(new ImageGrabber(this)),
+    mImageGrabber(new X11ImageGrabber(this)),
     mImgurUploader(new ImgurUploader(this)),
     mCropPanel(new CropPanel(mCaptureView)),
     mConfig(KsnipConfig::instance()),
@@ -73,8 +73,8 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     // to connect imagegrabber signals to mainwindow slots to handle the
     // feedback.
     if (mMode == RunMode::CLI) {
-        connect(mImageGrabber, &ImageGrabber::finished, this, &MainWindow::instantSave);
-        connect(mImageGrabber, &ImageGrabber::canceled, this, &MainWindow::close);
+        connect(mImageGrabber, &X11ImageGrabber::finished, this, &MainWindow::instantSave);
+        connect(mImageGrabber, &X11ImageGrabber::canceled, this, &MainWindow::close);
         return;
     }
 
@@ -93,8 +93,8 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     });
 
 
-    connect(mImageGrabber, &ImageGrabber::finished, this, &MainWindow::showCapture);
-    connect(mImageGrabber, &ImageGrabber::canceled, [this]() {
+    connect(mImageGrabber, &X11ImageGrabber::finished, this, &MainWindow::showCapture);
+    connect(mImageGrabber, &X11ImageGrabber::canceled, [this]() {
         setHidden(false);
     });
 
@@ -129,9 +129,7 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
 /*
  * Function for instant capturing used from command line.
  */
-void MainWindow::instantCapture(ImageGrabber::CaptureMode captureMode,
-                                bool captureCursor,
-                                int delay)
+void MainWindow::instantCapture(CaptureModes captureMode, bool captureCursor, int delay)
 {
     mImageGrabber->grabImage(captureMode, captureCursor, delay);
 }
@@ -460,15 +458,15 @@ void MainWindow::loadSettings()
 
     // Load capture mode setting
     switch (mConfig->captureMode()) {
-    case ImageGrabber::ActiveWindow:
+    case CaptureModes::ActiveWindow:
         mNewCaptureButton->setDefaultAction(mNewActiveWindowCaptureAction);
         break;
 
-    case ImageGrabber::CurrentScreen:
+    case CaptureModes::CurrentScreen:
         mNewCaptureButton->setDefaultAction(mNewCurrentScreenCaptureAction);
         break;
 
-    case ImageGrabber::FullScreen:
+    case CaptureModes::FullScreen:
         mNewCaptureButton->setDefaultAction(mNewFullScreenCaptureAction);
         break;
 
@@ -550,7 +548,7 @@ bool MainWindow::hidden() const
  * Default capture trigger, all captures from GUI should happen via this
  * function.
  */
-void MainWindow::capture(ImageGrabber::CaptureMode captureMode)
+void MainWindow::capture(CaptureModes captureMode)
 {
     setHidden(true);
     mImageGrabber->grabImage(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
@@ -566,28 +564,28 @@ void MainWindow::initGui()
     mNewRectAreaCaptureAction->setToolTip(tr("Draw a rectangular area with your mouse"));
     mNewRectAreaCaptureAction->setIcon(createIcon("drawRect"));
     connect(mNewRectAreaCaptureAction, &QAction::triggered, [this]() {
-        capture(ImageGrabber::RectArea);
+        capture(CaptureModes::RectArea);
     });
 
     mNewFullScreenCaptureAction->setIconText(tr("Full Screen (All Monitors)"));
     mNewFullScreenCaptureAction->setToolTip(tr("Capture full screen including all monitors"));
     mNewFullScreenCaptureAction->setIcon(createIcon("fullScreen"));
     connect(mNewFullScreenCaptureAction, &QAction::triggered, [this]() {
-        capture(ImageGrabber::FullScreen);
+        capture(CaptureModes::FullScreen);
     });
 
     mNewCurrentScreenCaptureAction->setIconText(tr("Current Screen"));
     mNewCurrentScreenCaptureAction->setToolTip(tr("Capture screen where the mouse is located"));
     mNewCurrentScreenCaptureAction->setIcon(createIcon("currentScreen"));
     connect(mNewCurrentScreenCaptureAction, &QAction::triggered, [this]() {
-        capture(ImageGrabber::CurrentScreen);
+        capture(CaptureModes::CurrentScreen);
     });
 
     mNewActiveWindowCaptureAction->setIconText(tr("Active Window"));
     mNewActiveWindowCaptureAction->setToolTip(tr("Capture window that currently has focus"));
     mNewActiveWindowCaptureAction->setIcon(createIcon("activeWindow"));
     connect(mNewActiveWindowCaptureAction, &QAction::triggered, [this]() {
-        capture(ImageGrabber::ActiveWindow);
+        capture(CaptureModes::ActiveWindow);
     });
 
     // Create action for save button

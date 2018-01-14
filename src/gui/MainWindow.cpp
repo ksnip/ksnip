@@ -627,7 +627,7 @@ void MainWindow::initGui()
         mNewWindowUnderCursorAction = new QAction(this);
         mNewWindowUnderCursorAction->setIconText(tr("Window Under Cursor"));
         mNewWindowUnderCursorAction->setToolTip(tr("Capture that is currently under the mouse cursor"));
-        mNewWindowUnderCursorAction->setIcon(createIcon("WindowUnderCursor"));
+        mNewWindowUnderCursorAction->setIcon(createIcon("windowUnderCursor"));
         connect(mNewWindowUnderCursorAction, &QAction::triggered, [this]() {
             capture(CaptureModes::WindowUnderCursor);
         });

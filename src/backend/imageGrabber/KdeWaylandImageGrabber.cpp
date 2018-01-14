@@ -121,5 +121,11 @@ void KdeWaylandImageGrabber::callDBus(int writeFd)
     };
     auto it = s_hash.find(mCaptureMode);
     Q_ASSERT(it != s_hash.end());
-    interface.asyncCall(it.value(), QVariant::fromValue(QDBusUnixFileDescriptor(writeFd)), mCaptureCursor);
+
+    int mask = 1;
+    if(mCaptureCursor) {
+        mask |= 1 << 1;
+    }
+
+    interface.asyncCall(it.value(), QVariant::fromValue(QDBusUnixFileDescriptor(writeFd)), mask);
 }

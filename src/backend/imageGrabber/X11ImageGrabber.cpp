@@ -37,6 +37,7 @@ void X11ImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int
     if (isCaptureModeSupported(captureMode)) {
         mCaptureMode = captureMode;
     } else {
+        qWarning("Unsupported Capture Mode selected, falling back to full screen.");
         mCaptureMode = CaptureModes::FullScreen;
     }
 

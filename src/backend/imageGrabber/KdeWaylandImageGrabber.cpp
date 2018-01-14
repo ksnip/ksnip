@@ -67,6 +67,7 @@ void KdeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCurs
     if (isCaptureModeSupported(captureMode)) {
         mCaptureMode = captureMode;
     } else {
+        qWarning("Unsupported Capture Mode selected, falling back to full screen.");
         mCaptureMode = CaptureModes::FullScreen;
     }
 

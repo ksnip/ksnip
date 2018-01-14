@@ -20,7 +20,8 @@
 
 #include "MainWindow.h"
 
-MainWindow::MainWindow(RunMode mode) : QMainWindow(),
+MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) : QMainWindow(),
+    mImageGrabber(imageGrabber),
     mMode(mode),
     mNewCaptureButton(new CustomToolButton(this)),
     mSaveButton(new QToolButton(this)),
@@ -65,9 +66,6 @@ MainWindow::MainWindow(RunMode mode) : QMainWindow(),
     mConfig(KsnipConfig::instance()),
     mSettingsPickerConfigurator(new SettingsPickerConfigurator())
 {
-    ImageGrabberFactory imageGrabberFactory;
-    mImageGrabber = imageGrabberFactory.createImageGrabber();
-
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
     // feedback.

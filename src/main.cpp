@@ -21,7 +21,7 @@
 #include <QCommandLineParser>
 
 #include "gui/MainWindow.h"
-#include "src/backend/imageGrabber/CaptureModes.h"
+#include "src/backend/imageGrabber/ImageGrabberFactory.h"
 
 int main(int argc, char** argv)
 {
@@ -34,26 +34,44 @@ int main(int argc, char** argv)
     app.setApplicationName("ksnip");
     app.setApplicationVersion("v1.5.0 - alpha");
 
+    ImageGrabberFactory imageGrabberFactory;
+    auto imageGrabber = imageGrabberFactory.createImageGrabber();
+
     // Setup command line parser
     QCommandLineParser parser;
     parser.setApplicationDescription(QCoreApplication::translate("main", "Ksnip Screenshot Tool"));
     parser.addHelpOption();
     parser.addVersionOption();
 
-    // Add custom options
-    parser.addOptions({
-        {   {"r", "rectarea"},
+    // Add image grabber specific options
+    if (imageGrabber->isCaptureModeSupported(CaptureModes::RectArea)) {
+        parser.addOption({{"r", "rectarea"},
             QCoreApplication::translate("main", "Select a rectangular area from where to take a screenshot.")
-        },
-        {   {"f", "fullscreen"},
+        });
+    }
+    if (imageGrabber->isCaptureModeSupported(CaptureModes::FullScreen)) {
+        parser.addOption({   {"f", "fullscreen"},
             QCoreApplication::translate("main", "Capture the fullscreen including all monitors.")
-        },
-        {   {"m", "current"},
+        });
+    }
+    if (imageGrabber->isCaptureModeSupported(CaptureModes::CurrentScreen)) {
+        parser.addOption({   {"m", "current"},
             QCoreApplication::translate("main", "Capture the screen (monitor) where the mouse cursor is currently located.")
-        },
-        {   {"a", "active"},
+        });
+    }
+    if (imageGrabber->isCaptureModeSupported(CaptureModes::ActiveWindow)) {
+        parser.addOption({   {"a", "active"},
             QCoreApplication::translate("main", "Capture the window that currently has input focus.")
-        },
+        });
+    }
+    if (imageGrabber->isCaptureModeSupported(CaptureModes::WindowUnderCursor)) {
+        parser.addOption({   {"u", "windowundercursor"},
+            QCoreApplication::translate("main", "Capture the window that is currently under the mouse cursor.")
+        });
+    }
+
+    // Add default options
+    parser.addOptions({
         {   {"d", "delay"},
             QCoreApplication::translate("main", "Delay before taking the screenshot."),
             QCoreApplication::translate("main", "seconds")
@@ -70,11 +88,11 @@ int main(int argc, char** argv)
     // If there are no options except the the ksnip executable name, just run
     // the application
     if (arguments.count() <= 1) {
-        window = new MainWindow(MainWindow::GUI);
+        window = new MainWindow(imageGrabber, MainWindow::GUI);
         return app.exec();
     }
     // If we have reached this point, we are running CLI mode
-    window = new MainWindow(MainWindow::CLI);
+    window = new MainWindow(imageGrabber, MainWindow::CLI);
 
     // Check if delay was selected, if yes, make sure a valid number was provided
     int delay = 0;
@@ -99,6 +117,8 @@ int main(int argc, char** argv)
         mode = CaptureModes::CurrentScreen;
     } else if (parser.isSet("a")) {
         mode = CaptureModes::ActiveWindow;
+    } else if (parser.isSet("u")) {
+        mode = CaptureModes::WindowUnderCursor;
     } else {
         qWarning("Please select capture mode.");
         return 1;

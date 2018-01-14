@@ -34,7 +34,7 @@
 #include "src/widgets/CaptureView.h"
 #include "src/widgets/CropPanel.h"
 #include "src/widgets/settingsPicker/SettingsPickerConfigurator.h"
-#include "src/backend/imageGrabber/ImageGrabberFactory.h"
+#include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/ImgurUploader.h"
 
@@ -48,7 +48,7 @@ public:
     };
 
 public:
-    MainWindow(RunMode mode = GUI);
+    MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = GUI);
     void show();
     void instantCapture(CaptureModes captureMode, bool capureCursor = true, int delay = 0);
     void resize();
@@ -69,6 +69,7 @@ protected:
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
+    AbstractImageGrabber *mImageGrabber;
     RunMode           mMode;
     bool              mIsUnsaved;
     bool              mHidden;
@@ -112,7 +113,6 @@ private:
     QAction          *mUndoAction;
     QAction          *mRedoAction;
     QClipboard       *mClipboard;
-    AbstractImageGrabber *mImageGrabber;
     ImgurUploader    *mImgurUploader;
     CropPanel        *mCropPanel;
     KsnipConfig      *mConfig;

@@ -32,6 +32,11 @@ protected:
 
 private:
     void getRectArea();
+    void startReadImage(int readPipe);
+    template <typename T>
+    void callDBus(CaptureModes mode, int writeFd, T argument);
+    template <typename T>
+void grab(CaptureModes mode, T argument);
 };
 
 #endif // KDEWAYLANDIMAGEGRABBER_H

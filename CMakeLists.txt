@@ -5,7 +5,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
 set(QT_MIN_VERSION "5.4.0")
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Widgets Network Xml PrintSupport)
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Widgets Network Xml PrintSupport DBus)
 
 # Without ECM we're unable to load XCB
 find_package(ECM REQUIRED NO_MODULE)
@@ -80,6 +80,7 @@ target_link_libraries(ksnip Qt5::Widgets
                             Qt5::Xml
                             Qt5::PrintSupport
                             Qt5::X11Extras
+                            Qt5::DBus
                             XCB::XFIXES
                             X11)
 

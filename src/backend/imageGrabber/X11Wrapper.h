@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef X11GRAPHICSHELPER_H
-#define X11GRAPHICSHELPER_H
+#ifndef X11WRAPPER_H
+#define X11WRAPPER_H
 
 #include <xcb/xfixes.h>
 #include <QX11Info>
@@ -52,4 +52,4 @@ public:
     ScopedCPointer(T *p = 0) : QScopedPointer<T, QScopedPointerPodDeleter>(p) {}
 };
 
-#endif // X11GRAPHICSHELPER_H
+#endif // X11WRAPPER_H

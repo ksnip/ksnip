@@ -30,9 +30,10 @@ public:
     X11ImageGrabber();
     virtual ~X11ImageGrabber();
     virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) override;
+    virtual bool isCaptureModeSupported(CaptureModes captureMode) override;
 
 protected:
-    virtual void grabRect() override;
+    virtual void grab() override;
 
 private:
     X11Wrapper *mX11Wrapper;

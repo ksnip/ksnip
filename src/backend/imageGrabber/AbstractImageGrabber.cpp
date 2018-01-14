@@ -60,7 +60,7 @@ void AbstractImageGrabber::initSnippingAreaIfRequired()
     if (!mSnippingArea) {
         mSnippingArea = new SnippingArea(nullptr);
         connect(mSnippingArea, &SnippingArea::finished, [this]() {
-            QTimer::singleShot(mCaptureDelay, this, &AbstractImageGrabber::grabRect);
+            QTimer::singleShot(mCaptureDelay, this, &AbstractImageGrabber::grab);
         });
         connect(mSnippingArea, &SnippingArea::canceled, this, &AbstractImageGrabber::canceled);
     }

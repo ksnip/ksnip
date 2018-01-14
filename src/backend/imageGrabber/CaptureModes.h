@@ -25,7 +25,8 @@ enum class CaptureModes
     RectArea,
     FullScreen,
     CurrentScreen,
-    ActiveWindow
+    ActiveWindow,
+    WindowUnderCursor
 };
 
 #endif // CAPTUREMODES_H

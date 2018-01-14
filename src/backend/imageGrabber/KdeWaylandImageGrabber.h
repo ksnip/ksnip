@@ -20,23 +20,32 @@
 #ifndef KDEWAYLANDIMAGEGRABBER_H
 #define KDEWAYLANDIMAGEGRABBER_H
 
+#include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusPendingCall>
+#include <QtDBus/QDBusPendingReply>
+#include <QtDBus/QDBusUnixFileDescriptor>
+
+#include <QtConcurrent/QtConcurrent>
+#include <QFutureWatcher>
+#include <qplatformdefs.h>
+
+#include <errno.h>
+
 #include "AbstractImageGrabber.h"
 
 class KdeWaylandImageGrabber : public AbstractImageGrabber
 {
 public:
     virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) override;
+    virtual bool isCaptureModeSupported(CaptureModes captureMode) override;
 
 protected:
-    virtual void grabRect() override;
+    virtual void grab() override;
 
 private:
-    void getRectArea();
     void startReadImage(int readPipe);
-    template <typename T>
-    void callDBus(CaptureModes mode, int writeFd, T argument);
-    template <typename T>
-void grab(CaptureModes mode, T argument);
+    void callDBus(int writeFd);
 };
 
 #endif // KDEWAYLANDIMAGEGRABBER_H

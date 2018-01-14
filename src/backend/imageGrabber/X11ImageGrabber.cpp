@@ -33,12 +33,30 @@ void X11ImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int
 {
     mCaptureCursor = capureCursor;
     mCaptureDelay = delay;
-    mCaptureMode = captureMode;
+
+    if (isCaptureModeSupported(captureMode)) {
+        mCaptureMode = captureMode;
+    } else {
+        mCaptureMode = CaptureModes::FullScreen;
+    }
+
 
     if (mCaptureMode == CaptureModes::RectArea) {
         getRectArea();
     } else {
-        QTimer::singleShot(mCaptureDelay, this, &X11ImageGrabber::grabRect);
+        QTimer::singleShot(mCaptureDelay, this, &X11ImageGrabber::grab);
+    }
+}
+
+bool X11ImageGrabber::isCaptureModeSupported(CaptureModes captureMode)
+{
+    if (captureMode == CaptureModes::RectArea ||
+            captureMode == CaptureModes::FullScreen ||
+            captureMode == CaptureModes::CurrentScreen ||
+            captureMode == CaptureModes::ActiveWindow) {
+        return true;
+    } else {
+        return false;
     }
 }
 
@@ -70,7 +88,7 @@ void X11ImageGrabber::setRectFromCorrectSource()
     }
 }
 
-void X11ImageGrabber::grabRect()
+void X11ImageGrabber::grab()
 {
     setRectFromCorrectSource();
     auto screenShot = createPixmap(mCaptureRect);

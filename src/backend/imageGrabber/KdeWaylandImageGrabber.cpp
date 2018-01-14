@@ -24,26 +24,14 @@
 
 #include "KdeWaylandImageGrabber.h"
 
-#include <QtDBus/QDBusInterface>
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusPendingCall>
-#include <QtDBus/QDBusPendingReply>
-#include <QtDBus/QDBusUnixFileDescriptor>
-
-#include <QtConcurrent/QtConcurrent>
-#include <QFutureWatcher>
-#include <qplatformdefs.h>
-
-#include <errno.h>
-
-static int readData(int fd, QByteArray &data)
+static int readData(int fd, QByteArray& data)
 {
     // implementation based on QtWayland file qwaylanddataoffer.cpp
-    char buf[4096];
+    char buffer[4096];
     int retryCount = 0;
     int n;
     while (true) {
-        n = QT_READ(fd, buf, sizeof buf);
+        n = QT_READ(fd, buffer, sizeof buffer);
         // give user 30 sec to click a window, afterwards considered as error
         if (n == -1 && (errno == EAGAIN) && ++retryCount < 30000) {
             usleep(1000);
@@ -52,7 +40,7 @@ static int readData(int fd, QByteArray &data)
         }
     }
     if (n > 0) {
-        data.append(buf, n);
+        data.append(buffer, n);
         n = readData(fd, data);
     }
     return n;
@@ -66,9 +54,9 @@ static QImage readImage(int pipeFd)
         return QImage();
     }
     close(pipeFd);
-    QDataStream ds(content);
+    QDataStream dataStream(content);
     QImage image;
-    ds >> image;
+    dataStream >> image;
     return image;
 };
 
@@ -76,67 +64,61 @@ void KdeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCurs
 {
     mCaptureCursor = capureCursor;
     mCaptureDelay = delay;
-    mCaptureMode = captureMode;
+    if (isCaptureModeSupported(captureMode)) {
+        mCaptureMode = captureMode;
+    } else {
+        mCaptureMode = CaptureModes::FullScreen;
+    }
 
-    grabRect();
+    QTimer::singleShot(mCaptureDelay, this, &KdeWaylandImageGrabber::grab);
 }
 
-void KdeWaylandImageGrabber::getRectArea()
+bool KdeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode)
 {
-    openSnippingArea();
+    if (captureMode == CaptureModes::WindowUnderCursor ||
+            captureMode == CaptureModes::CurrentScreen ||
+            captureMode == CaptureModes::FullScreen) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-void KdeWaylandImageGrabber::grabRect()
-{
-    qCritical("Image grab requested");
-    grab(CaptureModes::FullScreen, mCaptureCursor);
-}
-
-void KdeWaylandImageGrabber::startReadImage(int readPipe)
-{
-    QFutureWatcher<QImage> *watcher = new QFutureWatcher<QImage>(this);
-    QObject::connect(watcher, &QFutureWatcher<QImage>::finished, this,
-        [watcher, this] {
-            qCritical("Reading image now");
-            watcher->deleteLater();
-            const QImage img = watcher->result();
-            emit finished(QPixmap::fromImage(img));
-            qCritical("Finished reading, emitting finished signal");
-        }
-    );
-    watcher->setFuture(QtConcurrent::run(readImage, readPipe));
-}
-
-template <typename T>
-void KdeWaylandImageGrabber::callDBus(CaptureModes mode, int writeFd, T argument)
-{
-    qCritical("Creating DBus");
-    QDBusInterface interface(QStringLiteral("org.kde.KWin"), QStringLiteral("/Screenshot"), QStringLiteral("org.kde.kwin.Screenshot"));
-    static const QMap<CaptureModes, QString> s_hash = {
-        {CaptureModes::ActiveWindow, QStringLiteral("interactive")},
-        {CaptureModes::CurrentScreen, QStringLiteral("screenshotScreen")},
-        {CaptureModes::FullScreen, QStringLiteral("screenshotFullscreen")}
-    };
-    auto it = s_hash.find(mode);
-    Q_ASSERT(it != s_hash.end());
-    qCritical("Interface async call");
-    interface.asyncCall(it.value(), QVariant::fromValue(QDBusUnixFileDescriptor(writeFd)), argument);
-}
-
-template <typename T>
-void KdeWaylandImageGrabber::grab(CaptureModes mode, T argument)
+void KdeWaylandImageGrabber::grab()
 {
     int pipeFds[2];
-    if (pipe2(pipeFds, O_CLOEXEC|O_NONBLOCK) != 0) {
+    if (pipe2(pipeFds, O_CLOEXEC | O_NONBLOCK) != 0) {
         emit canceled();
         return;
     }
 
-    qCritical("Calling DBus");
-    callDBus(mode, pipeFds[1], argument);
-    qCritical("Start reading image");
+    callDBus(pipeFds[1]);
     startReadImage(pipeFds[0]);
 
-    qCritical("Close Pipe");
     close(pipeFds[1]);
+}
+
+void KdeWaylandImageGrabber::startReadImage(int readPipe)
+{
+    QFutureWatcher<QImage>* watcher = new QFutureWatcher<QImage>(this);
+    QObject::connect(watcher, &QFutureWatcher<QImage>::finished, this,
+    [watcher, this] {
+        watcher->deleteLater();
+        const QImage img = watcher->result();
+        emit finished(QPixmap::fromImage(img));
+    });
+    watcher->setFuture(QtConcurrent::run(readImage, readPipe));
+}
+
+void KdeWaylandImageGrabber::callDBus(int writeFd)
+{
+    QDBusInterface interface(QStringLiteral("org.kde.KWin"), QStringLiteral("/Screenshot"), QStringLiteral("org.kde.kwin.Screenshot"));
+    static const QMap<CaptureModes, QString> s_hash = {
+        {CaptureModes::WindowUnderCursor, QStringLiteral("interactive")},
+        {CaptureModes::CurrentScreen, QStringLiteral("screenshotScreen")},
+        {CaptureModes::FullScreen, QStringLiteral("screenshotFullscreen")}
+    };
+    auto it = s_hash.find(mCaptureMode);
+    Q_ASSERT(it != s_hash.end());
+    interface.asyncCall(it.value(), QVariant::fromValue(QDBusUnixFileDescriptor(writeFd)), mCaptureCursor);
 }

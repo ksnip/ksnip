@@ -35,6 +35,7 @@ public:
     AbstractImageGrabber(QObject *parent = nullptr);
     virtual ~AbstractImageGrabber();
     virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) = 0;
+    virtual bool isCaptureModeSupported(CaptureModes captureMode) = 0;
     QRect currectScreenRect() const;
 
 signals:
@@ -52,7 +53,7 @@ protected:
     QRect selectedSnippingAreaRect() const;
 
 protected slots:
-    virtual void grabRect() = 0;
+    virtual void grab() = 0;
 
 private:
     SnippingArea *mSnippingArea;

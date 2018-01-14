@@ -85,6 +85,7 @@ private:
     QAction          *mNewCurrentScreenCaptureAction;
     QAction          *mNewFullScreenCaptureAction;
     QAction          *mNewActiveWindowCaptureAction;
+    QAction          *mNewWindowUnderCursorAction;
     QAction          *mSaveAction;
     QAction          *mCopyToClipboardAction;
     QAction          *mPenAction;

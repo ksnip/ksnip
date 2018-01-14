@@ -34,6 +34,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) : QMain
     mNewCurrentScreenCaptureAction(nullptr),
     mNewFullScreenCaptureAction(nullptr),
     mNewActiveWindowCaptureAction(nullptr),
+    mNewWindowUnderCursorAction(nullptr),
     mSaveAction(new QAction(this)),
     mCopyToClipboardAction(new QAction(this)),
     mPenAction(new QAction(this)),
@@ -473,6 +474,11 @@ void MainWindow::loadSettings()
             mNewCaptureButton->setDefaultAction(mNewFullScreenCaptureAction);
         }
         break;
+    case CaptureModes::WindowUnderCursor:
+        if (mNewWindowUnderCursorAction != nullptr) {
+            mNewCaptureButton->setDefaultAction(mNewWindowUnderCursorAction);
+        }
+        break;
     default:
         if (mNewRectAreaCaptureAction != nullptr) {
             mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
@@ -615,6 +621,17 @@ void MainWindow::initGui()
             capture(CaptureModes::ActiveWindow);
         });
         mNewCaptureMenu->addAction(mNewActiveWindowCaptureAction);
+    }
+
+    if (mImageGrabber->isCaptureModeSupported(CaptureModes::WindowUnderCursor)) {
+        mNewWindowUnderCursorAction = new QAction(this);
+        mNewWindowUnderCursorAction->setIconText(tr("Window Under Cursor"));
+        mNewWindowUnderCursorAction->setToolTip(tr("Capture that is currently under the mouse cursor"));
+        mNewWindowUnderCursorAction->setIcon(createIcon("WindowUnderCursor"));
+        connect(mNewWindowUnderCursorAction, &QAction::triggered, [this]() {
+            capture(CaptureModes::WindowUnderCursor);
+        });
+        mNewCaptureMenu->addAction(mNewWindowUnderCursorAction);
     }
 
     // Create action for save button

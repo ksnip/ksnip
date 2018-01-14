@@ -93,7 +93,18 @@ void KdeWaylandImageGrabber::grab()
         return;
     }
 
-    callDBus(pipeFds[1]);
+    if (mCaptureMode == CaptureModes::FullScreen) {
+        callDBus(pipeFds[1], QStringLiteral("screenshotFullscreen"), mCaptureCursor);
+    } else if (mCaptureMode == CaptureModes::CurrentScreen) {
+        callDBus(pipeFds[1], QStringLiteral("screenshotScreen"), mCaptureCursor);
+    } else {
+        int mask = 1;
+        if (mCaptureCursor) {
+            mask |= 1 << 1;
+        }
+        callDBus(pipeFds[1], QStringLiteral("interactive"), mask);
+    }
+
     startReadImage(pipeFds[0]);
 
     close(pipeFds[1]);
@@ -111,21 +122,9 @@ void KdeWaylandImageGrabber::startReadImage(int readPipe)
     watcher->setFuture(QtConcurrent::run(readImage, readPipe));
 }
 
-void KdeWaylandImageGrabber::callDBus(int writeFd)
+template<typename T>
+void KdeWaylandImageGrabber::callDBus(int writeFd, const QString& mode, T mask)
 {
     QDBusInterface interface(QStringLiteral("org.kde.KWin"), QStringLiteral("/Screenshot"), QStringLiteral("org.kde.kwin.Screenshot"));
-    static const QMap<CaptureModes, QString> s_hash = {
-        {CaptureModes::WindowUnderCursor, QStringLiteral("interactive")},
-        {CaptureModes::CurrentScreen, QStringLiteral("screenshotScreen")},
-        {CaptureModes::FullScreen, QStringLiteral("screenshotFullscreen")}
-    };
-    auto it = s_hash.find(mCaptureMode);
-    Q_ASSERT(it != s_hash.end());
-
-    int mask = 1;
-    if(mCaptureCursor) {
-        mask |= 1 << 1;
-    }
-
-    interface.asyncCall(it.value(), QVariant::fromValue(QDBusUnixFileDescriptor(writeFd)), mask);
+    interface.asyncCall(mode, QVariant::fromValue(QDBusUnixFileDescriptor(writeFd)), mask);
 }

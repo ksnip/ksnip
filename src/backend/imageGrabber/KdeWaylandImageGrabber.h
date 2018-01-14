@@ -45,7 +45,8 @@ protected:
 
 private:
     void startReadImage(int readPipe);
-    void callDBus(int writeFd);
+    template<typename T>
+    void callDBus(int writeFd, const QString& mode, T mask);
 };
 
 #endif // KDEWAYLANDIMAGEGRABBER_H

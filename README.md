@@ -7,10 +7,12 @@ for your screenshots.
 
 ### Features
 Latest ksnip version contains following features:
-* Taking Screenshot of a custom rectangular area that can be drawn with mouse cursor.
+* X11 and experimental KDE Wayland support.
+* Taking Screenshot of a custom rectangular area that can be drawn with mouse cursor (X11 only).
 * Taking screenshot of the screen/monitor where the mouse cursor is currently located.
 * Taking screenshot of full screen, including all screens/monitors.
-* Taking screenshot of window that currently has focus.
+* Taking screenshot of window that currently has focus (X11 only).
+* Taking screenshot of window under mouse cursor (Wayland only).
 * Take screenshot with or without mouse cursor.
 * Customizable capture delay for all capture options.
 * Upload screenshots directly to imgur.com in anonymous or user mode.

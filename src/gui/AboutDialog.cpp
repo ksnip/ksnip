@@ -97,7 +97,12 @@ void AboutDialog::createVersionTab()
     label->setText("<b>" + tr("Version ") + QApplication::applicationVersion() +
                    "</b>" + "<br/><br/>" +
                    tr("Using :") +
-                   "<ul><li>Qt5</li><li>X11</li><br />");
+                   "<ul>"
+                    "<li>Qt5</li>"
+                    "<li>X11</li>"
+                    "<li>KDE Wayland</li>"
+                   "</ul>"
+                   "<br />");
     layout->addWidget(label);
     mVersionWidget->setLayout(layout);
 }

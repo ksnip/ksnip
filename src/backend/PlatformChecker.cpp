@@ -50,13 +50,10 @@ void PlatformChecker::checkPlatform()
     CommandRunner runner;
     auto output = runner.getEnviromentVariable("XDG_SESSION_TYPE");
     if (outputContainsValue(output, "x11")) {
-        qCritical("Platform: X11");
         mPlatform = Platform::X11;
     } else if (outputContainsValue(output, "wayland")) {
-        qCritical("Platform: Wayland");
         mPlatform = Platform::Wayland;
     } else {
-        qCritical("Platform: Unknown");
         mPlatform = Platform::Unknown;
     }
 }
@@ -66,13 +63,10 @@ void PlatformChecker::checkEnvironment()
     CommandRunner runner;
     auto output = runner.getEnviromentVariable("XDG_CURRENT_DESKTOP");
     if (outputContainsValue(output, "kde")) {
-        qCritical("Window Manager: KDE");
         mEnvironment = Environment::KDE;
     } else if (outputContainsValue(output, "gnome")) {
-        qCritical("Window Manager: Gnome");
         mEnvironment = Environment::KDE;
     } else {
-        qCritical("Window Manager: Unknown");
         mEnvironment = Environment::Unknown;
     }
 }

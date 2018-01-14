@@ -148,20 +148,7 @@ CaptureModes KsnipConfig::captureMode() const
     }
 
     auto modeEnumAsInt = mConfig.value("ImageGrabber/CaptureMode").toInt();
-    auto mode = static_cast<CaptureModes>(modeEnumAsInt);
-    switch (mode) {
-    case CaptureModes::ActiveWindow:
-        return CaptureModes::ActiveWindow;
-
-    case CaptureModes::CurrentScreen:
-        return CaptureModes::CurrentScreen;
-
-    case CaptureModes::FullScreen:
-        return CaptureModes::FullScreen;
-
-    default:
-        return CaptureModes::RectArea;
-    }
+    return static_cast<CaptureModes>(modeEnumAsInt);
 }
 
 void KsnipConfig::setCaptureMode(CaptureModes mode)

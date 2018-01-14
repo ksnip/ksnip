@@ -469,9 +469,9 @@ void MainWindow::loadSettings()
             mNewCaptureButton->setDefaultAction(mNewCurrentScreenCaptureAction);
         }
         break;
-    case CaptureModes::FullScreen:
-        if (mNewFullScreenCaptureAction != nullptr) {
-            mNewCaptureButton->setDefaultAction(mNewFullScreenCaptureAction);
+    case CaptureModes::RectArea:
+        if (mNewRectAreaCaptureAction != nullptr) {
+            mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
         }
         break;
     case CaptureModes::WindowUnderCursor:
@@ -480,8 +480,9 @@ void MainWindow::loadSettings()
         }
         break;
     default:
-        if (mNewRectAreaCaptureAction != nullptr) {
-            mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
+
+        if (mNewFullScreenCaptureAction != nullptr) {
+            mNewCaptureButton->setDefaultAction(mNewFullScreenCaptureAction);
         }
     }
 }

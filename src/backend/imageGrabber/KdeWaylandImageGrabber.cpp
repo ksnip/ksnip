@@ -87,39 +87,32 @@ bool KdeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode)
 
 void KdeWaylandImageGrabber::grab()
 {
+    if (mCaptureMode == CaptureModes::FullScreen) {
+        prepareDBus(QStringLiteral("screenshotFullscreen"), mCaptureCursor);
+    } else if (mCaptureMode == CaptureModes::CurrentScreen) {
+        prepareDBus(QStringLiteral("screenshotScreen"), mCaptureCursor);
+    } else {
+        int mask = 1;
+        if (mCaptureCursor) {
+            mask |= 1 << 1;
+        }
+        prepareDBus(QStringLiteral("interactive"), mask);
+    }
+}
+
+template<typename T>
+void KdeWaylandImageGrabber::prepareDBus(const QString& mode, T mask)
+{
     int pipeFds[2];
     if (pipe2(pipeFds, O_CLOEXEC | O_NONBLOCK) != 0) {
         emit canceled();
         return;
     }
 
-    if (mCaptureMode == CaptureModes::FullScreen) {
-        callDBus(pipeFds[1], QStringLiteral("screenshotFullscreen"), mCaptureCursor);
-    } else if (mCaptureMode == CaptureModes::CurrentScreen) {
-        callDBus(pipeFds[1], QStringLiteral("screenshotScreen"), mCaptureCursor);
-    } else {
-        int mask = 1;
-        if (mCaptureCursor) {
-            mask |= 1 << 1;
-        }
-        callDBus(pipeFds[1], QStringLiteral("interactive"), mask);
-    }
-
+    callDBus(pipeFds[1], mode, mask);
     startReadImage(pipeFds[0]);
 
     close(pipeFds[1]);
-}
-
-void KdeWaylandImageGrabber::startReadImage(int readPipe)
-{
-    QFutureWatcher<QImage>* watcher = new QFutureWatcher<QImage>(this);
-    QObject::connect(watcher, &QFutureWatcher<QImage>::finished, this,
-    [watcher, this] {
-        watcher->deleteLater();
-        const QImage img = watcher->result();
-        emit finished(QPixmap::fromImage(img));
-    });
-    watcher->setFuture(QtConcurrent::run(readImage, readPipe));
 }
 
 template<typename T>
@@ -127,4 +120,16 @@ void KdeWaylandImageGrabber::callDBus(int writeFd, const QString& mode, T mask)
 {
     QDBusInterface interface(QStringLiteral("org.kde.KWin"), QStringLiteral("/Screenshot"), QStringLiteral("org.kde.kwin.Screenshot"));
     interface.asyncCall(mode, QVariant::fromValue(QDBusUnixFileDescriptor(writeFd)), mask);
+}
+
+void KdeWaylandImageGrabber::startReadImage(int readPipe)
+{
+    auto watcher = new QFutureWatcher<QImage>(this);
+    QObject::connect(watcher, &QFutureWatcher<QImage>::finished, this,
+    [watcher, this] {
+        watcher->deleteLater();
+        auto image = watcher->result();
+        emit finished(QPixmap::fromImage(image));
+    });
+    watcher->setFuture(QtConcurrent::run(readImage, readPipe));
 }

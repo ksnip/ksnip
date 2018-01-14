@@ -46,6 +46,8 @@ protected:
 private:
     void startReadImage(int readPipe);
     template<typename T>
+    void prepareDBus(const QString& mode, T mask);
+    template<typename T>
     void callDBus(int writeFd, const QString& mode, T mask);
 };
 

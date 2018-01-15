@@ -43,7 +43,7 @@ AboutDialog::AboutDialog(MainWindow* parent) : QDialog(parent),
     mTabWidget->setMinimumSize(mTabWidget->sizeHint());
 
     mCloseButton->setText(tr("Close"));
-    connect(mCloseButton, &QPushButton::clicked, &AboutDialog::close);
+    connect(mCloseButton, &QPushButton::clicked, this, &AboutDialog::close);
 
     mMainLayout->addLayout(mHeaderLayout);
     mMainLayout->addWidget(mTabWidget);
@@ -66,7 +66,7 @@ void AboutDialog::createHeader()
     label->setPixmap(*pixmap);
     label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     mHeaderLayout->addWidget(label);
-    label = new QLabel("<h2>" + QApplication::applicationName() + "</h2>");
+    label = new QLabel(QStringLiteral("<h2>") + QApplication::applicationName() + QStringLiteral("</h2>"));
     label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     mHeaderLayout->addWidget(label);
     mHeaderLayout->setAlignment(Qt::AlignLeft);
@@ -81,8 +81,8 @@ void AboutDialog::createAboutTab()
                    tr("Screenshot Tool") + "<br/><br/>" +
                    tr("(C) 2017 Damir Porobic") + "<br/><br/>" +
                    tr("License: ") +
-                   "<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU" +
-                   " General Public License Version 2</a>");
+                   QStringLiteral("<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU"
+                   " General Public License Version 2</a>"));
     label->setTextFormat(Qt::RichText);
     label->setTextInteractionFlags(Qt::TextBrowserInteraction);
     label->setOpenExternalLinks(true);
@@ -94,15 +94,15 @@ void AboutDialog::createVersionTab()
 {
     auto layout = new QVBoxLayout();
     auto label = new QLabel();
-    label->setText("<b>" + tr("Version ") + QApplication::applicationVersion() +
-                   "</b>" + "<br/><br/>" +
+    label->setText(QStringLiteral("<b>") + tr("Version ") + QApplication::applicationVersion() +
+                   QStringLiteral("</b><br/><br/>") +
                    tr("Using :") +
-                   "<ul>"
-                    "<li>Qt5</li>"
-                    "<li>X11</li>"
-                    "<li>KDE Wayland</li>"
-                   "</ul>"
-                   "<br />");
+                   QStringLiteral("<ul>"
+                                  "<li>Qt5</li>"
+                                  "<li>X11</li>"
+                                  "<li>KDE Wayland</li>"
+                                  "</ul>"
+                                  "<br />"));
     layout->addWidget(label);
     mVersionWidget->setLayout(layout);
 }
@@ -112,10 +112,10 @@ void AboutDialog::createAuthorTab()
     auto layout = new QVBoxLayout();
     auto label = new QLabel();
     label->setText(tr("Please use ") +
-                   "<a href=\"https://github.com/damirporobic/ksnip/issues/\">GitHub</a>" +
+                   QStringLiteral("<a href=\"https://github.com/damirporobic/ksnip/issues/\">GitHub</a>") +
                    tr(" to report bugs.") + "<br/><br/>" +
                    tr("The author, <b>Damir Porobic</b>, can be contacted via ") +
-                   "<a href=\"mailto:damir.porobic@gmx.com\" target=\"_top\">Email</a>" + ".");
+                   QStringLiteral("<a href=\"mailto:damir.porobic@gmx.com\" target=\"_top\">Email</a>."));
     label->setTextFormat(Qt::RichText);
     label->setTextInteractionFlags(Qt::TextBrowserInteraction);
     label->setOpenExternalLinks(true);

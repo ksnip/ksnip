@@ -65,7 +65,7 @@ void PlatformChecker::checkEnvironment()
     if (outputContainsValue(output, "kde")) {
         mEnvironment = Environment::KDE;
     } else if (outputContainsValue(output, "gnome")) {
-        mEnvironment = Environment::KDE;
+        mEnvironment = Environment::Gnome;
     } else {
         mEnvironment = Environment::Unknown;
     }

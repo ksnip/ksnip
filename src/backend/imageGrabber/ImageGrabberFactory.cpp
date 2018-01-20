@@ -26,7 +26,6 @@ AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
     } else if (PlatformChecker::instance()->isWayland() && PlatformChecker::instance()->isKde()) {
         return new KdeWaylandImageGrabber();
     } else if (PlatformChecker::instance()->isWayland() && PlatformChecker::instance()->isGnome()) {
-        qCritical("Creating GnomeImageGrabber.");
         return new GnomeWaylandImageGrabber();
     } else {
         qCritical("Unknown platform, using default X11 Image Grabber.");

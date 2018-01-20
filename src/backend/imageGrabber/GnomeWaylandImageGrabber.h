@@ -24,6 +24,18 @@
 #include <QtDBus/QDBusInterface>
 #include <QtDBus/QDBusReply>
 
+#include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusPendingCall>
+#include <QtDBus/QDBusPendingReply>
+#include <QtDBus/QDBusUnixFileDescriptor>
+
+#include <QtConcurrent/QtConcurrent>
+#include <QFutureWatcher>
+#include <qplatformdefs.h>
+
+#include <errno.h>
+
 #include "AbstractImageGrabber.h"
 
 class GnomeWaylandImageGrabber : public AbstractImageGrabber

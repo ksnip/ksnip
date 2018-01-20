@@ -22,6 +22,7 @@
 
 #include "X11ImageGrabber.h"
 #include "KdeWaylandImageGrabber.h"
+#include "GnomeWaylandImageGrabber.h"
 #include "src/backend/PlatformChecker.h"
 
 class ImageGrabberFactory

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,19 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "ImageGrabberFactory.h"
+#ifndef GNOMEWAYLANDIMAGEGRABBER_H
+#define GNOMEWAYLANDIMAGEGRABBER_H
 
-AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusReply>
+
+#include "AbstractImageGrabber.h"
+
+class GnomeWaylandImageGrabber : public AbstractImageGrabber
 {
-    if (PlatformChecker::instance()->isX11()) {
-        return new X11ImageGrabber();
-    } else if (PlatformChecker::instance()->isWayland() && PlatformChecker::instance()->isKde()) {
-        return new KdeWaylandImageGrabber();
-    } else if (PlatformChecker::instance()->isWayland() && PlatformChecker::instance()->isGnome()) {
-        qCritical("Creating GnomeImageGrabber.");
-        return new GnomeWaylandImageGrabber();
-    } else {
-        qCritical("Unknown platform, using default X11 Image Grabber.");
-        return new X11ImageGrabber();
-    }
-}
+public:
+    virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) override;
+    virtual bool isCaptureModeSupported(CaptureModes captureMode) override;
+
+protected:
+    virtual void grab() override;
+
+
+};
+
+#endif // GNOMEWAYLANDIMAGEGRABBER_H

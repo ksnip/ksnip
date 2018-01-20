@@ -35,6 +35,7 @@ set(ksnip_SRCS src/main.cpp
                src/backend/imageGrabber/KdeWaylandImageGrabber.cpp
                src/backend/imageGrabber/ImageGrabberFactory.cpp
                src/backend/imageGrabber/X11Wrapper.cpp
+               src/backend/imageGrabber/GnomeWaylandImageGrabber.cpp
                src/painter/PaintArea.cpp
                src/painter/AbstractPainterItem.cpp
                src/painter/PainterPen.cpp

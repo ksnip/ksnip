@@ -64,6 +64,7 @@ void KdeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCurs
 {
     mCaptureCursor = capureCursor;
     mCaptureDelay = delay;
+
     if (isCaptureModeSupported(captureMode)) {
         mCaptureMode = captureMode;
     } else {

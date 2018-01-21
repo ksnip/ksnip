@@ -36,6 +36,7 @@ public:
     static QPoint getLineCenter(const QLine &line);
     static QPoint getCenterBetweenPoints(const QPoint &p1, const QPoint &p2);
     static qreal roundAngleTo(const qreal currentAngle, const int increments);
+    static int randomInt();
 };
 
 #endif // MATHHELPER_H

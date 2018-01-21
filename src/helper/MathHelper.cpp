@@ -79,3 +79,8 @@ qreal MathHelper::roundAngleTo(const qreal currentAngle, const int increments)
     return newAngle;
 }
 
+int MathHelper::randomInt()
+{
+    return qrand();
+}
+

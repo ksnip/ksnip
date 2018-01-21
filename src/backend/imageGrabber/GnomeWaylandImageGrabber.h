@@ -25,6 +25,7 @@
 #include <QtDBus/QDBusReply>
 
 #include "AbstractImageGrabber.h"
+#include "src/helper/MathHelper.h"
 
 class GnomeWaylandImageGrabber : public AbstractImageGrabber
 {
@@ -36,8 +37,8 @@ protected:
     virtual void grab() override;
 
 private:
-    void prepareDBus();
     void postProcessing(const QPixmap &pixmap);
+    QString tmpScreenshotFilename() const;
 };
 
 #endif // GNOMEWAYLANDIMAGEGRABBER_H

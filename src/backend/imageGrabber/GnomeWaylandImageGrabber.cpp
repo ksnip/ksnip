@@ -21,8 +21,8 @@
 
 void GnomeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int delay)
 {
-    mCaptureMode = captureMode;
     mCaptureCursor = capureCursor;
+    mCaptureDelay = delay;
 
     if (isCaptureModeSupported(captureMode)) {
         mCaptureMode = captureMode;
@@ -40,13 +40,29 @@ void GnomeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCu
 
 void GnomeWaylandImageGrabber::grab()
 {
-    prepareDBus();
+    QDBusInterface interface(QStringLiteral("org.gnome.Shell.Screenshot"), QStringLiteral("/org/gnome/Shell/Screenshot"), QStringLiteral("org.gnome.Shell.Screenshot"));
+    QDBusPendingReply<bool, QString> reply;
+    if (mCaptureMode == CaptureModes::ActiveWindow) {
+        reply = interface.asyncCall(QStringLiteral("ScreenshotWindow"), true, mCaptureCursor, false, tmpScreenshotFilename());
+    } else {
+        reply = interface.asyncCall(QStringLiteral("Screenshot"), mCaptureCursor, false, tmpScreenshotFilename());
+    }
+
+    reply.waitForFinished();
+
+    if (reply.isError()) {
+        qCritical("Invalid reply from DBus: %s", qPrintable(reply.error().message()));
+        emit canceled();
+    } else {
+        auto pathToTmpScreenshot = reply.argumentAt<1>();
+        postProcessing(QPixmap(pathToTmpScreenshot));
+    }
 }
 
 bool GnomeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode)
 {
     if (captureMode == CaptureModes::RectArea ||
-            captureMode == CaptureModes::WindowUnderCursor ||
+            captureMode == CaptureModes::ActiveWindow ||
             captureMode == CaptureModes::FullScreen) {
         return true;
     } else {
@@ -54,33 +70,20 @@ bool GnomeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode)
     }
 }
 
-void GnomeWaylandImageGrabber::prepareDBus()
-{
-    QDBusInterface interface(QStringLiteral("org.gnome.Shell.Screenshot"), QStringLiteral("/org/gnome/Shell/Screenshot"), QStringLiteral("org.gnome.Shell.Screenshot"));
-    QDBusPendingReply<bool, QString> reply;
-    if (mCaptureMode == CaptureModes::WindowUnderCursor) {
-        reply = interface.asyncCall(QStringLiteral("ScreenshotWindow"), true, mCaptureCursor, false, "/tmp/ksnip-screenshot.png");
-    } else {
-        reply = interface.asyncCall(QStringLiteral("Screenshot"), mCaptureCursor, false, QStringLiteral("/tmp/ksnip-screenshot.png"));
-    }
-
-    reply.waitForFinished();
-
-    if (reply.isError()) {
-        qCritical("Ksnip DBus Error: %s", qPrintable(reply.error().message()));
-        emit canceled();
-    } else {
-        QString pathToTmpScreenshot = reply.argumentAt<1>();
-        postProcessing(QPixmap(pathToTmpScreenshot));
-    }
-}
-
 void GnomeWaylandImageGrabber::postProcessing(const QPixmap& pixmap)
 {
     if (mCaptureMode == CaptureModes::RectArea) {
         mCaptureRect = selectedSnippingAreaRect();
-        qCritical("%s, %s, %s, %s", qPrintable(mCaptureRect.topLeft().x()), qPrintable(mCaptureRect.topLeft().y()), qPrintable(mCaptureRect.width()), qPrintable(mCaptureRect.height()));
         emit finished(pixmap.copy(mCaptureRect));
+    } else {
+        emit finished(pixmap);
     }
-    emit finished(pixmap);
+}
+
+QString GnomeWaylandImageGrabber::tmpScreenshotFilename() const
+{
+    auto path = QStringLiteral("/tmp/");
+    auto filename = QStringLiteral("ksnip-") + QString::number(MathHelper::randomInt());
+    auto extension = QStringLiteral(".png");
+    return path + filename + extension;
 }

@@ -19,98 +19,72 @@
 
 #include "GnomeWaylandImageGrabber.h"
 
-static int readData(int fd, QByteArray& data)
-{
-    // implementation based on QtWayland file qwaylanddataoffer.cpp
-    char buffer[4096];
-    int retryCount = 0;
-    int n;
-    while (true) {
-        n = QT_READ(fd, buffer, sizeof buffer);
-        // give user 30 sec to click a window, afterwards considered as error
-        if (n == -1 && (errno == EAGAIN) && ++retryCount < 30000) {
-            usleep(1000);
-        } else {
-            break;
-        }
-    }
-    if (n > 0) {
-        data.append(buffer, n);
-        n = readData(fd, data);
-    }
-    return n;
-}
-
-static QImage readImage(int pipeFd)
-{
-    QByteArray content;
-    if (readData(pipeFd, content) != 0) {
-        close(pipeFd);
-        return QImage();
-    }
-    close(pipeFd);
-    QDataStream dataStream(content);
-    QImage image;
-    dataStream >> image;
-    return image;
-};
-
 void GnomeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int delay)
 {
     mCaptureMode = captureMode;
     mCaptureCursor = capureCursor;
 
-    qCritical("Called grabImage on GnomeWaylandImageGrabber.");
+    if (isCaptureModeSupported(captureMode)) {
+        mCaptureMode = captureMode;
+    } else {
+        qWarning("Unsupported Capture Mode selected, falling back to full screen.");
+        mCaptureMode = CaptureModes::FullScreen;
+    }
 
-    grab();
+    if (mCaptureMode == CaptureModes::RectArea) {
+        openSnippingArea();
+    } else {
+        QTimer::singleShot(mCaptureDelay, this, &GnomeWaylandImageGrabber::grab);
+    }
 }
 
 void GnomeWaylandImageGrabber::grab()
 {
-    // It's possible to take a screenshot like this but it saves the screenshot
-    // to a file
-//     if (!QDBusConnection::sessionBus().isConnected()) {
-//         qCritical("Cannot connect to the D-Bus session bus.");
-//         return;
-//     }
-// 
-//     QDBusInterface dbusInterface("org.gnome.Shell.Screenshot", "/org/gnome/Shell/Screenshot", "org.gnome.Shell.Screenshot", QDBusConnection::sessionBus());
-//     if (dbusInterface.isValid()) {
-//         QDBusReply<double> reply = dbusInterface.call("Screenshot", true, true, "~/screenshot-ksnip");
-//         if (reply.isValid()) {
-//             printf("Reply from bus was: %e", reply.value());
-//         } else {
-//             printf("Call to bus failed: %s", qPrintable(reply.error().message()));
-//             return;
-//         }
-//     } else {
-//         qCritical("Dbus Interface not valid.");
-//     }
-// 
-//     qCritical("No D-Bus interface found!");
-//     return;
-
-
-    int pipeFds[2];
-    if (pipe2(pipeFds, O_CLOEXEC | O_NONBLOCK) != 0) {
-        emit canceled();
-        return;
-    }
-
-    QDBusInterface interface(QStringLiteral("org.gnome.Shell.Screenshot"), QStringLiteral("/org/gnome/Shell/Screenshot"), QStringLiteral("org.gnome.Shell.Screenshot"));
-    interface.asyncCall("Screenshot", true, true, QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])));
-
-    auto watcher = new QFutureWatcher<QImage>(this);
-    QObject::connect(watcher, &QFutureWatcher<QImage>::finished, this,
-    [watcher, this] {
-        watcher->deleteLater();
-        auto image = watcher->result();
-        emit finished(QPixmap::fromImage(image));
-    });
-    watcher->setFuture(QtConcurrent::run(readImage, pipeFds[1]));
+    prepareDBus();
 }
 
 bool GnomeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode)
 {
-    return true;
+    if (captureMode == CaptureModes::RectArea ||
+            captureMode == CaptureModes::WindowUnderCursor ||
+            captureMode == CaptureModes::FullScreen) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+void GnomeWaylandImageGrabber::prepareDBus()
+{
+    QDBusInterface interface(QStringLiteral("org.gnome.Shell.Screenshot"), QStringLiteral("/org/gnome/Shell/Screenshot"), QStringLiteral("org.gnome.Shell.Screenshot"));
+    QDBusPendingCall *pendingCall = nullptr;
+    if(mCaptureMode == CaptureModes::WindowUnderCursor) {
+        *pendingCall = interface.asyncCall(QStringLiteral("ScreenshotWindow"), true, mCaptureCursor, false, "/tmp/ksnip-screenshot.png");
+    } else {
+        *pendingCall = interface.asyncCall(QStringLiteral("Screenshot"), mCaptureCursor, false, QStringLiteral("/tmp/ksnip-screenshot.png"));
+    }
+
+    auto *watcher = new QDBusPendingCallWatcher(*pendingCall, this);
+
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher](QDBusPendingCallWatcher* call) {
+        watcher->deleteLater();
+        QDBusPendingReply<bool, QString> reply = *call;
+        if(reply.isError()) {
+            qCritical("Ksnip DBus Error: %s", qPrintable(reply.error().message()));
+            emit canceled();
+        } else {
+            QString pathToTmpScreenshot = reply.argumentAt<1>();
+            postProcessing(QPixmap(pathToTmpScreenshot));
+        }
+        call->deleteLater();
+    });
+}
+
+void GnomeWaylandImageGrabber::postProcessing(const QPixmap& pixmap)
+{
+    if (mCaptureMode == CaptureModes::RectArea) {
+        mCaptureRect = selectedSnippingAreaRect();
+        emit finished(pixmap.copy(mCaptureRect));
+    }
+    emit finished(pixmap);
 }

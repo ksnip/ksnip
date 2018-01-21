@@ -57,33 +57,29 @@ bool GnomeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode)
 void GnomeWaylandImageGrabber::prepareDBus()
 {
     QDBusInterface interface(QStringLiteral("org.gnome.Shell.Screenshot"), QStringLiteral("/org/gnome/Shell/Screenshot"), QStringLiteral("org.gnome.Shell.Screenshot"));
-    QDBusPendingCall *pendingCall = nullptr;
-    if(mCaptureMode == CaptureModes::WindowUnderCursor) {
-        *pendingCall = interface.asyncCall(QStringLiteral("ScreenshotWindow"), true, mCaptureCursor, false, "/tmp/ksnip-screenshot.png");
+    QDBusPendingReply<bool, QString> reply;
+    if (mCaptureMode == CaptureModes::WindowUnderCursor) {
+        reply = interface.asyncCall(QStringLiteral("ScreenshotWindow"), true, mCaptureCursor, false, "/tmp/ksnip-screenshot.png");
     } else {
-        *pendingCall = interface.asyncCall(QStringLiteral("Screenshot"), mCaptureCursor, false, QStringLiteral("/tmp/ksnip-screenshot.png"));
+        reply = interface.asyncCall(QStringLiteral("Screenshot"), mCaptureCursor, false, QStringLiteral("/tmp/ksnip-screenshot.png"));
     }
 
-    auto *watcher = new QDBusPendingCallWatcher(*pendingCall, this);
+    reply.waitForFinished();
 
-    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher](QDBusPendingCallWatcher* call) {
-        watcher->deleteLater();
-        QDBusPendingReply<bool, QString> reply = *call;
-        if(reply.isError()) {
-            qCritical("Ksnip DBus Error: %s", qPrintable(reply.error().message()));
-            emit canceled();
-        } else {
-            QString pathToTmpScreenshot = reply.argumentAt<1>();
-            postProcessing(QPixmap(pathToTmpScreenshot));
-        }
-        call->deleteLater();
-    });
+    if (reply.isError()) {
+        qCritical("Ksnip DBus Error: %s", qPrintable(reply.error().message()));
+        emit canceled();
+    } else {
+        QString pathToTmpScreenshot = reply.argumentAt<1>();
+        postProcessing(QPixmap(pathToTmpScreenshot));
+    }
 }
 
 void GnomeWaylandImageGrabber::postProcessing(const QPixmap& pixmap)
 {
     if (mCaptureMode == CaptureModes::RectArea) {
         mCaptureRect = selectedSnippingAreaRect();
+        qCritical("%s, %s, %s, %s", qPrintable(mCaptureRect.topLeft().x()), qPrintable(mCaptureRect.topLeft().y()), qPrintable(mCaptureRect.width()), qPrintable(mCaptureRect.height()));
         emit finished(pixmap.copy(mCaptureRect));
     }
     emit finished(pixmap);

@@ -39,6 +39,7 @@ protected:
 private:
     void postProcessing(const QPixmap &pixmap);
     QString tmpScreenshotFilename() const;
+    void setRectFromCorrectSource();
 };
 
 #endif // GNOMEWAYLANDIMAGEGRABBER_H

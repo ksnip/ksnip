@@ -63,7 +63,8 @@ bool GnomeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode)
 {
     if (captureMode == CaptureModes::RectArea ||
             captureMode == CaptureModes::ActiveWindow ||
-            captureMode == CaptureModes::FullScreen) {
+            captureMode == CaptureModes::FullScreen ||
+            captureMode == CaptureModes::CurrentScreen) {
         return true;
     } else {
         return false;
@@ -72,11 +73,11 @@ bool GnomeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode)
 
 void GnomeWaylandImageGrabber::postProcessing(const QPixmap& pixmap)
 {
-    if (mCaptureMode == CaptureModes::RectArea) {
-        mCaptureRect = selectedSnippingAreaRect();
-        emit finished(pixmap.copy(mCaptureRect));
-    } else {
+    if (mCaptureMode == CaptureModes::ActiveWindow) {
         emit finished(pixmap);
+    } else {
+        setRectFromCorrectSource();
+        emit finished(pixmap.copy(mCaptureRect));
     }
 }
 
@@ -86,4 +87,16 @@ QString GnomeWaylandImageGrabber::tmpScreenshotFilename() const
     auto filename = QStringLiteral("ksnip-") + QString::number(MathHelper::randomInt());
     auto extension = QStringLiteral(".png");
     return path + filename + extension;
+}
+
+void GnomeWaylandImageGrabber::setRectFromCorrectSource()
+{
+    if (mCaptureMode == CaptureModes::RectArea) {
+        mCaptureRect = selectedSnippingAreaRect();
+    } else if (mCaptureMode == CaptureModes::CurrentScreen) {
+        mCaptureRect = currectScreenRect();
+    } else {
+        // Copy with empty rect will return full screen
+        mCaptureRect = QRect();
+    }
 }

@@ -26,7 +26,7 @@
  */
 QString StringFormattingHelper::extractPath(const QString& path)
 {
-    return path.section("/", 0, -2);
+    return path.section(QStringLiteral("/"), 0, -2);
 }
 
 /*
@@ -37,10 +37,10 @@ QString StringFormattingHelper::extractPath(const QString& path)
  */
 QString StringFormattingHelper::extractFilename(const QString& path)
 {
-    if (path.section("/", -1).contains(".")) {
-        return path.section("/", -1).section(".", 0, -2);
+    if (path.section(QStringLiteral("/"), -1).contains(QLatin1Char('.'))) {
+        return path.section(QStringLiteral("/"), -1).section(".", 0, -2);
     } else {
-        return path.section("/", -1);
+        return path.section(QStringLiteral("/"), -1);
     }
 }
 
@@ -51,8 +51,8 @@ QString StringFormattingHelper::extractFilename(const QString& path)
  */
 QString StringFormattingHelper::extractFormat(const QString& path)
 {
-    if (path.section("/", -1).contains(".")) {
-        return path.section(".", -1);
+    if (path.section(QStringLiteral("/"), -1).contains(QLatin1Char('.'))) {
+        return path.section(QStringLiteral("."), -1);
     } else {
         return QString();
     }
@@ -60,10 +60,10 @@ QString StringFormattingHelper::extractFormat(const QString& path)
 
 QString StringFormattingHelper::updateTimeAndDate(QString filename)
 {
-    filename.replace("$Y", QDateTime::currentDateTime().toString("yyyy"));
-    filename.replace("$M", QDateTime::currentDateTime().toString("MM"));
-    filename.replace("$D", QDateTime::currentDateTime().toString("dd"));
-    filename.replace("$T", QDateTime::currentDateTime().toString("hhmmss"));
+    filename.replace(QStringLiteral("$Y"), QDateTime::currentDateTime().toString(QStringLiteral("yyyy")));
+    filename.replace(QStringLiteral("$M"), QDateTime::currentDateTime().toString(QStringLiteral("MM")));
+    filename.replace(QStringLiteral("$D"), QDateTime::currentDateTime().toString(QStringLiteral("dd")));
+    filename.replace(QStringLiteral("$T"), QDateTime::currentDateTime().toString(QStringLiteral("hhmmss")));
     return filename;
 }
 
@@ -76,8 +76,8 @@ QString StringFormattingHelper::makeUniqueFilename(const QString& path,
     }
 
     auto i = 1;
-    while (QFile::exists(path + filename + "(" + QString::number(i) + ")" + exension)) {
+    while (QFile::exists(path + filename + QStringLiteral("(") + QString::number(i) + QStringLiteral(")") + exension)) {
         i++;
     }
-    return path + filename + "(" + QString::number(i) + ")" + exension;
+    return path + filename + QStringLiteral("(") + QString::number(i) + QStringLiteral(")") + exension;
 }

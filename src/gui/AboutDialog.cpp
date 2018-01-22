@@ -60,7 +60,7 @@ AboutDialog::AboutDialog(MainWindow* parent) : QDialog(parent),
 
 void AboutDialog::createHeader()
 {
-    auto pixmap = new QPixmap(":/ksnip64.png");
+    auto pixmap = new QPixmap(QStringLiteral(":/ksnip64.png"));
     auto label = new QLabel();
     mHeaderLayout = new QHBoxLayout();
     label->setPixmap(*pixmap);
@@ -77,7 +77,7 @@ void AboutDialog::createAboutTab()
     auto layout = new QVBoxLayout();
     auto label = new QLabel();
     label->setText(QApplication::applicationName() +
-                   " " +
+                   QStringLiteral(" ") +
                    tr("Screenshot Tool") + "<br/><br/>" +
                    tr("(C) 2017 Damir Porobic") + "<br/><br/>" +
                    tr("License: ") +
@@ -96,7 +96,7 @@ void AboutDialog::createVersionTab()
     auto label = new QLabel();
     label->setText(QStringLiteral("<b>") + tr("Version ") + QApplication::applicationVersion() +
                    QStringLiteral("</b><br/><br/>") +
-                   tr("Using :") +
+                   tr("Using:") +
                    QStringLiteral("<ul>"
                                   "<li>Qt5</li>"
                                   "<li>X11</li>"

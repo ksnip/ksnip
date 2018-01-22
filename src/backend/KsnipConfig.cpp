@@ -19,9 +19,6 @@
  */
 
 #include "KsnipConfig.h"
-//
-// Public Functions
-//
 
 KsnipConfig* KsnipConfig::instance()
 {
@@ -33,7 +30,7 @@ KsnipConfig* KsnipConfig::instance()
 
 bool KsnipConfig::saveKsnipPosition() const
 {
-    return mConfig.value("Application/SaveKsnipPosition", true).toBool();
+    return mConfig.value(QStringLiteral("Application/SaveKsnipPosition"), true).toBool();
 }
 
 void KsnipConfig::setSaveKsnipPosition(bool  enabled)
@@ -41,13 +38,13 @@ void KsnipConfig::setSaveKsnipPosition(bool  enabled)
     if (saveKsnipPosition() == enabled) {
         return;
     }
-    mConfig.setValue("Application/SaveKsnipPosition", enabled);
+    mConfig.setValue(QStringLiteral("Application/SaveKsnipPosition"), enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::promptSaveBeforeExit() const
 {
-    return mConfig.value("Application/PromptSaveBeforeExit", false).toBool();
+    return mConfig.value(QStringLiteral("Application/PromptSaveBeforeExit"), false).toBool();
 }
 
 void KsnipConfig::setPromptSaveBeforeExit(bool  enabled)
@@ -55,13 +52,13 @@ void KsnipConfig::setPromptSaveBeforeExit(bool  enabled)
     if (promptSaveBeforeExit() == enabled) {
         return;
     }
-    mConfig.setValue("Application/PromptSaveBeforeExit", enabled);
+    mConfig.setValue(QStringLiteral("Application/PromptSaveBeforeExit"), enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::alwaysCopyToClipboard() const
 {
-    return mConfig.value("Application/AlwaysCopyToClipboard", false).toBool();
+    return mConfig.value(QStringLiteral("Application/AlwaysCopyToClipboard"), false).toBool();
 }
 
 void KsnipConfig::setAlwaysCopyToClipboard(bool  enabled)
@@ -69,13 +66,13 @@ void KsnipConfig::setAlwaysCopyToClipboard(bool  enabled)
     if (alwaysCopyToClipboard() == enabled) {
         return;
     }
-    mConfig.setValue("Application/AlwaysCopyToClipboard", enabled);
+    mConfig.setValue(QStringLiteral("Application/AlwaysCopyToClipboard"), enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::saveKsnipToolSelection() const
 {
-    return mConfig.value("Application/SaveKsnipToolsSelection", true).toBool();
+    return mConfig.value(QStringLiteral("Application/SaveKsnipToolsSelection"), true).toBool();
 }
 
 void KsnipConfig::setSaveKsnipToolSelection(bool  enabled)
@@ -83,13 +80,13 @@ void KsnipConfig::setSaveKsnipToolSelection(bool  enabled)
     if (saveKsnipToolSelection() == enabled) {
         return;
     }
-    mConfig.setValue("Application/SaveKsnipToolsSelection", enabled);
+    mConfig.setValue(QStringLiteral("Application/SaveKsnipToolsSelection"), enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::captureOnStartup() const
 {
-    return mConfig.value("Application/CaptureOnStartup", false).toBool();
+    return mConfig.value(QStringLiteral("Application/CaptureOnStartup"), false).toBool();
 }
 
 void KsnipConfig::setCaptureOnStartup(bool enabled)
@@ -97,7 +94,7 @@ void KsnipConfig::setCaptureOnStartup(bool enabled)
     if (captureOnStartup() == enabled) {
         return;
     }
-    mConfig.setValue("Application/CaptureOnStartup", enabled);
+    mConfig.setValue(QStringLiteral("Application/CaptureOnStartup"), enabled);
     mConfig.sync();
 }
 
@@ -109,7 +106,7 @@ QPoint KsnipConfig::windowPosition() const
         return QPoint(200, 200);
     }
 
-    return mConfig.value("MainWindow/Position", QPoint(200, 200)).value<QPoint>();
+    return mConfig.value(QStringLiteral("MainWindow/Position"), QPoint(200, 200)).value<QPoint>();
 }
 
 void KsnipConfig::setWindowPosition(const QPoint& position)
@@ -117,7 +114,7 @@ void KsnipConfig::setWindowPosition(const QPoint& position)
     if (windowPosition() == position) {
         return;
     }
-    mConfig.setValue("MainWindow/Position", position);
+    mConfig.setValue(QStringLiteral("MainWindow/Position"), position);
     mConfig.sync();
 }
 
@@ -128,7 +125,7 @@ Painter::Modes KsnipConfig::paintMode() const
         return Painter::Pen;
     }
 
-    return Painter::Modes(mConfig.value("Painter/PaintMode").toInt());
+    return Painter::Modes(mConfig.value(QStringLiteral("Painter/PaintMode")).toInt());
 }
 
 void KsnipConfig::setPaintMode(Painter::Modes mode)
@@ -136,7 +133,7 @@ void KsnipConfig::setPaintMode(Painter::Modes mode)
     if (paintMode() == mode) {
         return;
     }
-    mConfig.setValue("Painter/PaintMode", mode);
+    mConfig.setValue(QStringLiteral("Painter/PaintMode"), mode);
     mConfig.sync();
 }
 
@@ -147,7 +144,7 @@ CaptureModes KsnipConfig::captureMode() const
         return CaptureModes::RectArea;
     }
 
-    auto modeEnumAsInt = mConfig.value("ImageGrabber/CaptureMode").toInt();
+    auto modeEnumAsInt = mConfig.value(QStringLiteral("ImageGrabber/CaptureMode")).toInt();
     return static_cast<CaptureModes>(modeEnumAsInt);
 }
 
@@ -156,14 +153,14 @@ void KsnipConfig::setCaptureMode(CaptureModes mode)
     if (captureMode() == mode) {
         return;
     }
-    mConfig.setValue("ImageGrabber/CaptureMode", static_cast<int>(mode));
+    mConfig.setValue(QStringLiteral("ImageGrabber/CaptureMode"), static_cast<int>(mode));
     mConfig.sync();
 }
 
 QString KsnipConfig::saveDirectory() const
 {
-    if (!mConfig.value("Application/SaveDirectory", QDir::homePath()).toString().isEmpty()) {
-        return mConfig.value("Application/SaveDirectory", QDir::homePath()).toString() + "/";
+    if (!mConfig.value(QStringLiteral("Application/SaveDirectory"), QDir::homePath()).toString().isEmpty()) {
+        return mConfig.value(QStringLiteral("Application/SaveDirectory"), QDir::homePath()).toString() + QStringLiteral("/");
     } else {
         return QString();
     }
@@ -174,13 +171,13 @@ void KsnipConfig::setSaveDirectory(const QString& path)
     if (saveDirectory() == path) {
         return;
     }
-    mConfig.setValue("Application/SaveDirectory", path);
+    mConfig.setValue(QStringLiteral("Application/SaveDirectory"), path);
     mConfig.sync();
 }
 
 QString KsnipConfig::saveFilename() const
 {
-    return mConfig.value("Application/SaveFilename", "ksnip_$Y$M$D-$T").toString();
+    return mConfig.value(QStringLiteral("Application/SaveFilename"), QStringLiteral("ksnip_$Y$M$D-$T")).toString();
 }
 
 void KsnipConfig::setSaveFilename(const QString& filename)
@@ -188,14 +185,14 @@ void KsnipConfig::setSaveFilename(const QString& filename)
     if (saveFilename() == filename) {
         return;
     }
-    mConfig.setValue("Application/SaveFilename", filename);
+    mConfig.setValue(QStringLiteral("Application/SaveFilename"), filename);
     mConfig.sync();
 }
 
 QString KsnipConfig::saveFormat() const
 {
-    if (!mConfig.value("Application/SaveFormat", "png").toString().isEmpty()) {
-        return "." + mConfig.value("Application/SaveFormat", "png").toString();
+    if (!mConfig.value(QStringLiteral("Application/SaveFormat"), QStringLiteral("png")).toString().isEmpty()) {
+        return QStringLiteral(".") + mConfig.value(QStringLiteral("Application/SaveFormat"), QStringLiteral("png")).toString();
     } else {
         return QString();
     }
@@ -206,7 +203,7 @@ void KsnipConfig::setSaveFormat(const QString& format)
     if (saveFormat() == format) {
         return;
     }
-    mConfig.setValue("Application/SaveFormat", format);
+    mConfig.setValue(QStringLiteral("Application/SaveFormat"), format);
     mConfig.sync();
 }
 
@@ -221,7 +218,7 @@ QString KsnipConfig::savePath(const QString& format) const
     if (format.isNull()) {
         selectedFormat = saveFormat();
     } else {
-        selectedFormat = (format.startsWith(".") ? format : "." + format);
+        selectedFormat = (format.startsWith(QStringLiteral(".")) ? format : QStringLiteral(".") + format);
     }
 
     auto filename = StringFormattingHelper::updateTimeAndDate(saveFilename());
@@ -240,7 +237,7 @@ QPen KsnipConfig::pen() const
 
 QColor KsnipConfig::penColor() const
 {
-    return mConfig.value("Painter/PenColor", QColor("Red")).value<QColor>();
+    return mConfig.value(QStringLiteral("Painter/PenColor"), QColor(QStringLiteral("Red"))).value<QColor>();
 }
 
 void KsnipConfig::setPenColor(const QColor& color)
@@ -248,14 +245,14 @@ void KsnipConfig::setPenColor(const QColor& color)
     if (penColor() == color) {
         return;
     }
-    mConfig.setValue("Painter/PenColor", color);
+    mConfig.setValue(QStringLiteral("Painter/PenColor"), color);
     mConfig.sync();
     emit painterUpdated();
 }
 
 int KsnipConfig::penSize() const
 {
-    return mConfig.value("Painter/PenSize", 3).toInt();
+    return mConfig.value(QStringLiteral("Painter/PenSize"), 3).toInt();
 }
 
 void KsnipConfig::setPenSize(int  size)
@@ -263,7 +260,7 @@ void KsnipConfig::setPenSize(int  size)
     if (penSize() == size) {
         return;
     }
-    mConfig.setValue("Painter/PenSize", size);
+    mConfig.setValue(QStringLiteral("Painter/PenSize"), size);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -278,7 +275,7 @@ QPen KsnipConfig::marker() const
 
 QColor KsnipConfig::markerColor() const
 {
-    return mConfig.value("Painter/MarkerColor", QColor("Yellow")).value<QColor>();
+    return mConfig.value(QStringLiteral("Painter/MarkerColor"), QColor(QStringLiteral("Yellow"))).value<QColor>();
 }
 
 void KsnipConfig::setMarkerColor(const QColor& color)
@@ -286,14 +283,14 @@ void KsnipConfig::setMarkerColor(const QColor& color)
     if (markerColor() == color) {
         return;
     }
-    mConfig.setValue("Painter/MarkerColor", color);
+    mConfig.setValue(QStringLiteral("Painter/MarkerColor"), color);
     mConfig.sync();
     emit painterUpdated();
 }
 
 int KsnipConfig::markerSize() const
 {
-    return mConfig.value("Painter/MarkerSize", 20).toInt();
+    return mConfig.value(QStringLiteral("Painter/MarkerSize"), 20).toInt();
 }
 
 void KsnipConfig::setMarkerSize(int  size)
@@ -301,7 +298,7 @@ void KsnipConfig::setMarkerSize(int  size)
     if (markerSize() == size) {
         return;
     }
-    mConfig.setValue("Painter/MarkerSize", size);
+    mConfig.setValue(QStringLiteral("Painter/MarkerSize"), size);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -316,7 +313,7 @@ QPen KsnipConfig::rect() const
 
 QColor KsnipConfig::rectColor() const
 {
-    return mConfig.value("Painter/RectColor", QColor("Blue")).value<QColor>();
+    return mConfig.value(QStringLiteral("Painter/RectColor"), QColor(QStringLiteral("Blue"))).value<QColor>();
 }
 
 void KsnipConfig::setRectColor(const QColor& color)
@@ -324,14 +321,14 @@ void KsnipConfig::setRectColor(const QColor& color)
     if (rectColor() == color) {
         return;
     }
-    mConfig.setValue("Painter/RectColor", color);
+    mConfig.setValue(QStringLiteral("Painter/RectColor"), color);
     mConfig.sync();
     emit painterUpdated();
 }
 
 int KsnipConfig::rectSize() const
 {
-    return mConfig.value("Painter/RectSize", 3).toInt();
+    return mConfig.value(QStringLiteral("Painter/RectSize"), 3).toInt();
 }
 
 void KsnipConfig::setRectSize(int  size)
@@ -339,14 +336,14 @@ void KsnipConfig::setRectSize(int  size)
     if (rectSize() == size) {
         return;
     }
-    mConfig.setValue("Painter/RectSize", size);
+    mConfig.setValue(QStringLiteral("Painter/RectSize"), size);
     mConfig.sync();
     emit painterUpdated();
 }
 
 bool KsnipConfig::rectFill() const
 {
-    return mConfig.value("Painter/RectFill", false).toBool();
+    return mConfig.value(QStringLiteral("Painter/RectFill"), false).toBool();
 }
 
 void KsnipConfig::setRectFill(bool  fill)
@@ -354,7 +351,7 @@ void KsnipConfig::setRectFill(bool  fill)
     if (rectFill() == fill) {
         return;
     }
-    mConfig.setValue("Painter/RectFill", fill);
+    mConfig.setValue(QStringLiteral("Painter/RectFill"), fill);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -369,7 +366,7 @@ QPen KsnipConfig::ellipse() const
 
 QColor KsnipConfig::ellipseColor() const
 {
-    return mConfig.value("Painter/EllipseColor", QColor("Blue")).value<QColor>();
+    return mConfig.value(QStringLiteral("Painter/EllipseColor"), QColor(QStringLiteral("Blue"))).value<QColor>();
 }
 
 void KsnipConfig::setEllipseColor(const QColor& color)
@@ -377,14 +374,14 @@ void KsnipConfig::setEllipseColor(const QColor& color)
     if (ellipseColor() == color) {
         return;
     }
-    mConfig.setValue("Painter/EllipseColor", color);
+    mConfig.setValue(QStringLiteral("Painter/EllipseColor"), color);
     mConfig.sync();
     emit painterUpdated();
 }
 
 int KsnipConfig::ellipseSize() const
 {
-    return mConfig.value("Painter/EllipseSize", 3).toInt();
+    return mConfig.value(QStringLiteral("Painter/EllipseSize"), 3).toInt();
 }
 
 void KsnipConfig::setEllipseSize(int  size)
@@ -392,14 +389,14 @@ void KsnipConfig::setEllipseSize(int  size)
     if (ellipseSize() == size) {
         return;
     }
-    mConfig.setValue("Painter/EllipseSize", size);
+    mConfig.setValue(QStringLiteral("Painter/EllipseSize"), size);
     mConfig.sync();
     emit painterUpdated();
 }
 
 bool KsnipConfig::ellipseFill() const
 {
-    return mConfig.value("Painter/EllipseFill", false).toBool();
+    return mConfig.value(QStringLiteral("Painter/EllipseFill"), false).toBool();
 }
 
 void KsnipConfig::setEllipseFill(bool  fill)
@@ -407,7 +404,7 @@ void KsnipConfig::setEllipseFill(bool  fill)
     if (ellipseFill() == fill) {
         return;
     }
-    mConfig.setValue("Painter/EllipseFill", fill);
+    mConfig.setValue(QStringLiteral("Painter/EllipseFill"), fill);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -422,7 +419,7 @@ QPen KsnipConfig::line() const
 
 QColor KsnipConfig::lineColor() const
 {
-    return mConfig.value("Painter/LineColor", QColor("Blue")).value<QColor>();
+    return mConfig.value(QStringLiteral("Painter/LineColor"), QColor(QStringLiteral("Blue"))).value<QColor>();
 }
 
 void KsnipConfig::setLineColor(const QColor& color)
@@ -430,14 +427,14 @@ void KsnipConfig::setLineColor(const QColor& color)
     if (lineColor() == color) {
         return;
     }
-    mConfig.setValue("Painter/LineColor", color);
+    mConfig.setValue(QStringLiteral("Painter/LineColor"), color);
     mConfig.sync();
     emit painterUpdated();
 }
 
 int KsnipConfig::lineSize() const
 {
-    return mConfig.value("Painter/LineSize", 3).toInt();
+    return mConfig.value(QStringLiteral("Painter/LineSize"), 3).toInt();
 }
 
 void KsnipConfig::setLineSize(int size)
@@ -445,14 +442,14 @@ void KsnipConfig::setLineSize(int size)
     if (lineSize() == size) {
         return;
     }
-    mConfig.setValue("Painter/LineSize", size);
+    mConfig.setValue(QStringLiteral("Painter/LineSize"), size);
     mConfig.sync();
     emit painterUpdated();
 }
 
 bool KsnipConfig::lineFill() const
 {
-    return mConfig.value("Painter/LineFill", false).toBool();
+    return mConfig.value(QStringLiteral("Painter/LineFill"), false).toBool();
 }
 
 void KsnipConfig::setLineFill(bool fill)
@@ -460,7 +457,7 @@ void KsnipConfig::setLineFill(bool fill)
     if (lineFill() == fill) {
         return;
     }
-    mConfig.setValue("Painter/LineFill", fill);
+    mConfig.setValue(QStringLiteral("Painter/LineFill"), fill);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -475,7 +472,7 @@ QPen KsnipConfig::arrow() const
 
 QColor KsnipConfig::arrowColor() const
 {
-    return mConfig.value("Painter/ArrowColor", QColor("Blue")).value<QColor>();
+    return mConfig.value(QStringLiteral("Painter/ArrowColor"), QColor(QStringLiteral("Blue"))).value<QColor>();
 }
 
 void KsnipConfig::setArrowColor(const QColor& color)
@@ -483,14 +480,14 @@ void KsnipConfig::setArrowColor(const QColor& color)
     if (arrowColor() == color) {
         return;
     }
-    mConfig.setValue("Painter/ArrowColor", color);
+    mConfig.setValue(QStringLiteral("Painter/ArrowColor"), color);
     mConfig.sync();
     emit painterUpdated();
 }
 
 int KsnipConfig::arrowSize() const
 {
-    return mConfig.value("Painter/ArrowSize", 3).toInt();
+    return mConfig.value(QStringLiteral("Painter/ArrowSize"), 3).toInt();
 }
 
 void KsnipConfig::setArrowSize(int size)
@@ -498,14 +495,14 @@ void KsnipConfig::setArrowSize(int size)
     if (arrowSize() == size) {
         return;
     }
-    mConfig.setValue("Painter/ArrowSize", size);
+    mConfig.setValue(QStringLiteral("Painter/ArrowSize"), size);
     mConfig.sync();
     emit painterUpdated();
 }
 
 bool KsnipConfig::arrowFill() const
 {
-    return mConfig.value("Painter/ArrowFill", false).toBool();
+    return mConfig.value(QStringLiteral("Painter/ArrowFill"), false).toBool();
 }
 
 void KsnipConfig::setArrowFill(bool fill)
@@ -513,7 +510,7 @@ void KsnipConfig::setArrowFill(bool fill)
     if (arrowFill() == fill) {
         return;
     }
-    mConfig.setValue("Painter/ArrowFill", fill);
+    mConfig.setValue(QStringLiteral("Painter/ArrowFill"), fill);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -528,7 +525,7 @@ QPen KsnipConfig::text() const
 
 QColor KsnipConfig::textColor() const
 {
-    return mConfig.value("Painter/TextColor", QColor("Black")).value<QColor>();
+    return mConfig.value(QStringLiteral("Painter/TextColor"), QColor(QStringLiteral("Black"))).value<QColor>();
 }
 
 void KsnipConfig::setTextColor(const QColor& color)
@@ -536,7 +533,7 @@ void KsnipConfig::setTextColor(const QColor& color)
     if (textColor() == color) {
         return;
     }
-    mConfig.setValue("Painter/TextColor", color);
+    mConfig.setValue(QStringLiteral("Painter/TextColor"), color);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -554,7 +551,7 @@ void KsnipConfig::setTextSize(int  size)
     auto font = textFont();
     font.setPointSize(size);
 
-    mConfig.setValue("Painter/TextFont", font);
+    mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -572,7 +569,7 @@ void KsnipConfig::setTextBold(bool  bold)
     auto font = textFont();
     font.setBold(bold);
 
-    mConfig.setValue("Painter/TextFont", font);
+    mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -590,7 +587,7 @@ void KsnipConfig::setTextItalic(bool  italic)
     auto font = textFont();
     font.setItalic(italic);
 
-    mConfig.setValue("Painter/TextFont", font);
+    mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -608,14 +605,14 @@ void KsnipConfig::setTextUnderline(bool  underline)
     auto font = textFont();
     font.setUnderline(underline);
 
-    mConfig.setValue("Painter/TextFont", font);
+    mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
     mConfig.sync();
     emit painterUpdated();
 }
 
 QFont KsnipConfig::textFont() const
 {
-    return mConfig.value("Painter/TextFont", QFont("Arial", 12)).value<QFont>();
+    return mConfig.value(QStringLiteral("Painter/TextFont"), QFont(QStringLiteral("Arial"), 12)).value<QFont>();
 }
 
 void KsnipConfig::setTextFont(const QFont& font)
@@ -626,7 +623,7 @@ void KsnipConfig::setTextFont(const QFont& font)
     auto tmpFont = textFont();
     tmpFont.setFamily(font.family());
 
-    mConfig.setValue("Painter/TextFont", tmpFont);
+    mConfig.setValue(QStringLiteral("Painter/TextFont"), tmpFont);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -641,7 +638,7 @@ QPen KsnipConfig::number() const
 
 QColor KsnipConfig::numberColor() const
 {
-    return mConfig.value("Painter/NumberColor", QColor("Red")).value<QColor>();
+    return mConfig.value(QStringLiteral("Painter/NumberColor"), QColor(QStringLiteral("Red"))).value<QColor>();
 }
 
 void KsnipConfig::setNumberColor(const QColor& color)
@@ -649,7 +646,7 @@ void KsnipConfig::setNumberColor(const QColor& color)
     if (numberColor() == color) {
         return;
     }
-    mConfig.setValue("Painter/NumberColor", color);
+    mConfig.setValue(QStringLiteral("Painter/NumberColor"), color);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -667,14 +664,14 @@ void KsnipConfig::setNumberSize(int  size)
     auto font = numberFont();
     font.setPointSize(size);
 
-    mConfig.setValue("Painter/NumberFont", font);
+    mConfig.setValue(QStringLiteral("Painter/NumberFont"), font);
     mConfig.sync();
     emit painterUpdated();
 }
 
 QFont KsnipConfig::numberFont() const
 {
-    return mConfig.value("Painter/NumberFont", QFont("Comic Sans MS", 30, QFont::Bold)).value<QFont>();
+    return mConfig.value(QStringLiteral("Painter/NumberFont"), QFont(QStringLiteral("Comic Sans MS"), 30, QFont::Bold)).value<QFont>();
 }
 
 void KsnipConfig::setNumberFont(const QFont& font)
@@ -686,14 +683,14 @@ void KsnipConfig::setNumberFont(const QFont& font)
     tmpFont.setFamily(font.family());
     tmpFont.setBold(true);
 
-    mConfig.setValue("Painter/NumberFont", tmpFont);
+    mConfig.setValue(QStringLiteral("Painter/NumberFont"), tmpFont);
     mConfig.sync();
     emit painterUpdated();
 }
 
 int KsnipConfig::eraseSize() const
 {
-    return mConfig.value("Painter/EraseSize", 5).toInt();
+    return mConfig.value(QStringLiteral("Painter/EraseSize"), 5).toInt();
 }
 
 void KsnipConfig::setEraseSize(int  size)
@@ -701,14 +698,14 @@ void KsnipConfig::setEraseSize(int  size)
     if (eraseSize() == size) {
         return;
     }
-    mConfig.setValue("Painter/EraseSize", size);
+    mConfig.setValue(QStringLiteral("Painter/EraseSize"), size);
     mConfig.sync();
     emit painterUpdated();
 }
 
 bool KsnipConfig::itemShadowEnabled() const
 {
-    return mConfig.value("Painter/ItemShadowEnabled", true).toBool();
+    return mConfig.value(QStringLiteral("Painter/ItemShadowEnabled"), true).toBool();
 }
 
 void KsnipConfig::setItemShadowEnabled(bool enabled)
@@ -717,13 +714,13 @@ void KsnipConfig::setItemShadowEnabled(bool enabled)
         return;
     }
 
-    mConfig.setValue("Painter/ItemShadowEnabled", enabled);
+    mConfig.setValue(QStringLiteral("Painter/ItemShadowEnabled"), enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::smoothPathEnabled() const
 {
-    return mConfig.value("Painter/SmoothPathEnabled", true).toBool();
+    return mConfig.value(QStringLiteral("Painter/SmoothPathEnabled"), true).toBool();
 }
 
 void KsnipConfig::setSmoothPathEnabled(bool  enabled)
@@ -732,13 +729,13 @@ void KsnipConfig::setSmoothPathEnabled(bool  enabled)
         return;
     }
 
-    mConfig.setValue("Painter/SmoothPathEnabled", enabled);
+    mConfig.setValue(QStringLiteral("Painter/SmoothPathEnabled"), enabled);
     mConfig.sync();
 }
 
 int KsnipConfig::smoothFactor() const
 {
-    return mConfig.value("Painter/SmoothPathFactor", 7).toInt();
+    return mConfig.value(QStringLiteral("Painter/SmoothPathFactor"), 7).toInt();
 }
 
 void KsnipConfig::setSmoothFactor(int  factor)
@@ -747,7 +744,7 @@ void KsnipConfig::setSmoothFactor(int  factor)
         return;
     }
 
-    mConfig.setValue("Painter/SmoothPathFactor", factor);
+    mConfig.setValue(QStringLiteral("Painter/SmoothPathFactor"), factor);
     mConfig.sync();
 }
 
@@ -755,7 +752,7 @@ void KsnipConfig::setSmoothFactor(int  factor)
 
 bool KsnipConfig::captureCursor() const
 {
-    return mConfig.value("ImageGrabber/CaptureCursor", true).toBool();
+    return mConfig.value(QStringLiteral("ImageGrabber/CaptureCursor"), true).toBool();
 }
 
 void KsnipConfig::setCaptureCursor(bool  enabled)
@@ -763,13 +760,13 @@ void KsnipConfig::setCaptureCursor(bool  enabled)
     if (captureCursor() == enabled) {
         return;
     }
-    mConfig.setValue("ImageGrabber/CaptureCursor", enabled);
+    mConfig.setValue(QStringLiteral("ImageGrabber/CaptureCursor"), enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::cursorRulerEnabled() const
 {
-    return mConfig.value("ImageGrabber/CursorRulerEnabled", true).toBool();
+    return mConfig.value(QStringLiteral("ImageGrabber/CursorRulerEnabled"), true).toBool();
 }
 
 void KsnipConfig::setCursorRulerEnabled(bool enabled)
@@ -777,13 +774,13 @@ void KsnipConfig::setCursorRulerEnabled(bool enabled)
     if (cursorRulerEnabled() == enabled) {
         return;
     }
-    mConfig.setValue("ImageGrabber/CursorRulerEnabled", enabled);
+    mConfig.setValue(QStringLiteral("ImageGrabber/CursorRulerEnabled"), enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::cursorInfoEnabled() const
 {
-    return mConfig.value("ImageGrabber/CursorInfoEnabled", true).toBool();
+    return mConfig.value(QStringLiteral("ImageGrabber/CursorInfoEnabled"), true).toBool();
 }
 
 void KsnipConfig::setCursorInfoEnabled(bool enabled)
@@ -791,13 +788,13 @@ void KsnipConfig::setCursorInfoEnabled(bool enabled)
     if (cursorInfoEnabled() == enabled) {
         return;
     }
-    mConfig.setValue("ImageGrabber/CursorInfoEnabled", enabled);
+    mConfig.setValue(QStringLiteral("ImageGrabber/CursorInfoEnabled"), enabled);
     mConfig.sync();
 }
 
 int KsnipConfig::captureDelay() const
 {
-    return mConfig.value("ImageGrabber/CaptureDelay", 0).toInt();
+    return mConfig.value(QStringLiteral("ImageGrabber/CaptureDelay"), 0).toInt();
 }
 
 void KsnipConfig::setCaptureDelay(int delay)
@@ -805,13 +802,13 @@ void KsnipConfig::setCaptureDelay(int delay)
     if (captureDelay() == delay) {
         return;
     }
-    mConfig.setValue("ImageGrabber/CaptureDelay", delay);
+    mConfig.setValue(QStringLiteral("ImageGrabber/CaptureDelay"), delay);
     mConfig.sync();
 }
 
 int KsnipConfig::snippingCursorSize() const
 {
-    return mConfig.value("ImageGrabber/SnippingCursorSize", 1).toInt();
+    return mConfig.value(QStringLiteral("ImageGrabber/SnippingCursorSize"), 1).toInt();
 }
 
 void KsnipConfig::setSnippingCursorSize(int size)
@@ -819,13 +816,13 @@ void KsnipConfig::setSnippingCursorSize(int size)
     if (snippingCursorSize() == size) {
         return;
     }
-    mConfig.setValue("ImageGrabber/SnippingCursorSize", size);
+    mConfig.setValue(QStringLiteral("ImageGrabber/SnippingCursorSize"), size);
     mConfig.sync();
 }
 
 QColor KsnipConfig::snippingCursorColor() const
 {
-    return mConfig.value("ImageGrabber/SnippingCursorColor", QColor(27,20,77)).value<QColor>();
+    return mConfig.value(QStringLiteral("ImageGrabber/SnippingCursorColor"), QColor(27,20,77)).value<QColor>();
 }
 
 void KsnipConfig::setSnippingCursorColor(const QColor& color)
@@ -833,7 +830,7 @@ void KsnipConfig::setSnippingCursorColor(const QColor& color)
     if (snippingCursorColor() == color) {
         return;
     }
-    mConfig.setValue("ImageGrabber/SnippingCursorColor", color);
+    mConfig.setValue(QStringLiteral("ImageGrabber/SnippingCursorColor"), color);
     mConfig.sync();
 }
 
@@ -841,7 +838,7 @@ void KsnipConfig::setSnippingCursorColor(const QColor& color)
 
 QString KsnipConfig::imgurUsername() const
 {
-    return mConfig.value("Imgur/Username", "").toString();
+    return mConfig.value(QStringLiteral("Imgur/Username"), QStringLiteral("")).toString();
 }
 
 void KsnipConfig::setImgurUsername(const QString& username)
@@ -849,13 +846,13 @@ void KsnipConfig::setImgurUsername(const QString& username)
     if (imgurUsername() == username) {
         return;
     }
-    mConfig.setValue("Imgur/Username", username);
+    mConfig.setValue(QStringLiteral("Imgur/Username"), username);
     mConfig.sync();
 }
 
 QByteArray KsnipConfig::imgurClientId() const
 {
-    return mConfig.value("Imgur/ClientId", "").toByteArray();
+    return mConfig.value(QStringLiteral("Imgur/ClientId"), QStringLiteral("")).toByteArray();
 }
 
 void KsnipConfig::setImgurClientId(const QString& clientId)
@@ -863,13 +860,13 @@ void KsnipConfig::setImgurClientId(const QString& clientId)
     if (imgurClientId() == clientId) {
         return;
     }
-    mConfig.setValue("Imgur/ClientId", clientId);
+    mConfig.setValue(QStringLiteral("Imgur/ClientId"), clientId);
     mConfig.sync();
 }
 
 QByteArray KsnipConfig::imgurClientSecret() const
 {
-    return mConfig.value("Imgur/ClientSecret", "").toByteArray();
+    return mConfig.value(QStringLiteral("Imgur/ClientSecret"), QStringLiteral("")).toByteArray();
 }
 
 void KsnipConfig::setImgurClientSecret(const QString& clientSecret)
@@ -877,13 +874,13 @@ void KsnipConfig::setImgurClientSecret(const QString& clientSecret)
     if (imgurClientSecret() == clientSecret) {
         return;
     }
-    mConfig.setValue("Imgur/ClientSecret", clientSecret);
+    mConfig.setValue(QStringLiteral("Imgur/ClientSecret"), clientSecret);
     mConfig.sync();
 }
 
 QByteArray KsnipConfig::imgurAccessToken() const
 {
-    return mConfig.value("Imgur/AccessToken", "").toByteArray();
+    return mConfig.value(QStringLiteral("Imgur/AccessToken"), QStringLiteral("")).toByteArray();
 }
 
 void KsnipConfig::setImgurAccessToken(const QString& accessToken)
@@ -891,13 +888,13 @@ void KsnipConfig::setImgurAccessToken(const QString& accessToken)
     if (imgurAccessToken() == accessToken) {
         return;
     }
-    mConfig.setValue("Imgur/AccessToken", accessToken);
+    mConfig.setValue(QStringLiteral("Imgur/AccessToken"), accessToken);
     mConfig.sync();
 }
 
 QByteArray KsnipConfig::imgurRefreshToken() const
 {
-    return mConfig.value("Imgur/RefreshToken", "").toByteArray();
+    return mConfig.value(QStringLiteral("Imgur/RefreshToken"), QStringLiteral("")).toByteArray();
 }
 
 void KsnipConfig::setImgurRefreshToken(const QString& refreshToken)
@@ -905,13 +902,13 @@ void KsnipConfig::setImgurRefreshToken(const QString& refreshToken)
     if (imgurRefreshToken() == refreshToken) {
         return;
     }
-    mConfig.setValue("Imgur/RefreshToken", refreshToken);
+    mConfig.setValue(QStringLiteral("Imgur/RefreshToken"), refreshToken);
     mConfig.sync();
 }
 
 bool KsnipConfig::imgurForceAnonymous() const
 {
-    return mConfig.value("Imgur/ForceAnonymous", false).toBool();
+    return mConfig.value(QStringLiteral("Imgur/ForceAnonymous"), false).toBool();
 }
 
 void KsnipConfig::setImgurForceAnonymous(bool  enabled)
@@ -919,13 +916,13 @@ void KsnipConfig::setImgurForceAnonymous(bool  enabled)
     if (imgurForceAnonymous() == enabled) {
         return;
     }
-    mConfig.setValue("Imgur/ForceAnonymous", enabled);
+    mConfig.setValue(QStringLiteral("Imgur/ForceAnonymous"), enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::imgurOpenLinkDirectlyToImage() const
 {
-    return mConfig.value("Imgur/OpenLinkDirectlyToImage", false).toBool();
+    return mConfig.value(QStringLiteral("Imgur/OpenLinkDirectlyToImage"), false).toBool();
 }
 
 void KsnipConfig::setImgurOpenLinkDirectlyToImage(bool  enabled)
@@ -933,13 +930,13 @@ void KsnipConfig::setImgurOpenLinkDirectlyToImage(bool  enabled)
     if (imgurOpenLinkDirectlyToImage() == enabled) {
         return;
     }
-    mConfig.setValue("Imgur/OpenLinkDirectlyToImage", enabled);
+    mConfig.setValue(QStringLiteral("Imgur/OpenLinkDirectlyToImage"), enabled);
     mConfig.sync();
 }
 
 bool KsnipConfig::imgurAlwaysCopyToClipboard() const
 {
-    return mConfig.value("Imgur/AlwaysCopyToClipboard", false).toBool();
+    return mConfig.value(QStringLiteral("Imgur/AlwaysCopyToClipboard"), false).toBool();
 }
 
 void KsnipConfig::setImgurAlwaysCopyToClipboard(bool  enabled)
@@ -947,6 +944,6 @@ void KsnipConfig::setImgurAlwaysCopyToClipboard(bool  enabled)
     if (imgurAlwaysCopyToClipboard() == enabled) {
         return;
     }
-    mConfig.setValue("Imgur/AlwaysCopyToClipboard", enabled);
+    mConfig.setValue(QStringLiteral("Imgur/AlwaysCopyToClipboard"), enabled);
     mConfig.sync();
 }

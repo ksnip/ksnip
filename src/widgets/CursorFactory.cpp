@@ -56,7 +56,7 @@ QCursor* CursorFactory::createPainterCursor(Painter::Modes mode, AbstractPainter
     case Painter::Number:
         return new QCursor(Qt::PointingHandCursor);
     case Painter::Erase:
-        return new CustomCursor(CustomCursor::Rect, QColor("white"), mConfig->eraseSize());
+        return new CustomCursor(CustomCursor::Rect, QColor(QStringLiteral("white")), mConfig->eraseSize());
     case Painter::Move:
         if (painterItem == nullptr) {
             return new QCursor(Qt::OpenHandCursor);

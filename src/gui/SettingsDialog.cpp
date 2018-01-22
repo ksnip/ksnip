@@ -316,19 +316,19 @@ void SettingsDialog::initGui()
     mTextBoldButton->setToolTip(tr("Bold"));
     mTextBoldButton->setCheckable(true);
     mTextBoldButton->setFixedSize(size, size);
-    mTextBoldButton->setStyleSheet("QPushButton { font-size: 18pt; font-weight: bold; }");
+    mTextBoldButton->setStyleSheet(QStringLiteral("QPushButton { font-size: 18pt; font-weight: bold; }"));
 
     mTextItalicButton->setText(tr("I"));
     mTextItalicButton->setToolTip(tr("Italic"));
     mTextItalicButton->setCheckable(true);
     mTextItalicButton->setFixedSize(size, size);
-    mTextItalicButton->setStyleSheet("QPushButton { font-size: 18pt; font-style: italic; }");
+    mTextItalicButton->setStyleSheet(QStringLiteral("QPushButton { font-size: 18pt; font-style: italic; }"));
 
     mTextUnderlineButton->setText(tr("U"));
     mTextUnderlineButton->setToolTip(tr("Underline"));
     mTextUnderlineButton->setCheckable(true);
     mTextUnderlineButton->setFixedSize(size, size);
-    mTextUnderlineButton->setStyleSheet("QPushButton { font-size: 18pt; text-decoration: underline; }");
+    mTextUnderlineButton->setStyleSheet(QStringLiteral("QPushButton { font-size: 18pt; text-decoration: underline; }"));
 
     mNumberFontLabel->setText(tr("Numbering Font") + ":");
     mNumberFontLabel->setToolTip(tr("Sets the font for the Numbering Paint Item."));
@@ -513,7 +513,7 @@ void SettingsDialog::imgurTokenUpdated(const QString& accessToken,
     mConfig->setImgurRefreshToken(refreshTocken.toUtf8());
     mConfig->setImgurUsername(username);
 
-    mImgurUsernameLabel->setText(tr("Username") + ": " + username);
+    mImgurUsernameLabel->setText(tr("Username:") + username);
     mParent->statusBar()->showMessage(tr("Imgur.com token successfully updated."), 3000);
 }
 
@@ -537,11 +537,11 @@ void SettingsDialog::chooseSaveDirectory()
         auto format = StringFormattingHelper::extractFormat(mSaveLocationLineEdit->text());
 
         if (!filename.isEmpty()) {
-            path.append("/").append(filename);
+            path.append(QLatin1Char('/')).append(filename);
         }
 
         if (!format.isEmpty()) {
-            path.append(".").append(format);
+            path.append(QLatin1Char('.')).append(format);
         }
 
         mSaveLocationLineEdit->setText(path);

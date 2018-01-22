@@ -173,7 +173,7 @@ void SnippingArea::updateCapturedArea(const QPoint& pos1, const QPoint& pos2)
 
 QString SnippingArea::createPositionInfoText(int number1, int number2) const
 {
-    return QString::number(number1) + ", " + QString::number(number2);
+    return QString::number(number1) + QStringLiteral(", ") + QString::number(number2);
 }
 
 void SnippingArea::drawCursorRuler(QPainter& painter) const

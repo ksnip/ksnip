@@ -112,7 +112,7 @@ void PainterText::keyPressEvent(QKeyEvent* event)
         break;
     case Qt::Key_Return:
     case Qt::Key_Enter:
-        insertChar("\n");
+        insertChar(QStringLiteral("\n"));
         break;
     case Qt::Key_Delete:
         removeChar(Next);

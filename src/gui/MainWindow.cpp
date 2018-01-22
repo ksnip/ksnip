@@ -80,7 +80,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) : QMain
 
     mCaptureView->hide();
 
-    setWindowIcon(createIcon("ksnip"));
+    setWindowIcon(createIcon(QStringLiteral("ksnip")));
     move(mConfig->windowPosition());
 
     connect(mPaintArea, &PaintArea::imageChanged, [this]() {
@@ -351,14 +351,14 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event)
         // If Ctrl or Alt was pressed we can ignore those events as they
         // don't result in printable characters. Other shortcuts are
         // currently not used.
-        if (s.contains("ctrl") || s.contains("alt")) {
+        if (s.contains(QStringLiteral("ctrl")) || s.contains(QStringLiteral("alt"))) {
             return true;
         }
 
         // If the string contains shift, upper case was requested, we remove
         // the shift and + character and make the character uppercase
-        if (s.contains("shift")) {
-            s = s.remove("shift+").toUpper();
+        if (s.contains(QStringLiteral("shift"))) {
+            s = s.remove(QStringLiteral("shift+")).toUpper();
         }
 
         // Create new event and send it to the focused item.
@@ -382,7 +382,7 @@ void MainWindow::setSaveAble(bool enabled)
 {
     if (enabled) {
         mSaveAction->setEnabled(true);
-        setWindowTitle("*" + QApplication::applicationName() + " - " + tr("Unsaved"));
+        setWindowTitle(QStringLiteral("*") + QApplication::applicationName() + " - " + tr("Unsaved"));
         mIsUnsaved = true;
     } else {
         mSaveAction->setEnabled(false);
@@ -411,7 +411,6 @@ void MainWindow::setEnablements(bool enabled)
         mCopyToClipboardAction->setEnabled(false);
     }
 }
-
 
 /*
  * This loads ksnip settings from the config file
@@ -521,8 +520,8 @@ QIcon MainWindow::createIcon(const QString& name)
     QIcon tmpIcon;
 
     for (auto i = 16; i <= 64; i = i * 2) {
-        if (QResource(":" + name + QString::number(i) + ".png").isValid()) {
-            tmpIcon.addFile((":" + name + QString::number(i) + ".png"), QSize(i, i));
+        if (QResource(QStringLiteral(":") + name + QString::number(i) + QStringLiteral(".png")).isValid()) {
+            tmpIcon.addFile((QStringLiteral(":") + name + QString::number(i) + QStringLiteral(".png")), QSize(i, i));
         }
     }
 
@@ -582,7 +581,7 @@ void MainWindow::initGui()
         mNewRectAreaCaptureAction = new QAction(this);
         mNewRectAreaCaptureAction->setIconText(tr("Rectangular Area"));
         mNewRectAreaCaptureAction->setToolTip(tr("Draw a rectangular area with your mouse"));
-        mNewRectAreaCaptureAction->setIcon(createIcon("drawRect"));
+        mNewRectAreaCaptureAction->setIcon(createIcon(QStringLiteral("drawRect")));
         connect(mNewRectAreaCaptureAction, &QAction::triggered, [this]() {
             capture(CaptureModes::RectArea);
         });
@@ -593,7 +592,7 @@ void MainWindow::initGui()
         mNewFullScreenCaptureAction = new QAction(this);
         mNewFullScreenCaptureAction->setIconText(tr("Full Screen (All Monitors)"));
         mNewFullScreenCaptureAction->setToolTip(tr("Capture full screen including all monitors"));
-        mNewFullScreenCaptureAction->setIcon(createIcon("fullScreen"));
+        mNewFullScreenCaptureAction->setIcon(createIcon(QStringLiteral("fullScreen")));
         connect(mNewFullScreenCaptureAction, &QAction::triggered, [this]() {
             capture(CaptureModes::FullScreen);
         });
@@ -605,7 +604,7 @@ void MainWindow::initGui()
         mNewCurrentScreenCaptureAction = new QAction(this);
         mNewCurrentScreenCaptureAction->setIconText(tr("Current Screen"));
         mNewCurrentScreenCaptureAction->setToolTip(tr("Capture screen where the mouse is located"));
-        mNewCurrentScreenCaptureAction->setIcon(createIcon("currentScreen"));
+        mNewCurrentScreenCaptureAction->setIcon(createIcon(QStringLiteral("currentScreen")));
         connect(mNewCurrentScreenCaptureAction, &QAction::triggered, [this]() {
             capture(CaptureModes::CurrentScreen);
         });
@@ -617,7 +616,7 @@ void MainWindow::initGui()
         mNewActiveWindowCaptureAction = new QAction(this);
         mNewActiveWindowCaptureAction->setIconText(tr("Active Window"));
         mNewActiveWindowCaptureAction->setToolTip(tr("Capture window that currently has focus"));
-        mNewActiveWindowCaptureAction->setIcon(createIcon("activeWindow"));
+        mNewActiveWindowCaptureAction->setIcon(createIcon(QStringLiteral("activeWindow")));
         connect(mNewActiveWindowCaptureAction, &QAction::triggered, [this]() {
             capture(CaptureModes::ActiveWindow);
         });
@@ -628,7 +627,7 @@ void MainWindow::initGui()
         mNewWindowUnderCursorAction = new QAction(this);
         mNewWindowUnderCursorAction->setIconText(tr("Window Under Cursor"));
         mNewWindowUnderCursorAction->setToolTip(tr("Capture that is currently under the mouse cursor"));
-        mNewWindowUnderCursorAction->setIcon(createIcon("windowUnderCursor"));
+        mNewWindowUnderCursorAction->setIcon(createIcon(QStringLiteral("windowUnderCursor")));
         connect(mNewWindowUnderCursorAction, &QAction::triggered, [this]() {
             capture(CaptureModes::WindowUnderCursor);
         });
@@ -638,14 +637,14 @@ void MainWindow::initGui()
     // Create action for save button
     mSaveAction->setText(tr("Save"));
     mSaveAction->setToolTip(tr("Save Screen Capture to file system"));
-    mSaveAction->setIcon(createIcon("save"));
+    mSaveAction->setIcon(createIcon(QStringLiteral("save")));
     mSaveAction->setShortcut(QKeySequence::Save);
     connect(mSaveAction, &QAction::triggered, this, &MainWindow::saveCaptureClicked);
 
     // Create action for copy to clipboard button
     mCopyToClipboardAction->setText(tr("Copy"));
     mCopyToClipboardAction->setToolTip(tr("Copy Screen Capture to clipboard"));
-    mCopyToClipboardAction->setIcon(createIcon("copyToClipboard"));
+    mCopyToClipboardAction->setIcon(createIcon(QStringLiteral("copyToClipboard")));
     mCopyToClipboardAction->setShortcut(QKeySequence::Copy);
     connect(mCopyToClipboardAction, &QAction::triggered, [this]() {
         copyToClipboard();
@@ -662,14 +661,14 @@ void MainWindow::initGui()
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
     mPrintAction->setShortcut(QKeySequence::Print);
-    mPrintAction->setIcon(QIcon::fromTheme("document-print"));
+    mPrintAction->setIcon(QIcon::fromTheme(QStringLiteral("document-print")));
     connect(mPrintAction, &QAction::triggered, this, &MainWindow::printClicked);
 
     // Create print preview action
     mPrintPreviewAction->setText(tr("Print Preview"));
     mPrintPreviewAction->setToolTip(tr("Opens Print Preview dialog where the image "
                                        "orientation can be changed"));
-    mPrintPreviewAction->setIcon(QIcon::fromTheme("document-print-preview"));
+    mPrintPreviewAction->setIcon(QIcon::fromTheme(QStringLiteral("document-print-preview")));
     connect(mPrintPreviewAction, &QAction::triggered,
             this, &MainWindow::printPreviewClicked);
 
@@ -681,7 +680,7 @@ void MainWindow::initGui()
 
     // Create actions for paint mode
     mPenAction->setText(tr("Pen"));
-    mPenAction->setIcon(createIcon("pen"));
+    mPenAction->setIcon(createIcon(QStringLiteral("pen")));
     mPenAction->setShortcut(Qt::Key_P);
     connect(mPenAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Pen) {
@@ -690,7 +689,7 @@ void MainWindow::initGui()
     });
 
     mMarkerAction->setText(tr("Marker"));
-    mMarkerAction->setIcon(createIcon("marker"));
+    mMarkerAction->setIcon(createIcon(QStringLiteral("marker")));
     mMarkerAction->setShortcut(Qt::Key_B);
     connect(mMarkerAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Marker) {
@@ -699,7 +698,7 @@ void MainWindow::initGui()
     });
 
     mRectAction->setText(tr("Rect"));
-    mRectAction->setIcon(createIcon("rect"));
+    mRectAction->setIcon(createIcon(QStringLiteral("rect")));
     mRectAction->setShortcut(Qt::Key_R);
     connect(mRectAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Rect) {
@@ -708,7 +707,7 @@ void MainWindow::initGui()
     });
 
     mEllipseAction->setText(tr("Ellipse"));
-    mEllipseAction->setIcon(createIcon("ellipse"));
+    mEllipseAction->setIcon(createIcon(QStringLiteral("ellipse")));
     mEllipseAction->setShortcut(Qt::Key_E);
     connect(mEllipseAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Ellipse) {
@@ -717,7 +716,7 @@ void MainWindow::initGui()
     });
 
     mLineAction->setText(tr("Line"));
-    mLineAction->setIcon(createIcon("line"));
+    mLineAction->setIcon(createIcon(QStringLiteral("line")));
     mLineAction->setShortcut(Qt::Key_L);
     connect(mLineAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Line) {
@@ -726,7 +725,7 @@ void MainWindow::initGui()
     });
 
     mArrowAction->setText(tr("Arrow"));
-    mArrowAction->setIcon(createIcon("arrow"));
+    mArrowAction->setIcon(createIcon(QStringLiteral("arrow")));
     mArrowAction->setShortcut(Qt::Key_A);
     connect(mArrowAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Arrow) {
@@ -735,7 +734,7 @@ void MainWindow::initGui()
     });
 
     mTextAction->setText(tr("Text"));
-    mTextAction->setIcon(createIcon("text"));
+    mTextAction->setIcon(createIcon(QStringLiteral("text")));
     mTextAction->setShortcut(Qt::Key_T);
     connect(mTextAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Text) {
@@ -744,7 +743,7 @@ void MainWindow::initGui()
     });
 
     mNumberAction->setText(tr("Number"));
-    mNumberAction->setIcon(createIcon("number"));
+    mNumberAction->setIcon(createIcon(QStringLiteral("number")));
     mNumberAction->setShortcut(Qt::Key_N);
     connect(mNumberAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Number) {
@@ -753,7 +752,7 @@ void MainWindow::initGui()
     });
 
     mEraseAction->setText(tr("Erase"));
-    mEraseAction->setIcon(createIcon("eraser"));
+    mEraseAction->setIcon(createIcon(QStringLiteral("eraser")));
     mEraseAction->setShortcut(Qt::Key_D);
     connect(mEraseAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Erase) {
@@ -762,7 +761,7 @@ void MainWindow::initGui()
     });
 
     mMoveAction->setText(tr("Move"));
-    mMoveAction->setIcon(createIcon("move"));
+    mMoveAction->setIcon(createIcon(QStringLiteral("move")));
     mMoveAction->setShortcut(Qt::Key_M);
     connect(mMoveAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Move) {
@@ -771,7 +770,7 @@ void MainWindow::initGui()
     });
 
     mSelectAction->setText(tr("Select"));
-    mSelectAction->setIcon(createIcon("select"));
+    mSelectAction->setIcon(createIcon(QStringLiteral("select")));
     mSelectAction->setShortcut(Qt::Key_S);
     connect(mSelectAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Select) {
@@ -788,19 +787,19 @@ void MainWindow::initGui()
     // Create exit action
     mQuitAction->setText(tr("Quit"));
     mQuitAction->setShortcut(QKeySequence::Quit);
-    mQuitAction->setIcon(QIcon::fromTheme("application-exit"));
+    mQuitAction->setIcon(QIcon::fromTheme(QStringLiteral("application-exit")));
     connect(mQuitAction, &QAction::triggered, this, &MainWindow::close);
 
     // Create action for opening settings dialog
     mSettingsDialogAction->setText(tr("Settings"));
-    mSettingsDialogAction->setIcon(QIcon::fromTheme("emblem-system"));
+    mSettingsDialogAction->setIcon(QIcon::fromTheme(QStringLiteral("emblem-system")));
     connect(mSettingsDialogAction, &QAction::triggered, [this]() {
         SettingsDialog settingsDialog(this);
         settingsDialog.exec();
     });
 
     mAboutKsnipAction->setText(tr("&About"));
-    mAboutKsnipAction->setIcon(createIcon("ksnip"));
+    mAboutKsnipAction->setIcon(createIcon(QStringLiteral("ksnip")));
     connect(mAboutKsnipAction, &QAction::triggered, [this]() {
         AboutDialog aboutDialog(this);
         aboutDialog.exec();
@@ -808,14 +807,14 @@ void MainWindow::initGui()
 
     // Undo and redo actions, the action itself is created in the paintarea
     // class and only a pointer returned here.
-    mUndoAction->setIcon(QIcon::fromTheme("edit-undo"));
+    mUndoAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
     mUndoAction->setShortcut(QKeySequence::Undo);
 
-    mRedoAction->setIcon(QIcon::fromTheme("edit-redo"));
+    mRedoAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-redo")));
     mRedoAction->setShortcut(QKeySequence::Redo);
 
     mOpenImageAction->setText(tr("Open"));
-    mOpenImageAction->setIcon(QIcon::fromTheme("document-open"));
+    mOpenImageAction->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
     mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
     connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::loadImageFromFile);
 
@@ -850,7 +849,7 @@ void MainWindow::initGui()
     mPaintToolMenu->addAction(mSelectAction);
 
     // Create painter settings tool button;
-    mSettingsButton->setIcon(createIcon("painterSettings"));
+    mSettingsButton->setIcon(createIcon(QStringLiteral("painterSettings")));
     mSettingsButton->setToolTip(tr("Setting Painter tool configuration"));
     connect(mSettingsButton, &SettingsPicker::colorSelected,
             this, &MainWindow::colorChanged);
@@ -887,7 +886,7 @@ void MainWindow::initGui()
     menu->addAction(mAboutKsnipAction);
 
     // Create toolbar
-    mToolBar = addToolBar("Tools");
+    mToolBar = addToolBar(tr("Tools"));
     mToolBar->setFloatable(false);
     mToolBar->setMovable(false);
     mToolBar->setAllowedAreas(Qt::BottomToolBarArea);
@@ -912,8 +911,8 @@ void MainWindow::saveCaptureClicked()
 {
     QFileDialog saveDialog(this, tr("Save As"),
                            mConfig->savePath(),
-                           tr("Images") + " (*.png *.gif *.jpg);;"
-                           + tr("All Files") + "(*)");
+                           tr("Images") + QStringLiteral(" (*.png *.gif *.jpg);;")
+                           + tr("All Files") + QStringLiteral("(*)"));
     saveDialog.setAcceptMode(QFileDialog::AcceptSave);
 
     if (saveDialog.exec() != QDialog::Accepted) {
@@ -959,7 +958,7 @@ void MainWindow::printClicked()
     }
 
     QPrinter printer;
-    printer.setOutputFileName(mConfig->savePath("pdf"));
+    printer.setOutputFileName(mConfig->savePath(QStringLiteral("pdf")));
     printer.setOutputFormat(QPrinter::NativeFormat);
     auto printDialog = new QPrintDialog(&printer, 0);
     if (printDialog->exec() == QDialog::Accepted) {
@@ -978,7 +977,7 @@ void MainWindow::printPreviewClicked()
     // Opens a print preview dialog where the user change orientation of the
     // print
     QPrinter printer;
-    printer.setOutputFileName(mConfig->savePath("pdf"));
+    printer.setOutputFileName(mConfig->savePath(QStringLiteral("pdf")));
     printer.setOutputFormat(QPrinter::NativeFormat);
     auto printDialog = new QPrintPreviewDialog(&printer);
     connect(printDialog, &QPrintPreviewDialog::paintRequested,
@@ -1015,7 +1014,7 @@ void MainWindow::imgurUploadFinished(QString message)
     // directly on a blank white background. If the link is opened without the
     // extension then the usual Imgur page is shown.
     if (!mConfig->imgurOpenLinkDirectlyToImage()) {
-        message = message.remove(".png");
+        message = message.remove(QStringLiteral(".png"));
     }
 
     // Open the link in the default browser
@@ -1053,7 +1052,7 @@ void MainWindow::imgurTokenUpdated(const QString& accessToken,
     // Currently we presume that a token update here only happens when we were
     // trying to upload an image and the token was expired, so right after the
     // token has been refreshed, we try to upload again.
-    statusBar()->showMessage("Received new token, trying upload again...");
+    statusBar()->showMessage(tr("Received new token, trying upload again..."));
     imgurUploadClicked();
 }
 
@@ -1067,7 +1066,7 @@ void MainWindow::imgurTokenRefresh()
                                  mConfig->imgurClientId(),
                                  mConfig->imgurClientSecret());
 
-    statusBar()->showMessage("Imgur token has expired, requesting new token...");
+    statusBar()->showMessage(tr("Imgur token has expired, requesting new token..."));
 }
 
 void MainWindow::setPaintMode(Painter::Modes mode, bool save)

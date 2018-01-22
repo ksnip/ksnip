@@ -23,7 +23,7 @@ PainterNumber::PainterNumber(const QPointF& pos, const QPen& attributes, const Q
     AbstractPainterItem(attributes),
     mFont(new QFont(font)),
     mFontMetric(new QFontMetrics(*mFont)),
-    mTextColor(new QColor("white"))
+    mTextColor(new QColor(QStringLiteral("white")))
 {
     mNumber = number;
     mRect = calculateBoundingRect();

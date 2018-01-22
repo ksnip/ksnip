@@ -45,7 +45,7 @@ QPixmap CustomCursor::createCrossPixmap(const QColor& color, int size) const
 {
     auto pixmap = createEmptyPixmap();
     QPainter painter(&pixmap);
-    painter.setPen(QPen(QColor("red"), 1, Qt::SolidLine));
+    painter.setPen(QPen(QColor(QStringLiteral("red")), 1, Qt::SolidLine));
     painter.drawPoint(16, 16);
     painter.setPen(QPen(color, size, Qt::SolidLine));
     painter.drawLine(16, 12, 16, 0);
@@ -62,7 +62,7 @@ QPixmap CustomCursor::createCirclePixmap(const QColor& color, int size) const
     QPainter painter(&pixmap);
     painter.setBrush(color);
     painter.setRenderHint(QPainter::Antialiasing);
-    painter.setPen("white");
+    painter.setPen(QStringLiteral("white"));
     auto radius = (size + painter.pen().width()) / 2;
     painter.drawEllipse(pixmapCenter, radius, radius);
     return pixmap;

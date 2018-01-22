@@ -44,17 +44,17 @@ void ImgurUploader::startUpload(const QImage& image, const QByteArray& accessTok
     image.save(&buffer, "PNG");
 
     // Create the network request for posting the image
-    QUrl url("https://api.imgur.com/3/upload.xml");
+    QUrl url(QStringLiteral("https://api.imgur.com/3/upload.xml"));
     QUrlQuery urlQuery;
 
     // Add params that we send with the picture
-    urlQuery.addQueryItem("title", "Ksnip Screenshot");
-    urlQuery.addQueryItem("description", "Screenshot uploaded via Ksnip");
+    urlQuery.addQueryItem(QStringLiteral("title"), QStringLiteral("Ksnip Screenshot"));
+    urlQuery.addQueryItem(QStringLiteral("description"), QStringLiteral("Screenshot uploaded via Ksnip"));
 
     url.setQuery(urlQuery);
     QNetworkRequest request;
     request.setUrl(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/x-www-form-urlencoded"));
 
     // If an access token was sent, we upload to account, otherwise we upload
     // anonymously
@@ -81,8 +81,8 @@ void ImgurUploader::getAccessToken(const QByteArray& pin,
 
     // Build the URL that we will request the token from. The XML indicates we
     // want the response in XML format.
-    request.setUrl(QUrl("https://api.imgur.com/oauth2/token.xml"));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+    request.setUrl(QUrl(QStringLiteral("https://api.imgur.com/oauth2/token.xml")));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/x-www-form-urlencoded"));
 
     // Prepare the params that we send with the request
     QByteArray params;
@@ -109,8 +109,8 @@ void ImgurUploader::refreshToken(const QByteArray& refreshToken,
 
     // Build the URL that we will request the token from. The XML indicates we
     // want the response in XML format
-    request.setUrl(QUrl("https://api.imgur.com/oauth2/token.xml"));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+    request.setUrl(QUrl(QStringLiteral("https://api.imgur.com/oauth2/token.xml")));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/x-www-form-urlencoded"));
 
     // Prepare the params
     QByteArray params;
@@ -130,10 +130,10 @@ void ImgurUploader::refreshToken(const QByteArray& refreshToken,
  */
 QUrl ImgurUploader::pinRequestUrl(const QString& clientId) const
 {
-    QUrl url("https://api.imgur.com/oauth2/authorize");
+    QUrl url(QStringLiteral("https://api.imgur.com/oauth2/authorize"));
     QUrlQuery urlQuery;
-    urlQuery.addQueryItem("client_id", clientId);
-    urlQuery.addQueryItem("response_type", "pin");
+    urlQuery.addQueryItem(QStringLiteral("client_id"), clientId);
+    urlQuery.addQueryItem(QStringLiteral("response_type"), QStringLiteral("pin"));
 
     url.setQuery(urlQuery);
     return url;
@@ -151,16 +151,16 @@ QUrl ImgurUploader::pinRequestUrl(const QString& clientId) const
  */
 void ImgurUploader::handleDataResponse(const QDomElement& element) const
 {
-    if (element.attribute("status") == "200" && !element.elementsByTagName("link").isEmpty()) {
-        emit uploadFinished(element.elementsByTagName("link").at(0).toElement().text());
-    } else if (element.attribute("status") == "403") {
+    if (element.attribute(QStringLiteral("status")) == QStringLiteral("200") && !element.elementsByTagName(QStringLiteral("link")).isEmpty()) {
+        emit uploadFinished(element.elementsByTagName(QStringLiteral("link")).at(0).toElement().text());
+    } else if (element.attribute(QStringLiteral("status")) == QStringLiteral("403")) {
         emit tokenRefreshRequired();
     } else {
-        if (element.elementsByTagName("error").isEmpty()) {
-            emit error("Server responded with " + element.attribute("status"));
+        if (element.elementsByTagName(QStringLiteral("error")).isEmpty()) {
+            emit error(QStringLiteral("Server responded with ") + element.attribute(QStringLiteral("status")));
         } else {
-            emit error("Server responded with " + element.attribute("status") + ": " +
-                       element.elementsByTagName("error").at(0).toElement().text());
+            emit error(QStringLiteral("Server responded with ") + element.attribute(QStringLiteral("status")) + ": " +
+                       element.elementsByTagName(QStringLiteral("error")).at(0).toElement().text());
         }
     }
 }
@@ -171,16 +171,16 @@ void ImgurUploader::handleDataResponse(const QDomElement& element) const
  */
 void ImgurUploader::handleTokenResponse(const QDomElement& element) const
 {
-    if (!element.elementsByTagName("access_token").isEmpty() &&
-            !element.elementsByTagName("refresh_token").isEmpty() &&
-            !element.elementsByTagName("account_username").isEmpty()
+    if (!element.elementsByTagName(QStringLiteral("access_token")).isEmpty() &&
+            !element.elementsByTagName(QStringLiteral("refresh_token")).isEmpty() &&
+            !element.elementsByTagName(QStringLiteral("account_username")).isEmpty()
        ) {
-        emit tokenUpdated(element.elementsByTagName("access_token").at(0).toElement().text(),
-                          element.elementsByTagName("refresh_token").at(0).toElement().text(),
-                          element.elementsByTagName("account_username").at(0).toElement().text()
+        emit tokenUpdated(element.elementsByTagName(QStringLiteral("access_token")).at(0).toElement().text(),
+                          element.elementsByTagName(QStringLiteral("refresh_token")).at(0).toElement().text(),
+                          element.elementsByTagName(QStringLiteral("account_username")).at(0).toElement().text()
                          );
     } else {
-        emit error("Expected token response was received, something went wrong.");
+        emit error(QStringLiteral("Expected token response was received, something went wrong."));
     }
 }
 
@@ -203,7 +203,7 @@ void ImgurUploader::handleReply(QNetworkReply* reply)
     // token.
     if (reply->error() != QNetworkReply::NoError &&
             reply->error() != QNetworkReply::ContentOperationNotPermittedError) {
-        emit error("Network Error(" + QString::number(reply->error()) + "): " + reply->errorString());
+        emit error(QStringLiteral("Network Error(") + QString::number(reply->error()) + "): " + reply->errorString());
         reply->deleteLater();
         return;
     }
@@ -215,8 +215,8 @@ void ImgurUploader::handleReply(QNetworkReply* reply)
 
     // Try to parse reply into xml reader
     if (!doc.setContent(reply->readAll(), false, &errorMessage, &errorLine, &errorColumn)) {
-        emit error("Parse error: " + errorMessage + ", line:" + errorLine +
-                   ", column:" + errorColumn);
+        emit error(QStringLiteral("Parse error: ") + errorMessage + QStringLiteral(", line:") + errorLine +
+                   QStringLiteral(", column:") + errorColumn);
         reply->deleteLater();
         return;
     }
@@ -224,14 +224,14 @@ void ImgurUploader::handleReply(QNetworkReply* reply)
     // See if we have an upload reply, token response or error
     auto rootElement = doc.documentElement();
 
-    if (rootElement.tagName() == "data") {
+    if (rootElement.tagName() == QStringLiteral("data")) {
         handleDataResponse(rootElement);
-    } else if (rootElement.tagName() == "response") {
+    } else if (rootElement.tagName() == QStringLiteral("response")) {
         handleTokenResponse(rootElement);
     }
 
     else {
-        emit error("Received unexpected reply from imgur server.");
+        emit error(QStringLiteral("Received unexpected reply from imgur server."));
     }
 
     reply->deleteLater();

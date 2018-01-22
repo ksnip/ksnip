@@ -29,10 +29,10 @@ int main(int argc, char** argv)
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
 
     // Setup application properties
-    app.setOrganizationName("ksnip");
-    app.setOrganizationDomain("ksnip.local");
-    app.setApplicationName("ksnip");
-    app.setApplicationVersion("v1.5.0 - alpha");
+    app.setOrganizationName(QStringLiteral("ksnip"));
+    app.setOrganizationDomain(QStringLiteral("ksnip.local"));
+    app.setApplicationName(QStringLiteral("ksnip"));
+    app.setApplicationVersion(QStringLiteral("v1.5.0 - alpha"));
 
     ImageGrabberFactory imageGrabberFactory;
     auto imageGrabber = imageGrabberFactory.createImageGrabber();
@@ -45,38 +45,38 @@ int main(int argc, char** argv)
 
     // Add image grabber specific options
     if (imageGrabber->isCaptureModeSupported(CaptureModes::RectArea)) {
-        parser.addOption({{"r", "rectarea"},
+        parser.addOption({{QStringLiteral("r"), QStringLiteral("rectarea")},
             QCoreApplication::translate("main", "Select a rectangular area from where to take a screenshot.")
         });
     }
     if (imageGrabber->isCaptureModeSupported(CaptureModes::FullScreen)) {
-        parser.addOption({   {"f", "fullscreen"},
+        parser.addOption({{QStringLiteral("f"), QStringLiteral("fullscreen")},
             QCoreApplication::translate("main", "Capture the fullscreen including all monitors.")
         });
     }
     if (imageGrabber->isCaptureModeSupported(CaptureModes::CurrentScreen)) {
-        parser.addOption({   {"m", "current"},
+        parser.addOption({   {QStringLiteral("m"), QStringLiteral("current")},
             QCoreApplication::translate("main", "Capture the screen (monitor) where the mouse cursor is currently located.")
         });
     }
     if (imageGrabber->isCaptureModeSupported(CaptureModes::ActiveWindow)) {
-        parser.addOption({   {"a", "active"},
+        parser.addOption({   {QStringLiteral("a"), QStringLiteral("active")},
             QCoreApplication::translate("main", "Capture the window that currently has input focus.")
         });
     }
     if (imageGrabber->isCaptureModeSupported(CaptureModes::WindowUnderCursor)) {
-        parser.addOption({   {"u", "windowundercursor"},
+        parser.addOption({   {QStringLiteral("u"), QStringLiteral("windowundercursor")},
             QCoreApplication::translate("main", "Capture the window that is currently under the mouse cursor.")
         });
     }
 
     // Add default options
     parser.addOptions({
-        {   {"d", "delay"},
+        {   {QStringLiteral("d"), QStringLiteral("delay")},
             QCoreApplication::translate("main", "Delay before taking the screenshot."),
             QCoreApplication::translate("main", "seconds")
         },
-        {   {"c", "cursor"},
+        {   {QStringLiteral("c"), QStringLiteral("cursor")},
             QCoreApplication::translate("main", "Capture mouse cursor on screenshot."),
         },
     });
@@ -96,9 +96,9 @@ int main(int argc, char** argv)
 
     // Check if delay was selected, if yes, make sure a valid number was provided
     int delay = 0;
-    if (parser.isSet("d")) {
+    if (parser.isSet(QStringLiteral("d"))) {
         bool delayValid = true;
-        delay = parser.value("d").toInt(&delayValid);
+        delay = parser.value(QStringLiteral("d")).toInt(&delayValid);
         if (!delay) {
             qWarning("Please enter delay in seconds.");
             return 1;
@@ -109,15 +109,15 @@ int main(int argc, char** argv)
     bool cursor = parser.isSet("c");
     CaptureModes mode;
 
-    if (parser.isSet("r")) {
+    if (parser.isSet(QStringLiteral("r"))) {
         mode = CaptureModes::RectArea;
-    } else if (parser.isSet("f")) {
+    } else if (parser.isSet(QStringLiteral("f"))) {
         mode = CaptureModes::FullScreen;
-    } else if (parser.isSet("m")) {
+    } else if (parser.isSet(QStringLiteral("m"))) {
         mode = CaptureModes::CurrentScreen;
-    } else if (parser.isSet("a")) {
+    } else if (parser.isSet(QStringLiteral("a"))) {
         mode = CaptureModes::ActiveWindow;
-    } else if (parser.isSet("u")) {
+    } else if (parser.isSet(QStringLiteral("u"))) {
         mode = CaptureModes::WindowUnderCursor;
     } else {
         qWarning("Please select capture mode.");

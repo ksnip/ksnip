@@ -25,8 +25,8 @@ QString CommandRunner::getEnviromentVariable(const QString& variable) const
     char buffer[mMaxBuffer];
 
     auto command = variable.trimmed();
-    command.prepend("echo $");
-    command.append(" 2>&1");
+    command.prepend(QLatin1Literal("echo $"));
+    command.append(QLatin1Literal(" 2>&1"));
 
     auto stream = popen(command.toLatin1(), "r");
 

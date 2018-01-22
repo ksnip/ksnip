@@ -22,7 +22,6 @@
 QString CommandRunner::getEnviromentVariable(const QString& variable) const
 {
     QString value;
-    char buffer[mMaxBuffer];
 
     auto command = variable.trimmed();
     command.prepend(QLatin1Literal("echo $"));
@@ -31,6 +30,7 @@ QString CommandRunner::getEnviromentVariable(const QString& variable) const
     auto stream = popen(command.toLatin1(), "r");
 
     if (stream) {
+        char buffer[mMaxBuffer];
         while (!feof(stream)) {
             if (fgets(buffer, mMaxBuffer, stream) != nullptr) {
                 value.append(buffer);

@@ -55,28 +55,28 @@ int main(int argc, char** argv)
         });
     }
     if (imageGrabber->isCaptureModeSupported(CaptureModes::CurrentScreen)) {
-        parser.addOption({   {QStringLiteral("m"), QStringLiteral("current")},
+        parser.addOption({{QStringLiteral("m"), QStringLiteral("current")},
             QCoreApplication::translate("main", "Capture the screen (monitor) where the mouse cursor is currently located.")
         });
     }
     if (imageGrabber->isCaptureModeSupported(CaptureModes::ActiveWindow)) {
-        parser.addOption({   {QStringLiteral("a"), QStringLiteral("active")},
+        parser.addOption({{QStringLiteral("a"), QStringLiteral("active")},
             QCoreApplication::translate("main", "Capture the window that currently has input focus.")
         });
     }
     if (imageGrabber->isCaptureModeSupported(CaptureModes::WindowUnderCursor)) {
-        parser.addOption({   {QStringLiteral("u"), QStringLiteral("windowundercursor")},
+        parser.addOption({{QStringLiteral("u"), QStringLiteral("windowundercursor")},
             QCoreApplication::translate("main", "Capture the window that is currently under the mouse cursor.")
         });
     }
 
     // Add default options
     parser.addOptions({
-        {   {QStringLiteral("d"), QStringLiteral("delay")},
+        {{QStringLiteral("d"), QStringLiteral("delay")},
             QCoreApplication::translate("main", "Delay before taking the screenshot."),
             QCoreApplication::translate("main", "seconds")
         },
-        {   {QStringLiteral("c"), QStringLiteral("cursor")},
+        {{QStringLiteral("c"), QStringLiteral("cursor")},
             QCoreApplication::translate("main", "Capture mouse cursor on screenshot."),
         },
     });

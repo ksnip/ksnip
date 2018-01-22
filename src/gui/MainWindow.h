@@ -37,6 +37,7 @@
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/ImgurUploader.h"
+#include "src/helper/IconLoader.h"
 
 class MainWindow : public QMainWindow
 {
@@ -124,7 +125,6 @@ private:
     void loadSettings();
     void copyToClipboard();
     bool popupQuestion(const QString &title, const QString &question);
-    QIcon createIcon(const QString &name);
     void setHidden(bool isHidden);
     bool hidden() const;
     void capture(CaptureModes captureMode);

@@ -80,7 +80,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) : QMain
 
     mCaptureView->hide();
 
-    setWindowIcon(createIcon(QStringLiteral("ksnip")));
+    setWindowIcon(IconLoader::loadIcon(QStringLiteral("ksnip")));
     move(mConfig->windowPosition());
 
     connect(mPaintArea, &PaintArea::imageChanged, [this]() {
@@ -512,23 +512,6 @@ bool MainWindow::popupQuestion(const QString& title, const QString& question)
 }
 
 /*
- * Checks what png icons are available for that button and adds them to the
- * icon which can then be added to a button, action or similar.
- */
-QIcon MainWindow::createIcon(const QString& name)
-{
-    QIcon tmpIcon;
-
-    for (auto i = 16; i <= 64; i = i * 2) {
-        if (QResource(QStringLiteral(":") + name + QString::number(i) + QStringLiteral(".png")).isValid()) {
-            tmpIcon.addFile((QStringLiteral(":") + name + QString::number(i) + QStringLiteral(".png")), QSize(i, i));
-        }
-    }
-
-    return tmpIcon;
-}
-
-/*
  * Usually called before we take a screenshot so we move the mainwindow out of
  * the way.
  */
@@ -581,7 +564,7 @@ void MainWindow::initGui()
         mNewRectAreaCaptureAction = new QAction(this);
         mNewRectAreaCaptureAction->setIconText(tr("Rectangular Area"));
         mNewRectAreaCaptureAction->setToolTip(tr("Draw a rectangular area with your mouse"));
-        mNewRectAreaCaptureAction->setIcon(createIcon(QStringLiteral("drawRect")));
+        mNewRectAreaCaptureAction->setIcon(IconLoader::loadIcon(QStringLiteral("drawRect")));
         connect(mNewRectAreaCaptureAction, &QAction::triggered, [this]() {
             capture(CaptureModes::RectArea);
         });
@@ -592,7 +575,7 @@ void MainWindow::initGui()
         mNewFullScreenCaptureAction = new QAction(this);
         mNewFullScreenCaptureAction->setIconText(tr("Full Screen (All Monitors)"));
         mNewFullScreenCaptureAction->setToolTip(tr("Capture full screen including all monitors"));
-        mNewFullScreenCaptureAction->setIcon(createIcon(QStringLiteral("fullScreen")));
+        mNewFullScreenCaptureAction->setIcon(IconLoader::loadIcon(QStringLiteral("fullScreen")));
         connect(mNewFullScreenCaptureAction, &QAction::triggered, [this]() {
             capture(CaptureModes::FullScreen);
         });
@@ -604,7 +587,7 @@ void MainWindow::initGui()
         mNewCurrentScreenCaptureAction = new QAction(this);
         mNewCurrentScreenCaptureAction->setIconText(tr("Current Screen"));
         mNewCurrentScreenCaptureAction->setToolTip(tr("Capture screen where the mouse is located"));
-        mNewCurrentScreenCaptureAction->setIcon(createIcon(QStringLiteral("currentScreen")));
+        mNewCurrentScreenCaptureAction->setIcon(IconLoader::loadIcon(QStringLiteral("currentScreen")));
         connect(mNewCurrentScreenCaptureAction, &QAction::triggered, [this]() {
             capture(CaptureModes::CurrentScreen);
         });
@@ -616,7 +599,7 @@ void MainWindow::initGui()
         mNewActiveWindowCaptureAction = new QAction(this);
         mNewActiveWindowCaptureAction->setIconText(tr("Active Window"));
         mNewActiveWindowCaptureAction->setToolTip(tr("Capture window that currently has focus"));
-        mNewActiveWindowCaptureAction->setIcon(createIcon(QStringLiteral("activeWindow")));
+        mNewActiveWindowCaptureAction->setIcon(IconLoader::loadIcon(QStringLiteral("activeWindow")));
         connect(mNewActiveWindowCaptureAction, &QAction::triggered, [this]() {
             capture(CaptureModes::ActiveWindow);
         });
@@ -627,7 +610,7 @@ void MainWindow::initGui()
         mNewWindowUnderCursorAction = new QAction(this);
         mNewWindowUnderCursorAction->setIconText(tr("Window Under Cursor"));
         mNewWindowUnderCursorAction->setToolTip(tr("Capture that is currently under the mouse cursor"));
-        mNewWindowUnderCursorAction->setIcon(createIcon(QStringLiteral("windowUnderCursor")));
+        mNewWindowUnderCursorAction->setIcon(IconLoader::loadIcon(QStringLiteral("windowUnderCursor")));
         connect(mNewWindowUnderCursorAction, &QAction::triggered, [this]() {
             capture(CaptureModes::WindowUnderCursor);
         });
@@ -637,14 +620,14 @@ void MainWindow::initGui()
     // Create action for save button
     mSaveAction->setText(tr("Save"));
     mSaveAction->setToolTip(tr("Save Screen Capture to file system"));
-    mSaveAction->setIcon(createIcon(QStringLiteral("save")));
+    mSaveAction->setIcon(IconLoader::loadIcon(QStringLiteral("save")));
     mSaveAction->setShortcut(QKeySequence::Save);
     connect(mSaveAction, &QAction::triggered, this, &MainWindow::saveCaptureClicked);
 
     // Create action for copy to clipboard button
     mCopyToClipboardAction->setText(tr("Copy"));
     mCopyToClipboardAction->setToolTip(tr("Copy Screen Capture to clipboard"));
-    mCopyToClipboardAction->setIcon(createIcon(QStringLiteral("copyToClipboard")));
+    mCopyToClipboardAction->setIcon(IconLoader::loadIcon(QStringLiteral("copyToClipboard")));
     mCopyToClipboardAction->setShortcut(QKeySequence::Copy);
     connect(mCopyToClipboardAction, &QAction::triggered, [this]() {
         copyToClipboard();
@@ -680,7 +663,7 @@ void MainWindow::initGui()
 
     // Create actions for paint mode
     mPenAction->setText(tr("Pen"));
-    mPenAction->setIcon(createIcon(QStringLiteral("pen")));
+    mPenAction->setIcon(IconLoader::loadIcon(QStringLiteral("pen")));
     mPenAction->setShortcut(Qt::Key_P);
     connect(mPenAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Pen) {
@@ -689,7 +672,7 @@ void MainWindow::initGui()
     });
 
     mMarkerAction->setText(tr("Marker"));
-    mMarkerAction->setIcon(createIcon(QStringLiteral("marker")));
+    mMarkerAction->setIcon(IconLoader::loadIcon(QStringLiteral("marker")));
     mMarkerAction->setShortcut(Qt::Key_B);
     connect(mMarkerAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Marker) {
@@ -698,7 +681,7 @@ void MainWindow::initGui()
     });
 
     mRectAction->setText(tr("Rect"));
-    mRectAction->setIcon(createIcon(QStringLiteral("rect")));
+    mRectAction->setIcon(IconLoader::loadIcon(QStringLiteral("rect")));
     mRectAction->setShortcut(Qt::Key_R);
     connect(mRectAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Rect) {
@@ -707,7 +690,7 @@ void MainWindow::initGui()
     });
 
     mEllipseAction->setText(tr("Ellipse"));
-    mEllipseAction->setIcon(createIcon(QStringLiteral("ellipse")));
+    mEllipseAction->setIcon(IconLoader::loadIcon(QStringLiteral("ellipse")));
     mEllipseAction->setShortcut(Qt::Key_E);
     connect(mEllipseAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Ellipse) {
@@ -716,7 +699,7 @@ void MainWindow::initGui()
     });
 
     mLineAction->setText(tr("Line"));
-    mLineAction->setIcon(createIcon(QStringLiteral("line")));
+    mLineAction->setIcon(IconLoader::loadIcon(QStringLiteral("line")));
     mLineAction->setShortcut(Qt::Key_L);
     connect(mLineAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Line) {
@@ -725,7 +708,7 @@ void MainWindow::initGui()
     });
 
     mArrowAction->setText(tr("Arrow"));
-    mArrowAction->setIcon(createIcon(QStringLiteral("arrow")));
+    mArrowAction->setIcon(IconLoader::loadIcon(QStringLiteral("arrow")));
     mArrowAction->setShortcut(Qt::Key_A);
     connect(mArrowAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Arrow) {
@@ -734,7 +717,7 @@ void MainWindow::initGui()
     });
 
     mTextAction->setText(tr("Text"));
-    mTextAction->setIcon(createIcon(QStringLiteral("text")));
+    mTextAction->setIcon(IconLoader::loadIcon(QStringLiteral("text")));
     mTextAction->setShortcut(Qt::Key_T);
     connect(mTextAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Text) {
@@ -743,7 +726,7 @@ void MainWindow::initGui()
     });
 
     mNumberAction->setText(tr("Number"));
-    mNumberAction->setIcon(createIcon(QStringLiteral("number")));
+    mNumberAction->setIcon(IconLoader::loadIcon(QStringLiteral("number")));
     mNumberAction->setShortcut(Qt::Key_N);
     connect(mNumberAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Number) {
@@ -752,7 +735,7 @@ void MainWindow::initGui()
     });
 
     mEraseAction->setText(tr("Erase"));
-    mEraseAction->setIcon(createIcon(QStringLiteral("eraser")));
+    mEraseAction->setIcon(IconLoader::loadIcon(QStringLiteral("eraser")));
     mEraseAction->setShortcut(Qt::Key_D);
     connect(mEraseAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Erase) {
@@ -761,7 +744,7 @@ void MainWindow::initGui()
     });
 
     mMoveAction->setText(tr("Move"));
-    mMoveAction->setIcon(createIcon(QStringLiteral("move")));
+    mMoveAction->setIcon(IconLoader::loadIcon(QStringLiteral("move")));
     mMoveAction->setShortcut(Qt::Key_M);
     connect(mMoveAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Move) {
@@ -770,7 +753,7 @@ void MainWindow::initGui()
     });
 
     mSelectAction->setText(tr("Select"));
-    mSelectAction->setIcon(createIcon(QStringLiteral("select")));
+    mSelectAction->setIcon(IconLoader::loadIcon(QStringLiteral("select")));
     mSelectAction->setShortcut(Qt::Key_S);
     connect(mSelectAction, &QAction::triggered, [this]() {
         if (mPaintArea->paintMode() != Painter::Select) {
@@ -799,7 +782,7 @@ void MainWindow::initGui()
     });
 
     mAboutKsnipAction->setText(tr("&About"));
-    mAboutKsnipAction->setIcon(createIcon(QStringLiteral("ksnip")));
+    mAboutKsnipAction->setIcon(IconLoader::loadIcon(QStringLiteral("ksnip")));
     connect(mAboutKsnipAction, &QAction::triggered, [this]() {
         AboutDialog aboutDialog(this);
         aboutDialog.exec();
@@ -849,7 +832,7 @@ void MainWindow::initGui()
     mPaintToolMenu->addAction(mSelectAction);
 
     // Create painter settings tool button;
-    mSettingsButton->setIcon(createIcon(QStringLiteral("painterSettings")));
+    mSettingsButton->setIcon(IconLoader::loadIcon(QStringLiteral("painterSettings")));
     mSettingsButton->setToolTip(tr("Setting Painter tool configuration"));
     connect(mSettingsButton, &SettingsPicker::colorSelected,
             this, &MainWindow::colorChanged);

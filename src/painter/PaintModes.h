@@ -33,7 +33,6 @@ namespace Painter
         Text,
         Number,
         Erase,
-        Move,
         Select
     };
 }

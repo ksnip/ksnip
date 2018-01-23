@@ -13,7 +13,6 @@
     <file alias="text64.png">64x64/text.64.png</file>
     <file alias="number64.png">64x64/number.64.png</file>
     <file alias="eraser64.png">64x64/eraser.64.png</file>
-    <file alias="move64.png">64x64/move.64.png</file>
     <file alias="select64.png">64x64/select.64.png</file>
     <file alias="painterSettings64.png">64x64/painterSettings.64.png</file>
     <file alias="save64.png">64x64/save.64.png</file>

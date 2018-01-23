@@ -21,7 +21,7 @@
 PaintArea::PaintArea() : QGraphicsScene(),
     mScreenshot(nullptr),
     mCurrentItem(nullptr),
-    mRubberBand(nullptr),
+    mRubberBand(new QRubberBand(QRubberBand::Rectangle, nullptr)),
     mCursor(nullptr),
     mShiftPressed(false),
     mPaintMode(Painter::Pen),
@@ -33,6 +33,8 @@ PaintArea::PaintArea() : QGraphicsScene(),
     mCursorFactory(new CursorFactory())
 {
     connect(mConfig, &KsnipConfig::painterUpdated, this, &PaintArea::setCursor);
+
+    mRubberBand->hide();
 }
 
 PaintArea::~PaintArea()
@@ -187,37 +189,37 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
 
     clearCurrentItem();
 
-    if (event->button() == Qt::LeftButton) {
-        if (mPaintMode == Painter::Erase) {
-            eraseItemAt(event->scenePos(), mConfig->eraseSize());
-        } else if (mPaintMode == Painter::Move) {
-            mCurrentItem = selectItemAt(event->scenePos());
+    if (event->button() != Qt::LeftButton) {
+        return;
+    }
+
+    if (mPaintMode == Painter::Erase) {
+        eraseItemAt(event->scenePos(), mConfig->eraseSize());
+    } else if (mPaintMode == Painter::Select) {
+        mCurrentItem = selectItemAt(event->scenePos());
+        if (mCurrentItem != nullptr) {
             setCursor();
             for (auto item : selectedItems()) {
                 if (item) {
                     item->setOffset(event->scenePos() - item->position());
                 }
             }
-        } else if (mPaintMode == Painter::Select) {
+        } else {
             if (views().isEmpty()) {
                 return;
             }
             mRubberBandOrigin = mapToView(event->scenePos());
-            if (!mRubberBand) {
-                // As the QGraphicsScene doesn't inherit QWidget we can't use it
-                // as parent so we use the hosting view.
-                mRubberBand = new QRubberBand(QRubberBand::Rectangle, views().first());
-            }
+            mRubberBand->setParent(views().first());
             mRubberBand->setGeometry(QRect(mRubberBandOrigin, QSize()));
             mRubberBand->show();
-        } else {
-            clearSelection();
-            mCurrentItem = mPainterItemFactory->createItem(mPaintMode, event->scenePos());
-            mUndoStack->push(new AddCommand(mCurrentItem, this));
-            auto textItem = dynamic_cast<PainterText*>(mCurrentItem);
-            if(textItem) {
-                textItem->setFocus();
-            }
+        }
+    } else {
+        clearSelection();
+        mCurrentItem = mPainterItemFactory->createItem(mPaintMode, event->scenePos());
+        mUndoStack->push(new AddCommand(mCurrentItem, this));
+        auto textItem = dynamic_cast<PainterText*>(mCurrentItem);
+        if (textItem) {
+            textItem->setFocus();
         }
     }
 }
@@ -227,11 +229,13 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
     if (event->buttons() == Qt::LeftButton && mIsEnabled) {
         if (mPaintMode == Painter::Erase) {
             eraseItemAt(event->scenePos(), mConfig->eraseSize());
-        } else if (mPaintMode == Painter::Move) {
-            moveItems(event->scenePos());
-        } else if (mPaintMode == Painter::Select && mRubberBand) {
-            mRubberBand->setGeometry(QRect(mRubberBandOrigin,
-                                           mapToView(event->scenePos())).normalized());
+        } else if (mPaintMode == Painter::Select) {
+            if (!mRubberBand->isHidden()) {
+                mRubberBand->setGeometry(QRect(mRubberBandOrigin,
+                                               mapToView(event->scenePos())).normalized());
+            } else {
+                moveItems(event->scenePos());
+            }
         } else if (mCurrentItem) {
             mCurrentItem->addPoint(event->scenePos(), mShiftPressed);
         }
@@ -265,39 +269,39 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
             break;
         case Painter::Erase:
             break;
-        case Painter::Move:
-            for (auto item : selectedItems()) {
-                if (item) {
-                    item->setOffset(QPointF());
-                }
-            }
-            mCurrentItem = nullptr;
-            setCursor();
-            break;
         case Painter::Select:
-            if (mRubberBandOrigin == mapToView(event->scenePos())) {
-                if (!mCtrlPressed) {
-                    clearSelection();
-                }
-                // Check if we have clicked on an item, if yes, select it if its
-                // not selected, otherwise, unselect it.
-                mCurrentItem = findItemAt(event->scenePos());
-                if (mCurrentItem) {
-                    if (mCurrentItem->isSelected()) {
-                        mCurrentItem->setSelected(false);
-                    } else {
-                        mCurrentItem->setSelected(true);
+            if (!mRubberBand->isHidden()) {
+                if (mRubberBandOrigin == mapToView(event->scenePos())) {
+                    if (!mCtrlPressed) {
+                        clearSelection();
+                    }
+                    // Check if we have clicked on an item, if yes, select it if its
+                    // not selected, otherwise, unselect it.
+                    mCurrentItem = findItemAt(event->scenePos());
+                    if (mCurrentItem) {
+                        if (mCurrentItem->isSelected()) {
+                            mCurrentItem->setSelected(false);
+                        } else {
+                            mCurrentItem->setSelected(true);
+                        }
+                    }
+                } else {
+                    if (mRubberBand) {
+                        mRubberBand->hide();
+                        setSelectionArea(mapFromView(mRubberBand->geometry()));
                     }
                 }
+                mRubberBandOrigin = QPoint();
+                mCurrentItem = nullptr;
             } else {
-                if (mRubberBand) {
-                    mRubberBand->hide();
-                    setSelectionArea(mapFromView(mRubberBand->geometry()));
+                for (auto item : selectedItems()) {
+                    if (item) {
+                        item->setOffset(QPointF());
+                    }
                 }
+                mCurrentItem = nullptr;
+                setCursor();
             }
-            mRubberBandOrigin = QPoint();
-            mCurrentItem = nullptr;
-            break;
         }
     }
     // Inform the MainWindow that something was drawn on the image so the user

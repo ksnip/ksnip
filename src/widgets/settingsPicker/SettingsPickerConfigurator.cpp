@@ -101,7 +101,6 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, Painter::
         settingsPicker->addPopupSizeSlider(1, 10, 1);
         settingsPicker->setSize(mConfig->eraseSize());
         break;
-    case Painter::Move:
     case Painter::Select:
         settingsPicker->setEnabled(false);
         break;

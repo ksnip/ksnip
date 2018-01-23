@@ -98,7 +98,6 @@ private:
     QAction          *mTextAction;
     QAction          *mNumberAction;
     QAction          *mEraseAction;
-    QAction          *mMoveAction;
     QAction          *mSelectAction;
     QAction          *mUploadToImgurAction;
     QAction          *mPrintAction;

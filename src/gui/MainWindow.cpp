@@ -46,7 +46,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) : QMain
     mTextAction(new QAction(this)),
     mNumberAction(new QAction(this)),
     mEraseAction(new QAction(this)),
-    mMoveAction(new QAction(this)),
     mSelectAction(new QAction(this)),
     mUploadToImgurAction(new QAction(this)),
     mPrintAction(new QAction(this)),
@@ -743,15 +742,6 @@ void MainWindow::initGui()
         }
     });
 
-    mMoveAction->setText(tr("Move"));
-    mMoveAction->setIcon(IconLoader::loadIcon(QStringLiteral("move")));
-    mMoveAction->setShortcut(Qt::Key_M);
-    connect(mMoveAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != Painter::Move) {
-            setPaintMode(Painter::Move);
-        }
-    });
-
     mSelectAction->setText(tr("Select"));
     mSelectAction->setIcon(IconLoader::loadIcon(QStringLiteral("select")));
     mSelectAction->setShortcut(Qt::Key_S);
@@ -828,7 +818,6 @@ void MainWindow::initGui()
     mPaintToolMenu->addAction(mTextAction);
     mPaintToolMenu->addAction(mNumberAction);
     mPaintToolMenu->addAction(mEraseAction);
-    mPaintToolMenu->addAction(mMoveAction);
     mPaintToolMenu->addAction(mSelectAction);
 
     // Create painter settings tool button;
@@ -1058,7 +1047,6 @@ void MainWindow::setPaintMode(Painter::Modes mode, bool save)
 
     if (save
             && mode != Painter::Erase
-            && mode != Painter::Move
             && mode != Painter::Select) {
         mConfig->setPaintMode(mode);
     }

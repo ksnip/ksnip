@@ -98,8 +98,11 @@ private:
     QCursor *cursor();
     QPoint mapToView(const QPointF &point) const;
     QRectF mapFromView(const QRectF &rect) const;
-    AbstractPainterItem *selectItemAt(const QPointF &point, int size = 10);
+    AbstractPainterItem *handleSelectionAt(const QPointF &point, int size = 10);
     void setSelectionArea(const QRectF &rect);
+    void setOffsetForSelectedItems(const QPointF& point);
+    void showRubberBand(const QPointF& point);
+    void hideRubberBand();
 
 
 private slots:

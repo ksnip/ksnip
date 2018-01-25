@@ -196,23 +196,14 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
     if (mPaintMode == Painter::Erase) {
         eraseItemAt(event->scenePos(), mConfig->eraseSize());
     } else if (mPaintMode == Painter::Select) {
-        mCurrentItem = selectItemAt(event->scenePos());
+        mCurrentItem = handleSelectionAt(event->scenePos());
         if (mCurrentItem != nullptr) {
-            setCursor();
-            for (auto item : selectedItems()) {
-                if (item) {
-                    item->setOffset(event->scenePos() - item->position());
-                }
-            }
+            setOffsetForSelectedItems(event->scenePos());
         } else {
-            if (views().isEmpty()) {
-                return;
-            }
-            mRubberBandOrigin = mapToView(event->scenePos());
-            mRubberBand->setParent(views().first());
-            mRubberBand->setGeometry(QRect(mRubberBandOrigin, QSize()));
-            mRubberBand->show();
+            // clicked on empty, show selecting rubber band
+            showRubberBand(event->scenePos());
         }
+        setCursor();
     } else {
         clearSelection();
         mCurrentItem = mPainterItemFactory->createItem(mPaintMode, event->scenePos());
@@ -230,11 +221,10 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
         if (mPaintMode == Painter::Erase) {
             eraseItemAt(event->scenePos(), mConfig->eraseSize());
         } else if (mPaintMode == Painter::Select) {
-            if (!mRubberBand->isHidden()) {
-                mRubberBand->setGeometry(QRect(mRubberBandOrigin,
-                                               mapToView(event->scenePos())).normalized());
-            } else {
+            if (mRubberBand->isHidden()) {
                 moveItems(event->scenePos());
+            } else {
+                mRubberBand->setGeometry(QRect(mRubberBandOrigin, mapToView(event->scenePos())).normalized());
             }
         } else if (mCurrentItem) {
             mCurrentItem->addPoint(event->scenePos(), mShiftPressed);
@@ -246,62 +236,28 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 
 void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
 {
-    if (event->button() == Qt::LeftButton && mIsEnabled) {
-        switch (mPaintMode) {
-        case Painter::Pen:
-        case Painter::Marker:
-            PainterPen* path;
-            if (mConfig->smoothPathEnabled() &&
-                    (path = qgraphicsitem_cast<PainterPen*>(mCurrentItem))) {
+    if (event->button() != Qt::LeftButton || !mIsEnabled) {
+        return;
+    }
+    if (mPaintMode == Painter::Select) {
+        if (mRubberBand->isHidden()) {
+            setOffsetForSelectedItems(QPointF());
+            mCurrentItem = nullptr;
+            setCursor();
+        } else {
+            hideRubberBand();
+        }
+    } else {
+        if (mPaintMode == Painter::Pen || Painter::Pen == Painter::Marker) {
+            PainterPen* path = qgraphicsitem_cast<PainterPen*>(mCurrentItem);
+            if (mConfig->smoothPathEnabled() && path != nullptr) {
                 path->smoothOut(mConfig->smoothFactor());
             }
-        case Painter::Rect:
-        case Painter::Ellipse:
-        case Painter::Line:
-        case Painter::Arrow:
-        case Painter::Text:
-        case Painter::Number:
-            // We enable select first after the item was successfully added to
-            // the scene, to prevent selection border around it while drawing.
-            if (mCurrentItem) {
-                mCurrentItem->setSelectable(true);
-            }
-            break;
-        case Painter::Erase:
-            break;
-        case Painter::Select:
-            if (!mRubberBand->isHidden()) {
-                if (mRubberBandOrigin == mapToView(event->scenePos())) {
-                    if (!mCtrlPressed) {
-                        clearSelection();
-                    }
-                    // Check if we have clicked on an item, if yes, select it if its
-                    // not selected, otherwise, unselect it.
-                    mCurrentItem = findItemAt(event->scenePos());
-                    if (mCurrentItem) {
-                        if (mCurrentItem->isSelected()) {
-                            mCurrentItem->setSelected(false);
-                        } else {
-                            mCurrentItem->setSelected(true);
-                        }
-                    }
-                } else {
-                    if (mRubberBand) {
-                        mRubberBand->hide();
-                        setSelectionArea(mapFromView(mRubberBand->geometry()));
-                    }
-                }
-                mRubberBandOrigin = QPoint();
-                mCurrentItem = nullptr;
-            } else {
-                for (auto item : selectedItems()) {
-                    if (item) {
-                        item->setOffset(QPointF());
-                    }
-                }
-                mCurrentItem = nullptr;
-                setCursor();
-            }
+        }
+        // We enable select first after the item was successfully added to
+        // the scene, to prevent selection border around it while drawing.
+        if (mCurrentItem) {
+            mCurrentItem->setSelectable(true);
         }
     }
     // Inform the MainWindow that something was drawn on the image so the user
@@ -339,11 +295,13 @@ void PaintArea::keyReleaseEvent(QKeyEvent* event)
 
 void PaintArea::contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
 {
-    auto item = selectItemAt(event->scenePos());
+    auto item = findItemAt(event->scenePos());
 
     ContextMenu contextMenu;
 
     if (item) {
+        clearSelection();
+        item->setSelected(true);
         contextMenu.addArrangeMenu();
         contextMenu.addEraseAction();
         contextMenu.addSeparator();
@@ -374,7 +332,7 @@ void PaintArea::contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
 
 void PaintArea::eraseItemAt(const QPointF& position, int size)
 {
-    auto item = selectItemAt(position, size);
+    auto item = findItemAt(position, size);
     if (item) {
         eraseSelectedItems();
     }
@@ -444,6 +402,28 @@ void PaintArea::setCursor()
     for (auto view : views()) {
         view->setCursor(*mCursor);
     }
+
+//     for (auto item : items()) {
+//         if (mPaintMode == Painter::Select) {
+//             auto baseItem = qgraphicsitem_cast<AbstractPainterItem*> (item);
+//             if (baseItem != nullptr) {
+//                 baseItem->setCursor(*mCursor);
+//             } else {
+//                 item->unsetCursor();
+//             }
+//         } else {
+//             item->setCursor(*mCursor);
+//         }
+//     }
+
+//     for (auto view : views()) {
+//         view->unsetCursor();
+//         if (mPaintMode == Painter::Select) {
+//             view->setCursor(*mCursor);
+//         } else {
+//             
+//         }
+//     }
 }
 
 QPoint PaintArea::mapToView(const QPointF &point) const
@@ -462,24 +442,28 @@ QRectF PaintArea::mapFromView(const QRectF &rect) const
     return views().first()->mapToScene(rect.toRect()).boundingRect();
 }
 
-/*
- * Checks the scene at the specified location for any item, if it doesn't find
- * one, unselects all, if it finds an item it checks if the items is already
- * among the selected items, if yes, does nothing, if not, unselects all and
- * selects only this item. Leaves mCurrentItem pointing to the found item.
- */
-AbstractPainterItem* PaintArea::selectItemAt(const QPointF& point, int size)
+AbstractPainterItem* PaintArea::handleSelectionAt(const QPointF& point, int size)
 {
     auto item = findItemAt(point, size);
+
+    // no item found at location, clear all selection
     if (!item) {
         clearSelection();
         return nullptr;
     }
 
-    if (!selectedItems().contains(item)) {
+    // if item is already not between selected and ctrl is not pressed, clear
+    // selection
+    if (!selectedItems().contains(item) && !mCtrlPressed) {
         clearSelection();
     }
-    item->setSelected(true);
+
+    // if control is pressed inverse selection, otherwise always select
+    if (mCtrlPressed) {
+        item->setSelected(!item->isSelected());
+    } else {
+        item->setSelected(true);
+    }
     return item;
 }
 
@@ -492,6 +476,33 @@ void PaintArea::setSelectionArea(const QRectF& rect)
     QPainterPath path;
     path.addRect(rect);
     QGraphicsScene::setSelectionArea(path, Qt::ContainsItemShape);
+}
+
+void PaintArea::setOffsetForSelectedItems(const QPointF& point)
+{
+    for (auto item : selectedItems()) {
+        if (item) {
+            item->setOffset(point - item->position());
+        }
+    }
+}
+
+void PaintArea::showRubberBand(const QPointF& point)
+{
+    if (views().isEmpty()) {
+        return;
+    }
+    mRubberBandOrigin = mapToView(point);
+    mRubberBand->setParent(views().first());
+    mRubberBand->setGeometry(QRect(mRubberBandOrigin, QSize()));
+    mRubberBand->show();
+}
+
+void PaintArea::hideRubberBand()
+{
+    mRubberBand->hide();
+    setSelectionArea(mapFromView(mRubberBand->geometry()));
+    mRubberBandOrigin = QPoint();
 }
 
 /*

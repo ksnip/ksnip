@@ -240,7 +240,7 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
     }
     if (mPaintMode == Painter::Select) {
         if (mRubberBand->isHidden()) {
-            setOffsetForSelectedItems(QPointF());
+            clearOffsetForSelectedItems();
             mCurrentItem = nullptr;
             setCursor();
         } else {
@@ -479,6 +479,16 @@ void PaintArea::setOffsetForSelectedItems(const QPointF& point)
         }
     }
 }
+
+void PaintArea::clearOffsetForSelectedItems()
+{
+    for (auto item : selectedItems()) {
+        if (item) {
+            item->setOffset(QPointF());
+        }
+    }
+}
+
 
 void PaintArea::showRubberBand(const QPointF& point)
 {

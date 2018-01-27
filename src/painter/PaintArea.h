@@ -100,6 +100,7 @@ private:
     AbstractPainterItem *handleSelectionAt(const QPointF &point, int size = 10);
     void setSelectionArea(const QRectF &rect);
     void setOffsetForSelectedItems(const QPointF& point);
+    void clearOffsetForSelectedItems();
     void showRubberBand(const QPointF& point);
     void hideRubberBand();
 

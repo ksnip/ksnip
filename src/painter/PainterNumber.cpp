@@ -59,7 +59,14 @@ void PainterNumber::moveTo(const QPointF& newPos)
 
 bool PainterNumber::containsRect(const QPointF& topLeft, const QSize& size) const
 {
-    return mRect.contains(QRectF(topLeft, size));
+    return shape().contains(QRectF(topLeft, size));
+}
+
+QPainterPath PainterNumber::shape() const
+{
+    QPainterPath path;
+    path.addEllipse(mRect);
+    return path;
 }
 
 QRectF PainterNumber::calculateBoundingRect()

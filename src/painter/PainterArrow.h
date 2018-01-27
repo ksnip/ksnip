@@ -30,6 +30,7 @@ public:
     virtual QRectF boundingRect() const override;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
     virtual void moveTo(const QPointF &newPos) override;
+    virtual QPainterPath shape() const override;
 
 private:
     int       mArrowHeadLength;

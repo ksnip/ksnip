@@ -346,6 +346,10 @@ AbstractPainterItem* PaintArea::findItemAt(const QPointF& position, int size)
             baseItem->setOffset(position - baseItem->boundingRect().topLeft());
             return baseItem;
         }
+//         if (baseItem && baseItem->contains(position)) {
+//             baseItem->setOffset(position - baseItem->boundingRect().topLeft());
+//             return baseItem;
+//         }
     }
 
     // Have not found any path under location

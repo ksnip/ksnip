@@ -54,6 +54,14 @@ void PainterArrow::moveTo(const QPointF& newPos)
     updateArrow();
 }
 
+QPainterPath PainterArrow::shape() const
+{
+    QPainterPath path(mLine->p1());
+    path.lineTo(mLine->p2());
+    path.addPolygon(mArrow);
+    return path;
+}
+
 void PainterArrow::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     if (isLineToShort()) {

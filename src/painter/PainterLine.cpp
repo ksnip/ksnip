@@ -61,7 +61,14 @@ void PainterLine::moveTo(const QPointF& newPos)
 
 bool PainterLine::containsRect(const QPointF& topLeft, const QSize& size) const
 {
-    return boundingRect().intersects(QRectF(topLeft, size));
+    return shape().intersects(QRectF(topLeft, size));
+}
+
+QPainterPath PainterLine::shape() const
+{
+    QPainterPath path(mLine->p1());
+    path.lineTo(mLine->p2());
+    return path;
 }
 
 void PainterLine::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)

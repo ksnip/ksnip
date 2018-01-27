@@ -57,29 +57,23 @@ void PainterRect::moveTo(const QPointF& newPos)
 
 bool PainterRect::containsRect(const QPointF& topLeft, const QSize& size) const
 {
-    bool contains = mRect.normalized().intersects(QRectF(topLeft.x() - size.width() / 2,
-                    topLeft.y() - size.height() / 2,
-                    size.width(),
-                    size.height()));
-    if (!contains) {
-        return false;
-    }
+    QRectF rect(topLeft - QPointF(size.width() / 2, size.height() / 2), size);
+    return shape().intersects(rect);
+}
 
-    if (mFilled) {
-        return contains;
+QPainterPath PainterRect::shape() const
+{
+    QPainterPath path;
+    if(mFilled) {
+        path.addRect(mRect);
     } else {
-        // When the rect is not filled, do not allow grabbing the empty space.
-        // TODO Improve this function, could be eventually more efficient.
         QRegion r1(mRect.normalized().toRect());
         auto w = attributes().width();
         QRegion r2(mRect.normalized().adjusted(w, w, -w, -w).toRect());
 
-        return r1.subtracted(r2).contains(QRect(topLeft.x() - size.width() / 2,
-                                                topLeft.y() - size.height() / 2,
-                                                size.width(),
-                                                size.height()));
+        path.addRegion(r1.subtracted(r2));
     }
-
+    return path;
 }
 
 void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)

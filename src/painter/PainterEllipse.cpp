@@ -30,24 +30,24 @@ PainterEllipse::PainterEllipse(const PainterEllipse& other) : PainterRect(other)
 
 bool PainterEllipse::containsRect(const QPointF& topLeft, const QSize& size) const
 {
+    QRectF rect(topLeft - QPointF(size.width() / 2, size.height() / 2), size);
+    return shape().intersects(rect);
+}
+
+QPainterPath PainterEllipse::shape() const
+{
+    QPainterPath path;
     if (mFilled) {
-        QRegion r(mRect.normalized().toRect(), QRegion::Ellipse);
-        return r.contains(QRect(topLeft.x() - size.width() / 2,
-                                topLeft.y() - size.height() / 2,
-                                size.width(),
-                                size.height()));
+        path.addEllipse(mRect);
     } else {
-        // When the rect is not filled, do not allow grabbing the empty space.
-        // TODO Improve this function, could be eventually more efficient.
         QRegion r1(mRect.normalized().toRect(), QRegion::Ellipse);
         auto w = attributes().width();
         QRegion r2(mRect.normalized().adjusted(w, w, -w, -w).toRect(), QRegion::Ellipse);
 
-        return r1.subtracted(r2).contains(QRect(topLeft.x() - size.width() / 2,
-                                                topLeft.y() - size.height() / 2,
-                                                size.width(),
-                                                size.height()));
+        path.addRegion(r1.subtracted(r2));
     }
+
+    return path;
 }
 
 void PainterEllipse::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)

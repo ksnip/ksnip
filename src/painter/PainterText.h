@@ -48,6 +48,7 @@ public:
     virtual void moveTo(const QPointF &newPos) override;
     virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
     virtual bool isValid() const override;
+    virtual QPainterPath shape() const override;
     bool isEditable() const;
     QFont font() const;
     void setFont(const QFont &font);

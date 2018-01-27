@@ -31,6 +31,7 @@ public:
     virtual QRectF boundingRect() const override;
     virtual void moveTo(const QPointF &newPos) override;
     virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
+    virtual QPainterPath shape() const override;
 
 private:
     int           mNumber;

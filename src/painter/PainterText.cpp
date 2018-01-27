@@ -74,7 +74,7 @@ void PainterText::moveTo(const QPointF& newPos)
 
 bool PainterText::containsRect(const QPointF& topLeft, const QSize& size) const
 {
-    return mRect.intersects(QRectF(topLeft.x() - size.width() / 2,
+    return shape().intersects(QRectF(topLeft.x() - size.width() / 2,
                                    topLeft.y() - size.height() / 2,
                                    size.width(),
                                    size.height()));
@@ -87,6 +87,13 @@ bool PainterText::isValid() const
     } else {
         return true;
     }
+}
+
+QPainterPath PainterText::shape() const
+{
+    QPainterPath path;
+    path.addRect(mRect);
+    return path;
 }
 
 bool PainterText::isEditable() const

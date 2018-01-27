@@ -73,10 +73,13 @@ void PainterPen::moveTo(const QPointF& newPos)
 
 bool PainterPen::containsRect(const QPointF& topLeft, const QSize& size) const
 {
-    return mPath->intersects(QRectF(topLeft.x() - size.width() / 2,
-                                    topLeft.y() - size.height() / 2,
-                                    size.width(),
-                                    size.height()));
+    QRectF rect(topLeft - QPointF(size.width() / 2, size.height() / 2), size);
+    return shape().intersects(rect);
+}
+
+QPainterPath PainterPen::shape() const
+{
+    return mStroker->createStroke(*mPath);
 }
 
 /*

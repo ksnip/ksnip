@@ -27,7 +27,8 @@ SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent),
     // Make the frame span across the screen and show above any other widget
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool | Qt::X11BypassWindowManagerHint);
 
-    QWidget::setCursor(*mCursorFactory->createSnippingCursor());
+    QScopedPointer<QCursor> cursor(mCursorFactory->createSnippingCursor());
+    QWidget::setCursor(*cursor);
 }
 
 SnippingArea::~SnippingArea()

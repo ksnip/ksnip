@@ -79,7 +79,6 @@ private:
     AbstractPainterItem *mCurrentItem;
     QRubberBand         *mRubberBand;
     QPoint               mRubberBandOrigin;
-    QCursor             *mCursor;
     bool                 mShiftPressed;
     bool                 mCtrlPressed;
     Painter::Modes       mPaintMode;
@@ -95,7 +94,7 @@ private:
     AbstractPainterItem *findItemAt(const QPointF &position, int size = 10);
     void moveItems(const QPointF &position);
     void clearCurrentItem();
-    QCursor *cursor();
+    QCursor *createCursor();
     QPoint mapToView(const QPointF &point) const;
     QRectF mapFromView(const QRectF &rect) const;
     AbstractPainterItem *handleSelectionAt(const QPointF &point, int size = 10);

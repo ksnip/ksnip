@@ -22,7 +22,6 @@ PaintArea::PaintArea() : QGraphicsScene(),
     mScreenshot(nullptr),
     mCurrentItem(nullptr),
     mRubberBand(new QRubberBand(QRubberBand::Rectangle, nullptr)),
-    mCursor(nullptr),
     mShiftPressed(false),
     mPaintMode(Painter::Pen),
     mUndoStack(new QUndoStack(this)),
@@ -381,7 +380,7 @@ void PaintArea::clearCurrentItem()
  * Returns a new custom cursor based on currently selected paint tool, if the
  * scene is disabled return to default cursor.
  */
-QCursor* PaintArea::cursor()
+QCursor* PaintArea::createCursor()
 {
     if (!mIsEnabled) {
         return mCursorFactory->createDefaultCursor();
@@ -390,40 +389,30 @@ QCursor* PaintArea::cursor()
     return mCursorFactory->createPainterCursor(mPaintMode, mCurrentItem);
 }
 
-/*
- * Set the mouse cursor on all views that show this scene to a specif cursor
- * that represents the currently selected paint tool.
- */
 void PaintArea::setCursor()
 {
-    delete mCursor;
-    mCursor = cursor();
+     QScopedPointer<QCursor> cursor(createCursor());
 
+    // Set cursor on all views, probably just one
     for (auto view : views()) {
-        view->setCursor(*mCursor);
+        if (mPaintMode == Painter::Select) {
+            view->viewport()->unsetCursor();
+        } else {
+            view->viewport()->setCursor(*cursor);
+        }
     }
 
-//     for (auto item : items()) {
-//         if (mPaintMode == Painter::Select) {
-//             auto baseItem = qgraphicsitem_cast<AbstractPainterItem*> (item);
-//             if (baseItem != nullptr) {
-//                 baseItem->setCursor(*mCursor);
-//             } else {
-//                 item->unsetCursor();
-//             }
-//         } else {
-//             item->setCursor(*mCursor);
-//         }
-//     }
-
-//     for (auto view : views()) {
-//         view->unsetCursor();
-//         if (mPaintMode == Painter::Select) {
-//             view->setCursor(*mCursor);
-//         } else {
-//             
-//         }
-//     }
+    // Set move cursor for all movable items
+    for (auto item : items()) {
+        auto baseItem = qgraphicsitem_cast<AbstractPainterItem*> (item);
+        if (baseItem != nullptr) {
+            if (mPaintMode == Painter::Select) {
+                baseItem->setCursor(*cursor);
+            } else {
+                baseItem->unsetCursor();
+            }
+        }
+    }
 }
 
 QPoint PaintArea::mapToView(const QPointF &point) const

@@ -11,6 +11,7 @@
 * Fixed: Default filename for screenshot had one $ sign too many. ([#68](https://github.com/DamirPorobic/ksnip/issues/68))
 * Fixed: Cancel on browse to save directory in settings dialog clears save path. ([#69](https://github.com/DamirPorobic/ksnip/issues/69))
 * Fixed: About dialog not closing when close button is clicked. ([#76](https://github.com/DamirPorobic/ksnip/issues/76))
+* Fixed: Undo move operation returns item to wrong location. ([#84](https://github.com/DamirPorobic/ksnip/issues/84))
 
 ## Release 1.4.0
 * New: Info text (cursor position and selection area size) for snipping area cursor, can be enabled and disabled via settings.([#49](https://github.com/DamirPorobic/ksnip/issues/49))

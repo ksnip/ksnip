@@ -59,6 +59,7 @@ QPainterPath PainterArrow::shape() const
     QPainterPath path(mLine->p1());
     path.lineTo(mLine->p2());
     path.addPolygon(mArrow);
+    path.closeSubpath();
     return path;
 }
 

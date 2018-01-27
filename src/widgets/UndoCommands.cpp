@@ -28,8 +28,8 @@ MoveCommand::MoveCommand(PaintArea* scene, const QPointF& newPos, QUndoCommand* 
     mScene = scene;
     for (auto item : scene->selectedItems()) {
         if (item) {
-            Entry e(item, item->position(), newPos);
-            mItems.append(e);
+            Entry entry(item, item->position(), newPos);
+            mItems.append(entry);
         }
     }
 }
@@ -44,24 +44,24 @@ bool MoveCommand::mergeWith(const QUndoCommand* command)
         return false;
     }
 
-    for (auto i = 0; i < items.count(); i++) {
-        mItems[i].newPos = items.at(i).item->position();
+    for (auto item = 0; item < items.count(); item++) {
+        mItems[item].newPos = items.at(item).item->position();
     }
     return true;
 }
 
 void MoveCommand::undo()
 {
-    for (auto i : mItems) {
-        i.item->moveTo(i.oldPos);
+    for (auto item : mItems) {
+        item.item->moveTo(item.oldPos);
     }
     mScene->update();
 }
 
 void MoveCommand::redo()
 {
-    for (auto i : mItems) {
-        i.item->moveTo(i.newPos);
+    for (auto item : mItems) {
+        item.item->moveTo(item.newPos);
     }
     mScene->update();
 }

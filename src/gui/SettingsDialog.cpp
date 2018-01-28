@@ -32,6 +32,7 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mImgurForceAnonymousCheckbox(new QCheckBox),
     mImgurDirectLinkToImageCheckbox(new QCheckBox),
     mImgurAlwaysCopyToClipboardCheckBox(new QCheckBox),
+    mImgurConfirmBeforeUploadCheckbox(new QCheckBox),
     mSmoothPathCheckbox(new QCheckBox),
     mItemShadowCheckbox(new QCheckBox),
     mCursorRulerCheckbox(new QCheckBox),
@@ -93,6 +94,7 @@ SettingsDialog::~SettingsDialog()
     delete mImgurForceAnonymousCheckbox;
     delete mImgurDirectLinkToImageCheckbox;
     delete mImgurAlwaysCopyToClipboardCheckBox;
+    delete mImgurConfirmBeforeUploadCheckbox;
     delete mSmoothPathCheckbox;
     delete mItemShadowCheckbox;
     delete mCursorRulerCheckbox;
@@ -139,6 +141,7 @@ void SettingsDialog::loadSettings()
     mImgurForceAnonymousCheckbox->setChecked(mConfig->imgurForceAnonymous());
     mImgurDirectLinkToImageCheckbox->setChecked(mConfig->imgurOpenLinkDirectlyToImage());
     mImgurAlwaysCopyToClipboardCheckBox->setChecked(mConfig->imgurAlwaysCopyToClipboard());
+    mImgurConfirmBeforeUploadCheckbox->setChecked(mConfig->imgurConfirmBeforeUpload());
 
     mImgurUsernameLabel->setText(tr("Username") + ": " + mConfig->imgurUsername());
     if (!mConfig->imgurClientId().isEmpty()) {
@@ -177,6 +180,7 @@ void SettingsDialog::saveSettings()
     mConfig->setImgurForceAnonymous(mImgurForceAnonymousCheckbox->isChecked());
     mConfig->setImgurOpenLinkDirectlyToImage(mImgurDirectLinkToImageCheckbox->isChecked());
     mConfig->setImgurAlwaysCopyToClipboard(mImgurAlwaysCopyToClipboardCheckBox->isChecked());
+    mConfig->setImgurConfirmBeforeUpload(mImgurConfirmBeforeUploadCheckbox->isChecked());
 
     mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
     mConfig->setCaptureDelay(mCaptureDelayCombobox->value() * 1000);
@@ -258,6 +262,7 @@ void SettingsDialog::initGui()
     mImgurForceAnonymousCheckbox->setText(tr("Force anonymous upload"));
     mImgurDirectLinkToImageCheckbox->setText(tr("Open link directly to image"));
     mImgurAlwaysCopyToClipboardCheckBox->setText(tr("Always copy Imgur link to clipboard"));
+    mImgurConfirmBeforeUploadCheckbox->setText(tr("Ask for confirmation before uploading"));
 
     mImgurClientIdLineEdit->setPlaceholderText(tr("Client ID"));
     connect(mImgurClientIdLineEdit, &QLineEdit::textChanged,
@@ -390,13 +395,14 @@ void SettingsDialog::initGui()
     imgurUploaderGrid->addWidget(mImgurForceAnonymousCheckbox, 0, 0);
     imgurUploaderGrid->addWidget(mImgurDirectLinkToImageCheckbox, 1, 0);
     imgurUploaderGrid->addWidget(mImgurAlwaysCopyToClipboardCheckBox, 2, 0);
-    imgurUploaderGrid->setRowMinimumHeight(3, 15);
-    imgurUploaderGrid->addWidget(mImgurUsernameLabel, 4, 0);
-    imgurUploaderGrid->addWidget(mImgurClientIdLineEdit, 5, 0);
-    imgurUploaderGrid->addWidget(mImgurClientSecretLineEdit, 6, 0);
-    imgurUploaderGrid->addWidget(mImgurGetPinButton, 6, 3);
-    imgurUploaderGrid->addWidget(mImgurPinLineEdit, 7, 0);
-    imgurUploaderGrid->addWidget(mImgurGetTokenButton, 7, 3);
+    imgurUploaderGrid->addWidget(mImgurConfirmBeforeUploadCheckbox, 3, 0);
+    imgurUploaderGrid->setRowMinimumHeight(4, 15);
+    imgurUploaderGrid->addWidget(mImgurUsernameLabel, 5, 0);
+    imgurUploaderGrid->addWidget(mImgurClientIdLineEdit, 6, 0);
+    imgurUploaderGrid->addWidget(mImgurClientSecretLineEdit, 7, 0);
+    imgurUploaderGrid->addWidget(mImgurGetPinButton, 7, 3);
+    imgurUploaderGrid->addWidget(mImgurPinLineEdit, 8, 0);
+    imgurUploaderGrid->addWidget(mImgurGetTokenButton, 8, 3);
 
     auto imgurUploaderGrpBox = new QGroupBox(tr("Imgur Uploader"));
     imgurUploaderGrpBox->setLayout(imgurUploaderGrid);

@@ -500,8 +500,7 @@ void MainWindow::copyToClipboard()
  */
 bool MainWindow::popupQuestion(const QString& title, const QString& question)
 {
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, title, question, QMessageBox::Yes | QMessageBox::No);
+    auto reply = QMessageBox::question(this, title, question, QMessageBox::Yes | QMessageBox::No);
 
     if (reply == QMessageBox::Yes) {
         return true;
@@ -900,15 +899,20 @@ void MainWindow::saveCaptureClicked()
     setSaveAble(false);
 }
 
-/*
- * Upload Image to Imgur page, this function only starts the upload, if the
- * upload was successful is determent by the uploadToImgurFinished function.
- */
 void MainWindow::imgurUploadClicked()
 {
     // If we have no capture, abort here.
     if (!mPaintArea->isValid()) {
         return;
+    }
+
+    if (mConfig->imgurConfirmBeforeUpload()) {
+        auto proceedWithUpload = popupQuestion(tr("Imgur Upload"),
+                                               tr("You are about to upload the screenshot to "
+                                                       "a imgur.com, do you want to proceed?"));
+        if (!proceedWithUpload) {
+            return;
+        }
     }
 
     // Upload to Imgur Account

@@ -227,6 +227,9 @@ public:
     bool imgurAlwaysCopyToClipboard() const;
     void setImgurAlwaysCopyToClipboard(bool enabled);
 
+    bool imgurConfirmBeforeUpload() const;
+    void setImgurConfirmBeforeUpload(bool enabled);
+
 signals:
     void painterUpdated() const;
 

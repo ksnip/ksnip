@@ -50,6 +50,7 @@ private:
     QCheckBox       *mImgurForceAnonymousCheckbox;
     QCheckBox       *mImgurDirectLinkToImageCheckbox;
     QCheckBox       *mImgurAlwaysCopyToClipboardCheckBox;
+    QCheckBox       *mImgurConfirmBeforeUploadCheckbox;
     QCheckBox       *mSmoothPathCheckbox;
     QCheckBox       *mItemShadowCheckbox;
     QCheckBox       *mCursorRulerCheckbox;

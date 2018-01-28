@@ -947,3 +947,17 @@ void KsnipConfig::setImgurAlwaysCopyToClipboard(bool  enabled)
     mConfig.setValue(QStringLiteral("Imgur/AlwaysCopyToClipboard"), enabled);
     mConfig.sync();
 }
+
+bool KsnipConfig::imgurConfirmBeforeUpload() const
+{
+    return mConfig.value(QStringLiteral("Imgur/ConfirmBeforeUpload"), true).toBool();
+}
+
+void KsnipConfig::setImgurConfirmBeforeUpload(bool enabled)
+{
+    if (imgurConfirmBeforeUpload() == enabled) {
+        return;
+    }
+    mConfig.setValue(QStringLiteral("Imgur/ConfirmBeforeUpload"), enabled);
+    mConfig.sync();
+}

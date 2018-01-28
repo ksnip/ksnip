@@ -39,10 +39,10 @@ public:
     AbstractPainterItem(const AbstractPainterItem& other);
     virtual ~AbstractPainterItem();
     virtual int type() const override;
-    virtual QRectF boundingRect() const override = 0;
+    virtual QRectF boundingRect() const override;
     virtual void addPoint(const QPointF &pos, bool modifier = 0);
     virtual void moveTo(const QPointF &newPos) = 0;
-    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const;
+    virtual bool containsRect(const QRectF& rect) const;
     virtual QPainterPath shape() const override;
     virtual bool isValid() const;
     virtual QPointF position() const;

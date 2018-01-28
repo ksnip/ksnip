@@ -29,7 +29,6 @@ public:
     PainterPen(const QPointF &pos, const QPen &attributes);
     PainterPen(const PainterPen& other);
     virtual ~PainterPen() override;
-    virtual QRectF boundingRect() const override;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
     virtual void moveTo(const QPointF &newPos) override;
     void smoothOut(float factor);

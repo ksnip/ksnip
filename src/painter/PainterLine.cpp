@@ -37,12 +37,6 @@ PainterLine::~PainterLine()
     delete mLine;
 }
 
-QRectF PainterLine::boundingRect() const
-{
-    auto offset = attributes().width() / 2;
-    return QRectF(mLine->p1(), mLine->p2()).normalized().adjusted(-offset, -offset, offset, offset);
-}
-
 void PainterLine::addPoint(const QPointF& pos, bool modifier)
 {
     prepareGeometryChange();

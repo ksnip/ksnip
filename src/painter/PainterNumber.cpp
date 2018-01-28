@@ -50,11 +50,6 @@ PainterNumber::~PainterNumber()
     delete mTextColor;
 }
 
-QRectF PainterNumber::boundingRect() const
-{
-    return mRect;
-}
-
 void PainterNumber::moveTo(const QPointF& newPos)
 {
     prepareGeometryChange();

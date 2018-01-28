@@ -60,6 +60,11 @@ int AbstractPainterItem::type() const
     return Type;
 }
 
+QRectF AbstractPainterItem::boundingRect() const
+{
+    return shape().boundingRect();
+}
+
 void AbstractPainterItem::addPoint(const QPointF& pos, bool modifier)
 {
     Q_UNUSED(pos);
@@ -68,9 +73,8 @@ void AbstractPainterItem::addPoint(const QPointF& pos, bool modifier)
     // Nothing to do here
 }
 
-bool AbstractPainterItem::containsRect(const QPointF& topLeft, const QSize& size) const
+bool AbstractPainterItem::containsRect(const QRectF& rect) const
 {
-    QRectF rect(topLeft - QPointF(size.width() / 2, size.height() / 2), size);
     return shape().intersects(rect);
 }
 

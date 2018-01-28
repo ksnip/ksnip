@@ -39,11 +39,6 @@ PainterArrow::PainterArrow(const PainterArrow& other) : PainterLine(other)
     this->mArrow = other.mArrow;
 }
 
-QRectF PainterArrow::boundingRect() const
-{
-    return mArrow.boundingRect().normalized();
-}
-
 void PainterArrow::addPoint(const QPointF& pos, bool modifier)
 {
     prepareGeometryChange();

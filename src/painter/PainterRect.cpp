@@ -34,12 +34,6 @@ PainterRect::PainterRect(const PainterRect& other) : AbstractPainterItem(other)
     this->mRect = other.mRect;
 }
 
-QRectF PainterRect::boundingRect() const
-{
-    qreal width = attributes().widthF();
-    return mRect.normalized().adjusted(-width / 2, -width / 2, width, width);
-}
-
 void PainterRect::addPoint(const QPointF& pos, bool modifier)
 {
     prepareGeometryChange();

@@ -62,11 +62,6 @@ PainterText::~PainterText()
     delete mCursorBlinkTimer;
 }
 
-QRectF PainterText::boundingRect() const
-{
-    return mRect;
-}
-
 void PainterText::moveTo(const QPointF& newPos)
 {
     prepareGeometryChange();

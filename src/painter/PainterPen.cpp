@@ -54,11 +54,6 @@ PainterPen::~PainterPen()
     delete mStroker;
 }
 
-QRectF PainterPen::boundingRect() const
-{
-    return mStroker->createStroke(*mPath).boundingRect();
-}
-
 void PainterPen::addPoint(const QPointF& pos, bool modifier)
 {
     Q_UNUSED(modifier);

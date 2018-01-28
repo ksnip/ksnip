@@ -334,10 +334,12 @@ void PaintArea::eraseItemAt(const QPointF& position, int size)
 
 AbstractPainterItem* PaintArea::findItemAt(const QPointF& position, int size)
 {
+    QRectF rect(position - QPointF(size / 2, size / 2), QSize(size, size));
+
     for (auto item : items()) {
         auto baseItem = qgraphicsitem_cast<AbstractPainterItem*> (item);
 
-        if (baseItem && baseItem->containsRect(position, QSize(size, size))) {
+        if (baseItem && baseItem->containsRect(rect)) {
             return baseItem;
         }
     }

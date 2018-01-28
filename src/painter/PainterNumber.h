@@ -28,7 +28,6 @@ public:
     PainterNumber(const QPointF &pos, const QPen &attributes, const QFont &font, int number);
     PainterNumber(const PainterNumber& other);
     virtual ~PainterNumber();
-    virtual QRectF boundingRect() const override;
     virtual void moveTo(const QPointF &newPos) override;
 
 private:

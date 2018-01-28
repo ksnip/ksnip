@@ -44,7 +44,6 @@ public:
     PainterText(const QPointF &pos, const QPen &attributes, const QFont &font);
     PainterText(const PainterText& other);
     virtual ~PainterText() override;
-    virtual QRectF boundingRect() const override;
     virtual void moveTo(const QPointF &newPos) override;
     virtual bool isValid() const override;
     bool isEditable() const;

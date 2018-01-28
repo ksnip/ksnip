@@ -79,6 +79,10 @@ int main(int argc, char** argv)
         {{QStringLiteral("c"), QStringLiteral("cursor")},
             QCoreApplication::translate("main", "Capture mouse cursor on screenshot."),
         },
+        {{QStringLiteral("e"), QStringLiteral("edit")},
+            QCoreApplication::translate("main", "Edit existing image in ksnip"),
+            QCoreApplication::translate("main", "image")
+        }
     });
     parser.process(app);
 
@@ -91,6 +95,21 @@ int main(int argc, char** argv)
         window = new MainWindow(imageGrabber, MainWindow::GUI);
         return app.exec();
     }
+
+    if (parser.isSet(QStringLiteral("e"))) {
+        auto pathToImage = parser.value(QStringLiteral("e"));
+        QPixmap pixmap(pathToImage);
+
+        if (pixmap.isNull()) {
+            qWarning("Unable to open image file %s.", qPrintable(pathToImage));
+            return 1;
+        }
+
+        window = new MainWindow(imageGrabber, MainWindow::GUI);
+        window->showCapture(pixmap);
+        return app.exec();
+    }
+
     // If we have reached this point, we are running CLI mode
     window = new MainWindow(imageGrabber, MainWindow::CLI);
 

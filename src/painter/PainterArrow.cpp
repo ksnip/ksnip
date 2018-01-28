@@ -46,6 +46,7 @@ QRectF PainterArrow::boundingRect() const
 
 void PainterArrow::addPoint(const QPointF& pos, bool modifier)
 {
+    prepareGeometryChange();
     PainterLine::addPoint(pos, modifier);
     updateArrow();
     updateShape();
@@ -53,6 +54,7 @@ void PainterArrow::addPoint(const QPointF& pos, bool modifier)
 
 void PainterArrow::moveTo(const QPointF& newPos)
 {
+    prepareGeometryChange();
     PainterLine::moveTo(newPos);
     updateArrow();
     updateShape();
@@ -64,7 +66,7 @@ void PainterArrow::updateShape()
     path.lineTo(mLine->p2());
     path.addPolygon(mArrow);
     path.closeSubpath();
-    prepareGeometryChange(path);
+    changeShape(path);
 }
 
 void PainterArrow::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)

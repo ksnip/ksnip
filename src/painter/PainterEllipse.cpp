@@ -28,7 +28,7 @@ void PainterEllipse::updateShape()
 {
     QPainterPath path;
     path.addEllipse(mRect);
-    prepareGeometryChange(path);
+    changeShape(path);
 }
 
 void PainterEllipse::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)

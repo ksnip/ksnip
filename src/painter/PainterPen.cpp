@@ -63,12 +63,14 @@ void PainterPen::addPoint(const QPointF& pos, bool modifier)
 {
     Q_UNUSED(modifier);
 
+    prepareGeometryChange();
     mPath->lineTo(pos);
     updateShape();
 }
 
 void PainterPen::moveTo(const QPointF& newPos)
 {
+    prepareGeometryChange();
     mPath->translate(newPos - offset() - boundingRect().topLeft());
     updateShape();
 }
@@ -115,13 +117,16 @@ void PainterPen::smoothOut(float factor)
         path->lineTo(pt2);
     }
 
+    prepareGeometryChange();
     mPath->swap(*path);
     updateShape();
 }
 
 void PainterPen::updateShape()
 {
-    prepareGeometryChange(*mPath);
+    // Should be fixed when we paint only parent path from shape
+    QPainterPath path(*mPath);
+    changeShape(path);
 }
 
 void PainterPen::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)

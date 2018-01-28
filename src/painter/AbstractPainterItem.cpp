@@ -45,13 +45,14 @@ AbstractPainterItem::AbstractPainterItem(const AbstractPainterItem& other)
     this->setSelectable(other.selectable());
     this->setOffset(other.offset());
     this->mPainterPath = new QPainterPath(*other.mPainterPath);
-    this->mPainterPathStroker = new QPainterPathStroker(mAttributes);
+    this->mPainterPathStroker = new QPainterPathStroker(other.mAttributes);
 }
 
 AbstractPainterItem::~AbstractPainterItem()
 {
     mOrder--;
     delete mPainterPath;
+    delete mPainterPathStroker;
 }
 
 int AbstractPainterItem::type() const
@@ -208,8 +209,7 @@ void AbstractPainterItem::setPaintWithStroker(bool enabled)
     mPaintWithStroker = enabled;
 }
 
-void AbstractPainterItem::prepareGeometryChange(QPainterPath path)
+void AbstractPainterItem::changeShape(QPainterPath& path)
 {
-    QGraphicsItem::prepareGeometryChange();
     mPainterPath->swap(path);
 }

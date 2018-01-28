@@ -65,7 +65,7 @@ protected:
     void paintDecoration(QPainter *painter);
     bool paintWithStroker() const;
     void setPaintWithStroker(bool enabled);
-    void prepareGeometryChange(QPainterPath path);
+    void changeShape(QPainterPath& path);
 
 private:
     QPen          mAttributes;

@@ -42,6 +42,7 @@ QRectF PainterRect::boundingRect() const
 
 void PainterRect::addPoint(const QPointF& pos, bool modifier)
 {
+    prepareGeometryChange();
     mRect.setBottomRight(pos);
     if (modifier) {
         mRect.setHeight(MathHelper::smallerValue(mRect.height(), mRect.width()));
@@ -52,6 +53,7 @@ void PainterRect::addPoint(const QPointF& pos, bool modifier)
 
 void PainterRect::moveTo(const QPointF& newPos)
 {
+    prepareGeometryChange();
     mRect.translate(newPos - offset() - boundingRect().topLeft());
     updateShape();
 }
@@ -60,7 +62,7 @@ void PainterRect::updateShape()
 {
     QPainterPath path;
     path.addRect(mRect);
-    prepareGeometryChange(path);
+    changeShape(path);
 }
 
 void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)

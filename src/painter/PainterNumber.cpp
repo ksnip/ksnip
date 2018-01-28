@@ -27,10 +27,10 @@ PainterNumber::PainterNumber(const QPointF& pos, const QPen& attributes, const Q
 {
     setPaintWithStroker(false);
 
+    prepareGeometryChange();
     mNumber = number;
     mRect = calculateBoundingRect();
     mRect.moveCenter(pos);
-
     updateShape();
 }
 
@@ -57,6 +57,7 @@ QRectF PainterNumber::boundingRect() const
 
 void PainterNumber::moveTo(const QPointF& newPos)
 {
+    prepareGeometryChange();
     mRect.translate(newPos - offset() - boundingRect().topLeft());
     updateShape();
 }
@@ -83,7 +84,7 @@ void PainterNumber::updateShape()
 {
     QPainterPath path;
     path.addEllipse(mRect);
-    prepareGeometryChange(path);
+    changeShape(path);
 }
 
 void PainterNumber::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)

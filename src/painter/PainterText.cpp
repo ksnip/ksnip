@@ -38,7 +38,7 @@ PainterText::PainterText(const QPointF& pos, const QPen& attributes, const QFont
     // Trigger cursor blinking
     connect(mCursorBlinkTimer, &QTimer::timeout, [this]() {
         mCursorVisible = !mCursorVisible;
-        updateShape();
+        prepareGeometryChange();
     });
 
     mCursorBlinkTimer->start(1000);
@@ -69,6 +69,7 @@ QRectF PainterText::boundingRect() const
 
 void PainterText::moveTo(const QPointF& newPos)
 {
+    prepareGeometryChange();
     mRect.translate(newPos - offset() - boundingRect().topLeft());
     updateShape();
 }
@@ -139,7 +140,6 @@ void PainterText::keyPressEvent(QKeyEvent* event)
         insertChar(event->text());
     }
     updateRect();
-    updateShape();
 }
 
 void PainterText::focusOutEvent(QFocusEvent*)
@@ -151,7 +151,7 @@ void PainterText::updateShape()
 {
     QPainterPath path;
     path.addRect(mRect);
-    prepareGeometryChange(path);
+    changeShape(path);
 }
 
 void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
@@ -278,6 +278,7 @@ void PainterText::finishEditing()
 
 void PainterText::updateRect()
 {
+    prepareGeometryChange();
     mRect = mFontMetric->boundingRect(mRect.toRect(), Qt::AlignLeft, mText);
     mRect.adjust(0, 0, mTextBoxMargine * 2, mTextBoxMargine * 2);
     updateShape();

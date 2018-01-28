@@ -24,30 +24,11 @@ PainterEllipse::PainterEllipse(const QPointF& pos, const QPen& attributes, bool 
 {
 }
 
-PainterEllipse::PainterEllipse(const PainterEllipse& other) : PainterRect(other)
-{
-}
-
-bool PainterEllipse::containsRect(const QPointF& topLeft, const QSize& size) const
-{
-    QRectF rect(topLeft - QPointF(size.width() / 2, size.height() / 2), size);
-    return shape().intersects(rect);
-}
-
-QPainterPath PainterEllipse::shape() const
+void PainterEllipse::updateShape()
 {
     QPainterPath path;
-    if (mFilled) {
-        path.addEllipse(mRect);
-    } else {
-        QRegion r1(mRect.normalized().toRect(), QRegion::Ellipse);
-        auto w = attributes().width();
-        QRegion r2(mRect.normalized().adjusted(w, w, -w, -w).toRect(), QRegion::Ellipse);
-
-        path.addRegion(r1.subtracted(r2));
-    }
-
-    return path;
+    path.addEllipse(mRect);
+    prepareGeometryChange(path);
 }
 
 void PainterEllipse::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)

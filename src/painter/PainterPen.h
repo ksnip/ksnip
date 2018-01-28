@@ -32,8 +32,6 @@ public:
     virtual QRectF boundingRect() const override;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
     virtual void moveTo(const QPointF &newPos) override;
-    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
-    virtual QPainterPath shape() const override;
     void smoothOut(float factor);
 
 protected:
@@ -41,6 +39,7 @@ protected:
     QPainterPathStroker *mStroker;
 
 private:
+    virtual void updateShape() override;
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
 };
 

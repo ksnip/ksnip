@@ -26,7 +26,7 @@ class PainterMarker : public PainterPen
 {
 public:
     PainterMarker(const QPointF &pos, const QPen &attributes);
-    PainterMarker(const PainterMarker& other);
+    PainterMarker(const PainterMarker& other) = default;
 
 private:
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;

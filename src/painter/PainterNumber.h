@@ -30,8 +30,6 @@ public:
     virtual ~PainterNumber();
     virtual QRectF boundingRect() const override;
     virtual void moveTo(const QPointF &newPos) override;
-    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
-    virtual QPainterPath shape() const override;
 
 private:
     int           mNumber;
@@ -43,6 +41,7 @@ private:
     QRectF calculateBoundingRect();
     QString getText() const;
     QRectF getTextBoundingRect() const;
+    virtual void updateShape() override;
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
 };
 

@@ -31,13 +31,14 @@ PainterText::PainterText(const QPointF& pos, const QPen& attributes, const QFont
     setFlag(QGraphicsItem::ItemIsFocusable, true);
     setOutlineStyle(Qt::DashLine);
     setOutlineWidth(1);
+    setPaintWithStroker(false);
     mRect.moveTo(pos);
     updateRect();
 
     // Trigger cursor blinking
     connect(mCursorBlinkTimer, &QTimer::timeout, [this]() {
         mCursorVisible = !mCursorVisible;
-        prepareGeometryChange();
+        updateShape();
     });
 
     mCursorBlinkTimer->start(1000);
@@ -68,16 +69,8 @@ QRectF PainterText::boundingRect() const
 
 void PainterText::moveTo(const QPointF& newPos)
 {
-    prepareGeometryChange();
     mRect.translate(newPos - offset() - boundingRect().topLeft());
-}
-
-bool PainterText::containsRect(const QPointF& topLeft, const QSize& size) const
-{
-    return shape().intersects(QRectF(topLeft.x() - size.width() / 2,
-                                   topLeft.y() - size.height() / 2,
-                                   size.width(),
-                                   size.height()));
+    updateShape();
 }
 
 bool PainterText::isValid() const
@@ -87,13 +80,6 @@ bool PainterText::isValid() const
     } else {
         return true;
     }
-}
-
-QPainterPath PainterText::shape() const
-{
-    QPainterPath path;
-    path.addRect(mRect);
-    return path;
 }
 
 bool PainterText::isEditable() const
@@ -153,7 +139,7 @@ void PainterText::keyPressEvent(QKeyEvent* event)
         insertChar(event->text());
     }
     updateRect();
-    prepareGeometryChange();
+    updateShape();
 }
 
 void PainterText::focusOutEvent(QFocusEvent*)
@@ -161,8 +147,18 @@ void PainterText::focusOutEvent(QFocusEvent*)
     finishEditing();
 }
 
+void PainterText::updateShape()
+{
+    QPainterPath path;
+    path.addRect(mRect);
+    prepareGeometryChange(path);
+}
+
 void PainterText::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
 {
+    Q_UNUSED(style);
+    Q_UNUSED(widget);
+
     painter->setPen(attributes());
 
     if (mEditable) {
@@ -240,9 +236,9 @@ void PainterText::moveCursor(PainterText::CursorPos direction)
     mCursorVisible = true;
 }
 
-void PainterText::insertChar(const QString& c)
+void PainterText::insertChar(const QString& character)
 {
-    mText.insert(mCursorPos, c);
+    mText.insert(mCursorPos, character);
     moveCursor(Next);
 }
 
@@ -282,9 +278,9 @@ void PainterText::finishEditing()
 
 void PainterText::updateRect()
 {
-    prepareGeometryChange();
     mRect = mFontMetric->boundingRect(mRect.toRect(), Qt::AlignLeft, mText);
     mRect.adjust(0, 0, mTextBoxMargine * 2, mTextBoxMargine * 2);
+    updateShape();
 }
 
 void PainterText::pasteClipboard()

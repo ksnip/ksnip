@@ -27,11 +27,10 @@ class PainterEllipse : public PainterRect
 {
 public:
     PainterEllipse(const QPointF &pos, const QPen &attributes, bool filled = 0);
-    PainterEllipse(const PainterEllipse& other);
-    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
-    virtual QPainterPath shape() const override;
+    PainterEllipse(const PainterEllipse& other) = default;
 
 private:
+    virtual void updateShape() override;
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
 };
 

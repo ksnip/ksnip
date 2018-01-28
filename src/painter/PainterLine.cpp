@@ -45,30 +45,25 @@ QRectF PainterLine::boundingRect() const
 
 void PainterLine::addPoint(const QPointF& pos, bool modifier)
 {
-    prepareGeometryChange();
     mLine->setP2(pos);
     if (modifier) {
         auto newAngle = MathHelper::roundAngleTo(mLine->angle(), 45);
         mLine->setAngle(newAngle);
     }
+    updateShape();
 }
 
 void PainterLine::moveTo(const QPointF& newPos)
 {
-    prepareGeometryChange();
     mLine->translate(newPos - offset() - boundingRect().topLeft());
+    updateShape();
 }
 
-bool PainterLine::containsRect(const QPointF& topLeft, const QSize& size) const
-{
-    return shape().intersects(QRectF(topLeft, size));
-}
-
-QPainterPath PainterLine::shape() const
+void PainterLine::updateShape()
 {
     QPainterPath path(mLine->p1());
     path.lineTo(mLine->p2());
-    return path;
+    prepareGeometryChange(path);
 }
 
 void PainterLine::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)

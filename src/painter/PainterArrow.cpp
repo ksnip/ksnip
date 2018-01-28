@@ -26,6 +26,8 @@ PainterArrow::PainterArrow(const QPointF& pos, const QPen& attributes) :
     mArrowHeadLength = 20 * mScale;
     mArrowHeadWidth = 10 * mScale;
     mArrowHeadMid = 17 * mScale;
+
+    setPaintWithStroker(false);
 }
 
 PainterArrow::PainterArrow(const PainterArrow& other) : PainterLine(other)
@@ -46,21 +48,23 @@ void PainterArrow::addPoint(const QPointF& pos, bool modifier)
 {
     PainterLine::addPoint(pos, modifier);
     updateArrow();
+    updateShape();
 }
 
 void PainterArrow::moveTo(const QPointF& newPos)
 {
     PainterLine::moveTo(newPos);
     updateArrow();
+    updateShape();
 }
 
-QPainterPath PainterArrow::shape() const
+void PainterArrow::updateShape()
 {
     QPainterPath path(mLine->p1());
     path.lineTo(mLine->p2());
     path.addPolygon(mArrow);
     path.closeSubpath();
-    return path;
+    prepareGeometryChange(path);
 }
 
 void PainterArrow::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)

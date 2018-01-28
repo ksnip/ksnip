@@ -2,11 +2,12 @@
 
 ## Release 1.5.0
 * New: Added Continues Build with Travis-CI that creates AppImages for every commit. ([#63](https://github.com/DamirPorobic/ksnip/issues/63))
-* New: Added option to open image from file via gui. ([#60](https://github.com/DamirPorobic/ksnip/issues/60))
+* New: Added option to open image from file via GUI. ([#60](https://github.com/DamirPorobic/ksnip/issues/60))
 * New: Added option to set next number for Numbering Paint Items via popup settings. ([#59](https://github.com/DamirPorobic/ksnip/issues/59))
 * New: Added experimental Wayland support for KDE and Gnome DEs. ([#56](https://github.com/DamirPorobic/ksnip/issues/56))
 * New: Metadata info for ksnip is now installed in the /usr/share/metainfo directory.([#66](https://github.com/DamirPorobic/ksnip/issues/66))
 * Changed: Move and select operation are now combined under single tool. ([#72](https://github.com/DamirPorobic/ksnip/issues/72))
+* Changed: Item selection is now based on item shape and not on item bounding rect. ([#83](https://github.com/DamirPorobic/ksnip/issues/83))
 * Fixed: Crash on Ubuntu 17.10 caused by null painterPath pointer in smoothOut method. ([#67](https://github.com/DamirPorobic/ksnip/issues/67))
 * Fixed: Default filename for screenshot had one $ sign too many. ([#68](https://github.com/DamirPorobic/ksnip/issues/68))
 * Fixed: Cancel on browse to save directory in settings dialog clears save path. ([#69](https://github.com/DamirPorobic/ksnip/issues/69))

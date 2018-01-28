@@ -40,10 +40,10 @@ public:
     virtual ~AbstractPainterItem();
     virtual int type() const override;
     virtual QRectF boundingRect() const override = 0;
-    virtual QPainterPath shape() const override = 0;
     virtual void addPoint(const QPointF &pos, bool modifier = 0);
     virtual void moveTo(const QPointF &newPos) = 0;
-    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const = 0;
+    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const;
+    virtual QPainterPath shape() const override;
     virtual bool isValid() const;
     virtual QPointF position() const;
     virtual const QPen &attributes() const;
@@ -63,11 +63,19 @@ public:
 
 protected:
     void paintDecoration(QPainter *painter);
+    bool paintWithStroker() const;
+    void setPaintWithStroker(bool enabled);
+    void prepareGeometryChange(QPainterPath path);
 
 private:
-    QPen    mAttributes;
-    QPen    mSelectAttributes;
-    QPointF mOffset;
+    QPen          mAttributes;
+    QPen          mSelectAttributes;
+    QPointF       mOffset;
+    QPainterPath* mPainterPath;
+    QPainterPathStroker* mPainterPathStroker;
+    bool          mPaintWithStroker;
+
+    virtual void updateShape() = 0;
 };
 
 #endif // ABSTRACTPAINTERITEM_H

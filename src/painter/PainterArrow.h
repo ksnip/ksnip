@@ -30,7 +30,6 @@ public:
     virtual QRectF boundingRect() const override;
     virtual void addPoint(const QPointF &pos, bool modifier = 0) override;
     virtual void moveTo(const QPointF &newPos) override;
-    virtual QPainterPath shape() const override;
 
 private:
     int       mArrowHeadLength;
@@ -39,6 +38,7 @@ private:
     int       mScale;
     QPolygonF mArrow;
 
+    virtual void updateShape() override;
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *) override;
     bool isLineToShort() const;
     void updateArrow();

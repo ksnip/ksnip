@@ -25,6 +25,7 @@ PainterRect::PainterRect(const QPointF& pos, const QPen &attributes, bool filled
 {
     mRect.moveTo(pos);
     setJoinStyle(Qt::MiterJoin);
+    setPaintWithStroker(!filled);
 }
 
 PainterRect::PainterRect(const PainterRect& other) : AbstractPainterItem(other)
@@ -41,43 +42,32 @@ QRectF PainterRect::boundingRect() const
 
 void PainterRect::addPoint(const QPointF& pos, bool modifier)
 {
-    prepareGeometryChange();
     mRect.setBottomRight(pos);
     if (modifier) {
         mRect.setHeight(MathHelper::smallerValue(mRect.height(), mRect.width()));
         mRect.setWidth(MathHelper::smallerValue(mRect.width(), mRect.height()));
     }
+    updateShape();
 }
 
 void PainterRect::moveTo(const QPointF& newPos)
 {
-    prepareGeometryChange();
     mRect.translate(newPos - offset() - boundingRect().topLeft());
+    updateShape();
 }
 
-bool PainterRect::containsRect(const QPointF& topLeft, const QSize& size) const
-{
-    QRectF rect(topLeft - QPointF(size.width() / 2, size.height() / 2), size);
-    return shape().intersects(rect);
-}
-
-QPainterPath PainterRect::shape() const
+void PainterRect::updateShape()
 {
     QPainterPath path;
-    if(mFilled) {
-        path.addRect(mRect);
-    } else {
-        QRegion r1(mRect.normalized().toRect());
-        auto w = attributes().width();
-        QRegion r2(mRect.normalized().adjusted(w, w, -w, -w).toRect());
-
-        path.addRegion(r1.subtracted(r2));
-    }
-    return path;
+    path.addRect(mRect);
+    prepareGeometryChange(path);
 }
 
-void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
+void PainterRect::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
 {
+    Q_UNUSED(style);
+    Q_UNUSED(widget);
+
     if (mFilled) {
         painter->setBrush(attributes().color());
     }

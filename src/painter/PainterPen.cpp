@@ -61,25 +61,16 @@ QRectF PainterPen::boundingRect() const
 
 void PainterPen::addPoint(const QPointF& pos, bool modifier)
 {
-    prepareGeometryChange();
+    Q_UNUSED(modifier);
+
     mPath->lineTo(pos);
+    updateShape();
 }
 
 void PainterPen::moveTo(const QPointF& newPos)
 {
-    prepareGeometryChange();
     mPath->translate(newPos - offset() - boundingRect().topLeft());
-}
-
-bool PainterPen::containsRect(const QPointF& topLeft, const QSize& size) const
-{
-    QRectF rect(topLeft - QPointF(size.width() / 2, size.height() / 2), size);
-    return shape().intersects(rect);
-}
-
-QPainterPath PainterPen::shape() const
-{
-    return mStroker->createStroke(*mPath);
+    updateShape();
 }
 
 /*
@@ -112,7 +103,7 @@ void PainterPen::smoothOut(float factor)
 
     QPointF pt1;
     QPointF pt2;
-    QPainterPath* path = new QPainterPath();
+    QScopedPointer<QPainterPath> path(new QPainterPath());
     for (auto i = 0; i < points.count() - 1; i++) {
         pt1 = MathHelper::getBeginOfRounding(points[i], points[i + 1]);
         if (i == 0) {
@@ -124,13 +115,20 @@ void PainterPen::smoothOut(float factor)
         path->lineTo(pt2);
     }
 
-    delete mPath;
-    mPath = path;
-    prepareGeometryChange();
+    mPath->swap(*path);
+    updateShape();
 }
 
-void PainterPen::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
+void PainterPen::updateShape()
 {
+    prepareGeometryChange(*mPath);
+}
+
+void PainterPen::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
+{
+    Q_UNUSED(style);
+    Q_UNUSED(widget);
+
     painter->setPen(attributes().color());
     painter->setBrush(attributes().color());
     painter->drawPath(mStroker->createStroke(*mPath));

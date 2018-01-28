@@ -329,6 +329,7 @@ void PaintArea::eraseItemAt(const QPointF& position, int size)
 {
     auto item = findItemAt(position, size);
     if (item) {
+        item->setSelected(true);
         eraseSelectedItems();
     }
 }

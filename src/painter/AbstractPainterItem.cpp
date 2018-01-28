@@ -21,11 +21,16 @@
 
 int AbstractPainterItem::mOrder = 1;
 
-AbstractPainterItem::AbstractPainterItem(const QPen& attributes)
+AbstractPainterItem::AbstractPainterItem(const QPen& attributes) :
+    mPainterPath(new QPainterPath),
+    mPaintWithStroker(true)
 {
     mAttributes = attributes;
+
     mSelectAttributes.setColor(Qt::red);
     mSelectAttributes.setStyle(Qt::DotLine);
+
+    mPainterPathStroker = new QPainterPathStroker(mAttributes);
 
     setZValue(mOrder++);
 }
@@ -39,11 +44,14 @@ AbstractPainterItem::AbstractPainterItem(const AbstractPainterItem& other)
     }
     this->setSelectable(other.selectable());
     this->setOffset(other.offset());
+    this->mPainterPath = new QPainterPath(*other.mPainterPath);
+    this->mPainterPathStroker = new QPainterPathStroker(mAttributes);
 }
 
 AbstractPainterItem::~AbstractPainterItem()
 {
     mOrder--;
+    delete mPainterPath;
 }
 
 int AbstractPainterItem::type() const
@@ -53,6 +61,25 @@ int AbstractPainterItem::type() const
 
 void AbstractPainterItem::addPoint(const QPointF& pos, bool modifier)
 {
+    Q_UNUSED(pos);
+    Q_UNUSED(modifier);
+
+    // Nothing to do here
+}
+
+bool AbstractPainterItem::containsRect(const QPointF& topLeft, const QSize& size) const
+{
+    QRectF rect(topLeft - QPointF(size.width() / 2, size.height() / 2), size);
+    return shape().intersects(rect);
+}
+
+QPainterPath AbstractPainterItem::shape() const
+{
+    if (mPaintWithStroker) {
+        return mPainterPathStroker->createStroke(*mPainterPath);
+    } else {
+        return *mPainterPath;
+    }
 }
 
 bool AbstractPainterItem::isValid() const
@@ -169,4 +196,20 @@ void AbstractPainterItem::paintDecoration(QPainter* painter)
         painter->setBrush(Qt::NoBrush);
         painter->drawRect(boundingRect());
     }
+}
+
+bool AbstractPainterItem::paintWithStroker() const
+{
+    return mPaintWithStroker;
+}
+
+void AbstractPainterItem::setPaintWithStroker(bool enabled)
+{
+    mPaintWithStroker = enabled;
+}
+
+void AbstractPainterItem::prepareGeometryChange(QPainterPath path)
+{
+    QGraphicsItem::prepareGeometryChange();
+    mPainterPath->swap(path);
 }

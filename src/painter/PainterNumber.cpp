@@ -25,9 +25,13 @@ PainterNumber::PainterNumber(const QPointF& pos, const QPen& attributes, const Q
     mFontMetric(new QFontMetrics(*mFont)),
     mTextColor(new QColor(QStringLiteral("white")))
 {
+    setPaintWithStroker(false);
+
     mNumber = number;
     mRect = calculateBoundingRect();
     mRect.moveCenter(pos);
+
+    updateShape();
 }
 
 PainterNumber::PainterNumber(const PainterNumber& other) : AbstractPainterItem(other)
@@ -53,20 +57,8 @@ QRectF PainterNumber::boundingRect() const
 
 void PainterNumber::moveTo(const QPointF& newPos)
 {
-    prepareGeometryChange();
     mRect.translate(newPos - offset() - boundingRect().topLeft());
-}
-
-bool PainterNumber::containsRect(const QPointF& topLeft, const QSize& size) const
-{
-    return shape().contains(QRectF(topLeft, size));
-}
-
-QPainterPath PainterNumber::shape() const
-{
-    QPainterPath path;
-    path.addEllipse(mRect);
-    return path;
+    updateShape();
 }
 
 QRectF PainterNumber::calculateBoundingRect()
@@ -85,6 +77,13 @@ QString PainterNumber::getText() const
 QRectF PainterNumber::getTextBoundingRect() const
 {
     return mFontMetric->boundingRect(getText()).adjusted(-5, -5, 5, 5);
+}
+
+void PainterNumber::updateShape()
+{
+    QPainterPath path;
+    path.addEllipse(mRect);
+    prepareGeometryChange(path);
 }
 
 void PainterNumber::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)

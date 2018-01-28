@@ -46,9 +46,7 @@ public:
     virtual ~PainterText() override;
     virtual QRectF boundingRect() const override;
     virtual void moveTo(const QPointF &newPos) override;
-    virtual bool containsRect(const QPointF &topLeft, const QSize &size) const override;
     virtual bool isValid() const override;
-    virtual QPainterPath shape() const override;
     bool isEditable() const;
     QFont font() const;
     void setFont(const QFont &font);
@@ -68,9 +66,10 @@ private:
     int           mCursorPos;
     bool          mCursorVisible;
 
+    virtual void updateShape() override;
     virtual void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) override;
     void moveCursor(CursorPos direction);
-    void insertChar(const QString &c);
+    void insertChar(const QString &character);
     void removeChar(CursorPos direction);
     void finishEditing();
     void updateRect();

@@ -23,10 +23,6 @@ PainterMarker::PainterMarker(const QPointF& pos, const QPen& attributes) : Paint
 {
 }
 
-PainterMarker::PainterMarker(const PainterMarker& other) : PainterPen(other)
-{
-}
-
 void PainterMarker::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     painter->setCompositionMode(QPainter::CompositionMode_ColorBurn);

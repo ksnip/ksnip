@@ -26,8 +26,7 @@
 
 PainterPen::PainterPen(const QPointF& pos, const QPen& attributes) :
     AbstractPainterItem(attributes),
-    mPath(new QPainterPath),
-    mStroker(new QPainterPathStroker(this->attributes()))
+    mPath(new QPainterPath)
 {
     // Place the path at the right location and draw the first point, which is
     // actually a line just moved one pixel as QT won't draw a line if the point
@@ -35,23 +34,18 @@ PainterPen::PainterPen(const QPointF& pos, const QPen& attributes) :
     mPath->moveTo(pos);
     mPath->lineTo(pos + QPointF(1, 1));
 
-    mStroker->setCapStyle(Qt::RoundCap);
-    mStroker->setJoinStyle(Qt::RoundJoin);
+    setCapStyle(Qt::RoundCap);
+    setJoinStyle(Qt::RoundJoin);
 }
 
 PainterPen::PainterPen(const PainterPen& other) : AbstractPainterItem(other)
 {
     this->mPath = new QPainterPath(*other.mPath);
-    this->mStroker = new QPainterPathStroker();
-    this->mStroker->setWidth(other.mStroker->width());
-    this->mStroker->setCapStyle(other.mStroker->capStyle());
-    this->mStroker->setJoinStyle(other.mStroker->joinStyle());
 }
 
 PainterPen::~PainterPen()
 {
     delete mPath;
-    delete mStroker;
 }
 
 void PainterPen::addPoint(const QPointF& pos, bool modifier)
@@ -100,28 +94,28 @@ void PainterPen::smoothOut(float factor)
 
     QPointF pt1;
     QPointF pt2;
-    QScopedPointer<QPainterPath> path(new QPainterPath());
+    QPainterPath path;
+
     for (auto i = 0; i < points.count() - 1; i++) {
         pt1 = MathHelper::getBeginOfRounding(points[i], points[i + 1]);
         if (i == 0) {
-            path->moveTo(pt1);
+            path.moveTo(pt1);
         } else {
-            path->quadTo(points[i], pt1);
+            path.quadTo(points[i], pt1);
         }
         pt2 = MathHelper::getEndOfRounding(points[i], points[i + 1]);
-        path->lineTo(pt2);
+        path.lineTo(pt2);
     }
 
     prepareGeometryChange();
-    mPath->swap(*path);
+    mPath->swap(path);
     updateShape();
 }
 
 void PainterPen::updateShape()
 {
     // Should be fixed when we paint only parent path from shape
-    QPainterPath path(*mPath);
-    changeShape(path);
+    changeShape(*mPath);
 }
 
 void PainterPen::paint(QPainter* painter, const QStyleOptionGraphicsItem* style, QWidget* widget)
@@ -131,7 +125,7 @@ void PainterPen::paint(QPainter* painter, const QStyleOptionGraphicsItem* style,
 
     painter->setPen(attributes().color());
     painter->setBrush(attributes().color());
-    painter->drawPath(mStroker->createStroke(*mPath));
+    painter->drawPath(shape());
 
     paintDecoration(painter);
 }

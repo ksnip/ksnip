@@ -35,7 +35,6 @@ public:
 
 protected:
     QPainterPath        *mPath;
-    QPainterPathStroker *mStroker;
 
 private:
     virtual void updateShape() override;

@@ -28,7 +28,7 @@ void PainterMarker::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QW
     painter->setCompositionMode(QPainter::CompositionMode_ColorBurn);
     painter->setPen(Qt::NoPen);
     painter->setBrush(attributes().color());
-    painter->drawPath(mStroker->createStroke(*mPath));
+    painter->drawPath(shape());
 
     paintDecoration(painter);
 }

@@ -124,21 +124,25 @@ void AbstractPainterItem::setOffset(const QPointF& offset)
 void AbstractPainterItem::setJoinStyle(Qt::PenJoinStyle join)
 {
     mAttributes.setJoinStyle(join);
+    mPainterPathStroker->setJoinStyle(join);
 }
 
 void AbstractPainterItem::setCapStyle(Qt::PenCapStyle cap)
 {
     mAttributes.setCapStyle(cap);
+    mPainterPathStroker->setCapStyle(cap);
 }
 
 void AbstractPainterItem::setOutlineStyle(Qt::PenStyle penStyle)
 {
     mAttributes.setStyle(penStyle);
+    mPainterPathStroker->setDashPattern(penStyle);
 }
 
 void AbstractPainterItem::setOutlineWidth(int width)
 {
     mAttributes.setWidth(width);
+    mPainterPathStroker->setWidth(width);
 }
 
 void AbstractPainterItem::setOutlineColor(const QColor& color)
@@ -215,5 +219,5 @@ void AbstractPainterItem::setPaintWithStroker(bool enabled)
 
 void AbstractPainterItem::changeShape(QPainterPath& path)
 {
-    mPainterPath->swap(path);
+    *mPainterPath = path;
 }

@@ -290,13 +290,11 @@ void PaintArea::keyReleaseEvent(QKeyEvent* event)
 
 void PaintArea::contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
 {
-    auto item = findItemAt(event->scenePos());
+    auto item = handleSelectionAt(event->scenePos());
 
     ContextMenu contextMenu;
 
     if (item) {
-        clearSelection();
-        item->setSelected(true);
         contextMenu.addArrangeMenu();
         contextMenu.addEraseAction();
         contextMenu.addSeparator();
@@ -340,7 +338,6 @@ AbstractPainterItem* PaintArea::findItemAt(const QPointF& position, int size)
         auto baseItem = qgraphicsitem_cast<AbstractPainterItem*> (item);
 
         if (baseItem && baseItem->containsRect(position, QSize(size, size))) {
-            baseItem->setOffset(position - baseItem->boundingRect().topLeft());
             return baseItem;
         }
     }

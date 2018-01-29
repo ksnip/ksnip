@@ -28,6 +28,7 @@
 
 #include "SettingsDialog.h"
 #include "AboutDialog.h"
+#include "ScaleDialog.h"
 #include "src/painter/PaintArea.h"
 #include "src/painter/PaintModes.h"
 #include "src/widgets/CustomToolButton.h"
@@ -108,6 +109,7 @@ private:
     QAction          *mSettingsDialogAction;
     QAction          *mAboutKsnipAction;
     QAction          *mOpenImageAction;
+    QAction          *mScaleAction;
     QToolBar         *mToolBar;
     PaintArea        *mPaintArea;
     CaptureView      *mCaptureView;
@@ -144,6 +146,7 @@ private slots:
     void setPaintMode(Painter::Modes mode, bool save = true);
     void instantSave(const QPixmap &pixmap);
     void loadImageFromFile();
+    void openScale();
 };
 
 #endif // MAINWINDOW_H

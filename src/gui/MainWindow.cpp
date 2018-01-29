@@ -56,6 +56,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) : QMain
     mSettingsDialogAction(new QAction(this)),
     mAboutKsnipAction(new QAction(this)),
     mOpenImageAction(new QAction(this)),
+    mScaleAction(new QAction(this)),
     mPaintArea(new PaintArea()),
     mCaptureView(new CaptureView(mPaintArea)),
     mUndoAction(mPaintArea->getUndoAction()),
@@ -372,48 +373,27 @@ bool MainWindow::eventFilter(QObject* watched, QEvent* event)
 // Private Functions
 //
 
-/*
- * Sets the state of the widget when the image was changed or save, depending
- * on the provided boolean value. If true, the save action is enabled and
- * the title changed.
- */
 void MainWindow::setSaveAble(bool enabled)
 {
     if (enabled) {
-        mSaveAction->setEnabled(true);
         setWindowTitle(QStringLiteral("*") + QApplication::applicationName() + " - " + tr("Unsaved"));
-        mIsUnsaved = true;
     } else {
-        mSaveAction->setEnabled(false);
         setWindowTitle(QApplication::applicationName());
-        mIsUnsaved = false;
     }
+    mSaveAction->setEnabled(enabled);
+    mIsUnsaved = enabled;
 }
 
-/*
- * Sets and disables image related buttons, only save button related stuff is
- * set under setSaveAble
- */
 void MainWindow::setEnablements(bool enabled)
 {
-    if (enabled) {
-        mCropAction->setEnabled(true);
-        mPrintAction->setEnabled(true);
-        mPrintPreviewAction->setEnabled(true);
-        mUploadToImgurAction->setEnabled(true);
-        mCopyToClipboardAction->setEnabled(true);
-    } else {
-        mCropAction->setEnabled(false);
-        mPrintAction->setEnabled(false);
-        mPrintPreviewAction->setEnabled(false);
-        mUploadToImgurAction->setEnabled(false);
-        mCopyToClipboardAction->setEnabled(false);
-    }
+    mCropAction->setEnabled(enabled);
+    mPrintAction->setEnabled(enabled);
+    mPrintPreviewAction->setEnabled(enabled);
+    mUploadToImgurAction->setEnabled(enabled);
+    mCopyToClipboardAction->setEnabled(enabled);
+    mScaleAction->setEnabled(enabled);
 }
 
-/*
- * This loads ksnip settings from the config file
- */
 void MainWindow::loadSettings()
 {
     // Load paintmode setting
@@ -659,6 +639,12 @@ void MainWindow::initGui()
     mCropAction->setShortcut(Qt::SHIFT + Qt::Key_C);
     connect(mCropAction, &QAction::triggered, this, &MainWindow::openCrop);
 
+    // Create scale action
+    mScaleAction->setText(tr("Scale"));
+    mScaleAction->setToolTip(tr("Scale Screen Capture"));
+    mScaleAction->setShortcut(Qt::SHIFT + Qt::Key_S);
+    connect(mScaleAction, &QAction::triggered, this, &MainWindow::openScale);
+
     // Create actions for paint mode
     mPenAction->setText(tr("Pen"));
     mPenAction->setIcon(IconLoader::loadIcon(QStringLiteral("pen")));
@@ -851,6 +837,7 @@ void MainWindow::initGui()
     menu->addSeparator();
     menu->addAction(mCopyToClipboardAction);
     menu->addAction(mCropAction);
+    menu->addAction(mScaleAction);
     menu = menuBar()->addMenu(tr("&Options"));
     menu->addAction(mSettingsDialogAction);
     menu = menuBar()->addMenu(tr("&Help"));
@@ -1094,4 +1081,16 @@ void MainWindow::loadImageFromFile()
                           tr("Image Files (*.png *.jpg *.bmp)"));
     QPixmap pixmap(pixmapFilename);
     showCapture(pixmap);
+}
+
+void MainWindow::openScale()
+{
+    ScaleDialog scaleDialog(1000, 800, this);
+
+    connect(&scaleDialog, &ScaleDialog::finished, [this](float w, float h){
+        qCritical("%f, %f", w, h);
+    });
+
+    scaleDialog.exec();
+
 }

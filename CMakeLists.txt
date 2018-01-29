@@ -70,7 +70,8 @@ set(ksnip_SRCS src/main.cpp
                src/gui/MainWindow.cpp
                src/gui/SnippingArea.cpp
                src/gui/SettingsDialog.cpp
-               src/gui/AboutDialog.cpp)
+               src/gui/AboutDialog.cpp
+               src/gui/ScaleDialog.cpp)
 
 SET(ksnip_RES icons/resources.qrc)
 qt5_add_resources(ksnip_RES_RCC ${ksnip_RES})

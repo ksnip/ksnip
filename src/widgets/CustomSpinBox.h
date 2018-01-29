@@ -28,7 +28,7 @@ class CustomSpinBox : public QSpinBox
     Q_OBJECT
 
 public:
-    CustomSpinBox(int min, int max, QWidget *widget = 0);
+    CustomSpinBox(int min = 1, int max = 100, QWidget *widget = 0);
     int value() const;
     void setValue(int value);
 

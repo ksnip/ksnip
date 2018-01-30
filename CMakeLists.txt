@@ -48,6 +48,7 @@ set(ksnip_SRCS src/main.cpp
                src/painter/PainterNumber.cpp
                src/painter/PainterItemFactory.cpp
                src/painter/NumberSequencer.cpp
+               src/painter/UndoCommands.cpp
                src/helper/StringFormattingHelper.cpp
                src/helper/MathHelper.cpp
                src/helper/CommandRunner.cpp
@@ -58,7 +59,6 @@ set(ksnip_SRCS src/main.cpp
                src/widgets/CustomCursor.cpp
                src/widgets/CursorFactory.cpp
                src/widgets/NumericComboBox.cpp
-               src/widgets/UndoCommands.cpp
                src/widgets/ContextMenu.cpp
                src/widgets/ColorButton.cpp
                src/widgets/CustomSpinBox.cpp

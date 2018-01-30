@@ -22,8 +22,7 @@
 //
 // Move Command
 //
-MoveCommand::MoveCommand(PaintArea* scene, const QPointF& newPos, QUndoCommand* parent)
-    : QUndoCommand(parent)
+MoveCommand::MoveCommand(PaintArea* scene, const QPointF& newPos)
 {
     mScene = scene;
     for (auto item : scene->selectedItems()) {
@@ -69,9 +68,7 @@ void MoveCommand::redo()
 //
 // Delete Command
 //
-DeleteCommand::DeleteCommand(PaintArea* scene,
-                             QUndoCommand* parent)
-    : QUndoCommand(parent)
+DeleteCommand::DeleteCommand(PaintArea* scene)
 {
     mItems = scene->selectedItems();
     mScene = scene;
@@ -102,10 +99,7 @@ void DeleteCommand::redo()
 //
 // Add Command
 //
-AddCommand::AddCommand(AbstractPainterItem* painterItem,
-                       PaintArea* scene,
-                       QUndoCommand* parent)
-    : QUndoCommand(parent)
+AddCommand::AddCommand(AbstractPainterItem* painterItem, PaintArea* scene)
 {
     mScene = scene;
     mPainterItem = painterItem;
@@ -134,8 +128,7 @@ void AddCommand::redo()
 //
 // Crop Command
 //
-CropCommand::CropCommand(QGraphicsPixmapItem* pixmapItem, const QRectF& newRect,
-                         PaintArea* scene, QUndoCommand* parent) : QUndoCommand(parent)
+CropCommand::CropCommand(QGraphicsPixmapItem* pixmapItem, const QRectF& newRect, PaintArea* scene)
 {
     mScene = scene;
     mPixmapItem = pixmapItem;
@@ -190,8 +183,7 @@ void CropCommand::redo()
 //
 // ReOrder Command
 //
-ReOrderCommand::ReOrderCommand(QList<QPair<QGraphicsItem*, QGraphicsItem*> >* list,
-                               QUndoCommand*)
+ReOrderCommand::ReOrderCommand(QList<QPair<QGraphicsItem*, QGraphicsItem*> >* list)
 {
     mList = list;
 }
@@ -223,7 +215,7 @@ void ReOrderCommand::redo()
 // Past Command
 //
 
-PastCommand::PastCommand(PaintArea* scene, const QPointF& pos, QUndoCommand* parent)
+PastCommand::PastCommand(PaintArea* scene, const QPointF& pos)
 {
     mScene = scene;
     mPosition = pos;
@@ -260,3 +252,40 @@ void PastCommand::redo()
     }
     mScene->update();
 }
+
+//
+// Scale Command
+//
+ScaleCommand::ScaleCommand(QGraphicsPixmapItem* screenshot, int newWidth, int newHeight, PaintArea* scene)
+{
+    mScene = scene;
+    mScreenshot = screenshot;
+    mWidthScaleFactor = (qreal) newWidth / screenshot->boundingRect().width();
+    mHeightScaleFactor = (qreal) newHeight / screenshot->boundingRect().height();
+    mOldPixmap = new QPixmap(mScreenshot->pixmap());
+    mNewPixmap = new QPixmap(mOldPixmap->scaled(mWidthScaleFactor,
+                             mHeightScaleFactor,
+                             Qt::IgnoreAspectRatio,
+                             Qt::SmoothTransformation));
+}
+
+ScaleCommand::~ScaleCommand()
+{
+    delete mOldPixmap;
+    delete mNewPixmap;
+}
+
+void ScaleCommand::undo()
+{
+    mScreenshot->setPixmap(*mOldPixmap);
+    mScene->setSceneRect(mScreenshot->boundingRect());
+    mScene->fitViewToParent();
+}
+
+void ScaleCommand::redo()
+{
+    mScreenshot->setPixmap(*mNewPixmap);
+    mScene->setSceneRect(mScreenshot->boundingRect());
+    mScene->fitViewToParent();
+}
+

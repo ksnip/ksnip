@@ -81,7 +81,7 @@ void ScaleDialog::initGui()
 
     mWidthPixelSpinBox->setSuffix(QStringLiteral("px"));
     mWidthPixelSpinBox->setMinimum(1);
-    mWidthPixelSpinBox->setMaximum(4097);
+    mWidthPixelSpinBox->setMaximum(4001);
     mWidthPixelSpinBox->setValue(mWidth);
     mWidthPixelSpinBox->setWrapping(false);
     connect(mWidthPixelSpinBox, &CustomSpinBox::valueChanged, [this](int newValue) {
@@ -91,7 +91,7 @@ void ScaleDialog::initGui()
 
     mHeightPixelSpinBox->setSuffix(QStringLiteral("px"));
     mHeightPixelSpinBox->setMinimum(1);
-    mHeightPixelSpinBox->setMaximum(2161);
+    mHeightPixelSpinBox->setMaximum(4001);
     mHeightPixelSpinBox->setValue(mHeight);
     mHeightPixelSpinBox->setWrapping(false);
     connect(mHeightPixelSpinBox, &CustomSpinBox::valueChanged, [this](int newValue) {
@@ -119,9 +119,7 @@ void ScaleDialog::initGui()
 
     mOkButton->setText(tr("OK"));
     connect(mOkButton, &QPushButton::clicked, [this]() {
-        auto percentWidth = calculatePercent(mWidth, mWidthPixelSpinBox->value());
-        auto percentHeight = calculatePercent(mHeight, mHeightPixelSpinBox->value());
-        emit finished(percentWidth, percentHeight);
+        emit finished(mWidthPixelSpinBox->value(), mHeightPixelSpinBox->value());
         close();
     });
 

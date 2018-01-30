@@ -51,7 +51,7 @@ public:
         }
     };
 
-    MoveCommand(PaintArea *scene, const QPointF &newPos, QUndoCommand *parent = 0);
+    MoveCommand(PaintArea *scene, const QPointF &newPos);
     virtual void undo() override;
     virtual void redo() override;
     virtual bool mergeWith(const QUndoCommand *command) override;
@@ -69,7 +69,7 @@ private:
 class DeleteCommand : public QUndoCommand
 {
 public:
-    explicit DeleteCommand(PaintArea *scene, QUndoCommand *parent = 0);
+    explicit DeleteCommand(PaintArea *scene);
     virtual void undo() override;
     virtual void redo() override;
 
@@ -82,7 +82,7 @@ private:
 class AddCommand : public QUndoCommand
 {
 public:
-    AddCommand(AbstractPainterItem *painterItem, PaintArea *scene, QUndoCommand *parent = 0);
+    AddCommand(AbstractPainterItem *painterItem, PaintArea *scene);
     ~AddCommand();
     virtual void undo() override;
     virtual void redo() override;
@@ -97,7 +97,7 @@ private:
 class CropCommand : public QUndoCommand
 {
 public:
-    CropCommand(QGraphicsPixmapItem *pixmap, const QRectF &newRect, PaintArea *scene, QUndoCommand *parent = 0);
+    CropCommand(QGraphicsPixmapItem *pixmap, const QRectF &newRect, PaintArea *scene);
     ~CropCommand();
     virtual void undo() override;
     virtual void redo() override;
@@ -116,7 +116,7 @@ private:
 class ReOrderCommand : public QUndoCommand
 {
 public:
-    ReOrderCommand(QList<QPair<QGraphicsItem*, QGraphicsItem*>> *list, QUndoCommand *parent = 0);
+    ReOrderCommand(QList<QPair<QGraphicsItem*, QGraphicsItem*>> *list);
     ~ReOrderCommand();
     virtual void undo() override;
     virtual void redo() override;
@@ -129,7 +129,7 @@ private:
 class PastCommand : public QUndoCommand
 {
 public:
-    PastCommand(PaintArea *scene, const QPointF& pos, QUndoCommand *parent = 0);
+    PastCommand(PaintArea *scene, const QPointF& pos);
     ~PastCommand();
     virtual void undo() override;
     virtual void redo() override;
@@ -138,6 +138,25 @@ private:
     QList<AbstractPainterItem*> mList;
     PaintArea                  *mScene;
     QPointF                     mPosition;
+};
+
+
+class ScaleCommand : public QUndoCommand
+{
+public:
+    ScaleCommand(QGraphicsPixmapItem *screenshot, int newWidth, int newHeight,
+                 PaintArea *scene);
+    ~ScaleCommand();
+    virtual void undo() override;
+    virtual void redo() override;
+
+private:
+    PaintArea           *mScene;
+    QGraphicsPixmapItem *mScreenshot;
+    QPixmap             *mOldPixmap;
+    QPixmap             *mNewPixmap;
+    qreal                mWidthScaleFactor;
+    qreal                mHeightScaleFactor;
 };
 
 #endif // UNDOCOMMANDS_H

@@ -138,6 +138,14 @@ void PaintArea::crop(const QRectF& rect)
     mUndoStack->push(new CropCommand(mScreenshot, rect, this));
 }
 
+void PaintArea::scale(int newWidth, int newHeight)
+{
+    if (newWidth == areaSize().width() && newHeight == areaSize().height()) {
+        return;
+    }
+    mUndoStack->push(new ScaleCommand(mScreenshot, newWidth, newHeight, this));
+}
+
 QPointF PaintArea::cropOffset() const
 {
     return mScreenshot->offset();

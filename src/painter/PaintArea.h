@@ -35,7 +35,7 @@
 #include "PainterText.h"
 #include "PainterNumber.h"
 #include "PaintModes.h"
-#include "src/widgets/UndoCommands.h"
+#include "UndoCommands.h"
 #include "src/widgets/CursorFactory.h"
 #include "src/widgets/ContextMenu.h"
 
@@ -56,6 +56,7 @@ public:
     bool isValid() const;
     bool isTextEditing() const;
     void crop(const QRectF &rect);
+    void scale(int newWidth, int newHeight);
     QPointF cropOffset() const;
     QAction *getUndoAction();
     QAction *getRedoAction();

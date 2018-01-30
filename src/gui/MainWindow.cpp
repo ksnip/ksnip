@@ -1085,12 +1085,12 @@ void MainWindow::loadImageFromFile()
 
 void MainWindow::openScale()
 {
-    ScaleDialog scaleDialog(1000, 800, this);
+    auto sceneSize = mPaintArea->areaSize();
+    ScaleDialog scaleDialog(sceneSize.width(), sceneSize.height(), this);
 
-    connect(&scaleDialog, &ScaleDialog::finished, [this](float w, float h){
-        qCritical("%f, %f", w, h);
+    connect(&scaleDialog, &ScaleDialog::finished, [this](int newWidth, int newHeight) {
+        mPaintArea->scale(newWidth, newHeight);
     });
 
     scaleDialog.exec();
-
 }

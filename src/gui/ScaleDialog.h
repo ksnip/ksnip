@@ -39,7 +39,7 @@ public:
     ~ScaleDialog();
 
 signals:
-    void finished(float percentWidth, float percentHeight);
+    void finished(int newWidth, int newHeight);
 
 private:
     int            mWidth;

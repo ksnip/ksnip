@@ -81,40 +81,52 @@ void ScaleDialog::initGui()
 
     mWidthPixelSpinBox->setSuffix(QStringLiteral("px"));
     mWidthPixelSpinBox->setMinimum(1);
-    mWidthPixelSpinBox->setMaximum(4001);
+    mWidthPixelSpinBox->setMaximum(4000);
     mWidthPixelSpinBox->setValue(mWidth);
     mWidthPixelSpinBox->setWrapping(false);
     connect(mWidthPixelSpinBox, &CustomSpinBox::valueChanged, [this](int newValue) {
         auto valuePercent = calculatePercent(mWidth, newValue);
-        setWidth(valuePercent);
+        mWidthPercentSpinBox->setValue(valuePercent * 100);
+        if (mKeepAspectRatioCheckBox->isChecked()) {
+            setHeightInSpinBox(valuePercent);
+        }
     });
 
     mHeightPixelSpinBox->setSuffix(QStringLiteral("px"));
     mHeightPixelSpinBox->setMinimum(1);
-    mHeightPixelSpinBox->setMaximum(4001);
+    mHeightPixelSpinBox->setMaximum(4000);
     mHeightPixelSpinBox->setValue(mHeight);
     mHeightPixelSpinBox->setWrapping(false);
     connect(mHeightPixelSpinBox, &CustomSpinBox::valueChanged, [this](int newValue) {
         auto valuePercent = calculatePercent(mHeight, newValue);
-        setHeight(valuePercent);
+        mHeightPercentSpinBox->setValue(valuePercent * 100);
+        if (mKeepAspectRatioCheckBox->isChecked()) {
+            setWidthInSpinBox(valuePercent);
+        }
     });
     mWidthPercentSpinBox->setSuffix(QStringLiteral("%"));
     mWidthPercentSpinBox->setMinimum(1);
-    mWidthPercentSpinBox->setMaximum(401);
+    mWidthPercentSpinBox->setMaximum(400);
     mWidthPercentSpinBox->setValue(100);
     mWidthPercentSpinBox->setWrapping(false);
     connect(mWidthPercentSpinBox, &CustomSpinBox::valueChanged, [this](int newValue) {
         auto valuePercent = calculatePercent(newValue);
-        setWidth(valuePercent);
+        mWidthPixelSpinBox->setValue(valuePercent * mWidth);
+        if (mKeepAspectRatioCheckBox->isChecked()) {
+            setHeightInSpinBox(valuePercent);
+        }
     });
     mHeightPercentSpinBox->setSuffix(QStringLiteral("%"));
     mHeightPercentSpinBox->setMinimum(1);
-    mHeightPercentSpinBox->setMaximum(401);
+    mHeightPercentSpinBox->setMaximum(400);
     mHeightPercentSpinBox->setValue(100);
     mHeightPercentSpinBox->setWrapping(false);
     connect(mHeightPercentSpinBox, &CustomSpinBox::valueChanged, [this](int newValue) {
         auto valuePercent = calculatePercent(newValue);
-        setHeight(valuePercent);
+        mHeightPixelSpinBox->setValue(valuePercent * mHeight);
+        if (mKeepAspectRatioCheckBox->isChecked()) {
+            setWidthInSpinBox(valuePercent);
+        }
     });
 
     mOkButton->setText(tr("OK"));
@@ -165,23 +177,6 @@ float ScaleDialog::calculatePercent(int newValue) const
 {
     return (float)newValue / 100;
 }
-
-void ScaleDialog::setHeight(float percent)
-{
-    setHeightInSpinBox(percent);
-    if (mKeepAspectRatioCheckBox->isChecked()) {
-        setWidthInSpinBox(percent);
-    }
-}
-
-void ScaleDialog::setWidth(float percent)
-{
-    setWidthInSpinBox(percent);
-    if (mKeepAspectRatioCheckBox->isChecked()) {
-        setHeightInSpinBox(percent);
-    }
-}
-
 
 void ScaleDialog::setHeightInSpinBox(float percent)
 {

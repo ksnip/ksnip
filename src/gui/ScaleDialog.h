@@ -65,8 +65,6 @@ private:
     void initGui();
     float calculatePercent(int baseValue, int newValue) const;
     float calculatePercent(int newValue) const;
-    void setHeight(float percent);
-    void setWidth(float percent);
     void setHeightInSpinBox(float percent);
     void setWidthInSpinBox(float percent);
 };

@@ -263,8 +263,8 @@ ScaleCommand::ScaleCommand(QGraphicsPixmapItem* screenshot, int newWidth, int ne
     mWidthScaleFactor = (qreal) newWidth / screenshot->boundingRect().width();
     mHeightScaleFactor = (qreal) newHeight / screenshot->boundingRect().height();
     mOldPixmap = new QPixmap(mScreenshot->pixmap());
-    mNewPixmap = new QPixmap(mOldPixmap->scaled(mWidthScaleFactor,
-                             mHeightScaleFactor,
+    mNewPixmap = new QPixmap(mOldPixmap->scaled(newWidth,
+                             newHeight,
                              Qt::IgnoreAspectRatio,
                              Qt::SmoothTransformation));
 }
@@ -277,6 +277,8 @@ ScaleCommand::~ScaleCommand()
 
 void ScaleCommand::undo()
 {
+    scaleItems(1 / mWidthScaleFactor, 1 / mHeightScaleFactor, true);
+    mScreenshot->resetTransform();
     mScreenshot->setPixmap(*mOldPixmap);
     mScene->setSceneRect(mScreenshot->boundingRect());
     mScene->fitViewToParent();
@@ -284,8 +286,21 @@ void ScaleCommand::undo()
 
 void ScaleCommand::redo()
 {
+    scaleItems(mWidthScaleFactor, mHeightScaleFactor, false);
+    mScreenshot->resetTransform();
     mScreenshot->setPixmap(*mNewPixmap);
     mScene->setSceneRect(mScreenshot->boundingRect());
     mScene->fitViewToParent();
 }
 
+void ScaleCommand::scaleItems(qreal widthScaleFactor, qreal heightScaleFactor, bool combine)
+{
+    QTransform transform;
+    transform.scale(widthScaleFactor, heightScaleFactor);
+    for (auto base : mScene->items()) {
+        auto item = static_cast<AbstractPainterItem*>(base);
+        if (item) {
+            item->setTransform(transform, combine);
+        }
+    }
+}

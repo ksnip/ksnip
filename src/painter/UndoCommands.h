@@ -157,6 +157,8 @@ private:
     QPixmap             *mNewPixmap;
     qreal                mWidthScaleFactor;
     qreal                mHeightScaleFactor;
+
+    void scaleItems(qreal widthScaleFactor, qreal heightScaleFactor, bool combine);
 };
 
 #endif // UNDOCOMMANDS_H

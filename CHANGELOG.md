@@ -7,6 +7,7 @@
 * New: Added experimental Wayland support for KDE and Gnome DEs. ([#56](https://github.com/DamirPorobic/ksnip/issues/56))
 * New: Metadata info for ksnip is now installed in the /usr/share/metainfo directory. ([#66](https://github.com/DamirPorobic/ksnip/issues/66))
 * New: Added option to open image from file via CLI. ([#71](https://github.com/DamirPorobic/ksnip/issues/71))
+* New: Instant saving captures without prompting for save location. ([#61](https://github.com/DamirPorobic/ksnip/issues/61))
 * New: Scaling/resizing screenshots and items. ([#79](https://github.com/DamirPorobic/ksnip/issues/79))
 * Changed: Move and select operation are now combined under single tool. ([#72](https://github.com/DamirPorobic/ksnip/issues/72))
 * Changed: Item selection is now based on item shape and not on item bounding rect. ([#83](https://github.com/DamirPorobic/ksnip/issues/83))

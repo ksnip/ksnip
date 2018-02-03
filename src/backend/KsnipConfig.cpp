@@ -207,6 +207,20 @@ void KsnipConfig::setSaveFormat(const QString& format)
     mConfig.sync();
 }
 
+bool KsnipConfig::useInstantSave() const
+{
+    return mConfig.value(QStringLiteral("Application/UseInstantSave"), false).toBool();
+}
+
+void KsnipConfig::setUseInstantSave(const bool enabled)
+{
+    if (useInstantSave() == enabled) {
+        return;
+    }
+    mConfig.setValue(QStringLiteral("Application/UseInstantSave"), enabled);
+    mConfig.sync();
+}
+
 /*
  * Returns fully formatted save path ready to use. Custom format can be provided
  * to replace the configured format, if not format provided, teh default will be

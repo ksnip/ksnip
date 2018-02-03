@@ -47,6 +47,7 @@ private:
     QCheckBox       *mSaveKsnipToolSelectionCheckbox;
     QCheckBox       *mCaptureOnStartupCheckbox;
     QCheckBox       *mCaptureCursorCheckbox;
+    QCheckBox       *mUseInstantSaveCheckBox;
     QCheckBox       *mImgurForceAnonymousCheckbox;
     QCheckBox       *mImgurDirectLinkToImageCheckbox;
     QCheckBox       *mImgurAlwaysCopyToClipboardCheckBox;

@@ -71,7 +71,10 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) : QMain
     // to connect imagegrabber signals to mainwindow slots to handle the
     // feedback.
     if (mMode == RunMode::CLI) {
-        connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::instantSave);
+        connect(mImageGrabber, &AbstractImageGrabber::finished, [this](const QPixmap &pixmap) {
+            instantSave(pixmap);
+            close();
+        });
         connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::close);
         return;
     }
@@ -861,25 +864,27 @@ void MainWindow::initGui()
     resize();
 }
 
-//
-// Private Slots
-//
-
 void MainWindow::saveCaptureClicked()
 {
-    QFileDialog saveDialog(this, tr("Save As"),
-                           mConfig->savePath(),
-                           tr("Images") + QStringLiteral(" (*.png *.gif *.jpg);;")
-                           + tr("All Files") + QStringLiteral("(*)"));
-    saveDialog.setAcceptMode(QFileDialog::AcceptSave);
+    QString savePath;
 
-    if (saveDialog.exec() != QDialog::Accepted) {
-        return;
+    if (mConfig->useInstantSave()) {
+        savePath = mConfig->savePath();
+    } else {
+        QFileDialog saveDialog(this, tr("Save As"), mConfig->savePath(),
+                               tr("Images") + QStringLiteral(" (*.png *.gif *.jpg);;") + tr("All Files") + QStringLiteral("(*)"));
+        saveDialog.setAcceptMode(QFileDialog::AcceptSave);
+
+        if (saveDialog.exec() == QDialog::Accepted) {
+            savePath = saveDialog.selectedFiles().first();
+        } else {
+            return;
+        }
     }
 
-    if (!mPaintArea->exportAsImage().save(saveDialog.selectedFiles().first())) {
-        qCritical("PaintWindow::saveCaptureClicked: Unable to save file '%s'",
-                  qPrintable(saveDialog.selectedFiles().first()));
+    auto success = mPaintArea->exportAsImage().save(savePath);
+    if (!success) {
+        qCritical("Unable to save file '%s'", qPrintable(savePath));
         return;
     }
 
@@ -1051,11 +1056,6 @@ void MainWindow::setPaintMode(Painter::Modes mode, bool save)
     }
 }
 
-/*
- * This function when called saves the provided pixmap directly to the default
- * save location without asking the user for a new path. Existing images are not
- * overwritten, just names with increasing number.
- */
 void MainWindow::instantSave(const QPixmap& pixmap)
 {
     QString savePath = mConfig->savePath();
@@ -1065,11 +1065,6 @@ void MainWindow::instantSave(const QPixmap& pixmap)
     } else {
         qCritical("MainWindow::instantSave: Failed to save file at '%s'",
                   qPrintable(savePath));
-    }
-
-    // If we are running CLI mode, this is the exit point.
-    if (mMode == CLI) {
-        close();
     }
 }
 

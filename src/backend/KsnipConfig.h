@@ -74,6 +74,9 @@ public:
     QString saveFormat() const;
     void setSaveFormat(const QString &format);
 
+    bool useInstantSave() const;
+    void setUseInstantSave(const bool enabled);
+
     QString savePath(const QString &format = QString()) const;
 
     // Painter

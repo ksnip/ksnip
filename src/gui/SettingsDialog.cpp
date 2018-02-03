@@ -29,6 +29,7 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mSaveKsnipToolSelectionCheckbox(new QCheckBox),
     mCaptureOnStartupCheckbox(new QCheckBox),
     mCaptureCursorCheckbox(new QCheckBox),
+    mUseInstantSaveCheckBox(new QCheckBox),
     mImgurForceAnonymousCheckbox(new QCheckBox),
     mImgurDirectLinkToImageCheckbox(new QCheckBox),
     mImgurAlwaysCopyToClipboardCheckBox(new QCheckBox),
@@ -91,6 +92,7 @@ SettingsDialog::~SettingsDialog()
     delete mSaveKsnipToolSelectionCheckbox;
     delete mCaptureOnStartupCheckbox;
     delete mCaptureCursorCheckbox;
+    delete mUseInstantSaveCheckBox;
     delete mImgurForceAnonymousCheckbox;
     delete mImgurDirectLinkToImageCheckbox;
     delete mImgurAlwaysCopyToClipboardCheckBox;
@@ -137,6 +139,7 @@ void SettingsDialog::loadSettings()
     mSaveKsnipPositionCheckbox->setChecked(mConfig->saveKsnipPosition());
     mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveKsnipToolSelection());
     mCaptureOnStartupCheckbox->setChecked(mConfig->captureOnStartup());
+    mUseInstantSaveCheckBox->setChecked(mConfig->useInstantSave());
 
     mImgurForceAnonymousCheckbox->setChecked(mConfig->imgurForceAnonymous());
     mImgurDirectLinkToImageCheckbox->setChecked(mConfig->imgurOpenLinkDirectlyToImage());
@@ -176,6 +179,7 @@ void SettingsDialog::saveSettings()
     mConfig->setSaveKsnipPosition(mSaveKsnipPositionCheckbox->isChecked());
     mConfig->setSaveKsnipToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
     mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
+    mConfig->setUseInstantSave(mUseInstantSaveCheckBox->isChecked());
 
     mConfig->setImgurForceAnonymous(mImgurForceAnonymousCheckbox->isChecked());
     mConfig->setImgurOpenLinkDirectlyToImage(mImgurDirectLinkToImageCheckbox->isChecked());
@@ -216,6 +220,7 @@ void SettingsDialog::initGui()
     mSaveKsnipPositionCheckbox->setText(tr("Save ksnip position on move and load on startup"));
     mSaveKsnipToolSelectionCheckbox->setText(tr("Save ksnip tool selection and load on startup"));
     mCaptureOnStartupCheckbox->setText(tr("Capture screenshot at startup with default mode"));
+    mUseInstantSaveCheckBox->setText(tr("Save always instantly to default location"));
 
     mSaveLocationLabel->setText(tr("Capture save location and filename") + ":");
 
@@ -361,10 +366,11 @@ void SettingsDialog::initGui()
     applicationGrid->addWidget(mSaveKsnipPositionCheckbox, 2, 0);
     applicationGrid->addWidget(mSaveKsnipToolSelectionCheckbox, 3, 0);
     applicationGrid->addWidget(mCaptureOnStartupCheckbox, 4, 0);
-    applicationGrid->setRowMinimumHeight(5, 15);
-    applicationGrid->addWidget(mSaveLocationLabel, 6, 0);
-    applicationGrid->addWidget(mSaveLocationLineEdit, 7, 0);
-    applicationGrid->addWidget(mBrowseButton, 7, 3);
+    applicationGrid->addWidget(mUseInstantSaveCheckBox, 5, 0);
+    applicationGrid->setRowMinimumHeight(6, 15);
+    applicationGrid->addWidget(mSaveLocationLabel, 7, 0);
+    applicationGrid->addWidget(mSaveLocationLineEdit, 8, 0);
+    applicationGrid->addWidget(mBrowseButton, 8, 3);
 
     auto applicationGrpBox = new QGroupBox(tr("Application Settings"));
     applicationGrpBox->setLayout(applicationGrid);

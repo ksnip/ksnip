@@ -1,0 +1,8 @@
+#ifndef KSNIP_CONFIG_H
+#define KSNIP_CONFIG_H
+
+// Variables passed from CMAKE
+
+#cmakedefine KSNIP_VERSION "@KSNIP_VERSION@"
+
+#endif

@@ -20,6 +20,7 @@
 #include <QApplication>
 #include <QCommandLineParser>
 
+#include "BuildConfig.h"
 #include "gui/MainWindow.h"
 #include "src/backend/imageGrabber/ImageGrabberFactory.h"
 
@@ -32,7 +33,7 @@ int main(int argc, char** argv)
     app.setOrganizationName(QStringLiteral("ksnip"));
     app.setOrganizationDomain(QStringLiteral("ksnip.local"));
     app.setApplicationName(QStringLiteral("ksnip"));
-    app.setApplicationVersion(QStringLiteral("v1.5.0 - alpha"));
+    app.setApplicationVersion(QStringLiteral(KSNIP_VERSION));
 
     ImageGrabberFactory imageGrabberFactory;
     auto imageGrabber = imageGrabberFactory.createImageGrabber();

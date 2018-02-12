@@ -13,7 +13,6 @@ set (KSNIP_VERSION "${KSNIP_VERSION_MAJOR}.${KSNIP_VERSION_MINOR}.${KSNIP_VERSIO
 
 configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/BuildConfig.h)
 
-
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
@@ -86,10 +85,25 @@ set(ksnip_SRCS src/main.cpp
                src/gui/AboutDialog.cpp
                src/gui/ScaleDialog.cpp)
 
+# Translations
+find_package(Qt5LinguistTools)
+
+set (ksnip_LANG_TS translations/ksnip_de.ts
+                   translations/ksnip_es.ts)
+
+if(DEFINED UPDATE_TS_FILES)
+    qt5_create_translation(ksnip_LANG_QM ${CMAKE_SOURCE_DIR}/translations ${ksnip_SRCS} ${ksnip_LANG_TS})
+else()
+    qt5_add_translation(ksnip_LANG_QM ${ksnip_LANG_TS})
+endif()
+
+install(FILES ${ksnip_LANG_QM} DESTINATION /usr/share/ksnip/translations)
+
+
 SET(ksnip_RES icons/resources.qrc)
 qt5_add_resources(ksnip_RES_RCC ${ksnip_RES})
 
-add_executable(ksnip ${ksnip_SRCS} ${ksnip_RES_RCC})
+add_executable(ksnip ${ksnip_SRCS} ${ksnip_RES_RCC} ${ksnip_LANG_QM})
 
 target_link_libraries(ksnip Qt5::Widgets
                             Qt5::Network

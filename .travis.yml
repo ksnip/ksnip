@@ -3,6 +3,10 @@ compiler: gcc
 sudo: require
 dist: trusty
 
+# prevent default git clone --depth 50
+git:
+  depth: false
+
 before_install:
   - sudo add-apt-repository ppa:beineri/opt-qt593-trusty -y
   - sudo apt-get update -qq
@@ -27,7 +31,6 @@ script:
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
-#  - export VERSION=$(git rev-parse --short HEAD) # linuxdeployqt uses this for naming the file
   - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
   - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage
 

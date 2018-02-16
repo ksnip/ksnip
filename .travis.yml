@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - sudo apt-get -y install qt59base qt59x11extras qttools5-dev
+  - sudo apt-get -y install qt59base qt59x11extras qt59tools
   - source /opt/qt*/bin/qt*-env.sh
 # - extra-cmake-modules KDE project; https://superuser.com/questions/850029/could-not-find-a-configuration-file-for-package-ecm-that-is-compatible-with-re/912259#912259
   - git clone git://anongit.kde.org/extra-cmake-modules

@@ -5,738 +5,748 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation type="unfinished"></translation>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Herramienta de Captura de pantalla</translation>
     </message>
     <message>
         <source>(C) 2017 Damir Porobic</source>
-        <translation type="unfinished"></translation>
+        <translation>(C) 2017 Damir Porobic</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished"></translation>
+        <translation>Licencia: </translation>
     </message>
     <message>
         <source>Version </source>
-        <translation type="unfinished"></translation>
+        <translation>Version </translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished"></translation>
+        <translation>Usando:</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished"></translation>
+        <translation>Favor usar</translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation> reportar errores.</translation>
     </message>
     <message>
         <source>The author, &lt;b&gt;Damir Porobic&lt;/b&gt;, can be contacted via </source>
-        <translation type="unfinished"></translation>
+        <translation>El autor, &lt;b&gt;Damir Porobic&lt;/b&gt;, puede ser contactado via</translation>
     </message>
 </context>
 <context>
     <name>ContextMenu</name>
     <message>
         <source>Arrange</source>
-        <translation type="unfinished"></translation>
+        <translation>Organizar</translation>
     </message>
     <message>
         <source>Bring Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Traer adelante</translation>
     </message>
     <message>
         <source>Bring to Front</source>
-        <translation type="unfinished"></translation>
+        <translation>Traer al frente</translation>
     </message>
     <message>
         <source>Send Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar atras</translation>
     </message>
     <message>
         <source>Send to Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar al fondo</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia</translation>
     </message>
     <message>
-        <source>Past</source>
-        <translation type="unfinished"></translation>
+        <source>Paste</source>
+        <translation>Pegar</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation type="unfinished"></translation>
+        <translation>Borrador</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>CropPanel</name>
     <message>
         <source>Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>Crop</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>X:</source>
-        <translation type="unfinished"></translation>
+        <translation>X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation type="unfinished"></translation>
+        <translation>Y:</translation>
     </message>
     <message>
         <source>W:</source>
-        <translation type="unfinished"></translation>
+        <translation>W:</translation>
     </message>
     <message>
         <source>H:</source>
-        <translation type="unfinished"></translation>
+        <translation>H:</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished"></translation>
+        <translation>Advertencia -</translation>
     </message>
     <message>
         <source>The capture has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>La captura ha sido modificada.
+Desea guardarla?</translation>
     </message>
     <message>
         <source>Unsaved</source>
-        <translation type="unfinished"></translation>
+        <translation>No guardado</translation>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Area Rectangular</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Dibuje un area rectangular con el mouse</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pantalla Completa( Todos los monitores)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar pantalla completa incluyendo todos los monitores</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Pantalla Actual</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar pantalla donde se localiza el Mouse</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Activar Ventana</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar pantalla que esta enfocada actualmente</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Ventana debajo del cursor</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura que se encuentra actualmente debajo del cursor del mouse</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar captura de pantalla en el sistema de archivos</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar capturas de pantalla al portapapeles</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargado</translation>
     </message>
     <message>
         <source>Upload capture image to imgur.com</source>
-        <translation type="unfinished"></translation>
+        <translation>Subir imagen de captura a imgur.com</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Imprimir</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation type="unfinished"></translation>
+        <translation>Abre el cuadro de di logo de la impresora y proporciona la opci¢n para imprimir la imagen</translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>vista previa de impresi¢n</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Abre el cuadro de di logo Vista previa de impresi¢n donde se puede cambiar la orientaci¢n de la imagen</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>Crop</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Cortar captura de pantalla</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Escalar</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Escalar Captura de Imagen</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"></translation>
+        <translation>Lapiz</translation>
     </message>
     <message>
         <source>Marker</source>
-        <translation type="unfinished"></translation>
+        <translation>Marcador</translation>
     </message>
     <message>
         <source>Rect</source>
-        <translation type="unfinished"></translation>
+        <translation>Rectangular</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation type="unfinished"></translation>
+        <translation>Elipse</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"></translation>
+        <translation>Linea</translation>
     </message>
     <message>
         <source>Arrow</source>
-        <translation type="unfinished"></translation>
+        <translation>Flecha</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Texto</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"></translation>
+        <translation>Numero</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation type="unfinished"></translation>
+        <translation>Borrar</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar</translation>
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuevo</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Salir</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Acerca de</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir</translation>
     </message>
     <message>
         <source>Setting Painter tool configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustes de la configuracion de la herramienta Painter</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivo</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Editar</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Optiones</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ayuda</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>Herramientas</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar como</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagenes</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Todos los archivos</translation>
     </message>
     <message>
         <source>Imgur Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargar Imgur</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Est s a punto de subir la captura de pantalla a imgur.com, šquieres continuar?</translation>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>
-        <translation type="unfinished"></translation>
+        <translation>Esperando por imgur.com...</translation>
     </message>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargar a imgur.com!</translation>
     </message>
     <message>
         <source>An error occurred while uploading to imgur.com.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se produjo un error al cargar a imgur.com.</translation>
     </message>
     <message>
         <source>Received new token, trying upload again...</source>
-        <translation type="unfinished"></translation>
+        <translation>Recibi¢ un nuevo token, intentando subir de nuevo ...</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token...</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur token ha caducado, solicitando un nuevo token ...</translation>
     </message>
     <message>
         <source>Open Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir Imagen</translation>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivos de Imagen (*.png *.jpg *.bmp)</translation>
     </message>
 </context>
 <context>
     <name>PaintArea</name>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Deshacer</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Rehacer</translation>
     </message>
 </context>
 <context>
     <name>ScaleDialog</name>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Escala de Imagen</translation>
     </message>
     <message>
         <source>Keep Aspect Ratio</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantener aspecto de Radio</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ancho:</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>Alto:</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>Aceptar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Pixel</source>
-        <translation type="unfinished"></translation>
+        <translation>Pixel</translation>
     </message>
     <message>
         <source>Percent</source>
-        <translation type="unfinished"></translation>
+        <translation>Porcentaje</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de Usuario</translation>
     </message>
     <message>
         <source>Always copy capture to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copie siempre la captura al portapapeles</translation>
     </message>
     <message>
         <source>Prompt to save before exiting ksnip</source>
-        <translation type="unfinished"></translation>
+        <translation>Solicitar guardar antes de salir de ksnip</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Guarde la posici¢n ksnip en movimiento y cargue al inicio</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Guarde la selecci¢n de la herramienta ksnip y c rguela al inicio</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura de pantalla al inicio con el modo predeterminado</translation>
     </message>
     <message>
         <source>Save always instantly to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar siempre al instante en la ubicaci¢n predeterminada</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Capture la ubicaci¢n de guardar y nombre de archivo</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date and $T for time.</source>
-        <translation type="unfinished"></translation>
+        <translation>El nombre de archivo puede contener $ Y, $ M, $ D para la fecha y $ T para el tiempo.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Vistazo</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Grabar el cursor del mouse en la captura de pantalla</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type="unfinished"></translation>
+        <translation>El cursor del mouse debe estar visible en
+capturas de pantalla.</translation>
     </message>
     <message>
         <source>Delay (sec)</source>
-        <translation type="unfinished"></translation>
+        <translation>Retrasar (sec)</translation>
     </message>
     <message>
         <source>Sets the delay between triggering a capture
 and the moment when the capture is taken, in
 seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Establece el retraso entre la activaci¢n de una captura
+y el momento en que se toma la captura, en
+segundos.</translation>
     </message>
     <message>
         <source>Show snipping cursor ruler</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar la regla del cursor de recorte</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop corner to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>L¡neas horizontales y verticales que van desde
+esquina de escritorio al cursor en el  rea de recorte.</translation>
     </message>
     <message>
         <source>Show cursor position info</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar informaci¢n de posici¢n del cursor</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and right from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando el mouse izquierdo no est  presionado, la posici¢n
+se muestra, cuando se presiona el bot¢n del mouse,
+el tama€o del  rea de selecci¢n se muestra a la izquierda
+y directamente desde el  rea capturada.</translation>
     </message>
     <message>
         <source>Cursor Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Color del cursor</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Establece el color del  rea de recorte del cursor. El cambio requiere reiniciar ksnip paratomar efecto.</translation>
     </message>
     <message>
         <source>Cursor Thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>Grosor del cursor</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Establece el grosor del  rea de corte
+cursor. El cambio requiere reiniciar ksnip para
+tomar efecto.</translation>
     </message>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Forzar carga an¢nima</translation>
     </message>
     <message>
         <source>Open link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir enlace directamente a la imagen</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copie siempre el enlace de Imgur al portapapeles</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished"></translation>
+        <translation>Pedir confirmaci¢n antes de subir</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished"></translation>
+        <translation>ID del Cliente</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished"></translation>
+        <translation>Cliente Secreto</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>PIN</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingrese Pin imgur que se intercambiar  por un token.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>Obtener Pin</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Obtener Token</translation>
     </message>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>Pintar sombras de elementos</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando est  habilitado, los elementos de pintura se proyectan en sombras.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Rutas suaves del pintor</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando est  habilitado suaviza la pluma y trazados de marcador, despus de terminar de dibujar.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Factor de Suavizado</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aumentar el factor de suavizado, disminuir  precisi¢n para l piz y marcador, pero los har  m s suaves.</translation>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Fuente texto</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>negrita</translation>
     </message>
     <message>
         <source>I</source>
-        <translation type="unfinished"></translation>
+        <translation>I</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Italica</translation>
     </message>
     <message>
         <source>U</source>
-        <translation type="unfinished"></translation>
+        <translation>U</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Subrayar</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Fuente de numeraci¢n</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Establece la fuente para el elemento de pintura de numeraci¢n.</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>Aceptar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustes de la aplicacion</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturador de imagenes</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargador de Imgur</translation>
     </message>
     <message>
         <source>Painter Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustes de pintor</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplicaci¢n</translation>
     </message>
     <message>
         <source>Painter</source>
-        <translation type="unfinished"></translation>
+        <translation>Pintor</translation>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>
-        <translation type="unfinished"></translation>
+        <translation>Esperando por imgur.com... </translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de Usuario:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur.com token actualizado con xito.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Error de actualizaci¢n del token de Imgur.com.</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar ubicaci¢n de guardado</translation>
     </message>
 </context>
 <context>
     <name>SettingsPickerPopup</name>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Personalizar</translation>
     </message>
     <message>
         <source>Solid Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>Rellenar solido</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tama€o</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Ksnip Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Herramienta de captura de pantalla Ksnip</translation>
     </message>
     <message>
         <source>Select a rectangular area from where to take a screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccione un  rea rectangular desde donde tomar una captura de pantalla.</translation>
     </message>
     <message>
         <source>Capture the fullscreen including all monitors.</source>
-        <translation type="unfinished"></translation>
+        <translation>Capture la pantalla completa incluyendo todos los monitores.</translation>
     </message>
     <message>
         <source>Capture the screen (monitor) where the mouse cursor is currently located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Capture la pantalla (monitor) donde se encuentra actualmente el cursor del mouse.</translation>
     </message>
     <message>
         <source>Capture the window that currently has input focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Capture la ventana que actualmente tiene foco de entrada.</translation>
     </message>
     <message>
         <source>Capture the window that is currently under the mouse cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Capture la ventana que se encuentra actualmente debajo del cursor del mouse.</translation>
     </message>
     <message>
         <source>Delay before taking the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Retrasar antes de tomar la captura de pantalla.</translation>
     </message>
     <message>
         <source>seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Segundos</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Capture el cursor del mouse en la captura de pantalla.</translation>
     </message>
     <message>
         <source>Edit existing image in ksnip</source>
-        <translation type="unfinished"></translation>
+        <translation>Edite la imagen existente en ksnip</translation>
     </message>
     <message>
         <source>image</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagen</translation>
     </message>
 </context>
 </TS>

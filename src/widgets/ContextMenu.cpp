@@ -76,7 +76,7 @@ void ContextMenu::addCopyAction(bool enabled)
 void ContextMenu::addPastAction(bool enabled)
 {
     if (!mPastAction) {
-        mPastAction = addAction(tr("Past"));
+        mPastAction = addAction(tr("Paste"));
         setPastActionEnabled(enabled);
     }
 }

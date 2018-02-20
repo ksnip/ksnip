@@ -14,7 +14,6 @@ before_install:
 install:
   - sudo apt-get -y install qt59base qt59x11extras qt59tools
   - source /opt/qt*/bin/qt*-env.sh
-# - extra-cmake-modules KDE project; https://superuser.com/questions/850029/could-not-find-a-configuration-file-for-package-ecm-that-is-compatible-with-re/912259#912259
   - git clone git://anongit.kde.org/extra-cmake-modules
   - cd extra-cmake-modules
   - mkdir build && cd build
@@ -32,11 +31,11 @@ script:
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
   - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
+  - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/ksnip/translations/*.qm -bundle-non-qt-libs
   - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage
 
 after_success:
   - find appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq
-#  - curl --upload-file ksnip*.AppImage https://transfer.sh/ksnip-git.$(git rev-parse --short HEAD)-x86_64.AppImage
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
   - bash upload.sh ksnip*.AppImage*
 

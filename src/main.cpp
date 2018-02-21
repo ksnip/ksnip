@@ -36,10 +36,12 @@ int main(int argc, char** argv)
     app.setApplicationVersion(QStringLiteral(KSNIP_VERSION));
 
     QTranslator translator;
-    auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QStringLiteral("/usr/share/ksnip/translations/"));
+    auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
     if (translationSuccessfullyLoaded) {
         app.installTranslator(&translator);
     }
+    qCritical("Path for translation files");
+    qCritical(QLibraryInfo::location(QLibraryInfo::TranslationsPath).toLatin1());
 
     ImageGrabberFactory imageGrabberFactory;
     auto imageGrabber = imageGrabberFactory.createImageGrabber();

@@ -97,8 +97,14 @@ else()
     qt5_add_translation(ksnip_LANG_QM ${ksnip_LANG_TS})
 endif()
 
-install(FILES ${ksnip_LANG_QM} DESTINATION /usr/share/ksnip/translations)
+get_target_property(QT5_QMAKE_EXECUTABLE Qt5::qmake IMPORTED_LOCATION)
+# Ask Qt5 where to put the translations
+execute_process( COMMAND ${QT5_QMAKE_EXECUTABLE} -query QT_INSTALL_TRANSLATIONS
+OUTPUT_VARIABLE qt_translations_dir OUTPUT_STRIP_TRAILING_WHITESPACE )
 
+message("Location in cmake: " "${qt_translations_dir}")
+
+install(FILES ${ksnip_LANG_QM} DESTINATION ${qt_translations_dir})
 
 SET(ksnip_RES icons/resources.qrc)
 qt5_add_resources(ksnip_RES_RCC ${ksnip_RES})

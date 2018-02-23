@@ -5,4 +5,6 @@
 
 #cmakedefine KSNIP_VERSION "@KSNIP_VERSION@"
 
+#cmakedefine KSNIP_LANG_INSTAL_DIR "@KSNIP_LANG_INSTAL_DIR@"
+
 #endif

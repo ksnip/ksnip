@@ -36,16 +36,18 @@ int main(int argc, char** argv)
     app.setApplicationVersion(QStringLiteral(KSNIP_VERSION));
 
     QTranslator translator;
-    auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QStringLiteral("/usr/share/ksnip/translations/"));
-    if(!translationSuccessfullyLoaded) {
-        // If we can't load the translations from default location, check current directory
-
-        qCritical(QDir::currentPath().toLatin1());
-        translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"));
+    auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QStringLiteral(KSNIP_LANG_INSTAL_DIR));
+    if (!translationSuccessfullyLoaded) {
+        qCritical("found nothing at %s", KSNIP_LANG_INSTAL_DIR);
+        qCritical("looking now at ../usr/share/ksnip/translations");
+        translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QStringLiteral("../usr/share/ksnip/translations"));
     }
 
     if (translationSuccessfullyLoaded) {
+        qCritical("found translation!");
         app.installTranslator(&translator);
+    } else {
+        qCritical("found not translation...");
     }
 
 

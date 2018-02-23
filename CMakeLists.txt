@@ -10,6 +10,7 @@ if(DEFINED VERSION_SUFIX)
 endif()
 
 set (KSNIP_VERSION "${KSNIP_VERSION_MAJOR}.${KSNIP_VERSION_MINOR}.${KSNIP_VERSION_MICRO}${KSNIP_VERSION_SUFIX}")
+set (KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
 
 configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/BuildConfig.h)
 
@@ -97,7 +98,8 @@ else()
     qt5_add_translation(ksnip_LANG_QM ${ksnip_LANG_TS})
 endif()
 
-install(FILES ${ksnip_LANG_QM} DESTINATION /usr/share/ksnip/translations)
+install(FILES ${ksnip_LANG_QM} DESTINATION ${KSNIP_LANG_INSTAL_DIR})
+
 
 SET(ksnip_RES icons/resources.qrc)
 qt5_add_resources(ksnip_RES_RCC ${ksnip_RES})

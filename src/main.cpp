@@ -37,7 +37,7 @@ int main(int argc, char** argv)
 
     QTranslator translator;
     auto pathToTranslations = QStringLiteral(KSNIP_LANG_INSTAL_DIR);
-    auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), );
+    auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), pathToTranslations);
 
     // Fix for appimages as they need to use relative paths
     if (!translationSuccessfullyLoaded) {

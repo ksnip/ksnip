@@ -39,8 +39,8 @@ int main(int argc, char** argv)
     auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QStringLiteral(KSNIP_LANG_INSTAL_DIR));
     if (!translationSuccessfullyLoaded) {
         qCritical("found nothing at %s", KSNIP_LANG_INSTAL_DIR);
-        qCritical("looking now at ../usr/share/ksnip/translations");
-        translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QStringLiteral("../usr/share/ksnip/translations"));
+        qCritical("looking now at ../share/ksnip/translations");
+        translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QStringLiteral("../share/ksnip/translations"));
     }
 
     if (translationSuccessfullyLoaded) {

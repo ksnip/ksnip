@@ -39,8 +39,8 @@ int main(int argc, char** argv)
     auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QStringLiteral(KSNIP_LANG_INSTAL_DIR));
     if (!translationSuccessfullyLoaded) {
         qCritical("found nothing at %s", KSNIP_LANG_INSTAL_DIR);
-        qCritical("looking now at ../share/ksnip/translations");
-        translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QStringLiteral("../share/ksnip/translations"));
+        qCritical("looking now at ././share/ksnip/translations");
+        translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QStringLiteral("././share/ksnip/translations"));
     }
 
     if (translationSuccessfullyLoaded) {
@@ -49,10 +49,13 @@ int main(int argc, char** argv)
     } else {
         qCritical("found not translation...");
     }
+    
+    qCritical(QCoreApplication::applicationDirPath().toLatin1());
 
     qCritical("+++ Where are we? +++");
     system("pwd");
     system("cd .. && pwd");
+    system("ls -al ././");
 
     ImageGrabberFactory imageGrabberFactory;
     auto imageGrabber = imageGrabberFactory.createImageGrabber();

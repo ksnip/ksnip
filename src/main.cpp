@@ -38,17 +38,14 @@ int main(int argc, char** argv)
     QTranslator translator;
     auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QStringLiteral(KSNIP_LANG_INSTAL_DIR));
     if (!translationSuccessfullyLoaded) {
+        auto a = qgetenv("APPDIR");
+        qCritical("appDir is: %s", qPrintable(a));
         QString s = QCoreApplication::applicationDirPath().toLatin1() + QStringLiteral("/../share/ksnip/translations");
-        qCritical("found nothing at %s", KSNIP_LANG_INSTAL_DIR);
-        qCritical("looking in %s", qPrintable(s));
         translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), s);
     }
 
     if (translationSuccessfullyLoaded) {
-        qCritical("found translation!");
         app.installTranslator(&translator);
-    } else {
-        qCritical("found not translation...");
     }
 
     ImageGrabberFactory imageGrabberFactory;

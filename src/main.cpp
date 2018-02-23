@@ -50,6 +50,9 @@ int main(int argc, char** argv)
         qCritical("found not translation...");
     }
 
+    qCritical("+++ Where are we? +++");
+    system("pwd");
+    system("cd .. && pwd");
 
     ImageGrabberFactory imageGrabberFactory;
     auto imageGrabber = imageGrabberFactory.createImageGrabber();

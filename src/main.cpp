@@ -36,12 +36,13 @@ int main(int argc, char** argv)
     app.setApplicationVersion(QStringLiteral(KSNIP_VERSION));
 
     QTranslator translator;
-    auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), QStringLiteral(KSNIP_LANG_INSTAL_DIR));
+    auto pathToTranslations = QStringLiteral(KSNIP_LANG_INSTAL_DIR);
+    auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), );
+
+    // Fix for appimages as they need to use relative paths
     if (!translationSuccessfullyLoaded) {
-        auto a = qgetenv("APPDIR");
-        qCritical("appDir is: %s", qPrintable(a));
-        QString s = QCoreApplication::applicationDirPath().toLatin1() + QStringLiteral("/../share/ksnip/translations");
-        translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), s);
+        auto appDirPath = QCoreApplication::applicationDirPath() + QStringLiteral("/../..");
+        translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), appDirPath + pathToTranslations);
     }
 
     if (translationSuccessfullyLoaded) {

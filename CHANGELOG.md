@@ -10,6 +10,7 @@
 * New: Instant saving captures without prompting for save location. ([#61](https://github.com/DamirPorobic/ksnip/issues/61))
 * New: Scaling/resizing screenshots and items. ([#79](https://github.com/DamirPorobic/ksnip/issues/79))
 * New: Added translation support. ([#94](https://github.com/DamirPorobic/ksnip/issues/94))
+* New: Added Spanish and German translation. ([#94](https://github.com/DamirPorobic/ksnip/issues/94))
 * Changed: Move and select operation are now combined under single tool. ([#72](https://github.com/DamirPorobic/ksnip/issues/72))
 * Changed: Item selection is now based on item shape and not on item bounding rect. ([#83](https://github.com/DamirPorobic/ksnip/issues/83))
 * Changed: Imgur upload now asks for confirmation before uploading. This can be disabled in setting. ([#73](https://github.com/DamirPorobic/ksnip/issues/73))

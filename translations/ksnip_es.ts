@@ -53,7 +53,19 @@
     </message>
     <message>
         <source>The author, &lt;b&gt;Damir Porobic&lt;/b&gt;, can be contacted via </source>
-        <translation>El autor, &lt;b&gt;Damir Porobic&lt;/b&gt;, puede ser contactado via</translation>
+        <translation type="vanished">El autor, &lt;b&gt;Damir Porobic&lt;/b&gt;, puede ser contactado via</translation>
+    </message>
+    <message>
+        <source>The Author:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Contributors:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spanish Translation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -86,25 +86,11 @@ set(ksnip_SRCS src/main.cpp
                src/gui/AboutDialog.cpp
                src/gui/ScaleDialog.cpp)
 
-# Translations
-find_package(Qt5LinguistTools)
-
-set (ksnip_LANG_TS translations/ksnip_de.ts
-                   translations/ksnip_es.ts)
-
-if(DEFINED UPDATE_TS_FILES)
-    qt5_create_translation(ksnip_LANG_QM ${CMAKE_SOURCE_DIR}/translations ${ksnip_SRCS} ${ksnip_LANG_TS})
-else()
-    qt5_add_translation(ksnip_LANG_QM ${ksnip_LANG_TS})
-endif()
-
-install(FILES ${ksnip_LANG_QM} DESTINATION ${KSNIP_LANG_INSTAL_DIR})
-
 
 SET(ksnip_RES icons/resources.qrc)
 qt5_add_resources(ksnip_RES_RCC ${ksnip_RES})
 
-add_executable(ksnip ${ksnip_SRCS} ${ksnip_RES_RCC} ${ksnip_LANG_QM})
+add_executable(ksnip ${ksnip_SRCS} ${ksnip_RES_RCC})
 
 target_link_libraries(ksnip Qt5::Widgets
                             Qt5::Network
@@ -117,4 +103,5 @@ target_link_libraries(ksnip Qt5::Widgets
 
 install(TARGETS ksnip RUNTIME DESTINATION /bin)
 
+add_subdirectory(translations)
 add_subdirectory(desktop)

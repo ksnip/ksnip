@@ -47,7 +47,7 @@ More information about setting to executable can be found [here](https://discour
 
 
 ### RPM and DEB Binaries
-Starting with version 1.3.2 we provide ksnip as 32bit and 64bit DEB binariy and 64bit RPM binary. RPM and DEB binaries are created only at release of a version and currently we have no continues build that creates those binaries after every commit. RPM and DEB binaries can be downloaded from [here](https://discourse.appimage.org/t/how-to-make-an-appimage-executable/80).
+Starting with version 1.3.2 we provide ksnip as 32bit and 64bit DEB binariy and 64bit RPM binary. RPM and DEB binaries are created only at release of a version and currently we have no continues build that creates those binaries after every commit. RPM and DEB binaries can be downloaded from the relese page [here](https://github.com/DamirPorobic/ksnip/releases).
 
 Installing RPM:  
 `$ cd ~/Downloads`  

@@ -184,6 +184,9 @@ public:
     int smoothFactor() const;
     void setSmoothFactor(int factor);
 
+    bool dynamicCursorSizeEnabled() const;
+    void setDynamicCursorSizeEnabled(bool enabled);
+
     // Image Grabber
 
     bool captureCursor() const;

@@ -762,6 +762,21 @@ void KsnipConfig::setSmoothFactor(int  factor)
     mConfig.sync();
 }
 
+bool KsnipConfig::dynamicCursorSizeEnabled() const
+{
+    return mConfig.value(QStringLiteral("Painter/DynamicCursorSize"), true).toBool();
+}
+
+void KsnipConfig::setDynamicCursorSizeEnabled(bool enabled)
+{
+    if (dynamicCursorSizeEnabled() == enabled) {
+        return;
+    }
+
+    mConfig.setValue(QStringLiteral("Painter/DynamicCursorSize"), enabled);
+    mConfig.sync();
+}
+
 // Image Grabber
 
 bool KsnipConfig::captureCursor() const

@@ -38,6 +38,7 @@ SettingsDialog::SettingsDialog(MainWindow* parent) :
     mItemShadowCheckbox(new QCheckBox),
     mCursorRulerCheckbox(new QCheckBox),
     mCursorInfoCheckbox(new QCheckBox),
+    mDynamicCursorSize(new QCheckBox),
     mSaveLocationLineEdit(new QLineEdit),
     mImgurClientIdLineEdit(new QLineEdit),
     mImgurClientSecretLineEdit(new QLineEdit),
@@ -147,7 +148,7 @@ void SettingsDialog::loadSettings()
     mImgurConfirmBeforeUploadCheckbox->setChecked(mConfig->imgurConfirmBeforeUpload());
 
     mImgurUsernameLabel->setText(tr("Username") + ": " + mConfig->imgurUsername());
-    if (!mConfig->imgurClientId().isEmpty()) {
+    if(!mConfig->imgurClientId().isEmpty()) {
         mImgurClientIdLineEdit->setPlaceholderText(mConfig->imgurClientId());
     }
 
@@ -162,14 +163,12 @@ void SettingsDialog::loadSettings()
     mTextBoldButton->setChecked(mConfig->textBold());
     mTextItalicButton->setChecked(mConfig->textItalic());
     mTextUnderlineButton->setChecked(mConfig->textUnderline());
-
     mNumberFontCombobox->setCurrentFont(mConfig->numberFont());
-
     mItemShadowCheckbox->setChecked(mConfig->itemShadowEnabled());
-
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
     smootPathCheckboxClicked(mConfig->smoothPathEnabled());
+    mDynamicCursorSize->setChecked(mConfig->dynamicCursorSizeEnabled());
 }
 
 void SettingsDialog::saveSettings()
@@ -201,13 +200,11 @@ void SettingsDialog::saveSettings()
     mConfig->setTextBold(mTextBoldButton->isChecked());
     mConfig->setTextItalic(mTextItalicButton->isChecked());
     mConfig->setTextUnderline(mTextUnderlineButton->isChecked());
-
     mConfig->setNumberFont(mNumberFontCombobox->currentFont());
-
     mConfig->setItemShadowEnabled(mItemShadowCheckbox->isChecked());
-
     mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
+    mConfig->setDynamicCursorSizeEnabled(mDynamicCursorSize->isChecked());
 }
 
 void SettingsDialog::initGui()
@@ -252,8 +249,8 @@ void SettingsDialog::initGui()
                                        "and right from the captured area."));
     mSnippingCursorColorLabel->setText(tr("Cursor Color") + ":");
     mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area\n"
-                                             "cursor. Change requires ksnip restart to\n"
-                                             "take effect."));
+                                          "cursor. Change requires ksnip restart to\n"
+                                          "take effect."));
     mSnippingCursorColorButton->setMinimumWidth(fixedButtonSize);
     mSnippingCursorColorButton->setToolTip(mSnippingCursorColorLabel->toolTip());
     mSnippingCursorSizeLabel->setText(tr("Cursor Thickness") + ":");
@@ -280,7 +277,7 @@ void SettingsDialog::initGui()
     mImgurPinLineEdit->setPlaceholderText(tr("PIN"));
     mImgurPinLineEdit->setToolTip(tr("Enter imgur Pin which will be exchanged for a token."));
     connect(mImgurPinLineEdit, &QLineEdit::textChanged, [this](const QString & text) {
-        if (text.length() > 8) {
+        if(text.length() > 8) {
             mImgurGetTokenButton->setEnabled(true);
         } else {
             mImgurGetTokenButton->setEnabled(false);
@@ -344,6 +341,11 @@ void SettingsDialog::initGui()
     mNumberFontLabel->setToolTip(tr("Sets the font for the Numbering Paint Item."));
     mNumberFontCombobox->setToolTip(mNumberFontLabel->toolTip());
     mNumberFontCombobox->setEditable(false);
+
+    mDynamicCursorSize->setText(tr("Dynamic Cursor Size"));
+    mDynamicCursorSize->setToolTip(tr("When enabled, the painter cursor size"
+                                      "matches the selected tool size."
+                                      "Requires switching tool to become active."));
 
     // Create Push Buttons
     mOkButton->setText(tr("OK"));
@@ -430,6 +432,8 @@ void SettingsDialog::initGui()
     painterGrid->addWidget(mTextUnderlineButton, 5, 4);
     painterGrid->addWidget(mNumberFontLabel, 6, 0);
     painterGrid->addWidget(mNumberFontCombobox, 6, 1);
+    painterGrid->setRowMinimumHeight(7, 15);
+    painterGrid->addWidget(mDynamicCursorSize, 7, 0, 1, 2);
 
     auto painterGrpBox = new QGroupBox(tr("Painter Settings"));
     painterGrpBox->setLayout(painterGrid);
@@ -506,7 +510,7 @@ void SettingsDialog::smootPathCheckboxClicked(bool checked)
 
 void SettingsDialog::imgurClientEntered(const QString&)
 {
-    if (!mImgurClientIdLineEdit->text().isEmpty() && !mImgurClientSecretLineEdit->text().isEmpty()) {
+    if(!mImgurClientIdLineEdit->text().isEmpty() && !mImgurClientSecretLineEdit->text().isEmpty()) {
         mImgurGetPinButton->setEnabled(true);
     } else {
         mImgurGetPinButton->setEnabled(false);
@@ -544,15 +548,15 @@ void SettingsDialog::chooseSaveDirectory()
     auto path = QFileDialog::getExistingDirectory(this,
                 tr("Capture save location"),
                 mConfig->saveDirectory());
-    if (!path.isEmpty()) {
+    if(!path.isEmpty()) {
         auto filename = StringFormattingHelper::extractFilename(mSaveLocationLineEdit->text());
         auto format = StringFormattingHelper::extractFormat(mSaveLocationLineEdit->text());
 
-        if (!filename.isEmpty()) {
+        if(!filename.isEmpty()) {
             path.append(QLatin1Char('/')).append(filename);
         }
 
-        if (!format.isEmpty()) {
+        if(!format.isEmpty()) {
             path.append(QLatin1Char('.')).append(format);
         }
 

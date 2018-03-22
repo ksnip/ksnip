@@ -35,6 +35,9 @@ public:
 
 private:
     KsnipConfig *mConfig;
+    int          mDefaultCursorSize;
+
+    int getCursorSize(Painter::Modes mode) const;
 };
 
 #endif // CURSORFACTORY_H

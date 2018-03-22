@@ -343,8 +343,8 @@ void SettingsDialog::initGui()
     mNumberFontCombobox->setEditable(false);
 
     mDynamicCursorSize->setText(tr("Dynamic Cursor Size"));
-    mDynamicCursorSize->setToolTip(tr("When enabled, the painter cursor size"
-                                      "matches the selected tool size."
+    mDynamicCursorSize->setToolTip(tr("When enabled, the painter cursor size\n"
+                                      "matches the selected tool size.\n"
                                       "Requires switching tool to become active."));
 
     // Create Push Buttons

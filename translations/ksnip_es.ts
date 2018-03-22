@@ -698,6 +698,16 @@ make them more smooth.</source>
         <source>Capture save location</source>
         <translation>Capturar ubicaci¢n de guardado</translation>
     </message>
+    <message>
+        <source>Dynamic Cursor Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled, the painter cursor size
+matches the selected tool size.
+Requires switching tool to become active.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsPickerPopup</name>

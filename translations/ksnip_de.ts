@@ -52,10 +52,6 @@
         <translation> um Fehler zu melden.</translation>
     </message>
     <message>
-        <source>The author, &lt;b&gt;Damir Porobic&lt;/b&gt;, can be contacted via </source>
-        <translation type="vanished">Den Autor, &lt;b&gt;Damir Porobic&lt;/b&gt;, kann man kontaktieren über </translation>
-    </message>
-    <message>
         <source>The Author:</source>
         <translation>Der Autor:</translation>
     </message>
@@ -702,6 +698,18 @@ mach sie glatter.</translation>
     <message>
         <source>Capture save location</source>
         <translation>Speicherort für Aufnahmen</translation>
+    </message>
+    <message>
+        <source>Dynamic Cursor Size</source>
+        <translation>Dynamische Mauszeigergröße</translation>
+    </message>
+    <message>
+        <source>When enabled, the painter cursor size
+matches the selected tool size.
+Requires switching tool to become active.</source>
+        <translation>Wenn diese Option aktiviert ist, paßt sich die Mauszeigergröße dem ausgewählten Werkzeug an.
+
+Erfordert ein Wechsel des Werkzeugs um aktiviert zu werden.</translation>
     </message>
 </context>
 <context>

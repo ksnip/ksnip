@@ -22,6 +22,7 @@
 * Fixed: Undo move operation returns item to wrong location. ([#84](https://github.com/DamirPorobic/ksnip/issues/84))
 * Fixed: Crash when adding an item after another item was moved and undone ([#85](https://github.com/DamirPorobic/ksnip/issues/85))
 * Fixed: Crop tool not marking screenshot as unsaved after cropping ([#99](https://github.com/DamirPorobic/ksnip/issues/99))
+* Fixed: Scale tool not marking screenshot as unsaved after scaling ([#100](https://github.com/DamirPorobic/ksnip/issues/100))
 
 ## Release 1.4.0
 * New: Info text (cursor position and selection area size) for snipping area cursor, can be enabled and disabled via settings.([#49](https://github.com/DamirPorobic/ksnip/issues/49))

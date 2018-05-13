@@ -144,6 +144,7 @@ void PaintArea::scale(int newWidth, int newHeight)
         return;
     }
     mUndoStack->push(new ScaleCommand(mScreenshot, newWidth, newHeight, this));
+    emit imageChanged();
 }
 
 QPointF PaintArea::cropOffset() const

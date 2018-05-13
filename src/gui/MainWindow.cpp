@@ -86,8 +86,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) : QMain
     setWindowIcon(IconLoader::loadIcon(QStringLiteral("ksnip")));
     move(mConfig->windowPosition());
 
-    connect(mPaintArea, &PaintArea::imageChanged, this, &MainWindow::ScreenshotChanged);
-    connect(mCaptureView, &CaptureView::imageCropped, this, &MainWindow::ScreenshotChanged);
+    connect(mPaintArea, &PaintArea::imageChanged, this, &MainWindow::screenshotChanged);
+    connect(mCaptureView, &CaptureView::imageCropped, this, &MainWindow::screenshotChanged);
 
 
     connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::showCapture);
@@ -119,7 +119,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) : QMain
     }
 }
 
-void MainWindow::ScreenshotChanged()
+void MainWindow::screenshotChanged()
 {
     setSaveAble(true);
 

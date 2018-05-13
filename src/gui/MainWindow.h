@@ -147,6 +147,7 @@ private slots:
     void instantSave(const QPixmap &pixmap);
     void loadImageFromFile();
     void openScale();
+    void ScreenshotChanged();
 };
 
 #endif // MAINWINDOW_H

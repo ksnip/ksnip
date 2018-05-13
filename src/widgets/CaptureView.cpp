@@ -55,6 +55,7 @@ void CaptureView::crop()
 {
     setIsCropping(false);
     scene()->crop(mSelectedRect);
+    emit imageCropped();
 }
 
 bool CaptureView::isCropping() const

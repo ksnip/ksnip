@@ -42,6 +42,7 @@ public:
 signals:
     void cropRectChanged(const QRectF &rect);
     void closeCrop();
+    void imageCropped() const;
 
 protected:
     virtual void keyPressEvent(QKeyEvent *event) override;

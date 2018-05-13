@@ -18,11 +18,12 @@
  */
 #include "SnippingArea.h"
 
-SnippingArea::SnippingArea(QWidget* parent) : QWidget(parent),
-    mMouseIsDown(false),
-    mCursorFactory(new CursorFactory()),
-    mConfig(KsnipConfig::instance()),
-    mBackground(nullptr)
+SnippingArea::SnippingArea(QWidget *parent)
+    : QWidget(parent),
+      mMouseIsDown(false),
+      mCursorFactory(new CursorFactory()),
+      mConfig(KsnipConfig::instance()),
+      mBackground(nullptr)
 {
     // Make the frame span across the screen and show above any other widget
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool | Qt::X11BypassWindowManagerHint);
@@ -44,7 +45,7 @@ void SnippingArea::showWithoutBackground()
     show();
 }
 
-void SnippingArea::showWithBackground(const QPixmap& background)
+void SnippingArea::showWithBackground(const QPixmap &background)
 {
     setAttribute(Qt::WA_TranslucentBackground, false);
     setBackgroundImage(background);
@@ -65,7 +66,7 @@ void SnippingArea::show()
     grabKeyboard(); // Issue #57
 }
 
-void SnippingArea::setBackgroundImage(const QPixmap& background)
+void SnippingArea::setBackgroundImage(const QPixmap &background)
 {
     clearBackgroundImage();
     mBackground = new QPixmap(background);
@@ -86,7 +87,7 @@ void SnippingArea::init()
     mMouseIsDown = false;
 }
 
-void SnippingArea::mousePressEvent(QMouseEvent* event)
+void SnippingArea::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() != Qt::LeftButton) {
         return;
@@ -97,7 +98,7 @@ void SnippingArea::mousePressEvent(QMouseEvent* event)
     mMouseIsDown = true;
 }
 
-void SnippingArea::mouseReleaseEvent(QMouseEvent* event)
+void SnippingArea::mouseReleaseEvent(QMouseEvent *event)
 {
     if (event->button() != Qt::LeftButton) {
         return;
@@ -114,7 +115,7 @@ bool SnippingArea::close()
     return QWidget::close();
 }
 
-void SnippingArea::mouseMoveEvent(QMouseEvent* event)
+void SnippingArea::mouseMoveEvent(QMouseEvent *event)
 {
     if (mMouseIsDown) {
         updateCapturedArea(mMouseDownPosition, event->pos());
@@ -123,7 +124,7 @@ void SnippingArea::mouseMoveEvent(QMouseEvent* event)
     QWidget::mouseMoveEvent(event);
 }
 
-void SnippingArea::paintEvent(QPaintEvent* event)
+void SnippingArea::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
 
@@ -158,7 +159,7 @@ void SnippingArea::paintEvent(QPaintEvent* event)
     QWidget::paintEvent(event);
 }
 
-void SnippingArea::keyPressEvent(QKeyEvent* event)
+void SnippingArea::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
         emit canceled();
@@ -167,7 +168,7 @@ void SnippingArea::keyPressEvent(QKeyEvent* event)
     QWidget::keyPressEvent(event);
 }
 
-void SnippingArea::updateCapturedArea(const QPoint& pos1, const QPoint& pos2)
+void SnippingArea::updateCapturedArea(const QPoint &pos1, const QPoint &pos2)
 {
     mCaptureArea = MathHelper::getRectBetweenTwoPoints(pos1, pos2);
 }
@@ -177,7 +178,7 @@ QString SnippingArea::createPositionInfoText(int number1, int number2) const
     return QString::number(number1) + QStringLiteral(", ") + QString::number(number2);
 }
 
-void SnippingArea::drawCursorRuler(QPainter& painter) const
+void SnippingArea::drawCursorRuler(QPainter &painter) const
 {
     auto pos = QCursor::pos();
     int offset = 4;
@@ -193,7 +194,7 @@ void SnippingArea::drawCursorRuler(QPainter& painter) const
     painter.drawLine(midToLeft);
 }
 
-void SnippingArea::drawCursorPositionInfo(QPainter& painter) const
+void SnippingArea::drawCursorPositionInfo(QPainter &painter) const
 {
     QPoint textOffset(10, 8);
     auto pos = QCursor::pos();
@@ -211,14 +212,14 @@ void SnippingArea::drawCursorPositionInfo(QPainter& painter) const
     painter.drawText(textBoundingRect, text);
 }
 
-void SnippingArea::drawCursorSizeInfo(QPainter& painter) const
+void SnippingArea::drawCursorSizeInfo(QPainter &painter) const
 {
     painter.setPen(QPen(Qt::red, 1));
     drawCursorWidthInfo(painter);
     drawCursorHeightInfo(painter);
 }
 
-void SnippingArea::drawCursorWidthInfo(QPainter& painter) const
+void SnippingArea::drawCursorWidthInfo(QPainter &painter) const
 {
     QPoint lineOffset(0, -10);
     QPoint lineEndOffset(0, -3);
@@ -243,7 +244,7 @@ void SnippingArea::drawCursorWidthInfo(QPainter& painter) const
     painter.drawText(widthTextBoundingRect, widthText);
 }
 
-void SnippingArea::drawCursorHeightInfo(QPainter& painter) const
+void SnippingArea::drawCursorHeightInfo(QPainter &painter) const
 {
     QPoint lineOffset(-10, 0);
     QPoint lineEndOffset(-3, 0);
@@ -268,7 +269,7 @@ void SnippingArea::drawCursorHeightInfo(QPainter& painter) const
     painter.drawText(heightTextBoundingRect, heightText);
 }
 
-QRect SnippingArea::getTextBounding(const QPainter& painter, const QString& text) const
+QRect SnippingArea::getTextBounding(const QPainter &painter, const QString &text) const
 {
     auto fontMetric = painter.fontMetrics();
     return fontMetric.boundingRect(text);

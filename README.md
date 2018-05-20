@@ -5,6 +5,9 @@ Version v1.5.0 - alpha
 Ksnip is a Qt based Linux screenshot tool that provides many annotation features 
 for your screenshots.
 
+![Ksnip](https://i.imgur.com/7FF2kkk.jpg "Ksnip with annotations")
+
+
 ### Features
 Latest ksnip version contains following features:
 * X11 and experimental KDE and Gnome Wayland support.
@@ -40,7 +43,7 @@ Starting with version 1.5.0 we have a continues build AppImage which is build af
 
 In order to use AppImages, just download them from [here](https://github.com/damirporobic/ksnip/releases), make them executable and start using it, no installation required.  
 `$ cd ~/Downloads`  
-`$ chmod a+x ksnip*.AppImage`  
+`$ chmod a+x ksnip*.AppImage` 
 `$ ./ksnip*.AppImage`
 
 More information about setting to executable can be found [here](https://discourse.appimage.org/t/how-to-make-an-appimage-executable/80).

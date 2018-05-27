@@ -43,7 +43,7 @@ Starting with version 1.5.0 we have a continues build AppImage which is build af
 
 In order to use AppImages, just download them from [here](https://github.com/damirporobic/ksnip/releases), make them executable and start using it, no installation required.  
 `$ cd ~/Downloads`  
-`$ chmod a+x ksnip*.AppImage` 
+`$ chmod a+x ksnip*.AppImage`  
 `$ ./ksnip*.AppImage`
 
 More information about setting to executable can be found [here](https://discourse.appimage.org/t/how-to-make-an-appimage-executable/80).
@@ -67,7 +67,7 @@ Installing DEB:
 1. Get latest release from GitHub by downloading either the zip or tar.gz package from [here](https://github.com/damirporobic/ksnip/releases).  
 2. Change to download directory, unpack the package and go to new directory:  
     `$ cd ~/Downloads`    
-    `$ unzip ksnip-1.x.x.zip`
+    `$ unzip ksnip-1.x.x.zip`  
     `$ cd ksnip-1.x.x`
 3. Make new build directory and enter it:  
     `$ mkdir build`  

@@ -38,7 +38,7 @@
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/ImgurUploader.h"
-#include "src/helper/IconLoader.h"
+#include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
 
 class MainWindow : public QMainWindow

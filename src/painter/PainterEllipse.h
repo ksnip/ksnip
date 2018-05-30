@@ -21,7 +21,7 @@
 #define PAINTERELLIPSE_H
 
 #include "PainterRect.h"
-#include "src/helper/MathHelper.h"
+#include "src/common/helper/MathHelper.h"
 
 class PainterEllipse : public PainterRect
 {

@@ -26,7 +26,7 @@
 #include <QApplication>
 
 #include "src/widgets/CursorFactory.h"
-#include "src/helper/MathHelper.h"
+#include "src/common/helper/MathHelper.h"
 #include "src/backend/KsnipConfig.h"
 
 class SnippingArea : public QWidget

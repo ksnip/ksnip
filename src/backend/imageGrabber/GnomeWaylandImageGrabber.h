@@ -25,7 +25,7 @@
 #include <QtDBus/QDBusReply>
 
 #include "AbstractImageGrabber.h"
-#include "src/helper/MathHelper.h"
+#include "src/common/helper/MathHelper.h"
 
 class GnomeWaylandImageGrabber : public AbstractImageGrabber
 {

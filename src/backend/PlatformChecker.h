@@ -22,7 +22,7 @@
 
 #include <QString>
 
-#include "src/helper/CommandRunner.h"
+#include "src/common/runner/CommandRunner.h"
 
 class PlatformChecker
 {

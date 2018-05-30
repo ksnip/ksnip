@@ -107,7 +107,7 @@ int main(int argc, char** argv)
     // If there are no options except the the ksnip executable name, just run
     // the application
     if (arguments.count() <= 1) {
-        window = new MainWindow(imageGrabber, MainWindow::GUI);
+        window = new MainWindow(imageGrabber, RunMode::GUI);
         return app.exec();
     }
 
@@ -120,13 +120,13 @@ int main(int argc, char** argv)
             return 1;
         }
 
-        window = new MainWindow(imageGrabber, MainWindow::GUI);
+        window = new MainWindow(imageGrabber, RunMode::Edit);
         window->showCapture(pixmap);
         return app.exec();
     }
 
     // If we have reached this point, we are running CLI mode
-    window = new MainWindow(imageGrabber, MainWindow::CLI);
+    window = new MainWindow(imageGrabber, RunMode::CLI);
 
     // Check if delay was selected, if yes, make sure a valid number was provided
     int delay = 0;

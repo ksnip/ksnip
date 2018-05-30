@@ -112,7 +112,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) : QMain
 
     // If requested by user, run capture on startup which will afterward show
     // the mainwindow, otherwise show the mainwindow right away.
-    if (mConfig->captureOnStartup()) {
+    if (mConfig->captureOnStartup() && mMode != RunMode::Edit) {
         capture(mConfig->captureMode());
     } else {
         show();
@@ -217,11 +217,6 @@ void MainWindow::closeCrop()
 {
     statusBar()->removeWidget(mCropPanel);
     statusBar()->setHidden(true);
-}
-
-MainWindow::RunMode MainWindow::getMode() const
-{
-    return mMode;
 }
 
 QMenu* MainWindow::createPopupMenu()

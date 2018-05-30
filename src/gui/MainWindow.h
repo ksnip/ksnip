@@ -39,22 +39,16 @@
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/ImgurUploader.h"
 #include "src/helper/IconLoader.h"
+#include "src/common/enum/RunMode.h"
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    enum RunMode {
-        GUI,
-        CLI
-    };
-
-public:
-    MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = GUI);
+    MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
     void show();
     void instantCapture(CaptureModes captureMode, bool capureCursor = true, int delay = 0);
     void resize();
-    RunMode getMode() const;
     virtual QMenu *createPopupMenu() override;
 
 public slots:

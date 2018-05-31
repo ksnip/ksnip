@@ -113,8 +113,7 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    window = new MainWindow(imageGrabber, RunMode::CLI);
-
+    window = new MainWindow(imageGrabber, RunMode::Edit);
     window->captureScreenshot(mode, captureCursor, delay * 1000);
     return app.exec();
 }

@@ -113,12 +113,12 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
 
     loadSettings();
 
-    // If requested by user, run capture on startup which will afterward show
-    // the mainwindow, otherwise show the mainwindow right away.
-    if (mConfig->captureOnStartup() && mMode != RunMode::Edit) {
-        capture(mConfig->captureMode());
-    } else {
-        show();
+    if (mMode == RunMode::GUI) {
+        if (mConfig->captureOnStartup()) {
+            capture(mConfig->captureMode());
+        } else {
+            show();
+        }
     }
 }
 
@@ -483,11 +483,7 @@ bool MainWindow::popupQuestion(const QString& title, const QString& question)
 {
     auto reply = QMessageBox::question(this, title, question, QMessageBox::Yes | QMessageBox::No);
 
-    if (reply == QMessageBox::Yes) {
-        return true;
-    } else {
-        return false;
-    }
+    return reply == QMessageBox::Yes;
 }
 
 /*

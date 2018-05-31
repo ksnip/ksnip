@@ -15,6 +15,7 @@
 * Changed: Move and select operation are now combined under single tool. ([#72](https://github.com/DamirPorobic/ksnip/issues/72))
 * Changed: Item selection is now based on item shape and not on item bounding rect. ([#83](https://github.com/DamirPorobic/ksnip/issues/83))
 * Changed: Imgur upload now asks for confirmation before uploading. This can be disabled in setting. ([#73](https://github.com/DamirPorobic/ksnip/issues/73))
+* Changed: CLI screenshots open now in editor when triggered without -s flag. ([#103](https://github.com/DamirPorobic/ksnip/issues/103))
 * Fixed: Crash on Ubuntu 17.10 caused by null painterPath pointer in smoothOut method. ([#67](https://github.com/DamirPorobic/ksnip/issues/67))
 * Fixed: Default filename for screenshot had one $ sign too many. ([#68](https://github.com/DamirPorobic/ksnip/issues/68))
 * Fixed: Cancel on browse to save directory in settings dialog clears save path. ([#69](https://github.com/DamirPorobic/ksnip/issues/69))

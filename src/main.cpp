@@ -113,7 +113,12 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    window = new MainWindow(imageGrabber, RunMode::Edit);
+    if (parser.isSet(QStringLiteral("s"))) {
+        window = new MainWindow(imageGrabber, RunMode::CLI);
+    } else {
+        window = new MainWindow(imageGrabber, RunMode::Edit);
+    }
+
     window->captureScreenshot(mode, captureCursor, delay * 1000);
     return app.exec();
 }

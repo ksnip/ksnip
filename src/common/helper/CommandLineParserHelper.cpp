@@ -62,6 +62,9 @@ void CommandLineParserHelper::addDefaultOptions(QCommandLineParser &parser)
                           {{QStringLiteral("e"), QStringLiteral("edit")},
                            QCoreApplication::translate("main", "Edit existing image in ksnip"),
                            QCoreApplication::translate("main", "image")
+                          },
+                          {{QStringLiteral("s"), QStringLiteral("save")},
+                           QCoreApplication::translate("main", "Save screenshot to default location without opening in editor."),
                           }
                       });
 }

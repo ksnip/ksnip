@@ -115,6 +115,6 @@ int main(int argc, char** argv)
 
     window = new MainWindow(imageGrabber, RunMode::CLI);
 
-    window->instantCapture(mode, captureCursor, delay * 1000);
+    window->captureScreenshot(mode, captureCursor, delay * 1000);
     return app.exec();
 }

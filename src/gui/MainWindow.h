@@ -39,6 +39,7 @@
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/ImgurUploader.h"
 #include "src/common/loader/IconLoader.h"
+#include "src/common/handler/DelayHandler.h"
 #include "src/common/enum/RunMode.h"
 
 class MainWindow : public QMainWindow
@@ -47,7 +48,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
     void show();
-    void instantCapture(CaptureModes captureMode, bool capureCursor = true, int delay = 0);
+    void captureScreenshot(CaptureModes captureMode, bool capureCursor = true, int delay = 0);
     void resize();
     virtual QMenu *createPopupMenu() override;
 
@@ -69,7 +70,6 @@ private:
     RunMode           mMode;
     bool              mIsUnsaved;
     bool              mHidden;
-    const int         mMinCaptureDelay = 200;
     CustomToolButton *mNewCaptureButton;
     QToolButton      *mSaveButton;
     QToolButton      *mCopyToClipboardButton;
@@ -114,6 +114,7 @@ private:
     CropPanel        *mCropPanel;
     KsnipConfig      *mConfig;
     SettingsPickerConfigurator *mSettingsPickerConfigurator;
+    DelayHandler     *mDelayHandler;
 
     void setSaveAble(bool enabled);
     void setEnablements(bool enabled);

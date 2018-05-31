@@ -20,7 +20,9 @@
 
 #include "MainWindow.h"
 
-MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) : QMainWindow(),
+MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
+    :
+    QMainWindow(),
     mImageGrabber(imageGrabber),
     mMode(mode),
     mNewCaptureButton(new CustomToolButton(this)),
@@ -65,7 +67,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) : QMain
     mImgurUploader(new ImgurUploader(this)),
     mCropPanel(new CropPanel(mCaptureView)),
     mConfig(KsnipConfig::instance()),
-    mSettingsPickerConfigurator(new SettingsPickerConfigurator())
+    mSettingsPickerConfigurator(new SettingsPickerConfigurator()),
+    mDelayHandler(new DelayHandler(200))
 {
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
@@ -132,14 +135,9 @@ void MainWindow::screenshotChanged()
 // Public Functions
 //
 
-/*
- * Function for instant capturing used from command line.
- */
-void MainWindow::instantCapture(CaptureModes captureMode, bool captureCursor, int delay)
+void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay)
 {
-    if (captureMode == CaptureModes::RectArea && delay < mMinCaptureDelay) {
-        delay = mMinCaptureDelay;
-    }
+    delay = mDelayHandler->getDelay(delay);
     mImageGrabber->grabImage(captureMode, captureCursor, delay);
 }
 
@@ -526,14 +524,9 @@ bool MainWindow::hidden() const
 void MainWindow::capture(CaptureModes captureMode)
 {
     setHidden(true);
-
-    auto delay = mConfig->captureDelay();
-    if( delay < mMinCaptureDelay) {
-        delay = mMinCaptureDelay;
-    }
-
-    mImageGrabber->grabImage(captureMode, mConfig->captureCursor(), delay);
     mConfig->setCaptureMode(captureMode);
+
+    captureScreenshot(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
 }
 
 void MainWindow::initGui()

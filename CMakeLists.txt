@@ -67,6 +67,7 @@ set(ksnip_SRCS ${CMAKE_SOURCE_DIR}/src/main.cpp
         ${CMAKE_SOURCE_DIR}/src/common/helper/CommandLineParserHelper.cpp
         ${CMAKE_SOURCE_DIR}/src/common/runner/CommandRunner.cpp
         ${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
+        ${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp
         ${CMAKE_SOURCE_DIR}/src/widgets/CropPanel.cpp
         ${CMAKE_SOURCE_DIR}/src/widgets/CaptureView.cpp
         ${CMAKE_SOURCE_DIR}/src/widgets/CustomToolButton.cpp

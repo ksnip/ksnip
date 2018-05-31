@@ -82,6 +82,7 @@ set(ksnip_SRCS ${CMAKE_SOURCE_DIR}/src/main.cpp
         ${CMAKE_SOURCE_DIR}/src/widgets/settingsPicker/SettingsPickerButton.cpp
         ${CMAKE_SOURCE_DIR}/src/widgets/settingsPicker/SettingsPickerColorItem.cpp
         ${CMAKE_SOURCE_DIR}/src/widgets/settingsPicker/SettingsPickerConfigurator.cpp
+        ${CMAKE_SOURCE_DIR}/src/widgets/ToolPicker.cpp
         ${CMAKE_SOURCE_DIR}/src/gui/MainWindow.cpp
         ${CMAKE_SOURCE_DIR}/src/gui/SnippingArea.cpp
         ${CMAKE_SOURCE_DIR}/src/gui/SettingsDialog.cpp

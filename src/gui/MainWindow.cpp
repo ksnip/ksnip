@@ -28,9 +28,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
     mNewCaptureButton(new CustomToolButton(this)),
     mSaveButton(new QToolButton(this)),
     mCopyToClipboardButton(new QToolButton(this)),
-    mPaintToolButton(new CustomToolButton(this)),
     mSettingsButton(new SettingsPicker(this, 5)),
-    mPaintToolMenu(new CustomMenu(mPaintToolButton)),
     mNewCaptureMenu(new CustomMenu(mNewCaptureButton)),
     mNewRectAreaCaptureAction(nullptr),
     mNewCurrentScreenCaptureAction(nullptr),
@@ -39,16 +37,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
     mNewWindowUnderCursorAction(nullptr),
     mSaveAction(new QAction(this)),
     mCopyToClipboardAction(new QAction(this)),
-    mPenAction(new QAction(this)),
-    mMarkerAction(new QAction(this)),
-    mRectAction(new QAction(this)),
-    mEllipseAction(new QAction(this)),
-    mLineAction(new QAction(this)),
-    mArrowAction(new QAction(this)),
-    mTextAction(new QAction(this)),
-    mNumberAction(new QAction(this)),
-    mEraseAction(new QAction(this)),
-    mSelectAction(new QAction(this)),
     mUploadToImgurAction(new QAction(this)),
     mPrintAction(new QAction(this)),
     mPrintPreviewAction(new QAction(this)),
@@ -68,7 +56,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
     mCropPanel(new CropPanel(mCaptureView)),
     mConfig(KsnipConfig::instance()),
     mSettingsPickerConfigurator(new SettingsPickerConfigurator()),
-    mDelayHandler(new DelayHandler(200))
+    mDelayHandler(new DelayHandler(200)),
+    mToolPicker(new ToolPicker())
 {
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
@@ -346,7 +335,7 @@ void MainWindow::closeEvent(QCloseEvent* event)
 bool MainWindow::eventFilter(QObject* watched, QEvent* event)
 {
     if (event->type() == QEvent::Shortcut && mPaintArea->isTextEditing()) {
-        auto  shortcutEvent = static_cast<QShortcutEvent*>(event);
+        auto shortcutEvent = dynamic_cast<QShortcutEvent *>(event);
         auto s = shortcutEvent->key().toString().toLower();
 
         // If Ctrl or Alt was pressed we can ignore those events as they
@@ -398,43 +387,9 @@ void MainWindow::setEnablements(bool enabled)
 void MainWindow::loadSettings()
 {
     // Load paintmode setting
-    switch (mConfig->paintMode()) {
-    case Painter::Pen:
-        setPaintMode(Painter::Pen, false);
-        mPaintToolButton->setDefaultAction(mPenAction);
-        break;
-    case Painter::Marker:
-        setPaintMode(Painter::Marker, false);
-        mPaintToolButton->setDefaultAction(mMarkerAction);
-        break;
-    case Painter::Rect:
-        setPaintMode(Painter::Rect, false);
-        mPaintToolButton->setDefaultAction(mRectAction);
-        break;
-    case Painter::Ellipse:
-        setPaintMode(Painter::Ellipse, false);
-        mPaintToolButton->setDefaultAction(mEllipseAction);
-        break;
-    case Painter::Line:
-        setPaintMode(Painter::Line, false);
-        mPaintToolButton->setDefaultAction(mLineAction);
-        break;
-    case Painter::Arrow:
-        setPaintMode(Painter::Arrow, false);
-        mPaintToolButton->setDefaultAction(mArrowAction);
-        break;
-    case Painter::Text:
-        setPaintMode(Painter::Text, false);
-        mPaintToolButton->setDefaultAction(mTextAction);
-        break;
-    case Painter::Number:
-        setPaintMode(Painter::Number, false);
-        mPaintToolButton->setDefaultAction(mNumberAction);
-        break;
-    default:
-        setPaintMode(Painter::Pen, false);
-        mPaintToolButton->setDefaultAction(mPenAction);
-    }
+    auto paintMode = mConfig->paintMode();
+    mToolPicker->setTool(paintMode);
+    setPaintMode(paintMode);
 
     // Load capture mode setting
     switch (mConfig->captureMode()) {
@@ -637,97 +592,6 @@ void MainWindow::initGui()
     mScaleAction->setShortcut(Qt::SHIFT + Qt::Key_S);
     connect(mScaleAction, &QAction::triggered, this, &MainWindow::openScale);
 
-    // Create actions for paint mode
-    mPenAction->setText(tr("Pen"));
-    mPenAction->setIcon(IconLoader::loadIcon(QStringLiteral("pen")));
-    mPenAction->setShortcut(Qt::Key_P);
-    connect(mPenAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != Painter::Pen) {
-            setPaintMode(Painter::Pen);
-        }
-    });
-
-    mMarkerAction->setText(tr("Marker"));
-    mMarkerAction->setIcon(IconLoader::loadIcon(QStringLiteral("marker")));
-    mMarkerAction->setShortcut(Qt::Key_B);
-    connect(mMarkerAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != Painter::Marker) {
-            setPaintMode(Painter::Marker);
-        }
-    });
-
-    mRectAction->setText(tr("Rect"));
-    mRectAction->setIcon(IconLoader::loadIcon(QStringLiteral("rect")));
-    mRectAction->setShortcut(Qt::Key_R);
-    connect(mRectAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != Painter::Rect) {
-            setPaintMode(Painter::Rect);
-        }
-    });
-
-    mEllipseAction->setText(tr("Ellipse"));
-    mEllipseAction->setIcon(IconLoader::loadIcon(QStringLiteral("ellipse")));
-    mEllipseAction->setShortcut(Qt::Key_E);
-    connect(mEllipseAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != Painter::Ellipse) {
-            setPaintMode(Painter::Ellipse);
-        }
-    });
-
-    mLineAction->setText(tr("Line"));
-    mLineAction->setIcon(IconLoader::loadIcon(QStringLiteral("line")));
-    mLineAction->setShortcut(Qt::Key_L);
-    connect(mLineAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != Painter::Line) {
-            setPaintMode(Painter::Line);
-        }
-    });
-
-    mArrowAction->setText(tr("Arrow"));
-    mArrowAction->setIcon(IconLoader::loadIcon(QStringLiteral("arrow")));
-    mArrowAction->setShortcut(Qt::Key_A);
-    connect(mArrowAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != Painter::Arrow) {
-            setPaintMode(Painter::Arrow);
-        }
-    });
-
-    mTextAction->setText(tr("Text"));
-    mTextAction->setIcon(IconLoader::loadIcon(QStringLiteral("text")));
-    mTextAction->setShortcut(Qt::Key_T);
-    connect(mTextAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != Painter::Text) {
-            setPaintMode(Painter::Text);
-        }
-    });
-
-    mNumberAction->setText(tr("Number"));
-    mNumberAction->setIcon(IconLoader::loadIcon(QStringLiteral("number")));
-    mNumberAction->setShortcut(Qt::Key_N);
-    connect(mNumberAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != Painter::Number) {
-            setPaintMode(Painter::Number);
-        }
-    });
-
-    mEraseAction->setText(tr("Erase"));
-    mEraseAction->setIcon(IconLoader::loadIcon(QStringLiteral("eraser")));
-    mEraseAction->setShortcut(Qt::Key_D);
-    connect(mEraseAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != Painter::Erase) {
-            setPaintMode(Painter::Erase);
-        }
-    });
-
-    mSelectAction->setText(tr("Select"));
-    mSelectAction->setIcon(IconLoader::loadIcon(QStringLiteral("select")));
-    mSelectAction->setShortcut(Qt::Key_S);
-    connect(mSelectAction, &QAction::triggered, [this]() {
-        if (mPaintArea->paintMode() != Painter::Select) {
-            setPaintMode(Painter::Select);
-        }
-    });
-
     // Create action for new capture, this will be only used in the menu bar
     mNewCaptureAction->setText(tr("New"));
     mNewCaptureAction->setShortcut(QKeySequence::New);
@@ -769,7 +633,6 @@ void MainWindow::initGui()
     connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::loadImageFromFile);
 
     // Create tool buttons
-
     mNewCaptureButton->setMenu(mNewCaptureMenu);
     mNewCaptureButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
@@ -785,17 +648,7 @@ void MainWindow::initGui()
     mCopyToClipboardButton->addAction(mCopyToClipboardAction);
     mCopyToClipboardButton->setDefaultAction(mCopyToClipboardAction);
 
-    // Create tool button for selecting paint tool
-    mPaintToolMenu->addAction(mPenAction);
-    mPaintToolMenu->addAction(mMarkerAction);
-    mPaintToolMenu->addAction(mRectAction);
-    mPaintToolMenu->addAction(mEllipseAction);
-    mPaintToolMenu->addAction(mLineAction);
-    mPaintToolMenu->addAction(mArrowAction);
-    mPaintToolMenu->addAction(mTextAction);
-    mPaintToolMenu->addAction(mNumberAction);
-    mPaintToolMenu->addAction(mEraseAction);
-    mPaintToolMenu->addAction(mSelectAction);
+    connect(mToolPicker, &ToolPicker::toolSelected, this, &MainWindow::setPaintModeAndSave);
 
     // Create painter settings tool button;
     mSettingsButton->setIcon(IconLoader::loadIcon(QStringLiteral("painterSettings")));
@@ -806,10 +659,6 @@ void MainWindow::initGui()
             this, &MainWindow::fillChanged);
     connect(mSettingsButton, &SettingsPicker::sizeSelected,
             this, &MainWindow::sizeChanged);
-
-    mPaintToolButton->setMenu(mPaintToolMenu);
-    mPaintToolButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    mPaintToolButton->setDefaultAction(mPenAction);
 
     // Create menu bar
     QMenu* menu;
@@ -845,12 +694,24 @@ void MainWindow::initGui()
     mToolBar->addWidget(mSaveButton);
     mToolBar->addWidget(mCopyToClipboardButton);
     mToolBar->addSeparator();
-    mToolBar->addWidget(mPaintToolButton);
+    mToolBar->addWidget(mToolPicker);
     mToolBar->addWidget(mSettingsButton);
     mToolBar->setFixedSize(mToolBar->sizeHint());
 
     setCentralWidget(mCaptureView);
     resize();
+}
+
+void MainWindow::setPaintMode(const Painter::Modes &mode)
+{
+    mPaintArea->setPaintMode(mode);
+    mSettingsPickerConfigurator->setup(mSettingsButton, mode);
+
+    if (mode == Painter::Text) {
+        QCoreApplication::instance()->installEventFilter(this);
+    } else {
+        QCoreApplication::instance()->removeEventFilter(this);
+    }
 }
 
 void MainWindow::saveCaptureClicked()
@@ -1026,23 +887,13 @@ void MainWindow::imgurTokenRefresh()
     statusBar()->showMessage(tr("Imgur token has expired, requesting new token..."));
 }
 
-void MainWindow::setPaintMode(Painter::Modes mode, bool save)
+void MainWindow::setPaintModeAndSave(Painter::Modes mode)
 {
-    mPaintArea->setPaintMode(mode);
-
-    if (save
-            && mode != Painter::Erase
-            && mode != Painter::Select) {
+    if (mode != Painter::Erase && mode != Painter::Select) {
         mConfig->setPaintMode(mode);
     }
 
-    mSettingsPickerConfigurator->setup(mSettingsButton, mode);
-
-    if (mode == Painter::Text) {
-        QApplication::instance()->installEventFilter(this);
-    } else {
-        QApplication::instance()->removeEventFilter(this);
-    }
+    setPaintMode(mode);
 }
 
 void MainWindow::instantSave(const QPixmap& pixmap)

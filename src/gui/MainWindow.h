@@ -34,6 +34,7 @@
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/CaptureView.h"
 #include "src/widgets/CropPanel.h"
+#include "src/widgets/ToolPicker.h"
 #include "src/widgets/settingsPicker/SettingsPickerConfigurator.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
@@ -73,9 +74,7 @@ private:
     CustomToolButton *mNewCaptureButton;
     QToolButton      *mSaveButton;
     QToolButton      *mCopyToClipboardButton;
-    CustomToolButton *mPaintToolButton;
     SettingsPicker   *mSettingsButton;
-    CustomMenu       *mPaintToolMenu;
     CustomMenu       *mNewCaptureMenu;
     QAction          *mNewRectAreaCaptureAction;
     QAction          *mNewCurrentScreenCaptureAction;
@@ -84,16 +83,6 @@ private:
     QAction          *mNewWindowUnderCursorAction;
     QAction          *mSaveAction;
     QAction          *mCopyToClipboardAction;
-    QAction          *mPenAction;
-    QAction          *mMarkerAction;
-    QAction          *mRectAction;
-    QAction          *mEllipseAction;
-    QAction          *mLineAction;
-    QAction          *mArrowAction;
-    QAction          *mTextAction;
-    QAction          *mNumberAction;
-    QAction          *mEraseAction;
-    QAction          *mSelectAction;
     QAction          *mUploadToImgurAction;
     QAction          *mPrintAction;
     QAction          *mPrintPreviewAction;
@@ -115,6 +104,7 @@ private:
     KsnipConfig      *mConfig;
     SettingsPickerConfigurator *mSettingsPickerConfigurator;
     DelayHandler     *mDelayHandler;
+    ToolPicker       *mToolPicker;
 
     void setSaveAble(bool enabled);
     void setEnablements(bool enabled);
@@ -125,6 +115,7 @@ private:
     bool hidden() const;
     void capture(CaptureModes captureMode);
     void initGui();
+    void setPaintMode(const Painter::Modes &mode);
 
 private slots:
     void saveCaptureClicked();
@@ -138,7 +129,7 @@ private slots:
                            const QString &refreshTocken,
                            const QString &username);
     void imgurTokenRefresh();
-    void setPaintMode(Painter::Modes mode, bool save = true);
+    void setPaintModeAndSave(Painter::Modes mode);
     void instantSave(const QPixmap &pixmap);
     void loadImageFromFile();
     void openScale();

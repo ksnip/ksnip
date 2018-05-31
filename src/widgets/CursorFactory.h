@@ -21,7 +21,7 @@
 #define CURSORFACTORY_H
 
 #include "CustomCursor.h"
-#include "src/painter/PaintModes.h"
+#include "src/common/enum/PaintMode.h"
 #include "src/painter/AbstractPainterItem.h"
 #include "src/backend/KsnipConfig.h"
 
@@ -29,7 +29,7 @@ class CursorFactory
 {
 public:
     CursorFactory();
-    QCursor *createPainterCursor(Painter::Modes mode, AbstractPainterItem *painterItem = nullptr);
+    QCursor *createPainterCursor(PaintMode mode, AbstractPainterItem *painterItem = nullptr);
     QCursor *createDefaultCursor();
     QCursor *createSnippingCursor();
 
@@ -37,7 +37,7 @@ private:
     KsnipConfig *mConfig;
     int          mDefaultCursorSize;
 
-    int getCursorSize(Painter::Modes mode) const;
+    int getCursorSize(PaintMode mode) const;
 };
 
 #endif // CURSORFACTORY_H

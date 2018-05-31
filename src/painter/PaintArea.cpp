@@ -19,17 +19,17 @@
 #include "PaintArea.h"
 
 PaintArea::PaintArea() : QGraphicsScene(),
-    mScreenshot(nullptr),
-    mCurrentItem(nullptr),
-    mRubberBand(new QRubberBand(QRubberBand::Rectangle, nullptr)),
-    mShiftPressed(false),
-    mPaintMode(Painter::Pen),
-    mUndoStack(new QUndoStack(this)),
-    mUndoAction(nullptr),
-    mRedoAction(nullptr),
-    mConfig(KsnipConfig::instance()),
-    mPainterItemFactory(new PainterItemFactory()),
-    mCursorFactory(new CursorFactory())
+                         mScreenshot(nullptr),
+                         mCurrentItem(nullptr),
+                         mRubberBand(new QRubberBand(QRubberBand::Rectangle, nullptr)),
+                         mShiftPressed(false),
+                         mPaintMode(PaintMode::Pen),
+                         mUndoStack(new QUndoStack(this)),
+                         mUndoAction(nullptr),
+                         mRedoAction(nullptr),
+                         mConfig(KsnipConfig::instance()),
+                         mPainterItemFactory(new PainterItemFactory()),
+                         mCursorFactory(new CursorFactory())
 {
     connect(mConfig, &KsnipConfig::painterUpdated, this, &PaintArea::setCursor);
 
@@ -67,7 +67,7 @@ QSize PaintArea::areaSize() const
     return sceneRect().size().toSize();
 }
 
-void PaintArea::setPaintMode(Painter::Modes paintMode)
+void PaintArea::setPaintMode(PaintMode paintMode)
 {
     if (mPaintMode == paintMode) {
         return;
@@ -79,7 +79,7 @@ void PaintArea::setPaintMode(Painter::Modes paintMode)
     setCursor();
 }
 
-Painter::Modes PaintArea::paintMode() const
+PaintMode PaintArea::paintMode() const
 {
     return mPaintMode;
 }
@@ -117,11 +117,7 @@ bool PaintArea::isEnabled() const
 
 bool PaintArea::isValid() const
 {
-    if (mScreenshot == nullptr) {
-        return false;
-    } else {
-        return true;
-    }
+    return mScreenshot != nullptr;
 }
 
 bool PaintArea::isTextEditing() const
@@ -197,9 +193,9 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
         return;
     }
 
-    if (mPaintMode == Painter::Erase) {
+    if (mPaintMode == PaintMode::Erase) {
         eraseItemAt(event->scenePos(), mConfig->eraseSize());
-    } else if (mPaintMode == Painter::Select) {
+    } else if (mPaintMode == PaintMode::Select) {
         mCurrentItem = handleSelectionAt(event->scenePos());
         if (mCurrentItem != nullptr) {
             setOffsetForSelectedItems(event->scenePos());
@@ -222,9 +218,9 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
 void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 {
     if (event->buttons() == Qt::LeftButton && mIsEnabled) {
-        if (mPaintMode == Painter::Erase) {
+        if (mPaintMode == PaintMode::Erase) {
             eraseItemAt(event->scenePos(), mConfig->eraseSize());
-        } else if (mPaintMode == Painter::Select) {
+        } else if (mPaintMode == PaintMode::Select) {
             if (mRubberBand->isHidden()) {
                 moveItems(event->scenePos());
             } else {
@@ -243,7 +239,7 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
     if (event->button() != Qt::LeftButton || !mIsEnabled) {
         return;
     }
-    if (mPaintMode == Painter::Select) {
+    if (mPaintMode == PaintMode::Select) {
         if (mRubberBand->isHidden()) {
             clearOffsetForSelectedItems();
             mCurrentItem = nullptr;
@@ -252,7 +248,7 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
             hideRubberBand();
         }
     } else {
-        if (mPaintMode == Painter::Pen || Painter::Pen == Painter::Marker) {
+        if (mPaintMode == PaintMode::Pen || PaintMode::Pen == PaintMode::Marker) {
             PainterPen* path = qgraphicsitem_cast<PainterPen*>(mCurrentItem);
             if (mConfig->smoothPathEnabled() && path != nullptr) {
                 path->smoothOut(mConfig->smoothFactor());
@@ -400,7 +396,7 @@ void PaintArea::setCursor()
 
     // Set cursor on all views, probably just one
     for (auto view : views()) {
-        if (mPaintMode == Painter::Select) {
+        if (mPaintMode == PaintMode::Select) {
             view->viewport()->unsetCursor();
         } else {
             view->viewport()->setCursor(*cursor);
@@ -411,7 +407,7 @@ void PaintArea::setCursor()
     for (auto item : items()) {
         auto baseItem = qgraphicsitem_cast<AbstractPainterItem*> (item);
         if (baseItem != nullptr) {
-            if (mPaintMode == Painter::Select) {
+            if (mPaintMode == PaintMode::Select) {
                 baseItem->setCursor(*cursor);
             } else {
                 baseItem->unsetCursor();
@@ -525,7 +521,7 @@ void PaintArea::bringForward(bool toFront)
             // the items here but later in the undo/redo command so the item is
             // not yet bubbling up yet.
             if (item->zValue() > selected->zValue()
-                    && !selection.contains(static_cast<AbstractPainterItem*>(item))) {
+                && !selection.contains(dynamic_cast<AbstractPainterItem *>(item))) {
                 list->append(qMakePair(item, selected));
                 if (!toFront) {
                     break;
@@ -552,7 +548,7 @@ void PaintArea::sendBackward(bool toBack)
             // not yet bubbling up yet.
             if (item->zValue() < selected->zValue()
                     && item->zValue() > 0
-                    && !selection.contains(static_cast<AbstractPainterItem*>(item))) {
+                && !selection.contains(dynamic_cast<AbstractPainterItem *>(item))) {
                 list->append(qMakePair(item, selected));
                 if (!toBack) {
                     break;

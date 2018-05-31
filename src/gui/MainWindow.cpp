@@ -221,28 +221,28 @@ QMenu* MainWindow::createPopupMenu()
 void MainWindow::colorChanged(const QColor& color)
 {
     switch (mPaintArea->paintMode()) {
-    case Painter::Pen:
+        case PaintMode::Pen:
         mConfig->setPenColor(color);
         break;
-    case Painter::Marker:
+        case PaintMode::Marker:
         mConfig->setMarkerColor(color);
         break;
-    case Painter::Rect:
+        case PaintMode::Rect:
         mConfig->setRectColor(color);
         break;
-    case Painter::Ellipse:
+        case PaintMode::Ellipse:
         mConfig->setEllipseColor(color);
         break;
-    case Painter::Line:
+        case PaintMode::Line:
         mConfig->setLineColor(color);
         break;
-    case Painter::Arrow:
+        case PaintMode::Arrow:
         mConfig->setArrowColor(color);
         break;
-    case Painter::Text:
+        case PaintMode::Text:
         mConfig->setTextColor(color);
         break;
-    case Painter::Number:
+        case PaintMode::Number:
         mConfig->setNumberColor(color);
         break;
     default:
@@ -257,10 +257,10 @@ void MainWindow::colorChanged(const QColor& color)
 void MainWindow::fillChanged(bool fill)
 {
     switch (mPaintArea->paintMode()) {
-    case Painter::Rect:
+        case PaintMode::Rect:
         mConfig->setRectFill(fill);
         break;
-    case Painter::Ellipse:
+        case PaintMode::Ellipse:
         mConfig->setEllipseFill(fill);
         break;
     default:
@@ -275,30 +275,30 @@ void MainWindow::fillChanged(bool fill)
 void MainWindow::sizeChanged(int size)
 {
     switch (mPaintArea->paintMode()) {
-    case Painter::Pen:
+        case PaintMode::Pen:
         mConfig->setPenSize(size);
         break;
-    case Painter::Marker:
+        case PaintMode::Marker:
         mConfig->setMarkerSize(size);
         break;
-    case Painter::Rect:
+        case PaintMode::Rect:
         mConfig->setRectSize(size);
         break;
-    case Painter::Ellipse:
+        case PaintMode::Ellipse:
         mConfig->setEllipseSize(size);
         break;
-    case Painter::Line:
+        case PaintMode::Line:
         mConfig->setLineSize(size);
         break;
-    case Painter::Arrow:
+        case PaintMode::Arrow:
         mConfig->setArrowSize(size);
-    case Painter::Text:
+        case PaintMode::Text:
         mConfig->setTextSize(size);
         break;
-    case Painter::Number:
+        case PaintMode::Number:
         mConfig->setNumberSize(size);
         break;
-    case Painter::Erase:
+        case PaintMode::Erase:
         mConfig->setEraseSize(size);
     default:
         break;
@@ -702,12 +702,12 @@ void MainWindow::initGui()
     resize();
 }
 
-void MainWindow::setPaintMode(const Painter::Modes &mode)
+void MainWindow::setPaintMode(const PaintMode &mode)
 {
     mPaintArea->setPaintMode(mode);
     mSettingsPickerConfigurator->setup(mSettingsButton, mode);
 
-    if (mode == Painter::Text) {
+    if (mode == PaintMode::Text) {
         QCoreApplication::instance()->installEventFilter(this);
     } else {
         QCoreApplication::instance()->removeEventFilter(this);
@@ -887,9 +887,9 @@ void MainWindow::imgurTokenRefresh()
     statusBar()->showMessage(tr("Imgur token has expired, requesting new token..."));
 }
 
-void MainWindow::setPaintModeAndSave(Painter::Modes mode)
+void MainWindow::setPaintModeAndSave(PaintMode mode)
 {
-    if (mode != Painter::Erase && mode != Painter::Select) {
+    if (mode != PaintMode::Erase && mode != PaintMode::Select) {
         mConfig->setPaintMode(mode);
     }
 

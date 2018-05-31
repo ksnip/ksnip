@@ -24,7 +24,7 @@
 
 #include "src/widgets/CustomToolButton.h"
 #include "src/common/loader/IconLoader.h"
-#include "src/painter/PaintModes.h"
+#include "src/common/enum/PaintMode.h"
 
 class ToolPicker : public CustomToolButton
 {
@@ -33,18 +33,18 @@ Q_OBJECT
 public:
     explicit ToolPicker();
     ~ToolPicker() = default;
-    void setTool(Painter::Modes tool);
-    Painter::Modes tool() const;
+    void setTool(PaintMode tool);
+    PaintMode tool() const;
 
 signals:
-    void toolSelected(Painter::Modes tool) const;
+    void toolSelected(PaintMode tool) const;
 
 private:
-    Painter::Modes mSelectedTool;
-    QHash<QAction *, Painter::Modes> mActionToTool;
+    PaintMode mSelectedTool;
+    QHash<QAction *, PaintMode> mActionToTool;
 
     void init();
-    void selectTool(Painter::Modes tool);
+    void selectTool(PaintMode tool);
 };
 
 #endif //KSNIP_TOOLPICKER_H

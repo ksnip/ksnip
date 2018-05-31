@@ -30,7 +30,7 @@
 #include "AboutDialog.h"
 #include "ScaleDialog.h"
 #include "src/painter/PaintArea.h"
-#include "src/painter/PaintModes.h"
+#include "src/common/enum/PaintMode.h"
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/CaptureView.h"
 #include "src/widgets/CropPanel.h"
@@ -115,7 +115,7 @@ private:
     bool hidden() const;
     void capture(CaptureModes captureMode);
     void initGui();
-    void setPaintMode(const Painter::Modes &mode);
+    void setPaintMode(const PaintMode &mode);
 
 private slots:
     void saveCaptureClicked();
@@ -129,7 +129,7 @@ private slots:
                            const QString &refreshTocken,
                            const QString &username);
     void imgurTokenRefresh();
-    void setPaintModeAndSave(Painter::Modes mode);
+    void setPaintModeAndSave(PaintMode mode);
     void instantSave(const QPixmap &pixmap);
     void loadImageFromFile();
     void openScale();

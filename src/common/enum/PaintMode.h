@@ -17,24 +17,21 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef PAINTMODES_H
-#define PAINTMODES_H
+#ifndef KSNIP_PAINTMODE_H
+#define KSNIP_PAINTMODE_H
 
-namespace Painter
+enum class PaintMode
 {
-    enum Modes
-    {
-        Pen,
-        Marker,
-        Rect,
-        Ellipse,
-        Line,
-        Arrow,
-        Text,
-        Number,
-        Erase,
-        Select
-    };
-}
+    Pen,
+    Marker,
+    Rect,
+    Ellipse,
+    Line,
+    Arrow,
+    Text,
+    Number,
+    Erase,
+    Select
+};
 
-#endif // PAINTMODES_H
+#endif // KSNIP_PAINTMODE_H

@@ -25,37 +25,35 @@ CursorFactory::CursorFactory()
     mDefaultCursorSize = 8;
 }
 
-QCursor* CursorFactory::createPainterCursor(Painter::Modes mode, AbstractPainterItem* painterItem)
+QCursor *CursorFactory::createPainterCursor(PaintMode mode, AbstractPainterItem *painterItem)
 {
     auto cursorSize = getCursorSize(mode);
 
     switch(mode) {
-        case Painter::Pen:
+        case PaintMode::Pen:
             return new CustomCursor(CustomCursor::Circle, mConfig->penColor(), cursorSize);
-        case Painter::Marker:
+        case PaintMode::Marker:
             return new CustomCursor(CustomCursor::Circle, mConfig->markerColor(), cursorSize);
-        case Painter::Rect:
+        case PaintMode::Rect:
             return new CustomCursor(CustomCursor::Circle, mConfig->rectColor(), cursorSize);
-        case Painter::Ellipse:
+        case PaintMode::Ellipse:
             return new CustomCursor(CustomCursor::Circle, mConfig->ellipseColor(), cursorSize);
-        case Painter::Line:
+        case PaintMode::Line:
             return new CustomCursor(CustomCursor::Circle, mConfig->lineColor(), cursorSize);
-        case Painter::Arrow:
+        case PaintMode::Arrow:
             return new CustomCursor(CustomCursor::Circle, mConfig->arrowColor(), cursorSize);
-        case Painter::Text:
+        case PaintMode::Text:
             return new QCursor(Qt::IBeamCursor);
-        case Painter::Number:
+        case PaintMode::Number:
             return new QCursor(Qt::PointingHandCursor);
-        case Painter::Erase:
+        case PaintMode::Erase:
             return new CustomCursor(CustomCursor::Rect, QColor(QStringLiteral("white")), cursorSize);
-        case Painter::Select:
+        case PaintMode::Select:
             if(painterItem == nullptr) {
                 return new QCursor(Qt::OpenHandCursor);
             } else {
                 return new QCursor(Qt::ClosedHandCursor);
             }
-        default:
-            return createDefaultCursor();
     }
 }
 
@@ -69,26 +67,26 @@ QCursor* CursorFactory::createSnippingCursor()
     return new CustomCursor(CustomCursor::Cross, mConfig->snippingCursorColor(), mConfig->snippingCursorSize());
 }
 
-int CursorFactory::getCursorSize(Painter::Modes mode) const
+int CursorFactory::getCursorSize(PaintMode mode) const
 {
     if(!mConfig->dynamicCursorSizeEnabled()) {
         return mDefaultCursorSize;
     }
 
     switch(mode) {
-        case Painter::Pen:
+        case PaintMode::Pen:
             return mConfig->penSize();
-        case Painter::Marker:
+        case PaintMode::Marker:
             return mConfig->markerSize();
-        case Painter::Rect:
+        case PaintMode::Rect:
             return mConfig->rectSize();
-        case Painter::Ellipse:
+        case PaintMode::Ellipse:
             return mConfig->ellipseSize();
-        case Painter::Line:
+        case PaintMode::Line:
             return mConfig->lineSize();
-        case Painter::Arrow:
+        case PaintMode::Arrow:
             return mConfig->arrowSize();
-        case Painter::Erase:
+        case PaintMode::Erase:
             return mConfig->eraseSize();
         default:
             return mDefaultCursorSize;

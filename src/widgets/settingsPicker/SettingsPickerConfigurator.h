@@ -21,7 +21,7 @@
 #define SETTINGSPICKERCONFIGURATOR_H
 
 #include "SettingsPicker.h"
-#include "src/painter/PaintModes.h"
+#include "src/common/enum/PaintMode.h"
 #include "src/painter/NumberSequencer.h"
 #include "src/backend/KsnipConfig.h"
 
@@ -31,7 +31,7 @@ class SettingsPickerConfigurator : QObject
 
 public:
     SettingsPickerConfigurator();
-    void setup(SettingsPicker *settingsPicker, Painter::Modes mode);
+    void setup(SettingsPicker *settingsPicker, PaintMode mode);
 
 private:
     KsnipConfig     *mConfig;

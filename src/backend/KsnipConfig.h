@@ -30,7 +30,7 @@
 
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/helper/StringFormattingHelper.h"
-#include "src/painter/PaintModes.h"
+#include "src/common/enum/PaintMode.h"
 
 class KsnipConfig : public QObject
 {
@@ -59,8 +59,8 @@ public:
     QPoint windowPosition() const;
     void setWindowPosition(const QPoint &position);
 
-    Painter::Modes paintMode() const;
-    void setPaintMode(Painter::Modes mode);
+    PaintMode paintMode() const;
+    void setPaintMode(PaintMode mode);
 
     CaptureModes captureMode() const;
     void setCaptureMode(CaptureModes mode);

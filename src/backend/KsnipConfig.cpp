@@ -118,22 +118,22 @@ void KsnipConfig::setWindowPosition(const QPoint& position)
     mConfig.sync();
 }
 
-Painter::Modes KsnipConfig::paintMode() const
+PaintMode KsnipConfig::paintMode() const
 {
     // If we are not storing the tool selection, always return the pen as default
     if (!saveKsnipToolSelection()) {
-        return Painter::Pen;
+        return PaintMode::Pen;
     }
 
-    return Painter::Modes(mConfig.value(QStringLiteral("Painter/PaintMode")).toInt());
+    return PaintMode(mConfig.value(QStringLiteral("Painter/PaintMode")).toInt());
 }
 
-void KsnipConfig::setPaintMode(Painter::Modes mode)
+void KsnipConfig::setPaintMode(PaintMode mode)
 {
     if (paintMode() == mode) {
         return;
     }
-    mConfig.setValue(QStringLiteral("Painter/PaintMode"), mode);
+    mConfig.setValue(QStringLiteral("Painter/PaintMode"), static_cast<int>(mode));
     mConfig.sync();
 }
 

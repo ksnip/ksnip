@@ -26,14 +26,14 @@ ToolPicker::ToolPicker()
     setToolButtonStyle(Qt::ToolButtonIconOnly);
 }
 
-void ToolPicker::setTool(Painter::Modes tool)
+void ToolPicker::setTool(PaintMode tool)
 {
     auto action = mActionToTool.key(tool);
     setDefaultAction(action);
     mSelectedTool = tool;
 }
 
-Painter::Modes ToolPicker::tool() const
+PaintMode ToolPicker::tool() const
 {
     return mSelectedTool;
 }
@@ -47,9 +47,9 @@ void ToolPicker::init()
     action->setShortcut(Qt::Key_P);
     connect(action, &QAction::triggered, [this]()
     {
-        selectTool(Painter::Pen);
+        selectTool(PaintMode::Pen);
     });
-    mActionToTool[action] = Painter::Pen;
+    mActionToTool[action] = PaintMode::Pen;
     menu->addAction(action);
 
     action = new QAction(tr("Marker"), this);
@@ -57,9 +57,9 @@ void ToolPicker::init()
     action->setShortcut(Qt::Key_B);
     connect(action, &QAction::triggered, [this]()
     {
-        selectTool(Painter::Marker);
+        selectTool(PaintMode::Marker);
     });
-    mActionToTool[action] = Painter::Marker;
+    mActionToTool[action] = PaintMode::Marker;
     menu->addAction(action);
 
     action = new QAction(tr("Rect"), this);
@@ -67,9 +67,9 @@ void ToolPicker::init()
     action->setShortcut(Qt::Key_R);
     connect(action, &QAction::triggered, [this]()
     {
-        selectTool(Painter::Rect);
+        selectTool(PaintMode::Rect);
     });
-    mActionToTool[action] = Painter::Rect;
+    mActionToTool[action] = PaintMode::Rect;
     menu->addAction(action);
 
     action = new QAction(tr("Ellipse"), this);
@@ -77,9 +77,9 @@ void ToolPicker::init()
     action->setShortcut(Qt::Key_E);
     connect(action, &QAction::triggered, [this]()
     {
-        selectTool(Painter::Ellipse);
+        selectTool(PaintMode::Ellipse);
     });
-    mActionToTool[action] = Painter::Ellipse;
+    mActionToTool[action] = PaintMode::Ellipse;
     menu->addAction(action);
 
     action = new QAction(tr("Line"), this);
@@ -87,9 +87,9 @@ void ToolPicker::init()
     action->setShortcut(Qt::Key_L);
     connect(action, &QAction::triggered, [this]()
     {
-        selectTool(Painter::Line);
+        selectTool(PaintMode::Line);
     });
-    mActionToTool[action] = Painter::Line;
+    mActionToTool[action] = PaintMode::Line;
     menu->addAction(action);
 
     action = new QAction(tr("Arrow"), this);
@@ -97,9 +97,9 @@ void ToolPicker::init()
     action->setShortcut(Qt::Key_A);
     connect(action, &QAction::triggered, [this]()
     {
-        selectTool(Painter::Arrow);
+        selectTool(PaintMode::Arrow);
     });
-    mActionToTool[action] = Painter::Arrow;
+    mActionToTool[action] = PaintMode::Arrow;
     menu->addAction(action);
 
     action = new QAction(tr("Text"), this);
@@ -107,9 +107,9 @@ void ToolPicker::init()
     action->setShortcut(Qt::Key_T);
     connect(action, &QAction::triggered, [this]()
     {
-        selectTool(Painter::Text);
+        selectTool(PaintMode::Text);
     });
-    mActionToTool[action] = Painter::Text;
+    mActionToTool[action] = PaintMode::Text;
     menu->addAction(action);
 
     action = new QAction(tr("Number"), this);
@@ -117,9 +117,9 @@ void ToolPicker::init()
     action->setShortcut(Qt::Key_N);
     connect(action, &QAction::triggered, [this]()
     {
-        selectTool(Painter::Number);
+        selectTool(PaintMode::Number);
     });
-    mActionToTool[action] = Painter::Number;
+    mActionToTool[action] = PaintMode::Number;
     menu->addAction(action);
 
     action = new QAction(tr("Erase"), this);
@@ -127,9 +127,9 @@ void ToolPicker::init()
     action->setShortcut(Qt::Key_D);
     connect(action, &QAction::triggered, [this]()
     {
-        selectTool(Painter::Erase);
+        selectTool(PaintMode::Erase);
     });
-    mActionToTool[action] = Painter::Erase;
+    mActionToTool[action] = PaintMode::Erase;
     menu->addAction(action);
 
     action = new QAction(tr("Select"), this);
@@ -137,15 +137,15 @@ void ToolPicker::init()
     action->setShortcut(Qt::Key_S);
     connect(action, &QAction::triggered, [this]()
     {
-        selectTool(Painter::Select);
+        selectTool(PaintMode::Select);
     });
-    mActionToTool[action] = Painter::Select;
+    mActionToTool[action] = PaintMode::Select;
     menu->addAction(action);
 
     setMenu(menu);
 }
 
-void ToolPicker::selectTool(Painter::Modes tool)
+void ToolPicker::selectTool(PaintMode tool)
 {
     mSelectedTool = tool;
     emit toolSelected(tool);

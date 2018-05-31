@@ -34,7 +34,7 @@
 #include "PainterArrow.h"
 #include "PainterText.h"
 #include "PainterNumber.h"
-#include "PaintModes.h"
+#include "src/common/enum/PaintMode.h"
 #include "UndoCommands.h"
 #include "src/widgets/CursorFactory.h"
 #include "src/widgets/ContextMenu.h"
@@ -48,8 +48,8 @@ public:
     void loadCapture(const QPixmap &pixmap);
     void fitViewToParent();
     QSize areaSize() const;
-    void setPaintMode(Painter::Modes paintMode);
-    Painter::Modes paintMode() const;
+    void setPaintMode(PaintMode paintMode);
+    PaintMode paintMode() const;
     QImage exportAsImage();
     void setIsEnabled(bool enabled);
     bool isEnabled() const;
@@ -82,7 +82,7 @@ private:
     QPoint               mRubberBandOrigin;
     bool                 mShiftPressed;
     bool                 mCtrlPressed;
-    Painter::Modes       mPaintMode;
+    PaintMode           mPaintMode;
     QUndoStack          *mUndoStack;
     QAction             *mUndoAction;
     QAction             *mRedoAction;

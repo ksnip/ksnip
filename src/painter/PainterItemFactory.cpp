@@ -25,11 +25,11 @@ PainterItemFactory::PainterItemFactory()
     mNumberSequencer = NumberSequencer::instance();
 }
 
-AbstractPainterItem* PainterItemFactory::createItem(Painter::Modes mode, const QPointF& pos) const
+AbstractPainterItem *PainterItemFactory::createItem(PaintMode mode, const QPointF &pos) const
 {
     auto item = createNewItem(mode, pos);
 
-    if (item && mode != Painter::Marker && mConfig->itemShadowEnabled()) {
+    if (item && mode != PaintMode::Marker && mConfig->itemShadowEnabled()) {
         item->addShadowEffect();
     }
 
@@ -64,24 +64,24 @@ AbstractPainterItem * PainterItemFactory::createCopyOfItem(AbstractPainterItem* 
     }
 }
 
-AbstractPainterItem* PainterItemFactory::createNewItem(Painter::Modes mode, const QPointF& pos) const
+AbstractPainterItem *PainterItemFactory::createNewItem(PaintMode mode, const QPointF &pos) const
 {
     switch (mode) {
-    case Painter::Pen:
+        case PaintMode::Pen:
         return new PainterPen(pos, mConfig->pen());
-    case Painter::Marker:
+        case PaintMode::Marker:
         return new PainterMarker(pos, mConfig->marker());
-    case Painter::Rect:
+        case PaintMode::Rect:
         return new PainterRect(pos, mConfig->rect(), mConfig->rectFill());
-    case Painter::Ellipse:
+        case PaintMode::Ellipse:
         return new PainterEllipse(pos, mConfig->ellipse(), mConfig->ellipseFill());
-    case Painter::Line:
+        case PaintMode::Line:
         return new PainterLine(pos, mConfig->line());
-    case Painter::Arrow:
+        case PaintMode::Arrow:
         return new PainterArrow(pos, mConfig->arrow());
-    case Painter::Text:
+        case PaintMode::Text:
         return new PainterText(pos - QPointF(0, 12), mConfig->text(), mConfig->textFont());
-    case Painter::Number:
+        case PaintMode::Number:
         return new PainterNumber(pos, mConfig->number(), mConfig->numberFont(), mNumberSequencer->getNumberAndIncrement());
     default:
         return nullptr;

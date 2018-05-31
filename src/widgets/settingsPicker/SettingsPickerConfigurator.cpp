@@ -25,19 +25,19 @@ SettingsPickerConfigurator::SettingsPickerConfigurator()
     mNumberSequencer = NumberSequencer::instance();
 }
 
-void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, Painter::Modes mode)
+void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, PaintMode mode)
 {
     settingsPicker->clearPopup();
 
     switch (mode) {
-    case Painter::Pen:
+    case PaintMode::Pen:
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, false, true);
         settingsPicker->addPopupSizeSlider(1, 10, 1);
         settingsPicker->setColor(mConfig->penColor());
         settingsPicker->setSize(mConfig->penSize());
         break;
-    case Painter::Marker:
+    case PaintMode::Marker:
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(false, false, false);
         settingsPicker->insertColor("yellow");
@@ -49,7 +49,7 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, Painter::
         settingsPicker->setColor(mConfig->markerColor());
         settingsPicker->setSize(mConfig->markerSize());
         break;
-    case Painter::Rect:
+    case PaintMode::Rect:
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, true, true);
         settingsPicker->addPopupSizeSlider(1, 10, 1);
@@ -57,7 +57,7 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, Painter::
         settingsPicker->setSize(mConfig->rectSize());
         settingsPicker->setFill(mConfig->rectFill());
         break;
-    case Painter::Ellipse:
+    case PaintMode::Ellipse:
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, true, true);
         settingsPicker->addPopupSizeSlider(1, 10, 1);
@@ -65,28 +65,28 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, Painter::
         settingsPicker->setSize(mConfig->ellipseSize());
         settingsPicker->setFill(mConfig->ellipseFill());
         break;
-    case Painter::Line:
+    case PaintMode::Line:
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, false, true);
         settingsPicker->addPopupSizeSlider(1, 10, 1);
         settingsPicker->setColor(mConfig->lineColor());
         settingsPicker->setSize(mConfig->lineSize());
         break;
-    case Painter::Arrow:
+    case PaintMode::Arrow:
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, false, true);
         settingsPicker->addPopupSizeSlider(1, 5, 1);
         settingsPicker->setColor(mConfig->arrowColor());
         settingsPicker->setSize(mConfig->arrowSize());
         break;
-    case Painter::Text:
+    case PaintMode::Text:
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, false, true);
         settingsPicker->addPopupSizeSlider(10, 20, 1);
         settingsPicker->setColor(mConfig->textColor());
         settingsPicker->setSize(mConfig->textSize());
         break;
-    case Painter::Number:
+    case PaintMode::Number:
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, false, true);
         settingsPicker->addPopupSizeSlider(10, 50, 5);
@@ -96,12 +96,12 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, Painter::
         connect(mNumberSequencer, &NumberSequencer::numberChanged, settingsPicker, &SettingsPicker::updateNumber);
         connect(settingsPicker, &SettingsPicker::numberSelected, mNumberSequencer, &NumberSequencer::setNextNumber);
         break;
-    case Painter::Erase:
+    case PaintMode::Erase:
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupSizeSlider(1, 10, 1);
         settingsPicker->setSize(mConfig->eraseSize());
         break;
-    case Painter::Select:
+    case PaintMode::Select:
         settingsPicker->setEnabled(false);
         break;
     }

@@ -28,7 +28,7 @@
 #include "PainterArrow.h"
 #include "PainterText.h"
 #include "PainterNumber.h"
-#include "PaintModes.h"
+#include "src/common/enum/PaintMode.h"
 #include "NumberSequencer.h"
 #include "src/backend/KsnipConfig.h"
 
@@ -36,7 +36,7 @@ class PainterItemFactory
 {
 public:
     PainterItemFactory();
-    AbstractPainterItem *createItem(Painter::Modes mode, const QPointF &pos) const;
+    AbstractPainterItem *createItem(PaintMode mode, const QPointF &pos) const;
     AbstractPainterItem *createCopyOfItem(AbstractPainterItem *other) const;
     void reset();
 
@@ -44,7 +44,7 @@ private:
     KsnipConfig     *mConfig;
     NumberSequencer *mNumberSequencer;
 
-    AbstractPainterItem *createNewItem(Painter::Modes mode, const QPointF &pos) const;
+    AbstractPainterItem *createNewItem(PaintMode mode, const QPointF &pos) const;
 };
 
 #endif // PAINTERITEMFACTORY_H

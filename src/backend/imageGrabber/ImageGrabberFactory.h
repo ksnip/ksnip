@@ -28,7 +28,7 @@
 class ImageGrabberFactory
 {
 public:
-    AbstractImageGrabber* createImageGrabber();
+    static AbstractImageGrabber *createImageGrabber();
 };
 
 #endif // IMAGEGRABBERFACTORY_H

@@ -49,8 +49,7 @@ int main(int argc, char** argv)
         app.installTranslator(&translator);
     }
 
-    ImageGrabberFactory imageGrabberFactory;
-    auto imageGrabber = imageGrabberFactory.createImageGrabber();
+    auto imageGrabber = ImageGrabberFactory::createImageGrabber();
 
     // Setup command line parser
     QCommandLineParser parser;

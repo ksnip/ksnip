@@ -25,7 +25,7 @@
 #include <QTimer>
 #include <QScreen>
 
-#include "CaptureModes.h"
+#include "src/common/enum/CaptureModes.h"
 #include "src/gui/SnippingArea.h"
 
 class AbstractImageGrabber : public QObject
@@ -35,7 +35,7 @@ public:
     AbstractImageGrabber(QObject *parent = nullptr);
     virtual ~AbstractImageGrabber();
     virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) = 0;
-    virtual bool isCaptureModeSupported(CaptureModes captureMode) = 0;
+    virtual bool isCaptureModeSupported(CaptureModes captureMode) const = 0;
     QRect currectScreenRect() const;
 
 signals:

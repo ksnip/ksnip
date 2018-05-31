@@ -49,7 +49,7 @@ void X11ImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int
     }
 }
 
-bool X11ImageGrabber::isCaptureModeSupported(CaptureModes captureMode)
+bool X11ImageGrabber::isCaptureModeSupported(CaptureModes captureMode) const
 {
     if (captureMode == CaptureModes::RectArea ||
             captureMode == CaptureModes::FullScreen ||

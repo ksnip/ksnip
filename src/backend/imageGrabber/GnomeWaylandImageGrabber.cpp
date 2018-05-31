@@ -59,7 +59,7 @@ void GnomeWaylandImageGrabber::grab()
     }
 }
 
-bool GnomeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode)
+bool GnomeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode) const
 {
     if (captureMode == CaptureModes::RectArea ||
             captureMode == CaptureModes::ActiveWindow ||

@@ -75,7 +75,7 @@ void KdeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCurs
     QTimer::singleShot(mCaptureDelay, this, &KdeWaylandImageGrabber::grab);
 }
 
-bool KdeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode)
+bool KdeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode) const
 {
     if (captureMode == CaptureModes::WindowUnderCursor ||
             captureMode == CaptureModes::CurrentScreen ||

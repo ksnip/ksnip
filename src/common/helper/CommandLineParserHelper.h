@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -15,32 +15,20 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
- *
  */
 
-#ifndef X11IMAGEGRABBER_H
-#define X11IMAGEGRABBER_H
+#ifndef KSNIP_COMMANDLINEPARSERHELPER_H
+#define KSNIP_COMMANDLINEPARSERHELPER_H
 
-#include "AbstractImageGrabber.h"
-#include "X11Wrapper.h"
+#include <QCommandLineParser>
 
-class X11ImageGrabber : public AbstractImageGrabber
+#include "src/backend/imageGrabber/AbstractImageGrabber.h"
+
+class CommandLineParserHelper
 {
 public:
-    X11ImageGrabber();
-    virtual ~X11ImageGrabber();
-    virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) override;
-    virtual bool isCaptureModeSupported(CaptureModes captureMode) const override;
-
-protected:
-    virtual void grab() override;
-
-private:
-    X11Wrapper *mX11Wrapper;
-
-    void getRectArea();
-    void setRectFromCorrectSource();
-    QPixmap createPixmap(const QRect &rect) const;
+    static void addImageGraberOptions(QCommandLineParser &parser, const AbstractImageGrabber *imageGrabber);
+    static void addDefaultOptions(QCommandLineParser &parser);
 };
 
-#endif // X11IMAGEGRABBER_H
+#endif //KSNIP_COMMANDLINEPARSERHELPER_H

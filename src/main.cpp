@@ -56,7 +56,7 @@ int main(int argc, char** argv)
     parser.setApplicationDescription(QCoreApplication::translate("main", "Ksnip Screenshot Tool"));
     parser.addHelpOption();
     parser.addVersionOption();
-    CommandLineParserHelper::addImageGraberOptions(parser, imageGrabber);
+    CommandLineParserHelper::addImageGrabberOptions(parser, imageGrabber);
     CommandLineParserHelper::addDefaultOptions(parser);
     parser.process(app);
 

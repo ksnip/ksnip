@@ -19,7 +19,7 @@
 
 #include "CommandLineParserHelper.h"
 
-void CommandLineParserHelper::addImageGraberOptions(QCommandLineParser &parser, const AbstractImageGrabber *imageGrabber)
+void CommandLineParserHelper::addImageGrabberOptions(QCommandLineParser &parser, const AbstractImageGrabber *imageGrabber)
 {
     // Add image grabber specific options
     if (imageGrabber->isCaptureModeSupported(CaptureModes::RectArea)) {

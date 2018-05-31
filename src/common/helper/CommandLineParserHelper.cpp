@@ -68,3 +68,8 @@ void CommandLineParserHelper::addDefaultOptions(QCommandLineParser &parser)
                           }
                       });
 }
+
+bool CommandLineParserHelper::isSet(QCommandLineParser &parser, const QString &option)
+{
+    return parser.optionNames().contains(option) && parser.isSet(option);
+}

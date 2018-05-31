@@ -98,15 +98,15 @@ int main(int argc, char** argv)
     auto captureCursor = parser.isSet("c");
 
     CaptureModes mode;
-    if (parser.isSet(QStringLiteral("r"))) {
+    if (CommandLineParserHelper::isSet(parser, QStringLiteral("r"))) {
         mode = CaptureModes::RectArea;
-    } else if (parser.isSet(QStringLiteral("f"))) {
+    } else if (CommandLineParserHelper::isSet(parser, QStringLiteral("f"))) {
         mode = CaptureModes::FullScreen;
-    } else if (parser.isSet(QStringLiteral("m"))) {
+    } else if (CommandLineParserHelper::isSet(parser, QStringLiteral("m"))) {
         mode = CaptureModes::CurrentScreen;
-    } else if (parser.isSet(QStringLiteral("a"))) {
+    } else if (CommandLineParserHelper::isSet(parser, QStringLiteral("a"))) {
         mode = CaptureModes::ActiveWindow;
-    } else if (parser.isSet(QStringLiteral("u"))) {
+    } else if (CommandLineParserHelper::isSet(parser, QStringLiteral("u"))) {
         mode = CaptureModes::WindowUnderCursor;
     } else {
         qWarning("Please select capture mode.");

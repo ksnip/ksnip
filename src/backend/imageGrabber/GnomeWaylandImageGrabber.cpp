@@ -19,6 +19,14 @@
 
 #include "GnomeWaylandImageGrabber.h"
 
+GnomeWaylandImageGrabber::GnomeWaylandImageGrabber()
+{
+    mSupportedCaptureModes.append(CaptureModes::RectArea);
+    mSupportedCaptureModes.append(CaptureModes::ActiveWindow);
+    mSupportedCaptureModes.append(CaptureModes::FullScreen);
+    mSupportedCaptureModes.append(CaptureModes::CurrentScreen);
+}
+
 void GnomeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int delay)
 {
     mCaptureCursor = capureCursor;
@@ -56,18 +64,6 @@ void GnomeWaylandImageGrabber::grab()
     } else {
         auto pathToTmpScreenshot = reply.argumentAt<1>();
         postProcessing(QPixmap(pathToTmpScreenshot));
-    }
-}
-
-bool GnomeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode) const
-{
-    if (captureMode == CaptureModes::RectArea ||
-            captureMode == CaptureModes::ActiveWindow ||
-            captureMode == CaptureModes::FullScreen ||
-            captureMode == CaptureModes::CurrentScreen) {
-        return true;
-    } else {
-        return false;
     }
 }
 

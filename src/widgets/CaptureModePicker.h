@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -15,31 +15,36 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
- *
  */
 
-#ifndef X11IMAGEGRABBER_H
-#define X11IMAGEGRABBER_H
+#ifndef KSNIP_CAPTUREMODEPICKER_H
+#define KSNIP_CAPTUREMODEPICKER_H
 
-#include "AbstractImageGrabber.h"
-#include "X11Wrapper.h"
+#include <QAction>
 
-class X11ImageGrabber : public AbstractImageGrabber
+#include "src/widgets/CustomToolButton.h"
+#include "src/common/loader/IconLoader.h"
+#include "src/common/enum/CaptureModes.h"
+
+class CaptureModePicker : public CustomToolButton
 {
+Q_OBJECT
 public:
-    explicit X11ImageGrabber();
-    virtual ~X11ImageGrabber();
-    virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) override;
+    explicit CaptureModePicker();
+    ~CaptureModePicker() = default;
+    void setCaptureMode(CaptureModes mode);
+    CaptureModes captureMode() const;
 
-protected:
-    virtual void grab() override;
+signals:
+    void captureModeSelected(CaptureModes mode) const;
 
 private:
-    X11Wrapper *mX11Wrapper;
+    CaptureModes mSelectedCaptureMode;
+    QHash<QAction *, CaptureModes> mActionToCaptureMode;
 
-    void getRectArea();
-    void setRectFromCorrectSource();
-    QPixmap createPixmap(const QRect &rect) const;
+    void init();
+    void selectCaptureMode(CaptureModes mode);
+
 };
 
-#endif // X11IMAGEGRABBER_H
+#endif //KSNIP_CAPTUREMODEPICKER_H

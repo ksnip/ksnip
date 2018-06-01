@@ -22,6 +22,10 @@
 
 X11ImageGrabber::X11ImageGrabber() : mX11Wrapper(new X11Wrapper)
 {
+    mSupportedCaptureModes.append(CaptureModes::RectArea);
+    mSupportedCaptureModes.append(CaptureModes::FullScreen);
+    mSupportedCaptureModes.append(CaptureModes::CurrentScreen);
+    mSupportedCaptureModes.append(CaptureModes::ActiveWindow);
 }
 
 X11ImageGrabber::~X11ImageGrabber()
@@ -46,18 +50,6 @@ void X11ImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int
         getRectArea();
     } else {
         QTimer::singleShot(mCaptureDelay, this, &X11ImageGrabber::grab);
-    }
-}
-
-bool X11ImageGrabber::isCaptureModeSupported(CaptureModes captureMode) const
-{
-    if (captureMode == CaptureModes::RectArea ||
-            captureMode == CaptureModes::FullScreen ||
-            captureMode == CaptureModes::CurrentScreen ||
-            captureMode == CaptureModes::ActiveWindow) {
-        return true;
-    } else {
-        return false;
     }
 }
 

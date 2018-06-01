@@ -60,6 +60,13 @@ static QImage readImage(int pipeFd)
     return image;
 };
 
+KdeWaylandImageGrabber::KdeWaylandImageGrabber()
+{
+    mSupportedCaptureModes.append(CaptureModes::WindowUnderCursor);
+    mSupportedCaptureModes.append(CaptureModes::CurrentScreen);
+    mSupportedCaptureModes.append(CaptureModes::FullScreen);
+}
+
 void KdeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int delay)
 {
     mCaptureCursor = capureCursor;
@@ -73,17 +80,6 @@ void KdeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCurs
     }
 
     QTimer::singleShot(mCaptureDelay, this, &KdeWaylandImageGrabber::grab);
-}
-
-bool KdeWaylandImageGrabber::isCaptureModeSupported(CaptureModes captureMode) const
-{
-    if (captureMode == CaptureModes::WindowUnderCursor ||
-            captureMode == CaptureModes::CurrentScreen ||
-            captureMode == CaptureModes::FullScreen) {
-        return true;
-    } else {
-        return false;
-    }
 }
 
 void KdeWaylandImageGrabber::grab()

@@ -22,12 +22,12 @@
 
 #include <QCommandLineParser>
 
-#include "src/backend/imageGrabber/AbstractImageGrabber.h"
+#include "src/common/enum/CaptureModes.h"
 
 class CommandLineParserHelper
 {
 public:
-    static void addImageGrabberOptions(QCommandLineParser &parser, const AbstractImageGrabber *imageGrabber);
+    static void addImageGrabberOptions(QCommandLineParser &parser, const QList<CaptureModes> &captureModes);
     static void addDefaultOptions(QCommandLineParser &parser);
     static bool isSet(QCommandLineParser &parser, const QString &option);
 };

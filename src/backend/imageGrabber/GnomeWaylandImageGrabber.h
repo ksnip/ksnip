@@ -30,8 +30,8 @@
 class GnomeWaylandImageGrabber : public AbstractImageGrabber
 {
 public:
+    explicit GnomeWaylandImageGrabber();
     virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) override;
-    virtual bool isCaptureModeSupported(CaptureModes captureMode) const override;
 
 protected:
     virtual void grab() override;

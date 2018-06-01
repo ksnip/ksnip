@@ -19,30 +19,30 @@
 
 #include "CommandLineParserHelper.h"
 
-void CommandLineParserHelper::addImageGrabberOptions(QCommandLineParser &parser, const AbstractImageGrabber *imageGrabber)
+void CommandLineParserHelper::addImageGrabberOptions(QCommandLineParser &parser, const QList<CaptureModes> &captureModes)
 {
     // Add image grabber specific options
-    if (imageGrabber->isCaptureModeSupported(CaptureModes::RectArea)) {
+    if (captureModes.contains(CaptureModes::RectArea)) {
         parser.addOption({{QStringLiteral("r"), QStringLiteral("rectarea")},
                           QCoreApplication::translate("main", "Select a rectangular area from where to take a screenshot.")
                          });
     }
-    if (imageGrabber->isCaptureModeSupported(CaptureModes::FullScreen)) {
+    if (captureModes.contains(CaptureModes::FullScreen)) {
         parser.addOption({{QStringLiteral("f"), QStringLiteral("fullscreen")},
                           QCoreApplication::translate("main", "Capture the fullscreen including all monitors.")
                          });
     }
-    if (imageGrabber->isCaptureModeSupported(CaptureModes::CurrentScreen)) {
+    if (captureModes.contains(CaptureModes::CurrentScreen)) {
         parser.addOption({{QStringLiteral("m"), QStringLiteral("current")},
                           QCoreApplication::translate("main", "Capture the screen (monitor) where the mouse cursor is currently located.")
                          });
     }
-    if (imageGrabber->isCaptureModeSupported(CaptureModes::ActiveWindow)) {
+    if (captureModes.contains(CaptureModes::ActiveWindow)) {
         parser.addOption({{QStringLiteral("a"), QStringLiteral("active")},
                           QCoreApplication::translate("main", "Capture the window that currently has input focus.")
                          });
     }
-    if (imageGrabber->isCaptureModeSupported(CaptureModes::WindowUnderCursor)) {
+    if (captureModes.contains(CaptureModes::WindowUnderCursor)) {
         parser.addOption({{QStringLiteral("u"), QStringLiteral("windowundercursor")},
                           QCoreApplication::translate("main", "Capture the window that is currently under the mouse cursor.")
                          });

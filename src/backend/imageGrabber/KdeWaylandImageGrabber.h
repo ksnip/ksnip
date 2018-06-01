@@ -37,8 +37,8 @@
 class KdeWaylandImageGrabber : public AbstractImageGrabber
 {
 public:
+    explicit KdeWaylandImageGrabber();
     virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) override;
-    virtual bool isCaptureModeSupported(CaptureModes captureMode) const override;
 
 protected:
     virtual void grab() override;

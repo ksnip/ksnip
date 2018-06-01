@@ -29,6 +29,16 @@ AbstractImageGrabber::~AbstractImageGrabber()
     delete mSnippingArea;
 }
 
+bool AbstractImageGrabber::isCaptureModeSupported(CaptureModes captureMode) const
+{
+    return mSupportedCaptureModes.contains(captureMode);
+}
+
+QList<CaptureModes> AbstractImageGrabber::supportedCaptureModes() const
+{
+    return mSupportedCaptureModes;
+}
+
 /*
  * Returns the rect of the screen where the mouse cursor is currently located
  */

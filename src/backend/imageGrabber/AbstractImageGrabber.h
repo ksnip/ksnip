@@ -35,7 +35,8 @@ public:
     AbstractImageGrabber(QObject *parent = nullptr);
     virtual ~AbstractImageGrabber();
     virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) = 0;
-    virtual bool isCaptureModeSupported(CaptureModes captureMode) const = 0;
+    virtual bool isCaptureModeSupported(CaptureModes captureMode) const;
+    virtual QList<CaptureModes> supportedCaptureModes() const;
     QRect currectScreenRect() const;
 
 signals:
@@ -47,6 +48,7 @@ protected:
     bool         mCaptureCursor;
     int          mCaptureDelay;
     CaptureModes mCaptureMode;
+    QList<CaptureModes> mSupportedCaptureModes;
 
     void openSnippingArea();
     void openSnippingAreaWithBackground(const QPixmap &background);

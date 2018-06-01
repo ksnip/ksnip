@@ -64,6 +64,7 @@ set(ksnip_SRCS ${CMAKE_SOURCE_DIR}/src/main.cpp
         ${CMAKE_SOURCE_DIR}/src/painter/UndoCommands.cpp
         ${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
         ${CMAKE_SOURCE_DIR}/src/common/helper/CommandLineParserHelper.cpp
+        ${CMAKE_SOURCE_DIR}/src/common/helper/MessageBoxHelper.cpp
         ${CMAKE_SOURCE_DIR}/src/common/runner/CommandRunner.cpp
         ${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
         ${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp

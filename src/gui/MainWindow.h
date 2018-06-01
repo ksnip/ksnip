@@ -43,12 +43,13 @@
 #include "src/common/loader/IconLoader.h"
 #include "src/common/handler/DelayHandler.h"
 #include "src/common/enum/RunMode.h"
+#include "src/common/helper/MessageBoxHelper.h"
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
+    explicit MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
     void show();
     void captureScreenshot(CaptureModes captureMode, bool capureCursor = true, int delay = 0);
     void resize();
@@ -105,7 +106,6 @@ private:
     void setEnablements(bool enabled);
     void loadSettings();
     void copyToClipboard();
-    bool popupQuestion(const QString &title, const QString &question);
     void setHidden(bool isHidden);
     bool hidden() const;
     void capture(CaptureModes captureMode);

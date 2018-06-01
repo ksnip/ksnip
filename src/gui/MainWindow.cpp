@@ -314,21 +314,6 @@ void MainWindow::copyToClipboard()
     mClipboard->setImage(image);
 }
 
-/*
- * Generic function that can be used to display a simple yes/no question and
- * return appropriate boolean feedback.
- */
-bool MainWindow::popupQuestion(const QString& title, const QString& question)
-{
-    auto reply = QMessageBox::question(this, title, question, QMessageBox::Yes | QMessageBox::No);
-
-    return reply == QMessageBox::Yes;
-}
-
-/*
- * Usually called before we take a screenshot so we move the mainwindow out of
- * the way.
- */
 void MainWindow::setHidden(bool isHidden)
 {
     if (isHidden == hidden()) {
@@ -579,9 +564,9 @@ void MainWindow::imgurUploadClicked()
     }
 
     if (mConfig->imgurConfirmBeforeUpload()) {
-        auto proceedWithUpload = popupQuestion(tr("Imgur Upload"),
-                                               tr("You are about to upload the screenshot to "
-                                                       "a imgur.com, do you want to proceed?"));
+        auto proceedWithUpload = MessageBoxHelper::yesNo(tr("Imgur Upload"),
+                                                         tr("You are about to upload the screenshot to "
+                                                            "a imgur.com, do you want to proceed?"));
         if (!proceedWithUpload) {
             return;
         }
@@ -763,8 +748,8 @@ void MainWindow::openScale()
 bool MainWindow::discardUnsavedChanges()
 {
     if (mConfig->promptSaveBeforeExit() && mIsUnsaved) {
-        auto reply = popupQuestion(tr("Warning - ") + QApplication::applicationName(),
-                                   tr("The capture has been modified.\nDo you want to save it?"));
+        auto reply = MessageBoxHelper::yesNo(tr("Warning - ") + QApplication::applicationName(),
+                                             tr("The capture has been modified.\nDo you want to save it?"));
 
         return !reply;
     } else {

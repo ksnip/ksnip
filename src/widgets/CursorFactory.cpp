@@ -73,22 +73,5 @@ int CursorFactory::getCursorSize(PaintMode mode) const
         return mDefaultCursorSize;
     }
 
-    switch(mode) {
-        case PaintMode::Pen:
-            return mConfig->penSize();
-        case PaintMode::Marker:
-            return mConfig->markerSize();
-        case PaintMode::Rect:
-            return mConfig->rectSize();
-        case PaintMode::Ellipse:
-            return mConfig->ellipseSize();
-        case PaintMode::Line:
-            return mConfig->lineSize();
-        case PaintMode::Arrow:
-            return mConfig->arrowSize();
-        case PaintMode::Erase:
-            return mConfig->eraseSize();
-        default:
-            return mDefaultCursorSize;
-    }
+    return mConfig->toolSize(mode);
 }

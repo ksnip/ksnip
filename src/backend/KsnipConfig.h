@@ -30,6 +30,7 @@
 
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/helper/StringFormattingHelper.h"
+#include "src/common/formatter/ConfigNameFormatter.h"
 #include "src/common/enum/PaintMode.h"
 
 class KsnipConfig : public QObject
@@ -86,24 +87,15 @@ public:
     QColor penColor() const;
     void setPenColor(const QColor &color);
 
-    int penSize() const;
-    void setPenSize(int size);
-
     QPen marker() const;
 
     QColor markerColor() const;
     void setMarkerColor(const QColor &color);
 
-    int markerSize() const;
-    void setMarkerSize(int size);
-
     QPen rect() const;
 
     QColor rectColor() const;
     void setRectColor(const QColor &color);
-
-    int rectSize() const;
-    void setRectSize(int size);
 
     bool rectFill() const;
     void setRectFill(bool fill);
@@ -113,9 +105,6 @@ public:
     QColor ellipseColor() const;
     void setEllipseColor(const QColor &color);
 
-    int ellipseSize() const;
-    void setEllipseSize(int size);
-
     bool ellipseFill() const;
     void setEllipseFill(bool fill);
 
@@ -123,9 +112,6 @@ public:
 
     QColor lineColor() const;
     void setLineColor(const QColor &color);
-
-    int lineSize() const;
-    void setLineSize(int size);
 
     bool lineFill() const;
     void setLineFill(bool fill);
@@ -135,9 +121,6 @@ public:
     QColor arrowColor() const;
     void setArrowColor(const QColor &color);
 
-    int arrowSize() const;
-    void setArrowSize(int size);
-
     bool arrowFill() const;
     void setArrowFill(bool fill);
 
@@ -145,9 +128,6 @@ public:
 
     QColor textColor() const;
     void setTextColor(const QColor &color);
-
-    int textSize() const;
-    void setTextSize(int size);
 
     bool textBold() const;
     void setTextBold(bool bold);
@@ -166,14 +146,8 @@ public:
     QColor numberColor() const;
     void setNumberColor(const QColor &color);
 
-    int numberSize() const;
-    void setNumberSize(int size);
-
     QFont numberFont() const;
     void setNumberFont(const QFont &font);
-
-    int eraseSize() const;
-    void setEraseSize(int size);
 
     bool itemShadowEnabled() const;
     void setItemShadowEnabled(bool enabled);
@@ -235,6 +209,9 @@ public:
 
     bool imgurConfirmBeforeUpload() const;
     void setImgurConfirmBeforeUpload(bool enabled);
+
+    int toolSize(const PaintMode tool) const;
+    void setToolSize(const PaintMode tool, int size);
 
 signals:
     void painterUpdated() const;

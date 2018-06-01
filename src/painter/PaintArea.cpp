@@ -168,7 +168,7 @@ QList<AbstractPainterItem*> PaintArea::selectedItems(Qt::SortOrder order) const
 {
     QList<AbstractPainterItem*> list;
     for (auto item : items(order)) {
-        auto base = static_cast<AbstractPainterItem*>(item);
+        auto base = dynamic_cast<AbstractPainterItem*>(item);
         if (base && base->isSelected()) {
             list.append(base);
         }
@@ -194,7 +194,7 @@ void PaintArea::mousePressEvent(QGraphicsSceneMouseEvent* event)
     }
 
     if (mPaintMode == PaintMode::Erase) {
-        eraseItemAt(event->scenePos(), mConfig->eraseSize());
+        eraseItemAt(event->scenePos(), mConfig->toolSize(PaintMode::Erase));
     } else if (mPaintMode == PaintMode::Select) {
         mCurrentItem = handleSelectionAt(event->scenePos());
         if (mCurrentItem != nullptr) {
@@ -219,7 +219,7 @@ void PaintArea::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 {
     if (event->buttons() == Qt::LeftButton && mIsEnabled) {
         if (mPaintMode == PaintMode::Erase) {
-            eraseItemAt(event->scenePos(), mConfig->eraseSize());
+            eraseItemAt(event->scenePos(), mConfig->toolSize(PaintMode::Erase));
         } else if (mPaintMode == PaintMode::Select) {
             if (mRubberBand->isHidden()) {
                 moveItems(event->scenePos());
@@ -248,8 +248,8 @@ void PaintArea::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
             hideRubberBand();
         }
     } else {
-        if (mPaintMode == PaintMode::Pen || PaintMode::Pen == PaintMode::Marker) {
-            PainterPen* path = qgraphicsitem_cast<PainterPen*>(mCurrentItem);
+        if (mPaintMode == PaintMode::Pen) {
+            auto path = qgraphicsitem_cast<PainterPen*>(mCurrentItem);
             if (mConfig->smoothPathEnabled() && path != nullptr) {
                 path->smoothOut(mConfig->smoothFactor());
             }

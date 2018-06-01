@@ -245,7 +245,7 @@ QPen KsnipConfig::pen() const
 {
     QPen pen;
     pen.setColor(penColor());
-    pen.setWidth(penSize());
+    pen.setWidth(toolSize(PaintMode::Pen));
     return pen;
 }
 
@@ -264,26 +264,11 @@ void KsnipConfig::setPenColor(const QColor& color)
     emit painterUpdated();
 }
 
-int KsnipConfig::penSize() const
-{
-    return mConfig.value(QStringLiteral("Painter/PenSize"), 3).toInt();
-}
-
-void KsnipConfig::setPenSize(int  size)
-{
-    if (penSize() == size) {
-        return;
-    }
-    mConfig.setValue(QStringLiteral("Painter/PenSize"), size);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
 QPen KsnipConfig::marker() const
 {
     QPen marker;
     marker.setColor(markerColor());
-    marker.setWidth(markerSize());
+    marker.setWidth(toolSize(PaintMode::Marker));
     return marker;
 }
 
@@ -302,26 +287,11 @@ void KsnipConfig::setMarkerColor(const QColor& color)
     emit painterUpdated();
 }
 
-int KsnipConfig::markerSize() const
-{
-    return mConfig.value(QStringLiteral("Painter/MarkerSize"), 20).toInt();
-}
-
-void KsnipConfig::setMarkerSize(int  size)
-{
-    if (markerSize() == size) {
-        return;
-    }
-    mConfig.setValue(QStringLiteral("Painter/MarkerSize"), size);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
 QPen KsnipConfig::rect() const
 {
     QPen rect;
     rect.setColor(rectColor());
-    rect.setWidth(rectSize());
+    rect.setWidth(toolSize(PaintMode::Rect));
     return rect;
 }
 
@@ -336,21 +306,6 @@ void KsnipConfig::setRectColor(const QColor& color)
         return;
     }
     mConfig.setValue(QStringLiteral("Painter/RectColor"), color);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-int KsnipConfig::rectSize() const
-{
-    return mConfig.value(QStringLiteral("Painter/RectSize"), 3).toInt();
-}
-
-void KsnipConfig::setRectSize(int  size)
-{
-    if (rectSize() == size) {
-        return;
-    }
-    mConfig.setValue(QStringLiteral("Painter/RectSize"), size);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -374,7 +329,7 @@ QPen KsnipConfig::ellipse() const
 {
     QPen ellipse;
     ellipse.setColor(ellipseColor());
-    ellipse.setWidth(ellipseSize());
+    ellipse.setWidth(toolSize(PaintMode::Ellipse));
     return ellipse;
 }
 
@@ -389,21 +344,6 @@ void KsnipConfig::setEllipseColor(const QColor& color)
         return;
     }
     mConfig.setValue(QStringLiteral("Painter/EllipseColor"), color);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-int KsnipConfig::ellipseSize() const
-{
-    return mConfig.value(QStringLiteral("Painter/EllipseSize"), 3).toInt();
-}
-
-void KsnipConfig::setEllipseSize(int  size)
-{
-    if (ellipseSize() == size) {
-        return;
-    }
-    mConfig.setValue(QStringLiteral("Painter/EllipseSize"), size);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -427,7 +367,7 @@ QPen KsnipConfig::line() const
 {
     QPen line;
     line.setColor(lineColor());
-    line.setWidth(lineSize());
+    line.setWidth(toolSize(PaintMode::Line));
     return line;
 }
 
@@ -442,21 +382,6 @@ void KsnipConfig::setLineColor(const QColor& color)
         return;
     }
     mConfig.setValue(QStringLiteral("Painter/LineColor"), color);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-int KsnipConfig::lineSize() const
-{
-    return mConfig.value(QStringLiteral("Painter/LineSize"), 3).toInt();
-}
-
-void KsnipConfig::setLineSize(int size)
-{
-    if (lineSize() == size) {
-        return;
-    }
-    mConfig.setValue(QStringLiteral("Painter/LineSize"), size);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -480,7 +405,7 @@ QPen KsnipConfig::arrow() const
 {
     QPen arrow;
     arrow.setColor(arrowColor());
-    arrow.setWidth(arrowSize());
+    arrow.setWidth(toolSize(PaintMode::Arrow));
     return arrow;
 }
 
@@ -495,21 +420,6 @@ void KsnipConfig::setArrowColor(const QColor& color)
         return;
     }
     mConfig.setValue(QStringLiteral("Painter/ArrowColor"), color);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-int KsnipConfig::arrowSize() const
-{
-    return mConfig.value(QStringLiteral("Painter/ArrowSize"), 3).toInt();
-}
-
-void KsnipConfig::setArrowSize(int size)
-{
-    if (arrowSize() == size) {
-        return;
-    }
-    mConfig.setValue(QStringLiteral("Painter/ArrowSize"), size);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -533,7 +443,7 @@ QPen KsnipConfig::text() const
 {
     QPen text;
     text.setColor(textColor());
-    text.setWidth(textSize());
+    text.setWidth(toolSize(PaintMode::Text));
     return text;
 }
 
@@ -548,24 +458,6 @@ void KsnipConfig::setTextColor(const QColor& color)
         return;
     }
     mConfig.setValue(QStringLiteral("Painter/TextColor"), color);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-int KsnipConfig::textSize() const
-{
-    return textFont().pointSize();
-}
-
-void KsnipConfig::setTextSize(int  size)
-{
-    if (textSize() == size) {
-        return;
-    }
-    auto font = textFont();
-    font.setPointSize(size);
-
-    mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -646,7 +538,7 @@ QPen KsnipConfig::number() const
 {
     QPen number;
     number.setColor(numberColor());
-    number.setWidth(textSize());
+    number.setWidth(toolSize(PaintMode::Number));
     return number;
 }
 
@@ -661,24 +553,6 @@ void KsnipConfig::setNumberColor(const QColor& color)
         return;
     }
     mConfig.setValue(QStringLiteral("Painter/NumberColor"), color);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-int KsnipConfig::numberSize() const
-{
-    return numberFont().pointSize();
-}
-
-void KsnipConfig::setNumberSize(int  size)
-{
-    if (numberSize() == size) {
-        return;
-    }
-    auto font = numberFont();
-    font.setPointSize(size);
-
-    mConfig.setValue(QStringLiteral("Painter/NumberFont"), font);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -698,21 +572,6 @@ void KsnipConfig::setNumberFont(const QFont& font)
     tmpFont.setBold(true);
 
     mConfig.setValue(QStringLiteral("Painter/NumberFont"), tmpFont);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-int KsnipConfig::eraseSize() const
-{
-    return mConfig.value(QStringLiteral("Painter/EraseSize"), 5).toInt();
-}
-
-void KsnipConfig::setEraseSize(int  size)
-{
-    if (eraseSize() == size) {
-        return;
-    }
-    mConfig.setValue(QStringLiteral("Painter/EraseSize"), size);
     mConfig.sync();
     emit painterUpdated();
 }
@@ -988,5 +847,20 @@ void KsnipConfig::setImgurConfirmBeforeUpload(bool enabled)
         return;
     }
     mConfig.setValue(QStringLiteral("Imgur/ConfirmBeforeUpload"), enabled);
+    mConfig.sync();
+}
+
+int KsnipConfig::toolSize(const PaintMode tool) const
+{
+    return mConfig.value(ConfigNameFormatter::toolSize(tool), 3).value<int>();
+}
+
+void KsnipConfig::setToolSize(const PaintMode tool, int size)
+{
+    if (toolSize(tool) == size) {
+        return;
+    }
+
+    mConfig.setValue(ConfigNameFormatter::toolSize(tool), size);
     mConfig.sync();
 }

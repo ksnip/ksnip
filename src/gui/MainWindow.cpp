@@ -262,41 +262,9 @@ void MainWindow::fillChanged(bool fill)
     }
 }
 
-/*
- * Called by signals from painter settings picker tool button to change the
- * size of the current tool.
- */
 void MainWindow::sizeChanged(int size)
 {
-    switch (mPaintArea->paintMode()) {
-        case PaintMode::Pen:
-        mConfig->setPenSize(size);
-        break;
-        case PaintMode::Marker:
-        mConfig->setMarkerSize(size);
-        break;
-        case PaintMode::Rect:
-        mConfig->setRectSize(size);
-        break;
-        case PaintMode::Ellipse:
-        mConfig->setEllipseSize(size);
-        break;
-        case PaintMode::Line:
-        mConfig->setLineSize(size);
-        break;
-        case PaintMode::Arrow:
-        mConfig->setArrowSize(size);
-        case PaintMode::Text:
-        mConfig->setTextSize(size);
-        break;
-        case PaintMode::Number:
-        mConfig->setNumberSize(size);
-        break;
-        case PaintMode::Erase:
-        mConfig->setEraseSize(size);
-    default:
-        break;
-    }
+    mConfig->setToolSize(mPaintArea->paintMode(), size);
 }
 
 //
@@ -380,7 +348,6 @@ void MainWindow::setEnablements(bool enabled)
 
 void MainWindow::loadSettings()
 {
-    // Load paintmode setting
     auto paintMode = mConfig->paintMode();
     mToolPicker->setTool(paintMode);
     setPaintMode(paintMode);

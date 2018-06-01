@@ -31,6 +31,7 @@ public:
     static QString paintTool(PaintMode tool);
     static QString toolSize(PaintMode tool);
     static QString toolColor(PaintMode tool);
+    static QString toolFill(PaintMode tool);
 };
 
 #endif //KSNIP_CONFIGNAMEFORMATTER_H

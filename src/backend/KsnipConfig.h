@@ -88,41 +88,23 @@ public:
 
     QPen rect() const;
 
-    bool rectFill() const;
-    void setRectFill(bool fill);
-
     QPen ellipse() const;
-
-    bool ellipseFill() const;
-    void setEllipseFill(bool fill);
 
     QPen line() const;
 
-    bool lineFill() const;
-
     QPen arrow() const;
 
-    bool arrowFill() const;
-
     QPen text() const;
-
     bool textBold() const;
     void setTextBold(bool bold);
-
     bool textItalic() const;
     void setTextItalic(bool italic);
-
     bool textUnderline() const;
     void setTextUnderline(bool underline);
-
     QFont textFont() const;
     void setTextFont(const QFont &font);
 
     QPen number() const;
-
-    QColor numberColor() const;
-    void setNumberColor(const QColor &color);
-
     QFont numberFont() const;
     void setNumberFont(const QFont &font);
 
@@ -192,6 +174,9 @@ public:
 
     QColor toolColor(PaintMode tool) const;
     void setToolColor(PaintMode tool, const QColor &color);
+
+    bool toolFill(PaintMode tool) const;
+    void setToolFill(PaintMode tool, bool enabled);
 
 signals:
     void painterUpdated() const;

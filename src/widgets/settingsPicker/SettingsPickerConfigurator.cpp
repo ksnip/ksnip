@@ -55,7 +55,7 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, PaintMode
         settingsPicker->addPopupSizeSlider(1, 10, 1);
             settingsPicker->setColor(mConfig->toolColor(PaintMode::Rect));
         settingsPicker->setSize(mConfig->toolSize(PaintMode::Rect));
-        settingsPicker->setFill(mConfig->rectFill());
+        settingsPicker->setFill(mConfig->toolFill(PaintMode::Rect));
         break;
     case PaintMode::Ellipse:
         settingsPicker->setEnabled(true);
@@ -63,7 +63,7 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, PaintMode
         settingsPicker->addPopupSizeSlider(1, 10, 1);
             settingsPicker->setColor(mConfig->toolColor(PaintMode::Ellipse));
         settingsPicker->setSize(mConfig->toolSize(PaintMode::Ellipse));
-        settingsPicker->setFill(mConfig->ellipseFill());
+        settingsPicker->setFill(mConfig->toolFill(PaintMode::Ellipse));
         break;
     case PaintMode::Line:
         settingsPicker->setEnabled(true);

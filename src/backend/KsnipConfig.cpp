@@ -265,42 +265,12 @@ QPen KsnipConfig::rect() const
     return rect;
 }
 
-bool KsnipConfig::rectFill() const
-{
-    return mConfig.value(QStringLiteral("Painter/RectFill"), false).toBool();
-}
-
-void KsnipConfig::setRectFill(bool  fill)
-{
-    if (rectFill() == fill) {
-        return;
-    }
-    mConfig.setValue(QStringLiteral("Painter/RectFill"), fill);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
 QPen KsnipConfig::ellipse() const
 {
     QPen ellipse;
     ellipse.setColor(toolColor(PaintMode::Ellipse));
     ellipse.setWidth(toolSize(PaintMode::Ellipse));
     return ellipse;
-}
-
-bool KsnipConfig::ellipseFill() const
-{
-    return mConfig.value(QStringLiteral("Painter/EllipseFill"), false).toBool();
-}
-
-void KsnipConfig::setEllipseFill(bool  fill)
-{
-    if (ellipseFill() == fill) {
-        return;
-    }
-    mConfig.setValue(QStringLiteral("Painter/EllipseFill"), fill);
-    mConfig.sync();
-    emit painterUpdated();
 }
 
 QPen KsnipConfig::line() const
@@ -311,22 +281,12 @@ QPen KsnipConfig::line() const
     return line;
 }
 
-bool KsnipConfig::lineFill() const
-{
-    return mConfig.value(QStringLiteral("Painter/LineFill"), false).toBool();
-}
-
 QPen KsnipConfig::arrow() const
 {
     QPen arrow;
     arrow.setColor(toolColor(PaintMode::Arrow));
     arrow.setWidth(toolSize(PaintMode::Arrow));
     return arrow;
-}
-
-bool KsnipConfig::arrowFill() const
-{
-    return mConfig.value(QStringLiteral("Painter/ArrowFill"), false).toBool();
 }
 
 QPen KsnipConfig::text() const
@@ -412,24 +372,9 @@ void KsnipConfig::setTextFont(const QFont& font)
 QPen KsnipConfig::number() const
 {
     QPen number;
-    number.setColor(numberColor());
+    number.setColor(toolColor(PaintMode::Number));
     number.setWidth(toolSize(PaintMode::Number));
     return number;
-}
-
-QColor KsnipConfig::numberColor() const
-{
-    return mConfig.value(QStringLiteral("Painter/NumberColor"), QColor(QStringLiteral("Red"))).value<QColor>();
-}
-
-void KsnipConfig::setNumberColor(const QColor& color)
-{
-    if (numberColor() == color) {
-        return;
-    }
-    mConfig.setValue(QStringLiteral("Painter/NumberColor"), color);
-    mConfig.sync();
-    emit painterUpdated();
 }
 
 QFont KsnipConfig::numberFont() const
@@ -753,6 +698,22 @@ void KsnipConfig::setToolColor(const PaintMode tool, const QColor &color)
     }
 
     mConfig.setValue(ConfigNameFormatter::toolColor(tool), color);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+bool KsnipConfig::toolFill(PaintMode tool) const
+{
+    return mConfig.value(ConfigNameFormatter::toolFill(tool), false).value<bool>();
+}
+
+void KsnipConfig::setToolFill(PaintMode tool, bool enabled)
+{
+    if (toolFill(tool) == enabled) {
+        return;
+    }
+
+    mConfig.setValue(ConfigNameFormatter::toolFill(tool), enabled);
     mConfig.sync();
     emit painterUpdated();
 }

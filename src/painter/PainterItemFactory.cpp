@@ -72,9 +72,9 @@ AbstractPainterItem *PainterItemFactory::createNewItem(PaintMode mode, const QPo
         case PaintMode::Marker:
         return new PainterMarker(pos, mConfig->marker());
         case PaintMode::Rect:
-        return new PainterRect(pos, mConfig->rect(), mConfig->rectFill());
+            return new PainterRect(pos, mConfig->rect(), mConfig->toolFill(PaintMode::Rect));
         case PaintMode::Ellipse:
-        return new PainterEllipse(pos, mConfig->ellipse(), mConfig->ellipseFill());
+            return new PainterEllipse(pos, mConfig->ellipse(), mConfig->toolFill(PaintMode::Ellipse));
         case PaintMode::Line:
         return new PainterLine(pos, mConfig->line());
         case PaintMode::Arrow:

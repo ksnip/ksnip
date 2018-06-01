@@ -33,3 +33,8 @@ QString ConfigNameFormatter::toolColor(const PaintMode tool)
 {
     return QStringLiteral("Painter/") + paintTool(tool) + QStringLiteral("_Color");
 }
+
+QString ConfigNameFormatter::toolFill(PaintMode tool)
+{
+    return QStringLiteral("Painter/") + paintTool(tool) + QStringLiteral("_Fill");
+}

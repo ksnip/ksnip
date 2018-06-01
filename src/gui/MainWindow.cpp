@@ -213,22 +213,9 @@ void MainWindow::colorChanged(const QColor& color)
     mConfig->setToolColor(mPaintArea->paintMode(), color);
 }
 
-/*
- * Called by signals from painter settings picker tool button to change the
- * fill of the current tool.
- */
 void MainWindow::fillChanged(bool fill)
 {
-    switch (mPaintArea->paintMode()) {
-        case PaintMode::Rect:
-        mConfig->setRectFill(fill);
-        break;
-        case PaintMode::Ellipse:
-        mConfig->setEllipseFill(fill);
-        break;
-    default:
-        break;
-    }
+    mConfig->setToolFill(mPaintArea->paintMode(), fill);
 }
 
 void MainWindow::sizeChanged(int size)

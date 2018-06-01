@@ -37,6 +37,10 @@ if(NOT XCB_XFIXES_FOUND)
     message(FATAL_ERROR "Required XCB Components missing: XCB-XFIXES")
 endif()
 
+if (POLICY CMP0071)
+    cmake_policy(SET CMP0071 NEW)
+endif ()
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(ksnip_SRCS ${CMAKE_SOURCE_DIR}/src/main.cpp

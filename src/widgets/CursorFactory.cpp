@@ -31,23 +31,18 @@ QCursor *CursorFactory::createPainterCursor(PaintMode mode, AbstractPainterItem 
 
     switch(mode) {
         case PaintMode::Pen:
-            return new CustomCursor(CustomCursor::Circle, mConfig->penColor(), cursorSize);
         case PaintMode::Marker:
-            return new CustomCursor(CustomCursor::Circle, mConfig->markerColor(), cursorSize);
         case PaintMode::Rect:
-            return new CustomCursor(CustomCursor::Circle, mConfig->rectColor(), cursorSize);
         case PaintMode::Ellipse:
-            return new CustomCursor(CustomCursor::Circle, mConfig->ellipseColor(), cursorSize);
         case PaintMode::Line:
-            return new CustomCursor(CustomCursor::Circle, mConfig->lineColor(), cursorSize);
         case PaintMode::Arrow:
-            return new CustomCursor(CustomCursor::Circle, mConfig->arrowColor(), cursorSize);
+            return new CustomCursor(CustomCursor::Circle, mConfig->toolColor(mode), cursorSize);
         case PaintMode::Text:
             return new QCursor(Qt::IBeamCursor);
         case PaintMode::Number:
             return new QCursor(Qt::PointingHandCursor);
         case PaintMode::Erase:
-            return new CustomCursor(CustomCursor::Rect, QColor(QStringLiteral("white")), cursorSize);
+            return new CustomCursor(CustomCursor::Rect, QColor(Qt::white), cursorSize);
         case PaintMode::Select:
             if(painterItem == nullptr) {
                 return new QCursor(Qt::OpenHandCursor);

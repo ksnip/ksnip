@@ -208,40 +208,9 @@ QMenu* MainWindow::createPopupMenu()
     return filteredMenu;
 }
 
-/*
- * Called by signals from painter settings picker tool button to change the
- * color of the current tool.
- */
 void MainWindow::colorChanged(const QColor& color)
 {
-    switch (mPaintArea->paintMode()) {
-        case PaintMode::Pen:
-        mConfig->setPenColor(color);
-        break;
-        case PaintMode::Marker:
-        mConfig->setMarkerColor(color);
-        break;
-        case PaintMode::Rect:
-        mConfig->setRectColor(color);
-        break;
-        case PaintMode::Ellipse:
-        mConfig->setEllipseColor(color);
-        break;
-        case PaintMode::Line:
-        mConfig->setLineColor(color);
-        break;
-        case PaintMode::Arrow:
-        mConfig->setArrowColor(color);
-        break;
-        case PaintMode::Text:
-        mConfig->setTextColor(color);
-        break;
-        case PaintMode::Number:
-        mConfig->setNumberColor(color);
-        break;
-    default:
-        break;
-    }
+    mConfig->setToolColor(mPaintArea->paintMode(), color);
 }
 
 /*

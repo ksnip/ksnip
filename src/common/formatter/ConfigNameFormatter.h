@@ -28,8 +28,9 @@
 class ConfigNameFormatter
 {
 public:
-    static QString paintTool(const PaintMode tool);
-    static QString toolSize(const PaintMode tool);
+    static QString paintTool(PaintMode tool);
+    static QString toolSize(PaintMode tool);
+    static QString toolColor(PaintMode tool);
 };
 
 #endif //KSNIP_CONFIGNAMEFORMATTER_H

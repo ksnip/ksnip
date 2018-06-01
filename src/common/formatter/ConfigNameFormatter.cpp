@@ -26,5 +26,10 @@ QString ConfigNameFormatter::paintTool(const PaintMode tool)
 
 QString ConfigNameFormatter::toolSize(const PaintMode tool)
 {
-    return QStringLiteral("Application/") + paintTool(tool) + QStringLiteral("_Size");
+    return QStringLiteral("Painter/") + paintTool(tool) + QStringLiteral("_Size");
+}
+
+QString ConfigNameFormatter::toolColor(const PaintMode tool)
+{
+    return QStringLiteral("Painter/") + paintTool(tool) + QStringLiteral("_Color");
 }

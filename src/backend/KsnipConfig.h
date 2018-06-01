@@ -76,7 +76,7 @@ public:
     void setSaveFormat(const QString &format);
 
     bool useInstantSave() const;
-    void setUseInstantSave(const bool enabled);
+    void setUseInstantSave(bool enabled);
 
     QString savePath(const QString &format = QString()) const;
 
@@ -84,50 +84,27 @@ public:
 
     QPen pen() const;
 
-    QColor penColor() const;
-    void setPenColor(const QColor &color);
-
     QPen marker() const;
 
-    QColor markerColor() const;
-    void setMarkerColor(const QColor &color);
-
     QPen rect() const;
-
-    QColor rectColor() const;
-    void setRectColor(const QColor &color);
 
     bool rectFill() const;
     void setRectFill(bool fill);
 
     QPen ellipse() const;
 
-    QColor ellipseColor() const;
-    void setEllipseColor(const QColor &color);
-
     bool ellipseFill() const;
     void setEllipseFill(bool fill);
 
     QPen line() const;
 
-    QColor lineColor() const;
-    void setLineColor(const QColor &color);
-
     bool lineFill() const;
-    void setLineFill(bool fill);
 
     QPen arrow() const;
 
-    QColor arrowColor() const;
-    void setArrowColor(const QColor &color);
-
     bool arrowFill() const;
-    void setArrowFill(bool fill);
 
     QPen text() const;
-
-    QColor textColor() const;
-    void setTextColor(const QColor &color);
 
     bool textBold() const;
     void setTextBold(bool bold);
@@ -210,8 +187,11 @@ public:
     bool imgurConfirmBeforeUpload() const;
     void setImgurConfirmBeforeUpload(bool enabled);
 
-    int toolSize(const PaintMode tool) const;
-    void setToolSize(const PaintMode tool, int size);
+    int toolSize(PaintMode tool) const;
+    void setToolSize(PaintMode tool, int size);
+
+    QColor toolColor(PaintMode tool) const;
+    void setToolColor(PaintMode tool, const QColor &color);
 
 signals:
     void painterUpdated() const;

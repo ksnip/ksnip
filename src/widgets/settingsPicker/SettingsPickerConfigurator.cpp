@@ -34,7 +34,7 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, PaintMode
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, false, true);
         settingsPicker->addPopupSizeSlider(1, 10, 1);
-        settingsPicker->setColor(mConfig->penColor());
+            settingsPicker->setColor(mConfig->toolColor(PaintMode::Pen));
         settingsPicker->setSize(mConfig->toolSize(PaintMode::Pen));
         break;
     case PaintMode::Marker:
@@ -46,14 +46,14 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, PaintMode
         settingsPicker->insertColor("orange");
         settingsPicker->insertColor("red");
         settingsPicker->addPopupSizeSlider(10, 30, 2);
-        settingsPicker->setColor(mConfig->markerColor());
+            settingsPicker->setColor(mConfig->toolColor(PaintMode::Marker));
         settingsPicker->setSize(mConfig->toolSize(PaintMode::Marker));
         break;
     case PaintMode::Rect:
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, true, true);
         settingsPicker->addPopupSizeSlider(1, 10, 1);
-        settingsPicker->setColor(mConfig->rectColor());
+            settingsPicker->setColor(mConfig->toolColor(PaintMode::Rect));
         settingsPicker->setSize(mConfig->toolSize(PaintMode::Rect));
         settingsPicker->setFill(mConfig->rectFill());
         break;
@@ -61,7 +61,7 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, PaintMode
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, true, true);
         settingsPicker->addPopupSizeSlider(1, 10, 1);
-        settingsPicker->setColor(mConfig->ellipseColor());
+            settingsPicker->setColor(mConfig->toolColor(PaintMode::Ellipse));
         settingsPicker->setSize(mConfig->toolSize(PaintMode::Ellipse));
         settingsPicker->setFill(mConfig->ellipseFill());
         break;
@@ -69,21 +69,21 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, PaintMode
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, false, true);
         settingsPicker->addPopupSizeSlider(1, 10, 1);
-        settingsPicker->setColor(mConfig->lineColor());
+            settingsPicker->setColor(mConfig->toolColor(PaintMode::Line));
         settingsPicker->setSize(mConfig->toolSize(PaintMode::Line));
         break;
     case PaintMode::Arrow:
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, false, true);
         settingsPicker->addPopupSizeSlider(1, 5, 1);
-        settingsPicker->setColor(mConfig->arrowColor());
+            settingsPicker->setColor(mConfig->toolColor(PaintMode::Arrow));
         settingsPicker->setSize(mConfig->toolSize(PaintMode::Arrow));
         break;
     case PaintMode::Text:
         settingsPicker->setEnabled(true);
         settingsPicker->addPopupColorGrid(true, false, true);
         settingsPicker->addPopupSizeSlider(10, 20, 1);
-        settingsPicker->setColor(mConfig->textColor());
+            settingsPicker->setColor(mConfig->toolColor(PaintMode::Text));
         settingsPicker->setSize(mConfig->toolSize(PaintMode::Text));
         break;
     case PaintMode::Number:
@@ -91,7 +91,7 @@ void SettingsPickerConfigurator::setup(SettingsPicker* settingsPicker, PaintMode
         settingsPicker->addPopupColorGrid(true, false, true);
         settingsPicker->addPopupSizeSlider(10, 50, 5);
         settingsPicker->addPopupNumberPicker(mNumberSequencer->min(), mNumberSequencer->max());
-        settingsPicker->setColor(mConfig->numberColor());
+            settingsPicker->setColor(mConfig->toolColor(PaintMode::Number));
         settingsPicker->setSize(mConfig->toolSize(PaintMode::Number));
         connect(mNumberSequencer, &NumberSequencer::numberChanged, settingsPicker, &SettingsPicker::updateNumber);
         connect(settingsPicker, &SettingsPicker::numberSelected, mNumberSequencer, &NumberSequencer::setNextNumber);

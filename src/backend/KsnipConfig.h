@@ -82,19 +82,17 @@ public:
 
     // Painter
 
-    QPen pen() const;
+    int toolSize(PaintMode tool) const;
+    void setToolSize(PaintMode tool, int size);
 
-    QPen marker() const;
+    QColor toolColor(PaintMode tool) const;
+    void setToolColor(PaintMode tool, const QColor &color);
 
-    QPen rect() const;
+    bool toolFill(PaintMode tool) const;
+    void setToolFill(PaintMode tool, bool enabled);
 
-    QPen ellipse() const;
+    QPen toolProperties(PaintMode tool) const;
 
-    QPen line() const;
-
-    QPen arrow() const;
-
-    QPen text() const;
     bool textBold() const;
     void setTextBold(bool bold);
     bool textItalic() const;
@@ -104,7 +102,6 @@ public:
     QFont textFont() const;
     void setTextFont(const QFont &font);
 
-    QPen number() const;
     QFont numberFont() const;
     void setNumberFont(const QFont &font);
 
@@ -168,15 +165,6 @@ public:
 
     bool imgurConfirmBeforeUpload() const;
     void setImgurConfirmBeforeUpload(bool enabled);
-
-    int toolSize(PaintMode tool) const;
-    void setToolSize(PaintMode tool, int size);
-
-    QColor toolColor(PaintMode tool) const;
-    void setToolColor(PaintMode tool, const QColor &color);
-
-    bool toolFill(PaintMode tool) const;
-    void setToolFill(PaintMode tool, bool enabled);
 
 signals:
     void painterUpdated() const;

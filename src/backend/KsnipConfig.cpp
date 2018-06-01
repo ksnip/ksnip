@@ -241,60 +241,60 @@ QString KsnipConfig::savePath(const QString& format) const
 
 // Painter
 
-QPen KsnipConfig::pen() const
+int KsnipConfig::toolSize(const PaintMode tool) const
+{
+    return mConfig.value(ConfigNameFormatter::toolSize(tool), 3).value<int>();
+}
+
+void KsnipConfig::setToolSize(const PaintMode tool, int size)
+{
+    if (toolSize(tool) == size) {
+        return;
+    }
+
+    mConfig.setValue(ConfigNameFormatter::toolSize(tool), size);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+QColor KsnipConfig::toolColor(const PaintMode tool) const
+{
+    return mConfig.value(ConfigNameFormatter::toolColor(tool), QColor(Qt::red)).value<QColor>();
+}
+
+void KsnipConfig::setToolColor(const PaintMode tool, const QColor &color)
+{
+    if (toolColor(tool) == color) {
+        return;
+    }
+
+    mConfig.setValue(ConfigNameFormatter::toolColor(tool), color);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+bool KsnipConfig::toolFill(PaintMode tool) const
+{
+    return mConfig.value(ConfigNameFormatter::toolFill(tool), false).value<bool>();
+}
+
+void KsnipConfig::setToolFill(PaintMode tool, bool enabled)
+{
+    if (toolFill(tool) == enabled) {
+        return;
+    }
+
+    mConfig.setValue(ConfigNameFormatter::toolFill(tool), enabled);
+    mConfig.sync();
+    emit painterUpdated();
+}
+
+QPen KsnipConfig::toolProperties(PaintMode tool) const
 {
     QPen pen;
-    pen.setColor(toolColor(PaintMode::Pen));
-    pen.setWidth(toolSize(PaintMode::Pen));
+    pen.setColor(toolColor(tool));
+    pen.setWidth(toolSize(tool));
     return pen;
-}
-
-QPen KsnipConfig::marker() const
-{
-    QPen marker;
-    marker.setColor(toolColor(PaintMode::Marker));
-    marker.setWidth(toolSize(PaintMode::Marker));
-    return marker;
-}
-
-QPen KsnipConfig::rect() const
-{
-    QPen rect;
-    rect.setColor(toolColor(PaintMode::Rect));
-    rect.setWidth(toolSize(PaintMode::Rect));
-    return rect;
-}
-
-QPen KsnipConfig::ellipse() const
-{
-    QPen ellipse;
-    ellipse.setColor(toolColor(PaintMode::Ellipse));
-    ellipse.setWidth(toolSize(PaintMode::Ellipse));
-    return ellipse;
-}
-
-QPen KsnipConfig::line() const
-{
-    QPen line;
-    line.setColor(toolColor(PaintMode::Line));
-    line.setWidth(toolSize(PaintMode::Line));
-    return line;
-}
-
-QPen KsnipConfig::arrow() const
-{
-    QPen arrow;
-    arrow.setColor(toolColor(PaintMode::Arrow));
-    arrow.setWidth(toolSize(PaintMode::Arrow));
-    return arrow;
-}
-
-QPen KsnipConfig::text() const
-{
-    QPen text;
-    text.setColor(toolColor(PaintMode::Text));
-    text.setWidth(toolSize(PaintMode::Text));
-    return text;
 }
 
 bool KsnipConfig::textBold() const
@@ -367,14 +367,6 @@ void KsnipConfig::setTextFont(const QFont& font)
     mConfig.setValue(QStringLiteral("Painter/TextFont"), tmpFont);
     mConfig.sync();
     emit painterUpdated();
-}
-
-QPen KsnipConfig::number() const
-{
-    QPen number;
-    number.setColor(toolColor(PaintMode::Number));
-    number.setWidth(toolSize(PaintMode::Number));
-    return number;
 }
 
 QFont KsnipConfig::numberFont() const
@@ -668,52 +660,4 @@ void KsnipConfig::setImgurConfirmBeforeUpload(bool enabled)
     }
     mConfig.setValue(QStringLiteral("Imgur/ConfirmBeforeUpload"), enabled);
     mConfig.sync();
-}
-
-int KsnipConfig::toolSize(const PaintMode tool) const
-{
-    return mConfig.value(ConfigNameFormatter::toolSize(tool), 3).value<int>();
-}
-
-void KsnipConfig::setToolSize(const PaintMode tool, int size)
-{
-    if (toolSize(tool) == size) {
-        return;
-    }
-
-    mConfig.setValue(ConfigNameFormatter::toolSize(tool), size);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-QColor KsnipConfig::toolColor(const PaintMode tool) const
-{
-    return mConfig.value(ConfigNameFormatter::toolColor(tool), QColor(Qt::red)).value<QColor>();
-}
-
-void KsnipConfig::setToolColor(const PaintMode tool, const QColor &color)
-{
-    if (toolColor(tool) == color) {
-        return;
-    }
-
-    mConfig.setValue(ConfigNameFormatter::toolColor(tool), color);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-bool KsnipConfig::toolFill(PaintMode tool) const
-{
-    return mConfig.value(ConfigNameFormatter::toolFill(tool), false).value<bool>();
-}
-
-void KsnipConfig::setToolFill(PaintMode tool, bool enabled)
-{
-    if (toolFill(tool) == enabled) {
-        return;
-    }
-
-    mConfig.setValue(ConfigNameFormatter::toolFill(tool), enabled);
-    mConfig.sync();
-    emit painterUpdated();
 }

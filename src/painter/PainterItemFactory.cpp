@@ -68,21 +68,21 @@ AbstractPainterItem *PainterItemFactory::createNewItem(PaintMode mode, const QPo
 {
     switch (mode) {
         case PaintMode::Pen:
-        return new PainterPen(pos, mConfig->pen());
+            return new PainterPen(pos, mConfig->toolProperties(PaintMode::Pen));
         case PaintMode::Marker:
-        return new PainterMarker(pos, mConfig->marker());
+            return new PainterMarker(pos, mConfig->toolProperties(PaintMode::Marker));
         case PaintMode::Rect:
-            return new PainterRect(pos, mConfig->rect(), mConfig->toolFill(PaintMode::Rect));
+            return new PainterRect(pos, mConfig->toolProperties(PaintMode::Rect), mConfig->toolFill(PaintMode::Rect));
         case PaintMode::Ellipse:
-            return new PainterEllipse(pos, mConfig->ellipse(), mConfig->toolFill(PaintMode::Ellipse));
+            return new PainterEllipse(pos, mConfig->toolProperties(PaintMode::Ellipse), mConfig->toolFill(PaintMode::Ellipse));
         case PaintMode::Line:
-        return new PainterLine(pos, mConfig->line());
+            return new PainterLine(pos, mConfig->toolProperties(PaintMode::Line));
         case PaintMode::Arrow:
-        return new PainterArrow(pos, mConfig->arrow());
+            return new PainterArrow(pos, mConfig->toolProperties(PaintMode::Arrow));
         case PaintMode::Text:
-        return new PainterText(pos - QPointF(0, 12), mConfig->text(), mConfig->textFont());
+            return new PainterText(pos - QPointF(0, 12), mConfig->toolProperties(PaintMode::Text), mConfig->textFont());
         case PaintMode::Number:
-        return new PainterNumber(pos, mConfig->number(), mConfig->numberFont(), mNumberSequencer->getNumberAndIncrement());
+            return new PainterNumber(pos, mConfig->toolProperties(PaintMode::Number), mConfig->numberFont(), mNumberSequencer->getNumberAndIncrement());
     default:
         return nullptr;
     }

@@ -30,8 +30,8 @@ class CaptureModePicker : public CustomToolButton
 {
 Q_OBJECT
 public:
-    explicit CaptureModePicker();
-    ~CaptureModePicker() = default;
+    explicit CaptureModePicker(const QList<CaptureModes> &captureModes);
+    ~CaptureModePicker() override = default;
     void setCaptureMode(CaptureModes mode);
     CaptureModes captureMode() const;
 
@@ -42,7 +42,7 @@ private:
     CaptureModes mSelectedCaptureMode;
     QHash<QAction *, CaptureModes> mActionToCaptureMode;
 
-    void init();
+    void init(const QList<CaptureModes> &captureModes);
     void selectCaptureMode(CaptureModes mode);
 
 };

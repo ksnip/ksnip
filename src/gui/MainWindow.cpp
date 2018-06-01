@@ -235,19 +235,13 @@ void MainWindow::moveEvent(QMoveEvent* event)
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
-    if (mConfig->promptSaveBeforeExit() && mIsUnsaved) {
-        auto reply = popupQuestion(tr("Warning - ") + QApplication::applicationName(),
-                                   tr("The capture has been modified.\nDo you want to save it?"));
-
-        if (reply) {
-            saveCaptureClicked();
-            event->ignore();
-        } else {
-            event->accept();
-        }
-    } else {
-        event->accept();
+    auto canDiscard = discardUnsavedChanges();
+    if (!canDiscard) {
+        saveCapture();
+        event->ignore();
+        return;
     }
+    event->accept();
 }
 
 bool MainWindow::eventFilter(QObject* watched, QEvent* event)
@@ -370,16 +364,26 @@ void MainWindow::capture(CaptureModes captureMode)
     captureScreenshot(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
 }
 
+void MainWindow::triggerNewCapture(CaptureModes captureMode)
+{
+    auto canDiscard = discardUnsavedChanges();
+    if (!canDiscard) {
+        saveCapture();
+        return;
+    }
+    capture(captureMode);
+}
+
 void MainWindow::initGui()
 {
-    connect(mCaptureModePicker, &CaptureModePicker::captureModeSelected, this, &MainWindow::capture);
+    connect(mCaptureModePicker, &CaptureModePicker::captureModeSelected, this, &MainWindow::triggerNewCapture);
 
     // Create action for save button
     mSaveAction->setText(tr("Save"));
     mSaveAction->setToolTip(tr("Save Screen Capture to file system"));
     mSaveAction->setIcon(IconLoader::loadIcon(QStringLiteral("save")));
     mSaveAction->setShortcut(QKeySequence::Save);
-    connect(mSaveAction, &QAction::triggered, this, &MainWindow::saveCaptureClicked);
+    connect(mSaveAction, &QAction::triggered, this, &MainWindow::saveCapture);
 
     // Create action for copy to clipboard button
     mCopyToClipboardAction->setText(tr("Copy"));
@@ -540,7 +544,7 @@ void MainWindow::setPaintMode(const PaintMode &mode)
     }
 }
 
-void MainWindow::saveCaptureClicked()
+void MainWindow::saveCapture()
 {
     QString savePath;
 
@@ -754,4 +758,16 @@ void MainWindow::openScale()
     });
 
     scaleDialog.exec();
+}
+
+bool MainWindow::discardUnsavedChanges()
+{
+    if (mConfig->promptSaveBeforeExit() && mIsUnsaved) {
+        auto reply = popupQuestion(tr("Warning - ") + QApplication::applicationName(),
+                                   tr("The capture has been modified.\nDo you want to save it?"));
+
+        return !reply;
+    } else {
+        return true;
+    }
 }

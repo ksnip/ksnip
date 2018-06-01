@@ -25,6 +25,7 @@
 * Fixed: Crop tool not marking screenshot as unsaved after cropping ([#99](https://github.com/DamirPorobic/ksnip/issues/99))
 * Fixed: Scale tool not marking screenshot as unsaved after scaling ([#100](https://github.com/DamirPorobic/ksnip/issues/100))
 * Fixed: Running ksnip with -e flag and enabled capture screenshot on startup starts new screenshot. ([#105](https://github.com/DamirPorobic/ksnip/issues/105))
+* Fixed: Triggering new capture discards unsaved changes. ([#89](https://github.com/DamirPorobic/ksnip/issues/89))
 
 ## Release 1.4.0
 * New: Info text (cursor position and selection area size) for snipping area cursor, can be enabled and disabled via settings.([#49](https://github.com/DamirPorobic/ksnip/issues/49))

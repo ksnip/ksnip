@@ -109,11 +109,12 @@ private:
     void setHidden(bool isHidden);
     bool hidden() const;
     void capture(CaptureModes captureMode);
+    void triggerNewCapture(CaptureModes captureMode);
     void initGui();
     void setPaintMode(const PaintMode &mode);
 
 private slots:
-    void saveCaptureClicked();
+    void saveCapture();
     void imgurUploadClicked();
     void printClicked();
     void printPreviewClicked();
@@ -129,6 +130,7 @@ private slots:
     void loadImageFromFile();
     void openScale();
     void screenshotChanged();
+    bool discardUnsavedChanges();
 };
 
 #endif // MAINWINDOW_H

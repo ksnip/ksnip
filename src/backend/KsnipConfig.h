@@ -29,7 +29,7 @@
 #include <QSettings>
 
 #include "src/common/enum/CaptureModes.h"
-#include "src/common/helper/StringFormattingHelper.h"
+#include "src/common/formatter/FilenameFormatter.h"
 #include "src/common/formatter/ConfigNameFormatter.h"
 #include "src/common/enum/PaintMode.h"
 

@@ -18,14 +18,14 @@
  *
  */
 
-#ifndef STRINGFORMATTINGHELPER_H
-#define STRINGFORMATTINGHELPER_H
+#ifndef KSNIP_FILENAMEFORMATTER_H
+#define KSNIP_FILENAMEFORMATTER_H
 
 #include <QString>
 #include <QDateTime>
 #include <QFile>
 
-class StringFormattingHelper
+class FilenameFormatter
 {
 public:
     static QString extractPath(const QString &path);
@@ -35,7 +35,7 @@ public:
     static QString updateTimeAndDate(QString filename);
     static QString makeUniqueFilename(const QString &path,
                                       const QString &filename,
-                                      const QString &exension = 0);
+                                      const QString &extension = 0);
 };
 
-#endif // STRINGFORMATTINGHELPER_H
+#endif // KSNIP_FILENAMEFORMATTER_H

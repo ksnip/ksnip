@@ -235,8 +235,8 @@ QString KsnipConfig::savePath(const QString& format) const
         selectedFormat = (format.startsWith(QStringLiteral(".")) ? format : QStringLiteral(".") + format);
     }
 
-    auto filename = StringFormattingHelper::updateTimeAndDate(saveFilename());
-    return StringFormattingHelper::makeUniqueFilename(saveDirectory(), filename, selectedFormat);
+    auto filename = FilenameFormatter::updateTimeAndDate(saveFilename());
+    return FilenameFormatter::makeUniqueFilename(saveDirectory(), filename, selectedFormat);
 }
 
 // Painter

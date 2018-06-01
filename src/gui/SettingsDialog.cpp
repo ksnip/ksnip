@@ -192,9 +192,9 @@ void SettingsDialog::saveSettings()
     mConfig->setSnippingCursorColor(mSnippingCursorColorButton->color());
     mConfig->setSnippingCursorSize(mSnippingCursorSizeCombobox->value());
 
-    mConfig->setSaveDirectory(StringFormattingHelper::extractPath(mSaveLocationLineEdit->displayText()));
-    mConfig->setSaveFilename(StringFormattingHelper::extractFilename(mSaveLocationLineEdit->displayText()));
-    mConfig->setSaveFormat(StringFormattingHelper::extractFormat(mSaveLocationLineEdit->displayText()));
+    mConfig->setSaveDirectory(FilenameFormatter::extractPath(mSaveLocationLineEdit->displayText()));
+    mConfig->setSaveFilename(FilenameFormatter::extractFilename(mSaveLocationLineEdit->displayText()));
+    mConfig->setSaveFormat(FilenameFormatter::extractFormat(mSaveLocationLineEdit->displayText()));
 
     mConfig->setTextFont(mTextFontCombobox->currentFont());
     mConfig->setTextBold(mTextBoldButton->isChecked());
@@ -549,8 +549,8 @@ void SettingsDialog::chooseSaveDirectory()
                 tr("Capture save location"),
                 mConfig->saveDirectory());
     if(!path.isEmpty()) {
-        auto filename = StringFormattingHelper::extractFilename(mSaveLocationLineEdit->text());
-        auto format = StringFormattingHelper::extractFormat(mSaveLocationLineEdit->text());
+        auto filename = FilenameFormatter::extractFilename(mSaveLocationLineEdit->text());
+        auto format = FilenameFormatter::extractFormat(mSaveLocationLineEdit->text());
 
         if(!filename.isEmpty()) {
             path.append(QLatin1Char('/')).append(filename);

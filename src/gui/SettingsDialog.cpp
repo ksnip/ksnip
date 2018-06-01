@@ -213,7 +213,7 @@ void SettingsDialog::initGui()
 
     // Create Application Settings
     mAlwaysCopyToClipboardCheckbox->setText(tr("Always copy capture to clipboard"));
-    mPromptToSaveBeforeExitCheckbox->setText(tr("Prompt to save before exiting ksnip"));
+    mPromptToSaveBeforeExitCheckbox->setText(tr("Prompt to save before discarding unsaved changes"));
     mSaveKsnipPositionCheckbox->setText(tr("Save ksnip position on move and load on startup"));
     mSaveKsnipToolSelectionCheckbox->setText(tr("Save ksnip tool selection and load on startup"));
     mCaptureOnStartupCheckbox->setText(tr("Capture screenshot at startup with default mode"));

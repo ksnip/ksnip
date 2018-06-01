@@ -51,7 +51,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
     mSettingsPickerConfigurator(new SettingsPickerConfigurator()),
     mDelayHandler(new DelayHandler(200)),
     mToolPicker(new ToolPicker()),
-    mCaptureModePicker(new CaptureModePicker(imageGrabber->supportedCaptureModes()))
+    mCaptureModePicker(new CaptureModePicker(imageGrabber->supportedCaptureModes())),
+    mCapturePrinter(new CapturePrinter(mPaintArea))
 {
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
@@ -586,54 +587,12 @@ void MainWindow::imgurUploadClicked()
 
 void MainWindow::printClicked()
 {
-    if (!mPaintArea->isValid()) {
-        return;
-    }
-
-    QPrinter printer;
-    printer.setOutputFileName(mConfig->savePath(QStringLiteral("pdf")));
-    printer.setOutputFormat(QPrinter::NativeFormat);
-    auto printDialog = new QPrintDialog(&printer, 0);
-    if (printDialog->exec() == QDialog::Accepted) {
-        printCapture(&printer);
-    }
-
-    delete printDialog;
+    mCapturePrinter->print(mConfig->savePath(QStringLiteral("pdf")));
 }
 
 void MainWindow::printPreviewClicked()
 {
-    if (!mPaintArea->isValid()) {
-        return;
-    }
-
-    // Opens a print preview dialog where the user change orientation of the
-    // print
-    QPrinter printer;
-    printer.setOutputFileName(mConfig->savePath(QStringLiteral("pdf")));
-    printer.setOutputFormat(QPrinter::NativeFormat);
-    auto printDialog = new QPrintPreviewDialog(&printer);
-    connect(printDialog, &QPrintPreviewDialog::paintRequested,
-            this, &MainWindow::printCapture);
-    printDialog->exec();
-
-    delete printDialog;
-}
-
-void MainWindow::printCapture(QPrinter* p)
-{
-    QPainter painter;
-    painter.begin(p);
-    auto image = mPaintArea->exportAsImage();
-    auto xscale = p->pageRect().width() / double(image.width());
-    auto yscale = p->pageRect().height() / double(image.height());
-    auto scale = qMin(xscale, yscale);
-    painter.translate(p->paperRect().x() + p->pageRect().width() / 2,
-                      p->paperRect().y() + p->pageRect().height() / 2);
-    painter.scale(scale, scale);
-    painter.translate(-image.width() / 2, -image.height() / 2);
-    painter.drawImage(QPoint(0, 0), image);
-    painter.end();
+    mCapturePrinter->printPreview(mConfig->savePath(QStringLiteral("pdf")));
 }
 
 /*

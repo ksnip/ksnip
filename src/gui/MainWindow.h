@@ -22,9 +22,6 @@
 #define MAINWINDOW_H
 
 #include <QtWidgets>
-#include <QtPrintSupport/QPrinter>
-#include <QtPrintSupport/QPrintDialog>
-#include <QtPrintSupport/QPrintPreviewDialog>
 
 #include "SettingsDialog.h"
 #include "AboutDialog.h"
@@ -44,6 +41,7 @@
 #include "src/common/handler/DelayHandler.h"
 #include "src/common/enum/RunMode.h"
 #include "src/common/helper/MessageBoxHelper.h"
+#include "src/backend/CapturePrinter.h"
 
 class MainWindow : public QMainWindow
 {
@@ -101,6 +99,7 @@ private:
     DelayHandler     *mDelayHandler;
     ToolPicker       *mToolPicker;
     CaptureModePicker *mCaptureModePicker;
+    CapturePrinter    *mCapturePrinter;
 
     void setSaveAble(bool enabled);
     void setEnablements(bool enabled);
@@ -118,7 +117,6 @@ private slots:
     void imgurUploadClicked();
     void printClicked();
     void printPreviewClicked();
-    void printCapture(QPrinter *p);
     void imgurUploadFinished(QString message);
     void imgurError(const QString &message);
     void imgurTokenUpdated(const QString &accessToken,

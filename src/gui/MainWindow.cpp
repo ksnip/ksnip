@@ -25,16 +25,9 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
     QMainWindow(),
     mImageGrabber(imageGrabber),
     mMode(mode),
-    mNewCaptureButton(new CustomToolButton(this)),
     mSaveButton(new QToolButton(this)),
     mCopyToClipboardButton(new QToolButton(this)),
     mSettingsButton(new SettingsPicker(this, 5)),
-    mNewCaptureMenu(new CustomMenu(mNewCaptureButton)),
-    mNewRectAreaCaptureAction(nullptr),
-    mNewCurrentScreenCaptureAction(nullptr),
-    mNewFullScreenCaptureAction(nullptr),
-    mNewActiveWindowCaptureAction(nullptr),
-    mNewWindowUnderCursorAction(nullptr),
     mSaveAction(new QAction(this)),
     mCopyToClipboardAction(new QAction(this)),
     mUploadToImgurAction(new QAction(this)),
@@ -57,7 +50,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
     mConfig(KsnipConfig::instance()),
     mSettingsPickerConfigurator(new SettingsPickerConfigurator()),
     mDelayHandler(new DelayHandler(200)),
-    mToolPicker(new ToolPicker())
+    mToolPicker(new ToolPicker()),
+    mCaptureModePicker(new CaptureModePicker(imageGrabber->supportedCaptureModes()))
 {
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
@@ -391,34 +385,7 @@ void MainWindow::loadSettings()
     mToolPicker->setTool(paintMode);
     setPaintMode(paintMode);
 
-    // Load capture mode setting
-    switch (mConfig->captureMode()) {
-    case CaptureModes::ActiveWindow:
-        if (mNewActiveWindowCaptureAction != nullptr) {
-            mNewCaptureButton->setDefaultAction(mNewActiveWindowCaptureAction);
-        }
-        break;
-    case CaptureModes::CurrentScreen:
-        if (mNewCurrentScreenCaptureAction != nullptr) {
-            mNewCaptureButton->setDefaultAction(mNewCurrentScreenCaptureAction);
-        }
-        break;
-    case CaptureModes::RectArea:
-        if (mNewRectAreaCaptureAction != nullptr) {
-            mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
-        }
-        break;
-    case CaptureModes::WindowUnderCursor:
-        if (mNewWindowUnderCursorAction != nullptr) {
-            mNewCaptureButton->setDefaultAction(mNewWindowUnderCursorAction);
-        }
-        break;
-    default:
-
-        if (mNewFullScreenCaptureAction != nullptr) {
-            mNewCaptureButton->setDefaultAction(mNewFullScreenCaptureAction);
-        }
-    }
+    mCaptureModePicker->setCaptureMode(mConfig->captureMode());
 }
 
 void MainWindow::copyToClipboard()
@@ -482,65 +449,7 @@ void MainWindow::capture(CaptureModes captureMode)
 
 void MainWindow::initGui()
 {
-    // Create actions
-
-    // Create actions for capture modes that are supported by the image grabber
-    if (mImageGrabber->isCaptureModeSupported(CaptureModes::RectArea)) {
-        mNewRectAreaCaptureAction = new QAction(this);
-        mNewRectAreaCaptureAction->setIconText(tr("Rectangular Area"));
-        mNewRectAreaCaptureAction->setToolTip(tr("Draw a rectangular area with your mouse"));
-        mNewRectAreaCaptureAction->setIcon(IconLoader::loadIcon(QStringLiteral("drawRect")));
-        connect(mNewRectAreaCaptureAction, &QAction::triggered, [this]() {
-            capture(CaptureModes::RectArea);
-        });
-        mNewCaptureMenu->addAction(mNewRectAreaCaptureAction);
-    }
-
-    if (mImageGrabber->isCaptureModeSupported(CaptureModes::FullScreen)) {
-        mNewFullScreenCaptureAction = new QAction(this);
-        mNewFullScreenCaptureAction->setIconText(tr("Full Screen (All Monitors)"));
-        mNewFullScreenCaptureAction->setToolTip(tr("Capture full screen including all monitors"));
-        mNewFullScreenCaptureAction->setIcon(IconLoader::loadIcon(QStringLiteral("fullScreen")));
-        connect(mNewFullScreenCaptureAction, &QAction::triggered, [this]() {
-            capture(CaptureModes::FullScreen);
-        });
-        mNewCaptureMenu->addAction(mNewFullScreenCaptureAction);
-
-    }
-
-    if (mImageGrabber->isCaptureModeSupported(CaptureModes::CurrentScreen)) {
-        mNewCurrentScreenCaptureAction = new QAction(this);
-        mNewCurrentScreenCaptureAction->setIconText(tr("Current Screen"));
-        mNewCurrentScreenCaptureAction->setToolTip(tr("Capture screen where the mouse is located"));
-        mNewCurrentScreenCaptureAction->setIcon(IconLoader::loadIcon(QStringLiteral("currentScreen")));
-        connect(mNewCurrentScreenCaptureAction, &QAction::triggered, [this]() {
-            capture(CaptureModes::CurrentScreen);
-        });
-        mNewCaptureMenu->addAction(mNewCurrentScreenCaptureAction);
-
-    }
-
-    if (mImageGrabber->isCaptureModeSupported(CaptureModes::ActiveWindow)) {
-        mNewActiveWindowCaptureAction = new QAction(this);
-        mNewActiveWindowCaptureAction->setIconText(tr("Active Window"));
-        mNewActiveWindowCaptureAction->setToolTip(tr("Capture window that currently has focus"));
-        mNewActiveWindowCaptureAction->setIcon(IconLoader::loadIcon(QStringLiteral("activeWindow")));
-        connect(mNewActiveWindowCaptureAction, &QAction::triggered, [this]() {
-            capture(CaptureModes::ActiveWindow);
-        });
-        mNewCaptureMenu->addAction(mNewActiveWindowCaptureAction);
-    }
-
-    if (mImageGrabber->isCaptureModeSupported(CaptureModes::WindowUnderCursor)) {
-        mNewWindowUnderCursorAction = new QAction(this);
-        mNewWindowUnderCursorAction->setIconText(tr("Window Under Cursor"));
-        mNewWindowUnderCursorAction->setToolTip(tr("Capture that is currently under the mouse cursor"));
-        mNewWindowUnderCursorAction->setIcon(IconLoader::loadIcon(QStringLiteral("windowUnderCursor")));
-        connect(mNewWindowUnderCursorAction, &QAction::triggered, [this]() {
-            capture(CaptureModes::WindowUnderCursor);
-        });
-        mNewCaptureMenu->addAction(mNewWindowUnderCursorAction);
-    }
+    connect(mCaptureModePicker, &CaptureModePicker::captureModeSelected, this, &MainWindow::capture);
 
     // Create action for save button
     mSaveAction->setText(tr("Save"));
@@ -596,7 +505,7 @@ void MainWindow::initGui()
     mNewCaptureAction->setText(tr("New"));
     mNewCaptureAction->setShortcut(QKeySequence::New);
     connect(mNewCaptureAction, &QAction::triggered,
-            mNewCaptureButton, &CustomToolButton::trigger);
+            mCaptureModePicker, &CustomToolButton::trigger);
 
     // Create exit action
     mQuitAction->setText(tr("Quit"));
@@ -631,12 +540,6 @@ void MainWindow::initGui()
     mOpenImageAction->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
     mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
     connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::loadImageFromFile);
-
-    // Create tool buttons
-    mNewCaptureButton->setMenu(mNewCaptureMenu);
-    mNewCaptureButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    mNewCaptureButton->setDefaultAction(mNewRectAreaCaptureAction);
-    mNewCaptureButton->setButtonText(tr("New"));
 
     // Create save tool button
     mSaveButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -689,7 +592,7 @@ void MainWindow::initGui()
     mToolBar->setFloatable(false);
     mToolBar->setMovable(false);
     mToolBar->setAllowedAreas(Qt::BottomToolBarArea);
-    mToolBar->addWidget(mNewCaptureButton);
+    mToolBar->addWidget(mCaptureModePicker);
     mToolBar->addSeparator();
     mToolBar->addWidget(mSaveButton);
     mToolBar->addWidget(mCopyToClipboardButton);

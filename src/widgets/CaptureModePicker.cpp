@@ -111,6 +111,12 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         mActionToCaptureMode[action] = CaptureModes::WindowUnderCursor;
         menu->addAction(action);
     }
+
+    auto allActions = mActionToCaptureMode.keys();
+    if (!allActions.isEmpty()) {
+        setDefaultAction(allActions[0]);
+    }
+    setMenu(menu);
 }
 
 void CaptureModePicker::selectCaptureMode(CaptureModes mode)

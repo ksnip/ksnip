@@ -35,6 +35,7 @@
 #include "src/widgets/CaptureView.h"
 #include "src/widgets/CropPanel.h"
 #include "src/widgets/ToolPicker.h"
+#include "src/widgets/CaptureModePicker.h"
 #include "src/widgets/settingsPicker/SettingsPickerConfigurator.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
@@ -71,16 +72,9 @@ private:
     RunMode           mMode;
     bool              mIsUnsaved;
     bool              mHidden;
-    CustomToolButton *mNewCaptureButton;
     QToolButton      *mSaveButton;
     QToolButton      *mCopyToClipboardButton;
     SettingsPicker   *mSettingsButton;
-    CustomMenu       *mNewCaptureMenu;
-    QAction          *mNewRectAreaCaptureAction;
-    QAction          *mNewCurrentScreenCaptureAction;
-    QAction          *mNewFullScreenCaptureAction;
-    QAction          *mNewActiveWindowCaptureAction;
-    QAction          *mNewWindowUnderCursorAction;
     QAction          *mSaveAction;
     QAction          *mCopyToClipboardAction;
     QAction          *mUploadToImgurAction;
@@ -105,6 +99,7 @@ private:
     SettingsPickerConfigurator *mSettingsPickerConfigurator;
     DelayHandler     *mDelayHandler;
     ToolPicker       *mToolPicker;
+    CaptureModePicker *mCaptureModePicker;
 
     void setSaveAble(bool enabled);
     void setEnablements(bool enabled);

@@ -52,7 +52,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
     mDelayHandler(new DelayHandler(200)),
     mToolPicker(new ToolPicker()),
     mCaptureModePicker(new CaptureModePicker(imageGrabber->supportedCaptureModes())),
-    mCapturePrinter(new CapturePrinter(mPaintArea))
+    mCapturePrinter(new CapturePrinter(mPaintArea)),
+    mCaptureUploader(new CaptureUploader)
 {
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
@@ -75,7 +76,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
 
     connect(mPaintArea, &PaintArea::imageChanged, this, &MainWindow::screenshotChanged);
     connect(mCaptureView, &CaptureView::imageCropped, this, &MainWindow::screenshotChanged);
-
 
     connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::showCapture);
     connect(mImageGrabber, &AbstractImageGrabber::canceled, [this]() {
@@ -572,6 +572,8 @@ void MainWindow::imgurUploadClicked()
             return;
         }
     }
+
+//    mCaptureUploader->upload(mPaintArea->exportAsImage());
 
     // Upload to Imgur Account
     if (!mConfig->imgurForceAnonymous() && !mConfig->imgurAccessToken().isEmpty()) {

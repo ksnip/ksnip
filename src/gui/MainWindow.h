@@ -37,6 +37,7 @@
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/ImgurUploader.h"
+#include "src/backend/CaptureUploader.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/handler/DelayHandler.h"
 #include "src/common/enum/RunMode.h"
@@ -99,7 +100,8 @@ private:
     DelayHandler     *mDelayHandler;
     ToolPicker       *mToolPicker;
     CaptureModePicker *mCaptureModePicker;
-    CapturePrinter    *mCapturePrinter;
+    CapturePrinter   *mCapturePrinter;
+    CaptureUploader  *mCaptureUploader;
 
     void setSaveAble(bool enabled);
     void setEnablements(bool enabled);

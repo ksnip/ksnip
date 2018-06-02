@@ -20,9 +20,9 @@
 
 #include "SettingsDialog.h"
 
-SettingsDialog::SettingsDialog(MainWindow* parent) :
+SettingsDialog::SettingsDialog(QWidget *parent)
+    :
     QDialog(parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
-    mParent(parent),
     mAlwaysCopyToClipboardCheckbox(new QCheckBox),
     mPromptToSaveBeforeExitCheckbox(new QCheckBox),
     mSaveKsnipPositionCheckbox(new QCheckBox),
@@ -499,7 +499,7 @@ void SettingsDialog::getImgurToken()
                                    mConfig->imgurClientId(),
                                    mConfig->imgurClientSecret());
     mImgurPinLineEdit->clear();
-    mParent->statusBar()->showMessage(tr("Waiting for imgur.com..."));
+    qInfo(tr("Waiting for imgur.com...").toLatin1());
 }
 
 void SettingsDialog::smootPathCheckboxClicked(bool checked)
@@ -510,11 +510,7 @@ void SettingsDialog::smootPathCheckboxClicked(bool checked)
 
 void SettingsDialog::imgurClientEntered(const QString&)
 {
-    if(!mImgurClientIdLineEdit->text().isEmpty() && !mImgurClientSecretLineEdit->text().isEmpty()) {
-        mImgurGetPinButton->setEnabled(true);
-    } else {
-        mImgurGetPinButton->setEnabled(false);
-    }
+    mImgurGetPinButton->setEnabled(!mImgurClientIdLineEdit->text().isEmpty() && !mImgurClientSecretLineEdit->text().isEmpty());
 }
 
 /*
@@ -530,7 +526,7 @@ void SettingsDialog::imgurTokenUpdated(const QString& accessToken,
     mConfig->setImgurUsername(username);
 
     mImgurUsernameLabel->setText(tr("Username:") + username);
-    mParent->statusBar()->showMessage(tr("Imgur.com token successfully updated."), 3000);
+    qInfo(tr("Imgur.com token successfully updated.").toLatin1());
 }
 
 /*
@@ -540,7 +536,7 @@ void SettingsDialog::imgurTokenUpdated(const QString& accessToken,
 void SettingsDialog::imgurTokenError(const QString& message)
 {
     qCritical("SettingsDialog returned error: '%s'", qPrintable(message));
-    mParent->statusBar()->showMessage(tr("Imgur.com token update error."), 3000);
+    qInfo(tr("Imgur.com token update error.").toLatin1());
 }
 
 void SettingsDialog::chooseSaveDirectory()

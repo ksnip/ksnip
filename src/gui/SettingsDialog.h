@@ -22,25 +22,31 @@
 #define SETTINGSDIALOG_H
 
 #include <QDialog>
+#include <QCheckBox>
+#include <QLineEdit>
+#include <QLabel>
+#include <QFontComboBox>
+#include <QListWidget>
+#include <QGroupBox>
+#include <QStackedLayout>
+#include <QApplication>
+#include <QDesktopServices>
+#include <QFileDialog>
 
-#include "MainWindow.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/widgets/ColorButton.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/common/formatter/FilenameFormatter.h"
 #include "src/backend/ImgurUploader.h"
 
-class MainWindow;
-
 class SettingsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    SettingsDialog(MainWindow *parent = 0);
-    ~SettingsDialog();
+    explicit SettingsDialog(QWidget *parent = 0);
+    ~SettingsDialog() override;
 
 private:
-    MainWindow      *mParent;
     QCheckBox       *mAlwaysCopyToClipboardCheckbox;
     QCheckBox       *mPromptToSaveBeforeExitCheckbox;
     QCheckBox       *mSaveKsnipPositionCheckbox;

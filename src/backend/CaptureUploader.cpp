@@ -49,10 +49,6 @@ void CaptureUploader::upload(const QImage &image)
 
 void CaptureUploader::imgurUploadFinished(QString message)
 {
-    if (!mConfig->imgurOpenLinkDirectlyToImage()) {
-        message = message.remove(QStringLiteral(".png"));
-    }
-
     qInfo("Upload to imgur.com finished!");
     emit finished(message);
     mImage = QImage();

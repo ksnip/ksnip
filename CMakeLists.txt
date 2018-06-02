@@ -54,6 +54,7 @@ set(ksnip_SRCS ${CMAKE_SOURCE_DIR}/src/main.cpp
         ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/X11Wrapper.cpp
         ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeWaylandImageGrabber.cpp
         ${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
+        ${CMAKE_SOURCE_DIR}/src/backend/CaptureUploader.cpp
         ${CMAKE_SOURCE_DIR}/src/painter/PaintArea.cpp
         ${CMAKE_SOURCE_DIR}/src/painter/AbstractPainterItem.cpp
         ${CMAKE_SOURCE_DIR}/src/painter/PainterPen.cpp

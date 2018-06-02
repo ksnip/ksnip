@@ -36,7 +36,6 @@
 #include "src/widgets/settingsPicker/SettingsPickerConfigurator.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
-#include "src/backend/ImgurUploader.h"
 #include "src/backend/CaptureUploader.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/handler/DelayHandler.h"
@@ -93,7 +92,6 @@ private:
     QAction          *mUndoAction;
     QAction          *mRedoAction;
     QClipboard       *mClipboard;
-    ImgurUploader    *mImgurUploader;
     CropPanel        *mCropPanel;
     KsnipConfig      *mConfig;
     SettingsPickerConfigurator *mSettingsPickerConfigurator;
@@ -116,21 +114,19 @@ private:
 
 private slots:
     void saveCapture();
-    void imgurUploadClicked();
+    void upload();
+    void uploadFinished(QString message);
     void printClicked();
     void printPreviewClicked();
-    void imgurUploadFinished(QString message);
-    void imgurError(const QString &message);
-    void imgurTokenUpdated(const QString &accessToken,
-                           const QString &refreshTocken,
-                           const QString &username);
-    void imgurTokenRefresh();
     void setPaintModeAndSave(PaintMode mode);
     void instantSave(const QPixmap &pixmap);
     void loadImageFromFile();
     void openScale();
     void screenshotChanged();
-    bool discardUnsavedChanges();
+    bool discardUnsavedChanges() const;
+    bool proceedWithUpload() const;
+    void copyToClipboard(const QString &message) const;
+    QString &formatUrl(QString &message) const;
 };
 
 #endif // MAINWINDOW_H

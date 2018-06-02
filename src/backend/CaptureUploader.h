@@ -27,9 +27,10 @@
 
 class CaptureUploader : public QObject
 {
+Q_OBJECT
 public:
     explicit CaptureUploader();
-    ~CaptureUploader();
+    ~CaptureUploader() override;
 
     void upload(const QImage &image);
 

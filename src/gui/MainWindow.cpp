@@ -45,7 +45,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
     mUndoAction(mPaintArea->getUndoAction()),
     mRedoAction(mPaintArea->getRedoAction()),
     mClipboard(QApplication::clipboard()),
-    mImgurUploader(new ImgurUploader(this)),
     mCropPanel(new CropPanel(mCaptureView)),
     mConfig(KsnipConfig::instance()),
     mSettingsPickerConfigurator(new SettingsPickerConfigurator()),
@@ -53,7 +52,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
     mToolPicker(new ToolPicker()),
     mCaptureModePicker(new CaptureModePicker(imageGrabber->supportedCaptureModes())),
     mCapturePrinter(new CapturePrinter(mPaintArea)),
-    mCaptureUploader(new CaptureUploader)
+    mCaptureUploader(new CaptureUploader())
 {
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
@@ -78,22 +77,12 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
     connect(mCaptureView, &CaptureView::imageCropped, this, &MainWindow::screenshotChanged);
 
     connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::showCapture);
-    connect(mImageGrabber, &AbstractImageGrabber::canceled, [this]() {
-        setHidden(false);
-    });
+    connect(mImageGrabber, &AbstractImageGrabber::canceled, [this]() { setHidden(false); });
 
-    connect(mImgurUploader, &ImgurUploader::uploadFinished,
-            this, &MainWindow::imgurUploadFinished);
-    connect(mImgurUploader, &ImgurUploader::error,
-            this, &MainWindow::imgurError);
-    connect(mImgurUploader, &ImgurUploader::tokenUpdated,
-            this, &MainWindow::imgurTokenUpdated);
-    connect(mImgurUploader, &ImgurUploader::tokenRefreshRequired,
-            this, &MainWindow::imgurTokenRefresh);
-    connect(mCropPanel, &CropPanel::closing,
-            this, &MainWindow::closeCrop);
-    connect(mCaptureView, &CaptureView::closeCrop,
-            this, &MainWindow::closeCrop);
+    connect(mCaptureUploader, &CaptureUploader::finished, this, &MainWindow::uploadFinished);
+
+    connect(mCropPanel, &CropPanel::closing, this, &MainWindow::closeCrop);
+    connect(mCaptureView, &CaptureView::closeCrop, this, &MainWindow::closeCrop);
 
     loadSettings();
 
@@ -385,7 +374,7 @@ void MainWindow::initGui()
     mUploadToImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
     mUploadToImgurAction->setShortcut(Qt::SHIFT + Qt::Key_U);
     connect(mUploadToImgurAction, &QAction::triggered,
-            this, &MainWindow::imgurUploadClicked);
+            this, &MainWindow::upload);
 
     // Create print action
     mPrintAction->setText(tr("Print"));
@@ -557,34 +546,24 @@ void MainWindow::saveCapture()
     setSaveAble(false);
 }
 
-void MainWindow::imgurUploadClicked()
+void MainWindow::upload()
 {
-    // If we have no capture, abort here.
     if (!mPaintArea->isValid()) {
         return;
     }
 
-    if (mConfig->imgurConfirmBeforeUpload()) {
-        auto proceedWithUpload = MessageBoxHelper::yesNo(tr("Imgur Upload"),
-                                                         tr("You are about to upload the screenshot to "
-                                                            "a imgur.com, do you want to proceed?"));
-        if (!proceedWithUpload) {
-            return;
-        }
+    if (proceedWithUpload()) {
+        mCaptureUploader->upload(mPaintArea->exportAsImage());
     }
+}
 
-//    mCaptureUploader->upload(mPaintArea->exportAsImage());
+void MainWindow::uploadFinished(QString message)
+{
+    message = formatUrl(message);
 
-    // Upload to Imgur Account
-    if (!mConfig->imgurForceAnonymous() && !mConfig->imgurAccessToken().isEmpty()) {
-        mImgurUploader->startUpload(mPaintArea->exportAsImage(),
-                                    mConfig->imgurAccessToken());
-    } else {
-        // Upload Anonymous
-        mImgurUploader->startUpload(mPaintArea->exportAsImage());
-    }
+    QDesktopServices::openUrl(message);
 
-    statusBar()->showMessage(tr("Waiting for imgur.com..."));
+    copyToClipboard(message);
 }
 
 void MainWindow::printClicked()
@@ -595,72 +574,6 @@ void MainWindow::printClicked()
 void MainWindow::printPreviewClicked()
 {
     mCapturePrinter->printPreview(mConfig->savePath(QStringLiteral("pdf")));
-}
-
-/*
- * Called when the upload to a file sharing site has finished. Depending on the
- * result value the message either contains the link to the image on the hosting
- * site or the error message.
- */
-void MainWindow::imgurUploadFinished(QString message)
-{
-    // When the file extension is provided in the link, it opens the image
-    // directly on a blank white background. If the link is opened without the
-    // extension then the usual Imgur page is shown.
-    if (!mConfig->imgurOpenLinkDirectlyToImage()) {
-        message = message.remove(QStringLiteral(".png"));
-    }
-
-    // Open the link in the default browser
-    QDesktopServices::openUrl(message);
-
-    // If we always copy to clipboard is enabled then copy the link to clipboard
-    if (mConfig->imgurAlwaysCopyToClipboard()) {
-        mClipboard->setText(message);
-    }
-
-    statusBar()->showMessage(tr("Upload to imgur.com finished!"), 3000);
-}
-
-/*
- * Some error happened while uploading and we are not able to proceed.
- */
-void MainWindow::imgurError(const QString& message)
-{
-    qCritical("MainWindow: Imgur uploader returned error: '%s'", qPrintable(message));
-    statusBar()->showMessage(tr("An error occurred while uploading to imgur.com."), 3000);
-}
-
-/*
- * New token received from imgur, this could be the case when we have refreshed
- * the token.
- */
-void MainWindow::imgurTokenUpdated(const QString& accessToken,
-                                   const QString& refreshTocken,
-                                   const QString& username)
-{
-    mConfig->setImgurAccessToken(accessToken.toUtf8());
-    mConfig->setImgurRefreshToken(refreshTocken.toUtf8());
-    mConfig->setImgurUsername(username);
-
-    // Currently we presume that a token update here only happens when we were
-    // trying to upload an image and the token was expired, so right after the
-    // token has been refreshed, we try to upload again.
-    statusBar()->showMessage(tr("Received new token, trying upload again..."));
-    imgurUploadClicked();
-}
-
-/*
- * The imgur uploader informs us that the token must be refreshed so we refresh
- * it right away
- */
-void MainWindow::imgurTokenRefresh()
-{
-    mImgurUploader->refreshToken(mConfig->imgurRefreshToken(),
-                                 mConfig->imgurClientId(),
-                                 mConfig->imgurClientSecret());
-
-    statusBar()->showMessage(tr("Imgur token has expired, requesting new token..."));
 }
 
 void MainWindow::setPaintModeAndSave(PaintMode mode)
@@ -706,7 +619,7 @@ void MainWindow::openScale()
     scaleDialog.exec();
 }
 
-bool MainWindow::discardUnsavedChanges()
+bool MainWindow::discardUnsavedChanges() const
 {
     if (mConfig->promptSaveBeforeExit() && mIsUnsaved) {
         auto reply = MessageBoxHelper::yesNo(tr("Warning - ") + QApplication::applicationName(),
@@ -716,4 +629,29 @@ bool MainWindow::discardUnsavedChanges()
     } else {
         return true;
     }
+}
+
+bool MainWindow::proceedWithUpload() const
+{
+    if (mConfig->imgurConfirmBeforeUpload()) {
+        return MessageBoxHelper::yesNo(tr("Imgur Upload"),
+                                       tr("You are about to upload the screenshot to "
+                                          "a imgur.com, do you want to proceed?"));
+    }
+    return true;
+}
+
+void MainWindow::copyToClipboard(const QString &message) const
+{
+    if (mConfig->imgurAlwaysCopyToClipboard()) {
+        mClipboard->setText(message);
+    }
+}
+
+QString &MainWindow::formatUrl(QString &message) const
+{
+    if (!mConfig->imgurOpenLinkDirectlyToImage()) {
+        message = message.remove(QStringLiteral(".png"));
+    }
+    return message;
 }

@@ -42,14 +42,13 @@ void CaptureUploader::upload(const QImage &image)
     if (!mConfig->imgurForceAnonymous() && !mConfig->imgurAccessToken().isEmpty()) {
         mImgurUploader->startUpload(mImage, mConfig->imgurAccessToken());
     } else {
-        // Upload Anonymous
         mImgurUploader->startUpload(mImage);
     }
 }
 
 void CaptureUploader::imgurUploadFinished(QString message)
 {
-    qInfo("Upload to imgur.com finished!");
+    qInfo(tr("Upload to imgur.com finished!").toLatin1());
     emit finished(message);
     mImage = QImage();
 }
@@ -66,7 +65,7 @@ void CaptureUploader::imgurTokenUpdated(const QString &accessToken, const QStrin
     mConfig->setImgurRefreshToken(refreshTocken.toUtf8());
     mConfig->setImgurUsername(username);
 
-    qInfo("Received new token, trying upload again...");
+    qInfo(tr("Received new token, trying upload again...").toLatin1());
     upload(mImage);
 }
 
@@ -75,5 +74,5 @@ void CaptureUploader::imgurTokenRefresh()
     mImgurUploader->refreshToken(mConfig->imgurRefreshToken(),
                                  mConfig->imgurClientId(),
                                  mConfig->imgurClientSecret());
-    qInfo("Imgur token has expired, requesting new token...");
+    qInfo(tr("Imgur token has expired, requesting new token...").toLatin1());
 }

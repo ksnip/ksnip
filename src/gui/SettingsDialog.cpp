@@ -217,7 +217,9 @@ void SettingsDialog::initGui()
     mSaveKsnipPositionCheckbox->setText(tr("Save ksnip position on move and load on startup"));
     mSaveKsnipToolSelectionCheckbox->setText(tr("Save ksnip tool selection and load on startup"));
     mCaptureOnStartupCheckbox->setText(tr("Capture screenshot at startup with default mode"));
-    mUseInstantSaveCheckBox->setText(tr("Save always instantly to default location"));
+    mUseInstantSaveCheckBox->setText(tr("Instant save to default location without 'Save as' dialog"));
+    mUseInstantSaveCheckBox->setToolTip(tr("When enabled, will not ask where to save a screenshot\n"
+                                           "when saving, but will save instantly to default location."));
 
     mSaveLocationLabel->setText(tr("Capture save location and filename") + ":");
 

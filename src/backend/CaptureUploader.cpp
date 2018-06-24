@@ -48,7 +48,7 @@ void CaptureUploader::upload(const QImage &image)
 
 void CaptureUploader::imgurUploadFinished(QString message)
 {
-    qInfo(qPrintable(tr("Upload to imgur.com finished!")));
+    qInfo("%s", qPrintable(tr("Upload to imgur.com finished!")));
     emit finished(message);
     mImage = QImage();
 }
@@ -65,7 +65,7 @@ void CaptureUploader::imgurTokenUpdated(const QString &accessToken, const QStrin
     mConfig->setImgurRefreshToken(refreshTocken.toUtf8());
     mConfig->setImgurUsername(username);
 
-    qInfo(qPrintable(tr("Received new token, trying upload again...")));
+    qInfo("%s", qPrintable(tr("Received new token, trying upload again...")));
     upload(mImage);
 }
 
@@ -74,5 +74,5 @@ void CaptureUploader::imgurTokenRefresh()
     mImgurUploader->refreshToken(mConfig->imgurRefreshToken(),
                                  mConfig->imgurClientId(),
                                  mConfig->imgurClientSecret());
-    qInfo(qPrintable(tr("Imgur token has expired, requesting new token...")));
+    qInfo("%s", qPrintable(tr("Imgur token has expired, requesting new token...")));
 }

@@ -501,7 +501,7 @@ void SettingsDialog::getImgurToken()
                                    mConfig->imgurClientId(),
                                    mConfig->imgurClientSecret());
     mImgurPinLineEdit->clear();
-    qInfo(tr("Waiting for imgur.com...").toLatin1());
+    qInfo(qPrintable(tr("Waiting for imgur.com...")));
 }
 
 void SettingsDialog::smootPathCheckboxClicked(bool checked)
@@ -528,7 +528,7 @@ void SettingsDialog::imgurTokenUpdated(const QString& accessToken,
     mConfig->setImgurUsername(username);
 
     mImgurUsernameLabel->setText(tr("Username:") + username);
-    qInfo(tr("Imgur.com token successfully updated.").toLatin1());
+    qInfo(qPrintable(tr("Imgur.com token successfully updated.")));
 }
 
 /*
@@ -538,7 +538,7 @@ void SettingsDialog::imgurTokenUpdated(const QString& accessToken,
 void SettingsDialog::imgurTokenError(const QString& message)
 {
     qCritical("SettingsDialog returned error: '%s'", qPrintable(message));
-    qInfo(tr("Imgur.com token update error.").toLatin1());
+    qInfo(qPrintable(tr("Imgur.com token update error.")));
 }
 
 void SettingsDialog::chooseSaveDirectory()

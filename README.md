@@ -77,7 +77,7 @@ Installing DEB:
     `$ make`  
 5. Now install the application, eventually you need to run it with sudo:  
     `$ sudo make install`  
-5. Run the application:  
+6. Run the application:  
     `$ ksnip`  
 
 

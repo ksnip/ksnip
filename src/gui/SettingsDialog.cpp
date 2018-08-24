@@ -226,7 +226,7 @@ void SettingsDialog::initGui()
     mSaveLocationLineEdit->setText(mConfig->saveDirectory() +
                                    mConfig->saveFilename() +
                                    mConfig->saveFormat());
-    mSaveLocationLineEdit->setToolTip(tr("Filename can contain $Y, $M, $D for date and $T for time."));
+    mSaveLocationLineEdit->setToolTip(tr("Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format."));
 
     mBrowseButton->setText(tr("Browse"));
     connect(mBrowseButton, &QPushButton::clicked, this, &SettingsDialog::chooseSaveDirectory);

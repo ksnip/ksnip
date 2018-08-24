@@ -71,11 +71,7 @@ void PainterText::moveTo(const QPointF& newPos)
 
 bool PainterText::isValid() const
 {
-    if (mText.length() <= 0) {
-        return false;
-    } else {
-        return true;
-    }
+    return mText.length() > 0;
 }
 
 bool PainterText::isEditable() const

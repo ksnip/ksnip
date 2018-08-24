@@ -243,6 +243,10 @@ QString KsnipConfig::savePath(const QString& format) const
 
 int KsnipConfig::toolSize(const PaintMode tool) const
 {
+    if (tool == PaintMode::Text) {
+        return textFont().pointSize();
+    }
+
     return mConfig.value(ConfigNameFormatter::toolSize(tool), 3).value<int>();
 }
 
@@ -252,7 +256,13 @@ void KsnipConfig::setToolSize(const PaintMode tool, int size)
         return;
     }
 
-    mConfig.setValue(ConfigNameFormatter::toolSize(tool), size);
+    if (tool == PaintMode::Text) {
+        auto font = textFont();
+        font.setPointSize(size);
+        mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
+    } else {
+        mConfig.setValue(ConfigNameFormatter::toolSize(tool), size);
+    }
     mConfig.sync();
     emit painterUpdated();
 }

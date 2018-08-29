@@ -82,7 +82,8 @@ Installing DEB:
 
 
 ### Translations
-We are always looking for help with tranlsations, contributors are welcome!
+We are always looking for help with tranlsations, contributors are welcome!  
+For translations we use [Weblate](https://weblate.org/en/)!
 <a href="https://hosted.weblate.org/engage/ksnip/?utm_source=widget">
 <img src="https://hosted.weblate.org/widgets/ksnip/-/multi-green.svg" alt="Translation status" />
 </a>

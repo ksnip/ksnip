@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>About</source>
-        <translation>Über </translation>
+        <translation>Über</translation>
     </message>
     <message>
         <source>Version</source>
@@ -249,7 +249,7 @@ Möchten Sie es speichern?</translation>
     </message>
     <message>
         <source>Marker</source>
-        <translation>Marker</translation>
+        <translation>Markierstift</translation>
     </message>
     <message>
         <source>Rect</source>

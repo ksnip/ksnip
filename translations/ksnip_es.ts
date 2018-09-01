@@ -57,15 +57,15 @@
     </message>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>El autor:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Colaboradores:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traducción Española</translation>
     </message>
 </context>
 <context>
@@ -700,13 +700,15 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Dynamic Cursor Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño de Cursor Dinámico</translation>
     </message>
     <message>
         <source>When enabled, the painter cursor size
 matches the selected tool size.
 Requires switching tool to become active.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando está habilitado, el tamaño del cursor del pintor
+coincide con el tamaño de herramienta seleccionado.
+Requiere que la herramienta de conmutación se active.</translation>
     </message>
 </context>
 <context>

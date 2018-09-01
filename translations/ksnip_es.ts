@@ -5,7 +5,7 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>Acerca de</translation>
+        <translation>Acerca de </translation>
     </message>
     <message>
         <source>About</source>
@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>Version</source>
-        <translation>Version</translation>
+        <translation>Versión</translation>
     </message>
     <message>
         <source>Author</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>Version </source>
-        <translation>Version </translation>
+        <translation>Versión </translation>
     </message>
     <message>
         <source>Using:</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Please use </source>
-        <translation>Favor usar</translation>
+        <translation>Favor usar </translation>
     </message>
     <message>
         <source> to report bugs.</source>
@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>The author, &lt;b&gt;Damir Porobic&lt;/b&gt;, can be contacted via </source>
-        <translation type="vanished">El autor, &lt;b&gt;Damir Porobic&lt;/b&gt;, puede ser contactado via</translation>
+        <translation>El autor, &lt;b&gt;Damir Porobic&lt;/b&gt;, puede ser contactado vía </translation>
     </message>
     <message>
         <source>The Author:</source>
@@ -84,7 +84,7 @@
     </message>
     <message>
         <source>Send Backward</source>
-        <translation>Enviar atras</translation>
+        <translation>Enviar atrás</translation>
     </message>
     <message>
         <source>Send to Back</source>
@@ -92,7 +92,7 @@
     </message>
     <message>
         <source>Copy</source>
-        <translation>Copia</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <source>Paste</source>
@@ -100,7 +100,7 @@
     </message>
     <message>
         <source>Erase</source>
-        <translation>Borrador</translation>
+        <translation>Borrar</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -111,7 +111,7 @@
     <name>CropPanel</name>
     <message>
         <source>Crop</source>
-        <translation>Crop</translation>
+        <translation>Cortar</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -138,7 +138,7 @@
     <name>MainWindow</name>
     <message>
         <source>Warning - </source>
-        <translation>Advertencia -</translation>
+        <translation>Advertencia - </translation>
     </message>
     <message>
         <source>The capture has been modified.
@@ -152,11 +152,11 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation>Area Rectangular</translation>
+        <translation>Área Rectangular</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation>Dibuje un area rectangular con el mouse</translation>
+        <translation>Dibuje un área rectangular con el mouse</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
@@ -200,7 +200,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Copia</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
@@ -220,19 +220,19 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation>Abre el cuadro de di logo de la impresora y proporciona la opci¢n para imprimir la imagen</translation>
+        <translation>Abre el cuadro de dialogo de la impresora y proporciona la opción para imprimir la imagen</translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation>vista previa de impresi¢n</translation>
+        <translation>vista previa de impresión</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation>Abre el cuadro de di logo Vista previa de impresi¢n donde se puede cambiar la orientaci¢n de la imagen</translation>
+        <translation>Abre el cuadro de dialogo Vista previa de impresión donde se puede cambiar la orientación de la imagen</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation>Crop</translation>
+        <translation>Cortar</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
@@ -248,7 +248,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation>Lapiz</translation>
+        <translation>Lápiz</translation>
     </message>
     <message>
         <source>Marker</source>
@@ -276,7 +276,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation>Numero</translation>
+        <translation>Número</translation>
     </message>
     <message>
         <source>Erase</source>
@@ -308,7 +308,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Setting Painter tool configuration</source>
-        <translation>Ajustes de la configuracion de la herramienta Painter</translation>
+        <translation>Ajustes de la configuración de la herramienta Painter</translation>
     </message>
     <message>
         <source>File</source>
@@ -320,7 +320,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation>&amp;Optiones</translation>
+        <translation>&amp;Opciones</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -336,7 +336,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation>Imagenes</translation>
+        <translation>Imágenes</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -348,7 +348,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Est s a punto de subir la captura de pantalla a imgur.com, šquieres continuar?</translation>
+        <translation>Estas a punto de subir la captura de pantalla a imgur.com, quieres continuar?</translation>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>
@@ -356,7 +356,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Cargar a imgur.com!</translation>
+        <translation>Subir a imgur.com terminado!</translation>
     </message>
     <message>
         <source>An error occurred while uploading to imgur.com.</source>
@@ -364,7 +364,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Received new token, trying upload again...</source>
-        <translation>Recibi¢ un nuevo token, intentando subir de nuevo ...</translation>
+        <translation>Recibió un nuevo token, intentando subir de nuevo ...</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token...</source>
@@ -445,11 +445,11 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation>Guarde la posici¢n ksnip en movimiento y cargue al inicio</translation>
+        <translation>Guarde la posición ksnip en movimiento y cargue al inicio</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation>Guarde la selecci¢n de la herramienta ksnip y c rguela al inicio</translation>
+        <translation>Guarde la selección de la herramienta ksnip y cárguela al inicio</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
@@ -457,11 +457,11 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Save always instantly to default location</source>
-        <translation>Guardar siempre al instante en la ubicaci¢n predeterminada</translation>
+        <translation>Guardar siempre al instante en la ubicación predeterminada</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation>Capture la ubicaci¢n de guardar y nombre de archivo</translation>
+        <translation>Capture la ubicación de guardar y nombre de archivo</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date and $T for time.</source>
@@ -489,7 +489,7 @@ capturas de pantalla.</translation>
         <source>Sets the delay between triggering a capture
 and the moment when the capture is taken, in
 seconds.</source>
-        <translation>Establece el retraso entre la activaci¢n de una captura
+        <translation>Establece el retraso entre la activación de una captura
 y el momento en que se toma la captura, en
 segundos.</translation>
     </message>
@@ -500,21 +500,21 @@ segundos.</translation>
     <message>
         <source>Horizontal and vertical lines going from
 desktop corner to cursor on snipping area.</source>
-        <translation>L¡neas horizontales y verticales que van desde
+        <translation>Líneas horizontales y verticales que van desde
 esquina de escritorio al cursor en el  rea de recorte.</translation>
     </message>
     <message>
         <source>Show cursor position info</source>
-        <translation>Mostrar informaci¢n de posici¢n del cursor</translation>
+        <translation>Mostrar información de posición del cursor</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and right from the captured area.</source>
-        <translation>Cuando el mouse izquierdo no est  presionado, la posici¢n
-se muestra, cuando se presiona el bot¢n del mouse,
-el tama€o del  rea de selecci¢n se muestra a la izquierda
+        <translation>Cuando el mouse izquierdo no está presionado, la posición
+se muestra, cuando se presiona el botón del mouse,
+el tamaño del  rea de selección se muestra a la izquierda
 y directamente desde el  rea capturada.</translation>
     </message>
     <message>
@@ -525,7 +525,9 @@ y directamente desde el  rea capturada.</translation>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation>Establece el color del  rea de recorte del cursor. El cambio requiere reiniciar ksnip paratomar efecto.</translation>
+        <translation>Establece el color del  área de recorte del
+cursor. El cambio requiere reiniciar ksnip para 
+tomar efecto.</translation>
     </message>
     <message>
         <source>Cursor Thickness</source>
@@ -541,7 +543,7 @@ tomar efecto.</translation>
     </message>
     <message>
         <source>Force anonymous upload</source>
-        <translation>Forzar carga an¢nima</translation>
+        <translation>Forzar carga anónima</translation>
     </message>
     <message>
         <source>Open link directly to image</source>
@@ -553,7 +555,7 @@ tomar efecto.</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation>Pedir confirmaci¢n antes de subir</translation>
+        <translation>Pedir confirmación antes de subir</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -585,7 +587,7 @@ tomar efecto.</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation>Cuando est  habilitado, los elementos de pintura se proyectan en sombras.</translation>
+        <translation>Cuando está  habilitado, los elementos de pintura se proyectan en sombras.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
@@ -594,7 +596,8 @@ tomar efecto.</translation>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation>Cuando est  habilitado suaviza la pluma y trazados de marcador, despus de terminar de dibujar.</translation>
+        <translation>Cuando está  habilitado suaviza la pluma y
+trazados de marcador, después de terminar de dibujar.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
@@ -604,7 +607,9 @@ marker paths after finished drawing.</source>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation>Aumentar el factor de suavizado, disminuir  precisi¢n para l piz y marcador, pero los har  m s suaves.</translation>
+        <translation>Aumentar el factor de suavizado, disminuirá
+precisión para lápiz y marcador, pero los hará
+más suaves.</translation>
     </message>
     <message>
         <source>Text Font</source>
@@ -612,7 +617,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation></translation>
+        <translation>Establece la fuente para el elemento de pintura de texto.</translation>
     </message>
     <message>
         <source>B</source>
@@ -628,7 +633,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Italic</source>
-        <translation>Italica</translation>
+        <translation>Itálica</translation>
     </message>
     <message>
         <source>U</source>
@@ -640,11 +645,11 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation>Fuente de numeraci¢n</translation>
+        <translation>Fuente de numeración</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Establece la fuente para el elemento de pintura de numeraci¢n.</translation>
+        <translation>Establece la fuente para el elemento de pintura de numeración.</translation>
     </message>
     <message>
         <source>OK</source>
@@ -656,11 +661,11 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation>Ajustes de la aplicacion</translation>
+        <translation>Ajustes de la aplicación</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>Capturador de imagenes</translation>
+        <translation>Capturador de imágenes</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
@@ -672,7 +677,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Application</source>
-        <translation>Aplicaci¢n</translation>
+        <translation>Aplicación</translation>
     </message>
     <message>
         <source>Painter</source>
@@ -680,7 +685,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>
-        <translation>Esperando por imgur.com... </translation>
+        <translation>Esperando por imgur.com...</translation>
     </message>
     <message>
         <source>Username:</source>
@@ -688,15 +693,15 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation>Imgur.com token actualizado con xito.</translation>
+        <translation>Imgur.com token actualizado con éxito.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation>Error de actualizaci¢n del token de Imgur.com.</translation>
+        <translation>Error de actualización del token de Imgur.com.</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation>Capturar ubicaci¢n de guardado</translation>
+        <translation>Capturar ubicación de guardado</translation>
     </message>
     <message>
         <source>Dynamic Cursor Size</source>
@@ -723,7 +728,7 @@ Requiere que la herramienta de conmutación se active.</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Tama€o</translation>
+        <translation>Tamaño</translation>
     </message>
 </context>
 <context>

@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>The author, &lt;b&gt;Damir Porobic&lt;/b&gt;, can be contacted via </source>
-        <translation>El autor, &lt;b&gt;Damir Porobic&lt;/b&gt;, puede ser contactado vía </translation>
+        <translation type="vanished">El autor, &lt;b&gt;Damir Porobic&lt;/b&gt;, puede ser contactado vía </translation>
     </message>
     <message>
         <source>The Author:</source>
@@ -66,6 +66,68 @@
     <message>
         <source>Spanish Translation</source>
         <translation>Traducción Española</translation>
+    </message>
+</context>
+<context>
+    <name>CaptureModePicker</name>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Nuevo</translation>
+    </message>
+    <message>
+        <source>Rectangular Area</source>
+        <translation type="unfinished">Área Rectangular</translation>
+    </message>
+    <message>
+        <source>Draw a rectangular area with your mouse</source>
+        <translation type="unfinished">Dibuje un área rectangular con el mouse</translation>
+    </message>
+    <message>
+        <source>Full Screen (All Monitors)</source>
+        <translation type="unfinished">Pantalla Completa( Todos los monitores)</translation>
+    </message>
+    <message>
+        <source>Capture full screen including all monitors</source>
+        <translation type="unfinished">Capturar pantalla completa incluyendo todos los monitores</translation>
+    </message>
+    <message>
+        <source>Current Screen</source>
+        <translation type="unfinished">Pantalla Actual</translation>
+    </message>
+    <message>
+        <source>Capture screen where the mouse is located</source>
+        <translation type="unfinished">Capturar pantalla donde se localiza el Mouse</translation>
+    </message>
+    <message>
+        <source>Active Window</source>
+        <translation type="unfinished">Activar Ventana</translation>
+    </message>
+    <message>
+        <source>Capture window that currently has focus</source>
+        <translation type="unfinished">Capturar pantalla que esta enfocada actualmente</translation>
+    </message>
+    <message>
+        <source>Window Under Cursor</source>
+        <translation type="unfinished">Ventana debajo del cursor</translation>
+    </message>
+    <message>
+        <source>Capture that is currently under the mouse cursor</source>
+        <translation type="unfinished">Captura que se encuentra actualmente debajo del cursor del mouse</translation>
+    </message>
+</context>
+<context>
+    <name>CaptureUploader</name>
+    <message>
+        <source>Upload to imgur.com finished!</source>
+        <translation type="unfinished">Subir a imgur.com terminado!</translation>
+    </message>
+    <message>
+        <source>Received new token, trying upload again...</source>
+        <translation type="unfinished">Recibió un nuevo token, intentando subir de nuevo ...</translation>
+    </message>
+    <message>
+        <source>Imgur token has expired, requesting new token...</source>
+        <translation type="unfinished">Imgur token ha caducado, solicitando un nuevo token ...</translation>
     </message>
 </context>
 <context>
@@ -152,43 +214,43 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation>Área Rectangular</translation>
+        <translation type="vanished">Área Rectangular</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation>Dibuje un área rectangular con el mouse</translation>
+        <translation type="vanished">Dibuje un área rectangular con el mouse</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation>Pantalla Completa( Todos los monitores)</translation>
+        <translation type="vanished">Pantalla Completa( Todos los monitores)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation>Capturar pantalla completa incluyendo todos los monitores</translation>
+        <translation type="vanished">Capturar pantalla completa incluyendo todos los monitores</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation>Pantalla Actual</translation>
+        <translation type="vanished">Pantalla Actual</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation>Capturar pantalla donde se localiza el Mouse</translation>
+        <translation type="vanished">Capturar pantalla donde se localiza el Mouse</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation>Activar Ventana</translation>
+        <translation type="vanished">Activar Ventana</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation>Capturar pantalla que esta enfocada actualmente</translation>
+        <translation type="vanished">Capturar pantalla que esta enfocada actualmente</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation>Ventana debajo del cursor</translation>
+        <translation type="vanished">Ventana debajo del cursor</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation>Captura que se encuentra actualmente debajo del cursor del mouse</translation>
+        <translation type="vanished">Captura que se encuentra actualmente debajo del cursor del mouse</translation>
     </message>
     <message>
         <source>Save</source>
@@ -248,43 +310,43 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation>Lápiz</translation>
+        <translation type="vanished">Lápiz</translation>
     </message>
     <message>
         <source>Marker</source>
-        <translation>Marcador</translation>
+        <translation type="vanished">Marcador</translation>
     </message>
     <message>
         <source>Rect</source>
-        <translation>Rectangular</translation>
+        <translation type="vanished">Rectangular</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation>Elipse</translation>
+        <translation type="vanished">Elipse</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>Linea</translation>
+        <translation type="vanished">Linea</translation>
     </message>
     <message>
         <source>Arrow</source>
-        <translation>Flecha</translation>
+        <translation type="vanished">Flecha</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Texto</translation>
+        <translation type="vanished">Texto</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation>Número</translation>
+        <translation type="vanished">Número</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation>Borrar</translation>
+        <translation type="vanished">Borrar</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Seleccionar</translation>
+        <translation type="vanished">Seleccionar</translation>
     </message>
     <message>
         <source>New</source>
@@ -352,23 +414,23 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>
-        <translation>Esperando por imgur.com...</translation>
+        <translation type="vanished">Esperando por imgur.com...</translation>
     </message>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Subir a imgur.com terminado!</translation>
+        <translation type="vanished">Subir a imgur.com terminado!</translation>
     </message>
     <message>
         <source>An error occurred while uploading to imgur.com.</source>
-        <translation>Se produjo un error al cargar a imgur.com.</translation>
+        <translation type="vanished">Se produjo un error al cargar a imgur.com.</translation>
     </message>
     <message>
         <source>Received new token, trying upload again...</source>
-        <translation>Recibió un nuevo token, intentando subir de nuevo ...</translation>
+        <translation type="vanished">Recibió un nuevo token, intentando subir de nuevo ...</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token...</source>
-        <translation>Imgur token ha caducado, solicitando un nuevo token ...</translation>
+        <translation type="vanished">Imgur token ha caducado, solicitando un nuevo token ...</translation>
     </message>
     <message>
         <source>Open Image</source>
@@ -441,7 +503,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Prompt to save before exiting ksnip</source>
-        <translation>Solicitar guardar antes de salir de ksnip</translation>
+        <translation type="vanished">Solicitar guardar antes de salir de ksnip</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
@@ -457,7 +519,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Save always instantly to default location</source>
-        <translation>Guardar siempre al instante en la ubicación predeterminada</translation>
+        <translation type="vanished">Guardar siempre al instante en la ubicación predeterminada</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
@@ -465,7 +527,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date and $T for time.</source>
-        <translation>El nombre de archivo puede contener $ Y, $ M, $ D para la fecha y $ T para el tiempo.</translation>
+        <translation type="vanished">El nombre de archivo puede contener $ Y, $ M, $ D para la fecha y $ T para el tiempo.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -715,6 +777,23 @@ Requires switching tool to become active.</source>
 coincide con el tamaño de herramienta seleccionado.
 Requiere que la herramienta de conmutación se active.</translation>
     </message>
+    <message>
+        <source>Prompt to save before discarding unsaved changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled, will not ask where to save a screenshot
+when saving, but will save instantly to default location.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsPickerPopup</name>
@@ -729,6 +808,49 @@ Requiere que la herramienta de conmutación se active.</translation>
     <message>
         <source>Size</source>
         <translation>Tamaño</translation>
+    </message>
+</context>
+<context>
+    <name>ToolPicker</name>
+    <message>
+        <source>Pen</source>
+        <translation type="unfinished">Lápiz</translation>
+    </message>
+    <message>
+        <source>Marker</source>
+        <translation type="unfinished">Marcador</translation>
+    </message>
+    <message>
+        <source>Rect</source>
+        <translation type="unfinished">Rectangular</translation>
+    </message>
+    <message>
+        <source>Ellipse</source>
+        <translation type="unfinished">Elipse</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished">Linea</translation>
+    </message>
+    <message>
+        <source>Arrow</source>
+        <translation type="unfinished">Flecha</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished">Texto</translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished">Número</translation>
+    </message>
+    <message>
+        <source>Erase</source>
+        <translation type="unfinished">Borrar</translation>
+    </message>
+    <message>
+        <source>Select</source>
+        <translation type="unfinished">Seleccionar</translation>
     </message>
 </context>
 <context>
@@ -776,6 +898,10 @@ Requiere que la herramienta de conmutación se active.</translation>
     <message>
         <source>image</source>
         <translation>Imagen</translation>
+    </message>
+    <message>
+        <source>Save screenshot to default location without opening in editor.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

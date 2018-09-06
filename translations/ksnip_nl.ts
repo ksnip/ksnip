@@ -623,168 +623,170 @@ gladder.</translation>
         <source>When enabled, the painter cursor size
 matches the selected tool size.
 Requires switching tool to become active.</source>
-        <translation type="unfinished"></translation>
+        <translation>Als dit wordt ingeschakeld, dan komt de cursorgrootte
+overeen met de gekozen hulpmiddelgrootte.
+Dit vereist dat het schakelhulpmiddel actief wordt.</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>Oké</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuleren</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>App-instellingen</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Scherm vastleggen</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur-uploader</translation>
     </message>
     <message>
         <source>Painter Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekeninstellingen</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Applicatie</translation>
     </message>
     <message>
         <source>Painter</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekenen</translation>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezig met wachten op imgur.com...</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruikersnaam:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>De toegangssleutel van imgur.com is bijgewerkt.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fout tijdens bijwerken van imgur.com-toegangssleutel.</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaglocatie</translation>
     </message>
 </context>
 <context>
     <name>SettingsPickerPopup</name>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Aangepast</translation>
     </message>
     <message>
         <source>Solid Fill</source>
-        <translation type="unfinished"></translation>
+        <translation>Opvullen</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Grootte</translation>
     </message>
 </context>
 <context>
     <name>ToolPicker</name>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"></translation>
+        <translation>Pen</translation>
     </message>
     <message>
         <source>Marker</source>
-        <translation type="unfinished"></translation>
+        <translation>Markeerstift</translation>
     </message>
     <message>
         <source>Rect</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechthoek</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation type="unfinished"></translation>
+        <translation>Ellips</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished"></translation>
+        <translation>Lijn</translation>
     </message>
     <message>
         <source>Arrow</source>
-        <translation type="unfinished"></translation>
+        <translation>Pijl</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekst</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished"></translation>
+        <translation>Getal</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation type="unfinished"></translation>
+        <translation>Gum</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteren</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Select a rectangular area from where to take a screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer een rechthoekig gebied van het vast te leggen gebied.</translation>
     </message>
     <message>
         <source>Capture the fullscreen including all monitors.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle beeldscherm vastleggen.</translation>
     </message>
     <message>
         <source>Capture the screen (monitor) where the mouse cursor is currently located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Scherm vastleggen waarop de muis zich momenteel bevindt.</translation>
     </message>
     <message>
         <source>Capture the window that currently has input focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster vastleggen dat momenteel gefocust is op een invoerveld.</translation>
     </message>
     <message>
         <source>Capture the window that is currently under the mouse cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster vastleggen dat zich momenteel onder de cursor bevindt.</translation>
     </message>
     <message>
         <source>Delay before taking the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertraging alvorens de schermafbeelding te maken.</translation>
     </message>
     <message>
         <source>seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>seconden</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cursor opnemen in schermafbeelding.</translation>
     </message>
     <message>
         <source>Edit existing image in ksnip</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestaande afbeelding bewerken met ksnip</translation>
     </message>
     <message>
         <source>image</source>
-        <translation type="unfinished"></translation>
+        <translation>afbeelding</translation>
     </message>
     <message>
         <source>Save screenshot to default location without opening in editor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermafbeelding opslaan in standaardlocatie zonder de bewerker te openen.</translation>
     </message>
     <message>
         <source>Ksnip Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Ksnip-schermafbeeldingshulpmiddel</translation>
     </message>
 </context>
 </TS>

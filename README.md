@@ -1,4 +1,4 @@
-# ksnip [![Build Status](https://travis-ci.org/DamirPorobic/ksnip.svg?branch=master)](https://travis-ci.org/DamirPorobic/ksnip) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/94558bfc42d1466fae691a646cfe3f09)](https://www.codacy.com/app/DamirPorobic/ksnip?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DamirPorobic/ksnip&amp;utm_campaign=Badge_Grade) [![Weblate TRanslations](https://hosted.weblate.org/widgets/ksnip/-/svg-badge.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget) [![ksnip Downloads](https://img.shields.io/github/downloads/damirporobic/ksnip/total.svg)](href="https://github.com/damirporobic/ksnip/releases)
+# ksnip [![Build Status](https://travis-ci.org/DamirPorobic/ksnip.svg?branch=master)](https://travis-ci.org/DamirPorobic/ksnip) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/94558bfc42d1466fae691a646cfe3f09)](https://www.codacy.com/app/DamirPorobic/ksnip?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DamirPorobic/ksnip&amp;utm_campaign=Badge_Grade) [![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/svg-badge.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget) [![ksnip Downloads](https://img.shields.io/github/downloads/damirporobic/ksnip/total.svg)](href="https://github.com/damirporobic/ksnip/releases)
 
 Version v1.5.0 - alpha
 
@@ -84,9 +84,7 @@ Installing DEB:
 ### Translations
 We are always looking for help with tranlsations, contributors are welcome!  
 For translations we use [Weblate](https://hosted.weblate.org/projects/ksnip/translations/)!  
-<a href="https://hosted.weblate.org/engage/ksnip/?utm_source=widget">
-<img src="https://hosted.weblate.org/widgets/ksnip/-/multi-green.svg" alt="Translation status" />
-</a>
+[![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/multi-green.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget)
 
 ### Bug report
 Please report any bugs or feature requests on the github page under the [issue section](https://github.com/DamirPorobic/ksnip/issues).

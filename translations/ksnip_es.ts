@@ -100,11 +100,11 @@
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Activar Ventana</translation>
+        <translation>Ventana Activa</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation type="unfinished">Capturar pantalla que esta enfocada actualmente</translation>
+        <translation>Capturar pantalla que está enfocada actualmente</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
@@ -779,20 +779,21 @@ Requiere que la herramienta de conmutación se active.</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Solicitar guardar antes de descartar cambios no guardados</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardado instantáneo en la ubicación predeterminada sin el cuadro de diálogo &apos;Guardar como&apos;</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando está habilitado, no preguntará dónde guardar una captura de pantalla
+al guardar, pero se guardará instantáneamente en la ubicación predeterminada.</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished"></translation>
+        <translation>El nombre de archivo puede contener $ Y, $ M, $ D por fecha, $ h, $ m, $ s por hora o $ T por hora en formato hhmmss.</translation>
     </message>
 </context>
 <context>
@@ -830,7 +831,7 @@ when saving, but will save instantly to default location.</source>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished">Linea</translation>
+        <translation>Línea</translation>
     </message>
     <message>
         <source>Arrow</source>
@@ -901,7 +902,7 @@ when saving, but will save instantly to default location.</source>
     </message>
     <message>
         <source>Save screenshot to default location without opening in editor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Guarde la captura de pantalla en la ubicación predeterminada sin abrir en el editor.</translation>
     </message>
 </context>
 </TS>

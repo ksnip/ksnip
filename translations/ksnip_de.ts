@@ -69,62 +69,62 @@
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation type="unfinished">Neu</translation>
+        <translation>Neu</translation>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Rechteckiger Bereich</translation>
+        <translation>Rechteckiger Bereich</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation type="unfinished">Zeichnen Sie einen rechteckigen Bereich mit der Maus</translation>
+        <translation>Zeichnen Sie einen rechteckigen Bereich mit der Maus</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Vollbild (alle Monitore)</translation>
+        <translation>Vollbild (alle Monitore)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation type="unfinished">Vollbild Aufnahme einschließlich aller Monitore</translation>
+        <translation>Vollbild Aufnahme einschließlich aller Monitore</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Aktueller Bildschirm</translation>
+        <translation>Aktueller Bildschirm</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation type="unfinished">Aufname des Bildschirm wo sich die Maus befindet</translation>
+        <translation>Aufnahme des Bildschirm auf dem sich dezeit die Maus befindet</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Aktives Fenster</translation>
+        <translation>Aktives Fenster</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation type="unfinished">Aufnahme des Fenster welchses Fokus hat</translation>
+        <translation>Aufnahme des Fenster welches im Fokus ist</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Fenster under der Maus</translation>
+        <translation>Fenster unter der Maus</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation type="unfinished">Aufnahme des Fensters welches sich unter der Maus befindet</translation>
+        <translation>Aufnahme des Fensters welches sich unter der Maus befindet</translation>
     </message>
 </context>
 <context>
     <name>CaptureUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">Hochladen zu imgur.com abgeschlossen!</translation>
+        <translation>Hochladen zu imgur.com abgeschlossen!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again...</source>
-        <translation type="unfinished">Neues Token erhalten, erneuter Hochladen versuch ...</translation>
+        <translation>Neues Token erhalten, erneuter Hochladen versuch...</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token...</source>
-        <translation type="unfinished">Imgur-Token ist abgelaufen, fordere einen neuen Token an ...</translation>
+        <translation>Imgur-Token ist abgelaufen, fordere einen neuen Token an...</translation>
     </message>
 </context>
 <context>
@@ -775,20 +775,21 @@ Erfordert ein Wechsel des Werkzeugs um aktiviert zu werden.</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Aufforderung zum Speichern, bevor nicht gespeicherte Änderungen verworfen werden</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Sofort Speicher am Standardspeicherort ohne &quot;Speichern unter&quot; Dialog zu öffnen</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn aktiviert, wird nicht gefragt, wo ein Screenshot gespeichert werden soll
+sondern speichert sofort am Standardspeicherort.</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dateiname kann $Y, $M, $D für Datum, $h, $m, $s für Zeit oder $T für Zeit im hhmmss-Format enthalten.</translation>
     </message>
 </context>
 <context>
@@ -810,43 +811,43 @@ when saving, but will save instantly to default location.</source>
     <name>ToolPicker</name>
     <message>
         <source>Pen</source>
-        <translation type="unfinished">Stift</translation>
+        <translation>Stift</translation>
     </message>
     <message>
         <source>Marker</source>
-        <translation type="unfinished">Markierstift</translation>
+        <translation>Markierstift</translation>
     </message>
     <message>
         <source>Rect</source>
-        <translation type="unfinished">Rechteck</translation>
+        <translation>Rechteck</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation type="unfinished">Ellipse</translation>
+        <translation>Ellipse</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation type="unfinished">Linie</translation>
+        <translation>Linie</translation>
     </message>
     <message>
         <source>Arrow</source>
-        <translation type="unfinished">Pfeil</translation>
+        <translation>Pfeil</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Text</translation>
+        <translation>Text</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished">Nummer</translation>
+        <translation>Nummer</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation type="unfinished">Löschen</translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">Selektieren</translation>
+        <translation>Selektieren</translation>
     </message>
 </context>
 <context>
@@ -897,7 +898,7 @@ when saving, but will save instantly to default location.</source>
     </message>
     <message>
         <source>Save screenshot to default location without opening in editor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Screenshot an Standardort speichern, ohne ihn im Editor zu öffnen.</translation>
     </message>
 </context>
 </TS>

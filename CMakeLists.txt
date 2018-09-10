@@ -1,23 +1,24 @@
-cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
-project(ksnip)
-
-set (KSNIP_VERSION_MAJOR "1")
-set (KSNIP_VERSION_MINOR "5")
-set (KSNIP_VERSION_MICRO "0-alpha")
+cmake_minimum_required(VERSION 3.5)
+project(ksnip LANGUAGES CXX VERSION 1.5.0)
 
 if(DEFINED VERSION_SUFIX)
     set(KSNIP_VERSION_SUFIX "-${VERSION_SUFIX}")
 endif()
 
-set (KSNIP_VERSION "${KSNIP_VERSION_MAJOR}.${KSNIP_VERSION_MINOR}.${KSNIP_VERSION_MICRO}${KSNIP_VERSION_SUFIX}")
+set(KSNIP_VERSION "${VERSION}${KSNIP_VERSION_SUFIX}")
 set (KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
 
 configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/BuildConfig.h)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 
-set(QT_MIN_VERSION "5.4.0")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+set(QT_MIN_VERSION "5.6.1")
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Widgets Network Xml PrintSupport DBus)
 
 # Without ECM we're unable to load XCB
@@ -37,13 +38,8 @@ if(NOT XCB_XFIXES_FOUND)
     message(FATAL_ERROR "Required XCB Components missing: XCB-XFIXES")
 endif()
 
-if (POLICY CMP0071)
-    cmake_policy(SET CMP0071 NEW)
-endif ()
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
-set(ksnip_SRCS ${CMAKE_SOURCE_DIR}/src/main.cpp
+set(ksnip_SRCS
+        ${CMAKE_SOURCE_DIR}/src/main.cpp
         ${CMAKE_SOURCE_DIR}/src/backend/ImgurUploader.cpp
         ${CMAKE_SOURCE_DIR}/src/backend/KsnipConfig.cpp
         ${CMAKE_SOURCE_DIR}/src/backend/PlatformChecker.cpp
@@ -98,10 +94,7 @@ set(ksnip_SRCS ${CMAKE_SOURCE_DIR}/src/main.cpp
         ${CMAKE_SOURCE_DIR}/src/gui/AboutDialog.cpp
         ${CMAKE_SOURCE_DIR}/src/gui/ScaleDialog.cpp)
 
-SET(ksnip_RES icons/resources.qrc)
-qt5_add_resources(ksnip_RES_RCC ${ksnip_RES})
-
-add_executable(ksnip ${ksnip_SRCS} ${ksnip_RES_RCC})
+add_executable(ksnip ${ksnip_SRCS} icons/resources.qrc)
 
 target_link_libraries(ksnip Qt5::Widgets
                             Qt5::Network

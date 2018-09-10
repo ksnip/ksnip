@@ -18,7 +18,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(QT_MIN_VERSION "5.6.1")
+set(QT_MIN_VERSION "5.6.2")
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Widgets Network Xml PrintSupport DBus)
 
 # Without ECM we're unable to load XCB
@@ -37,6 +37,8 @@ endif()
 if(NOT XCB_XFIXES_FOUND)
     message(FATAL_ERROR "Required XCB Components missing: XCB-XFIXES")
 endif()
+
+find_package(kImageAnnotator REQUIRED)
 
 set(ksnip_SRCS
         ${CMAKE_SOURCE_DIR}/src/main.cpp
@@ -96,14 +98,17 @@ set(ksnip_SRCS
 
 add_executable(ksnip ${ksnip_SRCS} icons/resources.qrc)
 
-target_link_libraries(ksnip Qt5::Widgets
-                            Qt5::Network
-                            Qt5::Xml
-                            Qt5::PrintSupport
-                            Qt5::X11Extras
-                            Qt5::DBus
-                            XCB::XFIXES
-                            X11)
+target_link_libraries(ksnip
+        Qt5::Widgets
+        Qt5::Network
+        Qt5::Xml
+        Qt5::PrintSupport
+        Qt5::X11Extras
+        Qt5::DBus
+        XCB::XFIXES
+        X11
+        kImageAnnotator
+        )
 
 install(TARGETS ksnip RUNTIME DESTINATION /bin)
 

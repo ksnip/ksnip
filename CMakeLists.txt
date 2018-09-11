@@ -8,7 +8,7 @@ endif()
 set(KSNIP_VERSION "${VERSION}${KSNIP_VERSION_SUFIX}")
 set(KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
 
-configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/BuildConfig.h)
+configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/src/BuildConfig.h)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
@@ -19,24 +19,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(QT_MIN_VERSION "5.6.2")
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED Widgets Network Xml PrintSupport DBus)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED Widgets Network Xml PrintSupport DBus)
 
 # Without ECM we're unable to load XCB
 find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 find_package(X11 REQUIRED)
-
-# Check for required XCB components
 find_package(XCB COMPONENTS XFIXES)
-
-if (XCB_FOUND)
-    find_package(Qt5X11Extras ${QT_MIN_VERSION} REQUIRED)
-endif()
-
-if(NOT XCB_XFIXES_FOUND)
-    message(FATAL_ERROR "Required XCB Components missing: XCB-XFIXES")
-endif()
+find_package(Qt5X11Extras ${QT_MIN_VERSION} REQUIRED)
 
 find_package(kImageAnnotator REQUIRED)
 

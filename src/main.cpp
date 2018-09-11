@@ -19,8 +19,10 @@
 
 #include <QApplication>
 
-#include "gui/MainWindow.h"
+#include "BuildConfig.h"
+#include "src/gui/MainWindow.h"
 #include "src/backend/imageGrabber/ImageGrabberFactory.h"
+#include "src/common/helper/CommandLineParserHelper.h"
 
 int main(int argc, char** argv)
 {

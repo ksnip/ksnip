@@ -6,7 +6,7 @@ if(DEFINED VERSION_SUFIX)
 endif()
 
 set(KSNIP_VERSION "${VERSION}${KSNIP_VERSION_SUFIX}")
-set (KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
+set(KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
 
 configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/BuildConfig.h)
 

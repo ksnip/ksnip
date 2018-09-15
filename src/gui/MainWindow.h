@@ -23,14 +23,13 @@
 
 #include <QtWidgets>
 
+#include <kImageAnnotator/KImageAnnotator.h>
+
 #include "SettingsDialog.h"
 #include "AboutDialog.h"
 #include "ScaleDialog.h"
-#include "src/painter/PaintArea.h"
 #include "src/common/enum/PaintMode.h"
 #include "src/widgets/CustomToolButton.h"
-#include "src/widgets/CaptureView.h"
-#include "src/widgets/CropPanel.h"
 #include "src/widgets/ToolPicker.h"
 #include "src/widgets/CaptureModePicker.h"
 #include "src/widgets/settingsPicker/SettingsPickerConfigurator.h"
@@ -43,6 +42,8 @@
 #include "src/common/helper/MessageBoxHelper.h"
 #include "src/backend/CapturePrinter.h"
 
+using kImageAnnotator::KImageAnnotator;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -50,21 +51,17 @@ public:
     explicit MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
     void show();
     void captureScreenshot(CaptureModes captureMode, bool capureCursor = true, int delay = 0);
-    void resize();
     virtual QMenu *createPopupMenu() override;
+    QSize sizeHint() const;
 
 public slots:
     void showCapture(const QPixmap &screenshot);
     void openCrop();
     void closeCrop();
-    void colorChanged(const QColor &color);
-    void fillChanged(bool fill);
-    void sizeChanged(int size);
 
 protected:
     virtual void moveEvent(QMoveEvent *event) override;
     virtual void closeEvent(QCloseEvent *event) override;
-    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     AbstractImageGrabber *mImageGrabber;
@@ -73,7 +70,6 @@ private:
     bool              mHidden;
     QToolButton      *mSaveButton;
     QToolButton      *mCopyToClipboardButton;
-    SettingsPicker   *mSettingsButton;
     QAction          *mSaveAction;
     QAction          *mCopyToClipboardAction;
     QAction          *mUploadToImgurAction;
@@ -87,19 +83,16 @@ private:
     QAction          *mOpenImageAction;
     QAction          *mScaleAction;
     QToolBar         *mToolBar;
-    PaintArea        *mPaintArea;
-    CaptureView      *mCaptureView;
     QAction          *mUndoAction;
     QAction          *mRedoAction;
     QClipboard       *mClipboard;
-    CropPanel        *mCropPanel;
     KsnipConfig      *mConfig;
     SettingsPickerConfigurator *mSettingsPickerConfigurator;
     DelayHandler     *mDelayHandler;
-    ToolPicker       *mToolPicker;
     CaptureModePicker *mCaptureModePicker;
     CapturePrinter   *mCapturePrinter;
     CaptureUploader  *mCaptureUploader;
+    KImageAnnotator *mkImageAnnotator;
 
     void setSaveAble(bool enabled);
     void setEnablements(bool enabled);
@@ -110,7 +103,6 @@ private:
     void capture(CaptureModes captureMode);
     void triggerNewCapture(CaptureModes captureMode);
     void initGui();
-    void setPaintMode(const PaintMode &mode);
 
 private slots:
     void saveCapture();
@@ -118,7 +110,6 @@ private slots:
     void uploadFinished(QString message);
     void printClicked();
     void printPreviewClicked();
-    void setPaintModeAndSave(PaintMode mode);
     void instantSave(const QPixmap &pixmap);
     void loadImageFromFile();
     void openScale();

@@ -30,16 +30,13 @@ class CapturePrinter : public QObject
 {
 Q_OBJECT
 public:
-    explicit CapturePrinter(PaintArea *paintArea);
+	explicit CapturePrinter();
     ~CapturePrinter() = default;
-    void print(const QString &defaultPath);
-    void printPreview(const QString &defaultPath);
-
-private:
-    PaintArea *mPaintArea;
+	void print(const QImage &image, const QString &defaultPath);
+	void printPreview(const QImage &image, const QString &defaultPath);
 
 private slots:
-    void printCapture(QPrinter *p);
+	void printCapture(const QImage &image, QPrinter *p);
 };
 
 #endif //KSNIP_CAPTUREPRINTER_H

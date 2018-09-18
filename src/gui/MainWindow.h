@@ -118,6 +118,7 @@ private slots:
     bool proceedWithUpload() const;
     void copyToClipboard(const QString &message) const;
     QString &formatUrl(QString &message) const;
+    void setupImageAnnotator();
 };
 
 #endif // MAINWINDOW_H

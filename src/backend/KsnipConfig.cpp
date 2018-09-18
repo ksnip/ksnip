@@ -103,7 +103,7 @@ QPoint KsnipConfig::windowPosition() const
     // If we are not saving the position we return the default and ignore what
     // has been save earlier
     if (!saveKsnipPosition()) {
-        return QPoint(200, 200);
+	    return { 200, 200 };
     }
 
     return mConfig.value(QStringLiteral("MainWindow/Position"), QPoint(200, 200)).value<QPoint>();
@@ -323,6 +323,7 @@ void KsnipConfig::setTextBold(bool  bold)
     mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
     mConfig.sync();
     emit painterUpdated();
+	emit toolConfigChanged();
 }
 
 bool KsnipConfig::textItalic() const
@@ -341,6 +342,7 @@ void KsnipConfig::setTextItalic(bool  italic)
     mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
     mConfig.sync();
     emit painterUpdated();
+	emit toolConfigChanged();
 }
 
 bool KsnipConfig::textUnderline() const
@@ -359,6 +361,7 @@ void KsnipConfig::setTextUnderline(bool  underline)
     mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
     mConfig.sync();
     emit painterUpdated();
+	emit toolConfigChanged();
 }
 
 QFont KsnipConfig::textFont() const
@@ -377,6 +380,7 @@ void KsnipConfig::setTextFont(const QFont& font)
     mConfig.setValue(QStringLiteral("Painter/TextFont"), tmpFont);
     mConfig.sync();
     emit painterUpdated();
+	emit toolConfigChanged();
 }
 
 QFont KsnipConfig::numberFont() const
@@ -396,6 +400,7 @@ void KsnipConfig::setNumberFont(const QFont& font)
     mConfig.setValue(QStringLiteral("Painter/NumberFont"), tmpFont);
     mConfig.sync();
     emit painterUpdated();
+	emit toolConfigChanged();
 }
 
 bool KsnipConfig::itemShadowEnabled() const
@@ -411,6 +416,7 @@ void KsnipConfig::setItemShadowEnabled(bool enabled)
 
     mConfig.setValue(QStringLiteral("Painter/ItemShadowEnabled"), enabled);
     mConfig.sync();
+	emit toolConfigChanged();
 }
 
 bool KsnipConfig::smoothPathEnabled() const
@@ -426,6 +432,7 @@ void KsnipConfig::setSmoothPathEnabled(bool  enabled)
 
     mConfig.setValue(QStringLiteral("Painter/SmoothPathEnabled"), enabled);
     mConfig.sync();
+	emit toolConfigChanged();
 }
 
 int KsnipConfig::smoothFactor() const
@@ -441,6 +448,7 @@ void KsnipConfig::setSmoothFactor(int  factor)
 
     mConfig.setValue(QStringLiteral("Painter/SmoothPathFactor"), factor);
     mConfig.sync();
+	emit toolConfigChanged();
 }
 
 bool KsnipConfig::dynamicCursorSizeEnabled() const

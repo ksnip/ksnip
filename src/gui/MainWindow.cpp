@@ -71,6 +71,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
     setWindowIcon(IconLoader::loadIcon(QStringLiteral("ksnip")));
     move(mConfig->windowPosition());
 
+	connect(mConfig, &KsnipConfig::toolConfigChanged, this, &MainWindow::setupImageAnnotator);
+
 	connect(mkImageAnnotator, &KImageAnnotator::imageChanged, this, &MainWindow::screenshotChanged);
 
     connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::showCapture);
@@ -88,6 +90,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
         }
     }
 
+	setupImageAnnotator();
 	QWidget::resize(minimumSize());
 }
 
@@ -542,4 +545,14 @@ QString &MainWindow::formatUrl(QString &message) const
         message = message.remove(QStringLiteral(".png"));
     }
     return message;
+}
+
+void MainWindow::setupImageAnnotator()
+{
+	mkImageAnnotator->setSaveToolSelection(mConfig->saveKsnipToolSelection());
+	mkImageAnnotator->setSmoothFactor(mConfig->smoothFactor());
+	mkImageAnnotator->setSmoothPathEnabled(mConfig->smoothPathEnabled());
+	mkImageAnnotator->setTextFont(mConfig->textFont());
+	mkImageAnnotator->setNumberFont(mConfig->numberFont());
+	mkImageAnnotator->setItemShadowEnabled(mConfig->itemShadowEnabled());
 }

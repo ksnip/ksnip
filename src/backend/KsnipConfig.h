@@ -168,11 +168,12 @@ public:
 
 signals:
     void painterUpdated() const;
+	void toolConfigChanged() const;
 
 private:
     QSettings mConfig;
 
-    KsnipConfig() {};
+	KsnipConfig() = default;;
 };
 
 #endif // KSNIPCONFIG_H

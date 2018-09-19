@@ -56,7 +56,7 @@ set(ksnip_SRCS
 
 set(ksnip_SRCS ${ksnip_SRCS} PARENT_SCOPE)
 
-add_executable(ksnip ${ksnip_SRCS} ${CMAKE_SOURCE_DIR}/icons/resources.qrc)
+add_executable(ksnip ${ksnip_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc)
 
 target_link_libraries(ksnip
         Qt5::Widgets

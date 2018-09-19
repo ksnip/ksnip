@@ -1,7 +1,12 @@
 find_package(Qt5LinguistTools)
 
-set (ksnip_LANG_TS ksnip_de.ts
-                   ksnip_es.ts)
+set(ksnip_LANG_TS
+	ksnip_de.ts
+	ksnip_es.ts
+	ksnip_nl.ts
+	ksnip_no.ts
+	ksnip_pl.ts
+	ksnip_ru.ts)
 
 if(DEFINED UPDATE_TS_FILES)
     qt5_create_translation(ksnip_LANG_QM ${CMAKE_SOURCE_DIR}/translations ${ksnip_SRCS} ${ksnip_LANG_TS})

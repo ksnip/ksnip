@@ -72,31 +72,31 @@
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation type="unfinished">Nuevo</translation>
+        <translation>Nuevo</translation>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Área Rectangular</translation>
+        <translation>Área Rectangular</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation type="unfinished">Dibuje un área rectangular con el mouse</translation>
+        <translation>Dibuje un área rectangular con el mouse</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Pantalla Completa( Todos los monitores)</translation>
+        <translation>Pantalla Completa( Todos los monitores)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation type="unfinished">Capturar pantalla completa incluyendo todos los monitores</translation>
+        <translation>Capturar pantalla completa incluyendo todos los monitores</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Pantalla Actual</translation>
+        <translation>Pantalla Actual</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation type="unfinished">Capturar pantalla donde se localiza el Mouse</translation>
+        <translation>Capturar pantalla donde se localiza el Mouse</translation>
     </message>
     <message>
         <source>Active Window</source>
@@ -108,26 +108,26 @@
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Ventana debajo del cursor</translation>
+        <translation>Ventana debajo del cursor</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation type="unfinished">Captura que se encuentra actualmente debajo del cursor del mouse</translation>
+        <translation>Captura que se encuentra actualmente debajo del cursor del mouse</translation>
     </message>
 </context>
 <context>
     <name>CaptureUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">Subir a imgur.com terminado!</translation>
+        <translation>Subir a imgur.com terminado!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again...</source>
-        <translation type="unfinished">Recibió un nuevo token, intentando subir de nuevo ...</translation>
+        <translation>Recibió un nuevo token, intentando subir de nuevo ...</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token...</source>
-        <translation type="unfinished">Imgur token ha caducado, solicitando un nuevo token ...</translation>
+        <translation>Imgur token ha caducado, solicitando un nuevo token ...</translation>
     </message>
 </context>
 <context>
@@ -815,19 +815,19 @@ al guardar, pero se guardará instantáneamente en la ubicación predeterminada.
     <name>ToolPicker</name>
     <message>
         <source>Pen</source>
-        <translation type="unfinished">Lápiz</translation>
+        <translation>Lápiz</translation>
     </message>
     <message>
         <source>Marker</source>
-        <translation type="unfinished">Marcador</translation>
+        <translation>Marcador</translation>
     </message>
     <message>
         <source>Rect</source>
-        <translation type="unfinished">Rectangular</translation>
+        <translation>Rectangular</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation type="unfinished">Elipse</translation>
+        <translation>Elipse</translation>
     </message>
     <message>
         <source>Line</source>
@@ -835,23 +835,23 @@ al guardar, pero se guardará instantáneamente en la ubicación predeterminada.
     </message>
     <message>
         <source>Arrow</source>
-        <translation type="unfinished">Flecha</translation>
+        <translation>Flecha</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished">Texto</translation>
+        <translation>Texto</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation type="unfinished">Número</translation>
+        <translation>Número</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation type="unfinished">Borrar</translation>
+        <translation>Borrar</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">Seleccionar</translation>
+        <translation>Seleccionar</translation>
     </message>
 </context>
 <context>

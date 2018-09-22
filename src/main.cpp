@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 
     // Setup application properties
     app.setOrganizationName(QStringLiteral("ksnip"));
-    app.setOrganizationDomain(QStringLiteral("ksnip.local"));
+    app.setOrganizationDomain(QStringLiteral("ksnip.org"));
     app.setApplicationName(QStringLiteral("ksnip"));
     app.setApplicationVersion(QStringLiteral(KSNIP_VERSION));
 

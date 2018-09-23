@@ -56,8 +56,6 @@ public:
 
 public slots:
     void showCapture(const QPixmap &screenshot);
-    void openCrop();
-    void closeCrop();
 
 protected:
     virtual void moveEvent(QMoveEvent *event) override;

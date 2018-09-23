@@ -140,19 +140,7 @@ void MainWindow::show()
     setHidden(false);
     setSaveAble(false);
     setEnablements(false);
-    closeCrop();
     QMainWindow::show();
-}
-
-//
-// Public Slots
-//
-void MainWindow::openCrop()
-{
-}
-
-void MainWindow::closeCrop()
-{
 }
 
 QMenu* MainWindow::createPopupMenu()
@@ -212,7 +200,7 @@ void MainWindow::setSaveAble(bool enabled)
 
 void MainWindow::setEnablements(bool enabled)
 {
-	mCropAction->setEnabled(false);
+	mCropAction->setEnabled(enabled);
     mPrintAction->setEnabled(enabled);
     mPrintPreviewAction->setEnabled(enabled);
     mUploadToImgurAction->setEnabled(enabled);
@@ -244,11 +232,9 @@ void MainWindow::setHidden(bool isHidden)
     if (mHidden) {
         setWindowOpacity(0.0);
         showMinimized();
-//        mPaintArea->setIsEnabled(false);
     } else {
         setWindowOpacity(1.0);
         setWindowState(Qt::WindowActive);
-//        mPaintArea->setIsEnabled(true);
     }
 }
 
@@ -325,7 +311,7 @@ void MainWindow::initGui()
     mCropAction->setText(tr("Crop"));
     mCropAction->setToolTip(tr("Crop Screen Capture"));
     mCropAction->setShortcut(Qt::SHIFT + Qt::Key_C);
-    connect(mCropAction, &QAction::triggered, this, &MainWindow::openCrop);
+	connect(mCropAction, &QAction::triggered, mkImageAnnotator, &KImageAnnotator::showCropper);
 
     // Create scale action
     mScaleAction->setText(tr("Scale"));

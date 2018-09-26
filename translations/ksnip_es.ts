@@ -49,7 +49,7 @@
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> reportar errores.</translation>
+        <translation> para reportar errores.</translation>
     </message>
     <message>
         <source>The author, &lt;b&gt;Damir Porobic&lt;/b&gt;, can be contacted via </source>

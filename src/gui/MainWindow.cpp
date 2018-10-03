@@ -205,7 +205,7 @@ void MainWindow::setEnablements(bool enabled)
     mPrintPreviewAction->setEnabled(enabled);
     mUploadToImgurAction->setEnabled(enabled);
     mCopyToClipboardAction->setEnabled(enabled);
-	mScaleAction->setEnabled(false);
+	mScaleAction->setEnabled(enabled);
 }
 
 void MainWindow::loadSettings()
@@ -243,10 +243,6 @@ bool MainWindow::hidden() const
     return mHidden;
 }
 
-/*
- * Default capture trigger, all captures from GUI should happen via this
- * function.
- */
 void MainWindow::capture(CaptureModes captureMode)
 {
     setHidden(true);
@@ -269,14 +265,12 @@ void MainWindow::initGui()
 {
     connect(mCaptureModePicker, &CaptureModePicker::captureModeSelected, this, &MainWindow::triggerNewCapture);
 
-    // Create action for save button
     mSaveAction->setText(tr("Save"));
     mSaveAction->setToolTip(tr("Save Screen Capture to file system"));
     mSaveAction->setIcon(IconLoader::loadIcon(QStringLiteral("save")));
     mSaveAction->setShortcut(QKeySequence::Save);
     connect(mSaveAction, &QAction::triggered, this, &MainWindow::saveCapture);
 
-    // Create action for copy to clipboard button
     mCopyToClipboardAction->setText(tr("Copy"));
     mCopyToClipboardAction->setToolTip(tr("Copy Screen Capture to clipboard"));
     mCopyToClipboardAction->setIcon(IconLoader::loadIcon(QStringLiteral("copyToClipboard")));
@@ -285,21 +279,18 @@ void MainWindow::initGui()
         copyToClipboard();
     });
 
-    // Create Action for imgur.com uploader
     mUploadToImgurAction->setText(tr("Upload"));
     mUploadToImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
     mUploadToImgurAction->setShortcut(Qt::SHIFT + Qt::Key_U);
     connect(mUploadToImgurAction, &QAction::triggered,
             this, &MainWindow::upload);
 
-    // Create print action
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
     mPrintAction->setShortcut(QKeySequence::Print);
     mPrintAction->setIcon(QIcon::fromTheme(QStringLiteral("document-print")));
     connect(mPrintAction, &QAction::triggered, this, &MainWindow::printClicked);
 
-    // Create print preview action
     mPrintPreviewAction->setText(tr("Print Preview"));
     mPrintPreviewAction->setToolTip(tr("Opens Print Preview dialog where the image "
                                        "orientation can be changed"));
@@ -307,31 +298,26 @@ void MainWindow::initGui()
     connect(mPrintPreviewAction, &QAction::triggered,
             this, &MainWindow::printPreviewClicked);
 
-    // Create crop action
     mCropAction->setText(tr("Crop"));
     mCropAction->setToolTip(tr("Crop Screen Capture"));
     mCropAction->setShortcut(Qt::SHIFT + Qt::Key_C);
 	connect(mCropAction, &QAction::triggered, mkImageAnnotator, &KImageAnnotator::showCropper);
 
-    // Create scale action
     mScaleAction->setText(tr("Scale"));
     mScaleAction->setToolTip(tr("Scale Screen Capture"));
     mScaleAction->setShortcut(Qt::SHIFT + Qt::Key_S);
-    connect(mScaleAction, &QAction::triggered, this, &MainWindow::openScale);
+	connect(mScaleAction, &QAction::triggered, mkImageAnnotator, &KImageAnnotator::showScaler);
 
-    // Create action for new capture, this will be only used in the menu bar
     mNewCaptureAction->setText(tr("New"));
     mNewCaptureAction->setShortcut(QKeySequence::New);
     connect(mNewCaptureAction, &QAction::triggered,
             mCaptureModePicker, &CustomToolButton::trigger);
 
-    // Create exit action
     mQuitAction->setText(tr("Quit"));
     mQuitAction->setShortcut(QKeySequence::Quit);
     mQuitAction->setIcon(QIcon::fromTheme(QStringLiteral("application-exit")));
     connect(mQuitAction, &QAction::triggered, this, &MainWindow::close);
 
-    // Create action for opening settings dialog
     mSettingsDialogAction->setText(tr("Settings"));
     mSettingsDialogAction->setIcon(QIcon::fromTheme(QStringLiteral("emblem-system")));
     connect(mSettingsDialogAction, &QAction::triggered, [this]() {
@@ -346,8 +332,6 @@ void MainWindow::initGui()
         aboutDialog.exec();
     });
 
-    // Undo and redo actions, the action itself is created in the paintarea
-    // class and only a pointer returned here.
     mUndoAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
     mUndoAction->setShortcut(QKeySequence::Undo);
 
@@ -359,17 +343,14 @@ void MainWindow::initGui()
     mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
     connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::loadImageFromFile);
 
-    // Create save tool button
     mSaveButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mSaveButton->addAction(mSaveAction);
     mSaveButton->setDefaultAction(mSaveAction);
 
-    // Create copy to clipboard tool button
     mCopyToClipboardButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mCopyToClipboardButton->addAction(mCopyToClipboardAction);
     mCopyToClipboardButton->setDefaultAction(mCopyToClipboardAction);
 
-    // Create menu bar
     QMenu* menu;
     menu = menuBar()->addMenu(tr("File"));
     menu->addAction(mNewCaptureAction);
@@ -393,7 +374,6 @@ void MainWindow::initGui()
     menu = menuBar()->addMenu(tr("&Help"));
     menu->addAction(mAboutKsnipAction);
 
-    // Create toolbar
     mToolBar = addToolBar(tr("Tools"));
     mToolBar->setFloatable(false);
     mToolBar->setMovable(false);
@@ -490,10 +470,6 @@ void MainWindow::loadImageFromFile()
                           tr("Image Files (*.png *.jpg *.bmp)"));
     QPixmap pixmap(pixmapFilename);
     showCapture(pixmap);
-}
-
-void MainWindow::openScale()
-{
 }
 
 bool MainWindow::discardUnsavedChanges() const

@@ -110,7 +110,6 @@ private slots:
     void printPreviewClicked();
     void instantSave(const QPixmap &pixmap);
     void loadImageFromFile();
-    void openScale();
     void screenshotChanged();
     bool discardUnsavedChanges() const;
     bool proceedWithUpload() const;

@@ -5,7 +5,7 @@ Version v1.5.0 - alpha
 Ksnip is a Qt based Linux screenshot tool that provides many annotation features 
 for your screenshots.
 
-![Ksnip](https://i.imgur.com/doC6n8j.png "Ksnip with annotations")
+![Ksnip](https://i.imgur.com/Zvnl8PT.png "Ksnip with annotations")
 
 
 ### Features
@@ -58,7 +58,7 @@ Installing DEB:
 ### Building from source
 
 #### Dependencies
-Building ksnip from source, requires [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator) and [kColorPicker](https://github.com/DamirPorobic/kColorPicker) to be installed. 
+Building ksnip from source, requires [kColorPicker](https://github.com/DamirPorobic/kColorPicker) and [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator) to be installed. 
 Installation instructions can be found on the GitHub pages. 
 
 

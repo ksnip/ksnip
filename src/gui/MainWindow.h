@@ -27,12 +27,8 @@
 
 #include "SettingsDialog.h"
 #include "AboutDialog.h"
-#include "ScaleDialog.h"
-#include "src/common/enum/PaintMode.h"
 #include "src/widgets/CustomToolButton.h"
-#include "src/widgets/ToolPicker.h"
 #include "src/widgets/CaptureModePicker.h"
-#include "src/widgets/settingsPicker/SettingsPickerConfigurator.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/CaptureUploader.h"
@@ -85,7 +81,6 @@ private:
     QAction          *mRedoAction;
     QClipboard       *mClipboard;
     KsnipConfig      *mConfig;
-    SettingsPickerConfigurator *mSettingsPickerConfigurator;
     DelayHandler     *mDelayHandler;
     CaptureModePicker *mCaptureModePicker;
     CapturePrinter   *mCapturePrinter;

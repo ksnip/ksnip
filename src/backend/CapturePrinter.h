@@ -23,15 +23,14 @@
 #include <QPrinter>
 #include <QPrintDialog>
 #include <QPrintPreviewDialog>
-
-#include <src/painter/PaintArea.h>
+#include <QPainter>
 
 class CapturePrinter : public QObject
 {
 Q_OBJECT
 public:
 	explicit CapturePrinter();
-    ~CapturePrinter() = default;
+	~CapturePrinter() override = default;
 	void print(const QImage &image, const QString &defaultPath);
 	void printPreview(const QImage &image, const QString &defaultPath);
 

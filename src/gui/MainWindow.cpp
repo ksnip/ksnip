@@ -44,7 +44,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
 	mRedoAction(nullptr),
 	mClipboard(QApplication::clipboard()),
 	mConfig(KsnipConfig::instance()),
-	mSettingsPickerConfigurator(new SettingsPickerConfigurator()),
 	mDelayHandler(new DelayHandler(200)),
 	mCaptureModePicker(new CaptureModePicker(imageGrabber->supportedCaptureModes())),
 	mCapturePrinter(new CapturePrinter),

@@ -25,48 +25,7 @@ CursorFactory::CursorFactory()
     mDefaultCursorSize = 8;
 }
 
-QCursor *CursorFactory::createPainterCursor(PaintMode mode, AbstractPainterItem *painterItem)
-{
-    auto cursorSize = getCursorSize(mode);
-
-    switch(mode) {
-        case PaintMode::Pen:
-        case PaintMode::Marker:
-        case PaintMode::Rect:
-        case PaintMode::Ellipse:
-        case PaintMode::Line:
-        case PaintMode::Arrow:
-            return new CustomCursor(CustomCursor::Circle, mConfig->toolColor(mode), cursorSize);
-        case PaintMode::Text:
-            return new QCursor(Qt::IBeamCursor);
-        case PaintMode::Number:
-            return new QCursor(Qt::PointingHandCursor);
-        case PaintMode::Erase:
-            return new CustomCursor(CustomCursor::Rect, QColor(Qt::white), cursorSize);
-        case PaintMode::Select:
-            if(painterItem == nullptr) {
-                return new QCursor(Qt::OpenHandCursor);
-            } else {
-                return new QCursor(Qt::ClosedHandCursor);
-            }
-    }
-}
-
-QCursor* CursorFactory::createDefaultCursor()
-{
-    return new CustomCursor;
-}
-
 QCursor* CursorFactory::createSnippingCursor()
 {
-    return new CustomCursor(CustomCursor::Cross, mConfig->snippingCursorColor(), mConfig->snippingCursorSize());
-}
-
-int CursorFactory::getCursorSize(PaintMode mode) const
-{
-    if(!mConfig->dynamicCursorSizeEnabled()) {
-        return mDefaultCursorSize;
-    }
-
-    return mConfig->toolSize(mode);
+    return new CustomCursor(mConfig->snippingCursorColor(), mConfig->snippingCursorSize());
 }

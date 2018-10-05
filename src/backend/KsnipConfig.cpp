@@ -118,25 +118,6 @@ void KsnipConfig::setWindowPosition(const QPoint& position)
     mConfig.sync();
 }
 
-PaintMode KsnipConfig::paintMode() const
-{
-    // If we are not storing the tool selection, always return the pen as default
-    if (!saveKsnipToolSelection()) {
-        return PaintMode::Pen;
-    }
-
-    return PaintMode(mConfig.value(QStringLiteral("Painter/PaintMode")).toInt());
-}
-
-void KsnipConfig::setPaintMode(PaintMode mode)
-{
-    if (paintMode() == mode) {
-        return;
-    }
-    mConfig.setValue(QStringLiteral("Painter/PaintMode"), static_cast<int>(mode));
-    mConfig.sync();
-}
-
 CaptureModes KsnipConfig::captureMode() const
 {
     // If we are not storing the tool selection, always return the rect area as default
@@ -237,74 +218,6 @@ QString KsnipConfig::savePath(const QString& format) const
 
     auto filename = FilenameFormatter::updateTimeAndDate(saveFilename());
     return FilenameFormatter::makeUniqueFilename(saveDirectory(), filename, selectedFormat);
-}
-
-// Painter
-
-int KsnipConfig::toolSize(const PaintMode tool) const
-{
-    if (tool == PaintMode::Text) {
-        return textFont().pointSize();
-    }
-
-    return mConfig.value(ConfigNameFormatter::toolSize(tool), 3).value<int>();
-}
-
-void KsnipConfig::setToolSize(const PaintMode tool, int size)
-{
-    if (toolSize(tool) == size) {
-        return;
-    }
-
-    if (tool == PaintMode::Text) {
-        auto font = textFont();
-        font.setPointSize(size);
-        mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
-    } else {
-        mConfig.setValue(ConfigNameFormatter::toolSize(tool), size);
-    }
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-QColor KsnipConfig::toolColor(const PaintMode tool) const
-{
-    return mConfig.value(ConfigNameFormatter::toolColor(tool), QColor(Qt::red)).value<QColor>();
-}
-
-void KsnipConfig::setToolColor(const PaintMode tool, const QColor &color)
-{
-    if (toolColor(tool) == color) {
-        return;
-    }
-
-    mConfig.setValue(ConfigNameFormatter::toolColor(tool), color);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-bool KsnipConfig::toolFill(PaintMode tool) const
-{
-    return mConfig.value(ConfigNameFormatter::toolFill(tool), false).value<bool>();
-}
-
-void KsnipConfig::setToolFill(PaintMode tool, bool enabled)
-{
-    if (toolFill(tool) == enabled) {
-        return;
-    }
-
-    mConfig.setValue(ConfigNameFormatter::toolFill(tool), enabled);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-QPen KsnipConfig::toolProperties(PaintMode tool) const
-{
-    QPen pen;
-    pen.setColor(toolColor(tool));
-    pen.setWidth(toolSize(tool));
-    return pen;
 }
 
 bool KsnipConfig::textBold() const

@@ -19,32 +19,26 @@
 
 #include "CapturePrinter.h"
 
-CapturePrinter::CapturePrinter(PaintArea *paintArea)
+CapturePrinter::CapturePrinter()
 {
-    mPaintArea = paintArea;
 }
 
-void CapturePrinter::print(const QString &defaultPath)
+void CapturePrinter::print(const QImage &image, const QString &defaultPath)
 {
-    if (!mPaintArea->isValid()) {
-        return;
-    }
-
     QPrinter printer;
     printer.setOutputFileName(defaultPath);
     printer.setOutputFormat(QPrinter::NativeFormat);
     QPrintDialog printDialog(&printer, 0);
 
     if (printDialog.exec() == QDialog::Accepted) {
-        printCapture(&printer);
+	    printCapture(image, &printer);
     }
 }
 
-void CapturePrinter::printCapture(QPrinter *p)
+void CapturePrinter::printCapture(const QImage &image, QPrinter *p)
 {
     QPainter painter;
     painter.begin(p);
-    auto image = mPaintArea->exportAsImage();
     auto xScale = p->pageRect().width() / double(image.width());
     auto yScale = p->pageRect().height() / double(image.height());
     auto scale = qMin(xScale, yScale);
@@ -56,16 +50,15 @@ void CapturePrinter::printCapture(QPrinter *p)
     painter.end();
 }
 
-void CapturePrinter::printPreview(const QString &defaultPath)
+void CapturePrinter::printPreview(const QImage &image, const QString &defaultPath)
 {
-    if (!mPaintArea->isValid()) {
-        return;
-    }
-
     QPrinter printer;
     printer.setOutputFileName(defaultPath);
     printer.setOutputFormat(QPrinter::NativeFormat);
     QPrintPreviewDialog printDialog(&printer);
-    connect(&printDialog, &QPrintPreviewDialog::paintRequested, this, &CapturePrinter::printCapture);
+	connect(&printDialog, &QPrintPreviewDialog::paintRequested, [this, image](QPrinter *p)
+	{
+		printCapture(image, p);
+	});
     printDialog.exec();
 }

@@ -30,8 +30,6 @@
 
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/formatter/FilenameFormatter.h"
-#include "src/common/formatter/ConfigNameFormatter.h"
-#include "src/common/enum/PaintMode.h"
 
 class KsnipConfig : public QObject
 {
@@ -60,9 +58,6 @@ public:
     QPoint windowPosition() const;
     void setWindowPosition(const QPoint &position);
 
-    PaintMode paintMode() const;
-    void setPaintMode(PaintMode mode);
-
     CaptureModes captureMode() const;
     void setCaptureMode(CaptureModes mode);
 
@@ -79,19 +74,6 @@ public:
     void setUseInstantSave(bool enabled);
 
     QString savePath(const QString &format = QString()) const;
-
-    // Painter
-
-    int toolSize(PaintMode tool) const;
-    void setToolSize(PaintMode tool, int size);
-
-    QColor toolColor(PaintMode tool) const;
-    void setToolColor(PaintMode tool, const QColor &color);
-
-    bool toolFill(PaintMode tool) const;
-    void setToolFill(PaintMode tool, bool enabled);
-
-    QPen toolProperties(PaintMode tool) const;
 
     bool textBold() const;
     void setTextBold(bool bold);
@@ -168,11 +150,12 @@ public:
 
 signals:
     void painterUpdated() const;
+	void toolConfigChanged() const;
 
 private:
     QSettings mConfig;
 
-    KsnipConfig() {};
+	KsnipConfig() = default;;
 };
 
 #endif // KSNIPCONFIG_H

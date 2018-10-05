@@ -130,66 +130,66 @@
     <name>ContextMenu</name>
     <message>
         <source>Arrange</source>
-        <translation>Ordenen</translation>
+        <translation type="vanished">Ordenen</translation>
     </message>
     <message>
         <source>Bring Forward</source>
-        <translation>Naar voren halen</translation>
+        <translation type="vanished">Naar voren halen</translation>
     </message>
     <message>
         <source>Bring to Front</source>
-        <translation>Naar voren halen</translation>
+        <translation type="vanished">Naar voren halen</translation>
     </message>
     <message>
         <source>Send Backward</source>
-        <translation>Naar achter sturen</translation>
+        <translation type="vanished">Naar achter sturen</translation>
     </message>
     <message>
         <source>Send to Back</source>
-        <translation>Naar achter sturen</translation>
+        <translation type="vanished">Naar achter sturen</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Kopiëren</translation>
+        <translation type="vanished">Kopiëren</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation>Plakken</translation>
+        <translation type="vanished">Plakken</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation>Wissen</translation>
+        <translation type="vanished">Wissen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="vanished">Annuleren</translation>
     </message>
 </context>
 <context>
     <name>CropPanel</name>
     <message>
         <source>Crop</source>
-        <translation>Bijsnijden</translation>
+        <translation type="vanished">Bijsnijden</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="vanished">Annuleren</translation>
     </message>
     <message>
         <source>X:</source>
-        <translation>X:</translation>
+        <translation type="vanished">X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation>Y:</translation>
+        <translation type="vanished">Y:</translation>
     </message>
     <message>
         <source>W:</source>
-        <translation>B:</translation>
+        <translation type="vanished">B:</translation>
     </message>
     <message>
         <source>H:</source>
-        <translation>H:</translation>
+        <translation type="vanished">H:</translation>
     </message>
 </context>
 <context>
@@ -276,7 +276,7 @@
     </message>
     <message>
         <source>Setting Painter tool configuration</source>
-        <translation>Bezig met instellen van Painter-hulpmiddel</translation>
+        <translation type="vanished">Bezig met instellen van Painter-hulpmiddel</translation>
     </message>
     <message>
         <source>File</source>
@@ -341,46 +341,46 @@ Wil je deze opslaan?</translation>
     <name>PaintArea</name>
     <message>
         <source>Undo</source>
-        <translation>Ongedaan maken</translation>
+        <translation type="vanished">Ongedaan maken</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Opnieuw</translation>
+        <translation type="vanished">Opnieuw</translation>
     </message>
 </context>
 <context>
     <name>ScaleDialog</name>
     <message>
         <source>Scale Image</source>
-        <translation>Grootte van afbeelding wijzigen</translation>
+        <translation type="vanished">Grootte van afbeelding wijzigen</translation>
     </message>
     <message>
         <source>Keep Aspect Ratio</source>
-        <translation>Beeldverhouding behouden</translation>
+        <translation type="vanished">Beeldverhouding behouden</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Breedte:</translation>
+        <translation type="vanished">Breedte:</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation>Hoogte:</translation>
+        <translation type="vanished">Hoogte:</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>Oké</translation>
+        <translation type="vanished">Oké</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <translation type="vanished">Annuleren</translation>
     </message>
     <message>
         <source>Pixel</source>
-        <translation>Pixel</translation>
+        <translation type="vanished">Pixel</translation>
     </message>
     <message>
         <source>Percent</source>
-        <translation>Procent</translation>
+        <translation type="vanished">Procent</translation>
     </message>
 </context>
 <context>
@@ -684,58 +684,58 @@ Dit vereist dat het schakelhulpmiddel actief wordt.</translation>
     <name>SettingsPickerPopup</name>
     <message>
         <source>Custom</source>
-        <translation>Aangepast</translation>
+        <translation type="vanished">Aangepast</translation>
     </message>
     <message>
         <source>Solid Fill</source>
-        <translation>Opvullen</translation>
+        <translation type="vanished">Opvullen</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Grootte</translation>
+        <translation type="vanished">Grootte</translation>
     </message>
 </context>
 <context>
     <name>ToolPicker</name>
     <message>
         <source>Pen</source>
-        <translation>Pen</translation>
+        <translation type="vanished">Pen</translation>
     </message>
     <message>
         <source>Marker</source>
-        <translation>Markeerstift</translation>
+        <translation type="vanished">Markeerstift</translation>
     </message>
     <message>
         <source>Rect</source>
-        <translation>Rechthoek</translation>
+        <translation type="vanished">Rechthoek</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation>Ellips</translation>
+        <translation type="vanished">Ellips</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>Lijn</translation>
+        <translation type="vanished">Lijn</translation>
     </message>
     <message>
         <source>Arrow</source>
-        <translation>Pijl</translation>
+        <translation type="vanished">Pijl</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Tekst</translation>
+        <translation type="vanished">Tekst</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation>Getal</translation>
+        <translation type="vanished">Getal</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation>Gum</translation>
+        <translation type="vanished">Gum</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Selecteren</translation>
+        <translation type="vanished">Selecteren</translation>
     </message>
 </context>
 <context>

@@ -5,7 +5,7 @@ Version v1.5.0 - alpha
 Ksnip is a Qt based Linux screenshot tool that provides many annotation features 
 for your screenshots.
 
-![Ksnip](https://i.imgur.com/7FF2kkk.jpg "Ksnip with annotations")
+![Ksnip](https://i.imgur.com/Zvnl8PT.png "Ksnip with annotations")
 
 
 ### Features
@@ -19,15 +19,7 @@ Latest ksnip version contains following features:
 * Take screenshot with or without mouse cursor.
 * Customizable capture delay for all capture options.
 * Upload screenshots directly to imgur.com in anonymous or user mode.
-* Drawing on captured screenshot with two different tools, pen (opaque) and maker (semi-transparent).
-* Drawing two shapes ellipse and rectangle, with and without fill.
-* Drawing lines and arrows.
-* Customizable color and size (thickness) for all drawing tools.
-* Writing text on screenshots, with customizable font, size, color etc.
-* Numbering tool with customizable font and color.
-* Any drawing (or multiple selection) can be moved around without deleting it by simply dragging it to new location.
-* Ordering paint items (bring to front, send to back).
-* Cropping captured screensshot, including any drawing on the captured image.
+* Annotate image with pen, marker, rectangles, ellipses, text and other.
 * Command line support, for taking screenshot and saving it to default location, filename and format.
 * Customizable default location, filename and format for saving new screenshots with wildcards for Year ($Y), Month ($M), Day ($D) and Time ($T).
 * Print screenshot or save is to pdf/ps.
@@ -64,6 +56,12 @@ Installing DEB:
 
 
 ### Building from source
+
+#### Dependencies
+Building ksnip from source, requires [kColorPicker](https://github.com/DamirPorobic/kColorPicker) and [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator) to be installed. 
+Installation instructions can be found on the GitHub pages. 
+
+
 1. Get latest release from GitHub by downloading either the zip or tar.gz package from [here](https://github.com/damirporobic/ksnip/releases).  
 2. Change to download directory, unpack the package and go to new directory:  
     `$ cd ~/Downloads`    

@@ -65,7 +65,7 @@ private:
     void setBackgroundImage(const QPixmap &background);
     void clearBackgroundImage();
     void init();
-    void updateCapturedArea(const QPoint &pos1, const QPoint &pos2);
+	void updateCapturedArea(const QPoint &point1, const QPoint &point2);
     QString createPositionInfoText(int number1, int number2) const;
     void drawCursorRuler(QPainter &painter) const;
     void drawCursorPositionInfo(QPainter &painter) const;

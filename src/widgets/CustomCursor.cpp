@@ -24,28 +24,15 @@ CustomCursor::CustomCursor() : QCursor()
 {
 }
 
-CustomCursor::CustomCursor(CursorShape shape, const QColor& color, int size) :
-    QCursor(getPixmapForShape(shape, color, size))
+CustomCursor::CustomCursor(const QColor &color, int size) : QCursor(createCrossPixmap(color, size))
 {
-}
-
-QPixmap CustomCursor::getPixmapForShape(CursorShape shape, const QColor& color, int size) const
-{
-    switch(shape) {
-        case Circle:
-            return createCirclePixmap(color, size);
-        case Rect:
-            return createRectPixmap(color, size);
-        case Cross:
-            return createCrossPixmap(color, size);
-    }
 }
 
 QPixmap CustomCursor::createCrossPixmap(const QColor& color, int size) const
 {
     auto pixmap = createEmptyPixmap();
     QPainter painter(&pixmap);
-    painter.setPen(QPen(QColor(QStringLiteral("red")), 1, Qt::SolidLine));
+    painter.setPen(QPen(Qt::red, 1, Qt::SolidLine));
     painter.drawPoint(16, 16);
     painter.setPen(QPen(color, size, Qt::SolidLine));
     painter.drawLine(16, 12, 16, 0);
@@ -55,38 +42,9 @@ QPixmap CustomCursor::createCrossPixmap(const QColor& color, int size) const
     return pixmap;
 }
 
-QPixmap CustomCursor::createCirclePixmap(const QColor& color, int size) const
-{
-    auto pixmap = createEmptyPixmap();
-    auto pixmapCenter = getPixmapCenter(pixmap);
-    QPainter painter(&pixmap);
-    painter.setBrush(color);
-    painter.setRenderHint(QPainter::Antialiasing);
-    painter.setPen(QStringLiteral("white"));
-    auto radius = (size + painter.pen().width()) / 2;
-    painter.drawEllipse(pixmapCenter, radius, radius);
-    return pixmap;
-}
-
-QPixmap CustomCursor::createRectPixmap(const QColor& color, int size) const
-{
-    auto pixmap = createEmptyPixmap();
-    auto pixmapCenter = getPixmapCenter(pixmap);
-    QPainter painter(&pixmap);
-    painter.setBrush(color);
-    painter.setPen(Qt::NoPen);
-    painter.drawRect(pixmapCenter.x() - size / 2, pixmapCenter.y() - size / 2, size, size);
-    return pixmap;
-}
-
 QPixmap CustomCursor::createEmptyPixmap() const
 {
     QPixmap pixmap(QSize(32, 32));
     pixmap.fill(Qt::transparent);
     return pixmap;
-}
-
-QPoint CustomCursor::getPixmapCenter(const QPixmap& pixmap) const
-{
-    return QPoint(pixmap.width() / 2, pixmap.height() / 2);
 }

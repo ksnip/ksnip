@@ -168,9 +168,9 @@ void SnippingArea::keyPressEvent(QKeyEvent *event)
     QWidget::keyPressEvent(event);
 }
 
-void SnippingArea::updateCapturedArea(const QPoint &pos1, const QPoint &pos2)
+void SnippingArea::updateCapturedArea(const QPoint &point1, const QPoint &point2)
 {
-    mCaptureArea = MathHelper::getRectBetweenTwoPoints(pos1, pos2);
+    mCaptureArea = QRect(point1, point2).normalized();
 }
 
 QString SnippingArea::createPositionInfoText(int number1, int number2) const

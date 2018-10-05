@@ -130,66 +130,66 @@
     <name>ContextMenu</name>
     <message>
         <source>Arrange</source>
-        <translation type="unfinished">Plasser</translation>
+        <translation type="obsolete">Plasser</translation>
     </message>
     <message>
         <source>Bring Forward</source>
-        <translation>Hent forover</translation>
+        <translation type="vanished">Hent forover</translation>
     </message>
     <message>
         <source>Bring to Front</source>
-        <translation>Bring fremst</translation>
+        <translation type="vanished">Bring fremst</translation>
     </message>
     <message>
         <source>Send Backward</source>
-        <translation>Send bakover</translation>
+        <translation type="vanished">Send bakover</translation>
     </message>
     <message>
         <source>Send to Back</source>
-        <translation>Send bakerst</translation>
+        <translation type="vanished">Send bakerst</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Kopier</translation>
+        <translation type="vanished">Kopier</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation>Lim inn</translation>
+        <translation type="vanished">Lim inn</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation>Slett</translation>
+        <translation type="vanished">Slett</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Avbryt</translation>
+        <translation type="vanished">Avbryt</translation>
     </message>
 </context>
 <context>
     <name>CropPanel</name>
     <message>
         <source>Crop</source>
-        <translation>Beskjær</translation>
+        <translation type="vanished">Beskjær</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Avbryt</translation>
+        <translation type="vanished">Avbryt</translation>
     </message>
     <message>
         <source>X:</source>
-        <translation>X:</translation>
+        <translation type="vanished">X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation>Y:</translation>
+        <translation type="vanished">Y:</translation>
     </message>
     <message>
         <source>W:</source>
-        <translation>B:</translation>
+        <translation type="vanished">B:</translation>
     </message>
     <message>
         <source>H:</source>
-        <translation>H:</translation>
+        <translation type="vanished">H:</translation>
     </message>
 </context>
 <context>
@@ -276,7 +276,7 @@
     </message>
     <message>
         <source>Setting Painter tool configuration</source>
-        <translation>Lagrer tegneverktøysoppsett</translation>
+        <translation type="vanished">Lagrer tegneverktøysoppsett</translation>
     </message>
     <message>
         <source>File</source>
@@ -341,46 +341,46 @@ Do you want to save it?</source>
     <name>PaintArea</name>
     <message>
         <source>Undo</source>
-        <translation>Angre</translation>
+        <translation type="vanished">Angre</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Gjenta</translation>
+        <translation type="vanished">Gjenta</translation>
     </message>
 </context>
 <context>
     <name>ScaleDialog</name>
     <message>
         <source>Scale Image</source>
-        <translation>Skaler bilde</translation>
+        <translation type="vanished">Skaler bilde</translation>
     </message>
     <message>
         <source>Keep Aspect Ratio</source>
-        <translation>Behold størrelsesforhold</translation>
+        <translation type="vanished">Behold størrelsesforhold</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Bredde:</translation>
+        <translation type="vanished">Bredde:</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation>Høyde:</translation>
+        <translation type="vanished">Høyde:</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Avbryt</translation>
+        <translation type="vanished">Avbryt</translation>
     </message>
     <message>
         <source>Pixel</source>
-        <translation>Piksel</translation>
+        <translation type="vanished">Piksel</translation>
     </message>
     <message>
         <source>Percent</source>
-        <translation>Prosent</translation>
+        <translation type="vanished">Prosent</translation>
     </message>
 </context>
 <context>
@@ -682,58 +682,58 @@ bytteverktøyet aktiveres.</translation>
     <name>SettingsPickerPopup</name>
     <message>
         <source>Custom</source>
-        <translation>Egendefinert</translation>
+        <translation type="vanished">Egendefinert</translation>
     </message>
     <message>
         <source>Solid Fill</source>
-        <translation>Ensfarget utfylling</translation>
+        <translation type="vanished">Ensfarget utfylling</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Størrelse</translation>
+        <translation type="vanished">Størrelse</translation>
     </message>
 </context>
 <context>
     <name>ToolPicker</name>
     <message>
         <source>Pen</source>
-        <translation>Penn</translation>
+        <translation type="vanished">Penn</translation>
     </message>
     <message>
         <source>Marker</source>
-        <translation>Markør</translation>
+        <translation type="vanished">Markør</translation>
     </message>
     <message>
         <source>Rect</source>
-        <translation>Rekt.</translation>
+        <translation type="vanished">Rekt.</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation>Ellipse</translation>
+        <translation type="vanished">Ellipse</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>Linje</translation>
+        <translation type="vanished">Linje</translation>
     </message>
     <message>
         <source>Arrow</source>
-        <translation>Pil</translation>
+        <translation type="vanished">Pil</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Tekst</translation>
+        <translation type="vanished">Tekst</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation>Nummer</translation>
+        <translation type="vanished">Nummer</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation>Slett</translation>
+        <translation type="vanished">Slett</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Velg</translation>
+        <translation type="vanished">Velg</translation>
     </message>
 </context>
 <context>

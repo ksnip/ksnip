@@ -134,66 +134,66 @@
     <name>ContextMenu</name>
     <message>
         <source>Arrange</source>
-        <translation>Organizar</translation>
+        <translation type="vanished">Organizar</translation>
     </message>
     <message>
         <source>Bring Forward</source>
-        <translation>Traer adelante</translation>
+        <translation type="vanished">Traer adelante</translation>
     </message>
     <message>
         <source>Bring to Front</source>
-        <translation>Traer al frente</translation>
+        <translation type="vanished">Traer al frente</translation>
     </message>
     <message>
         <source>Send Backward</source>
-        <translation>Enviar atrás</translation>
+        <translation type="vanished">Enviar atrás</translation>
     </message>
     <message>
         <source>Send to Back</source>
-        <translation>Enviar al fondo</translation>
+        <translation type="vanished">Enviar al fondo</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Copiar</translation>
+        <translation type="vanished">Copiar</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation>Pegar</translation>
+        <translation type="vanished">Pegar</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation>Borrar</translation>
+        <translation type="vanished">Borrar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="vanished">Cancelar</translation>
     </message>
 </context>
 <context>
     <name>CropPanel</name>
     <message>
         <source>Crop</source>
-        <translation>Cortar</translation>
+        <translation type="vanished">Cortar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="vanished">Cancelar</translation>
     </message>
     <message>
         <source>X:</source>
-        <translation>X:</translation>
+        <translation type="vanished">X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation>Y:</translation>
+        <translation type="vanished">Y:</translation>
     </message>
     <message>
         <source>W:</source>
-        <translation>W:</translation>
+        <translation type="vanished">W:</translation>
     </message>
     <message>
         <source>H:</source>
-        <translation>H:</translation>
+        <translation type="vanished">H:</translation>
     </message>
 </context>
 <context>
@@ -370,7 +370,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Setting Painter tool configuration</source>
-        <translation>Ajustes de la configuración de la herramienta Painter</translation>
+        <translation type="vanished">Ajustes de la configuración de la herramienta Painter</translation>
     </message>
     <message>
         <source>File</source>
@@ -445,46 +445,46 @@ Desea guardarla?</translation>
     <name>PaintArea</name>
     <message>
         <source>Undo</source>
-        <translation>Deshacer</translation>
+        <translation type="vanished">Deshacer</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Rehacer</translation>
+        <translation type="vanished">Rehacer</translation>
     </message>
 </context>
 <context>
     <name>ScaleDialog</name>
     <message>
         <source>Scale Image</source>
-        <translation>Escala de Imagen</translation>
+        <translation type="vanished">Escala de Imagen</translation>
     </message>
     <message>
         <source>Keep Aspect Ratio</source>
-        <translation>Mantener aspecto de Radio</translation>
+        <translation type="vanished">Mantener aspecto de Radio</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Ancho:</translation>
+        <translation type="vanished">Ancho:</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation>Alto:</translation>
+        <translation type="vanished">Alto:</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>Aceptar</translation>
+        <translation type="vanished">Aceptar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="vanished">Cancelar</translation>
     </message>
     <message>
         <source>Pixel</source>
-        <translation>Pixel</translation>
+        <translation type="vanished">Pixel</translation>
     </message>
     <message>
         <source>Percent</source>
-        <translation>Porcentaje</translation>
+        <translation type="vanished">Porcentaje</translation>
     </message>
 </context>
 <context>
@@ -800,58 +800,58 @@ al guardar, pero se guardará instantáneamente en la ubicación predeterminada.
     <name>SettingsPickerPopup</name>
     <message>
         <source>Custom</source>
-        <translation>Personalizar</translation>
+        <translation type="vanished">Personalizar</translation>
     </message>
     <message>
         <source>Solid Fill</source>
-        <translation>Rellenar solido</translation>
+        <translation type="vanished">Rellenar solido</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Tamaño</translation>
+        <translation type="vanished">Tamaño</translation>
     </message>
 </context>
 <context>
     <name>ToolPicker</name>
     <message>
         <source>Pen</source>
-        <translation>Lápiz</translation>
+        <translation type="vanished">Lápiz</translation>
     </message>
     <message>
         <source>Marker</source>
-        <translation>Marcador</translation>
+        <translation type="vanished">Marcador</translation>
     </message>
     <message>
         <source>Rect</source>
-        <translation>Rectangular</translation>
+        <translation type="vanished">Rectangular</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation>Elipse</translation>
+        <translation type="vanished">Elipse</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>Línea</translation>
+        <translation type="vanished">Línea</translation>
     </message>
     <message>
         <source>Arrow</source>
-        <translation>Flecha</translation>
+        <translation type="vanished">Flecha</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Texto</translation>
+        <translation type="vanished">Texto</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation>Número</translation>
+        <translation type="vanished">Número</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation>Borrar</translation>
+        <translation type="vanished">Borrar</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Seleccionar</translation>
+        <translation type="vanished">Seleccionar</translation>
     </message>
 </context>
 <context>

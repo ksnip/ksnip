@@ -19,6 +19,7 @@ install:
   - mkdir build && cd build
   - cmake ..
   - make && sudo make install
+  - cd ../..
   - git clone git://github.com/DamirPorobic/kColorPicker
   - cd kColorPicker
   - mkdir build && cd build

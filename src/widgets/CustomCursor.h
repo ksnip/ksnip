@@ -27,23 +27,12 @@
 class CustomCursor : public QCursor
 {
 public:
-    enum CursorShape {
-        Rect,
-        Circle,
-        Cross
-    };
-
-public:
     CustomCursor();
-    CustomCursor(CursorShape shape, const QColor &color = nullptr, int size = 22);
+    explicit CustomCursor(const QColor &color = nullptr, int size = 22);
 
 private:
-    QPixmap getPixmapForShape(CursorShape shape, const QColor &color, int size) const;
     QPixmap createCrossPixmap(const QColor &color, int size) const;
-    QPixmap createCirclePixmap(const QColor &color, int size) const;
-    QPixmap createRectPixmap(const QColor &color, int size) const;
     QPixmap createEmptyPixmap() const;
-    QPoint getPixmapCenter(const QPixmap &pixmap) const;
 };
 
 #endif // CUSTOMCURSOR_H

@@ -131,66 +131,66 @@
     <name>ContextMenu</name>
     <message>
         <source>Arrange</source>
-        <translation>Anordnen</translation>
+        <translation type="vanished">Anordnen</translation>
     </message>
     <message>
         <source>Bring Forward</source>
-        <translation>Vorbringen</translation>
+        <translation type="vanished">Vorbringen</translation>
     </message>
     <message>
         <source>Bring to Front</source>
-        <translation>Nach vorne bringen</translation>
+        <translation type="vanished">Nach vorne bringen</translation>
     </message>
     <message>
         <source>Send Backward</source>
-        <translation>Sende rückwärts</translation>
+        <translation type="vanished">Sende rückwärts</translation>
     </message>
     <message>
         <source>Send to Back</source>
-        <translation>Nach hinten schicken</translation>
+        <translation type="vanished">Nach hinten schicken</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Kopieren</translation>
+        <translation type="vanished">Kopieren</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation>Einfügen</translation>
+        <translation type="vanished">Einfügen</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation>Löschen</translation>
+        <translation type="vanished">Löschen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation type="vanished">Abbrechen</translation>
     </message>
 </context>
 <context>
     <name>CropPanel</name>
     <message>
         <source>Crop</source>
-        <translation>Ausschneiden</translation>
+        <translation type="vanished">Ausschneiden</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation type="vanished">Abbrechen</translation>
     </message>
     <message>
         <source>X:</source>
-        <translation>X:</translation>
+        <translation type="vanished">X:</translation>
     </message>
     <message>
         <source>Y:</source>
-        <translation>Y:</translation>
+        <translation type="vanished">Y:</translation>
     </message>
     <message>
         <source>W:</source>
-        <translation>B:</translation>
+        <translation type="vanished">B:</translation>
     </message>
     <message>
         <source>H:</source>
-        <translation>H:</translation>
+        <translation type="vanished">H:</translation>
     </message>
 </context>
 <context>
@@ -367,7 +367,7 @@ Möchten Sie es speichern?</translation>
     </message>
     <message>
         <source>Setting Painter tool configuration</source>
-        <translation>Werkzeugkonfiguration einstellen</translation>
+        <translation type="vanished">Werkzeugkonfiguration einstellen</translation>
     </message>
     <message>
         <source>File</source>
@@ -442,46 +442,46 @@ Möchten Sie es speichern?</translation>
     <name>PaintArea</name>
     <message>
         <source>Undo</source>
-        <translation>Rückgängig machen</translation>
+        <translation type="vanished">Rückgängig machen</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Wiederholen</translation>
+        <translation type="vanished">Wiederholen</translation>
     </message>
 </context>
 <context>
     <name>ScaleDialog</name>
     <message>
         <source>Scale Image</source>
-        <translation>Bild skalieren</translation>
+        <translation type="vanished">Bild skalieren</translation>
     </message>
     <message>
         <source>Keep Aspect Ratio</source>
-        <translation>Seitenverhältnis beibehalten</translation>
+        <translation type="vanished">Seitenverhältnis beibehalten</translation>
     </message>
     <message>
         <source>Width:</source>
-        <translation>Breite:</translation>
+        <translation type="vanished">Breite:</translation>
     </message>
     <message>
         <source>Height:</source>
-        <translation>Höhe:</translation>
+        <translation type="vanished">Höhe:</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation type="vanished">Abbrechen</translation>
     </message>
     <message>
         <source>Pixel</source>
-        <translation>Pixel</translation>
+        <translation type="vanished">Pixel</translation>
     </message>
     <message>
         <source>Percent</source>
-        <translation>Prozent</translation>
+        <translation type="vanished">Prozent</translation>
     </message>
 </context>
 <context>
@@ -796,58 +796,58 @@ sondern speichert sofort am Standardspeicherort.</translation>
     <name>SettingsPickerPopup</name>
     <message>
         <source>Custom</source>
-        <translation>Benutzerdefiniert</translation>
+        <translation type="vanished">Benutzerdefiniert</translation>
     </message>
     <message>
         <source>Solid Fill</source>
-        <translation>Ausgefüllt</translation>
+        <translation type="vanished">Ausgefüllt</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Größe</translation>
+        <translation type="vanished">Größe</translation>
     </message>
 </context>
 <context>
     <name>ToolPicker</name>
     <message>
         <source>Pen</source>
-        <translation>Stift</translation>
+        <translation type="vanished">Stift</translation>
     </message>
     <message>
         <source>Marker</source>
-        <translation>Markierstift</translation>
+        <translation type="vanished">Markierstift</translation>
     </message>
     <message>
         <source>Rect</source>
-        <translation>Rechteck</translation>
+        <translation type="vanished">Rechteck</translation>
     </message>
     <message>
         <source>Ellipse</source>
-        <translation>Ellipse</translation>
+        <translation type="vanished">Ellipse</translation>
     </message>
     <message>
         <source>Line</source>
-        <translation>Linie</translation>
+        <translation type="vanished">Linie</translation>
     </message>
     <message>
         <source>Arrow</source>
-        <translation>Pfeil</translation>
+        <translation type="vanished">Pfeil</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation type="vanished">Text</translation>
     </message>
     <message>
         <source>Number</source>
-        <translation>Nummer</translation>
+        <translation type="vanished">Nummer</translation>
     </message>
     <message>
         <source>Erase</source>
-        <translation>Löschen</translation>
+        <translation type="vanished">Löschen</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Selektieren</translation>
+        <translation type="vanished">Selektieren</translation>
     </message>
 </context>
 <context>

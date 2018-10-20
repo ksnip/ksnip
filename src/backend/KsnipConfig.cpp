@@ -103,7 +103,7 @@ QPoint KsnipConfig::windowPosition() const
     // If we are not saving the position we return the default and ignore what
     // has been save earlier
     if (!saveKsnipPosition()) {
-        return QPoint(200, 200);
+	    return { 200, 200 };
     }
 
     return mConfig.value(QStringLiteral("MainWindow/Position"), QPoint(200, 200)).value<QPoint>();
@@ -115,25 +115,6 @@ void KsnipConfig::setWindowPosition(const QPoint& position)
         return;
     }
     mConfig.setValue(QStringLiteral("MainWindow/Position"), position);
-    mConfig.sync();
-}
-
-PaintMode KsnipConfig::paintMode() const
-{
-    // If we are not storing the tool selection, always return the pen as default
-    if (!saveKsnipToolSelection()) {
-        return PaintMode::Pen;
-    }
-
-    return PaintMode(mConfig.value(QStringLiteral("Painter/PaintMode")).toInt());
-}
-
-void KsnipConfig::setPaintMode(PaintMode mode)
-{
-    if (paintMode() == mode) {
-        return;
-    }
-    mConfig.setValue(QStringLiteral("Painter/PaintMode"), static_cast<int>(mode));
     mConfig.sync();
 }
 
@@ -239,74 +220,6 @@ QString KsnipConfig::savePath(const QString& format) const
     return FilenameFormatter::makeUniqueFilename(saveDirectory(), filename, selectedFormat);
 }
 
-// Painter
-
-int KsnipConfig::toolSize(const PaintMode tool) const
-{
-    if (tool == PaintMode::Text) {
-        return textFont().pointSize();
-    }
-
-    return mConfig.value(ConfigNameFormatter::toolSize(tool), 3).value<int>();
-}
-
-void KsnipConfig::setToolSize(const PaintMode tool, int size)
-{
-    if (toolSize(tool) == size) {
-        return;
-    }
-
-    if (tool == PaintMode::Text) {
-        auto font = textFont();
-        font.setPointSize(size);
-        mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
-    } else {
-        mConfig.setValue(ConfigNameFormatter::toolSize(tool), size);
-    }
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-QColor KsnipConfig::toolColor(const PaintMode tool) const
-{
-    return mConfig.value(ConfigNameFormatter::toolColor(tool), QColor(Qt::red)).value<QColor>();
-}
-
-void KsnipConfig::setToolColor(const PaintMode tool, const QColor &color)
-{
-    if (toolColor(tool) == color) {
-        return;
-    }
-
-    mConfig.setValue(ConfigNameFormatter::toolColor(tool), color);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-bool KsnipConfig::toolFill(PaintMode tool) const
-{
-    return mConfig.value(ConfigNameFormatter::toolFill(tool), false).value<bool>();
-}
-
-void KsnipConfig::setToolFill(PaintMode tool, bool enabled)
-{
-    if (toolFill(tool) == enabled) {
-        return;
-    }
-
-    mConfig.setValue(ConfigNameFormatter::toolFill(tool), enabled);
-    mConfig.sync();
-    emit painterUpdated();
-}
-
-QPen KsnipConfig::toolProperties(PaintMode tool) const
-{
-    QPen pen;
-    pen.setColor(toolColor(tool));
-    pen.setWidth(toolSize(tool));
-    return pen;
-}
-
 bool KsnipConfig::textBold() const
 {
     return textFont().bold();
@@ -323,6 +236,7 @@ void KsnipConfig::setTextBold(bool  bold)
     mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
     mConfig.sync();
     emit painterUpdated();
+	emit toolConfigChanged();
 }
 
 bool KsnipConfig::textItalic() const
@@ -341,6 +255,7 @@ void KsnipConfig::setTextItalic(bool  italic)
     mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
     mConfig.sync();
     emit painterUpdated();
+	emit toolConfigChanged();
 }
 
 bool KsnipConfig::textUnderline() const
@@ -359,6 +274,7 @@ void KsnipConfig::setTextUnderline(bool  underline)
     mConfig.setValue(QStringLiteral("Painter/TextFont"), font);
     mConfig.sync();
     emit painterUpdated();
+	emit toolConfigChanged();
 }
 
 QFont KsnipConfig::textFont() const
@@ -377,6 +293,7 @@ void KsnipConfig::setTextFont(const QFont& font)
     mConfig.setValue(QStringLiteral("Painter/TextFont"), tmpFont);
     mConfig.sync();
     emit painterUpdated();
+	emit toolConfigChanged();
 }
 
 QFont KsnipConfig::numberFont() const
@@ -396,6 +313,7 @@ void KsnipConfig::setNumberFont(const QFont& font)
     mConfig.setValue(QStringLiteral("Painter/NumberFont"), tmpFont);
     mConfig.sync();
     emit painterUpdated();
+	emit toolConfigChanged();
 }
 
 bool KsnipConfig::itemShadowEnabled() const
@@ -411,6 +329,7 @@ void KsnipConfig::setItemShadowEnabled(bool enabled)
 
     mConfig.setValue(QStringLiteral("Painter/ItemShadowEnabled"), enabled);
     mConfig.sync();
+	emit toolConfigChanged();
 }
 
 bool KsnipConfig::smoothPathEnabled() const
@@ -426,6 +345,7 @@ void KsnipConfig::setSmoothPathEnabled(bool  enabled)
 
     mConfig.setValue(QStringLiteral("Painter/SmoothPathEnabled"), enabled);
     mConfig.sync();
+	emit toolConfigChanged();
 }
 
 int KsnipConfig::smoothFactor() const
@@ -441,6 +361,7 @@ void KsnipConfig::setSmoothFactor(int  factor)
 
     mConfig.setValue(QStringLiteral("Painter/SmoothPathFactor"), factor);
     mConfig.sync();
+	emit toolConfigChanged();
 }
 
 bool KsnipConfig::dynamicCursorSizeEnabled() const

@@ -77,7 +77,7 @@ void AboutDialog::createAboutTab()
     auto layout = new QVBoxLayout();
     auto label = new QLabel();
     label->setText(QStringLiteral("<b>") + QApplication::applicationName() + QStringLiteral(" ") + tr("Screenshot Tool") + QStringLiteral("</b><br/><br/>") +
-                   tr("(C) 2017 Damir Porobic") + QStringLiteral("<br/><br/>") +
+	    tr("(C) 2018 Damir Porobic") + QStringLiteral("<br/><br/>") +
                    tr("License: ") + QStringLiteral("<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU General Public License Version 2</a>") + QStringLiteral("<br/><br/>") +
                    tr("Please use ") + QStringLiteral("<a href=\"https://github.com/damirporobic/ksnip/issues/\">GitHub</a>") + tr(" to report bugs."));
     label->setTextFormat(Qt::RichText);
@@ -91,16 +91,16 @@ void AboutDialog::createVersionTab()
 {
     auto layout = new QVBoxLayout();
     auto label = new QLabel();
-    label->setText(QStringLiteral("<b>") + tr("Version ") + QApplication::applicationVersion() +
-                   QStringLiteral("</b><br/><br/>") +
-                   tr("Using:") +
-                   QStringLiteral("<ul>"
+	label->setText(QStringLiteral("<b>") + tr("Version") + QStringLiteral(": ") + QApplication::applicationVersion() + QStringLiteral("</b>") +
+		QStringLiteral("<br/><b>") + tr("Build") + QStringLiteral(": ") + QStringLiteral(KSNIP_BUILD_NUMBER) + QStringLiteral("</b>") +
+		QStringLiteral("</b><br/><br/>") +
+		tr("Using:") +
+		QStringLiteral("<ul>"
                                   "<li>Qt5</li>"
                                   "<li>X11</li>"
                                   "<li>KDE Wayland</li>"
                                   "<li>Gnome Wayland</li>"
-                                  "</ul>"
-                                  "<br />"));
+		               "</ul>"));
     layout->addWidget(label);
     mVersionWidget->setLayout(layout);
 }

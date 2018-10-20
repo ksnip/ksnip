@@ -3,8 +3,10 @@
 
 // Variables passed from CMAKE
 
-#cmakedefine KSNIP_VERSION "@KSNIP_VERSION@"
+#define KSNIP_VERSION "@KSNIP_VERSION@"
 
-#cmakedefine KSNIP_LANG_INSTAL_DIR "@KSNIP_LANG_INSTAL_DIR@"
+#define KSNIP_BUILD_NUMBER "@BUILD_NUMBER@"
+
+#define KSNIP_LANG_INSTAL_DIR "@KSNIP_LANG_INSTAL_DIR@"
 
 #endif

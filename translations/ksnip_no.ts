@@ -57,11 +57,11 @@
     </message>
     <message>
         <source>(C) 2018 Damir Porobic</source>
-        <translation type="unfinished">© 2017 Damir Porobic {2018 ?}</translation>
+        <translation>© 2018 Damir Porobic</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Bygg</translation>
     </message>
 </context>
 <context>
@@ -256,7 +256,7 @@
         <source>The capture has been modified.
 Do you want to save it?</source>
         <translation type="unfinished">Avbildningen har blitt endret.
-Ønsker du å lagre?</translation>
+Ønsker du å lagre den?</translation>
     </message>
     <message>
         <source>Imgur Upload</source>

@@ -8,11 +8,11 @@ git:
   depth: false
 
 before_install:
-- sudo add-apt-repository ppa:beineri/opt-qt592-trusty -y
+- sudo add-apt-repository ppa:beineri/opt-qt562-trusty -y
 - sudo apt-get update -qq
 
 install:
-- sudo apt-get -y install qt59base qt59x11extras qt59tools qt59imageformats
+- sudo apt-get -y install qt56base qt56x11extras qt56tools qt56svg qt56imageformats
 - source /opt/qt*/bin/qt*-env.sh
 - git clone git://anongit.kde.org/extra-cmake-modules
 - cd extra-cmake-modules
@@ -37,23 +37,25 @@ install:
 
 
 script:
-  - export VERSION=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD) # required for version sufix
-  - cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DVERSION_SUFIX=$VERSION
-  - make -j$(nproc)
-  - make DESTDIR=appdir -j$(nproc) install ; find appdir/
-  - mkdir appdir/usr/bin ; mv appdir/bin/ksnip ./appdir/usr/bin/ ; rm -r ./appdir/bin
-  - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
-  - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
-#  - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
-  - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
-  - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage -extra-plugins=iconengines,imageformats
+- export VERSION=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD) # required for version suffix
+- cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DVERSION_SUFIX=$VERSION
+- make -j$(nproc)
+- make DESTDIR=appdir -j$(nproc) install ; find appdir/
+- mkdir appdir/usr/bin ; mv appdir/bin/ksnip ./appdir/usr/bin/ ; rm -r ./appdir/bin
+- wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+- chmod a+x linuxdeployqt-continuous-x86_64.AppImage
+- unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
+- sudo find / -name "iconengines"
+- sudo find / -name "imageformats"
+- ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
+- ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage -extra-plugins=iconengines,imageformats
 
 after_success:
-  - find appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq
-  - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash upload.sh ksnip*.AppImage*
+- find appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq
+- wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+- bash upload.sh ksnip*.AppImage*
 
 branches:
   except:
-    - # Do not build tags that we create when we upload to GitHub Releases
-    - /^(?i:continuous)/
+  - # Do not build tags that we create when we upload to GitHub Releases
+  - /^(?i:continuous)/

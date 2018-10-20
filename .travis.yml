@@ -18,16 +18,16 @@ matrix:
 
 
 before_install:
-  - ci/scripts/bootstrap.sh
+  - source ci/scripts/bootstrap.sh
 
 install:
-  - ci/scripts/setup.sh
+  - source ci/scripts/setup.sh
 
 script:
-  - ci/scripts/build.sh
+  - source ci/scripts/build.sh
 
 after_success:
-  - ci/scripts/upload.sh
+  - source ci/scripts/upload.sh
 
 branches:
   except:

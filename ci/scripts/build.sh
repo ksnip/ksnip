@@ -10,6 +10,6 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
     ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
     ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage -extra-plugins=iconengines,imageformats
-else
-    echo "build stuff here"
+elif [[ "${BUILD_TYPE}" == "deb" ]]; then
+    debuild -us -uc
 fi

@@ -28,10 +28,6 @@
         <translation>Schermafbeeldingshulpmiddel</translation>
     </message>
     <message>
-        <source>(C) 2017 Damir Porobic</source>
-        <translation type="vanished">(C) 2017 Damir Porobic</translation>
-    </message>
-    <message>
         <source>License: </source>
         <translation>Licentie </translation>
     </message>
@@ -42,10 +38,6 @@
     <message>
         <source> to report bugs.</source>
         <translation> om bugs te melden.</translation>
-    </message>
-    <message>
-        <source>Version </source>
-        <translation type="vanished">Versie </translation>
     </message>
     <message>
         <source>Using:</source>
@@ -135,72 +127,6 @@
     </message>
 </context>
 <context>
-    <name>ContextMenu</name>
-    <message>
-        <source>Arrange</source>
-        <translation type="vanished">Ordenen</translation>
-    </message>
-    <message>
-        <source>Bring Forward</source>
-        <translation type="vanished">Naar voren halen</translation>
-    </message>
-    <message>
-        <source>Bring to Front</source>
-        <translation type="vanished">Naar voren halen</translation>
-    </message>
-    <message>
-        <source>Send Backward</source>
-        <translation type="vanished">Naar achter sturen</translation>
-    </message>
-    <message>
-        <source>Send to Back</source>
-        <translation type="vanished">Naar achter sturen</translation>
-    </message>
-    <message>
-        <source>Copy</source>
-        <translation type="vanished">Kopiëren</translation>
-    </message>
-    <message>
-        <source>Paste</source>
-        <translation type="vanished">Plakken</translation>
-    </message>
-    <message>
-        <source>Erase</source>
-        <translation type="vanished">Wissen</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Annuleren</translation>
-    </message>
-</context>
-<context>
-    <name>CropPanel</name>
-    <message>
-        <source>Crop</source>
-        <translation type="vanished">Bijsnijden</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Annuleren</translation>
-    </message>
-    <message>
-        <source>X:</source>
-        <translation type="vanished">X:</translation>
-    </message>
-    <message>
-        <source>Y:</source>
-        <translation type="vanished">Y:</translation>
-    </message>
-    <message>
-        <source>W:</source>
-        <translation type="vanished">B:</translation>
-    </message>
-    <message>
-        <source>H:</source>
-        <translation type="vanished">H:</translation>
-    </message>
-</context>
-<context>
     <name>MainWindow</name>
     <message>
         <source>Unsaved</source>
@@ -283,10 +209,6 @@
         <translation>Openen</translation>
     </message>
     <message>
-        <source>Setting Painter tool configuration</source>
-        <translation type="vanished">Bezig met instellen van Painter-hulpmiddel</translation>
-    </message>
-    <message>
         <source>File</source>
         <translation>Bestand</translation>
     </message>
@@ -343,52 +265,6 @@ Wil je deze opslaan?</translation>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation>Je staat op het punt om de schermafbeelding te uploaden naar imgur.com. Wil je doorgaan?</translation>
-    </message>
-</context>
-<context>
-    <name>PaintArea</name>
-    <message>
-        <source>Undo</source>
-        <translation type="vanished">Ongedaan maken</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation type="vanished">Opnieuw</translation>
-    </message>
-</context>
-<context>
-    <name>ScaleDialog</name>
-    <message>
-        <source>Scale Image</source>
-        <translation type="vanished">Grootte van afbeelding wijzigen</translation>
-    </message>
-    <message>
-        <source>Keep Aspect Ratio</source>
-        <translation type="vanished">Beeldverhouding behouden</translation>
-    </message>
-    <message>
-        <source>Width:</source>
-        <translation type="vanished">Breedte:</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="vanished">Hoogte:</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">Oké</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Annuleren</translation>
-    </message>
-    <message>
-        <source>Pixel</source>
-        <translation type="vanished">Pixel</translation>
-    </message>
-    <message>
-        <source>Percent</source>
-        <translation type="vanished">Procent</translation>
     </message>
 </context>
 <context>
@@ -686,64 +562,6 @@ Dit vereist dat het schakelhulpmiddel actief wordt.</translation>
     <message>
         <source>Capture save location</source>
         <translation>Opslaglocatie</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsPickerPopup</name>
-    <message>
-        <source>Custom</source>
-        <translation type="vanished">Aangepast</translation>
-    </message>
-    <message>
-        <source>Solid Fill</source>
-        <translation type="vanished">Opvullen</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">Grootte</translation>
-    </message>
-</context>
-<context>
-    <name>ToolPicker</name>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Pen</translation>
-    </message>
-    <message>
-        <source>Marker</source>
-        <translation type="vanished">Markeerstift</translation>
-    </message>
-    <message>
-        <source>Rect</source>
-        <translation type="vanished">Rechthoek</translation>
-    </message>
-    <message>
-        <source>Ellipse</source>
-        <translation type="vanished">Ellips</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="vanished">Lijn</translation>
-    </message>
-    <message>
-        <source>Arrow</source>
-        <translation type="vanished">Pijl</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation type="vanished">Tekst</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="vanished">Getal</translation>
-    </message>
-    <message>
-        <source>Erase</source>
-        <translation type="vanished">Gum</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">Selecteren</translation>
     </message>
 </context>
 <context>

@@ -9,7 +9,7 @@ set(ksnip_LANG_TS
 	ksnip_ru.ts)
 
 if (DEFINED UPDATE_TS_FILES)
-    qt5_create_translation(ksnip_LANG_QM ${CMAKE_SOURCE_DIR}/translations ${ksnip_SRCS} ${ksnip_LANG_TS})
+	qt5_create_translation(ksnip_LANG_QM ${CMAKE_SOURCE_DIR}/translations ${ksnip_SRCS} ${ksnip_LANG_TS} OPTIONS "-no-obsolete")
 else ()
 	qt5_add_translation(ksnip_LANG_QM ${ksnip_LANG_TS})
 endif ()

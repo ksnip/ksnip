@@ -28,16 +28,8 @@
         <translation>Screenshot-Tool</translation>
     </message>
     <message>
-        <source>(C) 2017 Damir Porobic</source>
-        <translation type="vanished">(C) 2017 Damir Porobic</translation>
-    </message>
-    <message>
         <source>License: </source>
         <translation>Lizenz: </translation>
-    </message>
-    <message>
-        <source>Version </source>
-        <translation type="vanished">Version </translation>
     </message>
     <message>
         <source>Using:</source>
@@ -136,72 +128,6 @@
     </message>
 </context>
 <context>
-    <name>ContextMenu</name>
-    <message>
-        <source>Arrange</source>
-        <translation type="vanished">Anordnen</translation>
-    </message>
-    <message>
-        <source>Bring Forward</source>
-        <translation type="vanished">Vorbringen</translation>
-    </message>
-    <message>
-        <source>Bring to Front</source>
-        <translation type="vanished">Nach vorne bringen</translation>
-    </message>
-    <message>
-        <source>Send Backward</source>
-        <translation type="vanished">Sende rückwärts</translation>
-    </message>
-    <message>
-        <source>Send to Back</source>
-        <translation type="vanished">Nach hinten schicken</translation>
-    </message>
-    <message>
-        <source>Copy</source>
-        <translation type="vanished">Kopieren</translation>
-    </message>
-    <message>
-        <source>Paste</source>
-        <translation type="vanished">Einfügen</translation>
-    </message>
-    <message>
-        <source>Erase</source>
-        <translation type="vanished">Löschen</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Abbrechen</translation>
-    </message>
-</context>
-<context>
-    <name>CropPanel</name>
-    <message>
-        <source>Crop</source>
-        <translation type="vanished">Ausschneiden</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Abbrechen</translation>
-    </message>
-    <message>
-        <source>X:</source>
-        <translation type="vanished">X:</translation>
-    </message>
-    <message>
-        <source>Y:</source>
-        <translation type="vanished">Y:</translation>
-    </message>
-    <message>
-        <source>W:</source>
-        <translation type="vanished">B:</translation>
-    </message>
-    <message>
-        <source>H:</source>
-        <translation type="vanished">H:</translation>
-    </message>
-</context>
-<context>
     <name>MainWindow</name>
     <message>
         <source>Warning - </source>
@@ -216,46 +142,6 @@ Möchten Sie es speichern?</translation>
     <message>
         <source>Unsaved</source>
         <translation>Ungespeichert</translation>
-    </message>
-    <message>
-        <source>Rectangular Area</source>
-        <translation type="vanished">Rechteckiger Bereich</translation>
-    </message>
-    <message>
-        <source>Draw a rectangular area with your mouse</source>
-        <translation type="vanished">Zeichnen Sie einen rechteckigen Bereich mit der Maus</translation>
-    </message>
-    <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation type="vanished">Vollbild (alle Monitore)</translation>
-    </message>
-    <message>
-        <source>Capture full screen including all monitors</source>
-        <translation type="vanished">Vollbild Aufnahme einschließlich aller Monitore</translation>
-    </message>
-    <message>
-        <source>Current Screen</source>
-        <translation type="vanished">Aktueller Bildschirm</translation>
-    </message>
-    <message>
-        <source>Capture screen where the mouse is located</source>
-        <translation type="vanished">Aufname des Bildschirm wo sich die Maus befindet</translation>
-    </message>
-    <message>
-        <source>Active Window</source>
-        <translation type="vanished">Aktives Fenster</translation>
-    </message>
-    <message>
-        <source>Capture window that currently has focus</source>
-        <translation type="vanished">Aufnahme des Fenster welchses Fokus hat</translation>
-    </message>
-    <message>
-        <source>Window Under Cursor</source>
-        <translation type="vanished">Fenster under der Maus</translation>
-    </message>
-    <message>
-        <source>Capture that is currently under the mouse cursor</source>
-        <translation type="vanished">Aufnahme des Fensters welches sich unter der Maus befindet</translation>
     </message>
     <message>
         <source>Save</source>
@@ -314,46 +200,6 @@ Möchten Sie es speichern?</translation>
         <translation>Bildschirmaufnahme skalieren</translation>
     </message>
     <message>
-        <source>Pen</source>
-        <translation type="vanished">Stift</translation>
-    </message>
-    <message>
-        <source>Marker</source>
-        <translation type="vanished">Markierstift</translation>
-    </message>
-    <message>
-        <source>Rect</source>
-        <translation type="vanished">Rechteck</translation>
-    </message>
-    <message>
-        <source>Ellipse</source>
-        <translation type="vanished">Ellipse</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="vanished">Linie</translation>
-    </message>
-    <message>
-        <source>Arrow</source>
-        <translation type="vanished">Pfeil</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation type="vanished">Text</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="vanished">Nummer</translation>
-    </message>
-    <message>
-        <source>Erase</source>
-        <translation type="vanished">Löschen</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">Selektieren</translation>
-    </message>
-    <message>
         <source>New</source>
         <translation>Neu</translation>
     </message>
@@ -372,10 +218,6 @@ Möchten Sie es speichern?</translation>
     <message>
         <source>Open</source>
         <translation>Öffnen</translation>
-    </message>
-    <message>
-        <source>Setting Painter tool configuration</source>
-        <translation type="vanished">Werkzeugkonfiguration einstellen</translation>
     </message>
     <message>
         <source>File</source>
@@ -418,78 +260,12 @@ Möchten Sie es speichern?</translation>
         <translation>Sie sind im Begriff, den Screenshot auf imgur.com hochzuladen, möchten Sie fortfahren?</translation>
     </message>
     <message>
-        <source>Waiting for imgur.com...</source>
-        <translation type="vanished">Warten auf imgur.com...</translation>
-    </message>
-    <message>
-        <source>Upload to imgur.com finished!</source>
-        <translation type="vanished">Hochladen zu imgur.com abgeschlossen!</translation>
-    </message>
-    <message>
-        <source>An error occurred while uploading to imgur.com.</source>
-        <translation type="vanished">Beim hochladen zu imgur.com ist ein Fehler aufgetreten.</translation>
-    </message>
-    <message>
-        <source>Received new token, trying upload again...</source>
-        <translation type="vanished">Neues Token erhalten, erneuter Hochladen versuch ...</translation>
-    </message>
-    <message>
-        <source>Imgur token has expired, requesting new token...</source>
-        <translation type="vanished">Imgur-Token ist abgelaufen, fordere einen neuen Token an ...</translation>
-    </message>
-    <message>
         <source>Open Image</source>
         <translation>Bild öffnen</translation>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>Bilddateien (* .png * .jpg * .bmp)</translation>
-    </message>
-</context>
-<context>
-    <name>PaintArea</name>
-    <message>
-        <source>Undo</source>
-        <translation type="vanished">Rückgängig machen</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation type="vanished">Wiederholen</translation>
-    </message>
-</context>
-<context>
-    <name>ScaleDialog</name>
-    <message>
-        <source>Scale Image</source>
-        <translation type="vanished">Bild skalieren</translation>
-    </message>
-    <message>
-        <source>Keep Aspect Ratio</source>
-        <translation type="vanished">Seitenverhältnis beibehalten</translation>
-    </message>
-    <message>
-        <source>Width:</source>
-        <translation type="vanished">Breite:</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="vanished">Höhe:</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">OK</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Abbrechen</translation>
-    </message>
-    <message>
-        <source>Pixel</source>
-        <translation type="vanished">Pixel</translation>
-    </message>
-    <message>
-        <source>Percent</source>
-        <translation type="vanished">Prozent</translation>
     </message>
 </context>
 <context>
@@ -507,10 +283,6 @@ Möchten Sie es speichern?</translation>
         <translation>Aufnahme immer in die Zwischenablage kopieren</translation>
     </message>
     <message>
-        <source>Prompt to save before exiting ksnip</source>
-        <translation type="vanished">Aufforderung zum Speichern, bevor ksnip beendet wird</translation>
-    </message>
-    <message>
         <source>Save ksnip position on move and load on startup</source>
         <translation>Ksnip-Position beim Verschieben speichern und beim Starten laden</translation>
     </message>
@@ -523,16 +295,8 @@ Möchten Sie es speichern?</translation>
         <translation>Beim starten Screenshot Aufnahmen im Standardmodus</translation>
     </message>
     <message>
-        <source>Save always instantly to default location</source>
-        <translation type="vanished">Aufnahmen automatisch im Standardspeicherort speichern</translation>
-    </message>
-    <message>
         <source>Capture save location and filename</source>
         <translation>Speicherort und Dateiname für Aufnahmen</translation>
-    </message>
-    <message>
-        <source>Filename can contain $Y, $M, $D for date and $T for time.</source>
-        <translation type="vanished">Dateiname kann $ Y, $ M, $ D für Datum und $ T für Zeit enthalten.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -798,64 +562,6 @@ sondern speichert sofort am Standardspeicherort.</translation>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
         <translation>Dateiname kann $Y, $M, $D für Datum, $h, $m, $s für Zeit oder $T für Zeit im hhmmss-Format enthalten.</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsPickerPopup</name>
-    <message>
-        <source>Custom</source>
-        <translation type="vanished">Benutzerdefiniert</translation>
-    </message>
-    <message>
-        <source>Solid Fill</source>
-        <translation type="vanished">Ausgefüllt</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">Größe</translation>
-    </message>
-</context>
-<context>
-    <name>ToolPicker</name>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Stift</translation>
-    </message>
-    <message>
-        <source>Marker</source>
-        <translation type="vanished">Markierstift</translation>
-    </message>
-    <message>
-        <source>Rect</source>
-        <translation type="vanished">Rechteck</translation>
-    </message>
-    <message>
-        <source>Ellipse</source>
-        <translation type="vanished">Ellipse</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="vanished">Linie</translation>
-    </message>
-    <message>
-        <source>Arrow</source>
-        <translation type="vanished">Pfeil</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation type="vanished">Text</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="vanished">Nummer</translation>
-    </message>
-    <message>
-        <source>Erase</source>
-        <translation type="vanished">Löschen</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">Selektieren</translation>
     </message>
 </context>
 <context>

@@ -28,10 +28,6 @@
         <translation>Skjermavbildningsverktøy</translation>
     </message>
     <message>
-        <source>(C) 2017 Damir Porobic</source>
-        <translation type="obsolete">© 2017 Damir Porobic</translation>
-    </message>
-    <message>
         <source>License: </source>
         <translation>Lisens: </translation>
     </message>
@@ -42,10 +38,6 @@
     <message>
         <source> to report bugs.</source>
         <translation> for å innrapportere feil.</translation>
-    </message>
-    <message>
-        <source>Version </source>
-        <translation type="vanished">Versjon </translation>
     </message>
     <message>
         <source>Using:</source>
@@ -135,72 +127,6 @@
     </message>
 </context>
 <context>
-    <name>ContextMenu</name>
-    <message>
-        <source>Arrange</source>
-        <translation type="obsolete">Plasser</translation>
-    </message>
-    <message>
-        <source>Bring Forward</source>
-        <translation type="vanished">Hent forover</translation>
-    </message>
-    <message>
-        <source>Bring to Front</source>
-        <translation type="vanished">Bring fremst</translation>
-    </message>
-    <message>
-        <source>Send Backward</source>
-        <translation type="vanished">Send bakover</translation>
-    </message>
-    <message>
-        <source>Send to Back</source>
-        <translation type="vanished">Send bakerst</translation>
-    </message>
-    <message>
-        <source>Copy</source>
-        <translation type="vanished">Kopier</translation>
-    </message>
-    <message>
-        <source>Paste</source>
-        <translation type="vanished">Lim inn</translation>
-    </message>
-    <message>
-        <source>Erase</source>
-        <translation type="vanished">Slett</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Avbryt</translation>
-    </message>
-</context>
-<context>
-    <name>CropPanel</name>
-    <message>
-        <source>Crop</source>
-        <translation type="vanished">Beskjær</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Avbryt</translation>
-    </message>
-    <message>
-        <source>X:</source>
-        <translation type="vanished">X:</translation>
-    </message>
-    <message>
-        <source>Y:</source>
-        <translation type="vanished">Y:</translation>
-    </message>
-    <message>
-        <source>W:</source>
-        <translation type="vanished">B:</translation>
-    </message>
-    <message>
-        <source>H:</source>
-        <translation type="vanished">H:</translation>
-    </message>
-</context>
-<context>
     <name>MainWindow</name>
     <message>
         <source>Unsaved</source>
@@ -283,10 +209,6 @@
         <translation>Åpne</translation>
     </message>
     <message>
-        <source>Setting Painter tool configuration</source>
-        <translation type="vanished">Lagrer tegneverktøysoppsett</translation>
-    </message>
-    <message>
         <source>File</source>
         <translation>Fil</translation>
     </message>
@@ -343,52 +265,6 @@ Do you want to save it?</source>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation>Du er i ferd med å laste opp skjermavbildningen til imgur.com, ønsker du å fortsette?</translation>
-    </message>
-</context>
-<context>
-    <name>PaintArea</name>
-    <message>
-        <source>Undo</source>
-        <translation type="vanished">Angre</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation type="vanished">Gjenta</translation>
-    </message>
-</context>
-<context>
-    <name>ScaleDialog</name>
-    <message>
-        <source>Scale Image</source>
-        <translation type="vanished">Skaler bilde</translation>
-    </message>
-    <message>
-        <source>Keep Aspect Ratio</source>
-        <translation type="vanished">Behold størrelsesforhold</translation>
-    </message>
-    <message>
-        <source>Width:</source>
-        <translation type="vanished">Bredde:</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="vanished">Høyde:</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">OK</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Avbryt</translation>
-    </message>
-    <message>
-        <source>Pixel</source>
-        <translation type="vanished">Piksel</translation>
-    </message>
-    <message>
-        <source>Percent</source>
-        <translation type="vanished">Prosent</translation>
     </message>
 </context>
 <context>
@@ -684,64 +560,6 @@ bytteverktøyet aktiveres.</translation>
     <message>
         <source>Capture save location</source>
         <translation>Avbildningslagringssted</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsPickerPopup</name>
-    <message>
-        <source>Custom</source>
-        <translation type="vanished">Egendefinert</translation>
-    </message>
-    <message>
-        <source>Solid Fill</source>
-        <translation type="vanished">Ensfarget utfylling</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">Størrelse</translation>
-    </message>
-</context>
-<context>
-    <name>ToolPicker</name>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Penn</translation>
-    </message>
-    <message>
-        <source>Marker</source>
-        <translation type="vanished">Markør</translation>
-    </message>
-    <message>
-        <source>Rect</source>
-        <translation type="vanished">Rekt.</translation>
-    </message>
-    <message>
-        <source>Ellipse</source>
-        <translation type="vanished">Ellipse</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="vanished">Linje</translation>
-    </message>
-    <message>
-        <source>Arrow</source>
-        <translation type="vanished">Pil</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation type="vanished">Tekst</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="vanished">Nummer</translation>
-    </message>
-    <message>
-        <source>Erase</source>
-        <translation type="vanished">Slett</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">Velg</translation>
     </message>
 </context>
 <context>

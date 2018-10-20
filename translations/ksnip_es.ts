@@ -28,16 +28,8 @@
         <translation>Herramienta de Captura de pantalla</translation>
     </message>
     <message>
-        <source>(C) 2017 Damir Porobic</source>
-        <translation type="vanished">(C) 2017 Damir Porobic</translation>
-    </message>
-    <message>
         <source>License: </source>
         <translation>Licencia: </translation>
-    </message>
-    <message>
-        <source>Version </source>
-        <translation type="vanished">Versión </translation>
     </message>
     <message>
         <source>Using:</source>
@@ -50,10 +42,6 @@
     <message>
         <source> to report bugs.</source>
         <translation> para reportar errores.</translation>
-    </message>
-    <message>
-        <source>The author, &lt;b&gt;Damir Porobic&lt;/b&gt;, can be contacted via </source>
-        <translation type="vanished">El autor, &lt;b&gt;Damir Porobic&lt;/b&gt;, puede ser contactado vía </translation>
     </message>
     <message>
         <source>The Author:</source>
@@ -139,72 +127,6 @@
     </message>
 </context>
 <context>
-    <name>ContextMenu</name>
-    <message>
-        <source>Arrange</source>
-        <translation type="vanished">Organizar</translation>
-    </message>
-    <message>
-        <source>Bring Forward</source>
-        <translation type="vanished">Traer adelante</translation>
-    </message>
-    <message>
-        <source>Bring to Front</source>
-        <translation type="vanished">Traer al frente</translation>
-    </message>
-    <message>
-        <source>Send Backward</source>
-        <translation type="vanished">Enviar atrás</translation>
-    </message>
-    <message>
-        <source>Send to Back</source>
-        <translation type="vanished">Enviar al fondo</translation>
-    </message>
-    <message>
-        <source>Copy</source>
-        <translation type="vanished">Copiar</translation>
-    </message>
-    <message>
-        <source>Paste</source>
-        <translation type="vanished">Pegar</translation>
-    </message>
-    <message>
-        <source>Erase</source>
-        <translation type="vanished">Borrar</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
-    </message>
-</context>
-<context>
-    <name>CropPanel</name>
-    <message>
-        <source>Crop</source>
-        <translation type="vanished">Cortar</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
-    </message>
-    <message>
-        <source>X:</source>
-        <translation type="vanished">X:</translation>
-    </message>
-    <message>
-        <source>Y:</source>
-        <translation type="vanished">Y:</translation>
-    </message>
-    <message>
-        <source>W:</source>
-        <translation type="vanished">W:</translation>
-    </message>
-    <message>
-        <source>H:</source>
-        <translation type="vanished">H:</translation>
-    </message>
-</context>
-<context>
     <name>MainWindow</name>
     <message>
         <source>Warning - </source>
@@ -219,46 +141,6 @@ Desea guardarla?</translation>
     <message>
         <source>Unsaved</source>
         <translation>No guardado</translation>
-    </message>
-    <message>
-        <source>Rectangular Area</source>
-        <translation type="vanished">Área Rectangular</translation>
-    </message>
-    <message>
-        <source>Draw a rectangular area with your mouse</source>
-        <translation type="vanished">Dibuje un área rectangular con el mouse</translation>
-    </message>
-    <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation type="vanished">Pantalla Completa( Todos los monitores)</translation>
-    </message>
-    <message>
-        <source>Capture full screen including all monitors</source>
-        <translation type="vanished">Capturar pantalla completa incluyendo todos los monitores</translation>
-    </message>
-    <message>
-        <source>Current Screen</source>
-        <translation type="vanished">Pantalla Actual</translation>
-    </message>
-    <message>
-        <source>Capture screen where the mouse is located</source>
-        <translation type="vanished">Capturar pantalla donde se localiza el Mouse</translation>
-    </message>
-    <message>
-        <source>Active Window</source>
-        <translation type="vanished">Activar Ventana</translation>
-    </message>
-    <message>
-        <source>Capture window that currently has focus</source>
-        <translation type="vanished">Capturar pantalla que esta enfocada actualmente</translation>
-    </message>
-    <message>
-        <source>Window Under Cursor</source>
-        <translation type="vanished">Ventana debajo del cursor</translation>
-    </message>
-    <message>
-        <source>Capture that is currently under the mouse cursor</source>
-        <translation type="vanished">Captura que se encuentra actualmente debajo del cursor del mouse</translation>
     </message>
     <message>
         <source>Save</source>
@@ -317,46 +199,6 @@ Desea guardarla?</translation>
         <translation>Escalar Captura de Imagen</translation>
     </message>
     <message>
-        <source>Pen</source>
-        <translation type="vanished">Lápiz</translation>
-    </message>
-    <message>
-        <source>Marker</source>
-        <translation type="vanished">Marcador</translation>
-    </message>
-    <message>
-        <source>Rect</source>
-        <translation type="vanished">Rectangular</translation>
-    </message>
-    <message>
-        <source>Ellipse</source>
-        <translation type="vanished">Elipse</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="vanished">Linea</translation>
-    </message>
-    <message>
-        <source>Arrow</source>
-        <translation type="vanished">Flecha</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation type="vanished">Texto</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="vanished">Número</translation>
-    </message>
-    <message>
-        <source>Erase</source>
-        <translation type="vanished">Borrar</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">Seleccionar</translation>
-    </message>
-    <message>
         <source>New</source>
         <translation>Nuevo</translation>
     </message>
@@ -375,10 +217,6 @@ Desea guardarla?</translation>
     <message>
         <source>Open</source>
         <translation>Abrir</translation>
-    </message>
-    <message>
-        <source>Setting Painter tool configuration</source>
-        <translation type="vanished">Ajustes de la configuración de la herramienta Painter</translation>
     </message>
     <message>
         <source>File</source>
@@ -421,78 +259,12 @@ Desea guardarla?</translation>
         <translation>Estas a punto de subir la captura de pantalla a imgur.com, quieres continuar?</translation>
     </message>
     <message>
-        <source>Waiting for imgur.com...</source>
-        <translation type="vanished">Esperando por imgur.com...</translation>
-    </message>
-    <message>
-        <source>Upload to imgur.com finished!</source>
-        <translation type="vanished">Subir a imgur.com terminado!</translation>
-    </message>
-    <message>
-        <source>An error occurred while uploading to imgur.com.</source>
-        <translation type="vanished">Se produjo un error al cargar a imgur.com.</translation>
-    </message>
-    <message>
-        <source>Received new token, trying upload again...</source>
-        <translation type="vanished">Recibió un nuevo token, intentando subir de nuevo ...</translation>
-    </message>
-    <message>
-        <source>Imgur token has expired, requesting new token...</source>
-        <translation type="vanished">Imgur token ha caducado, solicitando un nuevo token ...</translation>
-    </message>
-    <message>
         <source>Open Image</source>
         <translation>Abrir Imagen</translation>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>Archivos de Imagen (*.png *.jpg *.bmp)</translation>
-    </message>
-</context>
-<context>
-    <name>PaintArea</name>
-    <message>
-        <source>Undo</source>
-        <translation type="vanished">Deshacer</translation>
-    </message>
-    <message>
-        <source>Redo</source>
-        <translation type="vanished">Rehacer</translation>
-    </message>
-</context>
-<context>
-    <name>ScaleDialog</name>
-    <message>
-        <source>Scale Image</source>
-        <translation type="vanished">Escala de Imagen</translation>
-    </message>
-    <message>
-        <source>Keep Aspect Ratio</source>
-        <translation type="vanished">Mantener aspecto de Radio</translation>
-    </message>
-    <message>
-        <source>Width:</source>
-        <translation type="vanished">Ancho:</translation>
-    </message>
-    <message>
-        <source>Height:</source>
-        <translation type="vanished">Alto:</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">Aceptar</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
-    </message>
-    <message>
-        <source>Pixel</source>
-        <translation type="vanished">Pixel</translation>
-    </message>
-    <message>
-        <source>Percent</source>
-        <translation type="vanished">Porcentaje</translation>
     </message>
 </context>
 <context>
@@ -510,10 +282,6 @@ Desea guardarla?</translation>
         <translation>Copie siempre la captura al portapapeles</translation>
     </message>
     <message>
-        <source>Prompt to save before exiting ksnip</source>
-        <translation type="vanished">Solicitar guardar antes de salir de ksnip</translation>
-    </message>
-    <message>
         <source>Save ksnip position on move and load on startup</source>
         <translation>Guarde la posición ksnip en movimiento y cargue al inicio</translation>
     </message>
@@ -526,16 +294,8 @@ Desea guardarla?</translation>
         <translation>Captura de pantalla al inicio con el modo predeterminado</translation>
     </message>
     <message>
-        <source>Save always instantly to default location</source>
-        <translation type="vanished">Guardar siempre al instante en la ubicación predeterminada</translation>
-    </message>
-    <message>
         <source>Capture save location and filename</source>
         <translation>Capture la ubicación de guardar y nombre de archivo</translation>
-    </message>
-    <message>
-        <source>Filename can contain $Y, $M, $D for date and $T for time.</source>
-        <translation type="vanished">El nombre de archivo puede contener $ Y, $ M, $ D para la fecha y $ T para el tiempo.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -802,64 +562,6 @@ al guardar, pero se guardará instantáneamente en la ubicación predeterminada.
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
         <translation>El nombre de archivo puede contener $ Y, $ M, $ D por fecha, $ h, $ m, $ s por hora o $ T por hora en formato hhmmss.</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsPickerPopup</name>
-    <message>
-        <source>Custom</source>
-        <translation type="vanished">Personalizar</translation>
-    </message>
-    <message>
-        <source>Solid Fill</source>
-        <translation type="vanished">Rellenar solido</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="vanished">Tamaño</translation>
-    </message>
-</context>
-<context>
-    <name>ToolPicker</name>
-    <message>
-        <source>Pen</source>
-        <translation type="vanished">Lápiz</translation>
-    </message>
-    <message>
-        <source>Marker</source>
-        <translation type="vanished">Marcador</translation>
-    </message>
-    <message>
-        <source>Rect</source>
-        <translation type="vanished">Rectangular</translation>
-    </message>
-    <message>
-        <source>Ellipse</source>
-        <translation type="vanished">Elipse</translation>
-    </message>
-    <message>
-        <source>Line</source>
-        <translation type="vanished">Línea</translation>
-    </message>
-    <message>
-        <source>Arrow</source>
-        <translation type="vanished">Flecha</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation type="vanished">Texto</translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="vanished">Número</translation>
-    </message>
-    <message>
-        <source>Erase</source>
-        <translation type="vanished">Borrar</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation type="vanished">Seleccionar</translation>
     </message>
 </context>
 <context>

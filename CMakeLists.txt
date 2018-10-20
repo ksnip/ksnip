@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.5)
 project(ksnip LANGUAGES CXX VERSION 1.5.0)
 
-if(DEFINED VERSION_SUFIX)
+if (DEFINED VERSION_SUFIX)
     set(KSNIP_VERSION_SUFIX "-${VERSION_SUFIX}")
 endif()
 
-set(KSNIP_VERSION "${VERSION}${KSNIP_VERSION_SUFIX}")
+set(KSNIP_VERSION "${PROJECT_VERSION}${KSNIP_VERSION_SUFIX}")
 set(KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
 
 configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/src/BuildConfig.h)

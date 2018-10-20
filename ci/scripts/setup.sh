@@ -28,3 +28,7 @@ if [[ "${BUILD_TYPE}" == "AppImage"  || "${BUILD_TYPE}" == "deb" ]]; then
     sudo ldconfig
     cd ../..
 fi
+
+if [[ "${BUILD_TYPE}" == "deb" ]]; then
+    sudo apt-get -y install devscripts
+fi

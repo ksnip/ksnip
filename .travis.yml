@@ -24,21 +24,10 @@ install:
   - ci/scripts/setup.sh
 
 script:
-  - ci/build.sh
+  - ci/scripts/build.sh
 
-#after_success:
-#  - find appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq
-#  - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-#  - bash upload.sh ksnip*.AppImage*
-
-deploy:
-  provider: releases
-  api_key: "GITHUB_TOKEN"
-  file_glob: true
-  file: ksnip-*
-  skip_cleanup: true
-  on:
-    tags: true
+after_success:
+  - ci/scripts/upload.sh
 
 branches:
   except:

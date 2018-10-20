@@ -28,10 +28,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>(C) 2017 Damir Porobic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>License: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -41,10 +37,6 @@
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Version </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -61,6 +53,14 @@
     </message>
     <message>
         <source>Spanish Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(C) 2018 Damir Porobic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

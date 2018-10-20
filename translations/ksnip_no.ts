@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>(C) 2017 Damir Porobic</source>
-        <translation type="unfinished">© 2017 Damir Porobic</translation>
+        <translation type="obsolete">© 2017 Damir Porobic</translation>
     </message>
     <message>
         <source>License: </source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Version </source>
-        <translation>Versjon </translation>
+        <translation type="vanished">Versjon </translation>
     </message>
     <message>
         <source>Using:</source>
@@ -62,6 +62,14 @@
     <message>
         <source>Spanish Translation</source>
         <translation>Spansk oversettelse</translation>
+    </message>
+    <message>
+        <source>(C) 2018 Damir Porobic</source>
+        <translation type="unfinished">© 2017 Damir Porobic {2018 ?}</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

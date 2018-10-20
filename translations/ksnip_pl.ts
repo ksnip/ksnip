@@ -28,10 +28,6 @@
         <translation>Narzędzie do zrzutów ekranu</translation>
     </message>
     <message>
-        <source>(C) 2017 Damir Porobic</source>
-        <translation>(C) 2017 Damir Porobic</translation>
-    </message>
-    <message>
         <source>License: </source>
         <translation>Licencja </translation>
     </message>
@@ -42,10 +38,6 @@
     <message>
         <source> to report bugs.</source>
         <translation> do raportowania błędów.</translation>
-    </message>
-    <message>
-        <source>Version </source>
-        <translation>Wersja </translation>
     </message>
     <message>
         <source>Using:</source>
@@ -62,6 +54,14 @@
     <message>
         <source>Spanish Translation</source>
         <translation>Tłumaczenie Hiszpańskie</translation>
+    </message>
+    <message>
+        <source>(C) 2018 Damir Porobic</source>
+        <translation>(C) 2018 Damir Porobic</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

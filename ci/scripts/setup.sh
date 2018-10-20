@@ -31,4 +31,5 @@ fi
 
 if [[ "${BUILD_TYPE}" == "deb" ]]; then
     sudo apt-get -y install devscripts
+    cp -R ci/debian .
 fi

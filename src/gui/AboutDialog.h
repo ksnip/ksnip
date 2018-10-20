@@ -24,6 +24,7 @@
 #include <QDialog>
 
 #include "MainWindow.h"
+#include "BuildConfig.h"
 
 class QLabel;
 class MainWindow;

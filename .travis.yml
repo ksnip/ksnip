@@ -39,8 +39,9 @@ install:
 
 script:
   - export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
-  - export VERSION=Continuous-$BUILD_NUMBER
-  - cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DVERSION_SUFIX=Continuous -DBUILD_NUMBER=$BUILD_NUMBER
+  - export VERSION_SUFFIX=continuous
+  - export VERSION=$VERSION_SUFFIX-$BUILD_NUMBER
+  - cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DVERSION_SUFIX=$VERSION_SUFFIX -DBUILD_NUMBER=$BUILD_NUMBER
   - make -j$(nproc)
   - make DESTDIR=appdir -j$(nproc) install ; find appdir/
   - mkdir appdir/usr/bin ; mv appdir/bin/ksnip ./appdir/usr/bin/ ; rm -r ./appdir/bin

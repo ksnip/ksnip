@@ -29,7 +29,8 @@ find_package(X11 REQUIRED)
 find_package(XCB COMPONENTS XFIXES)
 find_package(Qt5X11Extras ${QT_MIN_VERSION} REQUIRED)
 
-find_package(kImageAnnotator REQUIRED)
+set(KIMAGEANNOTATOR_MIN_VERSION "0.0.1")
+find_package(kImageAnnotator ${KIMAGEANNOTATOR_MIN_VERSION} REQUIRED)
 
 set(BASEPATH "${CMAKE_SOURCE_DIR}")
 include_directories("${BASEPATH}")

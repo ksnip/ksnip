@@ -12,6 +12,7 @@ matrix:
       env: BUILD_TYPE=AppImage
     - os: linux
       env: BUILD_TYPE=deb
+      services: docker
     - os: linux
       env: BUILD_TYPE=rpm
       services: docker

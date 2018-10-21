@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt-get update
-apt-get install git cmake qt5-default libqt5x11extras5-dev qttools5-dev-tools extra-cmake-modules
+apt-get -y install git cmake qt5-default libqt5x11extras5-dev qttools5-dev-tools extra-cmake-modules
 
 cd kColorPicker
 mkdir build && cd build

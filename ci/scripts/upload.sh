@@ -1,8 +1,5 @@
 #!/bin/bash
 
-pwd
-ls
-
 wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
 
 if [[ "${BUILD_TYPE}" == "AppImage" ]]; then

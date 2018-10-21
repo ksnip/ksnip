@@ -29,13 +29,11 @@ if [[ "${BUILD_TYPE}" == "AppImage"  || "${BUILD_TYPE}" == "deb" ]]; then
     cd ../..
 fi
 
-echo "Done default build now should do debian stuff"
-
 if [[ "${BUILD_TYPE}" == "deb" ]]; then
-    echo "build debian stuff here"
-    sudo apt-get -y install devscripts
-    tar -czf ksnip_1.5.0.orig.tar.gz CMakeLists.txt desktop/ icons/ LICENSE README.md src/
-#    cp -R ci/debian .
-    pwd
-    ls
+    mkdir debBuild
+    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ debBuild/
+    tar -cvzf ksnip_1.5.0.orig.tar.gz debBuild/
+    cp -R ci/debian debBuild/
+    git clone git://github.com/DamirPorobic/kColorPicker
+    git clone git://github.com/DamirPorobic/kImageAnnotator
 fi

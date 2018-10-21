@@ -11,5 +11,7 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
     ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage -extra-plugins=iconengines,imageformats
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
+    cd ci
     debuild -us -uc
+    cd ..
 fi

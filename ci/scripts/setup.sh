@@ -29,8 +29,13 @@ if [[ "${BUILD_TYPE}" == "AppImage"  || "${BUILD_TYPE}" == "deb" ]]; then
     cd ../..
 fi
 
+echo "Done default build now should do debian stuff"
+
 if [[ "${BUILD_TYPE}" == "deb" ]]; then
+    echo "build debian stuff here"
     sudo apt-get -y install devscripts
     tar -czf ksnip_1.5.0.orig.tar.gz CMakeLists.txt desktop/ icons/ LICENSE README.md src/
-    cp -R ci/debian .
+#    cp -R ci/debian .
+    pwd
+    ls
 fi

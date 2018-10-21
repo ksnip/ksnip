@@ -7,13 +7,13 @@ cd kColorPicker
 mkdir build && cd build
 cmake ..
 make && make install
-sudo ldconfig
+ldconfig
 cd ../..
 cd kImageAnnotator
 mkdir build && cd build
 cmake ..
 make && make install
-sudo ldconfig
+ldconfig
 cd ../..
 
 cd debBuild

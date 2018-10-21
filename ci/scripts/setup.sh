@@ -35,12 +35,12 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ debBuild/
     tar -cvzf ksnip_1.5.0.orig.tar.gz debBuild/
     cp -R ci/debian debBuild/
-
+    
     cp CHANGELOG.md changelog
     sed -i '1,2d' changelog
     sed -i 's/\[\(.*[^]]*\)\].*/\1)/g' changelog
     sed -i "s/^[[:blank:]]*$/\n -- ksnip <damir.porobic@gmx.com>  ${BUILD_TIME}\n/" changelog
     sed -i 's/## Release \([0-9]\.[0-9]\.[0-9]\)/ksnip (\1-1)  stretch; urgency=medium\n/' changelog
     sed -i 's/^\(\* .*\)/  \1/' changelog
-    cp changelog debian/
+    cp changelog debBuild/debian/
 fi

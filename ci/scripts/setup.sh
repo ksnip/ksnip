@@ -31,5 +31,6 @@ fi
 
 if [[ "${BUILD_TYPE}" == "deb" ]]; then
     sudo apt-get -y install devscripts
+    tar -czf ksnip_1.5.0.orig.tar.gz CMakeLists.txt desktop/ icons/ LICENSE README.md src/
     cp -R ci/debian .
 fi

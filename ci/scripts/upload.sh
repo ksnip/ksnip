@@ -8,4 +8,3 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     bash upload.sh ksnip*.deb
 fi
-

@@ -12,4 +12,5 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage -extra-plugins=iconengines,imageformats
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     docker run -v `pwd`:`pwd` -w `pwd` -it ubuntu:17.10 bash -c "source ci/scripts/createDeb.sh"
+    mv ksnip_*.deb ksnip-$VERSION-amd64.deb
 fi

@@ -7,4 +7,6 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     bash upload.sh ksnip*.AppImage*
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     bash upload.sh ksnip*.deb
+elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
+    bash upload.sh ksnip*.rpm
 fi

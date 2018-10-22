@@ -5,4 +5,6 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     sudo apt-get update -qq
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     docker pull ubuntu:17.10
+elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
+    docker pull opensuse:42.1
 fi

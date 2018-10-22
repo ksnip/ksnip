@@ -5,6 +5,9 @@ export BUILD_TIME=$(date +"%a, %d %b %Y %X %z")
 export VERSION_SUFFIX=continuous
 export VERSION=$VERSION_SUFFIX-$BUILD_NUMBER
 
+git clone git://github.com/DamirPorobic/kColorPicker
+git clone git://github.com/DamirPorobic/kImageAnnotator
+
 if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     sudo apt-get -y install qt56base qt56x11extras qt56tools qt56svg
     source /opt/qt*/bin/qt*-env.sh
@@ -14,14 +17,12 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     cmake ..
     make && sudo make install
     cd ../..
-    git clone git://github.com/DamirPorobic/kColorPicker
     cd kColorPicker
     mkdir build && cd build
     cmake ..
     make && sudo make install
     sudo ldconfig
     cd ../..
-    git clone git://github.com/DamirPorobic/kImageAnnotator
     cd kImageAnnotator
     mkdir build && cd build
     cmake ..
@@ -29,8 +30,6 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     sudo ldconfig
     cd ../..
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
-    git clone git://github.com/DamirPorobic/kColorPicker
-    git clone git://github.com/DamirPorobic/kImageAnnotator
     mkdir debBuild
     cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ debBuild/
     tar -cvzf ksnip_1.5.0.orig.tar.gz debBuild/
@@ -44,4 +43,12 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     sed -i 's/^\(\* .*\)/  \1/' changelog # Add two spaces before every entry
     echo "\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TIME}" >> changelog # Add time and author for the first release
     cp changelog debBuild/debian/
+elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
+    mkdir rpmBuild
+    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ rpmBuild/
+    tar -cvzf ksnip_1.5.0.tar.gz rpmBuild/
+    mkdir rpmBuild/SOURCE
+    cp ksnip_1.5.0.tar.gz rpmBuild/SOURCE/
+    mkdir rpmBuild/SPECS
+    cp ci/rpm/ksnip-1.5.0.spec rpmBuild/SPECS/
 fi

@@ -11,6 +11,9 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
     ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage -extra-plugins=iconengines,imageformats
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
-    docker run -v `pwd`:`pwd` -w `pwd` -it ubuntu:17.10 bash -c "source ci/scripts/createDeb.sh"
+    docker run -v `pwd`:`pwd` -w `pwd` -it ubuntu:17.10 bash -c "source ci/scripts/create_deb.sh"
     mv ksnip_*.deb ksnip-$VERSION-amd64.deb
+elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
+    docker run -v `pwd`:`pwd` -w `pwd` -it opensuse:42.1 bash -c "source ci/scripts/create_rpm.sh"
+    mv ksnip-*.rpm ksnip-$VERSION-x86_64.rpm
 fi

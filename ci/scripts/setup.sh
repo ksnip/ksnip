@@ -46,7 +46,7 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     mkdir rpmBuild
     cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ rpmBuild/
-    tar -cvzf ksnip_1.5.0.tar.gz rpmBuild/
+    tar -cvzf ksnip-1.5.0.tar.gz rpmBuild/
     mkdir rpmBuild/SOURCES
     cp ksnip-1.5.0.tar.gz rpmBuild/SOURCES/
     mkdir rpmBuild/SPECS

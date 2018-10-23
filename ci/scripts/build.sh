@@ -15,5 +15,5 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     mv ksnip_*.deb ksnip-$VERSION-amd64.deb
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     docker run -v `pwd`:`pwd` -w `pwd` -it opensuse:42.2 bash -c "source ci/scripts/create_rpm.sh"
-    mv ksnip-*.rpm ksnip-$VERSION-x86_64.rpm
+    mv ksnip-1.5.0/RPMS/x86_64/ksnip-*.rpm ksnip-$VERSION-x86_64.rpm
 fi

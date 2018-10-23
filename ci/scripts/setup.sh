@@ -44,11 +44,11 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     echo "\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TIME}" >> changelog # Add time and author for the first release
     cp changelog debBuild/debian/
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
-    mkdir rpmBuild
-    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ rpmBuild/
-    tar -cvzf ksnip-1.5.0.tar.gz rpmBuild/
-    mkdir rpmBuild/SOURCES
-    cp ksnip-1.5.0.tar.gz rpmBuild/SOURCES/
-    mkdir rpmBuild/SPECS
-    cp ci/rpm/ksnip-1.5.0.spec rpmBuild/SPECS/
+    mkdir ksnip-1.5.0
+    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-1.5.0/
+    tar -cvzf ksnip-1.5.0.tar.gz ksnip-1.5.0/
+    mkdir ksnip-1.5.0/SOURCES
+    cp ksnip-1.5.0.tar.gz ksnip-1.5.0/SOURCES/
+    mkdir ksnip-1.5.0/SPECS
+    cp ci/rpm/ksnip-1.5.0.spec ksnip-1.5.0/SPECS/
 fi

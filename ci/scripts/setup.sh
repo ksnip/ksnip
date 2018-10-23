@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
-export BUILD_TIME=$(date +"%a, %d %b %Y %X %z")
+export BUILD_TIME=$(date +"%a, %d %b %Y %T %z")
 export VERSION_SUFFIX=continuous
 export VERSION=$VERSION_SUFFIX-$BUILD_NUMBER
 

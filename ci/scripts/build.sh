@@ -14,6 +14,6 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     docker run -v `pwd`:`pwd` -w `pwd` -it ubuntu:17.10 bash -c "source ci/scripts/create_deb.sh"
     mv ksnip_*.deb ksnip-$VERSION-amd64.deb
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
-    docker run -v `pwd`:`pwd` -w `pwd` -it opensuse:42.1 bash -c "source ci/scripts/create_rpm.sh"
+    docker run -v `pwd`:`pwd` -w `pwd` -it opensuse:42.2 bash -c "source ci/scripts/create_rpm.sh"
     mv ksnip-*.rpm ksnip-$VERSION-x86_64.rpm
 fi

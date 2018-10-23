@@ -48,7 +48,7 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ rpmBuild/
     tar -cvzf ksnip_1.5.0.tar.gz rpmBuild/
     mkdir rpmBuild/SOURCES
-    cp ksnip_1.5.0.tar.gz rpmBuild/SOURCES/
+    cp ksnip-1.5.0.tar.gz rpmBuild/SOURCES/
     mkdir rpmBuild/SPECS
     cp ci/rpm/ksnip-1.5.0.spec rpmBuild/SPECS/
 fi

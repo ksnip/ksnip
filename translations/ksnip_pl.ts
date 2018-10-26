@@ -309,7 +309,7 @@ podczas zapisywania, ale natychmiast zapisze w domyślnej lokalizacji.</translat
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapisz lokalizację i nazwę pliku</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>

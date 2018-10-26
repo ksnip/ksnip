@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Kompilacja</translation>
     </message>
 </context>
 <context>
@@ -317,16 +317,17 @@ podczas zapisywania, ale natychmiast zapisze w domyślnej lokalizacji.</translat
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Przeglądaj</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Przechwyć kursor myszy na zrzucie ekranu</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type="unfinished"></translation>
+        <translation>Czy kursor myszy powinien być widoczny
+na zrzutach ekranu.</translation>
     </message>
     <message>
         <source>Delay (sec)</source>
@@ -349,7 +350,7 @@ desktop corner to cursor on snipping area.</source>
     </message>
     <message>
         <source>Show cursor position info</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż informacje o pozycji kursora</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
@@ -360,7 +361,7 @@ and right from the captured area.</source>
     </message>
     <message>
         <source>Cursor Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolor kursora</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
@@ -370,7 +371,7 @@ take effect.</source>
     </message>
     <message>
         <source>Cursor Thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>Grubość kursora</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area
@@ -380,23 +381,23 @@ take effect.</source>
     </message>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Wymuś anonimowe przesyłanie</translation>
     </message>
     <message>
         <source>Open link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Otwórz link bezpośrednio do obrazu</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Zawsze kopiuj link Imgur do schowka</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished"></translation>
+        <translation>Poproś o potwierdzenie przed przesłaniem</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Identyfikator klienta ID</translation>
     </message>
     <message>
         <source>Client Secret</source>
@@ -447,35 +448,35 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Czcionka tekstu</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawia czcionkę dla elementu Text Paint.</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Pogrubienie</translation>
     </message>
     <message>
         <source>I</source>
-        <translation type="unfinished"></translation>
+        <translation>I</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Kursywa</translation>
     </message>
     <message>
         <source>U</source>
-        <translation type="unfinished"></translation>
+        <translation>U</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Podkreślenie</translation>
     </message>
     <message>
         <source>Numbering Font</source>
@@ -487,7 +488,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Dynamic Cursor Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Dynamiczny rozmiar kursora</translation>
     </message>
     <message>
         <source>When enabled, the painter cursor size
@@ -497,15 +498,15 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia aplikacji</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -517,31 +518,31 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Painter Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia malarza</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplikacja</translation>
     </message>
     <message>
         <source>Painter</source>
-        <translation type="unfinished"></translation>
+        <translation>Malarz</translation>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>
-        <translation type="unfinished"></translation>
+        <translation>Czekam na imgur.com...</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa Użytkownika:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>Token Imgur.com został pomyślnie zaktualizowany.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd aktualizacji tokena Imgur.com.</translation>
     </message>
     <message>
         <source>Capture save location</source>
@@ -552,7 +553,7 @@ Requires switching tool to become active.</source>
     <name>main</name>
     <message>
         <source>Select a rectangular area from where to take a screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz prostokątny obszar, z którego chcesz zrobić zrzut ekranu.</translation>
     </message>
     <message>
         <source>Capture the fullscreen including all monitors.</source>
@@ -568,35 +569,35 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Capture the window that is currently under the mouse cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Przechwyć okno, które jest aktualnie pod kursorem myszy.</translation>
     </message>
     <message>
         <source>Delay before taking the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Opóźnienie przed zrobieniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>sekund</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Przechwyć kursor myszy na zrzucie ekranu.</translation>
     </message>
     <message>
         <source>Edit existing image in ksnip</source>
-        <translation type="unfinished"></translation>
+        <translation>Edytuj istniejące zdjęcie w ksnip</translation>
     </message>
     <message>
         <source>image</source>
-        <translation type="unfinished"></translation>
+        <translation>obraz</translation>
     </message>
     <message>
         <source>Save screenshot to default location without opening in editor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapisz zrzut ekranu w domyślnej lokalizacji bez otwierania w edytorze.</translation>
     </message>
     <message>
         <source>Ksnip Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Ksnip, narzędzie do przeglądania zrzutu ekranu</translation>
     </message>
 </context>
 </TS>

@@ -34,7 +34,6 @@ Starting with version 1.4.0 we provide an AppImage of Ksnip, which can be downlo
 Starting with version 1.5.0 we have a continues build AppImage which is build after every commit and is uploaded to the release page as Continues Build release. Continues Build AppImages are considered alpha versions and work in progress. 
 
 In order to use AppImages, just download them from [here](https://github.com/damirporobic/ksnip/releases), make them executable and start using it, no installation required.  
-`$ cd ~/Downloads`  
 `$ chmod a+x ksnip*.AppImage`  
 `$ ./ksnip*.AppImage`
 
@@ -45,38 +44,34 @@ More information about setting to executable can be found [here](https://discour
 Starting with version 1.3.2 we provide ksnip as 32bit and 64bit DEB binariy and 64bit RPM binary. RPM and DEB binaries are created only at release of a version and currently we have no continues build that creates those binaries after every commit. RPM and DEB binaries can be downloaded from the relese page [here](https://github.com/DamirPorobic/ksnip/releases).
 
 Installing RPM:  
-`$ cd ~/Downloads`  
 `$ rpm -Uvh ksnip*.rpm`  
 `$ ksnip`  
 
 Installing DEB:  
-`$ cd ~/Downloads`  
 `$ sudo dpkg -i ksnip*.deb`  
 `$ ksnip`  
 
 
 ### Building from source
 
-
-1. Get latest release from GitHub by downloading either the zip or tar.gz package from [here](https://github.com/damirporobic/ksnip/releases).  
-2. Change to download directory, unpack the package and go to new directory:  
-    `$ cd ~/Downloads`    
-    `$ unzip ksnip-1.x.x.zip`  
-    `$ cd ksnip-1.x.x`
-3. Make new build directory and enter it:  
-    `$ mkdir build`  
-    `$ cd build`  
-4. Create the makefile and build the project:  
-    `$ cmake ..`  
-    `$ make`  
-5. Now install the application, eventually you need to run it with sudo:  
+1. Get latest release from GitHub by cloning the repo:  
+    `$ git clone https://github.com/DamirPorobic/ksnip`  
+2. Change to repo directory:  
+    `$ cd ksnip`  
+3. Resolve dependencies by fetching git submodules:  
+    `$ git submodule update --init --recursive`  
+4. Make new build directory and enter it:  
+    `$ mkdir build && cd build`  
+5. Create the makefile and build the project:  
+    `$ cmake .. && make`  
+6. Now install the application, eventually you need to run it with sudo:  
     `$ sudo make install`  
 6. Run the application:  
     `$ ksnip`  
 
 
 ### Translations
-We are always looking for help with tranlsations, contributors are welcome!  
+We are always looking for help with translations, contributors are welcome!  
 For translations we use [Weblate](https://hosted.weblate.org/projects/ksnip/translations/)!  
 [![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/multi-green.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget)
 

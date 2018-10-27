@@ -57,10 +57,6 @@ Installing DEB:
 
 ### Building from source
 
-#### Dependencies
-Building ksnip from source, requires [kColorPicker](https://github.com/DamirPorobic/kColorPicker) and [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator) to be installed. 
-Installation instructions can be found on the GitHub pages. 
-
 
 1. Get latest release from GitHub by downloading either the zip or tar.gz package from [here](https://github.com/damirporobic/ksnip/releases).  
 2. Change to download directory, unpack the package and go to new directory:  

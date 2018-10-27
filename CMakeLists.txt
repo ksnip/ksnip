@@ -28,12 +28,10 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 find_package(X11 REQUIRED)
 find_package(XCB COMPONENTS XFIXES)
 
-set(KIMAGEANNOTATOR_MIN_VERSION "0.0.1")
-find_package(kImageAnnotator ${KIMAGEANNOTATOR_MIN_VERSION} REQUIRED)
-
 set(BASEPATH "${CMAKE_SOURCE_DIR}")
 include_directories("${BASEPATH}")
 
+add_subdirectory(external/kImageAnnotator)
 add_subdirectory(src)
 add_subdirectory(translations)
 add_subdirectory(desktop)

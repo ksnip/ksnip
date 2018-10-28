@@ -5,8 +5,7 @@ export BUILD_TIME=$(date +"%a, %d %b %Y %T %z")
 export VERSION_SUFFIX=continuous
 export VERSION=$VERSION_SUFFIX-$BUILD_NUMBER
 
-git clone git://github.com/DamirPorobic/kColorPicker
-git clone git://github.com/DamirPorobic/kImageAnnotator
+git submodule update --init --recursive
 
 if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     sudo apt-get -y install qt56base qt56x11extras qt56tools qt56svg
@@ -16,18 +15,6 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     mkdir build && cd build
     cmake ..
     make && sudo make install
-    cd ../..
-    cd kColorPicker
-    mkdir build && cd build
-    cmake ..
-    make && sudo make install
-    sudo ldconfig
-    cd ../..
-    cd kImageAnnotator
-    mkdir build && cd build
-    cmake ..
-    make && sudo make install
-    sudo ldconfig
     cd ../..
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     mkdir debBuild

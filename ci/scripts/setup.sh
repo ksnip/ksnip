@@ -18,7 +18,7 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     cd ../..
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     mkdir debBuild
-    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ debBuild/
+    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ external/ translations/ debBuild/
     tar -cvzf ksnip_1.5.0.orig.tar.gz debBuild/
     cp -R ci/debian debBuild/
 
@@ -32,7 +32,7 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     cp changelog debBuild/debian/
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     mkdir ksnip-1.5.0
-    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-1.5.0/
+    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ external/ translations/ ksnip-1.5.0/
     tar -cvzf ksnip-1.5.0.tar.gz ksnip-1.5.0/
     mkdir ksnip-1.5.0/SOURCES
     cp ksnip-1.5.0.tar.gz ksnip-1.5.0/SOURCES/

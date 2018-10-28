@@ -18,7 +18,7 @@ BuildRequires: update-desktop-files
 
 
 %description
-Screenshot tool inspired by Windows Snipping Tool and made with Qt for Linux
+Screenshot tool that provides many annotation features for your screenshots.
 
 %prep
 %setup

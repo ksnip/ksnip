@@ -30,9 +30,6 @@ Latest ksnip version contains following features:
 
 
 ### AppImage
-Starting with version 1.4.0 we provide an AppImage of Ksnip, which can be downloaded from the release page. 
-Starting with version 1.5.0 we have a continues build AppImage which is build after every commit and is uploaded to the release page as Continues Build release. Continues Build AppImages are considered alpha versions and work in progress. 
-
 In order to use AppImages, just download them from [here](https://github.com/damirporobic/ksnip/releases), make them executable and start using it, no installation required.  
 `$ chmod a+x ksnip*.AppImage`  
 `$ ./ksnip*.AppImage`
@@ -41,7 +38,7 @@ More information about setting to executable can be found [here](https://discour
 
 
 ### RPM and DEB Binaries
-Starting with version 1.3.2 we provide ksnip as 32bit and 64bit DEB binariy and 64bit RPM binary. RPM and DEB binaries are created only at release of a version and currently we have no continues build that creates those binaries after every commit. RPM and DEB binaries can be downloaded from the relese page [here](https://github.com/DamirPorobic/ksnip/releases).
+RPM and DEB binaries can be downloaded from the release page [here](https://github.com/DamirPorobic/ksnip/releases).
 
 Installing RPM:  
 `$ rpm -Uvh ksnip*.rpm`  

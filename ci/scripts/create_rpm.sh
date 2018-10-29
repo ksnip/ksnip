@@ -5,12 +5,12 @@ zypper --non-interactive install git cmake extra-cmake-modules patterns-openSUSE
 cd kColorPicker
 mkdir build && cd build
 cmake ..
-make && sudo make install
+make && make install
 cd ../..
 cd kImageAnnotator
 mkdir build && cd build
 cmake ..
-make && sudo make install
+make && make install
 cd ../..
 
 ls -al

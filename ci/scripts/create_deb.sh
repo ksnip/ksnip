@@ -6,12 +6,12 @@ apt-get -y install git cmake build-essential qt5-default libqt5x11extras5-dev qt
 cd kColorPicker
 mkdir build && cd build
 cmake ..
-make && sudo make install
+make && make install
 cd ../..
 cd kImageAnnotator
 mkdir build && cd build
 cmake ..
-make && sudo make install
+make && make install
 cd ../..
 
 cd debBuild

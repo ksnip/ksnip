@@ -49,5 +49,6 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     cp ksnip-1.5.0.tar.gz ksnip-1.5.0/SOURCES/
     mkdir ksnip-1.5.0/SPECS
     cp ci/rpm/ksnip-1.5.0.spec ksnip-1.5.0/SPECS/
+    sudo chown -R root:root ksnip-1.5.0
     ls -al
 fi

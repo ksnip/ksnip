@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
-    cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DVERSION_SUFIX=$VERSION_SUFFIX -DBUILD_NUMBER=$BUILD_NUMBER -DBUILD_SHARED_LIBS=OFF
+    cmake . -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DVERSION_SUFIX=$VERSION_SUFFIX -DBUILD_NUMBER=$BUILD_NUMBER
     make -j$(nproc)
     make DESTDIR=appdir -j$(nproc) install ; find appdir/
     mkdir appdir/usr/bin ; mv appdir/bin/ksnip ./appdir/usr/bin/ ; rm -r ./appdir/bin

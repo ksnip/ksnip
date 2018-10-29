@@ -24,7 +24,7 @@ Screenshot tool that provides many annotation features for your screenshots.
 %setup
 
 %build
-cmake . -DBUILD_SHARED_LIBS=OFF
+cmake .
 make
 
 %install

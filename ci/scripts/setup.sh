@@ -50,5 +50,4 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     mkdir ksnip-1.5.0/SPECS
     cp ci/rpm/ksnip-1.5.0.spec ksnip-1.5.0/SPECS/
     sudo chown -R root:root ksnip-1.5.0
-    ls -al
 fi

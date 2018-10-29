@@ -13,7 +13,5 @@ cmake ..
 make && make install
 cd ../..
 
-ls -al
 cd ksnip-1.5.0
-ls -al
 rpmbuild -ba SPECS/ksnip-1.5.0.spec --define '_topdir %(pwd)'

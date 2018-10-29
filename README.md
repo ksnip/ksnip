@@ -49,19 +49,22 @@ Installing DEB:
 `$ ksnip`  
 
 
+### Dependencies
+
+ksnip depends on [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator) and [kColoPicker](https://github.com/DamirPorobic/kColorPicker) which needs
+to be installed before building ksnip from source. Install instructions can be found on the github pages.
+
 ### Building from source
 
 1. Get latest release from GitHub by cloning the repo:  
     `$ git clone https://github.com/DamirPorobic/ksnip`  
 2. Change to repo directory:  
     `$ cd ksnip`  
-3. Resolve dependencies by fetching git submodules:  
-    `$ git submodule update --init --recursive`  
-4. Make new build directory and enter it:  
+3. Make new build directory and enter it:  
     `$ mkdir build && cd build`  
-5. Create the makefile and build the project:  
+4. Create the makefile and build the project:  
     `$ cmake .. && make`  
-6. Now install the application, eventually you need to run it with sudo:  
+5. Now install the application, eventually you need to run it with sudo:  
     `$ sudo make install`  
 6. Run the application:  
     `$ ksnip`  

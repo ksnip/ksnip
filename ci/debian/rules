@@ -22,4 +22,3 @@
 # This is example for Cmake (See https://bugs.debian.org/641051 )
 override_dh_auto_configure:
 	dh_auto_configure --
-	,,

@@ -30,7 +30,7 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     cd ../..
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     mkdir debBuild
-    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ external/ translations/ debBuild/
+    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ debBuild/
     tar -cvzf ksnip_1.5.0.orig.tar.gz debBuild/
     cp -R ci/debian debBuild/
 
@@ -43,7 +43,7 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     echo "\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TIME}" >> changelog # Add time and author for the first release
     cp changelog debBuild/debian/
 
-    sed -i "s/dh_auto_configure -- /dh_auto_configure -- -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}/" debBuild/debian/rules
+    sed -i "s/dh_auto_configure --/dh_auto_configure -- -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}/" debBuild/debian/rules
     cat debBuild/debian/rules
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     cp ci/rpm/ksnip-1.5.0.spec .
@@ -59,7 +59,7 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     cat ksnip-1.5.0.spec # REMOVE THIS
 
     mkdir ksnip-1.5.0
-    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ external/ translations/ ksnip-1.5.0/
+    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-1.5.0/
     tar -cvzf ksnip-1.5.0.tar.gz ksnip-1.5.0/
     mkdir ksnip-1.5.0/SOURCES
     cp ksnip-1.5.0.tar.gz ksnip-1.5.0/SOURCES/

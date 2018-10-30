@@ -13,23 +13,20 @@ git clone git://github.com/DamirPorobic/kImageAnnotator
 if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     sudo apt-get -y install qt56base qt56x11extras qt56tools qt56svg
     source /opt/qt*/bin/qt*-env.sh
+
     git clone git://anongit.kde.org/extra-cmake-modules
     cd extra-cmake-modules
     mkdir build && cd build
     cmake ..
     make && sudo make install
     cd ../..
-    cd kColorPicker
-    mkdir build && cd build
-    cmake ..
-    make && sudo make install
-    cd ../..
-    cd kImageAnnotator
-    mkdir build && cd build
-    cmake ..
-    make && sudo make install
-    cd ../..
+    sudo source install_dependencies.sh
+
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
+    docker exec -d -v `pwd`:`pwd` -w `pwd` build-container -c "apt-get update"
+    docker exec -d -v `pwd`:`pwd` -w `pwd` build-container -c "apt-get -y install git cmake build-essential qt5-default libqt5x11extras5-dev qttools5-dev-tools extra-cmake-modules devscripts debhelper"
+    docker exec -d -v `pwd`:`pwd` -w `pwd` build-container -c "source ci/scripts/install_dependencies.sh"
+
     mkdir ksnip-$VERSION_NUMBER
     cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-$VERSION_NUMBER/
     tar -cvzf ksnip_$VERSION_NUMBER.orig.tar.gz ksnip-$VERSION_NUMBER/
@@ -46,6 +43,9 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
 
     sed -i "s/dh_auto_configure --/dh_auto_configure -- -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}/" ksnip-$VERSION_NUMBER/debian/rules
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
+    docker exec -d -v `pwd`:`pwd` -w `pwd` build-container -c "zypper --non-interactive install git cmake extra-cmake-modules patterns-openSUSE-devel_C_C++ libqt5-linguist-devel libqt5-qtx11extras-devel libqt5-qtdeclarative-devel libqt5-qtbase-devel rpm-build update-desktop-files"
+    docker exec -d -v `pwd`:`pwd` -w `pwd` build-container -c "source ci/scripts/install_dependencies.sh"
+
     cp ci/rpm/ksnip.spec .
 
     cp CHANGELOG.md changelog

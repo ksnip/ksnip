@@ -8,7 +8,7 @@
 
 Name:    ksnip
 Summary: Screenshot Tool
-Version: 1.5.0
+Version: X.X.X
 Release: 1
 Source0: %{name}-%{version}.tar.gz
 URL:     https://github.com/DamirPorobic/ksnip

@@ -1,10 +1,11 @@
 #!/bin/bash
 
-export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
 export BUILD_TIME=$(date +"%a, %d %b %Y %T %z")
 export BUILD_DATE=$(date  +"%a %b %d %Y")
+export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
 export VERSION_SUFFIX=continuous
-export VERSION=$VERSION_SUFFIX-$BUILD_NUMBER
+export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "([0-9]{1,}\.)+[0-9]{1,}")
+export VERSION=$VERSION_NUMBER-$VERSION_SUFFIX
 
 git clone git://github.com/DamirPorobic/kColorPicker
 git clone git://github.com/DamirPorobic/kImageAnnotator
@@ -29,41 +30,40 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     make && sudo make install
     cd ../..
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
-    mkdir debBuild
-    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ debBuild/
-    tar -cvzf ksnip_1.5.0.orig.tar.gz debBuild/
-    cp -R ci/debian debBuild/
+    mkdir ksnip-$VERSION_NUMBER
+    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-$VERSION_NUMBER/
+    tar -cvzf ksnip_$VERSION_NUMBER.orig.tar.gz ksnip-$VERSION_NUMBER/
+    cp -R ci/debian ksnip-$VERSION_NUMBER/
 
     cp CHANGELOG.md changelog
     sed -i '1,2d' changelog  #Remove header and empty line ad the beginning
     sed -i 's/\[\(.*[^]]*\)\].*/\1)/g' changelog # Replace links to issues with only number
     sed -i "s/^[[:blank:]]*$/\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TIME}\n/" changelog # After every release add time and author
-    sed -i 's/## Release \([0-9]\.[0-9]\.[0-9]\)/ksnip (\1)  stretch; urgency=medium\n/' changelog # Rename release headers
+    sed -i 's/## Release \([0-9]*\.[0-9]*\.[0-9]*\)/ksnip (\1)  stretch; urgency=medium\n/' changelog # Rename release headers
     sed -i 's/^\(\* .*\)/  \1/' changelog # Add two spaces before every entry
     echo "\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TIME}" >> changelog # Add time and author for the first release
-    cp changelog debBuild/debian/
+    cp changelog ksnip-$VERSION_NUMBER/debian/
 
-    sed -i "s/dh_auto_configure --/dh_auto_configure -- -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}/" debBuild/debian/rules
-    cat debBuild/debian/rules
+    sed -i "s/dh_auto_configure --/dh_auto_configure -- -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}/" ksnip-$VERSION_NUMBER/debian/rules
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
-    cp ci/rpm/ksnip-1.5.0.spec .
+    cp ci/rpm/ksnip.spec .
 
     cp CHANGELOG.md changelog
     sed -i '1,2d' changelog  #Remove header and empty line ad the beginning
     sed -i 's/* /-- /g' changelog # Replace asterisk with double dash
     sed -i 's/\[\(.*[^]]*\)\].*/\1)/g' changelog # Replace links to issues with only number
-    sed -i "s/## Release \([0-9]\.[0-9]\.[0-9]\)/* ${BUILD_DATE} Damir Porobic <damir.porobic@gmx.com> \1/" changelog # Format release headers
-    cat changelog >> ksnip-1.5.0.spec
+    sed -i "s/## Release \([0-9]*\.[0-9]*\.[0-9]*\)/* ${BUILD_DATE} Damir Porobic <damir.porobic@gmx.com> \1/" changelog # Format release headers
+    cat changelog >> ksnip.spec
 
-    sed -i "s/cmake ./cmake . -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}/" ksnip-1.5.0.spec
-    cat ksnip-1.5.0.spec # REMOVE THIS
+    sed -i "s/Version: X.X.X/Version: ${VERSION_NUMBER}/" ksnip.spec
+    sed -i "s/cmake ./cmake . -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}/" ksnip.spec
 
-    mkdir ksnip-1.5.0
-    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-1.5.0/
-    tar -cvzf ksnip-1.5.0.tar.gz ksnip-1.5.0/
-    mkdir ksnip-1.5.0/SOURCES
-    cp ksnip-1.5.0.tar.gz ksnip-1.5.0/SOURCES/
-    mkdir ksnip-1.5.0/SPECS
-    cp ksnip-1.5.0.spec ksnip-1.5.0/SPECS/
-    sudo chown -R root:root ksnip-1.5.0
+    mkdir ksnip-$VERSION_NUMBER
+    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-$VERSION_NUMBER/
+    tar -cvzf ksnip-$VERSION_NUMBER.tar.gz ksnip-$VERSION_NUMBER/
+    mkdir ksnip-$VERSION_NUMBER/SOURCES
+    cp ksnip-$VERSION_NUMBER.tar.gz ksnip-$VERSION_NUMBER/SOURCES/
+    mkdir ksnip-$VERSION_NUMBER/SPECS
+    cp ksnip.spec ksnip-$VERSION_NUMBER/SPECS/ksnip-$VERSION_NUMBER.spec
+    sudo chown -R root:root ksnip-$VERSION_NUMBER
 fi

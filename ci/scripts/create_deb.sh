@@ -14,5 +14,5 @@ cmake ..
 make && make install
 cd ../..
 
-cd debBuild
+cd ksnip-$VERSION_NUMBER
 debuild -us -uc

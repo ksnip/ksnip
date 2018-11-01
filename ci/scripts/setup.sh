@@ -20,7 +20,16 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     cmake ..
     make && sudo make install
     cd ../..
-    sudo ci/scripts/install_dependencies.sh
+    cd kColorPicker
+    mkdir build && cd build
+    cmake ..
+    make && sudo make install
+    cd ../..
+    cd kImageAnnotator
+    mkdir build && cd build
+    cmake ..
+    make && sudo make install
+    cd ../..
 
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     docker exec -d build-container apt-get update
@@ -32,7 +41,7 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
                                                       qttools5-dev-tools \
                                                       extra-cmake-modules \
                                                       devscripts debhelper
-    docker exec build-container source ci/scripts/install_dependencies.sh
+    docker exec build-container ./ci/scripts/install_dependencies.sh
 
     mkdir ksnip-$VERSION_NUMBER
     cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-$VERSION_NUMBER/
@@ -60,7 +69,7 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
                                                                  libqt5-qtbase-devel \
                                                                  rpm-build \
                                                                  update-desktop-files
-    docker exec build-container source ci/scripts/install_dependencies.sh
+    docker exec build-container ./ci/scripts/install_dependencies.sh
 
     cp ci/rpm/ksnip.spec .
 

@@ -32,15 +32,16 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     cd ../..
 
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
-    docker exec -d build-container apt-get update
-    docker exec -d build-container apt-get -y install git \
-                                                      cmake \
-                                                      build-essential \
-                                                      qt5-default \
-                                                      libqt5x11extras5-dev \
-                                                      qttools5-dev-tools \
-                                                      extra-cmake-modules \
-                                                      devscripts debhelper
+    docker exec build-container apt-get update
+    docker exec build-container apt-get -y install git \
+                                                   cmake \
+                                                   build-essential \
+                                                   qt5-default \
+                                                   libqt5x11extras5-dev \
+                                                   qttools5-dev-tools \
+                                                   extra-cmake-modules \
+                                                   devscripts \
+                                                   debhelper
     docker exec build-container bash -c "source ci/scripts/install_dependencies.sh"
 
     mkdir ksnip-$VERSION_NUMBER
@@ -69,7 +70,7 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
                                                                  libqt5-qtbase-devel \
                                                                  rpm-build \
                                                                  update-desktop-files
-    docker exec build-container bash -c " source ci/scripts/install_dependencies.sh"
+    docker exec build-container bash -c "source ci/scripts/install_dependencies.sh"
 
     cp ci/rpm/ksnip.spec .
 

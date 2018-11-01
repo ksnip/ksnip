@@ -13,7 +13,7 @@
 * New: Added Spanish, German, Dutch Norwegian and Polish translation. ([#94](https://github.com/DamirPorobic/ksnip/issues/94))
 * New: Option to switch between dynamic and default painter cursor size. ([#77](https://github.com/DamirPorobic/ksnip/issues/77))
 * New: Added RPM and DEB binaries to continues build.
-* New: kImageAnnotator: Added blur annotation tool. ([#20](https://github.com/DamirPorobic/kImageAnnotator/issues/20))
+* New: Added blur annotation tool. ([#109](https://github.com/DamirPorobic/ksnip/issues/109))
 * Changed: Move and select operation are now combined under single tool. ([#72](https://github.com/DamirPorobic/ksnip/issues/72))
 * Changed: Item selection is now based on item shape and not on item bounding rect. ([#83](https://github.com/DamirPorobic/ksnip/issues/83))
 * Changed: Imgur upload now asks for confirmation before uploading. This can be disabled in setting. ([#73](https://github.com/DamirPorobic/ksnip/issues/73))

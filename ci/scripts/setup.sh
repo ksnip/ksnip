@@ -11,26 +11,18 @@ git clone git://github.com/DamirPorobic/kColorPicker
 git clone git://github.com/DamirPorobic/kImageAnnotator
 
 if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
-    sudo apt-get -y install qt56base qt56x11extras qt56tools qt56svg
-    source /opt/qt*/bin/qt*-env.sh
+    docker exec build-container apt-get update
+    docker exec build-container apt-get -y install git \
+                                                   cmake \
+                                                   build-essential \
+                                                   qt5-default \
+                                                   libqt5x11extras5-dev \
+                                                   qttools5-dev-tools \
+                                                   extra-cmake-modules
+    docker exec build-container bash -c "source ci/scripts/install_dependencies.sh"
 
-    git clone git://anongit.kde.org/extra-cmake-modules
-    cd extra-cmake-modules
-    mkdir build && cd build
-    cmake ..
-    make && sudo make install
-    cd ../..
-    cd kColorPicker
-    mkdir build && cd build
-    cmake ..
-    make && sudo make install
-    cd ../..
-    cd kImageAnnotator
-    mkdir build && cd build
-    cmake ..
-    make && sudo make install
-    cd ../..
-
+    wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+    chmod a+x linuxdeployqt-continuous-x86_64.AppImage
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     docker exec build-container apt-get update
     docker exec build-container apt-get -y install git \
@@ -50,7 +42,7 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     cp -R ci/debian ksnip-$VERSION_NUMBER/
 
     cp CHANGELOG.md changelog
-    sed -i '1,2d' changelog  #Remove header and empty line ad the beginning
+    sed -i '1,2d' changelog  #Remove header and empty line at the beginning
     sed -i 's/\[\(.*[^]]*\)\].*/\1)/g' changelog # Replace links to issues with only number
     sed -i "s/^[[:blank:]]*$/\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TIME}\n/" changelog # After every release add time and author
     sed -i 's/## Release \([0-9]*\.[0-9]*\.[0-9]*\)/ksnip (\1)  stretch; urgency=medium\n/' changelog # Rename release headers

@@ -48,6 +48,10 @@ Installing DEB:
 `$ sudo dpkg -i ksnip*.deb`  
 `$ ksnip`  
 
+### Continues build
+We provide deb, rpm and AppImage binaries for every pushed commit, those can be found at the top of the
+release page. Continues build artifacts are not fully tested and in most cases they are work in progress
+so use them with caution.
 
 ### Dependencies
 

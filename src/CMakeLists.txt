@@ -35,15 +35,16 @@ set(ksnip_SRCS ${ksnip_SRCS} PARENT_SCOPE)
 add_executable(ksnip ${ksnip_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc)
 
 target_link_libraries(ksnip
-        Qt5::Widgets
-        Qt5::Network
-        Qt5::Xml
-        Qt5::PrintSupport
-        Qt5::X11Extras
-        Qt5::DBus
-        XCB::XFIXES
-        X11
-        kImageAnnotator
-        )
+					  Qt5::Widgets
+					  Qt5::Network
+					  Qt5::Xml
+					  Qt5::PrintSupport
+					  Qt5::X11Extras
+					  Qt5::DBus
+					  XCB::XFIXES
+					  X11
+					  kImageAnnotator
+					  kColorPicker
+					  )
 
 install(TARGETS ksnip RUNTIME DESTINATION /bin)

@@ -30,11 +30,7 @@ Latest ksnip version contains following features:
 
 
 ### AppImage
-Starting with version 1.4.0 we provide an AppImage of Ksnip, which can be downloaded from the release page. 
-Starting with version 1.5.0 we have a continues build AppImage which is build after every commit and is uploaded to the release page as Continues Build release. Continues Build AppImages are considered alpha versions and work in progress. 
-
 In order to use AppImages, just download them from [here](https://github.com/damirporobic/ksnip/releases), make them executable and start using it, no installation required.  
-`$ cd ~/Downloads`  
 `$ chmod a+x ksnip*.AppImage`  
 `$ ./ksnip*.AppImage`
 
@@ -42,37 +38,36 @@ More information about setting to executable can be found [here](https://discour
 
 
 ### RPM and DEB Binaries
-Starting with version 1.3.2 we provide ksnip as 32bit and 64bit DEB binariy and 64bit RPM binary. RPM and DEB binaries are created only at release of a version and currently we have no continues build that creates those binaries after every commit. RPM and DEB binaries can be downloaded from the relese page [here](https://github.com/DamirPorobic/ksnip/releases).
+RPM and DEB binaries can be downloaded from the release page [here](https://github.com/DamirPorobic/ksnip/releases).
 
 Installing RPM:  
-`$ cd ~/Downloads`  
 `$ rpm -Uvh ksnip*.rpm`  
 `$ ksnip`  
 
 Installing DEB:  
-`$ cd ~/Downloads`  
 `$ sudo dpkg -i ksnip*.deb`  
 `$ ksnip`  
 
+### Continues build
+We provide deb, rpm and AppImage binaries for every pushed commit, those can be found at the top of the
+release page. Continues build artifacts are not fully tested and in most cases they are work in progress
+so use them with caution.
+
+### Dependencies
+
+ksnip depends on [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator) and [kColoPicker](https://github.com/DamirPorobic/kColorPicker) which needs
+to be installed before building ksnip from source. Install instructions can be found on the github pages.
 
 ### Building from source
 
-#### Dependencies
-Building ksnip from source, requires [kColorPicker](https://github.com/DamirPorobic/kColorPicker) and [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator) to be installed. 
-Installation instructions can be found on the GitHub pages. 
-
-
-1. Get latest release from GitHub by downloading either the zip or tar.gz package from [here](https://github.com/damirporobic/ksnip/releases).  
-2. Change to download directory, unpack the package and go to new directory:  
-    `$ cd ~/Downloads`    
-    `$ unzip ksnip-1.x.x.zip`  
-    `$ cd ksnip-1.x.x`
+1. Get latest release from GitHub by cloning the repo:  
+    `$ git clone https://github.com/DamirPorobic/ksnip`  
+2. Change to repo directory:  
+    `$ cd ksnip`  
 3. Make new build directory and enter it:  
-    `$ mkdir build`  
-    `$ cd build`  
+    `$ mkdir build && cd build`  
 4. Create the makefile and build the project:  
-    `$ cmake ..`  
-    `$ make`  
+    `$ cmake .. && make`  
 5. Now install the application, eventually you need to run it with sudo:  
     `$ sudo make install`  
 6. Run the application:  
@@ -80,7 +75,7 @@ Installation instructions can be found on the GitHub pages.
 
 
 ### Translations
-We are always looking for help with tranlsations, contributors are welcome!  
+We are always looking for help with translations, contributors are welcome!  
 For translations we use [Weblate](https://hosted.weblate.org/projects/ksnip/translations/)!  
 [![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/multi-green.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget)
 

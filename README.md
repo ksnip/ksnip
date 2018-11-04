@@ -5,7 +5,7 @@ Version v1.5.0 - alpha
 Ksnip is a Qt based Linux screenshot tool that provides many annotation features 
 for your screenshots.
 
-![Ksnip](https://imgur.com/gVb0WSQ.png "Ksnip with annotations")
+![Ksnip](https://imgur.com/jbNXijf.png "Ksnip with annotations")
 
 
 ### Features

@@ -17,33 +17,13 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_WINIMAGEGRABBER_H
-#define KSNIP_WINIMAGEGRABBER_H
-
-#include "AbstractImageGrabber.h"
 #include "WinWrapper.h"
 
-using namespace std;
-
-class WinImageGrabber : public AbstractImageGrabber
+QRect WinWrapper::getFullScreenRect() const
 {
-Q_OBJECT
+    RECT desktop;
+    auto hDesktop = GetDesktopWindow();
+    GetWindowRect(hDesktop, &desktop);
 
-public:
-    explicit WinImageGrabber();
-    ~WinImageGrabber() override = default;
-
-    void grabImage(CaptureModes captureMode, bool captureCursor = true, int delay = 0) override;
-
-protected slots:
-    void grab() override;
-
-private:
-    WinWrapper *mWinWrapper;
-
-    void setRectFromCorrectSource();
-    void grabImage() const;
-};
-
-
-#endif //KSNIP_WINIMAGEGRABBER_H
+    return {0, 0, desktop.right, desktop.bottom};
+}

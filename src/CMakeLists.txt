@@ -39,6 +39,7 @@ elseif (WIN32)
 	set(KSNIP_SRCS
 			${KSNIP_SRCS}
             ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinImageGrabber.cpp
+			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinWrapper.cpp
 			)
 endif ()
 

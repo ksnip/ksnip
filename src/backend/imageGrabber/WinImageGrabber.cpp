@@ -19,7 +19,7 @@
 
 #include "WinImageGrabber.h"
 
-WinImageGrabber::WinImageGrabber()
+WinImageGrabber::WinImageGrabber() : mWinWrapper(new WinWrapper)
 {
     mSupportedCaptureModes.append(CaptureModes::RectArea);
     mSupportedCaptureModes.append(CaptureModes::FullScreen);
@@ -40,7 +40,31 @@ void WinImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, in
     }
 }
 
+void WinImageGrabber::setRectFromCorrectSource()
+{
+    switch (mCaptureMode) {
+        case CaptureModes::RectArea:
+            mCaptureRect = selectedSnippingAreaRect();
+            break;
+        case CaptureModes::FullScreen:
+            mCaptureRect = mWinWrapper->getFullScreenRect();
+            break;
+    }
+}
+
 void WinImageGrabber::grab()
 {
-    emit finished(QPixmap());
+    setRectFromCorrectSource();
+    grabImage();
+}
+
+void WinImageGrabber::grabImage() const
+{
+    auto screen = QGuiApplication::primaryScreen();
+    auto pixmap = screen->grabWindow(QApplication::desktop()->winId(),
+                                     mCaptureRect.left(),
+                                     mCaptureRect.top(),
+                                     mCaptureRect.width(),
+                                     mCaptureRect.height());
+    emit finished(pixmap);
 }

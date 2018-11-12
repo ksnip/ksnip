@@ -23,11 +23,11 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/SnippingArea.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/SettingsDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog.cpp
-        )
+    )
 
 if (UNIX)
-    set(KSNIP_SRC
-            ${KSNIP_SRC}
+    set(KSNIP_SRCS
+            ${KSNIP_SRCS}
             ${CMAKE_SOURCE_DIR}/src/backend/PlatformChecker.cpp
             ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/X11ImageGrabber.cpp
             ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/KdeWaylandImageGrabber.cpp
@@ -35,6 +35,11 @@ if (UNIX)
             ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeWaylandImageGrabber.cpp
             ${CMAKE_SOURCE_DIR}/src/common/runner/CommandRunner.cpp
             )
+elseif (WIN32)
+	set(KSNIP_SRCS
+			${KSNIP_SRCS}
+            ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinImageGrabber.cpp
+			)
 endif ()
 
 set(KSNIP_SRCS ${KSNIP_SRCS} PARENT_SCOPE)

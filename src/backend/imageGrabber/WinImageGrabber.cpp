@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,24 +17,30 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "ImageGrabberFactory.h"
+#include "WinImageGrabber.h"
 
-AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
+WinImageGrabber::WinImageGrabber()
 {
-#ifdef LINUX
-    if (PlatformChecker::instance()->isX11()) {
-        return new X11ImageGrabber();
-    } else if (PlatformChecker::instance()->isWayland() && PlatformChecker::instance()->isKde()) {
-        return new KdeWaylandImageGrabber();
-    } else if (PlatformChecker::instance()->isWayland() && PlatformChecker::instance()->isGnome()) {
-        return new GnomeWaylandImageGrabber();
-    } else {
-        qCritical("Unknown platform, using default X11 Image Grabber.");
-        return new X11ImageGrabber();
-    }
-#endif
+    mSupportedCaptureModes.append(CaptureModes::RectArea);
+    mSupportedCaptureModes.append(CaptureModes::FullScreen);
+}
 
-#ifdef WIN32
-    return new WinImageGrabber();
-#endif
+void WinImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, int delay)
+{
+    Q_ASSERT(isCaptureModeSupported(captureMode));
+
+    mCaptureMode = captureMode;
+    mCaptureCursor = captureCursor;
+    mCaptureDelay = delay;
+
+    if (mCaptureMode == CaptureModes::RectArea) {
+        openSnippingArea();
+    } else {
+        QTimer::singleShot(mCaptureDelay, this, &WinImageGrabber::grab);
+    }
+}
+
+void WinImageGrabber::grab()
+{
+    emit finished(QPixmap());
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,24 +17,24 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef IMAGEGRABBERFACTORY_H
-#define IMAGEGRABBERFACTORY_H
+#ifndef KSNIP_WINIMAGEGRABBER_H
+#define KSNIP_WINIMAGEGRABBER_H
 
-#ifdef LINUX
-#include "X11ImageGrabber.h"
-#include "KdeWaylandImageGrabber.h"
-#include "GnomeWaylandImageGrabber.h"
-#include "src/backend/PlatformChecker.h"
-#endif
+#include "AbstractImageGrabber.h"
 
-#ifdef WIN32
-#include "WinImageGrabber.h"
-#endif
-
-class ImageGrabberFactory
+class WinImageGrabber : public AbstractImageGrabber
 {
+Q_OBJECT
+
 public:
-    static AbstractImageGrabber *createImageGrabber();
+    explicit WinImageGrabber();
+    ~WinImageGrabber() = default;
+
+    void grabImage(CaptureModes captureMode, bool captureCursor = true, int delay = 0) override;
+
+protected slots:
+    void grab() override;
 };
 
-#endif // IMAGEGRABBERFACTORY_H
+
+#endif //KSNIP_WINIMAGEGRABBER_H

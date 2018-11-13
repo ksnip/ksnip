@@ -20,7 +20,7 @@
 #ifndef IMAGEGRABBERFACTORY_H
 #define IMAGEGRABBERFACTORY_H
 
-#ifdef LINUX
+#ifdef __linux__
 #include "X11ImageGrabber.h"
 #include "KdeWaylandImageGrabber.h"
 #include "GnomeWaylandImageGrabber.h"

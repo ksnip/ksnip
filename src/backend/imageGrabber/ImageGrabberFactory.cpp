@@ -21,7 +21,7 @@
 
 AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
 {
-#ifdef LINUX
+#ifdef __linux__
     if (PlatformChecker::instance()->isX11()) {
         return new X11ImageGrabber();
     } else if (PlatformChecker::instance()->isWayland() && PlatformChecker::instance()->isKde()) {

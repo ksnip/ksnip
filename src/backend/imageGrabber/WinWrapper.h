@@ -23,12 +23,14 @@
 #include <QRect>
 
 #include <wtypes.h>
+#include <Dwmapi.h>
 #include <iostream>
 
 class WinWrapper
 {
 public:
     QRect getFullScreenRect() const;
+    QRect getActiveWindowRect() const;
 };
 
 #endif //KSNIP_WINWRAPPER_H

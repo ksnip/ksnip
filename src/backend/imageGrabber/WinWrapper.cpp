@@ -21,9 +21,21 @@
 
 QRect WinWrapper::getFullScreenRect() const
 {
-    RECT desktop;
-    auto hDesktop = GetDesktopWindow();
-    GetWindowRect(hDesktop, &desktop);
+    auto height = GetSystemMetrics(SM_CYVIRTUALSCREEN);
+    auto width = GetSystemMetrics(SM_CXVIRTUALSCREEN);
+    auto x = GetSystemMetrics(SM_XVIRTUALSCREEN);
+    auto y = GetSystemMetrics(SM_YVIRTUALSCREEN);
 
-    return {0, 0, desktop.right, desktop.bottom};
+    return {x, y, width, height};
+}
+
+QRect WinWrapper::getActiveWindowRect() const
+{
+    RECT window, frame;
+    auto handle = GetForegroundWindow();
+    GetWindowRect(handle, &window);
+
+    DwmGetWindowAttribute(handle, DWMWA_EXTENDED_FRAME_BOUNDS, &frame, sizeof(RECT));
+    
+    return {QPoint(frame.left, frame.top), QPoint(frame.right, frame.bottom)};
 }

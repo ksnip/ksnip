@@ -23,6 +23,7 @@ WinImageGrabber::WinImageGrabber() : mWinWrapper(new WinWrapper)
 {
     mSupportedCaptureModes.append(CaptureModes::RectArea);
     mSupportedCaptureModes.append(CaptureModes::FullScreen);
+    mSupportedCaptureModes.append(CaptureModes::ActiveWindow);
 }
 
 void WinImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, int delay)
@@ -48,6 +49,9 @@ void WinImageGrabber::setRectFromCorrectSource()
             break;
         case CaptureModes::FullScreen:
             mCaptureRect = mWinWrapper->getFullScreenRect();
+            break;
+        case CaptureModes::ActiveWindow:
+            mCaptureRect = mWinWrapper->getActiveWindowRect();
             break;
     }
 }

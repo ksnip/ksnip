@@ -63,6 +63,10 @@ if (UNIX)
 			XCB::XFIXES
             X11
             )
+elseif(WIN32)
+	target_link_libraries(ksnip
+			Dwmapi
+			)
 endif ()
 
 install(TARGETS ksnip RUNTIME DESTINATION /bin)

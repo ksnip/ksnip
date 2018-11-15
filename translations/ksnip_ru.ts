@@ -5,98 +5,98 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation type="unfinished"></translation>
+        <translation>Подробнее </translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Подробнее</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Версия</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Автор</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Утилита для скриншотов</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished"></translation>
+        <translation>Лицензия </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, используйте </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation> отчет об ошибках.</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished"></translation>
+        <translation>Используется:</translation>
     </message>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>Автор:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Помощники:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевод с испанского</translation>
     </message>
     <message>
         <source>(C) 2018 Damir Porobic</source>
-        <translation type="unfinished"></translation>
+        <translation>(C) 2018 Дамир Поробик</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Версия</translation>
     </message>
 </context>
 <context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Новый</translation>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Прямоугольная область</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Рисование прямоугольной области мышкой</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished"></translation>
+        <translation>Полноэкранный режим (Все мониторы)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation type="unfinished"></translation>
+        <translation>Захват всего экрана, включая все мониторы</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Текущий экран</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation type="unfinished"></translation>
+        <translation>Захват экрана под мышкой.</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Активное окно</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>

@@ -23,7 +23,7 @@
 
 #include "AbstractImageGrabber.h"
 #include "X11Wrapper.h"
-#include "src/gui/X11SnippingArea.cpp"
+#include "src/gui/X11SnippingArea.h"
 
 class X11ImageGrabber : public AbstractImageGrabber
 {

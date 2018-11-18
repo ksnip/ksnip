@@ -36,7 +36,7 @@ X11ImageGrabber::~X11ImageGrabber()
 
 void X11ImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, int delay)
 {
-    mCaptureCursor = capureCursor;
+	mCaptureCursor = captureCursor;
     mCaptureDelay = delay;
 
     if (isCaptureModeSupported(captureMode)) {

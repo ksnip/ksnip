@@ -19,7 +19,7 @@
 
 #include "X11SnippingArea.h"
 
-public X11SnippingArea::X11SnippingArea() : AbstractSnippingArea()
+X11SnippingArea::X11SnippingArea() : AbstractSnippingArea()
 {
 
 }

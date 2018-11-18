@@ -33,6 +33,7 @@
 #include <errno.h>
 
 #include "AbstractImageGrabber.h"
+#include "src/gui/X11SnippingArea.h"
 
 class KdeWaylandImageGrabber : public AbstractImageGrabber
 {

@@ -9,4 +9,6 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     docker pull opensuse:42.2
     docker run --name build-container -v `pwd`:`pwd` -w `pwd` -dit opensuse:42.2 bash
+elif [[ "${BUILD_TYPE}" == "exe" ]]; then
+    choco install qt --version 5.6.2 --force
 fi

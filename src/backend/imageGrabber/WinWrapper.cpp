@@ -39,3 +39,69 @@ QRect WinWrapper::getActiveWindowRect() const
 
     return {QPoint(frame.left, frame.top), QPoint(frame.right, frame.bottom)};
 }
+
+QPixmap WinWrapper::blendCursorImage(const QPixmap &pixmap, const QRect &rect) const
+{
+    CURSORINFO cursor = { sizeof(cursor) };
+    GetCursorInfo(&cursor);
+    if (rect.contains(cursor.ptScreenPos.x, cursor.ptScreenPos.y)) {
+        auto cursorPosition = getCursorPosition(rect, cursor);
+        auto cursorPixmap = getCursorPixmap(cursor);
+        auto pixampWithCursor = drawCursorOnImage(pixmap, cursorPosition, cursorPixmap);
+
+        return pixampWithCursor;
+    }
+
+    return pixmap;
+}
+
+QPixmap WinWrapper::drawCursorOnImage(const QPixmap &pixmap, const QPoint &cursorPosition, const QPixmap &cursorPixmap) const
+{
+    auto pixampWithCursor = pixmap;
+    QPainter painter(&pixampWithCursor);
+    painter.drawPixmap(cursorPosition.x(), cursorPosition.y(), cursorPixmap);
+
+    return pixampWithCursor;
+}
+
+QPoint WinWrapper::getCursorPosition(const QRect &rect, const CURSORINFO &cursor) const
+{
+    ICONINFOEXW iconInfo = {sizeof(iconInfo)};
+    GetIconInfoExW(cursor.hCursor, &iconInfo);
+
+    auto x = cursor.ptScreenPos.x - rect.x() - (int)iconInfo.xHotspot;
+    auto y = cursor.ptScreenPos.y - rect.y() - (int)iconInfo.yHotspot;
+
+    return {x, y};
+}
+
+QPixmap WinWrapper::getCursorPixmap(const CURSORINFO &cursor) const
+{
+    // Get Cursor Size
+    auto cursorWidth = GetSystemMetrics(SM_CXCURSOR);
+    auto cursorHeight = GetSystemMetrics(SM_CYCURSOR);
+
+    // Get your device contexts.
+    auto screenHandle = GetDC(nullptr);
+    auto memoryHandle = CreateCompatibleDC(screenHandle);
+
+    // Create the bitmap to use as a canvas.
+    auto canvasBitmap = CreateCompatibleBitmap(screenHandle, cursorWidth, cursorHeight);
+
+    // Select the bitmap into the device context.
+    auto oldBitmap = SelectObject(memoryHandle, canvasBitmap);
+
+    // Draw the cursor into the canvas.
+    DrawIcon(memoryHandle, 0, 0, cursor.hCursor);
+
+    // Convert to QPixmap
+    auto cursorPixmap = fromHBITMAP(canvasBitmap, QtWin::HBitmapAlpha);
+
+    // Clean up after yourself.
+    SelectObject(memoryHandle, oldBitmap);
+    DeleteObject(canvasBitmap);
+    DeleteDC(memoryHandle);
+    ReleaseDC(nullptr, screenHandle);
+
+    return cursorPixmap;
+}

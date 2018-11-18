@@ -20,16 +20,23 @@
 #ifndef KSNIP_WINWRAPPER_H
 #define KSNIP_WINWRAPPER_H
 
-#include <QRect>
+#include <QtWinExtras>
+#include <QPainter>
 
 #include <wtypes.h>
-#include <Dwmapi.h>
+#include <dwmapi.h>
 
 class WinWrapper
 {
 public:
     QRect getFullScreenRect() const;
     QRect getActiveWindowRect() const;
+    QPixmap blendCursorImage(const QPixmap &pixmap, const QRect &rect) const;
+
+private:
+    QPixmap getCursorPixmap(const CURSORINFO &cursor) const;
+    QPoint getCursorPosition(const QRect &rect, const CURSORINFO &cursor) const;
+    QPixmap drawCursorOnImage(const QPixmap &pixmap, const QPoint &cursorPosition, const QPixmap &cursorPixmap) const;
 };
 
 #endif //KSNIP_WINWRAPPER_H

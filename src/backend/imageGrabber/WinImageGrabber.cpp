@@ -64,10 +64,16 @@ void WinImageGrabber::setRectFromCorrectSource()
 void WinImageGrabber::grab()
 {
     setRectFromCorrectSource();
-    grabImage();
+    auto pixmap = grabPixmap();
+
+    if(mCaptureCursor) {
+        pixmap = mWinWrapper->blendCursorImage(pixmap, mCaptureRect);
+    }
+
+    emit finished(pixmap);
 }
 
-void WinImageGrabber::grabImage() const
+QPixmap WinImageGrabber::grabPixmap() const
 {
     auto screen = QGuiApplication::primaryScreen();
     auto pixmap = screen->grabWindow(QApplication::desktop()->winId(),
@@ -76,5 +82,5 @@ void WinImageGrabber::grabImage() const
                                      mCaptureRect.width(),
                                      mCaptureRect.height());
 
-    emit finished(pixmap);
+    return pixmap;
 }

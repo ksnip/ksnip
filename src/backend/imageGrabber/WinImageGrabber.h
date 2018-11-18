@@ -28,8 +28,7 @@ using namespace std;
 
 class WinImageGrabber : public AbstractImageGrabber
 {
-Q_OBJECT
-
+    Q_OBJECT
 public:
     explicit WinImageGrabber();
     ~WinImageGrabber() override = default;
@@ -43,7 +42,7 @@ private:
     WinWrapper *mWinWrapper;
 
     void setRectFromCorrectSource();
-    void grabImage() const;
+    QPixmap grabPixmap() const;
 };
 
 

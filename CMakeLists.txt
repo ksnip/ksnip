@@ -31,6 +31,8 @@ if (UNIX)
 
     find_package(X11 REQUIRED)
     find_package(XCB COMPONENTS XFIXES)
+elseif(WIN32)
+    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED WinExtras)
 endif ()
 
 set(KIMAGEANNOTATOR_MIN_VERSION "0.0.2")

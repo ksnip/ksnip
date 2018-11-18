@@ -72,12 +72,12 @@ void X11ImageGrabber::setRectFromCorrectSource()
     } else if (mCaptureMode == CaptureModes::FullScreen) {
         mCaptureRect = mX11Wrapper->getFullScreenRect();
     } else if (mCaptureMode == CaptureModes::CurrentScreen) {
-        mCaptureRect = currectScreenRect();
+	    mCaptureRect = currentScreenRect();
     } else if (mCaptureMode == CaptureModes::ActiveWindow) {
         mCaptureRect = mX11Wrapper->getActiveWindowRect();
         if (mCaptureRect.isNull()) {
             qWarning("ImageGrabber::getActiveWindow: Found no window with focus.");
-            mCaptureRect = currectScreenRect();
+	        mCaptureRect = currentScreenRect();
         }
     }
 }

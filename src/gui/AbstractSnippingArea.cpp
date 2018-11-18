@@ -26,7 +26,7 @@ AbstractSnippingArea::AbstractSnippingArea()
       mBackground(nullptr)
 {
     // Make the frame span across the screen and show above any other widget
-    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool | Qt::X11BypassWindowManagerHint);
+    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool);
 
     QScopedPointer<QCursor> cursor(mCursorFactory->createSnippingCursor());
     QWidget::setCursor(*cursor);
@@ -64,6 +64,7 @@ void AbstractSnippingArea::showSnippingArea()
     init();
     setFullScreen();
     QApplication::setActiveWindow(this);
+//    setFocus();
     grabKeyboard(); // Issue #57
 }
 
@@ -160,6 +161,7 @@ void AbstractSnippingArea::paintEvent(QPaintEvent *event)
 
 void AbstractSnippingArea::keyPressEvent(QKeyEvent *event)
 {
+    qDebug("Key press event");
     if (event->key() == Qt::Key_Escape) {
         emit canceled();
         closeSnippingArea();

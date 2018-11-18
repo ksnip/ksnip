@@ -37,7 +37,7 @@ public:
     virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) = 0;
     virtual bool isCaptureModeSupported(CaptureModes captureMode) const;
     virtual QList<CaptureModes> supportedCaptureModes() const;
-    QRect currectScreenRect() const;
+    QRect currentScreenRect() const;
 
 signals:
     void finished(const QPixmap &) const;

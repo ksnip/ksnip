@@ -22,6 +22,7 @@
 AbstractImageGrabber::AbstractImageGrabber(AbstractSnippingArea *snippingArea) : mSnippingArea(snippingArea)
 {
     Q_ASSERT(snippingArea != nullptr);
+    initSnippingArea();
 }
 
 AbstractImageGrabber::~AbstractImageGrabber()
@@ -42,7 +43,7 @@ QList<CaptureModes> AbstractImageGrabber::supportedCaptureModes() const
 /*
  * Returns the rect of the screen where the mouse cursor is currently located
  */
-QRect AbstractImageGrabber::currectScreenRect() const
+QRect AbstractImageGrabber::currentScreenRect() const
 {
     auto screen = QApplication::desktop()->screenNumber(QCursor::pos());
     return QApplication::desktop()->screenGeometry(screen);
@@ -50,13 +51,11 @@ QRect AbstractImageGrabber::currectScreenRect() const
 
 void AbstractImageGrabber::openSnippingArea()
 {
-    initSnippingArea();
     mSnippingArea->showWithoutBackground();
 }
 
 void AbstractImageGrabber::openSnippingAreaWithBackground(const QPixmap& background)
 {
-    initSnippingArea();
     mSnippingArea->showWithBackground(background);
 }
 

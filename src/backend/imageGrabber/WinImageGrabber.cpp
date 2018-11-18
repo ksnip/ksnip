@@ -56,7 +56,7 @@ void WinImageGrabber::setRectFromCorrectSource()
             mCaptureRect = mWinWrapper->getActiveWindowRect();
             break;
         case CaptureModes::CurrentScreen:
-            mCaptureRect = currectScreenRect();
+            mCaptureRect = currentScreenRect();
             break;
     }
 }

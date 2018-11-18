@@ -17,21 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_X11SNIPPINGAREA_H
-#define KSNIP_X11SNIPPINGAREA_H
+#include "LinuxSnippingArea.h"
 
-#include "AbstractSnippingArea.h"
-
-class X11SnippingArea : public AbstractSnippingArea
+LinuxSnippingArea::LinuxSnippingArea() : AbstractSnippingArea()
 {
-public:
-    explicit X11SnippingArea();
-    ~X11SnippingArea() override = default;
-    QRect selectedRectArea() const override;
 
-protected:
-    virtual void setFullScreen();
-    QPoint getMousePosition() const override;
-};
+}
 
-#endif //KSNIP_X11SNIPPINGAREA_H
+QRect LinuxSnippingArea::selectedRectArea() const
+{
+    return mCaptureArea;
+}
+
+void LinuxSnippingArea::setFullScreen()
+{
+    setFixedSize(QDesktopWidget().size());
+    QWidget::showFullScreen();
+}
+
+QPoint LinuxSnippingArea::getMousePosition() const
+{
+    return QCursor::pos();
+}

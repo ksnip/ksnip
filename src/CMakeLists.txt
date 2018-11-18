@@ -27,15 +27,15 @@ set(KSNIP_SRCS
 
 if (UNIX)
     set(KSNIP_SRCS
-            ${KSNIP_SRCS}
-            ${CMAKE_SOURCE_DIR}/src/backend/PlatformChecker.cpp
-            ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/X11ImageGrabber.cpp
-            ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/KdeWaylandImageGrabber.cpp
-            ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/X11Wrapper.cpp
-            ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeWaylandImageGrabber.cpp
-            ${CMAKE_SOURCE_DIR}/src/common/runner/CommandRunner.cpp
-			${CMAKE_SOURCE_DIR}/src/gui/X11SnippingArea.cpp
-            )
+		${KSNIP_SRCS}
+		${CMAKE_SOURCE_DIR}/src/backend/PlatformChecker.cpp
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/X11ImageGrabber.cpp
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/KdeWaylandImageGrabber.cpp
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/X11Wrapper.cpp
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeWaylandImageGrabber.cpp
+		${CMAKE_SOURCE_DIR}/src/common/runner/CommandRunner.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/LinuxSnippingArea.cpp
+		)
 elseif (WIN32)
 	set(KSNIP_SRCS
 			${KSNIP_SRCS}

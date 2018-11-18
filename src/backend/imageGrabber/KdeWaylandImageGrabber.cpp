@@ -60,7 +60,7 @@ static QImage readImage(int pipeFd)
     return image;
 };
 
-KdeWaylandImageGrabber::KdeWaylandImageGrabber() : AbstractImageGrabber(new X11SnippingArea)
+KdeWaylandImageGrabber::KdeWaylandImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea)
 {
     mSupportedCaptureModes.append(CaptureModes::WindowUnderCursor);
     mSupportedCaptureModes.append(CaptureModes::CurrentScreen);

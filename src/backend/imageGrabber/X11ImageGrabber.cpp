@@ -20,7 +20,7 @@
 
 #include "X11ImageGrabber.h"
 
-X11ImageGrabber::X11ImageGrabber() : AbstractImageGrabber(new X11SnippingArea),
+X11ImageGrabber::X11ImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea),
     mX11Wrapper(new X11Wrapper)
 {
     mSupportedCaptureModes.append(CaptureModes::RectArea);

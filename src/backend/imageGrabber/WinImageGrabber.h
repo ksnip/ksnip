@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -15,32 +15,35 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
- *
  */
 
-#ifndef X11IMAGEGRABBER_H
-#define X11IMAGEGRABBER_H
+#ifndef KSNIP_WINIMAGEGRABBER_H
+#define KSNIP_WINIMAGEGRABBER_H
 
 #include "AbstractImageGrabber.h"
-#include "X11Wrapper.h"
-#include "src/gui/LinuxSnippingArea.h"
+#include "WinWrapper.h"
+#include "src/gui/WinSnippingArea.h"
 
-class X11ImageGrabber : public AbstractImageGrabber
+using namespace std;
+
+class WinImageGrabber : public AbstractImageGrabber
 {
+    Q_OBJECT
 public:
-    explicit X11ImageGrabber();
-    virtual ~X11ImageGrabber();
-    virtual void grabImage(CaptureModes captureMode, bool captureCursor = true, int delay = 0) override;
+    explicit WinImageGrabber();
+    ~WinImageGrabber() override = default;
 
-protected:
-    virtual void grab() override;
+    void grabImage(CaptureModes captureMode, bool captureCursor = true, int delay = 0) override;
+
+protected slots:
+    void grab() override;
 
 private:
-    X11Wrapper *mX11Wrapper;
+    WinWrapper *mWinWrapper;
 
-    void getRectArea();
     void setRectFromCorrectSource();
-    QPixmap createPixmap(const QRect &rect) const;
+    QPixmap grabPixmap() const;
 };
 
-#endif // X11IMAGEGRABBER_H
+
+#endif //KSNIP_WINIMAGEGRABBER_H

@@ -21,6 +21,7 @@
 
 AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
 {
+#ifdef __linux__
     if (PlatformChecker::instance()->isX11()) {
         return new X11ImageGrabber();
     } else if (PlatformChecker::instance()->isWayland() && PlatformChecker::instance()->isKde()) {
@@ -31,4 +32,9 @@ AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
         qCritical("Unknown platform, using default X11 Image Grabber.");
         return new X11ImageGrabber();
     }
+#endif
+
+#ifdef WIN32
+    return new WinImageGrabber();
+#endif
 }

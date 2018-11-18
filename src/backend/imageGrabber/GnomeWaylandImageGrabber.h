@@ -26,15 +26,16 @@
 
 #include "AbstractImageGrabber.h"
 #include "src/common/helper/MathHelper.h"
+#include "src/gui/LinuxSnippingArea.h"
 
 class GnomeWaylandImageGrabber : public AbstractImageGrabber
 {
 public:
     explicit GnomeWaylandImageGrabber();
-    virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) override;
+	virtual void grabImage(CaptureModes captureMode, bool captureCursor = true, int delay = 0) override;
 
 protected:
-    virtual void grab() override;
+	void grab() override;
 
 private:
     void postProcessing(const QPixmap &pixmap);

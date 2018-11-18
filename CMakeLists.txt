@@ -19,14 +19,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(QT_MIN_VERSION "5.6.1")
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED Widgets Network Xml PrintSupport DBus X11Extras)
 
-# Without ECM we're unable to load XCB
-find_package(ECM REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED Widgets Network Xml PrintSupport DBus)
 
-find_package(X11 REQUIRED)
-find_package(XCB COMPONENTS XFIXES)
+if (UNIX)
+    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED X11Extras)
+
+    # Without ECM we're unable to load XCB
+    find_package(ECM REQUIRED NO_MODULE)
+    set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+
+    find_package(X11 REQUIRED)
+    find_package(XCB COMPONENTS XFIXES)
+elseif(WIN32)
+    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED WinExtras)
+endif ()
 
 set(KIMAGEANNOTATOR_MIN_VERSION "0.0.2")
 find_package(kImageAnnotator ${KIMAGEANNOTATOR_MIN_VERSION} REQUIRED)

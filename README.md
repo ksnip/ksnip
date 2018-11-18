@@ -2,7 +2,7 @@
 
 Version v1.5.0 - alpha
 
-Ksnip is a Qt based Linux screenshot tool that provides many annotation features 
+Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features 
 for your screenshots.
 
 ![Ksnip](https://imgur.com/jbNXijf.png "Ksnip with annotations")
@@ -10,6 +10,7 @@ for your screenshots.
 
 ### Features
 Latest ksnip version contains following features:
+* Supports Linux and Windows.
 * X11 and experimental KDE and Gnome Wayland support.
 * Taking Screenshot of a custom rectangular area that can be drawn with mouse cursor (X11 and Gnome Wayland only).
 * Taking screenshot of the screen/monitor where the mouse cursor is currently located.

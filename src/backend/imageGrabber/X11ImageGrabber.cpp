@@ -20,7 +20,8 @@
 
 #include "X11ImageGrabber.h"
 
-X11ImageGrabber::X11ImageGrabber() : mX11Wrapper(new X11Wrapper)
+X11ImageGrabber::X11ImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea),
+    mX11Wrapper(new X11Wrapper)
 {
     mSupportedCaptureModes.append(CaptureModes::RectArea);
     mSupportedCaptureModes.append(CaptureModes::FullScreen);
@@ -33,9 +34,9 @@ X11ImageGrabber::~X11ImageGrabber()
     delete mX11Wrapper;
 }
 
-void X11ImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int delay)
+void X11ImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, int delay)
 {
-    mCaptureCursor = capureCursor;
+	mCaptureCursor = captureCursor;
     mCaptureDelay = delay;
 
     if (isCaptureModeSupported(captureMode)) {
@@ -71,12 +72,12 @@ void X11ImageGrabber::setRectFromCorrectSource()
     } else if (mCaptureMode == CaptureModes::FullScreen) {
         mCaptureRect = mX11Wrapper->getFullScreenRect();
     } else if (mCaptureMode == CaptureModes::CurrentScreen) {
-        mCaptureRect = currectScreenRect();
+	    mCaptureRect = currentScreenRect();
     } else if (mCaptureMode == CaptureModes::ActiveWindow) {
         mCaptureRect = mX11Wrapper->getActiveWindowRect();
         if (mCaptureRect.isNull()) {
             qWarning("ImageGrabber::getActiveWindow: Found no window with focus.");
-            mCaptureRect = currectScreenRect();
+	        mCaptureRect = currentScreenRect();
         }
     }
 }

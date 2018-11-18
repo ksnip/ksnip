@@ -19,7 +19,7 @@
 
 #include "GnomeWaylandImageGrabber.h"
 
-GnomeWaylandImageGrabber::GnomeWaylandImageGrabber()
+GnomeWaylandImageGrabber::GnomeWaylandImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea)
 {
     mSupportedCaptureModes.append(CaptureModes::RectArea);
     mSupportedCaptureModes.append(CaptureModes::ActiveWindow);
@@ -90,7 +90,7 @@ void GnomeWaylandImageGrabber::setRectFromCorrectSource()
     if (mCaptureMode == CaptureModes::RectArea) {
         mCaptureRect = selectedSnippingAreaRect();
     } else if (mCaptureMode == CaptureModes::CurrentScreen) {
-        mCaptureRect = currectScreenRect();
+        mCaptureRect = currentScreenRect();
     } else {
         // Copy with empty rect will return full screen
         mCaptureRect = QRect();

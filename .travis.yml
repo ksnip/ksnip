@@ -27,8 +27,8 @@ install:
 script:
   - source ci/scripts/build.sh
 
-#after_success:
-#  - source ci/scripts/upload.sh
+after_success:
+  - source ci/scripts/upload.sh
 
 branches:
   except:

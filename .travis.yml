@@ -18,6 +18,19 @@ matrix:
       services: docker
     - os: windows
       env: BUILD_TYPE=exe
+      script:
+        - choco install qt --version 5.6.2 --force
+
+        - cd kColorPicker
+        - mkdir build && cd build
+        - cmake ..
+        - make && sudo make install
+        - cd ../..
+        - cd kImageAnnotator
+        - mkdir build && cd build
+        - cmake ..
+        - make && sudo make install
+        - cd ../..
 
 before_install:
   - source ci/scripts/bootstrap.sh

@@ -92,17 +92,4 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     mkdir ksnip-$VERSION_NUMBER/SPECS
     cp ksnip.spec ksnip-$VERSION_NUMBER/SPECS/ksnip-$VERSION_NUMBER.spec
     sudo chown -R root:root ksnip-$VERSION_NUMBER
-elif [[ "${BUILD_TYPE}" == "exe" ]]; then
-    choco install qt --version 5.6.2 --force
-
-    cd kColorPicker
-    mkdir build && cd build
-    cmake ..
-    make && sudo make install
-    cd ../..
-    cd kImageAnnotator
-    mkdir build && cd build
-    cmake ..
-    make && sudo make install
-    cd ../..
 fi

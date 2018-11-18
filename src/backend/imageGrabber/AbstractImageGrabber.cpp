@@ -19,9 +19,9 @@
 
 #include "AbstractImageGrabber.h"
 
-AbstractImageGrabber::AbstractImageGrabber(QObject* parent) : QObject(parent),
-    mSnippingArea(nullptr)
+AbstractImageGrabber::AbstractImageGrabber(AbstractSnippingArea *snippingArea) : mSnippingArea(snippingArea)
 {
+    Q_ASSERT(snippingArea != nullptr);
 }
 
 AbstractImageGrabber::~AbstractImageGrabber()
@@ -50,13 +50,13 @@ QRect AbstractImageGrabber::currectScreenRect() const
 
 void AbstractImageGrabber::openSnippingArea()
 {
-    initSnippingAreaIfRequired();
+    initSnippingArea();
     mSnippingArea->showWithoutBackground();
 }
 
 void AbstractImageGrabber::openSnippingAreaWithBackground(const QPixmap& background)
 {
-    initSnippingAreaIfRequired();
+    initSnippingArea();
     mSnippingArea->showWithBackground(background);
 }
 
@@ -65,13 +65,11 @@ QRect AbstractImageGrabber::selectedSnippingAreaRect() const
     return mSnippingArea->selectedRectArea();
 }
 
-void AbstractImageGrabber::initSnippingAreaIfRequired()
+void AbstractImageGrabber::initSnippingArea()
 {
-    if (!mSnippingArea) {
-        mSnippingArea = new SnippingArea(nullptr);
-        connect(mSnippingArea, &SnippingArea::finished, [this]() {
-            QTimer::singleShot(mCaptureDelay, this, &AbstractImageGrabber::grab);
-        });
-        connect(mSnippingArea, &SnippingArea::canceled, this, &AbstractImageGrabber::canceled);
-    }
+    connect(mSnippingArea, &AbstractSnippingArea::finished, [this]()
+    {
+        QTimer::singleShot(mCaptureDelay, this, &AbstractImageGrabber::grab);
+    });
+    connect(mSnippingArea, &AbstractSnippingArea::canceled, this, &AbstractImageGrabber::canceled);
 }

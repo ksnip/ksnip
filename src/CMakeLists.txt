@@ -20,7 +20,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/widgets/CaptureModePicker.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/ColorButton.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/MainWindow.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/SnippingArea.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/AbstractSnippingArea.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/SettingsDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog.cpp
     )
@@ -34,12 +34,14 @@ if (UNIX)
             ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/X11Wrapper.cpp
             ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeWaylandImageGrabber.cpp
             ${CMAKE_SOURCE_DIR}/src/common/runner/CommandRunner.cpp
+			${CMAKE_SOURCE_DIR}/src/gui/X11SnippingArea.cpp
             )
 elseif (WIN32)
 	set(KSNIP_SRCS
 			${KSNIP_SRCS}
             ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinImageGrabber.cpp
 			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinWrapper.cpp
+            ${CMAKE_SOURCE_DIR}/src/gui/WinSnippingArea.cpp
 			)
 endif ()
 

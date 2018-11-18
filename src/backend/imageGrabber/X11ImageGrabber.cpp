@@ -20,7 +20,8 @@
 
 #include "X11ImageGrabber.h"
 
-X11ImageGrabber::X11ImageGrabber() : mX11Wrapper(new X11Wrapper)
+X11ImageGrabber::X11ImageGrabber() : AbstractImageGrabber(new X11SnippingArea),
+    mX11Wrapper(new X11Wrapper)
 {
     mSupportedCaptureModes.append(CaptureModes::RectArea);
     mSupportedCaptureModes.append(CaptureModes::FullScreen);
@@ -33,7 +34,7 @@ X11ImageGrabber::~X11ImageGrabber()
     delete mX11Wrapper;
 }
 
-void X11ImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int delay)
+void X11ImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, int delay)
 {
     mCaptureCursor = capureCursor;
     mCaptureDelay = delay;

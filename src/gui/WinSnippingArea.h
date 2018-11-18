@@ -17,34 +17,22 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_WINIMAGEGRABBER_H
-#define KSNIP_WINIMAGEGRABBER_H
+#ifndef KSNIP_WINSNIPPINGAREA_H
+#define KSNIP_WINSNIPPINGAREA_H
 
-#include "AbstractImageGrabber.h"
-#include "WinWrapper.h"
-#include "src/gui/WinSnippingArea.h"
+#include "AbstractSnippingArea.h"
 
-using namespace std;
-
-class WinImageGrabber : public AbstractImageGrabber
+class WinSnippingArea : public AbstractSnippingArea
 {
-Q_OBJECT
-
 public:
-    explicit WinImageGrabber();
-    ~WinImageGrabber() override = default;
+    explicit WinSnippingArea();
+    ~WinSnippingArea() override = default;
+    QRect selectedRectArea() const override;
 
-    void grabImage(CaptureModes captureMode, bool captureCursor = true, int delay = 0) override;
-
-protected slots:
-    void grab() override;
-
-private:
-    WinWrapper *mWinWrapper;
-
-    void setRectFromCorrectSource();
-    void grabImage() const;
+protected:
+    void setFullScreen() override;
+    QPoint getMousePosition() const override;
+    QRect getFullScreenRect() const;
 };
 
-
-#endif //KSNIP_WINIMAGEGRABBER_H
+#endif //KSNIP_WINSNIPPINGAREA_H

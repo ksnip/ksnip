@@ -24,7 +24,6 @@
 
 #include <wtypes.h>
 #include <Dwmapi.h>
-#include <iostream>
 
 class WinWrapper
 {

@@ -17,8 +17,8 @@
  *  Boston, MA 02110-1301, USA.
  */
 
-#ifndef SNIPPINGAREA_H
-#define SNIPPINGAREA_H
+#ifndef KSNIP_ABSTRACTSNIPPINGAREA_H
+#define KSNIP_ABSTRACTSNIPPINGAREA_H
 
 #include <QWidget>
 #include <QMouseEvent>
@@ -29,39 +29,41 @@
 #include "src/common/helper/MathHelper.h"
 #include "src/backend/KsnipConfig.h"
 
-class SnippingArea : public QWidget
+class AbstractSnippingArea : public QWidget
 {
     Q_OBJECT
 public:
-    SnippingArea(QWidget *parent);
-    ~SnippingArea();
+	explicit AbstractSnippingArea();
+    ~AbstractSnippingArea() override;
     void showWithoutBackground();
     void showWithBackground(const QPixmap& background);
-    QRect selectedRectArea() const;
-    bool close();
+    virtual QRect selectedRectArea() const = 0;
+    bool closeSnippingArea();
 
 signals:
     void finished();
     void canceled();
 
 protected:
-    virtual void mousePressEvent(QMouseEvent *event) override;
-    virtual void mouseReleaseEvent(QMouseEvent *event) override;
-    virtual void mouseMoveEvent(QMouseEvent *event) override;
-    virtual void keyPressEvent(QKeyEvent *event) override;
-    virtual void paintEvent(QPaintEvent *event) override;
+    QRect mCaptureArea;
+
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
+    virtual void setFullScreen() = 0;
+	virtual QPoint getMousePosition() const = 0;
 
 private:
     QPoint         mMouseDownPosition;
     bool           mMouseIsDown;
     bool           mCursorRulerEnabled;
     bool           mCursorInfoEnabled;
-    QRect          mCaptureArea;
     CursorFactory *mCursorFactory;
     KsnipConfig   *mConfig;
     QPixmap       *mBackground;
 
-    void show();
     void setBackgroundImage(const QPixmap &background);
     void clearBackgroundImage();
     void init();
@@ -73,6 +75,7 @@ private:
     void drawCursorWidthInfo(QPainter &painter) const;
     void drawCursorHeightInfo(QPainter &painter) const;
     QRect getTextBounding(const QPainter &painter, const QString &text) const;
+    virtual void showSnippingArea();
 };
 
-#endif // SNIPPINGAREA_H
+#endif // KSNIP_ABSTRACTSNIPPINGAREA_H

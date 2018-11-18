@@ -36,6 +36,6 @@ QRect WinWrapper::getActiveWindowRect() const
     GetWindowRect(handle, &window);
 
     DwmGetWindowAttribute(handle, DWMWA_EXTENDED_FRAME_BOUNDS, &frame, sizeof(RECT));
-    
+
     return {QPoint(frame.left, frame.top), QPoint(frame.right, frame.bottom)};
 }

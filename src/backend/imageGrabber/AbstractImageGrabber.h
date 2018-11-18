@@ -26,14 +26,14 @@
 #include <QScreen>
 
 #include "src/common/enum/CaptureModes.h"
-#include "src/gui/SnippingArea.h"
+#include "src/gui/AbstractSnippingArea.h"
 
 class AbstractImageGrabber : public QObject
 {
     Q_OBJECT
 public:
-    AbstractImageGrabber(QObject *parent = nullptr);
-    virtual ~AbstractImageGrabber();
+    explicit AbstractImageGrabber(AbstractSnippingArea *snippingArea);
+    ~AbstractImageGrabber() override;
     virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) = 0;
     virtual bool isCaptureModeSupported(CaptureModes captureMode) const;
     virtual QList<CaptureModes> supportedCaptureModes() const;
@@ -58,9 +58,9 @@ protected slots:
     virtual void grab() = 0;
 
 private:
-    SnippingArea *mSnippingArea;
+    AbstractSnippingArea *mSnippingArea;
 
-    void initSnippingAreaIfRequired();
+    void initSnippingArea();
 };
 
 #endif // ABSTRACTIMAGEGRABBER_H

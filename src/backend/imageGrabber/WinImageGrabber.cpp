@@ -19,7 +19,8 @@
 
 #include "WinImageGrabber.h"
 
-WinImageGrabber::WinImageGrabber() : mWinWrapper(new WinWrapper)
+WinImageGrabber::WinImageGrabber() : AbstractImageGrabber(new WinSnippingArea),
+    mWinWrapper(new WinWrapper)
 {
     mSupportedCaptureModes.append(CaptureModes::RectArea);
     mSupportedCaptureModes.append(CaptureModes::FullScreen);
@@ -74,5 +75,6 @@ void WinImageGrabber::grabImage() const
                                      mCaptureRect.top(),
                                      mCaptureRect.width(),
                                      mCaptureRect.height());
+
     emit finished(pixmap);
 }

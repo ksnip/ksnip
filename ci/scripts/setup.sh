@@ -93,6 +93,8 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     cp ksnip.spec ksnip-$VERSION_NUMBER/SPECS/ksnip-$VERSION_NUMBER.spec
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
+    .\qt-opensource-windows-x86-msvc2015_64-5.6.2.exe --verbose --script ci/windows/install_qt_windows.qs
+
     cd kColorPicker
     mkdir build && cd build
     cmake ..

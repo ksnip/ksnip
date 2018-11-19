@@ -45,7 +45,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 public:
     explicit MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
-    void show();
+    void showEmpty();
     void captureScreenshot(CaptureModes captureMode, bool capureCursor = true, int delay = 0);
     virtual QMenu *createPopupMenu() override;
     QSize sizeHint() const;

@@ -20,19 +20,6 @@ matrix:
       env:
         - BUILD_TYPE=exe
         - CMAKE_PATH="/c/Program Files/CMake/bin"
-      script:
-        - export PATH=$CMAKE_PATH:$PATH
-        - cd kColorPicker
-        - mkdir build && cd build
-        - cmake ..
-        - make && sudo make install
-        - cd ../..
-        - cd kImageAnnotator
-        - mkdir build && cd build
-        - cmake ..
-        - make && sudo make install
-        - cd ../..
-        - choco install mingw --version 4.9.3 --force
 
 before_install:
   - source ci/scripts/bootstrap.sh

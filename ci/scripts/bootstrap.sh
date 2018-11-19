@@ -12,5 +12,5 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     export PATH=$CMAKE_PATH:$PATH
 
-    travis_wait wget --quiet http://download.qt.io/official_releases/qt/5.6/5.6.2/qt-opensource-windows-x86-msvc2015_64-5.6.2.exe
+    travis_wait 30 wget --quiet http://download.qt.io/official_releases/qt/5.6/5.6.2/qt-opensource-windows-x86-msvc2015_64-5.6.2.exe
 fi

@@ -93,7 +93,19 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     cp ksnip.spec ksnip-$VERSION_NUMBER/SPECS/ksnip-$VERSION_NUMBER.spec
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
-    7z x qtbase-563.7z -oC:\qt
+    7z x qtbase-563.7z -o/c/qt
+
+    echo "Check /c"
+    ls /c
+
+    echo "Check /c/qt"
+    ls /c/qt
+
+    echo "Check /c/qt/msvc2015"
+    ls /c/qt/msvc2015
+
+    echo "Check PATH"
+    ls $PATH
 
     cd kColorPicker
     mkdir build && cd build

@@ -95,28 +95,16 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     7z x qtbase-563.7z -o/c/qt
 
-    echo "Check PATH"
-    echo $PATH
-
-    echo "Check compiler"
-    which mingw
-    which mingw32
-    which mingw64
-    which gcc
-
     cd kColorPicker
     mkdir build && cd build
-    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND"
-    echo "Check directory content"
-    ls
-    echo "Check Makefile content"
-    cat Makefile
+    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" -DBUILD_EXAMPLE=OFF
+
     mingw32-make
     mingw32-make install
     cd ../..
-#    cd kImageAnnotator
-#    mkdir build && cd build
-#    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND"
-#    mingw32-make && mingw32-make install
-#    cd ../..
+    cd kImageAnnotator
+    mkdir build && cd build
+    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND"
+    mingw32-make && mingw32-make install
+    cd ../..
 fi

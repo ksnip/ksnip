@@ -98,15 +98,9 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     echo "Check PATH"
     echo $PATH
 
-    echo "Check compiler"
-    which mingw
-    which mingw32
-    which mingw64
-    which gcc
-
     cd kColorPicker
     mkdir build && cd build
-    cmake .. -G"MinGW Makefiles"
+    cmake .. -G"MSYS Makefiles"
     echo "Check directory content"
     ls
     echo "Check Makefile content"
@@ -116,7 +110,7 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cd ../..
     cd kImageAnnotator
     mkdir build && cd build
-    cmake .. -G"MinGW Makefiles"
+    cmake .. -G"MSYS Makefiles"
     mingw32-make && mingw32-make install
     cd ../..
 fi

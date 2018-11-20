@@ -102,10 +102,10 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     ls /c/qt
 
     echo "Check /c/qt/msvc2015"
-    ls /c/qt/msvc2015
+    ls /c/qt/5.6.3/msvc2015
 
     echo "Check PATH"
-    ls $PATH
+    echo $PATH
 
     cd kColorPicker
     mkdir build && cd build

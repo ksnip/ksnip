@@ -97,7 +97,7 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
 
     cd kColorPicker
     mkdir build && cd build
-    cmake ..
+    cmake .. -G"Unix Makefiles"
     echo "Check directory content"
     ls
     echo "Check Makefile content"
@@ -107,7 +107,7 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cd ../..
     cd kImageAnnotator
     mkdir build && cd build
-    cmake ..
+    cmake .. -G"Unix Makefiles"
     mingw32-make && mingw32-make install
     cd ../..
 fi

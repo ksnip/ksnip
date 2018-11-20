@@ -99,6 +99,7 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     mkdir build && cd build
     cmake ..
     mingw32-make && mingw32-make install
+    mingw64-make && mingw64-make install
     cd ../..
 #    cd kImageAnnotator
 #    mkdir build && cd build

@@ -98,10 +98,15 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cd kColorPicker
     mkdir build && cd build
     cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" -DBUILD_EXAMPLE=OFF
-
     mingw32-make
     mingw32-make install
     cd ../..
+
+    KCOLORPICKER_LIB="/c/Program Files (x86)/kColorPicker/lib"
+    KCOLORPICKER_INCLUDE="/c/Program Files (x86)/kColorPicker/include"
+    export LIB=$KCOLORPICKER_LIB:$LIB
+    export INCLUDE=KCOLORPICKER_INCLUDE:$INCLUDE
+
     cd kImageAnnotator
     mkdir build && cd build
     cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND"

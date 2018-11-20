@@ -107,19 +107,13 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     export LIB=$KCOLORPICKER_LIB:$LIB
     export INCLUDE=$KCOLORPICKER_INCLUDE:$INCLUDE
 
-    echo "Check lib"
-    echo $LIB
-
-    echo "Check include"
-    echo $INCLUDE
+    export PATH=$KCOLORPICKER_LIB:$PATH
+    export PATH=$KCOLORPICKER_INCLUDE:$PATH
 
     cd kImageAnnotator
     mkdir build && cd build
     cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND"
-    echo "Check Makefile"
-    cat Makefile
-    echo "Make Verbose"
-    mingw32-make VERBOSE=1
+    mingw32-make
     mingw32-make install
     cd ../..
 fi

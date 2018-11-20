@@ -105,7 +105,13 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     KCOLORPICKER_LIB="/c/Program Files (x86)/kColorPicker/lib"
     KCOLORPICKER_INCLUDE="/c/Program Files (x86)/kColorPicker/include"
     export LIB=$KCOLORPICKER_LIB:$LIB
-    export INCLUDE=KCOLORPICKER_INCLUDE:$INCLUDE
+    export INCLUDE=$KCOLORPICKER_INCLUDE:$INCLUDE
+
+    echo "Check lib"
+    echo $LIB
+
+    echo "Check include"
+    echo $INCLUDE
 
     cd kImageAnnotator
     mkdir build && cd build

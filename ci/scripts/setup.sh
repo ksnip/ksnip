@@ -116,6 +116,10 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cd kImageAnnotator
     mkdir build && cd build
     cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND"
-    mingw32-make && mingw32-make install
+    echo "Check Makefile"
+    cat Makefile
+    echo "Make Verbose"
+    mingw32-make VERBOSE=1
+    mingw32-make install
     cd ../..
 fi

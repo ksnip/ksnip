@@ -11,7 +11,10 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     docker run --name build-container -v `pwd`:`pwd` -w `pwd` -dit opensuse:42.2 bash
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     export PATH=$CMAKE_PATH:$PATH
+    export PATH=QT_BIN_PATH:$PATH
+    export PATH=QT_BIN_PLUGIN:$PATH
+
+    choco install mingw
 
     wget --quiet -O qtbase-563.7z https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win64_msvc2015_64/5.6.3-0-201709190903qtbase-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86_64.7z
-    ls
 fi

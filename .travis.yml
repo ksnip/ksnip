@@ -20,6 +20,8 @@ matrix:
       env:
         - BUILD_TYPE=exe
         - CMAKE_PATH="/c/Program Files/CMake/bin"
+        - QT_BIN_PATH="/c/qt/msvc2015_64/bin"
+        - QT_BIN_PLUGIN="/c/qt/msvc2015_64/plugins/platforms"
 
 before_install:
   - source ci/scripts/bootstrap.sh

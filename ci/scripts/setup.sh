@@ -98,11 +98,11 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cd kColorPicker
     mkdir build && cd build
     cmake ..
-    make && make install
+    mingw32-make && mingw32-make install
     cd ../..
-    cd kImageAnnotator
-    mkdir build && cd build
-    cmake ..
-    make && make install
-    cd ../..
+#    cd kImageAnnotator
+#    mkdir build && cd build
+#    cmake ..
+#    make && make install
+#    cd ../..
 fi

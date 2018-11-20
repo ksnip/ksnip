@@ -102,8 +102,8 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     mingw32-make install
     cd ../..
 
-    KCOLORPICKER_LIB="C:/Program Files (x86)/kColorPicker/lib"
-    KCOLORPICKER_INCLUDE="C:/Program Files (x86)/kColorPicker/include"
+    KCOLORPICKER_LIB="/c/Program Files (x86)/kColorPicker/lib"
+    KCOLORPICKER_INCLUDE="/c/Program Files (x86)/kColorPicker/include"
     export LIB=$KCOLORPICKER_LIB:$LIB
     export INCLUDE=$KCOLORPICKER_INCLUDE:$INCLUDE
 
@@ -112,15 +112,6 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
 
     echo "Check include"
     echo $INCLUDE
-
-    echo "check C:/"
-    ls /c
-
-    echo "check C:/Program Files (x86)"
-    ls /c/Program\ Files\ \(x86\)
-
-    echo "check C:/Program Files (x86)\kColorPicker"
-    ls /c/Program\ Files\ \(x86\)/kColorPicker
 
     cd kImageAnnotator
     mkdir build && cd build

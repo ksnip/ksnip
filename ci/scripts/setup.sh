@@ -95,11 +95,6 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     7z x qtbase-563.7z -o/c/qt
 
-    echo "Install MYSS2"
-    choco install msys2
-
-    export PATH=/c/tools/msys64/usr/bin:$PATH
-
     echo "Check PATH"
     echo $PATH
 
@@ -110,15 +105,12 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     ls
     echo "Check Makefile content"
     cat Makefile
-    echo "Run make"
-    make
-    echo "Run mingw32-make"
     mingw32-make
-#    mingw32-make install
-#    cd ../..
-#    cd kImageAnnotator
-#    mkdir build && cd build
-#    cmake .. -G"MSYS Makefiles"
-#    mingw32-make && mingw32-make install
-#    cd ../..
+    mingw32-make install
+    cd ../..
+    cd kImageAnnotator
+    mkdir build && cd build
+    cmake .. -G"MSYS Makefiles"
+    mingw32-make && mingw32-make install
+    cd ../..
 fi

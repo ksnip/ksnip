@@ -93,8 +93,6 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     cp ksnip.spec ksnip-$VERSION_NUMBER/SPECS/ksnip-$VERSION_NUMBER.spec
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
-    7z x qtbase-563.7z -o/c/qt
-
     cd kColorPicker
     mkdir build && cd build
     cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" -DBUILD_EXAMPLE=OFF

@@ -98,22 +98,22 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cd kColorPicker
     mkdir build && cd build
     cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" -DBUILD_EXAMPLE=OFF
-    mingw32-make
-    mingw32-make install
+    mingw32-make && mingw32-make install
     cd ../..
 
     KCOLORPICKER_LIB="/c/Program Files (x86)/kColorPicker/lib"
     KCOLORPICKER_INCLUDE="/c/Program Files (x86)/kColorPicker/include"
-    export LIB=$KCOLORPICKER_LIB:$LIB
-    export INCLUDE=$KCOLORPICKER_INCLUDE:$INCLUDE
-
-    export PATH=$KCOLORPICKER_LIB:$PATH
-    export PATH=$KCOLORPICKER_INCLUDE:$PATH
+    export LIBRARY_PATH=$KCOLORPICKER_LIB:$LIBRARY_PATH
+    export CPLUS_INCLUDE_PATH=$KCOLORPICKER_INCLUDE:$CPLUS_INCLUDE_PATH
 
     cd kImageAnnotator
     mkdir build && cd build
-    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND"
-    mingw32-make
-    mingw32-make install
+    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" -DBUILD_EXAMPLE=OFF
+    mingw32-make && mingw32-make install
     cd ../..
+
+    KIMAGEANNOTATOR_LIB="/c/Program Files (x86)/kImageAnnotator/lib"
+    KIMAGEANNOTATOR_INCLUDE="/c/Program Files (x86)/kImageAnnotator/include"
+    export LIBRARY_PATH=$KIMAGEANNOTATOR_LIB:$LIBRARY_PATH
+    export CPLUS_INCLUDE_PATH=$KIMAGEANNOTATOR_INCLUDE:$CPLUS_INCLUDE_PATH
 fi

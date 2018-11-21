@@ -17,4 +17,10 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     docker exec build-container bash -c "source ci/scripts/create_rpm.sh"
     sudo chown -R 2000:2000 ksnip-$VERSION_NUMBER
     mv ksnip-$VERSION_NUMBER/RPMS/x86_64/ksnip-*.rpm ksnip-$VERSION-x86_64.rpm
+elif [[ "${BUILD_TYPE}" == "exe" ]]; then
+    mkdir build && cd build
+    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND"
+    mingw32-make
+    cd ..
+    mv build/src/ksnip*.exe ksnip-$VERSION-x86_64.exe
 fi

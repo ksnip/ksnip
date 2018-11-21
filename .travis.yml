@@ -19,12 +19,15 @@ matrix:
     - os: windows
       env:
         - BUILD_TYPE=exe
-        - QT_BIN_PATH="/c/qt/5.6.3/msvc2015/bin"
-        - QT_BIN_PLUGIN="/c/qt/5.6.3/msvc2015/plugins/platforms"
-        - KCOLORPICKER_LIB="/c/Program Files (x86)/kColorPicker/lib"
-        - KCOLORPICKER_INCLUDE="/c/Program Files (x86)/kColorPicker/include"
-        - KIMAGEANNOTATOR_LIB="/c/Program Files (x86)/kImageAnnotator/lib"
-        - KIMAGEANNOTATOR_INCLUDE="/c/Program Files (x86)/kImageAnnotator/include"
+        - QT_DIR="/c/qt"
+        - QT_VERSION="5.6.3"
+        - LIB_DIR="/c/Program Files (x86)"
+        - QT_BIN_PATH=$QT_DIR"/"$QT_VERSION"/msvc2015/bin"
+        - QT_BIN_PLUGIN=$QT_DIR"/"$QT_VERSION"/msvc2015/plugins/platforms"
+        - KCOLORPICKER_LIB=$LIB_DIR"/kColorPicker/lib"
+        - KCOLORPICKER_INCLUDE=$LIB_DIR"/kColorPicker/include"
+        - KIMAGEANNOTATOR_LIB=$LIB_DIR"/kImageAnnotator/lib"
+        - KIMAGEANNOTATOR_INCLUDE=$LIB_DIR"/kImageAnnotator/include"
 
 before_install:
   - source ci/scripts/bootstrap.sh

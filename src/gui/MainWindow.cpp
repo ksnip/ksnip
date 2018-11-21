@@ -85,7 +85,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
         if (mConfig->captureOnStartup()) {
             capture(mConfig->captureMode());
         } else {
-            show();
+            showEmpty();
         }
     }
 
@@ -116,25 +116,25 @@ void MainWindow::showCapture(const QPixmap& screenshot)
 {
     if (screenshot.isNull()) {
         qCritical("PaintWindow::showWindow: No image provided to but it was expected.");
-        return show();
+        showEmpty();
+        return;
     }
 
-    setHidden(false);
 	mkImageAnnotator->loadImage(screenshot);
-
-	adjustSize();
-
-    setSaveAble(true);
-    setEnablements(true);
 
     if (mConfig->alwaysCopyToClipboard()) {
         copyToClipboard();
     }
 
+    setHidden(false);
+    setSaveAble(true);
+    setEnablements(true);
+
+    adjustSize();
     QMainWindow::show();
 }
 
-void MainWindow::show()
+void MainWindow::showEmpty()
 {
     setHidden(false);
     setSaveAble(false);

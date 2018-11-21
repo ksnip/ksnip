@@ -31,7 +31,7 @@ if (UNIX)
 
     find_package(X11 REQUIRED)
     find_package(XCB COMPONENTS XFIXES)
-elseif(WIN32)
+elseif(_WIN32)
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED WinExtras)
 endif ()
 

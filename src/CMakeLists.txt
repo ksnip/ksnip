@@ -36,7 +36,7 @@ if (UNIX)
 		${CMAKE_SOURCE_DIR}/src/common/runner/CommandRunner.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/LinuxSnippingArea.cpp
 		)
-elseif (WIN32)
+elseif (_WIN32)
 	set(KSNIP_SRCS
 			${KSNIP_SRCS}
             ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinImageGrabber.cpp
@@ -65,7 +65,7 @@ if (UNIX)
 			XCB::XFIXES
             X11
             )
-elseif(WIN32)
+elseif(_WIN32)
 	target_link_libraries(ksnip
             Qt5::WinExtras
             Dwmapi

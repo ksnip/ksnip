@@ -17,7 +17,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifdef WIN32
+#if  defined(_WIN32)
 // Prevent starting console in background under windows
 #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 #endif

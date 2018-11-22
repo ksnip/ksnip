@@ -67,8 +67,8 @@ if (UNIX)
             )
 elseif(_WIN32)
 	target_link_libraries(ksnip
-            Qt5::WinExtras
-            Dwmapi
+			Dwmapi
+			Qt5::WinExtras
 			)
 endif ()
 

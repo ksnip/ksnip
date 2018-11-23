@@ -93,22 +93,6 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     cp ksnip.spec ksnip-$VERSION_NUMBER/SPECS/ksnip-$VERSION_NUMBER.spec
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
-    echo "Probe path to MS build tools, looking for nmake"
-    echo "----"
-    ls /c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2017/
-    echo "----"
-    ls /c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2017/BuildTools
-    echo "----"
-    ls /c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2017/BuildTools/MSBuild
-    echo "----"
-    ls /c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2017/BuildTools/MSBuild/15.0
-    echo "----"
-    ls /c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2017/BuildTools/MSBuild/15.0/Bin
-
-    echo "Run search for nmake"
-    find /c -iname "nmake*"
-    echo "Search done"
-
     cd kColorPicker
     mkdir build && cd build
     cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLE=OFF -DBUILD_SHARED_LIBS=OFF

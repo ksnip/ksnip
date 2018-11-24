@@ -19,7 +19,6 @@ matrix:
     - os: windows
       env:
         - BUILD_TYPE=exe
-        - NMAKE_PATH="/c/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin"
         - QT_BIN_PATH="/c/qt/5.6.3/msvc2015/bin"
         - QT_BIN_PLUGIN="/c/qt/5.6.3/msvc2015/plugins/platforms"
         - KCOLORPICKER_LIB="/c/Program Files (x86)/kColorPicker/lib"

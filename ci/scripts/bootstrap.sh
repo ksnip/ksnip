@@ -10,7 +10,6 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     docker pull opensuse:42.2
     docker run --name build-container -v `pwd`:`pwd` -w `pwd` -dit opensuse:42.2 bash
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
-    export PATH=$NMAKE_PATH:$PATH
     export PATH=$QT_BIN_PATH:$PATH
     export PATH=$QT_BIN_PLUGIN:$PATH
     export LIB=$KCOLORPICKER_LIB:$LIB

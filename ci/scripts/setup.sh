@@ -17,17 +17,17 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     git clone git://anongit.kde.org/extra-cmake-modules
     cd extra-cmake-modules
     mkdir build && cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release
+    cmake ..
     make && sudo make install
     cd ../..
     cd kColorPicker
     mkdir build && cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLE=OFF
+    cmake ..
     make && sudo make install
     cd ../..
     cd kImageAnnotator
     mkdir build && cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLE=OFF
+    cmake ..
     make && sudo make install
     cd ../..
 
@@ -95,13 +95,13 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cd kColorPicker
     mkdir build && cd build
-    cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLE=OFF -DBUILD_SHARED_LIBS=OFF
-    nmake && nmake install
+    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" -DBUILD_EXAMPLE=OFF
+    mingw32-make && mingw32-make install
     cd ../..
 
     cd kImageAnnotator
     mkdir build && cd build
-    cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLE=OFF -DBUILD_SHARED_LIBS=OFF
-    nmake && nmake install
+    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" -DBUILD_EXAMPLE=OFF
+    mingw32-make && mingw32-make install
     cd ../..
 fi

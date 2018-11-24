@@ -101,7 +101,7 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
 
     cd kColorPicker
     mkdir build && cd build
-    cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLE=ON -DBUILD_SHARED_LIBS=OFF
+    cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLE=OFF -DBUILD_SHARED_LIBS=OFF
     nmake && nmake install
     cd ../..
 

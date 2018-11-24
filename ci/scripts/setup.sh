@@ -93,6 +93,12 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     cp ksnip.spec ksnip-$VERSION_NUMBER/SPECS/ksnip-$VERSION_NUMBER.spec
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
+    echo "Lib path"
+    echo $LIB
+
+    echo "Include path"
+    echo $INCLUDE
+
     cd kColorPicker
     mkdir build && cd build
     cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLE=OFF -DBUILD_SHARED_LIBS=OFF

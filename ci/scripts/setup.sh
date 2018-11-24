@@ -106,7 +106,7 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     ls /c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/2017/BuildTools/MSBuild/15.0/Bin
 
     echo "Run search for nmake"
-    find /c -iname "nmake*"
+    find / -iname "nmake*"
     echo "Search done"
 
     cd kColorPicker

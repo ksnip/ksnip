@@ -17,9 +17,9 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     export LIBRARY_PATH=$KIMAGEANNOTATOR_LIB:$LIBRARY_PATH
     export CPLUS_INCLUDE_PATH=$KIMAGEANNOTATOR_INCLUDE:$CPLUS_INCLUDE_PATH
 
-    wget --quiet -O qtbase.7z https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_mingw49/5.6.3-0-201709190903qtbase-Windows-Windows_7-Mingw49-Windows-Windows_7-X86.7z
-    wget --quiet -O qtwinextras.7z https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_mingw49/5.6.3-0-201709171315qtwinextras-Windows-Windows_7-Mingw49-Windows-Windows_7-X86.7z
-    wget --quiet -O qttools.7z https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_mingw49/5.6.3-0-201708150657qttools-Windows-Windows_7-Mingw49-Windows-Windows_7-X86.7z
+    wget --quiet -O qtbase.7z https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_msvc2015/5.6.3-0-201709190903qtbase-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z
+    wget --quiet -O qtwinextras.7z https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_msvc2015/5.6.3-0-201709171315qtwinextras-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z
+    wget --quiet -O qttools.7z https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_msvc2015/5.6.3-0-201708150657qttools-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z
 
     7z x qtbase.7z -o/c/qt
     7z x qtwinextras.7z -o/c/qt

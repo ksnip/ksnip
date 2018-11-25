@@ -95,7 +95,7 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cd kColorPicker
     mkdir build && cd build
-    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" -DBUILD_EXAMPLE=ON
+    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" -DBUILD_EXAMPLE=OFF
     mingw32-make && mingw32-make install
     cd ../..
 

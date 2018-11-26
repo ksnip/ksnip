@@ -94,8 +94,8 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
 
-    echo "Search for ucrt"
-    find /c -name "ucrt"
+    echo "Search for cstddef"
+    find /c -iname "cstddef*"
     echo "Search finished"
 
     cd kColorPicker

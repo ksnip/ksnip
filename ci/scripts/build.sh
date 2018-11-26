@@ -19,7 +19,7 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     mv ksnip-$VERSION_NUMBER/RPMS/x86_64/ksnip-*.rpm ksnip-$VERSION-x86_64.rpm
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     mkdir build && cd build
-    cmake .. -G"NMake Makefiles" -DCMAKE_CXX_COMPILER=cl
+    cmake .. -G"NMake Makefiles" -DCMAKE_CXX_COMPILER=cl -DVERSION_SUFIX=$VERSION_SUFFIX -DBUILD_NUMBER=$BUILD_NUMBER
     nmake
     cd ..
     mv build/src/ksnip*.exe ksnip-$VERSION-x86_64.exe

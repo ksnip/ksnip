@@ -94,10 +94,6 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
 
-    echo "Search for rc"
-    find /c -iname "rc.exe"
-    echo "Search finished"
-
     echo "Search for kernel32.lib"
     find /c -iname "kernel32.lib"
     echo "Search finished"
@@ -120,7 +116,7 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
 
     cd kColorPicker
     mkdir build && cd build
-    cmake .. -G"NMake Makefiles" -DBUILD_EXAMPLE=ON -DCMAKE_CXX_COMPILER=cl
+    cmake .. -G"NMake Makefiles" -DBUILD_EXAMPLE=ON
     nmake && nmake install
     cd ../..
 

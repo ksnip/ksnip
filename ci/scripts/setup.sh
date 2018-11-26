@@ -17,17 +17,17 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     git clone git://anongit.kde.org/extra-cmake-modules
     cd extra-cmake-modules
     mkdir build && cd build
-    cmake ..
+    cmake .. -DCMAKE_BUILD_TYPE=Release
     make && sudo make install
     cd ../..
     cd kColorPicker
     mkdir build && cd build
-    cmake ..
+    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=Release
     make && sudo make install
     cd ../..
     cd kImageAnnotator
     mkdir build && cd build
-    cmake ..
+    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=Release
     make && sudo make install
     cd ../..
 
@@ -100,13 +100,13 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
 
     cd kColorPicker
     mkdir build && cd build
-    cmake .. -G"NMake Makefiles" -DBUILD_EXAMPLE=ON -DCMAKE_CXX_COMPILER=cl
+    cmake .. -G"NMake Makefiles" -DBUILD_EXAMPLE=OFF -DCMAKE_CXX_COMPILER=cl -DCMAKE_BUILD_TYPE=Release
     nmake && nmake install
     cd ../..
 
     cd kImageAnnotator
     mkdir build && cd build
-    cmake .. -G"NMake Makefiles" -DBUILD_EXAMPLE=ON -DCMAKE_CXX_COMPILER=cl
+    cmake .. -G"NMake Makefiles" -DBUILD_EXAMPLE=OFF -DCMAKE_CXX_COMPILER=cl -DCMAKE_BUILD_TYPE=Release
     nmake && nmake install
     cd ../..
 fi

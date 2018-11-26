@@ -93,15 +93,44 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     cp ksnip.spec ksnip-$VERSION_NUMBER/SPECS/ksnip-$VERSION_NUMBER.spec
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
+
+    echo "Search for cl compiler"
+    find /c -iname "cl.exe"
+    echo "Search finished"
+
+    echo "Search for rc"
+    find /c -iname "rc.exe"
+    echo "Search finished"
+
+    echo "Search for kernel32.lib"
+    find /c -iname "kernel32.lib"
+    echo "Search finished"
+
+    echo "Search for ucrtd.lib"
+    find /c -iname "ucrtd.lib"
+    echo "Search finished"
+
+    echo "Search for MSVCRTD.lib"
+    find /c -iname "MSVCRTD.lib"
+    echo "Search finished"
+
+    echo "Search for um"
+    find /c -name "um"
+    echo "Search finished"
+
+    echo "Search for ucrt"
+    find /c -name "ucrt"
+    echo "Search finished"
+
     cd kColorPicker
     mkdir build && cd build
-    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" -DBUILD_EXAMPLE=OFF
-    mingw32-make && mingw32-make install
+    cmake .. -G"NMake Makefiles" -DBUILD_EXAMPLE=ON -DCMAKE_CXX_COMPILER=cl
+    nmake && nmake install
     cd ../..
 
     cd kImageAnnotator
     mkdir build && cd build
-    cmake .. -G"MinGW Makefiles" -DCMAKE_SH="CMAKE_SH-NOTFOUND" -DBUILD_EXAMPLE=OFF
-    mingw32-make && mingw32-make install
+    cmake .. -G"NMake Makefiles" -DBUILD_EXAMPLE=ON -DCMAKE_CXX_COMPILER=cl
+    nmake && nmake install
     cd ../..
 fi

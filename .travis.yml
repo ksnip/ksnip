@@ -20,7 +20,7 @@ matrix:
       env:
         - BUILD_TYPE=exe
         - QT_BIN_PATH="/c/qt/5.6.3/msvc2015/bin"
-        - QT_BIN_PLUGIN="/c/qt/5.6.3/msvc2015/plugins/platforms"
+        - QT_PLUGIN_PATH="/c/qt/5.6.3/msvc2015/plugins/platforms"
         - KCOLORPICKER_LIB="/c/Program Files (x86)/kColorPicker/lib"
         - KCOLORPICKER_INCLUDE="/c/Program Files (x86)/kColorPicker/include"
         - KIMAGEANNOTATOR_LIB="/c/Program Files (x86)/kImageAnnotator/lib"

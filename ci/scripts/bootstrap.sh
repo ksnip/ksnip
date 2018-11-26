@@ -12,6 +12,7 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     export PATH=$QT_BIN_PATH:$PATH
     export PATH=$QT_PLUGIN_PATH:$PATH
+    export PATH=$CL_BIN_PATH:$PATH
     export LIB=$KCOLORPICKER_LIB:$LIB
     export INCLUDE=$KCOLORPICKER_INCLUDE:$INCLUDE
     export LIB=$KIMAGEANNOTATOR_LIB:$LIB

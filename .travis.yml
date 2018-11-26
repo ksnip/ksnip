@@ -21,6 +21,7 @@ matrix:
         - BUILD_TYPE=exe
         - QT_BIN_PATH="/c/qt/5.6.3/msvc2015/bin"
         - QT_PLUGIN_PATH="/c/qt/5.6.3/msvc2015/plugins/platforms"
+        - CL_BIN_PATH="/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx86/x86/cl.exe"
         - KCOLORPICKER_LIB="/c/Program Files (x86)/kColorPicker/lib"
         - KCOLORPICKER_INCLUDE="/c/Program Files (x86)/kColorPicker/include"
         - KIMAGEANNOTATOR_LIB="/c/Program Files (x86)/kImageAnnotator/lib"

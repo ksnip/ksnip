@@ -94,10 +94,6 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
 
-    echo "Search for cl compiler"
-    find /c -iname "cl.exe"
-    echo "Search finished"
-
     echo "Search for rc"
     find /c -iname "rc.exe"
     echo "Search finished"

@@ -15,6 +15,7 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     export PATH=$CL_BIN:$PATH
     export PATH=$RC_BIN:$PATH
     export LIB=$UM_LIB:$LIB
+    export LIB=$UCRT_LIB:$LIB
     export LIB=$MSVCRTD_LIB:$LIB
     export LIB=$KCOLORPICKER_LIB:$LIB
     export LIB=$KIMAGEANNOTATOR_LIB:$LIB

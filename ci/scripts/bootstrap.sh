@@ -10,13 +10,17 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     docker pull opensuse:42.2
     docker run --name build-container -v `pwd`:`pwd` -w `pwd` -dit opensuse:42.2 bash
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
-    export PATH=$QT_BIN_PATH:$PATH
-    export PATH=$QT_PLUGIN_PATH:$PATH
-    export PATH=$CL_BIN_PATH:$PATH
-    export PATH=$RC_BIN_PATH:$PATH
+    export PATH=$QT_BIN:$PATH
+    export PATH=$QT_PLUGIN:$PATH
+    export PATH=$CL_BIN:$PATH
+    export PATH=$RC_BIN:$PATH
+    export LIB=$UM_LIB:$LIB
+    export LIB=$MSVCRTD_LIB:$LIB
     export LIB=$KCOLORPICKER_LIB:$LIB
-    export INCLUDE=$KCOLORPICKER_INCLUDE:$INCLUDE
     export LIB=$KIMAGEANNOTATOR_LIB:$LIB
+    export INCLUDE=$UM_INCLUDE:$INCLUDE
+    export INCLUDE=$UCRT_INCLUDE:$INCLUDE
+    export INCLUDE=$KCOLORPICKER_INCLUDE:$INCLUDE
     export INCLUDE=$KIMAGEANNOTATOR_INCLUDE:$INCLUDE
 
     wget --quiet -O qtbase.7z https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_msvc2015/5.6.3-0-201709190903qtbase-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z

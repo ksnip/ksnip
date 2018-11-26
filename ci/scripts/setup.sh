@@ -94,29 +94,13 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
 
-    echo "Search for kernel32.lib"
-    find /c -iname "kernel32.lib"
-    echo "Search finished"
-
-    echo "Search for ucrtd.lib"
-    find /c -iname "ucrtd.lib"
-    echo "Search finished"
-
-    echo "Search for MSVCRTD.lib"
-    find /c -iname "MSVCRTD.lib"
-    echo "Search finished"
-
-    echo "Search for um"
-    find /c -name "um"
-    echo "Search finished"
-
     echo "Search for ucrt"
     find /c -name "ucrt"
     echo "Search finished"
 
     cd kColorPicker
     mkdir build && cd build
-    cmake .. -G"NMake Makefiles" -DBUILD_EXAMPLE=ON
+    cmake .. -G"NMake Makefiles" -DBUILD_EXAMPLE=ON -DCMAKE_CXX_COMPILER=cl
     nmake && nmake install
     cd ../..
 

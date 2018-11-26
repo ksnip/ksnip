@@ -30,7 +30,7 @@ matrix:
         - KIMAGEANNOTATOR_LIB="/c/Program Files (x86)/kImageAnnotator/lib"
         - UM_INCLUDE="/c/Program Files (x86)/Windows Kits/10/Include/10.0.17134.0/um"
         - UCRT_INCLUDE="/c/Program Files (x86)/Windows Kits/10/Include/10.0.17134.0/ucrt"
-        - CSTDDEF_INCLUDE="/c/Program Files (x86)/Microsoft Visual Studio/2017/Professional/VC/Tools/MSVC/14.15.26726/include"
+        - MSVCRTD_INCLUDE="/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/include"
         - KCOLORPICKER_INCLUDE="/c/Program Files (x86)/kColorPicker/include"
         - KIMAGEANNOTATOR_INCLUDE="/c/Program Files (x86)/kImageAnnotator/include"
 

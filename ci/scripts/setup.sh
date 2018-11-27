@@ -14,20 +14,25 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     sudo apt-get -y install qt56base qt56x11extras qt56tools qt56svg
     source /opt/qt*/bin/qt*-env.sh
 
+    echo "--> Install Extra CMake Modules"
     git clone git://anongit.kde.org/extra-cmake-modules
     cd extra-cmake-modules
     mkdir build && cd build
-    cmake ..
+    cmake .. -DCMAKE_BUILD_TYPE=Release
     make && sudo make install
     cd ../..
+
+    echo "--> Install kColorPicker"
     cd kColorPicker
     mkdir build && cd build
-    cmake ..
+    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=Release
     make && sudo make install
     cd ../..
+
+    echo "--> Install kImageAnnotator"
     cd kImageAnnotator
     mkdir build && cd build
-    cmake ..
+    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=Release
     make && sudo make install
     cd ../..
 
@@ -42,23 +47,11 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
                                                    extra-cmake-modules \
                                                    devscripts \
                                                    debhelper
-    docker exec build-container bash -c "source ci/scripts/install_dependencies.sh"
+    docker exec build-container bash -c "source ci/scripts/common/setup_dependencies_linux_noSudo.sh"
 
-    mkdir ksnip-$VERSION_NUMBER
-    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-$VERSION_NUMBER/
-    tar -cvzf ksnip_$VERSION_NUMBER.orig.tar.gz ksnip-$VERSION_NUMBER/
-    cp -R ci/debian ksnip-$VERSION_NUMBER/
-
-    cp CHANGELOG.md changelog
-    sed -i '1,2d' changelog  #Remove header and empty line ad the beginning
-    sed -i 's/\[\(.*[^]]*\)\].*/\1)/g' changelog # Replace links to issues with only number
-    sed -i "s/^[[:blank:]]*$/\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TIME}\n/" changelog # After every release add time and author
-    sed -i 's/## Release \([0-9]*\.[0-9]*\.[0-9]*\)/ksnip (\1)  stretch; urgency=medium\n/' changelog # Rename release headers
-    sed -i 's/^\(\* .*\)/  \1/' changelog # Add two spaces before every entry
-    echo "\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TIME}" >> changelog # Add time and author for the first release
-    cp changelog ksnip-$VERSION_NUMBER/debian/
-
-    sed -i "s/dh_auto_configure --/dh_auto_configure -- -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}/" ksnip-$VERSION_NUMBER/debian/rules
+    source ci/scripts/deb/setup_deb_directory_structure.sh
+    source ci/scripts/deb/setup_changelog_file.sh
+    source ci/scripts/deb/setup_build_rules.sh
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     docker exec build-container zypper --non-interactive install git \
                                                                  cmake \
@@ -70,26 +63,12 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
                                                                  libqt5-qtbase-devel \
                                                                  rpm-build \
                                                                  update-desktop-files
-    docker exec build-container bash -c "source ci/scripts/install_dependencies.sh"
+    docker exec build-container bash -c "source ci/scripts/common/setup_dependencies_linux_noSudo.sh"
 
-    cp ci/rpm/ksnip.spec .
+    source ci/scripts/rpm/setup_spec_file.sh
+    source ci/scripts/rpm/setup_rpm_directory_structure.sh
 
-    cp CHANGELOG.md changelog
-    sed -i '1,2d' changelog  #Remove header and empty line ad the beginning
-    sed -i 's/* /-- /g' changelog # Replace asterisk with double dash
-    sed -i 's/\[\(.*[^]]*\)\].*/\1)/g' changelog # Replace links to issues with only number
-    sed -i "s/## Release \([0-9]*\.[0-9]*\.[0-9]*\)/* ${BUILD_DATE} Damir Porobic <damir.porobic@gmx.com> \1/" changelog # Format release headers
-    cat changelog >> ksnip.spec
-
-    sed -i "s/Version: X.X.X/Version: ${VERSION_NUMBER}/" ksnip.spec
-    sed -i "s/cmake ./cmake . -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}/" ksnip.spec
-
-    mkdir ksnip-$VERSION_NUMBER
-    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-$VERSION_NUMBER/
-    tar -cvzf ksnip-$VERSION_NUMBER.tar.gz ksnip-$VERSION_NUMBER/
-    mkdir ksnip-$VERSION_NUMBER/SOURCES
-    cp ksnip-$VERSION_NUMBER.tar.gz ksnip-$VERSION_NUMBER/SOURCES/
-    mkdir ksnip-$VERSION_NUMBER/SPECS
-    cp ksnip.spec ksnip-$VERSION_NUMBER/SPECS/ksnip-$VERSION_NUMBER.spec
     sudo chown -R root:root ksnip-$VERSION_NUMBER
+elif [[ "${BUILD_TYPE}" == "exe" ]]; then
+    source ci/scripts/exe/setup_dependencies_windows.sh
 fi

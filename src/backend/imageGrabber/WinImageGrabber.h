@@ -24,8 +24,6 @@
 #include "WinWrapper.h"
 #include "src/gui/WinSnippingArea.h"
 
-using namespace std;
-
 class WinImageGrabber : public AbstractImageGrabber
 {
     Q_OBJECT

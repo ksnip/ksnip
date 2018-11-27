@@ -20,14 +20,14 @@
 #ifndef IMAGEGRABBERFACTORY_H
 #define IMAGEGRABBERFACTORY_H
 
-#ifdef __linux__
+#if defined(__linux__)
 #include "X11ImageGrabber.h"
 #include "KdeWaylandImageGrabber.h"
 #include "GnomeWaylandImageGrabber.h"
 #include "src/backend/PlatformChecker.h"
 #endif
 
-#ifdef WIN32
+#if  defined(_WIN32)
 #include "WinImageGrabber.h"
 #endif
 

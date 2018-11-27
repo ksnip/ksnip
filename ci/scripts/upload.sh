@@ -9,4 +9,6 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     bash upload.sh ksnip-*.deb
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     bash upload.sh ksnip-*.rpm
+elif [[ "${BUILD_TYPE}" == "exe" ]]; then
+    bash upload.sh ksnip-*.exe
 fi

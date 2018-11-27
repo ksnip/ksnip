@@ -16,7 +16,8 @@ matrix:
     - os: linux
       env: BUILD_TYPE=rpm
       services: docker
-
+    - os: windows
+      env: BUILD_TYPE=exe
 
 before_install:
   - source ci/scripts/bootstrap.sh

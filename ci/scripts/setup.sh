@@ -44,21 +44,9 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
                                                    debhelper
     docker exec build-container bash -c "source ci/scripts/common/setup_dependencies_linux_noSudo.sh"
 
-    mkdir ksnip-$VERSION_NUMBER
-    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-$VERSION_NUMBER/
-    tar -cvzf ksnip_$VERSION_NUMBER.orig.tar.gz ksnip-$VERSION_NUMBER/
-    cp -R ci/debian ksnip-$VERSION_NUMBER/
-
-    cp CHANGELOG.md changelog
-    sed -i '1,2d' changelog  #Remove header and empty line ad the beginning
-    sed -i 's/\[\(.*[^]]*\)\].*/\1)/g' changelog # Replace links to issues with only number
-    sed -i "s/^[[:blank:]]*$/\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TIME}\n/" changelog # After every release add time and author
-    sed -i 's/## Release \([0-9]*\.[0-9]*\.[0-9]*\)/ksnip (\1)  stretch; urgency=medium\n/' changelog # Rename release headers
-    sed -i 's/^\(\* .*\)/  \1/' changelog # Add two spaces before every entry
-    echo "\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TIME}" >> changelog # Add time and author for the first release
-    cp changelog ksnip-$VERSION_NUMBER/debian/
-
-    sed -i "s/dh_auto_configure --/dh_auto_configure -- -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}/" ksnip-$VERSION_NUMBER/debian/rules
+    source ci/scripts/deb/setup_deb_directory_structure.sh
+    source ci/scripts/deb/setup_changelog_file.sh
+    source ci/scripts/deb/setup_build_rules.sh
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     docker exec build-container zypper --non-interactive install git \
                                                                  cmake \

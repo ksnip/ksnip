@@ -19,17 +19,20 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     mkdir build && cd build
     cmake .. -DCMAKE_BUILD_TYPE=Release
     make && sudo make install
-    cd ../..
-    cd kColorPicker
-    mkdir build && cd build
-    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=Release
-    make && sudo make install
-    cd ../..
-    cd kImageAnnotator
-    mkdir build && cd build
-    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=Release
-    make && sudo make install
-    cd ../..
+
+    sudo -s source ci/scripts/common/setup_dependencies_linux_noSudo.sh
+
+#    cd ../..
+#    cd kColorPicker
+#    mkdir build && cd build
+#    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=Release
+#    make && sudo make install
+#    cd ../..
+#    cd kImageAnnotator
+#    mkdir build && cd build
+#    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=Release
+#    make && sudo make install
+#    cd ../..
 
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     docker exec build-container apt-get update

@@ -57,11 +57,11 @@
     </message>
     <message>
         <source>(C) 2018 Damir Porobic</source>
-        <translation type="unfinished">(C) 2017 Damir Porobic {2018 ?}</translation>
+        <translation>(C) [2018] Damir Porobic</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Construir</translation>
     </message>
 </context>
 <context>

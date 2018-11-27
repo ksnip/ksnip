@@ -15,6 +15,7 @@
 * New: Added RPM and DEB binaries to continues build.
 * New: Added blur annotation tool. ([#109](https://github.com/DamirPorobic/ksnip/issues/109))
 * New: Added Windows support. ([#113](https://github.com/DamirPorobic/ksnip/issues/113))
+* New: Added Continues build for Windows binaries. ([#114](https://github.com/DamirPorobic/ksnip/issues/114))
 * kImageAnnotator New: Keep number tool sequence consecutive after deleting item. ([#7](https://github.com/DamirPorobic/kImageAnnotator/issues/7))
 * kImageAnnotator New: Added control for setting first number for numbering tool. ([#7](https://github.com/DamirPorobic/kImageAnnotator/issues/7))
 * kImageAnnotator New: Text and Number tool have now noBorderAndNoFill type. ([#22](https://github.com/DamirPorobic/kImageAnnotator/issues/22))

@@ -93,20 +93,5 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     cp ksnip.spec ksnip-$VERSION_NUMBER/SPECS/ksnip-$VERSION_NUMBER.spec
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
-
-    echo "Search for cstddef"
-    find /c -iname "cstddef*"
-    echo "Search finished"
-
-    cd kColorPicker
-    mkdir build && cd build
-    cmake .. -G"NMake Makefiles" -DBUILD_EXAMPLE=OFF -DCMAKE_CXX_COMPILER=cl -DCMAKE_BUILD_TYPE=Release
-    nmake && nmake install
-    cd ../..
-
-    cd kImageAnnotator
-    mkdir build && cd build
-    cmake .. -G"NMake Makefiles" -DBUILD_EXAMPLE=OFF -DCMAKE_CXX_COMPILER=cl -DCMAKE_BUILD_TYPE=Release
-    nmake && nmake install
-    cd ../..
+    source ci/scripts/exe/install_dependencies_windows.sh
 fi

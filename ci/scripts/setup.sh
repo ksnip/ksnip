@@ -42,7 +42,7 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
                                                    extra-cmake-modules \
                                                    devscripts \
                                                    debhelper
-    docker exec build-container bash -c "source ci/scripts/common/install_dependencies_linux_noSudo.sh"
+    docker exec build-container bash -c "source ci/scripts/common/setup_dependencies_linux_noSudo.sh"
 
     mkdir ksnip-$VERSION_NUMBER
     cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-$VERSION_NUMBER/
@@ -70,28 +70,12 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
                                                                  libqt5-qtbase-devel \
                                                                  rpm-build \
                                                                  update-desktop-files
-    docker exec build-container bash -c "source ci/scripts/common/install_dependencies_linux_noSudo.sh"
+    docker exec build-container bash -c "source ci/scripts/common/setup_dependencies_linux_noSudo.sh"
 
-    cp ci/rpm/ksnip.spec .
+    source ci/scripts/rpm/setup_spec_file.sh
+    source ci/scripts/rpm/setup_rpm_directory_structure.sh
 
-    cp CHANGELOG.md changelog
-    sed -i '1,2d' changelog  #Remove header and empty line ad the beginning
-    sed -i 's/* /-- /g' changelog # Replace asterisk with double dash
-    sed -i 's/\[\(.*[^]]*\)\].*/\1)/g' changelog # Replace links to issues with only number
-    sed -i "s/## Release \([0-9]*\.[0-9]*\.[0-9]*\)/* ${BUILD_DATE} Damir Porobic <damir.porobic@gmx.com> \1/" changelog # Format release headers
-    cat changelog >> ksnip.spec
-
-    sed -i "s/Version: X.X.X/Version: ${VERSION_NUMBER}/" ksnip.spec
-    sed -i "s/cmake ./cmake . -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}/" ksnip.spec
-
-    mkdir ksnip-$VERSION_NUMBER
-    cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-$VERSION_NUMBER/
-    tar -cvzf ksnip-$VERSION_NUMBER.tar.gz ksnip-$VERSION_NUMBER/
-    mkdir ksnip-$VERSION_NUMBER/SOURCES
-    cp ksnip-$VERSION_NUMBER.tar.gz ksnip-$VERSION_NUMBER/SOURCES/
-    mkdir ksnip-$VERSION_NUMBER/SPECS
-    cp ksnip.spec ksnip-$VERSION_NUMBER/SPECS/ksnip-$VERSION_NUMBER.spec
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
-    source ci/scripts/exe/install_dependencies_windows.sh
+    source ci/scripts/exe/setup_dependencies_windows.sh
 fi

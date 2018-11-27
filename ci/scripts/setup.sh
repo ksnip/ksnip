@@ -42,7 +42,7 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
                                                    extra-cmake-modules \
                                                    devscripts \
                                                    debhelper
-    docker exec build-container bash -c "source ci/scripts/install_dependencies.sh"
+    docker exec build-container bash -c "source ci/scripts/common/install_dependencies_linux_noSudo.sh"
 
     mkdir ksnip-$VERSION_NUMBER
     cp -R CMakeLists.txt desktop/ icons/ LICENSE README.md src/ translations/ ksnip-$VERSION_NUMBER/
@@ -70,7 +70,7 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
                                                                  libqt5-qtbase-devel \
                                                                  rpm-build \
                                                                  update-desktop-files
-    docker exec build-container bash -c "source ci/scripts/install_dependencies.sh"
+    docker exec build-container bash -c "source ci/scripts/common/install_dependencies_linux_noSudo.sh"
 
     cp ci/rpm/ksnip.spec .
 

@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>Build</source>
-        <translation>Construir</translation>
+        <translation>Construcción</translation>
     </message>
 </context>
 <context>

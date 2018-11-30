@@ -190,7 +190,7 @@
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Новый</translation>
     </message>
     <message>
         <source>Quit</source>

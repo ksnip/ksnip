@@ -25,7 +25,14 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog.cpp
     )
 
-if (UNIX)
+
+if (APPLE)
+	set(KSNIP_SRCS
+			${KSNIP_SRCS}
+			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacImageGrabber.cpp
+			${CMAKE_SOURCE_DIR}/src/gui/LinuxSnippingArea.cpp
+			)
+elseif (UNIX)
     set(KSNIP_SRCS
 		${KSNIP_SRCS}
 		${CMAKE_SOURCE_DIR}/src/backend/PlatformChecker.cpp
@@ -59,7 +66,9 @@ target_link_libraries(ksnip
 					  kColorPicker
 					  )
 
-if (UNIX)
+if (APPLE)
+
+elseif (UNIX)
 	target_link_libraries(ksnip
             Qt5::X11Extras
 			XCB::XFIXES

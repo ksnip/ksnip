@@ -21,6 +21,10 @@
 
 AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
 {
+#if defined(__APPLE__)
+    return new MacImageGrabber();
+#endif
+
 #if defined(__linux__)
     if (PlatformChecker::instance()->isX11()) {
         return new X11ImageGrabber();

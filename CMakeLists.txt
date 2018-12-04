@@ -22,7 +22,9 @@ set(QT_MIN_VERSION "5.6.1")
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED Widgets Network Xml PrintSupport DBus)
 
-if (UNIX)
+if (APPLE)
+
+elseif (UNIX)
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED X11Extras)
 
     # Without ECM we're unable to load XCB

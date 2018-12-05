@@ -17,31 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_MACIMAGEGRABBER_H
-#define KSNIP_MACIMAGEGRABBER_H
+#ifndef KSNIP_MACWRAPPER_H
+#define KSNIP_MACWRAPPER_H
 
-#include "AbstractImageGrabber.h"
-#include "MacWrapper.h"
-#include "src/gui/LinuxSnippingArea.h"
+#include <QPixmap>
 
-class MacImageGrabber  : public AbstractImageGrabber
+#include "CoreGraphics/CGDirectDisplay.h"
+
+class MacWrapper
 {
-Q_OBJECT
 public:
-    explicit MacImageGrabber();
-    ~MacImageGrabber() override = default;
-
-    void grabImage(CaptureModes captureMode, bool captureCursor = true, int delay = 0) override;
-
-protected slots:
-    void grab() override;
-
-private:
-    MacWrapper *mMacWrapper;
-
-    void setRectFromCorrectSource();
-    QPixmap grabPixmap() const;
+    QRect getFullScreenRect() const;
+    QRect getActiveWindowRect() const;
+    QPixmap blendCursorImage(const QPixmap &pixmap, const QRect &rect) const;
 };
 
 
-#endif //KSNIP_MACIMAGEGRABBER_H
+#endif //KSNIP_MACWRAPPER_H

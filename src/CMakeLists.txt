@@ -30,6 +30,7 @@ if (APPLE)
 	set(KSNIP_SRCS
 			${KSNIP_SRCS}
 			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacImageGrabber.cpp
+			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacWrapper.cpp
 			${CMAKE_SOURCE_DIR}/src/gui/LinuxSnippingArea.cpp
 			)
 elseif (UNIX)
@@ -67,7 +68,7 @@ target_link_libraries(ksnip
 					  )
 
 if (APPLE)
-
+	target_link_libraries(ksnip "-framework CoreGraphics")
 elseif (UNIX)
 	target_link_libraries(ksnip
             Qt5::X11Extras

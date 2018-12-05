@@ -20,7 +20,8 @@
 #include "MacImageGrabber.h"
 
 
-MacImageGrabber::MacImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea)
+MacImageGrabber::MacImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea),
+                                     mMacWrapper(new MacWrapper)
 {
     mSupportedCaptureModes.append(CaptureModes::RectArea);
     mSupportedCaptureModes.append(CaptureModes::FullScreen);
@@ -50,10 +51,10 @@ void MacImageGrabber::setRectFromCorrectSource()
             mCaptureRect = selectedSnippingAreaRect();
             break;
         case CaptureModes::FullScreen:
-//            mCaptureRect = mWinWrapper->getFullScreenRect();
+            mCaptureRect = mMacWrapper->getFullScreenRect();
             break;
         case CaptureModes::ActiveWindow:
-//            mCaptureRect = mWinWrapper->getActiveWindowRect();
+            mCaptureRect = mMacWrapper->getActiveWindowRect();
             break;
         case CaptureModes::CurrentScreen:
             mCaptureRect = currentScreenRect();
@@ -67,7 +68,7 @@ void MacImageGrabber::grab()
     auto pixmap = grabPixmap();
 
 //    if(mCaptureCursor) {
-//        pixmap = mWinWrapper->blendCursorImage(pixmap, mCaptureRect);
+//        pixmap = mMacWrapper->blendCursorImage(pixmap, mCaptureRect);
 //    }
 
     emit finished(pixmap);

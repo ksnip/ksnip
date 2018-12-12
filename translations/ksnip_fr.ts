@@ -9,11 +9,11 @@
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>A Propos</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Version</translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Author</source>
@@ -29,11 +29,11 @@
     </message>
     <message>
         <source>(C) 2018 Damir Porobic</source>
-        <translation type="unfinished">(C) 2018 Damir Porobic</translation>
+        <translation>(C) 2018 Damir Porobic</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">License: </translation>
+        <translation>License: </translation>
     </message>
     <message>
         <source>Please use </source>
@@ -45,11 +45,11 @@
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Build</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisant:</translation>
     </message>
     <message>
         <source>The Author:</source>
@@ -108,7 +108,7 @@
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>capturer sous le curseur de la souris</translation>
     </message>
 </context>
 <context>
@@ -119,11 +119,11 @@
     </message>
     <message>
         <source>Received new token, trying upload again...</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouveau Token reçu, export en cours...</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token...</source>
-        <translation type="unfinished"></translation>
+        <translation>Le Token Imgur a expiré, requête d&apos;un nouveau Token en cours...</translation>
     </message>
 </context>
 <context>
@@ -150,7 +150,7 @@
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Export</translation>
     </message>
     <message>
         <source>Upload capture image to imgur.com</source>
@@ -206,7 +206,7 @@
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir</translation>
     </message>
     <message>
         <source>File</source>
@@ -234,7 +234,7 @@
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Images</translation>
+        <translation>Images</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -250,7 +250,7 @@
     </message>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished"></translation>
+        <translation>Alerte - </translation>
     </message>
     <message>
         <source>The capture has been modified.
@@ -260,7 +260,7 @@ Voulez-vous le sauvegarder?</translation>
     </message>
     <message>
         <source>Imgur Upload</source>
-        <translation type="unfinished">Imgur Export</translation>
+        <translation>Exporter à Imgur</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
@@ -295,11 +295,11 @@ Voulez-vous le sauvegarder?</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturer au lancement avec le mode par défaut</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauvegarde dans le repertoire par défaut sans le dialogue &apos;enregistrer sous&apos;</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
@@ -486,7 +486,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Dynamic Cursor Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Taille curseur dynamique</translation>
     </message>
     <message>
         <source>When enabled, the painter cursor size
@@ -496,7 +496,7 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -520,7 +520,7 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Application</translation>
     </message>
     <message>
         <source>Painter</source>
@@ -532,7 +532,7 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom d&apos;utilisateur:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
@@ -540,22 +540,22 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur du mis à jour du Token Imgur.com.</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished"></translation>
+        <translation>Repertoire de sauvegarde des captures</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Select a rectangular area from where to take a screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tracer la surface à capturer.</translation>
     </message>
     <message>
         <source>Capture the fullscreen including all monitors.</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturer tout l&apos;écran, y compris tous les moniteur.</translation>
     </message>
     <message>
         <source>Capture the screen (monitor) where the mouse cursor is currently located.</source>
@@ -563,7 +563,7 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Capture the window that currently has input focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturer la fenêtre qui a actuellement le focus.</translation>
     </message>
     <message>
         <source>Capture the window that is currently under the mouse cursor.</source>
@@ -571,31 +571,31 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Delay before taking the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Délais avant la capture.</translation>
     </message>
     <message>
         <source>seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>secondes</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Inclure le curseur dans la capture.</translation>
     </message>
     <message>
         <source>Edit existing image in ksnip</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier un image existant dans ksnip</translation>
     </message>
     <message>
         <source>image</source>
-        <translation type="unfinished"></translation>
+        <translation>image</translation>
     </message>
     <message>
         <source>Save screenshot to default location without opening in editor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauvegarder la capture dans le repertoire par défaut sans ouvrir l&apos;éditeur.</translation>
     </message>
     <message>
         <source>Ksnip Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Outil de capture Ksnip</translation>
     </message>
 </context>
 </TS>

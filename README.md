@@ -81,4 +81,5 @@ For translations we use [Weblate](https://hosted.weblate.org/projects/ksnip/tran
 [![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/multi-green.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget)
 
 ### Bug report
-Please report any bugs or feature requests on the github page under the [issue section](https://github.com/DamirPorobic/ksnip/issues).
+Please report any bugs or feature requests related to the annotation editor on the [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator/issues) github page under the issue section.
+All other bugs or feature requests please report on the [ksnip](https://github.com/DamirPorobic/ksnip/issues) github page under the issue section.

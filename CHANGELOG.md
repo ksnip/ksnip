@@ -16,9 +16,9 @@
 * New: Added blur annotation tool. ([#109](https://github.com/DamirPorobic/ksnip/issues/109))
 * New: Added Windows support. ([#113](https://github.com/DamirPorobic/ksnip/issues/113))
 * New: Added Continues build for Windows binaries. ([#114](https://github.com/DamirPorobic/ksnip/issues/114))
-* kImageAnnotator New: Keep number tool sequence consecutive after deleting item. ([#7](https://github.com/DamirPorobic/kImageAnnotator/issues/7))
-* kImageAnnotator New: Added control for setting first number for numbering tool. ([#7](https://github.com/DamirPorobic/kImageAnnotator/issues/7))
-* kImageAnnotator New: Text and Number tool have now noBorderAndNoFill type. ([#22](https://github.com/DamirPorobic/kImageAnnotator/issues/22))
+* New kImageAnnotator: Keep number tool sequence consecutive after deleting item. ([#7](https://github.com/DamirPorobic/kImageAnnotator/issues/7))
+* New kImageAnnotator: Added control for setting first number for numbering tool. ([#7](https://github.com/DamirPorobic/kImageAnnotator/issues/7))
+* New kImageAnnotator: Text and Number tool have now noBorderAndNoFill type. ([#22](https://github.com/DamirPorobic/kImageAnnotator/issues/22))
 * Changed: Move and select operation are now combined under single tool. ([#72](https://github.com/DamirPorobic/ksnip/issues/72))
 * Changed: Item selection is now based on item shape and not on item bounding rect. ([#83](https://github.com/DamirPorobic/ksnip/issues/83))
 * Changed: Imgur upload now asks for confirmation before uploading. This can be disabled in setting. ([#73](https://github.com/DamirPorobic/ksnip/issues/73))
@@ -35,6 +35,7 @@
 * Fixed: Running ksnip with -e flag and enabled capture screenshot on startup starts new screenshot. ([#105](https://github.com/DamirPorobic/ksnip/issues/105))
 * Fixed: Triggering new capture discards unsaved changes. ([#89](https://github.com/DamirPorobic/ksnip/issues/89))
 * Fixed: Text tool cannot be resized. ([#111](https://github.com/DamirPorobic/ksnip/issues/111))
+* Fixed kImageAnnotator: Double-click on annotation area causes SIGSEGV crash. ([#29](https://github.com/DamirPorobic/kImageAnnotator/issues/29))
 
 ## Release 1.4.0
 * New: Info text (cursor position and selection area size) for snipping area cursor, can be enabled and disabled via settings.([#49](https://github.com/DamirPorobic/ksnip/issues/49))

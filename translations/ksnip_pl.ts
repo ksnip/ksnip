@@ -413,11 +413,11 @@ take effect.</source>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>Uzyskaj PIN</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Uzyskaj Token</translation>
     </message>
     <message>
         <source>Paint Item Shadows</source>
@@ -557,11 +557,11 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Capture the fullscreen including all monitors.</source>
-        <translation type="unfinished"></translation>
+        <translation>Przechwycić pełny ekran, w tym wszystkie monitory.</translation>
     </message>
     <message>
         <source>Capture the screen (monitor) where the mouse cursor is currently located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Przechwyć ekran (monitor), na którym aktualnie znajduje się kursor myszy.</translation>
     </message>
     <message>
         <source>Capture the window that currently has input focus.</source>

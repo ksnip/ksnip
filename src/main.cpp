@@ -32,6 +32,12 @@
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
+	QApplication::setStyle("oxygen");
+	auto list = QStyleFactory::keys();
+	for (auto item : list) {
+		qInfo(qPrintable(item));
+	}
+
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
 
     // Setup application properties

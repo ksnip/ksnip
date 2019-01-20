@@ -26,6 +26,7 @@
 * Changed: Imgur upload now asks for confirmation before uploading. This can be disabled in setting. ([#73](https://github.com/DamirPorobic/ksnip/issues/73))
 * Changed: CLI screenshots open now in editor when triggered without -s flag. ([#103](https://github.com/DamirPorobic/ksnip/issues/103))
 * Changed: Default filename features now a more fine-grained time placeholder. ([#110](https://github.com/DamirPorobic/ksnip/issues/110))
+* Changed: Console version output doesn't show build. ([#121](https://github.com/DamirPorobic/ksnip/issues/121))
 * Changed kImageAnnotator: Blur tool is now preciser and fits the rect. ([#28](https://github.com/DamirPorobic/kImageAnnotator/issues/28))
 * Changed kImageAnnotator: Enter finishes text input and shift-enter adds new line in Text Tool. ([#30](https://github.com/DamirPorobic/kImageAnnotator/issues/30))
 * Fixed: Crash on Ubuntu 17.10 caused by null painterPath pointer in smoothOut method. ([#67](https://github.com/DamirPorobic/ksnip/issues/67))

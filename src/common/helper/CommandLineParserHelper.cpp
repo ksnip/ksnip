@@ -69,6 +69,13 @@ void CommandLineParserHelper::addDefaultOptions(QCommandLineParser &parser)
                       });
 }
 
+void CommandLineParserHelper::addVersionOptions(QCommandLineParser &parser)
+{
+	parser.addOption({{ QStringLiteral("v"), QStringLiteral("version") },
+	                  QCoreApplication::translate("main", "Displays version information.")
+	                 });
+}
+
 bool CommandLineParserHelper::isSet(QCommandLineParser &parser, const QString &option)
 {
     return parser.optionNames().contains(option) && parser.isSet(option);

@@ -41,6 +41,7 @@
 * Fixed: Triggering new capture discards unsaved changes. ([#89](https://github.com/DamirPorobic/ksnip/issues/89))
 * Fixed: Text tool cannot be resized. ([#111](https://github.com/DamirPorobic/ksnip/issues/111))
 * Fixed: Exe file not showing icon on windows. ([#122](https://github.com/DamirPorobic/ksnip/issues/122))
+* Fixed: Buttons for text bold, italic and underlined are not correctly shown under windows. ([#118](https://github.com/DamirPorobic/ksnip/issues/118))
 * Fixed kImageAnnotator: Double-click on annotation area causes SIGSEGV crash. ([#29](https://github.com/DamirPorobic/kImageAnnotator/issues/29))
 
 ## Release 1.4.0

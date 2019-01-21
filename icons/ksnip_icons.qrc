@@ -17,5 +17,9 @@
     <file alias="fullScreen16.png">16x16/fullScreen.16.png</file>
     <file alias="windowUnderCursor32.png">32x32/windowUnderCursor.32.png</file>
     <file alias="windowUnderCursor16.png">16x16/windowUnderCursor.16.png</file>
+
+    <file alias="bold">bold.svg</file>
+    <file alias="italic">italic.svg</file>
+    <file alias="underline">underline.svg</file>
 </qresource>
 </RCC>

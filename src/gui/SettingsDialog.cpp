@@ -61,25 +61,23 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     mImgurGetTokenButton(new QPushButton),
     mOkButton(new QPushButton),
     mCancelButton(new QPushButton),
-    mTextBoldButton(new QPushButton),
-    mTextItalicButton(new QPushButton),
-    mTextUnderlineButton(new QPushButton),
+    mTextBoldButton(new QToolButton),
+    mTextItalicButton(new QToolButton),
+    mTextUnderlineButton(new QToolButton),
     mSnippingCursorColorButton(new ColorButton),
     mImgurUploader(new ImgurUploader),
     mListWidget(new QListWidget),
     mStackedLayout(new QStackedLayout),
     mConfig(KsnipConfig::instance())
 {
-    setWindowTitle(QApplication::applicationName() + " - " + tr("Settings"));
+    setWindowTitle(QApplication::applicationName() + QStringLiteral(" - ") + tr("Settings"));
 
     initGui();
 
     loadSettings();
 
-    connect(mImgurUploader, &ImgurUploader::tokenUpdated,
-            this, &SettingsDialog::imgurTokenUpdated);
-    connect(mImgurUploader, &ImgurUploader::error,
-            this, &SettingsDialog::imgurTokenError);
+    connect(mImgurUploader, &ImgurUploader::tokenUpdated, this, &SettingsDialog::imgurTokenUpdated);
+    connect(mImgurUploader, &ImgurUploader::error, this, &SettingsDialog::imgurTokenError);
     connect(mListWidget, &QListWidget::itemSelectionChanged, [this]() {
         mStackedLayout->setCurrentIndex(mListWidget->currentRow());
     });
@@ -221,7 +219,7 @@ void SettingsDialog::initGui()
     mUseInstantSaveCheckBox->setToolTip(tr("When enabled, will not ask where to save a screenshot\n"
                                            "when saving, but will save instantly to default location."));
 
-    mSaveLocationLabel->setText(tr("Capture save location and filename") + ":");
+    mSaveLocationLabel->setText(tr("Capture save location and filename") + QStringLiteral(":"));
 
     mSaveLocationLineEdit->setText(mConfig->saveDirectory() +
                                    mConfig->saveFilename() +
@@ -235,7 +233,7 @@ void SettingsDialog::initGui()
     mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot"));
     mCaptureCursorCheckbox->setToolTip(tr("Should mouse cursor be visible on\n"
                                           "screenshots."));
-    mCaptureDelayLabel->setText(tr("Delay (sec)") + ":");
+    mCaptureDelayLabel->setText(tr("Delay (sec)") + QStringLiteral(":"));
     mCaptureDelayLabel->setToolTip(tr("Sets the delay between triggering a capture\n"
                                       "and the moment when the capture is taken, in\n"
                                       "seconds."));
@@ -249,13 +247,13 @@ void SettingsDialog::initGui()
                                        "is show, when the mouse button is pressed,\n"
                                        "the size of the select area is shown left\n"
                                        "and right from the captured area."));
-    mSnippingCursorColorLabel->setText(tr("Cursor Color") + ":");
+    mSnippingCursorColorLabel->setText(tr("Cursor Color") + QStringLiteral(":"));
     mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area\n"
                                           "cursor. Change requires ksnip restart to\n"
                                           "take effect."));
     mSnippingCursorColorButton->setMinimumWidth(fixedButtonSize);
     mSnippingCursorColorButton->setToolTip(mSnippingCursorColorLabel->toolTip());
-    mSnippingCursorSizeLabel->setText(tr("Cursor Thickness") + ":");
+    mSnippingCursorSizeLabel->setText(tr("Cursor Thickness") + QStringLiteral(":"));
     mSnippingCursorSizeLabel->setToolTip(tr("Sets the thickness of the snipping area\n"
                                             "cursor. Change requires ksnip restart to\n"
                                             "take effect."));
@@ -279,11 +277,7 @@ void SettingsDialog::initGui()
     mImgurPinLineEdit->setPlaceholderText(tr("PIN"));
     mImgurPinLineEdit->setToolTip(tr("Enter imgur Pin which will be exchanged for a token."));
     connect(mImgurPinLineEdit, &QLineEdit::textChanged, [this](const QString & text) {
-        if(text.length() > 8) {
-            mImgurGetTokenButton->setEnabled(true);
-        } else {
-            mImgurGetTokenButton->setEnabled(false);
-        }
+        mImgurGetTokenButton->setEnabled(text.length() > 8);
     });
 
     mImgurGetPinButton->setText(tr("Get PIN"));
@@ -292,8 +286,7 @@ void SettingsDialog::initGui()
     mImgurGetPinButton->setEnabled(false);
 
     mImgurGetTokenButton->setText(tr("Get Token"));
-    connect(mImgurGetTokenButton, &QPushButton::clicked,
-            this, &SettingsDialog::getImgurToken);
+    connect(mImgurGetTokenButton, &QPushButton::clicked, this, &SettingsDialog::getImgurToken);
     mImgurGetTokenButton->setEnabled(false);
 
     // Create Painter Settings
@@ -306,40 +299,31 @@ void SettingsDialog::initGui()
     connect(mSmoothPathCheckbox, &QCheckBox::clicked,
             this, &SettingsDialog::smootPathCheckboxClicked);
 
-    mSmoothFactorLabel->setText(tr("Smooth Factor") + ":");
+    mSmoothFactorLabel->setText(tr("Smooth Factor") + QStringLiteral(":"));
     mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"
                                       "precision for pen and marker but will\n"
                                       "make them more smooth."));
     mSmoothFactorCombobox->setMinimumWidth(fixedButtonSize);
     mSmoothFactorCombobox->setToolTip(mSmoothFactorLabel->toolTip());
 
-    mTextFontLabel->setText(tr("Text Font") + ":");
+    mTextFontLabel->setText(tr("Text Font") + QStringLiteral(":"));
     mTextFontLabel->setToolTip(tr("Sets the font for the Text Paint Item."));
     mTextFontCombobox->setToolTip(mTextFontLabel->toolTip());
     mTextFontCombobox->setEditable(false);
 
-    // Setting the button to same square size as the height of the combobox
-    auto size = mTextFontCombobox->minimumSizeHint().height();
-
-    mTextBoldButton->setText(tr("B"));
+    mTextBoldButton->setIcon(QIcon(QStringLiteral(":/bold")));
     mTextBoldButton->setToolTip(tr("Bold"));
     mTextBoldButton->setCheckable(true);
-    mTextBoldButton->setFixedSize(size, size);
-    mTextBoldButton->setStyleSheet(QStringLiteral("QPushButton { font-size: 18pt; font-weight: bold; }"));
 
-    mTextItalicButton->setText(tr("I"));
+    mTextItalicButton->setIcon(QIcon(QStringLiteral(":/italic")));
     mTextItalicButton->setToolTip(tr("Italic"));
     mTextItalicButton->setCheckable(true);
-    mTextItalicButton->setFixedSize(size, size);
-    mTextItalicButton->setStyleSheet(QStringLiteral("QPushButton { font-size: 18pt; font-style: italic; }"));
 
-    mTextUnderlineButton->setText(tr("U"));
+    mTextUnderlineButton->setIcon(QIcon(QStringLiteral(":/underline")));
     mTextUnderlineButton->setToolTip(tr("Underline"));
     mTextUnderlineButton->setCheckable(true);
-    mTextUnderlineButton->setFixedSize(size, size);
-    mTextUnderlineButton->setStyleSheet(QStringLiteral("QPushButton { font-size: 18pt; text-decoration: underline; }"));
 
-    mNumberFontLabel->setText(tr("Numbering Font") + ":");
+    mNumberFontLabel->setText(tr("Numbering Font") + QStringLiteral(":"));
     mNumberFontLabel->setToolTip(tr("Sets the font for the Numbering Paint Item."));
     mNumberFontCombobox->setToolTip(mNumberFontLabel->toolTip());
     mNumberFontCombobox->setEditable(false);
@@ -442,7 +426,6 @@ void SettingsDialog::initGui()
 
     // Setup Push Button Layout
     auto buttonLayout = new QHBoxLayout;
-    buttonLayout = new QHBoxLayout;
     buttonLayout->addWidget(mOkButton);
     buttonLayout->addWidget(mCancelButton);
     buttonLayout->setAlignment(Qt::AlignRight);

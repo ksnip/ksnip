@@ -32,6 +32,7 @@
 #include <QApplication>
 #include <QDesktopServices>
 #include <QFileDialog>
+#include <QToolButton>
 
 #include "src/widgets/NumericComboBox.h"
 #include "src/widgets/ColorButton.h"
@@ -85,9 +86,9 @@ private:
     QPushButton     *mImgurGetTokenButton;
     QPushButton     *mOkButton;
     QPushButton     *mCancelButton;
-    QPushButton     *mTextBoldButton;
-    QPushButton     *mTextItalicButton;
-    QPushButton     *mTextUnderlineButton;
+    QToolButton     *mTextBoldButton;
+    QToolButton     *mTextItalicButton;
+    QToolButton     *mTextUnderlineButton;
     ColorButton     *mSnippingCursorColorButton;
     ImgurUploader   *mImgurUploader;
     QListWidget     *mListWidget;

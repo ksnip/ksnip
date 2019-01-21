@@ -47,7 +47,11 @@ endif ()
 
 set(KSNIP_SRCS ${KSNIP_SRCS} PARENT_SCOPE)
 
-add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc)
+if (WIN32)
+	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${CMAKE_SOURCE_DIR}/icons/ksnip_windows_icon.rc)
+else()
+	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc)
+endif ()
 
 target_link_libraries(ksnip
 					  Qt5::Widgets

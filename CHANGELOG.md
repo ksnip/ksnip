@@ -40,6 +40,7 @@
 * Fixed: Running ksnip with -e flag and enabled capture screenshot on startup starts new screenshot. ([#105](https://github.com/DamirPorobic/ksnip/issues/105))
 * Fixed: Triggering new capture discards unsaved changes. ([#89](https://github.com/DamirPorobic/ksnip/issues/89))
 * Fixed: Text tool cannot be resized. ([#111](https://github.com/DamirPorobic/ksnip/issues/111))
+* Fixed: Exe file not showing icon on windows. ([#122](https://github.com/DamirPorobic/ksnip/issues/122))
 * Fixed kImageAnnotator: Double-click on annotation area causes SIGSEGV crash. ([#29](https://github.com/DamirPorobic/kImageAnnotator/issues/29))
 
 ## Release 1.4.0

@@ -28,7 +28,7 @@
 #include "SettingsDialog.h"
 #include "AboutDialog.h"
 #include "src/widgets/CustomToolButton.h"
-#include "src/widgets/CaptureModePicker.h"
+#include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/backend/CaptureUploader.h"
@@ -47,42 +47,36 @@ public:
     explicit MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
     void showEmpty();
     void captureScreenshot(CaptureModes captureMode, bool capureCursor = true, int delay = 0);
-    virtual QMenu *createPopupMenu() override;
-    QSize sizeHint() const;
+    QMenu *createPopupMenu() override;
+    QSize sizeHint() const override;
 
 public slots:
     void showCapture(const QPixmap &screenshot);
 
 protected:
-    virtual void moveEvent(QMoveEvent *event) override;
-    virtual void closeEvent(QCloseEvent *event) override;
+    void moveEvent(QMoveEvent *event) override;
+    void closeEvent(QCloseEvent *event) override;
 
 private:
     AbstractImageGrabber *mImageGrabber;
     RunMode           mMode;
     bool              mIsUnsaved;
     bool              mHidden;
-    QToolButton      *mSaveButton;
-    QToolButton      *mCopyToClipboardButton;
-    QAction          *mSaveAction;
-    QAction          *mCopyToClipboardAction;
     QAction          *mUploadToImgurAction;
     QAction          *mPrintAction;
     QAction          *mPrintPreviewAction;
     QAction          *mCropAction;
-    QAction          *mNewCaptureAction;
     QAction          *mQuitAction;
     QAction          *mSettingsDialogAction;
     QAction          *mAboutKsnipAction;
     QAction          *mOpenImageAction;
     QAction          *mScaleAction;
-    QToolBar         *mToolBar;
+    MainToolBar      *mToolBar;
     QAction          *mUndoAction;
     QAction          *mRedoAction;
     QClipboard       *mClipboard;
     KsnipConfig      *mConfig;
     DelayHandler     *mDelayHandler;
-    CaptureModePicker *mCaptureModePicker;
     CapturePrinter   *mCapturePrinter;
     CaptureUploader  *mCaptureUploader;
     KImageAnnotator *mkImageAnnotator;
@@ -90,7 +84,6 @@ private:
     void setSaveAble(bool enabled);
     void setEnablements(bool enabled);
     void loadSettings();
-    void copyToClipboard();
     void setHidden(bool isHidden);
     bool hidden() const;
     void capture(CaptureModes captureMode);
@@ -99,6 +92,7 @@ private:
 
 private slots:
     void saveCapture();
+    void copyCaptureToClipboard();
     void upload();
     void uploadFinished(QString message);
     void printClicked();

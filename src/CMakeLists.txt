@@ -19,6 +19,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomSpinBox.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CaptureModePicker.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/ColorButton.cpp
+	${CMAKE_SOURCE_DIR}/src/widgets/MainToolBar.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/MainWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/AbstractSnippingArea.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/SettingsDialog.cpp

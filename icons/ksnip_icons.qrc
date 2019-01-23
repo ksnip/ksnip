@@ -21,5 +21,6 @@
     <file alias="bold">bold.svg</file>
     <file alias="italic">italic.svg</file>
     <file alias="underline">underline.svg</file>
+    <file alias="clock">clock.svg</file>
 </qresource>
 </RCC>

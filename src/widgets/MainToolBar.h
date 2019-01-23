@@ -23,6 +23,7 @@
 
 #include <QToolBar>
 #include <QAction>
+#include <QLabel>
 
 #include "CaptureModePicker.h"
 #include "CustomSpinBox.h"
@@ -55,6 +56,7 @@ private:
     QToolButton *mCopyToClipboardButton;
     CaptureModePicker *mCaptureModePicker;
     CustomSpinBox *mDelayPicker;
+    QLabel *mDelayLabel;
     QAction *mNewCaptureAction;
     QAction *mSaveAction;
     QAction *mCopyToClipboardAction;

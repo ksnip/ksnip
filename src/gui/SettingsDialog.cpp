@@ -255,12 +255,10 @@ void SettingsDialog::initGui()
     mImgurConfirmBeforeUploadCheckbox->setText(tr("Ask for confirmation before uploading"));
 
     mImgurClientIdLineEdit->setPlaceholderText(tr("Client ID"));
-    connect(mImgurClientIdLineEdit, &QLineEdit::textChanged,
-            this, &SettingsDialog::imgurClientEntered);
+    connect(mImgurClientIdLineEdit, &QLineEdit::textChanged, this, &SettingsDialog::imgurClientEntered);
 
     mImgurClientSecretLineEdit->setPlaceholderText(tr("Client Secret"));
-    connect(mImgurClientSecretLineEdit, &QLineEdit::textChanged,
-            this, &SettingsDialog::imgurClientEntered);
+    connect(mImgurClientSecretLineEdit, &QLineEdit::textChanged, this, &SettingsDialog::imgurClientEntered);
 
     mImgurPinLineEdit->setPlaceholderText(tr("PIN"));
     mImgurPinLineEdit->setToolTip(tr("Enter imgur Pin which will be exchanged for a token."));
@@ -269,8 +267,7 @@ void SettingsDialog::initGui()
     });
 
     mImgurGetPinButton->setText(tr("Get PIN"));
-    connect(mImgurGetPinButton, &QPushButton::clicked,
-            this, &SettingsDialog::requestImgurPin);
+    connect(mImgurGetPinButton, &QPushButton::clicked, this, &SettingsDialog::requestImgurPin);
     mImgurGetPinButton->setEnabled(false);
 
     mImgurGetTokenButton->setText(tr("Get Token"));
@@ -284,8 +281,7 @@ void SettingsDialog::initGui()
     mSmoothPathCheckbox->setText(tr("Smooth Painter Paths"));
     mSmoothPathCheckbox->setToolTip(tr("When enabled smooths out pen and\n"
                                        "marker paths after finished drawing."));
-    connect(mSmoothPathCheckbox, &QCheckBox::clicked,
-            this, &SettingsDialog::smootPathCheckboxClicked);
+    connect(mSmoothPathCheckbox, &QCheckBox::clicked, this, &SettingsDialog::smootPathCheckboxClicked);
 
     mSmoothFactorLabel->setText(tr("Smooth Factor") + QStringLiteral(":"));
     mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"

@@ -25,6 +25,7 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
                                                                     mCopyToClipboardButton(new QToolButton(this)),
                                                                     mCaptureModePicker(new CaptureModePicker(captureModes)),
                                                                     mDelayPicker(new CustomSpinBox(0,100)),
+                                                                    mDelayLabel(new QLabel),
                                                                     mNewCaptureAction(new QAction(this)),
                                                                     mSaveAction(new QAction(this)),
                                                                     mCopyToClipboardAction(new QAction(this))
@@ -43,6 +44,9 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
     mNewCaptureAction->setShortcut(QKeySequence::New);
     connect(mNewCaptureAction, &QAction::triggered, this, &MainToolBar::newCaptureTriggered);
 
+    mDelayLabel->setPixmap(QPixmap(QStringLiteral(":/clock")));
+    mDelayLabel->setFixedSize(20,20);
+    mDelayLabel->setScaledContents(true);
     mDelayPicker->setSuffix(tr("s"));
     mDelayPicker->setToolTip(tr("Delay in seconds between triggering\n"
                                 "and capturing screenshot."));
@@ -56,7 +60,7 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
 
     mCopyToClipboardAction->setText(tr("Copy"));
     mCopyToClipboardAction->setToolTip(tr("Copy Screen Capture to clipboard"));
-    mCopyToClipboardAction->setIcon(IconLoader::loadIcon(QStringLiteral("copyToClipboard1")));
+    mCopyToClipboardAction->setIcon(IconLoader::loadIcon(QStringLiteral("copyToClipboard")));
     mCopyToClipboardAction->setShortcut(QKeySequence::Copy);
     connect(mCopyToClipboardAction, &QAction::triggered, this, &MainToolBar::copyToClipboardActionTriggered);
 
@@ -69,6 +73,7 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
     addWidget(mSaveButton);
     addWidget(mCopyToClipboardButton);
     addSeparator();
+    addWidget(mDelayLabel);
     addWidget(mDelayPicker);
     setFixedSize(sizeHint());
 }

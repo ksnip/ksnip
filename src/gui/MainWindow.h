@@ -105,6 +105,7 @@ private slots:
     void copyToClipboard(const QString &message) const;
     QString &formatUrl(QString &message) const;
     void setupImageAnnotator();
+    void captureDelayChanged(int delay);
 };
 
 #endif // MAINWINDOW_H

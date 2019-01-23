@@ -25,6 +25,7 @@
 #include <QAction>
 
 #include "CaptureModePicker.h"
+#include "CustomSpinBox.h"
 
 class MainToolBar : public QToolBar
 {
@@ -33,6 +34,7 @@ public:
     explicit MainToolBar(const QList<CaptureModes> &captureModes);
     ~MainToolBar() override;
     void selectCaptureMode(CaptureModes captureModes);
+    void setCaptureDelay(int delay);
     void setSaveActionEnabled(bool enabled);
     void setCopyToClipboardActionEnabled(bool enabled);
     QAction* newCaptureAction() const;
@@ -43,6 +45,7 @@ signals:
     void captureModeSelected(CaptureModes mode) const;
     void saveActionTriggered() const;
     void copyToClipboardActionTriggered() const;
+    void captureDelayChanged(int delay) const;
 
 public slots:
     void newCaptureTriggered();
@@ -51,6 +54,7 @@ private:
     QToolButton *mSaveButton;
     QToolButton *mCopyToClipboardButton;
     CaptureModePicker *mCaptureModePicker;
+    CustomSpinBox *mDelayPicker;
     QAction *mNewCaptureAction;
     QAction *mSaveAction;
     QAction *mCopyToClipboardAction;

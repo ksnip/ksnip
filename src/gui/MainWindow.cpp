@@ -204,6 +204,7 @@ void MainWindow::setEnablements(bool enabled)
 void MainWindow::loadSettings()
 {
     mToolBar->selectCaptureMode(mConfig->captureMode());
+    mToolBar->setCaptureDelay(mConfig->captureDelay() / 1000);
 }
 
 void MainWindow::setHidden(bool isHidden)
@@ -250,6 +251,7 @@ void MainWindow::initGui()
     connect(mToolBar, &MainToolBar::captureModeSelected, this, &MainWindow::triggerNewCapture);
     connect(mToolBar, &MainToolBar::saveActionTriggered, this, &MainWindow::saveCapture);
     connect(mToolBar, &MainToolBar::copyToClipboardActionTriggered, this, &MainWindow::copyCaptureToClipboard);
+    connect(mToolBar, &MainToolBar::captureDelayChanged, this, &MainWindow::captureDelayChanged);
 
     mUploadToImgurAction->setText(tr("Upload"));
     mUploadToImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
@@ -475,4 +477,9 @@ void MainWindow::setupImageAnnotator()
 	mkImageAnnotator->setTextFont(mConfig->textFont());
 	mkImageAnnotator->setNumberFont(mConfig->numberFont());
 	mkImageAnnotator->setItemShadowEnabled(mConfig->itemShadowEnabled());
+}
+
+void MainWindow::captureDelayChanged(int delay)
+{
+    mConfig->setCaptureDelay(delay * 1000);
 }

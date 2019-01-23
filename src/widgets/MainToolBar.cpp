@@ -24,6 +24,7 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
                                                                     mSaveButton(new QToolButton(this)),
                                                                     mCopyToClipboardButton(new QToolButton(this)),
                                                                     mCaptureModePicker(new CaptureModePicker(captureModes)),
+                                                                    mDelayPicker(new CustomSpinBox(0,100)),
                                                                     mNewCaptureAction(new QAction(this)),
                                                                     mSaveAction(new QAction(this)),
                                                                     mCopyToClipboardAction(new QAction(this))
@@ -38,10 +39,14 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
     mCopyToClipboardButton->addAction(mCopyToClipboardAction);
     mCopyToClipboardButton->setDefaultAction(mCopyToClipboardAction);
 
-
     mNewCaptureAction->setText(tr("New"));
     mNewCaptureAction->setShortcut(QKeySequence::New);
     connect(mNewCaptureAction, &QAction::triggered, this, &MainToolBar::newCaptureTriggered);
+
+    mDelayPicker->setSuffix(tr("s"));
+    mDelayPicker->setToolTip(tr("Delay in seconds between triggering\n"
+                                "and capturing screenshot."));
+    connect(mDelayPicker, &CustomSpinBox::valueChanged, this, &MainToolBar::captureDelayChanged);
 
     mSaveAction->setText(tr("Save"));
     mSaveAction->setToolTip(tr("Save Screen Capture to file system"));
@@ -63,17 +68,30 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
     addSeparator();
     addWidget(mSaveButton);
     addWidget(mCopyToClipboardButton);
+    addSeparator();
+    addWidget(mDelayPicker);
     setFixedSize(sizeHint());
 }
 
 MainToolBar::~MainToolBar()
 {
-
+    delete mSaveButton;
+    delete mCopyToClipboardButton;
+    delete mCaptureModePicker;
+    delete mDelayPicker;
+    delete mNewCaptureAction;
+    delete mSaveAction;
+    delete mCopyToClipboardAction;
 }
 
 void MainToolBar::selectCaptureMode(CaptureModes captureModes)
 {
     mCaptureModePicker->setCaptureMode(captureModes);
+}
+
+void MainToolBar::setCaptureDelay(int delay)
+{
+    mDelayPicker->setValue(delay);
 }
 
 void MainToolBar::newCaptureTriggered()

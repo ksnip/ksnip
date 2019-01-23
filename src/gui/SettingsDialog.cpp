@@ -43,7 +43,6 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     mImgurClientIdLineEdit(new QLineEdit),
     mImgurClientSecretLineEdit(new QLineEdit),
     mImgurPinLineEdit(new QLineEdit),
-    mCaptureDelayLabel(new QLabel),
     mSaveLocationLabel(new QLabel),
     mImgurUsernameLabel(new QLabel),
     mTextFontLabel(new QLabel),
@@ -51,7 +50,6 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     mSmoothFactorLabel(new QLabel),
     mSnippingCursorSizeLabel(new QLabel),
     mSnippingCursorColorLabel(new QLabel),
-    mCaptureDelayCombobox(new NumericComboBox(0, 1, 11)),
     mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
     mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
     mTextFontCombobox(new QFontComboBox(this)),
@@ -104,7 +102,6 @@ SettingsDialog::~SettingsDialog()
     delete mImgurClientIdLineEdit;
     delete mImgurClientSecretLineEdit;
     delete mImgurPinLineEdit;
-    delete mCaptureDelayLabel;
     delete mSaveLocationLabel;
     delete mImgurUsernameLabel;
     delete mTextFontLabel;
@@ -112,7 +109,6 @@ SettingsDialog::~SettingsDialog()
     delete mSmoothFactorLabel;
     delete mSnippingCursorSizeLabel;
     delete mSnippingCursorColorLabel;
-    delete mCaptureDelayCombobox;
     delete mSmoothFactorCombobox;
     delete mSnippingCursorSizeCombobox;
     delete mTextFontCombobox;
@@ -151,7 +147,6 @@ void SettingsDialog::loadSettings()
     }
 
     mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());
-    mCaptureDelayCombobox->setValue(mConfig->captureDelay() / 1000);
     mCursorRulerCheckbox->setChecked(mConfig->cursorRulerEnabled());
     mCursorInfoCheckbox->setChecked(mConfig->cursorInfoEnabled());
     mSnippingCursorColorButton->setColor(mConfig->snippingCursorColor());
@@ -184,7 +179,6 @@ void SettingsDialog::saveSettings()
     mConfig->setImgurConfirmBeforeUpload(mImgurConfirmBeforeUploadCheckbox->isChecked());
 
     mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
-    mConfig->setCaptureDelay(mCaptureDelayCombobox->value() * 1000);
     mConfig->setCursorRulerEnabled(mCursorRulerCheckbox->isChecked());
     mConfig->setCursorInfoEnabled(mCursorInfoCheckbox->isChecked());
     mConfig->setSnippingCursorColor(mSnippingCursorColorButton->color());
@@ -233,12 +227,6 @@ void SettingsDialog::initGui()
     mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot"));
     mCaptureCursorCheckbox->setToolTip(tr("Should mouse cursor be visible on\n"
                                           "screenshots."));
-    mCaptureDelayLabel->setText(tr("Delay (sec)") + QStringLiteral(":"));
-    mCaptureDelayLabel->setToolTip(tr("Sets the delay between triggering a capture\n"
-                                      "and the moment when the capture is taken, in\n"
-                                      "seconds."));
-    mCaptureDelayCombobox->setToolTip(mCaptureDelayLabel->toolTip());
-    mCaptureDelayCombobox->setMinimumWidth(fixedButtonSize);
     mCursorRulerCheckbox->setText(tr("Show snipping cursor ruler"));
     mCursorRulerCheckbox->setToolTip(tr("Horizontal and vertical lines going from\n"
                                         "desktop corner to cursor on snipping area."));
@@ -371,13 +359,10 @@ void SettingsDialog::initGui()
     imageGrabberGrid->addWidget(mCursorRulerCheckbox, 1, 0, 1, 2);
     imageGrabberGrid->addWidget(mCursorInfoCheckbox, 2, 0, 1, 2);
     imageGrabberGrid->setRowMinimumHeight(3, 15);
-    imageGrabberGrid->addWidget(mCaptureDelayLabel, 4, 0);
-    imageGrabberGrid->addWidget(mCaptureDelayCombobox, 4, 1, Qt::AlignLeft);
-    imageGrabberGrid->setRowMinimumHeight(5, 15);
-    imageGrabberGrid->addWidget(mSnippingCursorColorLabel, 6, 0);
-    imageGrabberGrid->addWidget(mSnippingCursorColorButton, 6, 1, Qt::AlignLeft);
-    imageGrabberGrid->addWidget(mSnippingCursorSizeLabel, 7, 0);
-    imageGrabberGrid->addWidget(mSnippingCursorSizeCombobox, 7, 1, Qt::AlignLeft);
+    imageGrabberGrid->addWidget(mSnippingCursorColorLabel, 4, 0);
+    imageGrabberGrid->addWidget(mSnippingCursorColorButton, 4, 1, Qt::AlignLeft);
+    imageGrabberGrid->addWidget(mSnippingCursorSizeLabel, 5, 0);
+    imageGrabberGrid->addWidget(mSnippingCursorSizeCombobox, 5, 1, Qt::AlignLeft);
 
     auto imageGrabberGrpBox = new QGroupBox(tr("Image Grabber"));
     imageGrabberGrpBox->setLayout(imageGrabberGrid);

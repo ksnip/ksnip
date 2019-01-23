@@ -68,7 +68,6 @@ private:
     QLineEdit       *mImgurClientIdLineEdit;
     QLineEdit       *mImgurClientSecretLineEdit;
     QLineEdit       *mImgurPinLineEdit;
-    QLabel          *mCaptureDelayLabel;
     QLabel          *mSaveLocationLabel;
     QLabel          *mImgurUsernameLabel;
     QLabel          *mTextFontLabel;
@@ -76,7 +75,6 @@ private:
     QLabel          *mSmoothFactorLabel;
     QLabel          *mSnippingCursorSizeLabel;
     QLabel          *mSnippingCursorColorLabel;
-    NumericComboBox *mCaptureDelayCombobox;
     NumericComboBox *mSmoothFactorCombobox;
     NumericComboBox *mSnippingCursorSizeCombobox;
     QFontComboBox   *mTextFontCombobox;

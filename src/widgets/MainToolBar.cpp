@@ -44,12 +44,15 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
     mNewCaptureAction->setShortcut(QKeySequence::New);
     connect(mNewCaptureAction, &QAction::triggered, this, &MainToolBar::newCaptureTriggered);
 
-    mDelayLabel->setPixmap(QPixmap(QStringLiteral(":/clock")));
-    mDelayLabel->setFixedSize(20,20);
-    mDelayLabel->setScaledContents(true);
+	auto clockPixmap = QPixmap(QStringLiteral(":/clock"));
+	auto scaledClockPixmap = clockPixmap.scaled(24, 24, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+	mDelayLabel->setPixmap(scaledClockPixmap);
+	mDelayLabel->setContentsMargins(0, 0, 2, 0);
+	mDelayLabel->setToolTip(tr("Delay in seconds between triggering\n"
+	                           "and capturing screenshot."));
     mDelayPicker->setSuffix(tr("s"));
-    mDelayPicker->setToolTip(tr("Delay in seconds between triggering\n"
-                                "and capturing screenshot."));
+	mDelayPicker->setFixedWidth(55);
+	mDelayPicker->setToolTip(mDelayLabel->toolTip());
     connect(mDelayPicker, &CustomSpinBox::valueChanged, this, &MainToolBar::captureDelayChanged);
 
     mSaveAction->setText(tr("Save"));

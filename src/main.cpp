@@ -40,6 +40,8 @@ int main(int argc, char** argv)
     app.setApplicationName(QStringLiteral("ksnip"));
     app.setApplicationVersion(QStringLiteral(KSNIP_VERSION));
 
+    app.setStyle(KsnipConfig::instance()->applicationStyle());
+
     QTranslator translator;
     auto pathToTranslations = QStringLiteral(KSNIP_LANG_INSTAL_DIR);
     auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), pathToTranslations);

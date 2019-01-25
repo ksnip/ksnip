@@ -202,6 +202,20 @@ void KsnipConfig::setUseInstantSave(const bool enabled)
     mConfig.sync();
 }
 
+QString KsnipConfig::applicationStyle() const
+{
+    return mConfig.value(QStringLiteral("Application/ApplicationStyle"), QStringLiteral("fusion")).toString();
+}
+
+void KsnipConfig::setApplicationStyle(QString style)
+{
+    if (applicationStyle() == style) {
+        return;
+    }
+    mConfig.setValue(QStringLiteral("Application/ApplicationStyle"), style);
+    mConfig.sync();
+}
+
 /*
  * Returns fully formatted save path ready to use. Custom format can be provided
  * to replace the configured format, if not format provided, teh default will be
@@ -362,21 +376,6 @@ void KsnipConfig::setSmoothFactor(int  factor)
     mConfig.setValue(QStringLiteral("Painter/SmoothPathFactor"), factor);
     mConfig.sync();
 	emit toolConfigChanged();
-}
-
-bool KsnipConfig::dynamicCursorSizeEnabled() const
-{
-    return mConfig.value(QStringLiteral("Painter/DynamicCursorSize"), true).toBool();
-}
-
-void KsnipConfig::setDynamicCursorSizeEnabled(bool enabled)
-{
-    if (dynamicCursorSizeEnabled() == enabled) {
-        return;
-    }
-
-    mConfig.setValue(QStringLiteral("Painter/DynamicCursorSize"), enabled);
-    mConfig.sync();
 }
 
 // Image Grabber

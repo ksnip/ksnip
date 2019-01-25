@@ -44,7 +44,7 @@ class SettingsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit SettingsDialog(QWidget *parent = 0);
+    explicit SettingsDialog(QWidget *parent = nullptr);
     ~SettingsDialog() override;
 
 private:
@@ -63,7 +63,6 @@ private:
     QCheckBox       *mItemShadowCheckbox;
     QCheckBox       *mCursorRulerCheckbox;
     QCheckBox       *mCursorInfoCheckbox;
-    QCheckBox       *mDynamicCursorSize;
     QLineEdit       *mSaveLocationLineEdit;
     QLineEdit       *mImgurClientIdLineEdit;
     QLineEdit       *mImgurClientSecretLineEdit;

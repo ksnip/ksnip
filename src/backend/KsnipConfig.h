@@ -73,6 +73,9 @@ public:
     bool useInstantSave() const;
     void setUseInstantSave(bool enabled);
 
+	QString applicationStyle() const;
+	void setApplicationStyle(QString style);
+
     QString savePath(const QString &format = QString()) const;
 
     bool textBold() const;
@@ -95,9 +98,6 @@ public:
 
     int smoothFactor() const;
     void setSmoothFactor(int factor);
-
-    bool dynamicCursorSizeEnabled() const;
-    void setDynamicCursorSizeEnabled(bool enabled);
 
     // Image Grabber
 

@@ -38,7 +38,6 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     mItemShadowCheckbox(new QCheckBox),
     mCursorRulerCheckbox(new QCheckBox),
     mCursorInfoCheckbox(new QCheckBox),
-    mDynamicCursorSize(new QCheckBox),
     mSaveLocationLineEdit(new QLineEdit),
     mImgurClientIdLineEdit(new QLineEdit),
     mImgurClientSecretLineEdit(new QLineEdit),
@@ -161,7 +160,6 @@ void SettingsDialog::loadSettings()
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
     smootPathCheckboxClicked(mConfig->smoothPathEnabled());
-    mDynamicCursorSize->setChecked(mConfig->dynamicCursorSizeEnabled());
 }
 
 void SettingsDialog::saveSettings()
@@ -196,7 +194,6 @@ void SettingsDialog::saveSettings()
     mConfig->setItemShadowEnabled(mItemShadowCheckbox->isChecked());
     mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
-    mConfig->setDynamicCursorSizeEnabled(mDynamicCursorSize->isChecked());
 }
 
 void SettingsDialog::initGui()
@@ -312,11 +309,6 @@ void SettingsDialog::initGui()
     mNumberFontCombobox->setToolTip(mNumberFontLabel->toolTip());
     mNumberFontCombobox->setEditable(false);
 
-    mDynamicCursorSize->setText(tr("Dynamic Cursor Size"));
-    mDynamicCursorSize->setToolTip(tr("When enabled, the painter cursor size\n"
-                                      "matches the selected tool size.\n"
-                                      "Requires switching tool to become active."));
-
     // Create Push Buttons
     mOkButton->setText(tr("OK"));
     connect(mOkButton, &QPushButton::clicked, [this]() {
@@ -400,7 +392,6 @@ void SettingsDialog::initGui()
     painterGrid->addWidget(mNumberFontLabel, 6, 0);
     painterGrid->addWidget(mNumberFontCombobox, 6, 1);
     painterGrid->setRowMinimumHeight(7, 15);
-    painterGrid->addWidget(mDynamicCursorSize, 7, 0, 1, 2);
 
     auto painterGrpBox = new QGroupBox(tr("Painter Settings"));
     painterGrpBox->setLayout(painterGrid);

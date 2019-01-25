@@ -49,10 +49,12 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     mSmoothFactorLabel(new QLabel),
     mSnippingCursorSizeLabel(new QLabel),
     mSnippingCursorColorLabel(new QLabel),
+    mApplicationStyleLabel(new QLabel),
     mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
     mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
     mTextFontCombobox(new QFontComboBox(this)),
     mNumberFontCombobox(new QFontComboBox(this)),
+    mApplicationStyleCombobox(new QComboBox(this)),
     mBrowseButton(new QPushButton),
     mImgurGetPinButton(new QPushButton),
     mImgurGetTokenButton(new QPushButton),
@@ -108,10 +110,12 @@ SettingsDialog::~SettingsDialog()
     delete mSmoothFactorLabel;
     delete mSnippingCursorSizeLabel;
     delete mSnippingCursorColorLabel;
+    delete mApplicationStyleLabel;
     delete mSmoothFactorCombobox;
     delete mSnippingCursorSizeCombobox;
     delete mTextFontCombobox;
     delete mNumberFontCombobox;
+    delete mApplicationStyleCombobox;
     delete mBrowseButton;
     delete mImgurGetPinButton;
     delete mImgurGetTokenButton;
@@ -156,6 +160,8 @@ void SettingsDialog::loadSettings()
     mTextItalicButton->setChecked(mConfig->textItalic());
     mTextUnderlineButton->setChecked(mConfig->textUnderline());
     mNumberFontCombobox->setCurrentFont(mConfig->numberFont());
+    mApplicationStyleCombobox->addItems(QStyleFactory::keys());
+    mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
     mItemShadowCheckbox->setChecked(mConfig->itemShadowEnabled());
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
@@ -170,6 +176,7 @@ void SettingsDialog::saveSettings()
     mConfig->setSaveKsnipToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
     mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
     mConfig->setUseInstantSave(mUseInstantSaveCheckBox->isChecked());
+    mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 
     mConfig->setImgurForceAnonymous(mImgurForceAnonymousCheckbox->isChecked());
     mConfig->setImgurOpenLinkDirectlyToImage(mImgurDirectLinkToImageCheckbox->isChecked());
@@ -209,6 +216,12 @@ void SettingsDialog::initGui()
     mUseInstantSaveCheckBox->setText(tr("Instant save to default location without 'Save as' dialog"));
     mUseInstantSaveCheckBox->setToolTip(tr("When enabled, will not ask where to save a screenshot\n"
                                            "when saving, but will save instantly to default location."));
+
+    mApplicationStyleLabel->setText(tr("Application Style") + QStringLiteral(":"));
+    mApplicationStyleLabel->setToolTip(tr("Sets the application style which defines the look and feel of the GUI.\n"
+                                          "Change requires ksnip restart to take effect."));
+    mApplicationStyleCombobox->setToolTip(mApplicationStyleLabel->toolTip());
+    mApplicationStyleCombobox->setFixedWidth(100);
 
     mSaveLocationLabel->setText(tr("Capture save location and filename") + QStringLiteral(":"));
 
@@ -324,17 +337,20 @@ void SettingsDialog::initGui()
     // Setup Application Settings Layout
     auto applicationGrid = new QGridLayout;
     applicationGrid->setAlignment(Qt::AlignTop);
-    applicationGrid->setColumnStretch(0, 1);
-    applicationGrid->addWidget(mAlwaysCopyToClipboardCheckbox, 0, 0);
-    applicationGrid->addWidget(mPromptToSaveBeforeExitCheckbox, 1, 0);
-    applicationGrid->addWidget(mSaveKsnipPositionCheckbox, 2, 0);
-    applicationGrid->addWidget(mSaveKsnipToolSelectionCheckbox, 3, 0);
-    applicationGrid->addWidget(mCaptureOnStartupCheckbox, 4, 0);
-    applicationGrid->addWidget(mUseInstantSaveCheckBox, 5, 0);
+    applicationGrid->addWidget(mAlwaysCopyToClipboardCheckbox, 0, 0, 1, 3);
+    applicationGrid->addWidget(mPromptToSaveBeforeExitCheckbox, 1, 0, 1, 3);
+    applicationGrid->addWidget(mSaveKsnipPositionCheckbox, 2, 0, 1, 3);
+    applicationGrid->addWidget(mSaveKsnipToolSelectionCheckbox, 3, 0, 1, 3);
+    applicationGrid->addWidget(mCaptureOnStartupCheckbox, 4, 0, 1, 3);
+    applicationGrid->addWidget(mUseInstantSaveCheckBox, 5, 0, 1, 3);
     applicationGrid->setRowMinimumHeight(6, 15);
-    applicationGrid->addWidget(mSaveLocationLabel, 7, 0);
-    applicationGrid->addWidget(mSaveLocationLineEdit, 8, 0);
-    applicationGrid->addWidget(mBrowseButton, 8, 3);
+    applicationGrid->addWidget(mApplicationStyleLabel, 7, 0);
+    applicationGrid->addWidget(mApplicationStyleCombobox, 7, 1, Qt::AlignLeft);
+    applicationGrid->setRowMinimumHeight(8, 15);
+    applicationGrid->addWidget(mSaveLocationLabel, 9, 0, 1, 3);
+    applicationGrid->addWidget(mSaveLocationLineEdit, 10, 0, 1, 3);
+    applicationGrid->addWidget(mBrowseButton, 10, 4);
+
 
     auto applicationGrpBox = new QGroupBox(tr("Application Settings"));
     applicationGrpBox->setLayout(applicationGrid);

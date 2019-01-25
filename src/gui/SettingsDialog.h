@@ -33,6 +33,7 @@
 #include <QDesktopServices>
 #include <QFileDialog>
 #include <QToolButton>
+#include <QStyleFactory>
 
 #include "src/widgets/NumericComboBox.h"
 #include "src/widgets/ColorButton.h"
@@ -74,10 +75,12 @@ private:
     QLabel          *mSmoothFactorLabel;
     QLabel          *mSnippingCursorSizeLabel;
     QLabel          *mSnippingCursorColorLabel;
+    QLabel          *mApplicationStyleLabel;
     NumericComboBox *mSmoothFactorCombobox;
     NumericComboBox *mSnippingCursorSizeCombobox;
     QFontComboBox   *mTextFontCombobox;
     QFontComboBox   *mNumberFontCombobox;
+    QComboBox       *mApplicationStyleCombobox;
     QPushButton     *mBrowseButton;
     QPushButton     *mImgurGetPinButton;
     QPushButton     *mImgurGetTokenButton;

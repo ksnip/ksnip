@@ -204,7 +204,7 @@ void KsnipConfig::setUseInstantSave(const bool enabled)
 
 QString KsnipConfig::applicationStyle() const
 {
-    return mConfig.value(QStringLiteral("Application/ApplicationStyle"), QStringLiteral("fusion")).toString();
+    return mConfig.value(QStringLiteral("Application/ApplicationStyle"), QStringLiteral("Fusion")).toString();
 }
 
 void KsnipConfig::setApplicationStyle(QString style)

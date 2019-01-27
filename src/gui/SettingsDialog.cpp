@@ -160,7 +160,6 @@ void SettingsDialog::loadSettings()
     mTextItalicButton->setChecked(mConfig->textItalic());
     mTextUnderlineButton->setChecked(mConfig->textUnderline());
     mNumberFontCombobox->setCurrentFont(mConfig->numberFont());
-    mApplicationStyleCombobox->addItems(QStyleFactory::keys());
     mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
     mItemShadowCheckbox->setChecked(mConfig->itemShadowEnabled());
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
@@ -220,6 +219,7 @@ void SettingsDialog::initGui()
     mApplicationStyleLabel->setText(tr("Application Style") + QStringLiteral(":"));
     mApplicationStyleLabel->setToolTip(tr("Sets the application style which defines the look and feel of the GUI.\n"
                                           "Change requires ksnip restart to take effect."));
+	mApplicationStyleCombobox->addItems(QStyleFactory::keys());
     mApplicationStyleCombobox->setToolTip(mApplicationStyleLabel->toolTip());
     mApplicationStyleCombobox->setFixedWidth(100);
 

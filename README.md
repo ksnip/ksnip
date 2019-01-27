@@ -4,8 +4,8 @@
       <a href="https://github.com/DamirPorobic/ksnip">
         <img src="icons/ksnip.svg" alt="ksnip" height="64" width="64"/>
       </a>
+        ksnip
       <br />
-      ksnip
     </h1>
     <h4>
       Version v1.5.0 - alpha
@@ -27,10 +27,12 @@
   </p>
 </div>
 
-![Ksnip](https://imgur.com/cB2zfKW.png "Ksnip with annotations")
 
 Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features 
 for your screenshots.
+
+![Ksnip](https://imgur.com/cB2zfKW.png "Ksnip with annotations")
+
 
 ### Features
 Latest ksnip version contains following features:

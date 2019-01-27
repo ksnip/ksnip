@@ -2,13 +2,13 @@
   <p>
     <h1>
       <a href="https://github.com/DamirPorobic/ksnip">
-        <img src="icons/ksnip.svg" alt="ksnip" height="64" width="64" style="vertical-align:middle"/>
+        <img src="icons/ksnip.svg" alt="ksnip" height="64" width="64"/>
       </a>
-      <span style="vertical-align:middle">ksnip</span>
       <br />
+      ksnip
     </h1>
   </p>
-    <p>
+  <p>
     <a href="https://travis-ci.org/DamirPorobic/ksnip">
       <img src="https://travis-ci.org/DamirPorobic/ksnip.svg?branch=master" alt="Build Status" />
     </a>

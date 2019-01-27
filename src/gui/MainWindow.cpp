@@ -310,8 +310,7 @@ void MainWindow::initGui()
     mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
     connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::loadImageFromFile);
 
-    QMenu* menu;
-    menu = menuBar()->addMenu(tr("File"));
+	auto menu = menuBar()->addMenu(tr("File"));
     menu->addAction(mToolBar->newCaptureAction());
     menu->addAction(mOpenImageAction);
     menu->addAction(mToolBar->saveAction());

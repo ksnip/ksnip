@@ -32,6 +32,8 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
 {
     connect(mCaptureModePicker, &CaptureModePicker::captureModeSelected, this, &MainToolBar::captureModeSelected);
 
+	setStyleSheet("QToolBar { border: 0px }");
+
     mSaveButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mSaveButton->addAction(mSaveAction);
     mSaveButton->setDefaultAction(mSaveAction);

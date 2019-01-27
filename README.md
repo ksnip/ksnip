@@ -1,15 +1,12 @@
 <div align="center">
   <p>
     <h1>
-      <a href="https://github.com/DamirPorobic/ksnip">
-        <img src="icons/ksnip.svg" alt="ksnip" height="64" width="64"/>
-      </a>
-        ksnip
+      <div>
+        <img style="vertical-align:middle" src="icons/ksnip.svg" alt="ksnip" height="64" width="64" >
+        <span style=""> ksnip</span>
+      </div>
       <br />
     </h1>
-    <h4>
-      Version v1.5.0 - alpha
-  </h4>
   </p>
     <p>
     <a href="https://travis-ci.org/DamirPorobic/ksnip">
@@ -27,6 +24,7 @@
   </p>
 </div>
 
+Version v1.5.0 - alpha
 
 Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features 
 for your screenshots.

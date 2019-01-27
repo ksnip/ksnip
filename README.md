@@ -7,21 +7,30 @@
       <br />
       ksnip
     </h1>
+    <h4>
+      Version v1.5.0 - alpha
+  </h4>
+  </p>
+    <p>
+    <a href="https://travis-ci.org/DamirPorobic/ksnip">
+      <img src="https://travis-ci.org/DamirPorobic/ksnip.svg?branch=master" alt="Build Status" />
+    </a>
+    <a href="https://www.codacy.com/app/DamirPorobic/ksnip?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DamirPorobic/ksnip&amp;utm_campaign=Badge_Grade">
+      <img src="https://api.codacy.com/project/badge/Grade/94558bfc42d1466fae691a646cfe3f09" alt="Codacy Badge" />
+    </a>
+    <a href="https://hosted.weblate.org/engage/ksnip/?utm_source=widget">
+      <img src="https://hosted.weblate.org/widgets/ksnip/-/translations/svg-badge.svg" alt="Translation Status" />
+    </a>
+    <a href="https://github.com/damirporobic/ksnip/releases">
+      <img src="https://img.shields.io/github/downloads/damirporobic/ksnip/total.svg" alt="Total Downloads" />
+    </a>
   </p>
 </div>
 
-[![Build Status](https://travis-ci.org/DamirPorobic/ksnip.svg?branch=master)](https://travis-ci.org/DamirPorobic/ksnip) 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/94558bfc42d1466fae691a646cfe3f09)](https://www.codacy.com/app/DamirPorobic/ksnip?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DamirPorobic/ksnip&amp;utm_campaign=Badge_Grade) 
-[![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/svg-badge.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget) 
-[![ksnip Downloads](https://img.shields.io/github/downloads/damirporobic/ksnip/total.svg)](https://github.com/damirporobic/ksnip/releases)
-
-Version v1.5.0 - alpha
+![Ksnip](https://imgur.com/cB2zfKW.png "Ksnip with annotations")
 
 Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features 
 for your screenshots.
-
-![Ksnip](https://imgur.com/cB2zfKW.png "Ksnip with annotations")
-
 
 ### Features
 Latest ksnip version contains following features:

@@ -60,10 +60,11 @@ AboutDialog::AboutDialog(MainWindow* parent) : QDialog(parent),
 
 void AboutDialog::createHeader()
 {
-    auto pixmap = new QPixmap(QStringLiteral(":/ksnip64.png"));
+	auto pixmap = QPixmap(QStringLiteral(":/ksnip"));
+	auto scaledPixmap = pixmap.scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     auto label = new QLabel();
     mHeaderLayout = new QHBoxLayout();
-    label->setPixmap(*pixmap);
+	label->setPixmap(scaledPixmap);
     label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     mHeaderLayout->addWidget(label);
     label = new QLabel(QStringLiteral("<h2>") + QApplication::applicationName() + QStringLiteral("</h2>"));

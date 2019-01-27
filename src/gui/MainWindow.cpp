@@ -61,7 +61,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
     initGui();
 
-    setWindowIcon(IconLoader::loadIcon(QStringLiteral("ksnip")));
+	setWindowIcon(QIcon(QStringLiteral(":/ksnip")));
     move(mConfig->windowPosition());
 
 	connect(mConfig, &KsnipConfig::toolConfigChanged, this, &MainWindow::setupImageAnnotator);
@@ -293,7 +293,7 @@ void MainWindow::initGui()
     });
 
     mAboutKsnipAction->setText(tr("&About"));
-    mAboutKsnipAction->setIcon(IconLoader::loadIcon(QStringLiteral("ksnip")));
+	mAboutKsnipAction->setIcon(QIcon(QStringLiteral(":/ksnip")));
     connect(mAboutKsnipAction, &QAction::triggered, [this]() {
         AboutDialog aboutDialog(this);
         aboutDialog.exec();

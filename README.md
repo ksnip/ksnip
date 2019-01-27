@@ -2,9 +2,9 @@
   <p>
     <h1>
       <a href="https://github.com/DamirPorobic/ksnip">
-        <img src="icons/ksnip.svg" alt="ksnip" height="64" width="64"/>
+        <img src="icons/ksnip.svg" alt="ksnip" height="64" width="64" style="vertical-align:middle"/>
       </a>
-        ksnip
+      <span style="">ksnip</span>
       <br />
     </h1>
     <h4>

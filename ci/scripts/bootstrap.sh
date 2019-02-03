@@ -9,10 +9,10 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     chmod a+x linuxdeployqt-continuous-x86_64.AppImage
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     docker pull ubuntu:17.10
-    docker run --name build-container -v `pwd`:`pwd` -w `pwd` -dit ubuntu:17.10 bash
+    docker run --name build-container -v $(pwd):$(pwd) -w $(pwd) -dit ubuntu:17.10 bash
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     docker pull opensuse:42.2
-    docker run --name build-container -v `pwd`:`pwd` -w `pwd` -dit opensuse:42.2 bash
+    docker run --name build-container -v $(pwd):$(pwd) -w $(pwd) -dit opensuse:42.2 bash
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/bootstrap_envvars.sh
 

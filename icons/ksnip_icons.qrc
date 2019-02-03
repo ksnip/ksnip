@@ -1,9 +1,5 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-    <file alias="ksnip64.png">64x64/ksnip.64.png</file>
-    <file alias="ksnip48.png">48x48/ksnip.48.png</file>
-    <file alias="ksnip32.png">32x32/ksnip.32.png</file>
-    <file alias="ksnip16.png">16x16/ksnip.16.png</file>
     <file alias="save64.png">64x64/save.64.png</file>
     <file alias="copyToClipboard64.png">64x64/copyToClipboard.64.png</file>
     <file alias="drawRect64.png">64x64/drawRect.64.png</file>

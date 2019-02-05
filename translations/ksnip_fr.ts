@@ -162,7 +162,7 @@
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvre l&apos;interface de l&apos;imprimante et affiche les options d&apos;impression</translation>
     </message>
     <message>
         <source>Print Preview</source>

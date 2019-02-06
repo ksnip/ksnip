@@ -47,6 +47,7 @@
 * Fixed kImageAnnotator: Double-click on annotation area causes SIGSEGV crash. ([#29](https://github.com/DamirPorobic/kImageAnnotator/issues/29))
 * Fixed kImageAnnotator: CAPS LOCK doesnt work on image editor. ([#31](https://github.com/DamirPorobic/kImageAnnotator/issues/31))
 * Fixed kImageAnnotator: Unable to select text item when clicking on text. ([#32](https://github.com/DamirPorobic/kImageAnnotator/issues/32))
+* Fixed kImageAnnotator: Some blurs get removed when losing focus. ([#35](https://github.com/DamirPorobic/kImageAnnotator/issues/35))
 
 ## Release 1.4.0
 * New: Info text (cursor position and selection area size) for snipping area cursor, can be enabled and disabled via settings.([#49](https://github.com/DamirPorobic/ksnip/issues/49))

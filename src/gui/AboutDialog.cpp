@@ -60,7 +60,7 @@ AboutDialog::AboutDialog(MainWindow* parent) : QDialog(parent),
 
 void AboutDialog::createHeader()
 {
-	auto pixmap = QPixmap(QStringLiteral(":/ksnip"));
+	auto pixmap = QPixmap(QStringLiteral(":/icons/ksnip"));
 	auto scaledPixmap = pixmap.scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     auto label = new QLabel();
     mHeaderLayout = new QHBoxLayout();

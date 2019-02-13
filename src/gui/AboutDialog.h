@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef ABOUTDIALOG_H
-#define ABOUTDIALOG_H
+#ifndef KSNIP_ABOUTDIALOG_H
+#define KSNIP_ABOUTDIALOG_H
 
 #include <QDialog>
 
@@ -50,4 +50,4 @@ private:
     void createAuthorTab();
 };
 
-#endif // ABOUTDIALOG_H
+#endif // KSNIP_ABOUTDIALOG_H

@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef SETTINGSDIALOG_H
-#define SETTINGSDIALOG_H
+#ifndef KSNIP_SETTINGSDIALOG_H
+#define KSNIP_SETTINGSDIALOG_H
 
 #include <QDialog>
 #include <QCheckBox>
@@ -39,6 +39,7 @@
 #include "src/widgets/ColorButton.h"
 #include "src/backend/KsnipConfig.h"
 #include "src/common/formatter/FilenameFormatter.h"
+#include "src/common/loader/IconLoader.h"
 #include "src/backend/ImgurUploader.h"
 
 class SettingsDialog : public QDialog
@@ -109,4 +110,4 @@ private slots:
     void chooseSaveDirectory();
 };
 
-#endif // SETTINGSDIALOG_H
+#endif // KSNIP_SETTINGSDIALOG_H

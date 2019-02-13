@@ -18,6 +18,7 @@
 * New: Added Continues build for Windows binaries. ([#114](https://github.com/DamirPorobic/ksnip/issues/114))
 * New: Place time delay settings on Toolbar. ([#91](https://github.com/DamirPorobic/ksnip/issues/91))
 * New: Add qt style switcher to configuration. ([#137](https://github.com/DamirPorobic/ksnip/issues/137))
+* New: Add icons for dark theme. ([#142](https://github.com/DamirPorobic/ksnip/issues/142))
 * New kImageAnnotator: Keep number tool sequence consecutive after deleting item. ([#7](https://github.com/DamirPorobic/kImageAnnotator/issues/7))
 * New kImageAnnotator: Added control for setting first number for numbering tool. ([#7](https://github.com/DamirPorobic/kImageAnnotator/issues/7))
 * New kImageAnnotator: Text and Number tool have now noBorderAndNoFill type. ([#22](https://github.com/DamirPorobic/kImageAnnotator/issues/22))

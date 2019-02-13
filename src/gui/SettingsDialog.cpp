@@ -305,15 +305,15 @@ void SettingsDialog::initGui()
     mTextFontCombobox->setToolTip(mTextFontLabel->toolTip());
     mTextFontCombobox->setEditable(false);
 
-    mTextBoldButton->setIcon(QIcon(QStringLiteral(":/bold")));
+	mTextBoldButton->setIcon(IconLoader::load(QStringLiteral("bold.svg")));
     mTextBoldButton->setToolTip(tr("Bold"));
     mTextBoldButton->setCheckable(true);
 
-    mTextItalicButton->setIcon(QIcon(QStringLiteral(":/italic")));
+	mTextItalicButton->setIcon(IconLoader::load(QStringLiteral("italic.svg")));
     mTextItalicButton->setToolTip(tr("Italic"));
     mTextItalicButton->setCheckable(true);
 
-    mTextUnderlineButton->setIcon(QIcon(QStringLiteral(":/underline")));
+	mTextUnderlineButton->setIcon(IconLoader::load(QStringLiteral("underline.svg")));
     mTextUnderlineButton->setToolTip(tr("Underline"));
     mTextUnderlineButton->setCheckable(true);
 

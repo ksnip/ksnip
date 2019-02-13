@@ -1,16 +1,29 @@
 <!DOCTYPE RCC><RCC version="1.0">
-<qresource>
+<qresource prefix="/icons">
     <file>ksnip.svg</file>
-    <file>bold.svg</file>
-    <file>italic.svg</file>
-    <file>underline.svg</file>
-    <file>clock.svg</file>
-    <file>save.svg</file>
-    <file>copyToClipboard.svg</file>
-    <file>currentScreen.svg</file>
-    <file>drawRect.svg</file>
-    <file>activeWindow.svg</file>
-    <file>windowUnderCursor.svg</file>
-    <file>fullScreen.svg</file>
+
+    <file>light/bold.svg</file>
+    <file>light/italic.svg</file>
+    <file>light/underline.svg</file>
+    <file>light/clock.svg</file>
+    <file>light/save.svg</file>
+    <file>light/copyToClipboard.svg</file>
+    <file>light/currentScreen.svg</file>
+    <file>light/drawRect.svg</file>
+    <file>light/activeWindow.svg</file>
+    <file>light/windowUnderCursor.svg</file>
+    <file>light/fullScreen.svg</file>
+
+    <file>dark/bold.svg</file>
+    <file>dark/italic.svg</file>
+    <file>dark/underline.svg</file>
+    <file>dark/clock.svg</file>
+    <file>dark/save.svg</file>
+    <file>dark/copyToClipboard.svg</file>
+    <file>dark/currentScreen.svg</file>
+    <file>dark/drawRect.svg</file>
+    <file>dark/activeWindow.svg</file>
+    <file>dark/windowUnderCursor.svg</file>
+    <file>dark/fullScreen.svg</file>
 </qresource>
 </RCC>

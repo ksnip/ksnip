@@ -17,16 +17,24 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef ICONLOADER_H
-#define ICONLOADER_H
+#ifndef KSNIP_ICONLOADER_H
+#define KSNIP_ICONLOADER_H
 
 #include <QIcon>
-#include <qresource.h>
+#include <QApplication>
+#include <QPalette>
 
 class IconLoader
 {
 public:
-    static QIcon loadIcon(const QString &name);
+	static QIcon load(QString name);
+
+private:
+	IconLoader() = default;
+	~IconLoader() = default;
+	static bool isDarkTheme();
+	static QString getThemePrefix();
+	static double getThemeLuma();
 };
 
-#endif // ICONLOADER_H
+#endif // KSNIP_ICONLOADER_H

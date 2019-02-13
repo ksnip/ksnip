@@ -46,9 +46,8 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
     mNewCaptureAction->setShortcut(QKeySequence::New);
     connect(mNewCaptureAction, &QAction::triggered, this, &MainToolBar::newCaptureTriggered);
 
-	auto clockPixmap = QPixmap(QStringLiteral(":/clock"));
-	auto scaledClockPixmap = clockPixmap.scaled(24, 24, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-	mDelayLabel->setPixmap(scaledClockPixmap);
+	auto clockPixmap = IconLoader::load(QStringLiteral("clock.svg")).pixmap(QSize(24, 24));
+	mDelayLabel->setPixmap(clockPixmap);
 	mDelayLabel->setContentsMargins(0, 0, 2, 0);
 	mDelayLabel->setToolTip(tr("Delay in seconds between triggering\n"
 	                           "and capturing screenshot."));
@@ -59,13 +58,13 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
 
     mSaveAction->setText(tr("Save"));
     mSaveAction->setToolTip(tr("Save Screen Capture to file system"));
-	mSaveAction->setIcon(QIcon(QStringLiteral(":/save")));
+	mSaveAction->setIcon(IconLoader::load(QStringLiteral("save.svg")));
     mSaveAction->setShortcut(QKeySequence::Save);
     connect(mSaveAction, &QAction::triggered, this, &MainToolBar::saveActionTriggered);
 
     mCopyToClipboardAction->setText(tr("Copy"));
     mCopyToClipboardAction->setToolTip(tr("Copy Screen Capture to clipboard"));
-	mCopyToClipboardAction->setIcon(QIcon(QStringLiteral(":/copyToClipboard")));
+	mCopyToClipboardAction->setIcon(IconLoader::load(QStringLiteral("copyToClipboard.svg")));
     mCopyToClipboardAction->setShortcut(QKeySequence::Copy);
     connect(mCopyToClipboardAction, &QAction::triggered, this, &MainToolBar::copyToClipboardActionTriggered);
 

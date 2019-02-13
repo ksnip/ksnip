@@ -1,23 +1,16 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-    <file alias="save64.png">64x64/save.64.png</file>
-    <file alias="copyToClipboard64.png">64x64/copyToClipboard.64.png</file>
-    <file alias="drawRect64.png">64x64/drawRect.64.png</file>
-    <file alias="drawRect32.png">32x32/drawRect.32.png</file>
-    <file alias="drawRect16.png">16x16/drawRect.16.png</file>
-    <file alias="activeWindow32.png">32x32/activeWindow.32.png</file>
-    <file alias="activeWindow16.png">16x16/activeWindow.16.png</file>
-    <file alias="currentScreen32.png">32x32/currentScreen.32.png</file>
-    <file alias="currentScreen16.png">16x16/currentScreen.16.png</file>
-    <file alias="fullScreen32.png">32x32/fullScreen.32.png</file>
-    <file alias="fullScreen16.png">16x16/fullScreen.16.png</file>
-    <file alias="windowUnderCursor32.png">32x32/windowUnderCursor.32.png</file>
-    <file alias="windowUnderCursor16.png">16x16/windowUnderCursor.16.png</file>
-
-    <file alias="ksnip">ksnip.svg</file>
-    <file alias="bold">bold.svg</file>
-    <file alias="italic">italic.svg</file>
-    <file alias="underline">underline.svg</file>
-    <file alias="clock">clock.svg</file>
+    <file>ksnip.svg</file>
+    <file>bold.svg</file>
+    <file>italic.svg</file>
+    <file>underline.svg</file>
+    <file>clock.svg</file>
+    <file>save.svg</file>
+    <file>copyToClipboard.svg</file>
+    <file>currentScreen.svg</file>
+    <file>drawRect.svg</file>
+    <file>activeWindow.svg</file>
+    <file>windowUnderCursor.svg</file>
+    <file>fullScreen.svg</file>
 </qresource>
 </RCC>

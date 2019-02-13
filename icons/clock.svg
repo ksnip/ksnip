@@ -14,7 +14,7 @@
    viewBox="0 0 499.99998 499.99998"
    id="svg5330"
    version="1.1"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="clock.svg">
   <defs
      id="defs5332" />
@@ -25,17 +25,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="75.963099"
-     inkscape:cy="220.87827"
+     inkscape:zoom="1.692"
+     inkscape:cx="250"
+     inkscape:cy="250"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="1137"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:window-height="1025"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:snap-global="false" />
   <metadata
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,27 +55,31 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-552.36209)">
-    <ellipse
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#4d4d4d;stroke-width:39.99999619;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path5878"
-       cx="250"
-       cy="802.36206"
-       rx="215.19565"
-       ry="215.19566" />
-    <rect
-       style="fill:#4d4d4d;stroke:#4d4d4d;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-       id="rect816"
-       width="8.5714283"
-       height="136.42857"
-       x="245.71428"
-       y="656.64777" />
-    <rect
-       style="fill:#4d4d4d;stroke:#4d4d4d;stroke-width:34.79802704;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
-       id="rect816-8"
-       width="8.5714283"
-       height="103.25108"
-       x="793.07635"
-       y="-346.10822"
-       transform="rotate(90)" />
+    <g
+       id="g4136"
+       transform="matrix(0.95655139,0,0,0.95467174,10.838872,36.834997)">
+      <ellipse
+         ry="215.19566"
+         rx="215.19565"
+         cy="802.36206"
+         cx="250"
+         id="path5878"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#4d4d4d;stroke-width:39.99999619;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="656.64777"
+         x="245.71428"
+         height="136.42857"
+         width="8.5714283"
+         id="rect816"
+         style="fill:#4d4d4d;stroke:#4d4d4d;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="-346.10822"
+         x="793.07635"
+         height="103.25108"
+         width="8.5714283"
+         id="rect816-8"
+         style="fill:#4d4d4d;stroke:#4d4d4d;stroke-width:34.79802704;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
+    </g>
   </g>
 </svg>

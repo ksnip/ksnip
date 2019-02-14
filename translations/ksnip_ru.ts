@@ -63,8 +63,7 @@
         <source>Build</source>
         <translation>Версия</translation>
     </message>
-</context>
-<context>
+</context><context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
@@ -110,8 +109,7 @@
         <source>Capture that is currently under the mouse cursor</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
+</context><context>
     <name>CaptureUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
@@ -125,8 +123,7 @@
         <source>Imgur token has expired, requesting new token...</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
+</context><context>
     <name>MainWindow</name>
     <message>
         <source>Unsaved</source>
@@ -134,7 +131,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
@@ -265,8 +262,7 @@ Do you want to save it?</source>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
+</context><context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
@@ -545,8 +541,7 @@ Requires switching tool to become active.</source>
         <source>Capture save location</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
+</context><context>
     <name>main</name>
     <message>
         <source>Select a rectangular area from where to take a screenshot.</source>

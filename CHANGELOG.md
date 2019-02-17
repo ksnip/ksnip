@@ -32,6 +32,7 @@
 * Changed: Console version output doesn't show build. ([#121](https://github.com/DamirPorobic/ksnip/issues/121))
 * Changed kImageAnnotator: Blur tool is now preciser and fits the rect. ([#28](https://github.com/DamirPorobic/kImageAnnotator/issues/28))
 * Changed kImageAnnotator: Enter finishes text input and shift-enter adds new line in Text Tool. ([#30](https://github.com/DamirPorobic/kImageAnnotator/issues/30))
+* Changed kImageAnnotator: Text item draws border around the text when in text edit mode. ([#34](https://github.com/DamirPorobic/kImageAnnotator/issues/34))
 * Fixed: Crash on Ubuntu 17.10 caused by null painterPath pointer in smoothOut method. ([#67](https://github.com/DamirPorobic/ksnip/issues/67))
 * Fixed: Default filename for screenshot had one $ sign too many. ([#68](https://github.com/DamirPorobic/ksnip/issues/68))
 * Fixed: Cancel on browse to save directory in settings dialog clears save path. ([#69](https://github.com/DamirPorobic/ksnip/issues/69))
@@ -46,7 +47,7 @@
 * Fixed: Exe file not showing icon on windows. ([#122](https://github.com/DamirPorobic/ksnip/issues/122))
 * Fixed: Buttons for text bold, italic and underlined are not correctly shown under windows. ([#118](https://github.com/DamirPorobic/ksnip/issues/118))
 * Fixed kImageAnnotator: Double-click on annotation area causes SIGSEGV crash. ([#29](https://github.com/DamirPorobic/kImageAnnotator/issues/29))
-* Fixed kImageAnnotator: CAPS LOCK doesnt work on image editor. ([#31](https://github.com/DamirPorobic/kImageAnnotator/issues/31))
+* Fixed kImageAnnotator: CAPS LOCK doesnt work on image editor. ([#27](https://github.com/DamirPorobic/kImageAnnotator/issues/27))
 * Fixed kImageAnnotator: Unable to select text item when clicking on text. ([#32](https://github.com/DamirPorobic/kImageAnnotator/issues/32))
 * Fixed kImageAnnotator: Some blurs get removed when losing focus. ([#35](https://github.com/DamirPorobic/kImageAnnotator/issues/35))
 

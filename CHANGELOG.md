@@ -50,6 +50,7 @@
 * Fixed kImageAnnotator: CAPS LOCK doesnt work on image editor. ([#27](https://github.com/DamirPorobic/kImageAnnotator/issues/27))
 * Fixed kImageAnnotator: Unable to select text item when clicking on text. ([#32](https://github.com/DamirPorobic/kImageAnnotator/issues/32))
 * Fixed kImageAnnotator: Some blurs get removed when losing focus. ([#35](https://github.com/DamirPorobic/kImageAnnotator/issues/35))
+* Fixed kImageAnnotator: Right click on annotation items selects item but doesn't switch tool. ([#40](https://github.com/DamirPorobic/kImageAnnotator/issues/40))
 
 ## Release 1.4.0
 * New: Info text (cursor position and selection area size) for snipping area cursor, can be enabled and disabled via settings.([#49](https://github.com/DamirPorobic/ksnip/issues/49))

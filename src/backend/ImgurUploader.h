@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef IMAGEUPLOADER_H
-#define IMAGEUPLOADER_H
+#ifndef KSNIP_IMAGEUPLOADER_H
+#define KSNIP_IMAGEUPLOADER_H
 
 #include <QObject>
 #include <QUrl>
@@ -29,26 +29,22 @@
 #include <QImage>
 #include <QBuffer>
 
+#include "UploadResponse.h"
+
 class ImgurUploader : public QObject
 {
     Q_OBJECT
 public:
-    ImgurUploader(QObject *parent = 0);
-    void startUpload(const QImage &image, const QByteArray &accessToken = 0) const;
-    void getAccessToken(const QByteArray &pin,
-                        const QByteArray &clientId,
-                        const QByteArray &clientSecret) const;
-    void refreshToken(const QByteArray &refreshToken,
-                      const QByteArray &clientId,
-                      const QByteArray &clientSecret) const;
+    explicit ImgurUploader(QObject *parent = nullptr);
+    void startUpload(const QImage &image, const QByteArray &accessToken = nullptr) const;
+    void getAccessToken(const QByteArray &pin, const QByteArray &clientId, const QByteArray &clientSecret) const;
+    void refreshToken(const QByteArray &refreshToken, const QByteArray &clientId, const QByteArray &clientSecret) const;
     QUrl pinRequestUrl(const QString &clientId) const;
 
 signals:
-    void uploadFinished(const QString &message) const;
+    void uploadFinished(const UploadResponse &response) const;
     void error(const QString &message) const;
-    void tokenUpdated(const QString &accessToken,
-                      const QString &refreshTocken,
-                      const QString &username) const;
+    void tokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username) const;
     void tokenRefreshRequired() const;
 
 private:
@@ -62,4 +58,4 @@ private slots:
     void handleReply(QNetworkReply *reply);
 };
 
-#endif // IMAGEUPLOADER_H
+#endif // KSNIP_IMAGEUPLOADER_H

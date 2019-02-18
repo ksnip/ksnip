@@ -33,7 +33,7 @@ ImgurUploader::ImgurUploader(QObject* parent) : QObject(parent),
 /*
  * This function starts the upload, depending if an access token was provided
  * this will be either an account upload on an anonymous upload. If the upload
- * was successful the uploadFisished signal will be emitted which holds the url
+ * was successful the upload Fished signal will be emitted which holds the url
  * to the image.
  */
 void ImgurUploader::startUpload(const QImage& image, const QByteArray& accessToken) const
@@ -73,9 +73,7 @@ void ImgurUploader::startUpload(const QImage& image, const QByteArray& accessTok
  * topenUpdate signal will be emitted if the request was successful or otherwise
  * the tokenError.
  */
-void ImgurUploader::getAccessToken(const QByteArray& pin,
-                                   const QByteArray& clientId,
-                                   const QByteArray& clientSecret) const
+void ImgurUploader::getAccessToken(const QByteArray& pin, const QByteArray& clientId, const QByteArray& clientSecret) const
 {
     QNetworkRequest request;
 
@@ -101,9 +99,7 @@ void ImgurUploader::getAccessToken(const QByteArray& pin,
  * tokenRefreshRequired signal, after which this function should be called to
  * refresh the token.
  */
-void ImgurUploader::refreshToken(const QByteArray& refreshToken,
-                                 const QByteArray& clientId,
-                                 const QByteArray& clientSecret) const
+void ImgurUploader::refreshToken(const QByteArray& refreshToken, const QByteArray& clientId, const QByteArray& clientSecret) const
 {
     QNetworkRequest request;
 
@@ -152,7 +148,10 @@ QUrl ImgurUploader::pinRequestUrl(const QString& clientId) const
 void ImgurUploader::handleDataResponse(const QDomElement& element) const
 {
     if (element.attribute(QStringLiteral("status")) == QStringLiteral("200") && !element.elementsByTagName(QStringLiteral("link")).isEmpty()) {
-        emit uploadFinished(element.elementsByTagName(QStringLiteral("link")).at(0).toElement().text());
+        auto link = element.elementsByTagName(QStringLiteral("link")).at(0).toElement().text();
+        auto deleteHash = element.elementsByTagName(QStringLiteral("deletehash")).at(0).toElement().text();
+
+        emit uploadFinished(UploadResponse(link, deleteHash));
     } else if (element.attribute(QStringLiteral("status")) == QStringLiteral("403")) {
         emit tokenRefreshRequired();
     } else {
@@ -194,9 +193,9 @@ void ImgurUploader::handleTokenResponse(const QDomElement& element) const
 void ImgurUploader::handleReply(QNetworkReply* reply)
 {
     // Only for troubleshooting, if reply->readAll is called the parser will fail!
-//     std::cout << "----------------------------------------------------------------\n";
-//     std::cout << "Reply code:\n" << QString( reply->readAll() ).toStdString() << "\n";
-//     std::cout << "----------------------------------------------------------------\n";
+//    qDebug("----------------------------------------------------------------");
+//    qDebug("Reply code:\n%s", qPrintable(reply->readAll()));
+//    qDebug("----------------------------------------------------------------");
 
     // Check network return code, if we get no error or if we get a status 202,
     // proceed, the 202 is returned for invalid token, we will request a new

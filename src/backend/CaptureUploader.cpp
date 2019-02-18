@@ -46,11 +46,27 @@ void CaptureUploader::upload(const QImage &image)
     }
 }
 
-void CaptureUploader::imgurUploadFinished(QString message)
+void CaptureUploader::imgurUploadFinished(const UploadResponse &response)
 {
     qInfo("%s", qPrintable(tr("Upload to imgur.com finished!")));
-    emit finished(message);
+    emit finished(response.link());
+
+    storeDeleteLink(response);
+
     mImage = QImage();
+}
+
+void CaptureUploader::storeDeleteLink(const UploadResponse &response) const
+{
+    auto filepath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    QDir qdir;
+    qdir.mkpath(filepath);
+    auto filename = filepath + QStringLiteral("/ksnip_imgur_deleteLinks.txt");
+    QFile file(filename);
+    if(file.open(QIODevice::ReadWrite | QIODevice::Append | QIODevice::Text)) {
+        QTextStream stream(&file);
+        stream << "https://imgur.com/delete/" << response.deleteHash() << endl;
+    }
 }
 
 void CaptureUploader::imgurError(const QString &message)
@@ -59,10 +75,10 @@ void CaptureUploader::imgurError(const QString &message)
     emit error(message);
 }
 
-void CaptureUploader::imgurTokenUpdated(const QString &accessToken, const QString &refreshTocken, const QString &username)
+void CaptureUploader::imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username)
 {
     mConfig->setImgurAccessToken(accessToken.toUtf8());
-    mConfig->setImgurRefreshToken(refreshTocken.toUtf8());
+    mConfig->setImgurRefreshToken(refreshToken.toUtf8());
     mConfig->setImgurUsername(username);
 
     qInfo("%s", qPrintable(tr("Received new token, trying upload again...")));
@@ -71,8 +87,6 @@ void CaptureUploader::imgurTokenUpdated(const QString &accessToken, const QStrin
 
 void CaptureUploader::imgurTokenRefresh()
 {
-    mImgurUploader->refreshToken(mConfig->imgurRefreshToken(),
-                                 mConfig->imgurClientId(),
-                                 mConfig->imgurClientSecret());
+    mImgurUploader->refreshToken(mConfig->imgurRefreshToken(), mConfig->imgurClientId(), mConfig->imgurClientSecret());
     qInfo("%s", qPrintable(tr("Imgur token has expired, requesting new token...")));
 }

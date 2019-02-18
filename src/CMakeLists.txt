@@ -1,6 +1,7 @@
 set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/main.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ImgurUploader.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/UploadResponse.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/KsnipConfig.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
     ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp

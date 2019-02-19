@@ -22,6 +22,7 @@
 CaptureUploader::CaptureUploader()
 {
     mImgurUploader = new ImgurUploader();
+    mImgurResponseLogger = new ImgurResponseLogger();
     mConfig = KsnipConfig::instance();
 
     connect(mImgurUploader, &ImgurUploader::uploadFinished, this, &CaptureUploader::imgurUploadFinished);
@@ -33,6 +34,7 @@ CaptureUploader::CaptureUploader()
 CaptureUploader::~CaptureUploader()
 {
     delete mImgurUploader;
+    delete mImgurResponseLogger;
 }
 
 void CaptureUploader::upload(const QImage &image)
@@ -51,22 +53,9 @@ void CaptureUploader::imgurUploadFinished(const UploadResponse &response)
     qInfo("%s", qPrintable(tr("Upload to imgur.com finished!")));
     emit finished(response.link());
 
-    storeDeleteLink(response);
+    mImgurResponseLogger->log(response);
 
     mImage = QImage();
-}
-
-void CaptureUploader::storeDeleteLink(const UploadResponse &response) const
-{
-    auto filepath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    QDir qdir;
-    qdir.mkpath(filepath);
-    auto filename = filepath + QStringLiteral("/ksnip_imgur_deleteLinks.txt");
-    QFile file(filename);
-    if(file.open(QIODevice::ReadWrite | QIODevice::Append | QIODevice::Text)) {
-        QTextStream stream(&file);
-        stream << "https://imgur.com/delete/" << response.deleteHash() << endl;
-    }
 }
 
 void CaptureUploader::imgurError(const QString &message)

@@ -24,6 +24,7 @@ UploadResponse::UploadResponse(const QString &link, const QString &deleteHash)
 {
     mLink = link;
     mDeleteHash = deleteHash;
+    mTimeStamp = QDateTime::currentDateTime();
 }
 
 QString UploadResponse::link() const
@@ -34,4 +35,9 @@ QString UploadResponse::link() const
 QString UploadResponse::deleteHash() const
 {
     return mDeleteHash;
+}
+
+QDateTime UploadResponse::timeStamp() const
+{
+    return mTimeStamp;
 }

@@ -7,6 +7,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/ImgurUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploadResponse.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/CaptureUploader.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/ImgurResponseLogger.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/CommandLineParserHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MessageBoxHelper.cpp

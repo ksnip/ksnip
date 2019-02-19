@@ -18,25 +18,30 @@
  *
  */
 
-#ifndef KSNIP_UPLOADRESPONSE_H
-#define KSNIP_UPLOADRESPONSE_H
+#ifndef KSNIP_IMGURRESPONSELOGGER_H
+#define KSNIP_IMGURRESPONSELOGGER_H
 
-#include <QString>
-#include <QDateTime>
+#include <QStandardPaths>
+#include <QFile>
+#include <QTextStream>
 
-class UploadResponse
+#include "UploadResponse.h"
+
+class ImgurResponseLogger
 {
 public:
-    explicit UploadResponse(const QString &link, const QString &deleteHash);
-    ~UploadResponse() = default;
-    QString link() const;
-    QString deleteHash() const;
-    QDateTime timeStamp() const;
+    explicit ImgurResponseLogger();
+    ~ImgurResponseLogger() = default;
+
+    void log(const UploadResponse &response);
 
 private:
-    QString mLink;
-    QString mDeleteHash;
-    QDateTime mTimeStamp;
+    QString mLogFilename;
+    QString mLogPath;
+    QString mLogFilePath;
+    void createPathIfRequired() const;
+    const QString getLogEntry(const UploadResponse &response) const;
+    void writeLogEntry(const QString &logEntry) const;
 };
 
-#endif //KSNIP_UPLOADRESPONSE_H
+#endif //KSNIP_IMGURRESPONSELOGGER_H

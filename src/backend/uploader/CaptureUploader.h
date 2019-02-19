@@ -21,11 +21,9 @@
 #define KSNIP_CAPTUREUPLOADER_H
 
 #include <QImage>
-#include <QStandardPaths>
-#include <QFile>
-#include <QTextStream>
 
 #include "ImgurUploader.h"
+#include "ImgurResponseLogger.h"
 #include "src/backend/KsnipConfig.h"
 
 class CaptureUploader : public QObject
@@ -43,6 +41,7 @@ signals:
 
 private:
     ImgurUploader *mImgurUploader;
+    ImgurResponseLogger *mImgurResponseLogger;
     KsnipConfig *mConfig;
     QImage mImage;
 
@@ -51,7 +50,6 @@ private slots:
     void imgurError(const QString &message);
     void imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username);
     void imgurTokenRefresh();
-    void storeDeleteLink(const UploadResponse &response) const;
 };
 
 #endif //KSNIP_CAPTUREUPLOADER_H

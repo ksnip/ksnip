@@ -35,6 +35,7 @@
 #include <QToolButton>
 #include <QStyleFactory>
 
+#include "ImgurHistoryDialog.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/widgets/ColorButton.h"
 #include "src/backend/KsnipConfig.h"
@@ -87,6 +88,7 @@ private:
     QPushButton     *mImgurGetTokenButton;
     QPushButton     *mOkButton;
     QPushButton     *mCancelButton;
+	QPushButton *mImgurHistoryButton;
     QToolButton     *mTextBoldButton;
     QToolButton     *mTextItalicButton;
     QToolButton     *mTextUnderlineButton;
@@ -108,6 +110,7 @@ private slots:
     void imgurTokenUpdated(const QString &accessToken, const QString &refreshTocken, const QString &username);
     void imgurTokenError(const QString &message);
     void chooseSaveDirectory();
+	void showImgurHistoryDialog();
 };
 
 #endif // KSNIP_SETTINGSDIALOG_H

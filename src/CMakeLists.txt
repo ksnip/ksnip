@@ -2,7 +2,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/main.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/KsnipConfig.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
-    ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/ImgurUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploadResponse.cpp
@@ -26,7 +26,8 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/AbstractSnippingArea.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/SettingsDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog.cpp
-    )
+	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
+	)
 
 if (UNIX)
     set(KSNIP_SRCS

@@ -56,6 +56,6 @@ const QString ImgurResponseLogger::getLogEntry(const UploadResponse &response) c
 {
     auto separator = QStringLiteral(",");
     auto deleteLink = QStringLiteral("https://imgur.com/delete/") + response.deleteHash();
-    auto timestamp = response.timeStamp().toString(QStringLiteral("dd.MM.yyyy hh:mm:ss.z"));
+    auto timestamp = response.timeStamp().toString(QStringLiteral("dd.MM.yyyy hh:mm:ss"));
     return timestamp + separator + response.link() + separator + deleteLink;
 }

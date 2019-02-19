@@ -17,14 +17,14 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef IMAGEGRABBERFACTORY_H
-#define IMAGEGRABBERFACTORY_H
+#ifndef KSNIP_IMAGEGRABBERFACTORY_H
+#define KSNIP_IMAGEGRABBERFACTORY_H
 
 #if defined(__linux__)
 #include "X11ImageGrabber.h"
 #include "KdeWaylandImageGrabber.h"
 #include "GnomeWaylandImageGrabber.h"
-#include "src/backend/PlatformChecker.h"
+#include "src/common/platform/PlatformChecker.h"
 #endif
 
 #if  defined(_WIN32)
@@ -37,4 +37,4 @@ public:
     static AbstractImageGrabber *createImageGrabber();
 };
 
-#endif // IMAGEGRABBERFACTORY_H
+#endif // KSNIP_IMAGEGRABBERFACTORY_H

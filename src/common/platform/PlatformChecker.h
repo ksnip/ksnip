@@ -17,29 +17,17 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef PLATFORMCHECKER_H
-#define PLATFORMCHECKER_H
+#ifndef KSNIP_PLATFORMCHECKER_H
+#define KSNIP_PLATFORMCHECKER_H
 
 #include <QString>
 
-#include "src/common/runner/CommandRunner.h"
+#include "CommandRunner.h"
+#include "src/common/enum/Platform.h"
+#include "src/common/enum/Environment.h"
 
 class PlatformChecker
 {
-    enum class Platform
-    {
-        X11,
-        Wayland,
-        Unknown
-    };
-
-    enum class Environment
-    {
-        Gnome,
-        KDE,
-        Unknown
-    };
-
 public:
     static PlatformChecker *instance();
 
@@ -59,4 +47,4 @@ private:
     PlatformChecker();
 };
 
-#endif // PLATFORMCHECKER_H
+#endif // KSNIP_PLATFORMCHECKER_H

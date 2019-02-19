@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,16 +17,14 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CAPTUREMODES_H
-#define KSNIP_CAPTUREMODES_H
+#ifndef KSNIP_PLATFORM_H
+#define KSNIP_PLATFORM_H
 
-enum class CaptureModes
+enum class Platform
 {
-    RectArea,
-    FullScreen,
-    CurrentScreen,
-    ActiveWindow,
-    WindowUnderCursor
+    X11,
+    Wayland,
+    Unknown
 };
 
-#endif // KSNIP_CAPTUREMODES_H
+#endif //KSNIP_PLATFORM_H

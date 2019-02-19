@@ -25,7 +25,7 @@
 #include <QFile>
 #include <QTextStream>
 
-#include "src/backend/ImgurUploader.h"
+#include "ImgurUploader.h"
 #include "src/backend/KsnipConfig.h"
 
 class CaptureUploader : public QObject

@@ -31,7 +31,7 @@
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/KsnipConfig.h"
-#include "src/backend/CaptureUploader.h"
+#include "backend/uploader/CaptureUploader.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/handler/DelayHandler.h"
 #include "src/common/enum/RunMode.h"

@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KDEWAYLANDIMAGEGRABBER_H
-#define KDEWAYLANDIMAGEGRABBER_H
+#ifndef KSNIP_KDEWAYLANDIMAGEGRABBER_H
+#define KSNIP_KDEWAYLANDIMAGEGRABBER_H
 
 #include <QtDBus/QDBusInterface>
 #include <QtDBus/QDBusConnection>
@@ -52,4 +52,4 @@ private:
     void callDBus(int writeFd, const QString& mode, T mask);
 };
 
-#endif // KDEWAYLANDIMAGEGRABBER_H
+#endif // KSNIP_KDEWAYLANDIMAGEGRABBER_H

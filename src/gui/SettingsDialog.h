@@ -40,7 +40,7 @@
 #include "src/backend/KsnipConfig.h"
 #include "src/common/formatter/FilenameFormatter.h"
 #include "src/common/loader/IconLoader.h"
-#include "src/backend/ImgurUploader.h"
+#include "backend/uploader/ImgurUploader.h"
 
 class SettingsDialog : public QDialog
 {

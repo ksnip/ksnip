@@ -34,6 +34,7 @@ public:
     ~ImgurResponseLogger() = default;
 
     void log(const UploadResponse &response);
+	QStringList getLogs() const;
 
 private:
     QString mLogFilename;

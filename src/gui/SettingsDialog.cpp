@@ -415,8 +415,8 @@ void SettingsDialog::initGui()
     painterGrid->addWidget(mNumberFontCombobox, 6, 1);
     painterGrid->setRowMinimumHeight(7, 15);
 
-    auto painterGrpBox = new QGroupBox(tr("Painter Settings"));
-    painterGrpBox->setLayout(painterGrid);
+	auto painterGroupBox = new QGroupBox(tr("Painter Settings"));
+	painterGroupBox->setLayout(painterGrid);
 
     // Setup Push Button Layout
     auto buttonLayout = new QHBoxLayout;
@@ -428,7 +428,7 @@ void SettingsDialog::initGui()
     mStackedLayout->addWidget(applicationGrpBox);
     mStackedLayout->addWidget(imageGrabberGrpBox);
     mStackedLayout->addWidget(imgurUploaderGrpBox);
-    mStackedLayout->addWidget(painterGrpBox);
+	mStackedLayout->addWidget(painterGroupBox);
 
     mListWidget->addItem(tr("Application"));
     mListWidget->addItem(tr("Image Grabber"));

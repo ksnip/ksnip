@@ -24,9 +24,16 @@
 #include <QTableWidget>
 #include <QVBoxLayout>
 #include <QApplication>
+#include <QDesktopServices>
+#include <QUrl>
+#include <QHeaderView>
+#include <QPushButton>
+
+#include "src/backend/uploader/ImgurResponseLogger.h"
 
 class ImgurHistoryDialog : public QDialog
 {
+Q_OBJECT
 public:
 	explicit ImgurHistoryDialog();
 	~ImgurHistoryDialog();
@@ -34,6 +41,15 @@ public:
 private:
 	QVBoxLayout *mLayout;
 	QTableWidget *mTableWidget;
+	QPushButton *mCloseButton;
+
+	void addEntryToTable(const QString &entry, int row) const;
+	void populateTable(const QStringList &logEntries);
+	void createTable(int rowCount);
+
+private slots:
+	void cellClicked(int row, int column) const;
+
 };
 
 #endif //KSNIP_IMGURHISTORYDIALOG_H

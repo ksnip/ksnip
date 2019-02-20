@@ -59,3 +59,19 @@ const QString ImgurResponseLogger::getLogEntry(const UploadResponse &response) c
     auto timestamp = response.timeStamp().toString(QStringLiteral("dd.MM.yyyy hh:mm:ss"));
     return timestamp + separator + response.link() + separator + deleteLink;
 }
+
+QStringList ImgurResponseLogger::getLogs() const
+{
+	auto logEntries = QStringList();
+	QFile file(mLogFilePath);
+	auto fileOpened = file.open(QIODevice::ReadOnly);
+	if (fileOpened) {
+
+		QTextStream stream(&file);
+		while (!stream.atEnd()) {
+			auto entry = stream.readLine();
+			logEntries.append(entry);
+		}
+	}
+	return logEntries;
+}

@@ -14,10 +14,13 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cmake .. -G"NMake Makefiles" -DCMAKE_CXX_COMPILER=cl -DVERSION_SUFIX=$VERSION_SUFFIX -DBUILD_NUMBER=$BUILD_NUMBER -DCMAKE_BUILD_TYPE=Release
     nmake
     cd ..
+    echo "--> Package Windows"
     mkdir packageDir
     mv build/src/ksnip*.exe packageDir/ksnip.exe
     echo "===="
     find /c/qt -iname "qconfig.pri"
+    echo "===="
+    find /c/qt -iname "Qt5Network.dll"
     echo "===="
     echo $PATH
     echo "===="

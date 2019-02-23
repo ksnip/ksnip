@@ -18,10 +18,10 @@ KCOLORPICKER_INCLUDE="/c/Program Files (x86)/kColorPicker/include"
 KIMAGEANNOTATOR_INCLUDE="/c/Program Files (x86)/kImageAnnotator/include"
 
 export PATH=$QT_BIN:$PATH
-export PATH=$QT_MKSPEC:$PATH
 export PATH=$QT_PLUGIN:$PATH
 export PATH=$CL_BIN:$PATH
 export PATH=$RC_BIN:$PATH
+export LIB=$QT_MKSPEC:$LIB
 export LIB=$UM_LIB:$LIB
 export LIB=$UCRT_LIB:$LIB
 export LIB=$MSVCRTD_LIB:$LIB

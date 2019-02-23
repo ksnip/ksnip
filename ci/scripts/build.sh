@@ -14,8 +14,9 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cmake .. -G"NMake Makefiles" -DCMAKE_CXX_COMPILER=cl -DVERSION_SUFIX=$VERSION_SUFFIX -DBUILD_NUMBER=$BUILD_NUMBER -DCMAKE_BUILD_TYPE=Release
     nmake
     cd ..
+    echo "--> Package Windows"
     mkdir packageDir
     mv build/src/ksnip*.exe packageDir/ksnip.exe
-    /c/qt/5.6.3/msvc2015/bin/windeployqt.exe packageDir/ksnip.exe
+    windeployqt.exe packageDir/ksnip.exe --verbose 9
     7z a ksnip-$VERSION-windows-x86_64.zip ./packageDir/*
 fi

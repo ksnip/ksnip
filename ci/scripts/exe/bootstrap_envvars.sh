@@ -1,7 +1,8 @@
 #!/bin/bash
 
-QT_BIN="/c/qt/5.6.3/msvc2015/bin"
-QT_PLUGIN="/c/qt/5.6.3/msvc2015/plugins/platforms"
+QT_DIR="/c/qt/5.6.3/msvc2015"
+QT_BIN="$QT_DIR/bin"
+QT_PLUGIN="$QT_DIR/plugins/platforms"
 CL_BIN="/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx86/x86"
 RC_BIN="/c/Program Files (x86)/Windows Kits/10/bin/10.0.17134.0/x86"
 UM_LIB="/c/Program Files (x86)/Windows Kits/10/Lib/10.0.17134.0/um/x86"
@@ -16,10 +17,11 @@ MSVCRTD_INCLUDE="/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/
 KCOLORPICKER_INCLUDE="/c/Program Files (x86)/kColorPicker/include"
 KIMAGEANNOTATOR_INCLUDE="/c/Program Files (x86)/kImageAnnotator/include"
 
-export PATH=$QT_BIN:$PATH
-export PATH=$QT_PLUGIN:$PATH
-export PATH=$CL_BIN:$PATH
-export PATH=$RC_BIN:$PATH
+export QTDIR=$QT_DIR
+export PATH=$PATH:$QT_BIN
+export PATH=$PATH:$QT_PLUGIN
+export PATH=$PATH:$CL_BIN
+export PATH=$PATH:$RC_BIN
 export LIB=$UM_LIB:$LIB
 export LIB=$UCRT_LIB:$LIB
 export LIB=$MSVCRTD_LIB:$LIB
@@ -31,4 +33,3 @@ export INCLUDE=$SHARED_INCLUDE:$INCLUDE
 export INCLUDE=$MSVCRTD_INCLUDE:$INCLUDE
 export INCLUDE=$KCOLORPICKER_INCLUDE:$INCLUDE
 export INCLUDE=$KIMAGEANNOTATOR_INCLUDE:$INCLUDE
-

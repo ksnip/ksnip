@@ -16,6 +16,6 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cd ..
     mkdir packageDir
     mv build/src/ksnip*.exe packageDir/ksnip.exe
-    windeployqt.exe packageDir/ksnip.exe
+    /c/qt/5.6.3/msvc2015/bin/windeployqt.exe packageDir/ksnip.exe
     7z a ksnip-$VERSION-windows-x86_64.zip ./packageDir/*
 fi

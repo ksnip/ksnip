@@ -1,5 +1,6 @@
 #!/bin/bash
 
+QTDIR="/c/qt/5.6.3/msvc2015"
 QT_BIN="/c/qt/5.6.3/msvc2015/bin"
 QT_PLUGIN="/c/qt/5.6.3/msvc2015/plugins/platforms"
 CL_BIN="/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx86/x86"
@@ -15,7 +16,6 @@ SHARED_INCLUDE="/c/Program Files (x86)/Windows Kits/10/Include/10.0.17134.0/shar
 MSVCRTD_INCLUDE="/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/include"
 KCOLORPICKER_INCLUDE="/c/Program Files (x86)/kColorPicker/include"
 KIMAGEANNOTATOR_INCLUDE="/c/Program Files (x86)/kImageAnnotator/include"
-QMAKESPEC="/c/qt/5.6.3/msvc2015/mkspecs"
 
 export PATH=$QT_BIN:$PATH
 export PATH=$QT_PLUGIN:$PATH
@@ -32,5 +32,5 @@ export INCLUDE=$SHARED_INCLUDE:$INCLUDE
 export INCLUDE=$MSVCRTD_INCLUDE:$INCLUDE
 export INCLUDE=$KCOLORPICKER_INCLUDE:$INCLUDE
 export INCLUDE=$KIMAGEANNOTATOR_INCLUDE:$INCLUDE
-export QMAKESPEC=$QMAKESPEC
+export QTDIR=$QTDIR
 

@@ -16,6 +16,11 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cd ..
     mkdir packageDir
     mv build/src/ksnip*.exe packageDir/ksnip.exe
+    echo "===="
+    find /c/qt -iname "qconfig.pri"
+    echo "===="
+    echo $PATH
+    echo "===="
     windeployqt.exe packageDir/ksnip.exe
     7z a ksnip-$VERSION-windows-x86_64.zip ./packageDir/*
 fi

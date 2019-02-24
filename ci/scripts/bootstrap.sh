@@ -26,5 +26,5 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     7z x qttools.7z -o/c/qt
 
     mkdir -p /c/Users/qt/work/install
-    ln -s /c/Users/qt/work/install/bin /c/qt/5.6.3/msvc2015/bin
+    ln -s /c/qt/5.6.3/msvc2015/bin /c/Users/qt/work/install/bin
 fi

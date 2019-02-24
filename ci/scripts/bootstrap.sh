@@ -17,6 +17,7 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/bootstrap_envvars.sh
 
     echo "--> Download Qt"
+
     QT_BASE_URL="https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_msvc2015"
     wget --quiet -O qtbase.7z "$QT_BASE_URL/5.6.3-0-201709190903qtbase-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
     wget --quiet -O qtwinextras.7z "$QT_BASE_URL/5.6.3-0-201709171315qtwinextras-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"

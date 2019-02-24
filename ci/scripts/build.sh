@@ -26,6 +26,6 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     echo "===="
     which qmake
     echo "===="
-    windeployqt.exe packageDir/ksnip.exe
+    windeployqt.exe packageDir/ksnip.exe --debug
     7z a ksnip-$VERSION-windows-x86_64.zip ./packageDir/*
 fi

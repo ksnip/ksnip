@@ -17,15 +17,6 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     echo "--> Package Windows"
     mkdir packageDir
     mv build/src/ksnip*.exe packageDir/ksnip.exe
-    echo "===="
-    find /c/qt -iname "qconfig.pri"
-    echo "===="
-    find /c/qt -iname "Qt5Network.dll"
-    echo "===="
-    find /c/qt -iname "windeployqt.exe"
-    echo "===="
-    which qmake
-    echo "===="
-    windeployqt.exe packageDir/ksnip.exe --debug
+    windeployqt.exe packageDir/ksnip.exe
     7z a ksnip-$VERSION-windows-x86_64.zip ./packageDir/*
 fi

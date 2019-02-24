@@ -21,13 +21,16 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     wget --quiet -O qtwinextras.7z https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_msvc2015/5.6.3-0-201709171315qtwinextras-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z
     wget --quiet -O qttools.7z https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_msvc2015/5.6.3-0-201708150657qttools-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z
     wget --quiet -O qttranslations.7z https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_msvc2015/5.6.3-0-201709171315qttranslations-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z
+    wget --quiet -O qtsvg.7z https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_msvc2015/5.6.3-0-201709171315qtsvg-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z
 
     7z x qtbase.7z -o/c/qt
     7z x qtwinextras.7z -o/c/qt
     7z x qttools.7z -o/c/qt
     7z x qttranslations.7z -o/c/qt
+    7z x qtsvg.7z -o/c/qt
 
     # windeployqt fails to find the binaries so we link the binaries where its looking for it
-    mkdir -p /c/Users/qt/work
-    ln -s /c/qt/5.6.3/msvc2015 /c/Users/qt/work/install
+    WINDEPLOYQT_QT_DIR="/c/Users/qt/work"
+    mkdir -p $WINDEPLOYQT_QT_DIR
+    ln -s $QTDIR $WINDEPLOYQT_QT_DIR/install
 fi

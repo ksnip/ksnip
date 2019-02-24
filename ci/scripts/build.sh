@@ -17,6 +17,6 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     echo "--> Package Windows"
     mkdir packageDir
     mv build/src/ksnip*.exe packageDir/ksnip.exe
-    windeployqt.exe packageDir/ksnip.exe
+    windeployqt.exe packageDir/ksnip.exe --verbose 9
     7z a ksnip-$VERSION-windows-x86_64.zip ./packageDir/*
 fi

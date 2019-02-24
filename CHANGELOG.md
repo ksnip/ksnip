@@ -47,11 +47,14 @@
 * Fixed: Text tool cannot be resized. ([#111](https://github.com/DamirPorobic/ksnip/issues/111))
 * Fixed: Exe file not showing icon on windows. ([#122](https://github.com/DamirPorobic/ksnip/issues/122))
 * Fixed: Buttons for text bold, italic and underlined are not correctly shown under windows. ([#118](https://github.com/DamirPorobic/ksnip/issues/118))
+* Fixed: ksnip not running on windows when qt not installed. ([#145](https://github.com/DamirPorobic/ksnip/issues/145))
+* Fixed: Imgur upload not working under windows. ([#144](https://github.com/DamirPorobic/ksnip/issues/144))
 * Fixed kImageAnnotator: Double-click on annotation area causes SIGSEGV crash. ([#29](https://github.com/DamirPorobic/kImageAnnotator/issues/29))
 * Fixed kImageAnnotator: CAPS LOCK doesnt work on image editor. ([#27](https://github.com/DamirPorobic/kImageAnnotator/issues/27))
 * Fixed kImageAnnotator: Unable to select text item when clicking on text. ([#32](https://github.com/DamirPorobic/kImageAnnotator/issues/32))
 * Fixed kImageAnnotator: Some blurs get removed when losing focus. ([#35](https://github.com/DamirPorobic/kImageAnnotator/issues/35))
 * Fixed kImageAnnotator: Right click on annotation items selects item but doesn't switch tool. ([#40](https://github.com/DamirPorobic/kImageAnnotator/issues/40))
+* Fixed kImageAnnotator: Copy number annotation item doesn't increment number. ([#41](https://github.com/DamirPorobic/kImageAnnotator/issues/41))
 
 ## Release 1.4.0
 * New: Info text (cursor position and selection area size) for snipping area cursor, can be enabled and disabled via settings.([#49](https://github.com/DamirPorobic/ksnip/issues/49))

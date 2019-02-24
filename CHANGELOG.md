@@ -25,6 +25,7 @@
 * New kImageAnnotator: Text and Number tool have now noBorderAndNoFill type. ([#22](https://github.com/DamirPorobic/kImageAnnotator/issues/22))
 * New kImageAnnotator: Double Arrow annotation tool. ([#23](https://github.com/DamirPorobic/kImageAnnotator/issues/23))
 * New kImageAnnotator: Marker Rectangle and Ellipse annotation tool. ([#26](https://github.com/DamirPorobic/kImageAnnotator/issues/26))
+* New kImageAnnotator: Add config option to setup blur radius. ([#25](https://github.com/DamirPorobic/kImageAnnotator/issues/25))
 * Changed: Move and select operation are now combined under single tool. ([#72](https://github.com/DamirPorobic/ksnip/issues/72))
 * Changed: Item selection is now based on item shape and not on item bounding rect. ([#83](https://github.com/DamirPorobic/ksnip/issues/83))
 * Changed: Imgur upload now asks for confirmation before uploading. This can be disabled in setting. ([#73](https://github.com/DamirPorobic/ksnip/issues/73))

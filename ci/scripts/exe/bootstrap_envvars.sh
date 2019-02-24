@@ -1,6 +1,5 @@
 #!/bin/bash
 
-QT_PATH="/c/qt/5.6.3/msvc2015"
 QT_BIN="/c/qt/5.6.3/msvc2015/bin"
 QT_PLUGIN="/c/qt/5.6.3/msvc2015/plugins/platforms"
 CL_BIN="/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx86/x86"
@@ -17,9 +16,6 @@ MSVCRTD_INCLUDE="/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/
 KCOLORPICKER_INCLUDE="/c/Program Files (x86)/kColorPicker/include"
 KIMAGEANNOTATOR_INCLUDE="/c/Program Files (x86)/kImageAnnotator/include"
 
-export QT=$QT_PATH
-export QTDIR=$QT_PATH
-export QT_DIR=$QT_PATH
 export PATH=$PATH:$QT_BIN
 export PATH=$PATH:$QT_PLUGIN
 export PATH=$PATH:$CL_BIN

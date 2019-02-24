@@ -22,10 +22,10 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     echo "===="
     find /c/qt -iname "Qt5Network.dll"
     echo "===="
-    echo $PATH
+    find /c/qt -iname "windeployqt.exe"
+    echo "===="
+    which qmake
     echo "===="
     windeployqt.exe packageDir/ksnip.exe
-    echo "===="
-    /c/qt/5.6.3/msvc2015/bin/windeployqt.exe packageDir/ksnip.exe
     7z a ksnip-$VERSION-windows-x86_64.zip ./packageDir/*
 fi

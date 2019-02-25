@@ -25,11 +25,11 @@
     </message>
     <message>
         <source>Screenshot Tool</source>
-        <translation>Утилита для скриншотов</translation>
+        <translation>— инструмент для создания скриншотов</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation>Лицензия </translation>
+        <translation>Лицензия: </translation>
     </message>
     <message>
         <source>Please use </source>
@@ -37,11 +37,11 @@
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> отчет об ошибках.</translation>
+        <translation> для отчета об ошибках.</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation>Используется:</translation>
+        <translation>Эта программа использует:</translation>
     </message>
     <message>
         <source>The Author:</source>
@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Contributors:</source>
-        <translation>Помощники:</translation>
+        <translation>Благодарности:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
@@ -57,17 +57,18 @@
     </message>
     <message>
         <source>(C) 2018 Damir Porobic</source>
-        <translation>(C) 2018 Дамир Поробик</translation>
+        <translation>(C) 2018 Damir Porobic</translation>
     </message>
     <message>
         <source>Build</source>
         <translation>Версия</translation>
     </message>
-</context><context>
+</context>
+<context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation>Новый</translation>
+        <translation>Создать</translation>
     </message>
     <message>
         <source>Rectangular Area</source>
@@ -75,7 +76,7 @@
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation>Рисование прямоугольной области мышкой</translation>
+        <translation>Выделить прямоугольную область мышкой</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
@@ -91,7 +92,7 @@
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation>Захват экрана под мышкой.</translation>
+        <translation>Захват экрана, где расположена мышь.</translation>
     </message>
     <message>
         <source>Active Window</source>
@@ -99,35 +100,37 @@
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation type="unfinished"></translation>
+        <translation>Захват окна, которое на данный момент имеет фокус</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать окно мышкой</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Захват окна, которое на данный момент находится под курсором мыши</translation>
     </message>
-</context><context>
+</context>
+<context>
     <name>CaptureUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка на imgur.com завершена!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again...</source>
-        <translation type="unfinished"></translation>
+        <translation>Получен новый token, пробуем загрузить заново...</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token...</source>
-        <translation type="unfinished"></translation>
+        <translation>Срок действия токена Imgur истек, запрашивается новый токен...</translation>
     </message>
-</context><context>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <source>Unsaved</source>
-        <translation type="unfinished"></translation>
+        <translation>Не сохранён</translation>
     </message>
     <message>
         <source>Save</source>
@@ -135,262 +138,275 @@
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить скриншот</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать снимок экрана в буфер обмена</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузить</translation>
     </message>
     <message>
         <source>Upload capture image to imgur.com</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузить скриншот на imgur.com</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Печать</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть диалоговое окно принтера и предоставить возможность печати изображения</translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Просмотр печати</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть «Предварительный просмотр», в котором можно изменить ориентацию изображения</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>Кадрировать</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Вырезать выделенную часть скриншота</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Масштаб</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить размер скриншота</translation>
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished">Новый</translation>
+        <translation>Создать...</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Выйти</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;О программе</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть...</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Файл</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Правка</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Опции</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Справка</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>Инструменты</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить как</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы изображений (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Все файлы</translation>
     </message>
     <message>
         <source>Open Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть изображение</translation>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы изображений (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished"></translation>
+        <translation>Внимание - </translation>
     </message>
     <message>
         <source>The capture has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Скриншот был изменен.
+Сохранить?</translation>
     </message>
     <message>
         <source>Imgur Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur: Загрузка</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы собираетесь загрузить скриншот на imgur.com. Продолжить?</translation>
     </message>
-</context><context>
+</context>
+<context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя пользователя</translation>
     </message>
     <message>
         <source>Always copy capture to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Всегда копировать выделенное в буфер обмена</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Спрашивать о сохранении перед отменой</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Запоминать расположение окна</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Запоминать выбранный инструмент</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Делать захват (создать скриншот) при запуске по умолчанию</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранять скриншот автоматически в указанную директорию</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation type="unfinished"></translation>
+        <translation>При включении будет сохранять в указанную директорию
+без появления диалогового окна.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Укажите директорию и имя файла</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished"></translation>
+        <translation>Следующие параметры будут подставлены при сохранении:
+$Y, $M, $D — Год, Месяц, День
+$h, $m, $s — Часы, Минуты, Секунды
+$T — hhmmss формат.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Обзор</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать курсор мыши во время снимка</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type="unfinished"></translation>
+        <translation>Отображать курсор мыши 
+во время снимка скриншота.</translation>
     </message>
     <message>
         <source>Delay (sec)</source>
-        <translation type="unfinished"></translation>
+        <translation>Задержка (сек)</translation>
     </message>
     <message>
         <source>Sets the delay between triggering a capture
 and the moment when the capture is taken, in
 seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Устанавливает задержку перед созданием снимка.</translation>
     </message>
     <message>
         <source>Show snipping cursor ruler</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать линейку во время выделения</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop corner to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Горизонтальные и вертикальные линии, идущие от
+угла выделения захвата.</translation>
     </message>
     <message>
         <source>Show cursor position info</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать позицию курсора</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and right from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать позицию курсора мыши 
+при выделении области захвата.</translation>
     </message>
     <message>
         <source>Cursor Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Устанавливает цвет области выделения захвата.
+Необходимо перезапустить ksnip, чтобы
+изменения вступили в силу.</translation>
     </message>
     <message>
         <source>Cursor Thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>Толщина</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Устанавливает толщину курсора во время захвата.
+Необходимо перезапустить ksnip, чтобы
+изменения вступили в силу.</translation>
     </message>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузить анонимно</translation>
     </message>
     <message>
         <source>Open link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть прямую ссылку на изображение</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Всегда копировать ссылку в буфер обмена</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished"></translation>
+        <translation>Спрашивать перед загрузкой скриншота</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished"></translation>
+        <translation>ID клиента</translation>
     </message>
     <message>
         <source>Client Secret</source>
@@ -402,50 +418,52 @@ take effect.</source>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите PIN-код с imgur, который будет заменен на токен.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>Получить PIN</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Получить Token</translation>
     </message>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать тени</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished"></translation>
+        <translation>При включении, позволяет рисовать тени вокруг обведенного контура.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Сглаживание кисти</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished"></translation>
+        <translation>При включении сглаживает кисть
+после завершения рисования.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Коэффициент</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished"></translation>
+        <translation>Увеличить коэффициент сглаживания
+и сделать точность маркера более гладким.</translation>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Шрифт</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Установить шрифт для инструмента Текст.</translation>
     </message>
     <message>
         <source>B</source>
@@ -453,7 +471,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Жирный</translation>
     </message>
     <message>
         <source>I</source>
@@ -461,7 +479,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Курсив</translation>
     </message>
     <message>
         <source>U</source>
@@ -469,15 +487,15 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Подчёркивание</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Семейство</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Устанавливает шрифт для инструмента Текст.</translation>
     </message>
     <message>
         <source>Dynamic Cursor Size</source>
@@ -495,53 +513,54 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Основные настройки</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки захвата</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметры Imgur</translation>
     </message>
     <message>
         <source>Painter Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметры кисти</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Основное</translation>
     </message>
     <message>
         <source>Painter</source>
-        <translation type="unfinished"></translation>
+        <translation>Кисть</translation>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ждем ответа от imgur.com...</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя пользователя:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur.com: token был обновлен.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur.com: ошибка во время обновления токена.</translation>
     </message>
     <message>
         <source>Capture save location</source>
         <translation type="unfinished"></translation>
     </message>
-</context><context>
+</context>
+<context>
     <name>main</name>
     <message>
         <source>Select a rectangular area from where to take a screenshot.</source>

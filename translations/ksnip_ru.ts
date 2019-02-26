@@ -279,15 +279,15 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Always copy capture to clipboard</source>
-        <translation>Всегда копировать выделенное в буфер обмена</translation>
+        <translation>Всегда копировать выделенный снимок в буфер обмена</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation>Спрашивать о сохранении перед отменой</translation>
+        <translation>Спрашивать о сохранении изменений перед отменой</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation>Запоминать расположение окна</translation>
+        <translation>Запоминать расположение окон</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
@@ -394,15 +394,15 @@ take effect.</source>
     </message>
     <message>
         <source>Open link directly to image</source>
-        <translation>Открыть прямую ссылку на изображение</translation>
+        <translation>Открыть прямую ссылку на изображение после загрузки</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation>Всегда копировать ссылку в буфер обмена</translation>
+        <translation>Копировать ссылку в буфер обмена</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation>Спрашивать перед загрузкой скриншота</translation>
+        <translation>Спрашивать перед загрузкой</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -438,7 +438,7 @@ take effect.</source>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation>Сглаживание кисти</translation>
+        <translation>Сглаживание</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
@@ -529,7 +529,7 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Painter Settings</source>
-        <translation>Параметры кисти</translation>
+        <translation>Параметры рисования</translation>
     </message>
     <message>
         <source>Application</source>
@@ -537,7 +537,7 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Painter</source>
-        <translation>Кисть</translation>
+        <translation>Рисование</translation>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>

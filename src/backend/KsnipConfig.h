@@ -28,6 +28,7 @@
 #include <QFont>
 #include <QSettings>
 
+#include "KsnipConfigOptions.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/formatter/FilenameFormatter.h"
 
@@ -40,8 +41,8 @@ public:
 
     // Application
 
-    bool saveKsnipPosition() const;
-    void setSaveKsnipPosition(bool enabled);
+	bool savePosition() const;
+	void setSavePosition(bool enabled);
 
     bool promptSaveBeforeExit() const;
     void setPromptSaveBeforeExit(bool enabled);
@@ -49,11 +50,14 @@ public:
     bool alwaysCopyToClipboard() const;
     void setAlwaysCopyToClipboard(bool enabled);
 
-    bool saveKsnipToolSelection() const;
-    void setSaveKsnipToolSelection(bool enabled);
+	bool saveToolSelection() const;
+	void setSaveToolSelection(bool enabled);
 
     bool captureOnStartup() const;
     void setCaptureOnStartup(bool enabled);
+
+	bool freezeImageWhileSnipping() const;
+	void setFreezeImageWhileSnipping(bool enabled);
 
     QPoint windowPosition() const;
     void setWindowPosition(const QPoint &position);
@@ -155,7 +159,10 @@ signals:
 private:
     QSettings mConfig;
 
-	KsnipConfig() = default;;
+	KsnipConfig() = default;
+
+	void saveValue(const QString &key, const QVariant &value);
+	QVariant loadValue(const QString &key, const QVariant &defaultValue = QVariant()) const;
 };
 
 #endif // KSNIPCONFIG_H

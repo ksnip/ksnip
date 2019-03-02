@@ -470,7 +470,7 @@ QString &MainWindow::formatUrl(QString &message) const
 
 void MainWindow::setupImageAnnotator()
 {
-	mkImageAnnotator->setSaveToolSelection(mConfig->saveKsnipToolSelection());
+	mkImageAnnotator->setSaveToolSelection(mConfig->saveToolSelection());
 	mkImageAnnotator->setSmoothFactor(mConfig->smoothFactor());
 	mkImageAnnotator->setSmoothPathEnabled(mConfig->smoothPathEnabled());
 	mkImageAnnotator->setTextFont(mConfig->textFont());

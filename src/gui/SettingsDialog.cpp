@@ -136,8 +136,8 @@ void SettingsDialog::loadSettings()
 {
     mAlwaysCopyToClipboardCheckbox->setChecked(mConfig->alwaysCopyToClipboard());
     mPromptToSaveBeforeExitCheckbox->setChecked(mConfig->promptSaveBeforeExit());
-    mSaveKsnipPositionCheckbox->setChecked(mConfig->saveKsnipPosition());
-    mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveKsnipToolSelection());
+    mSaveKsnipPositionCheckbox->setChecked(mConfig->savePosition());
+    mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveToolSelection());
     mCaptureOnStartupCheckbox->setChecked(mConfig->captureOnStartup());
     mUseInstantSaveCheckBox->setChecked(mConfig->useInstantSave());
 
@@ -173,8 +173,8 @@ void SettingsDialog::saveSettings()
 {
     mConfig->setAlwaysCopyToClipboard(mAlwaysCopyToClipboardCheckbox->isChecked());
     mConfig->setPromptSaveBeforeExit(mPromptToSaveBeforeExitCheckbox->isChecked());
-    mConfig->setSaveKsnipPosition(mSaveKsnipPositionCheckbox->isChecked());
-    mConfig->setSaveKsnipToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
+    mConfig->setSavePosition(mSaveKsnipPositionCheckbox->isChecked());
+    mConfig->setSaveToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
     mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
     mConfig->setUseInstantSave(mUseInstantSaveCheckBox->isChecked());
     mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());

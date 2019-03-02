@@ -127,7 +127,7 @@ QPixmap X11Wrapper::blendCursorImage(const QPixmap& pixmap, const QRect& rect) c
                                 cursorReply->height,
                                 QImage::Format_ARGB32_Premultiplied);
 
-    // a small fix for the cursor position for fancier cursors
+	// a small fix for the cursor position for fancier cursor
     cursorPos -= QPoint(cursorReply->xhot, cursorReply->yhot);
 
     // now we translate the cursor point to our screen rectangle

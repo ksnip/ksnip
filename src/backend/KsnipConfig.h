@@ -56,9 +56,6 @@ public:
     bool captureOnStartup() const;
     void setCaptureOnStartup(bool enabled);
 
-	bool freezeImageWhileSnipping() const;
-	void setFreezeImageWhileSnipping(bool enabled);
-
     QPoint windowPosition() const;
     void setWindowPosition(const QPoint &position);
 
@@ -104,6 +101,9 @@ public:
     void setSmoothFactor(int factor);
 
     // Image Grabber
+
+	bool freezeImageWhileSnipping() const;
+	void setFreezeImageWhileSnipping(bool enabled);
 
     bool captureCursor() const;
     void setCaptureCursor(bool enabled);

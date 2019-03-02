@@ -38,6 +38,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
 	mItemShadowCheckbox(new QCheckBox),
 	mCursorRulerCheckbox(new QCheckBox),
 	mCursorInfoCheckbox(new QCheckBox),
+	mFreezeImageWhileSnippingCheckbox(new QCheckBox),
 	mSaveLocationLineEdit(new QLineEdit),
 	mImgurClientIdLineEdit(new QLineEdit),
 	mImgurClientSecretLineEdit(new QLineEdit),
@@ -100,6 +101,7 @@ SettingsDialog::~SettingsDialog()
     delete mItemShadowCheckbox;
     delete mCursorRulerCheckbox;
     delete mCursorInfoCheckbox;
+	delete mFreezeImageWhileSnippingCheckbox;
     delete mSaveLocationLineEdit;
     delete mImgurClientIdLineEdit;
     delete mImgurClientSecretLineEdit;
@@ -151,6 +153,7 @@ void SettingsDialog::loadSettings()
         mImgurClientIdLineEdit->setPlaceholderText(mConfig->imgurClientId());
     }
 
+	mFreezeImageWhileSnippingCheckbox->setChecked(mConfig->freezeImageWhileSnipping());
     mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());
     mCursorRulerCheckbox->setChecked(mConfig->cursorRulerEnabled());
     mCursorInfoCheckbox->setChecked(mConfig->cursorInfoEnabled());
@@ -184,6 +187,7 @@ void SettingsDialog::saveSettings()
     mConfig->setImgurAlwaysCopyToClipboard(mImgurAlwaysCopyToClipboardCheckBox->isChecked());
     mConfig->setImgurConfirmBeforeUpload(mImgurConfirmBeforeUploadCheckbox->isChecked());
 
+	mConfig->setFreezeImageWhileSnipping(mFreezeImageWhileSnippingCheckbox->isChecked());
     mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
     mConfig->setCursorRulerEnabled(mCursorRulerCheckbox->isChecked());
     mConfig->setCursorInfoEnabled(mCursorInfoCheckbox->isChecked());
@@ -236,6 +240,13 @@ void SettingsDialog::initGui()
     connect(mBrowseButton, &QPushButton::clicked, this, &SettingsDialog::chooseSaveDirectory);
 
     // Create Image Grabber Settings
+	mFreezeImageWhileSnippingCheckbox->setText(tr("Freeze Image while snipping"));
+	mFreezeImageWhileSnippingCheckbox->setToolTip(tr("When enabled will freeze the background while\n"
+	                                                 "selecting a rectangular region. It also changes\n"
+	                                                 "the behavior of delayed screenshots, with this\n"
+	                                                 "option enabled the delay happens before the\n"
+	                                                 "snipping area is show and with the option disabled\n"
+	                                                 "the delay happens after the snipping area is shown."));
     mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot"));
     mCaptureCursorCheckbox->setToolTip(tr("Should mouse cursor be visible on\n"
                                           "screenshots."));
@@ -364,14 +375,15 @@ void SettingsDialog::initGui()
     auto imageGrabberGrid = new QGridLayout;
     imageGrabberGrid->setAlignment(Qt::AlignTop);
     imageGrabberGrid->setColumnStretch(1, 1);
-    imageGrabberGrid->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 2);
-    imageGrabberGrid->addWidget(mCursorRulerCheckbox, 1, 0, 1, 2);
-    imageGrabberGrid->addWidget(mCursorInfoCheckbox, 2, 0, 1, 2);
-    imageGrabberGrid->setRowMinimumHeight(3, 15);
-    imageGrabberGrid->addWidget(mSnippingCursorColorLabel, 4, 0);
-    imageGrabberGrid->addWidget(mSnippingCursorColorButton, 4, 1, Qt::AlignLeft);
-    imageGrabberGrid->addWidget(mSnippingCursorSizeLabel, 5, 0);
-    imageGrabberGrid->addWidget(mSnippingCursorSizeCombobox, 5, 1, Qt::AlignLeft);
+	imageGrabberGrid->addWidget(mFreezeImageWhileSnippingCheckbox, 0, 0, 1, 2);
+	imageGrabberGrid->addWidget(mCaptureCursorCheckbox, 1, 0, 1, 2);
+	imageGrabberGrid->addWidget(mCursorRulerCheckbox, 2, 0, 1, 2);
+	imageGrabberGrid->addWidget(mCursorInfoCheckbox, 3, 0, 1, 2);
+	imageGrabberGrid->setRowMinimumHeight(4, 15);
+	imageGrabberGrid->addWidget(mSnippingCursorColorLabel, 5, 0);
+	imageGrabberGrid->addWidget(mSnippingCursorColorButton, 5, 1, Qt::AlignLeft);
+	imageGrabberGrid->addWidget(mSnippingCursorSizeLabel, 6, 0);
+	imageGrabberGrid->addWidget(mSnippingCursorSizeCombobox, 6, 1, Qt::AlignLeft);
 
     auto imageGrabberGrpBox = new QGroupBox(tr("Image Grabber"));
     imageGrabberGrpBox->setLayout(imageGrabberGrid);

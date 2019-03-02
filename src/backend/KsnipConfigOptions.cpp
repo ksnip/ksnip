@@ -46,7 +46,7 @@ QString KsnipConfigOptions::captureOnStartupString()
 
 QString KsnipConfigOptions::freezeImageWhileSnippingString()
 {
-	return applicationSectionString() + QStringLiteral("FreezeImageWhileSnipping");
+	return imageGrabberSectionString() + QStringLiteral("FreezeImageWhileSnipping");
 }
 
 QString KsnipConfigOptions::positionString()

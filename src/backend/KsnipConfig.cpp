@@ -93,19 +93,6 @@ void KsnipConfig::setCaptureOnStartup(bool enabled)
 	saveValue(KsnipConfigOptions::captureOnStartupString(), enabled);
 }
 
-bool KsnipConfig::freezeImageWhileSnipping() const
-{
-	return loadValue(KsnipConfigOptions::freezeImageWhileSnippingString(), true).toBool();
-}
-
-void KsnipConfig::setFreezeImageWhileSnipping(bool enabled)
-{
-	if (freezeImageWhileSnipping() == enabled) {
-		return;
-	}
-	saveValue(KsnipConfigOptions::freezeImageWhileSnippingString(), enabled);
-}
-
 QPoint KsnipConfig::windowPosition() const
 {
 	// If we are not saving the position we return the default and ignore what
@@ -380,6 +367,19 @@ void KsnipConfig::setSmoothFactor(int  factor)
 }
 
 // Image Grabber
+
+bool KsnipConfig::freezeImageWhileSnipping() const
+{
+	return loadValue(KsnipConfigOptions::freezeImageWhileSnippingString(), true).toBool();
+}
+
+void KsnipConfig::setFreezeImageWhileSnipping(bool enabled)
+{
+	if (freezeImageWhileSnipping() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::freezeImageWhileSnippingString(), enabled);
+}
 
 bool KsnipConfig::captureCursor() const
 {

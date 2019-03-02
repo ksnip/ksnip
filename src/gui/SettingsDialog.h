@@ -66,6 +66,7 @@ private:
     QCheckBox       *mItemShadowCheckbox;
     QCheckBox       *mCursorRulerCheckbox;
     QCheckBox       *mCursorInfoCheckbox;
+	QCheckBox *mFreezeImageWhileSnippingCheckbox;
     QLineEdit       *mSaveLocationLineEdit;
     QLineEdit       *mImgurClientIdLineEdit;
     QLineEdit       *mImgurClientSecretLineEdit;

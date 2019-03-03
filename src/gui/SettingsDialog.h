@@ -38,7 +38,7 @@
 #include "ImgurHistoryDialog.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/widgets/ColorButton.h"
-#include "src/backend/KsnipConfig.h"
+#include "backend/config/KsnipConfig.h"
 #include "src/common/formatter/FilenameFormatter.h"
 #include "src/common/loader/IconLoader.h"
 #include "backend/uploader/ImgurUploader.h"

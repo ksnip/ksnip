@@ -30,7 +30,7 @@
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
-#include "src/backend/KsnipConfig.h"
+#include "backend/config/KsnipConfig.h"
 #include "backend/uploader/CaptureUploader.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/handler/DelayHandler.h"

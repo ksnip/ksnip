@@ -135,16 +135,17 @@ void AbstractSnippingArea::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
 
-    if (mBackground != nullptr) {
-        painter.drawPixmap(geometry(), *mBackground);
+	auto snippingAreaGeometry = geometry();
+	if (mBackground != nullptr) {
+		painter.drawPixmap(snippingAreaGeometry, *mBackground);
     }
 
     if (mMouseIsDown) {
-        painter.setClipRegion(QRegion(geometry()).subtracted(QRegion(mCaptureArea)));
+	    painter.setClipRegion(QRegion(snippingAreaGeometry).subtracted(QRegion(mCaptureArea)));
     }
 
     painter.setBrush(QColor(0, 0, 0, 150));
-    painter.drawRect(geometry());
+	painter.drawRect(snippingAreaGeometry);
 
     if (mCursorRulerEnabled && !mMouseIsDown) {
         drawCursorRuler(painter);

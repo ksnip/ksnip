@@ -1,7 +1,7 @@
 set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/main.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/KsnipConfig.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/KsnipConfigOptions.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfig.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfigOptions.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
@@ -24,7 +24,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/widgets/ColorButton.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/MainToolBar.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/MainWindow.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/AbstractSnippingArea.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AbstractSnippingArea.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/SettingsDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
@@ -39,15 +39,15 @@ if (UNIX)
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeWaylandImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/PlatformChecker.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/CommandRunner.cpp
-		${CMAKE_SOURCE_DIR}/src/gui/LinuxSnippingArea.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/LinuxSnippingArea.cpp
 		)
 elseif (WIN32)
 	set(KSNIP_SRCS
-			${KSNIP_SRCS}
-            ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinImageGrabber.cpp
-			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinWrapper.cpp
-            ${CMAKE_SOURCE_DIR}/src/gui/WinSnippingArea.cpp
-			)
+		${KSNIP_SRCS}
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinImageGrabber.cpp
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinWrapper.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/WinSnippingArea.cpp
+		)
 endif ()
 
 set(KSNIP_SRCS ${KSNIP_SRCS} PARENT_SCOPE)

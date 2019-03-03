@@ -22,7 +22,7 @@
 
 #include "AbstractImageGrabber.h"
 #include "WinWrapper.h"
-#include "src/gui/WinSnippingArea.h"
+#include "gui/snippingArea/WinSnippingArea.h"
 
 class WinImageGrabber : public AbstractImageGrabber
 {

@@ -24,7 +24,7 @@
 
 #include "ImgurUploader.h"
 #include "ImgurResponseLogger.h"
-#include "src/backend/KsnipConfig.h"
+#include "backend/config/KsnipConfig.h"
 
 class CaptureUploader : public QObject
 {

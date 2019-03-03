@@ -26,7 +26,7 @@
 #include <QScreen>
 
 #include "src/common/enum/CaptureModes.h"
-#include "src/gui/AbstractSnippingArea.h"
+#include "gui/snippingArea/AbstractSnippingArea.h"
 
 class AbstractImageGrabber : public QObject
 {

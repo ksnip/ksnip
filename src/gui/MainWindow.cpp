@@ -103,7 +103,7 @@ void MainWindow::screenshotChanged()
 void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay)
 {
     delay = mDelayHandler->getDelay(delay);
-    mImageGrabber->grabImage(captureMode, captureCursor, delay);
+	mImageGrabber->grabImage(captureMode, captureCursor, delay, mConfig->freezeImageWhileSnipping());
 }
 
 void MainWindow::showCapture(const QPixmap& screenshot)
@@ -233,7 +233,7 @@ void MainWindow::capture(CaptureModes captureMode)
     setHidden(true);
     mConfig->setCaptureMode(captureMode);
 
-    captureScreenshot(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
+	captureScreenshot(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
 }
 
 void MainWindow::triggerNewCapture(CaptureModes captureMode)

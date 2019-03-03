@@ -77,6 +77,7 @@ void AbstractSnippingArea::setBackgroundImage(const QPixmap &background)
 void AbstractSnippingArea::clearBackgroundImage()
 {
     delete mBackground;
+	mBackground = nullptr;
 }
 
 void AbstractSnippingArea::init()
@@ -107,6 +108,12 @@ void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
     mMouseIsDown = false;
     emit finished();
     closeSnippingArea();
+}
+
+QPixmap AbstractSnippingArea::background() const
+{
+	Q_ASSERT(mBackground != nullptr);
+	return *mBackground;
 }
 
 bool AbstractSnippingArea::closeSnippingArea()

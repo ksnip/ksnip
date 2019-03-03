@@ -29,18 +29,16 @@ class X11ImageGrabber : public AbstractImageGrabber
 {
 public:
     explicit X11ImageGrabber();
-    virtual ~X11ImageGrabber();
-    virtual void grabImage(CaptureModes captureMode, bool captureCursor = true, int delay = 0) override;
+	~X11ImageGrabber() override;
 
 protected:
-    virtual void grab() override;
+	QRect fullScreenRect() const override;
+	QRect activeWindowRect() const override;
+	bool isSnippingAreaBackgroundTransparent() const override;
+	QPixmap blendCursorImage(const QPixmap &screenshot) const override;
 
 private:
     X11Wrapper *mX11Wrapper;
-
-    void getRectArea();
-    void setRectFromCorrectSource();
-    QPixmap createPixmap(const QRect &rect) const;
 };
 
 #endif // X11IMAGEGRABBER_H

@@ -21,29 +21,22 @@
 
 GnomeWaylandImageGrabber::GnomeWaylandImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea)
 {
-    mSupportedCaptureModes.append(CaptureModes::RectArea);
-    mSupportedCaptureModes.append(CaptureModes::ActiveWindow);
-    mSupportedCaptureModes.append(CaptureModes::FullScreen);
-    mSupportedCaptureModes.append(CaptureModes::CurrentScreen);
+	addSupportedCaptureMode(CaptureModes::RectArea);
+	addSupportedCaptureMode(CaptureModes::ActiveWindow);
+	addSupportedCaptureMode(CaptureModes::FullScreen);
+	addSupportedCaptureMode(CaptureModes::CurrentScreen);
 }
 
-void GnomeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int delay)
+QRect GnomeWaylandImageGrabber::activeWindowRect() const
 {
-    mCaptureCursor = capureCursor;
-    mCaptureDelay = delay;
+	// Gnome Wayland captures active window directly
+	return {};
+}
 
-    if (isCaptureModeSupported(captureMode)) {
-        mCaptureMode = captureMode;
-    } else {
-        qWarning("Unsupported Capture Mode selected, falling back to full screen.");
-        mCaptureMode = CaptureModes::FullScreen;
-    }
-
-    if (mCaptureMode == CaptureModes::RectArea) {
-        openSnippingArea();
-    } else {
-        QTimer::singleShot(mCaptureDelay, this, &GnomeWaylandImageGrabber::grab);
-    }
+QPixmap GnomeWaylandImageGrabber::blendCursorImage(const QPixmap &screenshot) const
+{
+	// Gnome Wayland merges the cursor already
+	return screenshot;
 }
 
 void GnomeWaylandImageGrabber::grab()
@@ -85,14 +78,8 @@ QString GnomeWaylandImageGrabber::tmpScreenshotFilename() const
     return path + filename + extension;
 }
 
-void GnomeWaylandImageGrabber::setRectFromCorrectSource()
+QRect GnomeWaylandImageGrabber::fullScreenRect() const
 {
-    if (mCaptureMode == CaptureModes::RectArea) {
-        mCaptureRect = selectedSnippingAreaRect();
-    } else if (mCaptureMode == CaptureModes::CurrentScreen) {
-        mCaptureRect = currentScreenRect();
-    } else {
-        // Copy with empty rect will return full screen
-        mCaptureRect = QRect();
-    }
+	// Copy with empty rect will return full screen
+	return {};
 }

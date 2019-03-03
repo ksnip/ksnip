@@ -32,15 +32,16 @@ class GnomeWaylandImageGrabber : public AbstractImageGrabber
 {
 public:
     explicit GnomeWaylandImageGrabber();
-	virtual void grabImage(CaptureModes captureMode, bool captureCursor = true, int delay = 0) override;
+	QRect fullScreenRect() const override;
+	QRect activeWindowRect() const override;
 
 protected:
 	void grab() override;
+	QPixmap blendCursorImage(const QPixmap &screenshot) const override;
 
 private:
     void postProcessing(const QPixmap &pixmap);
     QString tmpScreenshotFilename() const;
-    void setRectFromCorrectSource();
 };
 
 #endif // GNOMEWAYLANDIMAGEGRABBER_H

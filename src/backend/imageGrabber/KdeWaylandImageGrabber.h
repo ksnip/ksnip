@@ -39,10 +39,12 @@ class KdeWaylandImageGrabber : public AbstractImageGrabber
 {
 public:
     explicit KdeWaylandImageGrabber();
-    virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) override;
+	QRect fullScreenRect() const override;
+	QRect activeWindowRect() const override;
 
 protected:
-    virtual void grab() override;
+	void grab() override;
+	QPixmap blendCursorImage(const QPixmap &screenshot) const override;
 
 private:
     void startReadImage(int readPipe);

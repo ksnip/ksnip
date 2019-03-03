@@ -22,12 +22,32 @@
 AbstractImageGrabber::AbstractImageGrabber(AbstractSnippingArea *snippingArea) : mSnippingArea(snippingArea)
 {
     Q_ASSERT(snippingArea != nullptr);
-    initSnippingArea();
+	connectSnippingAreaCancel();
 }
 
 AbstractImageGrabber::~AbstractImageGrabber()
 {
     delete mSnippingArea;
+}
+
+void AbstractImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, int delay, bool freezeImageWhileSnipping)
+{
+	mCaptureCursor = captureCursor;
+	mCaptureDelay = delay;
+	mFreezeImageWhileSnipping = freezeImageWhileSnipping;
+
+	if (isCaptureModeSupported(captureMode)) {
+		mCaptureMode = captureMode;
+	} else {
+		qWarning("Unsupported Capture Mode selected, falling back to full screen.");
+		mCaptureMode = CaptureModes::FullScreen;
+	}
+
+	if (mCaptureMode == CaptureModes::RectArea && isSnippingAreaBackgroundTransparent()) {
+		openSnippingAreaWithoutBackground();
+	} else {
+		QTimer::singleShot(mCaptureDelay, this, &AbstractImageGrabber::prepareGrab);
+	}
 }
 
 bool AbstractImageGrabber::isCaptureModeSupported(CaptureModes captureMode) const
@@ -49,13 +69,20 @@ QRect AbstractImageGrabber::currentScreenRect() const
     return QApplication::desktop()->screenGeometry(screen);
 }
 
-void AbstractImageGrabber::openSnippingArea()
+void AbstractImageGrabber::addSupportedCaptureMode(CaptureModes captureMode)
 {
+	mSupportedCaptureModes.append(captureMode);
+}
+
+void AbstractImageGrabber::openSnippingAreaWithoutBackground()
+{
+	connectSnippingAreaFinish();
     mSnippingArea->showWithoutBackground();
 }
 
 void AbstractImageGrabber::openSnippingAreaWithBackground(const QPixmap& background)
 {
+	connectSnippingAreaFinish();
     mSnippingArea->showWithBackground(background);
 }
 
@@ -64,11 +91,101 @@ QRect AbstractImageGrabber::selectedSnippingAreaRect() const
     return mSnippingArea->selectedRectArea();
 }
 
-void AbstractImageGrabber::initSnippingArea()
+QPixmap AbstractImageGrabber::snippingAreaBackground() const
 {
-    connect(mSnippingArea, &AbstractSnippingArea::finished, [this]()
-    {
-        QTimer::singleShot(mCaptureDelay, this, &AbstractImageGrabber::grab);
-    });
+	return mSnippingArea->background();
+}
+
+QPixmap AbstractImageGrabber::getScreenshotFromRect(const QRect &rect) const
+{
+	auto screen = QGuiApplication::primaryScreen();
+	auto windowId = QApplication::desktop()->winId();
+	auto rectPosition = rect.topLeft();
+	return screen->grabWindow(windowId, rectPosition.x(), rectPosition.y(), rect.width(), rect.height());
+}
+
+QPixmap AbstractImageGrabber::getScreenshot() const
+{
+	if (mCaptureMode == CaptureModes::RectArea && mFreezeImageWhileSnipping) {
+		return snippingAreaBackground().copy(mCaptureRect);
+	} else {
+		return getScreenshotFromRect(mCaptureRect);
+	}
+}
+
+void AbstractImageGrabber::setRectFromCorrectSource()
+{
+	if (mCaptureMode == CaptureModes::RectArea) {
+		mCaptureRect = selectedSnippingAreaRect();
+	} else if (mCaptureMode == CaptureModes::FullScreen) {
+		mCaptureRect = fullScreenRect();
+	} else if (mCaptureMode == CaptureModes::CurrentScreen) {
+		mCaptureRect = currentScreenRect();
+	} else if (mCaptureMode == CaptureModes::ActiveWindow) {
+		mCaptureRect = activeWindowRect();
+		if (mCaptureRect.isNull()) {
+			qWarning("ImageGrabber::getActiveWindow: Found no window with focus.");
+			mCaptureRect = currentScreenRect();
+		}
+	}
+}
+
+bool AbstractImageGrabber::isSnippingAreaBackgroundTransparent() const
+{
+	return !mFreezeImageWhileSnipping;
+}
+
+void AbstractImageGrabber::prepareGrab()
+{
+	if (mCaptureMode == CaptureModes::RectArea && !isSnippingAreaBackgroundTransparent()) {
+		openSnippingArea();
+	} else {
+		grab();
+	}
+}
+
+void AbstractImageGrabber::grab()
+{
+	setRectFromCorrectSource();
+	auto screenshot = getScreenshot();
+
+	if (mCaptureCursor) {
+		screenshot = blendCursorImage(screenshot);
+	}
+	emit finished(screenshot);
+}
+
+void AbstractImageGrabber::openSnippingArea()
+{
+	if (isSnippingAreaBackgroundTransparent()) {
+		openSnippingAreaWithoutBackground();
+	} else {
+		auto screenRect = fullScreenRect();
+		auto background = getScreenshotFromRect(screenRect);
+		openSnippingAreaWithBackground(background);
+	}
+}
+
+void AbstractImageGrabber::connectSnippingAreaCancel()
+{
     connect(mSnippingArea, &AbstractSnippingArea::canceled, this, &AbstractImageGrabber::canceled);
+}
+
+void AbstractImageGrabber::connectSnippingAreaFinish()
+{
+	disconnectSnippingAreaFinish();
+
+	if (isSnippingAreaBackgroundTransparent()) {
+		connect(mSnippingArea, &AbstractSnippingArea::finished, [this]()
+		{
+			QTimer::singleShot(mCaptureDelay, this, &AbstractImageGrabber::grab);
+		});
+	} else {
+		connect(mSnippingArea, &AbstractSnippingArea::finished, this, &AbstractImageGrabber::grab);
+	}
+}
+
+void AbstractImageGrabber::disconnectSnippingAreaFinish()
+{
+	disconnect(mSnippingArea, &AbstractSnippingArea::finished, 0, 0);
 }

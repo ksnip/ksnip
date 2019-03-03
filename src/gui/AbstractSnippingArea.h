@@ -38,6 +38,7 @@ public:
     void showWithoutBackground();
     void showWithBackground(const QPixmap& background);
     virtual QRect selectedRectArea() const = 0;
+	virtual QPixmap background() const;
     bool closeSnippingArea();
 
 signals:

@@ -25,6 +25,7 @@
 #include <QDesktopWidget>
 #include <QApplication>
 
+#include "SnippingAreaAdorner.h"
 #include "src/widgets/CursorFactory.h"
 #include "src/common/helper/MathHelper.h"
 #include "backend/config/KsnipConfig.h"
@@ -47,6 +48,7 @@ signals:
 
 protected:
     QRect mCaptureArea;
+	QRegion mClippingRegion;
 
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
@@ -57,26 +59,20 @@ protected:
 	virtual QPoint getMousePosition() const = 0;
 
 private:
-    QPoint         mMouseDownPosition;
-    bool           mMouseIsDown;
-    bool           mCursorRulerEnabled;
-    bool           mCursorInfoEnabled;
+	QPoint mMouseDownPosition;
+	bool mMouseIsDown;
     CursorFactory *mCursorFactory;
-    KsnipConfig   *mConfig;
-    QPixmap       *mBackground;
+	KsnipConfig *mConfig;
+	QPixmap *mBackground;
+	SnippingAreaAdorner mAdorner;
 
     void setBackgroundImage(const QPixmap &background);
     void clearBackgroundImage();
     void init();
 	void updateCapturedArea(const QPoint &point1, const QPoint &point2);
-    QString createPositionInfoText(int number1, int number2) const;
-    void drawCursorRuler(QPainter &painter) const;
-    void drawCursorPositionInfo(QPainter &painter) const;
-    void drawCursorSizeInfo(QPainter &painter) const;
-    void drawCursorWidthInfo(QPainter &painter) const;
-    void drawCursorHeightInfo(QPainter &painter) const;
-    QRect getTextBounding(const QPainter &painter, const QString &text) const;
     virtual void showSnippingArea();
+	void setMouseIsDown(bool isDown);
+	void updateAdorner(const QPoint &mousePosition);
 };
 
 #endif // KSNIP_ABSTRACTSNIPPINGAREA_H

@@ -18,12 +18,12 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
 
     echo "--> Download Qt"
 
-    QT_BASE_URL="https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_msvc2015"
-    wget --quiet -O qtbase.7z "$QT_BASE_URL/5.6.3-0-201709190903qtbase-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
-    wget --quiet -O qtwinextras.7z "$QT_BASE_URL/5.6.3-0-201709171315qtwinextras-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
-    wget --quiet -O qttools.7z "$QT_BASE_URL/5.6.3-0-201708150657qttools-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
-    wget --quiet -O qttranslations.7z "$QT_BASE_URL/5.6.3-0-201709171315qttranslations-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
-    wget --quiet -O qtsvg.7z "$QT_BASE_URL/5.6.3-0-201709171315qtsvg-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
+    QT_BASE_URL="https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_msvc2015/5.6.3-0-201709190903"
+    wget --quiet -O qtbase.7z "${QT_BASE_URL}qtbase-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
+    wget --quiet -O qtwinextras.7z "${QT_BASE_URL}qtwinextras-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
+    wget --quiet -O qttools.7z "${QT_BASE_URL}qttools-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
+    wget --quiet -O qttranslations.7z "${QT_BASE_URL}qttranslations-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
+    wget --quiet -O qtsvg.7z "${QT_BASE_URL}qtsvg-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
 
     7z x qtbase.7z -o/c/qt
     7z x qtwinextras.7z -o/c/qt

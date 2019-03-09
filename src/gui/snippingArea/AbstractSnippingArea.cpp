@@ -51,19 +51,12 @@ void AbstractSnippingArea::showWithBackground(const QPixmap &background)
     showSnippingArea();
 }
 
-QRect AbstractSnippingArea::selectedRectArea() const
-{
-    auto topLeft = mapToGlobal(mCaptureArea.topLeft());
-    auto bottomRight = mapToGlobal(mCaptureArea.bottomRight());
-    return {topLeft, bottomRight};
-}
-
 void AbstractSnippingArea::showSnippingArea()
 {
     init();
     setFullScreen();
     QApplication::setActiveWindow(this);
-	updateAdorner(QCursor::pos());
+    updateAdorner();
 	setFocus();
     grabKeyboard(); // Issue #57
 }
@@ -96,8 +89,8 @@ void AbstractSnippingArea::mousePressEvent(QMouseEvent *event)
         return;
     }
 
-    mMouseDownPosition = event->pos();
-    updateCapturedArea(mMouseDownPosition, event->pos());
+    mMouseDownPosition = getMousePosition();
+    updateCapturedArea();
 	setMouseIsDown(true);
 }
 
@@ -114,7 +107,7 @@ void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
 
 QPixmap AbstractSnippingArea::background() const
 {
-	Q_ASSERT(mBackground != nullptr);
+	Q_ASSERT(!isBackgroundTransparent());
 	return *mBackground;
 }
 
@@ -127,9 +120,9 @@ bool AbstractSnippingArea::closeSnippingArea()
 void AbstractSnippingArea::mouseMoveEvent(QMouseEvent *event)
 {
     if (mMouseIsDown) {
-        updateCapturedArea(mMouseDownPosition, event->pos());
+        updateCapturedArea();
     }
-	updateAdorner(event->pos());
+    updateAdorner();
     update();
     QWidget::mouseMoveEvent(event);
 }
@@ -138,8 +131,8 @@ void AbstractSnippingArea::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
 
-	auto snippingAreaGeometry = geometry();
-	if (mBackground != nullptr) {
+	auto snippingAreaGeometry = getSnippingAreaGeometry();
+	if (!isBackgroundTransparent()) {
 		painter.drawPixmap(snippingAreaGeometry, *mBackground);
     }
 
@@ -160,6 +153,11 @@ void AbstractSnippingArea::paintEvent(QPaintEvent *event)
     QWidget::paintEvent(event);
 }
 
+bool AbstractSnippingArea::isBackgroundTransparent() const
+{
+    return mBackground == nullptr;
+}
+
 void AbstractSnippingArea::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
@@ -169,10 +167,11 @@ void AbstractSnippingArea::keyPressEvent(QKeyEvent *event)
     QWidget::keyPressEvent(event);
 }
 
-void AbstractSnippingArea::updateCapturedArea(const QPoint &point1, const QPoint &point2)
+void AbstractSnippingArea::updateCapturedArea()
 {
-    mCaptureArea = QRect(point1, point2).normalized();
-	mClippingRegion = QRegion(geometry()).subtracted(QRegion(mCaptureArea));
+    auto currentMousePosition = getMousePosition();
+    mCaptureArea = QRect(mMouseDownPosition, currentMousePosition).normalized();
+	mClippingRegion = QRegion(getSnippingAreaGeometry()).subtracted(QRegion(mCaptureArea));
 }
 
 void AbstractSnippingArea::setMouseIsDown(bool isDown)
@@ -181,7 +180,9 @@ void AbstractSnippingArea::setMouseIsDown(bool isDown)
 	mAdorner.setMouseDown(isDown);
 }
 
-void AbstractSnippingArea::updateAdorner(const QPoint &mousePosition)
+void AbstractSnippingArea::updateAdorner()
 {
-	mAdorner.update(mousePosition, geometry(), mCaptureArea);
+    auto snippingAreaGeometry = getSnippingAreaGeometry();
+    auto currentMousePosition = getMousePosition();
+    mAdorner.update(currentMousePosition, snippingAreaGeometry, mCaptureArea);
 }

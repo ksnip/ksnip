@@ -21,14 +21,17 @@
 
 WinSnippingArea::WinSnippingArea() : AbstractSnippingArea()
 {
-
 }
 
 QRect WinSnippingArea::selectedRectArea() const
 {
-    auto topLeft = mapToGlobal(mCaptureArea.topLeft());
-    auto bottomRight = mapToGlobal(mCaptureArea.bottomRight());
-    return {topLeft, bottomRight};
+    if(isBackgroundTransparent()) {
+        auto topLeft = mapToGlobal(mCaptureArea.topLeft());
+        auto bottomRight = mapToGlobal(mCaptureArea.bottomRight());
+        return {topLeft, bottomRight};
+    } else {
+        return mCaptureArea;
+    }
 }
 
 void WinSnippingArea::setFullScreen()
@@ -43,17 +46,23 @@ QPoint WinSnippingArea::getMousePosition() const
     return mapFromGlobal(QCursor::pos());
 }
 
+QRect WinSnippingArea::getSnippingAreaGeometry() const
+{
+    auto snippingAreaGeometry = geometry();
+    return {mapFromGlobal(snippingAreaGeometry.topLeft()), mapFromGlobal(snippingAreaGeometry.bottomRight())};
+}
+
 QRect WinSnippingArea::getFullScreenRect() const
 {
-    auto fullScreenRect = QDesktopWidget().rect();
+    QRect fullScreenRect = QDesktopWidget().rect();
     auto screenCount = QDesktopWidget().screenCount();
     for(int i = 0; i < screenCount; i++) {
         auto screenRect = QDesktopWidget().screenGeometry(i);
         if(screenRect.x() < fullScreenRect.x()) {
-            fullScreenRect.setX(screenRect.x());
+            fullScreenRect.moveLeft(screenRect.x());
         }
         if(screenRect.y() < fullScreenRect.y()) {
-            fullScreenRect.setY(screenRect.y());
+            fullScreenRect.moveBottom(screenRect.y());
         }
     }
     return fullScreenRect;

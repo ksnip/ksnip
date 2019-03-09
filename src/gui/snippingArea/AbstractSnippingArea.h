@@ -55,8 +55,10 @@ protected:
     void mouseMoveEvent(QMouseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
     void paintEvent(QPaintEvent *event) override;
+	virtual bool isBackgroundTransparent() const;
     virtual void setFullScreen() = 0;
 	virtual QPoint getMousePosition() const = 0;
+	virtual QRect getSnippingAreaGeometry() const = 0;
 
 private:
 	QPoint mMouseDownPosition;
@@ -69,10 +71,10 @@ private:
     void setBackgroundImage(const QPixmap &background);
     void clearBackgroundImage();
     void init();
-	void updateCapturedArea(const QPoint &point1, const QPoint &point2);
+	void updateCapturedArea();
     virtual void showSnippingArea();
 	void setMouseIsDown(bool isDown);
-	void updateAdorner(const QPoint &mousePosition);
+	void updateAdorner();
 };
 
 #endif // KSNIP_ABSTRACTSNIPPINGAREA_H

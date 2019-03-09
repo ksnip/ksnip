@@ -39,3 +39,8 @@ QPoint LinuxSnippingArea::getMousePosition() const
 {
     return QCursor::pos();
 }
+
+QRect WinSnippingArea::getSnippingArea() const
+{
+    return geometry();
+}

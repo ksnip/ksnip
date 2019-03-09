@@ -32,7 +32,7 @@ public:
 protected:
 	void setFullScreen() override;
     QPoint getMousePosition() const override;
-	QRect getSnippingArea() const override;
+	QRect getSnippingAreaGeometry() const override;
 };
 
 #endif //KSNIP_LINUXSNIPPINGAREA_H

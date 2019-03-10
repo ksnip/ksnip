@@ -64,8 +64,9 @@ private:
     QCheckBox       *mImgurConfirmBeforeUploadCheckbox;
     QCheckBox       *mSmoothPathCheckbox;
     QCheckBox       *mItemShadowCheckbox;
-    QCheckBox       *mCursorRulerCheckbox;
-    QCheckBox       *mCursorInfoCheckbox;
+	QCheckBox *mSnippingAreaRulersCheckbox;
+	QCheckBox *mSnippingAreaPositionAndSizeInfoCheckbox;
+	QCheckBox *mSnippingAreaMagnifyingGlassCheckbox;
 	QCheckBox *mFreezeImageWhileSnippingCheckbox;
     QLineEdit       *mSaveLocationLineEdit;
     QLineEdit       *mImgurClientIdLineEdit;

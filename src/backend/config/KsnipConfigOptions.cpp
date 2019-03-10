@@ -44,9 +44,9 @@ QString KsnipConfigOptions::captureOnStartupString()
 	return applicationSectionString() + QStringLiteral("CaptureOnStartup");
 }
 
-QString KsnipConfigOptions::freezeImageWhileSnippingString()
+QString KsnipConfigOptions::freezeImageWhileSnippingEnabledString()
 {
-	return imageGrabberSectionString() + QStringLiteral("FreezeImageWhileSnipping");
+	return imageGrabberSectionString() + QStringLiteral("FreezeImageWhileSnippingEnabled");
 }
 
 QString KsnipConfigOptions::positionString()
@@ -114,14 +114,19 @@ QString KsnipConfigOptions::captureCursorString()
 	return imageGrabberSectionString() + QStringLiteral("CaptureCursor");
 }
 
-QString KsnipConfigOptions::cursorRulerEnabledString()
+QString KsnipConfigOptions::snippingAreaRulersEnabledString()
 {
-	return imageGrabberSectionString() + QStringLiteral("CursorRulerEnabled");
+	return imageGrabberSectionString() + QStringLiteral("SnippingAreaRulersEnabled");
 }
 
-QString KsnipConfigOptions::cursorInfoEnabledString()
+QString KsnipConfigOptions::snippingAreaPositionAndSizeInfoEnabledString()
 {
-	return imageGrabberSectionString() + QStringLiteral("CursorInfoEnabled");
+	return imageGrabberSectionString() + QStringLiteral("SnippingAreaPositionAndSizeInfoEnabled");
+}
+
+QString KsnipConfigOptions::snippingAreaMagnifyingGlassEnabledString()
+{
+	return imageGrabberSectionString() + QStringLiteral("SnippingAreaMagnifyingGlassEnabled");
 }
 
 QString KsnipConfigOptions::captureDelayString()

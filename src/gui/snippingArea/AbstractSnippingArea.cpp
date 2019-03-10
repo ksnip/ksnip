@@ -77,11 +77,14 @@ void AbstractSnippingArea::clearBackgroundImage()
 
 void AbstractSnippingArea::init()
 {
-	auto cursorRulerEnabled = mConfig->cursorRulerEnabled();
-	auto cursorInfoEnabled = mConfig->cursorInfoEnabled();
-	mAdorner.setRulerEnabled(cursorRulerEnabled);
-	mAdorner.setCursorInfoEnabled(cursorInfoEnabled);
-	setMouseTracking(cursorRulerEnabled || cursorInfoEnabled);
+	auto rulersEnabled = mConfig->snippingAreaRulersEnabled();
+	auto positionAndSizeInfoEnabled = mConfig->snippingAreaPositionAndSizeInfoEnabled();
+	auto magnifyingGlassEnabled = mConfig->snippingAreaMagnifyingGlassEnabled();
+	auto freezeImageWhileSnippingEnabled = mConfig->freezeImageWhileSnippingEnabled();
+	mAdorner.setRulersEnabled(rulersEnabled);
+	mAdorner.setPositionAndSizeInfoEnabled(positionAndSizeInfoEnabled);
+	mAdorner.setMagnifyingGlassEnabled(magnifyingGlassEnabled && freezeImageWhileSnippingEnabled);
+	setMouseTracking(rulersEnabled || positionAndSizeInfoEnabled || magnifyingGlassEnabled);
 	setMouseIsDown(false);
 }
 

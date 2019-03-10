@@ -30,7 +30,7 @@ public:
 	static QString alwaysCopyToClipboardString();
 	static QString saveToolSelectionString();
 	static QString captureOnStartupString();
-	static QString freezeImageWhileSnippingString();
+	static QString freezeImageWhileSnippingEnabledString();
 	static QString positionString();
 	static QString captureModeString();
 	static QString saveDirectoryString();
@@ -44,8 +44,9 @@ public:
 	static QString smoothPathEnabledString();
 	static QString smoothPathFactorString();
 	static QString captureCursorString();
-	static QString cursorRulerEnabledString();
-	static QString cursorInfoEnabledString();
+	static QString snippingAreaRulersEnabledString();
+	static QString snippingAreaPositionAndSizeInfoEnabledString();
+	static QString snippingAreaMagnifyingGlassEnabledString();
 	static QString captureDelayString();
 	static QString snippingCursorSizeString();
 	static QString snippingCursorColorString();

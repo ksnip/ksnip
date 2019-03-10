@@ -102,17 +102,20 @@ public:
 
     // Image Grabber
 
-	bool freezeImageWhileSnipping() const;
-	void setFreezeImageWhileSnipping(bool enabled);
+	bool freezeImageWhileSnippingEnabled() const;
+	void setFreezeImageWhileSnippingEnabled(bool enabled);
 
     bool captureCursor() const;
     void setCaptureCursor(bool enabled);
 
-    bool cursorRulerEnabled() const;
-    void setCursorRulerEnabled(bool enabled);
+	bool snippingAreaRulersEnabled() const;
+	void setsnippingAreaRulersEnabled(bool enabled);
 
-    bool cursorInfoEnabled() const;
-    void setCursorInfoEnabled(bool enabled);
+	bool snippingAreaPositionAndSizeInfoEnabled() const;
+	void setSnippingAreaPositionAndSizeInfoEnabled(bool enabled);
+
+	bool snippingAreaMagnifyingGlassEnabled() const;
+	void setSnippingAreaMagnifyingGlassEnabled(bool enabled);
 
     int captureDelay() const;
     void setCaptureDelay(int delay);

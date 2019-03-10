@@ -368,17 +368,17 @@ void KsnipConfig::setSmoothFactor(int  factor)
 
 // Image Grabber
 
-bool KsnipConfig::freezeImageWhileSnipping() const
+bool KsnipConfig::freezeImageWhileSnippingEnabled() const
 {
-	return loadValue(KsnipConfigOptions::freezeImageWhileSnippingString(), true).toBool();
+	return loadValue(KsnipConfigOptions::freezeImageWhileSnippingEnabledString(), true).toBool();
 }
 
-void KsnipConfig::setFreezeImageWhileSnipping(bool enabled)
+void KsnipConfig::setFreezeImageWhileSnippingEnabled(bool enabled)
 {
-	if (freezeImageWhileSnipping() == enabled) {
+	if (freezeImageWhileSnippingEnabled() == enabled) {
 		return;
 	}
-	saveValue(KsnipConfigOptions::freezeImageWhileSnippingString(), enabled);
+	saveValue(KsnipConfigOptions::freezeImageWhileSnippingEnabledString(), enabled);
 }
 
 bool KsnipConfig::captureCursor() const
@@ -394,30 +394,43 @@ void KsnipConfig::setCaptureCursor(bool  enabled)
 	saveValue(KsnipConfigOptions::captureCursorString(), enabled);
 }
 
-bool KsnipConfig::cursorRulerEnabled() const
+bool KsnipConfig::snippingAreaRulersEnabled() const
 {
-	return loadValue(KsnipConfigOptions::cursorRulerEnabledString(), true).toBool();
+	return loadValue(KsnipConfigOptions::snippingAreaRulersEnabledString(), true).toBool();
 }
 
-void KsnipConfig::setCursorRulerEnabled(bool enabled)
+void KsnipConfig::setsnippingAreaRulersEnabled(bool enabled)
 {
-    if (cursorRulerEnabled() == enabled) {
+	if (snippingAreaRulersEnabled() == enabled) {
         return;
     }
-	saveValue(KsnipConfigOptions::cursorRulerEnabledString(), enabled);
+	saveValue(KsnipConfigOptions::snippingAreaRulersEnabledString(), enabled);
 }
 
-bool KsnipConfig::cursorInfoEnabled() const
+bool KsnipConfig::snippingAreaPositionAndSizeInfoEnabled() const
 {
-	return loadValue(KsnipConfigOptions::cursorInfoEnabledString(), true).toBool();
+	return loadValue(KsnipConfigOptions::snippingAreaPositionAndSizeInfoEnabledString(), true).toBool();
 }
 
-void KsnipConfig::setCursorInfoEnabled(bool enabled)
+void KsnipConfig::setSnippingAreaPositionAndSizeInfoEnabled(bool enabled)
 {
-    if (cursorInfoEnabled() == enabled) {
+	if (snippingAreaPositionAndSizeInfoEnabled() == enabled) {
         return;
     }
-	saveValue(KsnipConfigOptions::cursorInfoEnabledString(), enabled);
+	saveValue(KsnipConfigOptions::snippingAreaPositionAndSizeInfoEnabledString(), enabled);
+}
+
+bool KsnipConfig::snippingAreaMagnifyingGlassEnabled() const
+{
+	return loadValue(KsnipConfigOptions::snippingAreaMagnifyingGlassEnabledString(), true).toBool();
+}
+
+void KsnipConfig::setSnippingAreaMagnifyingGlassEnabled(bool enabled)
+{
+	if (snippingAreaMagnifyingGlassEnabled() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::snippingAreaMagnifyingGlassEnabledString(), enabled);
 }
 
 int KsnipConfig::captureDelay() const

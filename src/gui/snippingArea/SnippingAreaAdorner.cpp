@@ -21,18 +21,23 @@
 
 SnippingAreaAdorner::SnippingAreaAdorner()
 {
-	setRulerEnabled(false);
-	setCursorInfoEnabled(false);
+	setRulersEnabled(false);
+	setPositionAndSizeInfoEnabled(false);
 }
 
-void SnippingAreaAdorner::setRulerEnabled(bool enabled)
+void SnippingAreaAdorner::setRulersEnabled(bool enabled)
 {
 	mRulerEnabled = enabled;
 }
 
-void SnippingAreaAdorner::setCursorInfoEnabled(bool enabled)
+void SnippingAreaAdorner::setPositionAndSizeInfoEnabled(bool enabled)
 {
-	mCursorInfoEnabled = enabled;
+	mPositionAndSizeInfoEnabled = enabled;
+}
+
+void SnippingAreaAdorner::setMagnifyingGlassEnabled(bool enabled)
+{
+	mMagnifyingGlassEnabled = enabled;
 }
 
 void SnippingAreaAdorner::setMouseDown(bool isDown)
@@ -51,7 +56,7 @@ void SnippingAreaAdorner::update(const QPoint &mousePosition, const QRect &scree
 		mRulers.update(mousePosition, screenRect);
 	}
 
-	if (mCursorInfoEnabled) {
+	if (mPositionAndSizeInfoEnabled) {
 		if (mMouseIsDown) {
 			mSizeInfo.update(captureRect);
 		} else {
@@ -59,7 +64,9 @@ void SnippingAreaAdorner::update(const QPoint &mousePosition, const QRect &scree
 		}
 	}
 
-	mMagnifyingGlass.update(mousePosition, screenRect);
+	if (mMagnifyingGlassEnabled) {
+		mMagnifyingGlass.update(mousePosition, screenRect);
+	}
 }
 
 void SnippingAreaAdorner::draw(QPainter &painter)
@@ -68,12 +75,15 @@ void SnippingAreaAdorner::draw(QPainter &painter)
 		mRulers.draw(painter);
 	}
 
-	if (mCursorInfoEnabled) {
+	if (mPositionAndSizeInfoEnabled) {
 		if (mMouseIsDown) {
 			mSizeInfo.draw(painter);
 		} else {
 			mPositionInfo.draw(painter);
 		}
 	}
-	mMagnifyingGlass.draw(painter);
+
+	if (mMagnifyingGlassEnabled) {
+		mMagnifyingGlass.draw(painter);
+	}
 }

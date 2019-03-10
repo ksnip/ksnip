@@ -21,6 +21,7 @@
 * New: Add icons for dark theme. ([#142](https://github.com/DamirPorobic/ksnip/issues/142))
 * New: Store imgur delete links. ([#74](https://github.com/DamirPorobic/ksnip/issues/74))
 * New: Freeze image while selecting rectangular area. ([#136](https://github.com/DamirPorobic/ksnip/issues/136))
+* New: Magnifying glass for snipping area. ([#62](https://github.com/DamirPorobic/ksnip/issues/62))
 * New kImageAnnotator: Keep number tool sequence consecutive after deleting item. ([#7](https://github.com/DamirPorobic/kImageAnnotator/issues/7))
 * New kImageAnnotator: Added control for setting first number for numbering tool. ([#7](https://github.com/DamirPorobic/kImageAnnotator/issues/7))
 * New kImageAnnotator: Text and Number tool have now noBorderAndNoFill type. ([#22](https://github.com/DamirPorobic/kImageAnnotator/issues/22))

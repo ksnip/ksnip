@@ -33,8 +33,9 @@ class SnippingAreaAdorner
 public:
 	explicit SnippingAreaAdorner();
 	~SnippingAreaAdorner() = default;
-	void setRulerEnabled(bool enabled);
-	void setCursorInfoEnabled(bool enabled);
+	void setRulersEnabled(bool enabled);
+	void setPositionAndSizeInfoEnabled(bool enabled);
+	void setMagnifyingGlassEnabled(bool enabled);
 	void setMouseDown(bool isDown);
 	void setBackgroundImage(const QPixmap *background);
 	void update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect);
@@ -42,7 +43,8 @@ public:
 
 private:
 	bool mRulerEnabled;
-	bool mCursorInfoEnabled;
+	bool mPositionAndSizeInfoEnabled;
+	bool mMagnifyingGlassEnabled;
 	bool mMouseIsDown;
 	AdornerSizeInfo mSizeInfo;
 	AdornerPositionInfo mPositionInfo;

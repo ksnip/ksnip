@@ -49,7 +49,7 @@ void SnippingAreaAdorner::setMouseDown(bool isDown)
 	mMouseIsDown = isDown;
 }
 
-void SnippingAreaAdorner::update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect)
+void SnippingAreaAdorner::update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect, const QPixmap *background)
 {
 	if (mRulerEnabled && !mMouseIsDown) {
 		updateRulers(mousePosition, screenRect);
@@ -61,6 +61,10 @@ void SnippingAreaAdorner::update(const QPoint &mousePosition, const QRect &scree
 		} else {
 			updateCursorInfo(mousePosition);
 		}
+	}
+
+	if(background != nullptr) {
+		mMagnifyingGlass.update(mousePosition, background);
 	}
 }
 
@@ -77,6 +81,7 @@ void SnippingAreaAdorner::draw(QPainter &painter)
 			drawCursorInfo(painter);
 		}
 	}
+	mMagnifyingGlass.draw(painter);
 }
 
 void SnippingAreaAdorner::updateRulers(const QPoint &mousePosition, const QRect &screenRect)
@@ -92,7 +97,7 @@ void SnippingAreaAdorner::updateCursorInfo(const QPoint &mousePosition)
 {
 	QPoint textOffset(10, 8);
 	auto pos = mousePosition;
-	mCursorInfoText = QString::number(pos.x()) + QStringLiteral(", ") + QString::number(pos.y());;
+	mCursorInfoText = QString::number(pos.x()) + QStringLiteral(", ") + QString::number(pos.y());
 	mCursorInfoBox = mFontMetric->boundingRect(mCursorInfoText);
 	mCursorInfoBox.moveTopLeft(pos + textOffset);
 	mCursorInfoTextRect = mCursorInfoBox;

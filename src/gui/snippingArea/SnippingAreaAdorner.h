@@ -22,6 +22,7 @@
 
 #include <QPainter>
 
+#include "AdornerMagnifyingGlass.h"
 #include "src/common/helper/MathHelper.h"
 
 class SnippingAreaAdorner
@@ -32,7 +33,7 @@ public:
 	void setRulerEnabled(bool enabled);
 	void setCursorInfoEnabled(bool enabled);
 	void setMouseDown(bool isDown);
-	void update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect);
+	void update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect, const QPixmap *background);
 	void draw(QPainter &painter);
 
 private:
@@ -57,6 +58,7 @@ private:
 	QRect mCursorInfoBox;
 	QRect mCursorInfoTextRect;
 	QString mCursorInfoText;
+	AdornerMagnifyingGlass mMagnifyingGlass;
 
 	void updateRulers(const QPoint &mousePosition, const QRect &screenRect);
 	void updateCursorInfo(const QPoint &mousePosition);

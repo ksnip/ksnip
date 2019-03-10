@@ -184,5 +184,5 @@ void AbstractSnippingArea::updateAdorner()
 {
     auto snippingAreaGeometry = getSnippingAreaGeometry();
     auto currentMousePosition = getMousePosition();
-    mAdorner.update(currentMousePosition, snippingAreaGeometry, mCaptureArea);
+	mAdorner.update(currentMousePosition, snippingAreaGeometry, mCaptureArea, mBackground);
 }

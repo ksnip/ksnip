@@ -25,6 +25,8 @@ AdornerMagnifyingGlass::AdornerMagnifyingGlass()
 	mScaleFactor = QSize(600, 600);
 	mVisibleRect.setWidth(200);
 	mVisibleRect.setHeight(200);
+	mZoomInAreaSize = QSize(100, 100);
+	mBackgroundOffset = QPoint(50,50);
 	mCrossHairPen = new QPen(Qt::red, 6);
 }
 
@@ -70,13 +72,24 @@ void AdornerMagnifyingGlass::updatePosition(const QPoint &mousePosition, const Q
 
 void AdornerMagnifyingGlass::updateImage(const QPoint &mousePosition, const QPixmap *background)
 {
-	QRect positionAroundMouse(0, 0, 100, 100);
-	positionAroundMouse.moveCenter(mousePosition);
+	QRect positionAroundMouse(QPoint(), mZoomInAreaSize);
+	positionAroundMouse.moveCenter(mousePosition + mBackgroundOffset);
 
-	auto zoomedInImage = background->copy(positionAroundMouse).scaled(mScaleFactor);
+	auto backgroundWithMargine = createBackgroundWithMagine(background);
+
+	auto zoomedInImage = backgroundWithMargine.copy(positionAroundMouse).scaled(mScaleFactor);
 	QRect rectForFinalCut(mVisibleRect);
 	rectForFinalCut.moveCenter(zoomedInImage.rect().center());
 	mZoomedAndCenterImage = zoomedInImage.copy(rectForFinalCut);
+}
+
+QPixmap AdornerMagnifyingGlass::createBackgroundWithMagine(const QPixmap *background) const
+{
+	QPixmap backgroundWithMargine(background->size() + mZoomInAreaSize);
+	backgroundWithMargine.fill(Qt::black);
+	QPainter painter(&backgroundWithMargine);
+	painter.drawPixmap(mBackgroundOffset, *background);
+	return backgroundWithMargine;
 }
 
 void AdornerMagnifyingGlass::updateCrossHair()

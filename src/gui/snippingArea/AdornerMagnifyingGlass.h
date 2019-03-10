@@ -35,6 +35,8 @@ private:
 	QRect mVisibleRect;
 	QPoint mOffsetToMouse;
 	QSize mScaleFactor;
+	QSize mZoomInAreaSize;
+	QPoint mBackgroundOffset;
 	QLine mCrossHairTop;
 	QLine mCrossHairBottom;
 	QLine mCrossHairLeft;
@@ -47,6 +49,7 @@ private:
 	bool isPositionBottomLeftFromMouse(const QPoint &mousePosition, const QPixmap *background) const;
 	bool isPositionTopRightFromMouse(const QPoint &mousePosition, const QPixmap *background) const;
 	void updatePosition(const QPoint &mousePosition, const QPixmap *background);
+	QPixmap createBackgroundWithMagine(const QPixmap *background) const;
 };
 
 #endif //KSNIP_ADORNERMAGNIFYINGGLASS_H

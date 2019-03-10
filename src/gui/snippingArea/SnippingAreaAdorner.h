@@ -36,7 +36,8 @@ public:
 	void setRulerEnabled(bool enabled);
 	void setCursorInfoEnabled(bool enabled);
 	void setMouseDown(bool isDown);
-	void update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect, const QPixmap *background);
+	void setBackgroundImage(const QPixmap *background);
+	void update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect);
 	void draw(QPainter &painter);
 
 private:

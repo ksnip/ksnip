@@ -65,12 +65,14 @@ void AbstractSnippingArea::setBackgroundImage(const QPixmap &background)
 {
     clearBackgroundImage();
     mBackground = new QPixmap(background);
+	mAdorner.setBackgroundImage(mBackground);
 }
 
 void AbstractSnippingArea::clearBackgroundImage()
 {
     delete mBackground;
 	mBackground = nullptr;
+	mAdorner.setBackgroundImage(nullptr);
 }
 
 void AbstractSnippingArea::init()
@@ -184,5 +186,5 @@ void AbstractSnippingArea::updateAdorner()
 {
     auto snippingAreaGeometry = getSnippingAreaGeometry();
     auto currentMousePosition = getMousePosition();
-	mAdorner.update(currentMousePosition, snippingAreaGeometry, mCaptureArea, mBackground);
+	mAdorner.update(currentMousePosition, snippingAreaGeometry, mCaptureArea);
 }

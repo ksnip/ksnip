@@ -35,20 +35,27 @@ AdornerMagnifyingGlass::~AdornerMagnifyingGlass()
 	delete mCrossHairPen;
 }
 
-void AdornerMagnifyingGlass::update(const QPoint &mousePosition, const QPixmap *background)
+void AdornerMagnifyingGlass::update(const QPoint &mousePosition, const QRect &screenRect)
 {
-	updatePosition(mousePosition, background);
-	updateImage(mousePosition, background);
+	if (mBackgroundWithMargine.isNull()) {
+		return;
+	}
 
+	updatePosition(mousePosition, screenRect);
+	updateImage(mousePosition);
 	updateCrossHair();
 }
 
 void AdornerMagnifyingGlass::draw(QPainter &painter)
 {
+	if (mBackgroundWithMargine.isNull()) {
+		return;
+	}
+
 	painter.setBrush(Qt::NoBrush);
 	painter.setRenderHint(QPainter::Antialiasing);
 	painter.setClipRegion(QRegion(mVisibleRect, QRegion::Ellipse));
-	painter.drawPixmap(mVisibleRect, mZoomedAndCenterImage);
+	painter.drawPixmap(mVisibleRect, mImage);
 
 	painter.setPen(*mCrossHairPen);
 	painter.drawLine(mCrossHairTop);
@@ -57,30 +64,37 @@ void AdornerMagnifyingGlass::draw(QPainter &painter)
 	painter.drawLine(mCrossHairRight);
 }
 
-void AdornerMagnifyingGlass::updatePosition(const QPoint &mousePosition, const QPixmap *background)
+void AdornerMagnifyingGlass::setBackgroundImage(const QPixmap *background)
 {
-	if (isPositionTopLeftFromMouse(mousePosition, background)) {
+	if (background == nullptr) {
+		mBackgroundWithMargine = QPixmap();
+	} else {
+		mBackgroundWithMargine = createBackgroundWithMagine(background);
+	}
+}
+
+void AdornerMagnifyingGlass::updatePosition(const QPoint &mousePosition, const QRect &screenRect)
+{
+	if (isPositionTopLeftFromMouse(mousePosition, screenRect)) {
 		mVisibleRect.moveBottomRight(mousePosition);
-	} else if (isPositionBottomLeftFromMouse(mousePosition, background)) {
+	} else if (isPositionBottomLeftFromMouse(mousePosition, screenRect)) {
 		mVisibleRect.moveTopRight(mousePosition);
-	} else if (isPositionTopRightFromMouse(mousePosition, background)) {
+	} else if (isPositionTopRightFromMouse(mousePosition, screenRect)) {
 		mVisibleRect.moveBottomLeft(mousePosition);
 	} else {
 		mVisibleRect.moveTopLeft(mousePosition + mOffsetToMouse);
 	}
 }
 
-void AdornerMagnifyingGlass::updateImage(const QPoint &mousePosition, const QPixmap *background)
+void AdornerMagnifyingGlass::updateImage(const QPoint &mousePosition)
 {
 	QRect positionAroundMouse(QPoint(), mZoomInAreaSize);
 	positionAroundMouse.moveCenter(mousePosition + mBackgroundOffset);
 
-	auto backgroundWithMargine = createBackgroundWithMagine(background);
-
-	auto zoomedInImage = backgroundWithMargine.copy(positionAroundMouse).scaled(mScaleFactor);
+	auto zoomedInImage = mBackgroundWithMargine.copy(positionAroundMouse).scaled(mScaleFactor);
 	QRect rectForFinalCut(mVisibleRect);
 	rectForFinalCut.moveCenter(zoomedInImage.rect().center());
-	mZoomedAndCenterImage = zoomedInImage.copy(rectForFinalCut);
+	mImage = zoomedInImage.copy(rectForFinalCut);
 }
 
 QPixmap AdornerMagnifyingGlass::createBackgroundWithMagine(const QPixmap *background) const
@@ -102,17 +116,17 @@ void AdornerMagnifyingGlass::updateCrossHair()
 	mCrossHairRight.setLine(mVisibleRect.right() - outerOffset, mVisibleRect.center().y(), mVisibleRect.center().x() + innerOffset, mVisibleRect.center().y());
 }
 
-bool AdornerMagnifyingGlass::isPositionTopRightFromMouse(const QPoint &mousePosition, const QPixmap *background) const
+bool AdornerMagnifyingGlass::isPositionTopRightFromMouse(const QPoint &mousePosition, const QRect &screenRect) const
 {
-	return mousePosition.x() + mVisibleRect.width() < background->width() && mousePosition.y() + mVisibleRect.height() > background->height();
+	return mousePosition.x() + mVisibleRect.width() < screenRect.width() && mousePosition.y() + mVisibleRect.height() > screenRect.height();
 }
 
-bool AdornerMagnifyingGlass::isPositionBottomLeftFromMouse(const QPoint &mousePosition, const QPixmap *background) const
+bool AdornerMagnifyingGlass::isPositionBottomLeftFromMouse(const QPoint &mousePosition, const QRect &screenRect) const
 {
-	return mousePosition.x() + mVisibleRect.width() > background->width() && mousePosition.y() + mVisibleRect.height() < background->height();
+	return mousePosition.x() + mVisibleRect.width() > screenRect.width() && mousePosition.y() + mVisibleRect.height() < screenRect.height();
 }
 
-bool AdornerMagnifyingGlass::isPositionTopLeftFromMouse(const QPoint &mousePosition, const QPixmap *background) const
+bool AdornerMagnifyingGlass::isPositionTopLeftFromMouse(const QPoint &mousePosition, const QRect &screenRect) const
 {
-	return mousePosition.x() + mVisibleRect.width() > background->width() && mousePosition.y() + mVisibleRect.height() > background->height();
+	return mousePosition.x() + mVisibleRect.width() > screenRect.width() && mousePosition.y() + mVisibleRect.height() > screenRect.height();
 }

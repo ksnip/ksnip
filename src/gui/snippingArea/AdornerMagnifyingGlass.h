@@ -27,11 +27,13 @@ class AdornerMagnifyingGlass
 public:
 	explicit AdornerMagnifyingGlass();
 	~AdornerMagnifyingGlass();
-	void update(const QPoint &mousePosition, const QPixmap *background);
+	void update(const QPoint &mousePosition, const QRect &screenRect);
 	void draw(QPainter &painter);
+	void setBackgroundImage(const QPixmap *background);
 
 private:
-	QPixmap mZoomedAndCenterImage;
+	QPixmap mBackgroundWithMargine;
+	QPixmap mImage;
 	QRect mVisibleRect;
 	QPoint mOffsetToMouse;
 	QSize mScaleFactor;
@@ -43,12 +45,12 @@ private:
 	QLine mCrossHairRight;
 	QPen *mCrossHairPen;
 
-	void updateImage(const QPoint &mousePosition, const QPixmap *background);
+	void updateImage(const QPoint &mousePosition);
 	void updateCrossHair();
-	bool isPositionTopLeftFromMouse(const QPoint &mousePosition, const QPixmap *background) const;
-	bool isPositionBottomLeftFromMouse(const QPoint &mousePosition, const QPixmap *background) const;
-	bool isPositionTopRightFromMouse(const QPoint &mousePosition, const QPixmap *background) const;
-	void updatePosition(const QPoint &mousePosition, const QPixmap *background);
+	bool isPositionTopLeftFromMouse(const QPoint &mousePosition, const QRect &screenRect) const;
+	bool isPositionBottomLeftFromMouse(const QPoint &mousePosition, const QRect &screenRect) const;
+	bool isPositionTopRightFromMouse(const QPoint &mousePosition, const QRect &screenRect) const;
+	void updatePosition(const QPoint &mousePosition, const QRect &screenRect);
 	QPixmap createBackgroundWithMagine(const QPixmap *background) const;
 };
 

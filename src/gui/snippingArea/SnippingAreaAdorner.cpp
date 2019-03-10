@@ -40,7 +40,12 @@ void SnippingAreaAdorner::setMouseDown(bool isDown)
 	mMouseIsDown = isDown;
 }
 
-void SnippingAreaAdorner::update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect, const QPixmap *background)
+void SnippingAreaAdorner::setBackgroundImage(const QPixmap *background)
+{
+	mMagnifyingGlass.setBackgroundImage(background);
+}
+
+void SnippingAreaAdorner::update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect)
 {
 	if (mRulerEnabled && !mMouseIsDown) {
 		mRulers.update(mousePosition, screenRect);
@@ -54,9 +59,7 @@ void SnippingAreaAdorner::update(const QPoint &mousePosition, const QRect &scree
 		}
 	}
 
-	if(background != nullptr) {
-		mMagnifyingGlass.update(mousePosition, background);
-	}
+	mMagnifyingGlass.update(mousePosition, screenRect);
 }
 
 void SnippingAreaAdorner::draw(QPainter &painter)

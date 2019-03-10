@@ -17,36 +17,33 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_SNIPPINGAREAADORNER_H
-#define KSNIP_SNIPPINGAREAADORNER_H
+#ifndef KSNIP_ADORNERSIZEINFO_H
+#define KSNIP_ADORNERSIZEINFO_H
 
 #include <QPainter>
 
-#include "AdornerMagnifyingGlass.h"
-#include "AdornerRulers.h"
-#include "AdornerPositionInfo.h"
-#include "AdornerSizeInfo.h"
-#include "src/common/helper/MathHelper.h"
-
-class SnippingAreaAdorner
+class AdornerSizeInfo
 {
 public:
-	explicit SnippingAreaAdorner();
-	~SnippingAreaAdorner() = default;
-	void setRulerEnabled(bool enabled);
-	void setCursorInfoEnabled(bool enabled);
-	void setMouseDown(bool isDown);
-	void update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect, const QPixmap *background);
+	explicit AdornerSizeInfo();
+	~AdornerSizeInfo();
+	void update(const QRect &captureRect);
 	void draw(QPainter &painter);
 
 private:
-	bool mRulerEnabled;
-	bool mCursorInfoEnabled;
-	bool mMouseIsDown;
-	AdornerSizeInfo mSizeInfo;
-	AdornerPositionInfo mPositionInfo;
-	AdornerRulers mRulers;
-	AdornerMagnifyingGlass mMagnifyingGlass;
+	QFont mFont;
+	QFontMetrics *mFontMetric;
+	QPen *mSizeInfoPen;
+	QPainterPath mWidthInfo;
+	QPainterPath mHeightInfo;
+	QPoint mWidthTextPosition;
+	QPoint mHeightTextPosition;
+	QString mWidthInfoText;
+	QString mHeightInfoText;
+
+	void updateWidthInfo(const QRect &captureRect);
+	void updateHeightInfo(const QRect &captureRect);
+	void updateSizeInfoText(const QRect &captureRect);
 };
 
-#endif //KSNIP_SNIPPINGAREAADORNER_H
+#endif //KSNIP_ADORNERSIZEINFO_H

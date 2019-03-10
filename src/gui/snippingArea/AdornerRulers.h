@@ -17,36 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_SNIPPINGAREAADORNER_H
-#define KSNIP_SNIPPINGAREAADORNER_H
+#ifndef KSNIP_ADORNERRULERS_H
+#define KSNIP_ADORNERRULERS_H
 
 #include <QPainter>
 
-#include "AdornerMagnifyingGlass.h"
-#include "AdornerRulers.h"
-#include "AdornerPositionInfo.h"
-#include "AdornerSizeInfo.h"
-#include "src/common/helper/MathHelper.h"
-
-class SnippingAreaAdorner
+class AdornerRulers
 {
 public:
-	explicit SnippingAreaAdorner();
-	~SnippingAreaAdorner() = default;
-	void setRulerEnabled(bool enabled);
-	void setCursorInfoEnabled(bool enabled);
-	void setMouseDown(bool isDown);
-	void update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect, const QPixmap *background);
+	explicit AdornerRulers();
+	~AdornerRulers();
+	void update(const QPoint &mousePosition, const QRect &screenRect);
 	void draw(QPainter &painter);
 
 private:
-	bool mRulerEnabled;
-	bool mCursorInfoEnabled;
-	bool mMouseIsDown;
-	AdornerSizeInfo mSizeInfo;
-	AdornerPositionInfo mPositionInfo;
-	AdornerRulers mRulers;
-	AdornerMagnifyingGlass mMagnifyingGlass;
+	QPen *mPen;
+	QLine mBottomLine;
+	QLine mTopLine;
+	QLine mLeftLine;
+	QLine mRightLine;
 };
 
-#endif //KSNIP_SNIPPINGAREAADORNER_H
+#endif //KSNIP_ADORNERRULERS_H

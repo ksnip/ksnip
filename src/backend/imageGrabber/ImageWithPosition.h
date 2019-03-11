@@ -27,6 +27,15 @@ struct ImageWithPosition
 {
 	QImage image;
 	QPoint position;
+
+	ImageWithPosition& operator =(const ImageWithPosition& other)
+	{
+		image = other.image.copy();
+		position = other.position;
+		return *this;
+	}
 };
+
+
 
 #endif //KSNIP_IMAGEWITHPOSITION_H

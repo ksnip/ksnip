@@ -168,7 +168,6 @@ void AbstractImageGrabber::openSnippingArea()
 	} else {
 		auto screenRect = fullScreenRect();
 		auto background = getScreenshotFromRect(screenRect);
-		mStoredCursorImageWithPosition = ImageWithPosition();
 		mStoredCursorImageWithPosition = getCursorWithPosition();
 		openSnippingAreaWithBackground(background);
 	}

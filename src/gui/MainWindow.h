@@ -33,7 +33,6 @@
 #include "backend/config/KsnipConfig.h"
 #include "backend/uploader/CaptureUploader.h"
 #include "src/common/loader/IconLoader.h"
-#include "src/common/handler/DelayHandler.h"
 #include "src/common/enum/RunMode.h"
 #include "src/common/helper/MessageBoxHelper.h"
 #include "src/backend/CapturePrinter.h"
@@ -76,7 +75,6 @@ private:
     QAction          *mRedoAction;
     QClipboard       *mClipboard;
     KsnipConfig      *mConfig;
-    DelayHandler     *mDelayHandler;
     CapturePrinter   *mCapturePrinter;
     CaptureUploader  *mCaptureUploader;
     KImageAnnotator *mkImageAnnotator;

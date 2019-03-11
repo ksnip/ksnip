@@ -26,6 +26,7 @@
 #include <QScreen>
 
 #include "src/common/enum/CaptureModes.h"
+#include "src/common/handler/DelayHandler.h"
 #include "gui/snippingArea/AbstractSnippingArea.h"
 
 class AbstractImageGrabber : public QObject
@@ -50,6 +51,7 @@ protected:
 	bool mCaptureCursor;
 	int mCaptureDelay;
 	CaptureModes mCaptureMode;
+	DelayHandler mDelayHandler;
 
 	void addSupportedCaptureMode(CaptureModes captureMode);
 	void openSnippingAreaWithoutBackground();
@@ -75,6 +77,7 @@ private:
 	void connectSnippingAreaCancel();
 	void connectSnippingAreaFinish();
 	void disconnectSnippingAreaFinish();
+	bool shouldCaptureCursor() const;
 };
 
 #endif // KSNIP_ABSTRACTIMAGEGRABBER_H

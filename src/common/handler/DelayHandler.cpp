@@ -19,15 +19,17 @@
 
 #include "DelayHandler.h"
 
-DelayHandler::DelayHandler(int minDelayInMs)
+DelayHandler::DelayHandler()
 {
-    mMinDelay = minDelayInMs;
+    mMinDelayInMs = 200;
 }
 
 int DelayHandler::getDelay(int delay)
 {
-    if (delay < mMinDelay) {
-        return mMinDelay;
-    }
-    return delay;
+    return delay < mMinDelayInMs ? mMinDelayInMs : delay;
+}
+
+int DelayHandler::minDelayInMs() const
+{
+    return mMinDelayInMs;
 }

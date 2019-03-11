@@ -38,8 +38,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mRedoAction(nullptr),
 	mClipboard(QApplication::clipboard()),
 	mConfig(KsnipConfig::instance()),
-	mDelayHandler(new DelayHandler(200)),
-    mToolBar(new MainToolBar(imageGrabber->supportedCaptureModes())),
+	mToolBar(new MainToolBar(imageGrabber->supportedCaptureModes())),
 	mCapturePrinter(new CapturePrinter),
 	mCaptureUploader(new CaptureUploader())
 
@@ -102,7 +101,6 @@ void MainWindow::screenshotChanged()
 
 void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay)
 {
-    delay = mDelayHandler->getDelay(delay);
 	mImageGrabber->grabImage(captureMode, captureCursor, delay, mConfig->freezeImageWhileSnippingEnabled());
 }
 

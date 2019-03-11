@@ -33,7 +33,7 @@ AbstractImageGrabber::~AbstractImageGrabber()
 void AbstractImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, int delay, bool freezeImageWhileSnipping)
 {
 	mCaptureCursor = captureCursor;
-	mCaptureDelay = delay;
+	mCaptureDelay = mDelayHandler.getDelay(delay);
 	mFreezeImageWhileSnipping = freezeImageWhileSnipping;
 
 	if (isCaptureModeSupported(captureMode)) {
@@ -149,10 +149,15 @@ void AbstractImageGrabber::grab()
 	setRectFromCorrectSource();
 	auto screenshot = getScreenshot();
 
-	if (mCaptureCursor) {
+	if (shouldCaptureCursor()) {
 		screenshot = blendCursorImage(screenshot);
 	}
 	emit finished(screenshot);
+}
+
+bool AbstractImageGrabber::shouldCaptureCursor() const
+{
+	return mCaptureCursor && !(mCaptureMode == CaptureModes::RectArea && mCaptureDelay <= mDelayHandler.minDelayInMs());
 }
 
 void AbstractImageGrabber::openSnippingArea()

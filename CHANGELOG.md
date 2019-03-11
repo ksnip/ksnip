@@ -53,6 +53,7 @@
 * Fixed: ksnip not running on windows when qt not installed. ([#145](https://github.com/DamirPorobic/ksnip/issues/145))
 * Fixed: Imgur upload not working under windows. ([#144](https://github.com/DamirPorobic/ksnip/issues/144))
 * Fixed: Snipping area with freezed background image not working. ([#149](https://github.com/DamirPorobic/ksnip/issues/149))
+* Fixed: Snipping area cursor included in screenshot. ([#148](https://github.com/DamirPorobic/ksnip/issues/148))
 * Fixed kImageAnnotator: Double-click on annotation area causes SIGSEGV crash. ([#29](https://github.com/DamirPorobic/kImageAnnotator/issues/29))
 * Fixed kImageAnnotator: CAPS LOCK doesnt work on image editor. ([#27](https://github.com/DamirPorobic/kImageAnnotator/issues/27))
 * Fixed kImageAnnotator: Unable to select text item when clicking on text. ([#32](https://github.com/DamirPorobic/kImageAnnotator/issues/32))

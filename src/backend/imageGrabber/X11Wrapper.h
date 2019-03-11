@@ -23,11 +23,6 @@
 #include <xcb/xfixes.h>
 #include <QX11Info>
 
-#include <QRect>
-#include <QPixmap>
-#include <QPainter>
-#include <QCursor>
-
 #include "ImageWithPosition.h"
 
 class X11Wrapper
@@ -36,10 +31,10 @@ public:
     bool isCompositorActive() const;
     QRect getFullScreenRect() const;
     QRect getActiveWindowRect() const;
-    QPoint getNativeCursorPosition() const;
 	ImageWithPosition getCursorWithPosition() const;
 
 private:
+	QPoint getNativeCursorPosition() const;
     QRect getWindowRect(xcb_window_t window) const;
     xcb_window_t getActiveWindowId() const;
 };
@@ -52,7 +47,7 @@ template <typename T>
 class ScopedCPointer : public QScopedPointer<T, QScopedPointerPodDeleter>
 {
 public:
-    ScopedCPointer(T *p = 0) : QScopedPointer<T, QScopedPointerPodDeleter>(p) {}
+	explicit ScopedCPointer(T *p = 0) : QScopedPointer<T, QScopedPointerPodDeleter>(p) {}
 };
 
 #endif // X11WRAPPER_H

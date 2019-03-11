@@ -37,7 +37,7 @@ public:
 
 protected:
 	void grab() override;
-	QPixmap blendCursorImage(const QPixmap &screenshot) const override;
+	ImageWithPosition getCursorWithPosition() const override;
 
 private:
     void postProcessing(const QPixmap &pixmap);

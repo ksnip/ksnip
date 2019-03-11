@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,28 +17,16 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "WinImageGrabber.h"
+#ifndef KSNIP_IMAGEWITHPOSITION_H
+#define KSNIP_IMAGEWITHPOSITION_H
 
-WinImageGrabber::WinImageGrabber() : AbstractImageGrabber(new WinSnippingArea),
-    mWinWrapper(new WinWrapper)
-{
-	addSupportedCaptureMode(CaptureModes::RectArea);
-	addSupportedCaptureMode(CaptureModes::FullScreen);
-	addSupportedCaptureMode(CaptureModes::ActiveWindow);
-	addSupportedCaptureMode(CaptureModes::CurrentScreen);
-}
+#include <QImage>
+#include <QPoint>
 
-QRect WinImageGrabber::activeWindowRect() const
+struct ImageWithPosition
 {
-	return mWinWrapper->getActiveWindowRect();
-}
+	QImage image;
+	QPoint position;
+};
 
-QRect WinImageGrabber::fullScreenRect() const
-{
-	return mWinWrapper->getFullScreenRect();
-}
-
-ImageWithPosition WinImageGrabber::getCursorWithPosition() const
-{
-	return mWinWrapper->getCursorWithPosition();
-}
+#endif //KSNIP_IMAGEWITHPOSITION_H

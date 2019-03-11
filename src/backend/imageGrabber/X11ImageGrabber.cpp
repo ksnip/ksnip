@@ -49,7 +49,7 @@ QRect X11ImageGrabber::fullScreenRect() const
 	return mX11Wrapper->getFullScreenRect();
 }
 
-QPixmap X11ImageGrabber::blendCursorImage(const QPixmap &screenshot) const
+ImageWithPosition X11ImageGrabber::getCursorWithPosition() const
 {
-	return mX11Wrapper->blendCursorImage(screenshot, mCaptureRect);
+	return mX11Wrapper->getCursorWithPosition();
 }

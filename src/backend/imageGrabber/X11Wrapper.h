@@ -26,6 +26,9 @@
 #include <QRect>
 #include <QPixmap>
 #include <QPainter>
+#include <QCursor>
+
+#include "ImageWithPosition.h"
 
 class X11Wrapper
 {
@@ -34,7 +37,7 @@ public:
     QRect getFullScreenRect() const;
     QRect getActiveWindowRect() const;
     QPoint getNativeCursorPosition() const;
-    QPixmap blendCursorImage(const QPixmap &pixmap, const QRect &rect) const;
+	ImageWithPosition getCursorWithPosition() const;
 
 private:
     QRect getWindowRect(xcb_window_t window) const;

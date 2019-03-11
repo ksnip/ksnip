@@ -25,6 +25,7 @@
 #include <QTimer>
 #include <QScreen>
 
+#include "ImageWithPosition.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/handler/DelayHandler.h"
 #include "gui/snippingArea/AbstractSnippingArea.h"
@@ -51,6 +52,7 @@ protected:
 	bool mCaptureCursor;
 	int mCaptureDelay;
 	CaptureModes mCaptureMode;
+	ImageWithPosition mStoredCursorImageWithPosition;
 	DelayHandler mDelayHandler;
 
 	void addSupportedCaptureMode(CaptureModes captureMode);
@@ -60,9 +62,9 @@ protected:
 	QPixmap snippingAreaBackground() const;
 	QPixmap getScreenshotFromRect(const QRect &rect) const;
 	QPixmap getScreenshot() const;
-	void setRectFromCorrectSource();
+	void setCaptureRectFromCorrectSource();
 	virtual bool isSnippingAreaBackgroundTransparent() const;
-	virtual QPixmap blendCursorImage(const QPixmap &screenshot) const = 0;
+	virtual ImageWithPosition getCursorWithPosition() const = 0;
 
 protected slots:
 	virtual void prepareGrab();
@@ -78,6 +80,10 @@ private:
 	void connectSnippingAreaFinish();
 	void disconnectSnippingAreaFinish();
 	bool shouldCaptureCursor() const;
+	QPixmap drawCursorOnImage(QPixmap &screenshot, const ImageWithPosition &cursorImageWithPosition) const;
+	ImageWithPosition getCursorImageWithPositionFromCorrectSource() const;
+	bool isRectAreaCaptureWithBackground() const;
+	bool isRectAreaCaptureWithoutBackground() const;
 };
 
 #endif // KSNIP_ABSTRACTIMAGEGRABBER_H

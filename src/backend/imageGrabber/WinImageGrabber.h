@@ -34,7 +34,7 @@ public:
 protected:
 	QRect fullScreenRect() const override;
 	QRect activeWindowRect() const override;
-	QPixmap blendCursorImage(const QPixmap &pixmap) const override;
+	ImageWithPosition getCursorWithPosition() const override;
 
 private:
     WinWrapper *mWinWrapper;

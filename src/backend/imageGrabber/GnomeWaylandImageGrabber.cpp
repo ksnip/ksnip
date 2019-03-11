@@ -33,10 +33,10 @@ QRect GnomeWaylandImageGrabber::activeWindowRect() const
 	return {};
 }
 
-QPixmap GnomeWaylandImageGrabber::blendCursorImage(const QPixmap &screenshot) const
+ImageWithPosition GnomeWaylandImageGrabber::getCursorWithPosition() const
 {
 	// Gnome Wayland merges the cursor already
-	return screenshot;
+	return ImageWithPosition();
 }
 
 void GnomeWaylandImageGrabber::grab()
@@ -65,7 +65,7 @@ void GnomeWaylandImageGrabber::postProcessing(const QPixmap& pixmap)
     if (mCaptureMode == CaptureModes::ActiveWindow) {
         emit finished(pixmap);
     } else {
-        setRectFromCorrectSource();
+	    setCaptureRectFromCorrectSource();
         emit finished(pixmap.copy(mCaptureRect));
     }
 }

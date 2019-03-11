@@ -43,7 +43,7 @@ void AbstractImageGrabber::grabImage(CaptureModes captureMode, bool captureCurso
 		mCaptureMode = CaptureModes::FullScreen;
 	}
 
-	if (mCaptureMode == CaptureModes::RectArea && isSnippingAreaBackgroundTransparent()) {
+	if (isRectAreaCaptureWithoutBackground()) {
 		openSnippingAreaWithoutBackground();
 	} else {
 		QTimer::singleShot(mCaptureDelay, this, &AbstractImageGrabber::prepareGrab);
@@ -106,14 +106,14 @@ QPixmap AbstractImageGrabber::getScreenshotFromRect(const QRect &rect) const
 
 QPixmap AbstractImageGrabber::getScreenshot() const
 {
-	if (mCaptureMode == CaptureModes::RectArea && mFreezeImageWhileSnipping) {
+	if (isRectAreaCaptureWithBackground()) {
 		return snippingAreaBackground().copy(mCaptureRect);
 	} else {
 		return getScreenshotFromRect(mCaptureRect);
 	}
 }
 
-void AbstractImageGrabber::setRectFromCorrectSource()
+void AbstractImageGrabber::setCaptureRectFromCorrectSource()
 {
 	if (mCaptureMode == CaptureModes::RectArea) {
 		mCaptureRect = selectedSnippingAreaRect();
@@ -137,7 +137,7 @@ bool AbstractImageGrabber::isSnippingAreaBackgroundTransparent() const
 
 void AbstractImageGrabber::prepareGrab()
 {
-	if (mCaptureMode == CaptureModes::RectArea && !isSnippingAreaBackgroundTransparent()) {
+	if (isRectAreaCaptureWithBackground()) {
 		openSnippingArea();
 	} else {
 		grab();
@@ -146,11 +146,12 @@ void AbstractImageGrabber::prepareGrab()
 
 void AbstractImageGrabber::grab()
 {
-	setRectFromCorrectSource();
+	setCaptureRectFromCorrectSource();
 	auto screenshot = getScreenshot();
 
 	if (shouldCaptureCursor()) {
-		screenshot = blendCursorImage(screenshot);
+		auto cursorWithPosition = getCursorImageWithPositionFromCorrectSource();
+		drawCursorOnImage(screenshot, cursorWithPosition);
 	}
 	emit finished(screenshot);
 }
@@ -167,6 +168,8 @@ void AbstractImageGrabber::openSnippingArea()
 	} else {
 		auto screenRect = fullScreenRect();
 		auto background = getScreenshotFromRect(screenRect);
+		mStoredCursorImageWithPosition = ImageWithPosition();
+		mStoredCursorImageWithPosition = getCursorWithPosition();
 		openSnippingAreaWithBackground(background);
 	}
 }
@@ -193,4 +196,32 @@ void AbstractImageGrabber::connectSnippingAreaFinish()
 void AbstractImageGrabber::disconnectSnippingAreaFinish()
 {
 	disconnect(mSnippingArea, &AbstractSnippingArea::finished, 0, 0);
+}
+
+QPixmap AbstractImageGrabber::drawCursorOnImage(QPixmap &screenshot, const ImageWithPosition &cursorImageWithPosition) const
+{
+	auto cursorPosition = cursorImageWithPosition.position;
+	if(mCaptureRect.contains(cursorPosition)) {
+		auto cursorImage = cursorImageWithPosition.image;
+		cursorPosition -= mCaptureRect.topLeft();
+		QPainter painter(&screenshot);
+		painter.drawImage(cursorPosition, cursorImage);
+	}
+
+	return screenshot;
+}
+
+ImageWithPosition AbstractImageGrabber::getCursorImageWithPositionFromCorrectSource() const
+{
+	return isRectAreaCaptureWithBackground() ? mStoredCursorImageWithPosition : getCursorWithPosition();
+}
+
+bool AbstractImageGrabber::isRectAreaCaptureWithBackground() const
+{
+	return mCaptureMode == CaptureModes::RectArea && !isSnippingAreaBackgroundTransparent();
+}
+
+bool AbstractImageGrabber::isRectAreaCaptureWithoutBackground() const
+{
+	return mCaptureMode == CaptureModes::RectArea && isSnippingAreaBackgroundTransparent();
 }

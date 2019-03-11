@@ -94,10 +94,10 @@ void KdeWaylandImageGrabber::grab()
     }
 }
 
-QPixmap KdeWaylandImageGrabber::blendCursorImage(const QPixmap &screenshot) const
+ImageWithPosition KdeWaylandImageGrabber::getCursorWithPosition() const
 {
 	// Not Supported for Kde Wayland
-	return screenshot;
+	return ImageWithPosition();
 }
 
 template<typename T>

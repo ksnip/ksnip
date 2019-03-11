@@ -261,6 +261,7 @@ void SettingsDialog::initGui()
 	mSnippingAreaMagnifyingGlassCheckbox->setToolTip(tr("Show a magnifying glass which zooms into\n"
 	                                                    "the background image. This option only works\n"
 	                                                    "with 'Freeze Image while snipping' enabled."));
+	mSnippingAreaMagnifyingGlassCheckbox->setEnabled(false);
 	mSnippingAreaRulersCheckbox->setText(tr("Show Snipping Area rulers"));
 	mSnippingAreaRulersCheckbox->setToolTip(tr("Horizontal and vertical lines going from\n"
 	                                           "desktop edges to cursor on snipping area."));
@@ -534,7 +535,7 @@ void SettingsDialog::imgurTokenUpdated(const QString& accessToken,
 
 /*
  * Something went wrong while requesting a new token, we write the message to
- * shell and inform the user via statusbar.
+ * shell.
  */
 void SettingsDialog::imgurTokenError(const QString& message)
 {

@@ -11,7 +11,7 @@ for your screenshots.
 
 # Features
 Latest ksnip version contains following features:
-* Supports Linux and Windows.
+* Supports Linux, Windows and MacOS.
 * X11 and experimental KDE and Gnome Wayland support.
 * Taking Screenshot of a custom rectangular area that can be drawn with mouse cursor (X11 and Gnome Wayland only).
 * Taking screenshot of the screen/monitor where the mouse cursor is currently located.
@@ -60,6 +60,7 @@ so use them with caution.
 ksnip depends on [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator) and [kColoPicker](https://github.com/DamirPorobic/kColorPicker) which needs
 to be installed before building ksnip from source. Install instructions can be found on the github pages.
 
+
 # Building from source
 1. Get latest release from GitHub by cloning the repo:  
     `$ git clone https://github.com/DamirPorobic/ksnip`  
@@ -79,6 +80,17 @@ to be installed before building ksnip from source. Install instructions can be f
 We are always looking for help with translations, contributors are welcome!  
 For translations we use [Weblate](https://hosted.weblate.org/projects/ksnip/translations/)!  
 [![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/multi-green.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget)
+
+
+# Known Issues
+
+### X11
+1. Snipping Area with transparent background doesn't work when Compositor is disabled, freeze background is used in that case.
+
+### MacOs
+1. Snipping Area with transparent background doesn't work, freeze background is always used.
+2. Second activation of snipping area doesn't get focus, you need to switch to the right side in order to see the snipping area.
+3. Mouse Cursor is always captured.
 
 # Bug report
 Please report any bugs or feature requests related to the annotation editor on the [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator/issues) github page under the issue section.

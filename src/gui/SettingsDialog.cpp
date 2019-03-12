@@ -252,7 +252,9 @@ void SettingsDialog::initGui()
 	                                                 "the behavior of delayed screenshots, with this\n"
 	                                                 "option enabled the delay happens before the\n"
 	                                                 "snipping area is show and with the option disabled\n"
-	                                                 "the delay happens after the snipping area is shown."));
+	                                                 "the delay happens after the snipping area is shown.\n"
+												     "This feature doesn't work for Wayland and is always\n"
+				                                     "used for MacOs."));
 	connect(mFreezeImageWhileSnippingCheckbox, &QCheckBox::stateChanged, [this]()
 	{
 		mSnippingAreaMagnifyingGlassCheckbox->setEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());

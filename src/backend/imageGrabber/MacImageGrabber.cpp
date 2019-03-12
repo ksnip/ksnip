@@ -25,6 +25,7 @@ MacImageGrabber::MacImageGrabber() : AbstractImageGrabber(new MacSnippingArea),
 {
     addSupportedCaptureMode(CaptureModes::RectArea);
     addSupportedCaptureMode(CaptureModes::FullScreen);
+    addSupportedCaptureMode(CaptureModes::CurrentScreen);
 }
 
 QRect MacImageGrabber::fullScreenRect() const
@@ -34,12 +35,14 @@ QRect MacImageGrabber::fullScreenRect() const
 
 QRect MacImageGrabber::activeWindowRect() const
 {
-    return mMacWrapper->getActiveWindowRect();
+    // Not supported for MacOs
+    return {};
 }
 
 ImageWithPosition MacImageGrabber::getCursorWithPosition() const
 {
-    return mMacWrapper->getCursorWithPosition();
+    // MacOs currently captures always mouse by itself
+    return {};
 }
 
 

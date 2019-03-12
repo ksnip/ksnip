@@ -26,13 +26,3 @@ QRect MacWrapper::getFullScreenRect() const
     auto screenHeight = (int)CGDisplayPixelsHigh(mainDisplayID);
     return {0, 0, screenWidth, screenHeight};
 }
-
-QRect MacWrapper::getActiveWindowRect() const
-{
-    return {};
-}
-
-ImageWithPosition MacWrapper::getCursorWithPosition() const
-{
-    return ImageWithPosition();
-}

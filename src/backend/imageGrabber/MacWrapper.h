@@ -30,8 +30,6 @@ class MacWrapper
 {
 public:
     QRect getFullScreenRect() const;
-    QRect getActiveWindowRect() const;
-    ImageWithPosition getCursorWithPosition() const;
 };
 
 

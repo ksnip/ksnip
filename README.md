@@ -31,6 +31,16 @@ Latest ksnip version contains following features:
 * And other configuration options.
 
 
+# Supported Screenshot Types
+|              | Rect Area | Full Screen | Current Screen | Active Window | Window Under Cursor |
+| -------------|:---------:|:-----------:|:--------------:|:-------------:|:-------------------:|
+| X11          | X         | X           | X              | X             |                     |
+| KDE Wayland  |           | X           | X              |               | X                   |
+| Gnome Wayland| X         | X           | X              | X             |                     |
+| Windows      | X         | X           | X              | X             |                     |
+| MacOS        | X         | X           | X              |               |                     |
+
+
 # Binaries
 ### AppImage
 In order to use AppImages, just download them from [here](https://github.com/damirporobic/ksnip/releases), make them executable and start using it, no installation required.  
@@ -88,9 +98,9 @@ For translations we use [Weblate](https://hosted.weblate.org/projects/ksnip/tran
 1. Snipping Area with transparent background doesn't work when Compositor is disabled, freeze background is used in that case.
 
 ### MacOs
-1. Snipping Area with transparent background doesn't work, freeze background is always used.
-2. Second activation of snipping area doesn't get focus, you need to switch to the right side in order to see the snipping area.
-3. Mouse Cursor is always captured.
+1. Snipping Area with transparent background doesn't work, freeze background is always used. Issue [#151](https://github.com/DamirPorobic/ksnip/issues/151)
+2. Second activation of snipping area doesn't get focus, you need to switch to the right side in order to see the snipping area. Issue [#152](https://github.com/DamirPorobic/ksnip/issues/152)
+3. Mouse Cursor is always captured. Issue [#153](https://github.com/DamirPorobic/ksnip/issues/153)
 
 # Bug report
 Please report any bugs or feature requests related to the annotation editor on the [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator/issues) github page under the issue section.

@@ -29,114 +29,100 @@
 
 bool X11Wrapper::isCompositorActive() const
 {
-    auto display = QX11Info::display();
-    auto prop_atom = XInternAtom(display, "_NET_WM_CM_S0", False);
-    return XGetSelectionOwner(display, prop_atom) != None;
+	auto display = QX11Info::display();
+	auto prop_atom = XInternAtom(display, "_NET_WM_CM_S0", false);
+	return XGetSelectionOwner(display, prop_atom) != None;
 }
 
 QRect X11Wrapper::getFullScreenRect() const
 {
-    return getWindowRect(QX11Info::appRootWindow());
+	return getWindowRect(QX11Info::appRootWindow());
 }
 
 QRect X11Wrapper::getActiveWindowRect() const
 {
-    auto windowId = getActiveWindowId();
-    return getWindowRect(windowId);
+	auto windowId = getActiveWindowId();
+	return getWindowRect(windowId);
 }
 
 QRect X11Wrapper::getWindowRect(xcb_window_t windowId) const
 {
-    // In case of window id 0 return empty rect
-    if (windowId == 0) {
-        return QRect();
-    }
+	// In case of window id 0 return empty rect
+	if (windowId == 0) {
+		return {};
+	}
 
-    auto connection = QX11Info::connection();
-    auto geomCookie = xcb_get_geometry_unchecked(connection, windowId);
-    ScopedCPointer<xcb_get_geometry_reply_t> geomReply(xcb_get_geometry_reply(connection, geomCookie, nullptr));
+	auto connection = QX11Info::connection();
+	auto geomCookie = xcb_get_geometry_unchecked(connection, windowId);
+	ScopedCPointer<xcb_get_geometry_reply_t> geomReply(xcb_get_geometry_reply(connection, geomCookie, nullptr));
 
-    return QRect(geomReply->x, geomReply->y, geomReply->width, geomReply->height);
+	return { geomReply->x, geomReply->y, geomReply->width, geomReply->height };
 }
 
 xcb_window_t X11Wrapper::getActiveWindowId() const
 {
-    xcb_query_tree_cookie_t treeCookie;
-    auto connection = QX11Info::connection();
-    ScopedCPointer<xcb_get_input_focus_reply_t> focusReply(xcb_get_input_focus_reply(connection, xcb_get_input_focus(connection), nullptr));
+	xcb_query_tree_cookie_t treeCookie;
+	auto connection = QX11Info::connection();
+	ScopedCPointer<xcb_get_input_focus_reply_t> focusReply(xcb_get_input_focus_reply(connection, xcb_get_input_focus(connection), nullptr));
 
-    // Get ID of focused window, however, this must not always be the top level
-    // window so we loop through parents and search for the top level window.
-    auto windowId = focusReply->focus;
-    while (1) {
-        treeCookie = xcb_query_tree_unchecked(connection, windowId);
-        ScopedCPointer<xcb_query_tree_reply_t> treeReply(xcb_query_tree_reply(connection, treeCookie, nullptr));
-        if (!treeReply) {
-            return 0;
-        }
-        // If the root window it is equal to the parent or the window ID itself
-        // the this must be the top level window.
-        if (windowId == treeReply->root || treeReply->parent == treeReply->root) {
-            return windowId;
-        } else {
-            windowId = treeReply->parent;
-        }
-    }
+	// Get ID of focused window, however, this must not always be the top level
+	// window so we loop through parents and search for the top level window.
+	auto windowId = focusReply->focus;
+	while (true) {
+		treeCookie = xcb_query_tree_unchecked(connection, windowId);
+		ScopedCPointer<xcb_query_tree_reply_t> treeReply(xcb_query_tree_reply(connection, treeCookie, nullptr));
+		if (!treeReply) {
+			return 0;
+		}
+		// If the root window it is equal to the parent or the window ID itself
+		// the this must be the top level window.
+		if (windowId == treeReply->root || treeReply->parent == treeReply->root) {
+			return windowId;
+		} else {
+			windowId = treeReply->parent;
+		}
+	}
 }
 
 QPoint X11Wrapper::getNativeCursorPosition() const
 {
-    // QCursor::pos() is not used because it requires additional calculations.
-    // Its value is the offset to the origin of the current screen is in
-    // device-independent pixels while the origin itself uses native pixels.
+	// QCursor::pos() is not used because it requires additional calculations.
+	// Its value is the offset to the origin of the current screen is in
+	// device-independent pixels while the origin itself uses native pixels.
 
-    auto xcbConn = QX11Info::connection();
-    auto pointerCookie = xcb_query_pointer_unchecked(xcbConn, QX11Info::appRootWindow());
-    ScopedCPointer<xcb_query_pointer_reply_t> pointerReply(xcb_query_pointer_reply(xcbConn, pointerCookie, nullptr));
+	auto xcbConn = QX11Info::connection();
+	auto pointerCookie = xcb_query_pointer_unchecked(xcbConn, QX11Info::appRootWindow());
+	ScopedCPointer<xcb_query_pointer_reply_t> pointerReply(xcb_query_pointer_reply(xcbConn, pointerCookie, nullptr));
 
-    return QPoint(pointerReply->root_x, pointerReply->root_y);
+	return { pointerReply->root_x, pointerReply->root_y };
 }
 
-// Note: x, y, width and height are measured in device pixels
-QPixmap X11Wrapper::blendCursorImage(const QPixmap& pixmap, const QRect& rect) const
+ImageWithPosition X11Wrapper::getCursorWithPosition() const
 {
-    auto cursorPos = getNativeCursorPosition();
+	auto cursorPosition = getNativeCursorPosition();
 
-    // If cursor not within rect that we capture, then nothing to do here
-    if (!rect.contains(cursorPos)) {
-        return pixmap;
-    }
+	// now we can get the image and start processing
+	auto xcbConn = QX11Info::connection();
 
-    // now we can get the image and start processing
-    auto xcbConn = QX11Info::connection();
+	auto cursorCookie = xcb_xfixes_get_cursor_image_unchecked(xcbConn);
+	ScopedCPointer<xcb_xfixes_get_cursor_image_reply_t> cursorReply(xcb_xfixes_get_cursor_image_reply(xcbConn, cursorCookie, nullptr));
+	if (cursorReply.isNull()) {
+		return ImageWithPosition();
+	}
 
-    auto  cursorCookie = xcb_xfixes_get_cursor_image_unchecked(xcbConn);
-    ScopedCPointer<xcb_xfixes_get_cursor_image_reply_t> cursorReply(xcb_xfixes_get_cursor_image_reply(xcbConn, cursorCookie, nullptr));
-    if (cursorReply.isNull()) {
-        return pixmap;
-    }
+	auto pixelData = xcb_xfixes_get_cursor_image_cursor_image(cursorReply.data());
+	if (!pixelData) {
+		return ImageWithPosition();
+	}
 
-    auto pixelData = xcb_xfixes_get_cursor_image_cursor_image(cursorReply.data());
-    if (!pixelData) {
-        return pixmap;
-    }
+	// process the image into a QImage
+	auto cursorImage = QImage((quint8 *) pixelData,
+	                          cursorReply->width,
+	                          cursorReply->height,
+	                          QImage::Format_ARGB32_Premultiplied);
 
-    // process the image into a QImage
-    QImage cursorImage = QImage((quint8*)pixelData,
-                                cursorReply->width,
-                                cursorReply->height,
-                                QImage::Format_ARGB32_Premultiplied);
+	// a small fix for the cursor position for fancier cursor
+	cursorPosition -= QPoint(cursorReply->xhot, cursorReply->yhot);
 
-    // a small fix for the cursor position for fancier cursors
-    cursorPos -= QPoint(cursorReply->xhot, cursorReply->yhot);
-
-    // now we translate the cursor point to our screen rectangle
-    cursorPos -= QPoint(rect.x(), rect.y());
-
-    // and do the painting
-    QPixmap blendedPixmap = pixmap;
-    QPainter painter(&blendedPixmap);
-    painter.drawImage(cursorPos, cursorImage);
-
-    return blendedPixmap;
+	return { cursorImage, cursorPosition };
 }

@@ -28,12 +28,11 @@
 #include "SettingsDialog.h"
 #include "AboutDialog.h"
 #include "src/widgets/CustomToolButton.h"
-#include "src/widgets/CaptureModePicker.h"
+#include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
-#include "src/backend/KsnipConfig.h"
-#include "src/backend/CaptureUploader.h"
+#include "backend/config/KsnipConfig.h"
+#include "backend/uploader/CaptureUploader.h"
 #include "src/common/loader/IconLoader.h"
-#include "src/common/handler/DelayHandler.h"
 #include "src/common/enum/RunMode.h"
 #include "src/common/helper/MessageBoxHelper.h"
 #include "src/backend/CapturePrinter.h"
@@ -46,43 +45,36 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
     void showEmpty();
-    void captureScreenshot(CaptureModes captureMode, bool capureCursor = true, int delay = 0);
-    virtual QMenu *createPopupMenu() override;
-    QSize sizeHint() const;
+    void captureScreenshot(CaptureModes captureMode, bool capureCursor, int delay);
+    QMenu *createPopupMenu() override;
+    QSize sizeHint() const override;
 
 public slots:
     void showCapture(const QPixmap &screenshot);
 
 protected:
-    virtual void moveEvent(QMoveEvent *event) override;
-    virtual void closeEvent(QCloseEvent *event) override;
+    void moveEvent(QMoveEvent *event) override;
+    void closeEvent(QCloseEvent *event) override;
 
 private:
     AbstractImageGrabber *mImageGrabber;
     RunMode           mMode;
     bool              mIsUnsaved;
     bool              mHidden;
-    QToolButton      *mSaveButton;
-    QToolButton      *mCopyToClipboardButton;
-    QAction          *mSaveAction;
-    QAction          *mCopyToClipboardAction;
     QAction          *mUploadToImgurAction;
     QAction          *mPrintAction;
     QAction          *mPrintPreviewAction;
     QAction          *mCropAction;
-    QAction          *mNewCaptureAction;
     QAction          *mQuitAction;
     QAction          *mSettingsDialogAction;
     QAction          *mAboutKsnipAction;
     QAction          *mOpenImageAction;
     QAction          *mScaleAction;
-    QToolBar         *mToolBar;
+    MainToolBar      *mToolBar;
     QAction          *mUndoAction;
     QAction          *mRedoAction;
     QClipboard       *mClipboard;
     KsnipConfig      *mConfig;
-    DelayHandler     *mDelayHandler;
-    CaptureModePicker *mCaptureModePicker;
     CapturePrinter   *mCapturePrinter;
     CaptureUploader  *mCaptureUploader;
     KImageAnnotator *mkImageAnnotator;
@@ -90,7 +82,6 @@ private:
     void setSaveAble(bool enabled);
     void setEnablements(bool enabled);
     void loadSettings();
-    void copyToClipboard();
     void setHidden(bool isHidden);
     bool hidden() const;
     void capture(CaptureModes captureMode);
@@ -99,6 +90,7 @@ private:
 
 private slots:
     void saveCapture();
+    void copyCaptureToClipboard();
     void upload();
     void uploadFinished(QString message);
     void printClicked();
@@ -111,6 +103,7 @@ private slots:
     void copyToClipboard(const QString &message) const;
     QString &formatUrl(QString &message) const;
     void setupImageAnnotator();
+    void captureDelayChanged(int delay);
 };
 
 #endif // MAINWINDOW_H

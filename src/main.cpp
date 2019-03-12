@@ -40,6 +40,8 @@ int main(int argc, char** argv)
     app.setApplicationName(QStringLiteral("ksnip"));
     app.setApplicationVersion(QStringLiteral(KSNIP_VERSION));
 
+    app.setStyle(KsnipConfig::instance()->applicationStyle());
+
     QTranslator translator;
     auto pathToTranslations = QStringLiteral(KSNIP_LANG_INSTAL_DIR);
     auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), pathToTranslations);
@@ -60,7 +62,7 @@ int main(int argc, char** argv)
     QCommandLineParser parser;
     parser.setApplicationDescription(QCoreApplication::translate("main", "Ksnip Screenshot Tool"));
     parser.addHelpOption();
-    parser.addVersionOption();
+	CommandLineParserHelper::addVersionOptions(parser);
     CommandLineParserHelper::addImageGrabberOptions(parser, imageGrabber->supportedCaptureModes());
     CommandLineParserHelper::addDefaultOptions(parser);
     parser.process(app);
@@ -73,6 +75,12 @@ int main(int argc, char** argv)
         window = new MainWindow(imageGrabber, RunMode::GUI);
         return app.exec();
     }
+
+	if (parser.isSet(QStringLiteral("v"))) {
+		qInfo("Version: %s", qPrintable(KSNIP_VERSION));
+		qInfo("Build: %s", qPrintable(KSNIP_BUILD_NUMBER));
+		return 0;
+	}
 
     if (parser.isSet(QStringLiteral("e"))) {
         auto pathToImage = parser.value(QStringLiteral("e"));

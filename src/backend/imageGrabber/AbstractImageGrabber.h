@@ -17,16 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef ABSTRACTIMAGEGRABBER_H
-#define ABSTRACTIMAGEGRABBER_H
+#ifndef KSNIP_ABSTRACTIMAGEGRABBER_H
+#define KSNIP_ABSTRACTIMAGEGRABBER_H
 
 #include <QObject>
 #include <QPainter>
 #include <QTimer>
 #include <QScreen>
 
+#include "ImageWithPosition.h"
 #include "src/common/enum/CaptureModes.h"
-#include "src/gui/AbstractSnippingArea.h"
+#include "src/common/handler/DelayHandler.h"
+#include "gui/snippingArea/AbstractSnippingArea.h"
 
 class AbstractImageGrabber : public QObject
 {
@@ -34,33 +36,54 @@ class AbstractImageGrabber : public QObject
 public:
     explicit AbstractImageGrabber(AbstractSnippingArea *snippingArea);
     ~AbstractImageGrabber() override;
-    virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) = 0;
-    virtual bool isCaptureModeSupported(CaptureModes captureMode) const;
-    virtual QList<CaptureModes> supportedCaptureModes() const;
-    QRect currentScreenRect() const;
+	bool isCaptureModeSupported(CaptureModes captureMode) const;
+	QList<CaptureModes> supportedCaptureModes() const;
+	virtual void grabImage(CaptureModes captureMode, bool captureCursor, int delay, bool freezeImageWhileSnipping);
+	virtual QRect currentScreenRect() const;
+	virtual QRect fullScreenRect() const = 0;
+	virtual QRect activeWindowRect() const = 0;
 
 signals:
     void finished(const QPixmap &) const;
     void canceled() const;
 
 protected:
-    QRect        mCaptureRect;
-    bool         mCaptureCursor;
-    int          mCaptureDelay;
-    CaptureModes mCaptureMode;
-    QList<CaptureModes> mSupportedCaptureModes;
+	QRect mCaptureRect;
+	bool mCaptureCursor;
+	int mCaptureDelay;
+	CaptureModes mCaptureMode;
+	ImageWithPosition mStoredCursorImageWithPosition;
+	DelayHandler mDelayHandler;
 
-    void openSnippingArea();
+	void addSupportedCaptureMode(CaptureModes captureMode);
+	void openSnippingAreaWithoutBackground();
     void openSnippingAreaWithBackground(const QPixmap &background);
     QRect selectedSnippingAreaRect() const;
+	QPixmap snippingAreaBackground() const;
+	QPixmap getScreenshotFromRect(const QRect &rect) const;
+	QPixmap getScreenshot() const;
+	void setCaptureRectFromCorrectSource();
+	virtual bool isSnippingAreaBackgroundTransparent() const;
+	virtual ImageWithPosition getCursorWithPosition() const = 0;
 
 protected slots:
-    virtual void grab() = 0;
+	virtual void prepareGrab();
+	virtual void grab();
 
 private:
     AbstractSnippingArea *mSnippingArea;
+	bool mFreezeImageWhileSnipping;
+	QList<CaptureModes> mSupportedCaptureModes;
 
-    void initSnippingArea();
+	void openSnippingArea();
+	void connectSnippingAreaCancel();
+	void connectSnippingAreaFinish();
+	void disconnectSnippingAreaFinish();
+	bool shouldCaptureCursor() const;
+	QPixmap drawCursorOnImage(QPixmap &screenshot, const ImageWithPosition &cursorImageWithPosition) const;
+	ImageWithPosition getCursorImageWithPositionFromCorrectSource() const;
+	bool isRectAreaCaptureWithBackground() const;
+	bool isRectAreaCaptureWithoutBackground() const;
 };
 
-#endif // ABSTRACTIMAGEGRABBER_H
+#endif // KSNIP_ABSTRACTIMAGEGRABBER_H

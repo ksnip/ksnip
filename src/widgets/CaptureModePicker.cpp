@@ -43,72 +43,34 @@ CaptureModes CaptureModePicker::captureMode() const
 
 void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 {
-    CustomMenu *menu = new CustomMenu();
+    auto menu = new CustomMenu();
 
-    if (captureModes.contains(CaptureModes::RectArea)) {
-        auto action = new QAction(this);
-        action->setIconText(tr("Rectangular Area"));
-        action->setToolTip(tr("Draw a rectangular area with your mouse"));
-        action->setIcon(IconLoader::loadIcon(QStringLiteral("drawRect")));
-        connect(action, &QAction::triggered, [this]()
-        {
-            selectCaptureMode(CaptureModes::RectArea);
-        });
-        mActionToCaptureMode[action] = CaptureModes::RectArea;
+    if (isCaptureModeSupported(captureModes, CaptureModes::RectArea)) {
+	    auto action = createAction(tr("Rectangular Area"), tr("Draw a rectangular area with your mouse"), QStringLiteral("drawRect.svg"), CaptureModes::RectArea);
         menu->addAction(action);
     }
 
-    if (captureModes.contains(CaptureModes::FullScreen)) {
-        auto action = new QAction(this);
-        action->setIconText(tr("Full Screen (All Monitors)"));
-        action->setToolTip(tr("Capture full screen including all monitors"));
-        action->setIcon(IconLoader::loadIcon(QStringLiteral("fullScreen")));
-        connect(action, &QAction::triggered, [this]()
-        {
-            selectCaptureMode(CaptureModes::FullScreen);
-        });
-        mActionToCaptureMode[action] = CaptureModes::FullScreen;
-        menu->addAction(action);
-
-    }
-
-    if (captureModes.contains(CaptureModes::CurrentScreen)) {
-        auto action = new QAction(this);
-        action->setIconText(tr("Current Screen"));
-        action->setToolTip(tr("Capture screen where the mouse is located"));
-        action->setIcon(IconLoader::loadIcon(QStringLiteral("currentScreen")));
-        connect(action, &QAction::triggered, [this]()
-        {
-            selectCaptureMode(CaptureModes::CurrentScreen);
-        });
-        mActionToCaptureMode[action] = CaptureModes::CurrentScreen;
-        menu->addAction(action);
-
-    }
-
-    if (captureModes.contains(CaptureModes::ActiveWindow)) {
-        auto action = new QAction(this);
-        action->setIconText(tr("Active Window"));
-        action->setToolTip(tr("Capture window that currently has focus"));
-        action->setIcon(IconLoader::loadIcon(QStringLiteral("activeWindow")));
-        connect(action, &QAction::triggered, [this]()
-        {
-            selectCaptureMode(CaptureModes::ActiveWindow);
-        });
-        mActionToCaptureMode[action] = CaptureModes::ActiveWindow;
+    if (isCaptureModeSupported(captureModes, CaptureModes::FullScreen)) {
+        auto
+	        action = createAction(tr("Full Screen (All Monitors)"), tr("Capture full screen including all monitors"), QStringLiteral("fullScreen.svg"), CaptureModes::FullScreen);
         menu->addAction(action);
     }
 
-    if (captureModes.contains(CaptureModes::WindowUnderCursor)) {
-        auto action = new QAction(this);
-        action->setIconText(tr("Window Under Cursor"));
-        action->setToolTip(tr("Capture that is currently under the mouse cursor"));
-        action->setIcon(IconLoader::loadIcon(QStringLiteral("windowUnderCursor")));
-        connect(action, &QAction::triggered, [this]()
-        {
-            selectCaptureMode(CaptureModes::WindowUnderCursor);
-        });
-        mActionToCaptureMode[action] = CaptureModes::WindowUnderCursor;
+    if (isCaptureModeSupported(captureModes, CaptureModes::CurrentScreen)) {
+	    auto action = createAction(tr("Current Screen"), tr("Capture screen where the mouse is located"), QStringLiteral("currentScreen.svg"), CaptureModes::CurrentScreen);
+        menu->addAction(action);
+    }
+
+    if (isCaptureModeSupported(captureModes, CaptureModes::ActiveWindow)) {
+	    auto action = createAction(tr("Active Window"), tr("Capture window that currently has focus"), QStringLiteral("activeWindow.svg"), CaptureModes::ActiveWindow);
+        menu->addAction(action);
+    }
+
+    if (isCaptureModeSupported(captureModes, CaptureModes::WindowUnderCursor)) {
+        auto action = createAction(tr("Window Under Cursor"),
+                                   tr("Capture that is currently under the mouse cursor"),
+                                   QStringLiteral("windowUnderCursor.svg"),
+                                   CaptureModes::WindowUnderCursor);
         menu->addAction(action);
     }
 
@@ -117,6 +79,25 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         setDefaultAction(allActions[0]);
     }
     setMenu(menu);
+}
+
+bool CaptureModePicker::isCaptureModeSupported(const QList<CaptureModes> &captureModes, CaptureModes captureMode) const
+{
+    return captureModes.contains(captureMode);
+}
+
+QAction *CaptureModePicker::createAction(const QString &text, const QString &tooltip, const QString &iconName, CaptureModes captureMode)
+{
+    auto action = new QAction(this);
+    action->setIconText(text);
+    action->setToolTip(tooltip);
+	action->setIcon(IconLoader::load(iconName));
+    connect(action, &QAction::triggered, [this, captureMode]()
+    {
+        selectCaptureMode(captureMode);
+    });
+    mActionToCaptureMode[action] = captureMode;
+    return action;
 }
 
 void CaptureModePicker::selectCaptureMode(CaptureModes mode)

@@ -62,24 +62,21 @@ static QImage readImage(int pipeFd)
 
 KdeWaylandImageGrabber::KdeWaylandImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea)
 {
-    mSupportedCaptureModes.append(CaptureModes::WindowUnderCursor);
-    mSupportedCaptureModes.append(CaptureModes::CurrentScreen);
-    mSupportedCaptureModes.append(CaptureModes::FullScreen);
+	addSupportedCaptureMode(CaptureModes::WindowUnderCursor);
+	addSupportedCaptureMode(CaptureModes::CurrentScreen);
+	addSupportedCaptureMode(CaptureModes::FullScreen);
 }
 
-void KdeWaylandImageGrabber::grabImage(CaptureModes captureMode, bool capureCursor, int delay)
+QRect KdeWaylandImageGrabber::fullScreenRect() const
 {
-    mCaptureCursor = capureCursor;
-    mCaptureDelay = delay;
+	// Not Supported for Kde Wayland
+	return {};
+}
 
-    if (isCaptureModeSupported(captureMode)) {
-        mCaptureMode = captureMode;
-    } else {
-        qWarning("Unsupported Capture Mode selected, falling back to full screen.");
-        mCaptureMode = CaptureModes::FullScreen;
-    }
-
-    QTimer::singleShot(mCaptureDelay, this, &KdeWaylandImageGrabber::grab);
+QRect KdeWaylandImageGrabber::activeWindowRect() const
+{
+	// Not Supported for Kde Wayland
+	return {};
 }
 
 void KdeWaylandImageGrabber::grab()
@@ -95,6 +92,12 @@ void KdeWaylandImageGrabber::grab()
         }
         prepareDBus(QStringLiteral("interactive"), mask);
     }
+}
+
+ImageWithPosition KdeWaylandImageGrabber::getCursorWithPosition() const
+{
+	// Not Supported for Kde Wayland
+	return ImageWithPosition();
 }
 
 template<typename T>

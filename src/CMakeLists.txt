@@ -1,11 +1,14 @@
 set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/main.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/ImgurUploader.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/KsnipConfig.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfig.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfigOptions.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
-    ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/CaptureUploader.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/ImgurUploader.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploadResponse.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/CaptureUploader.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/ImgurResponseLogger.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/CommandLineParserHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MessageBoxHelper.cpp
@@ -19,11 +22,18 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomSpinBox.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CaptureModePicker.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/ColorButton.cpp
+	${CMAKE_SOURCE_DIR}/src/widgets/MainToolBar.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/MainWindow.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/AbstractSnippingArea.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AbstractSnippingArea.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/SnippingAreaAdorner.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AdornerMagnifyingGlass.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AdornerRulers.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AdornerPositionInfo.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AdornerSizeInfo.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/SettingsDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog.cpp
-    )
+	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
+	)
 
 
 if (APPLE)
@@ -36,26 +46,30 @@ if (APPLE)
 elseif (UNIX)
     set(KSNIP_SRCS
 		${KSNIP_SRCS}
-		${CMAKE_SOURCE_DIR}/src/backend/PlatformChecker.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/X11ImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/KdeWaylandImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/X11Wrapper.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeWaylandImageGrabber.cpp
-		${CMAKE_SOURCE_DIR}/src/common/runner/CommandRunner.cpp
-		${CMAKE_SOURCE_DIR}/src/gui/LinuxSnippingArea.cpp
+		${CMAKE_SOURCE_DIR}/src/common/platform/PlatformChecker.cpp
+		${CMAKE_SOURCE_DIR}/src/common/platform/CommandRunner.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/LinuxSnippingArea.cpp
 		)
 elseif (WIN32)
 	set(KSNIP_SRCS
-			${KSNIP_SRCS}
-            ${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinImageGrabber.cpp
-			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinWrapper.cpp
-            ${CMAKE_SOURCE_DIR}/src/gui/WinSnippingArea.cpp
-			)
+		${KSNIP_SRCS}
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinImageGrabber.cpp
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinWrapper.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/WinSnippingArea.cpp
+		)
 endif ()
 
 set(KSNIP_SRCS ${KSNIP_SRCS} PARENT_SCOPE)
 
-add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc)
+if (WIN32)
+	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${CMAKE_SOURCE_DIR}/icons/ksnip_windows_icon.rc)
+else()
+	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc)
+endif ()
 
 target_link_libraries(ksnip
 					  Qt5::Widgets

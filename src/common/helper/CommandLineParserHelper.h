@@ -29,6 +29,7 @@ class CommandLineParserHelper
 public:
     static void addImageGrabberOptions(QCommandLineParser &parser, const QList<CaptureModes> &captureModes);
     static void addDefaultOptions(QCommandLineParser &parser);
+	static void addVersionOptions(QCommandLineParser &parser);
     static bool isSet(QCommandLineParser &parser, const QString &option);
 };
 

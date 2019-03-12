@@ -1,61 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-​<!-- Copyright 2018 Damir Porobic <damir.porobic@gmx.com> -->
-​<component type="desktop-application">
-​  <id>ksnip</id>
-​  <metadata_license>FSFAP</metadata_license>
-​  <project_license>GPL-2.0+</project_license>
-​  <name>KSnip Screenshot Tool</name>
-​  <summary>Screenshot tool with annotation features.</summary>
-​
-​  <description>
-​    <p>
+<component type="desktop-application">
+    <id>ksnip</id>
+    <metadata_license>FSFAP</metadata_license>
+    <project_license>GPL-2.0+</project_license>
+    <name>ksnip</name>
+    <summary>Screenshot tool with annotation features</summary>
+    <description>
+        <p>
 ​       Ksnip is a Qt based Linux screenshot tool that provides many annotation features for your screenshots.
 ​    </p>
-​    <p>Screenshots:</p>
-​    <ul>
-​       <li>X11 and experimental KDE and Gnome Wayland support.</li>
-​       <li>Taking Screenshot of a custom rectangular area that can be drawn with mouse cursor (X11 and Gnome Wayland only).</li>
-       <li>Taking screenshot of full screen, including all screens/monitors.</li>
-       <li>Taking screenshot of window that currently has focus (X11 and Gnome Wayland only).</li>
-       <li>Taking screenshot of window under mouse cursor (KDE Wayland only).</li>
-​    </ul>
-    ​<p>Annotation:</p>
-​    <ul>
-​       <li>Drawing on captured screenshot with two different tools, pen (opaque) and maker (semi-transparent).</li>
-​       <li>Drawing two shapes ellipse and rectangle, with and without fill.</li>
-       <li>Drawing lines and arrows.</li>
-       <li>Customizable color and size (thickness) for all drawing tools.</li>
-       <li>Writing text on screenshots, with customizable font, size, color etc.</li>
-       <li>Numbering tool with customizable font and color.</li>
-​    </ul>
-​  </description>
-​
-​  <launchable type="desktop-id">ksnip.desktop</launchable>
-​
-​  <screenshots>
-​    <screenshot type="default">
-​      <caption>Main Window</caption>
-​      <image>https://i.imgur.com/HY8S6pv.png</image>
-​    </screenshot>
-​    <screenshot>
-      <caption>Annotation Tools</caption>
-​      <image>https://i.imgur.com/R5v4Zpw.png</image>
-​    </screenshot>
-​    <screenshot>
-      <caption>Crop Window</caption>
-​      <image>https://i.imgur.com/lxnqzJK.png</image>
-​    </screenshot>
-​    <screenshot>
-      <caption>Settings Dialog</caption>
-​      <image>https://i.imgur.com/Kl7aizK.png</image>
-​    </screenshot>
-​  </screenshots>
-​
-​  <url type="homepage">https://github.com/DamirPorobic/ksnip</url>
-
-  <update_contact>damir.porobic@gmx.com</update_contact>
-​
-​  <provides>
-​    <binary>ksnip</binary>
-​  </provides>
-​</component> 
+        <p>Screenshots:</p>
+        <ul>
+            <li>X11 and experimental KDE and Gnome Wayland support.</li>
+            <li>Taking Screenshot of a custom rectangular area that can be drawn with mouse cursor (X11 and Gnome Wayland only).</li>
+            <li>Taking screenshot of full screen, including all screens/monitors.</li>
+            <li>Taking screenshot of window that currently has focus (X11 and Gnome Wayland only).</li>
+            <li>Taking screenshot of window under mouse cursor (KDE Wayland only).</li>
+        </ul>
+        <p>Annotation:</p>
+        <ul>
+            <li>Drawing on captured screenshot with two different tools, pen (opaque) and maker (semi-transparent).</li>
+            <li>Drawing two shapes ellipse and rectangle, with and without fill.</li>
+            <li>Drawing lines and arrows.</li>
+            <li>Customizable color and size (thickness) for all drawing tools.</li>
+            <li>Writing text on screenshots, with customizable font, size, color etc.</li>
+            <li>Numbering tool with customizable font and color.</li>
+        </ul>
+    </description>
+    <launchable type="desktop-id">ksnip.desktop</launchable>
+    <url type="homepage">https://github.com/DamirPorobic/ksnip</url>
+    <screenshots>
+        <screenshot type="default">
+            <caption>Main Window</caption>
+            <image>https://i.imgur.com/HY8S6pv.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Annotation Tools</caption>
+            <image>https://i.imgur.com/R5v4Zpw.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Crop Window</caption>
+            <image>https://i.imgur.com/lxnqzJK.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Settings Dialog</caption>
+            <image>https://i.imgur.com/Kl7aizK.png</image>
+        </screenshot>
+    </screenshots>
+    <provides>
+        <id>ksnip.desktop</id>
+    </provides>
+    <update_contact>damir.porobic@gmx.com</update_contact>
+</component>

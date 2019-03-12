@@ -23,10 +23,10 @@
 X11ImageGrabber::X11ImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea),
     mX11Wrapper(new X11Wrapper)
 {
-    mSupportedCaptureModes.append(CaptureModes::RectArea);
-    mSupportedCaptureModes.append(CaptureModes::FullScreen);
-    mSupportedCaptureModes.append(CaptureModes::CurrentScreen);
-    mSupportedCaptureModes.append(CaptureModes::ActiveWindow);
+	addSupportedCaptureMode(CaptureModes::RectArea);
+	addSupportedCaptureMode(CaptureModes::FullScreen);
+	addSupportedCaptureMode(CaptureModes::CurrentScreen);
+	addSupportedCaptureMode(CaptureModes::ActiveWindow);
 }
 
 X11ImageGrabber::~X11ImageGrabber()
@@ -34,72 +34,22 @@ X11ImageGrabber::~X11ImageGrabber()
     delete mX11Wrapper;
 }
 
-void X11ImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, int delay)
+bool X11ImageGrabber::isSnippingAreaBackgroundTransparent() const
 {
-	mCaptureCursor = captureCursor;
-    mCaptureDelay = delay;
-
-    if (isCaptureModeSupported(captureMode)) {
-        mCaptureMode = captureMode;
-    } else {
-        qWarning("Unsupported Capture Mode selected, falling back to full screen.");
-        mCaptureMode = CaptureModes::FullScreen;
-    }
-
-
-    if (mCaptureMode == CaptureModes::RectArea) {
-        getRectArea();
-    } else {
-        QTimer::singleShot(mCaptureDelay, this, &X11ImageGrabber::grab);
-    }
+	return mX11Wrapper->isCompositorActive() && AbstractImageGrabber::isSnippingAreaBackgroundTransparent();
 }
 
-void X11ImageGrabber::getRectArea()
+QRect X11ImageGrabber::activeWindowRect() const
 {
-    if (mX11Wrapper->isCompositorActive()) {
-        openSnippingArea();
-    } else {
-        auto screenRect = mX11Wrapper->getFullScreenRect();
-        auto background = createPixmap(screenRect);
-        openSnippingAreaWithBackground(background);
-    }
+	return mX11Wrapper->getActiveWindowRect();
 }
 
-void X11ImageGrabber::setRectFromCorrectSource()
+QRect X11ImageGrabber::fullScreenRect() const
 {
-    if (mCaptureMode == CaptureModes::RectArea) {
-        mCaptureRect = selectedSnippingAreaRect();
-    } else if (mCaptureMode == CaptureModes::FullScreen) {
-        mCaptureRect = mX11Wrapper->getFullScreenRect();
-    } else if (mCaptureMode == CaptureModes::CurrentScreen) {
-	    mCaptureRect = currentScreenRect();
-    } else if (mCaptureMode == CaptureModes::ActiveWindow) {
-        mCaptureRect = mX11Wrapper->getActiveWindowRect();
-        if (mCaptureRect.isNull()) {
-            qWarning("ImageGrabber::getActiveWindow: Found no window with focus.");
-	        mCaptureRect = currentScreenRect();
-        }
-    }
+	return mX11Wrapper->getFullScreenRect();
 }
 
-void X11ImageGrabber::grab()
+ImageWithPosition X11ImageGrabber::getCursorWithPosition() const
 {
-    setRectFromCorrectSource();
-    auto screenShot = createPixmap(mCaptureRect);
-
-    if (mCaptureCursor) {
-        screenShot = mX11Wrapper->blendCursorImage(screenShot, mCaptureRect);
-    }
-    emit finished(screenShot);
-}
-
-QPixmap X11ImageGrabber::createPixmap(const QRect& rect) const
-{
-    auto screen = QGuiApplication::primaryScreen();
-    auto pixmap = screen->grabWindow(QApplication::desktop()->winId(),
-                                            rect.topLeft().x(),
-                                            rect.topLeft().y(),
-                                            rect.width(),
-                                            rect.height());
-    return pixmap;
+	return mX11Wrapper->getCursorWithPosition();
 }

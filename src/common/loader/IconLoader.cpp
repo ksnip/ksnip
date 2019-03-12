@@ -19,16 +19,24 @@
 
 #include "IconLoader.h"
 
-QIcon IconLoader::loadIcon(const QString& name)
+QIcon IconLoader::load(QString name)
 {
-    QIcon tmpIcon;
+    auto type = getThemePrefix();
+    return QIcon(QStringLiteral(":/icons/") + type + name);
+}
 
-    for (auto i = 16; i <= 64; i = i * 2) {
-        auto resourceString = QStringLiteral(":") + name + QString::number(i) + QStringLiteral(".png");
-        if (QResource(resourceString).isValid()) {
-            tmpIcon.addFile((resourceString), QSize(i, i));
-        }
-    }
+QString IconLoader::getThemePrefix()
+{
+    return isDarkTheme() ? QStringLiteral("dark/") : QStringLiteral("light/");
+}
 
-    return tmpIcon;
+double IconLoader::getThemeLuma()
+{
+    auto color = QApplication::palette().background().color();
+    return 0.2126 * color.redF() + 0.7152 * color.greenF() + 0.0722 * color.blueF();
+}
+
+bool IconLoader::isDarkTheme()
+{
+    return getThemeLuma() > 0.4;
 }

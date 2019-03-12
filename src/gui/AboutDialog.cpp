@@ -60,10 +60,11 @@ AboutDialog::AboutDialog(MainWindow* parent) : QDialog(parent),
 
 void AboutDialog::createHeader()
 {
-    auto pixmap = new QPixmap(QStringLiteral(":/ksnip64.png"));
+	auto pixmap = QPixmap(QStringLiteral(":/icons/ksnip"));
+	auto scaledPixmap = pixmap.scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     auto label = new QLabel();
     mHeaderLayout = new QHBoxLayout();
-    label->setPixmap(*pixmap);
+	label->setPixmap(scaledPixmap);
     label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     mHeaderLayout->addWidget(label);
     label = new QLabel(QStringLiteral("<h2>") + QApplication::applicationName() + QStringLiteral("</h2>"));
@@ -78,8 +79,9 @@ void AboutDialog::createAboutTab()
     auto label = new QLabel();
     label->setText(QStringLiteral("<b>") + QApplication::applicationName() + QStringLiteral(" ") + tr("Screenshot Tool") + QStringLiteral("</b><br/><br/>") +
 	    tr("(C) 2018 Damir Porobic") + QStringLiteral("<br/><br/>") +
-                   tr("License: ") + QStringLiteral("<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU General Public License Version 2</a>") + QStringLiteral("<br/><br/>") +
-                   tr("Please use ") + QStringLiteral("<a href=\"https://github.com/damirporobic/ksnip/issues/\">GitHub</a>") + tr(" to report bugs."));
+        tr("License: ") + QStringLiteral("<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU General Public License Version 2</a>")
+                       + QStringLiteral("<br/><br/>") +
+        tr("Please use ") + QStringLiteral("<a href=\"https://github.com/damirporobic/ksnip/issues/\">GitHub</a>") + tr(" to report bugs."));
     label->setTextFormat(Qt::RichText);
     label->setTextInteractionFlags(Qt::TextBrowserInteraction);
     label->setOpenExternalLinks(true);

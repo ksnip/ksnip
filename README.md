@@ -1,14 +1,15 @@
-# ksnip [![Build Status](https://travis-ci.org/DamirPorobic/ksnip.svg?branch=master)](https://travis-ci.org/DamirPorobic/ksnip) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/94558bfc42d1466fae691a646cfe3f09)](https://www.codacy.com/app/DamirPorobic/ksnip?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DamirPorobic/ksnip&amp;utm_campaign=Badge_Grade) [![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/svg-badge.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget) [![ksnip Downloads](https://img.shields.io/github/downloads/damirporobic/ksnip/total.svg)](https://github.com/damirporobic/ksnip/releases)
+# [ksnip](http://ksnip.org/) &middot; [![Build Status](https://travis-ci.org/DamirPorobic/ksnip.svg?branch=master)](https://travis-ci.org/DamirPorobic/ksnip) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/94558bfc42d1466fae691a646cfe3f09)](https://www.codacy.com/app/DamirPorobic/ksnip?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DamirPorobic/ksnip&amp;utm_campaign=Badge_Grade) [![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/svg-badge.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget) [![ksnip Downloads](https://img.shields.io/github/downloads/damirporobic/ksnip/total.svg)](https://github.com/damirporobic/ksnip/releases)
+
 
 Version v1.5.0 - alpha
 
 Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features 
 for your screenshots.
 
-![Ksnip](https://imgur.com/jbNXijf.png "Ksnip with annotations")
+![Ksnip](https://imgur.com/cB2zfKW.png "Ksnip with annotations")
 
 
-### Features
+# Features
 Latest ksnip version contains following features:
 * Supports Linux and Windows.
 * X11 and experimental KDE and Gnome Wayland support.
@@ -30,13 +31,13 @@ Latest ksnip version contains following features:
 * And other configuration options.
 
 
+# Binaries
 ### AppImage
 In order to use AppImages, just download them from [here](https://github.com/damirporobic/ksnip/releases), make them executable and start using it, no installation required.  
 `$ chmod a+x ksnip*.AppImage`  
 `$ ./ksnip*.AppImage`
 
 More information about setting to executable can be found [here](https://discourse.appimage.org/t/how-to-make-an-appimage-executable/80).
-
 
 ### RPM and DEB Binaries
 RPM and DEB binaries can be downloaded from the release page [here](https://github.com/DamirPorobic/ksnip/releases).
@@ -54,13 +55,12 @@ We provide deb, rpm and AppImage binaries for every pushed commit, those can be 
 release page. Continues build artifacts are not fully tested and in most cases they are work in progress
 so use them with caution.
 
-### Dependencies
 
+# Dependencies
 ksnip depends on [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator) and [kColoPicker](https://github.com/DamirPorobic/kColorPicker) which needs
 to be installed before building ksnip from source. Install instructions can be found on the github pages.
 
-### Building from source
-
+# Building from source
 1. Get latest release from GitHub by cloning the repo:  
     `$ git clone https://github.com/DamirPorobic/ksnip`  
 2. Change to repo directory:  
@@ -75,10 +75,11 @@ to be installed before building ksnip from source. Install instructions can be f
     `$ ksnip`  
 
 
-### Translations
+# Translations
 We are always looking for help with translations, contributors are welcome!  
 For translations we use [Weblate](https://hosted.weblate.org/projects/ksnip/translations/)!  
 [![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/multi-green.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget)
 
-### Bug report
-Please report any bugs or feature requests on the github page under the [issue section](https://github.com/DamirPorobic/ksnip/issues).
+# Bug report
+Please report any bugs or feature requests related to the annotation editor on the [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator/issues) github page under the issue section.
+All other bugs or feature requests please report on the [ksnip](https://github.com/DamirPorobic/ksnip/issues) github page under the issue section.

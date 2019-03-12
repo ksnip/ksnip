@@ -40,28 +40,14 @@ QRect WinWrapper::getActiveWindowRect() const
     return {QPoint(frame.left, frame.top), QPoint(frame.right, frame.bottom)};
 }
 
-QPixmap WinWrapper::blendCursorImage(const QPixmap &pixmap, const QRect &rect) const
+ImageWithPosition WinWrapper::getCursorWithPosition() const
 {
-    CURSORINFO cursor = { sizeof(cursor) };
-    GetCursorInfo(&cursor);
-    if (rect.contains(cursor.ptScreenPos.x, cursor.ptScreenPos.y)) {
-        auto cursorPosition = getCursorPosition(rect, cursor);
-        auto cursorPixmap = getCursorPixmap(cursor);
-        auto pixampWithCursor = drawCursorOnImage(pixmap, cursorPosition, cursorPixmap);
+	CURSORINFO cursorInfo = { sizeof(cursorInfo) };
+	GetCursorInfo(&cursorInfo);
+	auto cursorPosition = getCursorPosition(QRect(), cursorInfo);
+	auto cursorPixmap = getCursorPixmap(cursorInfo);
 
-        return pixampWithCursor;
-    }
-
-    return pixmap;
-}
-
-QPixmap WinWrapper::drawCursorOnImage(const QPixmap &pixmap, const QPoint &cursorPosition, const QPixmap &cursorPixmap) const
-{
-    auto pixampWithCursor = pixmap;
-    QPainter painter(&pixampWithCursor);
-    painter.drawPixmap(cursorPosition.x(), cursorPosition.y(), cursorPixmap);
-
-    return pixampWithCursor;
+	return {cursorPixmap.toImage(), cursorPosition};
 }
 
 QPoint WinWrapper::getCursorPosition(const QRect &rect, const CURSORINFO &cursor) const
@@ -69,8 +55,8 @@ QPoint WinWrapper::getCursorPosition(const QRect &rect, const CURSORINFO &cursor
     ICONINFOEXW iconInfo = {sizeof(iconInfo)};
     GetIconInfoExW(cursor.hCursor, &iconInfo);
 
-    auto x = cursor.ptScreenPos.x - rect.x() - (int)iconInfo.xHotspot;
-    auto y = cursor.ptScreenPos.y - rect.y() - (int)iconInfo.yHotspot;
+    auto x = cursor.ptScreenPos.x - (int)iconInfo.xHotspot;
+    auto y = cursor.ptScreenPos.y - (int)iconInfo.yHotspot;
 
     return {x, y};
 }

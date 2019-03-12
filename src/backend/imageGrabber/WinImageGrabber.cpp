@@ -22,65 +22,23 @@
 WinImageGrabber::WinImageGrabber() : AbstractImageGrabber(new WinSnippingArea),
     mWinWrapper(new WinWrapper)
 {
-    mSupportedCaptureModes.append(CaptureModes::RectArea);
-    mSupportedCaptureModes.append(CaptureModes::FullScreen);
-    mSupportedCaptureModes.append(CaptureModes::ActiveWindow);
-    mSupportedCaptureModes.append(CaptureModes::CurrentScreen);
+	addSupportedCaptureMode(CaptureModes::RectArea);
+	addSupportedCaptureMode(CaptureModes::FullScreen);
+	addSupportedCaptureMode(CaptureModes::ActiveWindow);
+	addSupportedCaptureMode(CaptureModes::CurrentScreen);
 }
 
-void WinImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, int delay)
+QRect WinImageGrabber::activeWindowRect() const
 {
-    Q_ASSERT(isCaptureModeSupported(captureMode));
-
-    mCaptureMode = captureMode;
-    mCaptureCursor = captureCursor;
-    mCaptureDelay = delay;
-
-    if (mCaptureMode == CaptureModes::RectArea) {
-        openSnippingArea();
-    } else {
-        QTimer::singleShot(mCaptureDelay, this, &WinImageGrabber::grab);
-    }
+	return mWinWrapper->getActiveWindowRect();
 }
 
-void WinImageGrabber::setRectFromCorrectSource()
+QRect WinImageGrabber::fullScreenRect() const
 {
-    switch (mCaptureMode) {
-        case CaptureModes::RectArea:
-            mCaptureRect = selectedSnippingAreaRect();
-            break;
-        case CaptureModes::FullScreen:
-            mCaptureRect = mWinWrapper->getFullScreenRect();
-            break;
-        case CaptureModes::ActiveWindow:
-            mCaptureRect = mWinWrapper->getActiveWindowRect();
-            break;
-        case CaptureModes::CurrentScreen:
-            mCaptureRect = currentScreenRect();
-            break;
-    }
+	return mWinWrapper->getFullScreenRect();
 }
 
-void WinImageGrabber::grab()
+ImageWithPosition WinImageGrabber::getCursorWithPosition() const
 {
-    setRectFromCorrectSource();
-    auto pixmap = grabPixmap();
-
-    if(mCaptureCursor) {
-        pixmap = mWinWrapper->blendCursorImage(pixmap, mCaptureRect);
-    }
-
-    emit finished(pixmap);
-}
-
-QPixmap WinImageGrabber::grabPixmap() const
-{
-    auto screen = QGuiApplication::primaryScreen();
-    auto pixmap = screen->grabWindow(QApplication::desktop()->winId(),
-                                     mCaptureRect.left(),
-                                     mCaptureRect.top(),
-                                     mCaptureRect.width(),
-                                     mCaptureRect.height());
-
-    return pixmap;
+	return mWinWrapper->getCursorWithPosition();
 }

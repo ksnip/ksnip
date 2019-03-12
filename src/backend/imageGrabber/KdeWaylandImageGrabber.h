@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KDEWAYLANDIMAGEGRABBER_H
-#define KDEWAYLANDIMAGEGRABBER_H
+#ifndef KSNIP_KDEWAYLANDIMAGEGRABBER_H
+#define KSNIP_KDEWAYLANDIMAGEGRABBER_H
 
 #include <QtDBus/QDBusInterface>
 #include <QtDBus/QDBusConnection>
@@ -33,16 +33,18 @@
 #include <errno.h>
 
 #include "AbstractImageGrabber.h"
-#include "src/gui/LinuxSnippingArea.h"
+#include "gui/snippingArea/LinuxSnippingArea.h"
 
 class KdeWaylandImageGrabber : public AbstractImageGrabber
 {
 public:
     explicit KdeWaylandImageGrabber();
-    virtual void grabImage(CaptureModes captureMode, bool capureCursor = true, int delay = 0) override;
+	QRect fullScreenRect() const override;
+	QRect activeWindowRect() const override;
 
 protected:
-    virtual void grab() override;
+	void grab() override;
+	ImageWithPosition getCursorWithPosition() const override;
 
 private:
     void startReadImage(int readPipe);
@@ -52,4 +54,4 @@ private:
     void callDBus(int writeFd, const QString& mode, T mask);
 };
 
-#endif // KDEWAYLANDIMAGEGRABBER_H
+#endif // KSNIP_KDEWAYLANDIMAGEGRABBER_H

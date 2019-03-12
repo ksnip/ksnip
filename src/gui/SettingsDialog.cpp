@@ -20,66 +20,65 @@
 
 #include "SettingsDialog.h"
 
-SettingsDialog::SettingsDialog(QWidget *parent)
-    :
-    QDialog(parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
-    mAlwaysCopyToClipboardCheckbox(new QCheckBox),
-    mPromptToSaveBeforeExitCheckbox(new QCheckBox),
-    mSaveKsnipPositionCheckbox(new QCheckBox),
-    mSaveKsnipToolSelectionCheckbox(new QCheckBox),
-    mCaptureOnStartupCheckbox(new QCheckBox),
-    mCaptureCursorCheckbox(new QCheckBox),
-    mUseInstantSaveCheckBox(new QCheckBox),
-    mImgurForceAnonymousCheckbox(new QCheckBox),
-    mImgurDirectLinkToImageCheckbox(new QCheckBox),
-    mImgurAlwaysCopyToClipboardCheckBox(new QCheckBox),
-    mImgurConfirmBeforeUploadCheckbox(new QCheckBox),
-    mSmoothPathCheckbox(new QCheckBox),
-    mItemShadowCheckbox(new QCheckBox),
-    mCursorRulerCheckbox(new QCheckBox),
-    mCursorInfoCheckbox(new QCheckBox),
-    mDynamicCursorSize(new QCheckBox),
-    mSaveLocationLineEdit(new QLineEdit),
-    mImgurClientIdLineEdit(new QLineEdit),
-    mImgurClientSecretLineEdit(new QLineEdit),
-    mImgurPinLineEdit(new QLineEdit),
-    mCaptureDelayLabel(new QLabel),
-    mSaveLocationLabel(new QLabel),
-    mImgurUsernameLabel(new QLabel),
-    mTextFontLabel(new QLabel),
-    mNumberFontLabel(new QLabel),
-    mSmoothFactorLabel(new QLabel),
-    mSnippingCursorSizeLabel(new QLabel),
-    mSnippingCursorColorLabel(new QLabel),
-    mCaptureDelayCombobox(new NumericComboBox(0, 1, 11)),
-    mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
-    mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
-    mTextFontCombobox(new QFontComboBox(this)),
-    mNumberFontCombobox(new QFontComboBox(this)),
-    mBrowseButton(new QPushButton),
-    mImgurGetPinButton(new QPushButton),
-    mImgurGetTokenButton(new QPushButton),
-    mOkButton(new QPushButton),
-    mCancelButton(new QPushButton),
-    mTextBoldButton(new QPushButton),
-    mTextItalicButton(new QPushButton),
-    mTextUnderlineButton(new QPushButton),
-    mSnippingCursorColorButton(new ColorButton),
-    mImgurUploader(new ImgurUploader),
-    mListWidget(new QListWidget),
-    mStackedLayout(new QStackedLayout),
-    mConfig(KsnipConfig::instance())
+SettingsDialog::SettingsDialog(QWidget *parent) :
+	QDialog(parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
+	mAlwaysCopyToClipboardCheckbox(new QCheckBox),
+	mPromptToSaveBeforeExitCheckbox(new QCheckBox),
+	mSaveKsnipPositionCheckbox(new QCheckBox),
+	mSaveKsnipToolSelectionCheckbox(new QCheckBox),
+	mCaptureOnStartupCheckbox(new QCheckBox),
+	mCaptureCursorCheckbox(new QCheckBox),
+	mUseInstantSaveCheckBox(new QCheckBox),
+	mImgurForceAnonymousCheckbox(new QCheckBox),
+	mImgurDirectLinkToImageCheckbox(new QCheckBox),
+	mImgurAlwaysCopyToClipboardCheckBox(new QCheckBox),
+	mImgurConfirmBeforeUploadCheckbox(new QCheckBox),
+	mSmoothPathCheckbox(new QCheckBox),
+	mItemShadowCheckbox(new QCheckBox),
+	mSnippingAreaRulersCheckbox(new QCheckBox),
+	mSnippingAreaPositionAndSizeInfoCheckbox(new QCheckBox),
+	mSnippingAreaMagnifyingGlassCheckbox(new QCheckBox),
+	mFreezeImageWhileSnippingCheckbox(new QCheckBox),
+	mSaveLocationLineEdit(new QLineEdit),
+	mImgurClientIdLineEdit(new QLineEdit),
+	mImgurClientSecretLineEdit(new QLineEdit),
+	mImgurPinLineEdit(new QLineEdit),
+	mSaveLocationLabel(new QLabel),
+	mImgurUsernameLabel(new QLabel),
+	mTextFontLabel(new QLabel),
+	mNumberFontLabel(new QLabel),
+	mSmoothFactorLabel(new QLabel),
+	mSnippingCursorSizeLabel(new QLabel),
+	mSnippingCursorColorLabel(new QLabel),
+	mApplicationStyleLabel(new QLabel),
+	mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
+	mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
+	mTextFontCombobox(new QFontComboBox(this)),
+	mNumberFontCombobox(new QFontComboBox(this)),
+	mApplicationStyleCombobox(new QComboBox(this)),
+	mBrowseButton(new QPushButton),
+	mImgurGetPinButton(new QPushButton),
+	mImgurGetTokenButton(new QPushButton),
+	mOkButton(new QPushButton),
+	mCancelButton(new QPushButton),
+	mImgurHistoryButton(new QPushButton),
+	mTextBoldButton(new QToolButton),
+	mTextItalicButton(new QToolButton),
+	mTextUnderlineButton(new QToolButton),
+	mSnippingCursorColorButton(new ColorButton),
+	mImgurUploader(new ImgurUploader),
+	mListWidget(new QListWidget),
+	mStackedLayout(new QStackedLayout),
+	mConfig(KsnipConfig::instance())
 {
-    setWindowTitle(QApplication::applicationName() + " - " + tr("Settings"));
+    setWindowTitle(QApplication::applicationName() + QStringLiteral(" - ") + tr("Settings"));
 
     initGui();
 
     loadSettings();
 
-    connect(mImgurUploader, &ImgurUploader::tokenUpdated,
-            this, &SettingsDialog::imgurTokenUpdated);
-    connect(mImgurUploader, &ImgurUploader::error,
-            this, &SettingsDialog::imgurTokenError);
+    connect(mImgurUploader, &ImgurUploader::tokenUpdated, this, &SettingsDialog::imgurTokenUpdated);
+    connect(mImgurUploader, &ImgurUploader::error, this, &SettingsDialog::imgurTokenError);
     connect(mListWidget, &QListWidget::itemSelectionChanged, [this]() {
         mStackedLayout->setCurrentIndex(mListWidget->currentRow());
     });
@@ -100,13 +99,14 @@ SettingsDialog::~SettingsDialog()
     delete mImgurConfirmBeforeUploadCheckbox;
     delete mSmoothPathCheckbox;
     delete mItemShadowCheckbox;
-    delete mCursorRulerCheckbox;
-    delete mCursorInfoCheckbox;
+	delete mSnippingAreaRulersCheckbox;
+	delete mSnippingAreaPositionAndSizeInfoCheckbox;
+	delete mSnippingAreaMagnifyingGlassCheckbox;
+	delete mFreezeImageWhileSnippingCheckbox;
     delete mSaveLocationLineEdit;
     delete mImgurClientIdLineEdit;
     delete mImgurClientSecretLineEdit;
     delete mImgurPinLineEdit;
-    delete mCaptureDelayLabel;
     delete mSaveLocationLabel;
     delete mImgurUsernameLabel;
     delete mTextFontLabel;
@@ -114,16 +114,18 @@ SettingsDialog::~SettingsDialog()
     delete mSmoothFactorLabel;
     delete mSnippingCursorSizeLabel;
     delete mSnippingCursorColorLabel;
-    delete mCaptureDelayCombobox;
+    delete mApplicationStyleLabel;
     delete mSmoothFactorCombobox;
     delete mSnippingCursorSizeCombobox;
     delete mTextFontCombobox;
     delete mNumberFontCombobox;
+    delete mApplicationStyleCombobox;
     delete mBrowseButton;
     delete mImgurGetPinButton;
     delete mImgurGetTokenButton;
     delete mOkButton;
     delete mCancelButton;
+	delete mImgurHistoryButton;
     delete mTextBoldButton;
     delete mTextItalicButton;
     delete mTextUnderlineButton;
@@ -137,8 +139,8 @@ void SettingsDialog::loadSettings()
 {
     mAlwaysCopyToClipboardCheckbox->setChecked(mConfig->alwaysCopyToClipboard());
     mPromptToSaveBeforeExitCheckbox->setChecked(mConfig->promptSaveBeforeExit());
-    mSaveKsnipPositionCheckbox->setChecked(mConfig->saveKsnipPosition());
-    mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveKsnipToolSelection());
+    mSaveKsnipPositionCheckbox->setChecked(mConfig->savePosition());
+    mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveToolSelection());
     mCaptureOnStartupCheckbox->setChecked(mConfig->captureOnStartup());
     mUseInstantSaveCheckBox->setChecked(mConfig->useInstantSave());
 
@@ -152,10 +154,11 @@ void SettingsDialog::loadSettings()
         mImgurClientIdLineEdit->setPlaceholderText(mConfig->imgurClientId());
     }
 
+	mFreezeImageWhileSnippingCheckbox->setChecked(mConfig->freezeImageWhileSnippingEnabled());
+	mSnippingAreaMagnifyingGlassCheckbox->setChecked(mConfig->snippingAreaMagnifyingGlassEnabled());
     mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());
-    mCaptureDelayCombobox->setValue(mConfig->captureDelay() / 1000);
-    mCursorRulerCheckbox->setChecked(mConfig->cursorRulerEnabled());
-    mCursorInfoCheckbox->setChecked(mConfig->cursorInfoEnabled());
+	mSnippingAreaRulersCheckbox->setChecked(mConfig->snippingAreaRulersEnabled());
+	mSnippingAreaPositionAndSizeInfoCheckbox->setChecked(mConfig->snippingAreaPositionAndSizeInfoEnabled());
     mSnippingCursorColorButton->setColor(mConfig->snippingCursorColor());
     mSnippingCursorSizeCombobox->setValue(mConfig->snippingCursorSize());
 
@@ -164,31 +167,33 @@ void SettingsDialog::loadSettings()
     mTextItalicButton->setChecked(mConfig->textItalic());
     mTextUnderlineButton->setChecked(mConfig->textUnderline());
     mNumberFontCombobox->setCurrentFont(mConfig->numberFont());
+    mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
     mItemShadowCheckbox->setChecked(mConfig->itemShadowEnabled());
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
     smootPathCheckboxClicked(mConfig->smoothPathEnabled());
-    mDynamicCursorSize->setChecked(mConfig->dynamicCursorSizeEnabled());
 }
 
 void SettingsDialog::saveSettings()
 {
     mConfig->setAlwaysCopyToClipboard(mAlwaysCopyToClipboardCheckbox->isChecked());
     mConfig->setPromptSaveBeforeExit(mPromptToSaveBeforeExitCheckbox->isChecked());
-    mConfig->setSaveKsnipPosition(mSaveKsnipPositionCheckbox->isChecked());
-    mConfig->setSaveKsnipToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
+    mConfig->setSavePosition(mSaveKsnipPositionCheckbox->isChecked());
+    mConfig->setSaveToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
     mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
     mConfig->setUseInstantSave(mUseInstantSaveCheckBox->isChecked());
+    mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 
     mConfig->setImgurForceAnonymous(mImgurForceAnonymousCheckbox->isChecked());
     mConfig->setImgurOpenLinkDirectlyToImage(mImgurDirectLinkToImageCheckbox->isChecked());
     mConfig->setImgurAlwaysCopyToClipboard(mImgurAlwaysCopyToClipboardCheckBox->isChecked());
     mConfig->setImgurConfirmBeforeUpload(mImgurConfirmBeforeUploadCheckbox->isChecked());
 
+	mConfig->setFreezeImageWhileSnippingEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());
+	mConfig->setSnippingAreaMagnifyingGlassEnabled(mSnippingAreaMagnifyingGlassCheckbox->isChecked());
     mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
-    mConfig->setCaptureDelay(mCaptureDelayCombobox->value() * 1000);
-    mConfig->setCursorRulerEnabled(mCursorRulerCheckbox->isChecked());
-    mConfig->setCursorInfoEnabled(mCursorInfoCheckbox->isChecked());
+	mConfig->setsnippingAreaRulersEnabled(mSnippingAreaRulersCheckbox->isChecked());
+	mConfig->setSnippingAreaPositionAndSizeInfoEnabled(mSnippingAreaPositionAndSizeInfoCheckbox->isChecked());
     mConfig->setSnippingCursorColor(mSnippingCursorColorButton->color());
     mConfig->setSnippingCursorSize(mSnippingCursorSizeCombobox->value());
 
@@ -204,7 +209,6 @@ void SettingsDialog::saveSettings()
     mConfig->setItemShadowEnabled(mItemShadowCheckbox->isChecked());
     mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
-    mConfig->setDynamicCursorSizeEnabled(mDynamicCursorSize->isChecked());
 }
 
 void SettingsDialog::initGui()
@@ -221,7 +225,14 @@ void SettingsDialog::initGui()
     mUseInstantSaveCheckBox->setToolTip(tr("When enabled, will not ask where to save a screenshot\n"
                                            "when saving, but will save instantly to default location."));
 
-    mSaveLocationLabel->setText(tr("Capture save location and filename") + ":");
+    mApplicationStyleLabel->setText(tr("Application Style") + QStringLiteral(":"));
+    mApplicationStyleLabel->setToolTip(tr("Sets the application style which defines the look and feel of the GUI.\n"
+                                          "Change requires ksnip restart to take effect."));
+	mApplicationStyleCombobox->addItems(QStyleFactory::keys());
+    mApplicationStyleCombobox->setToolTip(mApplicationStyleLabel->toolTip());
+    mApplicationStyleCombobox->setFixedWidth(100);
+
+    mSaveLocationLabel->setText(tr("Capture save location and filename") + QStringLiteral(":"));
 
     mSaveLocationLineEdit->setText(mConfig->saveDirectory() +
                                    mConfig->saveFilename() +
@@ -232,30 +243,40 @@ void SettingsDialog::initGui()
     connect(mBrowseButton, &QPushButton::clicked, this, &SettingsDialog::chooseSaveDirectory);
 
     // Create Image Grabber Settings
-    mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot"));
-    mCaptureCursorCheckbox->setToolTip(tr("Should mouse cursor be visible on\n"
-                                          "screenshots."));
-    mCaptureDelayLabel->setText(tr("Delay (sec)") + ":");
-    mCaptureDelayLabel->setToolTip(tr("Sets the delay between triggering a capture\n"
-                                      "and the moment when the capture is taken, in\n"
-                                      "seconds."));
-    mCaptureDelayCombobox->setToolTip(mCaptureDelayLabel->toolTip());
-    mCaptureDelayCombobox->setMinimumWidth(fixedButtonSize);
-    mCursorRulerCheckbox->setText(tr("Show snipping cursor ruler"));
-    mCursorRulerCheckbox->setToolTip(tr("Horizontal and vertical lines going from\n"
-                                        "desktop corner to cursor on snipping area."));
-    mCursorInfoCheckbox->setText(tr("Show cursor position info"));
-    mCursorInfoCheckbox->setToolTip(tr("When left mouse is not pressed the position\n"
-                                       "is show, when the mouse button is pressed,\n"
-                                       "the size of the select area is shown left\n"
-                                       "and right from the captured area."));
-    mSnippingCursorColorLabel->setText(tr("Cursor Color") + ":");
+	mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot"));
+	mCaptureCursorCheckbox->setToolTip(tr("Should mouse cursor be visible on\n"
+	                                      "screenshots."));
+	mFreezeImageWhileSnippingCheckbox->setText(tr("Freeze Image while snipping"));
+	mFreezeImageWhileSnippingCheckbox->setToolTip(tr("When enabled will freeze the background while\n"
+	                                                 "selecting a rectangular region. It also changes\n"
+	                                                 "the behavior of delayed screenshots, with this\n"
+	                                                 "option enabled the delay happens before the\n"
+	                                                 "snipping area is show and with the option disabled\n"
+	                                                 "the delay happens after the snipping area is shown."));
+	connect(mFreezeImageWhileSnippingCheckbox, &QCheckBox::stateChanged, [this]()
+	{
+		mSnippingAreaMagnifyingGlassCheckbox->setEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());
+	});
+	mSnippingAreaMagnifyingGlassCheckbox->setText(tr("Show magnifying glass on snipping area"));
+	mSnippingAreaMagnifyingGlassCheckbox->setToolTip(tr("Show a magnifying glass which zooms into\n"
+	                                                    "the background image. This option only works\n"
+	                                                    "with 'Freeze Image while snipping' enabled."));
+	mSnippingAreaMagnifyingGlassCheckbox->setEnabled(false);
+	mSnippingAreaRulersCheckbox->setText(tr("Show Snipping Area rulers"));
+	mSnippingAreaRulersCheckbox->setToolTip(tr("Horizontal and vertical lines going from\n"
+	                                           "desktop edges to cursor on snipping area."));
+	mSnippingAreaPositionAndSizeInfoCheckbox->setText(tr("Show Snipping Area position and size info"));
+	mSnippingAreaPositionAndSizeInfoCheckbox->setToolTip(tr("When left mouse is not pressed the position\n"
+	                                                 "is show, when the mouse button is pressed,\n"
+	                                                 "the size of the select area is shown left\n"
+	                                                 "and above from the captured area."));
+	mSnippingCursorColorLabel->setText(tr("Snipping Area cursor color") + QStringLiteral(":"));
     mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area\n"
                                           "cursor. Change requires ksnip restart to\n"
                                           "take effect."));
     mSnippingCursorColorButton->setMinimumWidth(fixedButtonSize);
     mSnippingCursorColorButton->setToolTip(mSnippingCursorColorLabel->toolTip());
-    mSnippingCursorSizeLabel->setText(tr("Cursor Thickness") + ":");
+	mSnippingCursorSizeLabel->setText(tr("Snipping Area cursor thickness") + QStringLiteral(":"));
     mSnippingCursorSizeLabel->setToolTip(tr("Sets the thickness of the snipping area\n"
                                             "cursor. Change requires ksnip restart to\n"
                                             "take effect."));
@@ -269,32 +290,27 @@ void SettingsDialog::initGui()
     mImgurConfirmBeforeUploadCheckbox->setText(tr("Ask for confirmation before uploading"));
 
     mImgurClientIdLineEdit->setPlaceholderText(tr("Client ID"));
-    connect(mImgurClientIdLineEdit, &QLineEdit::textChanged,
-            this, &SettingsDialog::imgurClientEntered);
+    connect(mImgurClientIdLineEdit, &QLineEdit::textChanged, this, &SettingsDialog::imgurClientEntered);
 
     mImgurClientSecretLineEdit->setPlaceholderText(tr("Client Secret"));
-    connect(mImgurClientSecretLineEdit, &QLineEdit::textChanged,
-            this, &SettingsDialog::imgurClientEntered);
+    connect(mImgurClientSecretLineEdit, &QLineEdit::textChanged, this, &SettingsDialog::imgurClientEntered);
 
     mImgurPinLineEdit->setPlaceholderText(tr("PIN"));
     mImgurPinLineEdit->setToolTip(tr("Enter imgur Pin which will be exchanged for a token."));
     connect(mImgurPinLineEdit, &QLineEdit::textChanged, [this](const QString & text) {
-        if(text.length() > 8) {
-            mImgurGetTokenButton->setEnabled(true);
-        } else {
-            mImgurGetTokenButton->setEnabled(false);
-        }
+        mImgurGetTokenButton->setEnabled(text.length() > 8);
     });
 
     mImgurGetPinButton->setText(tr("Get PIN"));
-    connect(mImgurGetPinButton, &QPushButton::clicked,
-            this, &SettingsDialog::requestImgurPin);
+    connect(mImgurGetPinButton, &QPushButton::clicked, this, &SettingsDialog::requestImgurPin);
     mImgurGetPinButton->setEnabled(false);
 
     mImgurGetTokenButton->setText(tr("Get Token"));
-    connect(mImgurGetTokenButton, &QPushButton::clicked,
-            this, &SettingsDialog::getImgurToken);
+    connect(mImgurGetTokenButton, &QPushButton::clicked, this, &SettingsDialog::getImgurToken);
     mImgurGetTokenButton->setEnabled(false);
+
+	mImgurHistoryButton->setText(tr("Imgur History"));
+	connect(mImgurHistoryButton, &QPushButton::clicked, this, &SettingsDialog::showImgurHistoryDialog);
 
     // Create Painter Settings
     mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
@@ -303,51 +319,36 @@ void SettingsDialog::initGui()
     mSmoothPathCheckbox->setText(tr("Smooth Painter Paths"));
     mSmoothPathCheckbox->setToolTip(tr("When enabled smooths out pen and\n"
                                        "marker paths after finished drawing."));
-    connect(mSmoothPathCheckbox, &QCheckBox::clicked,
-            this, &SettingsDialog::smootPathCheckboxClicked);
+    connect(mSmoothPathCheckbox, &QCheckBox::clicked, this, &SettingsDialog::smootPathCheckboxClicked);
 
-    mSmoothFactorLabel->setText(tr("Smooth Factor") + ":");
+    mSmoothFactorLabel->setText(tr("Smooth Factor") + QStringLiteral(":"));
     mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"
                                       "precision for pen and marker but will\n"
                                       "make them more smooth."));
     mSmoothFactorCombobox->setMinimumWidth(fixedButtonSize);
     mSmoothFactorCombobox->setToolTip(mSmoothFactorLabel->toolTip());
 
-    mTextFontLabel->setText(tr("Text Font") + ":");
+    mTextFontLabel->setText(tr("Text Font") + QStringLiteral(":"));
     mTextFontLabel->setToolTip(tr("Sets the font for the Text Paint Item."));
     mTextFontCombobox->setToolTip(mTextFontLabel->toolTip());
     mTextFontCombobox->setEditable(false);
 
-    // Setting the button to same square size as the height of the combobox
-    auto size = mTextFontCombobox->minimumSizeHint().height();
-
-    mTextBoldButton->setText(tr("B"));
+	mTextBoldButton->setIcon(IconLoader::load(QStringLiteral("bold.svg")));
     mTextBoldButton->setToolTip(tr("Bold"));
     mTextBoldButton->setCheckable(true);
-    mTextBoldButton->setFixedSize(size, size);
-    mTextBoldButton->setStyleSheet(QStringLiteral("QPushButton { font-size: 18pt; font-weight: bold; }"));
 
-    mTextItalicButton->setText(tr("I"));
+	mTextItalicButton->setIcon(IconLoader::load(QStringLiteral("italic.svg")));
     mTextItalicButton->setToolTip(tr("Italic"));
     mTextItalicButton->setCheckable(true);
-    mTextItalicButton->setFixedSize(size, size);
-    mTextItalicButton->setStyleSheet(QStringLiteral("QPushButton { font-size: 18pt; font-style: italic; }"));
 
-    mTextUnderlineButton->setText(tr("U"));
+	mTextUnderlineButton->setIcon(IconLoader::load(QStringLiteral("underline.svg")));
     mTextUnderlineButton->setToolTip(tr("Underline"));
     mTextUnderlineButton->setCheckable(true);
-    mTextUnderlineButton->setFixedSize(size, size);
-    mTextUnderlineButton->setStyleSheet(QStringLiteral("QPushButton { font-size: 18pt; text-decoration: underline; }"));
 
-    mNumberFontLabel->setText(tr("Numbering Font") + ":");
+    mNumberFontLabel->setText(tr("Numbering Font") + QStringLiteral(":"));
     mNumberFontLabel->setToolTip(tr("Sets the font for the Numbering Paint Item."));
     mNumberFontCombobox->setToolTip(mNumberFontLabel->toolTip());
     mNumberFontCombobox->setEditable(false);
-
-    mDynamicCursorSize->setText(tr("Dynamic Cursor Size"));
-    mDynamicCursorSize->setToolTip(tr("When enabled, the painter cursor size\n"
-                                      "matches the selected tool size.\n"
-                                      "Requires switching tool to become active."));
 
     // Create Push Buttons
     mOkButton->setText(tr("OK"));
@@ -364,17 +365,20 @@ void SettingsDialog::initGui()
     // Setup Application Settings Layout
     auto applicationGrid = new QGridLayout;
     applicationGrid->setAlignment(Qt::AlignTop);
-    applicationGrid->setColumnStretch(0, 1);
-    applicationGrid->addWidget(mAlwaysCopyToClipboardCheckbox, 0, 0);
-    applicationGrid->addWidget(mPromptToSaveBeforeExitCheckbox, 1, 0);
-    applicationGrid->addWidget(mSaveKsnipPositionCheckbox, 2, 0);
-    applicationGrid->addWidget(mSaveKsnipToolSelectionCheckbox, 3, 0);
-    applicationGrid->addWidget(mCaptureOnStartupCheckbox, 4, 0);
-    applicationGrid->addWidget(mUseInstantSaveCheckBox, 5, 0);
+    applicationGrid->addWidget(mAlwaysCopyToClipboardCheckbox, 0, 0, 1, 3);
+    applicationGrid->addWidget(mPromptToSaveBeforeExitCheckbox, 1, 0, 1, 3);
+    applicationGrid->addWidget(mSaveKsnipPositionCheckbox, 2, 0, 1, 3);
+    applicationGrid->addWidget(mSaveKsnipToolSelectionCheckbox, 3, 0, 1, 3);
+    applicationGrid->addWidget(mCaptureOnStartupCheckbox, 4, 0, 1, 3);
+    applicationGrid->addWidget(mUseInstantSaveCheckBox, 5, 0, 1, 3);
     applicationGrid->setRowMinimumHeight(6, 15);
-    applicationGrid->addWidget(mSaveLocationLabel, 7, 0);
-    applicationGrid->addWidget(mSaveLocationLineEdit, 8, 0);
-    applicationGrid->addWidget(mBrowseButton, 8, 3);
+    applicationGrid->addWidget(mApplicationStyleLabel, 7, 0);
+    applicationGrid->addWidget(mApplicationStyleCombobox, 7, 1, Qt::AlignLeft);
+    applicationGrid->setRowMinimumHeight(8, 15);
+    applicationGrid->addWidget(mSaveLocationLabel, 9, 0, 1, 3);
+    applicationGrid->addWidget(mSaveLocationLineEdit, 10, 0, 1, 3);
+    applicationGrid->addWidget(mBrowseButton, 10, 4);
+
 
     auto applicationGrpBox = new QGroupBox(tr("Application Settings"));
     applicationGrpBox->setLayout(applicationGrid);
@@ -383,17 +387,16 @@ void SettingsDialog::initGui()
     auto imageGrabberGrid = new QGridLayout;
     imageGrabberGrid->setAlignment(Qt::AlignTop);
     imageGrabberGrid->setColumnStretch(1, 1);
-    imageGrabberGrid->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 2);
-    imageGrabberGrid->addWidget(mCursorRulerCheckbox, 1, 0, 1, 2);
-    imageGrabberGrid->addWidget(mCursorInfoCheckbox, 2, 0, 1, 2);
-    imageGrabberGrid->setRowMinimumHeight(3, 15);
-    imageGrabberGrid->addWidget(mCaptureDelayLabel, 4, 0);
-    imageGrabberGrid->addWidget(mCaptureDelayCombobox, 4, 1, Qt::AlignLeft);
-    imageGrabberGrid->setRowMinimumHeight(5, 15);
-    imageGrabberGrid->addWidget(mSnippingCursorColorLabel, 6, 0);
-    imageGrabberGrid->addWidget(mSnippingCursorColorButton, 6, 1, Qt::AlignLeft);
-    imageGrabberGrid->addWidget(mSnippingCursorSizeLabel, 7, 0);
-    imageGrabberGrid->addWidget(mSnippingCursorSizeCombobox, 7, 1, Qt::AlignLeft);
+	imageGrabberGrid->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 2);
+	imageGrabberGrid->addWidget(mFreezeImageWhileSnippingCheckbox, 1, 0, 1, 2);
+	imageGrabberGrid->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 2, 0, 1, 2);
+	imageGrabberGrid->addWidget(mSnippingAreaRulersCheckbox, 3, 0, 1, 2);
+	imageGrabberGrid->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 4, 0, 1, 2);
+	imageGrabberGrid->setRowMinimumHeight(5, 15);
+	imageGrabberGrid->addWidget(mSnippingCursorColorLabel, 6, 0);
+	imageGrabberGrid->addWidget(mSnippingCursorColorButton, 6, 1, Qt::AlignLeft);
+	imageGrabberGrid->addWidget(mSnippingCursorSizeLabel, 7, 0);
+	imageGrabberGrid->addWidget(mSnippingCursorSizeCombobox, 7, 1, Qt::AlignLeft);
 
     auto imageGrabberGrpBox = new QGroupBox(tr("Image Grabber"));
     imageGrabberGrpBox->setLayout(imageGrabberGrid);
@@ -408,6 +411,7 @@ void SettingsDialog::initGui()
     imgurUploaderGrid->addWidget(mImgurConfirmBeforeUploadCheckbox, 3, 0);
     imgurUploaderGrid->setRowMinimumHeight(4, 15);
     imgurUploaderGrid->addWidget(mImgurUsernameLabel, 5, 0);
+	imgurUploaderGrid->addWidget(mImgurHistoryButton, 5, 3);
     imgurUploaderGrid->addWidget(mImgurClientIdLineEdit, 6, 0);
     imgurUploaderGrid->addWidget(mImgurClientSecretLineEdit, 7, 0);
     imgurUploaderGrid->addWidget(mImgurGetPinButton, 7, 3);
@@ -435,14 +439,12 @@ void SettingsDialog::initGui()
     painterGrid->addWidget(mNumberFontLabel, 6, 0);
     painterGrid->addWidget(mNumberFontCombobox, 6, 1);
     painterGrid->setRowMinimumHeight(7, 15);
-    painterGrid->addWidget(mDynamicCursorSize, 7, 0, 1, 2);
 
-    auto painterGrpBox = new QGroupBox(tr("Painter Settings"));
-    painterGrpBox->setLayout(painterGrid);
+	auto painterGroupBox = new QGroupBox(tr("Painter Settings"));
+	painterGroupBox->setLayout(painterGrid);
 
     // Setup Push Button Layout
     auto buttonLayout = new QHBoxLayout;
-    buttonLayout = new QHBoxLayout;
     buttonLayout->addWidget(mOkButton);
     buttonLayout->addWidget(mCancelButton);
     buttonLayout->setAlignment(Qt::AlignRight);
@@ -451,7 +453,7 @@ void SettingsDialog::initGui()
     mStackedLayout->addWidget(applicationGrpBox);
     mStackedLayout->addWidget(imageGrabberGrpBox);
     mStackedLayout->addWidget(imgurUploaderGrpBox);
-    mStackedLayout->addWidget(painterGrpBox);
+	mStackedLayout->addWidget(painterGroupBox);
 
     mListWidget->addItem(tr("Application"));
     mListWidget->addItem(tr("Image Grabber"));
@@ -533,7 +535,7 @@ void SettingsDialog::imgurTokenUpdated(const QString& accessToken,
 
 /*
  * Something went wrong while requesting a new token, we write the message to
- * shell and inform the user via statusbar.
+ * shell.
  */
 void SettingsDialog::imgurTokenError(const QString& message)
 {
@@ -560,4 +562,10 @@ void SettingsDialog::chooseSaveDirectory()
 
         mSaveLocationLineEdit->setText(path);
     }
+}
+
+void SettingsDialog::showImgurHistoryDialog()
+{
+	ImgurHistoryDialog dialog;
+	dialog.exec();
 }

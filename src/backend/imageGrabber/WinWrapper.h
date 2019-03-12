@@ -26,17 +26,18 @@
 #include <wtypes.h>
 #include <dwmapi.h>
 
+#include "ImageWithPosition.h"
+
 class WinWrapper
 {
 public:
     QRect getFullScreenRect() const;
     QRect getActiveWindowRect() const;
-    QPixmap blendCursorImage(const QPixmap &pixmap, const QRect &rect) const;
+	ImageWithPosition getCursorWithPosition() const;
 
 private:
     QPixmap getCursorPixmap(const CURSORINFO &cursor) const;
     QPoint getCursorPosition(const QRect &rect, const CURSORINFO &cursor) const;
-    QPixmap drawCursorOnImage(const QPixmap &pixmap, const QPoint &cursorPosition, const QPixmap &cursorPixmap) const;
 };
 
 #endif //KSNIP_WINWRAPPER_H

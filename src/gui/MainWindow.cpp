@@ -20,21 +20,15 @@
 
 #include "MainWindow.h"
 
-MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
-    :
+MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	QMainWindow(),
 	mImageGrabber(imageGrabber),
 	mMode(mode),
 	mkImageAnnotator(new KImageAnnotator),
-	mSaveButton(new QToolButton(this)),
-	mCopyToClipboardButton(new QToolButton(this)),
-	mSaveAction(new QAction(this)),
-	mCopyToClipboardAction(new QAction(this)),
 	mUploadToImgurAction(new QAction(this)),
 	mPrintAction(new QAction(this)),
 	mPrintPreviewAction(new QAction(this)),
 	mCropAction(new QAction(this)),
-	mNewCaptureAction(new QAction(this)),
 	mQuitAction(new QAction(this)),
 	mSettingsDialogAction(new QAction(this)),
 	mAboutKsnipAction(new QAction(this)),
@@ -44,8 +38,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
 	mRedoAction(nullptr),
 	mClipboard(QApplication::clipboard()),
 	mConfig(KsnipConfig::instance()),
-	mDelayHandler(new DelayHandler(200)),
-	mCaptureModePicker(new CaptureModePicker(imageGrabber->supportedCaptureModes())),
+	mToolBar(new MainToolBar(imageGrabber->supportedCaptureModes())),
 	mCapturePrinter(new CapturePrinter),
 	mCaptureUploader(new CaptureUploader())
 
@@ -67,7 +60,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode)
 
     initGui();
 
-    setWindowIcon(IconLoader::loadIcon(QStringLiteral("ksnip")));
+	setWindowIcon(QIcon(QStringLiteral(":/ksnip")));
     move(mConfig->windowPosition());
 
 	connect(mConfig, &KsnipConfig::toolConfigChanged, this, &MainWindow::setupImageAnnotator);
@@ -98,7 +91,7 @@ void MainWindow::screenshotChanged()
     setSaveAble(true);
 
     if (mConfig->alwaysCopyToClipboard()) {
-	    copyToClipboard();
+        copyCaptureToClipboard();
     }
 }
 
@@ -108,8 +101,7 @@ void MainWindow::screenshotChanged()
 
 void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay)
 {
-    delay = mDelayHandler->getDelay(delay);
-    mImageGrabber->grabImage(captureMode, captureCursor, delay);
+	mImageGrabber->grabImage(captureMode, captureCursor, delay, mConfig->freezeImageWhileSnippingEnabled());
 }
 
 void MainWindow::showCapture(const QPixmap& screenshot)
@@ -123,7 +115,7 @@ void MainWindow::showCapture(const QPixmap& screenshot)
 	mkImageAnnotator->loadImage(screenshot);
 
     if (mConfig->alwaysCopyToClipboard()) {
-        copyToClipboard();
+        copyCaptureToClipboard();
     }
 
     setHidden(false);
@@ -193,8 +185,8 @@ void MainWindow::setSaveAble(bool enabled)
     } else {
         setWindowTitle(QApplication::applicationName());
     }
-    mSaveAction->setEnabled(enabled);
     mIsUnsaved = enabled;
+    mToolBar->setSaveActionEnabled(enabled);
 }
 
 void MainWindow::setEnablements(bool enabled)
@@ -203,22 +195,14 @@ void MainWindow::setEnablements(bool enabled)
     mPrintAction->setEnabled(enabled);
     mPrintPreviewAction->setEnabled(enabled);
     mUploadToImgurAction->setEnabled(enabled);
-    mCopyToClipboardAction->setEnabled(enabled);
 	mScaleAction->setEnabled(enabled);
+	mToolBar->setCopyToClipboardActionEnabled(enabled);
 }
 
 void MainWindow::loadSettings()
 {
-    mCaptureModePicker->setCaptureMode(mConfig->captureMode());
-}
-
-void MainWindow::copyToClipboard()
-{
-	auto image = mkImageAnnotator->image();
-    if (image.isNull()) {
-        return;
-    }
-    mClipboard->setImage(image);
+    mToolBar->selectCaptureMode(mConfig->captureMode());
+    mToolBar->setCaptureDelay(mConfig->captureDelay() / 1000);
 }
 
 void MainWindow::setHidden(bool isHidden)
@@ -247,7 +231,7 @@ void MainWindow::capture(CaptureModes captureMode)
     setHidden(true);
     mConfig->setCaptureMode(captureMode);
 
-    captureScreenshot(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
+	captureScreenshot(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
 }
 
 void MainWindow::triggerNewCapture(CaptureModes captureMode)
@@ -262,27 +246,15 @@ void MainWindow::triggerNewCapture(CaptureModes captureMode)
 
 void MainWindow::initGui()
 {
-    connect(mCaptureModePicker, &CaptureModePicker::captureModeSelected, this, &MainWindow::triggerNewCapture);
-
-    mSaveAction->setText(tr("Save"));
-    mSaveAction->setToolTip(tr("Save Screen Capture to file system"));
-    mSaveAction->setIcon(IconLoader::loadIcon(QStringLiteral("save")));
-    mSaveAction->setShortcut(QKeySequence::Save);
-    connect(mSaveAction, &QAction::triggered, this, &MainWindow::saveCapture);
-
-    mCopyToClipboardAction->setText(tr("Copy"));
-    mCopyToClipboardAction->setToolTip(tr("Copy Screen Capture to clipboard"));
-    mCopyToClipboardAction->setIcon(IconLoader::loadIcon(QStringLiteral("copyToClipboard")));
-    mCopyToClipboardAction->setShortcut(QKeySequence::Copy);
-    connect(mCopyToClipboardAction, &QAction::triggered, [this]() {
-        copyToClipboard();
-    });
+    connect(mToolBar, &MainToolBar::captureModeSelected, this, &MainWindow::triggerNewCapture);
+    connect(mToolBar, &MainToolBar::saveActionTriggered, this, &MainWindow::saveCapture);
+    connect(mToolBar, &MainToolBar::copyToClipboardActionTriggered, this, &MainWindow::copyCaptureToClipboard);
+    connect(mToolBar, &MainToolBar::captureDelayChanged, this, &MainWindow::captureDelayChanged);
 
     mUploadToImgurAction->setText(tr("Upload"));
     mUploadToImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
     mUploadToImgurAction->setShortcut(Qt::SHIFT + Qt::Key_U);
-    connect(mUploadToImgurAction, &QAction::triggered,
-            this, &MainWindow::upload);
+    connect(mUploadToImgurAction, &QAction::triggered, this, &MainWindow::upload);
 
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
@@ -294,8 +266,7 @@ void MainWindow::initGui()
     mPrintPreviewAction->setToolTip(tr("Opens Print Preview dialog where the image "
                                        "orientation can be changed"));
     mPrintPreviewAction->setIcon(QIcon::fromTheme(QStringLiteral("document-print-preview")));
-    connect(mPrintPreviewAction, &QAction::triggered,
-            this, &MainWindow::printPreviewClicked);
+    connect(mPrintPreviewAction, &QAction::triggered, this, &MainWindow::printPreviewClicked);
 
     mCropAction->setText(tr("Crop"));
     mCropAction->setToolTip(tr("Crop Screen Capture"));
@@ -306,11 +277,6 @@ void MainWindow::initGui()
     mScaleAction->setToolTip(tr("Scale Screen Capture"));
     mScaleAction->setShortcut(Qt::SHIFT + Qt::Key_S);
 	connect(mScaleAction, &QAction::triggered, mkImageAnnotator, &KImageAnnotator::showScaler);
-
-    mNewCaptureAction->setText(tr("New"));
-    mNewCaptureAction->setShortcut(QKeySequence::New);
-    connect(mNewCaptureAction, &QAction::triggered,
-            mCaptureModePicker, &CustomToolButton::trigger);
 
     mQuitAction->setText(tr("Quit"));
     mQuitAction->setShortcut(QKeySequence::Quit);
@@ -325,7 +291,7 @@ void MainWindow::initGui()
     });
 
     mAboutKsnipAction->setText(tr("&About"));
-    mAboutKsnipAction->setIcon(IconLoader::loadIcon(QStringLiteral("ksnip")));
+	mAboutKsnipAction->setIcon(QIcon(QStringLiteral(":/ksnip")));
     connect(mAboutKsnipAction, &QAction::triggered, [this]() {
         AboutDialog aboutDialog(this);
         aboutDialog.exec();
@@ -342,19 +308,10 @@ void MainWindow::initGui()
     mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
     connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::loadImageFromFile);
 
-    mSaveButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    mSaveButton->addAction(mSaveAction);
-    mSaveButton->setDefaultAction(mSaveAction);
-
-    mCopyToClipboardButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    mCopyToClipboardButton->addAction(mCopyToClipboardAction);
-    mCopyToClipboardButton->setDefaultAction(mCopyToClipboardAction);
-
-    QMenu* menu;
-    menu = menuBar()->addMenu(tr("File"));
-    menu->addAction(mNewCaptureAction);
+	auto menu = menuBar()->addMenu(tr("File"));
+    menu->addAction(mToolBar->newCaptureAction());
     menu->addAction(mOpenImageAction);
-    menu->addAction(mSaveAction);
+    menu->addAction(mToolBar->saveAction());
     menu->addAction(mUploadToImgurAction);
     menu->addSeparator();
     menu->addAction(mPrintAction);
@@ -365,7 +322,7 @@ void MainWindow::initGui()
     menu->addAction(mUndoAction);
     menu->addAction(mRedoAction);
     menu->addSeparator();
-    menu->addAction(mCopyToClipboardAction);
+    menu->addAction(mToolBar->copyToClipboardAction());
     menu->addAction(mCropAction);
     menu->addAction(mScaleAction);
     menu = menuBar()->addMenu(tr("&Options"));
@@ -373,15 +330,7 @@ void MainWindow::initGui()
     menu = menuBar()->addMenu(tr("&Help"));
     menu->addAction(mAboutKsnipAction);
 
-    mToolBar = addToolBar(tr("Tools"));
-    mToolBar->setFloatable(false);
-    mToolBar->setMovable(false);
-    mToolBar->setAllowedAreas(Qt::BottomToolBarArea);
-    mToolBar->addWidget(mCaptureModePicker);
-    mToolBar->addSeparator();
-    mToolBar->addWidget(mSaveButton);
-    mToolBar->addWidget(mCopyToClipboardButton);
-    mToolBar->setFixedSize(mToolBar->sizeHint());
+    addToolBar(mToolBar);
 
 	setCentralWidget(mkImageAnnotator);
 }
@@ -411,6 +360,15 @@ void MainWindow::saveCapture()
     }
 
     setSaveAble(false);
+}
+
+void MainWindow::copyCaptureToClipboard()
+{
+    auto image = mkImageAnnotator->image();
+    if (image.isNull()) {
+        return;
+    }
+    mClipboard->setImage(image);
 }
 
 void MainWindow::upload()
@@ -510,10 +468,15 @@ QString &MainWindow::formatUrl(QString &message) const
 
 void MainWindow::setupImageAnnotator()
 {
-	mkImageAnnotator->setSaveToolSelection(mConfig->saveKsnipToolSelection());
+	mkImageAnnotator->setSaveToolSelection(mConfig->saveToolSelection());
 	mkImageAnnotator->setSmoothFactor(mConfig->smoothFactor());
 	mkImageAnnotator->setSmoothPathEnabled(mConfig->smoothPathEnabled());
 	mkImageAnnotator->setTextFont(mConfig->textFont());
 	mkImageAnnotator->setNumberFont(mConfig->numberFont());
 	mkImageAnnotator->setItemShadowEnabled(mConfig->itemShadowEnabled());
+}
+
+void MainWindow::captureDelayChanged(int delay)
+{
+    mConfig->setCaptureDelay(delay * 1000);
 }

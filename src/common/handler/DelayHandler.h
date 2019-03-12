@@ -23,11 +23,12 @@
 class DelayHandler
 {
 public:
-    explicit DelayHandler(int minDelayInMs);
+	explicit DelayHandler();
     int getDelay(int delay);
+	int minDelayInMs() const;
 
 private:
-    int mMinDelay;
+	int mMinDelayInMs;
 };
 
 #endif //KSNIP_DELAYHANDLER_H

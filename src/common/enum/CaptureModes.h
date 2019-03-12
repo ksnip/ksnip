@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef CAPTUREMODES_H
-#define CAPTUREMODES_H
+#ifndef KSNIP_CAPTUREMODES_H
+#define KSNIP_CAPTUREMODES_H
 
 enum class CaptureModes
 {
@@ -29,4 +29,4 @@ enum class CaptureModes
     WindowUnderCursor
 };
 
-#endif // CAPTUREMODES_H
+#endif // KSNIP_CAPTUREMODES_H

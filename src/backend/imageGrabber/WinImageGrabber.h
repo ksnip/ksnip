@@ -22,7 +22,7 @@
 
 #include "AbstractImageGrabber.h"
 #include "WinWrapper.h"
-#include "src/gui/WinSnippingArea.h"
+#include "gui/snippingArea/WinSnippingArea.h"
 
 class WinImageGrabber : public AbstractImageGrabber
 {
@@ -31,16 +31,13 @@ public:
     explicit WinImageGrabber();
     ~WinImageGrabber() override = default;
 
-    void grabImage(CaptureModes captureMode, bool captureCursor = true, int delay = 0) override;
-
-protected slots:
-    void grab() override;
+protected:
+	QRect fullScreenRect() const override;
+	QRect activeWindowRect() const override;
+	ImageWithPosition getCursorWithPosition() const override;
 
 private:
     WinWrapper *mWinWrapper;
-
-    void setRectFromCorrectSource();
-    QPixmap grabPixmap() const;
 };
 
 

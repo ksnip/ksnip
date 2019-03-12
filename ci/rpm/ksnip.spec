@@ -39,7 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 /bin/%{name}
 %{_usr}/share/applications/%{name}.desktop
-%{_usr}/share/pixmaps/%{name}.png
+%{_usr}/share/pixmaps/%{name}.svg
 %{_usr}/share/%{name}/translations/%{name}_*.qm
 %{_usr}/share/metainfo/%{name}.appdata.xml
 

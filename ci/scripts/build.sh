@@ -19,4 +19,9 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     mv build/src/ksnip*.exe packageDir/ksnip.exe
     windeployqt.exe packageDir/ksnip.exe
     7z a ksnip-$VERSION-windows-x86_64.zip ./packageDir/*
+elif [[ "${BUILD_TYPE}" == "app" ]]; then
+    mkdir build && cd build
+    cmake .. -DVERSION_SUFIX=$VERSION_SUFFIX -DBUILD_NUMBER=$BUILD_NUMBER -DCMAKE_BUILD_TYPE=Release
+    make
+    cd ../..
 fi

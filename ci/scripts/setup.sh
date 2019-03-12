@@ -71,4 +71,10 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     sudo chown -R root:root ksnip-$VERSION_NUMBER
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/setup_dependencies_windows.sh
+elif [[ "${BUILD_TYPE}" == "app" ]]; then
+    brew install qt5
+
+    export PATH="/usr/local/opt/qt/bin:$PATH"
+
+    source ci/scripts/common/setup_dependencies_linux_noSudo.sh
 fi

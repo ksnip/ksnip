@@ -18,6 +18,8 @@ matrix:
       services: docker
     - os: windows
       env: BUILD_TYPE=exe
+    - os: osx
+      env: BUILD_TYPE=app
 
 before_install:
   - source ci/scripts/bootstrap.sh

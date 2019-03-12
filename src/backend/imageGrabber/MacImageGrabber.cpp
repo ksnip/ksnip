@@ -45,4 +45,10 @@ ImageWithPosition MacImageGrabber::getCursorWithPosition() const
     return {};
 }
 
+bool MacImageGrabber::isSnippingAreaBackgroundTransparent() const
+{
+    // MacOs doesn't support transparent background
+    return false;
+}
+
 

@@ -35,6 +35,7 @@ protected slots:
     QRect fullScreenRect() const override;
     QRect activeWindowRect() const override;
     ImageWithPosition getCursorWithPosition() const override;
+    bool isSnippingAreaBackgroundTransparent() const override;
 
 private:
     MacWrapper *mMacWrapper;

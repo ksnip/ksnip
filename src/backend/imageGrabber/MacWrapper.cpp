@@ -32,7 +32,7 @@ QRect MacWrapper::getActiveWindowRect() const
     return {};
 }
 
-QPixmap MacWrapper::blendCursorImage(const QPixmap &pixmap, const QRect &rect) const
+ImageWithPosition MacWrapper::getCursorWithPosition() const
 {
-    return {};
+    return ImageWithPosition();
 }

@@ -20,16 +20,18 @@
 #ifndef KSNIP_MACWRAPPER_H
 #define KSNIP_MACWRAPPER_H
 
-#include <QPixmap>
+#include <QRect>
 
 #include "CoreGraphics/CGDirectDisplay.h"
+
+#include "ImageWithPosition.h"
 
 class MacWrapper
 {
 public:
     QRect getFullScreenRect() const;
     QRect getActiveWindowRect() const;
-    QPixmap blendCursorImage(const QPixmap &pixmap, const QRect &rect) const;
+    ImageWithPosition getCursorWithPosition() const;
 };
 
 

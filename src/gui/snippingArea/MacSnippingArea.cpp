@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,28 +17,30 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_MACIMAGEGRABBER_H
-#define KSNIP_MACIMAGEGRABBER_H
+#include "MacSnippingArea.h"
 
-#include "AbstractImageGrabber.h"
-#include "MacWrapper.h"
-#include "src/gui/snippingArea/MacSnippingArea.h"
-
-class MacImageGrabber  : public AbstractImageGrabber
+MacSnippingArea::MacSnippingArea() : AbstractSnippingArea()
 {
-Q_OBJECT
-public:
-    explicit MacImageGrabber();
-    ~MacImageGrabber() override = default;
+    setWindowFlags(windowFlags() | Qt::WindowFullscreenButtonHint);
+}
 
-protected slots:
-    QRect fullScreenRect() const override;
-    QRect activeWindowRect() const override;
-    ImageWithPosition getCursorWithPosition() const override;
+QRect MacSnippingArea::selectedRectArea() const
+{
+    return mCaptureArea;
+}
 
-private:
-    MacWrapper *mMacWrapper;
-};
+void MacSnippingArea::setFullScreen()
+{
+    setFixedSize(QDesktopWidget().size());
+    QWidget::showFullScreen();
+}
 
+QPoint MacSnippingArea::getMousePosition() const
+{
+    return QCursor::pos();
+}
 
-#endif //KSNIP_MACIMAGEGRABBER_H
+QRect MacSnippingArea::getSnippingAreaGeometry() const
+{
+    return geometry();
+}

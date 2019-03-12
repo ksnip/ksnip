@@ -20,68 +20,26 @@
 #include "MacImageGrabber.h"
 
 
-MacImageGrabber::MacImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea),
+MacImageGrabber::MacImageGrabber() : AbstractImageGrabber(new MacSnippingArea),
                                      mMacWrapper(new MacWrapper)
 {
-    mSupportedCaptureModes.append(CaptureModes::RectArea);
-    mSupportedCaptureModes.append(CaptureModes::FullScreen);
-    mSupportedCaptureModes.append(CaptureModes::ActiveWindow);
-    mSupportedCaptureModes.append(CaptureModes::CurrentScreen);
+    addSupportedCaptureMode(CaptureModes::RectArea);
+    addSupportedCaptureMode(CaptureModes::FullScreen);
 }
 
-void MacImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, int delay)
+QRect MacImageGrabber::fullScreenRect() const
 {
-    Q_ASSERT(isCaptureModeSupported(captureMode));
-
-    mCaptureMode = captureMode;
-    mCaptureCursor = captureCursor;
-    mCaptureDelay = delay;
-
-    if (mCaptureMode == CaptureModes::RectArea) {
-        openSnippingArea();
-    } else {
-        QTimer::singleShot(mCaptureDelay, this, &MacImageGrabber::grab);
-    }
+    return mMacWrapper->getFullScreenRect();
 }
 
-void MacImageGrabber::setRectFromCorrectSource()
+QRect MacImageGrabber::activeWindowRect() const
 {
-    switch (mCaptureMode) {
-        case CaptureModes::RectArea:
-            mCaptureRect = selectedSnippingAreaRect();
-            break;
-        case CaptureModes::FullScreen:
-            mCaptureRect = mMacWrapper->getFullScreenRect();
-            break;
-        case CaptureModes::ActiveWindow:
-            mCaptureRect = mMacWrapper->getActiveWindowRect();
-            break;
-        case CaptureModes::CurrentScreen:
-            mCaptureRect = currentScreenRect();
-            break;
-    }
+    return mMacWrapper->getActiveWindowRect();
 }
 
-void MacImageGrabber::grab()
+ImageWithPosition MacImageGrabber::getCursorWithPosition() const
 {
-    setRectFromCorrectSource();
-    auto pixmap = grabPixmap();
-
-//    if(mCaptureCursor) {
-//        pixmap = mMacWrapper->blendCursorImage(pixmap, mCaptureRect);
-//    }
-
-    emit finished(pixmap);
+    return mMacWrapper->getCursorWithPosition();
 }
 
-QPixmap MacImageGrabber::grabPixmap() const
-{
-    auto screen = QGuiApplication::primaryScreen();
-    auto pixmap = screen->grabWindow(QApplication::desktop()->winId(),
-                                     mCaptureRect.left(),
-                                     mCaptureRect.top(),
-                                     mCaptureRect.width(),
-                                     mCaptureRect.height());
 
-    return pixmap;
-}

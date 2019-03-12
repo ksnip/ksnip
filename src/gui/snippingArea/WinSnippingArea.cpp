@@ -21,6 +21,7 @@
 
 WinSnippingArea::WinSnippingArea() : AbstractSnippingArea()
 {
+    setWindowFlags(windowFlags() | Qt::Tool);
 }
 
 QRect WinSnippingArea::selectedRectArea() const

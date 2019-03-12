@@ -21,7 +21,7 @@
 
 LinuxSnippingArea::LinuxSnippingArea() : AbstractSnippingArea()
 {
-	setWindowFlags(windowFlags() | Qt::X11BypassWindowManagerHint);
+	setWindowFlags(windowFlags() | Qt::Tool | Qt::X11BypassWindowManagerHint);
 }
 
 QRect LinuxSnippingArea::selectedRectArea() const

@@ -25,7 +25,7 @@ AbstractSnippingArea::AbstractSnippingArea()
 	  mBackground(nullptr)
 {
     // Make the frame span across the screen and show above any other widget
-    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool);
+    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
 
     QScopedPointer<QCursor> cursor(mCursorFactory->createSnippingCursor());
     QWidget::setCursor(*cursor);

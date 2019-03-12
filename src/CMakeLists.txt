@@ -41,7 +41,7 @@ if (APPLE)
 			${KSNIP_SRCS}
 			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacImageGrabber.cpp
 			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacWrapper.cpp
-			${CMAKE_SOURCE_DIR}/src/gui/LinuxSnippingArea.cpp
+			${CMAKE_SOURCE_DIR}/src/gui/snippingArea/MacSnippingArea.cpp
 			)
 elseif (UNIX)
     set(KSNIP_SRCS

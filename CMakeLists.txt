@@ -6,7 +6,14 @@ if (DEFINED VERSION_SUFIX)
 endif()
 
 set(KSNIP_VERSION "${PROJECT_VERSION}${KSNIP_VERSION_SUFIX}")
-set(KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
+
+if(APPLE)
+    set(KSNIP_LANG_INSTAL_DIR ${CMAKE_CURRENT_BINARY_DIR}/src/ksnip.app/Contents/Resources/translations)
+    set(APPS ${CMAKE_CURRENT_BINARY_DIR}/src/ksnip.app)
+    set(DIRS ${CMAKE_BINARY_DIR})
+elseif(UNIX)
+    set(KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
+endif()
 
 configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/src/BuildConfig.h)
 
@@ -22,9 +29,9 @@ set(QT_MIN_VERSION "5.6.1")
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED Widgets Network Xml PrintSupport DBus)
 
-if (APPLE)
-
-elseif (UNIX)
+if(WIN32)
+    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED WinExtras)
+elseif (NOT APPLE)
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED X11Extras)
 
     # Without ECM we're unable to load XCB
@@ -33,8 +40,6 @@ elseif (UNIX)
 
     find_package(X11 REQUIRED)
     find_package(XCB COMPONENTS XFIXES)
-elseif(WIN32)
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED WinExtras)
 endif ()
 
 set(KIMAGEANNOTATOR_MIN_VERSION "0.0.2")

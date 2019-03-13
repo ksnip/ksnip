@@ -26,5 +26,7 @@ elif [[ "${BUILD_TYPE}" == "app" ]]; then
     cd ..
 
     echo "--> Package MacOS"
-    mv build/src/ksnip*.app ksnip-$VERSION-x86_64.app
+    mkdir packageDir
+    mv build/src/ksnip*.app packageDir/ksnip.app
+    sudo hdiutil create ksnip-$VERSION-x86_64.dmg -volname "Ksnip" -fs HFS+ -srcfolder packageDir/
 fi

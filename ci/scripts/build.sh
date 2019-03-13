@@ -22,7 +22,7 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
 elif [[ "${BUILD_TYPE}" == "app" ]]; then
     mkdir build && cd build
     cmake .. -DVERSION_SUFIX=$VERSION_SUFFIX -DBUILD_NUMBER=$BUILD_NUMBER -DCMAKE_BUILD_TYPE=Release
-    make && make install
+    make && sudo make install
     cd ..
 
     echo "--> Package MacOS"

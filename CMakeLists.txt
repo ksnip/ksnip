@@ -31,7 +31,7 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED Widgets Network Xml PrintSupport DBu
 
 if(WIN32)
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED WinExtras)
-elseif (NOT APPLE)
+elseif (UNIX AND NOT APPLE)
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED X11Extras)
 
     # Without ECM we're unable to load XCB

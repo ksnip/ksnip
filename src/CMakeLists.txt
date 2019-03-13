@@ -67,6 +67,18 @@ set(KSNIP_SRCS ${KSNIP_SRCS} PARENT_SCOPE)
 
 if (WIN32)
 	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${CMAKE_SOURCE_DIR}/icons/ksnip_windows_icon.rc)
+elseif (APPLE)
+	set(MACOSX_BUNDLE_EXECUTABLE_NAME "ksnip")
+	set(MACOSX_BUNDLE_GUI_IDENTIFIER "org.ksnip")
+	set(MACOSX_BUNDLE_ICON_FILE "ksnip.icns")
+	set(MACOSX_BUNDLE_INFO_STRING "Cross-Platform Screenshot and Annotation Tool")
+	set(MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSION})
+	set(MACOSX_BUNDLE_LONG_VERSION_STRING ${KSNIP_VERSION})
+
+	set(MACOSX_ICON ${CMAKE_SOURCE_DIR}/icons/ksnip.icns)
+	set_source_files_properties(${MACOSX_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+
+	add_executable(ksnip MACOSX_BUNDLE ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${MACOSX_ICON})
 else()
 	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc)
 endif ()
@@ -96,4 +108,12 @@ elseif(WIN32)
 			)
 endif ()
 
-install(TARGETS ksnip RUNTIME DESTINATION /bin)
+
+if (APPLE)
+	install(CODE "
+		include(BundleUtilities)
+		fixup_bundle(\"${APPS}\"   \"\"   \"${DIRS}\")
+		" CPOMPONENT Runtime)
+elseif (UNIX)
+	install(TARGETS ksnip RUNTIME DESTINATION /bin)
+endif ()

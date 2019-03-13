@@ -18,3 +18,4 @@ endif ()
 add_custom_target(translations ALL DEPENDS ${KSNIP_LANG_QM})
 
 install(FILES ${KSNIP_LANG_QM} DESTINATION ${KSNIP_LANG_INSTAL_DIR})
+

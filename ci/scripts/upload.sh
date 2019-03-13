@@ -11,4 +11,6 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     bash upload.sh ksnip-*.rpm
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     bash upload.sh ksnip-*.zip
+elif [[ "${BUILD_TYPE}" == "app" ]]; then
+    bash upload.sh ksnip-*.dmg
 fi

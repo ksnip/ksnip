@@ -66,3 +66,6 @@ perf.data*
 
 # clion
 *.idea
+
+# macos
+.DS_Store

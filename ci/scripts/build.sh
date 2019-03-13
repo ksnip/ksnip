@@ -22,6 +22,11 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
 elif [[ "${BUILD_TYPE}" == "app" ]]; then
     mkdir build && cd build
     cmake .. -DVERSION_SUFIX=$VERSION_SUFFIX -DBUILD_NUMBER=$BUILD_NUMBER -DCMAKE_BUILD_TYPE=Release
-    make
-    cd ../..
+    make && make install
+    cd ..
+
+    echo "--> Package MacOS"
+    mkdir packageDir
+    mv build/src/ksnip*.app packageDir/ksnip.app
+    hdiutil create -volname ksnip -srcfolder packageDir/ -ov format UDZO ksnip-$VERSION-x86_64.dmg
 fi

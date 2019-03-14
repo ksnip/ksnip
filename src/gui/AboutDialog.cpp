@@ -114,6 +114,7 @@ void AboutDialog::createAuthorTab()
     label->setText(QStringLiteral("<h4>") + tr("The Author:") + QStringLiteral("</h4>") +
                    QStringLiteral("Damir Porobic ") + createEmailEntry(QStringLiteral("damir.porobic@gmx.com")) +
                    QStringLiteral("<h4>") + tr("Contributors:") + QStringLiteral("</h4>") +
+	                   createContributorEntry(QStringLiteral("Lvaskz"), tr("Spanish Translation"), QStringLiteral("lvaskz@protonmail.com")) +
 	                   createContributorEntry(QStringLiteral("Vistaus"), tr("Dutch Translation"), QStringLiteral("vistausss@outlook.com")) +
 	                   createContributorEntry(QStringLiteral("linxon"), tr("Russian Translation"), QStringLiteral("email@linxon.ru")) +
 	                   createContributorEntry(QStringLiteral("comradekingu"), tr("Norwegian Bokmål Translation"), QStringLiteral("epost@anotheragency.no")) +

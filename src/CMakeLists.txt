@@ -108,12 +108,6 @@ elseif(WIN32)
 			)
 endif ()
 
-
-if (APPLE)
-	install(CODE "
-		include(BundleUtilities)
-		fixup_bundle(\"${APPS}\"   \"\"   \"${DIRS}\")
-		" CPOMPONENT Runtime)
-elseif (UNIX)
+if (UNIX AND NOT APPLE)
 	install(TARGETS ksnip RUNTIME DESTINATION /bin)
 endif ()

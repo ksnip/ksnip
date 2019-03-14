@@ -7,13 +7,7 @@ endif()
 
 set(KSNIP_VERSION "${PROJECT_VERSION}${KSNIP_VERSION_SUFIX}")
 
-if(APPLE)
-    set(KSNIP_LANG_INSTAL_DIR ${CMAKE_CURRENT_BINARY_DIR}/src/ksnip.app/Contents/Resources/translations)
-    set(APPS ${CMAKE_CURRENT_BINARY_DIR}/src/ksnip.app)
-    set(DIRS ${CMAKE_BINARY_DIR})
-elseif(UNIX)
-    set(KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
-endif()
+set(KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
 
 configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/src/BuildConfig.h)
 

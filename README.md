@@ -12,7 +12,7 @@ for your screenshots.
 # Features
 Latest ksnip version contains following features:
 * Supports Linux (X11 and experimental KDE and Gnome Wayland support), Windows and MacOS.
-* Taking Screenshot of a custom rectangular area that can be drawn with mouse cursor.
+* Taking screenshot of a custom rectangular area that can be drawn with mouse cursor.
 * Taking screenshot of the screen/monitor where the mouse cursor is currently located.
 * Taking screenshot of full screen, including all screens/monitors.
 * Taking screenshot of window that currently has focus.

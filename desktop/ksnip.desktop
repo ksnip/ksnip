@@ -5,5 +5,5 @@ Icon=ksnip
 Terminal=false
 Name=ksnip
 GenericName=ksnip Screenshot Tool
-Comment=Screenshot tool inspired by Windows Snipping Tool and made with Qt for Linux.
+Comment=Cross-platform screenshot tool that provides many annotation features for your screenshots.
 Categories=Utility;

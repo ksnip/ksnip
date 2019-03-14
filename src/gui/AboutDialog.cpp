@@ -78,7 +78,7 @@ void AboutDialog::createAboutTab()
     auto layout = new QVBoxLayout();
     auto label = new QLabel();
     label->setText(QStringLiteral("<b>") + QApplication::applicationName() + QStringLiteral(" ") + tr("Screenshot Tool") + QStringLiteral("</b><br/><br/>") +
-	    tr("(C) 2018 Damir Porobic") + QStringLiteral("<br/><br/>") +
+	    tr("(C) 2019 Damir Porobic") + QStringLiteral("<br/><br/>") +
         tr("License: ") + QStringLiteral("<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU General Public License Version 2</a>")
                        + QStringLiteral("<br/><br/>") +
         tr("Please use ") + QStringLiteral("<a href=\"https://github.com/damirporobic/ksnip/issues/\">GitHub</a>") + tr(" to report bugs."));
@@ -112,9 +112,14 @@ void AboutDialog::createAuthorTab()
     auto layout = new QVBoxLayout();
     auto label = new QLabel();
     label->setText(QStringLiteral("<h4>") + tr("The Author:") + QStringLiteral("</h4>") +
-                   QStringLiteral("Damir Porobic") + QStringLiteral(" (<a href=\"mailto:damir.porobic@gmx.com\" target=\"_top\">Email</a>)") +
+                   QStringLiteral("Damir Porobic ") + createEmailEntry(QStringLiteral("damir.porobic@gmx.com")) +
                    QStringLiteral("<h4>") + tr("Contributors:") + QStringLiteral("</h4>") +
-                   QStringLiteral("Lvaskz - ") + tr("Spanish Translation") + QStringLiteral(" (<a href=\"mailto:lvaskz@protonmail.com\" target=\"_top\">Email</a>)"));
+	                   createContributorEntry(QStringLiteral("Vistaus"), tr("Dutch Translation"), QStringLiteral("vistausss@outlook.com")) +
+	                   createContributorEntry(QStringLiteral("linxon"), tr("Russian Translation"), QStringLiteral("email@linxon.ru")) +
+	                   createContributorEntry(QStringLiteral("comradekingu"), tr("Norwegian Bokmål Translation"), QStringLiteral("epost@anotheragency.no")) +
+	                   createContributorEntry(QStringLiteral("4goodapp"), tr("French Translation")) +
+	                   createContributorEntry(QStringLiteral("epsiloneridani"), tr("Polish Translation"))
+                   );
     label->setTextFormat(Qt::RichText);
     label->setTextInteractionFlags(Qt::TextBrowserInteraction);
     label->setOpenExternalLinks(true);
@@ -122,4 +127,18 @@ void AboutDialog::createAuthorTab()
     layout->addWidget(label);
 
     mAuthorWidget->setLayout(layout);
+}
+
+QString AboutDialog::createContributorEntry(const QString &name, const QString &role, const QString &email) const
+{
+	auto baseEntry = name + QStringLiteral(" - ") + role;
+	if(!email.isEmpty()) {
+		baseEntry +=  QStringLiteral(" ") + createEmailEntry(email);
+	}
+	return baseEntry + QStringLiteral("<br>");
+}
+
+QString AboutDialog::createEmailEntry(const QString &email) const
+{
+	return QStringLiteral("(<a href=\"mailto:") + email + QStringLiteral("\" target=\"_top\">Email</a>)");
 }

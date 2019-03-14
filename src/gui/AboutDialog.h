@@ -33,7 +33,7 @@ class AboutDialog : public QDialog
 {
     Q_OBJECT
 public:
-    AboutDialog(MainWindow *parent = 0);
+    AboutDialog(MainWindow *parent = nullptr);
 
 private:
     MainWindow  *mParent;
@@ -44,10 +44,13 @@ private:
     QWidget     *mVersionWidget;
     QWidget     *mAuthorWidget;
     QPushButton *mCloseButton;
+
     void createHeader();
     void createAboutTab();
     void createVersionTab();
     void createAuthorTab();
+    QString createContributorEntry(const QString &name, const QString &role, const QString &email = QString()) const;
+    QString createEmailEntry(const QString &email) const;
 };
 
 #endif // KSNIP_ABOUTDIALOG_H

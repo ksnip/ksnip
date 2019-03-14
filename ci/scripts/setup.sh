@@ -3,9 +3,16 @@
 export BUILD_TIME=$(date +"%a, %d %b %Y %T %z")
 export BUILD_DATE=$(date  +"%a %b %d %Y")
 export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
-export VERSION_SUFFIX=continuous
 export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "([0-9]{1,}\.)+[0-9]{1,}")
-export VERSION=$VERSION_NUMBER-$VERSION_SUFFIX
+
+if [[ -z "${TRAVIS_TAG}" ]]; then
+    echo "Build is not tagged this is a continues build"
+    export VERSION_SUFFIX=continuous
+    export VERSION=${VERSION_NUMBER}-${VERSION_SUFFIX}
+else
+    echo "Build is tagged this is not a continues build"
+    export VERSION=${VERSION_NUMBER}
+fi
 
 git clone git://github.com/DamirPorobic/kColorPicker
 git clone git://github.com/DamirPorobic/kImageAnnotator

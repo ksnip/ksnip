@@ -8,4 +8,4 @@ sed -i "s/^[[:blank:]]*$/\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TI
 sed -i 's/## Release \([0-9]*\.[0-9]*\.[0-9]*\)/ksnip (\1)  stretch; urgency=medium\n/' changelog # Rename release headers
 sed -i 's/^\(\* .*\)/  \1/' changelog # Add two spaces before every entry
 printf "\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TIME}\n" >> changelog # Add time and author for the first release
-cp changelog ksnip-$VERSION_NUMBER/debian/
+cp changelog ksnip-${VERSION_NUMBER}/debian/

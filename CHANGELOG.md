@@ -1,5 +1,8 @@
 # Change log
 
+## Release 1.6.0
+
+
 ## Release 1.5.0
 * New: Added Continues Build with Travis-CI that creates AppImages for every commit. ([#63](https://github.com/DamirPorobic/ksnip/issues/63))
 * New: Added option to open image from file via GUI. ([#60](https://github.com/DamirPorobic/ksnip/issues/60))

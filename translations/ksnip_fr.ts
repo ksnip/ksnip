@@ -29,15 +29,15 @@
     </message>
     <message>
         <source>(C) 2018 Damir Porobic</source>
-        <translation>(C) 2018 Damir Porobic</translation>
+        <translation>C) 2018 Damir Porobic</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation>License: </translation>
+        <translation>Licence: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation>SVP utiliser </translation>
+        <translation>Veuillez utiliser SVP </translation>
     </message>
     <message>
         <source> to report bugs.</source>
@@ -45,23 +45,23 @@
     </message>
     <message>
         <source>Build</source>
-        <translation>Build</translation>
+        <translation>Construire</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation>Utilisant:</translation>
+        <translation>Utilisateur :</translation>
     </message>
     <message>
         <source>The Author:</source>
-        <translation>L&apos;Auteur:</translation>
+        <translation>Auteur :</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation>Contributeurs:</translation>
+        <translation>Collaborateur :</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation>Traduction spagnol</translation>
+        <translation>Traduction espagnol</translation>
     </message>
 </context>
 <context>
@@ -115,7 +115,7 @@
     <name>CaptureUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Upload sur imgur.com terminé!</translation>
+        <translation>Upload sur imgur.com terminé !</translation>
     </message>
     <message>
         <source>Received new token, trying upload again...</source>
@@ -186,7 +186,7 @@
     </message>
     <message>
         <source>Scale Screen Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Echelle de la capture d&apos;écran</translation>
     </message>
     <message>
         <source>New</source>
@@ -202,7 +202,7 @@
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;A Propos</translation>
     </message>
     <message>
         <source>Open</source>
@@ -214,15 +214,15 @@
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Editer</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Options</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Aide</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -234,7 +234,7 @@
     </message>
     <message>
         <source>Images</source>
-        <translation>Images</translation>
+        <translation>Image</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -256,7 +256,7 @@
         <source>The capture has been modified.
 Do you want to save it?</source>
         <translation>La capture a été modifiée.
-Voulez-vous le sauvegarder?</translation>
+Voulez-vous l&apos;enregistrer ?</translation>
     </message>
     <message>
         <source>Imgur Upload</source>
@@ -264,7 +264,7 @@ Voulez-vous le sauvegarder?</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Vous êtes sur le point d&apos;exporter la capture d&apos;écran sur imgur.com, souhaitez-vous continuer?</translation>
+        <translation>Vous êtes sur le point d&apos;exporter la capture d&apos;écran sur imgur.com, voulez-vous continuer ?</translation>
     </message>
 </context>
 <context>
@@ -287,11 +287,11 @@ Voulez-vous le sauvegarder?</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauvegarder la position de ksnip et la charge au lancement</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer la sélection de l&apos;outil de capture et charger au démarrage</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
@@ -304,11 +304,12 @@ Voulez-vous le sauvegarder?</translation>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsque activé, le logiciel ne demandera pas où enregistrer la capture d&apos;écran
+lors de la sauvegarde, mais sauvegardera instantanément à l&apos;emplacement par défaut.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturer l&apos;emplacement de sauvegarde et le nom de fichier</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
@@ -335,16 +336,19 @@ screenshots.</source>
         <source>Sets the delay between triggering a capture
 and the moment when the capture is taken, in
 seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Définit le délai entre le déclenchement d&apos;une capture
+et le moment où la capture est prise, en
+Secondes.</translation>
     </message>
     <message>
         <source>Show snipping cursor ruler</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher la règle du curseur</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop corner to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lignes horizontales et verticales allant du
+coin du bureau au curseur sur la zone de découpage.</translation>
     </message>
     <message>
         <source>Show cursor position info</source>
@@ -355,7 +359,10 @@ desktop corner to cursor on snipping area.</source>
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and right from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsque la souris n&apos;est pas appuyée, la position
+est affiché, lorsque le bouton de la souris est enfoncé,
+la taille de la zone sélectionnée est indiquée à gauche
+de la zone capturée.</translation>
     </message>
     <message>
         <source>Cursor Color</source>
@@ -365,7 +372,9 @@ and right from the captured area.</source>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Définit la couleur de la zone de découpage
+du curseur. La modification nécessite le redémarrage de ksnip pour
+prendre effet.</translation>
     </message>
     <message>
         <source>Cursor Thickness</source>
@@ -375,15 +384,17 @@ take effect.</source>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Définit l&apos;épaisseur de la zone de découpage
+du curseur. La modification nécessite le redémarrage de ksnip pour
+prendre effet.</translation>
     </message>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Forcer le téléchargement en anonyme</translation>
     </message>
     <message>
         <source>Open link directly to image</source>
-        <translation>Ouvrir le lien directement vers l&apos;image</translation>
+        <translation>Ouvrir le lien direct vers l&apos;image</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
@@ -395,11 +406,11 @@ take effect.</source>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished"></translation>
+        <translation>ID Client</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished"></translation>
+        <translation>Secret</translation>
     </message>
     <message>
         <source>PIN</source>
@@ -407,42 +418,45 @@ take effect.</source>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrez un pin imgur contre un jeton.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>Obtenir PIN</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Obtenir Jeton</translation>
     </message>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>Eléments de peinture</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsqu&apos;elle est activée, les éléments de peinture créent des ombres.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Chemin de peinture lisse</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsque activé, le stylo lisse  le
+trajets des marqueurs après le dessin.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Facteur Lisse</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished"></translation>
+        <translation>Augmenter le facteur de lissage diminura la
+précision du stylo et marqueur mais
+les rendras plus lisse.</translation>
     </message>
     <message>
         <source>Text Font</source>
@@ -450,27 +464,27 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Définit la police de l&apos;élément de peinture du texte.</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"></translation>
+        <translation>B</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Gras</translation>
     </message>
     <message>
         <source>I</source>
-        <translation type="unfinished"></translation>
+        <translation>I</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation>Italic</translation>
+        <translation>Italique</translation>
     </message>
     <message>
         <source>U</source>
-        <translation type="unfinished"></translation>
+        <translation>U</translation>
     </message>
     <message>
         <source>Underline</source>
@@ -478,11 +492,11 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Police numéroté</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Définit la police de l&apos;élément de peinture de numérotation.</translation>
     </message>
     <message>
         <source>Dynamic Cursor Size</source>
@@ -492,7 +506,9 @@ make them more smooth.</source>
         <source>When enabled, the painter cursor size
 matches the selected tool size.
 Requires switching tool to become active.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsque cette option est activée, la taille du curseur de peinture
+correspond à la taille de l&apos;outil sélectionné.
+Nécessite l&apos;outil de commutation pour devenir actif.</translation>
     </message>
     <message>
         <source>OK</source>
@@ -504,43 +520,43 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres de l&apos;application</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Grabber Image</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Envoyer sur Imgur</translation>
     </message>
     <message>
         <source>Painter Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres de peinture</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation>Application</translation>
+        <translation>Applications</translation>
     </message>
     <message>
         <source>Painter</source>
-        <translation type="unfinished"></translation>
+        <translation>Peindre</translation>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>
-        <translation type="unfinished"></translation>
+        <translation>Patienter pour imgur.com.</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation>Nom d&apos;utilisateur:</translation>
+        <translation>Nom d&apos;utilisateur :</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeton mis à jour avec succès sur Imgur.com.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation>Erreur du mis à jour du Token Imgur.com.</translation>
+        <translation>Erreur de mise à jour du Jeton Imgur.com.</translation>
     </message>
     <message>
         <source>Capture save location</source>
@@ -559,15 +575,15 @@ Requires switching tool to become active.</source>
     </message>
     <message>
         <source>Capture the screen (monitor) where the mouse cursor is currently located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturez l&apos;écran (moniteur) où se trouve actuellement le curseur de la souris.</translation>
     </message>
     <message>
         <source>Capture the window that currently has input focus.</source>
-        <translation>Capturer la fenêtre qui a actuellement le focus.</translation>
+        <translation>Capturer la fenêtre qui a actuellement le focus d&apos;entrée.</translation>
     </message>
     <message>
         <source>Capture the window that is currently under the mouse cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturer la fenêtre qui est actuellement sous le curseur de la souris.</translation>
     </message>
     <message>
         <source>Delay before taking the screenshot.</source>

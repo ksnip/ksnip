@@ -27,6 +27,7 @@
 #include "BuildConfig.h"
 #include "src/gui/MainWindow.h"
 #include "src/backend/imageGrabber/ImageGrabberFactory.h"
+#include "src/backend/TranslationLoader.h"
 #include "src/common/helper/CommandLineParserHelper.h"
 
 int main(int argc, char** argv)
@@ -34,7 +35,6 @@ int main(int argc, char** argv)
     QApplication app(argc, argv);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
 
-    // Setup application properties
     app.setOrganizationName(QStringLiteral("ksnip"));
     app.setOrganizationDomain(QStringLiteral("ksnip.org"));
     app.setApplicationName(QStringLiteral("ksnip"));
@@ -42,19 +42,8 @@ int main(int argc, char** argv)
 
     app.setStyle(KsnipConfig::instance()->applicationStyle());
 
-    QTranslator translator;
-    auto pathToTranslations = QStringLiteral(KSNIP_LANG_INSTAL_DIR);
-    auto translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), pathToTranslations);
-
-    // Fix for appimages as they need to use relative paths
-    if (!translationSuccessfullyLoaded) {
-        auto appDirPath = QCoreApplication::applicationDirPath() + QStringLiteral("/../..");
-        translationSuccessfullyLoaded = translator.load(QLocale(), QStringLiteral("ksnip"), QStringLiteral("_"), appDirPath + pathToTranslations);
-    }
-
-    if (translationSuccessfullyLoaded) {
-        app.installTranslator(&translator);
-    }
+    TranslationLoader translationLoader;
+    translationLoader.load(app);
 
     auto imageGrabber = ImageGrabberFactory::createImageGrabber();
 

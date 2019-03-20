@@ -4,11 +4,12 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfigOptions.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/ImgurUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploadResponse.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/CaptureUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/ImgurResponseLogger.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/TranslationLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/CommandLineParserHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MessageBoxHelper.cpp

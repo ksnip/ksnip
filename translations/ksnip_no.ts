@@ -65,23 +65,23 @@
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Nederlandsk oversettelse</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Russisk oversettelse</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Bokmålsoversettelse</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Fransk oversettelse</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Polsk oversettelse</translation>
     </message>
 </context>
 <context>
@@ -150,7 +150,7 @@
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur-historikk</translation>
     </message>
     <message>
         <source>Close</source>
@@ -158,15 +158,15 @@
     </message>
     <message>
         <source>Time Stamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidsstempel</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lenke</translation>
     </message>
     <message>
         <source>Delete Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Slett lenke</translation>
     </message>
 </context>
 <context>
@@ -550,7 +550,7 @@ vil gjøre dem mykere.</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Programstil</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
@@ -612,7 +612,7 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur-historikk</translation>
     </message>
 </context>
 <context>
@@ -667,7 +667,7 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Displays version information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Viser versjonsinformasjon.</translation>
     </message>
 </context>
 </TS>

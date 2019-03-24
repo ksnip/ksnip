@@ -1,7 +1,7 @@
 # Change log
 
 ## Release 1.6.0
-
+* Fixed: Translations not working for Windows and MacOS. ([#164](https://github.com/DamirPorobic/ksnip/issues/164))
 
 ## Release 1.5.0
 * New: Added Continues Build with Travis-CI that creates AppImages for every commit. ([#63](https://github.com/DamirPorobic/ksnip/issues/63))

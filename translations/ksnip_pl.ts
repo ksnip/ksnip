@@ -56,12 +56,32 @@
         <translation>Tłumaczenie Hiszpańskie</translation>
     </message>
     <message>
-        <source>(C) 2018 Damir Porobic</source>
-        <translation>(C) 2018 Damir Porobic</translation>
-    </message>
-    <message>
         <source>Build</source>
         <translation>Kompilacja</translation>
+    </message>
+    <message>
+        <source>(C) 2019 Damir Porobic</source>
+        <translation type="unfinished">(C) 2018 Damir Porobic {2019 ?}</translation>
+    </message>
+    <message>
+        <source>Dutch Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Russian Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Norwegian Bokmål Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polish Translation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -127,26 +147,69 @@
     </message>
 </context>
 <context>
+    <name>ImgurHistoryDialog</name>
+    <message>
+        <source>Imgur History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Zamknij</translation>
+    </message>
+    <message>
+        <source>Time Stamp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete Link</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MainToolBar</name>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Nowy</translation>
+    </message>
+    <message>
+        <source>Delay in seconds between triggering
+and capturing screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Zapisz</translation>
+    </message>
+    <message>
+        <source>Save Screen Capture to file system</source>
+        <translation type="unfinished">Zapisz zdjęcie ekranu do systemu plików</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Kopiuj</translation>
+    </message>
+    <message>
+        <source>Copy Screen Capture to clipboard</source>
+        <translation type="unfinished">Skopiuj zdjęcie ekranu do schowka</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished">Narzędzia</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <source>Unsaved</source>
         <translation>Niezapisane</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Zapisz</translation>
-    </message>
-    <message>
-        <source>Save Screen Capture to file system</source>
-        <translation>Zapisz zdjęcie ekranu do systemu plików</translation>
-    </message>
-    <message>
-        <source>Copy</source>
-        <translation>Kopiuj</translation>
-    </message>
-    <message>
-        <source>Copy Screen Capture to clipboard</source>
-        <translation>Skopiuj zdjęcie ekranu do schowka</translation>
     </message>
     <message>
         <source>Upload</source>
@@ -189,10 +252,6 @@
         <translation>Skaluj zrzut ekranu</translation>
     </message>
     <message>
-        <source>New</source>
-        <translation>Nowy</translation>
-    </message>
-    <message>
         <source>Quit</source>
         <translation>Zakończ</translation>
     </message>
@@ -223,10 +282,6 @@
     <message>
         <source>&amp;Help</source>
         <translation>Pomoc</translation>
-    </message>
-    <message>
-        <source>Tools</source>
-        <translation>Narzędzia</translation>
     </message>
     <message>
         <source>Save As</source>
@@ -330,48 +385,10 @@ screenshots.</source>
 na zrzutach ekranu.</translation>
     </message>
     <message>
-        <source>Delay (sec)</source>
-        <translation>Opóźnij (s)</translation>
-    </message>
-    <message>
-        <source>Sets the delay between triggering a capture
-and the moment when the capture is taken, in
-seconds.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show snipping cursor ruler</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop corner to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show cursor position info</source>
-        <translation>Pokaż informacje o pozycji kursora</translation>
-    </message>
-    <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and right from the captured area.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cursor Color</source>
-        <translation>Kolor kursora</translation>
-    </message>
-    <message>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cursor Thickness</source>
-        <translation>Grubość kursora</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area
@@ -455,24 +472,12 @@ make them more smooth.</source>
         <translation>Ustawia czcionkę dla elementu Text Paint.</translation>
     </message>
     <message>
-        <source>B</source>
-        <translation>B</translation>
-    </message>
-    <message>
         <source>Bold</source>
         <translation>Pogrubienie</translation>
     </message>
     <message>
-        <source>I</source>
-        <translation>I</translation>
-    </message>
-    <message>
         <source>Italic</source>
         <translation>Kursywa</translation>
-    </message>
-    <message>
-        <source>U</source>
-        <translation>U</translation>
     </message>
     <message>
         <source>Underline</source>
@@ -484,16 +489,6 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Dynamic Cursor Size</source>
-        <translation>Dynamiczny rozmiar kursora</translation>
-    </message>
-    <message>
-        <source>When enabled, the painter cursor size
-matches the selected tool size.
-Requires switching tool to become active.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -548,6 +543,72 @@ Requires switching tool to become active.</source>
         <source>Capture save location</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Application Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the application style which defines the look and feel of the GUI.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature doesn&apos;t work for Wayland and is always
+used for MacOs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When left mouse is not pressed the position
+is show, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imgur History</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>main</name>
@@ -598,6 +659,10 @@ Requires switching tool to become active.</source>
     <message>
         <source>Ksnip Screenshot Tool</source>
         <translation>Ksnip, narzędzie do przeglądania zrzutu ekranu</translation>
+    </message>
+    <message>
+        <source>Displays version information.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

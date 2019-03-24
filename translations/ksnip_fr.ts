@@ -28,10 +28,6 @@
         <translation>Outil de capture</translation>
     </message>
     <message>
-        <source>(C) 2018 Damir Porobic</source>
-        <translation>C) 2018 Damir Porobic</translation>
-    </message>
-    <message>
         <source>License: </source>
         <translation>Licence: </translation>
     </message>
@@ -62,6 +58,30 @@
     <message>
         <source>Spanish Translation</source>
         <translation>Traduction espagnol</translation>
+    </message>
+    <message>
+        <source>(C) 2019 Damir Porobic</source>
+        <translation type="unfinished">C) 2018 Damir Porobic {2019 ?}</translation>
+    </message>
+    <message>
+        <source>Dutch Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Russian Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Norwegian Bokmål Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polish Translation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -127,26 +147,69 @@
     </message>
 </context>
 <context>
+    <name>ImgurHistoryDialog</name>
+    <message>
+        <source>Imgur History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Fermer</translation>
+    </message>
+    <message>
+        <source>Time Stamp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete Link</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MainToolBar</name>
+    <message>
+        <source>New</source>
+        <translation type="unfinished">Nouveau</translation>
+    </message>
+    <message>
+        <source>Delay in seconds between triggering
+and capturing screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Enregistrer</translation>
+    </message>
+    <message>
+        <source>Save Screen Capture to file system</source>
+        <translation type="unfinished">Enregistrer la capture d&apos;écran dans le système de fichiers</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Copier</translation>
+    </message>
+    <message>
+        <source>Copy Screen Capture to clipboard</source>
+        <translation type="unfinished">Copier la capture d&apos;écran dans le presse-papier</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished">Outils</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <source>Unsaved</source>
         <translation>Non Enregistré</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Enregistrer</translation>
-    </message>
-    <message>
-        <source>Save Screen Capture to file system</source>
-        <translation>Enregistrer la capture d&apos;écran dans le système de fichiers</translation>
-    </message>
-    <message>
-        <source>Copy</source>
-        <translation>Copier</translation>
-    </message>
-    <message>
-        <source>Copy Screen Capture to clipboard</source>
-        <translation>Copier la capture d&apos;écran dans le presse-papier</translation>
     </message>
     <message>
         <source>Upload</source>
@@ -189,10 +252,6 @@
         <translation>Echelle de la capture d&apos;écran</translation>
     </message>
     <message>
-        <source>New</source>
-        <translation>Nouveau</translation>
-    </message>
-    <message>
         <source>Quit</source>
         <translation>Quitter</translation>
     </message>
@@ -223,10 +282,6 @@
     <message>
         <source>&amp;Help</source>
         <translation>&amp;Aide</translation>
-    </message>
-    <message>
-        <source>Tools</source>
-        <translation>Outils</translation>
     </message>
     <message>
         <source>Save As</source>
@@ -329,56 +384,12 @@ screenshots.</source>
         <translation>Le curseur de la souris doit-il être visible lors d&apos;un captures.</translation>
     </message>
     <message>
-        <source>Delay (sec)</source>
-        <translation>Délai (en secondes)</translation>
-    </message>
-    <message>
-        <source>Sets the delay between triggering a capture
-and the moment when the capture is taken, in
-seconds.</source>
-        <translation>Définit le délai entre le déclenchement d&apos;une capture
-et le moment où la capture est prise, en
-Secondes.</translation>
-    </message>
-    <message>
-        <source>Show snipping cursor ruler</source>
-        <translation>Afficher la règle du curseur</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop corner to cursor on snipping area.</source>
-        <translation>Lignes horizontales et verticales allant du
-coin du bureau au curseur sur la zone de découpage.</translation>
-    </message>
-    <message>
-        <source>Show cursor position info</source>
-        <translation>Afficher les informations sur la position du curseur</translation>
-    </message>
-    <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and right from the captured area.</source>
-        <translation>Lorsque la souris n&apos;est pas appuyée, la position
-est affiché, lorsque le bouton de la souris est enfoncé,
-la taille de la zone sélectionnée est indiquée à gauche
-de la zone capturée.</translation>
-    </message>
-    <message>
-        <source>Cursor Color</source>
-        <translation>Couleur du curseur</translation>
-    </message>
-    <message>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
         <translation>Définit la couleur de la zone de découpage
 du curseur. La modification nécessite le redémarrage de ksnip pour
 prendre effet.</translation>
-    </message>
-    <message>
-        <source>Cursor Thickness</source>
-        <translation>Epaisseur du curseur</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area
@@ -467,24 +478,12 @@ les rendras plus lisse.</translation>
         <translation>Définit la police de l&apos;élément de peinture du texte.</translation>
     </message>
     <message>
-        <source>B</source>
-        <translation>B</translation>
-    </message>
-    <message>
         <source>Bold</source>
         <translation>Gras</translation>
     </message>
     <message>
-        <source>I</source>
-        <translation>I</translation>
-    </message>
-    <message>
         <source>Italic</source>
         <translation>Italique</translation>
-    </message>
-    <message>
-        <source>U</source>
-        <translation>U</translation>
     </message>
     <message>
         <source>Underline</source>
@@ -497,18 +496,6 @@ les rendras plus lisse.</translation>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
         <translation>Définit la police de l&apos;élément de peinture de numérotation.</translation>
-    </message>
-    <message>
-        <source>Dynamic Cursor Size</source>
-        <translation>Taille curseur dynamique</translation>
-    </message>
-    <message>
-        <source>When enabled, the painter cursor size
-matches the selected tool size.
-Requires switching tool to become active.</source>
-        <translation>Lorsque cette option est activée, la taille du curseur de peinture
-correspond à la taille de l&apos;outil sélectionné.
-Nécessite l&apos;outil de commutation pour devenir actif.</translation>
     </message>
     <message>
         <source>OK</source>
@@ -562,6 +549,72 @@ Nécessite l&apos;outil de commutation pour devenir actif.</translation>
         <source>Capture save location</source>
         <translation>Repertoire de sauvegarde des captures</translation>
     </message>
+    <message>
+        <source>Application Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the application style which defines the look and feel of the GUI.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature doesn&apos;t work for Wayland and is always
+used for MacOs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When left mouse is not pressed the position
+is show, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imgur History</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>main</name>
@@ -612,6 +665,10 @@ Nécessite l&apos;outil de commutation pour devenir actif.</translation>
     <message>
         <source>Ksnip Screenshot Tool</source>
         <translation>Outil de capture Ksnip</translation>
+    </message>
+    <message>
+        <source>Displays version information.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

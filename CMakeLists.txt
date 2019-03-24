@@ -7,7 +7,13 @@ endif()
 
 set(KSNIP_VERSION "${PROJECT_VERSION}${KSNIP_VERSION_SUFIX}")
 
-set(KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
+if (WIN32)
+	set(KSNIP_LANG_INSTAL_DIR "translations")
+elseif (APPLE)
+	set(KSNIP_LANG_INSTAL_DIR "../Resources")
+elseif (UNIX)
+	set(KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
+endif ()
 
 configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/src/BuildConfig.h)
 
@@ -23,7 +29,7 @@ set(QT_MIN_VERSION "5.6.1")
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED Widgets Network Xml PrintSupport DBus)
 
-if(WIN32)
+if (WIN32)
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED WinExtras)
 elseif (UNIX AND NOT APPLE)
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED X11Extras)

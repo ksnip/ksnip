@@ -27,7 +27,11 @@ TranslationLoader::TranslationLoader()
 void TranslationLoader::load(const QApplication &app) const
 {
     auto translator = new QTranslator();
-    auto translationSuccessfullyLoaded = loadTranslation(translator, mPathToTranslation);
+    auto translationSuccessfullyLoaded = loadTranslationFromAbsolutePath(translator);
+
+	if (!translationSuccessfullyLoaded) {
+		translationSuccessfullyLoaded = loadTranslationFromRelativePath(translator);
+	}
 
     // Fix for appimages as they need to use relative paths
     if (!translationSuccessfullyLoaded) {
@@ -39,6 +43,17 @@ void TranslationLoader::load(const QApplication &app) const
     } else {
         qWarning("Unable to find any translation files.");
     }
+}
+
+bool TranslationLoader::loadTranslationFromAbsolutePath(QTranslator *translator) const
+{
+	return loadTranslation(translator, mPathToTranslation);
+}
+
+bool TranslationLoader::loadTranslationFromRelativePath(QTranslator *translator) const
+{
+	auto relativePathToAppDir = QCoreApplication::applicationDirPath() + QStringLiteral("/");
+	return loadTranslation(translator, relativePathToAppDir + mPathToTranslation);
 }
 
 bool TranslationLoader::loadTranslationForAppImage(QTranslator *translator) const

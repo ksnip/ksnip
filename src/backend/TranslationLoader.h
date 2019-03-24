@@ -35,8 +35,10 @@ public:
 private:
     QString mPathToTranslation;
 
+	bool loadTranslationFromAbsolutePath(QTranslator *translator) const;
+	bool loadTranslationFromRelativePath(QTranslator *translator) const;
+	bool loadTranslationForAppImage(QTranslator *translator) const;
     bool loadTranslation(QTranslator *translator, const QString &path) const;
-    bool loadTranslationForAppImage(QTranslator *translator) const;
 };
 
 #endif //KSNIP_TRANSLATIONLOADER_H

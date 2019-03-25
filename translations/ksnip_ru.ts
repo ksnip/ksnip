@@ -195,7 +195,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Копировать</translation>
+        <translation>Копировать</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
@@ -628,47 +628,47 @@ and above from the captured area.</source>
     <name>main</name>
     <message>
         <source>Select a rectangular area from where to take a screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите прямоугольную область, для создания скриншота.</translation>
     </message>
     <message>
         <source>Capture the fullscreen including all monitors.</source>
-        <translation type="unfinished"></translation>
+        <translation>Захват всего экрана, включая все мониторы.</translation>
     </message>
     <message>
         <source>Capture the screen (monitor) where the mouse cursor is currently located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сделайте снимок экрана (монитора), где на данный момент находится курсор мыши.</translation>
     </message>
     <message>
         <source>Capture the window that currently has input focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Захват окна, которое на данный момент имеет фокус.</translation>
     </message>
     <message>
         <source>Capture the window that is currently under the mouse cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Захватите окно, которое на данный момент находится под курсором мыши.</translation>
     </message>
     <message>
         <source>Delay before taking the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Задержка перед тем, как сделать скриншот.</translation>
     </message>
     <message>
         <source>seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>секунды</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать курсор мыши в снимке.</translation>
     </message>
     <message>
         <source>Edit existing image in ksnip</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактировать существующее изображение в ksnip</translation>
     </message>
     <message>
         <source>image</source>
-        <translation type="unfinished"></translation>
+        <translation>изображение</translation>
     </message>
     <message>
         <source>Save screenshot to default location without opening in editor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить скриншот в папку по умолчанию, не открывая в редакторе.</translation>
     </message>
     <message>
         <source>Ksnip Screenshot Tool</source>
@@ -676,7 +676,7 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Displays version information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать информацию о версии.</translation>
     </message>
 </context>
 </TS>

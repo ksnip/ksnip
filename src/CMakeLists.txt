@@ -110,5 +110,5 @@ elseif(WIN32)
 endif ()
 
 if (UNIX AND NOT APPLE)
-	install(TARGETS ksnip RUNTIME DESTINATION /bin)
+	install(TARGETS ksnip RUNTIME DESTINATION /usr/bin)
 endif ()

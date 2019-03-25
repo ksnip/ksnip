@@ -61,27 +61,27 @@
     </message>
     <message>
         <source>(C) 2019 Damir Porobic</source>
-        <translation type="unfinished">(C) 2018 Damir Porobic {2019 ?}</translation>
+        <translation>(C) 2019 Damir Porobic</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Nederlandse vertaling</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Russische vertaling</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Noorse (Bokmål) vertaling</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Franse vertaling</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Poolse vertaling</translation>
     </message>
 </context>
 <context>
@@ -150,59 +150,60 @@
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur-geschiedenis</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Sluiten</translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <source>Time Stamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Tijdstempel</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Link</translation>
     </message>
     <message>
         <source>Delete Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Link verwijderen</translation>
     </message>
 </context>
 <context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation type="unfinished">Nieuw</translation>
+        <translation>Nieuw</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertraging tussen triggeren en vastleggen
+van schermafdruk, in seconden.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Opslaan</translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation type="unfinished">Schermafbeelding opslaan naar bestandssysteem</translation>
+        <translation>Schermafdruk opslaan naar bestandssysteem</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Kopiëren</translation>
+        <translation>Kopiëren</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation type="unfinished">Schermafbeelding kopiëren naar klembord</translation>
+        <translation>Schermafdruk kopiëren naar klembord</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">Hulpmiddelen</translation>
+        <translation>Hulpmiddelen</translation>
     </message>
 </context>
 <context>
@@ -552,16 +553,17 @@ gladder.</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Applicatiestijl</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stel de applicatiestijl in. Dit bepaalt het uiterlijk.
+Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeelding bevriezen tijdens vastleggen</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -576,7 +578,7 @@ used for MacOs.</source>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished"></translation>
+        <translation>Vergrootglas tonen op vastleggebied</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
@@ -586,16 +588,17 @@ with &apos;Freeze Image while snipping&apos; enabled.</source>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished"></translation>
+        <translation>Linialen tonen op vastleggebied</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Horizontale en verticale lijnen die lopen vanaf
+de schermranden naar de cursor op het vastleggebied.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished"></translation>
+        <translation>Positie- en grootte-informatie tonen op vastleggebied</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
@@ -606,15 +609,15 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished"></translation>
+        <translation>Cursorkleur binnen vastleggebied</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>Cursordikte binnen vastleggebied</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur-geschiedenis</translation>
     </message>
 </context>
 <context>
@@ -669,7 +672,7 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Displays version information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Toont versie-informatie.</translation>
     </message>
 </context>
 </TS>

@@ -173,7 +173,7 @@
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation>&amp;amp;Создать...</translation>
+        <translation>&amp;Создать...</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
@@ -187,7 +187,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save</source>
-        <translation>С&amp;amp;охранить</translation>
+        <translation>С&amp;охранить</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
@@ -238,7 +238,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Crop</source>
-        <translation>&amp;amp;Кадрировать</translation>
+        <translation>&amp;Кадрировать</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
@@ -246,7 +246,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Scale</source>
-        <translation>&amp;amp;Масштаб...</translation>
+        <translation>&amp;Масштаб...</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
@@ -254,11 +254,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Quit</source>
-        <translation>&amp;amp;Выйти</translation>
+        <translation>&amp;Выйти</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>&amp;amp;Настройки</translation>
+        <translation>&amp;Настройки</translation>
     </message>
     <message>
         <source>&amp;About</source>
@@ -266,7 +266,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open</source>
-        <translation>&amp;amp;Открыть...</translation>
+        <translation>&amp;Открыть...</translation>
     </message>
     <message>
         <source>File</source>

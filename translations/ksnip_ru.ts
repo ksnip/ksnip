@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation>Перевод с испанского</translation>
+        <translation>Перевод на испанский</translation>
     </message>
     <message>
         <source>Build</source>
@@ -61,27 +61,27 @@
     </message>
     <message>
         <source>(C) 2019 Damir Porobic</source>
-        <translation type="unfinished">(C) 2018 Damir Porobic {2019 ?}</translation>
+        <translation></translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Голландский перевод</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевод на русский</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевод на норвежский</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевод на французский</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевод на польский</translation>
     </message>
 </context>
 <context>
@@ -112,7 +112,7 @@
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation>Захват экрана, где расположена мышь.</translation>
+        <translation>Захват экрана, где расположена мышь</translation>
     </message>
     <message>
         <source>Active Window</source>
@@ -150,7 +150,7 @@
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>История загрузок</translation>
     </message>
     <message>
         <source>Close</source>
@@ -158,39 +158,40 @@
     </message>
     <message>
         <source>Time Stamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Время</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Ссылка</translation>
     </message>
     <message>
         <source>Delete Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Ссылка на удаление</translation>
     </message>
 </context>
 <context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;amp;Создать...</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Задержка в секундах перед тем, как делать
+снимок экрана.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>сек.</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Сохранить</translation>
+        <translation>С&amp;amp;охранить</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation type="unfinished">Сохранить скриншот</translation>
+        <translation>Сохранить скриншот</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -198,11 +199,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation type="unfinished">Копировать снимок экрана в буфер обмена</translation>
+        <translation>Копировать снимок экрана в буфер обмена</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">Инструменты</translation>
+        <translation>Инструменты</translation>
     </message>
 </context>
 <context>
@@ -237,7 +238,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Crop</source>
-        <translation>Кадрировать</translation>
+        <translation>&amp;amp;Кадрировать</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
@@ -245,7 +246,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Scale</source>
-        <translation>Масштаб</translation>
+        <translation>&amp;amp;Масштаб...</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
@@ -253,11 +254,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Quit</source>
-        <translation>Выйти</translation>
+        <translation>&amp;amp;Выйти</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Настройки</translation>
+        <translation>&amp;amp;Настройки</translation>
     </message>
     <message>
         <source>&amp;About</source>
@@ -265,7 +266,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open</source>
-        <translation>Открыть...</translation>
+        <translation>&amp;amp;Открыть...</translation>
     </message>
     <message>
         <source>File</source>
@@ -285,7 +286,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save As</source>
-        <translation>Сохранить как</translation>
+        <translation>Сохранить как...</translation>
     </message>
     <message>
         <source>Images</source>
@@ -375,7 +376,7 @@ $T — hhmmss формат.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Обзор</translation>
+        <translation>Обзор...</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot</source>
@@ -554,16 +555,17 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Стиль окон</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Устанавливает стиль программы, который определяет внешний вид GUI.
+Необходимо перезапустить ksnip, чтобы изменения вступили в силу.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished"></translation>
+        <translation>Заморозить выделенную область (эта функция не работает в Wayland)</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -574,49 +576,52 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature doesn&apos;t work for Wayland and is always
 used for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>При включении замораживает выделенную область. 
+Эта функция не работает в Wayland и всегда используется в MacOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать лупу во время выделения</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывает увеличительное стекло во время выделения области.
+Эта опция работает, если включена &apos;Заморозить выделенную область...&apos;.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать горизонтальную/вертикальную линию от курсора выделения</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывает горизонтальные и вертикальные пунктирные линии
+от края рабочего стола к курсору.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished"></translation>
+        <translation>Выводить информацию о положении и размере зоны обрезки (линейка)</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>При выделении отображает информацию о положении и размере зоны обрезки.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет курсора</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>Размер курсора выделения</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>История загрузок...</translation>
     </message>
 </context>
 <context>

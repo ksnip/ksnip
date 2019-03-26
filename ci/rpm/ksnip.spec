@@ -37,7 +37,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-/bin/%{name}
+/usr/bin/%{name}
 %{_usr}/share/applications/%{name}.desktop
 %{_usr}/share/pixmaps/%{name}.svg
 %{_usr}/share/%{name}/translations/%{name}_*.qm

@@ -2,6 +2,7 @@
 
 ## Release 1.6.0
 * Fixed: Translations not working for Windows and MacOS. ([#164](https://github.com/DamirPorobic/ksnip/issues/164))
+* Fixed kImageAnnotator: Unable to select number annotation when clicking on the number without background. ([#46](https://github.com/DamirPorobic/kImageAnnotator/issues/46))
 
 ## Release 1.5.0
 * New: Added Continues Build with Travis-CI that creates AppImages for every commit. ([#63](https://github.com/DamirPorobic/ksnip/issues/63))

@@ -62,27 +62,27 @@
     </message>
     <message>
         <source>(C) 2019 Damir Porobic</source>
-        <translation type="unfinished">(C) 2018 Damir Porobic {2019 ?}</translation>
+        <translation>(C) 2019 Damir Porobic</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Niederländische Übersetzung</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Russische Übersetzung</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Norwegische Übersetzung</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Französische Übersetzung</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Polnische Übersetzung</translation>
     </message>
 </context>
 <context>
@@ -151,59 +151,61 @@
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur Historie</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Schließen</translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <source>Time Stamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeitstempel</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Link</translation>
     </message>
     <message>
         <source>Delete Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Löschlink</translation>
     </message>
 </context>
 <context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation type="unfinished">Neu</translation>
+        <translation>Neu</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeitverzögerung in Sekunden zwischen
+dem anstoßen der Bildschirmaufnahme
+und der Aufnahme.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Speichern</translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation type="unfinished">Bildschirmaufnahme im Dateisystem speichern</translation>
+        <translation>Bildschirmaufnahme im Dateisystem speichern</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Kopieren</translation>
+        <translation>Kopieren</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation type="unfinished">Bildschirmaufnahme in die Zwischenablage kopieren</translation>
+        <translation>Bildschirmaufnahme in die Zwischenablage kopieren</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">Werkzeuge</translation>
+        <translation>Werkzeuge</translation>
     </message>
 </context>
 <context>
@@ -553,16 +555,17 @@ sondern speichert sofort am Standardspeicherort.</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwendungsstil</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Setzt den Anwendungsstil welcher das aussehen des GUIs definiert.
+Eine Änderung benötigt einen ksnip Neustart um wirksam zu werden.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild während der Aufnahme einfrieren</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -573,49 +576,64 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature doesn&apos;t work for Wayland and is always
 used for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn aktiviert, wird der Hintergrund eingefroren
+wehrend eine rechteckige Region für die Bildschirmaufnahme
+ausgewählt wird. Es ändert sich auch das Verhalten von 
+verzögerten Bildschirmaufnahmen. Wenn diese Option aktiviert 
+ist, erfolgt die Verzögerung vor dem vor dem anzeigen des 
+Ausschnittbereichs. Wenn diese Option deaktiviert ist, erfolgt 
+die Verzögerung nachdem der Ausschnittsbereich angezeigt wurd.
+Diese Option funktioniert nicht für Wayland und ist immer aktiv
+für MacOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished"></translation>
+        <translation>Vergrößerungsglas im Ausschnittsbereich anzeigen</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeigt ein Vergröserungsglass an welches in 
+Hintergrundbild hineinzoomt. Diese Option 
+funktioniert nur bei aktiviertem 
+&apos;Bild während der Aufnahme einfrieren&apos;.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished"></translation>
+        <translation>Lineare bei der Auswahl des Rechteckigen Bereichs anzeigen</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Horizontale und Vertikale Linien anzeigen
+welche vom Bildschirmrand zum Mauszeiger gehen.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished"></translation>
+        <translation>Position und Größe und Ausschnittsbereich anzeigen</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn die linke Maustaste nicht gedrückt ist
+wird die Mausposition angezeigt. Wenn die linke 
+Maustaste gedrückt ist, wird die Größe des 
+ausgewählten Bereichs angezeigt.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausschnittsbereich Mauszeigerfarbe</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausschnittsbereich Mauszeigerstärke</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur Historie</translation>
     </message>
 </context>
 <context>
@@ -670,7 +688,7 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Displays version information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Versionsinformationen anzeigen.</translation>
     </message>
 </context>
 </TS>

@@ -60,10 +60,6 @@
         <translation>Bygg</translation>
     </message>
     <message>
-        <source>(C) 2019 Damir Porobic</source>
-        <translation type="unfinished">© 2018 Damir Porobic {2019 ?}</translation>
-    </message>
-    <message>
         <source>Dutch Translation</source>
         <translation>Nederlandsk oversettelse</translation>
     </message>

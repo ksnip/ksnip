@@ -61,10 +61,6 @@
         <translation>Build</translation>
     </message>
     <message>
-        <source>(C) 2019 Damir Porobic</source>
-        <translation type="unfinished">(C) 2018 Damir Porobic {2019 ?}</translation>
-    </message>
-    <message>
         <source>Dutch Translation</source>
         <translation type="unfinished"></translation>
     </message>

@@ -60,10 +60,6 @@
         <translation>Bouwsel</translation>
     </message>
     <message>
-        <source>(C) 2019 Damir Porobic</source>
-        <translation>(C) 2019 Damir Porobic</translation>
-    </message>
-    <message>
         <source>Dutch Translation</source>
         <translation>Nederlandse vertaling</translation>
     </message>

@@ -78,7 +78,7 @@ void AboutDialog::createAboutTab()
     auto layout = new QVBoxLayout();
     auto label = new QLabel();
     label->setText(QStringLiteral("<b>") + QApplication::applicationName() + QStringLiteral(" ") + tr("Screenshot Tool") + QStringLiteral("</b><br/><br/>") +
-	    tr("(C) 2019 Damir Porobic") + QStringLiteral("<br/><br/>") +
+	    QStringLiteral("(C) 2019 Damir Porobic") + QStringLiteral("<br/><br/>") +
         tr("License: ") + QStringLiteral("<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU General Public License Version 2</a>")
                        + QStringLiteral("<br/><br/>") +
         tr("Please use ") + QStringLiteral("<a href=\"https://github.com/damirporobic/ksnip/issues/\">GitHub</a>") + tr(" to report bugs."));

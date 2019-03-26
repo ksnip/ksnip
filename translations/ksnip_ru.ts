@@ -60,10 +60,6 @@
         <translation>Версия</translation>
     </message>
     <message>
-        <source>(C) 2019 Damir Porobic</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Dutch Translation</source>
         <translation>Голландский перевод</translation>
     </message>

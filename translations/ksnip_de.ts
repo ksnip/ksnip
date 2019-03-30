@@ -109,7 +109,7 @@
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation>Aufnahme des Bildschirm auf dem sich dezeit die Maus befindet</translation>
+        <translation>Aufnahme des Bildschirms auf dem sich dezeit die Maus befindet</translation>
     </message>
     <message>
         <source>Active Window</source>
@@ -136,7 +136,7 @@
     </message>
     <message>
         <source>Received new token, trying upload again...</source>
-        <translation>Neues Token erhalten, erneuter Hochladen versuch...</translation>
+        <translation>Neues Token erhalten, erneutes Hochladen versuch...</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token...</source>
@@ -176,7 +176,7 @@
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
         <translation>Zeitverzögerung in Sekunden zwischen
-dem anstoßen der Bildschirmaufnahme
+dem Anstoßen der Bildschirmaufnahme
 und der Aufnahme.</translation>
     </message>
     <message>
@@ -214,7 +214,7 @@ und der Aufnahme.</translation>
         <source>The capture has been modified.
 Do you want to save it?</source>
         <translation>Die Aufnahme wurde geändert.
-Möchten Sie es speichern?</translation>
+Möchten Sie sie speichern?</translation>
     </message>
     <message>
         <source>Unsaved</source>
@@ -234,7 +234,7 @@ Möchten Sie es speichern?</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation>Druckerdialog öffnen</translation>
+        <translation>Druckdialog öffnen</translation>
     </message>
     <message>
         <source>Print Preview</source>
@@ -341,11 +341,11 @@ Möchten Sie es speichern?</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation>Ksnip-Werkzeugauswahl speicher und beim Starten laden</translation>
+        <translation>Ksnip-Werkzeugauswahl speichern und beim Starten laden</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation>Beim starten Screenshot Aufnahmen im Standardmodus</translation>
+        <translation>Beim Starten Screenshot-Aufnahmen im Standardmodus</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
@@ -369,7 +369,7 @@ erfasst werden.</translation>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation>Legt die Farbe des Mauszeiger im Ausschnittbereichs 
+        <translation>Legt die Farbe des Mauszeigers im Ausschnittbereich 
 fest. Änderung erfordert Ksnip Neustart um
 wirksam zu werden.</translation>
     </message>
@@ -377,7 +377,7 @@ wirksam zu werden.</translation>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation>Legt die Dicke des Mauszeiger im Ausschnittbereichs
+        <translation>Legt die Dicke des Mauszeigers im Ausschnittbereich
 fest. Änderung erfordert ksnip Neustart um
 wirksam zu werden.</translation>
     </message>
@@ -419,15 +419,15 @@ wirksam zu werden.</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation>Toekn Anfordern</translation>
+        <translation>Token anfordern</translation>
     </message>
     <message>
         <source>Paint Item Shadows</source>
-        <translation>Schatten unter Gemalten gegenständen anzeigen</translation>
+        <translation>Schatten unter gezeichneten Gegenständen anzeigen</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation>Wenn aktiviert, wird ein Schatten unter Gemalten gegenständen angezeigt.</translation>
+        <translation>Wenn aktiviert, wird ein Schatten unter gezeichneten Gegenständen angezeigt.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
@@ -441,7 +441,7 @@ Markerpfade nach dem fertigen Zeichnen geglättet.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation>Glättungsfaktors</translation>
+        <translation>Glättungsfaktor</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
@@ -449,7 +449,7 @@ precision for pen and marker but will
 make them more smooth.</source>
         <translation>Das Erhöhen des Glättungsfaktors wird die
 Präzision für Stift und Marker veringern,
-mach sie glatter.</translation>
+es macht sie glatter.</translation>
     </message>
     <message>
         <source>Text Font</source>
@@ -457,7 +457,7 @@ mach sie glatter.</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation>Legt die Schriftart für das Textelemente fest.</translation>
+        <translation>Legt die Schriftart für das Textelement fest.</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -525,7 +525,7 @@ mach sie glatter.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation>Fehler beim aktualisieren des Imgur-Token.</translation>
+        <translation>Fehler beim Aktualisieren des Imgur-Tokens.</translation>
     </message>
     <message>
         <source>Capture save location</source>
@@ -537,7 +537,7 @@ mach sie glatter.</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Sofort Speicher am Standardspeicherort ohne &quot;Speichern unter&quot; Dialog zu öffnen</translation>
+        <translation>Sofort speichern am Standardspeicherort ohne &quot;Speichern unter&quot; Dialog zu öffnen</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
@@ -573,41 +573,40 @@ the delay happens after the snipping area is shown.
 This feature doesn&apos;t work for Wayland and is always
 used for MacOs.</source>
         <translation>Wenn aktiviert, wird der Hintergrund eingefroren
-wehrend eine rechteckige Region für die Bildschirmaufnahme
+während eine rechteckige Region für die Bildschirmaufnahme
 ausgewählt wird. Es ändert sich auch das Verhalten von 
 verzögerten Bildschirmaufnahmen. Wenn diese Option aktiviert 
-ist, erfolgt die Verzögerung vor dem vor dem anzeigen des 
+ist, erfolgt die Verzögerung vor dem Anzeigen des 
 Ausschnittbereichs. Wenn diese Option deaktiviert ist, erfolgt 
-die Verzögerung nachdem der Ausschnittsbereich angezeigt wurd.
+die Verzögerung, nachdem der Ausschnittsbereich angezeigt wurde.
 Diese Option funktioniert nicht für Wayland und ist immer aktiv
 für MacOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation>Vergrößerungsglas im Ausschnittsbereich anzeigen</translation>
+        <translation>Lupe im Ausschnittsbereich anzeigen</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Zeigt ein Vergröserungsglass an welches in 
+        <translation>Zeigt eine Lupe an welche in das
 Hintergrundbild hineinzoomt. Diese Option 
 funktioniert nur bei aktiviertem 
 &apos;Bild während der Aufnahme einfrieren&apos;.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation>Lineare bei der Auswahl des Rechteckigen Bereichs anzeigen</translation>
+        <translation>Lineale bei der Auswahl des rechteckigen Bereichs anzeigen</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation>Horizontale und Vertikale Linien anzeigen
-welche vom Bildschirmrand zum Mauszeiger gehen.</translation>
+        <translation>Horizontale und vertikale Linien vom Bildschirmrand zum Mauszeiger anzeigen.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation>Position und Größe und Ausschnittsbereich anzeigen</translation>
+        <translation>Position und Größe des Ausschnittsbereichs anzeigen</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
@@ -648,19 +647,19 @@ ausgewählten Bereichs angezeigt.</translation>
     </message>
     <message>
         <source>Capture the screen (monitor) where the mouse cursor is currently located.</source>
-        <translation>Aufnahme des Bildschirms auf dem sich der Mauszeiger gerade befindet.</translation>
+        <translation>Aufnahme des Bildschirms auf dem sich der Mauszeiger befindet.</translation>
     </message>
     <message>
         <source>Capture the window that currently has input focus.</source>
-        <translation>Fenster Aufnehmen, das derzeit Fokus hat.</translation>
+        <translation>Fenster aufnehmen, das derzeit Fokus hat.</translation>
     </message>
     <message>
         <source>Capture the window that is currently under the mouse cursor.</source>
-        <translation>Fenster aufnehmen, das sich derzeit unter dem Mauszeiger befindet.</translation>
+        <translation>Fenster unter dem Mauszeiger aufnehmen.</translation>
     </message>
     <message>
         <source>Delay before taking the screenshot.</source>
-        <translation>Verzögerung bevor die Screenshot aufnahme gemacht wird.</translation>
+        <translation>Verzögerung bevor der Screenshot gemacht wird.</translation>
     </message>
     <message>
         <source>seconds</source>

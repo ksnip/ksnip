@@ -554,11 +554,12 @@ se guarda instantáneamente en la ubicación predeterminada.</translation>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Establece el estilo de la aplicación que define la apariencia de la GUI
+El cambio requiere el reinicio de ksnip para que tenga efecto.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished"></translation>
+        <translation>Congele la imagen mientras corta</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -569,49 +570,61 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature doesn&apos;t work for Wayland and is always
 used for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando se habilita se congelará el fondo mientras
+selecciona una región rectangular. Tambien cambia
+el comportamiento de las capturas de pantalla retrasadas, con este
+opción habilitada el retraso ocurre antes el
+área de recorte es mostrada y con la opción desactivada.
+Esta característica no funciona para Wayland y siempre es
+utilizado para MacOs.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar lupa en el área de corte</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Muestra una lupa que se acerca a
+la imagen de fondo. Esta opción solo funciona
+con &apos;Congelar imagen mientras se corta&apos; habilitado.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar reglas del área de recorte</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Líneas horizontales y verticales que van desde
+los bordes del escritorio al cursor en el área de corte.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar la posición del área de corte y la información del tamaño</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando no se presiona el mouse izquierdo la posición
+se muestra, cuando se presiona el botón del ratón,
+el tamaño del área de selección se muestra a la izquierda
+y por encima de la zona capturada.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished"></translation>
+        <translation>Color del área de corte del cursor</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>Grosor del área de corte del cursor</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Historial Imgur</translation>
     </message>
 </context>
 <context>
@@ -666,7 +679,7 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Displays version information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Muestra información de la versión.</translation>
     </message>
 </context>
 </TS>

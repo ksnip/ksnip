@@ -61,23 +61,23 @@
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traducción alemana</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traducción rusa</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traducción noruega</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traducción francesa</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traducción polaca</translation>
     </message>
 </context>
 <context>

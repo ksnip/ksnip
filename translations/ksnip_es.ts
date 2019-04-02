@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation>Traducción alemana</translation>
+        <translation>Traducción holandesa</translation>
     </message>
     <message>
         <source>Russian Translation</source>

@@ -360,8 +360,8 @@ Desea guardarla?</translation>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type="unfinished">El cursor del mouse debe estar visible en
-capturas de pantalla.</translation>
+        <translation>El cursor del mouse debe estar visible sobre
+las capturas de pantalla.</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
@@ -389,7 +389,7 @@ tomar efecto.</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation>Siempre copiar enlace de Imgur al portapapeles.</translation>
+        <translation>Siempre copiar enlace de Imgur al portapapeles</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>

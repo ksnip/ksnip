@@ -135,7 +135,7 @@
     </message>
     <message>
         <source>Received new token, trying upload again...</source>
-        <translation>Recibió un nuevo token, intentando subir de nuevo ...</translation>
+        <translation>Recibido un token nuevo, intentando subir de nuevo ...</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token...</source>
@@ -146,59 +146,60 @@
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Historial Imgur</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Cerrar</translation>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <source>Time Stamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Sello de tiempo</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Enlace</translation>
     </message>
     <message>
         <source>Delete Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar enlace</translation>
     </message>
 </context>
 <context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation type="unfinished">Nuevo</translation>
+        <translation>Nuevo</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Retraso en segundos entre la activación
+y la captura de pantalla.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>ss</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Guardar</translation>
+        <translation>Guardar</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation type="unfinished">Guardar captura de pantalla en el sistema de archivos</translation>
+        <translation>Guardar captura de pantalla en el sistema de archivos</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Copiar</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation type="unfinished">Copiar capturas de pantalla al portapapeles</translation>
+        <translation>Copiar capturas de pantalla al portapapeles</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">Herramientas</translation>
+        <translation>Herramientas</translation>
     </message>
 </context>
 <context>
@@ -219,7 +220,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation>Cargado</translation>
+        <translation>Subida</translation>
     </message>
     <message>
         <source>Upload capture image to imgur.com</source>
@@ -235,7 +236,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation>vista previa de impresión</translation>
+        <translation>Vista previa de impresión</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
@@ -255,7 +256,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
-        <translation>Escalar Captura de Imagen</translation>
+        <translation>Escalar Captura de imagen</translation>
     </message>
     <message>
         <source>Quit</source>
@@ -303,7 +304,7 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Imgur Upload</source>
-        <translation>Cargar Imgur</translation>
+        <translation>Subir a Imgur</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
@@ -330,15 +331,15 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Always copy capture to clipboard</source>
-        <translation>Copie siempre la captura al portapapeles</translation>
+        <translation>Siempre copiar captura al portapapeles</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation>Guarde la posición ksnip en movimiento y cargue al inicio</translation>
+        <translation>Guardar la posición de ksnip en movimiento y cargar al inicio</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation>Guarde la selección de la herramienta ksnip y cárguela al inicio</translation>
+        <translation>Guardar la selección de herramientas de ksnip y cargar al inicio</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
@@ -346,11 +347,11 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation>Capture la ubicación de guardar y nombre de archivo</translation>
+        <translation>Capturar ubicación de guardar y nombre de archivo</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Vistazo</translation>
+        <translation>Navegar</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot</source>
@@ -359,14 +360,14 @@ Desea guardarla?</translation>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation>El cursor del mouse debe estar visible en
+        <translation type="unfinished">El cursor del mouse debe estar visible en
 capturas de pantalla.</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation>Establece el color del  área de recorte del
+        <translation>Establece el color del área de recorte del
 cursor. El cambio requiere reiniciar ksnip para 
 tomar efecto.</translation>
     </message>
@@ -374,13 +375,13 @@ tomar efecto.</translation>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation>Establece el grosor del  rea de corte
+        <translation>Establece el grosor del area de corte
 cursor. El cambio requiere reiniciar ksnip para
 tomar efecto.</translation>
     </message>
     <message>
         <source>Force anonymous upload</source>
-        <translation>Forzar carga anónima</translation>
+        <translation>Forzar subida anónima</translation>
     </message>
     <message>
         <source>Open link directly to image</source>
@@ -388,7 +389,7 @@ tomar efecto.</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation>Copie siempre el enlace de Imgur al portapapeles</translation>
+        <translation>Siempre copiar enlace de Imgur al portapapeles.</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
@@ -400,7 +401,7 @@ tomar efecto.</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation>Cliente Secreto</translation>
+        <translation>Secreto del Cliente</translation>
     </message>
     <message>
         <source>PIN</source>
@@ -408,11 +409,11 @@ tomar efecto.</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation>Ingrese Pin imgur que se intercambiar  por un token.</translation>
+        <translation>Ingrese Pin imgur para intercambiarlo por un token.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation>Obtener Pin</translation>
+        <translation>Obtener PIN</translation>
     </message>
     <message>
         <source>Get Token</source>
@@ -420,32 +421,32 @@ tomar efecto.</translation>
     </message>
     <message>
         <source>Paint Item Shadows</source>
-        <translation>Pintar sombras de elementos</translation>
+        <translation>Pintar sombras de objetos</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation>Cuando está  habilitado, los elementos de pintura se proyectan en sombras.</translation>
+        <translation>Cuando está habilitado, los elementos de dibujo proyectan sombras.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation>Rutas suaves del pintor</translation>
+        <translation>Suavizar Rutas del dibujo</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation>Cuando está  habilitado suaviza la pluma y
-trazados de marcador, después de terminar de dibujar.</translation>
+        <translation>Cuando está habilitado, suavizar pluma y
+trazados de marcador al terminar de dibujar.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation>Factor de Suavizado</translation>
+        <translation>Factor del suavizado</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation>Aumentar el factor de suavizado, disminuirá
-precisión para lápiz y marcador, pero los hará
+        <translation>Aumentar el factor del suavizado, disminuirá
+precisión para lápiz y marcador, los hará
 más suaves.</translation>
     </message>
     <message>
@@ -454,11 +455,11 @@ más suaves.</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation>Establece la fuente para el elemento de pintura de texto.</translation>
+        <translation>Establece la fuente para el elemento de dibujo de texto.</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation>negrita</translation>
+        <translation>Negrita</translation>
     </message>
     <message>
         <source>Italic</source>
@@ -474,7 +475,7 @@ más suaves.</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Establece la fuente para el elemento de pintura de numeración.</translation>
+        <translation>Establece la fuente para el elemento de dibujo de numeración.</translation>
     </message>
     <message>
         <source>OK</source>
@@ -498,7 +499,7 @@ más suaves.</translation>
     </message>
     <message>
         <source>Painter Settings</source>
-        <translation>Ajustes de pintor</translation>
+        <translation>Ajustes del pintor</translation>
     </message>
     <message>
         <source>Application</source>
@@ -510,11 +511,11 @@ más suaves.</translation>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>
-        <translation>Esperando por imgur.com...</translation>
+        <translation>Esperando a imgur.com...</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation>Nombre de Usuario:</translation>
+        <translation>Nombre de usuario:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
@@ -539,16 +540,16 @@ más suaves.</translation>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation>Cuando está habilitado, no preguntará dónde guardar una captura de pantalla
-al guardar, pero se guardará instantáneamente en la ubicación predeterminada.</translation>
+        <translation>Cuando está habilitado, no preguntar dónde guardar la captura de pantalla,
+se guarda instantáneamente en la ubicación predeterminada.</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation>El nombre de archivo puede contener $ Y, $ M, $ D por fecha, $ h, $ m, $ s por hora o $ T por hora en formato hhmmss.</translation>
+        <translation>El nombre de archivo puede contener $Y, $M, $D por fecha, $h, $m, $s  por hora o $T por hora en formato hhmmss.</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilo de aplicación</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.

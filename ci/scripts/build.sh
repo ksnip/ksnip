@@ -2,8 +2,6 @@
 
 if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     source ci/scripts/appImage/build_appImage.sh
-    mv ksnip*.AppImage ksnip-${VERSION}-x86_64.AppImage
-    mv ksnip*.AppImage.zsync ksnip-${VERSION}-x86_64.AppImage.zsync
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     docker exec build-container bash -c "source ci/scripts/deb/build_deb.sh"
     mv ksnip_*.deb ksnip-${VERSION}.deb

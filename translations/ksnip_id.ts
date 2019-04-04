@@ -404,105 +404,121 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature doesn&apos;t work for Wayland and is always
 used for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jika diaktifkan, background akan dibekukan ketika
+memilih wilayah persegi. Juga mengubah perilaku
+jeda tangkapan layar, dimana jika diaktifkan maka
+akan ada jeda sebelum area dibuat, dan jika tidak
+diaktifkan jeda dimulai setelah wilayah ditampilkan.
+Fitur ini tidak berlaku pada Wayland dan selalu aktif
+pada MacOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan kaca pembesar pada area snipping</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Menampilkan kaca pembesar yang akan membesarkan
+gambar latar belakang. Opsi ini hanya berlaku jika
+Bekukan Gambar saat snipping diaktifkan.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan penggaris Area Snipping</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Garis vertikal dan horizontal dari pinggir
+desktop ke kursor pada area snipping.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan info posisi dan ukuran Area Snipping</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ketika mouse kiri tidak ditekan, posisi akan
+ditampilkan, ketika tombol mouse ditekan,
+ukuran area yang dipilih akan ditampilkan 
+kiri dan atas dari area tangkapan.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished"></translation>
+        <translation>Warna kursor Area Snipping</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Menentukan warna kursor area snipping.
+Untuk melihat hasil fitur ini, ksnip harus
+ditutup dan buka ulang.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>Tebal kursor Area Snipping</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Menentukan ketebalan kursor area snipping.
+Untuk melihat hasil ini, ksnip harus ditutup
+dan buka ulang.</translation>
     </message>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Paksa unggah anonim</translation>
     </message>
     <message>
         <source>Open link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka tautan langsung ke gambar</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Selalu salin alamat imgur ke clipboard</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished"></translation>
+        <translation>Tanya dulu sebelum mengunggah</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished"></translation>
+        <translation>ID Klien</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished"></translation>
+        <translation>Secret Klien</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>PIN</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished"></translation>
+        <translation>Masukkan Pin imgur yang akan diubah menjadi token.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>Dapatkan PIN</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Dapatkan Token</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Riwayat Imgur</translation>
     </message>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>Buat Bayangan</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>

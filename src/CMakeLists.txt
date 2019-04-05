@@ -34,8 +34,11 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/SettingsDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/GlobalKeyboardShortcut.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/NativeKeyEventFilter.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/AbstractKeyHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/KeyHandlerFactory.cpp
 	)
-
 
 if (APPLE)
 	set(KSNIP_SRCS
@@ -43,6 +46,7 @@ if (APPLE)
 			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacImageGrabber.cpp
 			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacWrapper.cpp
 			${CMAKE_SOURCE_DIR}/src/gui/snippingArea/MacSnippingArea.cpp
+			${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/DummyKeyHandler.cpp
 			)
 elseif (UNIX)
     set(KSNIP_SRCS
@@ -54,6 +58,7 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/common/platform/PlatformChecker.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/CommandRunner.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/LinuxSnippingArea.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/DummyKeyHandler.cpp
 		)
 elseif (WIN32)
 	set(KSNIP_SRCS
@@ -61,6 +66,7 @@ elseif (WIN32)
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinWrapper.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/WinSnippingArea.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/WinKeyHandler.cpp
 		)
 endif ()
 

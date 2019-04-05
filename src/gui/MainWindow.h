@@ -45,16 +45,17 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
     void showEmpty();
-    void captureScreenshot(CaptureModes captureMode, bool capureCursor, int delay);
-    QMenu *createPopupMenu() override;
-    QSize sizeHint() const override;
+    void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
 
 public slots:
     void showCapture(const QPixmap &screenshot);
+    void triggerNewDefaultCapture();
 
 protected:
     void moveEvent(QMoveEvent *event) override;
     void closeEvent(QCloseEvent *event) override;
+    QMenu *createPopupMenu() override;
+    QSize sizeHint() const override;
 
 private:
     AbstractImageGrabber *mImageGrabber;

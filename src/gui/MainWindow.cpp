@@ -134,6 +134,11 @@ void MainWindow::showEmpty()
     QMainWindow::show();
 }
 
+void MainWindow::triggerNewDefaultCapture()
+{
+    triggerNewCapture(mConfig->captureMode());
+}
+
 QMenu* MainWindow::createPopupMenu()
 {
     // Filtering out the option to hide main toolbar which should no be allowed.

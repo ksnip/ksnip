@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,39 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IMGURHISTORYDIALOG_H
-#define KSNIP_IMGURHISTORYDIALOG_H
+#ifndef KSNIP_GLOBALKEYBOARDSHORTCUT_H
+#define KSNIP_GLOBALKEYBOARDSHORTCUT_H
 
-#include <QDialog>
-#include <QTableWidget>
-#include <QVBoxLayout>
 #include <QApplication>
-#include <QDesktopServices>
-#include <QUrl>
-#include <QHeaderView>
-#include <QPushButton>
+#include <QObject>
 
-#include "src/backend/uploader/ImgurResponseLogger.h"
+#include "NativeKeyEventFilter.h"
+#include "KeyHandlerFactory.h"
 
-class ImgurHistoryDialog : public QDialog
+class GlobalKeyboardShortcut : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-	explicit ImgurHistoryDialog();
-	~ImgurHistoryDialog() override;
+    explicit GlobalKeyboardShortcut(QApplication &app);
+    ~GlobalKeyboardShortcut() override;
+
+signals:
+    void pressed() const;
 
 private:
-	QVBoxLayout *mLayout;
-	QTableWidget *mTableWidget;
-	QPushButton *mCloseButton;
-
-	void addEntryToTable(const QString &entry, int row) const;
-	void populateTable(const QStringList &logEntries);
-	void createTable(int rowCount);
-
-private slots:
-	void cellClicked(int row, int column) const;
-
+    AbstractKeyHandler *mKeyHandler;
 };
 
-#endif //KSNIP_IMGURHISTORYDIALOG_H
+#endif //KSNIP_GLOBALKEYBOARDSHORTCUT_H

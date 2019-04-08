@@ -522,161 +522,164 @@ dan buka ulang.</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jika diaktifkan, akan membuat bayangan pada item paint.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Haluskan Path Pinter</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jika diaktifkan, akan membuat halus path pena 
+dan penanda setelah selesai menggambar.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Faktor Penghalusan</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished"></translation>
+        <translation>Menambah faktor penghalusan akan mengurangi
+akurasi untuk pena dan penanda, tetapi akan
+membuatnya lebih halus.</translation>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonta Teks</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Menentukan jenis huruf untuk item Paint Teks.</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Tebal</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Miring</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Garis bawah</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonta Daftar Angka</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Menentukan jenis huruf untuk item Paint Daftar Angka.</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengaturan Aplikasi</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Penangkap Gambar</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengunggah Imgur</translation>
     </message>
     <message>
         <source>Painter Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengaturan Painter</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplikasi</translation>
     </message>
     <message>
         <source>Painter</source>
-        <translation type="unfinished"></translation>
+        <translation>Painter</translation>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>
-        <translation type="unfinished"></translation>
+        <translation>Menunggu dari imgur.com...</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>Usesrname:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>Token Imgur.com berhasil diperbarui.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ada kesalahan dalam pemutakhiran token imgur.com.</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokasi penyimpanan tangkapan</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
         <source>Select a rectangular area from where to take a screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pilih area dimana anda akan mengambil tangkapan layarnya.</translation>
     </message>
     <message>
         <source>Capture the fullscreen including all monitors.</source>
-        <translation type="unfinished"></translation>
+        <translation>Rekam layar penuh dari semua monitor.</translation>
     </message>
     <message>
         <source>Capture the screen (monitor) where the mouse cursor is currently located.</source>
-        <translation type="unfinished"></translation>
+        <translation>Rekam layar (monitor) dimana kursor mouse saat ini berada.</translation>
     </message>
     <message>
         <source>Capture the window that currently has input focus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Rekam jendela yang sedang fokus/aktif.</translation>
     </message>
     <message>
         <source>Capture the window that is currently under the mouse cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Rekam jendela yang berada di bawah kursor mouse.</translation>
     </message>
     <message>
         <source>Delay before taking the screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeda sebelum mengambil gambar.</translation>
     </message>
     <message>
         <source>seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>detik</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Rekam juga kursor pada gambar tangkapan.</translation>
     </message>
     <message>
         <source>Edit existing image in ksnip</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit gambar yang ada dalam ksnip</translation>
     </message>
     <message>
         <source>image</source>
-        <translation type="unfinished"></translation>
+        <translation>Gambar</translation>
     </message>
     <message>
         <source>Save screenshot to default location without opening in editor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan gambar tangkapan ke lokasi standar tanpa membukanya pada editor.</translation>
     </message>
     <message>
         <source>Displays version information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Menampilkan informasi versi.</translation>
     </message>
     <message>
         <source>Ksnip Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Alat Tangkapan Layar Ksnip</translation>
     </message>
 </context>
 </TS>

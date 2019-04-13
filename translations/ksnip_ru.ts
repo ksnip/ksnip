@@ -5,11 +5,11 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>Подробнее </translation>
+        <translation>О программе </translation>
     </message>
     <message>
         <source>About</source>
-        <translation>Подробнее</translation>
+        <translation>О программе</translation>
     </message>
     <message>
         <source>Version</source>
@@ -242,7 +242,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Scale</source>
-        <translation>&amp;Масштаб...</translation>
+        <translation>Масштаб</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
@@ -282,7 +282,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save As</source>
-        <translation>Сохранить как...</translation>
+        <translation>Сохранить как…</translation>
     </message>
     <message>
         <source>Images</source>
@@ -372,7 +372,7 @@ $T — hhmmss формат.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Обзор...</translation>
+        <translation>Обзор…</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot</source>
@@ -422,11 +422,11 @@ take effect.</source>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished"></translation>
+        <translation>Секретный ключ клиента</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>PIN-код</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
@@ -499,7 +499,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -547,7 +547,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished"></translation>
+        <translation>Место сохранения</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -617,7 +617,7 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation>История загрузок...</translation>
+        <translation>История загрузок…</translation>
     </message>
 </context>
 <context>
@@ -668,7 +668,7 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Ksnip Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Ksnip — программа для скриншотов</translation>
     </message>
     <message>
         <source>Displays version information.</source>

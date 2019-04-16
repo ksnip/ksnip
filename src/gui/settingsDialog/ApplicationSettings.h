@@ -56,6 +56,8 @@ private:
 
 	void initGui();
 	void loadConfig();
+
+private slots:
 	void chooseSaveDirectory();
 };
 

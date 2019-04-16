@@ -30,19 +30,16 @@
 #include <QGroupBox>
 #include <QStackedLayout>
 #include <QApplication>
-#include <QDesktopServices>
 #include <QToolButton>
 
 #include "ApplicationSettings.h"
 #include "ImageGrabberSettings.h"
-
-#include "gui/ImgurHistoryDialog.h"
+#include "ImgurUploaderSettings.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/widgets/ColorButton.h"
 #include "backend/config/KsnipConfig.h"
 #include "src/common/formatter/FilenameFormatter.h"
 #include "src/common/loader/IconLoader.h"
-#include "backend/uploader/ImgurUploader.h"
 
 class SettingsDialog : public QDialog
 {
@@ -52,34 +49,24 @@ public:
     ~SettingsDialog() override;
 
 private:
-    QCheckBox       *mImgurForceAnonymousCheckbox;
-    QCheckBox       *mImgurDirectLinkToImageCheckbox;
-    QCheckBox       *mImgurAlwaysCopyToClipboardCheckBox;
-    QCheckBox       *mImgurConfirmBeforeUploadCheckbox;
     QCheckBox       *mSmoothPathCheckbox;
     QCheckBox       *mItemShadowCheckbox;
-    QLineEdit       *mImgurClientIdLineEdit;
-    QLineEdit       *mImgurClientSecretLineEdit;
-    QLineEdit       *mImgurPinLineEdit;
-    QLabel          *mImgurUsernameLabel;
     QLabel          *mTextFontLabel;
     QLabel          *mNumberFontLabel;
     QLabel          *mSmoothFactorLabel;
     NumericComboBox *mSmoothFactorCombobox;
     QFontComboBox   *mTextFontCombobox;
     QFontComboBox   *mNumberFontCombobox;
-    QPushButton     *mImgurGetPinButton;
-    QPushButton     *mImgurGetTokenButton;
     QPushButton     *mOkButton;
     QPushButton     *mCancelButton;
-	QPushButton *mImgurHistoryButton;
     QToolButton     *mTextBoldButton;
     QToolButton     *mTextItalicButton;
     QToolButton     *mTextUnderlineButton;
-    ImgurUploader   *mImgurUploader;
+
 
 	ApplicationSettings *mApplicationSettings;
 	ImageGrabberSettings *mImageGrabberSettings;
+	ImgurUploaderSettings *mImgurUploaderSettings;
     QListWidget *mListWidget;
     QStackedLayout *mStackedLayout;
     KsnipConfig *mConfig;
@@ -89,13 +76,7 @@ private:
     void initGui();
 
 private slots:
-    void requestImgurPin();
-    void getImgurToken();
-    void smootPathCheckboxClicked(bool checked);
-    void imgurClientEntered(const QString &text);
-    void imgurTokenUpdated(const QString &accessToken, const QString &refreshTocken, const QString &username);
-    void imgurTokenError(const QString &message);
-	void showImgurHistoryDialog();
+	void smoothPathCheckboxClicked(bool checked);
 };
 
 #endif // KSNIP_SETTINGSDIALOG_H

@@ -22,31 +22,20 @@
 
 SettingsDialog::SettingsDialog(QWidget *parent) :
 	QDialog(parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
-	mImgurForceAnonymousCheckbox(new QCheckBox),
-	mImgurDirectLinkToImageCheckbox(new QCheckBox),
-	mImgurAlwaysCopyToClipboardCheckBox(new QCheckBox),
-	mImgurConfirmBeforeUploadCheckbox(new QCheckBox),
+
 	mSmoothPathCheckbox(new QCheckBox),
 	mItemShadowCheckbox(new QCheckBox),
-	mImgurClientIdLineEdit(new QLineEdit),
-	mImgurClientSecretLineEdit(new QLineEdit),
-	mImgurPinLineEdit(new QLineEdit),
-	mImgurUsernameLabel(new QLabel),
 	mTextFontLabel(new QLabel),
 	mNumberFontLabel(new QLabel),
 	mSmoothFactorLabel(new QLabel),
 	mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
 	mTextFontCombobox(new QFontComboBox(this)),
 	mNumberFontCombobox(new QFontComboBox(this)),
-	mImgurGetPinButton(new QPushButton),
-	mImgurGetTokenButton(new QPushButton),
 	mOkButton(new QPushButton),
 	mCancelButton(new QPushButton),
-	mImgurHistoryButton(new QPushButton),
 	mTextBoldButton(new QToolButton),
 	mTextItalicButton(new QToolButton),
 	mTextUnderlineButton(new QToolButton),
-	mImgurUploader(new ImgurUploader),
 	mListWidget(new QListWidget),
 	mStackedLayout(new QStackedLayout),
 	mConfig(KsnipConfig::instance())
@@ -57,8 +46,6 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 
     loadSettings();
 
-    connect(mImgurUploader, &ImgurUploader::tokenUpdated, this, &SettingsDialog::imgurTokenUpdated);
-    connect(mImgurUploader, &ImgurUploader::error, this, &SettingsDialog::imgurTokenError);
     connect(mListWidget, &QListWidget::itemSelectionChanged, [this]() {
         mStackedLayout->setCurrentIndex(mListWidget->currentRow());
     });
@@ -66,47 +53,25 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 
 SettingsDialog::~SettingsDialog()
 {
-    delete mImgurForceAnonymousCheckbox;
-    delete mImgurDirectLinkToImageCheckbox;
-    delete mImgurAlwaysCopyToClipboardCheckBox;
-    delete mImgurConfirmBeforeUploadCheckbox;
     delete mSmoothPathCheckbox;
     delete mItemShadowCheckbox;
-    delete mImgurClientIdLineEdit;
-    delete mImgurClientSecretLineEdit;
-    delete mImgurPinLineEdit;
-    delete mImgurUsernameLabel;
     delete mTextFontLabel;
     delete mNumberFontLabel;
     delete mSmoothFactorLabel;
     delete mSmoothFactorCombobox;
     delete mTextFontCombobox;
     delete mNumberFontCombobox;
-    delete mImgurGetPinButton;
-    delete mImgurGetTokenButton;
     delete mOkButton;
     delete mCancelButton;
-	delete mImgurHistoryButton;
     delete mTextBoldButton;
     delete mTextItalicButton;
     delete mTextUnderlineButton;
-    delete mImgurUploader;
     delete mListWidget;
     delete mStackedLayout;
 }
 
 void SettingsDialog::loadSettings()
 {
-    mImgurForceAnonymousCheckbox->setChecked(mConfig->imgurForceAnonymous());
-    mImgurDirectLinkToImageCheckbox->setChecked(mConfig->imgurOpenLinkDirectlyToImage());
-    mImgurAlwaysCopyToClipboardCheckBox->setChecked(mConfig->imgurAlwaysCopyToClipboard());
-    mImgurConfirmBeforeUploadCheckbox->setChecked(mConfig->imgurConfirmBeforeUpload());
-
-    mImgurUsernameLabel->setText(tr("Username") + ": " + mConfig->imgurUsername());
-    if(!mConfig->imgurClientId().isEmpty()) {
-        mImgurClientIdLineEdit->setPlaceholderText(mConfig->imgurClientId());
-    }
-
     mTextFontCombobox->setCurrentFont(mConfig->textFont());
     mTextBoldButton->setChecked(mConfig->textBold());
     mTextItalicButton->setChecked(mConfig->textItalic());
@@ -115,16 +80,11 @@ void SettingsDialog::loadSettings()
     mItemShadowCheckbox->setChecked(mConfig->itemShadowEnabled());
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
-    smootPathCheckboxClicked(mConfig->smoothPathEnabled());
+	smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
 }
 
 void SettingsDialog::saveSettings()
 {
-    mConfig->setImgurForceAnonymous(mImgurForceAnonymousCheckbox->isChecked());
-    mConfig->setImgurOpenLinkDirectlyToImage(mImgurDirectLinkToImageCheckbox->isChecked());
-    mConfig->setImgurAlwaysCopyToClipboard(mImgurAlwaysCopyToClipboardCheckBox->isChecked());
-    mConfig->setImgurConfirmBeforeUpload(mImgurConfirmBeforeUploadCheckbox->isChecked());
-
     mConfig->setTextFont(mTextFontCombobox->currentFont());
     mConfig->setTextBold(mTextBoldButton->isChecked());
     mConfig->setTextItalic(mTextItalicButton->isChecked());
@@ -136,40 +96,12 @@ void SettingsDialog::saveSettings()
 
     mApplicationSettings->saveSettings();
     mImageGrabberSettings->saveSettings();
+    mImgurUploaderSettings->saveSettings();
 }
 
 void SettingsDialog::initGui()
 {
     auto const fixedButtonSize = 100;
-
-    // Create Imgur Uploader Settings
-    mImgurForceAnonymousCheckbox->setText(tr("Force anonymous upload"));
-    mImgurDirectLinkToImageCheckbox->setText(tr("Open link directly to image"));
-    mImgurAlwaysCopyToClipboardCheckBox->setText(tr("Always copy Imgur link to clipboard"));
-    mImgurConfirmBeforeUploadCheckbox->setText(tr("Ask for confirmation before uploading"));
-
-    mImgurClientIdLineEdit->setPlaceholderText(tr("Client ID"));
-    connect(mImgurClientIdLineEdit, &QLineEdit::textChanged, this, &SettingsDialog::imgurClientEntered);
-
-    mImgurClientSecretLineEdit->setPlaceholderText(tr("Client Secret"));
-    connect(mImgurClientSecretLineEdit, &QLineEdit::textChanged, this, &SettingsDialog::imgurClientEntered);
-
-    mImgurPinLineEdit->setPlaceholderText(tr("PIN"));
-    mImgurPinLineEdit->setToolTip(tr("Enter imgur Pin which will be exchanged for a token."));
-    connect(mImgurPinLineEdit, &QLineEdit::textChanged, [this](const QString & text) {
-        mImgurGetTokenButton->setEnabled(text.length() > 8);
-    });
-
-    mImgurGetPinButton->setText(tr("Get PIN"));
-    connect(mImgurGetPinButton, &QPushButton::clicked, this, &SettingsDialog::requestImgurPin);
-    mImgurGetPinButton->setEnabled(false);
-
-    mImgurGetTokenButton->setText(tr("Get Token"));
-    connect(mImgurGetTokenButton, &QPushButton::clicked, this, &SettingsDialog::getImgurToken);
-    mImgurGetTokenButton->setEnabled(false);
-
-	mImgurHistoryButton->setText(tr("Imgur History"));
-	connect(mImgurHistoryButton, &QPushButton::clicked, this, &SettingsDialog::showImgurHistoryDialog);
 
     // Create Painter Settings
     mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
@@ -178,7 +110,7 @@ void SettingsDialog::initGui()
     mSmoothPathCheckbox->setText(tr("Smooth Painter Paths"));
     mSmoothPathCheckbox->setToolTip(tr("When enabled smooths out pen and\n"
                                        "marker paths after finished drawing."));
-    connect(mSmoothPathCheckbox, &QCheckBox::clicked, this, &SettingsDialog::smootPathCheckboxClicked);
+    connect(mSmoothPathCheckbox, &QCheckBox::clicked, this, &SettingsDialog::smoothPathCheckboxClicked);
 
     mSmoothFactorLabel->setText(tr("Smooth Factor") + QStringLiteral(":"));
     mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"
@@ -211,6 +143,7 @@ void SettingsDialog::initGui()
 
 	mApplicationSettings = new ApplicationSettings(mConfig);
 	mImageGrabberSettings = new ImageGrabberSettings(mConfig);
+	mImgurUploaderSettings = new ImgurUploaderSettings(mConfig);
 
     // Create Push Buttons
     mOkButton->setText(tr("OK"));
@@ -223,26 +156,6 @@ void SettingsDialog::initGui()
     connect(mCancelButton, &QPushButton::clicked, [this]() {
         close();
     });
-
-    // Setup Imgur Uploader Layout
-    auto imgurUploaderGrid = new QGridLayout;
-    imgurUploaderGrid->setAlignment(Qt::AlignTop);
-    imgurUploaderGrid->setColumnStretch(0, 1);
-    imgurUploaderGrid->addWidget(mImgurForceAnonymousCheckbox, 0, 0);
-    imgurUploaderGrid->addWidget(mImgurDirectLinkToImageCheckbox, 1, 0);
-    imgurUploaderGrid->addWidget(mImgurAlwaysCopyToClipboardCheckBox, 2, 0);
-    imgurUploaderGrid->addWidget(mImgurConfirmBeforeUploadCheckbox, 3, 0);
-    imgurUploaderGrid->setRowMinimumHeight(4, 15);
-    imgurUploaderGrid->addWidget(mImgurUsernameLabel, 5, 0);
-	imgurUploaderGrid->addWidget(mImgurHistoryButton, 5, 3);
-    imgurUploaderGrid->addWidget(mImgurClientIdLineEdit, 6, 0);
-    imgurUploaderGrid->addWidget(mImgurClientSecretLineEdit, 7, 0);
-    imgurUploaderGrid->addWidget(mImgurGetPinButton, 7, 3);
-    imgurUploaderGrid->addWidget(mImgurPinLineEdit, 8, 0);
-    imgurUploaderGrid->addWidget(mImgurGetTokenButton, 8, 3);
-
-    auto imgurUploaderGrpBox = new QGroupBox(tr("Imgur Uploader"));
-    imgurUploaderGrpBox->setLayout(imgurUploaderGrid);
 
     // Setup Painter Layout
     auto painterGrid = new QGridLayout;
@@ -275,7 +188,7 @@ void SettingsDialog::initGui()
     // Populate Stacked layout and listview
     mStackedLayout->addWidget(mApplicationSettings);
     mStackedLayout->addWidget(mImageGrabberSettings);
-    mStackedLayout->addWidget(imgurUploaderGrpBox);
+    mStackedLayout->addWidget(mImgurUploaderSettings);
 	mStackedLayout->addWidget(painterGroupBox);
 
     mListWidget->addItem(tr("Application"));
@@ -297,77 +210,8 @@ void SettingsDialog::initGui()
     setLayout(mainLayout);
 }
 
-/*
- * Based on the entered client id and client secret we create a pin request and open it up in the
- * default browser.
- */
-void SettingsDialog::requestImgurPin()
-{
-    // Save client ID and Secret to config file
-    mConfig->setImgurClientId(mImgurClientIdLineEdit->text().toUtf8());
-    mConfig->setImgurClientSecret(mImgurClientSecretLineEdit->text().toUtf8());
-
-    // Open the pin request in the default browser
-    QDesktopServices::openUrl(mImgurUploader->pinRequestUrl(mImgurClientIdLineEdit->text()));
-
-    // Cleanup line edits
-    mImgurClientIdLineEdit->setPlaceholderText(mImgurClientIdLineEdit->text());
-    mImgurClientIdLineEdit->clear();
-
-    mImgurClientSecretLineEdit->clear();
-}
-
-/*
- * Request a new token from imgur.com when clicked.
- */
-void SettingsDialog::getImgurToken()
-{
-    mImgurUploader->getAccessToken(mImgurPinLineEdit->text().toUtf8(),
-                                   mConfig->imgurClientId(),
-                                   mConfig->imgurClientSecret());
-    mImgurPinLineEdit->clear();
-    qInfo("%s", qPrintable(tr("Waiting for imgur.com...")));
-}
-
-void SettingsDialog::smootPathCheckboxClicked(bool checked)
+void SettingsDialog::smoothPathCheckboxClicked(bool checked)
 {
     mSmoothFactorLabel->setEnabled(checked);
     mSmoothFactorCombobox->setEnabled(checked);
-}
-
-void SettingsDialog::imgurClientEntered(const QString&)
-{
-    mImgurGetPinButton->setEnabled(!mImgurClientIdLineEdit->text().isEmpty() && !mImgurClientSecretLineEdit->text().isEmpty());
-}
-
-/*
- * We have received a new token from imgur.com, now we save it to config for
- * later use and inform the user about it.
- */
-void SettingsDialog::imgurTokenUpdated(const QString& accessToken,
-                                       const QString& refreshTocken,
-                                       const QString& username)
-{
-    mConfig->setImgurAccessToken(accessToken.toUtf8());
-    mConfig->setImgurRefreshToken(refreshTocken.toUtf8());
-    mConfig->setImgurUsername(username);
-
-    mImgurUsernameLabel->setText(tr("Username:") + username);
-    qInfo("%s", qPrintable(tr("Imgur.com token successfully updated.")));
-}
-
-/*
- * Something went wrong while requesting a new token, we write the message to
- * shell.
- */
-void SettingsDialog::imgurTokenError(const QString& message)
-{
-    qCritical("SettingsDialog returned error: '%s'", qPrintable(message));
-    qInfo("%s", qPrintable(tr("Imgur.com token update error.")));
-}
-
-void SettingsDialog::showImgurHistoryDialog()
-{
-	ImgurHistoryDialog dialog;
-	dialog.exec();
 }

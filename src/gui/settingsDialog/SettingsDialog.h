@@ -34,6 +34,7 @@
 #include <QToolButton>
 
 #include "ApplicationSettings.h"
+#include "ImageGrabberSettings.h"
 
 #include "gui/ImgurHistoryDialog.h"
 #include "src/widgets/NumericComboBox.h"
@@ -51,18 +52,12 @@ public:
     ~SettingsDialog() override;
 
 private:
-
-    QCheckBox       *mCaptureCursorCheckbox;
     QCheckBox       *mImgurForceAnonymousCheckbox;
     QCheckBox       *mImgurDirectLinkToImageCheckbox;
     QCheckBox       *mImgurAlwaysCopyToClipboardCheckBox;
     QCheckBox       *mImgurConfirmBeforeUploadCheckbox;
     QCheckBox       *mSmoothPathCheckbox;
     QCheckBox       *mItemShadowCheckbox;
-	QCheckBox *mSnippingAreaRulersCheckbox;
-	QCheckBox *mSnippingAreaPositionAndSizeInfoCheckbox;
-	QCheckBox *mSnippingAreaMagnifyingGlassCheckbox;
-	QCheckBox *mFreezeImageWhileSnippingCheckbox;
     QLineEdit       *mImgurClientIdLineEdit;
     QLineEdit       *mImgurClientSecretLineEdit;
     QLineEdit       *mImgurPinLineEdit;
@@ -70,10 +65,7 @@ private:
     QLabel          *mTextFontLabel;
     QLabel          *mNumberFontLabel;
     QLabel          *mSmoothFactorLabel;
-    QLabel          *mSnippingCursorSizeLabel;
-    QLabel          *mSnippingCursorColorLabel;
     NumericComboBox *mSmoothFactorCombobox;
-    NumericComboBox *mSnippingCursorSizeCombobox;
     QFontComboBox   *mTextFontCombobox;
     QFontComboBox   *mNumberFontCombobox;
     QPushButton     *mImgurGetPinButton;
@@ -84,10 +76,10 @@ private:
     QToolButton     *mTextBoldButton;
     QToolButton     *mTextItalicButton;
     QToolButton     *mTextUnderlineButton;
-    ColorButton     *mSnippingCursorColorButton;
     ImgurUploader   *mImgurUploader;
 
 	ApplicationSettings *mApplicationSettings;
+	ImageGrabberSettings *mImageGrabberSettings;
     QListWidget *mListWidget;
     QStackedLayout *mStackedLayout;
     KsnipConfig *mConfig;

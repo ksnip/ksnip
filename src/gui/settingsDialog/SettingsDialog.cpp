@@ -22,17 +22,12 @@
 
 SettingsDialog::SettingsDialog(QWidget *parent) :
 	QDialog(parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
-	mCaptureCursorCheckbox(new QCheckBox),
 	mImgurForceAnonymousCheckbox(new QCheckBox),
 	mImgurDirectLinkToImageCheckbox(new QCheckBox),
 	mImgurAlwaysCopyToClipboardCheckBox(new QCheckBox),
 	mImgurConfirmBeforeUploadCheckbox(new QCheckBox),
 	mSmoothPathCheckbox(new QCheckBox),
 	mItemShadowCheckbox(new QCheckBox),
-	mSnippingAreaRulersCheckbox(new QCheckBox),
-	mSnippingAreaPositionAndSizeInfoCheckbox(new QCheckBox),
-	mSnippingAreaMagnifyingGlassCheckbox(new QCheckBox),
-	mFreezeImageWhileSnippingCheckbox(new QCheckBox),
 	mImgurClientIdLineEdit(new QLineEdit),
 	mImgurClientSecretLineEdit(new QLineEdit),
 	mImgurPinLineEdit(new QLineEdit),
@@ -40,10 +35,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 	mTextFontLabel(new QLabel),
 	mNumberFontLabel(new QLabel),
 	mSmoothFactorLabel(new QLabel),
-	mSnippingCursorSizeLabel(new QLabel),
-	mSnippingCursorColorLabel(new QLabel),
 	mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
-	mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
 	mTextFontCombobox(new QFontComboBox(this)),
 	mNumberFontCombobox(new QFontComboBox(this)),
 	mImgurGetPinButton(new QPushButton),
@@ -54,7 +46,6 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 	mTextBoldButton(new QToolButton),
 	mTextItalicButton(new QToolButton),
 	mTextUnderlineButton(new QToolButton),
-	mSnippingCursorColorButton(new ColorButton),
 	mImgurUploader(new ImgurUploader),
 	mListWidget(new QListWidget),
 	mStackedLayout(new QStackedLayout),
@@ -75,17 +66,12 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 
 SettingsDialog::~SettingsDialog()
 {
-    delete mCaptureCursorCheckbox;
     delete mImgurForceAnonymousCheckbox;
     delete mImgurDirectLinkToImageCheckbox;
     delete mImgurAlwaysCopyToClipboardCheckBox;
     delete mImgurConfirmBeforeUploadCheckbox;
     delete mSmoothPathCheckbox;
     delete mItemShadowCheckbox;
-	delete mSnippingAreaRulersCheckbox;
-	delete mSnippingAreaPositionAndSizeInfoCheckbox;
-	delete mSnippingAreaMagnifyingGlassCheckbox;
-	delete mFreezeImageWhileSnippingCheckbox;
     delete mImgurClientIdLineEdit;
     delete mImgurClientSecretLineEdit;
     delete mImgurPinLineEdit;
@@ -93,10 +79,7 @@ SettingsDialog::~SettingsDialog()
     delete mTextFontLabel;
     delete mNumberFontLabel;
     delete mSmoothFactorLabel;
-    delete mSnippingCursorSizeLabel;
-    delete mSnippingCursorColorLabel;
     delete mSmoothFactorCombobox;
-    delete mSnippingCursorSizeCombobox;
     delete mTextFontCombobox;
     delete mNumberFontCombobox;
     delete mImgurGetPinButton;
@@ -107,7 +90,6 @@ SettingsDialog::~SettingsDialog()
     delete mTextBoldButton;
     delete mTextItalicButton;
     delete mTextUnderlineButton;
-    delete mSnippingCursorColorButton;
     delete mImgurUploader;
     delete mListWidget;
     delete mStackedLayout;
@@ -124,14 +106,6 @@ void SettingsDialog::loadSettings()
     if(!mConfig->imgurClientId().isEmpty()) {
         mImgurClientIdLineEdit->setPlaceholderText(mConfig->imgurClientId());
     }
-
-	mFreezeImageWhileSnippingCheckbox->setChecked(mConfig->freezeImageWhileSnippingEnabled());
-	mSnippingAreaMagnifyingGlassCheckbox->setChecked(mConfig->snippingAreaMagnifyingGlassEnabled());
-    mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());
-	mSnippingAreaRulersCheckbox->setChecked(mConfig->snippingAreaRulersEnabled());
-	mSnippingAreaPositionAndSizeInfoCheckbox->setChecked(mConfig->snippingAreaPositionAndSizeInfoEnabled());
-    mSnippingCursorColorButton->setColor(mConfig->snippingCursorColor());
-    mSnippingCursorSizeCombobox->setValue(mConfig->snippingCursorSize());
 
     mTextFontCombobox->setCurrentFont(mConfig->textFont());
     mTextBoldButton->setChecked(mConfig->textBold());
@@ -151,14 +125,6 @@ void SettingsDialog::saveSettings()
     mConfig->setImgurAlwaysCopyToClipboard(mImgurAlwaysCopyToClipboardCheckBox->isChecked());
     mConfig->setImgurConfirmBeforeUpload(mImgurConfirmBeforeUploadCheckbox->isChecked());
 
-	mConfig->setFreezeImageWhileSnippingEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());
-	mConfig->setSnippingAreaMagnifyingGlassEnabled(mSnippingAreaMagnifyingGlassCheckbox->isChecked());
-    mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
-	mConfig->setsnippingAreaRulersEnabled(mSnippingAreaRulersCheckbox->isChecked());
-	mConfig->setSnippingAreaPositionAndSizeInfoEnabled(mSnippingAreaPositionAndSizeInfoCheckbox->isChecked());
-    mConfig->setSnippingCursorColor(mSnippingCursorColorButton->color());
-    mConfig->setSnippingCursorSize(mSnippingCursorSizeCombobox->value());
-
     mConfig->setTextFont(mTextFontCombobox->currentFont());
     mConfig->setTextBold(mTextBoldButton->isChecked());
     mConfig->setTextItalic(mTextItalicButton->isChecked());
@@ -169,54 +135,12 @@ void SettingsDialog::saveSettings()
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
 
     mApplicationSettings->saveSettings();
+    mImageGrabberSettings->saveSettings();
 }
 
 void SettingsDialog::initGui()
 {
     auto const fixedButtonSize = 100;
-
-    // Create Image Grabber Settings
-	mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot"));
-	mCaptureCursorCheckbox->setToolTip(tr("Should mouse cursor be visible on\n"
-	                                      "screenshots."));
-	mFreezeImageWhileSnippingCheckbox->setText(tr("Freeze Image while snipping"));
-	mFreezeImageWhileSnippingCheckbox->setToolTip(tr("When enabled will freeze the background while\n"
-	                                                 "selecting a rectangular region. It also changes\n"
-	                                                 "the behavior of delayed screenshots, with this\n"
-	                                                 "option enabled the delay happens before the\n"
-	                                                 "snipping area is show and with the option disabled\n"
-	                                                 "the delay happens after the snipping area is shown.\n"
-												     "This feature doesn't work for Wayland and is always\n"
-				                                     "used for MacOs."));
-	connect(mFreezeImageWhileSnippingCheckbox, &QCheckBox::stateChanged, [this]()
-	{
-		mSnippingAreaMagnifyingGlassCheckbox->setEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());
-	});
-	mSnippingAreaMagnifyingGlassCheckbox->setText(tr("Show magnifying glass on snipping area"));
-	mSnippingAreaMagnifyingGlassCheckbox->setToolTip(tr("Show a magnifying glass which zooms into\n"
-	                                                    "the background image. This option only works\n"
-	                                                    "with 'Freeze Image while snipping' enabled."));
-	mSnippingAreaMagnifyingGlassCheckbox->setEnabled(false);
-	mSnippingAreaRulersCheckbox->setText(tr("Show Snipping Area rulers"));
-	mSnippingAreaRulersCheckbox->setToolTip(tr("Horizontal and vertical lines going from\n"
-	                                           "desktop edges to cursor on snipping area."));
-	mSnippingAreaPositionAndSizeInfoCheckbox->setText(tr("Show Snipping Area position and size info"));
-	mSnippingAreaPositionAndSizeInfoCheckbox->setToolTip(tr("When left mouse is not pressed the position\n"
-	                                                 "is show, when the mouse button is pressed,\n"
-	                                                 "the size of the select area is shown left\n"
-	                                                 "and above from the captured area."));
-	mSnippingCursorColorLabel->setText(tr("Snipping Area cursor color") + QStringLiteral(":"));
-    mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area\n"
-                                          "cursor. Change requires ksnip restart to\n"
-                                          "take effect."));
-    mSnippingCursorColorButton->setMinimumWidth(fixedButtonSize);
-    mSnippingCursorColorButton->setToolTip(mSnippingCursorColorLabel->toolTip());
-	mSnippingCursorSizeLabel->setText(tr("Snipping Area cursor thickness") + QStringLiteral(":"));
-    mSnippingCursorSizeLabel->setToolTip(tr("Sets the thickness of the snipping area\n"
-                                            "cursor. Change requires ksnip restart to\n"
-                                            "take effect."));
-    mSnippingCursorSizeCombobox->setMinimumWidth(fixedButtonSize);
-    mSnippingCursorSizeCombobox->setToolTip(mSnippingCursorSizeLabel->toolTip());
 
     // Create Imgur Uploader Settings
     mImgurForceAnonymousCheckbox->setText(tr("Force anonymous upload"));
@@ -286,6 +210,7 @@ void SettingsDialog::initGui()
     mNumberFontCombobox->setEditable(false);
 
 	mApplicationSettings = new ApplicationSettings(mConfig);
+	mImageGrabberSettings = new ImageGrabberSettings(mConfig);
 
     // Create Push Buttons
     mOkButton->setText(tr("OK"));
@@ -298,24 +223,6 @@ void SettingsDialog::initGui()
     connect(mCancelButton, &QPushButton::clicked, [this]() {
         close();
     });
-
-    // Setup Image Grabber Layout
-    auto imageGrabberGrid = new QGridLayout;
-    imageGrabberGrid->setAlignment(Qt::AlignTop);
-    imageGrabberGrid->setColumnStretch(1, 1);
-	imageGrabberGrid->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 2);
-	imageGrabberGrid->addWidget(mFreezeImageWhileSnippingCheckbox, 1, 0, 1, 2);
-	imageGrabberGrid->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 2, 0, 1, 2);
-	imageGrabberGrid->addWidget(mSnippingAreaRulersCheckbox, 3, 0, 1, 2);
-	imageGrabberGrid->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 4, 0, 1, 2);
-	imageGrabberGrid->setRowMinimumHeight(5, 15);
-	imageGrabberGrid->addWidget(mSnippingCursorColorLabel, 6, 0);
-	imageGrabberGrid->addWidget(mSnippingCursorColorButton, 6, 1, Qt::AlignLeft);
-	imageGrabberGrid->addWidget(mSnippingCursorSizeLabel, 7, 0);
-	imageGrabberGrid->addWidget(mSnippingCursorSizeCombobox, 7, 1, Qt::AlignLeft);
-
-    auto imageGrabberGrpBox = new QGroupBox(tr("Image Grabber"));
-    imageGrabberGrpBox->setLayout(imageGrabberGrid);
 
     // Setup Imgur Uploader Layout
     auto imgurUploaderGrid = new QGridLayout;
@@ -367,7 +274,7 @@ void SettingsDialog::initGui()
 
     // Populate Stacked layout and listview
     mStackedLayout->addWidget(mApplicationSettings);
-    mStackedLayout->addWidget(imageGrabberGrpBox);
+    mStackedLayout->addWidget(mImageGrabberSettings);
     mStackedLayout->addWidget(imgurUploaderGrpBox);
 	mStackedLayout->addWidget(painterGroupBox);
 

@@ -98,7 +98,7 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mSaveLocationLineEdit, 10, 0, 1, 3);
 	mLayout->addWidget(mBrowseButton, 10, 4);
 
-	setTitle("Application Settings");
+	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
 }
 

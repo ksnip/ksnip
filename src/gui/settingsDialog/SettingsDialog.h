@@ -31,11 +31,11 @@
 #include <QStackedLayout>
 #include <QApplication>
 #include <QDesktopServices>
-#include <QFileDialog>
 #include <QToolButton>
-#include <QStyleFactory>
 
-#include "ImgurHistoryDialog.h"
+#include "ApplicationSettings.h"
+
+#include "gui/ImgurHistoryDialog.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/widgets/ColorButton.h"
 #include "backend/config/KsnipConfig.h"
@@ -51,13 +51,8 @@ public:
     ~SettingsDialog() override;
 
 private:
-    QCheckBox       *mAlwaysCopyToClipboardCheckbox;
-    QCheckBox       *mPromptToSaveBeforeExitCheckbox;
-    QCheckBox       *mSaveKsnipPositionCheckbox;
-    QCheckBox       *mSaveKsnipToolSelectionCheckbox;
-    QCheckBox       *mCaptureOnStartupCheckbox;
+
     QCheckBox       *mCaptureCursorCheckbox;
-    QCheckBox       *mUseInstantSaveCheckBox;
     QCheckBox       *mImgurForceAnonymousCheckbox;
     QCheckBox       *mImgurDirectLinkToImageCheckbox;
     QCheckBox       *mImgurAlwaysCopyToClipboardCheckBox;
@@ -68,24 +63,19 @@ private:
 	QCheckBox *mSnippingAreaPositionAndSizeInfoCheckbox;
 	QCheckBox *mSnippingAreaMagnifyingGlassCheckbox;
 	QCheckBox *mFreezeImageWhileSnippingCheckbox;
-    QLineEdit       *mSaveLocationLineEdit;
     QLineEdit       *mImgurClientIdLineEdit;
     QLineEdit       *mImgurClientSecretLineEdit;
     QLineEdit       *mImgurPinLineEdit;
-    QLabel          *mSaveLocationLabel;
     QLabel          *mImgurUsernameLabel;
     QLabel          *mTextFontLabel;
     QLabel          *mNumberFontLabel;
     QLabel          *mSmoothFactorLabel;
     QLabel          *mSnippingCursorSizeLabel;
     QLabel          *mSnippingCursorColorLabel;
-    QLabel          *mApplicationStyleLabel;
     NumericComboBox *mSmoothFactorCombobox;
     NumericComboBox *mSnippingCursorSizeCombobox;
     QFontComboBox   *mTextFontCombobox;
     QFontComboBox   *mNumberFontCombobox;
-    QComboBox       *mApplicationStyleCombobox;
-    QPushButton     *mBrowseButton;
     QPushButton     *mImgurGetPinButton;
     QPushButton     *mImgurGetTokenButton;
     QPushButton     *mOkButton;
@@ -96,9 +86,11 @@ private:
     QToolButton     *mTextUnderlineButton;
     ColorButton     *mSnippingCursorColorButton;
     ImgurUploader   *mImgurUploader;
-    QListWidget     *mListWidget;
-    QStackedLayout  *mStackedLayout;
-    KsnipConfig     *mConfig;
+
+	ApplicationSettings *mApplicationSettings;
+    QListWidget *mListWidget;
+    QStackedLayout *mStackedLayout;
+    KsnipConfig *mConfig;
 
     void loadSettings();
     void saveSettings();
@@ -111,7 +103,6 @@ private slots:
     void imgurClientEntered(const QString &text);
     void imgurTokenUpdated(const QString &accessToken, const QString &refreshTocken, const QString &username);
     void imgurTokenError(const QString &message);
-    void chooseSaveDirectory();
 	void showImgurHistoryDialog();
 };
 

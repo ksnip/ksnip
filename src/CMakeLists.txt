@@ -31,7 +31,8 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AdornerRulers.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AdornerPositionInfo.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AdornerSizeInfo.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/SettingsDialog.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/ApplicationSettings.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/SettingsDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/GlobalKeyboardShortcut.cpp

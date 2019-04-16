@@ -22,13 +22,7 @@
 
 SettingsDialog::SettingsDialog(QWidget *parent) :
 	QDialog(parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
-	mAlwaysCopyToClipboardCheckbox(new QCheckBox),
-	mPromptToSaveBeforeExitCheckbox(new QCheckBox),
-	mSaveKsnipPositionCheckbox(new QCheckBox),
-	mSaveKsnipToolSelectionCheckbox(new QCheckBox),
-	mCaptureOnStartupCheckbox(new QCheckBox),
 	mCaptureCursorCheckbox(new QCheckBox),
-	mUseInstantSaveCheckBox(new QCheckBox),
 	mImgurForceAnonymousCheckbox(new QCheckBox),
 	mImgurDirectLinkToImageCheckbox(new QCheckBox),
 	mImgurAlwaysCopyToClipboardCheckBox(new QCheckBox),
@@ -39,24 +33,19 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 	mSnippingAreaPositionAndSizeInfoCheckbox(new QCheckBox),
 	mSnippingAreaMagnifyingGlassCheckbox(new QCheckBox),
 	mFreezeImageWhileSnippingCheckbox(new QCheckBox),
-	mSaveLocationLineEdit(new QLineEdit),
 	mImgurClientIdLineEdit(new QLineEdit),
 	mImgurClientSecretLineEdit(new QLineEdit),
 	mImgurPinLineEdit(new QLineEdit),
-	mSaveLocationLabel(new QLabel),
 	mImgurUsernameLabel(new QLabel),
 	mTextFontLabel(new QLabel),
 	mNumberFontLabel(new QLabel),
 	mSmoothFactorLabel(new QLabel),
 	mSnippingCursorSizeLabel(new QLabel),
 	mSnippingCursorColorLabel(new QLabel),
-	mApplicationStyleLabel(new QLabel),
 	mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
 	mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
 	mTextFontCombobox(new QFontComboBox(this)),
 	mNumberFontCombobox(new QFontComboBox(this)),
-	mApplicationStyleCombobox(new QComboBox(this)),
-	mBrowseButton(new QPushButton),
 	mImgurGetPinButton(new QPushButton),
 	mImgurGetTokenButton(new QPushButton),
 	mOkButton(new QPushButton),
@@ -86,13 +75,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 
 SettingsDialog::~SettingsDialog()
 {
-    delete mAlwaysCopyToClipboardCheckbox;
-    delete mPromptToSaveBeforeExitCheckbox;
-    delete mSaveKsnipPositionCheckbox;
-    delete mSaveKsnipToolSelectionCheckbox;
-    delete mCaptureOnStartupCheckbox;
     delete mCaptureCursorCheckbox;
-    delete mUseInstantSaveCheckBox;
     delete mImgurForceAnonymousCheckbox;
     delete mImgurDirectLinkToImageCheckbox;
     delete mImgurAlwaysCopyToClipboardCheckBox;
@@ -103,24 +86,19 @@ SettingsDialog::~SettingsDialog()
 	delete mSnippingAreaPositionAndSizeInfoCheckbox;
 	delete mSnippingAreaMagnifyingGlassCheckbox;
 	delete mFreezeImageWhileSnippingCheckbox;
-    delete mSaveLocationLineEdit;
     delete mImgurClientIdLineEdit;
     delete mImgurClientSecretLineEdit;
     delete mImgurPinLineEdit;
-    delete mSaveLocationLabel;
     delete mImgurUsernameLabel;
     delete mTextFontLabel;
     delete mNumberFontLabel;
     delete mSmoothFactorLabel;
     delete mSnippingCursorSizeLabel;
     delete mSnippingCursorColorLabel;
-    delete mApplicationStyleLabel;
     delete mSmoothFactorCombobox;
     delete mSnippingCursorSizeCombobox;
     delete mTextFontCombobox;
     delete mNumberFontCombobox;
-    delete mApplicationStyleCombobox;
-    delete mBrowseButton;
     delete mImgurGetPinButton;
     delete mImgurGetTokenButton;
     delete mOkButton;
@@ -137,13 +115,6 @@ SettingsDialog::~SettingsDialog()
 
 void SettingsDialog::loadSettings()
 {
-    mAlwaysCopyToClipboardCheckbox->setChecked(mConfig->alwaysCopyToClipboard());
-    mPromptToSaveBeforeExitCheckbox->setChecked(mConfig->promptSaveBeforeExit());
-    mSaveKsnipPositionCheckbox->setChecked(mConfig->savePosition());
-    mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveToolSelection());
-    mCaptureOnStartupCheckbox->setChecked(mConfig->captureOnStartup());
-    mUseInstantSaveCheckBox->setChecked(mConfig->useInstantSave());
-
     mImgurForceAnonymousCheckbox->setChecked(mConfig->imgurForceAnonymous());
     mImgurDirectLinkToImageCheckbox->setChecked(mConfig->imgurOpenLinkDirectlyToImage());
     mImgurAlwaysCopyToClipboardCheckBox->setChecked(mConfig->imgurAlwaysCopyToClipboard());
@@ -167,7 +138,6 @@ void SettingsDialog::loadSettings()
     mTextItalicButton->setChecked(mConfig->textItalic());
     mTextUnderlineButton->setChecked(mConfig->textUnderline());
     mNumberFontCombobox->setCurrentFont(mConfig->numberFont());
-    mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
     mItemShadowCheckbox->setChecked(mConfig->itemShadowEnabled());
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
@@ -176,14 +146,6 @@ void SettingsDialog::loadSettings()
 
 void SettingsDialog::saveSettings()
 {
-    mConfig->setAlwaysCopyToClipboard(mAlwaysCopyToClipboardCheckbox->isChecked());
-    mConfig->setPromptSaveBeforeExit(mPromptToSaveBeforeExitCheckbox->isChecked());
-    mConfig->setSavePosition(mSaveKsnipPositionCheckbox->isChecked());
-    mConfig->setSaveToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
-    mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
-    mConfig->setUseInstantSave(mUseInstantSaveCheckBox->isChecked());
-    mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
-
     mConfig->setImgurForceAnonymous(mImgurForceAnonymousCheckbox->isChecked());
     mConfig->setImgurOpenLinkDirectlyToImage(mImgurDirectLinkToImageCheckbox->isChecked());
     mConfig->setImgurAlwaysCopyToClipboard(mImgurAlwaysCopyToClipboardCheckBox->isChecked());
@@ -197,10 +159,6 @@ void SettingsDialog::saveSettings()
     mConfig->setSnippingCursorColor(mSnippingCursorColorButton->color());
     mConfig->setSnippingCursorSize(mSnippingCursorSizeCombobox->value());
 
-    mConfig->setSaveDirectory(FilenameFormatter::extractPath(mSaveLocationLineEdit->displayText()));
-    mConfig->setSaveFilename(FilenameFormatter::extractFilename(mSaveLocationLineEdit->displayText()));
-    mConfig->setSaveFormat(FilenameFormatter::extractFormat(mSaveLocationLineEdit->displayText()));
-
     mConfig->setTextFont(mTextFontCombobox->currentFont());
     mConfig->setTextBold(mTextBoldButton->isChecked());
     mConfig->setTextItalic(mTextItalicButton->isChecked());
@@ -209,38 +167,13 @@ void SettingsDialog::saveSettings()
     mConfig->setItemShadowEnabled(mItemShadowCheckbox->isChecked());
     mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
+
+    mApplicationSettings->saveSettings();
 }
 
 void SettingsDialog::initGui()
 {
     auto const fixedButtonSize = 100;
-
-    // Create Application Settings
-    mAlwaysCopyToClipboardCheckbox->setText(tr("Always copy capture to clipboard"));
-    mPromptToSaveBeforeExitCheckbox->setText(tr("Prompt to save before discarding unsaved changes"));
-    mSaveKsnipPositionCheckbox->setText(tr("Save ksnip position on move and load on startup"));
-    mSaveKsnipToolSelectionCheckbox->setText(tr("Save ksnip tool selection and load on startup"));
-    mCaptureOnStartupCheckbox->setText(tr("Capture screenshot at startup with default mode"));
-    mUseInstantSaveCheckBox->setText(tr("Instant save to default location without 'Save as' dialog"));
-    mUseInstantSaveCheckBox->setToolTip(tr("When enabled, will not ask where to save a screenshot\n"
-                                           "when saving, but will save instantly to default location."));
-
-    mApplicationStyleLabel->setText(tr("Application Style") + QStringLiteral(":"));
-    mApplicationStyleLabel->setToolTip(tr("Sets the application style which defines the look and feel of the GUI.\n"
-                                          "Change requires ksnip restart to take effect."));
-	mApplicationStyleCombobox->addItems(QStyleFactory::keys());
-    mApplicationStyleCombobox->setToolTip(mApplicationStyleLabel->toolTip());
-    mApplicationStyleCombobox->setFixedWidth(100);
-
-    mSaveLocationLabel->setText(tr("Capture save location and filename") + QStringLiteral(":"));
-
-    mSaveLocationLineEdit->setText(mConfig->saveDirectory() +
-                                   mConfig->saveFilename() +
-                                   mConfig->saveFormat());
-    mSaveLocationLineEdit->setToolTip(tr("Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format."));
-
-    mBrowseButton->setText(tr("Browse"));
-    connect(mBrowseButton, &QPushButton::clicked, this, &SettingsDialog::chooseSaveDirectory);
 
     // Create Image Grabber Settings
 	mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot"));
@@ -352,6 +285,8 @@ void SettingsDialog::initGui()
     mNumberFontCombobox->setToolTip(mNumberFontLabel->toolTip());
     mNumberFontCombobox->setEditable(false);
 
+	mApplicationSettings = new ApplicationSettings(mConfig);
+
     // Create Push Buttons
     mOkButton->setText(tr("OK"));
     connect(mOkButton, &QPushButton::clicked, [this]() {
@@ -363,27 +298,6 @@ void SettingsDialog::initGui()
     connect(mCancelButton, &QPushButton::clicked, [this]() {
         close();
     });
-
-    // Setup Application Settings Layout
-    auto applicationGrid = new QGridLayout;
-    applicationGrid->setAlignment(Qt::AlignTop);
-    applicationGrid->addWidget(mAlwaysCopyToClipboardCheckbox, 0, 0, 1, 3);
-    applicationGrid->addWidget(mPromptToSaveBeforeExitCheckbox, 1, 0, 1, 3);
-    applicationGrid->addWidget(mSaveKsnipPositionCheckbox, 2, 0, 1, 3);
-    applicationGrid->addWidget(mSaveKsnipToolSelectionCheckbox, 3, 0, 1, 3);
-    applicationGrid->addWidget(mCaptureOnStartupCheckbox, 4, 0, 1, 3);
-    applicationGrid->addWidget(mUseInstantSaveCheckBox, 5, 0, 1, 3);
-    applicationGrid->setRowMinimumHeight(6, 15);
-    applicationGrid->addWidget(mApplicationStyleLabel, 7, 0);
-    applicationGrid->addWidget(mApplicationStyleCombobox, 7, 1, Qt::AlignLeft);
-    applicationGrid->setRowMinimumHeight(8, 15);
-    applicationGrid->addWidget(mSaveLocationLabel, 9, 0, 1, 3);
-    applicationGrid->addWidget(mSaveLocationLineEdit, 10, 0, 1, 3);
-    applicationGrid->addWidget(mBrowseButton, 10, 4);
-
-
-    auto applicationGrpBox = new QGroupBox(tr("Application Settings"));
-    applicationGrpBox->setLayout(applicationGrid);
 
     // Setup Image Grabber Layout
     auto imageGrabberGrid = new QGridLayout;
@@ -452,7 +366,7 @@ void SettingsDialog::initGui()
     buttonLayout->setAlignment(Qt::AlignRight);
 
     // Populate Stacked layout and listview
-    mStackedLayout->addWidget(applicationGrpBox);
+    mStackedLayout->addWidget(mApplicationSettings);
     mStackedLayout->addWidget(imageGrabberGrpBox);
     mStackedLayout->addWidget(imgurUploaderGrpBox);
 	mStackedLayout->addWidget(painterGroupBox);
@@ -543,27 +457,6 @@ void SettingsDialog::imgurTokenError(const QString& message)
 {
     qCritical("SettingsDialog returned error: '%s'", qPrintable(message));
     qInfo("%s", qPrintable(tr("Imgur.com token update error.")));
-}
-
-void SettingsDialog::chooseSaveDirectory()
-{
-    auto path = QFileDialog::getExistingDirectory(this,
-                tr("Capture save location"),
-                mConfig->saveDirectory());
-    if(!path.isEmpty()) {
-        auto filename = FilenameFormatter::extractFilename(mSaveLocationLineEdit->text());
-        auto format = FilenameFormatter::extractFormat(mSaveLocationLineEdit->text());
-
-        if(!filename.isEmpty()) {
-            path.append(QLatin1Char('/')).append(filename);
-        }
-
-        if(!format.isEmpty()) {
-            path.append(QLatin1Char('.')).append(format);
-        }
-
-        mSaveLocationLineEdit->setText(path);
-    }
 }
 
 void SettingsDialog::showImgurHistoryDialog()

@@ -25,7 +25,7 @@
 
 #include <kImageAnnotator/KImageAnnotator.h>
 
-#include "SettingsDialog.h"
+#include "gui/settingsDialog/SettingsDialog.h"
 #include "AboutDialog.h"
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/MainToolBar.h"

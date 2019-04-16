@@ -41,43 +41,43 @@
     </message>
     <message>
         <source>Using:</source>
-        <translation>Эта программа использует:</translation>
+        <translation>Программа использует:</translation>
     </message>
     <message>
         <source>The Author:</source>
-        <translation>Автор:</translation>
+        <translation>Разработчик:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation>Благодарности:</translation>
+        <translation>Благодарность:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation>Перевод на испанский</translation>
+        <translation>перевод на испанский</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation>Версия</translation>
+        <translation>Сборка</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation>Голландский перевод</translation>
+        <translation>перевод на нидерландский</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation>Перевод на русский</translation>
+        <translation>перевод на русский</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation>Перевод на норвежский</translation>
+        <translation>перевод на норвежский букмол</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation>Перевод на французский</translation>
+        <translation>перевод на французский</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation>Перевод на польский</translation>
+        <translation>перевод на польский</translation>
     </message>
 </context>
 <context>
@@ -92,15 +92,15 @@
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation>Выделить прямоугольную область мышкой</translation>
+        <translation>Выделите мышкой прямоугольную область</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation>Полноэкранный режим (Все мониторы)</translation>
+        <translation>Полноэкранный режим (все мониторы)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation>Захват всего экрана, включая все мониторы</translation>
+        <translation>Сделать скриншот всего экрана со всех мониторов</translation>
     </message>
     <message>
         <source>Current Screen</source>
@@ -108,7 +108,7 @@
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation>Захват экрана, где расположена мышь</translation>
+        <translation>Сделать скриншот экрана, на котором расположен курсор мыши</translation>
     </message>
     <message>
         <source>Active Window</source>
@@ -116,15 +116,15 @@
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation>Захват окна, которое на данный момент имеет фокус</translation>
+        <translation>Сделать скриншот текущего (сфокусированного) окна</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation>Выбрать окно мышкой</translation>
+        <translation>Окно под курсором мыши</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation>Захват окна, которое на данный момент находится под курсором мыши</translation>
+        <translation>Сделать скриншот окна, на котором расположен курсор мыши</translation>
     </message>
 </context>
 <context>
@@ -135,11 +135,11 @@
     </message>
     <message>
         <source>Received new token, trying upload again...</source>
-        <translation>Получен новый token, пробуем загрузить заново...</translation>
+        <translation>Получен новый токен, ещё одна попытка загрузить…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token...</source>
-        <translation>Срок действия токена Imgur истек, запрашивается новый токен...</translation>
+        <translation>Срок действия токена Imgur истёк, запрашивается новый токен…</translation>
     </message>
 </context>
 <context>
@@ -154,7 +154,7 @@
     </message>
     <message>
         <source>Time Stamp</source>
-        <translation>Время</translation>
+        <translation>Отметка времени</translation>
     </message>
     <message>
         <source>Link</source>
@@ -162,32 +162,32 @@
     </message>
     <message>
         <source>Delete Link</source>
-        <translation>Ссылка на удаление</translation>
+        <translation>Удалить ссылку</translation>
     </message>
 </context>
 <context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation>&amp;Создать...</translation>
+        <translation>Создать…</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation>Задержка в секундах перед тем, как делать
-снимок экрана.</translation>
+        <translation>Задержка в секундах перед тем,
+как будет сделан скриншот.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation>сек.</translation>
+        <translation>с</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>С&amp;охранить</translation>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation>Сохранить скриншот</translation>
+        <translation>Сохранить скриншот в файловой системе</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -195,7 +195,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation>Копировать снимок экрана в буфер обмена</translation>
+        <translation>Копировать скриншот в буфер обмена</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -218,31 +218,31 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Print</source>
-        <translation>Печать</translation>
+        <translation>Распечатать…</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation>Открыть диалоговое окно принтера и предоставить возможность печати изображения</translation>
+        <translation>Открыть диалоговое окно с возможностью распечатать изображение</translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation>Просмотр печати</translation>
+        <translation>Посмотреть, какой будет распечатка…</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation>Открыть «Предварительный просмотр», в котором можно изменить ориентацию изображения</translation>
+        <translation>Открыть предварительный просмотр распечатки, в котором можно изменить ориентацию изображения</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation>&amp;Кадрировать</translation>
+        <translation>Обрезать</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation>Вырезать выделенную часть скриншота</translation>
+        <translation>Обрезать и оставить только часть скриншота</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation>Масштаб</translation>
+        <translation>Размер</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
@@ -250,23 +250,23 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Quit</source>
-        <translation>&amp;Выйти</translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>&amp;Настройки</translation>
+        <translation>Настройки…</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>&amp;О программе</translation>
+        <translation>&amp;О программе…</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation>&amp;Открыть...</translation>
+        <translation>Открыть…</translation>
     </message>
     <message>
         <source>File</source>
-        <translation>&amp;Файл</translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -286,7 +286,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Images</source>
-        <translation>Файлы изображений (*.png *.jpg *.bmp)</translation>
+        <translation>Изображения</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -298,7 +298,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Файлы изображений (*.png *.jpg *.bmp)</translation>
+        <translation>Файлы изображений (*.png, *.jpg, *.bmp)</translation>
     </message>
     <message>
         <source>Warning - </source>
@@ -307,16 +307,16 @@ and capturing screenshot.</source>
     <message>
         <source>The capture has been modified.
 Do you want to save it?</source>
-        <translation>Скриншот был изменен.
-Сохранить?</translation>
+        <translation>Скриншот был изменён.
+Сохранить изменения?</translation>
     </message>
     <message>
         <source>Imgur Upload</source>
-        <translation>Imgur: Загрузка</translation>
+        <translation>Загрузка на Imgur</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Вы собираетесь загрузить скриншот на imgur.com. Продолжить?</translation>
+        <translation>Вы собираетесь загрузить скриншот на imgur.com. Начать загрузку?</translation>
     </message>
 </context>
 <context>
@@ -331,37 +331,37 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Always copy capture to clipboard</source>
-        <translation>Всегда копировать выделенный снимок в буфер обмена</translation>
+        <translation>Всегда копировать скриншот в буфер обмена</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation>Спрашивать о сохранении изменений перед отменой</translation>
+        <translation>Спрашивать, не хотите ли сохранить изменения изображения, перед их отменой</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation>Запоминать расположение окон</translation>
+        <translation>Запоминать расположение окна программы</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation>Запоминать выбранный инструмент</translation>
+        <translation>Запоминать последний выбранный инструмент</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation>Делать захват (создать скриншот) при запуске по умолчанию</translation>
+        <translation>Делать скриншот при открытии программы</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Сохранять скриншот автоматически в указанную директорию</translation>
+        <translation>Автоматически сохранять скриншот в выбранное в настройках место</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation>При включении будет сохранять в указанную директорию
-без появления диалогового окна.</translation>
+        <translation>Программа не будет каждый раз спрашивать,
+куда сохранить скриншот.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation>Укажите директорию и имя файла</translation>
+        <translation>Место автоматического сохранения и формат названия скриншотов</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>

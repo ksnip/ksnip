@@ -43,6 +43,7 @@ ImgurUploaderSettings::~ImgurUploaderSettings()
 	delete mImgurGetTokenButton;
 	delete mImgurHistoryButton;
 	delete mImgurUploader;
+	delete mLayout;
 }
 
 void ImgurUploaderSettings::saveSettings()

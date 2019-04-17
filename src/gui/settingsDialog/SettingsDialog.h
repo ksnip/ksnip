@@ -22,24 +22,15 @@
 #define KSNIP_SETTINGSDIALOG_H
 
 #include <QDialog>
-#include <QCheckBox>
-#include <QLineEdit>
-#include <QLabel>
-#include <QFontComboBox>
 #include <QListWidget>
-#include <QGroupBox>
 #include <QStackedLayout>
 #include <QApplication>
-#include <QToolButton>
 
+#include "AnnotationSettings.h"
 #include "ApplicationSettings.h"
 #include "ImageGrabberSettings.h"
 #include "ImgurUploaderSettings.h"
-#include "src/widgets/NumericComboBox.h"
-#include "src/widgets/ColorButton.h"
 #include "backend/config/KsnipConfig.h"
-#include "src/common/formatter/FilenameFormatter.h"
-#include "src/common/loader/IconLoader.h"
 
 class SettingsDialog : public QDialog
 {
@@ -49,34 +40,23 @@ public:
     ~SettingsDialog() override;
 
 private:
-    QCheckBox       *mSmoothPathCheckbox;
-    QCheckBox       *mItemShadowCheckbox;
-    QLabel          *mTextFontLabel;
-    QLabel          *mNumberFontLabel;
-    QLabel          *mSmoothFactorLabel;
-    NumericComboBox *mSmoothFactorCombobox;
-    QFontComboBox   *mTextFontCombobox;
-    QFontComboBox   *mNumberFontCombobox;
-    QPushButton     *mOkButton;
-    QPushButton     *mCancelButton;
-    QToolButton     *mTextBoldButton;
-    QToolButton     *mTextItalicButton;
-    QToolButton     *mTextUnderlineButton;
-
-
+    QPushButton *mOkButton;
+    QPushButton *mCancelButton;
 	ApplicationSettings *mApplicationSettings;
 	ImageGrabberSettings *mImageGrabberSettings;
 	ImgurUploaderSettings *mImgurUploaderSettings;
+    AnnotationSettings *mAnnotationSettings;
     QListWidget *mListWidget;
     QStackedLayout *mStackedLayout;
     KsnipConfig *mConfig;
 
-    void loadSettings();
     void saveSettings();
     void initGui();
 
 private slots:
-	void smoothPathCheckboxClicked(bool checked);
+    void switchTab();
+    void cancelClicked();
+    void okClicked();
 };
 
 #endif // KSNIP_SETTINGSDIALOG_H

@@ -40,6 +40,7 @@ ImageGrabberSettings::~ImageGrabberSettings()
 	delete mSnippingCursorColorLabel;
 	delete mSnippingCursorColorButton;
 	delete mSnippingCursorSizeCombobox;
+	delete mLayout;
 }
 
 void ImageGrabberSettings::saveSettings()

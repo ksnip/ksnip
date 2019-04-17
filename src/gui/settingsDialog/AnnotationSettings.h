@@ -17,48 +17,47 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_APPLICATIONSETTINGS_H
-#define KSNIP_APPLICATIONSETTINGS_H
+#ifndef KSNIP_ANNOTATIONSETTINGS_H
+#define KSNIP_ANNOTATIONSETTINGS_H
 
 #include <QGroupBox>
 #include <QCheckBox>
-#include <QLineEdit>
-#include <QComboBox>
 #include <QLabel>
-#include <QPushButton>
 #include <QGridLayout>
-#include <QStyleFactory>
-#include <QFileDialog>
+#include <QFontComboBox>
+#include <QToolButton>
 
 #include "backend/config/KsnipConfig.h"
+#include "src/widgets/NumericComboBox.h"
+#include "src/common/loader/IconLoader.h"
 
-class ApplicationSettings : public QGroupBox
+class AnnotationSettings : public QGroupBox
 {
 public:
-	explicit ApplicationSettings(KsnipConfig *ksnipConfig);
-	~ApplicationSettings() override;
-	void saveSettings();
+    explicit AnnotationSettings(KsnipConfig *ksnipConfig);
+    ~AnnotationSettings() override;
+    void saveSettings();
 
 private:
-	QCheckBox *mAlwaysCopyToClipboardCheckbox;
-	QCheckBox *mPromptToSaveBeforeExitCheckbox;
-	QCheckBox *mSaveKsnipPositionCheckbox;
-	QCheckBox *mSaveKsnipToolSelectionCheckbox;
-	QCheckBox *mCaptureOnStartupCheckbox;
-	QCheckBox *mUseInstantSaveCheckBox;
-	QLabel *mApplicationStyleLabel;
-	QComboBox *mApplicationStyleCombobox;
-	QLabel *mSaveLocationLabel;
-	QLineEdit *mSaveLocationLineEdit;
-	QPushButton *mBrowseButton;
-	QGridLayout *mLayout;
-	KsnipConfig *mConfig;
+    QCheckBox *mSmoothPathCheckbox;
+    QCheckBox *mItemShadowCheckbox;
+    QLabel *mTextFontLabel;
+    QLabel *mNumberFontLabel;
+    QLabel *mSmoothFactorLabel;
+    NumericComboBox *mSmoothFactorCombobox;
+    QFontComboBox *mTextFontCombobox;
+    QFontComboBox *mNumberFontCombobox;
+    QToolButton *mTextBoldButton;
+    QToolButton *mTextItalicButton;
+    QToolButton *mTextUnderlineButton;
+    QGridLayout *mLayout;
+    KsnipConfig *mConfig;
 
-	void initGui();
-	void loadConfig();
+    void initGui();
+    void loadConfig();
 
 private slots:
-	void chooseSaveDirectory();
+    void smoothPathCheckboxClicked(bool checked);
 };
 
-#endif //KSNIP_APPLICATIONSETTINGS_H
+#endif //KSNIP_ANNOTATIONSETTINGS_H

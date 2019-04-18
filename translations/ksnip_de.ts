@@ -117,7 +117,7 @@
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation>Aufnahme des Fenster welches im Fokus ist</translation>
+        <translation>Aufnahme des aktiven Fensters</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
@@ -246,11 +246,11 @@ Möchten Sie sie speichern?</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation>Ausschneiden</translation>
+        <translation>Zuschneiden</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation>Bildschirmaufnahme ausschneiden</translation>
+        <translation>Bildschirmaufnahme zuschneiden</translation>
     </message>
     <message>
         <source>Scale</source>
@@ -310,7 +310,7 @@ Möchten Sie sie speichern?</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Sie sind im Begriff, den Screenshot auf imgur.com hochzuladen, möchten Sie fortfahren?</translation>
+        <translation>Sie sind im Begriff, den Screenshot zu imgur.com hochzuladen, möchten Sie fortfahren?</translation>
     </message>
     <message>
         <source>Open Image</source>
@@ -369,7 +369,7 @@ erfasst werden.</translation>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation>Legt die Farbe des Mauszeigers im Ausschnittbereich 
+        <translation>Legt die Farbe des Mauszeigers im Ausschnittbereich
 fest. Änderung erfordert Ksnip Neustart um
 wirksam zu werden.</translation>
     </message>

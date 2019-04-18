@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation>Aufnahme des Fensters welches sich unter der Maus befindet</translation>
+        <translation>Aufnahme des Fensters unter der Maus</translation>
     </message>
 </context>
 <context>
@@ -363,7 +363,7 @@ Möchten Sie sie speichern?</translation>
         <source>Should mouse cursor be visible on
 screenshots.</source>
         <translation>Soll Mauszeiger auf Screenshots
-erfasst werden.</translation>
+erfasst werden?</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
@@ -395,7 +395,7 @@ wirksam zu werden.</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation>Vor dem Hochladen immer nach einer Bestätigung fragen</translation>
+        <translation>Vor dem Hochladen immer nach Bestätigung fragen</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -473,11 +473,11 @@ es macht sie glatter.</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation>Schriftart fürs nummerieren</translation>
+        <translation>Schriftart für Nummern</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Legt die Schriftart für die Nummerierungsenelemente fest.</translation>
+        <translation>Legt die Schriftart für die Nummerierung fest.</translation>
     </message>
     <message>
         <source>OK</source>
@@ -501,7 +501,7 @@ es macht sie glatter.</translation>
     </message>
     <message>
         <source>Painter Settings</source>
-        <translation>Malereinstellungen</translation>
+        <translation>Zeichner-Einstellungen</translation>
     </message>
     <message>
         <source>Application</source>
@@ -509,7 +509,7 @@ es macht sie glatter.</translation>
     </message>
     <message>
         <source>Painter</source>
-        <translation>Maler</translation>
+        <translation>Zeichner</translation>
     </message>
     <message>
         <source>Waiting for imgur.com...</source>
@@ -556,8 +556,8 @@ sondern speichert sofort am Standardspeicherort.</translation>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation>Setzt den Anwendungsstil welcher das aussehen des GUIs definiert.
-Eine Änderung benötigt einen ksnip Neustart um wirksam zu werden.</translation>
+        <translation>Setzt den Anwendungsstil welcher das Aussehen des GUI definiert.
+Änderung benötigt einen ksnip Neustart um wirksam zu werden.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
@@ -639,7 +639,7 @@ ausgewählten Bereichs angezeigt.</translation>
     </message>
     <message>
         <source>Select a rectangular area from where to take a screenshot.</source>
-        <translation>Wählen Sie einen rechteckigen Bereich aus, von dem aus Sie einen Screenshot erstellen möchten.</translation>
+        <translation>Wählen Sie einen rechteckigen Bereich für den Screenshot aus</translation>
     </message>
     <message>
         <source>Capture the fullscreen including all monitors.</source>

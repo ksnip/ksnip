@@ -639,7 +639,7 @@ ausgewählten Bereichs angezeigt.</translation>
     </message>
     <message>
         <source>Select a rectangular area from where to take a screenshot.</source>
-        <translation>Wählen Sie einen rechteckigen Bereich für den Screenshot aus</translation>
+        <translation>Wählen Sie einen rechteckigen Bereich für den Screenshot aus.</translation>
     </message>
     <message>
         <source>Capture the fullscreen including all monitors.</source>

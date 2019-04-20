@@ -30,7 +30,7 @@
 
 #include "KsnipConfigOptions.h"
 #include "src/common/enum/CaptureModes.h"
-#include "src/common/formatter/FilenameFormatter.h"
+#include "src/common/formatter/PathHelper.h"
 
 class KsnipConfig : public QObject
 {
@@ -76,8 +76,6 @@ public:
 
 	QString applicationStyle() const;
 	void setApplicationStyle(QString style);
-
-    QString savePath(const QString &format = QString()) const;
 
     bool textBold() const;
     void setTextBold(bool bold);

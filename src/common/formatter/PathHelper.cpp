@@ -18,13 +18,13 @@
  *
  */
 
-#include "FilenameFormatter.h"
+#include "PathHelper.h"
 
 /*
  * Split the path into sections each divided by forward slash and return
  * everything from begin to the last part just before the filename.
  */
-QString FilenameFormatter::extractPath(const QString& path)
+QString PathHelper::extractPath(const QString& path)
 {
     return path.section(QStringLiteral("/"), 0, -2);
 }
@@ -35,7 +35,7 @@ QString FilenameFormatter::extractPath(const QString& path)
  * need to remove it. If no file format was provided, just return the last
  * section.
  */
-QString FilenameFormatter::extractFilename(const QString& path)
+QString PathHelper::extractFilename(const QString& path)
 {
     if (path.section(QStringLiteral("/"), -1).contains(QLatin1Char('.'))) {
         return path.section(QStringLiteral("/"), -1).section(".", 0, -2);
@@ -49,7 +49,7 @@ QString FilenameFormatter::extractFilename(const QString& path)
  * contains a dot, split it again and return the part after the last dot. If no
  * dot was found, return empty string, we have no file format.
  */
-QString FilenameFormatter::extractFormat(const QString& path)
+QString PathHelper::extractFormat(const QString& path)
 {
     if (path.section(QStringLiteral("/"), -1).contains(QLatin1Char('.'))) {
         return path.section(QStringLiteral("."), -1);
@@ -58,7 +58,7 @@ QString FilenameFormatter::extractFormat(const QString& path)
     }
 }
 
-QString FilenameFormatter::updateTimeAndDate(QString filename)
+QString PathHelper::replaceWildcards(QString filename)
 {
     filename.replace(QStringLiteral("$Y"), QDateTime::currentDateTime().toString(QStringLiteral("yyyy")));
     filename.replace(QStringLiteral("$M"), QDateTime::currentDateTime().toString(QStringLiteral("MM")));
@@ -70,9 +70,7 @@ QString FilenameFormatter::updateTimeAndDate(QString filename)
     return filename;
 }
 
-QString FilenameFormatter::makeUniqueFilename(const QString& path,
-                                        const QString& filename,
-                                        const QString& extension)
+QString PathHelper::makeUniqueFilename(const QString& path, const QString& filename, const QString& extension)
 {
     if (!QFile::exists(path + filename + extension)) {
         return path + filename + extension;

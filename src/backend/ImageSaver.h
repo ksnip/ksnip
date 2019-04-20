@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -15,27 +15,37 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
- *
  */
 
-#ifndef KSNIP_FILENAMEFORMATTER_H
-#define KSNIP_FILENAMEFORMATTER_H
+#ifndef KSNIP_IMAGESAVER_H
+#define KSNIP_IMAGESAVER_H
 
+#include <QImage>
+#include <QFileDialog>
+#include <QCoreApplication>
+#include <QObject>
 #include <QString>
-#include <QDateTime>
-#include <QFile>
 
-class FilenameFormatter
+#include "config/KsnipConfig.h"
+
+class ImageSaver
 {
 public:
-    static QString extractPath(const QString &path);
-    static QString extractFilename(const QString &path);
-    static QString extractFormat(const QString &path);
+	explicit ImageSaver(QWidget *parent);
+	~ImageSaver() = default;
+	bool saveAs(const QImage &image);
+	bool save(const QImage &image);
+	QString savePath(const QString& format = QString()) const;
+	QString saveDirectory() const;
 
-    static QString updateTimeAndDate(QString filename);
-    static QString makeUniqueFilename(const QString &path,
-                                      const QString &filename,
-                                      const QString &extension = 0);
+private:
+	KsnipConfig *mConfig;
+	QWidget *mParent;
+
+	bool saveImageToPath(const QImage &image, const QString &path);
+	QString getFormat(const QString &format) const;
+	QString getFilename() const;
+	void ensurePathExists(const QString &path);
 };
 
-#endif // KSNIP_FILENAMEFORMATTER_H
+#endif //KSNIP_IMAGESAVER_H

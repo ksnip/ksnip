@@ -127,19 +127,17 @@ void ApplicationSettings::saveSettings()
 
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 
-	mConfig->setSaveDirectory(FilenameFormatter::extractPath(mSaveLocationLineEdit->displayText()));
-	mConfig->setSaveFilename(FilenameFormatter::extractFilename(mSaveLocationLineEdit->displayText()));
-	mConfig->setSaveFormat(FilenameFormatter::extractFormat(mSaveLocationLineEdit->displayText()));
+	mConfig->setSaveDirectory(PathHelper::extractPath(mSaveLocationLineEdit->displayText()));
+	mConfig->setSaveFilename(PathHelper::extractFilename(mSaveLocationLineEdit->displayText()));
+	mConfig->setSaveFormat(PathHelper::extractFormat(mSaveLocationLineEdit->displayText()));
 }
 
 void ApplicationSettings::chooseSaveDirectory()
 {
-	auto path = QFileDialog::getExistingDirectory(this,
-	                                              tr("Capture save location"),
-	                                              mConfig->saveDirectory());
+	auto path = QFileDialog::getExistingDirectory(this, tr("Capture save location"), mConfig->saveDirectory());
 	if(!path.isEmpty()) {
-		auto filename = FilenameFormatter::extractFilename(mSaveLocationLineEdit->text());
-		auto format = FilenameFormatter::extractFormat(mSaveLocationLineEdit->text());
+		auto filename = PathHelper::extractFilename(mSaveLocationLineEdit->text());
+		auto format = PathHelper::extractFormat(mSaveLocationLineEdit->text());
 
 		if(!filename.isEmpty()) {
 			path.append(QLatin1Char('/')).append(filename);

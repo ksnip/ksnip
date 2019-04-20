@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef KSNIP_MAINWINDOW_H
+#define KSNIP_MAINWINDOW_H
 
 #include <QtWidgets>
 
@@ -36,6 +36,7 @@
 #include "src/common/enum/RunMode.h"
 #include "src/common/helper/MessageBoxHelper.h"
 #include "src/backend/CapturePrinter.h"
+#include "src/backend/ImageSaver.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -79,6 +80,7 @@ private:
     CapturePrinter   *mCapturePrinter;
     CaptureUploader  *mCaptureUploader;
     KImageAnnotator *mkImageAnnotator;
+    ImageSaver * mImageSaver;
 
     void setSaveAble(bool enabled);
     void setEnablements(bool enabled);
@@ -107,4 +109,4 @@ private slots:
     void captureDelayChanged(int delay);
 };
 
-#endif // MAINWINDOW_H
+#endif // KSNIP_MAINWINDOW_H

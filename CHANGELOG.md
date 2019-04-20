@@ -2,7 +2,8 @@
 
 ## Release 1.6.0
 * Fixed: Translations not working for Windows and MacOS. ([#164](https://github.com/DamirPorobic/ksnip/issues/164))
-* Fixed: AppImage update fails with "None of the artifacts matched the pattern in the update information". ([#166](https://github.com/DamirPorobic/kImageAnnotator/issues/166))
+* Fixed: AppImage update fails with "None of the artifacts matched the pattern in the update information". ([#166](https://github.com/DamirPorobic/ksnip/issues/166))
+* Fixed: Wildcars in path are not resolved. ([#168](https://github.com/DamirPorobic/ksnip/issues/168))
 * Fixed kImageAnnotator: Unable to select number annotation when clicking on the number without background. ([#46](https://github.com/DamirPorobic/kImageAnnotator/issues/46))
 
 ## Release 1.5.0

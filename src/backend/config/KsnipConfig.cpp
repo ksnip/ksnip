@@ -210,24 +210,6 @@ void KsnipConfig::setApplicationStyle(QString style)
 	saveValue(KsnipConfigOptions::applicationStyleString(), style);
 }
 
-/*
- * Returns fully formatted save path ready to use. Custom format can be provided
- * to replace the configured format, if not format provided, the default will be
- * used.
- */
-QString KsnipConfig::savePath(const QString& format) const
-{
-    QString selectedFormat;
-    if (format.isNull()) {
-        selectedFormat = saveFormat();
-    } else {
-        selectedFormat = (format.startsWith(QStringLiteral(".")) ? format : QStringLiteral(".") + format);
-    }
-
-    auto filename = FilenameFormatter::updateTimeAndDate(saveFilename());
-    return FilenameFormatter::makeUniqueFilename(saveDirectory(), filename, selectedFormat);
-}
-
 bool KsnipConfig::textBold() const
 {
     return textFont().bold();

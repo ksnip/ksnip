@@ -10,12 +10,13 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/ImgurResponseLogger.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/TranslationLoader.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/ImageSaver.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/CommandLineParserHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MessageBoxHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp
-	${CMAKE_SOURCE_DIR}/src/common/formatter/FilenameFormatter.cpp
+	${CMAKE_SOURCE_DIR}/src/common/formatter/PathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomToolButton.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomCursor.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CursorFactory.cpp

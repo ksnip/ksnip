@@ -174,11 +174,12 @@
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Forsinkelse i sekunder mellom utløsing
+og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Save</source>
@@ -551,11 +552,12 @@ vil gjøre dem mykere.</translation>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Setter programstilen som definerer utseende og oppførsel for bruker-
+grensesnittet. Endringer krever omstart av ksnip.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished"></translation>
+        <translation>Frys bildet under tilpasning</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -566,45 +568,56 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature doesn&apos;t work for Wayland and is always
 used for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Når påskrudd vil bakgrunnen fryses under utvalg
+av firkantig område. Det endrer også oppførselen
+for forsinkede skjermavbildninger. Med dette valget
+påskrudd vil forsinkelsen skje før tilpasningsområdet
+vises, og med valget avskrudd vil forsinkelsen inntreffe
+etter at tilpasningsområdet er viset. Denne funksjonen
+fungerer ikke med Wayland, og brukes alltid for macOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vis forstørrelsesglass i tilpasningsområde</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vis et forstørrelsesglass som forstørrer inn i
+bakgrunnsbildet. Dette valget fungerer med
+&quot;Frys bilde under tilpasning&quot; påskrudd.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vis linjaler for tilpasningsområde</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vann- og loddrette linjer som går fra
+skrivebordets kanter til pekeren i tilpasningsområdet.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vis posisjon og størrelsesinfo for tilpasningsområde</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Når venstre mus ikke er trykket, vil posisjonen
+vises, når museknappen trykkes, vil størrelsen
+på området vises til venstre og over avbildet område.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pekerfarge for tilpasningsområde</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pekertykkelse for tilpasningsområde</translation>
     </message>
     <message>
         <source>Imgur History</source>

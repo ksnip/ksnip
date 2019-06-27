@@ -9,6 +9,7 @@ set(KSNIP_LANG_TS
 	ksnip_nl.ts
 	ksnip_no.ts
 	ksnip_pl.ts
+	ksnip_pt.ts
 	ksnip_ru.ts
 	ksnip_tr.ts
 	ksnip_uk.ts)

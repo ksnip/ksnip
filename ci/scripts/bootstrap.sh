@@ -11,8 +11,8 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     docker pull ubuntu:18.04
     docker run --name build-container -v $(pwd):$(pwd) -w $(pwd) -dit ubuntu:18.04 bash
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
-    docker pull opensuse:42.3
-    docker run --name build-container -v $(pwd):$(pwd) -w $(pwd) -dit opensuse:42.3 bash
+    docker pull opensuse/leap:15.1
+    docker run --name build-container -v $(pwd):$(pwd) -w $(pwd) -dit opensuse/leap:15.1 bash
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/bootstrap_envvars.sh
 

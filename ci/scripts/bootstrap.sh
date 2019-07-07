@@ -8,8 +8,8 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
     chmod a+x linuxdeployqt-continuous-x86_64.AppImage
 elif [[ "${BUILD_TYPE}" == "deb" ]]; then
-    docker pull ubuntu:17.10
-    docker run --name build-container -v $(pwd):$(pwd) -w $(pwd) -dit ubuntu:17.10 bash
+    docker pull ubuntu:18.04
+    docker run --name build-container -v $(pwd):$(pwd) -w $(pwd) -dit ubuntu:18.04 bash
 elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     docker pull opensuse:42.3
     docker run --name build-container -v $(pwd):$(pwd) -w $(pwd) -dit opensuse:42.3 bash

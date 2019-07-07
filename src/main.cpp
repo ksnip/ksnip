@@ -28,7 +28,7 @@
 #include "src/gui/MainWindow.h"
 #include "src/backend/imageGrabber/ImageGrabberFactory.h"
 #include "src/backend/TranslationLoader.h"
-#include "src/common/helper/CommandLineParserHelper.h"
+#include "src/backend/KsnipCommandLine.h"
 #include "src/gui/keyboardShortcuts/GlobalKeyboardShortcut.h"
 
 int main(int argc, char** argv)
@@ -48,14 +48,7 @@ int main(int argc, char** argv)
 
     auto imageGrabber = ImageGrabberFactory::createImageGrabber();
 
-    // Setup command line parser
-    QCommandLineParser parser;
-    parser.setApplicationDescription(QCoreApplication::translate("main", "Ksnip Screenshot Tool"));
-    parser.addHelpOption();
-	CommandLineParserHelper::addVersionOptions(parser);
-    CommandLineParserHelper::addImageGrabberOptions(parser, imageGrabber->supportedCaptureModes());
-    CommandLineParserHelper::addDefaultOptions(parser);
-    parser.process(app);
+    KsnipCommandLine commandLine(app, imageGrabber->supportedCaptureModes());
 
     auto arguments = QCoreApplication::arguments();
     MainWindow* window;
@@ -68,14 +61,14 @@ int main(int argc, char** argv)
         return app.exec();
     }
 
-	if (parser.isSet(QStringLiteral("v"))) {
+	if (commandLine.isVersionSet()) {
 		qInfo("Version: %s", qPrintable(KSNIP_VERSION));
 		qInfo("Build: %s", qPrintable(KSNIP_BUILD_NUMBER));
 		return 0;
 	}
 
-    if (parser.isSet(QStringLiteral("e"))) {
-        auto pathToImage = parser.value(QStringLiteral("e"));
+    if (commandLine.isEditSet()) {
+        auto pathToImage = commandLine.image();
         QPixmap pixmap(pathToImage);
 
         if (pixmap.isNull()) {
@@ -90,35 +83,26 @@ int main(int argc, char** argv)
 
     // Check if delay was selected, if yes, make sure a valid number was provided
     auto delay = 0;
-    if (parser.isSet(QStringLiteral("d"))) {
-        auto delayValid = true;
-        delay = parser.value(QStringLiteral("d")).toInt(&delayValid);
-        if (!delay) {
+    if (commandLine.isDelaySet()) {
+        delay = commandLine.delay();
+        if (delay < 0) {
             qWarning("Please enter delay in seconds.");
             return 1;
         }
     }
 
     // Check if the user wants the mouse cursor to be included
-    auto captureCursor = parser.isSet("c");
+    auto captureCursor = commandLine.isCursorSet();
 
     CaptureModes mode;
-    if (CommandLineParserHelper::isSet(parser, QStringLiteral("r"))) {
-        mode = CaptureModes::RectArea;
-    } else if (CommandLineParserHelper::isSet(parser, QStringLiteral("f"))) {
-        mode = CaptureModes::FullScreen;
-    } else if (CommandLineParserHelper::isSet(parser, QStringLiteral("m"))) {
-        mode = CaptureModes::CurrentScreen;
-    } else if (CommandLineParserHelper::isSet(parser, QStringLiteral("a"))) {
-        mode = CaptureModes::ActiveWindow;
-    } else if (CommandLineParserHelper::isSet(parser, QStringLiteral("u"))) {
-        mode = CaptureModes::WindowUnderCursor;
+    if (commandLine.isCaptureModeSet()) {
+        mode = commandLine.captureMode();
     } else {
         qWarning("Please select capture mode.");
         return 1;
     }
 
-    if (parser.isSet(QStringLiteral("s"))) {
+    if (commandLine.isSaveSet()) {
         window = new MainWindow(imageGrabber, RunMode::CLI);
     } else {
         window = new MainWindow(imageGrabber, RunMode::Edit);

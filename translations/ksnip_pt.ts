@@ -5,51 +5,51 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation type="unfinished"></translation>
+        <translation>Sobre </translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Sobre</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versão</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Autor</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Ferramenta de Captura</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished"></translation>
+        <translation>Licença: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished"></translation>
+        <translation>Por favor usar </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation> para reportar bugs.</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Compilação</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished"></translation>
+        <translation>Usando:</translation>
     </message>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>O Autor:</translation>
     </message>
     <message>
         <source>Contributors:</source>
@@ -57,15 +57,15 @@
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tradução Espanhola</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tradução para o holandês</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tradução para o russo</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
@@ -73,11 +73,11 @@
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tradução para o francês</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Tradução para o polonês</translation>
     </message>
 </context>
 <context>
@@ -88,7 +88,7 @@
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando habilitado, itens realçados criam sombras.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
@@ -97,37 +97,40 @@
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando habilitado, suaviza a caneta e
+o marcador após finalizar o desenho.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Fator de suavização</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished"></translation>
+        <translation>Incrementar o fator de suavização diminuirá
+a precisão da caneta e marcador mas irá
+torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonte do Texto</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Define a fonte do item de realce de texto.</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Negrito</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Itálico</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Sublinhado</translation>
     </message>
     <message>
         <source>Numbering Font</source>
@@ -139,30 +142,30 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Painter Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurações de Realce</translation>
     </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
         <source>Always copy capture to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Sempre copia a captura para a área de transferência</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Avisar para salvar antes de descartar as alterações não salvas</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar a posição do ksnip ao mover e carregar na inicialização</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Salve a seleção da ferramenta ksnip e carregue na inicialização</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura de tela na inicialização com o modo padrão</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>

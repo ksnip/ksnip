@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Contribuidores:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
@@ -134,7 +134,7 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonte de numeração</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
@@ -169,119 +169,122 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar instantaneamente no local padrão sem a caixa de diálogo &quot;Salvar como&quot;</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado, não perguntará onde salvar uma captura de tela
+ao salvar, mas salvará instantaneamente no local padrão.</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Estilo de Aplicação</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Define o estilo do aplicativo que define a aparência da interface gráfica.
+Requer reiniciar o ksnip para aplicar as mudanças.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Local e nome do arquivo para a captura</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished"></translation>
+        <translation>O nome do arquivo pode conter $ Y, $ M, $ D para data, $ h, $ m, $ s para hora ou $ T para hora no formato hhmmss.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Navegar</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurações da Aplicação</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished"></translation>
+        <translation>Local para salvar a captura</translation>
     </message>
 </context>
 <context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Novo</translation>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Área Retangular</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Desenhar uma área retangular com o mouse</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tela cheia (Todos os monitores)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura tela inteira incluindo todos os monitores</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Tela atual</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura a tela onde o mouse está apontando</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Janela ativa</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura a janela que atualmente tem foco</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Janela sob o cursor</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura o que está atualmente sob o cursor do mouse</translation>
     </message>
 </context>
 <context>
     <name>CaptureUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload para imgur.com finalizado!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again...</source>
-        <translation type="unfinished"></translation>
+        <translation>Novo token recebido, tentando fazer o upload novamente ...</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token...</source>
-        <translation type="unfinished"></translation>
+        <translation>Token Imgur expirou, requisitando novo token...</translation>
     </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura o cursor do mouse na captura de tela</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type="unfinished"></translation>
+        <translation>O cursor do mouse estará visível em
+capturas de tela.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished"></translation>
+        <translation>Congelar imagem enquanto corta</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -296,26 +299,29 @@ used for MacOs.</source>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar lupa na área de recorte</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostre uma lupa que  mostra zoom
+na imagem de fundo. Esta opção só funciona
+com &apos;Congelar imagem enquanto corta&apos; ativado.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar réguas cortando a área</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Linhas horizontais e verticais que vão das
+bordas da área de trabalho até o cursor na área de recorte.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir informações sobre posição e tamanho de área de corte</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
@@ -326,7 +332,7 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor do cursor da área de recorte</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area

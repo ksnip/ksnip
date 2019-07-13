@@ -64,7 +64,7 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     docker exec build-container zypper --non-interactive install git \
                                                                  cmake \
                                                                  extra-cmake-modules \
-                                                                 patterns-openSUSE-devel_C_C++ \
+                                                                 patterns-devel-C-C++-devel_C_C++ \
                                                                  libqt5-linguist-devel \
                                                                  libqt5-qtx11extras-devel \
                                                                  libqt5-qtdeclarative-devel \

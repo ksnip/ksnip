@@ -22,7 +22,7 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     7z a ksnip-${VERSION}-windows.zip ./packageDir/*
 	
 	echo "--> Check for OpenSSL Libs"
-	sudo find /mnt/c/ -name "ssleay32.dll" -o -name "libssl32" -o -name "libeay32.dll" 2>&-
+	sudo find /c -name "ssleay32.dll" -o -name "libeay32.dll" 2>&-
 	
 elif [[ "${BUILD_TYPE}" == "app" ]]; then
     mkdir build && cd build

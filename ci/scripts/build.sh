@@ -14,16 +14,16 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     cmake .. -G"NMake Makefiles" -DCMAKE_CXX_COMPILER=cl -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_BUILD_TYPE=Release
     nmake
     cd ..
+	
     echo "--> Package Windows"
     mkdir packageDir
     mv build/src/ksnip*.exe packageDir/ksnip.exe
     windeployqt.exe packageDir/ksnip.exe
     cp build/translations/ksnip_*.qm ./packageDir/translations/
+	cp /c/openssl/libeay32.dll ./packageDir/
+	cp /c/openssl/ssleay32.dll ./packageDir/
+	
     7z a ksnip-${VERSION}-windows.zip ./packageDir/*
-	
-	echo "--> Check for OpenSSL Libs"
-	sudo find /c -name "ssleay32.dll" -o -name "libeay32.dll" 2>&-
-	
 elif [[ "${BUILD_TYPE}" == "app" ]]; then
     mkdir build && cd build
     cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_BUILD_TYPE=Release

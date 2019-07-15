@@ -5,6 +5,7 @@
 * Fixed: AppImage update fails with "None of the artifacts matched the pattern in the update information". ([#166](https://github.com/DamirPorobic/ksnip/issues/166))
 * Fixed: Wildcards in path are not resolved. ([#168](https://github.com/DamirPorobic/ksnip/issues/168))
 * Fixed: CLI arg --rectarea doesn't work. ([#170](https://github.com/DamirPorobic/ksnip/issues/170))
+* Fixed: Imgur Uploader on windows issue. ([#173](https://github.com/DamirPorobic/ksnip/issues/173))
 * Fixed kImageAnnotator: Unable to select number annotation when clicking on the number without background. ([#46](https://github.com/DamirPorobic/kImageAnnotator/issues/46))
 
 ## Release 1.5.0

@@ -112,3 +112,7 @@ For translations we use [Weblate](https://hosted.weblate.org/projects/ksnip/tran
 # Bug report
 Please report any bugs or feature requests related to the annotation editor on the [kImageAnnotator](https://github.com/DamirPorobic/kImageAnnotator/issues) github page under the issue section.
 All other bugs or feature requests please report on the [ksnip](https://github.com/DamirPorobic/ksnip/issues) github page under the issue section.
+
+
+# Donate a Beer?
+You would like to donate a Beer? Sure, you can do that [here](https://paypal.com/paypalme2/damirporobic), donations are always welcome :)

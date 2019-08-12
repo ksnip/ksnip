@@ -169,7 +169,7 @@
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation>Створити…</translation>
+        <translation>Створити</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
@@ -218,7 +218,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Print</source>
-        <translation>Роздрукувати…</translation>
+        <translation>Роздрукувати</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
@@ -226,7 +226,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation>Подивитися, якою буде роздруківка…</translation>
+        <translation>Перегляд друку</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
@@ -254,15 +254,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Налаштування…</translation>
+        <translation>Параметри</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>&amp;Про програму…</translation>
+        <translation>&amp;Про програму</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation>Відкрити…</translation>
+        <translation>Відкрити</translation>
     </message>
     <message>
         <source>File</source>
@@ -282,7 +282,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save As</source>
-        <translation>Зберегти як…</translation>
+        <translation>Зберегти як</translation>
     </message>
     <message>
         <source>Images</source>
@@ -379,7 +379,7 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Огляд…</translation>
+        <translation>Вибрати</translation>
     </message>
     <message>
         <source>Capture mouse cursor on screenshot</source>
@@ -512,7 +512,7 @@ take effect.</source>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation>Історія завантажень…</translation>
+        <translation>Журнал Imgur</translation>
     </message>
     <message>
         <source>Paint Item Shadows</source>

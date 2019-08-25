@@ -17,39 +17,35 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "ImageSaver.h"
+#include "SavePathProvider.h"
 
-ImageSaver::ImageSaver()
+SavePathProvider::SavePathProvider()
 {
     mConfig = KsnipConfig::instance();
 }
 
-bool ImageSaver::save(const QImage &image, const QString &path)
+QString SavePathProvider::savePath() const
 {
-    ensurePathExists(path);
-    auto fullPath = ensureFilenameHasFormat(path);
-
-	auto isSuccessful = image.save(fullPath);
-	if (!isSuccessful) {
-		qCritical("Unable to save file '%s'", qPrintable(fullPath));
-	}
-	return isSuccessful;
+    return PathHelper::makeUniqueFilename(saveDirectory(), getFilename(), mConfig->saveFormat());
 }
 
-void ImageSaver::ensurePathExists(const QString &path)
+QString SavePathProvider::savePathWithFormat(const QString &format) const
 {
-	auto directory = PathHelper::extractPath(path);
-	QDir dir(directory);
-	if(!dir.exists()) {
-		dir.mkpath(QStringLiteral("."));
-	}
+    return PathHelper::makeUniqueFilename(saveDirectory(), getFilename(), getFormat(format));
 }
 
-QString ImageSaver::ensureFilenameHasFormat(const QString &path)
+QString SavePathProvider::getFilename() const
 {
-    auto format = PathHelper::extractFormat(path);
-    if(format.isEmpty()) {
-        return path + QStringLiteral(".") + mConfig->saveFormat();
-    }
-    return path;
+    return PathHelper::replaceWildcards(mConfig->saveFilename());
 }
+
+QString SavePathProvider::getFormat(const QString &format) const
+{
+    return format.startsWith(QStringLiteral(".")) ? format : QStringLiteral(".") + format;
+}
+
+QString SavePathProvider::saveDirectory() const
+{
+    return PathHelper::replaceWildcards(mConfig->saveDirectory());
+}
+

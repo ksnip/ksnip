@@ -17,29 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IMAGESAVER_H
-#define KSNIP_IMAGESAVER_H
+#ifndef KSNIP_SAVEPATHPROVIDER_H
+#define KSNIP_SAVEPATHPROVIDER_H
 
-#include <QImage>
-#include <QFileDialog>
-#include <QCoreApplication>
-#include <QObject>
-#include <QString>
+#include "KsnipConfig.h"
 
-#include "config/KsnipConfig.h"
-
-class ImageSaver
+class SavePathProvider
 {
 public:
-	explicit ImageSaver();
-	~ImageSaver() = default;
-    bool save(const QImage &image, const QString &path);
+    SavePathProvider();
+    ~SavePathProvider() = default;
+    QString savePath() const;
+    QString savePathWithFormat(const QString& format) const;
+    QString saveDirectory() const;
 
 private:
-    KsnipConfig* mConfig;
+    KsnipConfig *mConfig;
 
-	void ensurePathExists(const QString &path);
-    QString ensureFilenameHasFormat(const QString &path);
+    QString getFormat(const QString &format) const;
+    QString getFilename() const;
 };
 
-#endif //KSNIP_IMAGESAVER_H
+#endif //KSNIP_SAVEPATHPROVIDER_H

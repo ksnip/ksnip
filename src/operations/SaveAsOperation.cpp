@@ -17,39 +17,30 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "ImageSaver.h"
+#include "SaveAsOperation.h"
 
-ImageSaver::ImageSaver()
+SaveAsOperation::SaveAsOperation(QWidget* parent, const QImage &image)
 {
-    mConfig = KsnipConfig::instance();
+    Q_ASSERT(parent != nullptr);
+
+    mParent = parent;
+    mImage = image;
 }
 
-bool ImageSaver::save(const QImage &image, const QString &path)
+bool SaveAsOperation::execute()
 {
-    ensurePathExists(path);
-    auto fullPath = ensureFilenameHasFormat(path);
+    auto path = mSavePathProvider.savePath();
 
-	auto isSuccessful = image.save(fullPath);
-	if (!isSuccessful) {
-		qCritical("Unable to save file '%s'", qPrintable(fullPath));
-	}
-	return isSuccessful;
-}
+    auto title = QObject::tr("Save As");
+    auto filter = QObject::tr("Images") + QStringLiteral(" (*.png *.gif *.jpg);;") + QObject::tr("All Files") + QStringLiteral("(*)");
+    QFileDialog saveDialog(mParent, title, path, filter);
+    saveDialog.setAcceptMode(QFileDialog::AcceptSave);
 
-void ImageSaver::ensurePathExists(const QString &path)
-{
-	auto directory = PathHelper::extractPath(path);
-	QDir dir(directory);
-	if(!dir.exists()) {
-		dir.mkpath(QStringLiteral("."));
-	}
-}
-
-QString ImageSaver::ensureFilenameHasFormat(const QString &path)
-{
-    auto format = PathHelper::extractFormat(path);
-    if(format.isEmpty()) {
-        return path + QStringLiteral(".") + mConfig->saveFormat();
+    if (saveDialog.exec() != QDialog::Accepted) {
+        return false;
     }
-    return path;
+
+    path = saveDialog.selectedFiles().first();
+
+    return mImageSaver.save(mImage, path);
 }

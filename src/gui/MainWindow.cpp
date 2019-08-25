@@ -40,9 +40,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mConfig(KsnipConfig::instance()),
 	mToolBar(new MainToolBar(imageGrabber->supportedCaptureModes())),
 	mCapturePrinter(new CapturePrinter),
-	mCaptureUploader(new CaptureUploader()),
-	mImageSaver(new ImageSaver(this))
-
+	mCaptureUploader(new CaptureUploader())
 {
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
@@ -89,7 +87,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 void MainWindow::screenshotChanged()
 {
-    setSaveAble(true);
+    setSaveable(true);
 
     if (mConfig->alwaysCopyToClipboard()) {
         copyCaptureToClipboard();
@@ -120,7 +118,7 @@ void MainWindow::showCapture(const QPixmap& screenshot)
     }
 
     setHidden(false);
-    setSaveAble(true);
+    setSaveable(true);
     setEnablements(true);
 
     adjustSize();
@@ -130,7 +128,7 @@ void MainWindow::showCapture(const QPixmap& screenshot)
 void MainWindow::showEmpty()
 {
     setHidden(false);
-    setSaveAble(false);
+    setSaveable(false);
     setEnablements(false);
     QMainWindow::show();
 }
@@ -184,7 +182,7 @@ void MainWindow::closeEvent(QCloseEvent* event)
 // Private Functions
 //
 
-void MainWindow::setSaveAble(bool enabled)
+void MainWindow::setSaveable(bool enabled)
 {
     if (enabled) {
         setWindowTitle(QStringLiteral("*") + QApplication::applicationName() + " - " + tr("Unsaved"));
@@ -343,15 +341,17 @@ void MainWindow::initGui()
 
 void MainWindow::saveCapture()
 {
-	auto isSuccessful = false;
+	bool isSaved;
 	auto image = mkImageAnnotator->image();
     if (mConfig->useInstantSave()) {
-	    isSuccessful = mImageSaver->save(image);
+        auto saveOperation = SaveOperation(image);
+        isSaved = saveOperation.execute();
     } else {
-	    isSuccessful = mImageSaver->saveAs(image);
+        auto saveAsOperation = SaveAsOperation(this, image);
+        isSaved = saveAsOperation.execute();
     }
 
-    setSaveAble(isSuccessful);
+    setSaveable(!isSaved);
 }
 
 void MainWindow::copyCaptureToClipboard()
@@ -387,22 +387,23 @@ void MainWindow::uploadFinished(QString message)
 
 void MainWindow::printClicked()
 {
-	auto savePath = mImageSaver->savePath(QStringLiteral("pdf"));
+	auto savePath = mSavePathProvider.savePathWithFormat(QStringLiteral("pdf"));
 	auto image = mkImageAnnotator->image();
 	mCapturePrinter->print(image, savePath);
 }
 
 void MainWindow::printPreviewClicked()
 {
-	auto savePath = mImageSaver->savePath(QStringLiteral("pdf"));
+	auto savePath = mSavePathProvider.savePathWithFormat(QStringLiteral("pdf"));
 	auto image = mkImageAnnotator->image();
 	mCapturePrinter->printPreview(image, savePath);
 }
 
 void MainWindow::instantSave(const QPixmap& pixmap)
 {
-	auto saveSuccessful = mImageSaver->save(pixmap.toImage());
-	auto savePath = mImageSaver->savePath();
+    auto saveOperation = SaveOperation(pixmap.toImage());
+    auto saveSuccessful = saveOperation.execute();
+	auto savePath = mSavePathProvider.savePath();
 	if (saveSuccessful) {
         qInfo("Screenshot saved to: %s", qPrintable(savePath));
     } else {
@@ -414,7 +415,7 @@ void MainWindow::loadImageFromFile()
 {
     auto pixmapFilename = QFileDialog::getOpenFileName(this,
                           tr("Open Image"),
-                          mImageSaver->saveDirectory(),
+                          mSavePathProvider.saveDirectory(),
                           tr("Image Files (*.png *.jpg *.bmp)"));
     QPixmap pixmap(pixmapFilename);
     showCapture(pixmap);

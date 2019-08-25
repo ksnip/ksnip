@@ -36,7 +36,8 @@
 #include "src/common/enum/RunMode.h"
 #include "src/common/helper/MessageBoxHelper.h"
 #include "src/backend/CapturePrinter.h"
-#include "src/backend/ImageSaver.h"
+#include "src/operations/SaveAsOperation.h"
+#include "src/operations/SaveOperation.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -80,9 +81,9 @@ private:
     CapturePrinter   *mCapturePrinter;
     CaptureUploader  *mCaptureUploader;
     KImageAnnotator *mkImageAnnotator;
-    ImageSaver * mImageSaver;
+    SavePathProvider mSavePathProvider;
 
-    void setSaveAble(bool enabled);
+    void setSaveable(bool enabled);
     void setEnablements(bool enabled);
     void loadSettings();
     void setHidden(bool isHidden);

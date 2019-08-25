@@ -2,6 +2,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/main.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfig.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfigOptions.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/config/SavePathProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/ImgurUploader.cpp
@@ -43,6 +44,8 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/NativeKeyEventFilter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/AbstractKeyHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/KeyHandlerFactory.cpp
+	${CMAKE_SOURCE_DIR}/src/operations/SaveAsOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/operations/SaveOperation.cpp
 	)
 
 if (APPLE)

@@ -54,7 +54,7 @@ QString PathHelper::extractFormat(const QString& path)
     if (path.section(QStringLiteral("/"), -1).contains(QLatin1Char('.'))) {
         return path.section(QStringLiteral("."), -1);
     } else {
-        return QString();
+        return {};
     }
 }
 

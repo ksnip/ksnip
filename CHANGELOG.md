@@ -6,6 +6,8 @@
 * Fixed: Wildcards in path are not resolved. ([#168](https://github.com/DamirPorobic/ksnip/issues/168))
 * Fixed: CLI arg --rectarea doesn't work. ([#170](https://github.com/DamirPorobic/ksnip/issues/170))
 * Fixed: Imgur Uploader on windows issue. ([#173](https://github.com/DamirPorobic/ksnip/issues/173))
+* Fixed: Add shortcut for File Menu in Main Menu. ([#192](https://github.com/DamirPorobic/ksnip/issues/192))
+* Fixed: Prompt to save before exit enabled now by default. ([#193](https://github.com/DamirPorobic/ksnip/issues/193))
 * Fixed kImageAnnotator: Unable to select number annotation when clicking on the number without background. ([#46](https://github.com/DamirPorobic/kImageAnnotator/issues/46))
 
 ## Release 1.5.0

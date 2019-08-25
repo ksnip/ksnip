@@ -43,7 +43,7 @@ void KsnipConfig::setSavePosition(bool enabled)
 
 bool KsnipConfig::promptSaveBeforeExit() const
 {
-	return loadValue(KsnipConfigOptions::promptSaveBeforeExitString(), false).toBool();
+	return loadValue(KsnipConfigOptions::promptSaveBeforeExitString(), true).toBool();
 }
 
 void KsnipConfig::setPromptSaveBeforeExit(bool  enabled)
@@ -381,7 +381,7 @@ bool KsnipConfig::snippingAreaRulersEnabled() const
 	return loadValue(KsnipConfigOptions::snippingAreaRulersEnabledString(), true).toBool();
 }
 
-void KsnipConfig::setsnippingAreaRulersEnabled(bool enabled)
+void KsnipConfig::setSnippingAreaRulersEnabled(bool enabled)
 {
 	if (snippingAreaRulersEnabled() == enabled) {
         return;

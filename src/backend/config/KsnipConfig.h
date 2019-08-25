@@ -107,7 +107,7 @@ public:
     void setCaptureCursor(bool enabled);
 
 	bool snippingAreaRulersEnabled() const;
-	void setsnippingAreaRulersEnabled(bool enabled);
+	void setSnippingAreaRulersEnabled(bool enabled);
 
 	bool snippingAreaPositionAndSizeInfoEnabled() const;
 	void setSnippingAreaPositionAndSizeInfoEnabled(bool enabled);

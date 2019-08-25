@@ -48,7 +48,7 @@ void ImageGrabberSettings::saveSettings()
 	mConfig->setFreezeImageWhileSnippingEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());
 	mConfig->setSnippingAreaMagnifyingGlassEnabled(mSnippingAreaMagnifyingGlassCheckbox->isChecked());
 	mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
-	mConfig->setsnippingAreaRulersEnabled(mSnippingAreaRulersCheckbox->isChecked());
+    mConfig->setSnippingAreaRulersEnabled(mSnippingAreaRulersCheckbox->isChecked());
 	mConfig->setSnippingAreaPositionAndSizeInfoEnabled(mSnippingAreaPositionAndSizeInfoCheckbox->isChecked());
 	mConfig->setSnippingCursorColor(mSnippingCursorColorButton->color());
 	mConfig->setSnippingCursorSize(mSnippingCursorSizeCombobox->value());

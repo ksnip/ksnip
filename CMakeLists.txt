@@ -7,12 +7,14 @@ endif()
 
 set(KSNIP_VERSION "${PROJECT_VERSION}${KSNIP_VERSION_SUFIX}")
 
+include(GNUInstallDirs)
+
 if (WIN32)
 	set(KSNIP_LANG_INSTAL_DIR "translations")
 elseif (APPLE)
 	set(KSNIP_LANG_INSTAL_DIR "../Resources")
 elseif (UNIX)
-	set(KSNIP_LANG_INSTAL_DIR "/usr/share/ksnip/translations")
+	set(KSNIP_LANG_INSTAL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/ksnip/translations")
 endif ()
 
 configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/src/BuildConfig.h)

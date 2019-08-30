@@ -11,7 +11,7 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     mv ksnip-${VERSION_NUMBER}/RPMS/x86_64/ksnip-*.rpm ksnip-${VERSION}.rpm
 elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     mkdir build && cd build
-    cmake .. -G"NMake Makefiles" -DCMAKE_CXX_COMPILER=cl -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_BUILD_TYPE=Release
+    cmake .. -G"NMake Makefiles" -DCMAKE_CXX_COMPILER=cl -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
     nmake
     cd ..
 	
@@ -26,7 +26,7 @@ elif [[ "${BUILD_TYPE}" == "exe" ]]; then
     7z a ksnip-${VERSION}-windows.zip ./packageDir/*
 elif [[ "${BUILD_TYPE}" == "app" ]]; then
     mkdir build && cd build
-    cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_BUILD_TYPE=Release
+    cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
     make
     cd ..
 

@@ -13,4 +13,4 @@ cat changelog >> ksnip.spec
 
 echo "--> Update version"
 sed -i "s/Version: X.X.X/Version: ${VERSION_NUMBER}/" ksnip.spec
-sed -i "s/cmake ./cmake . -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}/" ksnip.spec
+sed -i "s/cmake ./cmake . -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE}/" ksnip.spec

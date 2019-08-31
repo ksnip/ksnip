@@ -17,25 +17,29 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IMAGEWITHPOSITION_H
-#define KSNIP_IMAGEWITHPOSITION_H
+#ifndef KSNIP_CURSORDTO_H
+#define KSNIP_CURSORDTO_H
 
 #include <QImage>
 #include <QPoint>
 
-struct ImageWithPosition
+struct CursorDto
 {
-	QImage image;
+	QPixmap image;
 	QPoint position;
 
-	ImageWithPosition& operator =(const ImageWithPosition& other)
+	CursorDto& operator =(const CursorDto& other)
 	{
 		image = other.image.copy();
 		position = other.position;
 		return *this;
 	}
+
+	bool isValid() const {
+		return !image.isNull();
+	}
 };
 
 
 
-#endif //KSNIP_IMAGEWITHPOSITION_H
+#endif //KSNIP_CURSORDTO_H

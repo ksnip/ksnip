@@ -25,7 +25,7 @@
 #include <QTimer>
 #include <QScreen>
 
-#include "ImageWithPosition.h"
+#include "CaptureDto.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/handler/DelayHandler.h"
 #include "gui/snippingArea/AbstractSnippingArea.h"
@@ -44,7 +44,7 @@ public:
 	virtual QRect activeWindowRect() const = 0;
 
 signals:
-    void finished(const QPixmap &) const;
+    void finished(const CaptureDto &capture) const;
     void canceled() const;
 
 protected:
@@ -52,7 +52,7 @@ protected:
 	bool mCaptureCursor;
 	int mCaptureDelay;
 	CaptureModes mCaptureMode;
-	ImageWithPosition mStoredCursorImageWithPosition;
+	CursorDto mStoredCursorImageWithPosition;
 	DelayHandler mDelayHandler;
 
 	void addSupportedCaptureMode(CaptureModes captureMode);
@@ -64,7 +64,7 @@ protected:
 	QPixmap getScreenshot() const;
 	void setCaptureRectFromCorrectSource();
 	virtual bool isSnippingAreaBackgroundTransparent() const;
-	virtual ImageWithPosition getCursorWithPosition() const = 0;
+	virtual CursorDto getCursorWithPosition() const = 0;
 
 protected slots:
 	virtual void prepareGrab();
@@ -80,10 +80,10 @@ private:
 	void connectSnippingAreaFinish();
 	void disconnectSnippingAreaFinish();
 	bool shouldCaptureCursor() const;
-	QPixmap drawCursorOnImage(QPixmap &screenshot, const ImageWithPosition &cursorImageWithPosition) const;
-	ImageWithPosition getCursorImageWithPositionFromCorrectSource() const;
+	CursorDto getCursorImageWithPositionFromCorrectSource() const;
 	bool isRectAreaCaptureWithBackground() const;
 	bool isRectAreaCaptureWithoutBackground() const;
+	CursorDto getCursorRelativeToScreenshot() const;
 };
 
 #endif // KSNIP_ABSTRACTIMAGEGRABBER_H

@@ -40,14 +40,14 @@ QRect WinWrapper::getActiveWindowRect() const
     return {QPoint(frame.left, frame.top), QPoint(frame.right, frame.bottom)};
 }
 
-ImageWithPosition WinWrapper::getCursorWithPosition() const
+CursorDto WinWrapper::getCursorWithPosition() const
 {
 	CURSORINFO cursorInfo = { sizeof(cursorInfo) };
 	GetCursorInfo(&cursorInfo);
 	auto cursorPosition = getCursorPosition(QRect(), cursorInfo);
 	auto cursorPixmap = getCursorPixmap(cursorInfo);
 
-	return {cursorPixmap.toImage(), cursorPosition};
+	return {cursorPixmap, cursorPosition};
 }
 
 QPoint WinWrapper::getCursorPosition(const QRect &rect, const CURSORINFO &cursor) const

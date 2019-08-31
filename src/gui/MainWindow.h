@@ -50,7 +50,7 @@ public:
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
 
 public slots:
-    void showCapture(const QPixmap &screenshot);
+    void showCapture(const CaptureDto &capture);
     void triggerNewDefaultCapture();
 
 protected:
@@ -80,7 +80,7 @@ private:
     KsnipConfig      *mConfig;
     CapturePrinter   *mCapturePrinter;
     CaptureUploader  *mCaptureUploader;
-    KImageAnnotator *mkImageAnnotator;
+    KImageAnnotator *mKImageAnnotator;
     SavePathProvider mSavePathProvider;
 
     void setSaveable(bool enabled);
@@ -91,6 +91,8 @@ private:
     void capture(CaptureModes captureMode);
     void triggerNewCapture(CaptureModes captureMode);
     void initGui();
+	void loadCapture(const CaptureDto &capture);
+	void processInstantCapture(const CaptureDto &capture);
 
 private slots:
     void saveCapture();
@@ -99,7 +101,7 @@ private slots:
     void uploadFinished(QString message);
     void printClicked();
     void printPreviewClicked();
-    void instantSave(const QPixmap &pixmap);
+    void instantSave();
     void loadImageFromFile();
     void screenshotChanged();
     bool discardUnsavedChanges() const;

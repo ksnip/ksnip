@@ -147,13 +147,22 @@ void AbstractImageGrabber::prepareGrab()
 void AbstractImageGrabber::grab()
 {
 	setCaptureRectFromCorrectSource();
-	auto screenshot = getScreenshot();
+	CaptureDto capture(getScreenshot());
 
 	if (shouldCaptureCursor()) {
-		auto cursorWithPosition = getCursorImageWithPositionFromCorrectSource();
-		drawCursorOnImage(screenshot, cursorWithPosition);
+		capture.cursor = getCursorRelativeToScreenshot();
 	}
-	emit finished(screenshot);
+	emit finished(capture);
+}
+
+CursorDto AbstractImageGrabber::getCursorRelativeToScreenshot() const
+{
+	auto cursor = getCursorImageWithPositionFromCorrectSource();
+	if(mCaptureRect.contains(cursor.position)) {
+		cursor.position -= mCaptureRect.topLeft();
+		return cursor;
+	}
+	return {};
 }
 
 bool AbstractImageGrabber::shouldCaptureCursor() const
@@ -194,23 +203,10 @@ void AbstractImageGrabber::connectSnippingAreaFinish()
 
 void AbstractImageGrabber::disconnectSnippingAreaFinish()
 {
-	disconnect(mSnippingArea, &AbstractSnippingArea::finished, 0, 0);
+	disconnect(mSnippingArea, &AbstractSnippingArea::finished, nullptr, nullptr);
 }
 
-QPixmap AbstractImageGrabber::drawCursorOnImage(QPixmap &screenshot, const ImageWithPosition &cursorImageWithPosition) const
-{
-	auto cursorPosition = cursorImageWithPosition.position;
-	if(mCaptureRect.contains(cursorPosition)) {
-		auto cursorImage = cursorImageWithPosition.image;
-		cursorPosition -= mCaptureRect.topLeft();
-		QPainter painter(&screenshot);
-		painter.drawImage(cursorPosition, cursorImage);
-	}
-
-	return screenshot;
-}
-
-ImageWithPosition AbstractImageGrabber::getCursorImageWithPositionFromCorrectSource() const
+CursorDto AbstractImageGrabber::getCursorImageWithPositionFromCorrectSource() const
 {
 	return isRectAreaCaptureWithBackground() ? mStoredCursorImageWithPosition : getCursorWithPosition();
 }

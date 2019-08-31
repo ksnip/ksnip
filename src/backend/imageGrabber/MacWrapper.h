@@ -24,7 +24,7 @@
 
 #include "CoreGraphics/CGDirectDisplay.h"
 
-#include "ImageWithPosition.h"
+#include "CursorDto.h"
 
 class MacWrapper
 {

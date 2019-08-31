@@ -24,7 +24,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	QMainWindow(),
 	mImageGrabber(imageGrabber),
 	mMode(mode),
-	mkImageAnnotator(new KImageAnnotator),
+	mKImageAnnotator(new KImageAnnotator),
 	mUploadToImgurAction(new QAction(this)),
 	mPrintAction(new QAction(this)),
 	mPrintPreviewAction(new QAction(this)),
@@ -46,16 +46,13 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
     // to connect imagegrabber signals to mainwindow slots to handle the
     // feedback.
     if (mMode == RunMode::CLI) {
-        connect(mImageGrabber, &AbstractImageGrabber::finished, [this](const QPixmap &pixmap) {
-            instantSave(pixmap);
-            close();
-        });
+        connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processInstantCapture);
         connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::close);
         return;
     }
 
-	mUndoAction = mkImageAnnotator->undoAction();
-	mRedoAction = mkImageAnnotator->redoAction();
+	mUndoAction = mKImageAnnotator->undoAction();
+	mRedoAction = mKImageAnnotator->redoAction();
 
     initGui();
 
@@ -64,7 +61,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	connect(mConfig, &KsnipConfig::toolConfigChanged, this, &MainWindow::setupImageAnnotator);
 
-	connect(mkImageAnnotator, &KImageAnnotator::imageChanged, this, &MainWindow::screenshotChanged);
+	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, this, &MainWindow::screenshotChanged);
 
     connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::showCapture);
     connect(mImageGrabber, &AbstractImageGrabber::canceled, [this]() { setHidden(false); });
@@ -85,6 +82,13 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	QWidget::resize(minimumSize());
 }
 
+void MainWindow::processInstantCapture(const CaptureDto &capture)
+{
+	loadCapture(capture);
+	instantSave();
+	close();
+}
+
 void MainWindow::screenshotChanged()
 {
     setSaveable(true);
@@ -103,26 +107,34 @@ void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor,
 	mImageGrabber->grabImage(captureMode, captureCursor, delay, mConfig->freezeImageWhileSnippingEnabled());
 }
 
-void MainWindow::showCapture(const QPixmap& screenshot)
+void MainWindow::showCapture(const CaptureDto &capture)
 {
-    if (screenshot.isNull()) {
+    if (!capture.isValid()) {
         qCritical("PaintWindow::showWindow: No image provided to but it was expected.");
         showEmpty();
         return;
     }
 
-	mkImageAnnotator->loadImage(screenshot);
+	loadCapture(capture);
 
-    if (mConfig->alwaysCopyToClipboard()) {
-        copyCaptureToClipboard();
-    }
+	if (mConfig->alwaysCopyToClipboard()) {
+		copyCaptureToClipboard();
+	}
 
-    setHidden(false);
+	setHidden(false);
     setSaveable(true);
     setEnablements(true);
 
     adjustSize();
     QMainWindow::show();
+}
+
+void MainWindow::loadCapture(const CaptureDto &capture)
+{
+	mKImageAnnotator->loadImage(capture.screenshot);
+	if (capture.isCursorValid()) {
+		mKImageAnnotator->insertImageItem(capture.cursor.position, capture.cursor.image);
+	}
 }
 
 void MainWindow::showEmpty()
@@ -150,8 +162,8 @@ QSize MainWindow::sizeHint() const
 {
 	auto minHeight = mToolBar->sizeHint().height();
 	auto minWidth = mToolBar->sizeHint().width();
-	auto annotatorHeight = mkImageAnnotator->sizeHint().height();
-	auto annotatorWidth = mkImageAnnotator->sizeHint().width();
+	auto annotatorHeight = mKImageAnnotator->sizeHint().height();
+	auto annotatorWidth = mKImageAnnotator->sizeHint().width();
 	auto height = minHeight + annotatorHeight;
 	auto width = minWidth > annotatorWidth ? minWidth : annotatorWidth;
 	return { width, height };
@@ -275,12 +287,12 @@ void MainWindow::initGui()
     mCropAction->setText(tr("Crop"));
     mCropAction->setToolTip(tr("Crop Screen Capture"));
     mCropAction->setShortcut(Qt::SHIFT + Qt::Key_C);
-	connect(mCropAction, &QAction::triggered, mkImageAnnotator, &KImageAnnotator::showCropper);
+	connect(mCropAction, &QAction::triggered, mKImageAnnotator, &KImageAnnotator::showCropper);
 
     mScaleAction->setText(tr("Scale"));
     mScaleAction->setToolTip(tr("Scale Screen Capture"));
     mScaleAction->setShortcut(Qt::SHIFT + Qt::Key_S);
-	connect(mScaleAction, &QAction::triggered, mkImageAnnotator, &KImageAnnotator::showScaler);
+	connect(mScaleAction, &QAction::triggered, mKImageAnnotator, &KImageAnnotator::showScaler);
 
     mQuitAction->setText(tr("Quit"));
     mQuitAction->setShortcut(QKeySequence::Quit);
@@ -336,13 +348,13 @@ void MainWindow::initGui()
 
     addToolBar(mToolBar);
 
-	setCentralWidget(mkImageAnnotator);
+	setCentralWidget(mKImageAnnotator);
 }
 
 void MainWindow::saveCapture()
 {
 	bool isSaved;
-	auto image = mkImageAnnotator->image();
+	auto image = mKImageAnnotator->image();
     if (mConfig->useInstantSave()) {
         auto saveOperation = SaveOperation(image);
         isSaved = saveOperation.execute();
@@ -356,7 +368,7 @@ void MainWindow::saveCapture()
 
 void MainWindow::copyCaptureToClipboard()
 {
-    auto image = mkImageAnnotator->image();
+    auto image = mKImageAnnotator->image();
     if (image.isNull()) {
         return;
     }
@@ -365,7 +377,7 @@ void MainWindow::copyCaptureToClipboard()
 
 void MainWindow::upload()
 {
-	auto image = mkImageAnnotator->image();
+	auto image = mKImageAnnotator->image();
 
 	if (image.isNull()) {
 		return;
@@ -388,20 +400,21 @@ void MainWindow::uploadFinished(QString message)
 void MainWindow::printClicked()
 {
 	auto savePath = mSavePathProvider.savePathWithFormat(QStringLiteral("pdf"));
-	auto image = mkImageAnnotator->image();
+	auto image = mKImageAnnotator->image();
 	mCapturePrinter->print(image, savePath);
 }
 
 void MainWindow::printPreviewClicked()
 {
 	auto savePath = mSavePathProvider.savePathWithFormat(QStringLiteral("pdf"));
-	auto image = mkImageAnnotator->image();
+	auto image = mKImageAnnotator->image();
 	mCapturePrinter->printPreview(image, savePath);
 }
 
-void MainWindow::instantSave(const QPixmap& pixmap)
+void MainWindow::instantSave()
 {
-    auto saveOperation = SaveOperation(pixmap.toImage());
+	auto screenshot = mKImageAnnotator->image();
+    auto saveOperation = SaveOperation(screenshot);
     auto saveSuccessful = saveOperation.execute();
 	auto savePath = mSavePathProvider.savePath();
 	if (saveSuccessful) {
@@ -460,12 +473,12 @@ QString &MainWindow::formatUrl(QString &message) const
 
 void MainWindow::setupImageAnnotator()
 {
-	mkImageAnnotator->setSaveToolSelection(mConfig->saveToolSelection());
-	mkImageAnnotator->setSmoothFactor(mConfig->smoothFactor());
-	mkImageAnnotator->setSmoothPathEnabled(mConfig->smoothPathEnabled());
-	mkImageAnnotator->setTextFont(mConfig->textFont());
-	mkImageAnnotator->setNumberFont(mConfig->numberFont());
-	mkImageAnnotator->setItemShadowEnabled(mConfig->itemShadowEnabled());
+	mKImageAnnotator->setSaveToolSelection(mConfig->saveToolSelection());
+	mKImageAnnotator->setSmoothFactor(mConfig->smoothFactor());
+	mKImageAnnotator->setSmoothPathEnabled(mConfig->smoothPathEnabled());
+	mKImageAnnotator->setTextFont(mConfig->textFont());
+	mKImageAnnotator->setNumberFont(mConfig->numberFont());
+	mKImageAnnotator->setItemShadowEnabled(mConfig->itemShadowEnabled());
 }
 
 void MainWindow::captureDelayChanged(int delay)

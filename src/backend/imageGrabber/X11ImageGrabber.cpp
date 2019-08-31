@@ -20,8 +20,7 @@
 
 #include "X11ImageGrabber.h"
 
-X11ImageGrabber::X11ImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea),
-    mX11Wrapper(new X11Wrapper)
+X11ImageGrabber::X11ImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea), mX11Wrapper(new X11Wrapper)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);
 	addSupportedCaptureMode(CaptureModes::FullScreen);

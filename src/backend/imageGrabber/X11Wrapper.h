@@ -23,7 +23,7 @@
 #include <xcb/xfixes.h>
 #include <QX11Info>
 
-#include "ImageWithPosition.h"
+#include "CursorDto.h"
 
 class X11Wrapper
 {

@@ -18,6 +18,7 @@ Latest ksnip version contains following features:
 * Taking screenshot of window that currently has focus.
 * Taking screenshot of window under mouse cursor.
 * Take screenshot with or without mouse cursor.
+* Capture mouse cursor as annotation item that can be moved and deleted.
 * Customizable capture delay for all capture options.
 * Upload screenshots directly to imgur.com in anonymous or user mode.
 * Command line support, for taking screenshot and saving it to default location, filename and format.

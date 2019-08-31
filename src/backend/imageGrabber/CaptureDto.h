@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,28 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_WINIMAGEGRABBER_H
-#define KSNIP_WINIMAGEGRABBER_H
+#ifndef KSNIP_CAPTUREDTO_H
+#define KSNIP_CAPTUREDTO_H
 
-#include "AbstractImageGrabber.h"
-#include "WinWrapper.h"
-#include "gui/snippingArea/WinSnippingArea.h"
+#include "CursorDto.h"
 
-class WinImageGrabber : public AbstractImageGrabber
+struct CaptureDto
 {
-    Q_OBJECT
-public:
-    explicit WinImageGrabber();
-    ~WinImageGrabber() override = default;
+	QPixmap screenshot;
+	CursorDto cursor;
 
-protected:
-	QRect fullScreenRect() const override;
-	QRect activeWindowRect() const override;
-	CursorDto getCursorWithPosition() const override;
+	CaptureDto(const QPixmap &screenshot) {
+		this->screenshot = screenshot.copy();
+	}
 
-private:
-    WinWrapper *mWinWrapper;
+	bool isValid() const {
+		return !screenshot.isNull();
+	}
+
+	bool isCursorValid() const {
+		return cursor.isValid();
+	}
 };
 
-
-#endif //KSNIP_WINIMAGEGRABBER_H
+#endif //KSNIP_CAPTUREDTO_H

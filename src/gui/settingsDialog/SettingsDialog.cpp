@@ -81,7 +81,7 @@ void SettingsDialog::initGui()
     mListWidget->addItem(tr("Application"));
     mListWidget->addItem(tr("Image Grabber"));
     mListWidget->addItem(tr("Imgur Uploader"));
-    mListWidget->addItem(tr("Painter"));
+    mListWidget->addItem(tr("Annotator"));
     mListWidget->setCurrentRow(0);
     mListWidget->setFixedWidth(mListWidget->sizeHintForColumn(0) + 20);
 

@@ -13,6 +13,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/TranslationLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ImageSaver.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/KsnipCommandLine.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/WatermarkImageLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MessageBoxHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/PathHelper.cpp
@@ -44,10 +45,11 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/NativeKeyEventFilter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/AbstractKeyHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/KeyHandlerFactory.cpp
-	${CMAKE_SOURCE_DIR}/src/operations/SaveAsOperation.cpp
-	${CMAKE_SOURCE_DIR}/src/operations/SaveOperation.cpp
-	${CMAKE_SOURCE_DIR}/src/operations/AddWatermarkOperation.cpp
-	${CMAKE_SOURCE_DIR}/src/operations/WatermarkImagePreparer.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/operations/SaveAsOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/operations/SaveOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/operations/AddWatermarkOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/operations/UpdateWatermarkOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/operations/WatermarkImagePreparer.cpp
 	)
 
 if (APPLE)

@@ -19,11 +19,11 @@
 
 #include "AnnotationSettings.h"
 
-AnnotationSettings::AnnotationSettings(KsnipConfig *ksnipConfig)
+AnnotationSettings::AnnotationSettings(KsnipConfig *config)
 {
-    Q_ASSERT(ksnipConfig != nullptr);
+    Q_ASSERT(config != nullptr);
 
-    mConfig = ksnipConfig;
+    mConfig = config;
 
     initGui();
     loadConfig();
@@ -36,12 +36,14 @@ AnnotationSettings::~AnnotationSettings()
     delete mTextFontLabel;
     delete mNumberFontLabel;
     delete mSmoothFactorLabel;
+    delete mWatermarkImageLabel;
     delete mSmoothFactorCombobox;
     delete mTextFontCombobox;
     delete mNumberFontCombobox;
     delete mTextBoldButton;
     delete mTextItalicButton;
     delete mTextUnderlineButton;
+    delete mUpdateWatermarkImageButton;
     delete mLayout;
 }
 
@@ -66,12 +68,14 @@ void AnnotationSettings::initGui()
     mTextFontLabel = new QLabel(this);
     mNumberFontLabel = new QLabel(this);
     mSmoothFactorLabel = new QLabel(this);
+    mWatermarkImageLabel = new QLabel(this);
     mSmoothFactorCombobox = new NumericComboBox(1, 1, 15);
     mTextFontCombobox = new QFontComboBox(this);
     mNumberFontCombobox = new QFontComboBox(this);
     mTextBoldButton = new QToolButton(this);
     mTextItalicButton = new QToolButton(this);
     mTextUnderlineButton = new QToolButton(this);
+    mUpdateWatermarkImageButton = new QPushButton(this);
     mLayout = new QGridLayout(this);
 
     mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
@@ -111,6 +115,16 @@ void AnnotationSettings::initGui()
     mNumberFontCombobox->setToolTip(mNumberFontLabel->toolTip());
     mNumberFontCombobox->setEditable(false);
 
+    mWatermarkImageLabel->setPixmap(mWatermarkImageLoader.load());
+    mWatermarkImageLabel->setToolTip(tr("Watermark Image"));
+    mWatermarkImageLabel->setAutoFillBackground(true);
+    mWatermarkImageLabel->setFixedWidth(100);
+    mWatermarkImageLabel->setFixedHeight(100);
+    mWatermarkImageLabel->setScaledContents(true);
+    mWatermarkImageLabel->setStyleSheet(QStringLiteral("QLabel { background-color : white; }"));
+    mUpdateWatermarkImageButton->setText(tr("Update"));
+	connect(mUpdateWatermarkImageButton, &QPushButton::clicked, this, &AnnotationSettings::updateWatermarkImageClicked);
+
     mLayout->setAlignment(Qt::AlignTop);
     mLayout->setColumnStretch(1, 1);
     mLayout->addWidget(mItemShadowCheckbox, 0, 0, 1, 2);
@@ -126,6 +140,8 @@ void AnnotationSettings::initGui()
     mLayout->addWidget(mTextUnderlineButton, 5, 4);
     mLayout->addWidget(mNumberFontLabel, 6, 0);
     mLayout->addWidget(mNumberFontCombobox, 6, 1);
+    mLayout->addWidget(mWatermarkImageLabel, 7, 0);
+    mLayout->addWidget(mUpdateWatermarkImageButton, 7, 1, Qt::AlignLeft);
     mLayout->setRowMinimumHeight(7, 15);
 
     setTitle(tr("Painter Settings"));
@@ -149,4 +165,14 @@ void AnnotationSettings::smoothPathCheckboxClicked(bool checked)
 {
     mSmoothFactorLabel->setEnabled(checked);
     mSmoothFactorCombobox->setEnabled(checked);
+}
+
+void AnnotationSettings::updateWatermarkImageClicked()
+{
+	UpdateWatermarkOperation operation(this);
+	auto successful = operation.execute();
+
+	if(successful) {
+		mWatermarkImageLabel->setPixmap(mWatermarkImageLoader.load());
+	}
 }

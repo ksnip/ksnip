@@ -26,15 +26,18 @@
 #include <QGridLayout>
 #include <QFontComboBox>
 #include <QToolButton>
+#include <QPushButton>
 
-#include "backend/config/KsnipConfig.h"
+#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/WatermarkImageLoader.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/common/loader/IconLoader.h"
+#include "src/gui/operations/UpdateWatermarkOperation.h"
 
 class AnnotationSettings : public QGroupBox
 {
 public:
-    explicit AnnotationSettings(KsnipConfig *ksnipConfig);
+    explicit AnnotationSettings(KsnipConfig *config);
     ~AnnotationSettings() override;
     void saveSettings();
 
@@ -44,20 +47,24 @@ private:
     QLabel *mTextFontLabel;
     QLabel *mNumberFontLabel;
     QLabel *mSmoothFactorLabel;
+    QLabel *mWatermarkImageLabel;
     NumericComboBox *mSmoothFactorCombobox;
     QFontComboBox *mTextFontCombobox;
     QFontComboBox *mNumberFontCombobox;
     QToolButton *mTextBoldButton;
     QToolButton *mTextItalicButton;
     QToolButton *mTextUnderlineButton;
+    QPushButton *mUpdateWatermarkImageButton;
     QGridLayout *mLayout;
     KsnipConfig *mConfig;
+    WatermarkImageLoader mWatermarkImageLoader;
 
     void initGui();
     void loadConfig();
 
 private slots:
     void smoothPathCheckboxClicked(bool checked);
+	void updateWatermarkImageClicked();
 };
 
 #endif //KSNIP_ANNOTATIONSETTINGS_H

@@ -22,18 +22,13 @@
 AddWatermarkOperation::AddWatermarkOperation(KImageAnnotator *kImageAnnotator)
 {
 	mKImageAnnotator = kImageAnnotator;
-
-	mImageName = QStringLiteral("watermark_image.png");
-	mPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-	mImagePath = mPath + QStringLiteral("/") + mImageName;
 }
 
 void AddWatermarkOperation::execute()
 {
-	createPathIfRequired();
-	QPixmap watermarkImage(mImagePath);
+	auto watermarkImage = mImageLoader.load();
 	if(watermarkImage.isNull()) {
-		MessageBoxHelper::ok(QObject::tr("Watermark Image Required"), QObject::tr("Please add a Watermark Image via Options > Settings > Painter"));
+		NotifyAboutMissingWatermarkImage();
 		return;
 	}
 
@@ -41,6 +36,11 @@ void AddWatermarkOperation::execute()
 	auto finishedWatermarkImage = mImagePreparer.prepare(watermarkImage, availableSpace);
 	auto position = getPositionForWatermark(finishedWatermarkImage, availableSpace);
 	mKImageAnnotator->insertImageItem(position, finishedWatermarkImage);
+}
+
+void AddWatermarkOperation::NotifyAboutMissingWatermarkImage() const
+{
+	MessageBoxHelper::ok(QObject::tr("Watermark Image Required"), QObject::tr("Please add a Watermark Image via Options > Settings > Annotator > Update"));
 }
 
 QPointF AddWatermarkOperation::getPositionForWatermark(const QPixmap &image, const QSize &availableSpace) const
@@ -52,10 +52,4 @@ QPointF AddWatermarkOperation::getPositionForWatermark(const QPixmap &image, con
 	qreal y = availableHeight <= 0 ? 0 : rand() % availableHeight;
 
 	return {x, y};
-}
-
-void AddWatermarkOperation::createPathIfRequired() const
-{
-	QDir qdir;
-	qdir.mkpath(mPath);
 }

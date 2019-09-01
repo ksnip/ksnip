@@ -25,20 +25,20 @@
 
 #include <kImageAnnotator/KImageAnnotator.h>
 
-#include "gui/settingsDialog/SettingsDialog.h"
+#include "src/gui/settingsDialog/SettingsDialog.h"
 #include "AboutDialog.h"
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
-#include "backend/config/KsnipConfig.h"
-#include "backend/uploader/CaptureUploader.h"
+#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/uploader/CaptureUploader.h"
+#include "src/backend/CapturePrinter.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
 #include "src/common/helper/MessageBoxHelper.h"
-#include "src/backend/CapturePrinter.h"
-#include "src/operations/SaveAsOperation.h"
-#include "src/operations/SaveOperation.h"
-#include "src/operations/AddWatermarkOperation.h"
+#include "src/gui/operations/SaveAsOperation.h"
+#include "src/gui/operations/SaveOperation.h"
+#include "src/gui/operations/AddWatermarkOperation.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -62,26 +62,26 @@ protected:
 
 private:
     AbstractImageGrabber *mImageGrabber;
-    RunMode           mMode;
-    bool              mIsUnsaved;
-    bool              mHidden;
-    QAction          *mUploadToImgurAction;
-    QAction          *mPrintAction;
-    QAction          *mPrintPreviewAction;
-    QAction          *mCropAction;
-    QAction          *mQuitAction;
-    QAction          *mSettingsDialogAction;
-    QAction          *mAboutKsnipAction;
-    QAction          *mOpenImageAction;
-    QAction          *mScaleAction;
-    QAction          *mWatermarkAction;
-    MainToolBar      *mToolBar;
-    QAction          *mUndoAction;
-    QAction          *mRedoAction;
-    QClipboard       *mClipboard;
-    KsnipConfig      *mConfig;
-    CapturePrinter   *mCapturePrinter;
-    CaptureUploader  *mCaptureUploader;
+    RunMode mMode;
+    bool mIsUnsaved;
+    bool mHidden;
+    QAction *mUploadToImgurAction;
+    QAction *mPrintAction;
+    QAction *mPrintPreviewAction;
+    QAction *mCropAction;
+    QAction *mQuitAction;
+    QAction *mSettingsDialogAction;
+    QAction *mAboutAction;
+    QAction *mOpenImageAction;
+    QAction *mScaleAction;
+    QAction *mAddWatermarkAction;
+    MainToolBar *mToolBar;
+    QAction *mUndoAction;
+    QAction *mRedoAction;
+    QClipboard *mClipboard;
+    KsnipConfig *mConfig;
+    CapturePrinter *mCapturePrinter;
+    CaptureUploader *mCaptureUploader;
     KImageAnnotator *mKImageAnnotator;
     SavePathProvider mSavePathProvider;
 

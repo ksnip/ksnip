@@ -17,37 +17,29 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ADDWATERMARKOPERATION_H
-#define KSNIP_ADDWATERMARKOPERATION_H
+#ifndef KSNIP_WATERMARKIMAGELOADER_H
+#define KSNIP_WATERMARKIMAGELOADER_H
 
 #include <QStandardPaths>
 #include <QFile>
 #include <QDir>
-#include <random>
+#include <QPixmap>
 
-#include <kImageAnnotator/KImageAnnotator.h>
-
-#include "WatermarkImagePreparer.h"
-#include "src/common/helper/MessageBoxHelper.h"
-
-using kImageAnnotator::KImageAnnotator;
-
-class AddWatermarkOperation
+class WatermarkImageLoader
 {
 public:
-	explicit AddWatermarkOperation(KImageAnnotator *kImageAnnotator);
-	~AddWatermarkOperation() = default;
-	void execute();
+	explicit WatermarkImageLoader();
+	~WatermarkImageLoader() = default;
+
+	QPixmap load() const;
+	bool save(const QPixmap &image) const;
 
 private:
-	KImageAnnotator *mKImageAnnotator;
 	QString mImageName;
 	QString mPath;
 	QString mImagePath;
-	WatermarkImagePreparer mImagePreparer;
 
 	void createPathIfRequired() const;
-	QPointF getPositionForWatermark(const QPixmap &image, const QSize &availableSpace) const;
 };
 
-#endif //KSNIP_ADDWATERMARKOPERATION_H
+#endif //KSNIP_WATERMARKIMAGELOADER_H

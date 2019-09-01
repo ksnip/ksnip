@@ -31,10 +31,10 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mCropAction(new QAction(this)),
 	mQuitAction(new QAction(this)),
 	mSettingsDialogAction(new QAction(this)),
-	mAboutKsnipAction(new QAction(this)),
+	mAboutAction(new QAction(this)),
 	mOpenImageAction(new QAction(this)),
 	mScaleAction(new QAction(this)),
-	mWatermarkAction(new QAction(this)),
+	mAddWatermarkAction(new QAction(this)),
 	mUndoAction(nullptr),
 	mRedoAction(nullptr),
 	mClipboard(QApplication::clipboard()),
@@ -295,10 +295,10 @@ void MainWindow::initGui()
     mScaleAction->setShortcut(Qt::SHIFT + Qt::Key_S);
 	connect(mScaleAction, &QAction::triggered, mKImageAnnotator, &KImageAnnotator::showScaler);
 
-	mWatermarkAction->setText(tr("Watermark"));
-	mWatermarkAction->setToolTip(tr("Add Watermark to captured image"));
-	mWatermarkAction->setShortcut(Qt::SHIFT + Qt::Key_W);
-	connect(mWatermarkAction, &QAction::triggered, this, &MainWindow::addWatermark);
+	mAddWatermarkAction->setText(tr("Add Watermark"));
+	mAddWatermarkAction->setToolTip(tr("Add Watermark to captured image. Multiple watermarks can be added."));
+	mAddWatermarkAction->setShortcut(Qt::SHIFT + Qt::Key_W);
+	connect(mAddWatermarkAction, &QAction::triggered, this, &MainWindow::addWatermark);
 
     mQuitAction->setText(tr("Quit"));
     mQuitAction->setShortcut(QKeySequence::Quit);
@@ -312,9 +312,9 @@ void MainWindow::initGui()
         settingsDialog.exec();
     });
 
-    mAboutKsnipAction->setText(tr("&About"));
-	mAboutKsnipAction->setIcon(QIcon(QStringLiteral(":/ksnip")));
-    connect(mAboutKsnipAction, &QAction::triggered, [this]() {
+    mAboutAction->setText(tr("&About"));
+	mAboutAction->setIcon(QIcon(QStringLiteral(":/ksnip")));
+    connect(mAboutAction, &QAction::triggered, [this]() {
         AboutDialog aboutDialog(this);
         aboutDialog.exec();
     });
@@ -347,11 +347,11 @@ void MainWindow::initGui()
     menu->addAction(mToolBar->copyToClipboardAction());
     menu->addAction(mCropAction);
     menu->addAction(mScaleAction);
-    menu->addAction(mWatermarkAction);
+    menu->addAction(mAddWatermarkAction);
     menu = menuBar()->addMenu(tr("&Options"));
     menu->addAction(mSettingsDialogAction);
     menu = menuBar()->addMenu(tr("&Help"));
-    menu->addAction(mAboutKsnipAction);
+    menu->addAction(mAboutAction);
 
     addToolBar(mToolBar);
 

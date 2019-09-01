@@ -25,6 +25,7 @@ Latest ksnip version contains following features:
 * Customizable default location, filename and format for saving new screenshots with wildcards for Year ($Y), Month ($M), Day ($D) and Time ($T).
 * Print screenshot or save is to pdf/ps.
 * Annotate screenshots with pen, marker, rectangles, ellipses, texts and other tools.
+* Add watermarks to captured images.
 * Many configuration options.
 
 

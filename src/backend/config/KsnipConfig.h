@@ -30,7 +30,7 @@
 
 #include "KsnipConfigOptions.h"
 #include "src/common/enum/CaptureModes.h"
-#include "src/common/formatter/PathHelper.h"
+#include "common/helper/PathHelper.h"
 
 class KsnipConfig : public QObject
 {

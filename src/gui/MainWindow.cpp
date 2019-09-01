@@ -34,6 +34,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mAboutKsnipAction(new QAction(this)),
 	mOpenImageAction(new QAction(this)),
 	mScaleAction(new QAction(this)),
+	mWatermarkAction(new QAction(this)),
 	mUndoAction(nullptr),
 	mRedoAction(nullptr),
 	mClipboard(QApplication::clipboard()),
@@ -294,6 +295,11 @@ void MainWindow::initGui()
     mScaleAction->setShortcut(Qt::SHIFT + Qt::Key_S);
 	connect(mScaleAction, &QAction::triggered, mKImageAnnotator, &KImageAnnotator::showScaler);
 
+	mWatermarkAction->setText(tr("Watermark"));
+	mWatermarkAction->setToolTip(tr("Add Watermark to captured image"));
+	mWatermarkAction->setShortcut(Qt::SHIFT + Qt::Key_W);
+	connect(mWatermarkAction, &QAction::triggered, this, &MainWindow::addWatermark);
+
     mQuitAction->setText(tr("Quit"));
     mQuitAction->setShortcut(QKeySequence::Quit);
     mQuitAction->setIcon(QIcon::fromTheme(QStringLiteral("application-exit")));
@@ -341,6 +347,7 @@ void MainWindow::initGui()
     menu->addAction(mToolBar->copyToClipboardAction());
     menu->addAction(mCropAction);
     menu->addAction(mScaleAction);
+    menu->addAction(mWatermarkAction);
     menu = menuBar()->addMenu(tr("&Options"));
     menu->addAction(mSettingsDialogAction);
     menu = menuBar()->addMenu(tr("&Help"));
@@ -484,4 +491,10 @@ void MainWindow::setupImageAnnotator()
 void MainWindow::captureDelayChanged(int delay)
 {
     mConfig->setCaptureDelay(delay * 1000);
+}
+
+void MainWindow::addWatermark()
+{
+	AddWatermarkOperation operation(mKImageAnnotator);
+	operation.execute();
 }

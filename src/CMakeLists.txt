@@ -15,9 +15,9 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/KsnipCommandLine.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MessageBoxHelper.cpp
+	${CMAKE_SOURCE_DIR}/src/common/helper/PathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp
-	${CMAKE_SOURCE_DIR}/src/common/formatter/PathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomToolButton.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomCursor.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CursorFactory.cpp
@@ -46,6 +46,8 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/KeyHandlerFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/operations/SaveAsOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/operations/SaveOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/operations/AddWatermarkOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/operations/WatermarkImagePreparer.cpp
 	)
 
 if (APPLE)

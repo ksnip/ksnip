@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,15 +17,23 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "MessageBoxHelper.h"
+#ifndef KSNIP_WATERMARKIMAGEPREPARER_H
+#define KSNIP_WATERMARKIMAGEPREPARER_H
 
-bool MessageBoxHelper::yesNo(const QString &title, const QString &question)
-{
-    auto reply = QMessageBox::question(nullptr, title, question, QMessageBox::Yes | QMessageBox::No);
-    return reply == QMessageBox::Yes;
-}
+#include <QPainter>
 
-void MessageBoxHelper::ok(const QString &title, const QString &info)
+class WatermarkImagePreparer
 {
-	QMessageBox::question(nullptr, title, info, QMessageBox::Ok);
-}
+public:
+	explicit WatermarkImagePreparer();
+	~WatermarkImagePreparer() = default;
+	QPixmap prepare(const QPixmap &image, const QSize &availableSpace) const;
+
+private:
+	qreal mOpacity;
+
+	QPixmap getPreparedWatermarkImage(const QPixmap &watermarkImage) const;
+	QPixmap &fitWatermarkIntoCapture(QPixmap &finishedWatermarkImage, const QSize &availableSpace) const;
+};
+
+#endif //KSNIP_WATERMARKIMAGEPREPARER_H

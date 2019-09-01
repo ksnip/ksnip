@@ -38,6 +38,7 @@
 #include "src/backend/CapturePrinter.h"
 #include "src/operations/SaveAsOperation.h"
 #include "src/operations/SaveOperation.h"
+#include "src/operations/AddWatermarkOperation.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -73,6 +74,7 @@ private:
     QAction          *mAboutKsnipAction;
     QAction          *mOpenImageAction;
     QAction          *mScaleAction;
+    QAction          *mWatermarkAction;
     MainToolBar      *mToolBar;
     QAction          *mUndoAction;
     QAction          *mRedoAction;
@@ -110,6 +112,7 @@ private slots:
     QString &formatUrl(QString &message) const;
     void setupImageAnnotator();
     void captureDelayChanged(int delay);
+    void addWatermark();
 };
 
 #endif // KSNIP_MAINWINDOW_H

@@ -26,6 +26,7 @@ class MessageBoxHelper
 {
 public:
     static bool yesNo(const QString &title, const QString &question);
+    static void ok(const QString &title, const QString &info);
 };
 
 #endif //KSNIP_MESSAGEBOXHELPER_H

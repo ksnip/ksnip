@@ -21,18 +21,24 @@
 #include "MainToolBar.h"
 
 MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
-                                                                    mSaveButton(new QToolButton(this)),
-                                                                    mCopyToClipboardButton(new QToolButton(this)),
-                                                                    mCaptureModePicker(new CaptureModePicker(captureModes)),
-                                                                    mDelayPicker(new CustomSpinBox(0,100)),
-                                                                    mDelayLabel(new QLabel),
-                                                                    mNewCaptureAction(new QAction(this)),
-                                                                    mSaveAction(new QAction(this)),
-                                                                    mCopyToClipboardAction(new QAction(this))
+    mSaveButton(new QToolButton(this)),
+    mCopyToClipboardButton(new QToolButton(this)),
+    mCropButton(new QToolButton(this)),
+    mCaptureModePicker(new CaptureModePicker(captureModes)),
+    mDelayPicker(new CustomSpinBox(0,100)),
+    mDelayLabel(new QLabel),
+    mNewCaptureAction(new QAction(this)),
+    mSaveAction(new QAction(this)),
+    mCopyToClipboardAction(new QAction(this)),
+    mCropAction(new QAction(this))
 {
     connect(mCaptureModePicker, &CaptureModePicker::captureModeSelected, this, &MainToolBar::captureModeSelected);
 
-	setStyleSheet("QToolBar { border: 0px }");
+	setStyleSheet(QStringLiteral("QToolBar { border: 0px }"));
+
+    mNewCaptureAction->setText(tr("New"));
+    mNewCaptureAction->setShortcut(QKeySequence::New);
+    connect(mNewCaptureAction, &QAction::triggered, this, &MainToolBar::newCaptureTriggered);
 
     mSaveButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     mSaveButton->addAction(mSaveAction);
@@ -42,9 +48,9 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
     mCopyToClipboardButton->addAction(mCopyToClipboardAction);
     mCopyToClipboardButton->setDefaultAction(mCopyToClipboardAction);
 
-    mNewCaptureAction->setText(tr("New"));
-    mNewCaptureAction->setShortcut(QKeySequence::New);
-    connect(mNewCaptureAction, &QAction::triggered, this, &MainToolBar::newCaptureTriggered);
+    mCropButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    mCropButton->addAction(mCropAction);
+    mCropButton->setDefaultAction(mCropAction);
 
 	auto clockPixmap = IconLoader::load(QStringLiteral("clock.svg")).pixmap(QSize(24, 24));
 	mDelayLabel->setPixmap(clockPixmap);
@@ -68,6 +74,12 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
     mCopyToClipboardAction->setShortcut(QKeySequence::Copy);
     connect(mCopyToClipboardAction, &QAction::triggered, this, &MainToolBar::copyToClipboardActionTriggered);
 
+    mCropAction->setText(tr("Crop"));
+    mCropAction->setToolTip(tr("Crop Screen Capture"));
+    mCropAction->setIcon(IconLoader::load(QStringLiteral("crop.svg")));
+    mCropAction->setShortcut(Qt::SHIFT + Qt::Key_C);
+    connect(mCropAction, &QAction::triggered, this, &MainToolBar::cropActionTriggered);
+
     setWindowTitle(tr("Tools"));
     setFloatable(false);
     setMovable(false);
@@ -76,6 +88,7 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
     addSeparator();
     addWidget(mSaveButton);
     addWidget(mCopyToClipboardButton);
+    addWidget(mCropButton);
     addSeparator();
     addWidget(mDelayLabel);
     addWidget(mDelayPicker);
@@ -84,13 +97,16 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
 
 MainToolBar::~MainToolBar()
 {
+    delete mCaptureModePicker;
     delete mSaveButton;
     delete mCopyToClipboardButton;
+    delete mCropButton;
     delete mCaptureModePicker;
     delete mDelayPicker;
     delete mNewCaptureAction;
     delete mSaveAction;
     delete mCopyToClipboardAction;
+    delete mCropAction;
 }
 
 void MainToolBar::selectCaptureMode(CaptureModes captureModes)
@@ -118,6 +134,11 @@ void MainToolBar::setCopyToClipboardActionEnabled(bool enabled)
     mCopyToClipboardAction->setEnabled(enabled);
 }
 
+void MainToolBar::setCropEnabled(bool enabled)
+{
+    mCropAction->setEnabled(enabled);
+}
+
 QAction *MainToolBar::newCaptureAction() const
 {
     return mNewCaptureAction;
@@ -131,4 +152,9 @@ QAction *MainToolBar::saveAction() const
 QAction *MainToolBar::copyToClipboardAction() const
 {
     return mCopyToClipboardAction;
+}
+
+QAction *MainToolBar::cropAction() const
+{
+    return mCropAction;
 }

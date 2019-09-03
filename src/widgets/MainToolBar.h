@@ -38,15 +38,18 @@ public:
     void setCaptureDelay(int delay);
     void setSaveActionEnabled(bool enabled);
     void setCopyToClipboardActionEnabled(bool enabled);
+    void setCropEnabled(bool enabled);
     QAction* newCaptureAction() const;
     QAction* saveAction() const;
     QAction* copyToClipboardAction() const;
+    QAction* cropAction() const;
 
 signals:
     void captureModeSelected(CaptureModes mode) const;
     void saveActionTriggered() const;
     void copyToClipboardActionTriggered() const;
     void captureDelayChanged(int delay) const;
+    void cropActionTriggered() const;
 
 public slots:
     void newCaptureTriggered();
@@ -54,12 +57,14 @@ public slots:
 private:
     QToolButton *mSaveButton;
     QToolButton *mCopyToClipboardButton;
+    QToolButton *mCropButton;
     CaptureModePicker *mCaptureModePicker;
     CustomSpinBox *mDelayPicker;
     QLabel *mDelayLabel;
     QAction *mNewCaptureAction;
     QAction *mSaveAction;
     QAction *mCopyToClipboardAction;
+    QAction *mCropAction;
 
 };
 

@@ -68,7 +68,6 @@ private:
     QAction *mUploadToImgurAction;
     QAction *mPrintAction;
     QAction *mPrintPreviewAction;
-    QAction *mCropAction;
     QAction *mQuitAction;
     QAction *mSettingsDialogAction;
     QAction *mAboutAction;

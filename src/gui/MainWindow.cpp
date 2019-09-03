@@ -28,7 +28,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mUploadToImgurAction(new QAction(this)),
 	mPrintAction(new QAction(this)),
 	mPrintPreviewAction(new QAction(this)),
-	mCropAction(new QAction(this)),
 	mQuitAction(new QAction(this)),
 	mSettingsDialogAction(new QAction(this)),
 	mAboutAction(new QAction(this)),
@@ -208,12 +207,12 @@ void MainWindow::setSaveable(bool enabled)
 
 void MainWindow::setEnablements(bool enabled)
 {
-	mCropAction->setEnabled(enabled);
     mPrintAction->setEnabled(enabled);
     mPrintPreviewAction->setEnabled(enabled);
     mUploadToImgurAction->setEnabled(enabled);
 	mScaleAction->setEnabled(enabled);
 	mToolBar->setCopyToClipboardActionEnabled(enabled);
+    mToolBar->setCropEnabled(enabled);
 }
 
 void MainWindow::loadSettings()
@@ -267,6 +266,7 @@ void MainWindow::initGui()
     connect(mToolBar, &MainToolBar::saveActionTriggered, this, &MainWindow::saveCapture);
     connect(mToolBar, &MainToolBar::copyToClipboardActionTriggered, this, &MainWindow::copyCaptureToClipboard);
     connect(mToolBar, &MainToolBar::captureDelayChanged, this, &MainWindow::captureDelayChanged);
+    connect(mToolBar, &MainToolBar::cropActionTriggered, mKImageAnnotator, &KImageAnnotator::showCropper);
 
     mUploadToImgurAction->setText(tr("Upload"));
     mUploadToImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
@@ -284,11 +284,6 @@ void MainWindow::initGui()
                                        "orientation can be changed"));
     mPrintPreviewAction->setIcon(QIcon::fromTheme(QStringLiteral("document-print-preview")));
     connect(mPrintPreviewAction, &QAction::triggered, this, &MainWindow::printPreviewClicked);
-
-    mCropAction->setText(tr("Crop"));
-    mCropAction->setToolTip(tr("Crop Screen Capture"));
-    mCropAction->setShortcut(Qt::SHIFT + Qt::Key_C);
-	connect(mCropAction, &QAction::triggered, mKImageAnnotator, &KImageAnnotator::showCropper);
 
     mScaleAction->setText(tr("Scale"));
     mScaleAction->setToolTip(tr("Scale Screen Capture"));
@@ -345,7 +340,7 @@ void MainWindow::initGui()
     menu->addAction(mRedoAction);
     menu->addSeparator();
     menu->addAction(mToolBar->copyToClipboardAction());
-    menu->addAction(mCropAction);
+    menu->addAction(mToolBar->cropAction());
     menu->addAction(mScaleAction);
     menu->addAction(mAddWatermarkAction);
     menu = menuBar()->addMenu(tr("&Options"));

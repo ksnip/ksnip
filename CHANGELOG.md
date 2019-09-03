@@ -3,7 +3,9 @@
 ## Release 1.6.0
 * New: Make captured cursor an item which can be moved and deleted. ([#86](https://github.com/DamirPorobic/kImageAnnotator/issues/86))
 * New: Add watermarks to annotated image. ([#199](https://github.com/DamirPorobic/kImageAnnotator/issues/199))
+* New: Add crop button to toolbar. ([#90](https://github.com/DamirPorobic/kImageAnnotator/issues/90))
 * New kImageAnnotator: Edit text box content. ([#51](https://github.com/DamirPorobic/kImageAnnotator/issues/51))
+* Fixed: Translations not working for Windows and MacOS. ([#164](https://github.com/DamirPorobic/ksnip/issues/164))
 * Fixed: Translations not working for Windows and MacOS. ([#164](https://github.com/DamirPorobic/ksnip/issues/164))
 * Fixed: AppImage update fails with "None of the artifacts matched the pattern in the update information". ([#166](https://github.com/DamirPorobic/ksnip/issues/166))
 * Fixed: Wildcards in path are not resolved. ([#168](https://github.com/DamirPorobic/ksnip/issues/168))

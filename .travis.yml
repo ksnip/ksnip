@@ -9,17 +9,17 @@ git:
 matrix:
   include:
     - os: linux
-      env: BUILD_TYPE=AppImage
+      env: BINARY_TYPE=AppImage
     - os: linux
-      env: BUILD_TYPE=deb
+      env: BINARY_TYPE=deb
       services: docker
     - os: linux
-      env: BUILD_TYPE=rpm
+      env: BINARY_TYPE=rpm
       services: docker
     - os: windows
-      env: BUILD_TYPE=exe
+      env: BINARY_TYPE=exe
     - os: osx
-      env: BUILD_TYPE=app
+      env: BINARY_TYPE=app
 
 before_install:
   - source ci/scripts/bootstrap.sh

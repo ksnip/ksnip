@@ -1,19 +1,19 @@
 #!/bin/bash
 
-if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
+if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
     sudo add-apt-repository ppa:beineri/opt-qt562-trusty -y
     sudo apt-get update -qq
 
     echo "--> Download linuxdeployqt tool"
     wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
     chmod a+x linuxdeployqt-continuous-x86_64.AppImage
-elif [[ "${BUILD_TYPE}" == "deb" ]]; then
+elif [[ "${BINARY_TYPE}" == "deb" ]]; then
     docker pull ubuntu:18.04
     docker run --name build-container -v $(pwd):$(pwd) -w $(pwd) -dit ubuntu:18.04 bash
-elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
+elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
     docker pull opensuse/leap:15.1
     docker run --name build-container -v $(pwd):$(pwd) -w $(pwd) -dit opensuse/leap:15.1 bash
-elif [[ "${BUILD_TYPE}" == "exe" ]]; then
+elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/bootstrap_envvars.sh
 
     echo "--> Download Dependencies"

@@ -19,7 +19,7 @@ fi
 git clone git://github.com/DamirPorobic/kColorPicker
 git clone git://github.com/DamirPorobic/kImageAnnotator
 
-if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
+if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
     sudo apt-get -y install qt56base qt56x11extras qt56tools qt56svg
     source /opt/qt*/bin/qt*-env.sh
 
@@ -27,25 +27,25 @@ if [[ "${BUILD_TYPE}" == "AppImage" ]]; then
     git clone git://anongit.kde.org/extra-cmake-modules
     cd extra-cmake-modules
     mkdir build && cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release
+    cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
     make && sudo make install
     cd ../..
 
     echo "--> Install kColorPicker"
     cd kColorPicker
     mkdir build && cd build
-    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=Release
+    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
     make && sudo make install
     cd ../..
 
     echo "--> Install kImageAnnotator"
     cd kImageAnnotator
     mkdir build && cd build
-    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=Release
+    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
     make && sudo make install
     cd ../..
 
-elif [[ "${BUILD_TYPE}" == "deb" ]]; then
+elif [[ "${BINARY_TYPE}" == "deb" ]]; then
     docker exec build-container apt-get update
     docker exec build-container apt-get -y install git \
                                                    cmake \
@@ -62,7 +62,7 @@ elif [[ "${BUILD_TYPE}" == "deb" ]]; then
     source ci/scripts/deb/setup_deb_directory_structure.sh
     source ci/scripts/deb/setup_changelog_file.sh
     source ci/scripts/deb/setup_build_rules.sh
-elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
+elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
     docker exec build-container zypper --non-interactive install git \
                                                                  cmake \
                                                                  extra-cmake-modules \
@@ -79,9 +79,9 @@ elif [[ "${BUILD_TYPE}" == "rpm" ]]; then
     source ci/scripts/rpm/setup_rpm_directory_structure.sh
 
     sudo chown -R root:root ksnip-${VERSION_NUMBER}
-elif [[ "${BUILD_TYPE}" == "exe" ]]; then
+elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/setup_dependencies_windows.sh
-elif [[ "${BUILD_TYPE}" == "app" ]]; then
+elif [[ "${BINARY_TYPE}" == "app" ]]; then
     brew install qt5
 
     export PATH="/usr/local/opt/qt/bin:$PATH"

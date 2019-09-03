@@ -35,7 +35,7 @@ protected:
 	QRect fullScreenRect() const override;
 	QRect activeWindowRect() const override;
 	bool isSnippingAreaBackgroundTransparent() const override;
-	ImageWithPosition getCursorWithPosition() const override;
+	CursorDto getCursorWithPosition() const override;
 
 private:
     X11Wrapper *mX11Wrapper;

@@ -39,7 +39,7 @@ QRect MacImageGrabber::activeWindowRect() const
     return {};
 }
 
-ImageWithPosition MacImageGrabber::getCursorWithPosition() const
+CursorDto MacImageGrabber::getCursorWithPosition() const
 {
     // MacOs currently captures always mouse by itself
     return {};

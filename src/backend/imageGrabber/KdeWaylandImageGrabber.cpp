@@ -94,10 +94,10 @@ void KdeWaylandImageGrabber::grab()
     }
 }
 
-ImageWithPosition KdeWaylandImageGrabber::getCursorWithPosition() const
+CursorDto KdeWaylandImageGrabber::getCursorWithPosition() const
 {
 	// Not Supported for Kde Wayland
-	return ImageWithPosition();
+	return CursorDto();
 }
 
 template<typename T>

@@ -44,7 +44,7 @@ public:
 
 protected:
 	void grab() override;
-	ImageWithPosition getCursorWithPosition() const override;
+	CursorDto getCursorWithPosition() const override;
 
 private:
     void startReadImage(int readPipe);

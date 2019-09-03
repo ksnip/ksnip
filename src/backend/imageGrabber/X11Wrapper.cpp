@@ -97,7 +97,7 @@ QPoint X11Wrapper::getNativeCursorPosition() const
 	return { pointerReply->root_x, pointerReply->root_y };
 }
 
-ImageWithPosition X11Wrapper::getCursorWithPosition() const
+CursorDto X11Wrapper::getCursorWithPosition() const
 {
 	auto cursorPosition = getNativeCursorPosition();
 
@@ -107,12 +107,12 @@ ImageWithPosition X11Wrapper::getCursorWithPosition() const
 	auto cursorCookie = xcb_xfixes_get_cursor_image_unchecked(xcbConn);
 	ScopedCPointer<xcb_xfixes_get_cursor_image_reply_t> cursorReply(xcb_xfixes_get_cursor_image_reply(xcbConn, cursorCookie, nullptr));
 	if (cursorReply.isNull()) {
-		return ImageWithPosition();
+		return CursorDto();
 	}
 
 	auto pixelData = xcb_xfixes_get_cursor_image_cursor_image(cursorReply.data());
 	if (!pixelData) {
-		return ImageWithPosition();
+		return CursorDto();
 	}
 
 	// process the image into a QImage
@@ -124,5 +124,5 @@ ImageWithPosition X11Wrapper::getCursorWithPosition() const
 	// a small fix for the cursor position for fancier cursor
 	cursorPosition -= QPoint(cursorReply->xhot, cursorReply->yhot);
 
-	return { cursorImage, cursorPosition };
+	return { QPixmap::fromImage(cursorImage, Qt::AutoColor), cursorPosition };
 }

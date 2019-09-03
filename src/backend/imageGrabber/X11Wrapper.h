@@ -31,7 +31,7 @@ public:
     bool isCompositorActive() const;
     QRect getFullScreenRect() const;
     QRect getActiveWindowRect() const;
-	ImageWithPosition getCursorWithPosition() const;
+	CursorDto getCursorWithPosition() const;
 
 private:
 	QPoint getNativeCursorPosition() const;

@@ -48,7 +48,7 @@ QRect X11ImageGrabber::fullScreenRect() const
 	return mX11Wrapper->getFullScreenRect();
 }
 
-ImageWithPosition X11ImageGrabber::getCursorWithPosition() const
+CursorDto X11ImageGrabber::getCursorWithPosition() const
 {
 	return mX11Wrapper->getCursorWithPosition();
 }

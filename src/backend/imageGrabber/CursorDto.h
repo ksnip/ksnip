@@ -20,7 +20,7 @@
 #ifndef KSNIP_CURSORDTO_H
 #define KSNIP_CURSORDTO_H
 
-#include <QImage>
+#include <QPixmap>
 #include <QPoint>
 
 struct CursorDto

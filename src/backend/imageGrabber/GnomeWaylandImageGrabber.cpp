@@ -33,7 +33,7 @@ QRect GnomeWaylandImageGrabber::activeWindowRect() const
 	return {};
 }
 
-ImageWithPosition GnomeWaylandImageGrabber::getCursorWithPosition() const
+CursorDto GnomeWaylandImageGrabber::getCursorWithPosition() const
 {
 	// Gnome Wayland merges the cursor already
 	return {};

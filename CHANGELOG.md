@@ -4,6 +4,7 @@
 * New: Make captured cursor an item which can be moved and deleted. ([#86](https://github.com/DamirPorobic/kImageAnnotator/issues/86))
 * New: Add watermarks to annotated image. ([#199](https://github.com/DamirPorobic/kImageAnnotator/issues/199))
 * New: Add crop button to toolbar. ([#90](https://github.com/DamirPorobic/kImageAnnotator/issues/90))
+* New: Add undo and redo button on toolbar. ([#124](https://github.com/DamirPorobic/kImageAnnotator/issues/124))
 * New kImageAnnotator: Edit text box content. ([#51](https://github.com/DamirPorobic/kImageAnnotator/issues/51))
 * Changed: Change copy icon. ([#157](https://github.com/DamirPorobic/kImageAnnotator/issues/157))
 * Fixed: Translations not working for Windows and MacOS. ([#164](https://github.com/DamirPorobic/ksnip/issues/164))

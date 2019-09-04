@@ -32,22 +32,24 @@ class MainToolBar : public QToolBar
 {
     Q_OBJECT
 public:
-    explicit MainToolBar(const QList<CaptureModes> &captureModes);
+    explicit MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoAction, QAction* redoAction);
     ~MainToolBar() override;
     void selectCaptureMode(CaptureModes captureModes);
     void setCaptureDelay(int delay);
     void setSaveActionEnabled(bool enabled);
-    void setCopyToClipboardActionEnabled(bool enabled);
+    void setCopyActionEnabled(bool enabled);
     void setCropEnabled(bool enabled);
     QAction* newCaptureAction() const;
     QAction* saveAction() const;
     QAction* copyToClipboardAction() const;
     QAction* cropAction() const;
+    QAction* undoAction() const;
+    QAction* redoAction() const;
 
 signals:
     void captureModeSelected(CaptureModes mode) const;
     void saveActionTriggered() const;
-    void copyToClipboardActionTriggered() const;
+    void copyActionTriggered() const;
     void captureDelayChanged(int delay) const;
     void cropActionTriggered() const;
 
@@ -56,15 +58,19 @@ public slots:
 
 private:
     QToolButton *mSaveButton;
-    QToolButton *mCopyToClipboardButton;
+    QToolButton *mCopyButton;
     QToolButton *mCropButton;
+    QToolButton *mUndoButton;
+    QToolButton *mRedoButton;
     CaptureModePicker *mCaptureModePicker;
     CustomSpinBox *mDelayPicker;
     QLabel *mDelayLabel;
     QAction *mNewCaptureAction;
     QAction *mSaveAction;
-    QAction *mCopyToClipboardAction;
+    QAction *mCopyAction;
     QAction *mCropAction;
+    QAction *mUndoAction;
+    QAction *mRedoAction;
 
 };
 

@@ -9,6 +9,8 @@
     <file>light/crop.svg</file>
     <file>light/save.svg</file>
     <file>light/copy.svg</file>
+    <file>light/undo.svg</file>
+    <file>light/redo.svg</file>
     <file>light/currentScreen.svg</file>
     <file>light/drawRect.svg</file>
     <file>light/activeWindow.svg</file>
@@ -22,6 +24,8 @@
     <file>dark/crop.svg</file>
     <file>dark/save.svg</file>
     <file>dark/copy.svg</file>
+    <file>dark/undo.svg</file>
+    <file>dark/redo.svg</file>
     <file>dark/currentScreen.svg</file>
     <file>dark/drawRect.svg</file>
     <file>dark/activeWindow.svg</file>

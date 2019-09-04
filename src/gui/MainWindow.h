@@ -75,8 +75,6 @@ private:
     QAction *mScaleAction;
     QAction *mAddWatermarkAction;
     MainToolBar *mToolBar;
-    QAction *mUndoAction;
-    QAction *mRedoAction;
     QClipboard *mClipboard;
     KsnipConfig *mConfig;
     CapturePrinter *mCapturePrinter;

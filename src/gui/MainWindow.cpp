@@ -34,11 +34,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mOpenImageAction(new QAction(this)),
 	mScaleAction(new QAction(this)),
 	mAddWatermarkAction(new QAction(this)),
-	mUndoAction(nullptr),
-	mRedoAction(nullptr),
 	mClipboard(QApplication::clipboard()),
 	mConfig(KsnipConfig::instance()),
-	mToolBar(new MainToolBar(imageGrabber->supportedCaptureModes())),
 	mCapturePrinter(new CapturePrinter),
 	mCaptureUploader(new CaptureUploader())
 {
@@ -50,9 +47,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
         connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::close);
         return;
     }
-
-	mUndoAction = mKImageAnnotator->undoAction();
-	mRedoAction = mKImageAnnotator->redoAction();
 
     initGui();
 
@@ -211,7 +205,7 @@ void MainWindow::setEnablements(bool enabled)
     mPrintPreviewAction->setEnabled(enabled);
     mUploadToImgurAction->setEnabled(enabled);
 	mScaleAction->setEnabled(enabled);
-	mToolBar->setCopyToClipboardActionEnabled(enabled);
+    mToolBar->setCopyActionEnabled(enabled);
     mToolBar->setCropEnabled(enabled);
 }
 
@@ -262,9 +256,11 @@ void MainWindow::triggerNewCapture(CaptureModes captureMode)
 
 void MainWindow::initGui()
 {
+    mToolBar = new MainToolBar(mImageGrabber->supportedCaptureModes(), mKImageAnnotator->undoAction(), mKImageAnnotator->redoAction());
+
     connect(mToolBar, &MainToolBar::captureModeSelected, this, &MainWindow::triggerNewCapture);
     connect(mToolBar, &MainToolBar::saveActionTriggered, this, &MainWindow::saveCapture);
-    connect(mToolBar, &MainToolBar::copyToClipboardActionTriggered, this, &MainWindow::copyCaptureToClipboard);
+    connect(mToolBar, &MainToolBar::copyActionTriggered, this, &MainWindow::copyCaptureToClipboard);
     connect(mToolBar, &MainToolBar::captureDelayChanged, this, &MainWindow::captureDelayChanged);
     connect(mToolBar, &MainToolBar::cropActionTriggered, mKImageAnnotator, &KImageAnnotator::showCropper);
 
@@ -314,12 +310,6 @@ void MainWindow::initGui()
         aboutDialog.exec();
     });
 
-    mUndoAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
-    mUndoAction->setShortcut(QKeySequence::Undo);
-
-    mRedoAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-redo")));
-    mRedoAction->setShortcut(QKeySequence::Redo);
-
     mOpenImageAction->setText(tr("Open"));
     mOpenImageAction->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
     mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
@@ -336,8 +326,8 @@ void MainWindow::initGui()
     menu->addSeparator();
     menu->addAction(mQuitAction);
     menu = menuBar()->addMenu(tr("&Edit"));
-    menu->addAction(mUndoAction);
-    menu->addAction(mRedoAction);
+    menu->addAction(mToolBar->undoAction());
+    menu->addAction(mToolBar->redoAction());
     menu->addSeparator();
     menu->addAction(mToolBar->copyToClipboardAction());
     menu->addAction(mToolBar->cropAction());

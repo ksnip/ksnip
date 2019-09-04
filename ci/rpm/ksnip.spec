@@ -38,9 +38,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %{_usr}/bin/%{name}
-%{_usr}/share/applications/%{name}.desktop
-%{_usr}/share/pixmaps/%{name}.svg
-%{_usr}/share/%{name}/translations/%{name}_*.qm
-%{_usr}/share/metainfo/%{name}.appdata.xml
+%{_usr}/applications/%{name}.desktop
+%{_usr}/pixmaps/%{name}.svg
+%{_usr}/%{name}/translations/%{name}_*.qm
+%{_usr}/metainfo/%{name}.appdata.xml
 
 %changelog

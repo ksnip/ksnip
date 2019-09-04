@@ -70,7 +70,7 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes) : QToolBar(),
 
     mCopyToClipboardAction->setText(tr("Copy"));
     mCopyToClipboardAction->setToolTip(tr("Copy Screen Capture to clipboard"));
-	mCopyToClipboardAction->setIcon(IconLoader::load(QStringLiteral("copyToClipboard.svg")));
+	mCopyToClipboardAction->setIcon(IconLoader::load(QStringLiteral("copy.svg")));
     mCopyToClipboardAction->setShortcut(QKeySequence::Copy);
     connect(mCopyToClipboardAction, &QAction::triggered, this, &MainToolBar::copyToClipboardActionTriggered);
 

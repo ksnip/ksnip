@@ -162,7 +162,7 @@ void ImgurUploaderSettings::getImgurToken()
 	                               mConfig->imgurClientId(),
 	                               mConfig->imgurClientSecret());
 	mImgurPinLineEdit->clear();
-	qInfo("%s", qPrintable(tr("Waiting for imgur.com...")));
+	qInfo("%s", qPrintable(tr("Waiting for imgur.com…")));
 }
 
 void ImgurUploaderSettings::imgurClientEntered(const QString&)

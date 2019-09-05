@@ -70,12 +70,12 @@ void CaptureUploader::imgurTokenUpdated(const QString &accessToken, const QStrin
     mConfig->setImgurRefreshToken(refreshToken.toUtf8());
     mConfig->setImgurUsername(username);
 
-    qInfo("%s", qPrintable(tr("Received new token, trying upload again...")));
+    qInfo("%s", qPrintable(tr("Received new token, trying upload again…")));
     upload(mImage);
 }
 
 void CaptureUploader::imgurTokenRefresh()
 {
     mImgurUploader->refreshToken(mConfig->imgurRefreshToken(), mConfig->imgurClientId(), mConfig->imgurClientSecret());
-    qInfo("%s", qPrintable(tr("Imgur token has expired, requesting new token...")));
+    qInfo("%s", qPrintable(tr("Imgur token has expired, requesting new token…")));
 }

@@ -40,7 +40,7 @@ void AddWatermarkOperation::execute()
 
 void AddWatermarkOperation::NotifyAboutMissingWatermarkImage() const
 {
-	MessageBoxHelper::ok(QObject::tr("Watermark Image Required"), QObject::tr("Please add a Watermark Image via Options > Settings > Annotator > Update"));
+	MessageBoxHelper::ok(QCoreApplication::translate("AddWatermarkOperation", "Watermark Image Required"), QCoreApplication::translate("AddWatermarkOperation", "Please add a Watermark Image via Options > Settings > Annotator > Update"));
 }
 
 QPointF AddWatermarkOperation::getPositionForWatermark(const QPixmap &image, const QSize &availableSpace) const

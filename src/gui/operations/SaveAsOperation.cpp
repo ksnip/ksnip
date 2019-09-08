@@ -31,8 +31,8 @@ bool SaveAsOperation::execute()
 {
     auto path = mSavePathProvider.savePath();
 
-    auto title = QObject::tr("Save As");
-    auto filter = QObject::tr("Images") + QStringLiteral(" (*.png *.gif *.jpg);;") + QObject::tr("All Files") + QStringLiteral("(*)");
+    auto title = QCoreApplication::translate("SaveAsOperation", "Save As");
+    auto filter = QCoreApplication::translate("SaveAsOperation", "Images") + QStringLiteral(" (*.png *.gif *.jpg);;") + QCoreApplication::translate("SaveAsOperation", "All Files") + QStringLiteral("(*)");
     QFileDialog saveDialog(mParent, title, path, filter);
     saveDialog.setAcceptMode(QFileDialog::AcceptSave);
 

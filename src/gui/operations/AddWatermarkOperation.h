@@ -20,6 +20,8 @@
 #ifndef KSNIP_ADDWATERMARKOPERATION_H
 #define KSNIP_ADDWATERMARKOPERATION_H
 
+#include <QCoreApplication>
+
 #include <random>
 
 #include <kImageAnnotator/KImageAnnotator.h>

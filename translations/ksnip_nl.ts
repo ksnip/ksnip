@@ -81,6 +81,17 @@
     </message>
 </context>
 <context>
+    <name>AddWatermarkOperation</name>
+    <message>
+        <source>Watermark Image Required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
@@ -618,10 +629,10 @@ Wil je deze opslaan?</translation>
     </message>
 </context>
 <context>
-    <name>QObject</name>
+    <name>SaveAsOperation</name>
     <message>
-        <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <source>Save As</source>
+        <translation type="unfinished">Opslaan als</translation>
     </message>
     <message>
         <source>Images</source>
@@ -630,18 +641,6 @@ Wil je deze opslaan?</translation>
     <message>
         <source>All Files</source>
         <translation type="unfinished">Alle bestanden</translation>
-    </message>
-    <message>
-        <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save As</source>
-        <translation type="unfinished">Opslaan als</translation>
     </message>
 </context>
 <context>
@@ -673,6 +672,21 @@ Wil je deze opslaan?</translation>
     <message>
         <source>Annotator</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdateWatermarkOperation</name>
+    <message>
+        <source>Select Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation type="unfinished">Afbeeldingen</translation>
+    </message>
+    <message>
+        <source>All Files</source>
+        <translation type="unfinished">Alle bestanden</translation>
     </message>
 </context>
 </TS>

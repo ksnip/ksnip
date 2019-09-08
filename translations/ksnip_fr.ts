@@ -81,6 +81,17 @@
     </message>
 </context>
 <context>
+    <name>AddWatermarkOperation</name>
+    <message>
+        <source>Watermark Image Required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
@@ -614,10 +625,10 @@ Voulez-vous l&apos;enregistrer ?</translation>
     </message>
 </context>
 <context>
-    <name>QObject</name>
+    <name>SaveAsOperation</name>
     <message>
-        <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <source>Save As</source>
+        <translation type="unfinished">Enregistrer sous</translation>
     </message>
     <message>
         <source>Images</source>
@@ -626,18 +637,6 @@ Voulez-vous l&apos;enregistrer ?</translation>
     <message>
         <source>All Files</source>
         <translation type="unfinished">Tous les fichiers</translation>
-    </message>
-    <message>
-        <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save As</source>
-        <translation type="unfinished">Enregistrer sous</translation>
     </message>
 </context>
 <context>
@@ -669,6 +668,21 @@ Voulez-vous l&apos;enregistrer ?</translation>
     <message>
         <source>Annotator</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdateWatermarkOperation</name>
+    <message>
+        <source>Select Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation type="unfinished">Image</translation>
+    </message>
+    <message>
+        <source>All Files</source>
+        <translation type="unfinished">Tous les fichiers</translation>
     </message>
 </context>
 </TS>

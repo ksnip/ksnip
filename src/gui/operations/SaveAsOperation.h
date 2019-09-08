@@ -20,6 +20,8 @@
 #ifndef KSNIP_SAVEASOPERATION_H
 #define KSNIP_SAVEASOPERATION_H
 
+#include <QCoreApplication>
+
 #include "src/backend/config/KsnipConfig.h"
 #include "src/backend/config/SavePathProvider.h"
 #include "src/backend/ImageSaver.h"

@@ -20,6 +20,7 @@
 #ifndef KSNIP_UPDATEWATERMARKOPERATION_H
 #define KSNIP_UPDATEWATERMARKOPERATION_H
 
+#include <QCoreApplication>
 #include <QFileDialog>
 
 #include "src/backend/WatermarkImageLoader.h"

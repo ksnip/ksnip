@@ -4,8 +4,7 @@ export BUILD_TIME=$(date +"%a, %d %b %Y %T %z")
 export BUILD_DATE=$(date  +"%a %b %d %Y")
 export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
 export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "([0-9]{1,}\.)+[0-9]{1,}")
-export INSTALL_PREFIX="/usr/share"
-export RPM_INSTALL_PREFIX="/usr"
+export INSTALL_PREFIX="/usr"
 export BUILD_TYPE="Release"
 
 if [[ -z "${TRAVIS_TAG}" ]]; then

@@ -129,7 +129,7 @@ endif ()
 
 if (UNIX AND NOT APPLE)
 	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
-	
+
     # uninstall target
     if(NOT TARGET uninstall)
         configure_file(

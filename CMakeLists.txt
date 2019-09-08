@@ -14,7 +14,7 @@ if (WIN32)
 elseif (APPLE)
 	set(KSNIP_LANG_INSTAL_DIR "../Resources")
 elseif (UNIX)
-	set(KSNIP_LANG_INSTAL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/ksnip/translations")
+	set(KSNIP_LANG_INSTAL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATAROOTDIR}/ksnip/translations")
 endif ()
 
 configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/src/BuildConfig.h)

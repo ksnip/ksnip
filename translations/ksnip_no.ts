@@ -142,11 +142,11 @@ vil gjøre dem mykere.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Vannmerkingsbilde</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Oppdater</translation>
     </message>
     <message>
         <source>Painter Settings</source>
@@ -271,11 +271,11 @@ grensesnittet. Endringer krever omstart av ksnip.</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
+        <translation>Mottok nytt symbol, forsøker opplasting igjen…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur-symbol utløpt, forespør nytt…</translation>
     </message>
 </context>
 <context>
@@ -452,7 +452,7 @@ Endring krever omstart av ksnip.</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished"></translation>
+        <translation>Venter på imgur.com…</translation>
     </message>
     <message>
         <source>Username:</source>
@@ -505,11 +505,11 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Angre</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Gjenta</translation>
     </message>
     <message>
         <source>Crop</source>
@@ -614,22 +614,22 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Legg til vannmerke</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Legg til vannmerke til innhentet bilde. Flere vannmerker kan legges til.</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fil</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Velg bilde</translation>
     </message>
     <message>
         <source>Images</source>
@@ -641,11 +641,11 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Vannmerkingsbilde kreves</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Legg til et vannmerkingsbilde via Valg → Innstillinger → Undertekster → Oppdater</translation>
     </message>
     <message>
         <source>Save As</source>
@@ -680,7 +680,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Undertekster</translation>
     </message>
 </context>
 </TS>

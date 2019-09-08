@@ -87,9 +87,11 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoA
     connect(mCopyAction, &QAction::triggered, this, &MainToolBar::copyActionTriggered);
 
     mUndoAction->setIcon(IconLoader::load(QStringLiteral("undo.svg")));;
+    mUndoAction->setText(tr("Undo"));
     mUndoAction->setShortcut(QKeySequence::Undo);
 
     mRedoAction->setIcon(IconLoader::load(QStringLiteral("redo.svg")));
+	mRedoAction->setText(tr("Redo"));
     mRedoAction->setShortcut(QKeySequence::Redo);
 
     mCropAction->setText(tr("Crop"));

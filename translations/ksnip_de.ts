@@ -304,51 +304,51 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature doesn&apos;t work for Wayland and is always
 used for MacOs.</source>
-        <translation type="unfinished">Wenn aktiviert, wird der Hintergrund eingefroren
-während eine rechteckige Region für die Bildschirmaufnahme
+        <translation>Wenn aktiviert, wird der Hintergrund eingefroren,
+während ein rechteckiger Bereich für die Bildschirmaufnahme
 ausgewählt wird. Es ändert sich auch das Verhalten von 
 verzögerten Bildschirmaufnahmen. Wenn diese Option aktiviert 
 ist, erfolgt die Verzögerung vor dem Anzeigen des 
 Ausschnittbereichs. Wenn diese Option deaktiviert ist, erfolgt 
 die Verzögerung, nachdem der Ausschnittsbereich angezeigt wurde.
-Diese Option funktioniert nicht für Wayland und ist immer aktiv
-für MacOS.</translation>
+Diese Option funktioniert nicht für Wayland und ist für macOS
+immer aktiv.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Lupe im Ausschnittsbereich anzeigen</translation>
+        <translation>Lupe im Ausschnittsbereich anzeigen</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Zeigt eine Lupe an welche in das
-Hintergrundbild hineinzoomt. Diese Option 
-funktioniert nur bei aktiviertem 
-&apos;Bild während der Aufnahme einfrieren&apos;.</translation>
+        <translation>Zeigt eine Lupe an, welche in das Hintergrundbild
+hineinzoomt. Diese Option  funktioniert nur, wenn
+&apos;Bild während der Aufnahme einfrieren&apos; aktiviert wurde.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Lineale bei der Auswahl des rechteckigen Bereichs anzeigen</translation>
+        <translation>Lineale bei der Auswahl des rechteckigen Bereichs anzeigen</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Horizontale und vertikale Linien vom Bildschirmrand zum Mauszeiger anzeigen.</translation>
+        <translation>Horizontale und vertikale Linien vom
+Bildschirmrand zum Mauszeiger anzeigen.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Position und Größe des Ausschnittsbereichs anzeigen</translation>
+        <translation>Position und Größe des Ausschnittsbereichs anzeigen</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished">Wenn die linke Maustaste nicht gedrückt ist
-wird die Mausposition angezeigt. Wenn die linke 
-Maustaste gedrückt ist, wird die Größe des 
-ausgewählten Bereichs angezeigt.</translation>
+        <translation>Solange die linke Maustaste noch nicht gedrückt wurde, wird
+die Mausposition angezeigt. Nachdem die linke Maustaste
+gedrückt wurde, wird die Größe des ausgewählten Bereichs
+an dessen linken und oberen Rand angezeigt.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
@@ -358,9 +358,9 @@ ausgewählten Bereichs angezeigt.</translation>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished">Legt die Farbe des Mauszeigers im Ausschnittbereich
-fest. Änderung erfordert Ksnip Neustart um
-wirksam zu werden.</translation>
+        <translation>Legt die Farbe des Mauszeigers bei der Aufnahme eines
+rechteckigen Bereichs fest. Eine Änderung erfordert einen
+Neustart von ksnip, um wirksam zu werden.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
@@ -370,9 +370,9 @@ wirksam zu werden.</translation>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished">Legt die Dicke des Mauszeigers im Ausschnittbereich
-fest. Änderung erfordert ksnip Neustart um
-wirksam zu werden.</translation>
+        <translation>Legt die Dicke des Mauszeigers bei der Aufnahme eines
+rechteckigen Bereiches fest. Eine Änderung erfordert einen
+Neustart von ksnip, um wirksam zu werden.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -406,7 +406,7 @@ wirksam zu werden.</translation>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished">Anonymen Upload erzwingen</translation>
+        <translation>Anonymen Upload erzwingen</translation>
     </message>
     <message>
         <source>Open link directly to image</source>
@@ -414,35 +414,35 @@ wirksam zu werden.</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished">Imgur-Link immer in die Zwischenablage kopieren</translation>
+        <translation>Imgur-Link immer in die Zwischenablage kopieren</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Vor dem Hochladen immer nach Bestätigung fragen</translation>
+        <translation>Vor dem Hochladen nach Bestätigung fragen</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished">Client ID</translation>
+        <translation>Client-ID</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished">Client Secret</translation>
+        <translation>Client-Geheimnis</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished">PIN</translation>
+        <translation>PIN</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished">Imgur Pin eingeben, der gegen ein Token ausgetauscht wird.</translation>
+        <translation>Imgur-PIN eingeben, die gegen ein Token ausgetauscht wird.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished">PIN Anfordern</translation>
+        <translation>PIN anfordern</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished">Token anfordern</translation>
+        <translation>Token anfordern</translation>
     </message>
     <message>
         <source>Imgur History</source>
@@ -454,7 +454,7 @@ wirksam zu werden.</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Benutzername</translation>
+        <translation>Benutzername</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
@@ -462,7 +462,7 @@ wirksam zu werden.</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished">Benutzername:</translation>
+        <translation>Benutzername:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
@@ -520,11 +520,11 @@ und der Aufnahme.</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished">Zuschneiden</translation>
+        <translation>Zuschneiden</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation type="unfinished">Bildschirmaufnahme zuschneiden</translation>
+        <translation>Bildschirmaufnahme zuschneiden</translation>
     </message>
 </context>
 <context>
@@ -640,11 +640,11 @@ Möchten Sie sie speichern?</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Bilder</translation>
+        <translation>Bilder</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Alle Dateien</translation>
+        <translation>Alle Dateien</translation>
     </message>
     <message>
         <source>Watermark Image Required</source>
@@ -656,7 +656,7 @@ Möchten Sie sie speichern?</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Speichern als</translation>
+        <translation>Speichern unter</translation>
     </message>
 </context>
 <context>

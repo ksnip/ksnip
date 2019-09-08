@@ -81,6 +81,144 @@
     </message>
 </context>
 <context>
+    <name>AnnotationSettings</name>
+    <message>
+        <source>Paint Item Shadows</source>
+        <translation type="unfinished">Использовать тени</translation>
+    </message>
+    <message>
+        <source>When enabled, paint items cast shadows.</source>
+        <translation type="unfinished">При включении, позволяет рисовать тени вокруг обведенного контура.</translation>
+    </message>
+    <message>
+        <source>Smooth Painter Paths</source>
+        <translation type="unfinished">Сглаживание</translation>
+    </message>
+    <message>
+        <source>When enabled smooths out pen and
+marker paths after finished drawing.</source>
+        <translation type="unfinished">При включении сглаживает кисть
+после завершения рисования.</translation>
+    </message>
+    <message>
+        <source>Smooth Factor</source>
+        <translation type="unfinished">Коэффициент</translation>
+    </message>
+    <message>
+        <source>Increasing the smooth factor will decrease
+precision for pen and marker but will
+make them more smooth.</source>
+        <translation type="unfinished">Увеличить коэффициент сглаживания
+и сделать точность маркера более гладким.</translation>
+    </message>
+    <message>
+        <source>Text Font</source>
+        <translation type="unfinished">Шрифт</translation>
+    </message>
+    <message>
+        <source>Sets the font for the Text Paint Item.</source>
+        <translation type="unfinished">Установить шрифт для инструмента Текст.</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation type="unfinished">Жирный</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation type="unfinished">Курсив</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation type="unfinished">Подчёркивание</translation>
+    </message>
+    <message>
+        <source>Numbering Font</source>
+        <translation type="unfinished">Семейство</translation>
+    </message>
+    <message>
+        <source>Sets the font for the Numbering Paint Item.</source>
+        <translation type="unfinished">Устанавливает шрифт для инструмента Текст.</translation>
+    </message>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Painter Settings</source>
+        <translation type="unfinished">Параметры рисования</translation>
+    </message>
+</context>
+<context>
+    <name>ApplicationSettings</name>
+    <message>
+        <source>Always copy capture to clipboard</source>
+        <translation type="unfinished">Всегда копировать скриншот в буфер обмена</translation>
+    </message>
+    <message>
+        <source>Prompt to save before discarding unsaved changes</source>
+        <translation type="unfinished">Спрашивать, не хотите ли сохранить изменения изображения, перед их отменой</translation>
+    </message>
+    <message>
+        <source>Save ksnip position on move and load on startup</source>
+        <translation type="unfinished">Запоминать расположение окна программы</translation>
+    </message>
+    <message>
+        <source>Save ksnip tool selection and load on startup</source>
+        <translation type="unfinished">Запоминать последний выбранный инструмент</translation>
+    </message>
+    <message>
+        <source>Capture screenshot at startup with default mode</source>
+        <translation type="unfinished">Делать скриншот при открытии программы</translation>
+    </message>
+    <message>
+        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
+        <translation type="unfinished">Автоматически сохранять скриншот в выбранное в настройках место</translation>
+    </message>
+    <message>
+        <source>When enabled, will not ask where to save a screenshot
+when saving, but will save instantly to default location.</source>
+        <translation type="unfinished">Программа не будет каждый раз спрашивать,
+куда сохранить скриншот.</translation>
+    </message>
+    <message>
+        <source>Application Style</source>
+        <translation type="unfinished">Стиль окон</translation>
+    </message>
+    <message>
+        <source>Sets the application style which defines the look and feel of the GUI.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished">Устанавливает стиль программы, который определяет внешний вид GUI.
+Необходимо перезапустить ksnip, чтобы изменения вступили в силу.</translation>
+    </message>
+    <message>
+        <source>Capture save location and filename</source>
+        <translation type="unfinished">Место автоматического сохранения и формат названия скриншотов</translation>
+    </message>
+    <message>
+        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
+        <translation type="unfinished">Следующие параметры будут подставлены при сохранении:
+$Y, $M, $D — Год, Месяц, День
+$h, $m, $s — Часы, Минуты, Секунды
+$T — hhmmss формат.</translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Обзор…</translation>
+    </message>
+    <message>
+        <source>Application Settings</source>
+        <translation type="unfinished">Основные настройки</translation>
+    </message>
+    <message>
+        <source>Capture save location</source>
+        <translation type="unfinished">Место сохранения</translation>
+    </message>
+</context>
+<context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
@@ -134,12 +272,101 @@
         <translation>Загрузка на imgur.com завершена!</translation>
     </message>
     <message>
-        <source>Received new token, trying upload again...</source>
-        <translation>Получен новый токен, ещё одна попытка загрузить…</translation>
+        <source>Received new token, trying upload again…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Imgur token has expired, requesting new token...</source>
-        <translation>Срок действия токена Imgur истёк, запрашивается новый токен…</translation>
+        <source>Imgur token has expired, requesting new token…</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ImageGrabberSettings</name>
+    <message>
+        <source>Capture mouse cursor on screenshot</source>
+        <translation type="unfinished">Показывать курсор мыши во время снимка</translation>
+    </message>
+    <message>
+        <source>Should mouse cursor be visible on
+screenshots.</source>
+        <translation type="unfinished">Отображать курсор мыши 
+во время снимка скриншота.</translation>
+    </message>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished">Заморозить выделенную область (эта функция не работает в Wayland)</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature doesn&apos;t work for Wayland and is always
+used for MacOs.</source>
+        <translation type="unfinished">При включении замораживает выделенную область. 
+Эта функция не работает в Wayland и всегда используется в MacOS.</translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished">Использовать лупу во время выделения</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished">Показывает увеличительное стекло во время выделения области.
+Эта опция работает, если включена &apos;Заморозить выделенную область...&apos;.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished">Показывать горизонтальную/вертикальную линию от курсора выделения</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished">Показывает горизонтальные и вертикальные пунктирные линии
+от края рабочего стола к курсору.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished">Выводить информацию о положении и размере зоны обрезки (линейка)</translation>
+    </message>
+    <message>
+        <source>When left mouse is not pressed the position
+is show, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished">При выделении отображает информацию о положении и размере зоны обрезки.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished">Цвет курсора</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area
+cursor. Change requires ksnip restart to
+take effect.</source>
+        <translation type="unfinished">Устанавливает цвет области выделения захвата.
+Необходимо перезапустить ksnip, чтобы
+изменения вступили в силу.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished">Размер курсора выделения</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area
+cursor. Change requires ksnip restart to
+take effect.</source>
+        <translation type="unfinished">Устанавливает толщину курсора во время захвата.
+Необходимо перезапустить ksnip, чтобы
+изменения вступили в силу.</translation>
+    </message>
+    <message>
+        <source>Image Grabber</source>
+        <translation type="unfinished">Настройки захвата</translation>
     </message>
 </context>
 <context>
@@ -163,6 +390,77 @@
     <message>
         <source>Delete Link</source>
         <translation>Удалить ссылку</translation>
+    </message>
+</context>
+<context>
+    <name>ImgurUploaderSettings</name>
+    <message>
+        <source>Force anonymous upload</source>
+        <translation type="unfinished">Загрузить анонимно</translation>
+    </message>
+    <message>
+        <source>Open link directly to image</source>
+        <translation type="unfinished">Открыть прямую ссылку на изображение после загрузки</translation>
+    </message>
+    <message>
+        <source>Always copy Imgur link to clipboard</source>
+        <translation type="unfinished">Копировать ссылку в буфер обмена</translation>
+    </message>
+    <message>
+        <source>Ask for confirmation before uploading</source>
+        <translation type="unfinished">Спрашивать перед загрузкой</translation>
+    </message>
+    <message>
+        <source>Client ID</source>
+        <translation type="unfinished">ID клиента</translation>
+    </message>
+    <message>
+        <source>Client Secret</source>
+        <translation type="unfinished">Секретный ключ клиента</translation>
+    </message>
+    <message>
+        <source>PIN</source>
+        <translation type="unfinished">PIN-код</translation>
+    </message>
+    <message>
+        <source>Enter imgur Pin which will be exchanged for a token.</source>
+        <translation type="unfinished">Введите PIN-код с imgur, который будет заменен на токен.</translation>
+    </message>
+    <message>
+        <source>Get PIN</source>
+        <translation type="unfinished">Получить PIN</translation>
+    </message>
+    <message>
+        <source>Get Token</source>
+        <translation type="unfinished">Получить Token</translation>
+    </message>
+    <message>
+        <source>Imgur History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imgur Uploader</source>
+        <translation type="unfinished">Параметры Imgur</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished">Имя пользователя</translation>
+    </message>
+    <message>
+        <source>Waiting for imgur.com…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username:</source>
+        <translation type="unfinished">Имя пользователя:</translation>
+    </message>
+    <message>
+        <source>Imgur.com token successfully updated.</source>
+        <translation type="unfinished">Imgur.com: token был обновлен.</translation>
+    </message>
+    <message>
+        <source>Imgur.com token update error.</source>
+        <translation type="unfinished">Imgur.com: ошибка во время обновления токена.</translation>
     </message>
 </context>
 <context>
@@ -201,6 +499,22 @@ and capturing screenshot.</source>
         <source>Tools</source>
         <translation>Инструменты</translation>
     </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop</source>
+        <translation type="unfinished">Обрезать</translation>
+    </message>
+    <message>
+        <source>Crop Screen Capture</source>
+        <translation type="unfinished">Обрезать и оставить только часть скриншота</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -233,14 +547,6 @@ and capturing screenshot.</source>
         <translation>Открыть предварительный просмотр распечатки, в котором можно изменить ориентацию изображения</translation>
     </message>
     <message>
-        <source>Crop</source>
-        <translation>Обрезать</translation>
-    </message>
-    <message>
-        <source>Crop Screen Capture</source>
-        <translation>Обрезать и оставить только часть скриншота</translation>
-    </message>
-    <message>
         <source>Scale</source>
         <translation>Размер</translation>
     </message>
@@ -265,10 +571,6 @@ and capturing screenshot.</source>
         <translation>Открыть…</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>Файл</translation>
-    </message>
-    <message>
         <source>&amp;Edit</source>
         <translation>&amp;Правка</translation>
     </message>
@@ -279,18 +581,6 @@ and capturing screenshot.</source>
     <message>
         <source>&amp;Help</source>
         <translation>&amp;Справка</translation>
-    </message>
-    <message>
-        <source>Save As</source>
-        <translation>Сохранить как…</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Изображения</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>Все файлы</translation>
     </message>
     <message>
         <source>Open Image</source>
@@ -318,184 +608,51 @@ Do you want to save it?</source>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation>Вы собираетесь загрузить скриншот на imgur.com. Начать загрузку?</translation>
     </message>
+    <message>
+        <source>Add Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Select Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation type="unfinished">Изображения</translation>
+    </message>
+    <message>
+        <source>All Files</source>
+        <translation type="unfinished">Все файлы</translation>
+    </message>
+    <message>
+        <source>Watermark Image Required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As</source>
+        <translation type="unfinished">Сохранить как…</translation>
+    </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
         <translation>Настройки</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation>Имя пользователя</translation>
-    </message>
-    <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Всегда копировать скриншот в буфер обмена</translation>
-    </message>
-    <message>
-        <source>Prompt to save before discarding unsaved changes</source>
-        <translation>Спрашивать, не хотите ли сохранить изменения изображения, перед их отменой</translation>
-    </message>
-    <message>
-        <source>Save ksnip position on move and load on startup</source>
-        <translation>Запоминать расположение окна программы</translation>
-    </message>
-    <message>
-        <source>Save ksnip tool selection and load on startup</source>
-        <translation>Запоминать последний выбранный инструмент</translation>
-    </message>
-    <message>
-        <source>Capture screenshot at startup with default mode</source>
-        <translation>Делать скриншот при открытии программы</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Автоматически сохранять скриншот в выбранное в настройках место</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Программа не будет каждый раз спрашивать,
-куда сохранить скриншот.</translation>
-    </message>
-    <message>
-        <source>Capture save location and filename</source>
-        <translation>Место автоматического сохранения и формат названия скриншотов</translation>
-    </message>
-    <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation>Следующие параметры будут подставлены при сохранении:
-$Y, $M, $D — Год, Месяц, День
-$h, $m, $s — Часы, Минуты, Секунды
-$T — hhmmss формат.</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation>Обзор…</translation>
-    </message>
-    <message>
-        <source>Capture mouse cursor on screenshot</source>
-        <translation>Показывать курсор мыши во время снимка</translation>
-    </message>
-    <message>
-        <source>Should mouse cursor be visible on
-screenshots.</source>
-        <translation>Отображать курсор мыши 
-во время снимка скриншота.</translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Устанавливает цвет области выделения захвата.
-Необходимо перезапустить ksnip, чтобы
-изменения вступили в силу.</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Устанавливает толщину курсора во время захвата.
-Необходимо перезапустить ksnip, чтобы
-изменения вступили в силу.</translation>
-    </message>
-    <message>
-        <source>Force anonymous upload</source>
-        <translation>Загрузить анонимно</translation>
-    </message>
-    <message>
-        <source>Open link directly to image</source>
-        <translation>Открыть прямую ссылку на изображение после загрузки</translation>
-    </message>
-    <message>
-        <source>Always copy Imgur link to clipboard</source>
-        <translation>Копировать ссылку в буфер обмена</translation>
-    </message>
-    <message>
-        <source>Ask for confirmation before uploading</source>
-        <translation>Спрашивать перед загрузкой</translation>
-    </message>
-    <message>
-        <source>Client ID</source>
-        <translation>ID клиента</translation>
-    </message>
-    <message>
-        <source>Client Secret</source>
-        <translation>Секретный ключ клиента</translation>
-    </message>
-    <message>
-        <source>PIN</source>
-        <translation>PIN-код</translation>
-    </message>
-    <message>
-        <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation>Введите PIN-код с imgur, который будет заменен на токен.</translation>
-    </message>
-    <message>
-        <source>Get PIN</source>
-        <translation>Получить PIN</translation>
-    </message>
-    <message>
-        <source>Get Token</source>
-        <translation>Получить Token</translation>
-    </message>
-    <message>
-        <source>Paint Item Shadows</source>
-        <translation>Использовать тени</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>При включении, позволяет рисовать тени вокруг обведенного контура.</translation>
-    </message>
-    <message>
-        <source>Smooth Painter Paths</source>
-        <translation>Сглаживание</translation>
-    </message>
-    <message>
-        <source>When enabled smooths out pen and
-marker paths after finished drawing.</source>
-        <translation>При включении сглаживает кисть
-после завершения рисования.</translation>
-    </message>
-    <message>
-        <source>Smooth Factor</source>
-        <translation>Коэффициент</translation>
-    </message>
-    <message>
-        <source>Increasing the smooth factor will decrease
-precision for pen and marker but will
-make them more smooth.</source>
-        <translation>Увеличить коэффициент сглаживания
-и сделать точность маркера более гладким.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Шрифт</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Установить шрифт для инструмента Текст.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Жирный</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Курсив</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Подчёркивание</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Семейство</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Устанавливает шрифт для инструмента Текст.</translation>
     </message>
     <message>
         <source>OK</source>
@@ -506,10 +663,6 @@ make them more smooth.</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <source>Application Settings</source>
-        <translation>Основные настройки</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Настройки захвата</translation>
     </message>
@@ -518,161 +671,12 @@ make them more smooth.</source>
         <translation>Параметры Imgur</translation>
     </message>
     <message>
-        <source>Painter Settings</source>
-        <translation>Параметры рисования</translation>
-    </message>
-    <message>
         <source>Application</source>
         <translation>Основное</translation>
     </message>
     <message>
-        <source>Painter</source>
-        <translation>Рисование</translation>
-    </message>
-    <message>
-        <source>Waiting for imgur.com...</source>
-        <translation>Ждем ответа от imgur.com...</translation>
-    </message>
-    <message>
-        <source>Username:</source>
-        <translation>Имя пользователя:</translation>
-    </message>
-    <message>
-        <source>Imgur.com token successfully updated.</source>
-        <translation>Imgur.com: token был обновлен.</translation>
-    </message>
-    <message>
-        <source>Imgur.com token update error.</source>
-        <translation>Imgur.com: ошибка во время обновления токена.</translation>
-    </message>
-    <message>
-        <source>Capture save location</source>
-        <translation>Место сохранения</translation>
-    </message>
-    <message>
-        <source>Application Style</source>
-        <translation>Стиль окон</translation>
-    </message>
-    <message>
-        <source>Sets the application style which defines the look and feel of the GUI.
-Change requires ksnip restart to take effect.</source>
-        <translation>Устанавливает стиль программы, который определяет внешний вид GUI.
-Необходимо перезапустить ksnip, чтобы изменения вступили в силу.</translation>
-    </message>
-    <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Заморозить выделенную область (эта функция не работает в Wayland)</translation>
-    </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature doesn&apos;t work for Wayland and is always
-used for MacOs.</source>
-        <translation>При включении замораживает выделенную область. 
-Эта функция не работает в Wayland и всегда используется в MacOS.</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Использовать лупу во время выделения</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Показывает увеличительное стекло во время выделения области.
-Эта опция работает, если включена &apos;Заморозить выделенную область...&apos;.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Показывать горизонтальную/вертикальную линию от курсора выделения</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Показывает горизонтальные и вертикальные пунктирные линии
-от края рабочего стола к курсору.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Выводить информацию о положении и размере зоны обрезки (линейка)</translation>
-    </message>
-    <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>При выделении отображает информацию о положении и размере зоны обрезки.</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Цвет курсора</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Размер курсора выделения</translation>
-    </message>
-    <message>
-        <source>Imgur History</source>
-        <translation>История загрузок…</translation>
-    </message>
-</context>
-<context>
-    <name>main</name>
-    <message>
-        <source>Select a rectangular area from where to take a screenshot.</source>
-        <translation>Выберите прямоугольную область, для создания скриншота.</translation>
-    </message>
-    <message>
-        <source>Capture the fullscreen including all monitors.</source>
-        <translation>Захват всего экрана, включая все мониторы.</translation>
-    </message>
-    <message>
-        <source>Capture the screen (monitor) where the mouse cursor is currently located.</source>
-        <translation>Сделайте снимок экрана (монитора), где на данный момент находится курсор мыши.</translation>
-    </message>
-    <message>
-        <source>Capture the window that currently has input focus.</source>
-        <translation>Захват окна, которое на данный момент имеет фокус.</translation>
-    </message>
-    <message>
-        <source>Capture the window that is currently under the mouse cursor.</source>
-        <translation>Захватите окно, которое на данный момент находится под курсором мыши.</translation>
-    </message>
-    <message>
-        <source>Delay before taking the screenshot.</source>
-        <translation>Задержка перед тем, как сделать скриншот.</translation>
-    </message>
-    <message>
-        <source>seconds</source>
-        <translation>секунды</translation>
-    </message>
-    <message>
-        <source>Capture mouse cursor on screenshot.</source>
-        <translation>Показывать курсор мыши в снимке.</translation>
-    </message>
-    <message>
-        <source>Edit existing image in ksnip</source>
-        <translation>Редактировать существующее изображение в ksnip</translation>
-    </message>
-    <message>
-        <source>image</source>
-        <translation>изображение</translation>
-    </message>
-    <message>
-        <source>Save screenshot to default location without opening in editor.</source>
-        <translation>Сохранить скриншот в папку по умолчанию, не открывая в редакторе.</translation>
-    </message>
-    <message>
-        <source>Ksnip Screenshot Tool</source>
-        <translation>Ksnip — программа для скриншотов</translation>
-    </message>
-    <message>
-        <source>Displays version information.</source>
-        <translation>Показать информацию о версии.</translation>
+        <source>Annotator</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

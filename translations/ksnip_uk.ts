@@ -81,6 +81,142 @@
     </message>
 </context>
 <context>
+    <name>AnnotationSettings</name>
+    <message>
+        <source>Paint Item Shadows</source>
+        <translation type="unfinished">Відображати тінь під намальованими елементами</translation>
+    </message>
+    <message>
+        <source>When enabled, paint items cast shadows.</source>
+        <translation type="unfinished">Показувати тінь навколо елементів, накладених на зображення у редакторі.</translation>
+    </message>
+    <message>
+        <source>Smooth Painter Paths</source>
+        <translation type="unfinished">Згладжувати намальовані елементи</translation>
+    </message>
+    <message>
+        <source>When enabled smooths out pen and
+marker paths after finished drawing.</source>
+        <translation type="unfinished">Згладжувати лінії, намальовані ручкою
+чи маркером, після завершення малювання.</translation>
+    </message>
+    <message>
+        <source>Smooth Factor</source>
+        <translation type="unfinished">Коефіцієнт згладжування</translation>
+    </message>
+    <message>
+        <source>Increasing the smooth factor will decrease
+precision for pen and marker but will
+make them more smooth.</source>
+        <translation type="unfinished">Збільшення коефіцієнта зменьшить чіткість
+ліній, залишених ручкою чи маркером, тоді як
+зменшення коефіцієнта зробить їх більш гладкими.</translation>
+    </message>
+    <message>
+        <source>Text Font</source>
+        <translation type="unfinished">Шрифт</translation>
+    </message>
+    <message>
+        <source>Sets the font for the Text Paint Item.</source>
+        <translation type="unfinished">Вибрати шрифт для інструмента «Текст».</translation>
+    </message>
+    <message>
+        <source>Bold</source>
+        <translation type="unfinished">Напівжирний</translation>
+    </message>
+    <message>
+        <source>Italic</source>
+        <translation type="unfinished">Курсивний</translation>
+    </message>
+    <message>
+        <source>Underline</source>
+        <translation type="unfinished">Підкреслений</translation>
+    </message>
+    <message>
+        <source>Numbering Font</source>
+        <translation type="unfinished">Шрифт для нумерації</translation>
+    </message>
+    <message>
+        <source>Sets the font for the Numbering Paint Item.</source>
+        <translation type="unfinished">Вибрати шрифт для інструмента «Номер».</translation>
+    </message>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Painter Settings</source>
+        <translation type="unfinished">Налаштування інструментів редактора</translation>
+    </message>
+</context>
+<context>
+    <name>ApplicationSettings</name>
+    <message>
+        <source>Always copy capture to clipboard</source>
+        <translation type="unfinished">Завжди копіювати зняток до буферу обміну</translation>
+    </message>
+    <message>
+        <source>Prompt to save before discarding unsaved changes</source>
+        <translation type="unfinished">Питати, чи не бажаєте зберігти зміни зображення, перед їх відміною</translation>
+    </message>
+    <message>
+        <source>Save ksnip position on move and load on startup</source>
+        <translation type="unfinished">Запам’ятовувати розташування вікна програми</translation>
+    </message>
+    <message>
+        <source>Save ksnip tool selection and load on startup</source>
+        <translation type="unfinished">Запом’ятовувати останній вибраний інструмент</translation>
+    </message>
+    <message>
+        <source>Capture screenshot at startup with default mode</source>
+        <translation type="unfinished">Робити зняток при відкритті програми</translation>
+    </message>
+    <message>
+        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
+        <translation type="unfinished">Автоматично зберігати зняток у вибране в налаштуваннях місце</translation>
+    </message>
+    <message>
+        <source>When enabled, will not ask where to save a screenshot
+when saving, but will save instantly to default location.</source>
+        <translation type="unfinished">Програма не буде кожного разу питати,
+куди зберігти зняток.</translation>
+    </message>
+    <message>
+        <source>Application Style</source>
+        <translation type="unfinished">Оформлення програми</translation>
+    </message>
+    <message>
+        <source>Sets the application style which defines the look and feel of the GUI.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished">Оформлення програми визначає її вигляд.
+Щоб оформлення змінилося, перезапустіть ksnip.</translation>
+    </message>
+    <message>
+        <source>Capture save location and filename</source>
+        <translation type="unfinished">Місце автоматичного збереження та формат назви знятків</translation>
+    </message>
+    <message>
+        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
+        <translation type="unfinished">У назві файлу можна використати $Y, $M, $D для позначення дати; $h, $m, $s для часу; $T для часу форматі hhmmss.</translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Вибрати</translation>
+    </message>
+    <message>
+        <source>Application Settings</source>
+        <translation type="unfinished">Налаштування програми</translation>
+    </message>
+    <message>
+        <source>Capture save location</source>
+        <translation type="unfinished">Місце збереження</translation>
+    </message>
+</context>
+<context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
@@ -134,12 +270,108 @@
         <translation>Завантаження на imgur.com завершено!</translation>
     </message>
     <message>
-        <source>Received new token, trying upload again...</source>
-        <translation>Отримано новий токен, спроба ще раз завантажити…</translation>
+        <source>Received new token, trying upload again…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Imgur token has expired, requesting new token...</source>
-        <translation>Термін дії токена Imgur закінчився, запитується новий токен…</translation>
+        <source>Imgur token has expired, requesting new token…</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ImageGrabberSettings</name>
+    <message>
+        <source>Capture mouse cursor on screenshot</source>
+        <translation type="unfinished">Показувати курсор миші на знятку</translation>
+    </message>
+    <message>
+        <source>Should mouse cursor be visible on
+screenshots.</source>
+        <translation type="unfinished">Курсор миші буде бачно на зображенні.</translation>
+    </message>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished">Заморозити зображення у момент зйомки знятка</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature doesn&apos;t work for Wayland and is always
+used for MacOs.</source>
+        <translation type="unfinished">Зупиняти усе, що коїться на екрані, під час виділення
+прямокутної області. Ця функція також змінує роботу
+затримки зйомки: відлік часу починається не після,
+а до виділення прямокутної області. Функція не працює
+з Wayland і завжди використовується на macOS.</translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished">Показувати лупу під час виділення області знятка</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished">Показувати збільшувано скло, яке дає змогу
+приблизити зображення, щоб роздивитися пікселі.
+Ця функція працює лише у тому випадку, якщо
+ввімкнено замороження зображення.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished">Показувати лінії-лінійки, що відходять від курсору</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished">Показувати горизонтальну та вертикальну лінії,
+які відходять від краю екрану до курсору миші
+під час виділення області знятка.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished">Показувати інформацію про положення курсору та розмір виділеної області</translation>
+    </message>
+    <message>
+        <source>When left mouse is not pressed the position
+is show, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished">Показувати положення курсору до виділення
+області. Під час виділення — показувати розмір
+вибраної області зліва та згори.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished">Колір курсору під час виділення області знятка</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area
+cursor. Change requires ksnip restart to
+take effect.</source>
+        <translation type="unfinished">Вибрати колір курсору при виділенні
+області знятка. Щоб колір змінився,
+треба перезапустити програму.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished">Товщина курсору при виділенні області знятка</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area
+cursor. Change requires ksnip restart to
+take effect.</source>
+        <translation type="unfinished">Встановити товщину курсору при виділенні
+області знятка. Щоб товщина змінилася,
+треба перезапустити програму.</translation>
+    </message>
+    <message>
+        <source>Image Grabber</source>
+        <translation type="unfinished">Зйомка знятка</translation>
     </message>
 </context>
 <context>
@@ -163,6 +395,77 @@
     <message>
         <source>Delete Link</source>
         <translation>Видалити посилання</translation>
+    </message>
+</context>
+<context>
+    <name>ImgurUploaderSettings</name>
+    <message>
+        <source>Force anonymous upload</source>
+        <translation type="unfinished">Завантажити анонімно</translation>
+    </message>
+    <message>
+        <source>Open link directly to image</source>
+        <translation type="unfinished">Відкрити пряме посилання на зображення</translation>
+    </message>
+    <message>
+        <source>Always copy Imgur link to clipboard</source>
+        <translation type="unfinished">Завжди копіювати посилання з Imgur до буферу обміну</translation>
+    </message>
+    <message>
+        <source>Ask for confirmation before uploading</source>
+        <translation type="unfinished">Питати підтвердження перед завантаженням</translation>
+    </message>
+    <message>
+        <source>Client ID</source>
+        <translation type="unfinished">ID клієнта</translation>
+    </message>
+    <message>
+        <source>Client Secret</source>
+        <translation type="unfinished">Секретний ключ клієнта</translation>
+    </message>
+    <message>
+        <source>PIN</source>
+        <translation type="unfinished">PIN-код</translation>
+    </message>
+    <message>
+        <source>Enter imgur Pin which will be exchanged for a token.</source>
+        <translation type="unfinished">Введіть PIN-код, який буде замінено на токен.</translation>
+    </message>
+    <message>
+        <source>Get PIN</source>
+        <translation type="unfinished">Отримати PIN-код</translation>
+    </message>
+    <message>
+        <source>Get Token</source>
+        <translation type="unfinished">Отримати токен</translation>
+    </message>
+    <message>
+        <source>Imgur History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imgur Uploader</source>
+        <translation type="unfinished">Завантаження на Imgur</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished">Ім’я користувача</translation>
+    </message>
+    <message>
+        <source>Waiting for imgur.com…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username:</source>
+        <translation type="unfinished">Ім’я користувача:</translation>
+    </message>
+    <message>
+        <source>Imgur.com token successfully updated.</source>
+        <translation type="unfinished">Токен imgur.com успішно оновлено.</translation>
+    </message>
+    <message>
+        <source>Imgur.com token update error.</source>
+        <translation type="unfinished">Помилка при оновленні токену imgur.com.</translation>
     </message>
 </context>
 <context>
@@ -201,6 +504,22 @@ and capturing screenshot.</source>
         <source>Tools</source>
         <translation>Інструменти</translation>
     </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop</source>
+        <translation type="unfinished">Обрізати</translation>
+    </message>
+    <message>
+        <source>Crop Screen Capture</source>
+        <translation type="unfinished">Обрізати й залишити лише частину знятка</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -233,14 +552,6 @@ and capturing screenshot.</source>
         <translation>Відкрити попередній перегляд роздруківки, в якому можна змінити орієнтацію зображення</translation>
     </message>
     <message>
-        <source>Crop</source>
-        <translation>Обрізати</translation>
-    </message>
-    <message>
-        <source>Crop Screen Capture</source>
-        <translation>Обрізати й залишити лише частину знятка</translation>
-    </message>
-    <message>
         <source>Scale</source>
         <translation>Розмір</translation>
     </message>
@@ -265,10 +576,6 @@ and capturing screenshot.</source>
         <translation>Відкрити</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>Файл</translation>
-    </message>
-    <message>
         <source>&amp;Edit</source>
         <translation>&amp;Правка</translation>
     </message>
@@ -279,18 +586,6 @@ and capturing screenshot.</source>
     <message>
         <source>&amp;Help</source>
         <translation>&amp;Довідка</translation>
-    </message>
-    <message>
-        <source>Save As</source>
-        <translation>Зберегти як</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Зображення</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>Усі файли</translation>
     </message>
     <message>
         <source>Open Image</source>
@@ -318,259 +613,51 @@ Do you want to save it?</source>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation>Ви збираєтеся завантажити зняток на imgur.com. Почати завантаження?</translation>
     </message>
+    <message>
+        <source>Add Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Select Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Images</source>
+        <translation type="unfinished">Зображення</translation>
+    </message>
+    <message>
+        <source>All Files</source>
+        <translation type="unfinished">Усі файли</translation>
+    </message>
+    <message>
+        <source>Watermark Image Required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As</source>
+        <translation type="unfinished">Зберегти як</translation>
+    </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
         <translation>Налаштування</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation>Ім’я користувача</translation>
-    </message>
-    <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Завжди копіювати зняток до буферу обміну</translation>
-    </message>
-    <message>
-        <source>Prompt to save before discarding unsaved changes</source>
-        <translation>Питати, чи не бажаєте зберігти зміни зображення, перед їх відміною</translation>
-    </message>
-    <message>
-        <source>Save ksnip position on move and load on startup</source>
-        <translation>Запам’ятовувати розташування вікна програми</translation>
-    </message>
-    <message>
-        <source>Save ksnip tool selection and load on startup</source>
-        <translation>Запом’ятовувати останній вибраний інструмент</translation>
-    </message>
-    <message>
-        <source>Capture screenshot at startup with default mode</source>
-        <translation>Робити зняток при відкритті програми</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Автоматично зберігати зняток у вибране в налаштуваннях місце</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Програма не буде кожного разу питати,
-куди зберігти зняток.</translation>
-    </message>
-    <message>
-        <source>Application Style</source>
-        <translation>Оформлення програми</translation>
-    </message>
-    <message>
-        <source>Sets the application style which defines the look and feel of the GUI.
-Change requires ksnip restart to take effect.</source>
-        <translation>Оформлення програми визначає її вигляд.
-Щоб оформлення змінилося, перезапустіть ksnip.</translation>
-    </message>
-    <message>
-        <source>Capture save location and filename</source>
-        <translation>Місце автоматичного збереження та формат назви знятків</translation>
-    </message>
-    <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation>У назві файлу можна використати $Y, $M, $D для позначення дати; $h, $m, $s для часу; $T для часу форматі hhmmss.</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation>Вибрати</translation>
-    </message>
-    <message>
-        <source>Capture mouse cursor on screenshot</source>
-        <translation>Показувати курсор миші на знятку</translation>
-    </message>
-    <message>
-        <source>Should mouse cursor be visible on
-screenshots.</source>
-        <translation>Курсор миші буде бачно на зображенні.</translation>
-    </message>
-    <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Заморозити зображення у момент зйомки знятка</translation>
-    </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature doesn&apos;t work for Wayland and is always
-used for MacOs.</source>
-        <translation>Зупиняти усе, що коїться на екрані, під час виділення
-прямокутної області. Ця функція також змінує роботу
-затримки зйомки: відлік часу починається не після,
-а до виділення прямокутної області. Функція не працює
-з Wayland і завжди використовується на macOS.</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Показувати лупу під час виділення області знятка</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Показувати збільшувано скло, яке дає змогу
-приблизити зображення, щоб роздивитися пікселі.
-Ця функція працює лише у тому випадку, якщо
-ввімкнено замороження зображення.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Показувати лінії-лінійки, що відходять від курсору</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Показувати горизонтальну та вертикальну лінії,
-які відходять від краю екрану до курсору миші
-під час виділення області знятка.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Показувати інформацію про положення курсору та розмір виділеної області</translation>
-    </message>
-    <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Показувати положення курсору до виділення
-області. Під час виділення — показувати розмір
-вибраної області зліва та згори.</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Колір курсору під час виділення області знятка</translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Вибрати колір курсору при виділенні
-області знятка. Щоб колір змінився,
-треба перезапустити програму.</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Товщина курсору при виділенні області знятка</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Встановити товщину курсору при виділенні
-області знятка. Щоб товщина змінилася,
-треба перезапустити програму.</translation>
-    </message>
-    <message>
-        <source>Force anonymous upload</source>
-        <translation>Завантажити анонімно</translation>
-    </message>
-    <message>
-        <source>Open link directly to image</source>
-        <translation>Відкрити пряме посилання на зображення</translation>
-    </message>
-    <message>
-        <source>Always copy Imgur link to clipboard</source>
-        <translation>Завжди копіювати посилання з Imgur до буферу обміну</translation>
-    </message>
-    <message>
-        <source>Ask for confirmation before uploading</source>
-        <translation>Питати підтвердження перед завантаженням</translation>
-    </message>
-    <message>
-        <source>Client ID</source>
-        <translation>ID клієнта</translation>
-    </message>
-    <message>
-        <source>Client Secret</source>
-        <translation>Секретний ключ клієнта</translation>
-    </message>
-    <message>
-        <source>PIN</source>
-        <translation>PIN-код</translation>
-    </message>
-    <message>
-        <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation>Введіть PIN-код, який буде замінено на токен.</translation>
-    </message>
-    <message>
-        <source>Get PIN</source>
-        <translation>Отримати PIN-код</translation>
-    </message>
-    <message>
-        <source>Get Token</source>
-        <translation>Отримати токен</translation>
-    </message>
-    <message>
-        <source>Imgur History</source>
-        <translation>Журнал Imgur</translation>
-    </message>
-    <message>
-        <source>Paint Item Shadows</source>
-        <translation>Відображати тінь під намальованими елементами</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Показувати тінь навколо елементів, накладених на зображення у редакторі.</translation>
-    </message>
-    <message>
-        <source>Smooth Painter Paths</source>
-        <translation>Згладжувати намальовані елементи</translation>
-    </message>
-    <message>
-        <source>When enabled smooths out pen and
-marker paths after finished drawing.</source>
-        <translation>Згладжувати лінії, намальовані ручкою
-чи маркером, після завершення малювання.</translation>
-    </message>
-    <message>
-        <source>Smooth Factor</source>
-        <translation>Коефіцієнт згладжування</translation>
-    </message>
-    <message>
-        <source>Increasing the smooth factor will decrease
-precision for pen and marker but will
-make them more smooth.</source>
-        <translation>Збільшення коефіцієнта зменьшить чіткість
-ліній, залишених ручкою чи маркером, тоді як
-зменшення коефіцієнта зробить їх більш гладкими.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Шрифт</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Вибрати шрифт для інструмента «Текст».</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Напівжирний</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Курсивний</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Підкреслений</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Шрифт для нумерації</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Вибрати шрифт для інструмента «Номер».</translation>
     </message>
     <message>
         <source>OK</source>
@@ -581,10 +668,6 @@ make them more smooth.</source>
         <translation>Відмінити</translation>
     </message>
     <message>
-        <source>Application Settings</source>
-        <translation>Налаштування програми</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Зйомка знятка</translation>
     </message>
@@ -593,92 +676,12 @@ make them more smooth.</source>
         <translation>Завантаження на Imgur</translation>
     </message>
     <message>
-        <source>Painter Settings</source>
-        <translation>Налаштування інструментів редактора</translation>
-    </message>
-    <message>
         <source>Application</source>
         <translation>Основне</translation>
     </message>
     <message>
-        <source>Painter</source>
-        <translation>Інструменти редактора</translation>
-    </message>
-    <message>
-        <source>Waiting for imgur.com...</source>
-        <translation>Очікування відповіді від imgur.com…</translation>
-    </message>
-    <message>
-        <source>Username:</source>
-        <translation>Ім’я користувача:</translation>
-    </message>
-    <message>
-        <source>Imgur.com token successfully updated.</source>
-        <translation>Токен imgur.com успішно оновлено.</translation>
-    </message>
-    <message>
-        <source>Imgur.com token update error.</source>
-        <translation>Помилка при оновленні токену imgur.com.</translation>
-    </message>
-    <message>
-        <source>Capture save location</source>
-        <translation>Місце збереження</translation>
-    </message>
-</context>
-<context>
-    <name>main</name>
-    <message>
-        <source>Select a rectangular area from where to take a screenshot.</source>
-        <translation>Виберіть прямокутну область, з якої треба зробити зняток.</translation>
-    </message>
-    <message>
-        <source>Capture the fullscreen including all monitors.</source>
-        <translation>Зробити зняток усього екрану з усіх моніторів.</translation>
-    </message>
-    <message>
-        <source>Capture the screen (monitor) where the mouse cursor is currently located.</source>
-        <translation>Зробити зняток екрану (монітору), де зараз розташований курсор миші.</translation>
-    </message>
-    <message>
-        <source>Capture the window that currently has input focus.</source>
-        <translation>Зробити зняток вікна, яке зараз вибране.</translation>
-    </message>
-    <message>
-        <source>Capture the window that is currently under the mouse cursor.</source>
-        <translation>Зробити зняток вікна, на якому знаходиться курсор.</translation>
-    </message>
-    <message>
-        <source>Delay before taking the screenshot.</source>
-        <translation>Відлічити час до того, як буде зроблений зняток.</translation>
-    </message>
-    <message>
-        <source>seconds</source>
-        <translation>секунди</translation>
-    </message>
-    <message>
-        <source>Capture mouse cursor on screenshot.</source>
-        <translation>Показувати курсор миші на знятку.</translation>
-    </message>
-    <message>
-        <source>Edit existing image in ksnip</source>
-        <translation>Редагувати існуюче зображення у ksnip</translation>
-    </message>
-    <message>
-        <source>image</source>
-        <translation>зображення</translation>
-    </message>
-    <message>
-        <source>Save screenshot to default location without opening in editor.</source>
-        <translation>Зберегти зняток до усталеного місця збереження,
-не відкриваючи редактор зображення.</translation>
-    </message>
-    <message>
-        <source>Displays version information.</source>
-        <translation>Показати інформацію про версію.</translation>
-    </message>
-    <message>
-        <source>Ksnip Screenshot Tool</source>
-        <translation>Ksnip — програма для знятків екрану</translation>
+        <source>Annotator</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

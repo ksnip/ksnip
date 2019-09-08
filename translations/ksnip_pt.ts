@@ -144,6 +144,14 @@ torná-los mais suaves.</translation>
         <source>Painter Settings</source>
         <translation>Configurações do Editor</translation>
     </message>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -262,12 +270,12 @@ Requer reiniciar o ksnip para aplicar as mudanças.</translation>
         <translation>Upload para imgur.com finalizado!</translation>
     </message>
     <message>
-        <source>Received new token, trying upload again...</source>
-        <translation>Novo token recebido, tentando fazer o upload novamente ...</translation>
+        <source>Received new token, trying upload again…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Imgur token has expired, requesting new token...</source>
-        <translation>Token Imgur expirou, requisitando novo token...</translation>
+        <source>Imgur token has expired, requesting new token…</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -443,10 +451,6 @@ A alteração requer que o ksnip reinicie para surtir efeito.</translation>
         <translation>Nome de usuário</translation>
     </message>
     <message>
-        <source>Waiting for imgur.com...</source>
-        <translation>Aguardando por imgur.com ...</translation>
-    </message>
-    <message>
         <source>Username:</source>
         <translation>Nome de usuário:</translation>
     </message>
@@ -457,6 +461,10 @@ A alteração requer que o ksnip reinicie para surtir efeito.</translation>
     <message>
         <source>Imgur.com token update error.</source>
         <translation>Erro de atualização do token Imgur.com.</translation>
+    </message>
+    <message>
+        <source>Waiting for imgur.com…</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -495,6 +503,22 @@ e captura de tela.</translation>
         <source>Tools</source>
         <translation>Ferramentas</translation>
     </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Crop</source>
+        <translation type="unfinished">Recortar</translation>
+    </message>
+    <message>
+        <source>Crop Screen Capture</source>
+        <translation type="unfinished">Recortar captura de tela</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -527,14 +551,6 @@ e captura de tela.</translation>
         <translation>Abrir caixa de diálogo Visualizar impressão, onde a orientação da imagem pode ser alterada</translation>
     </message>
     <message>
-        <source>Crop</source>
-        <translation>Recortar</translation>
-    </message>
-    <message>
-        <source>Crop Screen Capture</source>
-        <translation>Recortar captura de tela</translation>
-    </message>
-    <message>
         <source>Scale</source>
         <translation>Redimensionar</translation>
     </message>
@@ -557,10 +573,6 @@ e captura de tela.</translation>
     <message>
         <source>Open</source>
         <translation>Abrir</translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation>&amp;Arquivo</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -600,6 +612,18 @@ Você quer salvá-la?</translation>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation>Você está prestes a enviar a captura de tela para imgur.com, deseja continuar?</translation>
     </message>
+    <message>
+        <source>Add Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -614,6 +638,18 @@ Você quer salvá-la?</translation>
     <message>
         <source>All Files</source>
         <translation>Todos os arquivos</translation>
+    </message>
+    <message>
+        <source>Select Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Watermark Image Required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -643,63 +679,8 @@ Você quer salvá-la?</translation>
         <translation>Imgur Uploader</translation>
     </message>
     <message>
-        <source>Painter</source>
-        <translation>Editor</translation>
-    </message>
-</context>
-<context>
-    <name>main</name>
-    <message>
-        <source>Select a rectangular area from where to take a screenshot.</source>
-        <translation>Selecionar uma área retangular para fazer a captura de tela.</translation>
-    </message>
-    <message>
-        <source>Capture the fullscreen including all monitors.</source>
-        <translation>Capturar a tela cheia incluindo todos os monitores.</translation>
-    </message>
-    <message>
-        <source>Capture the screen (monitor) where the mouse cursor is currently located.</source>
-        <translation>Capturar a tela (monitor) onde o cursor do mouse está localizado atualmente.</translation>
-    </message>
-    <message>
-        <source>Capture the window that currently has input focus.</source>
-        <translation>Capturar a janela que atualmente possui o foco.</translation>
-    </message>
-    <message>
-        <source>Capture the window that is currently under the mouse cursor.</source>
-        <translation>Capturar a janela que está atualmente sob o cursor do mouse.</translation>
-    </message>
-    <message>
-        <source>Delay before taking the screenshot.</source>
-        <translation>Atraso antes de fazer a captura de tela.</translation>
-    </message>
-    <message>
-        <source>seconds</source>
-        <translation>segundos</translation>
-    </message>
-    <message>
-        <source>Capture mouse cursor on screenshot.</source>
-        <translation>Capturar o cursor do mouse na captura de tela.</translation>
-    </message>
-    <message>
-        <source>Edit existing image in ksnip</source>
-        <translation>Editar imagem existente pelo ksnip</translation>
-    </message>
-    <message>
-        <source>image</source>
-        <translation>imagem</translation>
-    </message>
-    <message>
-        <source>Save screenshot to default location without opening in editor.</source>
-        <translation>Salvar captura de tela no local padrão sem abrir no editor.</translation>
-    </message>
-    <message>
-        <source>Displays version information.</source>
-        <translation>Exibir informações da versão.</translation>
-    </message>
-    <message>
-        <source>Ksnip Screenshot Tool</source>
-        <translation>Ksnip Ferramenta de Captura de Tela</translation>
+        <source>Annotator</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

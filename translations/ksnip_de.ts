@@ -85,136 +85,136 @@
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished">Schatten unter gezeichneten Gegenständen anzeigen</translation>
+        <translation>Schatten unter gezeichneten Elementen anzeigen</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished">Wenn aktiviert, wird ein Schatten unter gezeichneten Gegenständen angezeigt.</translation>
+        <translation>Wenn aktiviert, wird ein Schatten unter gezeichneten Elementen angezeigt.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished">Glatte Malpfade</translation>
+        <translation>Glatte Malpfade</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished">Wenn aktiviert, werden Stift und
+        <translation>Wenn aktiviert, werden Stift und
 Markerpfade nach dem fertigen Zeichnen geglättet.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished">Glättungsfaktor</translation>
+        <translation>Glättungsfaktor</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished">Das Erhöhen des Glättungsfaktors wird die
-Präzision für Stift und Marker veringern,
-es macht sie glatter.</translation>
+        <translation>Das Erhöhen des Glättungsfaktors wird die
+Präzision für Stift und Marker verringern, aber
+macht sie glatter.</translation>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished">Schriftart</translation>
+        <translation>Schriftart</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished">Legt die Schriftart für das Textelement fest.</translation>
+        <translation>Legt die Schriftart für das Textelement fest.</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished">Fett</translation>
+        <translation>Fett</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished">Kursiv</translation>
+        <translation>Kursiv</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished">Unterstrichen</translation>
+        <translation>Unterstrichen</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation type="unfinished">Schriftart für Nummern</translation>
+        <translation>Schriftart für Nummern</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished">Legt die Schriftart für die Nummerierung fest.</translation>
+        <translation>Legt die Schriftart für die Nummerierung fest.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild für Wasserzeichen</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualisieren</translation>
     </message>
     <message>
         <source>Painter Settings</source>
-        <translation type="unfinished">Zeichner-Einstellungen</translation>
+        <translation>Zeichner-Einstellungen</translation>
     </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
         <source>Always copy capture to clipboard</source>
-        <translation type="unfinished">Aufnahme immer in die Zwischenablage kopieren</translation>
+        <translation>Aufnahme immer in die Zwischenablage kopieren</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Aufforderung zum Speichern, bevor nicht gespeicherte Änderungen verworfen werden</translation>
+        <translation>Aufforderung zum Speichern, bevor nicht gespeicherte Änderungen verworfen werden</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation type="unfinished">Ksnip-Position beim Verschieben speichern und beim Starten laden</translation>
+        <translation>Ksnip-Position beim Verschieben speichern und beim Starten laden</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation type="unfinished">Ksnip-Werkzeugauswahl speichern und beim Starten laden</translation>
+        <translation>Ksnip-Werkzeugauswahl speichern und beim Starten laden</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished">Beim Starten Screenshot-Aufnahmen im Standardmodus</translation>
+        <translation>Beim Starten Screenshot im Standardmodus aufnehmen</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished">Sofort speichern am Standardspeicherort ohne &quot;Speichern unter&quot; Dialog zu öffnen</translation>
+        <translation>Sofort am Standardspeicherort speichern, ohne &quot;Speichern unter&quot;-Dialog zu öffnen</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation type="unfinished">Wenn aktiviert, wird nicht gefragt, wo ein Screenshot gespeichert werden soll
+        <translation>Wenn aktiviert, wird nicht gefragt, wo ein Screenshot gespeichert werden soll,
 sondern speichert sofort am Standardspeicherort.</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished">Anwendungsstil</translation>
+        <translation>Anwendungsstil</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished">Setzt den Anwendungsstil welcher das Aussehen des GUI definiert.
-Änderung benötigt einen ksnip Neustart um wirksam zu werden.</translation>
+        <translation>Setzt den Anwendungsstil, welcher das Aussehen des GUIs definiert.
+Eine Änderung benötigt einen Neustart von ksnip, um wirksam zu werden.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Speicherort und Dateiname für Aufnahmen</translation>
+        <translation>Speicherort und Dateiname für Aufnahmen</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished">Dateiname kann $Y, $M, $D für Datum, $h, $m, $s für Zeit oder $T für Zeit im hhmmss-Format enthalten.</translation>
+        <translation>Dateiname kann $Y, $M, $D für Datum, $h, $m, $s für Zeit oder $T für Zeit im hhmmss-Format enthalten.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Durchsuche</translation>
+        <translation>Durchsuchen</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished">Anwendungseinstellungen</translation>
+        <translation>Anwendungseinstellungen</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Speicherort für Aufnahmen</translation>
+        <translation>Speicherort für Aufnahmen</translation>
     </message>
 </context>
 <context>
@@ -272,28 +272,28 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
+        <translation>Neues Token erhalten, versuche erneut hochzuladen …</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Imgur-Token ist abgelaufen, fordere neues Token an …</translation>
     </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation type="unfinished">Mauszeiger auf Screenshot erfassen</translation>
+        <translation>Mauszeiger auf Screenshot aufnehmen</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type="unfinished">Soll Mauszeiger auf Screenshots
-erfasst werden?</translation>
+        <translation>Legt fest, ob der Mauszeiger auf
+Screenshots sichtbar sein soll.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Bild während der Aufnahme einfrieren</translation>
+        <translation>Bild während der Aufnahme einfrieren</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -458,7 +458,7 @@ wirksam zu werden.</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished"></translation>
+        <translation>Warte auf imgur.com …</translation>
     </message>
     <message>
         <source>Username:</source>
@@ -512,11 +512,11 @@ und der Aufnahme.</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Rückgängig</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiederherstellen</translation>
     </message>
     <message>
         <source>Crop</source>
@@ -621,22 +621,22 @@ Möchten Sie sie speichern?</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Wasserzeichen hinzufügen</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fügt dem aufgenommenem Bild ein Wasserzeichen hinzu. Mehrere Wasserzeichen können hinzugefügt werden.</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Datei</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild auswählen</translation>
     </message>
     <message>
         <source>Images</source>
@@ -648,11 +648,11 @@ Möchten Sie sie speichern?</translation>
     </message>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild für Wasserzeichen erforderlich</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte fügen Sie ein Bild für das Wasserzeichen via  Optionen &gt; Einstellungen &gt; Annotator &gt; Aktualisieren hinzu</translation>
     </message>
     <message>
         <source>Save As</source>
@@ -687,7 +687,7 @@ Möchten Sie sie speichern?</translation>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished"></translation>
+        <translation>Annotator</translation>
     </message>
 </context>
 </TS>

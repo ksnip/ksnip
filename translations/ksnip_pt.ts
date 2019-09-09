@@ -84,11 +84,11 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagem de marca d&apos;água é necessária</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicione uma imagem de marca d&apos;água em Opções&gt; Configurações&gt; Editor&gt; Atualizar</translation>
     </message>
 </context>
 <context>
@@ -157,11 +157,11 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagem de marca d&apos;água</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Atualizar</translation>
     </message>
 </context>
 <context>
@@ -282,11 +282,11 @@ Requer reiniciar o ksnip para aplicar as mudanças.</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
+        <translation>Recebido um novo token, tentando fazer o upload novamente…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished"></translation>
+        <translation>O token Imgur expirou, solicitando novo token…</translation>
     </message>
 </context>
 <context>
@@ -475,7 +475,7 @@ A alteração requer que o ksnip reinicie para surtir efeito.</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished"></translation>
+        <translation>Aguardando imgur.com…</translation>
     </message>
 </context>
 <context>
@@ -516,19 +516,19 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Desfazer</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Refazer</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished">Recortar</translation>
+        <translation>Recortar</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation type="unfinished">Recortar captura de tela</translation>
+        <translation>Recortar captura de tela</translation>
     </message>
 </context>
 <context>
@@ -625,30 +625,30 @@ Você quer salvá-la?</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar uma Marca D&apos;água</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar marca d&apos;água à imagem capturada. Várias marcas d&apos;água podem ser adicionadas.</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Arquivo</translation>
     </message>
 </context>
 <context>
     <name>SaveAsOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Salvar como</translation>
+        <translation>Salvar como</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Imagens</translation>
+        <translation>Imagens</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Todos os arquivos</translation>
+        <translation>Todos os arquivos</translation>
     </message>
 </context>
 <context>
@@ -679,22 +679,22 @@ Você quer salvá-la?</translation>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished"></translation>
+        <translation>Editor</translation>
     </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecione uma imagem</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Imagens</translation>
+        <translation>Imagens</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Todos os arquivos</translation>
+        <translation>Todos os arquivos</translation>
     </message>
 </context>
 </TS>

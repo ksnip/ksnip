@@ -88,14 +88,14 @@
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Adicione uma imagem de marca d&apos;água em Opções&gt; Configurações&gt; Editor&gt; Atualizar</translation>
+        <translation>Adicione uma imagem de marca d&apos;água em Opções&gt; Configurações&gt; Editor&gt; Selecionar</translation>
     </message>
 </context>
 <context>
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
-        <translation>Exibir sombras do item</translation>
+        <translation>Exibir sombras dos objetos desenhados</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
@@ -161,30 +161,30 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Atualizar</translation>
+        <translation>Selecionar</translation>
     </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
         <source>Always copy capture to clipboard</source>
-        <translation>Sempre copia a captura para a área de transferência</translation>
+        <translation>Sempre copiar a captura para a área de transferência</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation>Avisar para salvar antes de descartar as alterações não salvas</translation>
+        <translation>Avisar para salvar antes de descartar um trabalho não salvo</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation>Salvar a posição do ksnip ao mover e carregar na inicialização</translation>
+        <translation>Salvar a posição da janela do ksnip para relembrar na inicialização</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation>Salve a seleção da ferramenta ksnip e carregue na inicialização</translation>
+        <translation>Salvar a ferramenta  de seleção para carreguar na inicialização</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation>Captura de tela na inicialização com o modo padrão</translation>
+        <translation>Capturar a tela ao iniciar com o modo padrão de captura</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
@@ -198,12 +198,12 @@ ao salvar, mas salvará instantaneamente no local padrão.</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation>Estilo de Aplicação</translation>
+        <translation>Estilo da Aplicação</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation>Define o estilo do aplicativo que define a aparência da interface gráfica.
+        <translation>Define o estilo da aplicação que determina a aparência da interface gráfica.
 Requer reiniciar o ksnip para aplicar as mudanças.</translation>
     </message>
     <message>
@@ -212,7 +212,7 @@ Requer reiniciar o ksnip para aplicar as mudanças.</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation>O nome do arquivo pode conter $ Y, $ M, $ D para data, $ h, $ m, $ s para hora ou $ T para hora no formato hhmmss.</translation>
+        <translation>O nome do arquivo pode conter $Y, $M, $D para data, $h, $m, $s para horas ou $T para hora no formato hhmmss.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -352,8 +352,8 @@ antes de iniciar a captura de uma área retangular.</translation>
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation>Enquanto o botão do mouse não é pressionado, a posição
-vertical e horizontal é exibida, quando o botão do mouse é
+        <translation>Enquanto o botão do mouse não for pressionado, a posição
+vertical e horizontal será exibida, quando o botão do mouse for
 pressionado, a altura será exibida à esquerda e o comprimento
 acima da área selecionada.</translation>
     </message>
@@ -625,7 +625,7 @@ Você quer salvá-la?</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation>Adicionar uma Marca D&apos;água</translation>
+        <translation>Adicionar Marca D&apos;água</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>

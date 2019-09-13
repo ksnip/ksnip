@@ -15,6 +15,7 @@
 * Fixed: Imgur Uploader on windows issue. ([#173](https://github.com/DamirPorobic/ksnip/issues/173))
 * Fixed: Add shortcut for File Menu in Main Menu. ([#192](https://github.com/DamirPorobic/ksnip/issues/192))
 * Fixed: Prompt to save before exit enabled now by default. ([#193](https://github.com/DamirPorobic/ksnip/issues/193))
+* Fixed: Configuration Window not translated. ([#186](https://github.com/DamirPorobic/ksnip/issues/186))
 * Fixed kImageAnnotator: Unable to select number annotation when clicking on the number without background. ([#46](https://github.com/DamirPorobic/kImageAnnotator/issues/46))
 * Fixed kImageAnnotator: Ctrl Modifier stuck on second or third screenshot with Ctrl-N. ([#58](https://github.com/DamirPorobic/kImageAnnotator/issues/58))
 * Fixed kImageAnnotator: Undo/Redo is now disabled during crop and scale operation. ([#56](https://github.com/DamirPorobic/kImageAnnotator/issues/56))

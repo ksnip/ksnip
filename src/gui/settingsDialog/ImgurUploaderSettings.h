@@ -34,9 +34,10 @@
 
 class ImgurUploaderSettings : public QGroupBox
 {
+	Q_OBJECT
 public:
 	explicit ImgurUploaderSettings(KsnipConfig *ksnipConfig);
-	~ImgurUploaderSettings();
+	~ImgurUploaderSettings() override;
 	void saveSettings();
 
 private:

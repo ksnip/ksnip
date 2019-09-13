@@ -34,6 +34,7 @@
 
 class ApplicationSettings : public QGroupBox
 {
+	Q_OBJECT
 public:
 	explicit ApplicationSettings(KsnipConfig *ksnipConfig);
 	~ApplicationSettings() override;

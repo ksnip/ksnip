@@ -36,6 +36,7 @@
 
 class AnnotationSettings : public QGroupBox
 {
+	Q_OBJECT
 public:
     explicit AnnotationSettings(KsnipConfig *config);
     ~AnnotationSettings() override;

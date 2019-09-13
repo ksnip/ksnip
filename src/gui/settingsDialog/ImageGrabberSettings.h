@@ -31,9 +31,10 @@
 
 class ImageGrabberSettings : public QGroupBox
 {
+	Q_OBJECT
 public:
 	explicit ImageGrabberSettings(KsnipConfig *ksnipConfig);
-	~ImageGrabberSettings();
+	~ImageGrabberSettings() override;
 	void saveSettings();
 
 private:

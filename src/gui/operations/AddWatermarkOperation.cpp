@@ -22,6 +22,7 @@
 AddWatermarkOperation::AddWatermarkOperation(KImageAnnotator *kImageAnnotator)
 {
 	mKImageAnnotator = kImageAnnotator;
+	mConfig = KsnipConfig::instance();
 }
 
 void AddWatermarkOperation::execute()
@@ -33,7 +34,8 @@ void AddWatermarkOperation::execute()
 	}
 
 	auto availableSpace = mKImageAnnotator->image().size();
-	auto finishedWatermarkImage = mImagePreparer.prepare(watermarkImage, availableSpace);
+	auto rotated = mConfig->rotateWatermarkEnabled();
+	auto finishedWatermarkImage = mImagePreparer.prepare(watermarkImage, availableSpace, rotated);
 	auto position = getPositionForWatermark(finishedWatermarkImage, availableSpace);
 	mKImageAnnotator->insertImageItem(position, finishedWatermarkImage);
 }

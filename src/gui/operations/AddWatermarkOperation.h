@@ -29,6 +29,7 @@
 #include "WatermarkImagePreparer.h"
 #include "src/common/helper/MessageBoxHelper.h"
 #include "src/backend/WatermarkImageLoader.h"
+#include "src/backend/config/KsnipConfig.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -43,6 +44,7 @@ private:
 	KImageAnnotator *mKImageAnnotator;
 	WatermarkImagePreparer mImagePreparer;
 	WatermarkImageLoader mImageLoader;
+	KsnipConfig *mConfig;
 
 	QPointF getPositionForWatermark(const QPixmap &image, const QSize &availableSpace) const;
 	void NotifyAboutMissingWatermarkImage() const;

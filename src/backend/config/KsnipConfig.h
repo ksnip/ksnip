@@ -77,6 +77,8 @@ public:
 	QString applicationStyle() const;
 	void setApplicationStyle(QString style);
 
+	// Annotator
+
     bool textBold() const;
     void setTextBold(bool bold);
     bool textItalic() const;
@@ -97,6 +99,9 @@ public:
 
     int smoothFactor() const;
     void setSmoothFactor(int factor);
+
+	bool rotateWatermarkEnabled() const;
+	void setRotateWatermarkEnabled(bool enabled);
 
     // Image Grabber
 

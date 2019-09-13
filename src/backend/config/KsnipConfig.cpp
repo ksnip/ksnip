@@ -348,6 +348,20 @@ void KsnipConfig::setSmoothFactor(int  factor)
 	emit toolConfigChanged();
 }
 
+bool KsnipConfig::rotateWatermarkEnabled() const
+{
+	return loadValue(KsnipConfigOptions::rotateWatermarkEnabledString(), true).toBool();
+}
+
+void KsnipConfig::setRotateWatermarkEnabled(bool enabled)
+{
+	if (rotateWatermarkEnabled() == enabled) {
+		return;
+	}
+
+	saveValue(KsnipConfigOptions::rotateWatermarkEnabledString(), enabled);
+}
+
 // Image Grabber
 
 bool KsnipConfig::freezeImageWhileSnippingEnabled() const

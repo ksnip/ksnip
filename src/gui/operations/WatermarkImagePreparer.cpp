@@ -24,24 +24,32 @@ WatermarkImagePreparer::WatermarkImagePreparer()
 	mOpacity = 0.15;
 }
 
-QPixmap WatermarkImagePreparer::prepare(const QPixmap &image, const QSize &availableSpace) const
+QPixmap WatermarkImagePreparer::prepare(const QPixmap &image, const QSize &availableSpace, bool rotated) const
 {
-	auto finishedWatermarkImage = getPreparedWatermarkImage(image);
+	auto finishedWatermarkImage = getPreparedWatermarkImage(image, rotated);
 	return fitWatermarkIntoCapture(finishedWatermarkImage, availableSpace);
 }
 
-QPixmap WatermarkImagePreparer::getPreparedWatermarkImage(const QPixmap &watermarkImage) const
+QPixmap WatermarkImagePreparer::getPreparedWatermarkImage(const QPixmap &watermarkImage, bool rotated) const
 {
-	QTransform transform;
-	transform.rotate(45);
-	auto rotatedWatermarkImage = watermarkImage.transformed(transform);
+	auto preparedImage = watermarkImage;
+	if(rotated) {
+		preparedImage = getRotatedImage(watermarkImage);
+	}
 
-	QPixmap transparentWatermark(rotatedWatermarkImage.size());
+	QPixmap transparentWatermark(preparedImage.size());
 	transparentWatermark.fill(Qt::transparent);
 	QPainter painter(&transparentWatermark);
 	painter.setOpacity(mOpacity);
-	painter.drawPixmap(0, 0, rotatedWatermarkImage);
+	painter.drawPixmap(0, 0, preparedImage);
 	return transparentWatermark;
+}
+
+QPixmap WatermarkImagePreparer::getRotatedImage(const QPixmap &watermarkImage) const
+{
+	QTransform transform;
+	transform.rotate(45);
+	return watermarkImage.transformed(transform);
 }
 
 QPixmap &WatermarkImagePreparer::fitWatermarkIntoCapture(QPixmap &finishedWatermarkImage, const QSize &availableSpace) const

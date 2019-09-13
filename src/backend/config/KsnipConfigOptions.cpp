@@ -109,6 +109,11 @@ QString KsnipConfigOptions::smoothPathFactorString()
 	return annotatorSectionString() + QStringLiteral("SmoothPathFactor");
 }
 
+QString KsnipConfigOptions::rotateWatermarkEnabledString()
+{
+	return annotatorSectionString() + QStringLiteral("RotateWatermark");
+}
+
 QString KsnipConfigOptions::captureCursorString()
 {
 	return imageGrabberSectionString() + QStringLiteral("CaptureCursor");

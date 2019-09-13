@@ -45,6 +45,7 @@ public:
 private:
     QCheckBox *mSmoothPathCheckbox;
     QCheckBox *mItemShadowCheckbox;
+    QCheckBox *mRotateWatermarkCheckbox;
     QLabel *mTextFontLabel;
     QLabel *mNumberFontLabel;
     QLabel *mSmoothFactorLabel;

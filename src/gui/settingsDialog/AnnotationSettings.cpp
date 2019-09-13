@@ -33,6 +33,7 @@ AnnotationSettings::~AnnotationSettings()
 {
     delete mSmoothPathCheckbox;
     delete mItemShadowCheckbox;
+    delete mRotateWatermarkCheckbox;
     delete mTextFontLabel;
     delete mNumberFontLabel;
     delete mSmoothFactorLabel;
@@ -57,6 +58,7 @@ void AnnotationSettings::saveSettings()
     mConfig->setItemShadowEnabled(mItemShadowCheckbox->isChecked());
     mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
+    mConfig->setRotateWatermarkEnabled(mRotateWatermarkCheckbox->isChecked());
 }
 
 void AnnotationSettings::initGui()
@@ -65,6 +67,7 @@ void AnnotationSettings::initGui()
 
     mSmoothPathCheckbox = new QCheckBox(this);
     mItemShadowCheckbox = new QCheckBox(this);
+    mRotateWatermarkCheckbox = new QCheckBox(this);
     mTextFontLabel = new QLabel(this);
     mNumberFontLabel = new QLabel(this);
     mSmoothFactorLabel = new QLabel(this);
@@ -125,6 +128,9 @@ void AnnotationSettings::initGui()
     mUpdateWatermarkImageButton->setText(tr("Update"));
 	connect(mUpdateWatermarkImageButton, &QPushButton::clicked, this, &AnnotationSettings::updateWatermarkImageClicked);
 
+	mRotateWatermarkCheckbox->setText(tr("Rotate Watermark"));
+	mRotateWatermarkCheckbox->setToolTip(tr("When enabled, Watermark will be added with a rotation of 45°"));
+
     mLayout->setAlignment(Qt::AlignTop);
     mLayout->setColumnStretch(1, 1);
     mLayout->addWidget(mItemShadowCheckbox, 0, 0, 1, 2);
@@ -142,9 +148,10 @@ void AnnotationSettings::initGui()
     mLayout->addWidget(mNumberFontCombobox, 6, 1);
     mLayout->addWidget(mWatermarkImageLabel, 7, 0);
     mLayout->addWidget(mUpdateWatermarkImageButton, 7, 1, Qt::AlignLeft);
+	mLayout->addWidget(mRotateWatermarkCheckbox, 8, 0, 1, 2);
     mLayout->setRowMinimumHeight(7, 15);
 
-    setTitle(tr("Painter Settings"));
+    setTitle(tr("Annotator Settings"));
     setLayout(mLayout);
 }
 
@@ -158,6 +165,7 @@ void AnnotationSettings::loadConfig()
     mItemShadowCheckbox->setChecked(mConfig->itemShadowEnabled());
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
+    mRotateWatermarkCheckbox->setChecked(mConfig->rotateWatermarkEnabled());
     smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
 }
 

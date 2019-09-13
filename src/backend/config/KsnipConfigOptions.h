@@ -43,6 +43,7 @@ public:
 	static QString itemShadowEnabledString();
 	static QString smoothPathEnabledString();
 	static QString smoothPathFactorString();
+	static QString rotateWatermarkEnabledString();
 	static QString captureCursorString();
 	static QString snippingAreaRulersEnabledString();
 	static QString snippingAreaPositionAndSizeInfoEnabledString();

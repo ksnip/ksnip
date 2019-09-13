@@ -27,13 +27,14 @@ class WatermarkImagePreparer
 public:
 	explicit WatermarkImagePreparer();
 	~WatermarkImagePreparer() = default;
-	QPixmap prepare(const QPixmap &image, const QSize &availableSpace) const;
+	QPixmap prepare(const QPixmap &image, const QSize &availableSpace, bool rotated) const;
 
 private:
 	qreal mOpacity;
 
-	QPixmap getPreparedWatermarkImage(const QPixmap &watermarkImage) const;
+	QPixmap getPreparedWatermarkImage(const QPixmap &watermarkImage, bool rotated) const;
 	QPixmap &fitWatermarkIntoCapture(QPixmap &finishedWatermarkImage, const QSize &availableSpace) const;
+	QPixmap getRotatedImage(const QPixmap &watermarkImage) const;
 };
 
 #endif //KSNIP_WATERMARKIMAGEPREPARER_H

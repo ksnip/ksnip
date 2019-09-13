@@ -152,16 +152,24 @@ torná-los mais suaves.</translation>
         <translation>Define a fonte para a etiqueta de números.</translation>
     </message>
     <message>
-        <source>Painter Settings</source>
-        <translation>Configurações do Editor</translation>
-    </message>
-    <message>
         <source>Watermark Image</source>
         <translation>Imagem de marca d&apos;água</translation>
     </message>
     <message>
         <source>Update</source>
         <translation>Atualizar</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Annotator Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

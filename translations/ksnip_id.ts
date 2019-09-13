@@ -160,8 +160,16 @@ membuatnya lebih halus.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Painter Settings</source>
-        <translation type="unfinished">Pengaturan Painter</translation>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Annotator Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

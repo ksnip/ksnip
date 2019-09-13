@@ -161,15 +161,15 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotacionar Marca d&apos;água</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado, a Marca d&apos;água será acionada com rotação de 45º</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurações do Editor</translation>
     </message>
 </context>
 <context>

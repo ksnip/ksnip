@@ -84,11 +84,11 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation>Imagem de marca d&apos;água é necessária</translation>
+        <translation>Imagem de Marca d&apos;água é necessária</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Adicione uma imagem de marca d&apos;água em Opções&gt; Configurações&gt; Editor&gt; Selecionar</translation>
+        <translation>Adicione uma imagem de Marca d&apos;água em: Opções&gt; Configurações&gt; Editor&gt; Selecionar</translation>
     </message>
 </context>
 <context>
@@ -153,7 +153,7 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation>Imagem de marca d&apos;água</translation>
+        <translation>Imagem de Marca d&apos;água</translation>
     </message>
     <message>
         <source>Update</source>
@@ -633,7 +633,7 @@ Você quer salvá-la?</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation>Adicionar Marca D&apos;água</translation>
+        <translation>Adicionar Marca d&apos;água</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>

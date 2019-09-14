@@ -80,6 +80,7 @@ void MainWindow::processInstantCapture(const CaptureDto &capture)
 {
 	loadCapture(capture);
 	instantSave();
+	mKImageAnnotator->close();
 	close();
 }
 

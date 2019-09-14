@@ -188,11 +188,11 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation>Salvar a última ferramenta usada no Editor e carregá-la na inicialização</translation>
+        <translation>Salvar o último modo de captura utilizado e carregá-lo na inicialização</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation>Capturar a tela ao iniciar com o modo padrão de captura</translation>
+        <translation>Capturar a tela ao iniciar, utilizando o modo padrão de captura</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>

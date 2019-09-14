@@ -188,7 +188,7 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation>Salvar a ferramenta  de seleção para carreguar na inicialização</translation>
+        <translation>Salvar a última ferramenta usada no Editor e carreguar na inicialização</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>

@@ -36,7 +36,6 @@
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
 #include "src/common/helper/MessageBoxHelper.h"
-#include "src/gui/operations/SaveAsOperation.h"
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/operations/AddWatermarkOperation.h"
 

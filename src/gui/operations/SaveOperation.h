@@ -20,6 +20,8 @@
 #ifndef KSNIP_SAVEOPERATION_H
 #define KSNIP_SAVEOPERATION_H
 
+#include <QCoreApplication>
+
 #include "src/backend/config/KsnipConfig.h"
 #include "src/backend/config/SavePathProvider.h"
 #include "src/backend/ImageSaver.h"
@@ -27,14 +29,16 @@
 class SaveOperation
 {
 public:
-    SaveOperation(const QImage &image);
+    SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave);
     ~SaveOperation() = default;
     bool execute();
 
 private:
+    QWidget* mParent;
     QImage mImage;
     SavePathProvider mSavePathProvider;
     ImageSaver mImageSaver;
+    bool mIsInstantSave;
 };
 
 #endif //KSNIP_SAVEOPERATION_H

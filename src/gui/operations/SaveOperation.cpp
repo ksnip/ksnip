@@ -19,13 +19,31 @@
 
 #include "SaveOperation.h"
 
-SaveOperation::SaveOperation(const QImage &image)
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave)
 {
+    Q_ASSERT(parent != nullptr);
+
+    mParent = parent;
     mImage = image;
+    mIsInstantSave = isInstantSave;
 }
 
 bool SaveOperation::execute()
 {
     auto path = mSavePathProvider.savePath();
+
+    if(mIsInstantSave){
+	    auto title = QCoreApplication::translate("SaveOperation", "Save As");
+	    auto filter = QCoreApplication::translate("SaveOperation", "Images") + QStringLiteral(" (*.png *.gif *.jpg);;") + QCoreApplication::translate("SaveOperation", "All Files") + QStringLiteral("(*)");
+	    QFileDialog saveDialog(mParent, title, path, filter);
+	    saveDialog.setAcceptMode(QFileDialog::AcceptSave);
+
+	    if (saveDialog.exec() != QDialog::Accepted) {
+		    return false;
+	    }
+
+	    path = saveDialog.selectedFiles().first();
+    }
+
     return mImageSaver.save(mImage, path);
 }

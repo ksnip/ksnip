@@ -347,17 +347,11 @@ void MainWindow::initGui()
 
 void MainWindow::saveCapture()
 {
-	bool isSaved;
 	auto image = mKImageAnnotator->image();
-    if (mConfig->useInstantSave()) {
-        auto saveOperation = SaveOperation(image);
-        isSaved = saveOperation.execute();
-    } else {
-        auto saveAsOperation = SaveAsOperation(this, image);
-        isSaved = saveAsOperation.execute();
-    }
+	auto saveOperation = SaveOperation(this, image, mConfig->useInstantSave());
+	bool saveSuccessful = saveOperation.execute();
 
-    setSaveable(!isSaved);
+    setSaveable(!saveSuccessful);
 }
 
 void MainWindow::copyCaptureToClipboard()
@@ -408,7 +402,7 @@ void MainWindow::printPreviewClicked()
 void MainWindow::instantSave()
 {
 	auto screenshot = mKImageAnnotator->image();
-    auto saveOperation = SaveOperation(screenshot);
+    auto saveOperation = SaveOperation(this, screenshot, true);
     auto saveSuccessful = saveOperation.execute();
 	auto savePath = mSavePathProvider.savePath();
 	if (saveSuccessful) {

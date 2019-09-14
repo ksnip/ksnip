@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Screenshot Tool</source>
-        <translation>Schermafbeeldingshulpmiddel</translation>
+        <translation>Hulpmiddel bij schermafdrukken</translation>
     </message>
     <message>
         <source>License: </source>
@@ -84,155 +84,155 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Watermerkafbeelding vereist</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg een watermerkafbeelding toe via Opties --&gt; Instellingen --&gt; Aantekeningen --&gt; Bijwerken</translation>
     </message>
 </context>
 <context>
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished">Schaduwen intekenen</translation>
+        <translation>Schaduwen intekenen</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished">Als dit wordt ingeschakeld, dan worden zichtbare items voorzien van schaduwen.</translation>
+        <translation>Als dit wordt ingeschakeld, dan worden zichtbare items voorzien van schaduwen.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished">Gladvegen</translation>
+        <translation>Gladvegen</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished">Als dit wordt ingeschakeld, dan worden
+        <translation>Als dit wordt ingeschakeld, dan worden
 pen- en markeerstrepen gladgeveegd.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished">Gladveeg-factor</translation>
+        <translation>Gladveeg-factor</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished">Het verhogen van de factor vermindert de
+        <translation>Het verhogen van de factor vermindert de
 precisie, maar maakt de pen- en markeerstrepen
 gladder.</translation>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished">Tekstlettertype</translation>
+        <translation>Tekstlettertype</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished">Stelt het lettertype in van het tekstitem.</translation>
+        <translation>Stelt het lettertype in van het tekstitem.</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished">Vetgedrukt</translation>
+        <translation>Vetgedrukt</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished">Cursief</translation>
+        <translation>Cursief</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished">Onderstrepen</translation>
+        <translation>Onderstrepen</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation type="unfinished">Getallettertype</translation>
+        <translation>Getallettertype</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished">Stelt het lettertype in van de getallen.</translation>
+        <translation>Stelt het lettertype in van de getallen.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Watermerkafbeelding</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Bijwerken</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Watermerk draaien</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruik deze optie om een watermerk toe te voegen dat 45° gedraaid is</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Aantekeningsinstellingen</translation>
     </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
         <source>Always copy capture to clipboard</source>
-        <translation type="unfinished">Schermafbeelding altijd kopiëren naar klembord</translation>
+        <translation>Schermafdruk altijd kopiëren naar klembord</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Vragen om op te slaan bij niet-opgeslagen wijzigingen</translation>
+        <translation>Altijd vragen om aanpassingen op te slaan</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation type="unfinished">ksnip-vensterpositie onthouden bij verplaatsen en laden bij opstarten</translation>
+        <translation>ksnip-vensterpositie onthouden bij verplaatsen en laden bij opstarten</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation type="unfinished">ksnip-hulpmiddelkeuze onthouden en laden bij opstarten</translation>
+        <translation>ksnip-hulpmiddelkeuze onthouden en laden bij opstarten</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished">Schermafbeelding vastleggen met standaardmodus bij opstarten</translation>
+        <translation>Schermafdruk vastleggen met standaardmodus bij opstarten</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished">Niet vragen waar schermafbeelding moet worden opgeslagen</translation>
+        <translation>Niet vragen waar schermafdruk moet worden opgeslagen</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation type="unfinished">Als dit wordt ingeschakeld, dan wordt er niet gevraagd waar een schermafbeelding
-moet worden opgeslagen, maar wordt deze direct opgeslagen in de standaardlocatie.</translation>
+        <translation>Gebruik deze optie om niet te worden gevraagd waar een schermafdruk
+moet worden opgeslagen, maar deze direct op te slaan in de standaardlocatie.</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished">Applicatiestijl</translation>
+        <translation>Programmastijl</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished">Stel de applicatiestijl in. Dit bepaalt het uiterlijk.
+        <translation>Hiermee bepaal je het uiterlijk en gedrag van het programma.
 Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Opslaglocatie en bestandsnaam</translation>
+        <translation>Opslaglocatie en bestandsnaam</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished">De bestandsnaam mag het volgende bevatten: $Y, $M, $D voor de datum, $h, $m, $s voor de tijd, of $T voor de tijd in uummss-opmaak.</translation>
+        <translation>De bestandsnaam mag het volgende bevatten: $Y, $M, $D voor de datum, $h, $m, $s voor de tijd, of $T voor de tijd in uummss-opmaak.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Bladeren</translation>
+        <translation>Bladeren</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished">App-instellingen</translation>
+        <translation>Programma-instellingen</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Opslaglocatie</translation>
+        <translation>Opslaglocatie</translation>
     </message>
 </context>
 <context>
@@ -263,7 +263,7 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation>Schermafbeelding maken van het scherm waar de cursor zich bevindt</translation>
+        <translation>Schermafdruk maken van het scherm met de cursor</translation>
     </message>
     <message>
         <source>Active Window</source>
@@ -271,7 +271,7 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation>Schermafbeelding maken van het momenteel gefocuste venster</translation>
+        <translation>Schermafdruk maken van het momenteel gefocuste venster</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
@@ -279,39 +279,39 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation>Schermafbeelding maken van het scherm dat zich onder de cursor bevindt</translation>
+        <translation>Schermdruk maken van het scherm onder de cursor</translation>
     </message>
 </context>
 <context>
     <name>CaptureUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Geüpload naar imgur.com!</translation>
+        <translation>Afbeelding geüpload naar imgur.com!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuwe toegangssleutel ontvangen; bezig met opnieuw uploaden…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur-toegangssleutel verlopen; bezig met aanvragen van nieuwe…</translation>
     </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation type="unfinished">Cursor vastleggen bij maken van schermafbeelding</translation>
+        <translation>Cursor vastleggen bij maken van schermafdruk</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type="unfinished">Of de cursor zichtbaar moet zijn op
-schermafbeeldingen.</translation>
+        <translation>Of de cursor zichtbaar moet zijn op
+schermafdrukken.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Afbeelding bevriezen tijdens vastleggen</translation>
+        <translation>Afbeelding bevriezen tijdens vastleggen</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -326,27 +326,29 @@ used for MacOs.</source>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Vergrootglas tonen op vastleggebied</translation>
+        <translation>Vergrootglas tonen op vastleggebied</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Toont een vergrootglas om in te zoomen op de
+achtergrondafbeelding. Deze optie werkt alleen als
+&apos;Afbeelding bevriezen tijdens vastleggen&apos; is ingeschakeld.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Linialen tonen op vastleggebied</translation>
+        <translation>Linialen tonen op vastleggebied</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Horizontale en verticale lijnen die lopen vanaf
+        <translation>Horizontale en verticale lijnen die lopen vanaf
 de schermranden naar de cursor op het vastleggebied.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Positie- en grootte-informatie tonen op vastleggebied</translation>
+        <translation>Positie- en grootte-informatie tonen op vastleggebied</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
@@ -357,31 +359,31 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Cursorkleur binnen vastleggebied</translation>
+        <translation>Cursorkleur binnen vastleggebied</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished">Stelt de kleur in van de cursor tijdens het
+        <translation>Stelt de kleur in van de cursor tijdens het
 vastleggen. Als je dit wijzigt, dan moet je
 ksnip herstarten om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Cursordikte binnen vastleggebied</translation>
+        <translation>Cursordikte binnen vastleggebied</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished">Stelt de dikte in van de cursor tijdens het vastleggen.
-Als je dit wijzigt, dan moet je ksnip herstarten om
-de wijziging toe te passen.</translation>
+        <translation>Stelt de dikte in van de cursor tijdens het vastleggen.
+Herstart ksnip om de wijziging
+toe te passen.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished">Scherm vastleggen</translation>
+        <translation>Scherm vastleggen</translation>
     </message>
 </context>
 <context>
@@ -411,71 +413,71 @@ de wijziging toe te passen.</translation>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished">Anonieme upload vereisen</translation>
+        <translation>Anoniem uploaden</translation>
     </message>
     <message>
         <source>Open link directly to image</source>
-        <translation type="unfinished">Directe link naar afbeelding openen</translation>
+        <translation>Directe link naar afbeelding openen</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished">Imgur-link altijd kopiëren naar klembord</translation>
+        <translation>Imgur-link altijd kopiëren naar klembord</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Vragen om bevestiging alvorens te uploaden</translation>
+        <translation>Vragen alvorens te uploaden</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished">Client-ID</translation>
+        <translation>Client-id</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished">Client-geheim</translation>
+        <translation>Client-geheim</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished">Pincode</translation>
+        <translation>Pincode</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished">Voer de imgur-pincode in. Deze wordt omgeruild voor een toegangssleutel.</translation>
+        <translation>Voer de imgur-pincode in. Deze wordt omgeruild voor een toegangssleutel.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished">Pincode verkrijgen</translation>
+        <translation>Pincode ophalen</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished">Toegangssleutel verkrijgen</translation>
+        <translation>Toegangssleutel ophalen</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished">Imgur-geschiedenis</translation>
+        <translation>Imgur-geschiedenis</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished">Imgur-uploader</translation>
+        <translation>Imgur-uploader</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Gebruikersnaam</translation>
+        <translation>Gebruikersnaam</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezig met wachten op imgur.com…</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished">Gebruikersnaam:</translation>
+        <translation>Gebruikersnaam:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished">De toegangssleutel van imgur.com is bijgewerkt.</translation>
+        <translation>De imgur.com-toegangssleutel is bijgewerkt.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished">Fout tijdens bijwerken van imgur.com-toegangssleutel.</translation>
+        <translation>Fout tijdens bijwerken van imgur.com-toegangssleutel.</translation>
     </message>
 </context>
 <context>
@@ -500,7 +502,7 @@ van schermafdruk, in seconden.</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation>Schermafdruk opslaan naar bestandssysteem</translation>
+        <translation>Schermafdruk opslaan op bestandssysteem</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -516,19 +518,19 @@ van schermafdruk, in seconden.</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Ongedaan maken</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Opnieuw uitvoeren</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished">Bijsnijden</translation>
+        <translation>Bijsnijden</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation type="unfinished">Schermafbeelding bijsnijden</translation>
+        <translation>Schermafdruk bijsnijden</translation>
     </message>
 </context>
 <context>
@@ -543,7 +545,7 @@ van schermafdruk, in seconden.</translation>
     </message>
     <message>
         <source>Upload capture image to imgur.com</source>
-        <translation>Schermafbeelding uploaden naar imgur.com</translation>
+        <translation>Schermafdruk uploaden naar imgur.com</translation>
     </message>
     <message>
         <source>Print</source>
@@ -563,11 +565,11 @@ van schermafdruk, in seconden.</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation>Grootte wijzigen</translation>
+        <translation>Grootte aanpassen</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
-        <translation>Grootte van schermafbeelding wijzigen</translation>
+        <translation>Grootte van schermafdruk aanpassen</translation>
     </message>
     <message>
         <source>Quit</source>
@@ -612,7 +614,7 @@ van schermafdruk, in seconden.</translation>
     <message>
         <source>The capture has been modified.
 Do you want to save it?</source>
-        <translation>De schermafbeelding is bewerkt.
+        <translation>Er zijn aanpassingen gedaan.
 Wil je deze opslaan?</translation>
     </message>
     <message>
@@ -621,34 +623,34 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Je staat op het punt om de schermafbeelding te uploaden naar imgur.com. Wil je doorgaan?</translation>
+        <translation>Je staat op het punt om de schermafdruk te uploaden naar imgur.com. Wil je doorgaan?</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Watermerk toevoegen</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorzie de schermafdruk van een watermerk. Je kunt meerdere watermerken toevoegen.</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bestand</translation>
     </message>
 </context>
 <context>
     <name>SaveAsOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Opslaan als</translation>
+        <translation>Opslaan als</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Afbeeldingen</translation>
+        <translation>Afbeeldingen</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Alle bestanden</translation>
+        <translation>Alle bestanden</translation>
     </message>
 </context>
 <context>
@@ -675,26 +677,26 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation>Applicatie</translation>
+        <translation>Programma</translation>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished"></translation>
+        <translation>Aantekeningen</translation>
     </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeelding kiezen</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Afbeeldingen</translation>
+        <translation>Afbeeldingen</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Alle bestanden</translation>
+        <translation>Alle bestanden</translation>
     </message>
 </context>
 </TS>

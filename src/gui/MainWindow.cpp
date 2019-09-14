@@ -206,6 +206,7 @@ void MainWindow::setEnablements(bool enabled)
     mPrintPreviewAction->setEnabled(enabled);
     mUploadToImgurAction->setEnabled(enabled);
 	mScaleAction->setEnabled(enabled);
+	mAddWatermarkAction->setEnabled(enabled);
     mToolBar->setCopyActionEnabled(enabled);
     mToolBar->setCropEnabled(enabled);
 }

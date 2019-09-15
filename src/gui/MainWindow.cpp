@@ -362,14 +362,8 @@ void MainWindow::copyCaptureToClipboard()
 void MainWindow::upload()
 {
 	auto image = mKImageAnnotator->image();
-
-	if (image.isNull()) {
-		return;
-	}
-
-    if (proceedWithUpload()) {
-	    mCaptureUploader->upload(image);
-    }
+	auto uploadOperation = UploadOperation(image, mCaptureUploader);
+	uploadOperation.execute();
 }
 
 void MainWindow::uploadFinished(QString message)
@@ -423,16 +417,6 @@ bool MainWindow::discardChanges()
 	auto image = mKImageAnnotator->image();
 	auto discardOperation = CanDiscardOperation(this, image, mIsUnsaved);
 	return discardOperation.execute();
-}
-
-bool MainWindow::proceedWithUpload() const
-{
-    if (mConfig->imgurConfirmBeforeUpload()) {
-        return MessageBoxHelper::yesNo(tr("Imgur Upload"),
-                                       tr("You are about to upload the screenshot to "
-                                          "a imgur.com, do you want to proceed?"));
-    }
-    return true;
 }
 
 void MainWindow::copyToClipboard(const QString &message) const

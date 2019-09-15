@@ -25,8 +25,8 @@
 
 #include <kImageAnnotator/KImageAnnotator.h>
 
-#include "src/gui/settingsDialog/SettingsDialog.h"
 #include "AboutDialog.h"
+#include "src/gui/settingsDialog/SettingsDialog.h"
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
@@ -35,10 +35,10 @@
 #include "src/backend/CapturePrinter.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
-#include "src/common/helper/MessageBoxHelper.h"
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/operations/AddWatermarkOperation.h"
 #include "src/gui/operations/CanDiscardOperation.h"
+#include "src/gui/operations/UploadOperation.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -104,7 +104,6 @@ private slots:
     void loadImageFromFile();
     void screenshotChanged();
     bool discardChanges();
-    bool proceedWithUpload() const;
     void copyToClipboard(const QString &message) const;
     QString &formatUrl(QString &message) const;
     void setupImageAnnotator();

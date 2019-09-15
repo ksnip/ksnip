@@ -50,6 +50,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/operations/UpdateWatermarkOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/WatermarkImagePreparer.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/CanDiscardOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/operations/UploadOperation.cpp
 	)
 
 if (APPLE)

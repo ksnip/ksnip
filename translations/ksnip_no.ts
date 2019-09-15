@@ -161,15 +161,15 @@ vil gjøre dem mykere.</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Roter vannmerke</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation>Legger til vannmere rotert 45°</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Undertekstingsinnstillinger</translation>
     </message>
 </context>
 <context>
@@ -500,7 +500,7 @@ Endring krever omstart av ksnip.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Etter opplasting, åpne Imgur-lenke i forvalgt nettleser</translation>
     </message>
 </context>
 <context>

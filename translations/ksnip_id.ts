@@ -236,6 +236,19 @@ Perubahan ini membutuhkan ksnip ditutup dan buka lagi.</translation>
     </message>
 </context>
 <context>
+    <name>CanDiscardOperation</name>
+    <message>
+        <source>Warning - </source>
+        <translation type="unfinished">Peringatan </translation>
+    </message>
+    <message>
+        <source>The capture has been modified.
+Do you want to save it?</source>
+        <translation type="unfinished">Hasil tangkapan sudah diubah.
+Anda ingin menyimpannya?</translation>
+    </message>
+</context>
+<context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
@@ -488,6 +501,10 @@ dan buka ulang.</translation>
         <source>Imgur.com token update error.</source>
         <translation type="unfinished">Ada kesalahan dalam pemutakhiran token imgur.com.</translation>
     </message>
+    <message>
+        <source>After uploading open Imgur link in default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -617,24 +634,6 @@ gambar, dalam detik.</translation>
         <translation>File Gambar (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
-        <source>Warning - </source>
-        <translation>Peringatan </translation>
-    </message>
-    <message>
-        <source>The capture has been modified.
-Do you want to save it?</source>
-        <translation>Hasil tangkapan sudah diubah.
-Anda ingin menyimpannya?</translation>
-    </message>
-    <message>
-        <source>Imgur Upload</source>
-        <translation>Unggah Imgur</translation>
-    </message>
-    <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Anda akan mengunggah hasil tangkapan layar ke imgur.com, lanjutkan?</translation>
-    </message>
-    <message>
         <source>Add Watermark</source>
         <translation type="unfinished"></translation>
     </message>
@@ -648,7 +647,7 @@ Anda ingin menyimpannya?</translation>
     </message>
 </context>
 <context>
-    <name>SaveAsOperation</name>
+    <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation type="unfinished">Simpan Sebagai</translation>
@@ -706,6 +705,17 @@ Anda ingin menyimpannya?</translation>
     <message>
         <source>All Files</source>
         <translation type="unfinished">Semua file</translation>
+    </message>
+</context>
+<context>
+    <name>UploadOperation</name>
+    <message>
+        <source>Imgur Upload</source>
+        <translation type="unfinished">Unggah Imgur</translation>
+    </message>
+    <message>
+        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
+        <translation type="unfinished">Anda akan mengunggah hasil tangkapan layar ke imgur.com, lanjutkan?</translation>
     </message>
 </context>
 </TS>

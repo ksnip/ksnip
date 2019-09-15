@@ -233,6 +233,19 @@ O cambio require do reinicio do ksnip para que teña efecto.</translation>
     </message>
 </context>
 <context>
+    <name>CanDiscardOperation</name>
+    <message>
+        <source>Warning - </source>
+        <translation type="unfinished">Aviso - </translation>
+    </message>
+    <message>
+        <source>The capture has been modified.
+Do you want to save it?</source>
+        <translation type="unfinished">A captura foi modificada.
+Quere gardala?</translation>
+    </message>
+</context>
+<context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
@@ -479,6 +492,10 @@ take effect.</source>
         <source>Imgur.com token update error.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>After uploading open Imgur link in default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -608,24 +625,6 @@ e a captura de pantalla.</translation>
         <translation>Ficheiros de imaxe (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
-        <source>Warning - </source>
-        <translation>Aviso - </translation>
-    </message>
-    <message>
-        <source>The capture has been modified.
-Do you want to save it?</source>
-        <translation>A captura foi modificada.
-Quere gardala?</translation>
-    </message>
-    <message>
-        <source>Imgur Upload</source>
-        <translation>Enviar a Imgur</translation>
-    </message>
-    <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Está a piques de enviar a captura de pantalla a imgur.com, quere continuar?</translation>
-    </message>
-    <message>
         <source>Add Watermark</source>
         <translation type="unfinished"></translation>
     </message>
@@ -639,7 +638,7 @@ Quere gardala?</translation>
     </message>
 </context>
 <context>
-    <name>SaveAsOperation</name>
+    <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation type="unfinished">Gardar como</translation>
@@ -697,6 +696,17 @@ Quere gardala?</translation>
     <message>
         <source>All Files</source>
         <translation type="unfinished">Todos os ficheiros</translation>
+    </message>
+</context>
+<context>
+    <name>UploadOperation</name>
+    <message>
+        <source>Imgur Upload</source>
+        <translation type="unfinished">Enviar a Imgur</translation>
+    </message>
+    <message>
+        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
+        <translation type="unfinished">Está a piques de enviar a captura de pantalla a imgur.com, quere continuar?</translation>
     </message>
 </context>
 </TS>

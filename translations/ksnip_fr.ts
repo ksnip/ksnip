@@ -235,6 +235,19 @@ Change requires ksnip restart to take effect.</source>
     </message>
 </context>
 <context>
+    <name>CanDiscardOperation</name>
+    <message>
+        <source>Warning - </source>
+        <translation type="unfinished">Alerte - </translation>
+    </message>
+    <message>
+        <source>The capture has been modified.
+Do you want to save it?</source>
+        <translation type="unfinished">La capture a été modifiée.
+Voulez-vous l&apos;enregistrer ?</translation>
+    </message>
+</context>
+<context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
@@ -474,6 +487,10 @@ prendre effet.</translation>
         <source>Imgur.com token update error.</source>
         <translation type="unfinished">Erreur de mise à jour du Jeton Imgur.com.</translation>
     </message>
+    <message>
+        <source>After uploading open Imgur link in default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -602,24 +619,6 @@ and capturing screenshot.</source>
         <translation>Fichier d&apos;images (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
-        <source>Warning - </source>
-        <translation>Alerte - </translation>
-    </message>
-    <message>
-        <source>The capture has been modified.
-Do you want to save it?</source>
-        <translation>La capture a été modifiée.
-Voulez-vous l&apos;enregistrer ?</translation>
-    </message>
-    <message>
-        <source>Imgur Upload</source>
-        <translation>Exporter à Imgur</translation>
-    </message>
-    <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Vous êtes sur le point d&apos;exporter la capture d&apos;écran sur imgur.com, voulez-vous continuer ?</translation>
-    </message>
-    <message>
         <source>Add Watermark</source>
         <translation type="unfinished"></translation>
     </message>
@@ -633,7 +632,7 @@ Voulez-vous l&apos;enregistrer ?</translation>
     </message>
 </context>
 <context>
-    <name>SaveAsOperation</name>
+    <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation type="unfinished">Enregistrer sous</translation>
@@ -691,6 +690,17 @@ Voulez-vous l&apos;enregistrer ?</translation>
     <message>
         <source>All Files</source>
         <translation type="unfinished">Tous les fichiers</translation>
+    </message>
+</context>
+<context>
+    <name>UploadOperation</name>
+    <message>
+        <source>Imgur Upload</source>
+        <translation type="unfinished">Exporter à Imgur</translation>
+    </message>
+    <message>
+        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
+        <translation type="unfinished">Vous êtes sur le point d&apos;exporter la capture d&apos;écran sur imgur.com, voulez-vous continuer ?</translation>
     </message>
 </context>
 </TS>

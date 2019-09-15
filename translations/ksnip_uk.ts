@@ -236,6 +236,19 @@ Change requires ksnip restart to take effect.</source>
     </message>
 </context>
 <context>
+    <name>CanDiscardOperation</name>
+    <message>
+        <source>Warning - </source>
+        <translation type="unfinished">Увага - </translation>
+    </message>
+    <message>
+        <source>The capture has been modified.
+Do you want to save it?</source>
+        <translation type="unfinished">Скріншот був змінений.
+Зберегти зміни?</translation>
+    </message>
+</context>
+<context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
@@ -486,6 +499,10 @@ take effect.</source>
         <source>Imgur.com token update error.</source>
         <translation type="unfinished">Помилка при оновленні токену imgur.com.</translation>
     </message>
+    <message>
+        <source>After uploading open Imgur link in default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -615,24 +632,6 @@ and capturing screenshot.</source>
         <translation>Файли зображень (*.png, *.jpg, *.bmp)</translation>
     </message>
     <message>
-        <source>Warning - </source>
-        <translation>Увага - </translation>
-    </message>
-    <message>
-        <source>The capture has been modified.
-Do you want to save it?</source>
-        <translation>Скріншот був змінений.
-Зберегти зміни?</translation>
-    </message>
-    <message>
-        <source>Imgur Upload</source>
-        <translation>Завантаження на Imgur</translation>
-    </message>
-    <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Ви збираєтеся завантажити зняток на imgur.com. Почати завантаження?</translation>
-    </message>
-    <message>
         <source>Add Watermark</source>
         <translation type="unfinished"></translation>
     </message>
@@ -646,7 +645,7 @@ Do you want to save it?</source>
     </message>
 </context>
 <context>
-    <name>SaveAsOperation</name>
+    <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation type="unfinished">Зберегти як</translation>
@@ -704,6 +703,17 @@ Do you want to save it?</source>
     <message>
         <source>All Files</source>
         <translation type="unfinished">Усі файли</translation>
+    </message>
+</context>
+<context>
+    <name>UploadOperation</name>
+    <message>
+        <source>Imgur Upload</source>
+        <translation type="unfinished">Завантаження на Imgur</translation>
+    </message>
+    <message>
+        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
+        <translation type="unfinished">Ви збираєтеся завантажити зняток на imgur.com. Почати завантаження?</translation>
     </message>
 </context>
 </TS>

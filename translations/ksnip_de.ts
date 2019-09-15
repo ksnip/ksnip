@@ -237,6 +237,19 @@ Eine Änderung benötigt einen Neustart von ksnip, um wirksam zu werden.</transl
     </message>
 </context>
 <context>
+    <name>CanDiscardOperation</name>
+    <message>
+        <source>Warning - </source>
+        <translation type="unfinished">Warnung - </translation>
+    </message>
+    <message>
+        <source>The capture has been modified.
+Do you want to save it?</source>
+        <translation type="unfinished">Die Aufnahme wurde geändert.
+Möchten Sie sie speichern?</translation>
+    </message>
+</context>
+<context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
@@ -491,6 +504,10 @@ Neustart von ksnip, um wirksam zu werden.</translation>
         <source>Imgur.com token update error.</source>
         <translation type="unfinished">Fehler beim Aktualisieren des Imgur-Tokens.</translation>
     </message>
+    <message>
+        <source>After uploading open Imgur link in default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -548,16 +565,6 @@ und der Aufnahme.</translation>
 </context>
 <context>
     <name>MainWindow</name>
-    <message>
-        <source>Warning - </source>
-        <translation>Warnung - </translation>
-    </message>
-    <message>
-        <source>The capture has been modified.
-Do you want to save it?</source>
-        <translation>Die Aufnahme wurde geändert.
-Möchten Sie sie speichern?</translation>
-    </message>
     <message>
         <source>Unsaved</source>
         <translation>Ungespeichert</translation>
@@ -623,14 +630,6 @@ Möchten Sie sie speichern?</translation>
         <translation>&amp;Hilfe</translation>
     </message>
     <message>
-        <source>Imgur Upload</source>
-        <translation>Hochladen bei Imgur</translation>
-    </message>
-    <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Sie sind im Begriff, den Screenshot zu imgur.com hochzuladen, möchten Sie fortfahren?</translation>
-    </message>
-    <message>
         <source>Open Image</source>
         <translation>Bild öffnen</translation>
     </message>
@@ -652,18 +651,18 @@ Möchten Sie sie speichern?</translation>
     </message>
 </context>
 <context>
-    <name>SaveAsOperation</name>
+    <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation type="unfinished">Speichern als</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation>Bilder</translation>
+        <translation type="unfinished">Bilder</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation>Alle Dateien</translation>
+        <translation type="unfinished">Alle Dateien</translation>
     </message>
 </context>
 <context>
@@ -710,6 +709,17 @@ Möchten Sie sie speichern?</translation>
     <message>
         <source>All Files</source>
         <translation type="unfinished">Alle Dateien</translation>
+    </message>
+</context>
+<context>
+    <name>UploadOperation</name>
+    <message>
+        <source>Imgur Upload</source>
+        <translation type="unfinished">Hochladen bei Imgur</translation>
+    </message>
+    <message>
+        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
+        <translation type="unfinished">Sie sind im Begriff, den Screenshot zu imgur.com hochzuladen, möchten Sie fortfahren?</translation>
     </message>
 </context>
 </TS>

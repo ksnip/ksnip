@@ -236,6 +236,19 @@ grensesnittet. Endringer krever omstart av ksnip.</translation>
     </message>
 </context>
 <context>
+    <name>CanDiscardOperation</name>
+    <message>
+        <source>Warning - </source>
+        <translation type="unfinished">Advarsel - </translation>
+    </message>
+    <message>
+        <source>The capture has been modified.
+Do you want to save it?</source>
+        <translation type="unfinished">Avbildningen har blitt endret.
+Ønsker du å lagre den?</translation>
+    </message>
+</context>
+<context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
@@ -485,6 +498,10 @@ Endring krever omstart av ksnip.</translation>
         <source>Imgur.com token update error.</source>
         <translation type="unfinished">Imgur.com-symboloppdateringsfeil.</translation>
     </message>
+    <message>
+        <source>After uploading open Imgur link in default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -614,24 +631,6 @@ og avbildning av skjerm.</translation>
         <translation>Bildefiler (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
-        <source>Warning - </source>
-        <translation>Advarsel - </translation>
-    </message>
-    <message>
-        <source>The capture has been modified.
-Do you want to save it?</source>
-        <translation type="unfinished">Avbildningen har blitt endret.
-Ønsker du å lagre den?</translation>
-    </message>
-    <message>
-        <source>Imgur Upload</source>
-        <translation>Imgur-opplasting</translation>
-    </message>
-    <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Du er i ferd med å laste opp skjermavbildningen til imgur.com, ønsker du å fortsette?</translation>
-    </message>
-    <message>
         <source>Add Watermark</source>
         <translation>Legg til vannmerke</translation>
     </message>
@@ -645,7 +644,7 @@ Do you want to save it?</source>
     </message>
 </context>
 <context>
-    <name>SaveAsOperation</name>
+    <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation type="unfinished">Lagre som</translation>
@@ -703,6 +702,17 @@ Do you want to save it?</source>
     <message>
         <source>All Files</source>
         <translation type="unfinished">Alle filer</translation>
+    </message>
+</context>
+<context>
+    <name>UploadOperation</name>
+    <message>
+        <source>Imgur Upload</source>
+        <translation type="unfinished">Imgur-opplasting</translation>
+    </message>
+    <message>
+        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
+        <translation type="unfinished">Du er i ferd med å laste opp skjermavbildningen til imgur.com, ønsker du å fortsette?</translation>
     </message>
 </context>
 </TS>

@@ -236,6 +236,19 @@ Değişiklik sonrası Ksnip&apos;in yeniden başlatılması gerekir.</translatio
     </message>
 </context>
 <context>
+    <name>CanDiscardOperation</name>
+    <message>
+        <source>Warning - </source>
+        <translation type="unfinished">Uyarı - </translation>
+    </message>
+    <message>
+        <source>The capture has been modified.
+Do you want to save it?</source>
+        <translation type="unfinished">Yakalanan görüntü değiştirildi.
+Kaydetmek ister misiniz?</translation>
+    </message>
+</context>
+<context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
@@ -488,6 +501,10 @@ yeniden başlatılması gerekir.</translation>
         <source>Imgur.com token update error.</source>
         <translation type="unfinished">Imgur.com belirteç güncelleme hatası.</translation>
     </message>
+    <message>
+        <source>After uploading open Imgur link in default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -617,24 +634,6 @@ ve ekran görüntüsünü yakalanır.</translation>
         <translation>Resim Dosyaları (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
-        <source>Warning - </source>
-        <translation>Uyarı - </translation>
-    </message>
-    <message>
-        <source>The capture has been modified.
-Do you want to save it?</source>
-        <translation>Yakalanan görüntü değiştirildi.
-Kaydetmek ister misiniz?</translation>
-    </message>
-    <message>
-        <source>Imgur Upload</source>
-        <translation>Imgur Karşıya Yükle</translation>
-    </message>
-    <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Ekran görüntüsünü imgur.com sitesine yüklemek üzeresiniz, devam etmek ister misiniz?</translation>
-    </message>
-    <message>
         <source>Add Watermark</source>
         <translation type="unfinished"></translation>
     </message>
@@ -648,7 +647,7 @@ Kaydetmek ister misiniz?</translation>
     </message>
 </context>
 <context>
-    <name>SaveAsOperation</name>
+    <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation type="unfinished">Farklı Kaydet</translation>
@@ -706,6 +705,17 @@ Kaydetmek ister misiniz?</translation>
     <message>
         <source>All Files</source>
         <translation type="unfinished">Tüm Dosyalar</translation>
+    </message>
+</context>
+<context>
+    <name>UploadOperation</name>
+    <message>
+        <source>Imgur Upload</source>
+        <translation type="unfinished">Imgur Karşıya Yükle</translation>
+    </message>
+    <message>
+        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
+        <translation type="unfinished">Ekran görüntüsünü imgur.com sitesine yüklemek üzeresiniz, devam etmek ister misiniz?</translation>
     </message>
 </context>
 </TS>

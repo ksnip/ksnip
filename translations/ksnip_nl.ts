@@ -236,6 +236,19 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
 </context>
 <context>
+    <name>CanDiscardOperation</name>
+    <message>
+        <source>Warning - </source>
+        <translation type="unfinished">Waarschuwing - </translation>
+    </message>
+    <message>
+        <source>The capture has been modified.
+Do you want to save it?</source>
+        <translation type="unfinished">De schermafbeelding is bewerkt.
+Wil je deze opslaan?</translation>
+    </message>
+</context>
+<context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
@@ -477,6 +490,10 @@ de wijziging toe te passen.</translation>
         <source>Imgur.com token update error.</source>
         <translation type="unfinished">Fout tijdens bijwerken van imgur.com-toegangssleutel.</translation>
     </message>
+    <message>
+        <source>After uploading open Imgur link in default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -606,24 +623,6 @@ van schermafdruk, in seconden.</translation>
         <translation>Afbeeldingsbestanden (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
-        <source>Warning - </source>
-        <translation>Waarschuwing - </translation>
-    </message>
-    <message>
-        <source>The capture has been modified.
-Do you want to save it?</source>
-        <translation>De schermafbeelding is bewerkt.
-Wil je deze opslaan?</translation>
-    </message>
-    <message>
-        <source>Imgur Upload</source>
-        <translation>Uploaden naar Imgur</translation>
-    </message>
-    <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Je staat op het punt om de schermafbeelding te uploaden naar imgur.com. Wil je doorgaan?</translation>
-    </message>
-    <message>
         <source>Add Watermark</source>
         <translation type="unfinished"></translation>
     </message>
@@ -637,7 +636,7 @@ Wil je deze opslaan?</translation>
     </message>
 </context>
 <context>
-    <name>SaveAsOperation</name>
+    <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation type="unfinished">Opslaan als</translation>
@@ -695,6 +694,17 @@ Wil je deze opslaan?</translation>
     <message>
         <source>All Files</source>
         <translation type="unfinished">Alle bestanden</translation>
+    </message>
+</context>
+<context>
+    <name>UploadOperation</name>
+    <message>
+        <source>Imgur Upload</source>
+        <translation type="unfinished">Uploaden naar Imgur</translation>
+    </message>
+    <message>
+        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
+        <translation type="unfinished">Je staat op het punt om de schermafbeelding te uploaden naar imgur.com. Wil je doorgaan?</translation>
     </message>
 </context>
 </TS>

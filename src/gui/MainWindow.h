@@ -39,6 +39,7 @@
 #include "src/gui/operations/AddWatermarkOperation.h"
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/UploadOperation.h"
+#include "src/gui/operations/HandleUploadResponseOperation.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -97,15 +98,13 @@ private slots:
     void saveCapture();
     void copyCaptureToClipboard();
     void upload();
-    void uploadFinished(QString message);
+    void uploadFinished(const QString &response);
     void printClicked();
     void printPreviewClicked();
     void instantSave();
     void loadImageFromFile();
     void screenshotChanged();
     bool discardChanges();
-    void copyToClipboard(const QString &message) const;
-    QString &formatUrl(QString &message) const;
     void setupImageAnnotator();
     void captureDelayChanged(int delay);
     void addWatermark();

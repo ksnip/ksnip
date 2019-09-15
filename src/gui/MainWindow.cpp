@@ -366,13 +366,10 @@ void MainWindow::upload()
 	uploadOperation.execute();
 }
 
-void MainWindow::uploadFinished(QString message)
+void MainWindow::uploadFinished(const QString &response)
 {
-    message = formatUrl(message);
-
-    QDesktopServices::openUrl(message);
-
-    copyToClipboard(message);
+	auto handleUploadResponseOperation = HandleUploadResponseOperation(response);
+	handleUploadResponseOperation.execute();
 }
 
 void MainWindow::printClicked()
@@ -417,21 +414,6 @@ bool MainWindow::discardChanges()
 	auto image = mKImageAnnotator->image();
 	auto discardOperation = CanDiscardOperation(this, image, mIsUnsaved);
 	return discardOperation.execute();
-}
-
-void MainWindow::copyToClipboard(const QString &message) const
-{
-    if (mConfig->imgurAlwaysCopyToClipboard()) {
-        mClipboard->setText(message);
-    }
-}
-
-QString &MainWindow::formatUrl(QString &message) const
-{
-    if (!mConfig->imgurOpenLinkDirectlyToImage()) {
-        message = message.remove(QStringLiteral(".png"));
-    }
-    return message;
 }
 
 void MainWindow::setupImageAnnotator()

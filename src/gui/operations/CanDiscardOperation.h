@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,22 +17,30 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_MESSAGEBOXHELPER_H
-#define KSNIP_MESSAGEBOXHELPER_H
+#ifndef KSNIP_CANDISCARDOPERATION_H
+#define KSNIP_CANDISCARDOPERATION_H
 
-#include <QMessageBox>
+#include <QApplication>
 
-#include "src/common/enum/MessageBoxResponse.h"
+#include "SaveOperation.h"
+#include "src/backend/config/KsnipConfig.h"
+#include "src/common/helper/MessageBoxHelper.h"
 
-class MessageBoxHelper
+class CanDiscardOperation
 {
 public:
-    static bool yesNo(const QString &title, const QString &question);
-    static MessageBoxResponse yesNoCancel(const QString &title, const QString &question);
-    static void ok(const QString &title, const QString &info);
+	CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved);
+	~CanDiscardOperation() = default;
+	bool execute();
 
 private:
-	static MessageBoxResponse mapReplyToMessageBoxResponse(int reply);
+	KsnipConfig *mConfig;
+	bool mIsUnsaved;
+	QWidget *mParent;
+	QImage mImage;
+
+	MessageBoxResponse getSaveBeforeDiscard() const;
+	bool saveImage() const;
 };
 
-#endif //KSNIP_MESSAGEBOXHELPER_H
+#endif //KSNIP_CANDISCARDOPERATION_H

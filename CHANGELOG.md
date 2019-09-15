@@ -8,6 +8,7 @@
 * New: Make if watermark is rotated a config option. ([#206](https://github.com/DamirPorobic/kImageAnnotator/issues/206))
 * New kImageAnnotator: Edit text box content. ([#51](https://github.com/DamirPorobic/kImageAnnotator/issues/51))
 * Changed: Change copy icon. ([#157](https://github.com/DamirPorobic/kImageAnnotator/issues/157))
+* Changed: Before discarding ask if user want save or not or cancel. ([#215](https://github.com/DamirPorobic/kImageAnnotator/issues/215))
 * Fixed: Translations not working for Windows and MacOS. ([#164](https://github.com/DamirPorobic/ksnip/issues/164))
 * Fixed: Translations not working for Windows and MacOS. ([#164](https://github.com/DamirPorobic/ksnip/issues/164))
 * Fixed: AppImage update fails with "None of the artifacts matched the pattern in the update information". ([#166](https://github.com/DamirPorobic/ksnip/issues/166))

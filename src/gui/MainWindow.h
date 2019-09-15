@@ -38,6 +38,7 @@
 #include "src/common/helper/MessageBoxHelper.h"
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/operations/AddWatermarkOperation.h"
+#include "src/gui/operations/CanDiscardOperation.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -102,7 +103,7 @@ private slots:
     void instantSave();
     void loadImageFromFile();
     void screenshotChanged();
-    bool discardUnsavedChanges() const;
+    bool discardChanges();
     bool proceedWithUpload() const;
     void copyToClipboard(const QString &message) const;
     QString &formatUrl(QString &message) const;

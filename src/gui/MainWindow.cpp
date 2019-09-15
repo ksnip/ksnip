@@ -176,9 +176,7 @@ void MainWindow::moveEvent(QMoveEvent* event)
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
-    auto canDiscard = discardUnsavedChanges();
-    if (!canDiscard) {
-        saveCapture();
+    if (!discardChanges()) {
         event->ignore();
         return;
     }
@@ -248,9 +246,7 @@ void MainWindow::capture(CaptureModes captureMode)
 
 void MainWindow::triggerNewCapture(CaptureModes captureMode)
 {
-    auto canDiscard = discardUnsavedChanges();
-    if (!canDiscard) {
-        saveCapture();
+	if (!discardChanges()) {
         return;
     }
     capture(captureMode);
@@ -422,16 +418,11 @@ void MainWindow::loadImageFromFile()
     showCapture(pixmap);
 }
 
-bool MainWindow::discardUnsavedChanges() const
+bool MainWindow::discardChanges()
 {
-    if (mConfig->promptSaveBeforeExit() && mIsUnsaved) {
-        auto reply = MessageBoxHelper::yesNo(tr("Warning - ") + QApplication::applicationName(),
-                                             tr("The capture has been modified.\nDo you want to save it?"));
-
-        return !reply;
-    } else {
-        return true;
-    }
+	auto image = mKImageAnnotator->image();
+	auto discardOperation = CanDiscardOperation(this, image, mIsUnsaved);
+	return discardOperation.execute();
 }
 
 bool MainWindow::proceedWithUpload() const

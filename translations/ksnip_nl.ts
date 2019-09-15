@@ -244,7 +244,7 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
     <message>
         <source>The capture has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished">De schermafbeelding is bewerkt.
+        <translation>De schermafdruk is aangepast.
 Wil je deze opslaan?</translation>
     </message>
 </context>
@@ -335,7 +335,13 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature doesn&apos;t work for Wayland and is always
 used for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruik deze optie om de achtergrond te bevriezen
+tijdens het selecteren van een rechthoekig gebied.
+Dit past tevens het gedrag van vertraagde schermafdrukken
+aan: de vertraging treedt op vóórdat het vastgelegde gebied
+wordt getoond, terwijl de vertraging normaliter pas optreedt
+nádat het vastgelegde gebied is getoond. Deze optie werkt
+niet op Wayland, en is standaard ingeschakeld op macOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
@@ -368,7 +374,10 @@ de schermranden naar de cursor op het vastleggebied.</translation>
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Als je de linkermuisknop niet indrukt, dan wordt
+de positie getoond. Doe je dat wél, dan wordt de
+grootte van het selectiegebied getoond, zowel aan
+de linker- als bovenzijde van het vastgelegde gebied.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
@@ -494,7 +503,7 @@ toe te passen.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur-link na uploaden openen in standaardbrowser</translation>
     </message>
 </context>
 <context>
@@ -708,6 +717,5 @@ van schermafdruk, in seconden.</translation>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation>Je staat op het punt om de schermafbeelding te uploaden naar imgur.com. Wil je doorgaan?</translation>
     </message>
-
 </context>
 </TS>

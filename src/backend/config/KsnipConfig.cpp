@@ -593,6 +593,19 @@ void KsnipConfig::setImgurConfirmBeforeUpload(bool enabled)
 	saveValue(KsnipConfigOptions::imgurConfirmBeforeUploadString(), enabled);
 }
 
+bool KsnipConfig::imgurOpenLinkInBrowser() const
+{
+	return loadValue(KsnipConfigOptions::imgurOpenLinkInBrowserString(), true).toBool();
+}
+
+void KsnipConfig::setImgurOpenLinkInBrowser(bool enabled)
+{
+	if (imgurOpenLinkInBrowser() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::imgurOpenLinkInBrowserString(), enabled);
+}
+
 void KsnipConfig::saveValue(const QString &key, const QVariant &value)
 {
 	mConfig.setValue(key, value);

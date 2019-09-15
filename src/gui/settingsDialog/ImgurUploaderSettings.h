@@ -45,6 +45,7 @@ private:
 	QCheckBox *mImgurDirectLinkToImageCheckbox;
 	QCheckBox *mImgurAlwaysCopyToClipboardCheckBox;
 	QCheckBox *mImgurConfirmBeforeUploadCheckbox;
+	QCheckBox *mImgurOpenLinkInBrowserCheckbox;
 	QLineEdit *mImgurClientIdLineEdit;
 	QLineEdit *mImgurClientSecretLineEdit;
 	QLineEdit *mImgurPinLineEdit;
@@ -67,6 +68,7 @@ private slots:
 	void imgurTokenUpdated(const QString &accessToken, const QString &refreshTocken, const QString &username);
 	void imgurTokenError(const QString &message);
 	void showImgurHistoryDialog();
+	void openLinkInBrowserChanged();
 };
 
 #endif //KSNIP_IMGURUPLOADERSETTINGS_H

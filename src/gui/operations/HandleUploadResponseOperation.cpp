@@ -30,9 +30,16 @@ bool HandleUploadResponseOperation::execute()
 {
 	auto url = formatUrl(mResponse);
 
-	QDesktopServices::openUrl(url);
+	openInBrowser(url);
 
 	copyToClipboard(url);
+}
+
+void HandleUploadResponseOperation::openInBrowser(const QUrl &url) const
+{
+	if(mConfig->imgurOpenLinkInBrowser()) {
+		QDesktopServices::openUrl(url);
+	}
 }
 
 QUrl HandleUploadResponseOperation::formatUrl(QString &response) const

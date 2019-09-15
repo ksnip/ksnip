@@ -184,6 +184,11 @@ QString KsnipConfigOptions::imgurOpenLinkDirectlyToImageString()
 	return imgurSectionString() + QStringLiteral("OpenLinkDirectlyToImage");
 }
 
+QString KsnipConfigOptions::imgurOpenLinkInBrowserString()
+{
+	return imgurSectionString() + QStringLiteral("OpenLinkInBrowser");
+}
+
 QString KsnipConfigOptions::imgurAlwaysCopyToClipboardString()
 {
 	return imgurSectionString() + QStringLiteral("AlwaysCopyToClipboard");

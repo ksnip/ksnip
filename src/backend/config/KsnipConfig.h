@@ -158,6 +158,9 @@ public:
     bool imgurConfirmBeforeUpload() const;
     void setImgurConfirmBeforeUpload(bool enabled);
 
+	bool imgurOpenLinkInBrowser() const;
+	void setImgurOpenLinkInBrowser(bool enabled);
+
 signals:
     void painterUpdated() const;
 	void toolConfigChanged() const;

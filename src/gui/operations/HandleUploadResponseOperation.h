@@ -42,6 +42,7 @@ private:
 	QUrl formatUrl(QString &response) const;
 	void copyToClipboard(const QUrl &url) const;
 
+	void openInBrowser(const QUrl &url) const;
 };
 
 #endif //KSNIP_HANDLEUPLOADRESPONSEOPERATION_H

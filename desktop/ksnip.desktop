@@ -3,6 +3,7 @@ Type=Application
 Exec=ksnip
 Icon=ksnip
 Terminal=false
+StartupNotify=false
 Name=ksnip
 GenericName=ksnip Screenshot Tool
 Comment=Cross-platform screenshot tool that provides many annotation features for your screenshots.

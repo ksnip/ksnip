@@ -129,7 +129,7 @@ void KdeWaylandImageGrabber::startReadImage(int readPipe)
     [watcher, this] {
         watcher->deleteLater();
         auto image = watcher->result();
-        emit finished(QPixmap::fromImage(image));
+        emit finished(CaptureDto(QPixmap::fromImage(image)));
     });
     watcher->setFuture(QtConcurrent::run(readImage, readPipe));
 }

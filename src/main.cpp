@@ -77,7 +77,7 @@ int main(int argc, char** argv)
         }
 
         window = new MainWindow(imageGrabber, RunMode::Edit);
-        window->showCapture(pixmap);
+        window->showCapture(CaptureDto(pixmap));
         return app.exec();
     }
 

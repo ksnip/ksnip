@@ -401,12 +401,18 @@ void MainWindow::instantSave()
 
 void MainWindow::loadImageFromFile()
 {
-    auto pixmapFilename = QFileDialog::getOpenFileName(this,
-                          tr("Open Image"),
-                          mSavePathProvider.saveDirectory(),
-                          tr("Image Files (*.png *.jpg *.bmp)"));
-    QPixmap pixmap(pixmapFilename);
-    showCapture(pixmap);
+	if (!discardChanges()) {
+		return;
+	}
+
+    auto pixmapFilename = QFileDialog::getOpenFileName(this, tr("Open Image"), mSavePathProvider.saveDirectory(), tr("Image Files (*.png *.jpg *.bmp)"));
+	auto pixmap = QPixmap(pixmapFilename);
+
+	if(!pixmap.isNull()) {
+		setHidden(true);
+		CaptureDto captureDto(pixmap);
+		showCapture(captureDto);
+	}
 }
 
 bool MainWindow::discardChanges()

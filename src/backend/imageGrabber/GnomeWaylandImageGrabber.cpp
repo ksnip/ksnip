@@ -63,10 +63,10 @@ void GnomeWaylandImageGrabber::grab()
 void GnomeWaylandImageGrabber::postProcessing(const QPixmap& pixmap)
 {
     if (mCaptureMode == CaptureModes::ActiveWindow) {
-        emit finished(pixmap);
+        emit finished(CaptureDto(pixmap));
     } else {
 	    setCaptureRectFromCorrectSource();
-        emit finished(pixmap.copy(mCaptureRect));
+        emit finished(CaptureDto(pixmap.copy(mCaptureRect)));
     }
 }
 

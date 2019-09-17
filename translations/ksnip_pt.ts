@@ -239,12 +239,12 @@ Requer reiniciar o ksnip para aplicar as mudanças.</translation>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished">Aviso - </translation>
+        <translation>Aviso - </translation>
     </message>
     <message>
         <source>The capture has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished">A captura foi modificada.
+        <translation>A captura foi modificada.
 Você quer salvá-la?</translation>
     </message>
 </context>
@@ -500,7 +500,7 @@ A alteração requer que o ksnip reinicie para surtir efeito.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Depois do upload, abrir link do Imgur no navegador padrão</translation>
     </message>
 </context>
 <context>
@@ -647,15 +647,15 @@ e captura de tela.</translation>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Salvar como</translation>
+        <translation>Salvar como</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Imagens</translation>
+        <translation>Imagens</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Todos os arquivos</translation>
+        <translation>Todos os arquivos</translation>
     </message>
 </context>
 <context>
@@ -708,11 +708,11 @@ e captura de tela.</translation>
     <name>UploadOperation</name>
     <message>
         <source>Imgur Upload</source>
-        <translation type="unfinished">Imgur Upload</translation>
+        <translation>Imgur Upload</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation type="unfinished">Você está prestes a enviar a captura de tela para imgur.com, deseja continuar?</translation>
+        <translation>Você está prestes a enviar a captura de tela para imgur.com, deseja continuar?</translation>
     </message>
 </context>
 </TS>

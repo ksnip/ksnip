@@ -32,7 +32,7 @@ bool SaveOperation::execute()
 {
     auto path = mSavePathProvider.savePath();
 
-    if(mIsInstantSave){
+    if(!mIsInstantSave){
 	    auto title = QCoreApplication::translate("SaveOperation", "Save As");
 	    auto filter = QCoreApplication::translate("SaveOperation", "Images") + QStringLiteral(" (*.png *.gif *.jpg);;") + QCoreApplication::translate("SaveOperation", "All Files") + QStringLiteral("(*)");
 	    QFileDialog saveDialog(mParent, title, path, filter);

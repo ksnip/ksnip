@@ -21,6 +21,8 @@
 #define KSNIP_LINUXSNIPPINGAREA_H
 
 #include "AbstractSnippingArea.h"
+#include "src/common/platform/DesktopScaleFactorProvider.h"
+#include "src/common/helper/MathHelper.h"
 
 class LinuxSnippingArea : public AbstractSnippingArea
 {

@@ -71,6 +71,7 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeWaylandImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/PlatformChecker.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/CommandRunner.cpp
+		${CMAKE_SOURCE_DIR}/src/common/platform/DesktopScaleFactorProvider.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/LinuxSnippingArea.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/DummyKeyHandler.cpp
 		)

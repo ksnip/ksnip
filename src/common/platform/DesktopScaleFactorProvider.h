@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,20 +17,26 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef MATHHELPER_H
-#define MATHHELPER_H
+#ifndef KSNIP_DESKTOPSCALEFACTORPROVIDER_H
+#define KSNIP_DESKTOPSCALEFACTORPROVIDER_H
 
-#include <QtMath>
-#include <QPointF>
-#include <QRect>
-#include <QLine>
+#include <QScreen>
+#include <QApplication>
 
-class MathHelper
+#include "PlatformChecker.h"
+
+class DesktopScaleFactorProvider
 {
 public:
-	static int divideIntByReal(int integer, qreal real);
-	static int multiplyIntWithReal(int integer, qreal real);
-    static int randomInt();
+	static DesktopScaleFactorProvider *instance();
+
+	qreal ScaleFactor() const;
+
+private:
+	PlatformChecker* mPlatformChecker;
+	qreal mDefaultScaleFactor;
+
+	DesktopScaleFactorProvider();
 };
 
-#endif // MATHHELPER_H
+#endif //KSNIP_DESKTOPSCALEFACTORPROVIDER_H

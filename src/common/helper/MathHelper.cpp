@@ -19,13 +19,18 @@
 
 #include "MathHelper.h"
 
-QPoint MathHelper::getLineCenter(const QLine& line)
+int MathHelper::divideIntByReal(int integer, qreal real)
 {
-    return (line.p1() + line.p2()) / 2;
+	return static_cast<int>((double)integer / real);
+}
+
+int MathHelper::multiplyIntWithReal(int integer, qreal real)
+{
+	return static_cast<int>((double)integer * real);
 }
 
 int MathHelper::randomInt()
 {
-    return qrand();
+	return qrand();
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,20 +17,22 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef MATHHELPER_H
-#define MATHHELPER_H
+#include "DesktopScaleFactorProvider.h"
 
-#include <QtMath>
-#include <QPointF>
-#include <QRect>
-#include <QLine>
-
-class MathHelper
+DesktopScaleFactorProvider *DesktopScaleFactorProvider::instance()
 {
-public:
-	static int divideIntByReal(int integer, qreal real);
-	static int multiplyIntWithReal(int integer, qreal real);
-    static int randomInt();
-};
+	static DesktopScaleFactorProvider instance;
+	return &instance;
+}
 
-#endif // MATHHELPER_H
+qreal DesktopScaleFactorProvider::ScaleFactor() const
+{
+	auto screen = QApplication::screens().first();
+	return mPlatformChecker->isWayland() ? mDefaultScaleFactor : screen->devicePixelRatio();
+}
+
+DesktopScaleFactorProvider::DesktopScaleFactorProvider()
+{
+	mDefaultScaleFactor = 1;
+	mPlatformChecker = PlatformChecker::instance();
+}

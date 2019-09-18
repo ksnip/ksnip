@@ -37,7 +37,7 @@ public:
     bool isGnome() const;
 
 private:
-    Platform   mPlatform;
+    Platform mPlatform;
     Environment mEnvironment;
 
     void checkPlatform();

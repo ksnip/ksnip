@@ -37,7 +37,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mClipboard(QApplication::clipboard()),
 	mConfig(KsnipConfig::instance()),
 	mCapturePrinter(new CapturePrinter),
-	mCaptureUploader(new CaptureUploader())
+	mCaptureUploader(new CaptureUploader()),
+	mGlobalHotKeyHandler(new GlobalHotKeyHandler)
 {
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
@@ -62,6 +63,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
     connect(mCaptureUploader, &CaptureUploader::finished, this, &MainWindow::uploadFinished);
 
+    connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::triggerNewDefaultCapture);
+
     loadSettings();
 
     if (mMode == RunMode::GUI) {
@@ -74,6 +77,22 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	setupImageAnnotator();
 	QWidget::resize(minimumSize());
+}
+
+MainWindow::~MainWindow()
+{
+    delete mKImageAnnotator;
+    delete mUploadToImgurAction;
+    delete mPrintAction;
+    delete mPrintPreviewAction;
+    delete mQuitAction;
+    delete mSettingsDialogAction;
+    delete mAboutAction;
+    delete mOpenImageAction;
+    delete mScaleAction;
+    delete mAddWatermarkAction;
+    delete mCapturePrinter;
+    delete mCaptureUploader;
 }
 
 void MainWindow::processInstantCapture(const CaptureDto &capture)

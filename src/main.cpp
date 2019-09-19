@@ -29,7 +29,6 @@
 #include "src/backend/imageGrabber/ImageGrabberFactory.h"
 #include "src/backend/TranslationLoader.h"
 #include "src/backend/KsnipCommandLine.h"
-#include "src/gui/keyboardShortcuts/GlobalKeyboardShortcut.h"
 
 int main(int argc, char** argv)
 {
@@ -56,8 +55,6 @@ int main(int argc, char** argv)
     // If there are no options except the the ksnip executable name, just run the application
     if (arguments.count() <= 1) {
         window = new MainWindow(imageGrabber, RunMode::GUI);
-        auto shortcut = new GlobalKeyboardShortcut(app);
-        window->connect(shortcut, &GlobalKeyboardShortcut::pressed, window, &MainWindow::triggerNewDefaultCapture);
         return app.exec();
     }
 

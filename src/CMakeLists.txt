@@ -41,10 +41,11 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/SettingsDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/GlobalKeyboardShortcut.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/NativeKeyEventFilter.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/AbstractKeyHandler.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/KeyHandlerFactory.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/GlobalHotKey.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/NativeKeyEventFilter.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/AbstractKeyHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeyHandlerFactory.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/GlobalHotKeyHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/SaveOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/AddWatermarkOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/UpdateWatermarkOperation.cpp
@@ -60,7 +61,7 @@ if (APPLE)
 			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacImageGrabber.cpp
 			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacWrapper.cpp
 			${CMAKE_SOURCE_DIR}/src/gui/snippingArea/MacSnippingArea.cpp
-			${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/DummyKeyHandler.cpp
+			${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/DummyKeyHandler.cpp
 			)
 elseif (UNIX)
     set(KSNIP_SRCS
@@ -73,7 +74,7 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/common/platform/CommandRunner.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/DesktopScaleFactorProvider.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/LinuxSnippingArea.cpp
-		${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/DummyKeyHandler.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/DummyKeyHandler.cpp
 		)
 elseif (WIN32)
 	set(KSNIP_SRCS
@@ -81,7 +82,7 @@ elseif (WIN32)
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinWrapper.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/WinSnippingArea.cpp
-		${CMAKE_SOURCE_DIR}/src/gui/keyboardShortcuts/WinKeyHandler.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/WinKeyHandler.cpp
 		)
 endif ()
 

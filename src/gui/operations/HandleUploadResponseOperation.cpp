@@ -33,6 +33,8 @@ bool HandleUploadResponseOperation::execute()
 	openInBrowser(url);
 
 	copyToClipboard(url);
+
+    return true;
 }
 
 void HandleUploadResponseOperation::openInBrowser(const QUrl &url) const

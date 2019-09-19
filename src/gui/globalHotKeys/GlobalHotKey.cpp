@@ -17,27 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_GLOBALKEYBOARDSHORTCUT_H
-#define KSNIP_GLOBALKEYBOARDSHORTCUT_H
+#include "GlobalHotKey.h"
 
-#include <QApplication>
-#include <QObject>
-
-#include "NativeKeyEventFilter.h"
-#include "KeyHandlerFactory.h"
-
-class GlobalKeyboardShortcut : public QObject
+GlobalHotKey::GlobalHotKey(QCoreApplication *app) : mKeyHandler(nullptr)
 {
-    Q_OBJECT
-public:
-    explicit GlobalKeyboardShortcut(QApplication &app);
-    ~GlobalKeyboardShortcut() override;
+    mKeyHandler = KeyHandlerFactory::create();
 
-signals:
-    void pressed() const;
+    mKeyHandler->registerKey();
 
-private:
-    AbstractKeyHandler *mKeyHandler;
-};
+    auto keyEventFilter = new NativeKeyEventFilter(mKeyHandler);
+    connect(keyEventFilter, &NativeKeyEventFilter::triggered, this, &GlobalHotKey::pressed);
+    app->installNativeEventFilter(keyEventFilter);
+}
 
-#endif //KSNIP_GLOBALKEYBOARDSHORTCUT_H
+GlobalHotKey::~GlobalHotKey()
+{
+    delete mKeyHandler;
+}

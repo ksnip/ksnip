@@ -40,6 +40,7 @@
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/UploadOperation.h"
 #include "src/gui/operations/HandleUploadResponseOperation.h"
+#include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -48,6 +49,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 public:
     explicit MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
+    ~MainWindow();
     void showEmpty();
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
 
@@ -82,6 +84,7 @@ private:
     CaptureUploader *mCaptureUploader;
     KImageAnnotator *mKImageAnnotator;
     SavePathProvider mSavePathProvider;
+    GlobalHotKeyHandler *mGlobalHotKeyHandler;
 
     void setSaveable(bool enabled);
     void setEnablements(bool enabled);

@@ -45,6 +45,7 @@ SettingsDialog::~SettingsDialog()
     delete mImageGrabberSettings;
     delete mImgurUploaderSettings;
     delete mAnnotationSettings;
+    delete mHotKeySettings;
 }
 
 void SettingsDialog::saveSettings()
@@ -53,6 +54,7 @@ void SettingsDialog::saveSettings()
     mImageGrabberSettings->saveSettings();
     mImgurUploaderSettings->saveSettings();
     mAnnotationSettings->saveSettings();
+    mHotKeySettings->saveSettings();
 }
 
 void SettingsDialog::initGui()
@@ -61,6 +63,7 @@ void SettingsDialog::initGui()
 	mImageGrabberSettings = new ImageGrabberSettings(mConfig);
 	mImgurUploaderSettings = new ImgurUploaderSettings(mConfig);
     mAnnotationSettings = new AnnotationSettings(mConfig);
+    mHotKeySettings = new HotKeySettings(mConfig);
 
     mOkButton->setText(tr("OK"));
     connect(mOkButton, &QPushButton::clicked, this, &SettingsDialog::okClicked);
@@ -77,11 +80,13 @@ void SettingsDialog::initGui()
     mStackedLayout->addWidget(mImageGrabberSettings);
     mStackedLayout->addWidget(mImgurUploaderSettings);
 	mStackedLayout->addWidget(mAnnotationSettings);
+	mStackedLayout->addWidget(mHotKeySettings);
 
     mListWidget->addItem(tr("Application"));
     mListWidget->addItem(tr("Image Grabber"));
     mListWidget->addItem(tr("Imgur Uploader"));
     mListWidget->addItem(tr("Annotator"));
+    mListWidget->addItem(tr("HotKeys"));
     mListWidget->setCurrentRow(0);
     mListWidget->setFixedWidth(mListWidget->sizeHintForColumn(0) + 20);
 

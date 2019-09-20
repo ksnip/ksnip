@@ -30,6 +30,7 @@
 #include "ApplicationSettings.h"
 #include "ImageGrabberSettings.h"
 #include "ImgurUploaderSettings.h"
+#include "HotKeySettings.h"
 #include "backend/config/KsnipConfig.h"
 
 class SettingsDialog : public QDialog
@@ -45,6 +46,7 @@ private:
 	ApplicationSettings *mApplicationSettings;
 	ImageGrabberSettings *mImageGrabberSettings;
 	ImgurUploaderSettings *mImgurUploaderSettings;
+	HotKeySettings *mHotKeySettings;
     AnnotationSettings *mAnnotationSettings;
     QListWidget *mListWidget;
     QStackedLayout *mStackedLayout;

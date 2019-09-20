@@ -62,6 +62,11 @@ public:
 	static QString imgurAlwaysCopyToClipboardString();
 	static QString imgurConfirmBeforeUploadString();
 	static QString globalHotKeysEnabledString();
+	static QString rectAreaHotKeyString();
+	static QString fullScreenHotKeyString();
+	static QString currentScreenHotKeyString();
+	static QString activeWindowHotKeyString();
+	static QString windowUnderCursorHotKeyString();
 
 private:
 	static QString applicationSectionString();

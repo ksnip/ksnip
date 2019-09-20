@@ -21,17 +21,18 @@
 
 WinKeyHandler::~WinKeyHandler()
 {
-    UnregisterHotKey(nullptr, 1);
+    UnregisterHotKey(nullptr, mId);
 }
 
-bool WinKeyHandler::registerKey(const QKeySequence &keySequence)
+bool WinKeyHandler::registerKey(const QKeySequence &keySequence, int id)
 {
+	mId = id;
 	auto keyCodeCombo = mKeyCodeMapper.map(keySequence);
-    return RegisterHotKey(nullptr, 1, keyCodeCombo.modifier, keyCodeCombo.key);
+    return RegisterHotKey(nullptr, mId, keyCodeCombo.modifier, keyCodeCombo.key);
 }
 
 bool WinKeyHandler::isKeyPressed(void* message)
 {
     auto msg = static_cast<MSG*>(message);
-    return msg->message == WM_HOTKEY;
+    return msg->message == WM_HOTKEY && msg->wParam == mId;
 }

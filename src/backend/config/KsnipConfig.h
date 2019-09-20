@@ -26,6 +26,7 @@
 #include <QPoint>
 #include <QPen>
 #include <QFont>
+#include <QKeySequence>
 #include <QSettings>
 
 #include "KsnipConfigOptions.h"
@@ -164,6 +165,21 @@ public:
 
 	bool globalHotKeysEnabled() const;
 	void setGlobalHotKeysEnabled(bool enabled);
+
+	QKeySequence rectAreaHotKey() const;
+	void setRectAreaHotKey(QKeySequence keySequence);
+
+	QKeySequence fullScreenHotKey() const;
+	void setFullScreenHotKey(QKeySequence keySequence);
+
+	QKeySequence currentScreenHotKey() const;
+	void setCurrentScreenHotKey(QKeySequence keySequence);
+
+	QKeySequence activeWindowHotKey() const;
+	void setActiveWindowHotKey(QKeySequence keySequence);
+
+	QKeySequence windowUnderCursorHotKey() const;
+	void setWindowUnderCursorHotKey(QKeySequence keySequence);
 
 signals:
     void painterUpdated() const;

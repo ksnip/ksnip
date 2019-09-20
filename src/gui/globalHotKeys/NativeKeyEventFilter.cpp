@@ -24,8 +24,8 @@ NativeKeyEventFilter::NativeKeyEventFilter(AbstractKeyHandler *keyHandler)
     mKeyHandler = keyHandler;
 }
 
-bool NativeKeyEventFilter::nativeEventFilter(const QByteArray&, void* message, long*) {
-
+bool NativeKeyEventFilter::nativeEventFilter(const QByteArray&, void* message, long*)
+{
     if(mKeyHandler->isKeyPressed(message)) {
         emit triggered();
     }

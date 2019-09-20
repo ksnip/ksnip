@@ -622,6 +622,76 @@ void KsnipConfig::setGlobalHotKeysEnabled(bool enabled)
 	emit hotKeysChanged();
 }
 
+QKeySequence KsnipConfig::rectAreaHotKey() const
+{
+	return loadValue(KsnipConfigOptions::rectAreaHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_R)).value<QKeySequence>();
+}
+
+void KsnipConfig::setRectAreaHotKey(QKeySequence keySequence)
+{
+	if (rectAreaHotKey() == keySequence) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::rectAreaHotKeyString(), keySequence);
+	emit hotKeysChanged();
+}
+
+QKeySequence KsnipConfig::fullScreenHotKey() const
+{
+	return loadValue(KsnipConfigOptions::fullScreenHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_F)).value<QKeySequence>();
+}
+
+void KsnipConfig::setFullScreenHotKey(QKeySequence keySequence)
+{
+	if (fullScreenHotKey() == keySequence) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::fullScreenHotKeyString(), keySequence);
+	emit hotKeysChanged();
+}
+
+QKeySequence KsnipConfig::currentScreenHotKey() const
+{
+	return loadValue(KsnipConfigOptions::currentScreenHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_C)).value<QKeySequence>();
+}
+
+void KsnipConfig::setCurrentScreenHotKey(QKeySequence keySequence)
+{
+	if (currentScreenHotKey() == keySequence) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::currentScreenHotKeyString(), keySequence);
+	emit hotKeysChanged();
+}
+
+QKeySequence KsnipConfig::activeWindowHotKey() const
+{
+	return loadValue(KsnipConfigOptions::activeWindowHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_A)).value<QKeySequence>();
+}
+
+void KsnipConfig::setActiveWindowHotKey(QKeySequence keySequence)
+{
+	if (activeWindowHotKey() == keySequence) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::activeWindowHotKeyString(), keySequence);
+	emit hotKeysChanged();
+}
+
+QKeySequence KsnipConfig::windowUnderCursorHotKey() const
+{
+	return loadValue(KsnipConfigOptions::windowUnderCursorHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_U)).value<QKeySequence>();
+}
+
+void KsnipConfig::setWindowUnderCursorHotKey(QKeySequence keySequence)
+{
+	if (windowUnderCursorHotKey() == keySequence) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::windowUnderCursorHotKeyString(), keySequence);
+	emit hotKeysChanged();
+}
+
 // Misc
 
 void KsnipConfig::saveValue(const QString &key, const QVariant &value)

@@ -26,6 +26,7 @@
 
 #include "GlobalHotKey.h"
 #include "src/backend/config/KsnipConfig.h"
+#include "src/common/enum/CaptureModes.h"
 
 class GlobalHotKeyHandler : public QObject
 {
@@ -35,13 +36,14 @@ public:
 	~GlobalHotKeyHandler() override;
 
 signals:
-	void newCaptureTriggered() const;
+	void newCaptureTriggered(CaptureModes captureMode) const;
 
 private:
 	KsnipConfig *mConfig;
 	QList<QSharedPointer<GlobalHotKey>> mGlobalHotKeys;
 
 	void removeHotKeys();
+	void createHotKey(const QKeySequence &keySequence, CaptureModes captureMode);
 
 private slots:
 	void setupHotKeys();

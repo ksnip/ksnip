@@ -42,8 +42,18 @@ void GlobalHotKeyHandler::setupHotKeys()
 {
 	removeHotKeys();
 	if(mConfig->globalHotKeysEnabled()) {
-		auto hotKey = QSharedPointer<GlobalHotKey>(new GlobalHotKey(QApplication::instance(), QKeySequence(Qt::ALT + Qt::CTRL + Qt::Key_B)));
-		connect(hotKey.data(), &GlobalHotKey::pressed, this, &GlobalHotKeyHandler::newCaptureTriggered);
-		mGlobalHotKeys.append(hotKey);
+		createHotKey(mConfig->rectAreaHotKey(), CaptureModes::RectArea);
+		createHotKey(mConfig->fullScreenHotKey(), CaptureModes::FullScreen);
+		createHotKey(mConfig->currentScreenHotKey(), CaptureModes::CurrentScreen);
+		createHotKey(mConfig->activeWindowHotKey(), CaptureModes::ActiveWindow);
+		createHotKey(mConfig->windowUnderCursorHotKey(), CaptureModes::WindowUnderCursor);
 	}
+}
+
+void GlobalHotKeyHandler::createHotKey(const QKeySequence &keySequence, CaptureModes captureMode)
+{
+	int id = mGlobalHotKeys.count() + 1;
+	auto hotKey = QSharedPointer<GlobalHotKey>(new GlobalHotKey(QApplication::instance(), keySequence, id));
+	connect(hotKey.data(), &GlobalHotKey::pressed, [this, captureMode](){ emit newCaptureTriggered(captureMode); });
+	mGlobalHotKeys.append(hotKey);
 }

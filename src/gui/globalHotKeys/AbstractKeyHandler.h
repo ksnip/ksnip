@@ -28,7 +28,7 @@ public:
     AbstractKeyHandler() = default;
     virtual ~AbstractKeyHandler() = default;
 
-    virtual bool registerKey(const QKeySequence &keySequence) = 0;
+    virtual bool registerKey(const QKeySequence &keySequence, int id) = 0;
     virtual bool isKeyPressed(void* message) = 0;
 };
 

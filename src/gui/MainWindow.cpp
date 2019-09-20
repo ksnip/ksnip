@@ -63,7 +63,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
     connect(mCaptureUploader, &CaptureUploader::finished, this, &MainWindow::uploadFinished);
 
-    connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::triggerNewDefaultCapture);
+    connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::triggerNewCapture);
 
     loadSettings();
 

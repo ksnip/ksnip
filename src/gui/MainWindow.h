@@ -56,6 +56,7 @@ public:
 public slots:
     void showCapture(const CaptureDto &capture);
     void triggerNewDefaultCapture();
+	void triggerNewCapture(CaptureModes captureMode);
 
 protected:
     void moveEvent(QMoveEvent *event) override;
@@ -92,7 +93,6 @@ private:
     void setHidden(bool isHidden);
     bool hidden() const;
     void capture(CaptureModes captureMode);
-    void triggerNewCapture(CaptureModes captureMode);
     void initGui();
 	void loadCapture(const CaptureDto &capture);
 	void processInstantCapture(const CaptureDto &capture);

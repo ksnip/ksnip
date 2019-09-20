@@ -204,6 +204,31 @@ QString KsnipConfigOptions::globalHotKeysEnabledString()
 	return hotKeysSectionString() + QStringLiteral("GlobalHotKeysEnabled");
 }
 
+QString KsnipConfigOptions::rectAreaHotKeyString()
+{
+	return hotKeysSectionString() + QStringLiteral("RectAreaHotKey");
+}
+
+QString KsnipConfigOptions::fullScreenHotKeyString()
+{
+	return hotKeysSectionString() + QStringLiteral("FullScreenHotKey");
+}
+
+QString KsnipConfigOptions::currentScreenHotKeyString()
+{
+	return hotKeysSectionString() + QStringLiteral("CurrentScreenHotKey");
+}
+
+QString KsnipConfigOptions::activeWindowHotKeyString()
+{
+	return hotKeysSectionString() + QStringLiteral("ActiveWindowHotKey");
+}
+
+QString KsnipConfigOptions::windowUnderCursorHotKeyString()
+{
+	return hotKeysSectionString() + QStringLiteral("WindowUnderCursorHotKey");
+}
+
 QString KsnipConfigOptions::applicationSectionString()
 {
 	return QStringLiteral("Application/");;

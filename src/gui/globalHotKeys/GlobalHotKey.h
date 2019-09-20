@@ -37,6 +37,8 @@ signals:
     void pressed() const;
 
 private:
+	QCoreApplication *mApp;
+	NativeKeyEventFilter *mKeyEventFilter;
     AbstractKeyHandler *mKeyHandler;
 };
 

@@ -22,6 +22,7 @@
 
 #include <QApplication>
 #include <QList>
+#include <QSharedPointer>
 
 #include "GlobalHotKey.h"
 #include "src/backend/config/KsnipConfig.h"
@@ -38,7 +39,12 @@ signals:
 
 private:
 	KsnipConfig *mConfig;
-	QList<GlobalHotKey*> mGlobalHotKeys;
+	QList<QSharedPointer<GlobalHotKey>> mGlobalHotKeys;
+
+	void removeHotKeys();
+
+private slots:
+	void setupHotKeys();
 };
 
 

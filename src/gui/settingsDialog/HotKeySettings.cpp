@@ -37,7 +37,7 @@ HotKeySettings::~HotKeySettings()
 
 void HotKeySettings::saveSettings()
 {
-
+	mConfig->setGlobalHotKeysEnabled(mEnableGlobalHotKeys->isChecked());
 }
 
 void HotKeySettings::initGui()
@@ -57,5 +57,5 @@ void HotKeySettings::initGui()
 
 void HotKeySettings::loadConfig()
 {
-
+	mEnableGlobalHotKeys->setChecked(mConfig->globalHotKeysEnabled());
 }

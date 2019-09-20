@@ -160,9 +160,15 @@ public:
 	bool imgurOpenLinkInBrowser() const;
 	void setImgurOpenLinkInBrowser(bool enabled);
 
+	// HotKeys
+
+	bool globalHotKeysEnabled() const;
+	void setGlobalHotKeysEnabled(bool enabled);
+
 signals:
     void painterUpdated() const;
 	void toolConfigChanged() const;
+	void hotKeysChanged() const;
 
 private:
     QSettings mConfig;

@@ -61,12 +61,14 @@ public:
 	static QString imgurOpenLinkInBrowserString();
 	static QString imgurAlwaysCopyToClipboardString();
 	static QString imgurConfirmBeforeUploadString();
+	static QString globalHotKeysEnabledString();
 
 private:
 	static QString applicationSectionString();
 	static QString imageGrabberSectionString();
 	static QString annotatorSectionString();
 	static QString imgurSectionString();
+	static QString hotKeysSectionString();
 	static QString mainWindowSectionString();
 };
 

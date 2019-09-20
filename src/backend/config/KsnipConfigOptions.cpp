@@ -199,6 +199,11 @@ QString KsnipConfigOptions::imgurConfirmBeforeUploadString()
 	return imgurSectionString() + QStringLiteral("ConfirmBeforeUpload");
 }
 
+QString KsnipConfigOptions::globalHotKeysEnabledString()
+{
+	return hotKeysSectionString() + QStringLiteral("GlobalHotKeysEnabled");
+}
+
 QString KsnipConfigOptions::applicationSectionString()
 {
 	return QStringLiteral("Application/");;
@@ -217,6 +222,11 @@ QString KsnipConfigOptions::annotatorSectionString()
 QString KsnipConfigOptions::imgurSectionString()
 {
 	return QStringLiteral("Imgur/");
+}
+
+QString KsnipConfigOptions::hotKeysSectionString()
+{
+	return QStringLiteral("HotKeys/");
 }
 
 QString KsnipConfigOptions::mainWindowSectionString()

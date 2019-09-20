@@ -27,8 +27,7 @@ WinKeyHandler::~WinKeyHandler()
 bool WinKeyHandler::registerKey(const QKeySequence &keySequence)
 {
 	auto keyCodeCombo = mKeyCodeMapper.map(keySequence);
-//    return RegisterHotKey(nullptr, 1, MOD_ALT | MOD_CONTROL | 0x4000, 0x4B);  //ALT + 0x2B is 'K' (In future VK_SNAPSHOT)
-    return RegisterHotKey(nullptr, 1, keyCodeCombo.modifier, keyCodeCombo.key);  //ALT + 0x2B is 'K' (In future VK_SNAPSHOT)
+    return RegisterHotKey(nullptr, 1, keyCodeCombo.modifier, keyCodeCombo.key);
 }
 
 bool WinKeyHandler::isKeyPressed(void* message)

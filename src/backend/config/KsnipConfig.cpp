@@ -606,6 +606,24 @@ void KsnipConfig::setImgurOpenLinkInBrowser(bool enabled)
 	saveValue(KsnipConfigOptions::imgurOpenLinkInBrowserString(), enabled);
 }
 
+// HotKeys
+
+bool KsnipConfig::globalHotKeysEnabled() const
+{
+	return loadValue(KsnipConfigOptions::globalHotKeysEnabledString(), true).toBool();
+}
+
+void KsnipConfig::setGlobalHotKeysEnabled(bool enabled)
+{
+	if (globalHotKeysEnabled() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::globalHotKeysEnabledString(), enabled);
+	emit hotKeysChanged();
+}
+
+// Misc
+
 void KsnipConfig::saveValue(const QString &key, const QVariant &value)
 {
 	mConfig.setValue(key, value);

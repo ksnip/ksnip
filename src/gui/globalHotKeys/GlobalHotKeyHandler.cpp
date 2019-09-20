@@ -23,14 +23,27 @@ GlobalHotKeyHandler::GlobalHotKeyHandler()
 {
 	mConfig = KsnipConfig::instance();
 
-	auto hotKey = new GlobalHotKey(QApplication::instance(), QKeySequence(Qt::ALT + Qt::CTRL + Qt::Key_B));
-	connect(hotKey, &GlobalHotKey::pressed, this, &GlobalHotKeyHandler::newCaptureTriggered);
-	mGlobalHotKeys.append(hotKey);
+	connect(mConfig, &KsnipConfig::hotKeysChanged, this, &GlobalHotKeyHandler::setupHotKeys);
+
+	setupHotKeys();
 }
 
 GlobalHotKeyHandler::~GlobalHotKeyHandler()
 {
-	for(auto hotKey : mGlobalHotKeys) {
-		delete hotKey;
+	removeHotKeys();
+}
+
+void GlobalHotKeyHandler::removeHotKeys()
+{
+	mGlobalHotKeys.clear();
+}
+
+void GlobalHotKeyHandler::setupHotKeys()
+{
+	removeHotKeys();
+	if(mConfig->globalHotKeysEnabled()) {
+		auto hotKey = QSharedPointer<GlobalHotKey>(new GlobalHotKey(QApplication::instance(), QKeySequence(Qt::ALT + Qt::CTRL + Qt::Key_B)));
+		connect(hotKey.data(), &GlobalHotKey::pressed, this, &GlobalHotKeyHandler::newCaptureTriggered);
+		mGlobalHotKeys.append(hotKey);
 	}
 }

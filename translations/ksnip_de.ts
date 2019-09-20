@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Screenshot Tool</source>
-        <translation>Screenshot-Tool</translation>
+        <translation>Screenshot-Werkzeug</translation>
     </message>
     <message>
         <source>License: </source>
@@ -162,15 +162,15 @@ macht sie glatter.</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Wasserzeichen drehen</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn aktiviert, dreht Wasserzeichen beim Einfügen um 45°</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschriftungseinstellungen</translation>
     </message>
 </context>
 <context>
@@ -240,12 +240,12 @@ Eine Änderung benötigt einen Neustart von ksnip, um wirksam zu werden.</transl
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished">Warnung - </translation>
+        <translation>Warnung - </translation>
     </message>
     <message>
         <source>The capture has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished">Die Aufnahme wurde geändert.
+        <translation>Die Aufnahme wurde geändert.
 Möchten Sie sie speichern?</translation>
     </message>
 </context>
@@ -384,7 +384,7 @@ an dessen linken und oberen Rand angezeigt.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Ausschnittsbereich Mauszeigerfarbe</translation>
+        <translation>Ausschnittsbereich Mauszeigerfarbe</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
@@ -396,13 +396,13 @@ Neustart von ksnip, um wirksam zu werden.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Ausschnittsbereich Mauszeigerstärke</translation>
+        <translation>Ausschnittsbereich Mauszeigerstärke</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation>Legt die Dicke des Mauszeigers bei der Aufnahme eines
+        <translation>Legt die Stärke des Mauszeigers bei der Aufnahme eines
 rechteckigen Bereiches fest. Eine Änderung erfordert einen
 Neustart von ksnip, um wirksam zu werden.</translation>
     </message>
@@ -415,7 +415,7 @@ Neustart von ksnip, um wirksam zu werden.</translation>
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation>Imgur Historie</translation>
+        <translation>Imgur-Verlauf</translation>
     </message>
     <message>
         <source>Close</source>
@@ -442,7 +442,7 @@ Neustart von ksnip, um wirksam zu werden.</translation>
     </message>
     <message>
         <source>Open link directly to image</source>
-        <translation type="unfinished">Link direkt zum Bild öffnen</translation>
+        <translation>Link zum Bild sofort öffnen</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
@@ -478,11 +478,11 @@ Neustart von ksnip, um wirksam zu werden.</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished">Imgur Historie</translation>
+        <translation>Imgur-Verlauf</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished">Imgur Hochlader</translation>
+        <translation>Imgur-Hochlader</translation>
     </message>
     <message>
         <source>Username</source>
@@ -498,15 +498,15 @@ Neustart von ksnip, um wirksam zu werden.</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished">Imgur-Token wurde erfolgreich aktualisiert.</translation>
+        <translation>Imgur-Token wurde erfolgreich aktualisiert.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished">Fehler beim Aktualisieren des Imgur-Tokens.</translation>
+        <translation>Fehler beim Aktualisieren des Imgur-Tokens.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach dem Upload Imgur-Link im Standardbrowser öffnen</translation>
     </message>
 </context>
 <context>
@@ -654,15 +654,15 @@ und der Aufnahme.</translation>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Speichern als</translation>
+        <translation>Speichern als</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Bilder</translation>
+        <translation>Bilder</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Alle Dateien</translation>
+        <translation>Alle Dateien</translation>
     </message>
 </context>
 <context>
@@ -704,22 +704,22 @@ und der Aufnahme.</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Bilder</translation>
+        <translation>Bilder</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Alle Dateien</translation>
+        <translation>Alle Dateien</translation>
     </message>
 </context>
 <context>
     <name>UploadOperation</name>
     <message>
         <source>Imgur Upload</source>
-        <translation type="unfinished">Hochladen bei Imgur</translation>
+        <translation>Hochladen bei Imgur</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation type="unfinished">Sie sind im Begriff, den Screenshot zu imgur.com hochzuladen, möchten Sie fortfahren?</translation>
+        <translation>Sie sind im Begriff, den Screenshot zu imgur.com hochzuladen, möchten Sie fortfahren?</translation>
     </message>
 </context>
 </TS>

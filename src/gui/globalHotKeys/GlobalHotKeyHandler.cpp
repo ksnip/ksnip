@@ -23,7 +23,7 @@ GlobalHotKeyHandler::GlobalHotKeyHandler()
 {
 	mConfig = KsnipConfig::instance();
 
-	auto hotKey = new GlobalHotKey(QApplication::instance());
+	auto hotKey = new GlobalHotKey(QApplication::instance(), QKeySequence(Qt::ALT + Qt::CTRL + Qt::Key_B));
 	connect(hotKey, &GlobalHotKey::pressed, this, &GlobalHotKeyHandler::newCaptureTriggered);
 	mGlobalHotKeys.append(hotKey);
 }

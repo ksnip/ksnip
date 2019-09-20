@@ -28,7 +28,7 @@ public:
     DummyKeyHandler() = default;
     ~DummyKeyHandler() override = default;
 
-    bool registerKey() override;
+    bool registerKey(const QKeySequence &keySequence) override;
     bool isKeyPressed(void* message) override;
 };
 

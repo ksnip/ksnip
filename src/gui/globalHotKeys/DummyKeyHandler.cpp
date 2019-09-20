@@ -19,7 +19,7 @@
 
 #include "DummyKeyHandler.h"
 
-bool DummyKeyHandler::registerKey()
+bool DummyKeyHandler::registerKey(const QKeySequence &keySequence)
 {
     return false;
 }

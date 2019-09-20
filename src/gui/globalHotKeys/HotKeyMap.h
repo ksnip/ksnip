@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,22 +17,26 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "WinKeyHandler.h"
+#ifndef KSNIP_HOTKEYMAP_H
+#define KSNIP_HOTKEYMAP_H
 
-WinKeyHandler::~WinKeyHandler()
-{
-    UnregisterHotKey(nullptr, 1);
-}
+#include <QHash>
+#include <QString>
+#include <QKeySequence>
 
-bool WinKeyHandler::registerKey(const QKeySequence &keySequence)
+class HotKeyMap
 {
-	auto keyCodeCombo = mKeyCodeMapper.map(keySequence);
-//    return RegisterHotKey(nullptr, 1, MOD_ALT | MOD_CONTROL | 0x4000, 0x4B);  //ALT + 0x2B is 'K' (In future VK_SNAPSHOT)
-    return RegisterHotKey(nullptr, 1, keyCodeCombo.modifier, keyCodeCombo.key);  //ALT + 0x2B is 'K' (In future VK_SNAPSHOT)
-}
+public:
+	static HotKeyMap *instance();
 
-bool WinKeyHandler::isKeyPressed(void* message)
-{
-    auto msg = static_cast<MSG*>(message);
-    return msg->message == WM_HOTKEY;
-}
+	Qt::Key getKeyForString(const QString &string) const;
+
+private:
+	QHash<Qt::Key,QString> mKeyToStringMap;
+
+	HotKeyMap();
+	~HotKeyMap() = default;
+};
+
+
+#endif //KSNIP_HOTKEYMAP_H

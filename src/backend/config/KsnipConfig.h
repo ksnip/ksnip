@@ -35,7 +35,6 @@
 class KsnipConfig : public QObject
 {
     Q_OBJECT
-
 public:
     static KsnipConfig *instance();
 

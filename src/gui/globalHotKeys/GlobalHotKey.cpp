@@ -19,11 +19,11 @@
 
 #include "GlobalHotKey.h"
 
-GlobalHotKey::GlobalHotKey(QCoreApplication *app) : mKeyHandler(nullptr)
+GlobalHotKey::GlobalHotKey(QCoreApplication *app, const QKeySequence &keySequence) : mKeyHandler(nullptr)
 {
     mKeyHandler = KeyHandlerFactory::create();
 
-    mKeyHandler->registerKey();
+    mKeyHandler->registerKey(keySequence);
 
     auto keyEventFilter = new NativeKeyEventFilter(mKeyHandler);
     connect(keyEventFilter, &NativeKeyEventFilter::triggered, this, &GlobalHotKey::pressed);

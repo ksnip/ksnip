@@ -20,13 +20,15 @@
 #ifndef KSNIP_ABSTRACTKEYHANDLER_H
 #define KSNIP_ABSTRACTKEYHANDLER_H
 
+#include <QKeySequence>
+
 class AbstractKeyHandler
 {
 public:
     AbstractKeyHandler() = default;
     virtual ~AbstractKeyHandler() = default;
 
-    virtual bool registerKey() = 0;
+    virtual bool registerKey(const QKeySequence &keySequence) = 0;
     virtual bool isKeyPressed(void* message) = 0;
 };
 

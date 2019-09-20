@@ -46,6 +46,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/AbstractKeyHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeyHandlerFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/GlobalHotKeyHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/HotKeyMap.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/SaveOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/AddWatermarkOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/UpdateWatermarkOperation.cpp
@@ -83,6 +84,7 @@ elseif (WIN32)
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinWrapper.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/WinSnippingArea.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/WinKeyHandler.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToWinKeyCodeTranslator.cpp
 		)
 endif ()
 

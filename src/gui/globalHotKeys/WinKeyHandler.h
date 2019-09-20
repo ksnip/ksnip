@@ -23,6 +23,7 @@
 #include <windows.h>
 
 #include "AbstractKeyHandler.h"
+#include "KeySequenceToWinKeyCodeTranslator.h"
 
 class WinKeyHandler : public AbstractKeyHandler
 {
@@ -30,8 +31,11 @@ public:
     WinKeyHandler() = default;
     ~WinKeyHandler() override;
 
-    bool registerKey() override;
+    bool registerKey(const QKeySequence &keySequence) override;
     bool isKeyPressed(void* message) override;
+
+private:
+	KeySequenceToWinKeyCodeTranslator mKeyCodeMapper;
 };
 
 #endif //KSNIP_WINKEYHANDLER_H

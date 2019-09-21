@@ -19,8 +19,9 @@
 
 #include "GlobalHotKeyHandler.h"
 
-GlobalHotKeyHandler::GlobalHotKeyHandler()
+GlobalHotKeyHandler::GlobalHotKeyHandler(const QList<CaptureModes> &supportedCaptureModes)
 {
+	mSupportedCaptureModes = supportedCaptureModes;
 	mConfig = KsnipConfig::instance();
 
 	connect(mConfig, &KsnipConfig::hotKeysChanged, this, &GlobalHotKeyHandler::setupHotKeys);
@@ -52,8 +53,10 @@ void GlobalHotKeyHandler::setupHotKeys()
 
 void GlobalHotKeyHandler::createHotKey(const QKeySequence &keySequence, CaptureModes captureMode)
 {
-	int id = mGlobalHotKeys.count() + 1;
-	auto hotKey = QSharedPointer<GlobalHotKey>(new GlobalHotKey(QApplication::instance(), keySequence, id));
-	connect(hotKey.data(), &GlobalHotKey::pressed, [this, captureMode](){ emit newCaptureTriggered(captureMode); });
-	mGlobalHotKeys.append(hotKey);
+	if(mSupportedCaptureModes.contains(captureMode)) {
+		int id = mGlobalHotKeys.count() + 1;
+		auto hotKey = QSharedPointer<GlobalHotKey>(new GlobalHotKey(QApplication::instance(), keySequence, id));
+		connect(hotKey.data(), &GlobalHotKey::pressed, [this, captureMode](){ emit newCaptureTriggered(captureMode); });
+		mGlobalHotKeys.append(hotKey);
+	}
 }

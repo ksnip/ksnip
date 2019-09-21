@@ -38,7 +38,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mConfig(KsnipConfig::instance()),
 	mCapturePrinter(new CapturePrinter),
 	mCaptureUploader(new CaptureUploader()),
-	mGlobalHotKeyHandler(new GlobalHotKeyHandler)
+	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes()))
 {
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the

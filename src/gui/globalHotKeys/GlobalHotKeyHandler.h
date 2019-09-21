@@ -32,7 +32,7 @@ class GlobalHotKeyHandler : public QObject
 {
 	Q_OBJECT
 public:
-	explicit GlobalHotKeyHandler();
+	explicit GlobalHotKeyHandler(const QList<CaptureModes> &supportedCaptureModes);
 	~GlobalHotKeyHandler() override;
 
 signals:
@@ -41,6 +41,7 @@ signals:
 private:
 	KsnipConfig *mConfig;
 	QList<QSharedPointer<GlobalHotKey>> mGlobalHotKeys;
+	QList<CaptureModes> mSupportedCaptureModes;
 
 	void removeHotKeys();
 	void createHotKey(const QKeySequence &keySequence, CaptureModes captureMode);

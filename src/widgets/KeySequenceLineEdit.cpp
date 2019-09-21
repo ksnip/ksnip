@@ -17,28 +17,35 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_HOTKEYMAP_H
-#define KSNIP_HOTKEYMAP_H
+#include "KeySequenceLineEdit.h"
 
-#include <QHash>
-#include <QString>
-#include <QKeySequence>
-#include <QList>
-
-class HotKeyMap
+KeySequenceLineEdit::KeySequenceLineEdit(QWidget *widget, const QList<Qt::Key> &allowedKeys) : QLineEdit(widget)
 {
-public:
-	static HotKeyMap *instance();
+	mAllowedKeys = allowedKeys;
+}
 
-	Qt::Key getKeyForString(const QString &string) const;
-	QList<Qt::Key> getAllKeys() const;
+void KeySequenceLineEdit::keyPressEvent(QKeyEvent *event)
+{
+	if(mAllowedKeys.contains(static_cast<Qt::Key>(event->key()))) {
+		mKeySequence = QKeySequence(event->modifiers() + event->key());
+	} else {
+		mKeySequence = QKeySequence(event->modifiers());
+	}
+	updateText();
+}
 
-private:
-	QHash<Qt::Key,QString> mKeyToStringMap;
+void KeySequenceLineEdit::updateText()
+{
+	setText(mKeySequence.toString());
+}
 
-	HotKeyMap();
-	~HotKeyMap() = default;
-};
+QKeySequence KeySequenceLineEdit::value() const
+{
+	return mKeySequence;
+}
 
-
-#endif //KSNIP_HOTKEYMAP_H
+void KeySequenceLineEdit::setValue(const QKeySequence &keySequence)
+{
+	mKeySequence = keySequence;
+	updateText();
+}

@@ -72,3 +72,8 @@ Qt::Key HotKeyMap::getKeyForString(const QString &string) const
 {
 	return mKeyToStringMap.key(string);
 }
+
+QList<Qt::Key> HotKeyMap::getAllKeys() const
+{
+	return mKeyToStringMap.keys();
+}

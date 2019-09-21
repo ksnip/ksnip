@@ -26,6 +26,8 @@
 #include <QGridLayout>
 
 #include "src/backend/config/KsnipConfig.h"
+#include "src/widgets/KeySequenceLineEdit.h"
+#include "src/gui/globalHotKeys/HotKeyMap.h"
 
 class HotKeySettings : public QGroupBox
 {
@@ -36,14 +38,26 @@ public:
 	void saveSettings();
 
 private:
-	QCheckBox *mEnableGlobalHotKeys;
-	QLabel *mRectAreaHotKeyLabel;
+	QCheckBox *mEnableGlobalHotKeysCheckBox;
+	QLabel *mRectAreaLabel;
+	QLabel *mFullScreenLabel;
+	QLabel *mCurrentScreenLabel;
+	QLabel *mActiveWindowLabel;
+	QLabel *mWindowUnderCursorLabel;
+	KeySequenceLineEdit *mRectAreaKeySequenceLineEdit;
+	KeySequenceLineEdit *mFullScreenKeySequenceLineEdit;
+	KeySequenceLineEdit *mCurrentScreenKeySequenceLineEdit;
+	KeySequenceLineEdit *mActiveWindowKeySequenceLineEdit;
+	KeySequenceLineEdit *mWindowUnderCursorKeySequenceLineEdit;
 	QGridLayout *mLayout;
 
 	KsnipConfig *mConfig;
 
 	void initGui();
 	void loadConfig();
+
+private slots:
+	void globalHotKeysStateChanged();
 };
 
 

@@ -56,5 +56,73 @@ unsigned int KeySequenceToWinKeyCodeTranslator::getModifier(const QString &modif
 
 unsigned int KeySequenceToWinKeyCodeTranslator::getKey(const QString &keyString) const
 {
-	return mHotKeyMap->getKeyForString(keyString);
+	auto key = mHotKeyMap->getKeyForString(keyString);
+	switch (key) {
+		case Qt::Key_F1:
+			return VK_F1;
+		case Qt::Key_F2:
+			return VK_F2;
+		case Qt::Key_F3:
+			return VK_F3;
+		case Qt::Key_F4:
+			return VK_F4;
+		case Qt::Key_F5:
+			return VK_F5;
+		case Qt::Key_F6:
+			return VK_F6;
+		case Qt::Key_F7:
+			return VK_F7;
+		case Qt::Key_F8:
+			return VK_F8;
+		case Qt::Key_F9:
+			return VK_F9;
+		case Qt::Key_F10:
+			return VK_F10;
+		case Qt::Key_F11:
+			return VK_F11;
+		case Qt::Key_F12:
+			return VK_F12;
+		case Qt::Key_Escape:
+			return VK_ESCAPE;
+		case Qt::Key_Backspace:
+			return VK_BACK;
+		case Qt::Key_Return:
+		case Qt::Key_Enter:
+			return VK_RETURN;
+		case Qt::Key_Insert:
+			return VK_INSERT;
+		case Qt::Key_Delete:
+			return VK_DELETE;
+		case Qt::Key_Pause:
+			return VK_PAUSE;
+		case Qt::Key_Print:
+			return VK_PRINT;
+		case Qt::Key_Home:
+			return VK_HOME;
+		case Qt::Key_End:
+			return VK_END;
+		case Qt::Key_Left:
+			return VK_LEFT;
+		case Qt::Key_Up:
+			return VK_UP;
+		case Qt::Key_Right:
+			return VK_RIGHT;
+		case Qt::Key_Down:
+			return VK_DOWN;
+		case Qt::Key_PageUp:
+			return VK_PRIOR;
+		case Qt::Key_PageDown:
+			return VK_NEXT;
+		case Qt::Key_Comma:
+		case Qt::Key_Semicolon:
+			return VK_OEM_COMMA;
+		case Qt::Key_Minus:
+		case Qt::Key_Underscore:
+			return VK_OEM_MINUS;
+		case Qt::Key_Period:
+		case Qt::Key_Colon:
+			return VK_OEM_PERIOD;
+		default:
+			return key;
+	}
 }

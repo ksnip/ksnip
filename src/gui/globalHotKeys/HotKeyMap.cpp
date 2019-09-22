@@ -39,6 +39,46 @@ HotKeyMap::HotKeyMap()
 	mKeyToStringMap[Qt::Key_8] = QStringLiteral("8");
 	mKeyToStringMap[Qt::Key_9] = QStringLiteral("9");
 
+	// Misc
+	mKeyToStringMap[Qt::Key_Escape] = QStringLiteral("ESCAPE");
+	mKeyToStringMap[Qt::Key_Backspace] = QStringLiteral("BACKSPACE");
+	mKeyToStringMap[Qt::Key_Return] = QStringLiteral("RETURN");
+	mKeyToStringMap[Qt::Key_Enter] = QStringLiteral("ENTER");
+	mKeyToStringMap[Qt::Key_Insert] = QStringLiteral("INS");
+	mKeyToStringMap[Qt::Key_Delete] = QStringLiteral("DEL");
+	mKeyToStringMap[Qt::Key_Pause] = QStringLiteral("PAUSE");
+	mKeyToStringMap[Qt::Key_Print] = QStringLiteral("PRINT");
+	mKeyToStringMap[Qt::Key_Home] = QStringLiteral("HOME");
+	mKeyToStringMap[Qt::Key_End] = QStringLiteral("END");
+	mKeyToStringMap[Qt::Key_Left] = QStringLiteral("LEFT");
+	mKeyToStringMap[Qt::Key_Up] = QStringLiteral("UP");
+	mKeyToStringMap[Qt::Key_Right] = QStringLiteral("RIGHT");
+	mKeyToStringMap[Qt::Key_Down] = QStringLiteral("DOWN");
+	mKeyToStringMap[Qt::Key_PageUp] = QStringLiteral("PAGEUP");
+	mKeyToStringMap[Qt::Key_PageDown] = QStringLiteral("PAGEDOWN");
+	mKeyToStringMap[Qt::Key_PageUp] = QStringLiteral("PAGEUP");
+	mKeyToStringMap[Qt::Key_Comma] = QStringLiteral(",");
+	mKeyToStringMap[Qt::Key_Underscore] = QStringLiteral("_");
+	mKeyToStringMap[Qt::Key_Minus] = QStringLiteral("-");
+	mKeyToStringMap[Qt::Key_Period] = QStringLiteral(".");
+	mKeyToStringMap[Qt::Key_Slash] = QStringLiteral("/");
+	mKeyToStringMap[Qt::Key_Colon] = QStringLiteral(":");
+	mKeyToStringMap[Qt::Key_Semicolon] = QStringLiteral(";");
+
+	// F-Keys
+	mKeyToStringMap[Qt::Key_F1] = QStringLiteral("F1");
+	mKeyToStringMap[Qt::Key_F2] = QStringLiteral("F2");
+	mKeyToStringMap[Qt::Key_F3] = QStringLiteral("F3");
+	mKeyToStringMap[Qt::Key_F4] = QStringLiteral("F4");
+	mKeyToStringMap[Qt::Key_F5] = QStringLiteral("F5");
+	mKeyToStringMap[Qt::Key_F6] = QStringLiteral("F6");
+	mKeyToStringMap[Qt::Key_F7] = QStringLiteral("F7");
+	mKeyToStringMap[Qt::Key_F8] = QStringLiteral("F8");
+	mKeyToStringMap[Qt::Key_F9] = QStringLiteral("F9");
+	mKeyToStringMap[Qt::Key_F10] = QStringLiteral("F10");
+	mKeyToStringMap[Qt::Key_F11] = QStringLiteral("F11");
+	mKeyToStringMap[Qt::Key_F12] = QStringLiteral("F12");
+
 	// Letters
 	mKeyToStringMap[Qt::Key_A] = QStringLiteral("A");
 	mKeyToStringMap[Qt::Key_B] = QStringLiteral("B");

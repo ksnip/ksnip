@@ -301,7 +301,7 @@ void MainWindow::initGui()
     mScaleAction->setText(tr("Scale"));
     mScaleAction->setToolTip(tr("Scale Screen Capture"));
     mScaleAction->setShortcut(Qt::SHIFT + Qt::Key_S);
-	connect(mScaleAction, &QAction::triggered, mKImageAnnotator, &KImageAnnotator::showScaler);
+	connect(mScaleAction, &QAction::triggered, this, &MainWindow::showScaleDialog);
 
 	mAddWatermarkAction->setText(tr("Add Watermark"));
 	mAddWatermarkAction->setToolTip(tr("Add Watermark to captured image. Multiple watermarks can be added."));
@@ -315,21 +315,11 @@ void MainWindow::initGui()
 
     mSettingsDialogAction->setText(tr("Settings"));
     mSettingsDialogAction->setIcon(QIcon::fromTheme(QStringLiteral("emblem-system")));
-    connect(mSettingsDialogAction, &QAction::triggered, [this]() {
-    	mGlobalHotKeyHandler->setEnabled(false);
-        SettingsDialog settingsDialog(this);
-        settingsDialog.exec();
-		mGlobalHotKeyHandler->setEnabled(true);
-    });
+	connect(mSettingsDialogAction, &QAction::triggered, this, &MainWindow::showSettingsDialog);
 
     mAboutAction->setText(tr("&About"));
 	mAboutAction->setIcon(QIcon(QStringLiteral(":/ksnip")));
-    connect(mAboutAction, &QAction::triggered, [this]() {
-		mGlobalHotKeyHandler->setEnabled(false);
-        AboutDialog aboutDialog(this);
-        aboutDialog.exec();
-		mGlobalHotKeyHandler->setEnabled(true);
-    });
+	connect(mAboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
 
     mOpenImageAction->setText(tr("Open"));
     mOpenImageAction->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
@@ -464,4 +454,34 @@ void MainWindow::addWatermark()
 {
 	AddWatermarkOperation operation(mKImageAnnotator);
 	operation.execute();
+}
+
+void MainWindow::showDialog(const std::function<void ()>& showDialogMethod)
+{
+	mGlobalHotKeyHandler->setEnabled(false);
+	showDialogMethod();
+	mGlobalHotKeyHandler->setEnabled(true);
+}
+
+void MainWindow::showSettingsDialog()
+{
+	showDialog([&](){
+		SettingsDialog settingsDialog(this);
+		settingsDialog.exec();
+	});
+}
+
+void MainWindow::showAboutDialog()
+{
+	showDialog([&](){
+		AboutDialog aboutDialog(this);
+		aboutDialog.exec();
+	});
+}
+
+void MainWindow::showScaleDialog()
+{
+	showDialog([&](){
+		mKImageAnnotator->showScaler();
+	});
 }

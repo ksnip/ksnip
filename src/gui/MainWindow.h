@@ -23,6 +23,8 @@
 
 #include <QtWidgets>
 
+#include <functional>
+
 #include <kImageAnnotator/KImageAnnotator.h>
 
 #include "AboutDialog.h"
@@ -96,6 +98,7 @@ private:
     void initGui();
 	void loadCapture(const CaptureDto &capture);
 	void processInstantCapture(const CaptureDto &capture);
+	void showDialog(const std::function<void ()>& showDialogMethod);
 
 private slots:
     void saveCapture();
@@ -111,6 +114,9 @@ private slots:
     void setupImageAnnotator();
     void captureDelayChanged(int delay);
     void addWatermark();
+    void showSettingsDialog();
+    void showAboutDialog();
+    void showScaleDialog();
 };
 
 #endif // KSNIP_MAINWINDOW_H

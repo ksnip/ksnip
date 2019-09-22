@@ -7,6 +7,7 @@
 * New: Add undo and redo button on toolbar. ([#124](https://github.com/DamirPorobic/kImageAnnotator/issues/124))
 * New: Make if watermark is rotated a config option. ([#206](https://github.com/DamirPorobic/kImageAnnotator/issues/206))
 * New: Do not open image uploaded to imgur in browser. ([#211](https://github.com/DamirPorobic/kImageAnnotator/issues/211))
+* New: Add Global HotKeys for Windows. ([#161](https://github.com/DamirPorobic/kImageAnnotator/issues/161))
 * New kImageAnnotator: Edit text box content. ([#51](https://github.com/DamirPorobic/kImageAnnotator/issues/51))
 * Changed: Change copy icon. ([#157](https://github.com/DamirPorobic/kImageAnnotator/issues/157))
 * Changed: Before discarding ask if user want save or not or cancel. ([#215](https://github.com/DamirPorobic/kImageAnnotator/issues/215))

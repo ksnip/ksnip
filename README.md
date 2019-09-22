@@ -26,6 +26,7 @@ Latest ksnip version contains following features:
 * Print screenshot or save is to pdf/ps.
 * Annotate screenshots with pen, marker, rectangles, ellipses, texts and other tools.
 * Add watermarks to captured images.
+* Global HotKeys for taking Screenshots.
 * Many configuration options.
 
 

@@ -59,3 +59,10 @@ void GlobalHotKeyHandler::createHotKey(const QKeySequence &keySequence, CaptureM
 		mGlobalHotKeys.append(hotKey);
 	}
 }
+
+void GlobalHotKeyHandler::setEnabled(bool enabled)
+{
+	for(const auto& hotKey : mGlobalHotKeys) {
+		hotKey->setEnable(enabled);
+	}
+}

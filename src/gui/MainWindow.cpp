@@ -316,15 +316,19 @@ void MainWindow::initGui()
     mSettingsDialogAction->setText(tr("Settings"));
     mSettingsDialogAction->setIcon(QIcon::fromTheme(QStringLiteral("emblem-system")));
     connect(mSettingsDialogAction, &QAction::triggered, [this]() {
+    	mGlobalHotKeyHandler->setEnabled(false);
         SettingsDialog settingsDialog(this);
         settingsDialog.exec();
+		mGlobalHotKeyHandler->setEnabled(true);
     });
 
     mAboutAction->setText(tr("&About"));
 	mAboutAction->setIcon(QIcon(QStringLiteral(":/ksnip")));
     connect(mAboutAction, &QAction::triggered, [this]() {
+		mGlobalHotKeyHandler->setEnabled(false);
         AboutDialog aboutDialog(this);
         aboutDialog.exec();
+		mGlobalHotKeyHandler->setEnabled(true);
     });
 
     mOpenImageAction->setText(tr("Open"));

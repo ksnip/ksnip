@@ -34,6 +34,7 @@ class GlobalHotKeyHandler : public QObject
 public:
 	explicit GlobalHotKeyHandler(const QList<CaptureModes> &supportedCaptureModes);
 	~GlobalHotKeyHandler() override;
+	void setEnabled(bool enabled);
 
 signals:
 	void newCaptureTriggered(CaptureModes captureMode) const;

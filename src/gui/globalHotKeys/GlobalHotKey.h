@@ -30,7 +30,7 @@ class GlobalHotKey : public QObject
 {
     Q_OBJECT
 public:
-    explicit GlobalHotKey(QCoreApplication *app, const QKeySequence &keySequence, int id);
+    explicit GlobalHotKey(QCoreApplication *app, const QKeySequence &keySequence);
     ~GlobalHotKey() override;
 
 signals:

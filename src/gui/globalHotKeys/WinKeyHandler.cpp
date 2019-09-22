@@ -19,14 +19,16 @@
 
 #include "WinKeyHandler.h"
 
+int WinKeyHandler::mNextId = 0;
+
 WinKeyHandler::~WinKeyHandler()
 {
     UnregisterHotKey(nullptr, mId);
 }
 
-bool WinKeyHandler::registerKey(const QKeySequence &keySequence, int id)
+bool WinKeyHandler::registerKey(const QKeySequence &keySequence)
 {
-	mId = id;
+	mId = WinKeyHandler::mNextId++;
 	auto keyCodeCombo = mKeyCodeMapper.map(keySequence);
     return RegisterHotKey(nullptr, mId, keyCodeCombo.modifier, keyCodeCombo.key);
 }

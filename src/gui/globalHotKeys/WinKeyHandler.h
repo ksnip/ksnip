@@ -31,11 +31,12 @@ public:
     WinKeyHandler() = default;
     ~WinKeyHandler() override;
 
-    bool registerKey(const QKeySequence &keySequence, int id) override;
+    bool registerKey(const QKeySequence &keySequence) override;
     bool isKeyPressed(void* message) override;
 
 private:
 	int mId;
+	static int mNextId;
 	KeySequenceToWinKeyCodeTranslator mKeyCodeMapper;
 };
 

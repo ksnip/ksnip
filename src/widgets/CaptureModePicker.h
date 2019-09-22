@@ -45,7 +45,7 @@ private:
     void init(const QList<CaptureModes> &captureModes);
     void selectCaptureMode(CaptureModes mode);
 
-	QAction *createAction(const QString &text, const QString &tooltip, const QString &iconName, CaptureModes captureMode);
+	QAction *createAction(const QString &text, const QString &tooltip, const QString &iconName, CaptureModes captureMode, const QKeySequence &shortcut);
 	bool isCaptureModeSupported(const QList<CaptureModes> &captureModes, CaptureModes captureMode) const;
 };
 

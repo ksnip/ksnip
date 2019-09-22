@@ -283,7 +283,7 @@ void MainWindow::initGui()
 
     mUploadToImgurAction->setText(tr("Upload"));
     mUploadToImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
-    mUploadToImgurAction->setShortcut(Qt::SHIFT + Qt::Key_U);
+    mUploadToImgurAction->setShortcut(Qt::SHIFT + Qt::Key_I);
     connect(mUploadToImgurAction, &QAction::triggered, this, &MainWindow::upload);
 
     mPrintAction->setText(tr("Print"));

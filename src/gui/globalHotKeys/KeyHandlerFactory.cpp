@@ -26,7 +26,7 @@ AbstractKeyHandler* KeyHandlerFactory::create()
 #endif
 
 #if defined(__linux__)
-    return new DummyKeyHandler;
+    return new X11KeyHandler;
 #endif
 
 #if  defined(_WIN32)

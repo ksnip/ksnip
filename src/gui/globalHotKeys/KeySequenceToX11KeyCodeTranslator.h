@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,25 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_KEYHANDLERFACTORY_H
-#define KSNIP_KEYHANDLERFACTORY_H
+#ifndef KSNIP_KEYSEQUENCETOX11KEYCODETRANSLATOR_H
+#define KSNIP_KEYSEQUENCETOX11KEYCODETRANSLATOR_H
 
-#if defined(__APPLE__)
-#include "DummyKeyHandler.h"
-#endif
+#include <QKeySequence>
+#include <QX11Info>
 
-#if defined(__linux__)
-#include "X11KeyHandler.h"
-#endif
+#include "WinKeyCodeCombo.h"
+#include "HotKeyMap.h"
 
-#if  defined(_WIN32)
-#include "WinKeyHandler.h"
-#endif
-
-class KeyHandlerFactory
+class KeySequenceToX11KeyCodeTranslator
 {
 public:
-    static AbstractKeyHandler* create();
+	KeySequenceToX11KeyCodeTranslator();
+	~KeySequenceToX11KeyCodeTranslator() = default;
+	WinKeyCodeCombo* map(const QKeySequence &keySequence) const;
+
+private:
+	HotKeyMap *mHotKeyMap;
+
+	unsigned int getModifier(const QString &modifierString) const;
+	unsigned int getKey(const QString &keyString) const;
 };
 
-#endif //KSNIP_KEYHANDLERFACTORY_H
+#endif //KSNIP_KEYSEQUENCETOX11KEYCODETRANSLATOR_H

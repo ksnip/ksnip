@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,25 +17,28 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_KEYHANDLERFACTORY_H
-#define KSNIP_KEYHANDLERFACTORY_H
+#ifndef KSNIP_X11KEYHANDLER_H
+#define KSNIP_X11KEYHANDLER_H
 
-#if defined(__APPLE__)
-#include "DummyKeyHandler.h"
-#endif
+#include <QX11Info>
+#include <QVector>
 
-#if defined(__linux__)
-#include "X11KeyHandler.h"
-#endif
+#include "AbstractKeyHandler.h"
+#include "KeySequenceToX11KeyCodeTranslator.h"
 
-#if  defined(_WIN32)
-#include "WinKeyHandler.h"
-#endif
-
-class KeyHandlerFactory
+class X11KeyHandler : public AbstractKeyHandler
 {
 public:
-    static AbstractKeyHandler* create();
+	X11KeyHandler();
+	~X11KeyHandler() override;
+
+	bool registerKey(const QKeySequence &keySequence) override;
+	bool isKeyPressed(void* message) override;
+
+private:
+	WinKeyCodeCombo *mKeyCodeCombo;
+	KeySequenceToX11KeyCodeTranslator mKeyCodeMapper;
+	void unregisterKey() const;
 };
 
-#endif //KSNIP_KEYHANDLERFACTORY_H
+#endif //KSNIP_X11KEYHANDLER_H

@@ -310,6 +310,41 @@ Voulez-vous l&apos;enregistrer ?</translation>
     </message>
 </context>
 <context>
+    <name>HotKeySettings</name>
+    <message>
+        <source>Enable Global HotKeys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HotKey are currently only supported for Windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Rect Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Full Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture current Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture active Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Window under Cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Global HotKeys</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
@@ -674,6 +709,10 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Annotator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HotKeys</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

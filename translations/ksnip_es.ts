@@ -317,10 +317,6 @@ Desea guardarla?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>HotKey are currently only supported for Windows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Capture Rect Area</source>
         <translation type="unfinished"></translation>
     </message>
@@ -342,6 +338,10 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HotKeys are currently supported only for Windows and X11</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

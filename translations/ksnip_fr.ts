@@ -316,10 +316,6 @@ Voulez-vous l&apos;enregistrer ?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>HotKey are currently only supported for Windows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Capture Rect Area</source>
         <translation type="unfinished"></translation>
     </message>
@@ -341,6 +337,10 @@ Voulez-vous l&apos;enregistrer ?</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>HotKeys are currently supported only for Windows and X11</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -24,7 +24,7 @@
 
 #include <windows.h>
 
-#include "WinKeyCodeCombo.h"
+#include "KeyCodeCombo.h"
 #include "HotKeyMap.h"
 
 class KeySequenceToWinKeyCodeTranslator

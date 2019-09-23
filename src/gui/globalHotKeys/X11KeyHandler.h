@@ -29,14 +29,14 @@
 class X11KeyHandler : public AbstractKeyHandler
 {
 public:
-	X11KeyHandler();
+	X11KeyHandler() = default;
 	~X11KeyHandler() override;
 
 	bool registerKey(const QKeySequence &keySequence) override;
 	bool isKeyPressed(void* message) override;
 
 private:
-	WinKeyCodeCombo *mKeyCodeCombo;
+	KeyCodeCombo mKeyCodeCombo;
 	KeySequenceToX11KeyCodeTranslator mKeyCodeMapper;
 	void unregisterKey() const;
 };

@@ -26,7 +26,7 @@ KeySequenceToX11KeyCodeTranslator::KeySequenceToX11KeyCodeTranslator()
 	mHotKeyMap = HotKeyMap::instance();
 }
 
-WinKeyCodeCombo* KeySequenceToX11KeyCodeTranslator::map(const QKeySequence &keySequence) const
+KeyCodeCombo KeySequenceToX11KeyCodeTranslator::map(const QKeySequence &keySequence) const
 {
 	auto sequenceString = keySequence.toString().toUpper();
 	auto modifierString = sequenceString.section(QStringLiteral("+"), 0, -2);
@@ -35,7 +35,7 @@ WinKeyCodeCombo* KeySequenceToX11KeyCodeTranslator::map(const QKeySequence &keyS
 	auto modifier = getModifier(modifierString);
 	auto key = getKey(keyString);
 
-	return new WinKeyCodeCombo(modifier, key);
+	return KeyCodeCombo(modifier, key);
 }
 
 unsigned int KeySequenceToX11KeyCodeTranslator::getModifier(const QString &modifierString) const

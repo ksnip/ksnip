@@ -23,7 +23,7 @@
 #include <QKeySequence>
 #include <QX11Info>
 
-#include "WinKeyCodeCombo.h"
+#include "KeyCodeCombo.h"
 #include "HotKeyMap.h"
 
 class KeySequenceToX11KeyCodeTranslator
@@ -31,7 +31,7 @@ class KeySequenceToX11KeyCodeTranslator
 public:
 	KeySequenceToX11KeyCodeTranslator();
 	~KeySequenceToX11KeyCodeTranslator() = default;
-	WinKeyCodeCombo* map(const QKeySequence &keySequence) const;
+	KeyCodeCombo map(const QKeySequence &keySequence) const;
 
 private:
 	HotKeyMap *mHotKeyMap;

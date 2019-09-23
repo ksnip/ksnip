@@ -72,7 +72,7 @@ void HotKeySettings::initGui()
 	mLayout = new QGridLayout(this);
 
 	mEnableGlobalHotKeysCheckBox->setText(tr("Enable Global HotKeys"));
-	mEnableGlobalHotKeysCheckBox->setToolTip(tr("HotKey are currently only supported for Windows"));
+	mEnableGlobalHotKeysCheckBox->setToolTip(tr("HotKeys are currently supported only for Windows and X11"));
 	connect(mEnableGlobalHotKeysCheckBox, &QCheckBox::stateChanged, this, &HotKeySettings::globalHotKeysStateChanged);
 
 	mRectAreaLabel->setText(tr("Capture Rect Area") + QStringLiteral(":"));

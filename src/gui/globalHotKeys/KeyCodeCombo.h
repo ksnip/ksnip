@@ -17,20 +17,22 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_WINKEYCODECOMBO_H
-#define KSNIP_WINKEYCODECOMBO_H
+#ifndef KSNIP_KEYCODECOMBO_H
+#define KSNIP_KEYCODECOMBO_H
 
 
-struct WinKeyCodeCombo
+struct KeyCodeCombo
 {
 	unsigned int modifier;
 	unsigned int key;
 
-	explicit WinKeyCodeCombo(unsigned int modifier, unsigned int key) {
+	explicit KeyCodeCombo(unsigned int modifier, unsigned int key) {
 		this->modifier = modifier;
 		this->key = key;
 	}
+
+	explicit KeyCodeCombo() = default;
 };
 
 
-#endif //KSNIP_WINKEYCODECOMBO_H
+#endif //KSNIP_KEYCODECOMBO_H

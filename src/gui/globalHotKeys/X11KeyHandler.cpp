@@ -22,14 +22,8 @@
 #include <xcb/xcb.h>
 #include <X11/Xlib.h>
 
-X11KeyHandler::X11KeyHandler()
-{
-	mKeyCodeCombo = nullptr;
-}
-
 X11KeyHandler::~X11KeyHandler()
 {
-	delete mKeyCodeCombo;
 	unregisterKey();
 }
 
@@ -41,7 +35,7 @@ bool X11KeyHandler::registerKey(const QKeySequence &keySequence)
 	}
 
 	mKeyCodeCombo = mKeyCodeMapper.map(keySequence);
-	XGrabKey(display, mKeyCodeCombo->key, mKeyCodeCombo->modifier, DefaultRootWindow(display), true, GrabModeAsync, GrabModeAsync);
+	XGrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier, DefaultRootWindow(display), true, GrabModeAsync, GrabModeAsync);
 
 	XSync(display, False);
 	return true;
@@ -52,7 +46,7 @@ bool X11KeyHandler::isKeyPressed(void *message)
 	auto genericEvent = static_cast<xcb_generic_event_t *>(message);
 	if (genericEvent->response_type == XCB_KEY_PRESS) {
 		auto keyEvent = static_cast<xcb_key_press_event_t *>(message);
-		return keyEvent->detail == mKeyCodeCombo->key && keyEvent->state == mKeyCodeCombo->modifier;
+		return keyEvent->detail == mKeyCodeCombo.key && keyEvent->state == mKeyCodeCombo.modifier;
 	}
 	return false;
 }
@@ -64,6 +58,6 @@ void X11KeyHandler::unregisterKey() const
 		return;
 	}
 
-	XUngrabKey(display, mKeyCodeCombo->key, mKeyCodeCombo->modifier, DefaultRootWindow(display));
+	XUngrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier, DefaultRootWindow(display));
 	XSync(display, False);
 }

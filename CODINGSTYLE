@@ -21,5 +21,5 @@ coding style, with a few exceptions:
        someclass.cpp
 
     5. Function parameters, if classes, should be past as const references, if
-       basic types like bool, int float, enum, can be passed by value. Functions
+       basic types like bool, int, float, enum, can be passed by value. Functions
        that do not change anything on the class (like getters), should be const.

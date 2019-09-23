@@ -57,6 +57,57 @@ unsigned int KeySequenceToX11KeyCodeTranslator::getModifier(const QString &modif
 unsigned int KeySequenceToX11KeyCodeTranslator::getKey(const QString &keyString) const
 {
 	auto display = QX11Info::display();
+	auto keyCode = getKeyCode(keyString);
+	return XKeysymToKeycode(display, keyCode);
+}
+
+unsigned int KeySequenceToX11KeyCodeTranslator::getKeyCode(const QString &keyString) const
+{
 	auto key = mHotKeyMap->getKeyForString(keyString);
-	return XKeysymToKeycode(display, key);
+	switch (key) {
+		case Qt::Key_F1:
+			return XK_F1;
+		case Qt::Key_F2:
+			return XK_F2;
+		case Qt::Key_F3:
+			return XK_F3;
+		case Qt::Key_F4:
+			return XK_F4;
+		case Qt::Key_F5:
+			return XK_F5;
+		case Qt::Key_F6:
+			return XK_F6;
+		case Qt::Key_F7:
+			return XK_F7;
+		case Qt::Key_F8:
+			return XK_F8;
+		case Qt::Key_F9:
+			return XK_F9;
+		case Qt::Key_F10:
+			return XK_F10;
+		case Qt::Key_F11:
+			return XK_F11;
+		case Qt::Key_F12:
+			return XK_F12;
+		case Qt::Key_Delete:
+			return XK_Delete;
+		case Qt::Key_Insert:
+			return XK_Insert;
+		case Qt::Key_Print:
+			return XK_Print;
+		case Qt::Key_Left:
+			return XK_Left;
+		case Qt::Key_Up:
+			return XK_Up;
+		case Qt::Key_Right:
+			return XK_Right;
+		case Qt::Key_Down:
+			return XK_Down;
+		case Qt::Key_PageDown:
+			return XK_Page_Down;
+		case Qt::Key_PageUp:
+			return XK_Page_Up;
+		default:
+			return key;
+	}
 }

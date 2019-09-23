@@ -38,6 +38,7 @@ private:
 
 	unsigned int getModifier(const QString &modifierString) const;
 	unsigned int getKey(const QString &keyString) const;
+	unsigned int getKeyCode(const QString &keyString) const;
 };
 
 #endif //KSNIP_KEYSEQUENCETOX11KEYCODETRANSLATOR_H

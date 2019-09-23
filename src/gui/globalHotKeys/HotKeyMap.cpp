@@ -54,9 +54,8 @@ HotKeyMap::HotKeyMap()
 	mKeyToStringMap[Qt::Key_Up] = QStringLiteral("UP");
 	mKeyToStringMap[Qt::Key_Right] = QStringLiteral("RIGHT");
 	mKeyToStringMap[Qt::Key_Down] = QStringLiteral("DOWN");
-	mKeyToStringMap[Qt::Key_PageUp] = QStringLiteral("PAGEUP");
-	mKeyToStringMap[Qt::Key_PageDown] = QStringLiteral("PAGEDOWN");
-	mKeyToStringMap[Qt::Key_PageUp] = QStringLiteral("PAGEUP");
+	mKeyToStringMap[Qt::Key_PageUp] = QStringLiteral("PGUP");
+	mKeyToStringMap[Qt::Key_PageDown] = QStringLiteral("PGDOWN");
 	mKeyToStringMap[Qt::Key_Comma] = QStringLiteral(",");
 	mKeyToStringMap[Qt::Key_Underscore] = QStringLiteral("_");
 	mKeyToStringMap[Qt::Key_Minus] = QStringLiteral("-");

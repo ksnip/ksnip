@@ -314,35 +314,35 @@ Wil je deze opslaan?</translation>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Algemene sneltoetsen inschakelen</translation>
     </message>
     <message>
         <source>HotKey are currently only supported for Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Sneltoetsen worden momenteel alleen ondersteund op Windows</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechthoekig gebied vastleggen</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Volledig scherm vastleggen</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Huidige scherm vastleggen</translation>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Actief scherm vastleggen</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster onder cursor vastleggen</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Algemene sneltoetsen</translation>
     </message>
 </context>
 <context>
@@ -728,7 +728,7 @@ van schermafdruk, in seconden.</translation>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Sneltoetsen</translation>
     </message>
 </context>
 <context>

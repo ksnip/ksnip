@@ -342,7 +342,7 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation type="unfinished">Sneltoetsen worden momenteel alleen ondersteund op Windows</translation>
+        <translation>Sneltoetsen worden momenteel alleen ondersteund op Windows en onder X11</translation>
     </message>
 </context>
 <context>

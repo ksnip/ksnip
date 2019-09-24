@@ -24,7 +24,7 @@ KeySequenceToWinKeyCodeTranslator::KeySequenceToWinKeyCodeTranslator()
 	mHotKeyMap = HotKeyMap::instance();
 }
 
-WinKeyCodeCombo KeySequenceToWinKeyCodeTranslator::map(const QKeySequence &keySequence) const
+KeyCodeCombo KeySequenceToWinKeyCodeTranslator::map(const QKeySequence &keySequence) const
 {
 	auto sequenceString = keySequence.toString().toUpper();
 	auto modifierString = sequenceString.section(QStringLiteral("+"), 0, -2);
@@ -33,7 +33,7 @@ WinKeyCodeCombo KeySequenceToWinKeyCodeTranslator::map(const QKeySequence &keySe
 	auto modifier = getModifier(modifierString);
 	auto key = getKey(keyString);
 
-	return WinKeyCodeCombo(modifier, key);
+	return KeyCodeCombo(modifier, key);
 }
 
 unsigned int KeySequenceToWinKeyCodeTranslator::getModifier(const QString &modifierString) const

@@ -32,7 +32,7 @@ class KeySequenceToWinKeyCodeTranslator
 public:
 	KeySequenceToWinKeyCodeTranslator();
 	~KeySequenceToWinKeyCodeTranslator() = default;
-	WinKeyCodeCombo map(const QKeySequence &keySequence) const;
+	KeyCodeCombo map(const QKeySequence &keySequence) const;
 
 private:
 	HotKeyMap *mHotKeyMap;

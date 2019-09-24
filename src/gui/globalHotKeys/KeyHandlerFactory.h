@@ -26,6 +26,8 @@
 
 #if defined(__linux__)
 #include "X11KeyHandler.h"
+#include "DummyKeyHandler.h"
+#include "src/common/platform/PlatformChecker.h"
 #endif
 
 #if  defined(_WIN32)

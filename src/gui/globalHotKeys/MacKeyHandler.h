@@ -17,29 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_X11KEYHANDLER_H
-#define KSNIP_X11KEYHANDLER_H
-
-#include <QX11Info>
-#include <QVector>
+#ifndef KSNIP_MACKEYHANDLER_H
+#define KSNIP_MACKEYHANDLER_H
 
 #include "AbstractKeyHandler.h"
-#include "KeySequenceToX11KeyCodeTranslator.h"
+#include "KeySequenceToMacKeyCodeTranslator.h"
 
-class X11KeyHandler : public AbstractKeyHandler
+class MacKeyHandler : public AbstractKeyHandler
 {
 public:
-	X11KeyHandler() = default;
-	~X11KeyHandler() override;
+	MacKeyHandler() = default;
+	~MacKeyHandler() override;
 
 	bool registerKey(const QKeySequence &keySequence) override;
 	bool isKeyPressed(void* message) override;
 
 private:
-	KeyCodeCombo mKeyCodeCombo;
-	KeySequenceToX11KeyCodeTranslator mKeyCodeMapper;
+	KeySequenceToMacKeyCodeTranslator mKeyCodeMapper;
 
 	void unregisterKey() const;
 };
 
-#endif //KSNIP_X11KEYHANDLER_H
+#endif //KSNIP_MACKEYHANDLER_H

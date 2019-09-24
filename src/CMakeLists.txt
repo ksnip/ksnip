@@ -61,12 +61,14 @@ set(KSNIP_SRCS
 
 if (APPLE)
 	set(KSNIP_SRCS
-			${KSNIP_SRCS}
-			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacImageGrabber.cpp
-			${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacWrapper.cpp
-			${CMAKE_SOURCE_DIR}/src/gui/snippingArea/MacSnippingArea.cpp
-			${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/DummyKeyHandler.cpp
-			)
+		${KSNIP_SRCS}
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacImageGrabber.cpp
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacWrapper.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/MacSnippingArea.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/DummyKeyHandler.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/MacKeyHandler.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToMacKeyCodeTranslator.cpp
+		)
 elseif (UNIX)
     set(KSNIP_SRCS
 		${KSNIP_SRCS}

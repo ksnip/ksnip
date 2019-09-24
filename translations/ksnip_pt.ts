@@ -256,7 +256,7 @@ Você quer salvá-la?</translation>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation>Área Retangular</translation>
+        <translation>Área retangular</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
@@ -314,35 +314,35 @@ Você quer salvá-la?</translation>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Ativar teclas de atalho globais</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura de Área retangular</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura de Tela cheia</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura da Tela atual</translation>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura da Janela ativa</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura a Janela sob o mouse</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Teclas de Atalho Globais</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation type="unfinished"></translation>
+        <translation>Atualmente, as teclas de atalho são suportadas apenas para Windows e X11 (Xorg)</translation>
     </message>
 </context>
 <context>
@@ -725,7 +725,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Teclas de Atalho</translation>
     </message>
 </context>
 <context>

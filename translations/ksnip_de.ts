@@ -315,35 +315,35 @@ Möchten Sie sie speichern?</translation>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemweite Tastenkürzel aktivieren</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechteckigen Bereich aufnehmen</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Gesamten Bildschirm aufnehmen</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuellen Bildschirm aufnehmen</translation>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktives Fenster aufnehmen</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenster unter Mauszeiger aufnehmen</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemweite Tastenkürzel</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation type="unfinished"></translation>
+        <translation>Tastenkürzel werden nur unter Windows und X11 unterstützt</translation>
     </message>
 </context>
 <context>
@@ -732,7 +732,7 @@ und der Aufnahme.</translation>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Tastenkürzel</translation>
     </message>
 </context>
 <context>

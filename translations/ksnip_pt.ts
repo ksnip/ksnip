@@ -314,7 +314,7 @@ Você quer salvá-la?</translation>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation>Ativar teclas de atalho globais</translation>
+        <translation>Ativar as teclas de atalho globais</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
@@ -322,7 +322,7 @@ Você quer salvá-la?</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation>Captura de Tela cheia</translation>
+        <translation>Captura da Tela cheia</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
@@ -334,7 +334,7 @@ Você quer salvá-la?</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation>Captura a Janela sob o mouse</translation>
+        <translation>Captura da Janela sob o mouse</translation>
     </message>
     <message>
         <source>Global HotKeys</source>

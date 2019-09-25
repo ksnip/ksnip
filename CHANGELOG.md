@@ -14,6 +14,7 @@
 * Changed: Change copy icon. ([#157](https://github.com/DamirPorobic/kImageAnnotator/issues/157))
 * Changed: Before discarding ask if user want save or not or cancel. ([#215](https://github.com/DamirPorobic/kImageAnnotator/issues/215))
 * Changed: Shortcut for imgur upload was changed to Shift + i. ([#161](https://github.com/DamirPorobic/kImageAnnotator/issues/161))
+* Changed kImageAnnotator: Increase blur level so that large text is not visible. ([#62](https://github.com/DamirPorobic/kImageAnnotator/issues/62))
 * Fixed: Translations not working for Windows and MacOS. ([#164](https://github.com/DamirPorobic/ksnip/issues/164))
 * Fixed: Translations not working for Windows and MacOS. ([#164](https://github.com/DamirPorobic/ksnip/issues/164))
 * Fixed: AppImage update fails with "None of the artifacts matched the pattern in the update information". ([#166](https://github.com/DamirPorobic/ksnip/issues/166))

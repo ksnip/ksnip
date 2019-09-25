@@ -170,19 +170,22 @@ public:
 	void setGlobalHotKeysEnabled(bool enabled);
 
 	QKeySequence rectAreaHotKey() const;
-	void setRectAreaHotKey(QKeySequence keySequence);
+	void setRectAreaHotKey(const QKeySequence &keySequence);
+
+	QKeySequence lastRectAreaHotKey() const;
+	void setLastRectAreaHotKey(const QKeySequence &keySequence);
 
 	QKeySequence fullScreenHotKey() const;
-	void setFullScreenHotKey(QKeySequence keySequence);
+	void setFullScreenHotKey(const QKeySequence &keySequence);
 
 	QKeySequence currentScreenHotKey() const;
-	void setCurrentScreenHotKey(QKeySequence keySequence);
+	void setCurrentScreenHotKey(const QKeySequence &keySequence);
 
 	QKeySequence activeWindowHotKey() const;
-	void setActiveWindowHotKey(QKeySequence keySequence);
+	void setActiveWindowHotKey(const QKeySequence &keySequence);
 
 	QKeySequence windowUnderCursorHotKey() const;
-	void setWindowUnderCursorHotKey(QKeySequence keySequence);
+	void setWindowUnderCursorHotKey(const QKeySequence &keySequence);
 
 signals:
     void painterUpdated() const;

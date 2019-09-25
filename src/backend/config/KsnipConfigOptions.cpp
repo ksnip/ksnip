@@ -214,6 +214,11 @@ QString KsnipConfigOptions::rectAreaHotKeyString()
 	return hotKeysSectionString() + QStringLiteral("RectAreaHotKey");
 }
 
+QString KsnipConfigOptions::lastRectAreaHotKeyString()
+{
+	return hotKeysSectionString() + QStringLiteral("LastRectAreaHotKey");
+}
+
 QString KsnipConfigOptions::fullScreenHotKeyString()
 {
 	return hotKeysSectionString() + QStringLiteral("FullScreenHotKey");

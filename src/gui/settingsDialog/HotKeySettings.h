@@ -40,11 +40,13 @@ public:
 private:
 	QCheckBox *mEnableGlobalHotKeysCheckBox;
 	QLabel *mRectAreaLabel;
+	QLabel *mLastRectAreaLabel;
 	QLabel *mFullScreenLabel;
 	QLabel *mCurrentScreenLabel;
 	QLabel *mActiveWindowLabel;
 	QLabel *mWindowUnderCursorLabel;
 	KeySequenceLineEdit *mRectAreaKeySequenceLineEdit;
+	KeySequenceLineEdit *mLastRectAreaKeySequenceLineEdit;
 	KeySequenceLineEdit *mFullScreenKeySequenceLineEdit;
 	KeySequenceLineEdit *mCurrentScreenKeySequenceLineEdit;
 	KeySequenceLineEdit *mActiveWindowKeySequenceLineEdit;

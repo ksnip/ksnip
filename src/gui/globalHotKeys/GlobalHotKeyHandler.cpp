@@ -44,6 +44,7 @@ void GlobalHotKeyHandler::setupHotKeys()
 	removeHotKeys();
 	if(mConfig->globalHotKeysEnabled()) {
 		createHotKey(mConfig->rectAreaHotKey(), CaptureModes::RectArea);
+		createHotKey(mConfig->lastRectAreaHotKey(), CaptureModes::LastRectArea);
 		createHotKey(mConfig->fullScreenHotKey(), CaptureModes::FullScreen);
 		createHotKey(mConfig->currentScreenHotKey(), CaptureModes::CurrentScreen);
 		createHotKey(mConfig->activeWindowHotKey(), CaptureModes::ActiveWindow);

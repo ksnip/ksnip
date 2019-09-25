@@ -33,11 +33,13 @@ HotKeySettings::~HotKeySettings()
 {
 	delete mEnableGlobalHotKeysCheckBox;
 	delete mRectAreaLabel;
+	delete mLastRectAreaLabel;
 	delete mFullScreenLabel;
 	delete mCurrentScreenLabel;
 	delete mActiveWindowLabel;
 	delete mWindowUnderCursorLabel;
 	delete mRectAreaKeySequenceLineEdit;
+	delete mLastRectAreaKeySequenceLineEdit;
 	delete mFullScreenKeySequenceLineEdit;
 	delete mCurrentScreenKeySequenceLineEdit;
 	delete mActiveWindowKeySequenceLineEdit;
@@ -49,6 +51,7 @@ void HotKeySettings::saveSettings()
 {
 	mConfig->setGlobalHotKeysEnabled(mEnableGlobalHotKeysCheckBox->isChecked());
 	mConfig->setRectAreaHotKey(mRectAreaKeySequenceLineEdit->value());
+	mConfig->setLastRectAreaHotKey(mLastRectAreaKeySequenceLineEdit->value());
 	mConfig->setFullScreenHotKey(mFullScreenKeySequenceLineEdit->value());
 	mConfig->setCurrentScreenHotKey(mCurrentScreenKeySequenceLineEdit->value());
 	mConfig->setActiveWindowHotKey(mActiveWindowKeySequenceLineEdit->value());
@@ -60,11 +63,13 @@ void HotKeySettings::initGui()
 	auto allowedKeys = HotKeyMap::instance()->getAllKeys();
 	mEnableGlobalHotKeysCheckBox = new QCheckBox(this);
 	mRectAreaLabel = new QLabel(this);
+	mLastRectAreaLabel = new QLabel(this);
 	mFullScreenLabel = new QLabel(this);
 	mCurrentScreenLabel = new QLabel(this);
 	mActiveWindowLabel = new QLabel(this);
 	mWindowUnderCursorLabel = new QLabel(this);
 	mRectAreaKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
+	mLastRectAreaKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
 	mFullScreenKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
 	mCurrentScreenKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
 	mActiveWindowKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
@@ -76,6 +81,7 @@ void HotKeySettings::initGui()
 	connect(mEnableGlobalHotKeysCheckBox, &QCheckBox::stateChanged, this, &HotKeySettings::globalHotKeysStateChanged);
 
 	mRectAreaLabel->setText(tr("Capture Rect Area") + QStringLiteral(":"));
+	mLastRectAreaLabel->setText(tr("Capture Last Rect Area") + QStringLiteral(":"));
 	mFullScreenLabel->setText(tr("Capture Full Screen") + QStringLiteral(":"));
 	mCurrentScreenLabel->setText(tr("Capture current Screen") + QStringLiteral(":"));
 	mActiveWindowLabel->setText(tr("Capture active Window") + QStringLiteral(":"));
@@ -86,14 +92,16 @@ void HotKeySettings::initGui()
 	mLayout->addWidget(mEnableGlobalHotKeysCheckBox, 0, 0, 1, 2);
 	mLayout->addWidget(mRectAreaLabel, 1, 0);
 	mLayout->addWidget(mRectAreaKeySequenceLineEdit, 1, 1);
-	mLayout->addWidget(mFullScreenLabel, 2, 0);
-	mLayout->addWidget(mFullScreenKeySequenceLineEdit, 2, 1);
-	mLayout->addWidget(mCurrentScreenLabel, 3, 0);
-	mLayout->addWidget(mCurrentScreenKeySequenceLineEdit, 3, 1);
-	mLayout->addWidget(mActiveWindowLabel, 4, 0);
-	mLayout->addWidget(mActiveWindowKeySequenceLineEdit, 4, 1);
-	mLayout->addWidget(mWindowUnderCursorLabel, 5, 0);
-	mLayout->addWidget(mWindowUnderCursorKeySequenceLineEdit, 5, 1);
+	mLayout->addWidget(mLastRectAreaLabel, 2, 0);
+	mLayout->addWidget(mLastRectAreaKeySequenceLineEdit, 2, 1);
+	mLayout->addWidget(mFullScreenLabel, 3, 0);
+	mLayout->addWidget(mFullScreenKeySequenceLineEdit, 3, 1);
+	mLayout->addWidget(mCurrentScreenLabel, 4, 0);
+	mLayout->addWidget(mCurrentScreenKeySequenceLineEdit, 4, 1);
+	mLayout->addWidget(mActiveWindowLabel, 5, 0);
+	mLayout->addWidget(mActiveWindowKeySequenceLineEdit, 5, 1);
+	mLayout->addWidget(mWindowUnderCursorLabel, 6, 0);
+	mLayout->addWidget(mWindowUnderCursorKeySequenceLineEdit, 6, 1);
 
 	setTitle(tr("Global HotKeys"));
 	setLayout(mLayout);
@@ -103,6 +111,7 @@ void HotKeySettings::loadConfig()
 {
 	mEnableGlobalHotKeysCheckBox->setChecked(mConfig->globalHotKeysEnabled());
 	mRectAreaKeySequenceLineEdit->setValue(mConfig->rectAreaHotKey());
+	mLastRectAreaKeySequenceLineEdit->setValue(mConfig->lastRectAreaHotKey());
 	mFullScreenKeySequenceLineEdit->setValue(mConfig->fullScreenHotKey());
 	mCurrentScreenKeySequenceLineEdit->setValue(mConfig->currentScreenHotKey());
 	mActiveWindowKeySequenceLineEdit->setValue(mConfig->activeWindowHotKey());
@@ -113,11 +122,13 @@ void HotKeySettings::globalHotKeysStateChanged()
 {
 	auto hotKeysEnabled = mEnableGlobalHotKeysCheckBox->isChecked();
 	mRectAreaLabel->setEnabled(hotKeysEnabled);
+	mLastRectAreaLabel->setEnabled(hotKeysEnabled);
 	mFullScreenLabel->setEnabled(hotKeysEnabled);
 	mCurrentScreenLabel->setEnabled(hotKeysEnabled);
 	mActiveWindowLabel->setEnabled(hotKeysEnabled);
 	mWindowUnderCursorLabel->setEnabled(hotKeysEnabled);
 	mRectAreaKeySequenceLineEdit->setEnabled(hotKeysEnabled);
+	mLastRectAreaKeySequenceLineEdit->setEnabled(hotKeysEnabled);
 	mFullScreenKeySequenceLineEdit->setEnabled(hotKeysEnabled);
 	mCurrentScreenKeySequenceLineEdit->setEnabled(hotKeysEnabled);
 	mActiveWindowKeySequenceLineEdit->setEnabled(hotKeysEnabled);

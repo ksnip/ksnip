@@ -64,6 +64,7 @@ public:
 	static QString imgurConfirmBeforeUploadString();
 	static QString globalHotKeysEnabledString();
 	static QString rectAreaHotKeyString();
+	static QString lastRectAreaHotKeyString();
 	static QString fullScreenHotKeyString();
 	static QString currentScreenHotKeyString();
 	static QString activeWindowHotKeyString();

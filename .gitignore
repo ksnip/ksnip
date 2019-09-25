@@ -69,3 +69,6 @@ perf.data*
 
 # macos
 .DS_Store
+
+# other
+.directory

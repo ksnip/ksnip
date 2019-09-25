@@ -13,6 +13,7 @@ for your screenshots.
 Latest ksnip version contains following features:
 * Supports Linux (X11 and experimental KDE and Gnome Wayland support), Windows and MacOS.
 * Taking screenshot of a custom rectangular area that can be drawn with mouse cursor.
+* Taking screenshot of last selected rectangular area without selecting again.
 * Taking screenshot of the screen/monitor where the mouse cursor is currently located.
 * Taking screenshot of full screen, including all screens/monitors.
 * Taking screenshot of window that currently has focus.
@@ -31,13 +32,13 @@ Latest ksnip version contains following features:
 
 
 # Supported Screenshot Types
-|              | Rect Area | Full Screen | Current Screen | Active Window | Window Under Cursor | Without Mouse Cursor |
-| -------------|:---------:|:-----------:|:--------------:|:-------------:|:-------------------:|:--------------------:|
-| X11          | X         | X           | X              | X             |                     | X                    |
-| KDE Wayland  |           | X           | X              |               | X                   |                      |
-| Gnome Wayland| X         | X           | X              | X             |                     | X                    |
-| Windows      | X         | X           | X              | X             |                     | X                    |
-| MacOS        | X         | X           | X              |               |                     |                      |
+|              | Rect Area | Last Rect Area | Full Screen | Current Screen | Active Window | Window Under Cursor | Without Mouse Cursor |
+| -------------|:---------:|:--------------:|:-----------:|:--------------:|:-------------:|:-------------------:|:--------------------:|
+| X11          | X         | X              | X           | X              | X             |                     | X                    |
+| KDE Wayland  |           |                | X           | X              |               | X                   |                      |
+| Gnome Wayland| X         | X              | X           | X              | X             |                     | X                    |
+| Windows      | X         | X              | X           | X              | X             |                     | X                    |
+| MacOS        | X         | X              | X           | X              |               |                     |                      |
 
 
 # Installing Binaries

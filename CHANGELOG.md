@@ -10,6 +10,7 @@
 * New: Add shortcuts for taking screenshots. ([#161](https://github.com/DamirPorobic/kImageAnnotator/issues/161))
 * New: Add Global HotKeys for Windows. ([#161](https://github.com/DamirPorobic/kImageAnnotator/issues/161))
 * New: Add Global HotKeys for X11. ([#221](https://github.com/DamirPorobic/kImageAnnotator/issues/221))
+* New: Provide option to use previous capture area. ([#150](https://github.com/DamirPorobic/kImageAnnotator/issues/150))
 * New kImageAnnotator: Edit text box content. ([#51](https://github.com/DamirPorobic/kImageAnnotator/issues/51))
 * Changed: Change copy icon. ([#157](https://github.com/DamirPorobic/kImageAnnotator/issues/157))
 * Changed: Before discarding ask if user want save or not or cancel. ([#215](https://github.com/DamirPorobic/kImageAnnotator/issues/215))

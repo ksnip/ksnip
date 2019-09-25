@@ -13,6 +13,7 @@
     <file>light/redo.svg</file>
     <file>light/currentScreen.svg</file>
     <file>light/drawRect.svg</file>
+    <file>light/lastRect.svg</file>
     <file>light/activeWindow.svg</file>
     <file>light/windowUnderCursor.svg</file>
     <file>light/fullScreen.svg</file>
@@ -28,6 +29,7 @@
     <file>dark/redo.svg</file>
     <file>dark/currentScreen.svg</file>
     <file>dark/drawRect.svg</file>
+    <file>dark/lastRect.svg</file>
     <file>dark/activeWindow.svg</file>
     <file>dark/windowUnderCursor.svg</file>
     <file>dark/fullScreen.svg</file>

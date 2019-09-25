@@ -59,7 +59,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 		auto action = createAction(
 			tr("Last Rectangular Area"),
 			tr("Capture a screenshot of the last selected rectangular area"),
-			QStringLiteral("drawRect.svg"),
+			QStringLiteral("lastRect.svg"),
 			CaptureModes::LastRectArea,
 			QKeySequence(Qt::SHIFT + Qt::Key_L));
 		menu->addAction(action);

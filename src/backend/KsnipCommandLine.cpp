@@ -32,6 +32,7 @@ KsnipCommandLine::KsnipCommandLine(const QCoreApplication &app, const QList<Capt
 KsnipCommandLine::~KsnipCommandLine()
 {
     delete mRectAreaOption;
+    delete mLastRectAreaOption;
     delete mFullScreenOption;
     delete mCurrentScreenOption;
     delete mActiveWindowOption;
@@ -48,8 +49,11 @@ void KsnipCommandLine::addImageGrabberOptions(const QList<CaptureModes> &capture
     if (captureModes.contains(CaptureModes::RectArea)) {
         mRectAreaOption = addOption(QStringLiteral("r"), QStringLiteral("rectarea"), QStringLiteral("Select a rectangular area from where to take a screenshot."));
     }
+	if (captureModes.contains(CaptureModes::LastRectArea)) {
+		mLastRectAreaOption = addOption(QStringLiteral("l"), QStringLiteral("lastrectarea"), QStringLiteral("Take a screenshot using last selected rectangular area."));
+	}
     if (captureModes.contains(CaptureModes::FullScreen)) {
-        mFullScreenOption = addOption(QStringLiteral("f"), QStringLiteral("fullscreen"), QStringLiteral("\"Capture the fullscreen including all monitors."));
+        mFullScreenOption = addOption(QStringLiteral("f"), QStringLiteral("fullscreen"), QStringLiteral("Capture the fullscreen including all monitors."));
     }
     if (captureModes.contains(CaptureModes::CurrentScreen)) {
         mCurrentScreenOption = addOption(QStringLiteral("m"), QStringLiteral("current"), QStringLiteral("Capture the screen (monitor) where the mouse cursor is currently located."));
@@ -97,6 +101,11 @@ QCommandLineOption* KsnipCommandLine::addParameterOption(const QString &shortNam
 bool KsnipCommandLine::isRectAreaSet() const
 {
     return mRectAreaOption != nullptr && isSet(*mRectAreaOption);
+}
+
+bool KsnipCommandLine::isLastRectAreaSet() const
+{
+	return mLastRectAreaOption != nullptr && isSet(*mLastRectAreaOption);
 }
 
 bool KsnipCommandLine::isFullScreenSet() const
@@ -162,7 +171,7 @@ QString KsnipCommandLine::image() const
 
 bool KsnipCommandLine::isCaptureModeSet() const
 {
-    return isRectAreaSet() || isFullScreenSet() || isCurrentScreenSet() || isActiveWindowSet() || isWindowsUnderCursorSet();
+    return isRectAreaSet() || isLastRectAreaSet() || isFullScreenSet() || isCurrentScreenSet() || isActiveWindowSet() || isWindowsUnderCursorSet();
 }
 
 CaptureModes KsnipCommandLine::captureMode() const
@@ -175,6 +184,8 @@ CaptureModes KsnipCommandLine::captureMode() const
         return CaptureModes::ActiveWindow;
     } else if (isWindowsUnderCursorSet()) {
         return CaptureModes::WindowUnderCursor;
+    } else if (isLastRectAreaSet()) {
+	    return CaptureModes::LastRectArea;
     } else {
         return CaptureModes::RectArea;
     }

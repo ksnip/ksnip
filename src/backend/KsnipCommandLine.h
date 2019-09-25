@@ -33,6 +33,7 @@ public:
     KsnipCommandLine(const QCoreApplication &app, const QList<CaptureModes> &captureModes);
     ~KsnipCommandLine();
     bool isRectAreaSet() const;
+    bool isLastRectAreaSet() const;
     bool isFullScreenSet() const;
     bool isCurrentScreenSet() const;
     bool isActiveWindowSet() const;
@@ -49,6 +50,7 @@ public:
 
 private:
     QCommandLineOption *mRectAreaOption = nullptr;
+    QCommandLineOption *mLastRectAreaOption = nullptr;
     QCommandLineOption *mFullScreenOption = nullptr;
     QCommandLineOption *mCurrentScreenOption = nullptr;
     QCommandLineOption *mActiveWindowOption = nullptr;

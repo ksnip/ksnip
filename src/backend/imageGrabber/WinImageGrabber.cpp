@@ -23,6 +23,7 @@ WinImageGrabber::WinImageGrabber() : AbstractImageGrabber(new WinSnippingArea),
     mWinWrapper(new WinWrapper)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);
+	addSupportedCaptureMode(CaptureModes::LastRectArea);
 	addSupportedCaptureMode(CaptureModes::FullScreen);
 	addSupportedCaptureMode(CaptureModes::ActiveWindow);
 	addSupportedCaptureMode(CaptureModes::CurrentScreen);

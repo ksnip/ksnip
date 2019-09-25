@@ -23,6 +23,7 @@
 X11ImageGrabber::X11ImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea), mX11Wrapper(new X11Wrapper)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);
+	addSupportedCaptureMode(CaptureModes::LastRectArea);
 	addSupportedCaptureMode(CaptureModes::FullScreen);
 	addSupportedCaptureMode(CaptureModes::CurrentScreen);
 	addSupportedCaptureMode(CaptureModes::ActiveWindow);

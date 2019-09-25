@@ -469,6 +469,19 @@ void KsnipConfig::setSnippingCursorColor(const QColor& color)
 	saveValue(KsnipConfigOptions::snippingCursorColorString(), color);
 }
 
+QRect KsnipConfig::lastRectArea() const
+{
+	return loadValue(KsnipConfigOptions::lastRectAreaString(), QRect()).value<QRect>();
+}
+
+void KsnipConfig::setLastRectArea(const QRect &rectArea)
+{
+	if (lastRectArea() == rectArea) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::lastRectAreaString(), rectArea);
+}
+
 // Imgur Uploader
 
 QString KsnipConfig::imgurUsername() const

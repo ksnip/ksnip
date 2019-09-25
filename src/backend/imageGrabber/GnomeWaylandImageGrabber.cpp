@@ -22,6 +22,7 @@
 GnomeWaylandImageGrabber::GnomeWaylandImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);
+	addSupportedCaptureMode(CaptureModes::LastRectArea);
 	addSupportedCaptureMode(CaptureModes::ActiveWindow);
 	addSupportedCaptureMode(CaptureModes::FullScreen);
 	addSupportedCaptureMode(CaptureModes::CurrentScreen);

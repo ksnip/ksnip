@@ -28,7 +28,8 @@
 #include "CaptureDto.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/handler/DelayHandler.h"
-#include "gui/snippingArea/AbstractSnippingArea.h"
+#include "src/gui/snippingArea/AbstractSnippingArea.h"
+#include "src/backend/config/KsnipConfig.h"
 
 class AbstractImageGrabber : public QObject
 {
@@ -42,6 +43,7 @@ public:
 	virtual QRect currentScreenRect() const;
 	virtual QRect fullScreenRect() const = 0;
 	virtual QRect activeWindowRect() const = 0;
+	virtual QRect lastRectArea() const;
 
 signals:
     void finished(const CaptureDto &capture) const;
@@ -74,6 +76,7 @@ private:
     AbstractSnippingArea *mSnippingArea;
 	bool mFreezeImageWhileSnipping;
 	QList<CaptureModes> mSupportedCaptureModes;
+	KsnipConfig *mConfig;
 
 	void openSnippingArea();
 	void connectSnippingAreaCancel();

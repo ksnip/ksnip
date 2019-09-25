@@ -22,6 +22,7 @@
 AbstractImageGrabber::AbstractImageGrabber(AbstractSnippingArea *snippingArea) : mSnippingArea(snippingArea)
 {
     Q_ASSERT(snippingArea != nullptr);
+	mConfig = KsnipConfig::instance();
 	connectSnippingAreaCancel();
 }
 
@@ -67,6 +68,16 @@ QRect AbstractImageGrabber::currentScreenRect() const
 {
     auto screen = QApplication::desktop()->screenNumber(QCursor::pos());
     return QApplication::desktop()->screenGeometry(screen);
+}
+
+QRect AbstractImageGrabber::lastRectArea() const
+{
+	auto rectArea = mConfig->lastRectArea();
+	if(rectArea.isNull()) {
+		qWarning("ImageGrabber: No RectArea found, capturing full screen.");
+		return fullScreenRect();
+	}
+	return rectArea;
 }
 
 void AbstractImageGrabber::addSupportedCaptureMode(CaptureModes captureMode)
@@ -115,18 +126,26 @@ QPixmap AbstractImageGrabber::getScreenshot() const
 
 void AbstractImageGrabber::setCaptureRectFromCorrectSource()
 {
-	if (mCaptureMode == CaptureModes::RectArea) {
-		mCaptureRect = selectedSnippingAreaRect();
-	} else if (mCaptureMode == CaptureModes::FullScreen) {
-		mCaptureRect = fullScreenRect();
-	} else if (mCaptureMode == CaptureModes::CurrentScreen) {
-		mCaptureRect = currentScreenRect();
-	} else if (mCaptureMode == CaptureModes::ActiveWindow) {
-		mCaptureRect = activeWindowRect();
-		if (mCaptureRect.isNull()) {
-			qWarning("ImageGrabber::getActiveWindow: Found no window with focus.");
+	switch (mCaptureMode) {
+		case CaptureModes::RectArea:
+			mCaptureRect = selectedSnippingAreaRect();
+			break;
+		case CaptureModes::LastRectArea:
+			mCaptureRect = lastRectArea();
+			break;
+		case CaptureModes::FullScreen:
+			mCaptureRect = fullScreenRect();
+			break;
+		case CaptureModes::CurrentScreen:
 			mCaptureRect = currentScreenRect();
-		}
+			break;
+		case CaptureModes::ActiveWindow:
+			mCaptureRect = activeWindowRect();
+			if (mCaptureRect.isNull()) {
+				qWarning("ImageGrabber::getActiveWindow: Found no window with focus.");
+				mCaptureRect = currentScreenRect();
+			}
+			break;
 	}
 }
 

@@ -129,6 +129,9 @@ public:
     QColor snippingCursorColor() const;
     void setSnippingCursorColor(const QColor &color);
 
+    QRect lastRectArea() const;
+    void setLastRectArea(const QRect &rectArea);
+
     // Imgur Uploader
 
     QString imgurUsername() const;

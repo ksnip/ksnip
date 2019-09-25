@@ -23,6 +23,7 @@
 enum class CaptureModes
 {
     RectArea,
+    LastRectArea,
     FullScreen,
     CurrentScreen,
     ActiveWindow,

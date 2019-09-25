@@ -24,6 +24,7 @@ MacImageGrabber::MacImageGrabber() : AbstractImageGrabber(new MacSnippingArea),
                                      mMacWrapper(new MacWrapper)
 {
     addSupportedCaptureMode(CaptureModes::RectArea);
+	addSupportedCaptureMode(CaptureModes::LastRectArea);
     addSupportedCaptureMode(CaptureModes::FullScreen);
     addSupportedCaptureMode(CaptureModes::CurrentScreen);
 }

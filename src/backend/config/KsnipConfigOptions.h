@@ -51,6 +51,7 @@ public:
 	static QString captureDelayString();
 	static QString snippingCursorSizeString();
 	static QString snippingCursorColorString();
+	static QString lastRectAreaString();
 	static QString imgurUsernameString();
 	static QString imgurClientIdString();
 	static QString imgurClientSecretString();

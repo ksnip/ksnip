@@ -55,6 +55,16 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         menu->addAction(action);
     }
 
+	if (isCaptureModeSupported(captureModes, CaptureModes::LastRectArea)) {
+		auto action = createAction(
+			tr("Last Rectangular Area"),
+			tr("Capture a screenshot of the last selected rectangular area"),
+			QStringLiteral("drawRect.svg"),
+			CaptureModes::LastRectArea,
+			QKeySequence(Qt::SHIFT + Qt::Key_L));
+		menu->addAction(action);
+	}
+
     if (isCaptureModeSupported(captureModes, CaptureModes::FullScreen)) {
         auto action = createAction(
 				tr("Full Screen (All Monitors)"),

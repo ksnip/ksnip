@@ -149,6 +149,11 @@ QString KsnipConfigOptions::snippingCursorColorString()
 	return imageGrabberSectionString() + QStringLiteral("SnippingCursorColor");
 }
 
+QString KsnipConfigOptions::lastRectAreaString()
+{
+	return imageGrabberSectionString() + QStringLiteral("LastRectArea");
+}
+
 QString KsnipConfigOptions::imgurUsernameString()
 {
 	return imgurSectionString() + QStringLiteral("Username");

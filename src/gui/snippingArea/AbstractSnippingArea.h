@@ -75,6 +75,7 @@ private:
     virtual void showSnippingArea();
 	void setMouseIsDown(bool isDown);
 	void updateAdorner();
+	void finishSelection();
 };
 
 #endif // KSNIP_ABSTRACTSNIPPINGAREA_H

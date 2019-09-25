@@ -106,8 +106,7 @@ void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
     }
 
 	setMouseIsDown(false);
-	emit finished();
-    closeSnippingArea();
+	finishSelection();
 }
 
 QPixmap AbstractSnippingArea::background() const
@@ -190,4 +189,11 @@ void AbstractSnippingArea::updateAdorner()
     auto snippingAreaGeometry = getSnippingAreaGeometry();
     auto currentMousePosition = getMousePosition();
 	mAdorner.update(currentMousePosition, snippingAreaGeometry, mCaptureArea);
+}
+
+void AbstractSnippingArea::finishSelection()
+{
+	emit finished();
+	mConfig->setLastRectArea(selectedRectArea());
+	closeSnippingArea();
 }

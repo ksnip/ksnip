@@ -294,6 +294,14 @@ Você quer salvá-la?</translation>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Capturar o que está atualmente sob o cursor do mouse</translation>
     </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture a screenshot of the last selected rectangular area</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CaptureUploader</name>
@@ -343,6 +351,10 @@ Você quer salvá-la?</translation>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
         <translation>Atualmente, as teclas de atalho são suportadas apenas para Windows e X11 (Xorg)</translation>
+    </message>
+    <message>
+        <source>Capture Last Rect Area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

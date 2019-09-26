@@ -294,6 +294,14 @@ Desea guardarla?</translation>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Captura que se encuentra actualmente debajo del cursor del mouse</translation>
     </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture a screenshot of the last selected rectangular area</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CaptureUploader</name>
@@ -342,6 +350,10 @@ Desea guardarla?</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Last Rect Area</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

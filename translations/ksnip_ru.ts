@@ -296,6 +296,14 @@ Do you want to save it?</source>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Сделать скриншот окна, на котором расположен курсор мыши</translation>
     </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture a screenshot of the last selected rectangular area</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CaptureUploader</name>
@@ -344,6 +352,10 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Last Rect Area</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

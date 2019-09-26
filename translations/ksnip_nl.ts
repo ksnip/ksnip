@@ -294,6 +294,14 @@ Wil je deze opslaan?</translation>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Schermdruk maken van het scherm onder de cursor</translation>
     </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture a screenshot of the last selected rectangular area</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CaptureUploader</name>
@@ -343,6 +351,10 @@ Wil je deze opslaan?</translation>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
         <translation>Sneltoetsen worden momenteel alleen ondersteund op Windows en onder X11</translation>
+    </message>
+    <message>
+        <source>Capture Last Rect Area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

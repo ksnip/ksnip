@@ -294,6 +294,14 @@ Kaydetmek ister misiniz?</translation>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Fare imlecinin altında olanı yakala</translation>
     </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture a screenshot of the last selected rectangular area</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CaptureUploader</name>
@@ -342,6 +350,10 @@ Kaydetmek ister misiniz?</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Last Rect Area</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

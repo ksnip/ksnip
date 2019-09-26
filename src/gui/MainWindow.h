@@ -43,6 +43,7 @@
 #include "src/gui/operations/UploadOperation.h"
 #include "src/gui/operations/HandleUploadResponseOperation.h"
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
+#include "src/gui/TrayIcon.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -53,6 +54,7 @@ public:
     explicit MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
     ~MainWindow();
     void showEmpty();
+    void show();
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
 
 public slots:
@@ -88,6 +90,7 @@ private:
     KImageAnnotator *mKImageAnnotator;
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
+    TrayIcon *mTrayIcon;
 
     void setSaveable(bool enabled);
     void setEnablements(bool enabled);

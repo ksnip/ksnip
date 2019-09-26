@@ -38,7 +38,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mConfig(KsnipConfig::instance()),
 	mCapturePrinter(new CapturePrinter),
 	mCaptureUploader(new CaptureUploader()),
-	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes()))
+	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
+	mTrayIcon(new TrayIcon(this))
 {
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
@@ -93,6 +94,7 @@ MainWindow::~MainWindow()
     delete mAddWatermarkAction;
     delete mCapturePrinter;
     delete mCaptureUploader;
+    delete mTrayIcon;
 }
 
 void MainWindow::processInstantCapture(const CaptureDto &capture)
@@ -158,6 +160,14 @@ void MainWindow::showEmpty()
     setEnablements(false);
     QMainWindow::show();
 }
+
+void MainWindow::show()
+{
+	activateWindow();
+	raise();
+	QWidget::show();
+}
+
 
 void MainWindow::triggerNewDefaultCapture()
 {
@@ -350,6 +360,15 @@ void MainWindow::initGui()
     menu->addAction(mAboutAction);
 
     addToolBar(mToolBar);
+
+    connect(mTrayIcon, &TrayIcon::showEditorTriggered, this, &MainWindow::show);
+	mTrayIcon->setNewCaptureAction(mToolBar->newCaptureAction());
+	mTrayIcon->setOpenAction(mOpenImageAction);
+	mTrayIcon->setSaveAction(mToolBar->saveAction());
+	mTrayIcon->setCopyAction(mToolBar->copyToClipboardAction());
+	mTrayIcon->setUploadAction(mUploadToImgurAction);
+	mTrayIcon->setQuitAction(mQuitAction);
+	mTrayIcon->setupMenu();
 
 	setCentralWidget(mKImageAnnotator);
 }

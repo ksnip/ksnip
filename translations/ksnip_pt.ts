@@ -296,11 +296,11 @@ Você quer salvá-la?</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Última área retangular</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
+        <translation>Realizar uma captura de tela da última área retangular selecionada</translation>
     </message>
 </context>
 <context>
@@ -354,7 +354,7 @@ Você quer salvá-la?</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura da Última área retangular</translation>
     </message>
 </context>
 <context>

@@ -23,7 +23,7 @@ TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
 {
 	setIcon(QIcon(QStringLiteral(":/ksnip")));
 
-	mShowEditorAction = new QAction(tr("Show Editor"));
+	mShowEditorAction = new QAction(tr("Show Editor"), this);
 	connect(mShowEditorAction, &QAction::triggered, this, &TrayIcon::showEditorTriggered);
 	connect(this, &TrayIcon::activated, this, &TrayIcon::showEditorTriggered);
 
@@ -46,13 +46,7 @@ void TrayIcon::setupMenu()
 
 TrayIcon::~TrayIcon()
 {
-	delete mNewCaptureAction;
-	delete mOpenAction;
-	delete mSaveAction;
-	delete mCopyAction;
-	delete mUploadAction;
 	delete mShowEditorAction;
-	delete mQuitAction;
 }
 
 void TrayIcon::setNewCaptureAction(QAction *action)

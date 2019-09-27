@@ -135,7 +135,8 @@ void MainWindow::quit()
 void MainWindow::showCapture(const CaptureDto &capture)
 {
     if (!capture.isValid()) {
-        qCritical("PaintWindow::showWindow: No image provided to but it was expected.");
+    	NotifyOperation operation(mTrayIcon, tr("Unable to show image"), tr("No image provided to but one was expected."), NotificationTypes::Critical);
+    	operation.execute();
         showEmpty();
         return;
     }
@@ -397,10 +398,10 @@ void MainWindow::initGui()
 void MainWindow::saveCapture()
 {
 	auto image = mKImageAnnotator->image();
-	auto saveOperation = SaveOperation(this, image, mConfig->useInstantSave());
-	bool saveSuccessful = saveOperation.execute();
+	SaveOperation operation(this, image, mConfig->useInstantSave(), mTrayIcon);
+	bool successful = operation.execute();
 
-    setSaveable(!saveSuccessful);
+    setSaveable(!successful);
 }
 
 void MainWindow::copyCaptureToClipboard()
@@ -415,13 +416,13 @@ void MainWindow::copyCaptureToClipboard()
 void MainWindow::upload()
 {
 	auto image = mKImageAnnotator->image();
-	auto uploadOperation = UploadOperation(image, mCaptureUploader);
-	uploadOperation.execute();
+	UploadOperation operation(image, mCaptureUploader);
+	operation.execute();
 }
 
 void MainWindow::uploadFinished(const QString &response)
 {
-	auto handleUploadResponseOperation = HandleUploadResponseOperation(response);
+	HandleUploadResponseOperation handleUploadResponseOperation(response, mTrayIcon);
 	handleUploadResponseOperation.execute();
 }
 
@@ -442,14 +443,8 @@ void MainWindow::printPreviewClicked()
 void MainWindow::instantSave()
 {
 	auto screenshot = mKImageAnnotator->image();
-    auto saveOperation = SaveOperation(this, screenshot, true);
-    auto saveSuccessful = saveOperation.execute();
-	auto savePath = mSavePathProvider.savePath();
-	if (saveSuccessful) {
-        qInfo("Screenshot saved to: %s", qPrintable(savePath));
-    } else {
-        qCritical("MainWindow::instantSave: Failed to save file at '%s'", qPrintable(savePath));
-    }
+    SaveOperation operation(this, screenshot, true, mTrayIcon);
+    operation.execute();
 }
 
 void MainWindow::loadImageFromFile()
@@ -471,8 +466,8 @@ void MainWindow::loadImageFromFile()
 bool MainWindow::discardChanges()
 {
 	auto image = mKImageAnnotator->image();
-	auto discardOperation = CanDiscardOperation(this, image, mIsUnsaved);
-	return discardOperation.execute();
+	CanDiscardOperation operation(this, image, mIsUnsaved, mTrayIcon);
+	return operation.execute();
 }
 
 void MainWindow::setupImageAnnotator()

@@ -38,6 +38,9 @@ public:
 	void setUploadAction(QAction *action);
 	void setQuitAction(QAction *action);
 	void setEnabled(bool enabled);
+	void showInfoToast(const QString &title, const QString &message);
+	void showWarningToast(const QString &title, const QString &message);
+	void showCriticalToast(const QString &title, const QString &message);
 
 signals:
 	void showEditorTriggered() const;

@@ -27,11 +27,12 @@
 #include "src/backend/config/KsnipConfig.h"
 #include "src/common/helper/MessageBoxHelper.h"
 
-class UploadOperation
+class UploadOperation : public QObject
 {
+	Q_OBJECT
 public:
 	UploadOperation(const QImage &image, CaptureUploader *uploader);
-	~UploadOperation() = default;
+	~UploadOperation() override = default;
 	bool execute();
 
 private:

@@ -33,11 +33,12 @@
 
 using kImageAnnotator::KImageAnnotator;
 
-class AddWatermarkOperation
+class AddWatermarkOperation : public QObject
 {
+	Q_OBJECT
 public:
 	explicit AddWatermarkOperation(KImageAnnotator *kImageAnnotator);
-	~AddWatermarkOperation() = default;
+	~AddWatermarkOperation() override = default;
 	void execute();
 
 private:

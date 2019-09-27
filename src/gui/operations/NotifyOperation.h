@@ -17,36 +17,24 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_HANDLEUPLOADRESPONSEOPERATION_H
-#define KSNIP_HANDLEUPLOADRESPONSEOPERATION_H
+#ifndef KSNIP_NOTIFYOPERATION_H
+#define KSNIP_NOTIFYOPERATION_H
 
-#include <QUrl>
-#include <QApplication>
-#include <QDesktopServices>
-#include <QClipboard>
+#include "src/gui/TrayIcon.h"
+#include "src/common/enum/NotificationTypes.h"
 
-#include "src/backend/config/KsnipConfig.h"
-#include "src/gui/operations/NotifyOperation.h"
-
-class HandleUploadResponseOperation : public QObject
+class NotifyOperation
 {
-	Q_OBJECT
 public:
-	explicit HandleUploadResponseOperation(const QString &response, TrayIcon *trayIcon);
-	~HandleUploadResponseOperation() override = default;
+	NotifyOperation(TrayIcon *trayIcon, const QString &title, const QString &message, NotificationTypes notificationType);
+	~NotifyOperation() = default;
 	bool execute();
 
 private:
-	QString mResponse;
 	TrayIcon *mTrayIcon;
-	KsnipConfig *mConfig;
-	QClipboard *mClipboard;
-
-	QUrl formatUrl(QString &response) const;
-	void copyToClipboard(const QUrl &url) const;
-
-	void openInBrowser(const QUrl &url) const;
-	void notifyAboutUpload(const QUrl &url) const;
+	QString mTitle;
+	QString mMessage;
+	NotificationTypes mNotificationType;
 };
 
-#endif //KSNIP_HANDLEUPLOADRESPONSEOPERATION_H
+#endif //KSNIP_NOTIFYOPERATION_H

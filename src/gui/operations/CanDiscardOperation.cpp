@@ -19,12 +19,13 @@
 
 #include "CanDiscardOperation.h"
 
-CanDiscardOperation::CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved)
+CanDiscardOperation::CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, TrayIcon *trayIcon)
 {
 	mParent = parent;
 	mImage = image;
 	mIsUnsaved = isUnsaved;
 	mConfig = KsnipConfig::instance();
+	mTrayIcon = trayIcon;
 }
 
 bool CanDiscardOperation::execute()
@@ -44,12 +45,12 @@ bool CanDiscardOperation::execute()
 
 bool CanDiscardOperation::saveImage() const
 {
-	auto saveOperation = SaveOperation(mParent, mImage, mConfig->useInstantSave());
-	return saveOperation.execute();
+	SaveOperation operation(mParent, mImage, mConfig->useInstantSave(), mTrayIcon);
+	return operation.execute();
 }
 
 MessageBoxResponse CanDiscardOperation::getSaveBeforeDiscard() const
 {
-	return MessageBoxHelper::yesNoCancel(QCoreApplication::translate("CanDiscardOperation", "Warning - ") + QApplication::applicationName(),
-		                               QCoreApplication::translate("CanDiscardOperation", "The capture has been modified.\nDo you want to save it?"));
+	return MessageBoxHelper::yesNoCancel(tr("Warning - ") + QApplication::applicationName(),
+		                                 tr("The capture has been modified.\nDo you want to save it?"));
 }

@@ -23,14 +23,16 @@
 #include <QApplication>
 
 #include "SaveOperation.h"
+#include "NotifyOperation.h"
 #include "src/backend/config/KsnipConfig.h"
 #include "src/common/helper/MessageBoxHelper.h"
 
-class CanDiscardOperation
+class CanDiscardOperation : public QObject
 {
+	Q_OBJECT
 public:
-	CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved);
-	~CanDiscardOperation() = default;
+	CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, TrayIcon *trayIcon);
+	~CanDiscardOperation() override = default;
 	bool execute();
 
 private:
@@ -38,6 +40,7 @@ private:
 	bool mIsUnsaved;
 	QWidget *mParent;
 	QImage mImage;
+	TrayIcon *mTrayIcon;
 
 	MessageBoxResponse getSaveBeforeDiscard() const;
 	bool saveImage() const;

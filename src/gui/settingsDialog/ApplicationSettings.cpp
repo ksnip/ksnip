@@ -130,6 +130,8 @@ void ApplicationSettings::loadConfig()
 	mMinimizeToTrayCheckBox->setChecked(mConfig->minimizeToTray());
 	mCloseToTrayCheckBox->setChecked(mConfig->closeToTray());
 
+	useTrayIconChanged();
+
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
 
 	mSaveLocationLineEdit->setText(mConfig->saveDirectory() + mConfig->saveFilename() + mConfig->saveFormat());

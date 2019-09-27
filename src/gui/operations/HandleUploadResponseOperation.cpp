@@ -19,9 +19,10 @@
 
 #include "HandleUploadResponseOperation.h"
 
-HandleUploadResponseOperation::HandleUploadResponseOperation(const QString &response)
+HandleUploadResponseOperation::HandleUploadResponseOperation(const QString &response, TrayIcon *trayIcon) : QObject(nullptr)
 {
 	mResponse = response;
+	mTrayIcon = trayIcon;
 	mConfig = KsnipConfig::instance();
 	mClipboard = QApplication::clipboard();
 }
@@ -34,7 +35,15 @@ bool HandleUploadResponseOperation::execute()
 
 	copyToClipboard(url);
 
-    return true;
+	notifyAboutUpload(url);
+
+	return true;
+}
+
+void HandleUploadResponseOperation::notifyAboutUpload(const QUrl &url) const
+{
+	NotifyOperation operation(mTrayIcon, tr("Upload Successful"), tr("Uploaded to") + QStringLiteral(": ") + url.toString(), NotificationTypes::Information);
+	operation.execute();
 }
 
 void HandleUploadResponseOperation::openInBrowser(const QUrl &url) const

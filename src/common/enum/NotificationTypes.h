@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,24 +17,14 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "UpdateWatermarkOperation.h"
+#ifndef KSNIP_NOTIFICATIONTYPES_H
+#define KSNIP_NOTIFICATIONTYPES_H
 
-UpdateWatermarkOperation::UpdateWatermarkOperation(QWidget *parent)
+enum class NotificationTypes
 {
-	mParent = parent;
-}
+	Information,
+	Warning,
+	Critical
+};
 
-bool UpdateWatermarkOperation::execute()
-{
-	auto title = tr("Select Image");
-	auto filter = tr("Images") + QStringLiteral(" (*.png *.gif *.jpg);;") + tr("All Files") + QStringLiteral("(*)");
-	QFileDialog dialog(mParent, title, QString(), filter);
-	dialog.setAcceptMode(QFileDialog::AcceptOpen);
-
-	if (dialog.exec() != QDialog::Accepted) {
-		return false;
-	}
-
-	auto pathToImage = dialog.selectedFiles().first();
-	return mImageLoader.save(QPixmap(pathToImage));
-}
+#endif //KSNIP_NOTIFICATIONTYPES_H

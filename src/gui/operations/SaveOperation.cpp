@@ -19,13 +19,14 @@
 
 #include "SaveOperation.h"
 
-SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave)
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, TrayIcon *trayIcon)
 {
     Q_ASSERT(parent != nullptr);
 
     mParent = parent;
     mImage = image;
     mIsInstantSave = isInstantSave;
+    mTrayIcon = trayIcon;
 }
 
 bool SaveOperation::execute()
@@ -33,8 +34,8 @@ bool SaveOperation::execute()
     auto path = mSavePathProvider.savePath();
 
     if(!mIsInstantSave){
-	    auto title = QCoreApplication::translate("SaveOperation", "Save As");
-	    auto filter = QCoreApplication::translate("SaveOperation", "Images") + QStringLiteral(" (*.png *.gif *.jpg);;") + QCoreApplication::translate("SaveOperation", "All Files") + QStringLiteral("(*)");
+	    auto title = tr("Save As");
+	    auto filter = tr("Images") + QStringLiteral(" (*.png *.gif *.jpg);;") + tr("All Files") + QStringLiteral("(*)");
 	    QFileDialog saveDialog(mParent, title, path, filter);
 	    saveDialog.setAcceptMode(QFileDialog::AcceptSave);
 
@@ -45,5 +46,22 @@ bool SaveOperation::execute()
 	    path = saveDialog.selectedFiles().first();
     }
 
-    return mImageSaver.save(mImage, path);
+	return save(path);
+}
+
+bool SaveOperation::save(const QString &path)
+{
+	auto successful = mImageSaver.save(mImage, path);
+	if(successful) {
+		notify(tr("Image Saved"), tr("Saved to: "), path, NotificationTypes::Information);
+	} else {
+		notify(tr("Saving Image Failed"), tr("Failed to save image to: "), path, NotificationTypes::Critical);
+	}
+	return successful;
+}
+
+void SaveOperation::notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const
+{
+	NotifyOperation operation(mTrayIcon, title, message + path, notificationType);
+	operation.execute();
 }

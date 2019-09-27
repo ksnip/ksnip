@@ -17,33 +17,32 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_SAVEOPERATION_H
-#define KSNIP_SAVEOPERATION_H
-
-#include <QCoreApplication>
-
 #include "NotifyOperation.h"
-#include "src/backend/config/KsnipConfig.h"
-#include "src/backend/config/SavePathProvider.h"
-#include "src/backend/ImageSaver.h"
 
-class SaveOperation : public QObject
+NotifyOperation::NotifyOperation(TrayIcon *trayIcon, const QString &title, const QString &message, NotificationTypes notificationType)
 {
-	Q_OBJECT
-public:
-    SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, TrayIcon *trayIcon);
-    ~SaveOperation() override = default;
-    bool execute();
+	Q_ASSERT(trayIcon != nullptr);
 
-private:
-    QWidget* mParent;
-    QImage mImage;
-    SavePathProvider mSavePathProvider;
-    ImageSaver mImageSaver;
-    bool mIsInstantSave;
-    TrayIcon *mTrayIcon;
-	void notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const;
-	bool save(const QString &path);
-};
+	mTrayIcon = trayIcon;
+	mTitle = title;
+	mMessage = message;
+	mNotificationType = notificationType;
+}
 
-#endif //KSNIP_SAVEOPERATION_H
+bool NotifyOperation::execute()
+{
+	switch (mNotificationType) {
+		case NotificationTypes::Information:
+			mTrayIcon->showInfoToast(mTitle, mMessage);
+			qInfo("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
+			break;
+		case NotificationTypes::Warning:
+			mTrayIcon->showWarningToast(mTitle, mMessage);
+			qWarning("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
+			break;
+		case NotificationTypes::Critical:
+			mTrayIcon->showCriticalToast(mTitle, mMessage);
+			qCritical("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
+			break;
+	}
+}

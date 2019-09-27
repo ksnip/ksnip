@@ -86,3 +86,18 @@ void TrayIcon::setEnabled(bool enabled)
 		hide();
 	}
 }
+
+void TrayIcon::showInfoToast(const QString &title, const QString &message)
+{
+	showMessage(title, message, QIcon(":/ksnip"));
+}
+
+void TrayIcon::showWarningToast(const QString &title, const QString &message)
+{
+	showMessage(title, message, QSystemTrayIcon::Warning);
+}
+
+void TrayIcon::showCriticalToast(const QString &title, const QString &message)
+{
+	showMessage(title, message, QSystemTrayIcon::Critical);
+}

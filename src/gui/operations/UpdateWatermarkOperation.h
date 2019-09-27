@@ -25,11 +25,12 @@
 
 #include "src/backend/WatermarkImageLoader.h"
 
-class UpdateWatermarkOperation
+class UpdateWatermarkOperation : public QObject
 {
+	Q_OBJECT
 public:
 	explicit UpdateWatermarkOperation(QWidget *parent);
-	~UpdateWatermarkOperation() = default;
+	~UpdateWatermarkOperation() override = default;
 
 	bool execute();
 

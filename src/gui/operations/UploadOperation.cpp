@@ -42,7 +42,6 @@ bool UploadOperation::proceedWithUpload() const
 
 bool UploadOperation::getProceedWithUpload() const
 {
-	return MessageBoxHelper::yesNo(QCoreApplication::translate("UploadOperation", "Imgur Upload"),
-		                               QCoreApplication::translate("UploadOperation", "You are about to upload the screenshot to "
-			                                  "a imgur.com, do you want to proceed?"));
+	return MessageBoxHelper::yesNo(tr("Imgur Upload"),
+		                           tr("You are about to upload the screenshot to a imgur.com, do you want to proceed?"));
 }

@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>The Author:</source>
-        <translation>De auteur:</translation>
+        <translation>Auteur:</translation>
     </message>
     <message>
         <source>Contributors:</source>
@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation>Als dit wordt ingeschakeld, dan worden zichtbare items voorzien van schaduwen.</translation>
+        <translation>Schakel dit in om zichtbare items te voorzien van schaduwen.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
@@ -108,19 +108,19 @@
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation>Als dit wordt ingeschakeld, dan worden
-pen- en markeerstrepen gladgeveegd.</translation>
+        <translation>Schakel dit in om pen- en markeerstrepen
+na afloop glad te vegen.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation>Gladveeg-factor</translation>
+        <translation>Gladveegfactor</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Het verhogen van de factor vermindert de
-precisie, maar maakt de pen- en markeerstrepen
+precisie, maar maakt pen- en markeerstrepen
 gladder.</translation>
     </message>
     <message>
@@ -129,7 +129,7 @@ gladder.</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation>Stelt het lettertype in van het tekstitem.</translation>
+        <translation>Stelt het lettertype in van tekst in het tekstvak.</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -196,13 +196,13 @@ gladder.</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Niet vragen waar schermafdruk moet worden opgeslagen</translation>
+        <translation>Schermafdruk altijd direct opslaan in standaardmap</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation>Gebruik deze optie om niet te worden gevraagd waar een schermafdruk
-moet worden opgeslagen, maar deze direct op te slaan in de standaardlocatie.</translation>
+        <translation>Schakel dit in om niet te worden gevraagd waar een schermafdruk moet
+worden opgeslagen, maar deze direct op te slaan in de standaardmap.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -211,7 +211,7 @@ moet worden opgeslagen, maar deze direct op te slaan in de standaardlocatie.</tr
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation>Hiermee bepaal je het uiterlijk en gedrag van het programma.
+        <translation>Hiermee bepaal je het uiterlijk van het programma.
 Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
     <message>
@@ -236,20 +236,21 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Systeemvakpictogram gebruiken</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel dit in om, als je vensterbeheerder dit ondersteunt, een systeemvakpictogram te gebruiken.
+Herstart om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimaliseren naar systeemvak</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluiten naar systeemvak</translation>
     </message>
 </context>
 <context>
@@ -285,7 +286,7 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation>Volledig scherm opnemen, inclusief alle beeldschermen</translation>
+        <translation>Leg het volledige scherm vast op alle beeldschermen</translation>
     </message>
     <message>
         <source>Current Screen</source>
@@ -293,7 +294,7 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation>Schermafdruk maken van het scherm met de cursor</translation>
+        <translation>Maak een schermafdruk van het scherm waarop de cursor is</translation>
     </message>
     <message>
         <source>Active Window</source>
@@ -301,7 +302,7 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation>Schermafdruk maken van het momenteel gefocuste venster</translation>
+        <translation>Maak een schermafdruk van het momenteel gefocuste venster</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
@@ -309,7 +310,7 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation>Schermdruk maken van het scherm onder de cursor</translation>
+        <translation>Maak een schermafdruk van het venster onder de cursor</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
@@ -452,7 +453,7 @@ de linker- als bovenzijde van het vastgelegde gebied.</translation>
 cursor. Change requires ksnip restart to
 take effect.</source>
         <translation>Stelt de kleur in van de cursor tijdens het
-vastleggen. Als je dit wijzigt, dan moet je
+vastleggen. Als je dit aanpast, dan moet je
 ksnip herstarten om de wijziging toe te passen.</translation>
     </message>
     <message>
@@ -469,7 +470,7 @@ toe te passen.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>Scherm vastleggen</translation>
+        <translation>Vastleggen</translation>
     </message>
 </context>
 <context>
@@ -741,7 +742,7 @@ van schermafdruk, in seconden.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>Scherm vastleggen</translation>
+        <translation>Vastleggen</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
@@ -764,7 +765,7 @@ van schermafdruk, in seconden.</translation>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewerker tonen</translation>
     </message>
 </context>
 <context>

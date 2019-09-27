@@ -313,11 +313,11 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorig rechthoekig gebied</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
+        <translation>Maak een schermafdruk van het laatst geselecteerde rechthoekige gebied</translation>
     </message>
 </context>
 <context>
@@ -371,7 +371,7 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorig rechthoekig gebied vastleggen</translation>
     </message>
 </context>
 <context>

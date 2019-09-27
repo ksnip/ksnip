@@ -336,6 +336,17 @@ Desea guardarla?</translation>
     </message>
 </context>
 <context>
+    <name>HandleUploadResponseOperation</name>
+    <message>
+        <source>Upload Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
@@ -709,6 +720,14 @@ y la captura de pantalla.</translation>
         <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Unable to show image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No image provided to but one was expected.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
@@ -723,6 +742,22 @@ y la captura de pantalla.</translation>
     <message>
         <source>All Files</source>
         <translation type="unfinished">Todos los archivos</translation>
+    </message>
+    <message>
+        <source>Image Saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saved to: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saving Image Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

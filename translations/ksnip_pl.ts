@@ -332,6 +332,17 @@ Czy chcesz zapisać?</translation>
     </message>
 </context>
 <context>
+    <name>HandleUploadResponseOperation</name>
+    <message>
+        <source>Upload Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
@@ -688,6 +699,14 @@ and capturing screenshot.</source>
         <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Unable to show image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No image provided to but one was expected.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
@@ -702,6 +721,22 @@ and capturing screenshot.</source>
     <message>
         <source>All Files</source>
         <translation type="unfinished">Wszystkie Pliki</translation>
+    </message>
+    <message>
+        <source>Image Saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saved to: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saving Image Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

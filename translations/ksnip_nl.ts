@@ -234,6 +234,23 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
         <source>Capture save location</source>
         <translation>Opslaglocatie</translation>
     </message>
+    <message>
+        <source>Use Tray Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
+Change requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimize to Tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close to Tray</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -741,6 +758,13 @@ van schermafdruk, in seconden.</translation>
     <message>
         <source>HotKeys</source>
         <translation>Sneltoetsen</translation>
+    </message>
+</context>
+<context>
+    <name>TrayIcon</name>
+    <message>
+        <source>Show Editor</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

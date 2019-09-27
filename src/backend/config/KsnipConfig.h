@@ -80,6 +80,12 @@ public:
 	bool useTrayIcon() const;
 	void setUseTrayIcon(bool enabled);
 
+	bool minimizeToTray() const;
+	void setMinimizeToTray(bool enabled);
+
+	bool closeToTray() const;
+	void setCloseToTray(bool enabled);
+
 	// Annotator
 
     bool textBold() const;

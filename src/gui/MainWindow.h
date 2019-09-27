@@ -61,10 +61,12 @@ public slots:
     void showCapture(const CaptureDto &capture);
     void triggerNewDefaultCapture();
 	void triggerNewCapture(CaptureModes captureMode);
+	void quit();
 
 protected:
     void moveEvent(QMoveEvent *event) override;
     void closeEvent(QCloseEvent *event) override;
+	void changeEvent(QEvent *event) override ;
     QMenu *createPopupMenu() override;
     QSize sizeHint() const override;
 

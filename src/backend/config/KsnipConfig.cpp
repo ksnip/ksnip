@@ -223,6 +223,34 @@ void KsnipConfig::setUseTrayIcon(bool enabled)
 	saveValue(KsnipConfigOptions::useTrayIconString(), enabled);
 }
 
+bool KsnipConfig::minimizeToTray() const
+{
+	return loadValue(KsnipConfigOptions::minimizeToTrayString(), true).toBool();
+}
+
+void KsnipConfig::setMinimizeToTray(bool enabled)
+{
+	if (minimizeToTray() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::minimizeToTrayString(), enabled);
+}
+
+bool KsnipConfig::closeToTray() const
+{
+	return loadValue(KsnipConfigOptions::closeToTrayString(), true).toBool();
+}
+
+void KsnipConfig::setCloseToTray(bool enabled)
+{
+	if (closeToTray() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::closeToTrayString(), enabled);
+}
+
+// Annotator
+
 bool KsnipConfig::textBold() const
 {
     return textFont().bold();

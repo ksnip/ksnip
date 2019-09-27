@@ -89,6 +89,16 @@ QString KsnipConfigOptions::useTrayIconString()
 	return applicationSectionString() + QStringLiteral("UseTrayIcon");
 }
 
+QString KsnipConfigOptions::minimizeToTrayString()
+{
+	return applicationSectionString() + QStringLiteral("MinimizeToTray");
+}
+
+QString KsnipConfigOptions::closeToTrayString()
+{
+	return applicationSectionString() + QStringLiteral("CloseToTray");
+}
+
 QString KsnipConfigOptions::textFontString()
 {
 	return annotatorSectionString() + QStringLiteral("TextFont");

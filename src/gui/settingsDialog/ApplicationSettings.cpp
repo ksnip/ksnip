@@ -38,6 +38,8 @@ ApplicationSettings::~ApplicationSettings()
 	delete mCaptureOnStartupCheckbox;
 	delete mUseInstantSaveCheckBox;
 	delete mUseTrayIconCheckBox;
+	delete mMinimizeToTrayCheckBox;
+	delete mCloseToTrayCheckBox;
 	delete mApplicationStyleLabel;
 	delete mApplicationStyleCombobox;
 	delete mSaveLocationLabel;
@@ -55,6 +57,8 @@ void ApplicationSettings::initGui()
 	mCaptureOnStartupCheckbox = new QCheckBox(this);
 	mUseInstantSaveCheckBox = new QCheckBox(this);
 	mUseTrayIconCheckBox = new QCheckBox(this);
+	mMinimizeToTrayCheckBox = new QCheckBox(this);
+	mCloseToTrayCheckBox = new QCheckBox(this);
 	mApplicationStyleLabel = new QLabel(this);
 	mApplicationStyleCombobox = new QComboBox(this);
 	mSaveLocationLabel = new QLabel(this);
@@ -73,6 +77,10 @@ void ApplicationSettings::initGui()
 	mUseTrayIconCheckBox->setText(tr("Use Tray Icon"));
 	mUseTrayIconCheckBox->setToolTip(tr("When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.\n"
 									       "Change requires restart."));
+	mMinimizeToTrayCheckBox->setText(tr("Minimize to Tray"));
+	mCloseToTrayCheckBox->setText(tr("Close to Tray"));
+
+	connect(mUseTrayIconCheckBox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTrayIconChanged);
 
 	mApplicationStyleLabel->setText(tr("Application Style") + QStringLiteral(":"));
 	mApplicationStyleLabel->setToolTip(tr("Sets the application style which defines the look and feel of the GUI.\n"
@@ -96,13 +104,15 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mCaptureOnStartupCheckbox, 4, 0, 1, 3);
 	mLayout->addWidget(mUseInstantSaveCheckBox, 5, 0, 1, 3);
 	mLayout->addWidget(mUseTrayIconCheckBox, 6, 0, 1, 3);
-	mLayout->setRowMinimumHeight(7, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 8, 0);
-	mLayout->addWidget(mApplicationStyleCombobox, 8, 1, Qt::AlignLeft);
+	mLayout->addWidget(mMinimizeToTrayCheckBox, 7, 0, 1, 3);
+	mLayout->addWidget(mCloseToTrayCheckBox, 8, 0, 1, 3);
 	mLayout->setRowMinimumHeight(9, 15);
-	mLayout->addWidget(mSaveLocationLabel, 10, 0, 1, 3);
-	mLayout->addWidget(mSaveLocationLineEdit, 11, 0, 1, 3);
-	mLayout->addWidget(mBrowseButton, 11, 4);
+	mLayout->addWidget(mApplicationStyleLabel, 10, 0);
+	mLayout->addWidget(mApplicationStyleCombobox, 10, 1, Qt::AlignLeft);
+	mLayout->setRowMinimumHeight(11, 15);
+	mLayout->addWidget(mSaveLocationLabel, 12, 0, 1, 3);
+	mLayout->addWidget(mSaveLocationLineEdit, 13, 0, 1, 3);
+	mLayout->addWidget(mBrowseButton, 13, 4);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -117,6 +127,8 @@ void ApplicationSettings::loadConfig()
 	mCaptureOnStartupCheckbox->setChecked(mConfig->captureOnStartup());
 	mUseInstantSaveCheckBox->setChecked(mConfig->useInstantSave());
 	mUseTrayIconCheckBox->setChecked(mConfig->useTrayIcon());
+	mMinimizeToTrayCheckBox->setChecked(mConfig->minimizeToTray());
+	mCloseToTrayCheckBox->setChecked(mConfig->closeToTray());
 
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
 
@@ -132,6 +144,8 @@ void ApplicationSettings::saveSettings()
 	mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
 	mConfig->setUseInstantSave(mUseInstantSaveCheckBox->isChecked());
 	mConfig->setUseTrayIcon(mUseTrayIconCheckBox->isChecked());
+	mConfig->setMinimizeToTray(mMinimizeToTrayCheckBox->isChecked());
+	mConfig->setCloseToTray(mCloseToTrayCheckBox->isChecked());
 
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 
@@ -157,4 +171,10 @@ void ApplicationSettings::chooseSaveDirectory()
 
 		mSaveLocationLineEdit->setText(path);
 	}
+}
+
+void ApplicationSettings::useTrayIconChanged()
+{
+	mMinimizeToTrayCheckBox->setEnabled(mUseTrayIconCheckBox->isChecked());
+	mCloseToTrayCheckBox->setEnabled(mUseTrayIconCheckBox->isChecked());
 }

@@ -48,6 +48,8 @@ private:
 	QCheckBox *mCaptureOnStartupCheckbox;
 	QCheckBox *mUseInstantSaveCheckBox;
 	QCheckBox *mUseTrayIconCheckBox;
+	QCheckBox *mMinimizeToTrayCheckBox;
+	QCheckBox *mCloseToTrayCheckBox;
 	QLabel *mApplicationStyleLabel;
 	QComboBox *mApplicationStyleCombobox;
 	QLabel *mSaveLocationLabel;
@@ -61,6 +63,7 @@ private:
 
 private slots:
 	void chooseSaveDirectory();
+	void useTrayIconChanged();
 };
 
 #endif //KSNIP_APPLICATIONSETTINGS_H

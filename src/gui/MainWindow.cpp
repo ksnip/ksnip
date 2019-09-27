@@ -123,6 +123,15 @@ void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor,
 	mImageGrabber->grabImage(captureMode, captureCursor, delay, mConfig->freezeImageWhileSnippingEnabled());
 }
 
+void MainWindow::quit()
+{
+	if (!discardChanges()) {
+		return;
+	}
+	mTrayIcon->hide();
+	QCoreApplication::exit(0);
+}
+
 void MainWindow::showCapture(const CaptureDto &capture)
 {
     if (!capture.isValid()) {
@@ -205,11 +214,21 @@ void MainWindow::moveEvent(QMoveEvent* event)
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
-    if (!discardChanges()) {
-        event->ignore();
-        return;
-    }
-    event->accept();
+	event->ignore();
+	if(mTrayIcon->isVisible() && mConfig->closeToTray()) {
+		hide();
+	} else{
+		quit();
+	}
+}
+
+void MainWindow::changeEvent(QEvent *event)
+{
+	if (event->type() == QEvent::WindowStateChange && isMinimized() && mTrayIcon->isVisible() && mConfig->minimizeToTray()) {
+		event->ignore();
+		hide();
+	}
+	QWidget::changeEvent(event);
 }
 
 //
@@ -321,7 +340,7 @@ void MainWindow::initGui()
     mQuitAction->setText(tr("Quit"));
     mQuitAction->setShortcut(QKeySequence::Quit);
     mQuitAction->setIcon(QIcon::fromTheme(QStringLiteral("application-exit")));
-    connect(mQuitAction, &QAction::triggered, this, &MainWindow::close);
+    connect(mQuitAction, &QAction::triggered, this, &MainWindow::quit);
 
     mSettingsDialogAction->setText(tr("Settings"));
     mSettingsDialogAction->setIcon(QIcon::fromTheme(QStringLiteral("emblem-system")));

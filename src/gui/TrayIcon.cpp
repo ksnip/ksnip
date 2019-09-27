@@ -89,7 +89,7 @@ void TrayIcon::setEnabled(bool enabled)
 
 void TrayIcon::showInfoToast(const QString &title, const QString &message)
 {
-	showMessage(title, message, QIcon(":/ksnip"));
+	showMessage(title, message, QSystemTrayIcon::Information);
 }
 
 void TrayIcon::showWarningToast(const QString &title, const QString &message)

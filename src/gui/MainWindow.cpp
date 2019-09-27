@@ -361,14 +361,16 @@ void MainWindow::initGui()
 
     addToolBar(mToolBar);
 
-    connect(mTrayIcon, &TrayIcon::showEditorTriggered, this, &MainWindow::show);
-	mTrayIcon->setNewCaptureAction(mToolBar->newCaptureAction());
-	mTrayIcon->setOpenAction(mOpenImageAction);
-	mTrayIcon->setSaveAction(mToolBar->saveAction());
-	mTrayIcon->setCopyAction(mToolBar->copyToClipboardAction());
-	mTrayIcon->setUploadAction(mUploadToImgurAction);
-	mTrayIcon->setQuitAction(mQuitAction);
-	mTrayIcon->setupMenu();
+    if(mConfig->useTrayIcon()) {
+	    connect(mTrayIcon, &TrayIcon::showEditorTriggered, this, &MainWindow::show);
+	    mTrayIcon->setNewCaptureAction(mToolBar->newCaptureAction());
+	    mTrayIcon->setOpenAction(mOpenImageAction);
+	    mTrayIcon->setSaveAction(mToolBar->saveAction());
+	    mTrayIcon->setCopyAction(mToolBar->copyToClipboardAction());
+	    mTrayIcon->setUploadAction(mUploadToImgurAction);
+	    mTrayIcon->setQuitAction(mQuitAction);
+	    mTrayIcon->setEnabled(true);
+    }
 
 	setCentralWidget(mKImageAnnotator);
 }

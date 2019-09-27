@@ -37,6 +37,7 @@ ApplicationSettings::~ApplicationSettings()
 	delete mSaveKsnipToolSelectionCheckbox;
 	delete mCaptureOnStartupCheckbox;
 	delete mUseInstantSaveCheckBox;
+	delete mUseTrayIconCheckBox;
 	delete mApplicationStyleLabel;
 	delete mApplicationStyleCombobox;
 	delete mSaveLocationLabel;
@@ -53,6 +54,7 @@ void ApplicationSettings::initGui()
 	mSaveKsnipToolSelectionCheckbox = new QCheckBox(this);
 	mCaptureOnStartupCheckbox = new QCheckBox(this);
 	mUseInstantSaveCheckBox = new QCheckBox(this);
+	mUseTrayIconCheckBox = new QCheckBox(this);
 	mApplicationStyleLabel = new QLabel(this);
 	mApplicationStyleCombobox = new QComboBox(this);
 	mSaveLocationLabel = new QLabel(this);
@@ -68,6 +70,9 @@ void ApplicationSettings::initGui()
 	mUseInstantSaveCheckBox->setText(tr("Instant save to default location without 'Save as' dialog"));
 	mUseInstantSaveCheckBox->setToolTip(tr("When enabled, will not ask where to save a screenshot\n"
 	                                       "when saving, but will save instantly to default location."));
+	mUseTrayIconCheckBox->setText(tr("Use Tray Icon"));
+	mUseTrayIconCheckBox->setToolTip(tr("When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.\n"
+									       "Change requires restart."));
 
 	mApplicationStyleLabel->setText(tr("Application Style") + QStringLiteral(":"));
 	mApplicationStyleLabel->setToolTip(tr("Sets the application style which defines the look and feel of the GUI.\n"
@@ -90,13 +95,14 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mSaveKsnipToolSelectionCheckbox, 3, 0, 1, 3);
 	mLayout->addWidget(mCaptureOnStartupCheckbox, 4, 0, 1, 3);
 	mLayout->addWidget(mUseInstantSaveCheckBox, 5, 0, 1, 3);
-	mLayout->setRowMinimumHeight(6, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 7, 0);
-	mLayout->addWidget(mApplicationStyleCombobox, 7, 1, Qt::AlignLeft);
-	mLayout->setRowMinimumHeight(8, 15);
-	mLayout->addWidget(mSaveLocationLabel, 9, 0, 1, 3);
-	mLayout->addWidget(mSaveLocationLineEdit, 10, 0, 1, 3);
-	mLayout->addWidget(mBrowseButton, 10, 4);
+	mLayout->addWidget(mUseTrayIconCheckBox, 6, 0, 1, 3);
+	mLayout->setRowMinimumHeight(7, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 8, 0);
+	mLayout->addWidget(mApplicationStyleCombobox, 8, 1, Qt::AlignLeft);
+	mLayout->setRowMinimumHeight(9, 15);
+	mLayout->addWidget(mSaveLocationLabel, 10, 0, 1, 3);
+	mLayout->addWidget(mSaveLocationLineEdit, 11, 0, 1, 3);
+	mLayout->addWidget(mBrowseButton, 11, 4);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -110,6 +116,7 @@ void ApplicationSettings::loadConfig()
 	mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveToolSelection());
 	mCaptureOnStartupCheckbox->setChecked(mConfig->captureOnStartup());
 	mUseInstantSaveCheckBox->setChecked(mConfig->useInstantSave());
+	mUseTrayIconCheckBox->setChecked(mConfig->useTrayIcon());
 
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
 
@@ -124,6 +131,7 @@ void ApplicationSettings::saveSettings()
 	mConfig->setSaveToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
 	mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
 	mConfig->setUseInstantSave(mUseInstantSaveCheckBox->isChecked());
+	mConfig->setUseTrayIcon(mUseTrayIconCheckBox->isChecked());
 
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 

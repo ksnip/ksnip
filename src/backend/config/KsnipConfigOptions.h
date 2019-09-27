@@ -38,6 +38,7 @@ public:
 	static QString saveFormatString();
 	static QString useInstantSaveString();
 	static QString applicationStyleString();
+	static QString useTrayIconString();
 	static QString textFontString();
 	static QString numberFontString();
 	static QString itemShadowEnabledString();

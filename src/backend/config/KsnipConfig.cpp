@@ -210,6 +210,19 @@ void KsnipConfig::setApplicationStyle(QString style)
 	saveValue(KsnipConfigOptions::applicationStyleString(), style);
 }
 
+bool KsnipConfig::useTrayIcon() const
+{
+	return loadValue(KsnipConfigOptions::useTrayIconString(), true).toBool();
+}
+
+void KsnipConfig::setUseTrayIcon(bool enabled)
+{
+	if (useTrayIcon() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::useTrayIconString(), enabled);
+}
+
 bool KsnipConfig::textBold() const
 {
     return textFont().bold();

@@ -47,6 +47,7 @@ private:
 	QCheckBox *mSaveKsnipToolSelectionCheckbox;
 	QCheckBox *mCaptureOnStartupCheckbox;
 	QCheckBox *mUseInstantSaveCheckBox;
+	QCheckBox *mUseTrayIconCheckBox;
 	QLabel *mApplicationStyleLabel;
 	QComboBox *mApplicationStyleCombobox;
 	QLabel *mSaveLocationLabel;

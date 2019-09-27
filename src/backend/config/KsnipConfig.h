@@ -77,6 +77,9 @@ public:
 	QString applicationStyle() const;
 	void setApplicationStyle(QString style);
 
+	bool useTrayIcon() const;
+	void setUseTrayIcon(bool enabled);
+
 	// Annotator
 
     bool textBold() const;

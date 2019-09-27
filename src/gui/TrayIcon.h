@@ -37,7 +37,7 @@ public:
 	void setCopyAction(QAction *action);
 	void setUploadAction(QAction *action);
 	void setQuitAction(QAction *action);
-	void setupMenu();
+	void setEnabled(bool enabled);
 
 signals:
 	void showEditorTriggered() const;
@@ -51,6 +51,8 @@ private:
 	QAction *mUploadAction;
 	QAction *mShowEditorAction;
 	QAction *mQuitAction;
+
+	void setupMenu();
 };
 
 #endif //KSNIP_TRAYICON_H

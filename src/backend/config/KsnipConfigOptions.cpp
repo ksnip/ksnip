@@ -84,6 +84,11 @@ QString KsnipConfigOptions::applicationStyleString()
 	return applicationSectionString() + QStringLiteral("ApplicationStyle");
 }
 
+QString KsnipConfigOptions::useTrayIconString()
+{
+	return applicationSectionString() + QStringLiteral("UseTrayIcon");
+}
+
 QString KsnipConfigOptions::textFontString()
 {
 	return annotatorSectionString() + QStringLiteral("TextFont");

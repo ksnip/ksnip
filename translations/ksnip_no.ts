@@ -236,7 +236,7 @@ grensesnittet. Endringer krever omstart av ksnip.</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Bruk systemkurvsikon</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
@@ -245,11 +245,11 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimer til systemkurven</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Lukk til systemkurven</translation>
     </message>
 </context>
 <context>
@@ -343,7 +343,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished"></translation>
+        <translation>Opplastet til</translation>
     </message>
 </context>
 <context>

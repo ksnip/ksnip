@@ -236,20 +236,21 @@ Requer reiniciar o ksnip para aplicar as mudanças.</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar ícone da bandeja</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado adiciona um ícone de bandeja na barra de tarefas, se o gerenciador de janelas do SO oferecer suporte.
+A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimizar para a bandeja</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar para a bandeja</translation>
     </message>
 </context>
 <context>
@@ -339,11 +340,11 @@ Você quer salvá-la?</translation>
     <name>HandleUploadResponseOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload bem-sucedido</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished"></translation>
+        <translation>Upado para</translation>
     </message>
 </context>
 <context>
@@ -719,11 +720,11 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível exibir a imagem</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenhuma imagem fornecida, mas uma era esperada.</translation>
     </message>
 </context>
 <context>
@@ -742,19 +743,19 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagem salva</translation>
     </message>
     <message>
         <source>Saved to: </source>
-        <translation type="unfinished"></translation>
+        <translation>Salva em: </translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao salvar imagem</translation>
     </message>
     <message>
         <source>Failed to save image to: </source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao salvar a imagem em: </translation>
     </message>
 </context>
 <context>
@@ -796,7 +797,7 @@ e captura de tela.</translation>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir Editor</translation>
     </message>
 </context>
 <context>

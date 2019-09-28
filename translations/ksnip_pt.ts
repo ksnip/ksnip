@@ -751,11 +751,11 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvo em</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao salvar a imagem no</translation>
     </message>
 </context>
 <context>

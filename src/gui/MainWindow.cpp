@@ -52,7 +52,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
     initGui();
 
-	setWindowIcon(QIcon(QStringLiteral(":/ksnip")));
+	setWindowIcon(QIcon(QStringLiteral(":/icons/ksnip.svg")));
     move(mConfig->windowPosition());
 
 	connect(mConfig, &KsnipConfig::toolConfigChanged, this, &MainWindow::setupImageAnnotator);

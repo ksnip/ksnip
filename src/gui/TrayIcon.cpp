@@ -21,7 +21,8 @@
 
 TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
 {
-	setIcon(QIcon(":/ksnip"));
+	mKsnipIcon = QPixmap(":/icons/ksnip.svg");
+	setIcon(mKsnipIcon);
 
 	mShowEditorAction = new QAction(tr("Show Editor"), this);
 	connect(mShowEditorAction, &QAction::triggered, this, &TrayIcon::showEditorTriggered);

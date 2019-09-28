@@ -53,15 +53,15 @@ bool SaveOperation::save(const QString &path)
 {
 	auto successful = mImageSaver.save(mImage, path);
 	if(successful) {
-		notify(tr("Image Saved"), tr("Saved to: "), path, NotificationTypes::Information);
+		notify(tr("Image Saved"), tr("Saved to"), path, NotificationTypes::Information);
 	} else {
-		notify(tr("Saving Image Failed"), tr("Failed to save image to: "), path, NotificationTypes::Critical);
+		notify(tr("Saving Image Failed"), tr("Failed to save image to"), path, NotificationTypes::Critical);
 	}
 	return successful;
 }
 
 void SaveOperation::notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const
 {
-	NotifyOperation operation(mTrayIcon, title, message + path, notificationType);
+	NotifyOperation operation(mTrayIcon, title, message + QStringLiteral(" ") + path, notificationType);
 	operation.execute();
 }

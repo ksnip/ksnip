@@ -746,16 +746,16 @@ e captura de tela.</translation>
         <translation>Imagem salva</translation>
     </message>
     <message>
-        <source>Saved to: </source>
-        <translation>Salva em: </translation>
-    </message>
-    <message>
         <source>Saving Image Failed</source>
         <translation>Falha ao salvar imagem</translation>
     </message>
     <message>
-        <source>Failed to save image to: </source>
-        <translation>Falha ao salvar a imagem em: </translation>
+        <source>Saved to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

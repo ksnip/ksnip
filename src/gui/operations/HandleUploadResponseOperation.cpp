@@ -42,7 +42,7 @@ bool HandleUploadResponseOperation::execute()
 
 void HandleUploadResponseOperation::notifyAboutUpload(const QUrl &url) const
 {
-	NotifyOperation operation(mTrayIcon, tr("Upload Successful"), tr("Uploaded to") + QStringLiteral(": ") + url.toString(), NotificationTypes::Information);
+	NotifyOperation operation(mTrayIcon, tr("Upload Successful"), tr("Uploaded to") + QStringLiteral(" ") + url.toString(), NotificationTypes::Information);
 	operation.execute();
 }
 

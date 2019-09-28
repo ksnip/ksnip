@@ -54,7 +54,6 @@ private:
 	QAction *mUploadAction;
 	QAction *mShowEditorAction;
 	QAction *mQuitAction;
-	QIcon mKsnipIcon;
 
 	void setupMenu();
 };

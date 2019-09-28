@@ -748,15 +748,15 @@ ve ekran görüntüsünü yakalanır.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Saved to: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Saving Image Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save image to: </source>
+        <source>Saved to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

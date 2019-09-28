@@ -340,11 +340,11 @@ Wil je deze opslaan?</translation>
     <name>HandleUploadResponseOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeelding geüpload</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished"></translation>
+        <translation>Geüpload naar</translation>
     </message>
 </context>
 <context>
@@ -723,11 +723,11 @@ van schermafdruk, in seconden.</translation>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan afbeelding niet tonen</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Er werd een afbeelding verwacht, maar geen afbeelding opgegeven.</translation>
     </message>
 </context>
 <context>
@@ -746,19 +746,19 @@ van schermafdruk, in seconden.</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeelding opgeslagen</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan afbeelding niet opslaan</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation type="unfinished"></translation>
+        <translation>Opgeslagen in</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan afbeelding niet opslaan in</translation>
     </message>
 </context>
 <context>

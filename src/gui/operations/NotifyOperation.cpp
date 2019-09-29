@@ -45,4 +45,5 @@ bool NotifyOperation::execute()
 			qCritical("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 	}
+	return true;
 }

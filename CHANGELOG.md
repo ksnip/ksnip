@@ -21,7 +21,6 @@
 * Changed kImageAnnotator: Increase blur level so that large text is not visible. ([#62](https://github.com/DamirPorobic/kImageAnnotator/issues/62))
 * Changed kImageAnnotator: Crop widget updates shows via cursor if something is movable. ([#64](https://github.com/DamirPorobic/kImageAnnotator/issues/64))
 * Fixed: Translations not working for Windows and MacOS. ([#164](https://github.com/DamirPorobic/ksnip/issues/164))
-* Fixed: Translations not working for Windows and MacOS. ([#164](https://github.com/DamirPorobic/ksnip/issues/164))
 * Fixed: AppImage update fails with "None of the artifacts matched the pattern in the update information". ([#166](https://github.com/DamirPorobic/ksnip/issues/166))
 * Fixed: Wildcards in path are not resolved. ([#168](https://github.com/DamirPorobic/ksnip/issues/168))
 * Fixed: CLI arg --rectarea doesn't work. ([#170](https://github.com/DamirPorobic/ksnip/issues/170))

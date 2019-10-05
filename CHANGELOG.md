@@ -15,6 +15,7 @@
 * New: Show tray icon notification after image was uploaded to imgur or saved. ([#220](https://github.com/DamirPorobic/kImageAnnotator/issues/220))
 * New kImageAnnotator: Edit text box content. ([#51](https://github.com/DamirPorobic/kImageAnnotator/issues/51))
 * New kImageAnnotator: Panning image by holding space or mouse middle button and dragging. ([#9](https://github.com/DamirPorobic/kImageAnnotator/issues/9))
+* New kImageAnnotator: Change annotation element config after drawing. ([#44](https://github.com/DamirPorobic/kImageAnnotator/issues/44))
 * Changed: Change copy icon. ([#157](https://github.com/DamirPorobic/kImageAnnotator/issues/157))
 * Changed: Before discarding ask if user want save or not or cancel. ([#215](https://github.com/DamirPorobic/kImageAnnotator/issues/215))
 * Changed: Shortcut for imgur upload was changed to Shift + i. ([#161](https://github.com/DamirPorobic/kImageAnnotator/issues/161))

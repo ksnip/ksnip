@@ -5,11 +5,11 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>A Propos </translation>
+        <translation>À propos de </translation>
     </message>
     <message>
         <source>About</source>
-        <translation>A Propos</translation>
+        <translation>À propos</translation>
     </message>
     <message>
         <source>Version</source>
@@ -25,15 +25,15 @@
     </message>
     <message>
         <source>Screenshot Tool</source>
-        <translation>Outil de capture</translation>
+        <translation>Outil de capture d&apos;écran</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation>Licence: </translation>
+        <translation>Licence : </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation>Veuillez utiliser SVP </translation>
+        <translation>Veuillez utiliser </translation>
     </message>
     <message>
         <source> to report bugs.</source>
@@ -41,107 +41,107 @@
     </message>
     <message>
         <source>Build</source>
-        <translation>Construire</translation>
+        <translation>Compiler</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation>Utilisateur :</translation>
+        <translation>Utilisant :</translation>
     </message>
     <message>
         <source>The Author:</source>
-        <translation>Auteur :</translation>
+        <translation>L&apos;auteur :</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation>Collaborateur :</translation>
+        <translation>Contributeurs :</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation>Traduction espagnol</translation>
+        <translation>Traduction en espagnol</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduction en néérlandais</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduction en russe</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduction en norvégien</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduction en français</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduction en polonais</translation>
     </message>
 </context>
 <context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Image en filigrane requise</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez ajouter une image en filigrane via Options &gt; Paramètres &gt; Annotateur &gt; Mettre à jour</translation>
     </message>
 </context>
 <context>
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished">Eléments de peinture</translation>
+        <translation>Peindre les ombres des objets</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished">Lorsqu&apos;elle est activée, les éléments de peinture créent des ombres.</translation>
+        <translation>Lorsque cette option est activée, les éléments de peints projettent des ombres.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished">Chemin de peinture lisse</translation>
+        <translation>Chemins de peinture lisse</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished">Lorsque activé, le stylo lisse  le
-trajets des marqueurs après le dessin.</translation>
+        <translation>Lorsque cette option est activée, le stylo lisse
+les trajectoires des marqueurs après la fin du dessin.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished">Facteur Lisse</translation>
+        <translation>Facteur de lissage</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished">Augmenter le facteur de lissage diminura la
-précision du stylo et marqueur mais
-les rendras plus lisse.</translation>
+        <translation>Augmenter le facteur de lissage diminuera la
+précision du stylo et du marqueur mais
+les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished">Police du texte</translation>
+        <translation>Police</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished">Définit la police de l&apos;élément de peinture du texte.</translation>
+        <translation>Définit la police de l&apos;élément peint du texte.</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished">Gras</translation>
+        <translation>Gras</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished">Italique</translation>
+        <translation>Italique</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished">Souligner</translation>
+        <translation>Souligné</translation>
     </message>
     <message>
         <source>Numbering Font</source>

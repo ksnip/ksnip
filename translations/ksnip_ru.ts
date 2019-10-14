@@ -88,7 +88,7 @@
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished">Пожалуйста, добавьте изображение водяного знака через Опции &gt; Настройки &gt; Аннотатор &gt; Обновить</translation>
+        <translation>Пожалуйста, добавьте изображение водяного знака через Опции &gt; Настройки &gt; Параметры рисования &gt; Установить водянной знак/логотип</translation>
     </message>
 </context>
 <context>
@@ -175,66 +175,66 @@ make them more smooth.</source>
     <name>ApplicationSettings</name>
     <message>
         <source>Always copy capture to clipboard</source>
-        <translation type="unfinished">Всегда копировать скриншот в буфер обмена</translation>
+        <translation>Всегда копировать скриншот в буфер обмена</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Спрашивать, не хотите ли сохранить изменения изображения, перед их отменой</translation>
+        <translation>Выводить диалог сохранения изменений перед отменой</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation type="unfinished">Запоминать расположение окна программы</translation>
+        <translation>Запоминать расположение окон</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation type="unfinished">Запоминать последний выбранный инструмент</translation>
+        <translation>Запоминать последний выбранный инструмент</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished">Делать скриншот при открытии программы</translation>
+        <translation>Делать скриншот при запуске</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished">Автоматически сохранять скриншот в выбранное в настройках место</translation>
+        <translation>Автоматически сохранять скриншот</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation type="unfinished">Программа не будет каждый раз спрашивать,
+        <translation>Программа не будет каждый раз спрашивать,
 куда сохранить скриншот.</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished">Стиль окон</translation>
+        <translation>Стиль окон</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished">Устанавливает стиль программы, который определяет внешний вид GUI.
+        <translation>Устанавливает стиль программы, который определяет внешний вид GUI.
 Необходимо перезапустить ksnip, чтобы изменения вступили в силу.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Место автоматического сохранения и формат названия скриншотов</translation>
+        <translation>Место автоматического сохранения и формат названия скриншотов</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished">Следующие параметры будут подставлены при сохранении:
+        <translation>Следующие параметры будут подставлены при сохранении:
 $Y, $M, $D — Год, Месяц, День
 $h, $m, $s — Часы, Минуты, Секунды
 $T — hhmmss формат.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Обзор…</translation>
+        <translation>Обзор</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished">Основные настройки</translation>
+        <translation>Основные настройки</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Место сохранения</translation>
+        <translation>Место сохранения</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -243,7 +243,8 @@ $T — hhmmss формат.</translation>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>При включении добавит иконку в трей.
+Изменение требует перезагрузки приложения</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
@@ -258,12 +259,12 @@ Change requires restart.</source>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished">Внимание - </translation>
+        <translation>Внимание - </translation>
     </message>
     <message>
         <source>The capture has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished">Скриншот был изменён.
+        <translation>Скриншот был изменён.
 Сохранить изменения?</translation>
     </message>
 </context>
@@ -391,17 +392,17 @@ Do you want to save it?</source>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation type="unfinished">Показывать курсор мыши во время снимка</translation>
+        <translation>Показывать курсор мыши во время снимка</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type="unfinished">Отображать курсор мыши 
-во время снимка скриншота.</translation>
+        <translation>Отображать курсор мыши 
+во время снимка.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Заморозить выделенную область (эта функция не работает в Wayland)</translation>
+        <translation>Заморозить выделенную область (эта функция не работает в Wayland)</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -412,68 +413,68 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature doesn&apos;t work for Wayland and is always
 used for MacOs.</source>
-        <translation type="unfinished">При включении замораживает выделенную область. 
+        <translation>При включении замораживает выделенную область. 
 Эта функция не работает в Wayland и всегда используется в MacOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Использовать лупу во время выделения</translation>
+        <translation>Использовать лупу во время выделения</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Показывает увеличительное стекло во время выделения области.
-Эта опция работает, если включена &apos;Заморозить выделенную область...&apos;.</translation>
+        <translation>Показывает лупу во время выделения области.
+Эта опция работает, если включена &apos;Заморозить выделенную область&apos;</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Показывать горизонтальную/вертикальную линию от курсора выделения</translation>
+        <translation>Показывать горизонтальную/вертикальную линию от курсора выделения</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Показывает горизонтальные и вертикальные пунктирные линии
+        <translation>Показывает горизонтальные и вертикальные пунктирные линии
 от края рабочего стола к курсору.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Выводить информацию о положении и размере зоны обрезки (линейка)</translation>
+        <translation>Выводить информацию о положении и размере зоны обрезки (линейка)</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished">При выделении отображает информацию о положении и размере зоны обрезки.</translation>
+        <translation>При выделении отображает информацию о положении и размере зоны обрезки.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Цвет курсора</translation>
+        <translation>Цвет курсора</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished">Устанавливает цвет области выделения захвата.
+        <translation>Устанавливает цвет области выделения захвата.
 Необходимо перезапустить ksnip, чтобы
 изменения вступили в силу.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Размер курсора выделения</translation>
+        <translation>Размер курсора выделения</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished">Устанавливает толщину курсора во время захвата.
+        <translation>Устанавливает толщину курсора во время захвата.
 Необходимо перезапустить ksnip, чтобы
 изменения вступили в силу.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished">Настройки захвата</translation>
+        <translation>Настройки захвата</translation>
     </message>
 </context>
 <context>
@@ -503,55 +504,55 @@ take effect.</source>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished">Загрузить анонимно</translation>
+        <translation>Загрузить анонимно</translation>
     </message>
     <message>
         <source>Open link directly to image</source>
-        <translation type="unfinished">Открыть прямую ссылку на изображение после загрузки</translation>
+        <translation>Открыть прямую ссылку на изображение после загрузки</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished">Копировать ссылку в буфер обмена</translation>
+        <translation>Копировать ссылку в буфер обмена</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Спрашивать перед загрузкой</translation>
+        <translation>Спрашивать перед загрузкой</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished">ID клиента</translation>
+        <translation>ID клиента</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished">Секретный ключ клиента</translation>
+        <translation>Секретный ключ клиента</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished">PIN-код</translation>
+        <translation>PIN-код</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished">Введите PIN-код с imgur, который будет заменен на токен.</translation>
+        <translation>Введите PIN-код с Imgur, который будет заменен на токен.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished">Получить PIN</translation>
+        <translation>Получить PIN</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished">Получить Token</translation>
+        <translation>Получить токен</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished">История загрузок</translation>
+        <translation>История загрузок</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished">Параметры Imgur</translation>
+        <translation>Параметры Imgur</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Имя пользователя</translation>
+        <translation>Имя пользователя</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
@@ -559,15 +560,15 @@ take effect.</source>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished">Имя пользователя:</translation>
+        <translation>Имя пользователя:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished">Imgur.com: token был обновлен.</translation>
+        <translation>Imgur.com: токен был обновлен.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished">Imgur.com: ошибка во время обновления токена.</translation>
+        <translation>Imgur.com: ошибка во время обновления токена.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
@@ -578,7 +579,7 @@ take effect.</source>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation>Создать…</translation>
+        <translation>Создать</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
@@ -620,11 +621,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished">Обрезать</translation>
+        <translation>Обрезать</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation type="unfinished">Обрезать и оставить только часть скриншота</translation>
+        <translation>Обрезать и оставить только часть скриншота</translation>
     </message>
 </context>
 <context>
@@ -643,7 +644,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Print</source>
-        <translation>Распечатать…</translation>
+        <translation>Печать…</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
@@ -651,7 +652,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation>Посмотреть, какой будет распечатка…</translation>
+        <translation>Предосмотр печати…</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
@@ -726,15 +727,15 @@ and capturing screenshot.</source>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Сохранить как…</translation>
+        <translation>Сохранить как</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Изображения</translation>
+        <translation>Изображения</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Все файлы</translation>
+        <translation>Все файлы</translation>
     </message>
     <message>
         <source>Image Saved</source>
@@ -781,18 +782,18 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметры рисования</translation>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Горячие клавиши</translation>
     </message>
 </context>
 <context>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать</translation>
     </message>
 </context>
 <context>
@@ -803,22 +804,22 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Изображения</translation>
+        <translation>Изображения</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Все файлы</translation>
+        <translation>Все файлы</translation>
     </message>
 </context>
 <context>
     <name>UploadOperation</name>
     <message>
         <source>Imgur Upload</source>
-        <translation type="unfinished">Загрузка на Imgur</translation>
+        <translation>Загрузка на Imgur</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation type="unfinished">Вы собираетесь загрузить скриншот на imgur.com. Начать загрузку?</translation>
+        <translation>Вы собираетесь загрузить скриншот на imgur.com. Начать загрузку?</translation>
     </message>
 </context>
 </TS>

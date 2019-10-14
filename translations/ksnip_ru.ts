@@ -373,7 +373,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation>Снимок под курсором&lt;</translation>
+        <translation>Снимок под курсором</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
@@ -489,7 +489,7 @@ take effect.</source>
     </message>
     <message>
         <source>Time Stamp</source>
-        <translation>Отметка времени</translation>
+        <translation>Время</translation>
     </message>
     <message>
         <source>Link</source>
@@ -497,7 +497,7 @@ take effect.</source>
     </message>
     <message>
         <source>Delete Link</source>
-        <translation>Удалить ссылку</translation>
+        <translation>Ссылка на удаление</translation>
     </message>
 </context>
 <context>
@@ -636,7 +636,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload</source>
-        <translation>Загрузить</translation>
+        <translation>Загрузить на Imgur</translation>
     </message>
     <message>
         <source>Upload capture image to imgur.com</source>
@@ -660,7 +660,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Scale</source>
-        <translation>Размер</translation>
+        <translation>Изменить размер</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
@@ -704,7 +704,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation>Водянной знак/логотип</translation>
+        <translation>Добавить водянной знак/логотип</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
@@ -800,7 +800,7 @@ and capturing screenshot.</source>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать изображение</translation>
     </message>
     <message>
         <source>Images</source>

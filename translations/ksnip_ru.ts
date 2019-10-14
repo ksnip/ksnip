@@ -84,11 +84,11 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Требуется изображение водяного знака</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Пожалуйста, добавьте изображение водяного знака через Опции &gt; Настройки &gt; Аннотатор &gt; Обновить</translation>
     </message>
 </context>
 <context>

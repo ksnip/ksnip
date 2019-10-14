@@ -95,80 +95,80 @@
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished">Использовать тени</translation>
+        <translation>Использовать тени</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished">При включении, позволяет рисовать тени вокруг обведенного контура.</translation>
+        <translation>При включении, позволяет рисовать тени вокруг обведенного контура.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished">Сглаживание</translation>
+        <translation>Сглаживание</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished">При включении сглаживает кисть
+        <translation>При включении сглаживает кисть
 после завершения рисования.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished">Коэффициент</translation>
+        <translation>Коэффициент</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished">Увеличить коэффициент сглаживания
+        <translation>Увеличить коэффициент сглаживания
 и сделать точность маркера более гладким.</translation>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished">Шрифт</translation>
+        <translation>Шрифт</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished">Установить шрифт для инструмента Текст.</translation>
+        <translation>Установить шрифт для инструмента Текст.</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished">Жирный</translation>
+        <translation>Жирный</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished">Курсив</translation>
+        <translation>Курсив</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished">Подчёркивание</translation>
+        <translation>Подчёркивание</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation type="unfinished">Семейство</translation>
+        <translation>Семейство</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished">Устанавливает шрифт для инструмента Текст.</translation>
+        <translation>Устанавливает шрифт для инструмента Текст.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Водянной знак/логотип</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Установить водянной знак/логотип</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Повернуть на 45°</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation>При включении, водянной знак/логотип будет повёрнут на 45°</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметры рисования</translation>
     </message>
 </context>
 <context>
@@ -238,7 +238,7 @@ $T — hhmmss формат.</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать иконку в трее</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
@@ -247,11 +247,11 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Сворачивать в трей</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Сворачивать в трей при закрытии</translation>
     </message>
 </context>
 <context>
@@ -315,11 +315,11 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Последняя выделенная область</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
+        <translation>Сделать скриншот последней выделенной области</translation>
     </message>
 </context>
 <context>
@@ -330,61 +330,61 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
+        <translation>Получен новый токен, повторная попытка загрузки…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished"></translation>
+        <translation>Срок действия токена истек, запрашивается новый токен…</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResponseOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка завершена</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка на</translation>
     </message>
 </context>
 <context>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить горячие клавиши (эта функция не работает в Wayland)</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Снимок выделенной области</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Снимок всего экрана</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Снимок текущего экрана</translation>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Снимок активного окна</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Снимок под курсором&lt;</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Горячие клавиши</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation type="unfinished"></translation>
+        <translation>Горячие клавиши поддерживаются только в Windows и X11</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Снимок последней области</translation>
     </message>
 </context>
 <context>
@@ -612,11 +612,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Вернуть</translation>
     </message>
     <message>
         <source>Crop</source>
@@ -703,19 +703,19 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Водянной знак/логотип</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить водянной знак/логотип. Можно добавить несколько.</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Файл</translation>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно показать изображение</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
@@ -738,19 +738,19 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Изображение сохранено</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка во время сохранения изображения</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить в</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка во время сохранения изображения</translation>
     </message>
 </context>
 <context>

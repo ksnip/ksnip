@@ -13,6 +13,7 @@
 * New: Provide option to use previous capture area. ([#150](https://github.com/DamirPorobic/kImageAnnotator/issues/150))
 * New: Add System Tray Icon. ([#163](https://github.com/DamirPorobic/kImageAnnotator/issues/163))
 * New: Show tray icon notification after image was uploaded to imgur or saved. ([#220](https://github.com/DamirPorobic/kImageAnnotator/issues/220))
+* New: Add support for Open-with. ([#195](https://github.com/DamirPorobic/kImageAnnotator/issues/195))
 * New kImageAnnotator: Edit text box content. ([#51](https://github.com/DamirPorobic/kImageAnnotator/issues/51))
 * New kImageAnnotator: Panning image by holding space or mouse middle button and dragging. ([#9](https://github.com/DamirPorobic/kImageAnnotator/issues/9))
 * New kImageAnnotator: Change annotation element config after drawing. ([#44](https://github.com/DamirPorobic/kImageAnnotator/issues/44))

@@ -26,7 +26,8 @@ KsnipCommandLine::KsnipCommandLine(const QCoreApplication &app, const QList<Capt
     addVersionOptions();
     addImageGrabberOptions(captureModes);
     addDefaultOptions();
-    process(app);
+	addPositionalArguments();
+	process(app);
 }
 
 KsnipCommandLine::~KsnipCommandLine()
@@ -140,7 +141,7 @@ bool KsnipCommandLine::isCursorSet() const
 
 bool KsnipCommandLine::isEditSet() const
 {
-    return mEditOption != nullptr && isSet(*mEditOption);
+    return (mEditOption != nullptr && isSet(*mEditOption)) || positionalArguments().count() == 1;
 }
 
 bool KsnipCommandLine::isSaveSet() const
@@ -157,16 +158,12 @@ int KsnipCommandLine::delay() const
 {
     auto valid = true;
     auto delay = value(*mDelayOption).toInt(&valid);
-    if (!valid || delay < 0) {
-        return -1;
-    } else {
-        return delay;
-    }
+    return valid && delay >= 0 ? delay : -1;
 }
 
-QString KsnipCommandLine::image() const
+QString KsnipCommandLine::imagePath() const
 {
-    return value(*mEditOption);
+	return positionalArguments().count() == 1 ? positionalArguments().first() : value(*mEditOption);
 }
 
 bool KsnipCommandLine::isCaptureModeSet() const
@@ -189,4 +186,9 @@ CaptureModes KsnipCommandLine::captureMode() const
     } else {
         return CaptureModes::RectArea;
     }
+}
+
+void KsnipCommandLine::addPositionalArguments()
+{
+	addPositionalArgument(QStringLiteral("image"), QStringLiteral("Edit existing image in ksnip"), QStringLiteral("[image]"));
 }

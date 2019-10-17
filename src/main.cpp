@@ -65,7 +65,7 @@ int main(int argc, char** argv)
 	}
 
     if (commandLine.isEditSet()) {
-        auto pathToImage = commandLine.image();
+        auto pathToImage = commandLine.imagePath();
         QPixmap pixmap(pathToImage);
 
         if (pixmap.isNull()) {

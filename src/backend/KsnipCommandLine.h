@@ -45,7 +45,7 @@ public:
     bool isVersionSet() const;
     bool isCaptureModeSet() const;
     int delay() const;
-    QString image() const;
+    QString imagePath() const;
     CaptureModes captureMode() const;
 
 private:
@@ -67,6 +67,7 @@ private:
     QString translateText(const QString &text);
     QCommandLineOption* addOption(const QString &shortName, const QString &longName, const QString &description);
     QCommandLineOption* addParameterOption(const QString &shortName, const QString &longName, const QString &description, const QString &parameter);
+	void addPositionalArguments();
 };
 
 #endif //KSNIP_KSNIPCOMMANDLINE_H

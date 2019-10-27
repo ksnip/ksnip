@@ -556,7 +556,7 @@ take effect.</source>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished"></translation>
+        <translation>Ожидание imgur.com…</translation>
     </message>
     <message>
         <source>Username:</source>
@@ -572,7 +572,7 @@ take effect.</source>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation type="unfinished"></translation>
+        <translation>После выгрузки открыть ссылку Imgur в браузере по умолчанию</translation>
     </message>
 </context>
 <context>
@@ -720,7 +720,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Отсутствует необходимое изображение.</translation>
     </message>
 </context>
 <context>

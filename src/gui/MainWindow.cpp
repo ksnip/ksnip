@@ -176,6 +176,7 @@ void MainWindow::show()
 	activateWindow();
 	raise();
 	QWidget::show();
+	setWindowState(Qt::WindowActive);
 }
 
 

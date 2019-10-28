@@ -33,6 +33,7 @@
 * Fixed: ksnip opens anyway with -s option specified. ([#213](https://github.com/DamirPorobic/ksnip/issues/213))
 * Fixed: Open Image with full size window doesn't resize main window. ([#194](https://github.com/DamirPorobic/ksnip/issues/194))
 * Fixed: Can't work correctly when using scaled display. ([#174](https://github.com/DamirPorobic/ksnip/issues/174))
+* Fixed: Not able to restore window from tray under Windows 10. ([#227](https://github.com/DamirPorobic/ksnip/issues/227))
 * Fixed kImageAnnotator: Unable to select number annotation when clicking on the number without background. ([#46](https://github.com/DamirPorobic/kImageAnnotator/issues/46))
 * Fixed kImageAnnotator: Ctrl Modifier stuck on second or third screenshot with Ctrl-N. ([#58](https://github.com/DamirPorobic/kImageAnnotator/issues/58))
 * Fixed kImageAnnotator: Undo/Redo is now disabled during crop and scale operation. ([#56](https://github.com/DamirPorobic/kImageAnnotator/issues/56))

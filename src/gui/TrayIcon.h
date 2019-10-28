@@ -56,6 +56,9 @@ private:
 	QAction *mQuitAction;
 
 	void setupMenu();
+
+private slots:
+	void activated(ActivationReason reason) const;
 };
 
 #endif //KSNIP_TRAYICON_H

@@ -25,7 +25,7 @@ TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
 
 	mShowEditorAction = new QAction(tr("Show Editor"), this);
 	connect(mShowEditorAction, &QAction::triggered, this, &TrayIcon::showEditorTriggered);
-	connect(this, &TrayIcon::activated, this, &TrayIcon::showEditorTriggered);
+	connect(this, &QSystemTrayIcon::activated, this, &TrayIcon::activated);
 }
 
 void TrayIcon::setupMenu()
@@ -100,4 +100,11 @@ void TrayIcon::showWarningToast(const QString &title, const QString &message)
 void TrayIcon::showCriticalToast(const QString &title, const QString &message)
 {
 	showMessage(title, message, QSystemTrayIcon::Critical);
+}
+
+void TrayIcon::activated(ActivationReason reason) const
+{
+	if(reason != ActivationReason::Context) {
+		emit showEditorTriggered();
+	}
 }

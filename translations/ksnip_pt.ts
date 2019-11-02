@@ -37,7 +37,7 @@
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> para reportar bugs.</translation>
+        <translation> para reportar problemas.</translation>
     </message>
     <message>
         <source>Build</source>
@@ -84,11 +84,11 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation>Imagem de Marca d&apos;água é necessária</translation>
+        <translation>Imagem de marca d&apos;água é necessária</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Adicione uma imagem de Marca d&apos;água em: Opções&gt; Configurações&gt; Editor&gt; Selecionar</translation>
+        <translation>Adicione uma imagem de marca d&apos;água em: Opções &gt; Configurações &gt; Editor &gt; Selecionar</translation>
     </message>
 </context>
 <context>
@@ -153,7 +153,7 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation>Imagem de Marca d&apos;água</translation>
+        <translation>Imagem de Marca D&apos;água</translation>
     </message>
     <message>
         <source>Update</source>
@@ -161,11 +161,11 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation>Rotacionar Marca d&apos;água</translation>
+        <translation>Rotacionar Marca D&apos;água</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Quando ativado, a Marca d&apos;água será acionada com rotação de 45º</translation>
+        <translation>Quando ativado, a marca d&apos;água será adicionada com rotação de 45º</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
@@ -528,7 +528,7 @@ A alteração requer que o ksnip reinicie para surtir efeito.</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation>Client Secret</translation>
+        <translation>Chave Secreta</translation>
     </message>
     <message>
         <source>PIN</source>
@@ -782,7 +782,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation>Imgur Uploader</translation>
+        <translation>Serviço Imgur</translation>
     </message>
     <message>
         <source>Annotator</source>
@@ -819,7 +819,7 @@ e captura de tela.</translation>
     <name>UploadOperation</name>
     <message>
         <source>Imgur Upload</source>
-        <translation>Imgur Upload</translation>
+        <translation>Enviar para Imgur</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>

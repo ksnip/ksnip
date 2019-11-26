@@ -153,11 +153,11 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Image filigrane</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>MIse à jour</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>

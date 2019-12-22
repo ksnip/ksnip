@@ -53,7 +53,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
     initGui();
 
 	setWindowIcon(QIcon(QStringLiteral(":/icons/ksnip.svg")));
-    move(mConfig->windowPosition());
+	setPosition(mConfig->windowPosition());
 
 	connect(mConfig, &KsnipConfig::toolConfigChanged, this, &MainWindow::setupImageAnnotator);
 
@@ -78,6 +78,17 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	setupImageAnnotator();
 	QWidget::resize(minimumSize());
+}
+
+void MainWindow::setPosition(const QPoint &lastPosition)
+{
+	auto position = lastPosition;
+	auto screenGeometry = QApplication::desktop()->screenGeometry();
+	if(!screenGeometry.contains(lastPosition)) {
+		auto screenCenter = screenGeometry.center();
+		position = QPoint(screenCenter.x() - size().width(), screenCenter.y() - size().height());
+	}
+	move(position);
 }
 
 MainWindow::~MainWindow()

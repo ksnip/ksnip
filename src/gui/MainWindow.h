@@ -122,6 +122,7 @@ private slots:
     void showSettingsDialog();
     void showAboutDialog();
     void showScaleDialog();
+	void setPosition(const QPoint &lastPosition);
 };
 
 #endif // KSNIP_MAINWINDOW_H

@@ -45,5 +45,7 @@ MessageBoxResponse MessageBoxHelper::mapReplyToMessageBoxResponse(int reply)
 			return MessageBoxResponse::No;
 		case QMessageBox::Cancel:
 			return MessageBoxResponse::Cancel;
+		default:
+			return MessageBoxResponse::No;
 	}
 }

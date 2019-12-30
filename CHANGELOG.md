@@ -41,6 +41,7 @@
 * Fixed kImageAnnotator: Mess with russian letters in text tool when typing in Russian. ([#59](https://github.com/DamirPorobic/kImageAnnotator/issues/59))
 * Fixed kImageAnnotator: Text tool does not allow me to type accents. ([#57](https://github.com/DamirPorobic/kImageAnnotator/issues/57))
 * Fixed kImageAnnotator: Highlighter rect and ellipse have only border but no fill. ([#65](https://github.com/DamirPorobic/kImageAnnotator/issues/65))
+* Fixed kImageAnnotator: Saved tool selection not loaded on startup. ([#67](https://github.com/DamirPorobic/kImageAnnotator/issues/67))
 
 ## Release 1.5.0
 * New: Added Continues Build with Travis-CI that creates AppImages for every commit. ([#63](https://github.com/DamirPorobic/ksnip/issues/63))

@@ -42,6 +42,7 @@
 * Fixed kImageAnnotator: Text tool does not allow me to type accents. ([#57](https://github.com/DamirPorobic/kImageAnnotator/issues/57))
 * Fixed kImageAnnotator: Highlighter rect and ellipse have only border but no fill. ([#65](https://github.com/DamirPorobic/kImageAnnotator/issues/65))
 * Fixed kImageAnnotator: Saved tool selection not loaded on startup. ([#67](https://github.com/DamirPorobic/kImageAnnotator/issues/67))
+* Fixed kImageAnnotator: On startup does not highlight tool, when this tool not the first item in the list. ([#63](https://github.com/DamirPorobic/kImageAnnotator/issues/63))
 
 ## Release 1.5.0
 * New: Added Continues Build with Travis-CI that creates AppImages for every commit. ([#63](https://github.com/DamirPorobic/ksnip/issues/63))

@@ -37,7 +37,7 @@
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> にお願いします。</translation>
+        <translation> で受け付けています。</translation>
     </message>
     <message>
         <source>Build</source>
@@ -276,7 +276,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation>範囲選択 (長方形)</translation>
+        <translation>選択範囲</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
@@ -284,7 +284,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation>最近の範囲選択 (長方形)</translation>
+        <translation>最近の選択範囲</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
@@ -361,11 +361,11 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation>選択範囲 (長方形) をキャプチャー</translation>
+        <translation>選択範囲をキャプチャー</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation>最近選択した範囲 (長方形) をキャプチャー</translation>
+        <translation>最近選択した範囲をキャプチャー</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
@@ -402,7 +402,7 @@ screenshots.</source>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation>範囲選択中は画像をフリーズさせる</translation>
+        <translation>範囲選択画面で画像を固定する</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -417,8 +417,8 @@ used for MacOs.</source>
 遅延スクリーンショットの挙動にも影響し、このオ
 プションが有効だと遅延発生後に範囲選択画面が表
 示され、無効だと範囲を選択した後に遅延が発生し
-ます。この機能は Wayland では動作せず、macOSで
-は常に使用されます。</translation>
+ます。この機能は Wayland では動作せず、macOS 
+では常に使用します。</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
@@ -429,8 +429,8 @@ used for MacOs.</source>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>背景画像を拡大する拡大鏡を表示します。
-このオプションは「範囲選択中は画像をフ
-リーズさせる」が有効な場合のみ動作します。</translation>
+このオプションは「範囲選択画面で画像を
+固定する」が有効な場合のみ動作します。</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -480,7 +480,7 @@ take effect.</source>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>画像取得 (範囲選択)</translation>
+        <translation>画像取得 (選択範囲)</translation>
     </message>
 </context>
 <context>
@@ -780,7 +780,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>画像取得 (範囲選択)</translation>
+        <translation>画像取得 (選択範囲)</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>

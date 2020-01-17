@@ -1,9 +1,9 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: ksnip
-Source: https://github.com/DamirPorobic/ksnip/blob/master/LICENSE
+Source: https://github.com/ksnip/ksnip/blob/master/LICENSE
 
 Files: *
-Copyright: Copyright 2018 Damir Porobic <https://github.com/damirporobic>
+Copyright: Copyright 2020 ksnip <https://github.com/ksnip>
 License: GPL-2+
 
 License: GPL-2+

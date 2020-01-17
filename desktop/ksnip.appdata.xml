@@ -28,7 +28,7 @@
         </ul>
     </description>
     <launchable type="desktop-id">ksnip.desktop</launchable>
-    <url type="homepage">https://github.com/DamirPorobic/ksnip</url>
+    <url type="homepage">http://ksnip.org</url>
     <screenshots>
         <screenshot type="default">
             <caption>Main Window</caption>

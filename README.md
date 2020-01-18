@@ -125,8 +125,8 @@ could help fix bugs under MacOS.
 # Donate a Beer?
 You would like to donate a Beer? Sure, you can do that [here](https://paypal.com/paypalme2/damirporobic), donations are always welcome :)
 
-[travis-badge]:        https://img.shields.io/travis/damirporobic/ksnip.svg?label=travis&logo=travis
-[travis-url]:          https://travis-ci.org/DamirPorobic/ksnip
+[travis-badge]:        https://img.shields.io/travis/ksnip/ksnip.svg?label=travis&logo=travis
+[travis-url]:          https://travis-ci.org/ksnip/ksnip
 
 [weblate-badge]:       https://hosted.weblate.org/widgets/ksnip/-/translations/svg-badge.svg
 [weblate-url]:         https://hosted.weblate.org/engage/ksnip/?utm_source=widget

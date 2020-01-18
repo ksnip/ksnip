@@ -23,8 +23,11 @@
 
 #include <QDialog>
 
-#include "MainWindow.h"
-#include "BuildConfig.h"
+#include "gui/MainWindow.h"
+#include "AboutTab.h"
+#include "VersionTab.h"
+#include "AuthorTab.h"
+#include "DonateTab.h"
 
 class QLabel;
 class MainWindow;
@@ -34,23 +37,20 @@ class AboutDialog : public QDialog
     Q_OBJECT
 public:
     AboutDialog(MainWindow *parent = nullptr);
+	~AboutDialog();
 
 private:
-    MainWindow  *mParent;
+    MainWindow *mParent;
     QVBoxLayout *mMainLayout;
     QHBoxLayout *mHeaderLayout;
-    QTabWidget  *mTabWidget;
-    QWidget     *mAboutWidget;
-    QWidget     *mVersionWidget;
-    QWidget     *mAuthorWidget;
+    QTabWidget *mTabWidget;
     QPushButton *mCloseButton;
+    AboutTab *mAboutTab;
+    VersionTab *mVersionTab;
+    AuthorTab *mAuthorTab;
+    DonateTab *mDonateTab;
 
     void createHeader();
-    void createAboutTab();
-    void createVersionTab();
-    void createAuthorTab();
-    QString createContributorEntry(const QString &name, const QString &role, const QString &email = QString()) const;
-    QString createEmailEntry(const QString &email) const;
 };
 
 #endif // KSNIP_ABOUTDIALOG_H

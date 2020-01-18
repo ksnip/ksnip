@@ -41,7 +41,11 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/ImgurUploaderSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/HotKeySettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/SettingsDialog.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog/AboutDialog.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog/AboutTab.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog/VersionTab.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog/AuthorTab.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/AboutDialog/DonateTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/TrayIcon.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/GlobalHotKey.cpp

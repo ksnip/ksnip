@@ -20,8 +20,7 @@
 
 #include "AboutDialog.h"
 
-AboutDialog::AboutDialog(MainWindow* parent) : QDialog(parent),
-    mParent(parent),
+AboutDialog::AboutDialog(QWidget* parent) : QDialog(parent),
     mMainLayout(new QVBoxLayout),
     mHeaderLayout(new QHBoxLayout),
     mTabWidget(new QTabWidget),
@@ -55,10 +54,7 @@ AboutDialog::AboutDialog(MainWindow* parent) : QDialog(parent),
 
 AboutDialog::~AboutDialog()
 {
-	delete mParent;
 	delete mMainLayout;
-	delete mHeaderLayout;
-	delete mTabWidget;
 	delete mCloseButton;
 	delete mAboutTab;
 	delete mVersionTab;

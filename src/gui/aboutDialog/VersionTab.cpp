@@ -39,6 +39,6 @@ VersionTab::VersionTab()
 
 VersionTab::~VersionTab()
 {
- delete mContent;
- delete mLayout;
+	delete mContent;
+	delete mLayout;
 }

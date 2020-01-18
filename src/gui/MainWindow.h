@@ -52,7 +52,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 public:
     explicit MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
-    ~MainWindow();
+    ~MainWindow() override;
     void showEmpty();
     void show();
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);

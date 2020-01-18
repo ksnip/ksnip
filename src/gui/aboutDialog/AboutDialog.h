@@ -22,8 +22,9 @@
 #define KSNIP_ABOUTDIALOG_H
 
 #include <QDialog>
+#include <QTabWidget>
+#include <QPushButton>
 
-#include "gui/MainWindow.h"
 #include "AboutTab.h"
 #include "VersionTab.h"
 #include "AuthorTab.h"
@@ -36,11 +37,10 @@ class AboutDialog : public QDialog
 {
     Q_OBJECT
 public:
-    AboutDialog(MainWindow *parent = nullptr);
-	~AboutDialog();
+    explicit AboutDialog(QWidget *parent = nullptr);
+	~AboutDialog() override;
 
 private:
-    MainWindow *mParent;
     QVBoxLayout *mMainLayout;
     QHBoxLayout *mHeaderLayout;
     QTabWidget *mTabWidget;

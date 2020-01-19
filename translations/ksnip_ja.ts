@@ -480,7 +480,7 @@ take effect.</source>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>画像取得 (選択範囲)</translation>
+        <translation>画像取得</translation>
     </message>
 </context>
 <context>
@@ -780,7 +780,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>画像取得 (選択範囲)</translation>
+        <translation>画像取得</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>

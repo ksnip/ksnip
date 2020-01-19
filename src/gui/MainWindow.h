@@ -66,7 +66,7 @@ public slots:
 protected:
     void moveEvent(QMoveEvent *event) override;
     void closeEvent(QCloseEvent *event) override;
-	void changeEvent(QEvent *event) override ;
+	void changeEvent(QEvent *event) override;
     QMenu *createPopupMenu() override;
     QSize sizeHint() const override;
 
@@ -75,6 +75,8 @@ private:
     RunMode mMode;
     bool mIsUnsaved;
     bool mHidden;
+    Qt::WindowState mSelectedWindowState;
+    bool mWindowStateChangeLock;
     QAction *mUploadToImgurAction;
     QAction *mPrintAction;
     QAction *mPrintPreviewAction;

@@ -21,25 +21,27 @@
 #include "MainWindow.h"
 
 MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
-	QMainWindow(),
-	mImageGrabber(imageGrabber),
-	mMode(mode),
-	mKImageAnnotator(new KImageAnnotator),
-	mUploadToImgurAction(new QAction(this)),
-	mPrintAction(new QAction(this)),
-	mPrintPreviewAction(new QAction(this)),
-	mQuitAction(new QAction(this)),
-	mSettingsDialogAction(new QAction(this)),
-	mAboutAction(new QAction(this)),
-	mOpenImageAction(new QAction(this)),
-	mScaleAction(new QAction(this)),
-	mAddWatermarkAction(new QAction(this)),
-	mClipboard(QApplication::clipboard()),
-	mConfig(KsnipConfig::instance()),
-	mCapturePrinter(new CapturePrinter),
-	mCaptureUploader(new CaptureUploader()),
-	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
-	mTrayIcon(new TrayIcon(this))
+		QMainWindow(),
+		mImageGrabber(imageGrabber),
+		mMode(mode),
+		mKImageAnnotator(new KImageAnnotator),
+		mUploadToImgurAction(new QAction(this)),
+		mPrintAction(new QAction(this)),
+		mPrintPreviewAction(new QAction(this)),
+		mQuitAction(new QAction(this)),
+		mSettingsDialogAction(new QAction(this)),
+		mAboutAction(new QAction(this)),
+		mOpenImageAction(new QAction(this)),
+		mScaleAction(new QAction(this)),
+		mAddWatermarkAction(new QAction(this)),
+		mClipboard(QApplication::clipboard()),
+		mConfig(KsnipConfig::instance()),
+		mCapturePrinter(new CapturePrinter),
+		mCaptureUploader(new CaptureUploader()),
+		mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
+		mTrayIcon(new TrayIcon(this)),
+		mSelectedWindowState(Qt::WindowActive),
+		mWindowStateChangeLock(false)
 {
     // When we run in CLI only mode we don't need to setup gui, but only need
     // to connect imagegrabber signals to mainwindow slots to handle the
@@ -145,12 +147,12 @@ void MainWindow::quit()
 
 void MainWindow::showCapture(const CaptureDto &capture)
 {
-    if (!capture.isValid()) {
-    	NotifyOperation operation(mTrayIcon, tr("Unable to show image"), tr("No image provided to but one was expected."), NotificationTypes::Critical);
-    	operation.execute();
-        showEmpty();
-        return;
-    }
+	if (!capture.isValid()) {
+		NotifyOperation operation(mTrayIcon, tr("Unable to show image"), tr("No image provided to but one was expected."), NotificationTypes::Critical);
+		operation.execute();
+		showEmpty();
+		return;
+	}
 
 	loadCapture(capture);
 
@@ -159,11 +161,11 @@ void MainWindow::showCapture(const CaptureDto &capture)
 	}
 
 	setHidden(false);
-    setSaveable(true);
-    setEnablements(true);
+	setSaveable(true);
+	setEnablements(true);
 
-    adjustSize();
-    QMainWindow::show();
+	adjustSize();
+	MainWindow::show();
 }
 
 void MainWindow::loadCapture(const CaptureDto &capture)
@@ -186,8 +188,8 @@ void MainWindow::show()
 {
 	activateWindow();
 	raise();
-	QWidget::show();
-	setWindowState(Qt::WindowActive);
+	QMainWindow::show();
+	setWindowState(mSelectedWindowState);
 }
 
 
@@ -228,18 +230,18 @@ void MainWindow::moveEvent(QMoveEvent* event)
 void MainWindow::closeEvent(QCloseEvent* event)
 {
 	event->ignore();
-	if(mTrayIcon->isVisible() && mConfig->closeToTray()) {
-		hide();
-	} else{
-		quit();
-	}
+	mTrayIcon->isVisible() && mConfig->closeToTray() ? hide() : quit();
 }
 
 void MainWindow::changeEvent(QEvent *event)
 {
-	if (event->type() == QEvent::WindowStateChange && isMinimized() && mTrayIcon->isVisible() && mConfig->minimizeToTray()) {
-		event->ignore();
-		hide();
+	if (event->type() == QEvent::WindowStateChange) {
+		if(isMinimized() && mTrayIcon->isVisible() && mConfig->minimizeToTray()) {
+			event->ignore();
+			hide();
+		} else if (!mWindowStateChangeLock)  {
+			mSelectedWindowState = isMaximized() ? Qt::WindowMaximized : Qt::WindowActive;
+		}
 	}
 	QWidget::changeEvent(event);
 }
@@ -278,6 +280,7 @@ void MainWindow::loadSettings()
 
 void MainWindow::setHidden(bool isHidden)
 {
+	mWindowStateChangeLock = true;
     if (isHidden == hidden()) {
         return;
     }
@@ -288,8 +291,9 @@ void MainWindow::setHidden(bool isHidden)
         showMinimized();
     } else {
         setWindowOpacity(1.0);
-        setWindowState(Qt::WindowActive);
+		setWindowState(Qt::WindowActive);
     }
+	mWindowStateChangeLock = false;
 }
 
 bool MainWindow::hidden() const

@@ -280,7 +280,6 @@ void MainWindow::loadSettings()
 
 void MainWindow::setHidden(bool isHidden)
 {
-	mWindowStateChangeLock = true;
     if (isHidden == hidden()) {
         return;
     }
@@ -293,7 +292,7 @@ void MainWindow::setHidden(bool isHidden)
         setWindowOpacity(1.0);
 		setWindowState(Qt::WindowActive);
     }
-	mWindowStateChangeLock = false;
+	mWindowStateChangeLock = isHidden;
 }
 
 bool MainWindow::hidden() const

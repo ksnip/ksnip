@@ -46,6 +46,7 @@
 * Fixed kImageAnnotator: Saved tool selection not loaded on startup. ([#67](https://github.com/ksnip/ksnip/issues/67))
 * Fixed kImageAnnotator: On startup does not highlight tool, when this tool not the first item in the list. ([#63](https://github.com/ksnip/kImageAnnotator/issues/63))
 * Fixed kImageAnnotator: Cursor image cannot be grabbed for moving. ([#69](https://github.com/ksnip/kImageAnnotator/issues/69))
+* Fixed kImageAnnotator: Accents still not work in text tool on Linux. ([#61](https://github.com/ksnip/kImageAnnotator/issues/61))
 
 ## Release 1.5.0
 * New: Added Continues Build with Travis-CI that creates AppImages for every commit. ([#63](https://github.com/ksnip/ksnip/issues/63))

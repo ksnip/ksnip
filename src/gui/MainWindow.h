@@ -59,7 +59,6 @@ public:
 
 public slots:
     void showCapture(const CaptureDto &capture);
-    void triggerNewDefaultCapture();
 	void triggerNewCapture(CaptureModes captureMode);
 	void quit();
 

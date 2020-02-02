@@ -37,6 +37,7 @@
 * Fixed: Not able to restore window from tray under Windows 10. ([#227](https://github.com/ksnip/ksnip/issues/227))
 * Fixed: ksnip opens outside desktop if last saved position was on no longer available monitor. ([#236](https://github.com/ksnip/ksnip/issues/236))
 * Fixed: Window demaximize when taking a new screenshot. ([#223](https://github.com/ksnip/ksnip/issues/223))
+* Fixed: Add support for Chinese Text Input. ([#208](https://github.com/ksnip/ksnip/issues/208))
 * Fixed kImageAnnotator: Unable to select number annotation when clicking on the number without background. ([#46](https://github.com/ksnip/kImageAnnotator/issues/46))
 * Fixed kImageAnnotator: Ctrl Modifier stuck on second or third screenshot with Ctrl-N. ([#58](https://github.com/ksnip/kImageAnnotator/issues/58))
 * Fixed kImageAnnotator: Undo/Redo is now disabled during crop and scale operation. ([#56](https://github.com/ksnip/kImageAnnotator/issues/56))

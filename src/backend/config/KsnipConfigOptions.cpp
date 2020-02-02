@@ -99,6 +99,11 @@ QString KsnipConfigOptions::closeToTrayString()
 	return applicationSectionString() + QStringLiteral("CloseToTray");
 }
 
+QString KsnipConfigOptions::startMinimizedToTray()
+{
+	return applicationSectionString() + QStringLiteral("StartMinimizedToTray");
+}
+
 QString KsnipConfigOptions::textFontString()
 {
 	return annotatorSectionString() + QStringLiteral("TextFont");

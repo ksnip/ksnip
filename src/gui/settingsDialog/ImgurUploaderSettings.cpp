@@ -108,20 +108,20 @@ void ImgurUploaderSettings::initGui()
 	connect(mImgurHistoryButton, &QPushButton::clicked, this, &ImgurUploaderSettings::showImgurHistoryDialog);
 
 	mLayout->setAlignment(Qt::AlignTop);
-	mLayout->setColumnStretch(0, 1);
-	mLayout->addWidget(mImgurForceAnonymousCheckbox, 0, 0);
-	mLayout->addWidget(mImgurOpenLinkInBrowserCheckbox, 1, 0);
-	mLayout->addWidget(mImgurDirectLinkToImageCheckbox, 2, 0);
-	mLayout->addWidget(mImgurAlwaysCopyToClipboardCheckBox, 3, 0);
-	mLayout->addWidget(mImgurConfirmBeforeUploadCheckbox, 4, 0);
+	mLayout->setColumnMinimumWidth(0, 10);
+	mLayout->addWidget(mImgurForceAnonymousCheckbox, 0, 0, 1, 3);
+	mLayout->addWidget(mImgurOpenLinkInBrowserCheckbox, 1, 0, 1, 3);
+	mLayout->addWidget(mImgurDirectLinkToImageCheckbox, 2, 1, 1, 3);
+	mLayout->addWidget(mImgurAlwaysCopyToClipboardCheckBox, 3, 0, 1, 3);
+	mLayout->addWidget(mImgurConfirmBeforeUploadCheckbox, 4, 0, 1, 3);
 	mLayout->setRowMinimumHeight(5, 15);
-	mLayout->addWidget(mImgurUsernameLabel, 6, 0);
-	mLayout->addWidget(mImgurHistoryButton, 6, 3);
-	mLayout->addWidget(mImgurClientIdLineEdit, 7, 0);
-	mLayout->addWidget(mImgurClientSecretLineEdit, 8, 0);
-	mLayout->addWidget(mImgurGetPinButton, 8, 3);
-	mLayout->addWidget(mImgurPinLineEdit, 9, 0);
-	mLayout->addWidget(mImgurGetTokenButton, 9, 3);
+	mLayout->addWidget(mImgurUsernameLabel, 6, 0, 1, 3);
+	mLayout->addWidget(mImgurHistoryButton, 6, 3, 1, 1);
+	mLayout->addWidget(mImgurClientIdLineEdit, 7, 0, 1, 3);
+	mLayout->addWidget(mImgurClientSecretLineEdit, 8, 0, 1, 3);
+	mLayout->addWidget(mImgurGetPinButton, 8, 3, 1, 1);
+	mLayout->addWidget(mImgurPinLineEdit, 9, 0, 1, 3);
+	mLayout->addWidget(mImgurGetTokenButton, 9, 3, 1, 1);
 
 	setTitle(tr("Imgur Uploader"));
 	setLayout(mLayout);

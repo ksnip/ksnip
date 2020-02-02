@@ -43,16 +43,16 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mSelectedWindowState(Qt::WindowActive),
 		mWindowStateChangeLock(false)
 {
-    // When we run in CLI only mode we don't need to setup gui, but only need
-    // to connect imagegrabber signals to mainwindow slots to handle the
-    // feedback.
-    if (mMode == RunMode::CLI) {
-        connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processInstantCapture);
-        connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::close);
-        return;
-    }
+	// When we run in CLI only mode we don't need to setup gui, but only need
+	// to connect imagegrabber signals to mainwindow slots to handle the
+	// feedback.
+	if (mMode == RunMode::CLI) {
+		connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processInstantCapture);
+		connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::close);
+		return;
+	}
 
-    initGui();
+	initGui();
 
 	setWindowIcon(QIcon(QStringLiteral(":/icons/ksnip.svg")));
 	setPosition(mConfig->windowPosition());
@@ -61,25 +61,31 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, this, &MainWindow::screenshotChanged);
 
-    connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::showCapture);
-    connect(mImageGrabber, &AbstractImageGrabber::canceled, [this]() { setHidden(false); });
+	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::showCapture);
+	connect(mImageGrabber, &AbstractImageGrabber::canceled, [this]()
+	{ setHidden(false); });
 
-    connect(mCaptureUploader, &CaptureUploader::finished, this, &MainWindow::uploadFinished);
+	connect(mCaptureUploader, &CaptureUploader::finished, this, &MainWindow::uploadFinished);
 
-    connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::triggerNewCapture);
+	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::triggerNewCapture);
 
-    loadSettings();
-
-    if (mMode == RunMode::GUI) {
-        if (mConfig->captureOnStartup()) {
-            capture(mConfig->captureMode());
-        } else {
-            showEmpty();
-        }
-    }
-
+	loadSettings();
+	handleGuiStartup();
 	setupImageAnnotator();
 	QWidget::resize(minimumSize());
+}
+
+void MainWindow::handleGuiStartup()
+{
+	if (mMode == RunMode::GUI) {
+		if (mConfig->captureOnStartup()) {
+			capture(mConfig->captureMode());
+		} else if (mConfig->startMinimizedToTray() && mConfig->useTrayIcon()) {
+			hide();
+		} else {
+			showEmpty();
+		}
+	}
 }
 
 void MainWindow::setPosition(const QPoint &lastPosition)

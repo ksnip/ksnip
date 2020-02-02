@@ -249,6 +249,19 @@ void KsnipConfig::setCloseToTray(bool enabled)
 	saveValue(KsnipConfigOptions::closeToTrayString(), enabled);
 }
 
+bool KsnipConfig::startMinimizedToTray() const
+{
+	return loadValue(KsnipConfigOptions::startMinimizedToTray(), false).toBool();
+}
+
+void KsnipConfig::setStartMinimizedToTray(bool enabled)
+{
+	if (startMinimizedToTray() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::startMinimizedToTray(), enabled);
+}
+
 // Annotator
 
 bool KsnipConfig::textBold() const

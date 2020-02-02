@@ -112,17 +112,17 @@ void ImageGrabberSettings::initGui()
 	mSnippingCursorSizeCombobox->setToolTip(mSnippingCursorSizeLabel->toolTip());
 
 	mLayout->setAlignment(Qt::AlignTop);
-	mLayout->setColumnStretch(1, 1);
-	mLayout->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 2);
-	mLayout->addWidget(mFreezeImageWhileSnippingCheckbox, 1, 0, 1, 2);
-	mLayout->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 2, 0, 1, 2);
-	mLayout->addWidget(mSnippingAreaRulersCheckbox, 3, 0, 1, 2);
-	mLayout->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 4, 0, 1, 2);
+	mLayout->setColumnMinimumWidth(0,10);
+	mLayout->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 3);
+	mLayout->addWidget(mFreezeImageWhileSnippingCheckbox, 1, 0, 1, 3);
+	mLayout->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 2, 1, 1, 3);
+	mLayout->addWidget(mSnippingAreaRulersCheckbox, 3, 0, 1, 3);
+	mLayout->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 4, 0, 1, 3);
 	mLayout->setRowMinimumHeight(5, 15);
-	mLayout->addWidget(mSnippingCursorColorLabel, 6, 0);
-	mLayout->addWidget(mSnippingCursorColorButton, 6, 1, Qt::AlignLeft);
-	mLayout->addWidget(mSnippingCursorSizeLabel, 7, 0);
-	mLayout->addWidget(mSnippingCursorSizeCombobox, 7, 1, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingCursorColorLabel, 6, 0, 1, 2);
+	mLayout->addWidget(mSnippingCursorColorButton, 6, 2, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingCursorSizeLabel, 7, 0, 1, 2);
+	mLayout->addWidget(mSnippingCursorSizeCombobox, 7, 2, Qt::AlignLeft);
 
 	setTitle(tr("Image Grabber"));
 	setLayout(mLayout);

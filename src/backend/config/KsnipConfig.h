@@ -86,6 +86,9 @@ public:
 	bool closeToTray() const;
 	void setCloseToTray(bool enabled);
 
+	bool startMinimizedToTray() const;
+	void setStartMinimizedToTray(bool enabled);
+
 	// Annotator
 
     bool textBold() const;

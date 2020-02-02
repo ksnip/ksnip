@@ -50,6 +50,7 @@ private:
 	QCheckBox *mUseTrayIconCheckBox;
 	QCheckBox *mMinimizeToTrayCheckBox;
 	QCheckBox *mCloseToTrayCheckBox;
+	QCheckBox *mStartMinimizedToTrayCheckBox;
 	QLabel *mApplicationStyleLabel;
 	QComboBox *mApplicationStyleCombobox;
 	QLabel *mSaveLocationLabel;

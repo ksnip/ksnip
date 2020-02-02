@@ -14,6 +14,7 @@
 * New: Add System Tray Icon. ([#163](https://github.com/ksnip/ksnip/issues/163))
 * New: Show tray icon notification after image was uploaded to imgur or saved. ([#220](https://github.com/ksnip/ksnip/issues/220))
 * New: Add support for Open-with. ([#195](https://github.com/ksnip/ksnip/issues/195))
+* New: Open ksnip minimized to tray. ([#240](https://github.com/ksnip/ksnip/issues/240))
 * New kImageAnnotator: Edit text box content. ([#51](https://github.com/ksnip/kImageAnnotator/issues/51))
 * New kImageAnnotator: Panning image by holding space or mouse middle button and dragging. ([#9](https://github.com/ksnip/kImageAnnotator/issues/9))
 * New kImageAnnotator: Change annotation element config after drawing. ([#44](https://github.com/ksnip/kImageAnnotator/issues/44))

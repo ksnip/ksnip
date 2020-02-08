@@ -123,7 +123,7 @@ version of ksnip and also help with setting up the CI/CD Pipeline for building b
 could help fix bugs under MacOS.
 
 # Donate a Beer?
-You would like to donate a Beer? Sure, you can do that [here](https://paypal.com/paypalme2/damirporobic), donations are always welcome :)
+You would like to donate a Beer? Sure, you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)
 
 [travis-badge]:        https://img.shields.io/travis/ksnip/ksnip.svg?label=travis&logo=travis
 [travis-url]:          https://travis-ci.org/ksnip/ksnip

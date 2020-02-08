@@ -363,7 +363,7 @@ void MainWindow::initGui()
 	connect(mSettingsDialogAction, &QAction::triggered, this, &MainWindow::showSettingsDialog);
 
     mAboutAction->setText(tr("&About"));
-	mAboutAction->setIcon(QIcon(QStringLiteral(":/ksnip")));
+	mAboutAction->setIcon(QIcon(QStringLiteral(":/icons//ksnip")));
 	connect(mAboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
 
     mOpenImageAction->setText(tr("Open"));

@@ -24,7 +24,9 @@ DonateTab::DonateTab()
 	mLayout = new QVBoxLayout();
 	mContent = new QLabel();
 	mContent->setText(QStringLiteral("<b>") + tr("Donate a Beer?") + QStringLiteral("</b>") + QStringLiteral("<br/>") +
-					  tr("Sure, you can do that") + QStringLiteral(" <a href=\"https://www.paypal.me/damirporobic\">") + tr("here") + QStringLiteral("</a>.<br/>") +
+					  tr("Sure, you can do that") + QStringLiteral(" <a href=\"https://www.paypal.me/damirporobic\">") + tr("here") + QStringLiteral("</a>.<br/><br/>") +
+		              QStringLiteral("<b>") + tr("Become a Sponsor") + QStringLiteral("?</b>") + QStringLiteral("<br/>") +
+		              tr("Also possible, ") + QStringLiteral(" <a href=\"https://github.com/sponsors/DamirPorobic\">") + tr("here") + QStringLiteral("</a>.<br/><br/>") +
 					  tr("Donations are always welcome") + QStringLiteral(" :)"));
 	mContent->setTextFormat(Qt::RichText);
 	mContent->setTextInteractionFlags(Qt::TextBrowserInteraction);

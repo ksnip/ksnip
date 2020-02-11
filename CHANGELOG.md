@@ -1,5 +1,8 @@
 # Change log
 
+## Release 1.6.1
+* Fixed kImageAnnotator: Edit border around text box doesn't disappear when done with editing. ([#71](https://github.com/ksnip/kImageAnnotator/issues/71))
+
 ## Release 1.6.0
 * New: Make captured cursor an item which can be moved and deleted. ([#86](https://github.com/ksnip/ksnip/issues/86))
 * New: Add watermarks to annotated image. ([#199](https://github.com/ksnip/ksnip/issues/199))

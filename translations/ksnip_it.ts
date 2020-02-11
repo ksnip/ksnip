@@ -5,246 +5,248 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation type="unfinished"></translation>
+        <translation>Informazioni </translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Informazioni</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Versione</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Autore</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi</translation>
     </message>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Strumento per la cattura di schermate</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished"></translation>
+        <translation>Licenza </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished"></translation>
+        <translation>Usa </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation> per segnalare malfunzionamenti.</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>Build</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizza:</translation>
     </message>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>Autore:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Collaboratori:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduzione in spagnolo</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduzione in olandese</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduzione in russo</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Traduzione in Bokmål norvegese</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduzione in francese</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduzione in polacco</translation>
     </message>
 </context>
 <context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungere Immagine</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>È necessario aggiungere un&apos;immagine tramite il menù Opzioni &gt; Impostazioni &gt; Annotatore &gt; Aggiorna</translation>
     </message>
 </context>
 <context>
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungere ombre all&apos;oggetto</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se abilitato, gli elementi aggiunti avranno delle ombre.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Smussa i tratti di pennello</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se abilitato, smussa i tratti di penna o pennarello dopo che sono stati tracciati.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Fattore di smussamento</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished"></translation>
+        <translation>All&apos;aumentare del fattore di smussamento diminuirà la precisione, ma aumenterà la levigazione del tratto di penna/pennarello.</translation>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Font di testo</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imposta il font per lo strumento di testo.</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Grassetto</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Corsivo</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Sottolineato</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Font di numerazione</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imposta il font per lo strumento di numerazione.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Immagine di filigrana</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiorna</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruota immagine</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation>Se abilitato, l&apos;immagine verrà aggiunta con una rotazione di 45°</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni Annotatore</translation>
     </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
         <source>Always copy capture to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia automaticamente la schermata negli appunti</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiedi conferma prima di scartare i cambiamenti non salvati</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva la posizione di ksnip e riutilizzala all&apos;avvio</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva lo strumento selezionato in ksnip e riutilizzalo all&apos;avvio</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva una schermata all&apos;avvio usando la modalità di default</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva direttamente nella posizione di default senza chiedere nulla</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se abilitato, non chiede la posizione in cui salvare una schermata: salverà invece direttamente nella posizione di default.</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra icona nel vassoio di sistema</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se abilitato, mostrerà un&apos;icona nel vassoio di sistema se il DE lo supporta.
+Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimizza nel vassoio</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi nel vassoio</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Stile applicazione</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imposta lo stile dell&apos;applicazione: ciò definisce l&apos;aspetto estetico dell&apos;interfaccia.
+Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Posizione e nome del file per il salvataggio</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished"></translation>
+        <translation>Il nome del file può contenere $Y, $M, $D per indicare la data, $h, $m, $s per indicare l&apos;ora, oppure $T per l&apos;ora in formato hhmmss.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Sfoglia</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni Applicazione</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished"></translation>
+        <translation>Posizione di salvataggio della schermata</translation>
     </message>
 </context>
 <context>

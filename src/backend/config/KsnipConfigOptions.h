@@ -62,7 +62,7 @@ public:
 	static QString imgurAccessTokenString();
 	static QString imgurRefreshTokenString();
 	static QString imgurForceAnonymousString();
-	static QString imgurOpenLinkDirectlyToImageString();
+	static QString imgurLinkDirectlyToImageString();
 	static QString imgurOpenLinkInBrowserString();
 	static QString imgurAlwaysCopyToClipboardString();
 	static QString imgurConfirmBeforeUploadString();

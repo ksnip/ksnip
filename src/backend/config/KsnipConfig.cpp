@@ -621,17 +621,17 @@ void KsnipConfig::setImgurForceAnonymous(bool  enabled)
 	saveValue(KsnipConfigOptions::imgurForceAnonymousString(), enabled);
 }
 
-bool KsnipConfig::imgurOpenLinkDirectlyToImage() const
+bool KsnipConfig::imgurLinkDirectlyToImage() const
 {
-	return loadValue(KsnipConfigOptions::imgurOpenLinkDirectlyToImageString(), false).toBool();
+	return loadValue(KsnipConfigOptions::imgurLinkDirectlyToImageString(), false).toBool();
 }
 
-void KsnipConfig::setImgurOpenLinkDirectlyToImage(bool  enabled)
+void KsnipConfig::setImgurLinkDirectlyToImage(bool  enabled)
 {
-    if (imgurOpenLinkDirectlyToImage() == enabled) {
+    if (imgurLinkDirectlyToImage() == enabled) {
         return;
     }
-	saveValue(KsnipConfigOptions::imgurOpenLinkDirectlyToImageString(), enabled);
+	saveValue(KsnipConfigOptions::imgurLinkDirectlyToImageString(), enabled);
 }
 
 bool KsnipConfig::imgurAlwaysCopyToClipboard() const

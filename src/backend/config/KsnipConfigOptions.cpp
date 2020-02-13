@@ -204,7 +204,7 @@ QString KsnipConfigOptions::imgurForceAnonymousString()
 	return imgurSectionString() + QStringLiteral("ForceAnonymous");
 }
 
-QString KsnipConfigOptions::imgurOpenLinkDirectlyToImageString()
+QString KsnipConfigOptions::imgurLinkDirectlyToImageString()
 {
 	return imgurSectionString() + QStringLiteral("OpenLinkDirectlyToImage");
 }

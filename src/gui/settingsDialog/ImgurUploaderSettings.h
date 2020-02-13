@@ -65,10 +65,9 @@ private slots:
 	void requestImgurPin();
 	void getImgurToken();
 	void imgurClientEntered(const QString &text);
-	void imgurTokenUpdated(const QString &accessToken, const QString &refreshTocken, const QString &username);
+	void imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username);
 	void imgurTokenError(const QString &message);
 	void showImgurHistoryDialog();
-	void openLinkInBrowserChanged();
 };
 
 #endif //KSNIP_IMGURUPLOADERSETTINGS_H

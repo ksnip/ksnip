@@ -164,8 +164,8 @@ public:
     bool imgurForceAnonymous() const;
     void setImgurForceAnonymous(bool enabled);
 
-    bool imgurOpenLinkDirectlyToImage() const;
-    void setImgurOpenLinkDirectlyToImage(bool enabled);
+    bool imgurLinkDirectlyToImage() const;
+    void setImgurLinkDirectlyToImage(bool enabled);
 
     bool imgurAlwaysCopyToClipboard() const;
     void setImgurAlwaysCopyToClipboard(bool enabled);

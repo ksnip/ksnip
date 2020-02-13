@@ -30,11 +30,8 @@ HandleUploadResponseOperation::HandleUploadResponseOperation(const QString &resp
 bool HandleUploadResponseOperation::execute()
 {
 	auto url = formatUrl(mResponse);
-
 	openInBrowser(url);
-
 	copyToClipboard(url);
-
 	notifyAboutUpload(url);
 
 	return true;
@@ -55,7 +52,7 @@ void HandleUploadResponseOperation::openInBrowser(const QUrl &url) const
 
 QUrl HandleUploadResponseOperation::formatUrl(QString &response) const
 {
-	if (!mConfig->imgurOpenLinkDirectlyToImage()) {
+	if (!mConfig->imgurLinkDirectlyToImage()) {
 		response = response.remove(QStringLiteral(".png"));
 	}
 	return response;

@@ -52,7 +52,7 @@ void ImgurResponseLogger::createPathIfRequired() const
     qdir.mkpath(mLogPath);
 }
 
-const QString ImgurResponseLogger::getLogEntry(const UploadResponse &response) const
+QString ImgurResponseLogger::getLogEntry(const UploadResponse &response) const
 {
     auto separator = QStringLiteral(",");
     auto deleteLink = QStringLiteral("https://imgur.com/delete/") + response.deleteHash();

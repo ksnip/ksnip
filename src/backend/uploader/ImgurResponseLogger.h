@@ -41,7 +41,7 @@ private:
     QString mLogPath;
     QString mLogFilePath;
     void createPathIfRequired() const;
-    const QString getLogEntry(const UploadResponse &response) const;
+    QString getLogEntry(const UploadResponse &response) const;
     void writeLogEntry(const QString &logEntry) const;
 };
 

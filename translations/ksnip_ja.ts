@@ -24,60 +24,27 @@
         <translation>閉じる</translation>
     </message>
     <message>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AboutTab</name>
+    <message>
         <source>Screenshot Tool</source>
-        <translation>スクリーンショットツール</translation>
+        <translation type="unfinished">スクリーンショットツール</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation>ライセンス: </translation>
+        <translation type="unfinished">ライセンス: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation>バグ報告は </translation>
+        <translation type="unfinished">バグ報告は </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> で受け付けています。</translation>
-    </message>
-    <message>
-        <source>Build</source>
-        <translation>ビルド</translation>
-    </message>
-    <message>
-        <source>Using:</source>
-        <translation>使用:</translation>
-    </message>
-    <message>
-        <source>The Author:</source>
-        <translation>作者:</translation>
-    </message>
-    <message>
-        <source>Contributors:</source>
-        <translation>貢献者:</translation>
-    </message>
-    <message>
-        <source>Spanish Translation</source>
-        <translation>スペイン語訳</translation>
-    </message>
-    <message>
-        <source>Dutch Translation</source>
-        <translation>オランダ語訳</translation>
-    </message>
-    <message>
-        <source>Russian Translation</source>
-        <translation>ロシア語訳</translation>
-    </message>
-    <message>
-        <source>Norwegian Bokmål Translation</source>
-        <translation>ノルウェー語 (ブークモール) 訳</translation>
-    </message>
-    <message>
-        <source>French Translation</source>
-        <translation>フランス語訳</translation>
-    </message>
-    <message>
-        <source>Polish Translation</source>
-        <translation>ポーランド語訳</translation>
+        <translation type="unfinished"> で受け付けています。</translation>
     </message>
 </context>
 <context>
@@ -254,6 +221,45 @@ hhmmss 形式で時間を表す変数 ($T) を含めることができます。<
         <source>Capture save location</source>
         <translation>キャプチャーの保存場所</translation>
     </message>
+    <message>
+        <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AuthorTab</name>
+    <message>
+        <source>The Author:</source>
+        <translation type="unfinished">作者:</translation>
+    </message>
+    <message>
+        <source>Contributors:</source>
+        <translation type="unfinished">貢献者:</translation>
+    </message>
+    <message>
+        <source>Spanish Translation</source>
+        <translation type="unfinished">スペイン語訳</translation>
+    </message>
+    <message>
+        <source>Dutch Translation</source>
+        <translation type="unfinished">オランダ語訳</translation>
+    </message>
+    <message>
+        <source>Russian Translation</source>
+        <translation type="unfinished">ロシア語訳</translation>
+    </message>
+    <message>
+        <source>Norwegian Bokmål Translation</source>
+        <translation type="unfinished">ノルウェー語 (ブークモール) 訳</translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished">フランス語訳</translation>
+    </message>
+    <message>
+        <source>Polish Translation</source>
+        <translation type="unfinished">ポーランド語訳</translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -336,6 +342,33 @@ Do you want to save it?</source>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
         <translation>Imgur トークンの期限切れです。新しいトークンを要求しています…</translation>
+    </message>
+</context>
+<context>
+    <name>DonateTab</name>
+    <message>
+        <source>Donate a Beer?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sure, you can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a Sponsor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donations are always welcome</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -517,10 +550,6 @@ take effect.</source>
         <translation>アップロード後 Imgur のリンクをデフォルトのブラウザーで開く</translation>
     </message>
     <message>
-        <source>Open link directly to image</source>
-        <translation>画像への直リンクを開く</translation>
-    </message>
-    <message>
         <source>Always copy Imgur link to clipboard</source>
         <translation>常に Imgur のリンクをクリップボードにコピーする</translation>
     </message>
@@ -579,6 +608,10 @@ take effect.</source>
     <message>
         <source>Imgur.com token update error.</source>
         <translation>Imgur.com トークンの更新エラーです。</translation>
+    </message>
+    <message>
+        <source>Link directly to image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -826,6 +859,21 @@ and capturing screenshot.</source>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation>imgur.com にスクリーンショットをアップロードしようとしています。続行しますか？</translation>
+    </message>
+</context>
+<context>
+    <name>VersionTab</name>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">バージョン</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation type="unfinished">ビルド</translation>
+    </message>
+    <message>
+        <source>Using:</source>
+        <translation type="unfinished">使用:</translation>
     </message>
 </context>
 </TS>

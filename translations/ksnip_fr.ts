@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de_DE">
+<TS version="2.1" language="fr_FR">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -24,60 +24,27 @@
         <translation>Fermer</translation>
     </message>
     <message>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AboutTab</name>
+    <message>
         <source>Screenshot Tool</source>
-        <translation>Outil de capture d&apos;écran</translation>
+        <translation type="unfinished">Outil de capture d&apos;écran</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation>Licence : </translation>
+        <translation type="unfinished">Licence : </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation>Veuillez utiliser </translation>
+        <translation type="unfinished">Veuillez utiliser </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> pour signaler des bugs.</translation>
-    </message>
-    <message>
-        <source>Build</source>
-        <translation>Compiler</translation>
-    </message>
-    <message>
-        <source>Using:</source>
-        <translation>Utilisant :</translation>
-    </message>
-    <message>
-        <source>The Author:</source>
-        <translation>L&apos;auteur :</translation>
-    </message>
-    <message>
-        <source>Contributors:</source>
-        <translation>Contributeurs :</translation>
-    </message>
-    <message>
-        <source>Spanish Translation</source>
-        <translation>Traduction en espagnol</translation>
-    </message>
-    <message>
-        <source>Dutch Translation</source>
-        <translation>Traduction en néérlandais</translation>
-    </message>
-    <message>
-        <source>Russian Translation</source>
-        <translation>Traduction en russe</translation>
-    </message>
-    <message>
-        <source>Norwegian Bokmål Translation</source>
-        <translation>Traduction en norvégien</translation>
-    </message>
-    <message>
-        <source>French Translation</source>
-        <translation>Traduction en français</translation>
-    </message>
-    <message>
-        <source>Polish Translation</source>
-        <translation>Traduction en polonais</translation>
+        <translation type="unfinished"> pour signaler des bugs.</translation>
     </message>
 </context>
 <context>
@@ -252,6 +219,45 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
         <source>Close to Tray</source>
         <translation>Fermer vers la barre des tâches</translation>
     </message>
+    <message>
+        <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AuthorTab</name>
+    <message>
+        <source>The Author:</source>
+        <translation type="unfinished">L&apos;auteur :</translation>
+    </message>
+    <message>
+        <source>Contributors:</source>
+        <translation type="unfinished">Contributeurs :</translation>
+    </message>
+    <message>
+        <source>Spanish Translation</source>
+        <translation type="unfinished">Traduction en espagnol</translation>
+    </message>
+    <message>
+        <source>Dutch Translation</source>
+        <translation type="unfinished">Traduction en néérlandais</translation>
+    </message>
+    <message>
+        <source>Russian Translation</source>
+        <translation type="unfinished">Traduction en russe</translation>
+    </message>
+    <message>
+        <source>Norwegian Bokmål Translation</source>
+        <translation type="unfinished">Traduction en norvégien</translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished">Traduction en français</translation>
+    </message>
+    <message>
+        <source>Polish Translation</source>
+        <translation type="unfinished">Traduction en polonais</translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -334,6 +340,33 @@ Voulez-vous l&apos;enregistrer ?</translation>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
         <translation>Jeton Imgur expiré, demande de renouvellement…</translation>
+    </message>
+</context>
+<context>
+    <name>DonateTab</name>
+    <message>
+        <source>Donate a Beer?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sure, you can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a Sponsor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donations are always welcome</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -511,10 +544,6 @@ redémarrage de ksnip pour prendre effet.</translation>
         <translation>Anonymiser le téléversement</translation>
     </message>
     <message>
-        <source>Open link directly to image</source>
-        <translation type="unfinished">Ouvrir le lien direct vers l&apos;image</translation>
-    </message>
-    <message>
         <source>Always copy Imgur link to clipboard</source>
         <translation type="unfinished">Toujours copier le lien Imgur dans le presse-papier</translation>
     </message>
@@ -577,6 +606,10 @@ redémarrage de ksnip pour prendre effet.</translation>
     <message>
         <source>After uploading open Imgur link in default browser</source>
         <translation>Après téléversement, ouvrir le lien imgur avec le navigateur par défaut</translation>
+    </message>
+    <message>
+        <source>Link directly to image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -824,6 +857,21 @@ et la capture de l&apos;écran.</translation>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation type="unfinished">Vous êtes sur le point d&apos;exporter la capture d&apos;écran sur imgur.com, voulez-vous continuer ?</translation>
+    </message>
+</context>
+<context>
+    <name>VersionTab</name>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Version</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation type="unfinished">Compiler</translation>
+    </message>
+    <message>
+        <source>Using:</source>
+        <translation type="unfinished">Utilisant :</translation>
     </message>
 </context>
 </TS>

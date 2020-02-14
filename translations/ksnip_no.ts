@@ -24,60 +24,27 @@
         <translation>Lukk</translation>
     </message>
     <message>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AboutTab</name>
+    <message>
         <source>Screenshot Tool</source>
-        <translation>Skjermavbildningsverktøy</translation>
+        <translation type="unfinished">Skjermavbildningsverktøy</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation>Lisens: </translation>
+        <translation type="unfinished">Lisens: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation>Bruk </translation>
+        <translation type="unfinished">Bruk </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> for å innrapportere feil.</translation>
-    </message>
-    <message>
-        <source>Using:</source>
-        <translation>Bruker:</translation>
-    </message>
-    <message>
-        <source>The Author:</source>
-        <translation>Utvikleren:</translation>
-    </message>
-    <message>
-        <source>Contributors:</source>
-        <translation>Bidragsytere:</translation>
-    </message>
-    <message>
-        <source>Spanish Translation</source>
-        <translation>Spansk oversettelse</translation>
-    </message>
-    <message>
-        <source>Build</source>
-        <translation>Bygg</translation>
-    </message>
-    <message>
-        <source>Dutch Translation</source>
-        <translation>Nederlandsk oversettelse</translation>
-    </message>
-    <message>
-        <source>Russian Translation</source>
-        <translation>Russisk oversettelse</translation>
-    </message>
-    <message>
-        <source>Norwegian Bokmål Translation</source>
-        <translation>Bokmålsoversettelse</translation>
-    </message>
-    <message>
-        <source>French Translation</source>
-        <translation>Fransk oversettelse</translation>
-    </message>
-    <message>
-        <source>Polish Translation</source>
-        <translation>Polsk oversettelse</translation>
+        <translation type="unfinished"> for å innrapportere feil.</translation>
     </message>
 </context>
 <context>
@@ -251,6 +218,45 @@ Change requires restart.</source>
         <source>Close to Tray</source>
         <translation>Lukk til systemkurven</translation>
     </message>
+    <message>
+        <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AuthorTab</name>
+    <message>
+        <source>The Author:</source>
+        <translation type="unfinished">Utvikleren:</translation>
+    </message>
+    <message>
+        <source>Contributors:</source>
+        <translation type="unfinished">Bidragsytere:</translation>
+    </message>
+    <message>
+        <source>Spanish Translation</source>
+        <translation type="unfinished">Spansk oversettelse</translation>
+    </message>
+    <message>
+        <source>Dutch Translation</source>
+        <translation type="unfinished">Nederlandsk oversettelse</translation>
+    </message>
+    <message>
+        <source>Russian Translation</source>
+        <translation type="unfinished">Russisk oversettelse</translation>
+    </message>
+    <message>
+        <source>Norwegian Bokmål Translation</source>
+        <translation type="unfinished">Bokmålsoversettelse</translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished">Fransk oversettelse</translation>
+    </message>
+    <message>
+        <source>Polish Translation</source>
+        <translation type="unfinished">Polsk oversettelse</translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -333,6 +339,33 @@ Do you want to save it?</source>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
         <translation>Imgur-symbol utløpt, forespør nytt…</translation>
+    </message>
+</context>
+<context>
+    <name>DonateTab</name>
+    <message>
+        <source>Donate a Beer?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sure, you can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a Sponsor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donations are always welcome</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -510,10 +543,6 @@ Endring krever omstart av ksnip.</translation>
         <translation type="unfinished">Tving anonym opplasting</translation>
     </message>
     <message>
-        <source>Open link directly to image</source>
-        <translation type="unfinished">Åpner lenke direkte til bilde</translation>
-    </message>
-    <message>
         <source>Always copy Imgur link to clipboard</source>
         <translation type="unfinished">Alltid kopier Imgur-lenke til utklippstavle</translation>
     </message>
@@ -576,6 +605,10 @@ Endring krever omstart av ksnip.</translation>
     <message>
         <source>After uploading open Imgur link in default browser</source>
         <translation>Etter opplasting, åpne Imgur-lenke i forvalgt nettleser</translation>
+    </message>
+    <message>
+        <source>Link directly to image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -823,6 +856,21 @@ og avbildning av skjerm.</translation>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation type="unfinished">Du er i ferd med å laste opp skjermavbildningen til imgur.com, ønsker du å fortsette?</translation>
+    </message>
+</context>
+<context>
+    <name>VersionTab</name>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Versjon</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation type="unfinished">Bygg</translation>
+    </message>
+    <message>
+        <source>Using:</source>
+        <translation type="unfinished">Bruker:</translation>
     </message>
 </context>
 </TS>

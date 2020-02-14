@@ -24,60 +24,27 @@
         <translation>Tutup</translation>
     </message>
     <message>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AboutTab</name>
+    <message>
         <source>Screenshot Tool</source>
-        <translation>Alat Penangkap Layar</translation>
+        <translation type="unfinished">Alat Penangkap Layar</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation>Lisensi: </translation>
+        <translation type="unfinished">Lisensi: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation>Mohon gunakan </translation>
+        <translation type="unfinished">Mohon gunakan </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> untuk melaporkan masalah.</translation>
-    </message>
-    <message>
-        <source>Build</source>
-        <translation>Build</translation>
-    </message>
-    <message>
-        <source>Using:</source>
-        <translation>Menggunakan:</translation>
-    </message>
-    <message>
-        <source>The Author:</source>
-        <translation>Penulis:</translation>
-    </message>
-    <message>
-        <source>Contributors:</source>
-        <translation>Kontributor:</translation>
-    </message>
-    <message>
-        <source>Spanish Translation</source>
-        <translation>Terjemahan Bahasa Spanyol</translation>
-    </message>
-    <message>
-        <source>Dutch Translation</source>
-        <translation>Terjemahan Bahasa Belanda</translation>
-    </message>
-    <message>
-        <source>Russian Translation</source>
-        <translation>Terjemahan Bahasa Rusia</translation>
-    </message>
-    <message>
-        <source>Norwegian Bokmål Translation</source>
-        <translation>Terjemahan Bahasa Bokmål Norwegia</translation>
-    </message>
-    <message>
-        <source>French Translation</source>
-        <translation>Terjemahan Bahasa Perancis</translation>
-    </message>
-    <message>
-        <source>Polish Translation</source>
-        <translation>Terjemahan Bahasa Polandia</translation>
+        <translation type="unfinished"> untuk melaporkan masalah.</translation>
     </message>
 </context>
 <context>
@@ -251,6 +218,45 @@ Change requires restart.</source>
         <source>Close to Tray</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AuthorTab</name>
+    <message>
+        <source>The Author:</source>
+        <translation type="unfinished">Penulis:</translation>
+    </message>
+    <message>
+        <source>Contributors:</source>
+        <translation type="unfinished">Kontributor:</translation>
+    </message>
+    <message>
+        <source>Spanish Translation</source>
+        <translation type="unfinished">Terjemahan Bahasa Spanyol</translation>
+    </message>
+    <message>
+        <source>Dutch Translation</source>
+        <translation type="unfinished">Terjemahan Bahasa Belanda</translation>
+    </message>
+    <message>
+        <source>Russian Translation</source>
+        <translation type="unfinished">Terjemahan Bahasa Rusia</translation>
+    </message>
+    <message>
+        <source>Norwegian Bokmål Translation</source>
+        <translation type="unfinished">Terjemahan Bahasa Bokmål Norwegia</translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished">Terjemahan Bahasa Perancis</translation>
+    </message>
+    <message>
+        <source>Polish Translation</source>
+        <translation type="unfinished">Terjemahan Bahasa Polandia</translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -332,6 +338,33 @@ Anda ingin menyimpannya?</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DonateTab</name>
+    <message>
+        <source>Donate a Beer?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sure, you can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a Sponsor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donations are always welcome</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -513,10 +546,6 @@ dan buka ulang.</translation>
         <translation type="unfinished">Paksa unggah anonim</translation>
     </message>
     <message>
-        <source>Open link directly to image</source>
-        <translation type="unfinished">Buka tautan langsung ke gambar</translation>
-    </message>
-    <message>
         <source>Always copy Imgur link to clipboard</source>
         <translation type="unfinished">Selalu salin alamat imgur ke clipboard</translation>
     </message>
@@ -578,6 +607,10 @@ dan buka ulang.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Link directly to image</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -826,6 +859,21 @@ gambar, dalam detik.</translation>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation type="unfinished">Anda akan mengunggah hasil tangkapan layar ke imgur.com, lanjutkan?</translation>
+    </message>
+</context>
+<context>
+    <name>VersionTab</name>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Versi</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation type="unfinished">Build</translation>
+    </message>
+    <message>
+        <source>Using:</source>
+        <translation type="unfinished">Menggunakan:</translation>
     </message>
 </context>
 </TS>

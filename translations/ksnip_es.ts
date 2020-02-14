@@ -24,60 +24,27 @@
         <translation>Cerrar</translation>
     </message>
     <message>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AboutTab</name>
+    <message>
         <source>Screenshot Tool</source>
-        <translation>Herramienta de Captura de pantalla</translation>
+        <translation type="unfinished">Herramienta de Captura de pantalla</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation>Licencia: </translation>
-    </message>
-    <message>
-        <source>Using:</source>
-        <translation>Usando:</translation>
+        <translation type="unfinished">Licencia: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation>Favor usar </translation>
+        <translation type="unfinished">Favor usar </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> para reportar errores.</translation>
-    </message>
-    <message>
-        <source>The Author:</source>
-        <translation>El autor:</translation>
-    </message>
-    <message>
-        <source>Contributors:</source>
-        <translation>Colaboradores:</translation>
-    </message>
-    <message>
-        <source>Spanish Translation</source>
-        <translation>Traducción Española</translation>
-    </message>
-    <message>
-        <source>Build</source>
-        <translation>Construcción</translation>
-    </message>
-    <message>
-        <source>Dutch Translation</source>
-        <translation>Traducción holandesa</translation>
-    </message>
-    <message>
-        <source>Russian Translation</source>
-        <translation>Traducción rusa</translation>
-    </message>
-    <message>
-        <source>Norwegian Bokmål Translation</source>
-        <translation>Traducción noruega</translation>
-    </message>
-    <message>
-        <source>French Translation</source>
-        <translation>Traducción francesa</translation>
-    </message>
-    <message>
-        <source>Polish Translation</source>
-        <translation>Traducción polaca</translation>
+        <translation type="unfinished"> para reportar errores.</translation>
     </message>
 </context>
 <context>
@@ -252,6 +219,45 @@ El cambio requiere que se reinicie.</translation>
         <source>Close to Tray</source>
         <translation>Cierre a la Bandeja</translation>
     </message>
+    <message>
+        <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AuthorTab</name>
+    <message>
+        <source>The Author:</source>
+        <translation type="unfinished">El autor:</translation>
+    </message>
+    <message>
+        <source>Contributors:</source>
+        <translation type="unfinished">Colaboradores:</translation>
+    </message>
+    <message>
+        <source>Spanish Translation</source>
+        <translation type="unfinished">Traducción Española</translation>
+    </message>
+    <message>
+        <source>Dutch Translation</source>
+        <translation type="unfinished">Traducción holandesa</translation>
+    </message>
+    <message>
+        <source>Russian Translation</source>
+        <translation type="unfinished">Traducción rusa</translation>
+    </message>
+    <message>
+        <source>Norwegian Bokmål Translation</source>
+        <translation type="unfinished">Traducción noruega</translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished">Traducción francesa</translation>
+    </message>
+    <message>
+        <source>Polish Translation</source>
+        <translation type="unfinished">Traducción polaca</translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -334,6 +340,33 @@ Do you want to save it?</source>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
         <translation>La ficha de Imgur ha caducado, solicitando una nueva ficha…</translation>
+    </message>
+</context>
+<context>
+    <name>DonateTab</name>
+    <message>
+        <source>Donate a Beer?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sure, you can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a Sponsor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donations are always welcome</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -514,10 +547,6 @@ tomar efecto.</translation>
         <translation>Forzar subida anónima</translation>
     </message>
     <message>
-        <source>Open link directly to image</source>
-        <translation>Abrir enlace directamente a la imagen</translation>
-    </message>
-    <message>
         <source>Always copy Imgur link to clipboard</source>
         <translation>Siempre copiar enlace de Imgur al portapapeles</translation>
     </message>
@@ -580,6 +609,10 @@ tomar efecto.</translation>
     <message>
         <source>After uploading open Imgur link in default browser</source>
         <translation>Después de subir, abra el enlace de Imgur en el navegador predeterminado</translation>
+    </message>
+    <message>
+        <source>Link directly to image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -827,6 +860,21 @@ y la captura de pantalla.</translation>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation>Estas a punto de subir la captura de pantalla a imgur.com, ¿quieres continuar?</translation>
+    </message>
+</context>
+<context>
+    <name>VersionTab</name>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Versión</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation type="unfinished">Construcción</translation>
+    </message>
+    <message>
+        <source>Using:</source>
+        <translation type="unfinished">Usando:</translation>
     </message>
 </context>
 </TS>

@@ -24,60 +24,27 @@
         <translation>Закрыть</translation>
     </message>
     <message>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AboutTab</name>
+    <message>
         <source>Screenshot Tool</source>
-        <translation>— инструмент для создания скриншотов</translation>
+        <translation type="unfinished">— инструмент для создания скриншотов</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation>Лицензия: </translation>
+        <translation type="unfinished">Лицензия: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation>Пожалуйста, используйте </translation>
+        <translation type="unfinished">Пожалуйста, используйте </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> для отчета об ошибках.</translation>
-    </message>
-    <message>
-        <source>Using:</source>
-        <translation>Программа использует:</translation>
-    </message>
-    <message>
-        <source>The Author:</source>
-        <translation>Разработчик:</translation>
-    </message>
-    <message>
-        <source>Contributors:</source>
-        <translation>Благодарность:</translation>
-    </message>
-    <message>
-        <source>Spanish Translation</source>
-        <translation>перевод на испанский</translation>
-    </message>
-    <message>
-        <source>Build</source>
-        <translation>Сборка</translation>
-    </message>
-    <message>
-        <source>Dutch Translation</source>
-        <translation>перевод на нидерландский</translation>
-    </message>
-    <message>
-        <source>Russian Translation</source>
-        <translation>перевод на русский</translation>
-    </message>
-    <message>
-        <source>Norwegian Bokmål Translation</source>
-        <translation>перевод на норвежский букмол</translation>
-    </message>
-    <message>
-        <source>French Translation</source>
-        <translation>перевод на французский</translation>
-    </message>
-    <message>
-        <source>Polish Translation</source>
-        <translation>перевод на польский</translation>
+        <translation type="unfinished"> для отчета об ошибках.</translation>
     </message>
 </context>
 <context>
@@ -254,6 +221,45 @@ Change requires restart.</source>
         <source>Close to Tray</source>
         <translation>Сворачивать в трей при закрытии</translation>
     </message>
+    <message>
+        <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AuthorTab</name>
+    <message>
+        <source>The Author:</source>
+        <translation type="unfinished">Разработчик:</translation>
+    </message>
+    <message>
+        <source>Contributors:</source>
+        <translation type="unfinished">Благодарность:</translation>
+    </message>
+    <message>
+        <source>Spanish Translation</source>
+        <translation type="unfinished">перевод на испанский</translation>
+    </message>
+    <message>
+        <source>Dutch Translation</source>
+        <translation type="unfinished">перевод на нидерландский</translation>
+    </message>
+    <message>
+        <source>Russian Translation</source>
+        <translation type="unfinished">перевод на русский</translation>
+    </message>
+    <message>
+        <source>Norwegian Bokmål Translation</source>
+        <translation type="unfinished">перевод на норвежский букмол</translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished">перевод на французский</translation>
+    </message>
+    <message>
+        <source>Polish Translation</source>
+        <translation type="unfinished">перевод на польский</translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -336,6 +342,33 @@ Do you want to save it?</source>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
         <translation>Срок действия токена истек, запрашивается новый токен…</translation>
+    </message>
+</context>
+<context>
+    <name>DonateTab</name>
+    <message>
+        <source>Donate a Beer?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sure, you can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a Sponsor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donations are always welcome</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -507,10 +540,6 @@ take effect.</source>
         <translation>Загрузить анонимно</translation>
     </message>
     <message>
-        <source>Open link directly to image</source>
-        <translation>Открыть прямую ссылку на изображение после загрузки</translation>
-    </message>
-    <message>
         <source>Always copy Imgur link to clipboard</source>
         <translation>Копировать ссылку в буфер обмена</translation>
     </message>
@@ -573,6 +602,10 @@ take effect.</source>
     <message>
         <source>After uploading open Imgur link in default browser</source>
         <translation>После выгрузки открыть ссылку Imgur в браузере по умолчанию</translation>
+    </message>
+    <message>
+        <source>Link directly to image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -820,6 +853,21 @@ and capturing screenshot.</source>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation>Вы собираетесь загрузить скриншот на imgur.com. Начать загрузку?</translation>
+    </message>
+</context>
+<context>
+    <name>VersionTab</name>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Версия</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation type="unfinished">Сборка</translation>
+    </message>
+    <message>
+        <source>Using:</source>
+        <translation type="unfinished">Программа использует:</translation>
     </message>
 </context>
 </TS>

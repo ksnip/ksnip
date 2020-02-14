@@ -24,60 +24,27 @@
         <translation>Zavřít</translation>
     </message>
     <message>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AboutTab</name>
+    <message>
         <source>Screenshot Tool</source>
-        <translation>Nástroj snímku obrazovky</translation>
+        <translation type="unfinished">Nástroj snímku obrazovky</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation>Licence: </translation>
+        <translation type="unfinished">Licence: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation>Použijte prosím </translation>
+        <translation type="unfinished">Použijte prosím </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> pro hlášení chyb.</translation>
-    </message>
-    <message>
-        <source>Build</source>
-        <translation>Sestavení</translation>
-    </message>
-    <message>
-        <source>Using:</source>
-        <translation>Používá:</translation>
-    </message>
-    <message>
-        <source>The Author:</source>
-        <translation>Autor:</translation>
-    </message>
-    <message>
-        <source>Contributors:</source>
-        <translation>Přispěvatelé:</translation>
-    </message>
-    <message>
-        <source>Spanish Translation</source>
-        <translation>Španělský překlad</translation>
-    </message>
-    <message>
-        <source>Dutch Translation</source>
-        <translation>Holandský překlad</translation>
-    </message>
-    <message>
-        <source>Russian Translation</source>
-        <translation>Ruský překlad</translation>
-    </message>
-    <message>
-        <source>Norwegian Bokmål Translation</source>
-        <translation>Norský Bokmål překlad</translation>
-    </message>
-    <message>
-        <source>French Translation</source>
-        <translation>Francouzský překlad</translation>
-    </message>
-    <message>
-        <source>Polish Translation</source>
-        <translation>Polský překlad</translation>
+        <translation type="unfinished"> pro hlášení chyb.</translation>
     </message>
 </context>
 <context>
@@ -252,6 +219,45 @@ Změna vyžaduje restartování aplikace.</translation>
         <source>Capture save location</source>
         <translation>Umístění pro uložení zachycení</translation>
     </message>
+    <message>
+        <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AuthorTab</name>
+    <message>
+        <source>The Author:</source>
+        <translation type="unfinished">Autor:</translation>
+    </message>
+    <message>
+        <source>Contributors:</source>
+        <translation type="unfinished">Přispěvatelé:</translation>
+    </message>
+    <message>
+        <source>Spanish Translation</source>
+        <translation type="unfinished">Španělský překlad</translation>
+    </message>
+    <message>
+        <source>Dutch Translation</source>
+        <translation type="unfinished">Holandský překlad</translation>
+    </message>
+    <message>
+        <source>Russian Translation</source>
+        <translation type="unfinished">Ruský překlad</translation>
+    </message>
+    <message>
+        <source>Norwegian Bokmål Translation</source>
+        <translation type="unfinished">Norský Bokmål překlad</translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished">Francouzský překlad</translation>
+    </message>
+    <message>
+        <source>Polish Translation</source>
+        <translation type="unfinished">Polský překlad</translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -334,6 +340,33 @@ Chcete ho uložit?</translation>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
         <translation>Platnost tokenu imgur vypršela, žádání o nový token…</translation>
+    </message>
+</context>
+<context>
+    <name>DonateTab</name>
+    <message>
+        <source>Donate a Beer?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sure, you can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a Sponsor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donations are always welcome</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -516,10 +549,6 @@ Změna vyžaduje restart aplikace.</translation>
         <translation>Po odeslání otevřít odkaz Imgur ve výchozím prohlížeči</translation>
     </message>
     <message>
-        <source>Open link directly to image</source>
-        <translation>Otevřít přímý odkaz na obrázek</translation>
-    </message>
-    <message>
         <source>Always copy Imgur link to clipboard</source>
         <translation>Vždy kopírovat odkaz Imgur do schránky</translation>
     </message>
@@ -578,6 +607,10 @@ Změna vyžaduje restart aplikace.</translation>
     <message>
         <source>Imgur.com token update error.</source>
         <translation>Chyba aktualizace Imgur.com tokenu.</translation>
+    </message>
+    <message>
+        <source>Link directly to image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -825,6 +858,21 @@ a zachycením obrazovky.</translation>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation>Chystáte se odeslat snímek obrazovky do imgur.com, chcete pokračovat?</translation>
+    </message>
+</context>
+<context>
+    <name>VersionTab</name>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Verze</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation type="unfinished">Sestavení</translation>
+    </message>
+    <message>
+        <source>Using:</source>
+        <translation type="unfinished">Používá:</translation>
     </message>
 </context>
 </TS>

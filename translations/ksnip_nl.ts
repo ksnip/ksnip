@@ -24,60 +24,27 @@
         <translation>Sluiten</translation>
     </message>
     <message>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AboutTab</name>
+    <message>
         <source>Screenshot Tool</source>
-        <translation>Hulpmiddel bij schermafdrukken</translation>
+        <translation type="unfinished">Hulpmiddel bij schermafdrukken</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation>Licentie </translation>
+        <translation type="unfinished">Licentie </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation>Gebruik </translation>
+        <translation type="unfinished">Gebruik </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> om bugs te melden.</translation>
-    </message>
-    <message>
-        <source>Using:</source>
-        <translation>Gebruikmakend van:</translation>
-    </message>
-    <message>
-        <source>The Author:</source>
-        <translation>Auteur:</translation>
-    </message>
-    <message>
-        <source>Contributors:</source>
-        <translation>Bijdragers:</translation>
-    </message>
-    <message>
-        <source>Spanish Translation</source>
-        <translation>Spaanse vertaling</translation>
-    </message>
-    <message>
-        <source>Build</source>
-        <translation>Bouwsel</translation>
-    </message>
-    <message>
-        <source>Dutch Translation</source>
-        <translation>Nederlandse vertaling</translation>
-    </message>
-    <message>
-        <source>Russian Translation</source>
-        <translation>Russische vertaling</translation>
-    </message>
-    <message>
-        <source>Norwegian Bokmål Translation</source>
-        <translation>Noorse (Bokmål) vertaling</translation>
-    </message>
-    <message>
-        <source>French Translation</source>
-        <translation>Franse vertaling</translation>
-    </message>
-    <message>
-        <source>Polish Translation</source>
-        <translation>Poolse vertaling</translation>
+        <translation type="unfinished"> om bugs te melden.</translation>
     </message>
 </context>
 <context>
@@ -252,6 +219,45 @@ Herstart om de wijziging toe te passen.</translation>
         <source>Close to Tray</source>
         <translation>Sluiten naar systeemvak</translation>
     </message>
+    <message>
+        <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AuthorTab</name>
+    <message>
+        <source>The Author:</source>
+        <translation type="unfinished">Auteur:</translation>
+    </message>
+    <message>
+        <source>Contributors:</source>
+        <translation type="unfinished">Bijdragers:</translation>
+    </message>
+    <message>
+        <source>Spanish Translation</source>
+        <translation type="unfinished">Spaanse vertaling</translation>
+    </message>
+    <message>
+        <source>Dutch Translation</source>
+        <translation type="unfinished">Nederlandse vertaling</translation>
+    </message>
+    <message>
+        <source>Russian Translation</source>
+        <translation type="unfinished">Russische vertaling</translation>
+    </message>
+    <message>
+        <source>Norwegian Bokmål Translation</source>
+        <translation type="unfinished">Noorse (Bokmål) vertaling</translation>
+    </message>
+    <message>
+        <source>French Translation</source>
+        <translation type="unfinished">Franse vertaling</translation>
+    </message>
+    <message>
+        <source>Polish Translation</source>
+        <translation type="unfinished">Poolse vertaling</translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -334,6 +340,33 @@ Wil je deze opslaan?</translation>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
         <translation>Imgur-toegangssleutel verlopen; bezig met aanvragen van nieuwe…</translation>
+    </message>
+</context>
+<context>
+    <name>DonateTab</name>
+    <message>
+        <source>Donate a Beer?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sure, you can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a Sponsor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donations are always welcome</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -514,10 +547,6 @@ toe te passen.</translation>
         <translation>Anoniem uploaden</translation>
     </message>
     <message>
-        <source>Open link directly to image</source>
-        <translation>Directe link naar afbeelding openen</translation>
-    </message>
-    <message>
         <source>Always copy Imgur link to clipboard</source>
         <translation>Imgur-link altijd kopiëren naar klembord</translation>
     </message>
@@ -580,6 +609,10 @@ toe te passen.</translation>
     <message>
         <source>After uploading open Imgur link in default browser</source>
         <translation>Imgur-link na uploaden openen in standaardbrowser</translation>
+    </message>
+    <message>
+        <source>Link directly to image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -827,6 +860,21 @@ van schermafdruk, in seconden.</translation>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
         <translation>Je staat op het punt om de schermafbeelding te uploaden naar imgur.com. Wil je doorgaan?</translation>
+    </message>
+</context>
+<context>
+    <name>VersionTab</name>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished">Versie</translation>
+    </message>
+    <message>
+        <source>Build</source>
+        <translation type="unfinished">Bouwsel</translation>
+    </message>
+    <message>
+        <source>Using:</source>
+        <translation type="unfinished">Gebruikmakend van:</translation>
     </message>
 </context>
 </TS>

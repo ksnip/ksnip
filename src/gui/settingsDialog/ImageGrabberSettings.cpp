@@ -79,8 +79,8 @@ void ImageGrabberSettings::initGui()
 	                                                 "option enabled the delay happens before the\n"
 	                                                 "snipping area is show and with the option disabled\n"
 	                                                 "the delay happens after the snipping area is shown.\n"
-	                                                 "This feature doesn't work for Wayland and is always\n"
-	                                                 "used for MacOs."));
+	                                                 "This feature is always disabled for Wayland and always\n"
+	                                                 "enabled for MacOs."));
 	connect(mFreezeImageWhileSnippingCheckbox, &QCheckBox::stateChanged, [this]()
 	{
 		mSnippingAreaMagnifyingGlassCheckbox->setEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());

@@ -45,6 +45,7 @@ public:
 protected:
 	void grab() override;
 	CursorDto getCursorWithPosition() const override;
+	bool isSnippingAreaBackgroundTransparent() const override;
 
 private:
     void startReadImage(int readPipe);

@@ -84,3 +84,9 @@ QRect GnomeWaylandImageGrabber::fullScreenRect() const
 	// Copy with empty rect will return full screen
 	return {};
 }
+
+bool GnomeWaylandImageGrabber::isSnippingAreaBackgroundTransparent() const
+{
+	// Wayland doesn't support taking screenshot of whole screen.
+	return true;
+}

@@ -435,23 +435,6 @@ pada hasil tangkapan.</translation>
         <translation type="unfinished">Bekukan gambar saat memotong</translation>
     </message>
     <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature doesn&apos;t work for Wayland and is always
-used for MacOs.</source>
-        <translation type="unfinished">Jika diaktifkan, background akan dibekukan ketika
-memilih wilayah persegi. Juga mengubah perilaku
-jeda tangkapan layar, dimana jika diaktifkan maka
-akan ada jeda sebelum area dibuat, dan jika tidak
-diaktifkan jeda dimulai setelah wilayah ditampilkan.
-Fitur ini tidak berlaku pada Wayland dan selalu aktif
-pada MacOS.</translation>
-    </message>
-    <message>
         <source>Show magnifying glass on snipping area</source>
         <translation type="unfinished">Tampilkan kaca pembesar pada area snipping</translation>
     </message>
@@ -514,6 +497,17 @@ dan buka ulang.</translation>
     <message>
         <source>Image Grabber</source>
         <translation type="unfinished">Penangkap Gambar</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

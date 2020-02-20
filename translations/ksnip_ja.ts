@@ -438,22 +438,6 @@ screenshots.</source>
         <translation>範囲選択画面で画像を固定する</translation>
     </message>
     <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature doesn&apos;t work for Wayland and is always
-used for MacOs.</source>
-        <translation>有効にすると、範囲選択画面の背景を固定します。
-遅延スクリーンショットの挙動にも影響し、このオ
-プションが有効だと遅延発生後に範囲選択画面が表
-示され、無効だと範囲を選択した後に遅延が発生し
-ます。この機能は Wayland では動作せず、macOS 
-では常に使用します。</translation>
-    </message>
-    <message>
         <source>Show magnifying glass on snipping area</source>
         <translation>範囲選択画面で拡大鏡を表示する</translation>
     </message>
@@ -514,6 +498,17 @@ take effect.</source>
     <message>
         <source>Image Grabber</source>
         <translation>画像取得</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

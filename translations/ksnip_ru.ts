@@ -438,18 +438,6 @@ screenshots.</source>
         <translation>Заморозить выделенную область (эта функция не работает в Wayland)</translation>
     </message>
     <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature doesn&apos;t work for Wayland and is always
-used for MacOs.</source>
-        <translation>При включении замораживает выделенную область. 
-Эта функция не работает в Wayland и всегда используется в MacOS.</translation>
-    </message>
-    <message>
         <source>Show magnifying glass on snipping area</source>
         <translation>Использовать лупу во время выделения</translation>
     </message>
@@ -508,6 +496,17 @@ take effect.</source>
     <message>
         <source>Image Grabber</source>
         <translation>Настройки захвата</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

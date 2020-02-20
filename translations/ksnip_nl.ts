@@ -436,23 +436,6 @@ schermafdrukken.</translation>
         <translation>Afbeelding bevriezen tijdens vastleggen</translation>
     </message>
     <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature doesn&apos;t work for Wayland and is always
-used for MacOs.</source>
-        <translation>Gebruik deze optie om de achtergrond te bevriezen
-tijdens het selecteren van een rechthoekig gebied.
-Dit past tevens het gedrag van vertraagde schermafdrukken
-aan: de vertraging treedt op vóórdat het vastgelegde gebied
-wordt getoond, terwijl de vertraging normaliter pas optreedt
-nádat het vastgelegde gebied is getoond. Deze optie werkt
-niet op Wayland, en is standaard ingeschakeld op macOS.</translation>
-    </message>
-    <message>
         <source>Show magnifying glass on snipping area</source>
         <translation>Vergrootglas tonen op vastleggebied</translation>
     </message>
@@ -515,6 +498,17 @@ toe te passen.</translation>
     <message>
         <source>Image Grabber</source>
         <translation>Vastleggen</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

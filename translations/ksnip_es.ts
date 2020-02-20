@@ -436,23 +436,6 @@ las capturas de pantalla.</translation>
         <translation>Congele la imagen mientras corta</translation>
     </message>
     <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature doesn&apos;t work for Wayland and is always
-used for MacOs.</source>
-        <translation>Cuando se habilita se congelará el fondo mientras
-selecciona una región rectangular. También cambia
-el comportamiento de las capturas de pantalla retrasadas, con este
-opción habilitada, el retraso ocurre antes de que el
-área de recorte es mostrada y con la opción desactivada
-Esta característica no funciona para Wayland y siempre es
-utilizado para MacOs.</translation>
-    </message>
-    <message>
         <source>Show magnifying glass on snipping area</source>
         <translation>Mostrar lupa en el área de corte</translation>
     </message>
@@ -515,6 +498,17 @@ tomar efecto.</translation>
     <message>
         <source>Image Grabber</source>
         <translation>Capturador de imágenes</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

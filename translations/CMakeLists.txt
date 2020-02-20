@@ -2,6 +2,7 @@ find_package(Qt5LinguistTools)
 
 set(KSNIP_LANG_TS
 	ksnip_cs.ts
+	ksnip_da.ts
 	ksnip_de.ts
 	ksnip_es.ts
 	ksnip_eu.ts
@@ -18,11 +19,11 @@ set(KSNIP_LANG_TS
 	ksnip_tr.ts
 	ksnip_uk.ts)
 
-#if (DEFINED UPDATE_TS_FILES)
+if (DEFINED UPDATE_TS_FILES)
 	qt5_create_translation(KSNIP_LANG_QM ${CMAKE_SOURCE_DIR}/translations ${KSNIP_SRCS} ${KSNIP_LANG_TS} OPTIONS "-no-obsolete")
-#else ()
-#	qt5_add_translation(KSNIP_LANG_QM ${KSNIP_LANG_TS})
-#endif ()
+else ()
+	qt5_add_translation(KSNIP_LANG_QM ${KSNIP_LANG_TS})
+endif ()
 
 add_custom_target(translations ALL DEPENDS ${KSNIP_LANG_QM})
 

@@ -436,22 +436,6 @@ capturas de tela.</translation>
         <translation>Congelar imagem ao capturar área retangular</translation>
     </message>
     <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature doesn&apos;t work for Wayland and is always
-used for MacOs.</source>
-        <translation>Quando habilitado, o fundo será congelado ao selecionar uma área retangular.
-Também muda o comportamento de capturas de tela atrasadas, com esta opção
-hablidatada o atraso acontece antes da área retangular ser exibida e com a opção
-desabilitada o atraso acontece depois que a área retangular for exibida.
-Esse recurso não funciona para Wayland e é sempre
-utilizada no MacOS.</translation>
-    </message>
-    <message>
         <source>Show magnifying glass on snipping area</source>
         <translation>Exibir lupa ao capturar área retangular</translation>
     </message>
@@ -512,6 +496,17 @@ A alteração requer que o ksnip reinicie para surtir efeito.</translation>
     <message>
         <source>Image Grabber</source>
         <translation>Captura de Imagem</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

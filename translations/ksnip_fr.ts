@@ -436,21 +436,6 @@ dans les captures d&apos;écran.</translation>
         <translation>Geler l&apos;image avant capture</translation>
     </message>
     <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature doesn&apos;t work for Wayland and is always
-used for MacOs.</source>
-        <translation>Lorsqu&apos;activé, l&apos;image de fond est gelée avant la sélection
-de la zone rectangulaire. Cela impacte aussi le comportement
-des captures avec délai (si activé, le délai intervient avant
-la capture). Cette option ne fonctionne pas sous Wayland,
-et elle est toujours activée sous MacOs.</translation>
-    </message>
-    <message>
         <source>Show magnifying glass on snipping area</source>
         <translation>Montrer la loupe sur la zone à capturer</translation>
     </message>
@@ -512,6 +497,17 @@ redémarrage de ksnip pour prendre effet.</translation>
     <message>
         <source>Image Grabber</source>
         <translation>Captureur d&apos;image</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

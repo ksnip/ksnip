@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="gl_ES">
+<TS version="2.1" language="da_DK">
 <context>
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>Sobre </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>About</source>
-        <translation>Sobre</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Versión</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Author</source>
-        <translation>Autor</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Pechar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Donate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -32,19 +32,19 @@
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">Ferramenta de Captura de pantalla</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Licenza: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Empregue </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> para informar de fallos.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -140,62 +140,31 @@ make them more smooth.</source>
     <name>ApplicationSettings</name>
     <message>
         <source>Always copy capture to clipboard</source>
-        <translation type="unfinished">Copiar sempre a captura no portapapeis</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Preguntar para gardar antes de desbotar cambios sen gardar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation type="unfinished">Gardar a posición do ksnip en movemento e cargar no inicio</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation type="unfinished">Gardar a selección de ferramentas do ksnip e cargar no inicio</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished">Captura de pantalla no inicio co modo predeterminado</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished">Gardado instantáneo na localización predeterminada sen o cadro de diálogo «Gardar como»</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation type="unfinished">Cando está activado, non preguntar onde gardar a captura de pantalla,
-gardarase instantaneamente na localización predeterminada.</translation>
-    </message>
-    <message>
-        <source>Application Style</source>
-        <translation type="unfinished">Estilo do aplicativo</translation>
-    </message>
-    <message>
-        <source>Sets the application style which defines the look and feel of the GUI.
-Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished">Estabelece o estilo do aplicativo que define a aparencia da interface
-O cambio require do reinicio do ksnip para que teña efecto.</translation>
-    </message>
-    <message>
-        <source>Capture save location and filename</source>
-        <translation type="unfinished">Localización e nome do ficheiro da captura</translation>
-    </message>
-    <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished">O nome de ficheiro pode conter $D, $M, $Y, para a data, $h, $m, $s  para a hora ou $T para a hora no formato hhmmss.</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation type="unfinished">Navegar</translation>
-    </message>
-    <message>
-        <source>Application Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Capture save location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -212,11 +181,40 @@ Change requires restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Close to Tray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Start Minimized to Tray.</source>
+        <source>Application Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the application style which defines the look and feel of the GUI.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location and filename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -224,95 +222,62 @@ Change requires restart.</source>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished">O autor:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Colaboradores:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">Tradución ao español</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">Tradución ao holandés</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">Tradución ao ruso</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">Tradución ao noruegués Bokmål</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">Tradución ao francés</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">Tradución ao polaco</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished">Aviso - </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The capture has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished">A captura foi modificada.
-Quere gardala?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation>Novo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation>Área rectangular</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation>Debuxe unha área rectangular co rato</translation>
-    </message>
-    <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation>Pantalla completa (todos os monitores)</translation>
-    </message>
-    <message>
-        <source>Capture full screen including all monitors</source>
-        <translation>Capturar a pantalla completa incluíndo todos os monitores</translation>
-    </message>
-    <message>
-        <source>Current Screen</source>
-        <translation>Pantalla actual</translation>
-    </message>
-    <message>
-        <source>Capture screen where the mouse is located</source>
-        <translation>Capturar a pantalla na que se atopa o rato</translation>
-    </message>
-    <message>
-        <source>Active Window</source>
-        <translation>Xanela activa</translation>
-    </message>
-    <message>
-        <source>Capture window that currently has focus</source>
-        <translation>Capturar a pantalla que está en foco agora</translation>
-    </message>
-    <message>
-        <source>Window Under Cursor</source>
-        <translation>Xanela baixo o cursor</translation>
-    </message>
-    <message>
-        <source>Capture that is currently under the mouse cursor</source>
-        <translation>Captura a xanela que se atopa agora baixo o cursor do rato</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
@@ -322,12 +287,44 @@ Quere gardala?</translation>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Full Screen (All Monitors)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture full screen including all monitors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture screen where the mouse is located</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Active Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture window that currently has focus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window Under Cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture that is currently under the mouse cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CaptureUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Rematou o envío a imgur.com.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -383,7 +380,15 @@ Quere gardala?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>HotKeys are currently supported only for Windows and X11</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Capture Rect Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Last Rect Area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -406,56 +411,55 @@ Quere gardala?</translation>
         <source>Global HotKeys</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Capture Last Rect Area</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation type="unfinished">Capturar o cursor do rato na captura de pantalla</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type="unfinished">Se o cursor do rato está visíbel nas
-capturas de pantalla.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Conxelar a imaxe mentres se recorta</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Amosar a lupa na área de recorte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Amosar unha lupa para facer zoom na imaxe
-de fondo. Esta opción só funciona coa opción
-«Conxelar a imaxe mentres se recorta» activada.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Amosar as regras na área de recorte</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Liñas horizontais e verticais que van dende os
-bordos do escritorio ata o cursor na área de recorte.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Amosar la posición da área de recorte e a información do tamaño</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
@@ -488,45 +492,42 @@ take effect.</source>
         <source>Image Grabber</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation>Historial do Imgur</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Pechar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time Stamp</source>
-        <translation>Marca temporal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Link</source>
-        <translation>Ligazón</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete Link</source>
-        <translation>Eliminar a ligazón</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After uploading open Imgur link in default browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Link directly to image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -563,7 +564,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished">Historial do Imgur</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
@@ -571,7 +572,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Nome do usuario</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
@@ -589,50 +590,37 @@ enabled for MacOs.</source>
         <source>Imgur.com token update error.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>After uploading open Imgur link in default browser</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation>Novo</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation>Atraso en segundos entre a activación
-e a captura de pantalla.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>s</source>
-        <translation>seg.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation>Gardar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation>Gardar a captura de pantalla no sistema de ficheiros</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Copiar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation>Copiar as capturas de pantalla no portapapeis</translation>
-    </message>
-    <message>
-        <source>Tools</source>
-        <translation>Ferramentas</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Undo</source>
@@ -644,86 +632,62 @@ e a captura de pantalla.</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished">Cortar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation type="unfinished">Cortar a captura de pantalla</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
+        <source>Unable to show image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No image provided to but one was expected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Unsaved</source>
-        <translation>Sen gardar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation>Envío</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Upload capture image to imgur.com</source>
-        <translation>Enviar a imaxe da captura a imgur.com</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>Imprimir</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation>Abre o cadro de dialogo da impresora e fornece a opción para imprimir a imaxe</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation>Vista previa da impresión</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation>Abre o cadro de diálogo da vista previa de impresión onde se pode cambiar a orientación da imaxe</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation>Escalar</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
-        <translation>Escalar a captura de pantalla</translation>
-    </message>
-    <message>
-        <source>Quit</source>
-        <translation>Saír</translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation>Axustes</translation>
-    </message>
-    <message>
-        <source>&amp;About</source>
-        <translation>&amp;Sobre</translation>
-    </message>
-    <message>
-        <source>Open</source>
-        <translation>Abrir</translation>
-    </message>
-    <message>
-        <source>&amp;Edit</source>
-        <translation>&amp;Editar</translation>
-    </message>
-    <message>
-        <source>&amp;Options</source>
-        <translation>&amp;Opcións</translation>
-    </message>
-    <message>
-        <source>&amp;Help</source>
-        <translation>&amp;Axuda</translation>
-    </message>
-    <message>
-        <source>Open Image</source>
-        <translation>Abrir a imaxe</translation>
-    </message>
-    <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Ficheiros de imaxe (*.png *.jpg *.bmp)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -734,15 +698,43 @@ e a captura de pantalla.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unable to show image</source>
+        <source>&amp;Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No image provided to but one was expected.</source>
+        <source>&amp;Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -750,26 +742,26 @@ e a captura de pantalla.</translation>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Gardar como</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Imaxes</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Todos os ficheiros</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Image Saved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Saving Image Failed</source>
+        <source>Saved to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Saved to</source>
+        <source>Saving Image Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -781,7 +773,7 @@ e a captura de pantalla.</translation>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
-        <translation>Axustes</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OK</source>
@@ -792,15 +784,15 @@ e a captura de pantalla.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Image Grabber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -827,37 +819,37 @@ e a captura de pantalla.</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Imaxes</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Todos os ficheiros</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>UploadOperation</name>
     <message>
         <source>Imgur Upload</source>
-        <translation type="unfinished">Enviar a Imgur</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation type="unfinished">Está a piques de enviar a captura de pantalla a imgur.com, quere continuar?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Versión</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">Construción</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished">Usando:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

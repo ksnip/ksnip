@@ -435,23 +435,6 @@ skjermavbildninger.</translation>
         <translation type="unfinished">Frys bildet under tilpasning</translation>
     </message>
     <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature doesn&apos;t work for Wayland and is always
-used for MacOs.</source>
-        <translation type="unfinished">Når påskrudd vil bakgrunnen fryses under utvalg
-av firkantig område. Det endrer også oppførselen
-for forsinkede skjermavbildninger. Med dette valget
-påskrudd vil forsinkelsen skje før tilpasningsområdet
-vises, og med valget avskrudd vil forsinkelsen inntreffe
-etter at tilpasningsområdet er viset. Denne funksjonen
-fungerer ikke med Wayland, og brukes alltid for macOS.</translation>
-    </message>
-    <message>
         <source>Show magnifying glass on snipping area</source>
         <translation type="unfinished">Vis forstørrelsesglass i tilpasningsområde</translation>
     </message>
@@ -511,6 +494,17 @@ Endring krever omstart av ksnip.</translation>
     <message>
         <source>Image Grabber</source>
         <translation type="unfinished">Bildehenter</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -20,21 +20,22 @@
 
 #include "MainToolBar.h"
 
-MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoAction, QAction* redoAction) : QToolBar(),
-                                                                                                              mSaveButton(new QToolButton(this)),
-                                                                                                              mCopyButton(new QToolButton(this)),
-                                                                                                              mCropButton(new QToolButton(this)),
-                                                                                                              mUndoButton(new QToolButton(this)),
-                                                                                                              mRedoButton(new QToolButton(this)),
-                                                                                                              mCaptureModePicker(new CaptureModePicker(captureModes)),
-                                                                                                              mDelayPicker(new CustomSpinBox(0,100)),
-                                                                                                              mDelayLabel(new QLabel),
-                                                                                                              mNewCaptureAction(new QAction(this)),
-                                                                                                              mSaveAction(new QAction(this)),
-                                                                                                              mCopyAction(new QAction(this)),
-                                                                                                              mCropAction(new QAction(this)),
-                                                                                                              mUndoAction(undoAction),
-                                                                                                              mRedoAction(redoAction)
+MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoAction, QAction* redoAction) :
+	QToolBar(),
+	mSaveButton(new QToolButton(this)),
+	mCopyButton(new QToolButton(this)),
+	mCropButton(new QToolButton(this)),
+	mUndoButton(new QToolButton(this)),
+	mRedoButton(new QToolButton(this)),
+	mCaptureModePicker(new CaptureModePicker(captureModes)),
+	mDelayPicker(new CustomSpinBox(0,100)),
+	mDelayLabel(new QLabel),
+	mNewCaptureAction(new QAction(this)),
+	mSaveAction(new QAction(this)),
+	mCopyAction(new QAction(this)),
+	mCropAction(new QAction(this)),
+	mUndoAction(undoAction),
+	mRedoAction(redoAction)
 {
     connect(mCaptureModePicker, &CaptureModePicker::captureModeSelected, this, &MainToolBar::captureModeSelected);
 
@@ -64,7 +65,7 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoA
     mCropButton->addAction(mCropAction);
     mCropButton->setDefaultAction(mCropAction);
 
-	auto clockPixmap = IconLoader::load(QStringLiteral("clock.svg")).pixmap(QSize(24, 24));
+	auto clockPixmap = IconLoader::load(QStringLiteral("clock.svg")).pixmap(ScaledSizeProvider::getScaledSize(QSize(24, 24)));
 	mDelayLabel->setPixmap(clockPixmap);
 	mDelayLabel->setContentsMargins(0, 0, 2, 0);
 	mDelayLabel->setToolTip(tr("Delay in seconds between triggering\n"

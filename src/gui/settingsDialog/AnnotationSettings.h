@@ -32,6 +32,7 @@
 #include "src/backend/WatermarkImageLoader.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/common/loader/IconLoader.h"
+#include "src/common/provider/ScaledSizeProvider.h"
 #include "src/gui/operations/UpdateWatermarkOperation.h"
 
 class AnnotationSettings : public QGroupBox

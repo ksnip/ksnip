@@ -90,7 +90,7 @@ void ApplicationSettings::initGui()
 	                                      "Change requires ksnip restart to take effect."));
 	mApplicationStyleCombobox->addItems(QStyleFactory::keys());
 	mApplicationStyleCombobox->setToolTip(mApplicationStyleLabel->toolTip());
-	mApplicationStyleCombobox->setFixedWidth(100);
+	mApplicationStyleCombobox->setFixedWidth(ScaledSizeProvider::getScaledWidth(100));
 
 	mSaveLocationLabel->setText(tr("Capture save location and filename") + QStringLiteral(":"));
 
@@ -100,7 +100,7 @@ void ApplicationSettings::initGui()
 	connect(mBrowseButton, &QPushButton::clicked, this, &ApplicationSettings::chooseSaveDirectory);
 
 	mLayout->setAlignment(Qt::AlignTop);
-	mLayout->setColumnMinimumWidth(0, 10);
+	mLayout->setColumnMinimumWidth(0, ScaledSizeProvider::getScaledWidth(10));
 	mLayout->addWidget(mAlwaysCopyToClipboardCheckbox, 0, 0, 1, 4);
 	mLayout->addWidget(mPromptToSaveBeforeExitCheckbox, 1, 0, 1, 4);
 	mLayout->addWidget(mSaveKsnipPositionCheckbox, 2, 0, 1, 4);

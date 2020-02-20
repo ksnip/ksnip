@@ -31,6 +31,7 @@
 #include "backend/config/KsnipConfig.h"
 #include "backend/uploader/ImgurUploader.h"
 #include "gui/ImgurHistoryDialog.h"
+#include "src/common/provider/ScaledSizeProvider.h"
 
 class ImgurUploaderSettings : public QGroupBox
 {

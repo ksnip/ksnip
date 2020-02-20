@@ -112,7 +112,7 @@ void ImageGrabberSettings::initGui()
 	mSnippingCursorSizeCombobox->setToolTip(mSnippingCursorSizeLabel->toolTip());
 
 	mLayout->setAlignment(Qt::AlignTop);
-	mLayout->setColumnMinimumWidth(0,10);
+	mLayout->setColumnMinimumWidth(0,ScaledSizeProvider::getScaledWidth(10));
 	mLayout->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 3);
 	mLayout->addWidget(mFreezeImageWhileSnippingCheckbox, 1, 0, 1, 3);
 	mLayout->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 2, 1, 1, 3);

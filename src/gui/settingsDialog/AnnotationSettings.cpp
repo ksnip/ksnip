@@ -121,8 +121,7 @@ void AnnotationSettings::initGui()
     mWatermarkImageLabel->setPixmap(mWatermarkImageLoader.load());
     mWatermarkImageLabel->setToolTip(tr("Watermark Image"));
     mWatermarkImageLabel->setAutoFillBackground(true);
-    mWatermarkImageLabel->setFixedWidth(100);
-    mWatermarkImageLabel->setFixedHeight(100);
+    mWatermarkImageLabel->setFixedSize(ScaledSizeProvider::getScaledSize(QSize(100, 100)));
     mWatermarkImageLabel->setScaledContents(true);
     mWatermarkImageLabel->setStyleSheet(QStringLiteral("QLabel { background-color : white; }"));
     mUpdateWatermarkImageButton->setText(tr("Update"));
@@ -132,7 +131,7 @@ void AnnotationSettings::initGui()
 	mRotateWatermarkCheckbox->setToolTip(tr("When enabled, Watermark will be added with a rotation of 45°"));
 
     mLayout->setAlignment(Qt::AlignTop);
-    mLayout->setColumnMinimumWidth(0, 10);
+    mLayout->setColumnMinimumWidth(0, ScaledSizeProvider::getScaledWidth(10));
     mLayout->addWidget(mItemShadowCheckbox, 0, 0, 1, 6);
     mLayout->setRowMinimumHeight(1, 15);
     mLayout->addWidget(mSmoothPathCheckbox, 2, 0, 1, 6);

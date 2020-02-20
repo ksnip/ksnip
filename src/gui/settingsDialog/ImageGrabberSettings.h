@@ -28,6 +28,7 @@
 #include "backend/config/KsnipConfig.h"
 #include "src/widgets/ColorButton.h"
 #include "src/widgets/NumericComboBox.h"
+#include "src/common/provider/ScaledSizeProvider.h"
 
 class ImageGrabberSettings : public QGroupBox
 {

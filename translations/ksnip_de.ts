@@ -25,14 +25,14 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Spenden</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">Screenshot-Werkzeug</translation>
+        <translation>Schnappschuss-Werkzeug</translation>
     </message>
     <message>
         <source>License: </source>

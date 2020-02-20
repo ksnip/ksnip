@@ -24,6 +24,11 @@ QSize ScaledSizeProvider::getScaledSize(const QSize &size)
 	return {static_cast<int>(size.width() * getXScaleFactor()), static_cast<int>(size.height() * getYScaleFactor())};
 }
 
+int ScaledSizeProvider::getScaledWidth(int width)
+{
+	return static_cast<int>(width * getXScaleFactor());
+}
+
 qreal ScaledSizeProvider::getXScaleFactor()
 {
 	auto desktopWidget = QApplication::desktop();

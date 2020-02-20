@@ -27,6 +27,7 @@ class ScaledSizeProvider
 {
 public:
 	static QSize getScaledSize(const QSize &size);
+	static int getScaledWidth(int width);
 
 private:
 	static qreal getXScaleFactor();

@@ -5,53 +5,53 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation type="unfinished"></translation>
+        <translation>Om </translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Om</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Forfatter</translation>
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Donér</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Luk</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Skærmoptagelses værktøj</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished"></translation>
+        <translation>Licens: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished"></translation>
+        <translation>Brug venligst </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation> til rapporter fejl.</translation>
     </message>
 </context>
 <context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Vandmærke billede krævet</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
@@ -62,7 +62,7 @@
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>Mal emnets skygger</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
@@ -89,7 +89,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrifttype</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
@@ -97,7 +97,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Fed</translation>
     </message>
     <message>
         <source>Italic</source>
@@ -105,7 +105,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Understreget</translation>
     </message>
     <message>
         <source>Numbering Font</source>

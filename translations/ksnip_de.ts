@@ -25,26 +25,26 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Spenden</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">Screenshot-Werkzeug</translation>
+        <translation>Schnappschuss-Werkzeug</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Lizenz: </translation>
+        <translation>Lizenz: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Benutzen Sie bitte </translation>
+        <translation>Benutzen Sie bitte </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> um Fehler zu melden.</translation>
+        <translation> um Fehler zu melden.</translation>
     </message>
 </context>
 <context>
@@ -203,24 +203,25 @@ Eine Änderung benötigt einen Neustart von ksnip, um wirksam zu werden.</transl
     </message>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Tray Icon verwenden</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bei Aktivierung wird ein Tray Icon in der Taskbar hinzugefügt, sofern das Betriebssystem dies unterstützt.
+Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Zum Tray minimieren</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Zum Tray schließen</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
-        <translation type="unfinished"></translation>
+        <translation>Beim System-Start zum Tray minimieren.</translation>
     </message>
 </context>
 <context>
@@ -235,27 +236,27 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">Spanische Übersetzung</translation>
+        <translation>Spanische Übersetzung</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">Niederländische Übersetzung</translation>
+        <translation>Niederländische Übersetzung</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">Russische Übersetzung</translation>
+        <translation>Russische Übersetzung</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">Norwegische Übersetzung</translation>
+        <translation>Norwegische Übersetzung</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">Französische Übersetzung</translation>
+        <translation>Französische Übersetzung</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">Polnische Übersetzung</translation>
+        <translation>Polnische Übersetzung</translation>
     </message>
 </context>
 <context>
@@ -319,11 +320,11 @@ Möchten Sie sie speichern?</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Letzter Rechteckiger Bereich</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
+        <translation>Einen Screenshot des zuletzt ausgewählten rechteckigen Bereichs aufnehmen</translation>
     </message>
 </context>
 <context>
@@ -345,38 +346,38 @@ Möchten Sie sie speichern?</translation>
     <name>DonateTab</name>
     <message>
         <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Spendieren Sie mir ein Bier?</translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Sicher können Sie das machen</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>hier</translation>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Sponsor werden</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>Auch möglich, </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Spenden sind immer willkommen</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResponseOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Erfolgreich hochgeladen</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished"></translation>
+        <translation>Hochgeladen zu</translation>
     </message>
 </context>
 <context>
@@ -415,7 +416,7 @@ Möchten Sie sie speichern?</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Letzten rechteckigen Bereich aufnehmen</translation>
     </message>
 </context>
 <context>
@@ -605,7 +606,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Direkt zum Bild verlinken</translation>
     </message>
 </context>
 <context>
@@ -750,11 +751,11 @@ und der Aufnahme.</translation>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild kann nicht angezeigt werden</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Es wurde kein Bild zur Verfügung gestellt, obwohl eines erwartet wurde.</translation>
     </message>
 </context>
 <context>
@@ -773,19 +774,19 @@ und der Aufnahme.</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild gespeichert</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern des Bildes fehlgeschlagen</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation type="unfinished"></translation>
+        <translation>Gespeichert unter</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation type="unfinished"></translation>
+        <translation>Speicherung fehlgeschlagen unter</translation>
     </message>
 </context>
 <context>
@@ -827,7 +828,7 @@ und der Aufnahme.</translation>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Editor Anzeigen</translation>
     </message>
 </context>
 <context>
@@ -860,11 +861,11 @@ und der Aufnahme.</translation>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Version</translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">Build</translation>
+        <translation>Build</translation>
     </message>
     <message>
         <source>Using:</source>

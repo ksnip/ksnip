@@ -25,26 +25,26 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>寄付</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">スクリーンショットツール</translation>
+        <translation>スクリーンショットツール</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">ライセンス: </translation>
+        <translation>ライセンス: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">バグ報告は </translation>
+        <translation>バグ報告は </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> で受け付けています。</translation>
+        <translation> で受け付けています。</translation>
     </message>
 </context>
 <context>
@@ -223,42 +223,42 @@ hhmmss 形式で時間を表す変数 ($T) を含めることができます。<
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
-        <translation type="unfinished"></translation>
+        <translation>トレイに最小化した状態で起動する</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished">作者:</translation>
+        <translation>作者:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">貢献者:</translation>
+        <translation>貢献者:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">スペイン語訳</translation>
+        <translation>スペイン語訳</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">オランダ語訳</translation>
+        <translation>オランダ語訳</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">ロシア語訳</translation>
+        <translation>ロシア語訳</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">ノルウェー語 (ブークモール) 訳</translation>
+        <translation>ノルウェー語 (ブークモール) 訳</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">フランス語訳</translation>
+        <translation>フランス語訳</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">ポーランド語訳</translation>
+        <translation>ポーランド語訳</translation>
     </message>
 </context>
 <context>
@@ -348,27 +348,27 @@ Do you want to save it?</source>
     <name>DonateTab</name>
     <message>
         <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>寄付について</translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>寄付していただける場合は、</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>こちらからお願いします</translation>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>スポンサーになる</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>スポンサーになっていただける場合は、 </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>寄付はいつでも大歓迎です</translation>
     </message>
 </context>
 <context>
@@ -508,7 +508,12 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>有効にすると、範囲選択画面の背景を固定します。
+遅延スクリーンショットの挙動にも影響し、このオ
+プションが有効だと遅延発生後に範囲選択画面が表
+示され、無効だと範囲を選択した後に遅延が発生し
+ます。この機能は Wayland では常に無効になり、
+macOS では常に有効になります。</translation>
     </message>
 </context>
 <context>
@@ -606,7 +611,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>画像に直接リンクする</translation>
     </message>
 </context>
 <context>
@@ -860,15 +865,15 @@ and capturing screenshot.</source>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">バージョン</translation>
+        <translation>バージョン</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">ビルド</translation>
+        <translation>ビルド</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished">使用:</translation>
+        <translation>使用:</translation>
     </message>
 </context>
 </TS>

@@ -25,26 +25,26 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Doar</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">Ferramenta de Captura</translation>
+        <translation>Ferramenta de Captura</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Licença: </translation>
+        <translation>Licença: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Por favor, utilize o </translation>
+        <translation>Por favor, utilize o </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> para reportar problemas.</translation>
+        <translation> para reportar problemas.</translation>
     </message>
 </context>
 <context>
@@ -221,42 +221,42 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar Minimizado para Bandeja.</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished">Autor:</translation>
+        <translation>O Autor:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Contribuidores:</translation>
+        <translation>Contribuidores:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">Tradução para o Espanhol</translation>
+        <translation>Tradução para o Espanhol</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">Tradução para o Holandês</translation>
+        <translation>Tradução para o Holandês</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">Tradução para o Russo</translation>
+        <translation>Tradução para o Russo</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">Tradução para o Norueguês Bokmål</translation>
+        <translation>Tradução para o Norueguês Bokmål</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">Tradução para o Francês</translation>
+        <translation>Tradução para o Francês</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">Tradução para o Polonês</translation>
+        <translation>Tradução para o Polonês</translation>
     </message>
 </context>
 <context>
@@ -346,27 +346,27 @@ Você quer salvá-la?</translation>
     <name>DonateTab</name>
     <message>
         <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Doar uma Cerveja?</translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Certo, você pode fazer isso</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>aqui</translation>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Seja um Patrocinador</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>Também é possível, </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Doações são sempre bem-vindas</translation>
     </message>
 </context>
 <context>
@@ -506,7 +506,14 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado, congelará o plano de fundo ao
+selecionar uma região retangular. Também altera
+o comportamento de capturas de tela atrasadas,
+com esta opção ativada, o atraso ocorre antes da
+área de corte ser exibida e com a opção desativada,
+o atraso ocorre após a exibição da área de corte.
+Esse recurso está sempre desativado para Wayland
+e sempre ativado para MacOs.</translation>
     </message>
 </context>
 <context>
@@ -604,7 +611,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Link direto para a imagem</translation>
     </message>
 </context>
 <context>
@@ -858,15 +865,15 @@ e captura de tela.</translation>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Versão</translation>
+        <translation>Versão</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">Compilação</translation>
+        <translation>Compilação</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished">Utilizando:</translation>
+        <translation>Utilizando:</translation>
     </message>
 </context>
 </TS>

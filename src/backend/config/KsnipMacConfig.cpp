@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,28 +17,24 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_MACIMAGEGRABBER_H
-#define KSNIP_MACIMAGEGRABBER_H
+#include "KsnipMacConfig.h"
 
-#include "AbstractImageGrabber.h"
-#include "MacWrapper.h"
-#include "src/gui/snippingArea/MacSnippingArea.h"
-
-class MacImageGrabber  : public AbstractImageGrabber
+bool KsnipMacConfig::isFreezeImageWhileSnippingEnabledReadOnly() const
 {
-Q_OBJECT
-public:
-    explicit MacImageGrabber();
-    ~MacImageGrabber() override = default;
+	return true;
+}
 
-protected slots:
-    QRect fullScreenRect() const override;
-    QRect activeWindowRect() const override;
-	CursorDto getCursorWithPosition() const override;
+bool KsnipMacConfig::freezeImageWhileSnippingEnabled() const
+{
+	return true;
+}
 
-private:
-    MacWrapper *mMacWrapper;
-};
+bool KsnipMacConfig::isGlobalHotKeysEnabledReadOnly() const
+{
+	return true;
+}
 
-
-#endif //KSNIP_MACIMAGEGRABBER_H
+bool KsnipMacConfig::globalHotKeysEnabled() const
+{
+	return false;
+}

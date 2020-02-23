@@ -23,7 +23,7 @@ HandleUploadResponseOperation::HandleUploadResponseOperation(const QString &resp
 {
 	mResponse = response;
 	mTrayIcon = trayIcon;
-	mConfig = KsnipConfig::instance();
+	mConfig = KsnipConfigProvider::instance();
 	mClipboard = QApplication::clipboard();
 }
 

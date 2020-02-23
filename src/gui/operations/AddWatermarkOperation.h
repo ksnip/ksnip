@@ -29,7 +29,7 @@
 #include "WatermarkImagePreparer.h"
 #include "src/common/helper/MessageBoxHelper.h"
 #include "src/backend/WatermarkImageLoader.h"
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 
 using kImageAnnotator::KImageAnnotator;
 

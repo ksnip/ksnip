@@ -3,6 +3,7 @@
 ## Release 1.6.1
 * Change: Allow opening link directly to image without opening in browser. ([#248](https://github.com/ksnip/kImageAnnotator/issues/248))
 * Change: Always use transparent snipping area background for Wayland. ([#176](https://github.com/ksnip/kImageAnnotator/issues/176))
+* Change: Disable unavailable config options. ([#254](https://github.com/ksnip/kImageAnnotator/issues/254))
 * Fixed kImageAnnotator: Edit border around text box doesn't disappear when done with editing. ([#71](https://github.com/ksnip/kImageAnnotator/issues/71))
 * Fixed kImageAnnotator: Edit border not shown under Windows when NoFillNoBorder selected for Text Tool. ([#72](https://github.com/ksnip/kImageAnnotator/issues/72))
 * Fixed kImageAnnotator: When adding text with background under Windows a filled rect is show in top left corner. ([#73](https://github.com/ksnip/kImageAnnotator/issues/73))

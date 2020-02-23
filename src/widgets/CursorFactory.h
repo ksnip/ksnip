@@ -21,7 +21,7 @@
 #define CURSORFACTORY_H
 
 #include "CustomCursor.h"
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 
 class CursorFactory
 {

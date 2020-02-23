@@ -27,6 +27,7 @@
 #include "BuildConfig.h"
 #include "src/gui/MainWindow.h"
 #include "src/backend/imageGrabber/ImageGrabberFactory.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 #include "src/backend/TranslationLoader.h"
 #include "src/backend/KsnipCommandLine.h"
 
@@ -40,7 +41,7 @@ int main(int argc, char** argv)
     app.setApplicationName(QStringLiteral("ksnip"));
     app.setApplicationVersion(QStringLiteral(KSNIP_VERSION));
 
-    app.setStyle(KsnipConfig::instance()->applicationStyle());
+    app.setStyle(KsnipConfigProvider::instance()->applicationStyle());
 
     TranslationLoader translationLoader;
     translationLoader.load(app);

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,28 +17,34 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_MACIMAGEGRABBER_H
-#define KSNIP_MACIMAGEGRABBER_H
+#include "KsnipWaylandConfig.h"
 
-#include "AbstractImageGrabber.h"
-#include "MacWrapper.h"
-#include "src/gui/snippingArea/MacSnippingArea.h"
-
-class MacImageGrabber  : public AbstractImageGrabber
+bool KsnipWaylandConfig::isFreezeImageWhileSnippingEnabledReadOnly() const
 {
-Q_OBJECT
-public:
-    explicit MacImageGrabber();
-    ~MacImageGrabber() override = default;
+	return true;
+}
 
-protected slots:
-    QRect fullScreenRect() const override;
-    QRect activeWindowRect() const override;
-	CursorDto getCursorWithPosition() const override;
+bool KsnipWaylandConfig::freezeImageWhileSnippingEnabled() const
+{
+	return false;
+}
 
-private:
-    MacWrapper *mMacWrapper;
-};
+bool KsnipWaylandConfig::isGlobalHotKeysEnabledReadOnly() const
+{
+	return true;
+}
 
+bool KsnipWaylandConfig::globalHotKeysEnabled() const
+{
+	return false;
+}
 
-#endif //KSNIP_MACIMAGEGRABBER_H
+bool KsnipWaylandConfig::isSnippingAreaMagnifyingGlassEnabledReadOnly() const
+{
+	return true;
+}
+
+bool KsnipWaylandConfig::snippingAreaMagnifyingGlassEnabled() const
+{
+	return false;
+}

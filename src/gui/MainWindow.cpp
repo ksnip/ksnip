@@ -35,7 +35,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mScaleAction(new QAction(this)),
 		mAddWatermarkAction(new QAction(this)),
 		mClipboard(QApplication::clipboard()),
-		mConfig(KsnipConfig::instance()),
+		mConfig(KsnipConfigProvider::instance()),
 		mCapturePrinter(new CapturePrinter),
 		mCaptureUploader(new CaptureUploader()),
 		mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),

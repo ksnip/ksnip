@@ -21,7 +21,7 @@
 
 ImageSaver::ImageSaver()
 {
-    mConfig = KsnipConfig::instance();
+    mConfig = KsnipConfigProvider::instance();
 }
 
 bool ImageSaver::save(const QImage &image, const QString &path)

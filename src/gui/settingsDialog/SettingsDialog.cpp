@@ -26,7 +26,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 	mCancelButton(new QPushButton),
 	mListWidget(new QListWidget),
 	mStackedLayout(new QStackedLayout),
-	mConfig(KsnipConfig::instance())
+	mConfig(KsnipConfigProvider::instance())
 {
     setWindowTitle(QApplication::applicationName() + QStringLiteral(" - ") + tr("Settings"));
 

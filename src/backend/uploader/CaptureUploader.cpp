@@ -23,7 +23,7 @@ CaptureUploader::CaptureUploader()
 {
     mImgurUploader = new ImgurUploader();
     mImgurResponseLogger = new ImgurResponseLogger();
-    mConfig = KsnipConfig::instance();
+    mConfig = KsnipConfigProvider::instance();
 
     connect(mImgurUploader, &ImgurUploader::uploadFinished, this, &CaptureUploader::imgurUploadFinished);
     connect(mImgurUploader, &ImgurUploader::error, this, &CaptureUploader::imgurError);

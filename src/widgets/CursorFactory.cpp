@@ -21,7 +21,7 @@
 
 CursorFactory::CursorFactory()
 {
-    mConfig = KsnipConfig::instance();
+    mConfig = KsnipConfigProvider::instance();
     mDefaultCursorSize = 8;
 }
 

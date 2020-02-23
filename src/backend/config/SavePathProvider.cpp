@@ -21,7 +21,7 @@
 
 SavePathProvider::SavePathProvider()
 {
-    mConfig = KsnipConfig::instance();
+    mConfig = KsnipConfigProvider::instance();
 }
 
 QString SavePathProvider::savePath() const

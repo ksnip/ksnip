@@ -23,7 +23,7 @@ UploadOperation::UploadOperation(const QImage &image, CaptureUploader *uploader)
 {
 	mImage = image;
 	mUploader = uploader;
-	mConfig = KsnipConfig::instance();
+	mConfig = KsnipConfigProvider::instance();
 }
 
 bool UploadOperation::execute()

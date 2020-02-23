@@ -25,7 +25,7 @@
 #include <QDesktopServices>
 #include <QClipboard>
 
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 #include "src/gui/operations/NotifyOperation.h"
 
 class HandleUploadResponseOperation : public QObject

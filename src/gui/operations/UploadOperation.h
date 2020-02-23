@@ -24,7 +24,7 @@
 #include <QImage>
 
 #include "src/backend/uploader/CaptureUploader.h"
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 #include "src/common/helper/MessageBoxHelper.h"
 
 class UploadOperation : public QObject

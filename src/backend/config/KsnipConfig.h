@@ -37,167 +37,173 @@ class KsnipConfig : public QObject
 {
     Q_OBJECT
 public:
-    static KsnipConfig *instance();
+	KsnipConfig() = default;
 
     // Application
 
-	bool savePosition() const;
-	void setSavePosition(bool enabled);
+	virtual bool savePosition() const;
+	virtual void setSavePosition(bool enabled);
 
-    bool promptSaveBeforeExit() const;
-    void setPromptSaveBeforeExit(bool enabled);
+	virtual bool promptSaveBeforeExit() const;
+	virtual void setPromptSaveBeforeExit(bool enabled);
 
-    bool alwaysCopyToClipboard() const;
-    void setAlwaysCopyToClipboard(bool enabled);
+	virtual bool alwaysCopyToClipboard() const;
+	virtual void setAlwaysCopyToClipboard(bool enabled);
 
-	bool saveToolSelection() const;
-	void setSaveToolSelection(bool enabled);
+	virtual bool saveToolSelection() const;
+	virtual void setSaveToolSelection(bool enabled);
 
-    bool captureOnStartup() const;
-    void setCaptureOnStartup(bool enabled);
+	virtual bool captureOnStartup() const;
+	virtual void setCaptureOnStartup(bool enabled);
 
-    QPoint windowPosition() const;
-    void setWindowPosition(const QPoint &position);
+	virtual QPoint windowPosition() const;
+	virtual void setWindowPosition(const QPoint &position);
 
-    CaptureModes captureMode() const;
-    void setCaptureMode(CaptureModes mode);
+	virtual CaptureModes captureMode() const;
+	virtual void setCaptureMode(CaptureModes mode);
 
-    QString saveDirectory() const;
-    void setSaveDirectory(const QString &path);
+	virtual QString saveDirectory() const;
+	virtual void setSaveDirectory(const QString &path);
 
-    QString saveFilename() const;
-    void setSaveFilename(const QString &filename);
+	virtual QString saveFilename() const;
+	virtual void setSaveFilename(const QString &filename);
 
-    QString saveFormat() const;
-    void setSaveFormat(const QString &format);
+	virtual QString saveFormat() const;
+	virtual void setSaveFormat(const QString &format);
 
-    bool useInstantSave() const;
-    void setUseInstantSave(bool enabled);
+	virtual bool useInstantSave() const;
+	virtual void setUseInstantSave(bool enabled);
 
-	QString applicationStyle() const;
-	void setApplicationStyle(QString style);
+	virtual QString applicationStyle() const;
+	virtual void setApplicationStyle(QString style);
 
-	bool useTrayIcon() const;
-	void setUseTrayIcon(bool enabled);
+	virtual bool useTrayIcon() const;
+	virtual void setUseTrayIcon(bool enabled);
 
-	bool minimizeToTray() const;
-	void setMinimizeToTray(bool enabled);
+	virtual bool minimizeToTray() const;
+	virtual void setMinimizeToTray(bool enabled);
 
-	bool closeToTray() const;
-	void setCloseToTray(bool enabled);
+	virtual bool closeToTray() const;
+	virtual void setCloseToTray(bool enabled);
 
-	bool startMinimizedToTray() const;
-	void setStartMinimizedToTray(bool enabled);
+	virtual bool startMinimizedToTray() const;
+	virtual void setStartMinimizedToTray(bool enabled);
 
 	// Annotator
 
-    bool textBold() const;
-    void setTextBold(bool bold);
-    bool textItalic() const;
-    void setTextItalic(bool italic);
-    bool textUnderline() const;
-    void setTextUnderline(bool underline);
-    QFont textFont() const;
-    void setTextFont(const QFont &font);
+	virtual bool textBold() const;
+	virtual void setTextBold(bool bold);
 
-    QFont numberFont() const;
-    void setNumberFont(const QFont &font);
+	virtual bool textItalic() const;
+	virtual void setTextItalic(bool italic);
 
-    bool itemShadowEnabled() const;
-    void setItemShadowEnabled(bool enabled);
+	virtual bool textUnderline() const;
+	virtual void setTextUnderline(bool underline);
 
-    bool smoothPathEnabled() const;
-    void setSmoothPathEnabled(bool enabled);
+	virtual QFont textFont() const;
+	virtual void setTextFont(const QFont &font);
 
-    int smoothFactor() const;
-    void setSmoothFactor(int factor);
+	virtual QFont numberFont() const;
+	virtual void setNumberFont(const QFont &font);
 
-	bool rotateWatermarkEnabled() const;
-	void setRotateWatermarkEnabled(bool enabled);
+	virtual bool itemShadowEnabled() const;
+	virtual void setItemShadowEnabled(bool enabled);
+
+	virtual bool smoothPathEnabled() const;
+	virtual void setSmoothPathEnabled(bool enabled);
+
+	virtual int smoothFactor() const;
+	virtual void setSmoothFactor(int factor);
+
+	virtual bool rotateWatermarkEnabled() const;
+	virtual void setRotateWatermarkEnabled(bool enabled);
 
     // Image Grabber
 
-	bool freezeImageWhileSnippingEnabled() const;
-	void setFreezeImageWhileSnippingEnabled(bool enabled);
+    virtual bool isFreezeImageWhileSnippingEnabledReadOnly() const;
+	virtual bool freezeImageWhileSnippingEnabled() const;
+	virtual void setFreezeImageWhileSnippingEnabled(bool enabled);
 
-    bool captureCursor() const;
-    void setCaptureCursor(bool enabled);
+	virtual bool captureCursor() const;
+	virtual void setCaptureCursor(bool enabled);
 
-	bool snippingAreaRulersEnabled() const;
-	void setSnippingAreaRulersEnabled(bool enabled);
+	virtual bool snippingAreaRulersEnabled() const;
+	virtual void setSnippingAreaRulersEnabled(bool enabled);
 
-	bool snippingAreaPositionAndSizeInfoEnabled() const;
-	void setSnippingAreaPositionAndSizeInfoEnabled(bool enabled);
+	virtual bool snippingAreaPositionAndSizeInfoEnabled() const;
+	virtual void setSnippingAreaPositionAndSizeInfoEnabled(bool enabled);
 
-	bool snippingAreaMagnifyingGlassEnabled() const;
-	void setSnippingAreaMagnifyingGlassEnabled(bool enabled);
+	virtual bool isSnippingAreaMagnifyingGlassEnabledReadOnly() const;
+	virtual bool snippingAreaMagnifyingGlassEnabled() const;
+	virtual void setSnippingAreaMagnifyingGlassEnabled(bool enabled);
 
-    int captureDelay() const;
-    void setCaptureDelay(int delay);
+	virtual int captureDelay() const;
+	virtual void setCaptureDelay(int delay);
 
-    int snippingCursorSize() const;
-    void setSnippingCursorSize(int size);
+	virtual int snippingCursorSize() const;
+	virtual void setSnippingCursorSize(int size);
 
-    QColor snippingCursorColor() const;
-    void setSnippingCursorColor(const QColor &color);
+	virtual QColor snippingCursorColor() const;
+	virtual void setSnippingCursorColor(const QColor &color);
 
-    QRect lastRectArea() const;
-    void setLastRectArea(const QRect &rectArea);
+	virtual QRect lastRectArea() const;
+	virtual void setLastRectArea(const QRect &rectArea);
 
     // Imgur Uploader
 
-    QString imgurUsername() const;
-    void setImgurUsername(const QString &username);
+	virtual QString imgurUsername() const;
+	virtual void setImgurUsername(const QString &username);
 
-    QByteArray imgurClientId() const;
-    void setImgurClientId(const QString &clientId);
+	virtual QByteArray imgurClientId() const;
+	virtual void setImgurClientId(const QString &clientId);
 
-    QByteArray imgurClientSecret() const;
-    void setImgurClientSecret(const QString &clientSecret);
+	virtual QByteArray imgurClientSecret() const;
+	virtual void setImgurClientSecret(const QString &clientSecret);
 
-    QByteArray imgurAccessToken() const;
-    void setImgurAccessToken(const QString &accessToken);
+	virtual QByteArray imgurAccessToken() const;
+	virtual void setImgurAccessToken(const QString &accessToken);
 
-    QByteArray imgurRefreshToken() const;
-    void setImgurRefreshToken(const QString &refreshToken);
+	virtual QByteArray imgurRefreshToken() const;
+	virtual void setImgurRefreshToken(const QString &refreshToken);
 
-    bool imgurForceAnonymous() const;
-    void setImgurForceAnonymous(bool enabled);
+	virtual bool imgurForceAnonymous() const;
+	virtual void setImgurForceAnonymous(bool enabled);
 
-    bool imgurLinkDirectlyToImage() const;
-    void setImgurLinkDirectlyToImage(bool enabled);
+	virtual bool imgurLinkDirectlyToImage() const;
+	virtual void setImgurLinkDirectlyToImage(bool enabled);
 
-    bool imgurAlwaysCopyToClipboard() const;
-    void setImgurAlwaysCopyToClipboard(bool enabled);
+	virtual bool imgurAlwaysCopyToClipboard() const;
+	virtual void setImgurAlwaysCopyToClipboard(bool enabled);
 
-    bool imgurConfirmBeforeUpload() const;
-    void setImgurConfirmBeforeUpload(bool enabled);
+	virtual bool imgurConfirmBeforeUpload() const;
+	virtual void setImgurConfirmBeforeUpload(bool enabled);
 
-	bool imgurOpenLinkInBrowser() const;
-	void setImgurOpenLinkInBrowser(bool enabled);
+	virtual bool imgurOpenLinkInBrowser() const;
+	virtual void setImgurOpenLinkInBrowser(bool enabled);
 
 	// HotKeys
 
-	bool globalHotKeysEnabled() const;
-	void setGlobalHotKeysEnabled(bool enabled);
+	virtual bool isGlobalHotKeysEnabledReadOnly() const;
+	virtual bool globalHotKeysEnabled() const;
+	virtual void setGlobalHotKeysEnabled(bool enabled);
 
-	QKeySequence rectAreaHotKey() const;
-	void setRectAreaHotKey(const QKeySequence &keySequence);
+	virtual QKeySequence rectAreaHotKey() const;
+	virtual void setRectAreaHotKey(const QKeySequence &keySequence);
 
-	QKeySequence lastRectAreaHotKey() const;
-	void setLastRectAreaHotKey(const QKeySequence &keySequence);
+	virtual QKeySequence lastRectAreaHotKey() const;
+	virtual void setLastRectAreaHotKey(const QKeySequence &keySequence);
 
-	QKeySequence fullScreenHotKey() const;
-	void setFullScreenHotKey(const QKeySequence &keySequence);
+	virtual QKeySequence fullScreenHotKey() const;
+	virtual void setFullScreenHotKey(const QKeySequence &keySequence);
 
-	QKeySequence currentScreenHotKey() const;
-	void setCurrentScreenHotKey(const QKeySequence &keySequence);
+	virtual QKeySequence currentScreenHotKey() const;
+	virtual void setCurrentScreenHotKey(const QKeySequence &keySequence);
 
-	QKeySequence activeWindowHotKey() const;
-	void setActiveWindowHotKey(const QKeySequence &keySequence);
+	virtual QKeySequence activeWindowHotKey() const;
+	virtual void setActiveWindowHotKey(const QKeySequence &keySequence);
 
-	QKeySequence windowUnderCursorHotKey() const;
-	void setWindowUnderCursorHotKey(const QKeySequence &keySequence);
+	virtual QKeySequence windowUnderCursorHotKey() const;
+	virtual void setWindowUnderCursorHotKey(const QKeySequence &keySequence);
 
 signals:
     void painterUpdated() const;
@@ -206,8 +212,6 @@ signals:
 
 private:
     QSettings mConfig;
-
-	KsnipConfig() = default;
 
 	void saveValue(const QString &key, const QVariant &value);
 	QVariant loadValue(const QString &key, const QVariant &defaultValue = QVariant()) const;

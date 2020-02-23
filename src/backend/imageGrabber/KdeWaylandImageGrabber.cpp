@@ -133,9 +133,3 @@ void KdeWaylandImageGrabber::startReadImage(int readPipe)
     });
     watcher->setFuture(QtConcurrent::run(readImage, readPipe));
 }
-
-bool KdeWaylandImageGrabber::isSnippingAreaBackgroundTransparent() const
-{
-	// Wayland doesn't support taking screenshot of whole screen.
-	return true;
-}

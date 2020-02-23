@@ -22,7 +22,7 @@
 AbstractImageGrabber::AbstractImageGrabber(AbstractSnippingArea *snippingArea) : mSnippingArea(snippingArea)
 {
     Q_ASSERT(snippingArea != nullptr);
-	mConfig = KsnipConfig::instance();
+	mConfig = KsnipConfigProvider::instance();
 	connectSnippingAreaCancel();
 }
 

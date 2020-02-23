@@ -21,7 +21,7 @@
 
 AbstractSnippingArea::AbstractSnippingArea()
 	: mCursorFactory(new CursorFactory()),
-	  mConfig(KsnipConfig::instance()),
+	  mConfig(KsnipConfigProvider::instance()),
 	  mBackground(nullptr)
 {
     // Make the frame span across the screen and show above any other widget

@@ -32,7 +32,7 @@
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 #include "src/backend/uploader/CaptureUploader.h"
 #include "src/backend/CapturePrinter.h"
 #include "src/common/loader/IconLoader.h"

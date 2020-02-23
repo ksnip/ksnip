@@ -31,7 +31,7 @@
 #include "ImageGrabberSettings.h"
 #include "ImgurUploaderSettings.h"
 #include "HotKeySettings.h"
-#include "backend/config/KsnipConfig.h"
+#include "backend/config/KsnipConfigProvider.h"
 
 class SettingsDialog : public QDialog
 {

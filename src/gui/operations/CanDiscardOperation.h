@@ -24,7 +24,7 @@
 
 #include "SaveOperation.h"
 #include "NotifyOperation.h"
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 #include "src/common/helper/MessageBoxHelper.h"
 
 class CanDiscardOperation : public QObject

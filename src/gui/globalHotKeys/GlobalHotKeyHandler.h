@@ -25,7 +25,7 @@
 #include <QSharedPointer>
 
 #include "GlobalHotKey.h"
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 #include "src/common/enum/CaptureModes.h"
 
 class GlobalHotKeyHandler : public QObject

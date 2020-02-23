@@ -45,11 +45,3 @@ CursorDto MacImageGrabber::getCursorWithPosition() const
     // MacOs currently captures always mouse by itself
     return {};
 }
-
-bool MacImageGrabber::isSnippingAreaBackgroundTransparent() const
-{
-    // MacOs doesn't support transparent background
-    return false;
-}
-
-

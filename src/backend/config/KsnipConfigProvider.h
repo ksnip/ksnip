@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,28 +17,31 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_MACIMAGEGRABBER_H
-#define KSNIP_MACIMAGEGRABBER_H
+#ifndef KSNIP_KSNIPCONFIGPROVIDER_H
+#define KSNIP_KSNIPCONFIGPROVIDER_H
 
-#include "AbstractImageGrabber.h"
-#include "MacWrapper.h"
-#include "src/gui/snippingArea/MacSnippingArea.h"
+#include "KsnipWaylandConfig.h"
 
-class MacImageGrabber  : public AbstractImageGrabber
+#if defined(__APPLE__)
+#include "KsnipMacConfig.h"
+#endif
+
+#if defined(__linux__)
+#include "KsnipWaylandConfig.h"
+#include "src/common/platform/PlatformChecker.h"
+#endif
+
+#if  defined(_WIN32)
+#include "KsnipConfig.h"
+#endif
+
+class KsnipConfigProvider
 {
-Q_OBJECT
 public:
-    explicit MacImageGrabber();
-    ~MacImageGrabber() override = default;
-
-protected slots:
-    QRect fullScreenRect() const override;
-    QRect activeWindowRect() const override;
-	CursorDto getCursorWithPosition() const override;
+	static KsnipConfig *instance();
 
 private:
-    MacWrapper *mMacWrapper;
+	KsnipConfigProvider() = default;
 };
 
-
-#endif //KSNIP_MACIMAGEGRABBER_H
+#endif //KSNIP_KSNIPCONFIGPROVIDER_H

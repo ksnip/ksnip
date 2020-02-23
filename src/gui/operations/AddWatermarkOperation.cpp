@@ -22,7 +22,7 @@
 AddWatermarkOperation::AddWatermarkOperation(KImageAnnotator *kImageAnnotator)
 {
 	mKImageAnnotator = kImageAnnotator;
-	mConfig = KsnipConfig::instance();
+	mConfig = KsnipConfigProvider::instance();
 }
 
 void AddWatermarkOperation::execute()

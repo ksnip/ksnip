@@ -28,7 +28,7 @@
 #include "SnippingAreaAdorner.h"
 #include "src/widgets/CursorFactory.h"
 #include "src/common/helper/MathHelper.h"
-#include "backend/config/KsnipConfig.h"
+#include "backend/config/KsnipConfigProvider.h"
 
 class AbstractSnippingArea : public QWidget
 {

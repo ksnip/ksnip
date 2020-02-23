@@ -24,7 +24,7 @@ CanDiscardOperation::CanDiscardOperation(QWidget *parent, const QImage &image, b
 	mParent = parent;
 	mImage = image;
 	mIsUnsaved = isUnsaved;
-	mConfig = KsnipConfig::instance();
+	mConfig = KsnipConfigProvider::instance();
 	mTrayIcon = trayIcon;
 }
 

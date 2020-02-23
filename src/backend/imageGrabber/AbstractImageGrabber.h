@@ -29,7 +29,7 @@
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/handler/DelayHandler.h"
 #include "src/gui/snippingArea/AbstractSnippingArea.h"
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 
 class AbstractImageGrabber : public QObject
 {

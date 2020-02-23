@@ -20,7 +20,7 @@
 #ifndef KSNIP_SAVEPATHPROVIDER_H
 #define KSNIP_SAVEPATHPROVIDER_H
 
-#include "KsnipConfig.h"
+#include "KsnipConfigProvider.h"
 
 class SavePathProvider
 {

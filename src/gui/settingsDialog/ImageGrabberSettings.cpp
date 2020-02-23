@@ -131,7 +131,9 @@ void ImageGrabberSettings::initGui()
 void ImageGrabberSettings::loadConfig()
 {
 	mFreezeImageWhileSnippingCheckbox->setChecked(mConfig->freezeImageWhileSnippingEnabled());
+	mFreezeImageWhileSnippingCheckbox->setEnabled(!mConfig->isFreezeImageWhileSnippingEnabledReadOnly());
 	mSnippingAreaMagnifyingGlassCheckbox->setChecked(mConfig->snippingAreaMagnifyingGlassEnabled());
+	mSnippingAreaMagnifyingGlassCheckbox->setEnabled(!mConfig->isSnippingAreaMagnifyingGlassEnabledReadOnly());
 	mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());
 	mSnippingAreaRulersCheckbox->setChecked(mConfig->snippingAreaRulersEnabled());
 	mSnippingAreaPositionAndSizeInfoCheckbox->setChecked(mConfig->snippingAreaPositionAndSizeInfoEnabled());

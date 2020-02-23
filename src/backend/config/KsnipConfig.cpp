@@ -20,12 +20,6 @@
 
 #include "KsnipConfig.h"
 
-KsnipConfig* KsnipConfig::instance()
-{
-    static KsnipConfig instance;
-    return &instance;
-}
-
 // Application
 
 bool KsnipConfig::savePosition() const
@@ -418,6 +412,11 @@ void KsnipConfig::setRotateWatermarkEnabled(bool enabled)
 
 // Image Grabber
 
+bool KsnipConfig::isFreezeImageWhileSnippingEnabledReadOnly() const
+{
+	return false;
+}
+
 bool KsnipConfig::freezeImageWhileSnippingEnabled() const
 {
 	return loadValue(KsnipConfigOptions::freezeImageWhileSnippingEnabledString(), true).toBool();
@@ -468,6 +467,11 @@ void KsnipConfig::setSnippingAreaPositionAndSizeInfoEnabled(bool enabled)
         return;
     }
 	saveValue(KsnipConfigOptions::snippingAreaPositionAndSizeInfoEnabledString(), enabled);
+}
+
+bool KsnipConfig::isSnippingAreaMagnifyingGlassEnabledReadOnly() const
+{
+	return false;
 }
 
 bool KsnipConfig::snippingAreaMagnifyingGlassEnabled() const
@@ -674,6 +678,11 @@ void KsnipConfig::setImgurOpenLinkInBrowser(bool enabled)
 }
 
 // HotKeys
+
+bool KsnipConfig::isGlobalHotKeysEnabledReadOnly() const
+{
+	return false;
+}
 
 bool KsnipConfig::globalHotKeysEnabled() const
 {

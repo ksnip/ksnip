@@ -110,6 +110,7 @@ void HotKeySettings::initGui()
 void HotKeySettings::loadConfig()
 {
 	mEnableGlobalHotKeysCheckBox->setChecked(mConfig->globalHotKeysEnabled());
+	mEnableGlobalHotKeysCheckBox->setEnabled(!mConfig->isGlobalHotKeysEnabledReadOnly());
 	mRectAreaKeySequenceLineEdit->setValue(mConfig->rectAreaHotKey());
 	mLastRectAreaKeySequenceLineEdit->setValue(mConfig->lastRectAreaHotKey());
 	mFullScreenKeySequenceLineEdit->setValue(mConfig->fullScreenHotKey());

@@ -22,16 +22,40 @@
 KeySequenceLineEdit::KeySequenceLineEdit(QWidget *widget, const QList<Qt::Key> &allowedKeys) : QLineEdit(widget)
 {
 	mAllowedKeys = allowedKeys;
+
+	setupPrintKeyHandling();
+}
+
+KeySequenceLineEdit::~KeySequenceLineEdit()
+{
+	delete mPrintKeyHandler;
+	delete mNativeKeyFilter;
 }
 
 void KeySequenceLineEdit::keyPressEvent(QKeyEvent *event)
 {
+	mModifiers = event->modifiers();
+
 	if(mAllowedKeys.contains(static_cast<Qt::Key>(event->key()))) {
-		mKeySequence = QKeySequence(event->modifiers() + event->key());
+		mKey = static_cast<Qt::Key>(event->key());
 	} else {
-		mKeySequence = QKeySequence(event->modifiers());
+		mKey = Qt::Key_unknown;
 	}
+
+	updateKeySequence();
+}
+
+void KeySequenceLineEdit::updateKeySequence()
+{
+	mKeySequence = mKey == Qt::Key_unknown ? QKeySequence(mModifiers) : QKeySequence(mModifiers + mKey);
 	updateText();
+}
+
+void KeySequenceLineEdit::keyReleaseEvent(QKeyEvent *event)
+{
+	mModifiers = Qt::NoModifier;
+	mKey = Qt::Key_unknown;
+	QWidget::keyReleaseEvent(event);
 }
 
 void KeySequenceLineEdit::updateText()
@@ -48,4 +72,32 @@ void KeySequenceLineEdit::setValue(const QKeySequence &keySequence)
 {
 	mKeySequence = keySequence;
 	updateText();
+}
+
+void KeySequenceLineEdit::focusInEvent(QFocusEvent *event)
+{
+	QApplication::instance()->installNativeEventFilter(mNativeKeyFilter);
+
+	QLineEdit::focusInEvent(event);
+}
+
+void KeySequenceLineEdit::focusOutEvent(QFocusEvent *event)
+{
+	QApplication::instance()->removeNativeEventFilter(mNativeKeyFilter);
+
+	QLineEdit::focusOutEvent(event);
+}
+
+void KeySequenceLineEdit::printKeyPressed()
+{
+	mKey = Qt::Key_Print;
+	updateKeySequence();
+}
+
+void KeySequenceLineEdit::setupPrintKeyHandling()
+{
+	mPrintKeyHandler = KeyHandlerFactory::create();
+	mPrintKeyHandler->registerKey(Qt::Key_Print);
+	mNativeKeyFilter = new NativeKeyEventFilter(mPrintKeyHandler);
+	connect(mNativeKeyFilter, &NativeKeyEventFilter::triggered, this, &KeySequenceLineEdit::printKeyPressed);
 }

@@ -23,24 +23,38 @@
 #include <QLineEdit>
 #include <QKeySequence>
 #include <QKeyEvent>
+#include <QApplication>
+
+#include "src/gui/globalHotKeys/KeyHandlerFactory.h"
+#include "src/gui/globalHotKeys/NativeKeyEventFilter.h"
 
 class KeySequenceLineEdit : public QLineEdit
 {
 	Q_OBJECT
 public:
 	explicit KeySequenceLineEdit(QWidget *widget, const QList<Qt::Key> &allowedKeys);
-	~KeySequenceLineEdit() override = default;
+	~KeySequenceLineEdit() override;
 	QKeySequence value() const;
 	void setValue(const QKeySequence &keySequence);
 
 protected:
 	void keyPressEvent(QKeyEvent *event) override;
+	void keyReleaseEvent(QKeyEvent *event) override;
+	void focusInEvent(QFocusEvent *event) override;
+	void focusOutEvent(QFocusEvent *event) override;
 
 private:
 	QKeySequence mKeySequence;
+	Qt::KeyboardModifiers mModifiers;
+	Qt::Key mKey;
 	QList<Qt::Key> mAllowedKeys;
+	NativeKeyEventFilter *mNativeKeyFilter;
+	AbstractKeyHandler *mPrintKeyHandler;
 
 	void updateText();
+	void printKeyPressed();
+	void setupPrintKeyHandling();
+	void updateKeySequence();
 };
 
 

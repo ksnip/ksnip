@@ -176,7 +176,10 @@ void MainWindow::showCapture(const CaptureDto &capture)
 
 void MainWindow::loadCapture(const CaptureDto &capture)
 {
-	mKImageAnnotator->loadImage(capture.screenshot);
+	QPixmap image(capture.screenshot);
+	image.setDevicePixelRatio(1.0);
+	mKImageAnnotator->loadImage(image);
+	mKImageAnnotator->adjustSize();
 	if (capture.isCursorValid()) {
 		mKImageAnnotator->insertImageItem(capture.cursor.position, capture.cursor.image);
 	}

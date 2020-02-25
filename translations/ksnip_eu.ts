@@ -5,72 +5,72 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation type="unfinished"></translation>
+        <translation>Honi buruz </translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Honi buruz</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Bertsioa</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Egilea</translation>
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Diruz lagundu</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Itxi</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Pantaila-argazkiak egiteko tresna</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished"></translation>
+        <translation>Lizentzia: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished"></translation>
+        <translation>Erabili </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation> erroreen berri emateko.</translation>
     </message>
 </context>
 <context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Ur-markarako irudia behar da</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Ur-markarako irudia gehitu honela Aukerak &gt; Ezarpenak &gt; Ohar-hartzailea &gt; Eguneratu</translation>
     </message>
 </context>
 <context>
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehitu itzala elementuei</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktibatuta badago, marrazketa elementuek itzala dute.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Leundu marrazkien lineak</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and

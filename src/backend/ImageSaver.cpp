@@ -49,7 +49,11 @@ QString ImageSaver::ensureFilenameHasFormat(const QString &path)
 {
     auto format = PathHelper::extractFormat(path);
     if(format.isEmpty()) {
-        return path + QStringLiteral(".") + mConfig->saveFormat();
+		auto defaultFormat = mConfig->saveFormat();
+		if (defaultFormat.isEmpty()) {
+			defaultFormat = QStringLiteral("png");
+		}
+        return path + QStringLiteral(".") + defaultFormat;
     }
     return path;
 }

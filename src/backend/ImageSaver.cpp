@@ -33,6 +33,10 @@ bool ImageSaver::save(const QImage &image, const QString &path)
 	if (!isSuccessful) {
 		qCritical("Unable to save file '%s'", qPrintable(fullPath));
 	}
+	else {
+		auto directory = PathHelper::extractPath(fullPath);
+		mConfig->setLastSaveDirectory(directory);
+	}
 	return isSuccessful;
 }
 

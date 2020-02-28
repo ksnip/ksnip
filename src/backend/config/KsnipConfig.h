@@ -65,6 +65,9 @@ public:
 	virtual QString saveDirectory() const;
 	virtual void setSaveDirectory(const QString &path);
 
+	virtual QString lastSaveDirectory() const;
+	virtual void setLastSaveDirectory(const QString &path);
+
 	virtual QString saveFilename() const;
 	virtual void setSaveFilename(const QString &filename);
 

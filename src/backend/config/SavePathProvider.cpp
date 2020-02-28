@@ -46,6 +46,13 @@ QString SavePathProvider::getFormat(const QString &format) const
 
 QString SavePathProvider::saveDirectory() const
 {
-    return PathHelper::replaceWildcards(mConfig->saveDirectory());
+	auto path = mConfig->saveDirectory();
+	if (path.isEmpty()) {
+		auto lastPath = mConfig->lastSaveDirectory();
+		if (!lastPath.isEmpty()) {
+			path = lastPath;
+		}
+	}
+    return PathHelper::replaceWildcards(path);
 }
 

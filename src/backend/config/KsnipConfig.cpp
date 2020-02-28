@@ -144,6 +144,24 @@ void KsnipConfig::setSaveDirectory(const QString& path)
 	saveValue(KsnipConfigOptions::saveDirectoryString(), path);
 }
 
+QString KsnipConfig::lastSaveDirectory() const
+{
+	auto lastSaveDirectoryString = loadValue(KsnipConfigOptions::lastSaveDirectoryString(), QDir::homePath()).toString();
+	if (!lastSaveDirectoryString.isEmpty()) {
+		return lastSaveDirectoryString + QStringLiteral("/");
+    } else {
+		return {};
+    }
+}
+
+void KsnipConfig::setLastSaveDirectory(const QString& path)
+{
+    if (lastSaveDirectory() == path) {
+        return;
+    }
+	saveValue(KsnipConfigOptions::lastSaveDirectoryString(), path);
+}
+
 QString KsnipConfig::saveFilename() const
 {
 	auto defaultFilename = QStringLiteral("ksnip_$Y$M$D-$T");

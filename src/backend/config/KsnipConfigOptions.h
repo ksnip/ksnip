@@ -34,6 +34,7 @@ public:
 	static QString positionString();
 	static QString captureModeString();
 	static QString saveDirectoryString();
+	static QString lastSaveDirectoryString();
 	static QString saveFilenameString();
 	static QString saveFormatString();
 	static QString useInstantSaveString();

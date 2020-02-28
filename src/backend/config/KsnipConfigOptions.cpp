@@ -64,6 +64,11 @@ QString KsnipConfigOptions::saveDirectoryString()
 	return applicationSectionString() + QStringLiteral("SaveDirectory");
 }
 
+QString KsnipConfigOptions::lastSaveDirectoryString()
+{
+	return applicationSectionString() + QStringLiteral("LastSaveDirectory");
+}
+
 QString KsnipConfigOptions::saveFilenameString()
 {
 	return applicationSectionString() + QStringLiteral("SaveFilename");

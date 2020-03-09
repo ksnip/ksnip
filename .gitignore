@@ -72,3 +72,16 @@ perf.data*
 
 # other
 .directory
+
+# snap
+/parts/
+/stage/
+/prime/
+/*.snap
+
+# Snapcraft global state tracking data(automatically generated)
+# https://forum.snapcraft.io/t/location-to-save-global-state/768
+/snap/.snapcraft/
+
+# Source archive packed by `snapcraft cleanbuild` before pushing to the LXD container
+/*_source.tar.bz2

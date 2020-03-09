@@ -1,7 +1,7 @@
 name: ksnip
 base: core18 # the base snap is the execution environment for this snap
 adopt-info: ksnip
-version: "0.1"
+icon: desktop/ksnip.svg
 grade: stable
 confinement: strict
 
@@ -32,6 +32,7 @@ parts:
     override-pull: |
       snapcraftctl pull
       sed -i 's|Icon=.*|Icon=share/pixmaps/ksnip.svg|g' desktop/ksnip.desktop
+      snapcraftctl set-version $(cat CMakeLists.txt | grep project\(ksnip | cut -d" " -f5 | cut -d")" -f1)
   kimageannotator:
     source: https://github.com/ksnip/kImageAnnotator.git
     plugin: cmake

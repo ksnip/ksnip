@@ -147,7 +147,7 @@ de simábbá teszi.</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation>A nem mentett módosítások elvetése előtt rákérdezés a mentésre</translation>
+        <translation>A mentettlen módosítások elvetése előtt kérdezzen rá a mentésre</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
@@ -183,7 +183,7 @@ A módosításhoz érvényesítéséhez a program újraindítása szükséges.</
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation>A mentési hely és fájl nevének rögzítése</translation>
+        <translation>Mentés helye és fájlneve</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
@@ -217,7 +217,7 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation>Bezárás a tálcára</translation>
+        <translation>Bezáráskor lehelyezés a tálcára</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
@@ -228,7 +228,7 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation>Szerzőről:</translation>
+        <translation>A szerzőről:</translation>
     </message>
     <message>
         <source>Contributors:</source>
@@ -515,7 +515,7 @@ a rögzítés területe felett.
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>Képfogó</translation>
+        <translation>Képlopás</translation>
     </message>
 </context>
 <context>
@@ -549,7 +549,7 @@ a rögzítés területe felett.
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation>Mindig másolja az Imgur linkrt a vágólapra</translation>
+        <translation>Mindig másolja az Imgur linket a vágólapra</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
@@ -788,7 +788,7 @@ másodpercben megadva.</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation>Mentvés ide</translation>
+        <translation>Mentés helye</translation>
     </message>
     <message>
         <source>Failed to save image to</source>

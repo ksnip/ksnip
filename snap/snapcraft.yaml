@@ -1,9 +1,13 @@
 name: ksnip
-base: core18 # the base snap is the execution environment for this snap
+base: core18
 adopt-info: ksnip
 icon: desktop/ksnip.svg
 grade: stable
 confinement: strict
+summary: Screenshot and Annotation Tool
+description: |
+  Qt based cross-platform screenshot tool that provides many annotation features for your screenshots.
+
 
 apps:
   ksnip:
@@ -45,4 +49,3 @@ parts:
     plugin: cmake
     configflags:
       - -DCMAKE_FIND_ROOT_PATH=/snap/kde-frameworks-5-core18-sdk/current
-

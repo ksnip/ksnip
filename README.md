@@ -67,6 +67,9 @@ Just install them via dpkg and start using.
 `$ sudo dpkg -i ksnip*.deb`  
 `$ ksnip`  
 
+### Snap (Linux)
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/ksnip)
+
 ### EXE (Windows)
 The exe file with all required dependencies comes in a zipped package, which just need to be unzipped 
 with your favorite zip tool. Ksnip can then be started by just double clicking ksnip.exe.

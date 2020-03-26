@@ -68,6 +68,15 @@ Just install them via dpkg and start using.
 `$ ksnip`  
 
 ### Snap (Linux)
+The usual installation for snaps, will install latest version:  
+`$ sudo snap install ksnip`  
+
+The continuous build version is also available as edge, in order to install it you need to provide the edge flag:  
+`$ sudo snap install ksnip --edge`  
+
+One additional step is currently required for snaps, the slot must be connected to the kde framework:  
+`$ snap connect ksnip:kde-frameworks-5-plug kde-frameworks-5-core18:kde-frameworks-5-core18-slot`  
+
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/ksnip)
 
 ### EXE (Windows)

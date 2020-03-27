@@ -19,7 +19,7 @@
 
 #include "IconLoader.h"
 
-QIcon IconLoader::load(QString name)
+QIcon IconLoader::load(const QString& name)
 {
     auto type = getThemePrefix();
     return QIcon(QStringLiteral(":/icons/") + type + name);

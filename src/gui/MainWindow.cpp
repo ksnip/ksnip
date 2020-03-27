@@ -34,6 +34,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mOpenImageAction(new QAction(this)),
 		mScaleAction(new QAction(this)),
 		mAddWatermarkAction(new QAction(this)),
+		mPasteAction(new QAction(this)),
 		mClipboard(QApplication::clipboard()),
 		mConfig(KsnipConfigProvider::instance()),
 		mCapturePrinter(new CapturePrinter),
@@ -371,6 +372,14 @@ void MainWindow::initGui()
     mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
     connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::loadImageFromFile);
 
+	mPasteAction->setText(tr("Paste"));
+	mPasteAction->setIcon(IconLoader::load(QStringLiteral("paste")));
+	mPasteAction->setShortcut(Qt::CTRL + Qt::Key_P);
+	connect(mPasteAction, &QAction::triggered, this, &MainWindow::pasteImageFromClipboard);
+	connect(mClipboard, &QClipboard::changed, [this] (){
+		mPasteAction->setEnabled(!mClipboard->pixmap().isNull());
+	});
+
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
     menu->addAction(mOpenImageAction);
@@ -386,6 +395,7 @@ void MainWindow::initGui()
     menu->addAction(mToolBar->redoAction());
     menu->addSeparator();
     menu->addAction(mToolBar->copyToClipboardAction());
+    menu->addAction(mPasteAction);
     menu->addAction(mToolBar->cropAction());
     menu->addAction(mScaleAction);
     menu->addAction(mAddWatermarkAction);
@@ -472,7 +482,7 @@ void MainWindow::loadImageFromFile()
 	auto pixmap = QPixmap(pixmapFilename);
 
 	if(!pixmap.isNull()) {
-		setHidden(true);
+		setHidden(false);
 		CaptureDto captureDto(pixmap);
 		showCapture(captureDto);
 	}
@@ -534,4 +544,19 @@ void MainWindow::showScaleDialog()
 	showDialog([&](){
 		mKImageAnnotator->showScaler();
 	});
+}
+
+void MainWindow::pasteImageFromClipboard()
+{
+	if (!discardChanges()) {
+		return;
+	}
+
+	auto pixmap = mClipboard->pixmap();
+
+	if(!pixmap.isNull()) {
+		setHidden(false);
+		CaptureDto captureDto(pixmap);
+		showCapture(captureDto);
+	}
 }

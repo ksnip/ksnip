@@ -1,6 +1,8 @@
 # Change log
 
 ## Release 1.7.0
+* New: Provide ksnip snap. ([#147](https://github.com/ksnip/ksnip/issues/147))
+* New: Pasting image from clipboard. ([#275](https://github.com/ksnip/ksnip/issues/275))
 
 ## Release 1.6.1
 * Change: Allow opening link directly to image without opening in browser. ([#248](https://github.com/ksnip/kImageAnnotator/issues/248))

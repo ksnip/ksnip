@@ -85,6 +85,7 @@ private:
     QAction *mOpenImageAction;
     QAction *mScaleAction;
     QAction *mAddWatermarkAction;
+    QAction *mPasteAction;
     MainToolBar *mToolBar;
     QClipboard *mClipboard;
     KsnipConfig *mConfig;
@@ -115,6 +116,7 @@ private slots:
     void printPreviewClicked();
     void instantSave();
     void loadImageFromFile();
+    void pasteImageFromClipboard();
     void screenshotChanged();
     bool discardChanges();
     void setupImageAnnotator();

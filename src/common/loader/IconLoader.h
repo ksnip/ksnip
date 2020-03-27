@@ -27,7 +27,7 @@
 class IconLoader
 {
 public:
-	static QIcon load(QString name);
+	static QIcon load(const QString& name);
 
 private:
 	IconLoader() = default;

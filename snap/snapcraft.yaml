@@ -13,6 +13,14 @@ apps:
   ksnip:
     command: ksnip
     common-id: ksnip
+    environment:
+      # Correct the TMPDIR path for Chromium Framework/Electron to
+      # ensure libappindicator has readable resources
+      TMPDIR: $XDG_RUNTIME_DIR
+      # Coerce XDG_CURRENT_DESKTOP to Unity so that App Indicators
+      # are used and do not fall back to Notification Area applets
+      # or disappear completely.
+      XDG_CURRENT_DESKTOP: Unity:Unity7
     desktop: share/applications/ksnip.desktop
     extensions: [kde-neon]
     plugs:
@@ -50,3 +58,11 @@ parts:
     plugin: cmake
     configflags:
       - -DCMAKE_FIND_ROOT_PATH=/snap/kde-frameworks-5-core18-sdk/current
+  cleanup:
+    after: [kcolorpicker, kimageannotator, ksnip]
+    plugin: nil
+    build-snaps: [ kde-frameworks-5-core18 ]
+    override-prime: |
+        set -eux
+        cd /snap/kde-frameworks-5-core18/current
+        find . -type f,l -exec rm -f $SNAPCRAFT_PRIME/{} \;

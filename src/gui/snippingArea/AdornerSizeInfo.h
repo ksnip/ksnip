@@ -21,6 +21,7 @@
 #define KSNIP_ADORNERSIZEINFO_H
 
 #include <QPainter>
+#include <QPainterPath>
 
 class AdornerSizeInfo
 {

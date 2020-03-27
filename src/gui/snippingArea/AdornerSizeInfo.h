@@ -21,10 +21,7 @@
 #define KSNIP_ADORNERSIZEINFO_H
 
 #include <QPainter>
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
 #include <QPainterPath>
-#endif
 
 class AdornerSizeInfo
 {

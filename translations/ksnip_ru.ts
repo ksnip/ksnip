@@ -506,7 +506,14 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если включено - замораживает фон при выборе
+прямоугольной области. Также меняет поведение
+отложенных снимков экрана: при включенной
+опции задержка происходит до того, как будет
+показана область снимка, а при отключенной 
+опции задержка произойдет после того, как будет
+показана область отсечения. Эта функция всегда 
+отключена для Wayland и всегда включена для MacOS.</translation>
     </message>
 </context>
 <context>

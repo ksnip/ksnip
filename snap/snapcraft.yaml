@@ -18,6 +18,7 @@ apps:
     plugs:
       - home
       - removable-media
+      - unity7
 
 parts:
   ksnip:

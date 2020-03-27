@@ -25,26 +25,26 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Поддержать</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">— инструмент для создания скриншотов</translation>
+        <translation>Программа для скриншотов</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Лицензия: </translation>
+        <translation>Лицензия: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Пожалуйста, используйте </translation>
+        <translation>Пожалуйста, используйте </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> для отчета об ошибках.</translation>
+        <translation> для отчета об ошибках.</translation>
     </message>
 </context>
 <context>
@@ -223,42 +223,42 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
-        <translation type="unfinished"></translation>
+        <translation>Запускать свёрнутым в трей.</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished">Разработчик:</translation>
+        <translation>Разработчик:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Благодарность:</translation>
+        <translation>Соавторы:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">перевод на испанский</translation>
+        <translation>перевод на испанский</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">перевод на нидерландский</translation>
+        <translation>перевод на нидерландский</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">перевод на русский</translation>
+        <translation>перевод на русский</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">перевод на норвежский букмол</translation>
+        <translation>перевод на норвежский букмол</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">перевод на французский</translation>
+        <translation>перевод на французский</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">перевод на польский</translation>
+        <translation>перевод на польский</translation>
     </message>
 </context>
 <context>
@@ -348,27 +348,27 @@ Do you want to save it?</source>
     <name>DonateTab</name>
     <message>
         <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Поддержать пивом?</translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Конечно, вы можете это сделать</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>здесь</translation>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Стать спонсором</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>Тоже возможно,</translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожертвования всегда приветствуются</translation>
     </message>
 </context>
 <context>
@@ -604,7 +604,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Прямая ссылка на изображение</translation>
     </message>
 </context>
 <context>
@@ -858,15 +858,15 @@ and capturing screenshot.</source>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Версия</translation>
+        <translation>Версия</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">Сборка</translation>
+        <translation>Сборка</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished">Программа использует:</translation>
+        <translation>Программа использует:</translation>
     </message>
 </context>
 </TS>

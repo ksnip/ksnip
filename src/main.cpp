@@ -22,7 +22,7 @@
 #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 #endif
 
-#include <QGuiApplication>
+#include <QApplication>
 
 #include "BuildConfig.h"
 #include "src/gui/MainWindow.h"
@@ -36,11 +36,10 @@ int main(int argc, char** argv)
     QApplication app(argc, argv);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
 
-	QGuiApplication::setOrganizationName(QStringLiteral("ksnip"));
-	QGuiApplication::setOrganizationDomain(QStringLiteral("ksnip.org"));
-	QGuiApplication::setApplicationName(QStringLiteral("ksnip"));
-	QGuiApplication::setApplicationVersion(QStringLiteral(KSNIP_VERSION));
-	QGuiApplication::setDesktopFileName(QStringLiteral("ksnip.desktop"));
+	app.setOrganizationName(QStringLiteral("ksnip"));
+	app.setOrganizationDomain(QStringLiteral("ksnip.org"));
+	app.setApplicationName(QStringLiteral("ksnip"));
+	app.setApplicationVersion(QStringLiteral(KSNIP_VERSION));
 
     app.setStyle(KsnipConfigProvider::instance()->applicationStyle());
 

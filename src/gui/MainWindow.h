@@ -23,8 +23,6 @@
 
 #include <QtWidgets>
 
-#include <functional>
-
 #include <kImageAnnotator/KImageAnnotator.h>
 
 #include "gui/aboutDialog/AboutDialog.h"
@@ -44,6 +42,7 @@
 #include "src/gui/operations/HandleUploadResponseOperation.h"
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
 #include "src/gui/TrayIcon.h"
+#include "src/widgets/ClipboardWrapper.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -87,7 +86,7 @@ private:
     QAction *mAddWatermarkAction;
     QAction *mPasteAction;
     MainToolBar *mToolBar;
-    QClipboard *mClipboard;
+	ClipboardWrapper *mClipboard;
     KsnipConfig *mConfig;
     CapturePrinter *mCapturePrinter;
     CaptureUploader *mCaptureUploader;

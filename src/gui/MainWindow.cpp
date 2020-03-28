@@ -35,7 +35,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mScaleAction(new QAction(this)),
 		mAddWatermarkAction(new QAction(this)),
 		mPasteAction(new QAction(this)),
-		mClipboard(QApplication::clipboard()),
+		mClipboard(new ClipboardWrapper(QApplication::clipboard())),
 		mConfig(KsnipConfigProvider::instance()),
 		mCapturePrinter(new CapturePrinter),
 		mCaptureUploader(new CaptureUploader()),
@@ -115,6 +115,7 @@ MainWindow::~MainWindow()
     delete mCapturePrinter;
     delete mCaptureUploader;
     delete mTrayIcon;
+    delete mClipboard;
 }
 
 void MainWindow::processInstantCapture(const CaptureDto &capture)
@@ -374,11 +375,10 @@ void MainWindow::initGui()
 
 	mPasteAction->setText(tr("Paste"));
 	mPasteAction->setIcon(IconLoader::load(QStringLiteral("paste")));
-	mPasteAction->setShortcut(Qt::CTRL + Qt::Key_P);
+	mPasteAction->setShortcut(Qt::CTRL + Qt::Key_V);
+	mPasteAction->setEnabled(mClipboard->isPixmap());
 	connect(mPasteAction, &QAction::triggered, this, &MainWindow::pasteImageFromClipboard);
-	connect(mClipboard, &QClipboard::changed, [this] (){
-		mPasteAction->setEnabled(!mClipboard->pixmap().isNull());
-	});
+	connect(mClipboard, &ClipboardWrapper::changed, mPasteAction, &QAction::setEnabled);
 
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());

@@ -42,7 +42,7 @@
 #include "src/gui/operations/HandleUploadResponseOperation.h"
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
 #include "src/gui/TrayIcon.h"
-#include "src/widgets/ClipboardWrapper.h"
+#include "ClipboardWrapper.h"
 
 using kImageAnnotator::KImageAnnotator;
 

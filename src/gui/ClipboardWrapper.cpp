@@ -23,9 +23,7 @@ ClipboardWrapper::ClipboardWrapper(QClipboard *clipboard)
 {
 	mClipboard = clipboard;
 
-	connect(mClipboard, &QClipboard::changed, [this](){
-		emit changed(isPixmap());
-	});
+	connect(mClipboard, &QClipboard::changed, this, &ClipboardWrapper::selectionChanged);
 }
 
 QPixmap ClipboardWrapper::pixmap() const
@@ -51,4 +49,11 @@ bool ClipboardWrapper::isPixmap() const
 void ClipboardWrapper::setImage(const QImage &image)
 {
 	mClipboard->setImage(image);
+}
+
+void ClipboardWrapper::selectionChanged(QClipboard::Mode mode) const
+{
+	if(mode == QClipboard::Mode::Clipboard) {
+		emit changed(isPixmap());
+	}
 }

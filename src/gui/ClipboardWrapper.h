@@ -40,6 +40,9 @@ private:
 	QClipboard *mClipboard;
 
 	QString url() const;
+
+private slots:
+	void selectionChanged(QClipboard::Mode mode) const;
 };
 
 #endif //KSNIP_CLIPBOARDWRAPPER_H

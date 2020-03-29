@@ -47,7 +47,6 @@ private:
 	QCheckBox *mSaveKsnipPositionCheckbox;
 	QCheckBox *mSaveKsnipToolSelectionCheckbox;
 	QCheckBox *mCaptureOnStartupCheckbox;
-	QCheckBox *mUseInstantSaveCheckBox;
 	QCheckBox *mUseTrayIconCheckBox;
 	QCheckBox *mMinimizeToTrayCheckBox;
 	QCheckBox *mCloseToTrayCheckBox;

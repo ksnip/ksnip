@@ -78,6 +78,7 @@ private:
     bool mHidden;
     Qt::WindowState mSelectedWindowState;
     bool mWindowStateChangeLock;
+    QAction *mSaveAsAction;
     QAction *mUploadToImgurAction;
     QAction *mPrintAction;
     QAction *mPrintPreviewAction;
@@ -111,7 +112,7 @@ private:
 	void showDialog(const std::function<void ()>& showDialogMethod);
 
 private slots:
-    void saveCapture();
+    void saveCapture(bool saveInstant);
     void copyCaptureToClipboard();
     void upload();
     void uploadFinished(const QString &response);
@@ -131,6 +132,9 @@ private slots:
 	void setPosition(const QPoint &lastPosition);
 	void handleGuiStartup();
 	void updatePathToImageSource(const CaptureDto &capture);
+	void saveClicked();
+	void saveAsClicked();
+	void setupApplicationName(bool isUnsaved);
 };
 
 #endif // KSNIP_MAINWINDOW_H

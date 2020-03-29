@@ -71,9 +71,6 @@ public:
 	virtual QString saveFormat() const;
 	virtual void setSaveFormat(const QString &format);
 
-	virtual bool useInstantSave() const;
-	virtual void setUseInstantSave(bool enabled);
-
 	virtual QString applicationStyle() const;
 	virtual void setApplicationStyle(QString style);
 

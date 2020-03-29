@@ -36,7 +36,6 @@ ApplicationSettings::~ApplicationSettings()
 	delete mSaveKsnipPositionCheckbox;
 	delete mSaveKsnipToolSelectionCheckbox;
 	delete mCaptureOnStartupCheckbox;
-	delete mUseInstantSaveCheckBox;
 	delete mUseTrayIconCheckBox;
 	delete mMinimizeToTrayCheckBox;
 	delete mCloseToTrayCheckBox;
@@ -56,7 +55,6 @@ void ApplicationSettings::initGui()
 	mSaveKsnipPositionCheckbox = new QCheckBox(this);
 	mSaveKsnipToolSelectionCheckbox = new QCheckBox(this);
 	mCaptureOnStartupCheckbox = new QCheckBox(this);
-	mUseInstantSaveCheckBox = new QCheckBox(this);
 	mUseTrayIconCheckBox = new QCheckBox(this);
 	mMinimizeToTrayCheckBox = new QCheckBox(this);
 	mCloseToTrayCheckBox = new QCheckBox(this);
@@ -73,9 +71,6 @@ void ApplicationSettings::initGui()
 	mSaveKsnipPositionCheckbox->setText(tr("Save ksnip position on move and load on startup"));
 	mSaveKsnipToolSelectionCheckbox->setText(tr("Save ksnip tool selection and load on startup"));
 	mCaptureOnStartupCheckbox->setText(tr("Capture screenshot at startup with default mode"));
-	mUseInstantSaveCheckBox->setText(tr("Instant save to default location without 'Save as' dialog"));
-	mUseInstantSaveCheckBox->setToolTip(tr("When enabled, will not ask where to save a screenshot\n"
-	                                       "when saving, but will save instantly to default location."));
 	mUseTrayIconCheckBox->setText(tr("Use Tray Icon"));
 	mUseTrayIconCheckBox->setToolTip(tr("When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.\n"
 									       "Change requires restart."));
@@ -106,18 +101,17 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mSaveKsnipPositionCheckbox, 2, 0, 1, 4);
 	mLayout->addWidget(mSaveKsnipToolSelectionCheckbox, 3, 0, 1, 4);
 	mLayout->addWidget(mCaptureOnStartupCheckbox, 4, 0, 1, 4);
-	mLayout->addWidget(mUseInstantSaveCheckBox, 5, 0, 1, 4);
-	mLayout->addWidget(mUseTrayIconCheckBox, 6, 0, 1, 4);
-	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 7, 1, 1, 3);
-	mLayout->addWidget(mMinimizeToTrayCheckBox, 8, 1, 1, 3);
-	mLayout->addWidget(mCloseToTrayCheckBox, 9, 1, 1, 3);
-	mLayout->setRowMinimumHeight(10, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 11, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 11, 2, Qt::AlignLeft);
-	mLayout->setRowMinimumHeight(12, 15);
-	mLayout->addWidget(mSaveLocationLabel, 13, 0, 1, 4);
-	mLayout->addWidget(mSaveLocationLineEdit, 14, 0, 1, 4);
-	mLayout->addWidget(mBrowseButton, 14, 4);
+	mLayout->addWidget(mUseTrayIconCheckBox, 5, 0, 1, 4);
+	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 6, 1, 1, 3);
+	mLayout->addWidget(mMinimizeToTrayCheckBox, 7, 1, 1, 3);
+	mLayout->addWidget(mCloseToTrayCheckBox, 8, 1, 1, 3);
+	mLayout->setRowMinimumHeight(9, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 10, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 10, 2, Qt::AlignLeft);
+	mLayout->setRowMinimumHeight(11, 15);
+	mLayout->addWidget(mSaveLocationLabel, 12, 0, 1, 4);
+	mLayout->addWidget(mSaveLocationLineEdit, 13, 0, 1, 4);
+	mLayout->addWidget(mBrowseButton, 13, 4);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -130,7 +124,6 @@ void ApplicationSettings::loadConfig()
 	mSaveKsnipPositionCheckbox->setChecked(mConfig->savePosition());
 	mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveToolSelection());
 	mCaptureOnStartupCheckbox->setChecked(mConfig->captureOnStartup());
-	mUseInstantSaveCheckBox->setChecked(mConfig->useInstantSave());
 	mUseTrayIconCheckBox->setChecked(mConfig->useTrayIcon());
 	mMinimizeToTrayCheckBox->setChecked(mConfig->minimizeToTray());
 	mStartMinimizedToTrayCheckBox->setChecked(mConfig->startMinimizedToTray());
@@ -150,7 +143,6 @@ void ApplicationSettings::saveSettings()
 	mConfig->setSavePosition(mSaveKsnipPositionCheckbox->isChecked());
 	mConfig->setSaveToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
 	mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
-	mConfig->setUseInstantSave(mUseInstantSaveCheckBox->isChecked());
 	mConfig->setUseTrayIcon(mUseTrayIconCheckBox->isChecked());
 	mConfig->setMinimizeToTray(mMinimizeToTrayCheckBox->isChecked());
 	mConfig->setStartMinimizedToTray(mStartMinimizedToTrayCheckBox->isChecked());

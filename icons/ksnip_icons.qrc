@@ -8,6 +8,7 @@
     <file>light/clock.svg</file>
     <file>light/crop.svg</file>
     <file>light/save.svg</file>
+    <file>light/saveAs.svg</file>
     <file>light/copy.svg</file>
     <file>light/paste.svg</file>
     <file>light/undo.svg</file>
@@ -25,6 +26,7 @@
     <file>dark/clock.svg</file>
     <file>dark/crop.svg</file>
     <file>dark/save.svg</file>
+    <file>dark/saveAs.svg</file>
     <file>dark/copy.svg</file>
     <file>dark/paste.svg</file>
     <file>dark/undo.svg</file>

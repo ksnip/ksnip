@@ -46,7 +46,7 @@ bool CanDiscardOperation::execute()
 
 bool CanDiscardOperation::saveImage() const
 {
-	SaveOperation operation(mParent, mImage, mConfig->useInstantSave(), mPathToImageSource, mTrayIcon);
+	SaveOperation operation(mParent, mImage, true, mPathToImageSource, mTrayIcon);
 	return operation.execute();
 }
 

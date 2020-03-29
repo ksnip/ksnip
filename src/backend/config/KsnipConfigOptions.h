@@ -36,7 +36,6 @@ public:
 	static QString saveDirectoryString();
 	static QString saveFilenameString();
 	static QString saveFormatString();
-	static QString useInstantSaveString();
 	static QString applicationStyleString();
 	static QString useTrayIconString();
 	static QString minimizeToTrayString();

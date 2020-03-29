@@ -177,19 +177,6 @@ void KsnipConfig::setSaveFormat(const QString& format)
 	saveValue(KsnipConfigOptions::saveFormatString(), format);
 }
 
-bool KsnipConfig::useInstantSave() const
-{
-	return loadValue(KsnipConfigOptions::useInstantSaveString(), false).toBool();
-}
-
-void KsnipConfig::setUseInstantSave(const bool enabled)
-{
-    if (useInstantSave() == enabled) {
-        return;
-    }
-	saveValue(KsnipConfigOptions::useInstantSaveString(), enabled);
-}
-
 QString KsnipConfig::applicationStyle() const
 {
 	auto defaultStyle = QStringLiteral("Fusion");

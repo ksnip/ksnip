@@ -25,6 +25,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mImageGrabber(imageGrabber),
 		mMode(mode),
 		mKImageAnnotator(new KImageAnnotator),
+		mSaveAsAction(new QAction(this)),
 		mUploadToImgurAction(new QAction(this)),
 		mPrintAction(new QAction(this)),
 		mPrintPreviewAction(new QAction(this)),
@@ -112,6 +113,7 @@ MainWindow::~MainWindow()
     delete mOpenImageAction;
     delete mScaleAction;
     delete mAddWatermarkAction;
+    delete mSaveAsAction;
     delete mCapturePrinter;
     delete mCaptureUploader;
     delete mTrayIcon;
@@ -261,13 +263,18 @@ void MainWindow::changeEvent(QEvent *event)
 
 void MainWindow::setSaveable(bool enabled)
 {
-    if (enabled) {
-        setWindowTitle(QStringLiteral("*") + QApplication::applicationName() + " - " + tr("Unsaved"));
-    } else {
-        setWindowTitle(QApplication::applicationName());
-    }
-    mIsUnsaved = enabled;
+	setupApplicationName(enabled);
+	mIsUnsaved = enabled;
     mToolBar->setSaveActionEnabled(enabled);
+}
+
+void MainWindow::setupApplicationName(bool isUnsaved)
+{
+	if (isUnsaved) {
+	    setWindowTitle(QStringLiteral("*") + QApplication::applicationName() + " - " + tr("Unsaved"));
+	} else {
+	    setWindowTitle(QApplication::applicationName());
+	}
 }
 
 void MainWindow::setEnablements(bool enabled)
@@ -279,6 +286,7 @@ void MainWindow::setEnablements(bool enabled)
 	mAddWatermarkAction->setEnabled(enabled);
     mToolBar->setCopyActionEnabled(enabled);
     mToolBar->setCropEnabled(enabled);
+	mSaveAsAction->setEnabled(enabled);
 }
 
 void MainWindow::loadSettings()
@@ -330,10 +338,15 @@ void MainWindow::initGui()
     mToolBar = new MainToolBar(mImageGrabber->supportedCaptureModes(), mKImageAnnotator->undoAction(), mKImageAnnotator->redoAction());
 
     connect(mToolBar, &MainToolBar::captureModeSelected, this, &MainWindow::triggerNewCapture);
-    connect(mToolBar, &MainToolBar::saveActionTriggered, this, &MainWindow::saveCapture);
+    connect(mToolBar, &MainToolBar::saveActionTriggered, this, &MainWindow::saveClicked);
     connect(mToolBar, &MainToolBar::copyActionTriggered, this, &MainWindow::copyCaptureToClipboard);
     connect(mToolBar, &MainToolBar::captureDelayChanged, this, &MainWindow::captureDelayChanged);
     connect(mToolBar, &MainToolBar::cropActionTriggered, mKImageAnnotator, &KImageAnnotator::showCropper);
+
+	mSaveAsAction->setText(tr("Save As..."));
+	mSaveAsAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_S);
+	mSaveAsAction->setIcon(IconLoader::load(QStringLiteral("saveAs")));
+	connect(mSaveAsAction, &QAction::triggered, this, &MainWindow::saveAsClicked);
 
     mUploadToImgurAction->setText(tr("Upload"));
     mUploadToImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
@@ -391,6 +404,7 @@ void MainWindow::initGui()
     menu->addAction(mToolBar->newCaptureAction());
     menu->addAction(mOpenImageAction);
     menu->addAction(mToolBar->saveAction());
+    menu->addAction(mSaveAsAction);
     menu->addAction(mUploadToImgurAction);
     menu->addSeparator();
     menu->addAction(mPrintAction);
@@ -427,10 +441,10 @@ void MainWindow::initGui()
 	setCentralWidget(mKImageAnnotator);
 }
 
-void MainWindow::saveCapture()
+void MainWindow::saveCapture(bool saveInstant)
 {
 	auto image = mKImageAnnotator->image();
-	SaveOperation operation(this, image, mConfig->useInstantSave(), mPathToImageSource, mTrayIcon);
+	SaveOperation operation(this, image, saveInstant, mPathToImageSource, mTrayIcon);
 	bool successful = operation.execute();
 
     setSaveable(!successful);
@@ -571,4 +585,14 @@ void MainWindow::pasteImageFromClipboard()
 			showCapture(captureDto);
 		}
 	}
+}
+
+void MainWindow::saveClicked()
+{
+	saveCapture(true);
+}
+
+void MainWindow::saveAsClicked()
+{
+	saveCapture(false);
 }

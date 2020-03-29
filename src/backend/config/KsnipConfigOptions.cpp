@@ -74,11 +74,6 @@ QString KsnipConfigOptions::saveFormatString()
 	return applicationSectionString() + QStringLiteral("SaveFormat");
 }
 
-QString KsnipConfigOptions::useInstantSaveString()
-{
-	return applicationSectionString() + QStringLiteral("UseInstantSave");
-}
-
 QString KsnipConfigOptions::applicationStyleString()
 {
 	return applicationSectionString() + QStringLiteral("ApplicationStyle");

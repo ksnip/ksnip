@@ -23,6 +23,8 @@
 #include <QClipboard>
 #include <QPixmap>
 
+#include "src/common/dtos/CaptureFromFileDto.h"
+
 class ClipboardWrapper : public QObject
 {
 	Q_OBJECT
@@ -32,14 +34,13 @@ public:
 	QPixmap pixmap() const;
 	bool isPixmap() const;
 	void setImage(const QImage &image);
+	QString url() const;
 
 signals:
 	void changed(bool isPixmap) const;
 
 private:
 	QClipboard *mClipboard;
-
-	QString url() const;
 
 private slots:
 	void selectionChanged(QClipboard::Mode mode) const;

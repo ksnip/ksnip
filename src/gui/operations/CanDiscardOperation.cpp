@@ -19,11 +19,12 @@
 
 #include "CanDiscardOperation.h"
 
-CanDiscardOperation::CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, TrayIcon *trayIcon)
+CanDiscardOperation::CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, const QString &pathToImageSource, TrayIcon *trayIcon)
 {
 	mParent = parent;
 	mImage = image;
 	mIsUnsaved = isUnsaved;
+	mPathToImageSource = pathToImageSource;
 	mConfig = KsnipConfigProvider::instance();
 	mTrayIcon = trayIcon;
 }
@@ -45,7 +46,7 @@ bool CanDiscardOperation::execute()
 
 bool CanDiscardOperation::saveImage() const
 {
-	SaveOperation operation(mParent, mImage, mConfig->useInstantSave(), mTrayIcon);
+	SaveOperation operation(mParent, mImage, mConfig->useInstantSave(), mPathToImageSource, mTrayIcon);
 	return operation.execute();
 }
 

@@ -25,7 +25,7 @@
 #include <QTimer>
 #include <QScreen>
 
-#include "CaptureDto.h"
+#include "common/dtos/CaptureDto.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/handler/DelayHandler.h"
 #include "src/gui/snippingArea/AbstractSnippingArea.h"

@@ -29,9 +29,14 @@ SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstan
     mTrayIcon = trayIcon;
 }
 
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, TrayIcon *trayIcon) : SaveOperation(parent, image, isInstantSave, trayIcon)
+{
+	mPathToImageSource = pathToImageSource;
+}
+
 bool SaveOperation::execute()
 {
-    auto path = mSavePathProvider.savePath();
+    auto path = getSavePath();
 
     if(!mIsInstantSave){
 	    auto title = tr("Save As");
@@ -47,6 +52,11 @@ bool SaveOperation::execute()
     }
 
 	return save(path);
+}
+
+QString SaveOperation::getSavePath() const
+{
+	return mPathToImageSource.isNull() ? mSavePathProvider.savePath() : mPathToImageSource;
 }
 
 bool SaveOperation::save(const QString &path)

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,20 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_MACWRAPPER_H
-#define KSNIP_MACWRAPPER_H
+#ifndef KSNIP_CAPTUREFROMFILEDTO_H
+#define KSNIP_CAPTUREFROMFILEDTO_H
 
-#include <QRect>
+#include "CaptureDto.h"
 
-#include "CoreGraphics/CGDirectDisplay.h"
-
-#include "common/dtos/CursorDto.h"
-
-class MacWrapper
+struct CaptureFromFileDto : CaptureDto
 {
-public:
-    QRect getFullScreenRect() const;
+	QString path;
+
+	explicit CaptureFromFileDto(const QPixmap &screenshot, const QString &path) : CaptureDto(screenshot){
+		this->path = path;
+	}
 };
 
-
-#endif //KSNIP_MACWRAPPER_H
+#endif //KSNIP_CAPTUREFROMFILEDTO_H

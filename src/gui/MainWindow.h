@@ -37,6 +37,7 @@
 #include "src/backend/CapturePrinter.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
+#include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/operations/AddWatermarkOperation.h"
 #include "src/gui/operations/CanDiscardOperation.h"
@@ -96,6 +97,7 @@ private:
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
     TrayIcon *mTrayIcon;
+    QString mPathToImageSource;
 
     void setSaveable(bool enabled);
     void setEnablements(bool enabled);
@@ -128,6 +130,7 @@ private slots:
     void showScaleDialog();
 	void setPosition(const QPoint &lastPosition);
 	void handleGuiStartup();
+	void updatePathToImageSource(const CaptureDto &capture);
 };
 
 #endif // KSNIP_MAINWINDOW_H

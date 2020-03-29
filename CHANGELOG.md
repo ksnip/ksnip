@@ -3,6 +3,7 @@
 ## Release 1.7.0
 * New: Provide ksnip snap. ([#147](https://github.com/ksnip/ksnip/issues/147))
 * New: Pasting image or path to image from clipboard. ([#275](https://github.com/ksnip/ksnip/issues/275))
+* New: Save to same file when editing existing image. ([#271](https://github.com/ksnip/ksnip/issues/271))
 * Fixed: Compilation error with Qt 5.15. ([#279](https://github.com/ksnip/ksnip/issues/279))
 
 ## Release 1.6.1

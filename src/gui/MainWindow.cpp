@@ -163,6 +163,7 @@ void MainWindow::showCapture(const CaptureDto &capture)
 	}
 
 	loadCapture(capture);
+	updatePathToImageSource(capture);
 
 	if (mConfig->alwaysCopyToClipboard()) {
 		copyCaptureToClipboard();
@@ -174,6 +175,12 @@ void MainWindow::showCapture(const CaptureDto &capture)
 
 	adjustSize();
 	MainWindow::show();
+}
+
+void MainWindow::updatePathToImageSource(const CaptureDto &capture)
+{
+	auto captureFromFileDto = dynamic_cast<const CaptureFromFileDto*>(&capture);
+	mPathToImageSource = captureFromFileDto != nullptr ? captureFromFileDto->path : QString();
 }
 
 void MainWindow::loadCapture(const CaptureDto &capture)
@@ -423,7 +430,7 @@ void MainWindow::initGui()
 void MainWindow::saveCapture()
 {
 	auto image = mKImageAnnotator->image();
-	SaveOperation operation(this, image, mConfig->useInstantSave(), mTrayIcon);
+	SaveOperation operation(this, image, mConfig->useInstantSave(), mPathToImageSource, mTrayIcon);
 	bool successful = operation.execute();
 
     setSaveable(!successful);
@@ -478,12 +485,12 @@ void MainWindow::loadImageFromFile()
 		return;
 	}
 
-    auto pixmapFilename = QFileDialog::getOpenFileName(this, tr("Open Image"), mSavePathProvider.saveDirectory(), tr("Image Files (*.png *.jpg *.bmp)"));
-	auto pixmap = QPixmap(pixmapFilename);
+    auto path = QFileDialog::getOpenFileName(this, tr("Open Image"), mSavePathProvider.saveDirectory(), tr("Image Files (*.png *.jpg *.bmp)"));
+	auto pixmap = QPixmap(path);
 
 	if(!pixmap.isNull()) {
 		setHidden(false);
-		CaptureDto captureDto(pixmap);
+		CaptureFromFileDto captureDto(pixmap, path);
 		showCapture(captureDto);
 	}
 }
@@ -491,7 +498,7 @@ void MainWindow::loadImageFromFile()
 bool MainWindow::discardChanges()
 {
 	auto image = mKImageAnnotator->image();
-	CanDiscardOperation operation(this, image, mIsUnsaved, mTrayIcon);
+	CanDiscardOperation operation(this, image, mIsUnsaved, mPathToImageSource, mTrayIcon);
 	return operation.execute();
 }
 
@@ -556,7 +563,12 @@ void MainWindow::pasteImageFromClipboard()
 
 	if(!pixmap.isNull()) {
 		setHidden(false);
-		CaptureDto captureDto(pixmap);
-		showCapture(captureDto);
+		if(mClipboard->url().isNull()) {
+			CaptureDto captureDto(pixmap);
+			showCapture(captureDto);
+		} else {
+			CaptureFromFileDto captureDto(pixmap, mClipboard->url());
+			showCapture(captureDto);
+		}
 	}
 }

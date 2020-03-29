@@ -31,7 +31,7 @@ struct CaptureDto
 		this->screenshot = screenshot.copy();
 	}
 
-	bool isValid() const {
+	virtual bool isValid() const {
 		return !screenshot.isNull();
 	}
 

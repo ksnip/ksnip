@@ -30,6 +30,7 @@
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/backend/TranslationLoader.h"
 #include "src/backend/KsnipCommandLine.h"
+#include "src/common/dtos/CaptureFromFileDto.h"
 
 int main(int argc, char** argv)
 {
@@ -74,8 +75,10 @@ int main(int argc, char** argv)
             return 1;
         }
 
-        window = new MainWindow(imageGrabber, RunMode::Edit);
-        window->showCapture(CaptureDto(pixmap));
+	    auto captureDto = CaptureFromFileDto(pixmap, pathToImage);
+
+	    window = new MainWindow(imageGrabber, RunMode::Edit);
+	    window->showCapture(captureDto);
         return app.exec();
     }
 

@@ -31,7 +31,7 @@ class CanDiscardOperation : public QObject
 {
 	Q_OBJECT
 public:
-	CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, TrayIcon *trayIcon);
+	CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, const QString &pathToImageSource, TrayIcon *trayIcon);
 	~CanDiscardOperation() override = default;
 	bool execute();
 
@@ -40,6 +40,7 @@ private:
 	bool mIsUnsaved;
 	QWidget *mParent;
 	QImage mImage;
+	QString mPathToImageSource;
 	TrayIcon *mTrayIcon;
 
 	MessageBoxResponse getSaveBeforeDiscard() const;

@@ -26,7 +26,7 @@
 #include <wtypes.h>
 #include <dwmapi.h>
 
-#include "CursorDto.h"
+#include "common/dtos/CursorDto.h"
 
 class WinWrapper
 {

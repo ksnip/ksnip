@@ -32,6 +32,7 @@ class SaveOperation : public QObject
 	Q_OBJECT
 public:
     SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, TrayIcon *trayIcon);
+	SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, TrayIcon *trayIcon);
     ~SaveOperation() override = default;
     bool execute();
 
@@ -40,10 +41,12 @@ private:
     QImage mImage;
     SavePathProvider mSavePathProvider;
     ImageSaver mImageSaver;
+    QString mPathToImageSource;
     bool mIsInstantSave;
     TrayIcon *mTrayIcon;
 	void notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const;
 	bool save(const QString &path);
+	QString getSavePath() const;
 };
 
 #endif //KSNIP_SAVEOPERATION_H

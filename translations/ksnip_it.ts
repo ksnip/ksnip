@@ -25,14 +25,14 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Contributo económico</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">Strumento per la cattura di schermate</translation>
+        <translation>Applicazione per la cattura di schermate</translation>
     </message>
     <message>
         <source>License: </source>
@@ -217,7 +217,7 @@ Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniziare minimizzato.</translation>
     </message>
 </context>
 <context>
@@ -259,43 +259,44 @@ Questa impostazione richiede il riavvio.</translation>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished"></translation>
+        <translation>Attenzione - </translation>
     </message>
     <message>
         <source>The capture has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>La cattura è stata modificata.
+Vuoi salvarla?</translation>
     </message>
 </context>
 <context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuovo</translation>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Area rettangolare</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Traccia un&apos;area rettangolare con il mouse</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Ultima area rettangolare usata</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
+        <translation>Cattura usando la ultima area rettangolare usata</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermo completo (tutti gli schermi)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation type="unfinished"></translation>
+        <translation>Cattura di tutti gli schermi collegati</translation>
     </message>
     <message>
         <source>Current Screen</source>

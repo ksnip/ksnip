@@ -23,6 +23,8 @@
 
 #include <QtWidgets>
 
+#include <functional>
+
 #include <kImageAnnotator/KImageAnnotator.h>
 
 #include "gui/aboutDialog/AboutDialog.h"

@@ -22,6 +22,7 @@
 
 MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		QMainWindow(),
+		mIsUnsaved(false),
 		mImageGrabber(imageGrabber),
 		mMode(mode),
 		mKImageAnnotator(new KImageAnnotator),

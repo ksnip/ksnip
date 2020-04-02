@@ -96,7 +96,7 @@ unsigned int KeySequenceToWinKeyCodeTranslator::getKey(const QString &keyString)
 		case Qt::Key_Pause:
 			return VK_PAUSE;
 		case Qt::Key_Print:
-			return VK_PRINT;
+			return VK_SNAPSHOT;
 		case Qt::Key_Home:
 			return VK_HOME;
 		case Qt::Key_End:

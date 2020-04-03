@@ -40,7 +40,6 @@ signals:
 private:
 	QCoreApplication *mApp;
 	NativeKeyEventFilter *mKeyEventFilter;
-    AbstractKeyHandler *mKeyHandler;
 };
 
 #endif //KSNIP_GLOBALHOTKEY_H

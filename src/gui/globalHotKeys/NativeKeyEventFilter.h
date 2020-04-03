@@ -30,7 +30,7 @@ class NativeKeyEventFilter: public QObject, public QAbstractNativeEventFilter
     Q_OBJECT
 public:
     explicit NativeKeyEventFilter(AbstractKeyHandler *keyHandler);
-    ~NativeKeyEventFilter() override = default;
+    ~NativeKeyEventFilter() override;
 
     bool nativeEventFilter(const QByteArray&, void* message, long*) override;
 

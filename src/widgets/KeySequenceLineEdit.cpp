@@ -23,26 +23,24 @@ KeySequenceLineEdit::KeySequenceLineEdit(QWidget *widget, const QList<Qt::Key> &
 {
 	mAllowedKeys = allowedKeys;
 
-	setupPrintKeyHandling();
+	setupSpecialKeyHandling();
 }
 
 KeySequenceLineEdit::~KeySequenceLineEdit()
 {
-	delete mPrintKeyHandler;
-	delete mNativeKeyFilter;
+	mSpecialKeyFilters.clear();
 }
 
 void KeySequenceLineEdit::keyPressEvent(QKeyEvent *event)
 {
 	mModifiers = event->modifiers();
-
-	if(mAllowedKeys.contains(static_cast<Qt::Key>(event->key()))) {
-		mKey = static_cast<Qt::Key>(event->key());
-	} else {
-		mKey = Qt::Key_unknown;
-	}
-
+	mKey = getAllowedKey(event);
 	updateKeySequence();
+}
+
+Qt::Key KeySequenceLineEdit::getAllowedKey(const QKeyEvent *event) const
+{
+	return mAllowedKeys.contains(static_cast<Qt::Key>(event->key())) ? static_cast<Qt::Key>(event->key()) : Qt::Key_unknown;
 }
 
 void KeySequenceLineEdit::updateKeySequence()
@@ -76,28 +74,39 @@ void KeySequenceLineEdit::setValue(const QKeySequence &keySequence)
 
 void KeySequenceLineEdit::focusInEvent(QFocusEvent *event)
 {
-	QApplication::instance()->installNativeEventFilter(mNativeKeyFilter);
-
+	for(const auto& keyFilter : mSpecialKeyFilters) {
+		QApplication::instance()->installNativeEventFilter(keyFilter.data());
+	}
 	QLineEdit::focusInEvent(event);
 }
 
 void KeySequenceLineEdit::focusOutEvent(QFocusEvent *event)
 {
-	QApplication::instance()->removeNativeEventFilter(mNativeKeyFilter);
-
+	for(const auto& keyFilter : mSpecialKeyFilters) {
+		QApplication::instance()->removeNativeEventFilter(keyFilter.data());
+	}
 	QLineEdit::focusOutEvent(event);
 }
 
-void KeySequenceLineEdit::printKeyPressed()
+void KeySequenceLineEdit::keyPressed(Qt::Key key)
 {
-	mKey = Qt::Key_Print;
+	mKey = key;
 	updateKeySequence();
 }
 
-void KeySequenceLineEdit::setupPrintKeyHandling()
+void KeySequenceLineEdit::setupSpecialKeyHandling()
 {
-	mPrintKeyHandler = KeyHandlerFactory::create();
-	mPrintKeyHandler->registerKey(Qt::Key_Print);
-	mNativeKeyFilter = new NativeKeyEventFilter(mPrintKeyHandler);
-	connect(mNativeKeyFilter, &NativeKeyEventFilter::triggered, this, &KeySequenceLineEdit::printKeyPressed);
+	addSpecialKeyHandler(Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::CTRL + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::CTRL + Qt::ALT + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::SHIFT + Qt::CTRL + Qt::Key_Print, Qt::Key_Print);
+}
+
+void KeySequenceLineEdit::addSpecialKeyHandler(const QKeySequence &keySequence, Qt::Key key)
+{
+	auto keyHandler = KeyHandlerFactory::create();
+	keyHandler->registerKey(keySequence);
+	auto keyFilter = QSharedPointer<NativeKeyEventFilter>(new NativeKeyEventFilter(keyHandler));
+	connect(keyFilter.data(), &NativeKeyEventFilter::triggered, [this, key]() { keyPressed(key); });
+	mSpecialKeyFilters.append(keyFilter);
 }

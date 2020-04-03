@@ -48,13 +48,14 @@ private:
 	Qt::KeyboardModifiers mModifiers;
 	Qt::Key mKey;
 	QList<Qt::Key> mAllowedKeys;
-	NativeKeyEventFilter *mNativeKeyFilter;
-	AbstractKeyHandler *mPrintKeyHandler;
+	QList<QSharedPointer<NativeKeyEventFilter>> mSpecialKeyFilters;
 
 	void updateText();
-	void printKeyPressed();
-	void setupPrintKeyHandling();
+	void keyPressed(Qt::Key key);
+	void setupSpecialKeyHandling();
 	void updateKeySequence();
+	void addSpecialKeyHandler(const QKeySequence &keySequence, Qt::Key key);
+	Qt::Key getAllowedKey(const QKeyEvent *event) const;
 };
 
 

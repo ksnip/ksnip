@@ -22,9 +22,9 @@
 GlobalHotKey::GlobalHotKey(QCoreApplication *app, const QKeySequence &keySequence)
 {
 	mApp = app;
-    mKeyHandler = KeyHandlerFactory::create();
-	mKeyHandler->registerKey(keySequence);
-	mKeyEventFilter = new NativeKeyEventFilter(mKeyHandler);
+    auto keyHandler = KeyHandlerFactory::create();
+	keyHandler->registerKey(keySequence);
+	mKeyEventFilter = new NativeKeyEventFilter(keyHandler);
 	mApp->installNativeEventFilter(mKeyEventFilter);
 	setEnable(true);
 }
@@ -33,7 +33,6 @@ GlobalHotKey::~GlobalHotKey()
 {
 	mApp->removeNativeEventFilter(mKeyEventFilter);
 	delete mKeyEventFilter;
-    delete mKeyHandler;
 }
 
 void GlobalHotKey::setEnable(bool enabled)

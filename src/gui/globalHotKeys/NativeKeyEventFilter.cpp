@@ -24,6 +24,11 @@ NativeKeyEventFilter::NativeKeyEventFilter(AbstractKeyHandler *keyHandler)
     mKeyHandler = keyHandler;
 }
 
+NativeKeyEventFilter::~NativeKeyEventFilter()
+{
+	delete mKeyHandler;
+}
+
 bool NativeKeyEventFilter::nativeEventFilter(const QByteArray &eventType, void *message, long *result)
 {
 	Q_UNUSED(eventType)

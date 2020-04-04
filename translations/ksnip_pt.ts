@@ -142,10 +142,6 @@ torná-los mais suaves.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Sempre copiar a captura para a área de transferência</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Avisar para salvar antes de descartar um trabalho não salvo</translation>
     </message>
@@ -160,16 +156,6 @@ torná-los mais suaves.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Capturar a tela ao iniciar, utilizando o modo padrão de captura</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Salvar instantaneamente no local padrão sem a caixa de diálogo &quot;Salvar como&quot;</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Quando ativado, não perguntará onde salvar uma captura de tela
-ao salvar, mas salvará instantaneamente no local padrão.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -222,6 +208,14 @@ A mudança requer reinicialização.</translation>
     <message>
         <source>Start Minimized to Tray.</source>
         <translation>Iniciar Minimizado para Bandeja.</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -760,6 +754,14 @@ e captura de tela.</translation>
     <message>
         <source>No image provided to but one was expected.</source>
         <translation>Nenhuma imagem fornecida, mas uma era esperada.</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

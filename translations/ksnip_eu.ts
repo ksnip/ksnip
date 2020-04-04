@@ -142,10 +142,6 @@ haien leuntasuna areagotuz.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Kopiatu beti argazkia arbelera</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Eskatu gordetzea gorde gabeko aldaketak baztertu aurretik</translation>
     </message>
@@ -160,16 +156,6 @@ haien leuntasuna areagotuz.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Kapturatu pantaila-argazkia abiaraztean modu lehenetsian</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Berehalako gordetzea lehenetsitako kokapenean &apos;Gorde honela&apos; elkarrizketa-koadrorik gabe</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Aktibatuta dagoenean, ez galdetu non gorde pantaila-argazkia,
-eta berehala gorde lehenetsitako kokapenean.</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -222,6 +208,14 @@ Ksnip berrabiarazi behar du aldaketak eragina izateko.</translation>
     <message>
         <source>Capture save location</source>
         <translation>Argazkia egin eta gorde kokapena</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -761,6 +755,14 @@ eta pantaila-argazkiaren artean.</translation>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>Irudi-fitxategiak (*.png *.jpg *.bmp)</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

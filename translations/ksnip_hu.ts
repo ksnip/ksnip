@@ -142,10 +142,6 @@ de simábbá teszi.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>A rögzített kép mindig kerüljön a vágólapra</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>A mentettlen módosítások elvetése előtt kérdezzen rá a mentésre</translation>
     </message>
@@ -160,16 +156,6 @@ de simábbá teszi.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Képernyő mentése program indításkor az alapértelmezett módon</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Azonnali mentés az alapértelmezett helyre a &apos;Mentés mint&apos; dialógus ablak nélkül</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Ha engedélyezve van, nem lesz rákérdezés a mentés helyére,
-de automatikusan mentve lesz az alapértelmezett helyre.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -222,6 +208,14 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
     <message>
         <source>Start Minimized to Tray.</source>
         <translation>Indítás tálcára kicsinyítve.</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -436,24 +430,6 @@ a képernyőképen.</translation>
         <translation>Kép fagyasztása rögzítéskor</translation>
     </message>
     <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature doesn&apos;t work for Wayland and is always
-used for MacOs.</source>
-        <translation>Mikor ez az opció be van kapcsolva,
-a program lefagyasztja a hátteret,
-miközben a téglalap alakú kivágás történik.
-Ez az opció szintén megváltoztatja a
-késleltetett képernyőkép funkcióját.
-Ha engedélyezve van, a késleletetés a kivágás előtt történik,
-míg ha nem engedélyezzük, a késleltetés a kivágás után történik.
-Hasonlóan, mint MacOS rendszeren, viszont nem működik Waylanden.</translation>
-    </message>
-    <message>
         <source>Show magnifying glass on snipping area</source>
         <translation>Mutassa a nagyítót rögzítéskor</translation>
     </message>
@@ -516,6 +492,17 @@ a rögzítés területe felett.
     <message>
         <source>Image Grabber</source>
         <translation>Képlopás</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is show and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -762,6 +749,14 @@ másodpercben megadva.</translation>
     <message>
         <source>No image provided to but one was expected.</source>
         <translation>Nincs kép, de ez várható volt.</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

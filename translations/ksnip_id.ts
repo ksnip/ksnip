@@ -142,10 +142,6 @@ membuatnya lebih halus.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation type="unfinished">Selalu salin hasil tangkapan ke clipboard</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation type="unfinished">Konfirmasi dulu sebelum mengabaikan perubahan yang belum disimpan</translation>
     </message>
@@ -160,16 +156,6 @@ membuatnya lebih halus.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation type="unfinished">Tangkap layar pada startup dengan moda bawaan</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished">Langsung simpan ke lokasi standar tanpa dialog &apos;Simpan Sebagai&apos;</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation type="unfinished">Jika diaktifkan, program tidak akan menanyakan dimana akan menyimpan 
-hasil tangkapan tetapi akan langsung menyimpannya ke lokasi standar.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -220,6 +206,14 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -753,6 +747,14 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -141,10 +141,6 @@ make them more smooth.</source>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>始终将捕获的图像复制到剪贴板</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>在放弃未保存的更改之前提示保存</translation>
     </message>
@@ -159,16 +155,6 @@ make them more smooth.</source>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>使用默认模式在启动时捕获屏幕截图</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>即时保存到默认位置，而不使用“另存为”对话框</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>启用后，不会询问将屏幕快照保存在哪里
-保存时，但会立即保存到默认位置。</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -221,6 +207,14 @@ Change requires restart.</source>
     <message>
         <source>Start Minimized to Tray.</source>
         <translation>启动时最小化到任务托盘。</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -760,6 +754,14 @@ and capturing screenshot.</source>
     <message>
         <source>No image provided to but one was expected.</source>
         <translation>没有提供图像，但应该提供一个。</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

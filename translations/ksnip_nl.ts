@@ -142,10 +142,6 @@ gladder.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Schermfoto altijd kopiëren naar klembord</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Altijd vragen om aanpassingen op te slaan</translation>
     </message>
@@ -160,16 +156,6 @@ gladder.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Schermfoto vastleggen met standaardmodus bij opstarten</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Schermfoto altijd direct opslaan in standaardmap</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Schakel dit in om niet te worden gevraagd waar een schermfoto moet
-worden opgeslagen, maar deze direct op te slaan in de standaardmap.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -222,6 +208,14 @@ Herstart om de wijziging toe te passen.</translation>
     <message>
         <source>Start Minimized to Tray.</source>
         <translation>Geminimaliseerd opstarten.</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -761,6 +755,14 @@ van schermfoto, in seconden.</translation>
     <message>
         <source>No image provided to but one was expected.</source>
         <translation>Er werd een afbeelding verwacht, maar geen afbeelding opgegeven.</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

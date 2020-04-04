@@ -139,10 +139,6 @@ make them more smooth.</source>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation type="unfinished">Copiar sempre a captura no portapapeis</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation type="unfinished">Preguntar para gardar antes de desbotar cambios sen gardar</translation>
     </message>
@@ -157,16 +153,6 @@ make them more smooth.</source>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation type="unfinished">Captura de pantalla no inicio co modo predeterminado</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished">Gardado instantáneo na localización predeterminada sen o cadro de diálogo «Gardar como»</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation type="unfinished">Cando está activado, non preguntar onde gardar a captura de pantalla,
-gardarase instantaneamente na localización predeterminada.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -217,6 +203,14 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -743,6 +737,14 @@ e a captura de pantalla.</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

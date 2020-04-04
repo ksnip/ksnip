@@ -139,10 +139,6 @@ make them more smooth.</source>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Copia automaticamente la schermata negli appunti</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Chiedi conferma prima di scartare i cambiamenti non salvati</translation>
     </message>
@@ -157,15 +153,6 @@ make them more smooth.</source>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Salva una schermata all&apos;avvio usando la modalità di default</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Salva direttamente nella posizione di default senza chiedere nulla</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Se abilitato, non chiede la posizione in cui salvare una schermata: salverà invece direttamente nella posizione di default.</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -218,6 +205,14 @@ Questa impostazione richiede il riavvio.</translation>
     <message>
         <source>Start Minimized to Tray.</source>
         <translation>Iniziare minimizzato.</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -598,7 +593,7 @@ enabled for MacOs.</source>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nuovo</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
@@ -738,6 +733,14 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -141,10 +141,6 @@ för penna och markör, men gör dem mjukare.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Kopiera alltid skärmklipp till urklipp</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Fråga om att spara, innan osparade ändringar kasseras</translation>
     </message>
@@ -159,16 +155,6 @@ för penna och markör, men gör dem mjukare.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Ta skärmklipp vid uppstart med standardläget</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Spara direkt på standardplatsen utan &quot;Spara som&quot;-dialog</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Vid aktivering efterfrågas inte var skärmklippet skall sparas,
-utan sparas direkt på standardplatsen.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -221,6 +207,14 @@ Change requires restart.</source>
     <message>
         <source>Start Minimized to Tray.</source>
         <translation>Starta minimerad till systemfältet.</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -759,6 +753,14 @@ och själva skärmklippet.</translation>
     <message>
         <source>No image provided to but one was expected.</source>
         <translation>Ingen bild tillgänglig, men en var förväntad.</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

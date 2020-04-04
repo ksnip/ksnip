@@ -142,10 +142,6 @@ les rendra plus lisses.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Toujours copier la capture dans le presse-papier</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Proposer d&apos;enregistrer en cas d&apos;annulation de modifications non enregistrées</translation>
     </message>
@@ -160,16 +156,6 @@ les rendra plus lisses.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Capturer l&apos;écran au lancement avec le mode par défaut</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Sauvegarder immédiatement dans le repertoire par défaut</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Lorsque activé, la capture d&apos;écran sera automatiquement
-enregistrée à l&apos;emplacement par défaut.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -222,6 +208,14 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     <message>
         <source>Start Minimized to Tray.</source>
         <translation>Démarrer en miniature dans la barre des tâches.</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -761,6 +755,14 @@ et la capture de l&apos;écran.</translation>
     <message>
         <source>No image provided to but one was expected.</source>
         <translation>Aucune image fournie, bien qu&apos;attendue.</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

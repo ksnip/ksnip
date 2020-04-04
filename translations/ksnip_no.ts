@@ -142,10 +142,6 @@ vil gjøre dem mykere.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation type="unfinished">Alltid kopier skjermavbildning til utklippstavle</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation type="unfinished">Forespør lagring før forkasting av ulagrede endringer</translation>
     </message>
@@ -160,16 +156,6 @@ vil gjøre dem mykere.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation type="unfinished">Utfør skjermavbildning ved oppstart i forvalgt modus</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished">Umiddelbar lagring til forvalgt plassering uten &quot;Lagre som&quot;</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation type="unfinished">Når påskrudd, spør ikke om hvor skjermavbildningen skal lagres,
-men lagrer umiddelbart på forvalgt sted.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -220,6 +206,14 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -750,6 +744,14 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

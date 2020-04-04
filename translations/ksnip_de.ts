@@ -142,10 +142,6 @@ macht sie glatter.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Aufnahme immer in die Zwischenablage kopieren</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Aufforderung zum Speichern, bevor nicht gespeicherte Änderungen verworfen werden</translation>
     </message>
@@ -160,16 +156,6 @@ macht sie glatter.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Beim Starten Screenshot im Standardmodus aufnehmen</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Sofort am Standardspeicherort speichern, ohne &quot;Speichern unter&quot;-Dialog zu öffnen</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Wenn aktiviert, wird nicht gefragt, wo ein Screenshot gespeichert werden soll,
-sondern speichert sofort am Standardspeicherort.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -222,6 +208,14 @@ Diese Änderung erfordert einen Neustart.</translation>
     <message>
         <source>Start Minimized to Tray.</source>
         <translation>Beim System-Start zum Tray minimieren.</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -756,6 +750,14 @@ und der Aufnahme.</translation>
     <message>
         <source>No image provided to but one was expected.</source>
         <translation>Es wurde kein Bild zur Verfügung gestellt, obwohl eines erwartet wurde.</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

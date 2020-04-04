@@ -141,10 +141,6 @@ make them more smooth.</source>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>常にキャプチャーをクリップボードにコピーする</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>未保存の変更を破棄する前に保存するか確認する</translation>
     </message>
@@ -159,17 +155,6 @@ make them more smooth.</source>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>起動時にデフォルトモードでスクリーンショットを撮る</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>「名前を付けて保存」ダイアログを表示せずにデフォルトの場所に即保存する</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>有効にすると、スクリーンショット保存時に
-確認ダイアログを表示せず、デフォルトの場
-所に直接保存します。</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -224,6 +209,14 @@ hhmmss 形式で時間を表す変数 ($T) を含めることができます。<
     <message>
         <source>Start Minimized to Tray.</source>
         <translation>トレイに最小化した状態で起動する</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -760,6 +753,14 @@ and capturing screenshot.</source>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>画像ファイル (*.png *.jpg *.bmp)</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -142,10 +142,6 @@ make them more smooth.</source>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation type="unfinished">Завжди копіювати зняток до буферу обміну</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation type="unfinished">Питати, чи не бажаєте зберігти зміни зображення, перед їх відміною</translation>
     </message>
@@ -160,16 +156,6 @@ make them more smooth.</source>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation type="unfinished">Робити зняток при відкритті програми</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished">Автоматично зберігати зняток у вибране в налаштуваннях місце</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation type="unfinished">Програма не буде кожного разу питати,
-куди зберігти зняток.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -220,6 +206,14 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -753,6 +747,14 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

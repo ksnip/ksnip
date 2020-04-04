@@ -142,10 +142,6 @@ más suaves.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Siempre copiar captura al portapapeles</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Solicitar guardar antes de descartar cambios no guardados</translation>
     </message>
@@ -160,16 +156,6 @@ más suaves.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Captura de pantalla al inicio con el modo predeterminado</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Guardado instantáneo en la ubicación predeterminada sin el cuadro de diálogo &apos;Guardar como&apos;</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Cuando está habilitado, no preguntar dónde guardar la captura de pantalla,
-se guarda instantáneamente en la ubicación predeterminada.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -221,6 +207,14 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -755,6 +749,14 @@ y la captura de pantalla.</translation>
     <message>
         <source>No image provided to but one was expected.</source>
         <translation>No se esperaba ninguna imagen a excepción de una.</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -116,7 +116,7 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Définit la police utilisée pour l&apos;outil Texte Numérique.</translation>
+        <translation>Définit la police de l&apos;outil de numérotation.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
@@ -124,11 +124,11 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>MIse à jour</translation>
+        <translation>Modifier</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation>Pivoter l&apos;image filigrane</translation>
+        <translation>Pivoter l&apos;image de filigrane</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
@@ -147,7 +147,7 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation>Proposer d&apos;enregistrer en cas d&apos;annulation de modifications non enregistrées</translation>
+        <translation>Proposer d&apos;enregistrer en cas d&apos;abandon de modifications non enregistrées</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
@@ -163,7 +163,7 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Sauvegarder immédiatement dans le repertoire par défaut</translation>
+        <translation>Sauvegarder immédiatement dans le répertoire par défaut</translation>
     </message>
     <message>
         <source>When enabled, will not ask where to save a screenshot
@@ -179,7 +179,7 @@ enregistrée à l&apos;emplacement par défaut.</translation>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
         <translation>Définit le style d&apos;interface et d&apos;interactivité de l&apos;application.
-Vous devrez redémarrer knsip pour que ce soit appliqué.</translation>
+Vous devrez redémarrer knsip pour le prendre en compte.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
@@ -191,7 +191,7 @@ Vous devrez redémarrer knsip pour que ce soit appliqué.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Ouvrir</translation>
+        <translation>Choisir</translation>
     </message>
     <message>
         <source>Application Settings</source>
@@ -199,7 +199,7 @@ Vous devrez redémarrer knsip pour que ce soit appliqué.</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation>Repertoire de sauvegarde des captures</translation>
+        <translation>Répertoire de sauvegarde des captures</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -208,7 +208,7 @@ Vous devrez redémarrer knsip pour que ce soit appliqué.</translation>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation>Lorsqu&apos;activé, ajoute une icône dans la barre des tâches si le système d&apos;exploitation le permet.
+        <translation>Si activé, ajoute une icône dans la barre des tâches si le système d&apos;exploitation le permet.
 Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translation>
     </message>
     <message>
@@ -512,7 +512,7 @@ sélection de la zone à capturer. Cela impacte aussi le
 comportement des captures retardées. Le délai a lieu
 avant l&apos;affichage de la zone de sélection lorsque l&apos;option
 est activée, après l&apos;affichage de la zone de sélection
-lorsque l&apos;option est désactivée.  Cette option n&apos;est pas
+lorsque l&apos;option est désactivée. Cette option n&apos;est pas
 disponible pour Wayland et toujours active pour
 MacOs.</translation>
     </message>

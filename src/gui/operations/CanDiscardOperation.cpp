@@ -47,7 +47,7 @@ bool CanDiscardOperation::execute()
 bool CanDiscardOperation::saveImage() const
 {
 	SaveOperation operation(mParent, mImage, true, mPathToImageSource, mTrayIcon);
-	return operation.execute();
+	return operation.execute().isSuccessful;
 }
 
 MessageBoxResponse CanDiscardOperation::getSaveBeforeDiscard() const

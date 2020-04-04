@@ -23,6 +23,7 @@
 #include <QCoreApplication>
 
 #include "NotifyOperation.h"
+#include "src/common/dtos/SaveResultDto.h"
 #include "src/backend/config/KsnipConfig.h"
 #include "src/backend/config/SavePathProvider.h"
 #include "src/backend/ImageSaver.h"
@@ -34,7 +35,7 @@ public:
     SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, TrayIcon *trayIcon);
 	SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, TrayIcon *trayIcon);
     ~SaveOperation() override = default;
-    bool execute();
+	SaveResultDto execute();
 
 private:
     QWidget* mParent;
@@ -45,7 +46,7 @@ private:
     bool mIsInstantSave;
     TrayIcon *mTrayIcon;
 	void notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const;
-	bool save(const QString &path);
+	SaveResultDto save(const QString &path);
 	QString getSavePath() const;
 };
 

@@ -47,8 +47,11 @@ public:
 	virtual bool promptSaveBeforeExit() const;
 	virtual void setPromptSaveBeforeExit(bool enabled);
 
-	virtual bool alwaysCopyToClipboard() const;
-	virtual void setAlwaysCopyToClipboard(bool enabled);
+	virtual bool autoCopyToClipboardNewCaptures() const;
+	virtual void setAutoCopyToClipboardNewCaptures(bool enabled);
+
+	virtual bool autoSaveNewCaptures() const;
+	virtual void setAutoSaveNewCaptures(bool enabled);
 
 	virtual bool saveToolSelection() const;
 	virtual void setSaveToolSelection(bool enabled);

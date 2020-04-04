@@ -31,7 +31,8 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig)
 
 ApplicationSettings::~ApplicationSettings()
 {
-	delete mAlwaysCopyToClipboardCheckbox;
+	delete mAutoCopyToClipboardNewCapturesCheckbox;
+	delete mAutoSaveNewCapturesCheckbox;
 	delete mPromptToSaveBeforeExitCheckbox;
 	delete mSaveKsnipPositionCheckbox;
 	delete mSaveKsnipToolSelectionCheckbox;
@@ -50,7 +51,8 @@ ApplicationSettings::~ApplicationSettings()
 
 void ApplicationSettings::initGui()
 {
-	mAlwaysCopyToClipboardCheckbox = new QCheckBox(this);
+	mAutoCopyToClipboardNewCapturesCheckbox = new QCheckBox(this);
+	mAutoSaveNewCapturesCheckbox = new QCheckBox(this);
 	mPromptToSaveBeforeExitCheckbox = new QCheckBox(this);
 	mSaveKsnipPositionCheckbox = new QCheckBox(this);
 	mSaveKsnipToolSelectionCheckbox = new QCheckBox(this);
@@ -66,7 +68,8 @@ void ApplicationSettings::initGui()
 	mBrowseButton = new QPushButton(this);
 	mLayout = new QGridLayout;
 
-	mAlwaysCopyToClipboardCheckbox->setText(tr("Always copy capture to clipboard"));
+	mAutoCopyToClipboardNewCapturesCheckbox->setText(tr("Automatically copy new captures to clipboard"));
+	mAutoSaveNewCapturesCheckbox->setText(tr("Automatically save new captures to default location"));
 	mPromptToSaveBeforeExitCheckbox->setText(tr("Prompt to save before discarding unsaved changes"));
 	mSaveKsnipPositionCheckbox->setText(tr("Save ksnip position on move and load on startup"));
 	mSaveKsnipToolSelectionCheckbox->setText(tr("Save ksnip tool selection and load on startup"));
@@ -96,22 +99,23 @@ void ApplicationSettings::initGui()
 
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnMinimumWidth(0, ScaledSizeProvider::getScaledWidth(10));
-	mLayout->addWidget(mAlwaysCopyToClipboardCheckbox, 0, 0, 1, 4);
-	mLayout->addWidget(mPromptToSaveBeforeExitCheckbox, 1, 0, 1, 4);
-	mLayout->addWidget(mSaveKsnipPositionCheckbox, 2, 0, 1, 4);
-	mLayout->addWidget(mSaveKsnipToolSelectionCheckbox, 3, 0, 1, 4);
-	mLayout->addWidget(mCaptureOnStartupCheckbox, 4, 0, 1, 4);
-	mLayout->addWidget(mUseTrayIconCheckBox, 5, 0, 1, 4);
-	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 6, 1, 1, 3);
-	mLayout->addWidget(mMinimizeToTrayCheckBox, 7, 1, 1, 3);
-	mLayout->addWidget(mCloseToTrayCheckBox, 8, 1, 1, 3);
-	mLayout->setRowMinimumHeight(9, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 10, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 10, 2, Qt::AlignLeft);
-	mLayout->setRowMinimumHeight(11, 15);
-	mLayout->addWidget(mSaveLocationLabel, 12, 0, 1, 4);
-	mLayout->addWidget(mSaveLocationLineEdit, 13, 0, 1, 4);
-	mLayout->addWidget(mBrowseButton, 13, 4);
+	mLayout->addWidget(mAutoCopyToClipboardNewCapturesCheckbox, 0, 0, 1, 4);
+	mLayout->addWidget(mAutoSaveNewCapturesCheckbox, 1, 0, 1, 4);
+	mLayout->addWidget(mPromptToSaveBeforeExitCheckbox, 2, 0, 1, 4);
+	mLayout->addWidget(mSaveKsnipPositionCheckbox, 3, 0, 1, 4);
+	mLayout->addWidget(mSaveKsnipToolSelectionCheckbox, 4, 0, 1, 4);
+	mLayout->addWidget(mCaptureOnStartupCheckbox, 5, 0, 1, 4);
+	mLayout->addWidget(mUseTrayIconCheckBox, 6, 0, 1, 4);
+	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 7, 1, 1, 3);
+	mLayout->addWidget(mMinimizeToTrayCheckBox, 8, 1, 1, 3);
+	mLayout->addWidget(mCloseToTrayCheckBox, 9, 1, 1, 3);
+	mLayout->setRowMinimumHeight(10, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 11, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 11, 2, Qt::AlignLeft);
+	mLayout->setRowMinimumHeight(12, 15);
+	mLayout->addWidget(mSaveLocationLabel, 13, 0, 1, 4);
+	mLayout->addWidget(mSaveLocationLineEdit, 14, 0, 1, 4);
+	mLayout->addWidget(mBrowseButton, 14, 4);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -119,7 +123,8 @@ void ApplicationSettings::initGui()
 
 void ApplicationSettings::loadConfig()
 {
-	mAlwaysCopyToClipboardCheckbox->setChecked(mConfig->alwaysCopyToClipboard());
+	mAutoCopyToClipboardNewCapturesCheckbox->setChecked(mConfig->autoCopyToClipboardNewCaptures());
+	mAutoSaveNewCapturesCheckbox->setChecked(mConfig->autoSaveNewCaptures());
 	mPromptToSaveBeforeExitCheckbox->setChecked(mConfig->promptSaveBeforeExit());
 	mSaveKsnipPositionCheckbox->setChecked(mConfig->savePosition());
 	mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveToolSelection());
@@ -138,7 +143,8 @@ void ApplicationSettings::loadConfig()
 
 void ApplicationSettings::saveSettings()
 {
-	mConfig->setAlwaysCopyToClipboard(mAlwaysCopyToClipboardCheckbox->isChecked());
+	mConfig->setAutoCopyToClipboardNewCaptures(mAutoCopyToClipboardNewCapturesCheckbox->isChecked());
+	mConfig->setAutoSaveNewCaptures(mAutoSaveNewCapturesCheckbox->isChecked());
 	mConfig->setPromptSaveBeforeExit(mPromptToSaveBeforeExitCheckbox->isChecked());
 	mConfig->setSavePosition(mSaveKsnipPositionCheckbox->isChecked());
 	mConfig->setSaveToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());

@@ -29,9 +29,14 @@ QString KsnipConfigOptions::promptSaveBeforeExitString()
 	return applicationSectionString() + QStringLiteral("PromptSaveBeforeExit");
 }
 
-QString KsnipConfigOptions::alwaysCopyToClipboardString()
+QString KsnipConfigOptions::autoCopyToClipboardNewCapturesString()
 {
-	return applicationSectionString() + QStringLiteral("AlwaysCopyToClipboard");
+	return applicationSectionString() + QStringLiteral("AutoCopyToClipboardNewCaptures");
+}
+
+QString KsnipConfigOptions::autoSaveNewCapturesString()
+{
+	return applicationSectionString() + QStringLiteral("AutoSaveNewCaptures");
 }
 
 QString KsnipConfigOptions::saveToolSelectionString()

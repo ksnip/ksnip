@@ -27,7 +27,8 @@ class KsnipConfigOptions
 public:
 	static QString savePositionString();
 	static QString promptSaveBeforeExitString();
-	static QString alwaysCopyToClipboardString();
+	static QString autoCopyToClipboardNewCapturesString();
+	static QString autoSaveNewCapturesString();
 	static QString saveToolSelectionString();
 	static QString captureOnStartupString();
 	static QString freezeImageWhileSnippingEnabledString();

@@ -21,6 +21,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/ScaledSizeProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/common/provider/ApplicationTitleProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomToolButton.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomCursor.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CursorFactory.cpp

@@ -34,7 +34,7 @@ SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstan
 	mPathToImageSource = pathToImageSource;
 }
 
-bool SaveOperation::execute()
+SaveResultDto SaveOperation::execute()
 {
     auto path = getSavePath();
 
@@ -45,7 +45,7 @@ bool SaveOperation::execute()
 	    saveDialog.setAcceptMode(QFileDialog::AcceptSave);
 
 	    if (saveDialog.exec() != QDialog::Accepted) {
-		    return false;
+		    return SaveResultDto(false, path);
 	    }
 
 	    path = saveDialog.selectedFiles().first();
@@ -59,7 +59,7 @@ QString SaveOperation::getSavePath() const
 	return mPathToImageSource.isNull() ? mSavePathProvider.savePath() : mPathToImageSource;
 }
 
-bool SaveOperation::save(const QString &path)
+SaveResultDto SaveOperation::save(const QString &path)
 {
 	auto successful = mImageSaver.save(mImage, path);
 	if(successful) {
@@ -67,7 +67,7 @@ bool SaveOperation::save(const QString &path)
 	} else {
 		notify(tr("Saving Image Failed"), tr("Failed to save image to"), path, NotificationTypes::Critical);
 	}
-	return successful;
+	return SaveResultDto(successful, path);
 }
 
 void SaveOperation::notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const

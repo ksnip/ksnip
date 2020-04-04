@@ -48,17 +48,30 @@ void KsnipConfig::setPromptSaveBeforeExit(bool  enabled)
 	saveValue(KsnipConfigOptions::promptSaveBeforeExitString(), enabled);
 }
 
-bool KsnipConfig::alwaysCopyToClipboard() const
+bool KsnipConfig::autoCopyToClipboardNewCaptures() const
 {
-	return loadValue(KsnipConfigOptions::alwaysCopyToClipboardString(), false).toBool();
+	return loadValue(KsnipConfigOptions::autoCopyToClipboardNewCapturesString(), false).toBool();
 }
 
-void KsnipConfig::setAlwaysCopyToClipboard(bool  enabled)
+void KsnipConfig::setAutoCopyToClipboardNewCaptures(bool  enabled)
 {
-    if (alwaysCopyToClipboard() == enabled) {
+    if (autoCopyToClipboardNewCaptures() == enabled) {
         return;
     }
-	saveValue(KsnipConfigOptions::alwaysCopyToClipboardString(), enabled);
+	saveValue(KsnipConfigOptions::autoCopyToClipboardNewCapturesString(), enabled);
+}
+
+bool KsnipConfig::autoSaveNewCaptures() const
+{
+	return loadValue(KsnipConfigOptions::autoSaveNewCapturesString(), false).toBool();
+}
+
+void KsnipConfig::setAutoSaveNewCaptures(bool  enabled)
+{
+	if (autoSaveNewCaptures() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::autoSaveNewCapturesString(), enabled);
 }
 
 bool KsnipConfig::saveToolSelection() const

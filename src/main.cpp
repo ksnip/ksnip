@@ -78,7 +78,7 @@ int main(int argc, char** argv)
 	    auto captureDto = CaptureFromFileDto(pixmap, pathToImage);
 
 	    window = new MainWindow(imageGrabber, RunMode::Edit);
-	    window->showCapture(captureDto);
+	    window->processImage(captureDto);
         return app.exec();
     }
 

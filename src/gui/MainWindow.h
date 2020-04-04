@@ -37,6 +37,7 @@
 #include "src/backend/CapturePrinter.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
+#include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/operations/AddWatermarkOperation.h"
@@ -60,7 +61,8 @@ public:
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
 
 public slots:
-    void showCapture(const CaptureDto &capture);
+    void processCapture(const CaptureDto &capture);
+	void processImage(const CaptureDto &capture);
 	void triggerNewCapture(CaptureModes captureMode);
 	void quit();
 
@@ -100,7 +102,7 @@ private:
     TrayIcon *mTrayIcon;
     QString mPathToImageSource;
 
-    void setSaveable(bool enabled);
+    void setSaveable(bool isUnsaved);
     void setEnablements(bool enabled);
     void loadSettings();
     void setHidden(bool isHidden);
@@ -131,10 +133,13 @@ private slots:
     void showScaleDialog();
 	void setPosition(const QPoint &lastPosition);
 	void handleGuiStartup();
-	void updatePathToImageSource(const CaptureDto &capture);
+	void updatePathToImageFromCapture(const CaptureDto &capture);
 	void saveClicked();
 	void saveAsClicked();
-	void setupApplicationName(bool isUnsaved);
+	void updateApplicationTitle();
+	void capturePostProcessing();
+	void updatePathToImage(const QString &pathToImage);
+	void showImage(const CaptureDto &capture);
 };
 
 #endif // KSNIP_MAINWINDOW_H

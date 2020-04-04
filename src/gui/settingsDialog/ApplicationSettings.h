@@ -42,7 +42,8 @@ public:
 	void saveSettings();
 
 private:
-	QCheckBox *mAlwaysCopyToClipboardCheckbox;
+	QCheckBox *mAutoCopyToClipboardNewCapturesCheckbox;
+	QCheckBox *mAutoSaveNewCapturesCheckbox;
 	QCheckBox *mPromptToSaveBeforeExitCheckbox;
 	QCheckBox *mSaveKsnipPositionCheckbox;
 	QCheckBox *mSaveKsnipToolSelectionCheckbox;

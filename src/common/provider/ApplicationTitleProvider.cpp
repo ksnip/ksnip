@@ -17,17 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CAPTUREFROMFILEDTO_H
-#define KSNIP_CAPTUREFROMFILEDTO_H
+#include "ApplicationTitleProvider.h"
 
-#include "CaptureDto.h"
-#include "FilePathDto.h"
-
-struct CaptureFromFileDto : public CaptureDto, public FilePathDto
+QString ApplicationTitleProvider::getApplicationTitle(const QString &applicationName, const QString &pathToImage, const QString &unsavedString, bool isUnsaved)
 {
-	explicit CaptureFromFileDto(const QPixmap &screenshot, const QString &path) : CaptureDto(screenshot){
-		this->path = path;
-	}
-};
+	auto applicationTitle = applicationName;
 
-#endif //KSNIP_CAPTUREFROMFILEDTO_H
+	if(!pathToImage.isEmpty()) {
+		applicationTitle = applicationTitle + QStringLiteral(" [") + pathToImage + QStringLiteral("]");
+	}
+
+	if (isUnsaved) {
+		applicationTitle = QStringLiteral("*") + applicationTitle + " - " + unsavedString;
+	}
+
+	return applicationTitle;
+}

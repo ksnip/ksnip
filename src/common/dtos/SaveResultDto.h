@@ -17,17 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CAPTUREFROMFILEDTO_H
-#define KSNIP_CAPTUREFROMFILEDTO_H
+#ifndef KSNIP_SAVERESULTDTO_H
+#define KSNIP_SAVERESULTDTO_H
 
-#include "CaptureDto.h"
 #include "FilePathDto.h"
 
-struct CaptureFromFileDto : public CaptureDto, public FilePathDto
+struct SaveResultDto : public FilePathDto
 {
-	explicit CaptureFromFileDto(const QPixmap &screenshot, const QString &path) : CaptureDto(screenshot){
+	bool isSuccessful;
+
+	explicit SaveResultDto(bool isSuccessful, const QString &path) {
+		this->isSuccessful = isSuccessful;
 		this->path = path;
 	}
 };
 
-#endif //KSNIP_CAPTUREFROMFILEDTO_H
+#endif //KSNIP_SAVERESULTDTO_H

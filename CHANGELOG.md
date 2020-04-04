@@ -5,6 +5,8 @@
 * New: Pasting image or path to image from clipboard. ([#275](https://github.com/ksnip/ksnip/issues/275))
 * New: Save to same file when editing existing image. ([#271](https://github.com/ksnip/ksnip/issues/271))
 * New: Support for PrtScrn hotkey. ([#239](https://github.com/ksnip/ksnip/issues/239))
+* New: Auto save new screenshot. ([#291](https://github.com/ksnip/ksnip/issues/291))
+* New: Remember file for already saved images. ([#292](https://github.com/ksnip/ksnip/issues/292))
 * Changed: Save As option was added and useInstantSave config was removed. ([#285](https://github.com/ksnip/ksnip/issues/285))
 * Fixed: Compilation error with Qt 5.15. ([#279](https://github.com/ksnip/ksnip/issues/279))
 

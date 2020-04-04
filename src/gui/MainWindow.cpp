@@ -64,7 +64,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, this, &MainWindow::screenshotChanged);
 
-	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::showCapture);
+	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processCapture);
 	connect(mImageGrabber, &AbstractImageGrabber::canceled, [this]()
 	{ setHidden(false); });
 
@@ -132,10 +132,6 @@ void MainWindow::processInstantCapture(const CaptureDto &capture)
 void MainWindow::screenshotChanged()
 {
     setSaveable(true);
-
-    if (mConfig->alwaysCopyToClipboard()) {
-        copyCaptureToClipboard();
-    }
 }
 
 //
@@ -156,7 +152,7 @@ void MainWindow::quit()
 	QCoreApplication::exit(0);
 }
 
-void MainWindow::showCapture(const CaptureDto &capture)
+void MainWindow::processCapture(const CaptureDto &capture)
 {
 	if (!capture.isValid()) {
 		NotifyOperation operation(mTrayIcon, tr("Unable to show image"), tr("No image provided to but one was expected."), NotificationTypes::Critical);
@@ -165,25 +161,50 @@ void MainWindow::showCapture(const CaptureDto &capture)
 		return;
 	}
 
-	loadCapture(capture);
-	updatePathToImageSource(capture);
+	showImage(capture);
+	setSaveable(true);
+	capturePostProcessing();
+}
 
-	if (mConfig->alwaysCopyToClipboard()) {
-		copyCaptureToClipboard();
-	}
+void MainWindow::processImage(const CaptureDto &capture)
+{
+	showImage(capture);
+	setSaveable(false);
+}
+
+void MainWindow::showImage(const CaptureDto &capture)
+{
+	loadCapture(capture);
+	updatePathToImageFromCapture(capture);
 
 	setHidden(false);
-	setSaveable(true);
 	setEnablements(true);
 
 	adjustSize();
-	MainWindow::show();
+	show();
 }
 
-void MainWindow::updatePathToImageSource(const CaptureDto &capture)
+void MainWindow::capturePostProcessing()
+{
+	if (mConfig->autoCopyToClipboardNewCaptures()) {
+		copyCaptureToClipboard();
+	}
+
+	if (mConfig->autoSaveNewCaptures()) {
+		saveCapture(true);
+	}
+}
+
+void MainWindow::updatePathToImageFromCapture(const CaptureDto &capture)
 {
 	auto captureFromFileDto = dynamic_cast<const CaptureFromFileDto*>(&capture);
-	mPathToImageSource = captureFromFileDto != nullptr ? captureFromFileDto->path : QString();
+	auto pathToImage = captureFromFileDto != nullptr ? captureFromFileDto->path : QString();
+	updatePathToImage(pathToImage);
+}
+
+void MainWindow::updatePathToImage(const QString &pathToImage)
+{
+	mPathToImageSource = pathToImage;
 }
 
 void MainWindow::loadCapture(const CaptureDto &capture)
@@ -262,20 +283,17 @@ void MainWindow::changeEvent(QEvent *event)
 // Private Functions
 //
 
-void MainWindow::setSaveable(bool enabled)
+void MainWindow::setSaveable(bool isUnsaved)
 {
-	setupApplicationName(enabled);
-	mIsUnsaved = enabled;
-    mToolBar->setSaveActionEnabled(enabled);
+	mIsUnsaved = isUnsaved;
+    mToolBar->setSaveActionEnabled(isUnsaved);
+	updateApplicationTitle();
 }
 
-void MainWindow::setupApplicationName(bool isUnsaved)
+void MainWindow::updateApplicationTitle()
 {
-	if (isUnsaved) {
-	    setWindowTitle(QStringLiteral("*") + QApplication::applicationName() + " - " + tr("Unsaved"));
-	} else {
-	    setWindowTitle(QApplication::applicationName());
-	}
+	auto applicationTitle = ApplicationTitleProvider::getApplicationTitle(QApplication::applicationName(), mPathToImageSource, tr("Unsaved"), mIsUnsaved);
+	setWindowTitle(applicationTitle);
 }
 
 void MainWindow::setEnablements(bool enabled)
@@ -446,9 +464,10 @@ void MainWindow::saveCapture(bool saveInstant)
 {
 	auto image = mKImageAnnotator->image();
 	SaveOperation operation(this, image, saveInstant, mPathToImageSource, mTrayIcon);
-	bool successful = operation.execute();
+	auto saveResult = operation.execute();
+	updatePathToImage(saveResult.path);
 
-    setSaveable(!successful);
+    setSaveable(!saveResult.isSuccessful);
 }
 
 void MainWindow::copyCaptureToClipboard()
@@ -506,7 +525,7 @@ void MainWindow::loadImageFromFile()
 	if(!pixmap.isNull()) {
 		setHidden(false);
 		CaptureFromFileDto captureDto(pixmap, path);
-		showCapture(captureDto);
+		processImage(captureDto);
 	}
 }
 
@@ -580,10 +599,10 @@ void MainWindow::pasteImageFromClipboard()
 		setHidden(false);
 		if(mClipboard->url().isNull()) {
 			CaptureDto captureDto(pixmap);
-			showCapture(captureDto);
+			processImage(captureDto);
 		} else {
 			CaptureFromFileDto captureDto(pixmap, mClipboard->url());
-			showCapture(captureDto);
+			processImage(captureDto);
 		}
 	}
 }

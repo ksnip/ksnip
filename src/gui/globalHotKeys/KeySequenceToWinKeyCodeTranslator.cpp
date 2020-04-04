@@ -38,7 +38,7 @@ KeyCodeCombo KeySequenceToWinKeyCodeTranslator::map(const QKeySequence &keySeque
 
 unsigned int KeySequenceToWinKeyCodeTranslator::getModifier(const QString &modifierString) const
 {
-	unsigned int modifier = 0;
+	unsigned int modifier = MOD_NOREPEAT;
 	if (modifierString.contains(QStringLiteral("SHIFT"))) {
 		modifier |= MOD_SHIFT;
 	}
@@ -48,8 +48,6 @@ unsigned int KeySequenceToWinKeyCodeTranslator::getModifier(const QString &modif
 	if (modifierString.contains(QStringLiteral("CTRL"))) {
 		modifier |= MOD_CONTROL;
 	}
-
-	modifier |= 0x4000;
 
 	return modifier;
 }

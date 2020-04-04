@@ -98,8 +98,12 @@ void KeySequenceLineEdit::setupSpecialKeyHandling()
 {
 	addSpecialKeyHandler(Qt::Key_Print, Qt::Key_Print);
 	addSpecialKeyHandler(Qt::CTRL + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::ALT + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::SHIFT + Qt::Key_Print, Qt::Key_Print);
 	addSpecialKeyHandler(Qt::CTRL + Qt::ALT + Qt::Key_Print, Qt::Key_Print);
-	addSpecialKeyHandler(Qt::SHIFT + Qt::CTRL + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::CTRL + Qt::SHIFT + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::ALT + Qt::SHIFT + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::CTRL + Qt::ALT + Qt::SHIFT + Qt::Key_Print, Qt::Key_Print);
 }
 
 void KeySequenceLineEdit::addSpecialKeyHandler(const QKeySequence &keySequence, Qt::Key key)

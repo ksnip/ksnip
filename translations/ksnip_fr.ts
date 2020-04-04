@@ -25,26 +25,26 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Dons</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">Outil de capture d&apos;écran</translation>
+        <translation>Outil de capture d&apos;écran</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Licence : </translation>
+        <translation>Licence : </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Veuillez utiliser </translation>
+        <translation>Veuillez utiliser </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> pour signaler des bugs.</translation>
+        <translation> pour signaler des bugs.</translation>
     </message>
 </context>
 <context>
@@ -147,7 +147,7 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Demander à enregistrer avant d&apos;annuler les modifications non enregistrées</translation>
+        <translation>Proposer d&apos;enregistrer en cas d&apos;annulation de modifications non enregistrées</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
@@ -159,7 +159,7 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished">Capturer au lancement avec le mode par défaut</translation>
+        <translation>Capturer l&apos;écran au lancement avec le mode par défaut</translation>
     </message>
     <message>
         <source>Instant save to default location without &apos;Save as&apos; dialog</source>
@@ -168,8 +168,8 @@ les rendra plus lisses.</translation>
     <message>
         <source>When enabled, will not ask where to save a screenshot
 when saving, but will save instantly to default location.</source>
-        <translation type="unfinished">Lorsque activé, le logiciel ne demandera pas où enregistrer la capture d&apos;écran
-lors de la sauvegarde, mais sauvegardera instantanément à l&apos;emplacement par défaut.</translation>
+        <translation>Lorsque activé, la capture d&apos;écran sera automatiquement
+enregistrée à l&apos;emplacement par défaut.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -183,23 +183,23 @@ Vous devrez redémarrer knsip pour que ce soit appliqué.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Capturer l&apos;emplacement de sauvegarde et le nom de fichier</translation>
+        <translation>Emplacement de sauvegarde et nom de fichier</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished">Le nom de fichier peut contenir $Y, $M, $D pour la date, $h, $m, $s pour l&apos;heure ou $T pour l&apos;heure au format hhmmss.</translation>
+        <translation>Le nom de fichier peut contenir $Y, $M, $D pour la date, $h, $m, $s pour l&apos;heure ou $T pour l&apos;heure au format hhmmss.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Naviguer</translation>
+        <translation>Ouvrir</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished">Paramètres de l&apos;application</translation>
+        <translation>Paramètres de l&apos;application</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Repertoire de sauvegarde des captures</translation>
+        <translation>Repertoire de sauvegarde des captures</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -221,54 +221,54 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
-        <translation type="unfinished"></translation>
+        <translation>Démarrer en miniature dans la barre des tâches.</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished">L&apos;auteur :</translation>
+        <translation>L&apos;auteur :</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Contributeurs :</translation>
+        <translation>Contributeurs :</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">Traduction en espagnol</translation>
+        <translation>Traduction en espagnol</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">Traduction en néérlandais</translation>
+        <translation>Traduction en néérlandais</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">Traduction en russe</translation>
+        <translation>Traduction en russe</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">Traduction en norvégien</translation>
+        <translation>Traduction en norvégien</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">Traduction en français</translation>
+        <translation>Traduction en français</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">Traduction en polonais</translation>
+        <translation>Traduction en polonais</translation>
     </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished">Alerte - </translation>
+        <translation>Alerte - </translation>
     </message>
     <message>
         <source>The capture has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished">La capture a été modifiée.
+        <translation>La capture a été modifiée.
 Voulez-vous l&apos;enregistrer ?</translation>
     </message>
 </context>
@@ -346,27 +346,27 @@ Voulez-vous l&apos;enregistrer ?</translation>
     <name>DonateTab</name>
     <message>
         <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Offrir une bière ?</translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Oui, c&apos;est possible</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>ici</translation>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Devenir un sponsor</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>C&apos;est par </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Les dons sont toujours les bienvenus</translation>
     </message>
 </context>
 <context>
@@ -388,11 +388,11 @@ Voulez-vous l&apos;enregistrer ?</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturer zone rect</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturer tout l&apos;écran</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
@@ -507,7 +507,14 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsque activé, le fond d&apos;écran sera gelé pendant la
+sélection de la zone à capturer. Cela impacte aussi le
+comportement des captures retardées. Le délai a lieu
+avant l&apos;affichage de la zone de sélection lorsque l&apos;option
+est activée, après l&apos;affichage de la zone de sélection
+lorsque l&apos;option est désactivée.  Cette option n&apos;est pas
+disponible pour Wayland et toujours active pour
+MacOs.</translation>
     </message>
 </context>
 <context>
@@ -518,7 +525,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Fermer</translation>
+        <translation>Fermer</translation>
     </message>
     <message>
         <source>Time Stamp</source>
@@ -541,23 +548,23 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished">Toujours copier le lien Imgur dans le presse-papier</translation>
+        <translation>Toujours copier le lien Imgur dans le presse-papier</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Demander une confirmation avant d&apos;exporter</translation>
+        <translation>Demander une confirmation avant d&apos;exporter</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished">ID Client</translation>
+        <translation>ID Client</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished">Secret</translation>
+        <translation>Secret</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished">PIN</translation>
+        <translation>PIN</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
@@ -565,11 +572,11 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished">Obtenir PIN</translation>
+        <translation>Obtenir PIN</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished">Obtenir Jeton</translation>
+        <translation>Obtenir un token</translation>
     </message>
     <message>
         <source>Imgur History</source>
@@ -577,11 +584,11 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished">Envoyer sur Imgur</translation>
+        <translation>Envoyer sur Imgur</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Nom d&apos;utilisateur</translation>
+        <translation>Nom d&apos;utilisateur</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
@@ -589,7 +596,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished">Nom d&apos;utilisateur :</translation>
+        <translation>Nom d&apos;utilisateur :</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
@@ -597,7 +604,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished">Erreur de mise à jour du Jeton Imgur.com.</translation>
+        <translation>Erreur de mise à jour du token Imgur.com.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
@@ -605,14 +612,14 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Relier directement l&apos;image</translation>
     </message>
 </context>
 <context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation type="unfinished">Nouveau</translation>
+        <translation>Nouveau</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
@@ -626,23 +633,23 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Enregistrer</translation>
+        <translation>Enregistrer</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation type="unfinished">Enregistrer la capture d&apos;écran dans le système de fichiers</translation>
+        <translation>Enregistrer la capture d&apos;écran sur le disque</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Copier</translation>
+        <translation>Copier</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation type="unfinished">Copier la capture d&apos;écran dans le presse-papier</translation>
+        <translation>Copier la capture d&apos;écran dans le presse-papier</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">Outils</translation>
+        <translation>Outils</translation>
     </message>
     <message>
         <source>Undo</source>
@@ -654,11 +661,11 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished">Rogner</translation>
+        <translation>Découper</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation type="unfinished">Rogner la capture d&apos;écran</translation>
+        <translation>Découper la capture d&apos;écran</translation>
     </message>
 </context>
 <context>
@@ -760,7 +767,7 @@ et la capture de l&apos;écran.</translation>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Enregistrer sous</translation>
+        <translation>Enregistrer sous</translation>
     </message>
     <message>
         <source>Images</source>
@@ -768,7 +775,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Tous les fichiers</translation>
+        <translation>Tous les fichiers</translation>
     </message>
     <message>
         <source>Image Saved</source>
@@ -841,7 +848,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Tous les fichiers</translation>
+        <translation>Tous les fichiers</translation>
     </message>
 </context>
 <context>
@@ -852,22 +859,22 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation type="unfinished">Vous êtes sur le point d&apos;exporter la capture d&apos;écran sur imgur.com, voulez-vous continuer ?</translation>
+        <translation>Vous êtes sur le point d&apos;exporter la capture d&apos;écran sur imgur.com, voulez-vous continuer ?</translation>
     </message>
 </context>
 <context>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Version</translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">Compiler</translation>
+        <translation>Compiler</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished">Utilisant :</translation>
+        <translation>Dépendances :</translation>
     </message>
 </context>
 </TS>

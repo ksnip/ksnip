@@ -32,7 +32,6 @@ class GlobalHotKey : public QObject
 public:
     explicit GlobalHotKey(QCoreApplication *app, const QKeySequence &keySequence);
     ~GlobalHotKey() override;
-    void setEnable(bool enabled);
 
 signals:
     void pressed() const;

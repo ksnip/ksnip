@@ -26,20 +26,11 @@ GlobalHotKey::GlobalHotKey(QCoreApplication *app, const QKeySequence &keySequenc
 	keyHandler->registerKey(keySequence);
 	mKeyEventFilter = new NativeKeyEventFilter(keyHandler);
 	mApp->installNativeEventFilter(mKeyEventFilter);
-	setEnable(true);
+	connect(mKeyEventFilter, &NativeKeyEventFilter::triggered, this, &GlobalHotKey::pressed);
 }
 
 GlobalHotKey::~GlobalHotKey()
 {
 	mApp->removeNativeEventFilter(mKeyEventFilter);
 	delete mKeyEventFilter;
-}
-
-void GlobalHotKey::setEnable(bool enabled)
-{
-	if(enabled) {
-		connect(mKeyEventFilter, &NativeKeyEventFilter::triggered, this, &GlobalHotKey::pressed);
-	} else {
-		disconnect(mKeyEventFilter, &NativeKeyEventFilter::triggered, this, &GlobalHotKey::pressed);
-	}
 }

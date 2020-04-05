@@ -34,6 +34,14 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
 	
     7z x openssl.zip -o/c/openssl
 
+    echo "-----"
+    ls /c
+    echo "-----"
+    ls /c/qt
+    echo "-----"
+    ls /c/qt/5.7.1
+    echo "-----"
+
     # windeployqt fails to find the binaries so we link the binaries where its looking for it
     WINDEPLOYQT_QT_DIR="/c/Users/qt/work"
     mkdir -p $WINDEPLOYQT_QT_DIR

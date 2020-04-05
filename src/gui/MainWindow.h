@@ -74,6 +74,7 @@ private:
     RunMode mMode;
     bool mIsUnsaved;
     bool mHidden;
+    bool mSessionManagerRequestedQuit;
     Qt::WindowState mSelectedWindowState;
     bool mWindowStateChangeLock;
     QAction *mUploadToImgurAction;
@@ -125,6 +126,8 @@ private slots:
     void showScaleDialog();
 	void setPosition(const QPoint &lastPosition);
 	void handleGuiStartup();
+	void sessionFinished();
+	void captureCanceled();
 };
 
 #endif // KSNIP_MAINWINDOW_H

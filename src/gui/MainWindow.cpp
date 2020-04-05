@@ -41,7 +41,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 		mTrayIcon(new TrayIcon(this)),
 		mSelectedWindowState(Qt::WindowActive),
-		mWindowStateChangeLock(false)
+		mWindowStateChangeLock(false),
+		mSessionManagerRequestedQuit(false)
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -54,6 +55,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	initGui();
 
+	connect(qApp, &QGuiApplication::commitDataRequest, this, &MainWindow::sessionFinished);
+
 	setWindowIcon(QIcon(QStringLiteral(":/icons/ksnip.svg")));
 	setPosition(mConfig->windowPosition());
 
@@ -62,8 +65,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, this, &MainWindow::screenshotChanged);
 
 	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::showCapture);
-	connect(mImageGrabber, &AbstractImageGrabber::canceled, [this]()
-	{ setHidden(false); });
+	connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::captureCanceled);
 
 	connect(mCaptureUploader, &CaptureUploader::finished, this, &MainWindow::uploadFinished);
 
@@ -229,7 +231,9 @@ void MainWindow::moveEvent(QMoveEvent* event)
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
-	event->ignore();
+	if(!mSessionManagerRequestedQuit) {
+		event->ignore();
+	}
 	mTrayIcon->isVisible() && mConfig->closeToTray() ? hide() : quit();
 }
 
@@ -534,4 +538,14 @@ void MainWindow::showScaleDialog()
 	showDialog([&](){
 		mKImageAnnotator->showScaler();
 	});
+}
+
+void MainWindow::sessionFinished()
+{
+	mSessionManagerRequestedQuit = true;
+}
+
+void MainWindow::captureCanceled()
+{
+	setHidden(false);
 }

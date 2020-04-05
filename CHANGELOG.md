@@ -2,6 +2,7 @@
 
 ## Release 1.6.2
 * Fixed: Window decoration and alt+tab menu show Wayland generic icon on KDE Plasma. ([#269](https://github.com/ksnip/kImageAnnotator/issues/269))
+* Fixed: Logout canceled by 'ksnip' under KDE. ([#281](https://github.com/ksnip/kImageAnnotator/issues/281))
 
 ## Release 1.6.1
 * Change: Allow opening link directly to image without opening in browser. ([#248](https://github.com/ksnip/kImageAnnotator/issues/248))

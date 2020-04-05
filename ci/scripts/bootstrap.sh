@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
-    sudo add-apt-repository ppa:beineri/opt-qt562-trusty -y
+    sudo add-apt-repository ppa:beineri/opt-qt571-trusty -y
     sudo apt-get update -qq
 
     echo "--> Download linuxdeployqt tool"
@@ -18,13 +18,13 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
 
     echo "--> Download Dependencies"
 
-    QT_BASE_URL="https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_563/qt.563.win32_msvc2015/5.6.3-0-201709190903"
+    QT_BASE_URL="https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_57/qt.57.win32_msvc2015/5.7.1-0"
     wget --quiet -O qtbase.7z "${QT_BASE_URL}qtbase-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
     wget --quiet -O qtwinextras.7z "${QT_BASE_URL}qtwinextras-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
     wget --quiet -O qttools.7z "${QT_BASE_URL}qttools-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
     wget --quiet -O qttranslations.7z "${QT_BASE_URL}qttranslations-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
     wget --quiet -O qtsvg.7z "${QT_BASE_URL}qtsvg-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
-	  wget --quiet -O openssl.zip "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip"
+	wget --quiet -O openssl.zip "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip"
 
     7z x qtbase.7z -o/c/qt
     7z x qtwinextras.7z -o/c/qt

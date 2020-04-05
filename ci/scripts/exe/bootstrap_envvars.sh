@@ -1,6 +1,6 @@
 #!/bin/bash
 
-QT_DIR="/c/qt/5.6.3/msvc2015"
+QT_DIR="/c/qt/5.7.1/msvc2015"
 PROGRAMFILES="/c/Program Files (x86)"
 WINDOWS_KITS="$PROGRAMFILES/Windows Kits"
 WINDOWS_KITS_BIN="$WINDOWS_KITS/10/bin/10.0.17134.0"

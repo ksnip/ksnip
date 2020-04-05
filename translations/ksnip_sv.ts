@@ -210,11 +210,11 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera automatiskt nya skärmklipp till urklipp</translation>
     </message>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara automatiskt nya skärmklipp till standardplatsen</translation>
     </message>
 </context>
 <context>
@@ -756,11 +756,11 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara som...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Klistra in</translation>
     </message>
 </context>
 <context>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-    <id>org.ksnip</id>
+    <id>ksnip</id>
     <metadata_license>FSFAP</metadata_license>
     <project_license>GPL-2.0+</project_license>
     <name>ksnip</name>
@@ -27,7 +27,7 @@
             <li>Many configuration options.</li>
         </ul>
     </description>
-    <launchable type="desktop-id">org.ksnip.desktop</launchable>
+    <launchable type="desktop-id">ksnip.desktop</launchable>
     <url type="homepage">http://ksnip.org</url>
     <screenshots>
         <screenshot type="default">
@@ -56,7 +56,7 @@
         </screenshot>
     </screenshots>
     <provides>
-        <id>org.ksnip.desktop</id>
+        <id>ksnip.desktop</id>
     </provides>
     <update_contact>damir.porobic@gmx.com</update_contact>
 </component>

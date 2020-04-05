@@ -29,7 +29,7 @@
 class X11KeyHandler : public AbstractKeyHandler
 {
 public:
-	X11KeyHandler() = default;
+	X11KeyHandler();
 	~X11KeyHandler() override;
 
 	bool registerKey(const QKeySequence &keySequence) override;
@@ -38,6 +38,7 @@ public:
 private:
 	KeyCodeCombo mKeyCodeCombo;
 	KeySequenceToX11KeyCodeTranslator mKeyCodeMapper;
+	QVector<unsigned int> mFixedModifiers;
 
 	void unregisterKey() const;
 };

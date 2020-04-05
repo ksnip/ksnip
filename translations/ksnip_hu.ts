@@ -211,11 +211,11 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Az új képernyőmentéseket automatikusan másolja a vágólapra</translation>
     </message>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Az új képernyőmentéseket automatikusan mentse az alapértelmezett helyre</translation>
     </message>
 </context>
 <context>
@@ -502,7 +502,14 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mikor ez az opció be van kapcsolva
+a program lefagyasztja a hátteret,
+miközben a téglalap alakú kivágás történik.
+Ez az opció szintén megváltoztatja a
+késleltetett képernyőkép funkcióját.
+Ha engedélyezve van, a késleltetés a kivágás előtt történik,
+míg ha nem engedélyezzük, a késleltetés a kivágás után történik.
+Hasonlóan, mint MacOS rendszeren, viszont nem működik Waylanden.</translation>
     </message>
 </context>
 <context>
@@ -752,11 +759,11 @@ másodpercben megadva.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Mentés mint...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Beillesztés</translation>
     </message>
 </context>
 <context>

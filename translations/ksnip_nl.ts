@@ -211,11 +211,11 @@ Herstart om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuwe schermfoto&apos;s automatisch kopiëren naar klembord</translation>
     </message>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuwe schermfoto&apos;s automatisch opslaan in standaardlocatie</translation>
     </message>
 </context>
 <context>
@@ -758,11 +758,11 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan als...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Plakken</translation>
     </message>
 </context>
 <context>

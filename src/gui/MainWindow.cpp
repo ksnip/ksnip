@@ -44,7 +44,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 		mTrayIcon(new TrayIcon(this)),
 		mSelectedWindowState(Qt::WindowActive),
-		mWindowStateChangeLock(false)
+		mWindowStateChangeLock(false),
+		mDragAndDropHandler(new DragAndDropHandler)
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -59,6 +60,10 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	setWindowIcon(QIcon(QStringLiteral(":/icons/ksnip.svg")));
 	setPosition(mConfig->windowPosition());
+
+	setAcceptDrops(true);
+	qApp->installEventFilter(mDragAndDropHandler);
+	connect(mDragAndDropHandler, &DragAndDropHandler::imageDropped, this, &MainWindow::loadImageFromFile);
 
 	connect(mConfig, &KsnipConfig::toolConfigChanged, this, &MainWindow::setupImageAnnotator);
 
@@ -119,6 +124,7 @@ MainWindow::~MainWindow()
     delete mCaptureUploader;
     delete mTrayIcon;
     delete mClipboard;
+    delete mDragAndDropHandler;
 }
 
 void MainWindow::processInstantCapture(const CaptureDto &capture)
@@ -410,7 +416,7 @@ void MainWindow::initGui()
     mOpenImageAction->setText(tr("Open"));
     mOpenImageAction->setIcon(QIcon::fromTheme(QStringLiteral("document-open")));
     mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
-    connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::loadImageFromFile);
+    connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::showOpenImageDialog);
 
 	mPasteAction->setText(tr("Paste"));
 	mPasteAction->setIcon(IconLoader::load(QStringLiteral("paste")));
@@ -513,20 +519,10 @@ void MainWindow::instantSave()
     operation.execute();
 }
 
-void MainWindow::loadImageFromFile()
+void MainWindow::showOpenImageDialog()
 {
-	if (!discardChanges()) {
-		return;
-	}
-
     auto path = QFileDialog::getOpenFileName(this, tr("Open Image"), mSavePathProvider.saveDirectory(), tr("Image Files (*.png *.jpg *.bmp)"));
-	auto pixmap = QPixmap(path);
-
-	if(!pixmap.isNull()) {
-		setHidden(false);
-		CaptureFromFileDto captureDto(pixmap, path);
-		processImage(captureDto);
-	}
+	loadImageFromFile(path);
 }
 
 bool MainWindow::discardChanges()
@@ -615,4 +611,18 @@ void MainWindow::saveClicked()
 void MainWindow::saveAsClicked()
 {
 	saveCapture(false);
+}
+
+void MainWindow::loadImageFromFile(const QString &path)
+{
+	if (!discardChanges()) {
+		return;
+	}
+
+	auto pixmap = QPixmap(path);
+	if(!pixmap.isNull()) {
+		setHidden(false);
+		CaptureFromFileDto captureDto(pixmap, path);
+		processImage(captureDto);
+	}
 }

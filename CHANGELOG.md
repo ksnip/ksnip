@@ -7,6 +7,7 @@
 * New: Support for PrtScrn hotkey. ([#239](https://github.com/ksnip/ksnip/issues/239))
 * New: Auto save new screenshot. ([#291](https://github.com/ksnip/ksnip/issues/291))
 * New: Remember file for already saved images. ([#292](https://github.com/ksnip/ksnip/issues/292))
+* New: Add support for drag and drop images into ksnip. ([#282](https://github.com/ksnip/ksnip/issues/282))
 * Changed: Save As option was added and useInstantSave config was removed. ([#285](https://github.com/ksnip/ksnip/issues/285))
 * Fixed: Compilation error with Qt 5.15. ([#279](https://github.com/ksnip/ksnip/issues/279))
 

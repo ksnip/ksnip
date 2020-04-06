@@ -39,6 +39,7 @@
 #include "src/common/enum/RunMode.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
+#include "src/common/handler/DragAndDropHandler.h"
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/operations/AddWatermarkOperation.h"
 #include "src/gui/operations/CanDiscardOperation.h"
@@ -101,6 +102,7 @@ private:
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
     TrayIcon *mTrayIcon;
     QString mPathToImageSource;
+	DragAndDropHandler *mDragAndDropHandler;
 
     void setSaveable(bool isUnsaved);
     void setEnablements(bool enabled);
@@ -121,7 +123,7 @@ private slots:
     void printClicked();
     void printPreviewClicked();
     void instantSave();
-    void loadImageFromFile();
+    void showOpenImageDialog();
     void pasteImageFromClipboard();
     void screenshotChanged();
     bool discardChanges();
@@ -140,6 +142,7 @@ private slots:
 	void capturePostProcessing();
 	void updatePathToImage(const QString &pathToImage);
 	void showImage(const CaptureDto &capture);
+	void loadImageFromFile(const QString &path);
 };
 
 #endif // KSNIP_MAINWINDOW_H

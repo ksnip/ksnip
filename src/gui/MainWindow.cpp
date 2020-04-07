@@ -37,6 +37,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mScaleAction(new QAction(this)),
 		mAddWatermarkAction(new QAction(this)),
 		mPasteAction(new QAction(this)),
+		mPasteEmbeddedAction(new QAction(this)),
 		mClipboard(new ClipboardWrapper(QApplication::clipboard())),
 		mConfig(KsnipConfigProvider::instance()),
 		mCapturePrinter(new CapturePrinter),
@@ -312,6 +313,7 @@ void MainWindow::setEnablements(bool enabled)
     mToolBar->setCopyActionEnabled(enabled);
     mToolBar->setCropEnabled(enabled);
 	mSaveAsAction->setEnabled(enabled);
+	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mKImageAnnotator->isVisible());
 }
 
 void MainWindow::loadSettings()
@@ -422,8 +424,15 @@ void MainWindow::initGui()
 	mPasteAction->setIcon(IconLoader::load(QStringLiteral("paste")));
 	mPasteAction->setShortcut(Qt::CTRL + Qt::Key_V);
 	mPasteAction->setEnabled(mClipboard->isPixmap());
-	connect(mPasteAction, &QAction::triggered, this, &MainWindow::pasteImageFromClipboard);
+	connect(mPasteAction, &QAction::triggered, this, &MainWindow::pasteFromClipboard);
 	connect(mClipboard, &ClipboardWrapper::changed, mPasteAction, &QAction::setEnabled);
+
+	mPasteEmbeddedAction->setText(tr("Paste Embedded"));
+	mPasteEmbeddedAction->setIcon(IconLoader::load(QStringLiteral("pasteEmbedded")));
+	mPasteEmbeddedAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_V);
+	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mKImageAnnotator->isVisible());
+	connect(mPasteEmbeddedAction, &QAction::triggered, this, &MainWindow::pasteEmbeddedFromClipboard);
+	connect(mClipboard, &ClipboardWrapper::changed, [this] (bool isPixmap){ mPasteEmbeddedAction->setEnabled(isPixmap && mKImageAnnotator->isVisible()); });
 
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
@@ -442,6 +451,8 @@ void MainWindow::initGui()
     menu->addSeparator();
     menu->addAction(mToolBar->copyToClipboardAction());
     menu->addAction(mPasteAction);
+    menu->addAction(mPasteEmbeddedAction);
+	menu->addSeparator();
     menu->addAction(mToolBar->cropAction());
     menu->addAction(mScaleAction);
     menu->addAction(mAddWatermarkAction);
@@ -583,7 +594,7 @@ void MainWindow::showScaleDialog()
 	});
 }
 
-void MainWindow::pasteImageFromClipboard()
+void MainWindow::pasteFromClipboard()
 {
 	if (!discardChanges()) {
 		return;
@@ -601,6 +612,12 @@ void MainWindow::pasteImageFromClipboard()
 			processImage(captureDto);
 		}
 	}
+}
+
+void MainWindow::pasteEmbeddedFromClipboard()
+{
+	auto pixmap = mClipboard->pixmap();
+	mKImageAnnotator->insertImageItem({}, pixmap);
 }
 
 void MainWindow::saveClicked()
@@ -626,3 +643,4 @@ void MainWindow::loadImageFromFile(const QString &path)
 		processImage(captureDto);
 	}
 }
+

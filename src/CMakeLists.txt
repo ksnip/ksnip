@@ -18,6 +18,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MessageBoxHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/PathHelper.cpp
+	${CMAKE_SOURCE_DIR}/src/common/helper/FileUrlHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DragAndDropHandler.cpp

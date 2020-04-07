@@ -17,34 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CLIPBOARDWRAPPER_H
-#define KSNIP_CLIPBOARDWRAPPER_H
+#include "FileUrlHelper.h"
 
-#include <QClipboard>
-#include <QPixmap>
-
-#include "src/common/dtos/CaptureFromFileDto.h"
-#include "src/common/helper/FileUrlHelper.h"
-
-class ClipboardWrapper : public QObject
+QString FileUrlHelper::parse(const QString &text)
 {
-	Q_OBJECT
-public:
-	explicit ClipboardWrapper(QClipboard *clipboard);
-	~ClipboardWrapper() override = default;
-	QPixmap pixmap() const;
-	bool isPixmap() const;
-	void setImage(const QImage &image);
-	QString url() const;
+	auto url = text;
+#if defined(__APPLE__)
+	return url.remove(QStringLiteral("file://"));
+#endif
 
-signals:
-	void changed(bool isPixmap) const;
+#if defined(__linux__)
+	return url.remove(QStringLiteral("file://"));
+#endif
 
-private:
-	QClipboard *mClipboard;
-
-private slots:
-	void selectionChanged(QClipboard::Mode mode) const;
-};
-
-#endif //KSNIP_CLIPBOARDWRAPPER_H
+#if  defined(_WIN32)
+	return url.remove(QStringLiteral("file:///"));
+#endif
+}

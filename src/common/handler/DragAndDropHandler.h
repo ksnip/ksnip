@@ -25,6 +25,8 @@
 #include <QMimeData>
 #include <QGraphicsSceneDragDropEvent>
 
+#include "src/common/helper/FileUrlHelper.h"
+
 class DragAndDropHandler : public QObject
 {
 	Q_OBJECT

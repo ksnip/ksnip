@@ -63,5 +63,5 @@ void DragAndDropHandler::handleDrop(QGraphicsSceneDragDropEvent *event)
 
 QString DragAndDropHandler::getUrlFromMimeData(const QMimeData *mimeData) const
 {
-	return mimeData->urls().first().toString().remove("file://");
+	return FileUrlHelper::parse(mimeData->urls().first().toString());
 }

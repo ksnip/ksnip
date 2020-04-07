@@ -38,7 +38,7 @@ QPixmap ClipboardWrapper::pixmap() const
 
 QString ClipboardWrapper::url() const
 {
-	return mClipboard->text().remove(QStringLiteral("file://"));
+	return FileUrlHelper::parse(mClipboard->text());
 }
 
 bool ClipboardWrapper::isPixmap() const

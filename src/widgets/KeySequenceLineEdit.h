@@ -56,6 +56,7 @@ private:
 	void updateKeySequence();
 	void addSpecialKeyHandler(const QKeySequence &keySequence, Qt::Key key);
 	Qt::Key getAllowedKey(const QKeyEvent *event) const;
+	void removeSpecialKeyHandler();
 };
 
 

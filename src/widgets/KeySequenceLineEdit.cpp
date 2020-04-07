@@ -22,8 +22,6 @@
 KeySequenceLineEdit::KeySequenceLineEdit(QWidget *widget, const QList<Qt::Key> &allowedKeys) : QLineEdit(widget)
 {
 	mAllowedKeys = allowedKeys;
-
-	setupSpecialKeyHandling();
 }
 
 KeySequenceLineEdit::~KeySequenceLineEdit()
@@ -74,18 +72,22 @@ void KeySequenceLineEdit::setValue(const QKeySequence &keySequence)
 
 void KeySequenceLineEdit::focusInEvent(QFocusEvent *event)
 {
-	for(const auto& keyFilter : mSpecialKeyFilters) {
-		QApplication::instance()->installNativeEventFilter(keyFilter.data());
-	}
+	setupSpecialKeyHandling();
 	QLineEdit::focusInEvent(event);
 }
 
 void KeySequenceLineEdit::focusOutEvent(QFocusEvent *event)
 {
+	removeSpecialKeyHandler();
+	QLineEdit::focusOutEvent(event);
+}
+
+void KeySequenceLineEdit::removeSpecialKeyHandler()
+{
 	for(const auto& keyFilter : mSpecialKeyFilters) {
 		QApplication::instance()->removeNativeEventFilter(keyFilter.data());
 	}
-	QLineEdit::focusOutEvent(event);
+	mSpecialKeyFilters.clear();
 }
 
 void KeySequenceLineEdit::keyPressed(Qt::Key key)
@@ -113,4 +115,5 @@ void KeySequenceLineEdit::addSpecialKeyHandler(const QKeySequence &keySequence, 
 	auto keyFilter = QSharedPointer<NativeKeyEventFilter>(new NativeKeyEventFilter(keyHandler));
 	connect(keyFilter.data(), &NativeKeyEventFilter::triggered, [this, key]() { keyPressed(key); });
 	mSpecialKeyFilters.append(keyFilter);
+	QApplication::instance()->installNativeEventFilter(keyFilter.data());
 }

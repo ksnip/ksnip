@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Donar</translation>
     </message>
 </context>
 <context>
@@ -36,7 +36,7 @@
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Licencia: </translation>
+        <translation>Licencia: </translation>
     </message>
     <message>
         <source>Please use </source>

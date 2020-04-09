@@ -211,11 +211,11 @@ Ksnip berrabiarazi behar du aldaketak eragina izateko.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiatu kaptura berriak arbelera automatikoki</translation>
     </message>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Gorde kaptura berriak lehenetsitako kokagunera automatikoki</translation>
     </message>
 </context>
 <context>
@@ -758,11 +758,11 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Gorde honela...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Itsatsi</translation>
     </message>
 </context>
 <context>

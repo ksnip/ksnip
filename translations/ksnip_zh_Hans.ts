@@ -210,11 +210,11 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>自动将新的捕获复制到剪贴板</translation>
     </message>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>自动将新的捕获保存到默认位置</translation>
     </message>
 </context>
 <context>
@@ -405,7 +405,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation type="unfinished">当前仅Windows和X11支持热键</translation>
+        <translation>当前仅 Windows 和 X11 支持热键</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
@@ -757,11 +757,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>另存为...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>粘贴</translation>
     </message>
 </context>
 <context>
@@ -860,7 +860,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation type="unfinished">您即将将屏幕截图上传到imgur.com，要继续吗？</translation>
+        <translation>您即将将屏幕截图上传到 imgur.com，要继续吗？</translation>
     </message>
 </context>
 <context>

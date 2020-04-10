@@ -32,7 +32,7 @@
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">Herramienta de Captura de pantalla</translation>
+        <translation>Herramienta de captura de pantalla</translation>
     </message>
     <message>
         <source>License: </source>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Favor usar </translation>
+        <translation>Favor use </translation>
     </message>
     <message>
         <source> to report bugs.</source>
@@ -207,50 +207,50 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar minimizado en la barra de tareas.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar automáticamente al portapapeles las nuevas capturas</translation>
     </message>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar automáticamente las nuevas capturas a la ubicación por defecto</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished">El autor:</translation>
+        <translation>El autor:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Colaboradores:</translation>
+        <translation>Colaboradores:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">Traducción Española</translation>
+        <translation>Traducción española</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">Traducción holandesa</translation>
+        <translation>Traducción holandesa</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">Traducción rusa</translation>
+        <translation>Traducción rusa</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">Traducción noruega</translation>
+        <translation>Traducción noruega</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">Traducción francesa</translation>
+        <translation>Traducción francesa</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">Traducción polaca</translation>
+        <translation>Traducción polaca</translation>
     </message>
 </context>
 <context>
@@ -340,27 +340,27 @@ Do you want to save it?</source>
     <name>DonateTab</name>
     <message>
         <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>¿Donar una cerveza?</translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Por supuesto, puedes hacerlo</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>aquí</translation>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Ser un patrocinador</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>También es posible, </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Las donaciones son siempre bienvenidas</translation>
     </message>
 </context>
 <context>

@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтримати</translation>
     </message>
 </context>
 <context>
@@ -36,26 +36,26 @@
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Ліцензія: </translation>
+        <translation>Ліцензія: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Будь ласка, використовуйте </translation>
+        <translation>Будь ласка, використовуйте </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> , щоб повідомити про проблеми.</translation>
+        <translation> , щоб повідомити про проблеми.</translation>
     </message>
 </context>
 <context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Потребується зображення водяного знаку</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Будь ласка, додайте водяний знак через Параметри → Налаштування → Анотатор — Оновити</translation>
     </message>
 </context>
 <context>
@@ -120,23 +120,23 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Водяний знак</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Оновити</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Повернути водяний знак</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation>При ввімкненні водяний знак буде повернено на 45°</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Налаштування анотатора</translation>
     </message>
 </context>
 <context>
@@ -189,32 +189,33 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати іконку в треї</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>При ввімкненні іконка трея буде додана до панелі задач, якщо віконний менеджер системи це підтримує.
+Зміна потребує перезапуску.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Згорнути до трею</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрити до трею</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
-        <translation type="unfinished"></translation>
+        <translation>Запускати згорнутим до трею.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматично копіювати нові знятки до буферу обміну</translation>
     </message>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматично зберігати нові знятки до папки за замовчуванням</translation>
     </message>
 </context>
 <context>
@@ -313,11 +314,11 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Остання прямокутна область</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
+        <translation>Зробити зняток останньої вибраної прямокутної області</translation>
     </message>
 </context>
 <context>
@@ -328,88 +329,88 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
+        <translation>Отримано новий токен, спроба завантажити ще раз…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished"></translation>
+        <translation>Термін дії токену Imgur закінчився, запитується новий токен…</translation>
     </message>
 </context>
 <context>
     <name>DonateTab</name>
     <message>
         <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтримати пивом?</translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Звісно, ви можете це зробити</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>тут</translation>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Стати спонсором</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>Також можливо, </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожертви завжди вітаються</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResponseOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантаження успішно завершено</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажено до</translation>
     </message>
 </context>
 <context>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Увімкнути глобальні гарячі клавіші</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Зняти прямокутну область</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Зняти весь екран</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Зняти поточний екран</translation>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Зняти активне вікно</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Зняти вікно під курсором</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Глобальні гарячі клавіші</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation type="unfinished"></translation>
+        <translation>Гарячі клавіші зараз підтримуються лише у Windows та X11</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Зняти останню прямокутну область</translation>
     </message>
 </context>
 <context>
@@ -579,7 +580,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished"></translation>
+        <translation>Очікування на imgur.com…</translation>
     </message>
     <message>
         <source>Username:</source>
@@ -595,11 +596,11 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Після завантаження відкрити посилання на Imgur у браузері за замовчуванням</translation>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Пряме посилання до зображення</translation>
     </message>
 </context>
 <context>
@@ -640,11 +641,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Відмінити</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Повторити</translation>
     </message>
     <message>
         <source>Crop</source>
@@ -731,31 +732,31 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати водяний знак</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати водяний знак до знятку. Можна додати декілька знаків.</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Файл</translation>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдається показати зображення</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не було надано жодного зображення, як очікувалося.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Зберегти як…</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Вставити</translation>
     </message>
 </context>
 <context>
@@ -774,19 +775,19 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Зображення збережено</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося зберегти зображення</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation type="unfinished"></translation>
+        <translation>Зберегти до</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося зберегти зображення до</translation>
     </message>
 </context>
 <context>
@@ -817,25 +818,25 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри анотатору</translation>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Гарячі клавіші</translation>
     </message>
 </context>
 <context>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати редактор</translation>
     </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Вибрати зображення</translation>
     </message>
     <message>
         <source>Images</source>

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -15,25 +15,22 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
- *
  */
 
-#ifndef KSNIP_PATHHELPER_H
-#define KSNIP_PATHHELPER_H
+#ifndef KSNIP_PATHFROMCAPTUREPROVIDER_H
+#define KSNIP_PATHFROMCAPTUREPROVIDER_H
 
 #include <QString>
-#include <QDateTime>
-#include <QFile>
 
-class PathHelper
+#include "src/common/dtos/CaptureFromFileDto.h"
+
+class PathFromCaptureProvider
 {
 public:
-    static bool isPathValid(const QString &path);
-    static QString extractPath(const QString &path);
-    static QString extractFilename(const QString &path);
-    static QString extractFormat(const QString &path);
-    static QString replaceWildcards(QString filename);
-    static QString makeUniqueFilename(const QString &path, const QString &filename, const QString &extension = QString());
+	PathFromCaptureProvider() = default;
+	~PathFromCaptureProvider() = default;
+
+	QString pathFrom(const CaptureDto &capture) const;
 };
 
-#endif // KSNIP_PATHHELPER_H
+#endif //KSNIP_PATHFROMCAPTUREPROVIDER_H

@@ -38,6 +38,8 @@
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
+#include "src/common/provider/NewCaptureNameProvider.h"
+#include "src/common/provider/PathFromCaptureProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/handler/DragAndDropHandler.h"
 #include "src/gui/operations/SaveOperation.h"
@@ -48,6 +50,7 @@
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
 #include "src/gui/TrayIcon.h"
 #include "ClipboardWrapper.h"
+#include "captureTabs/CaptureTabStateHandler.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -64,7 +67,6 @@ public:
 public slots:
     void processCapture(const CaptureDto &capture);
 	void processImage(const CaptureDto &capture);
-	void triggerNewCapture(CaptureModes captureMode);
 	void quit();
 
 protected:
@@ -77,7 +79,6 @@ protected:
 private:
     AbstractImageGrabber *mImageGrabber;
     RunMode mMode;
-    bool mIsUnsaved;
     bool mHidden;
     Qt::WindowState mSelectedWindowState;
     bool mWindowStateChangeLock;
@@ -102,10 +103,12 @@ private:
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
     TrayIcon *mTrayIcon;
-    QString mPathToImageSource;
 	DragAndDropHandler *mDragAndDropHandler;
+	CaptureTabStateHandler *mTabStateHandler;
+	NewCaptureNameProvider mNewCaptureNameProvider;
+	PathFromCaptureProvider mPathFromCaptureProvider;
 
-    void setSaveable(bool isUnsaved);
+    void currentCaptureChanged();
     void setEnablements(bool enabled);
     void loadSettings();
     void setHidden(bool isHidden);
@@ -127,7 +130,6 @@ private slots:
     void showOpenImageDialog();
     void pasteFromClipboard();
     void pasteEmbeddedFromClipboard();
-    void screenshotChanged();
     bool discardChanges();
     void setupImageAnnotator();
     void captureDelayChanged(int delay);
@@ -137,14 +139,13 @@ private slots:
     void showScaleDialog();
 	void setPosition(const QPoint &lastPosition);
 	void handleGuiStartup();
-	void updatePathToImageFromCapture(const CaptureDto &capture);
 	void saveClicked();
 	void saveAsClicked();
 	void updateApplicationTitle();
 	void capturePostProcessing();
-	void updatePathToImage(const QString &pathToImage);
 	void showImage(const CaptureDto &capture);
 	void loadImageFromFile(const QString &path);
+	void tabCloseRequested(int index);
 };
 
 #endif // KSNIP_MAINWINDOW_H

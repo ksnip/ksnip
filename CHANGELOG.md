@@ -9,6 +9,7 @@
 * New: Remember file for already saved images. ([#292](https://github.com/ksnip/ksnip/issues/292))
 * New: Add support for drag and drop images into ksnip. ([#282](https://github.com/ksnip/ksnip/issues/282))
 * New: Insert embedded image into an existing screenshot. ([#293](https://github.com/ksnip/ksnip/issues/293))
+* New: Show screenshots in tabs. ([#298](https://github.com/ksnip/ksnip/issues/298))
 * Changed: Save As option was added and useInstantSave config was removed. ([#285](https://github.com/ksnip/ksnip/issues/285))
 * Fixed: Compilation error with Qt 5.15. ([#279](https://github.com/ksnip/ksnip/issues/279))
 

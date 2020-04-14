@@ -20,6 +20,11 @@
 
 #include "PathHelper.h"
 
+bool PathHelper::isPathValid(const QString &path)
+{
+	return !path.isNull() && !path.isEmpty();
+}
+
 /*
  * Split the path into sections each divided by forward slash and return
  * everything from begin to the last part just before the filename.

@@ -146,6 +146,7 @@ private slots:
 	void showImage(const CaptureDto &capture);
 	void loadImageFromFile(const QString &path);
 	void tabCloseRequested(int index);
+	void removeTab(int currentTabIndex);
 };
 
 #endif // KSNIP_MAINWINDOW_H

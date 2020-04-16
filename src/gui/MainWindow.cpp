@@ -155,9 +155,14 @@ void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor,
 
 void MainWindow::quit()
 {
-	if (!discardChanges()) {
-		return;
+	while (mTabStateHandler->count() != 0) {
+		if (!discardChanges()) {
+			return;
+		}
+		int currentTabIndex = mTabStateHandler->currentTabIndex();
+		removeTab(currentTabIndex);
 	}
+
 	mTrayIcon->hide();
 	QCoreApplication::exit(0);
 }
@@ -630,8 +635,12 @@ void MainWindow::tabCloseRequested(int index)
 	if (!discardChanges()) {
 		return;
 	}
-	mKImageAnnotator->removeTab(index);
-	mTabStateHandler->tabRemoved(index);
-	currentCaptureChanged();
+	removeTab(index);
 }
 
+void MainWindow::removeTab(int currentTabIndex)
+{
+	mKImageAnnotator->removeTab(currentTabIndex);
+	mTabStateHandler->tabRemoved(currentTabIndex);
+	currentCaptureChanged();
+}

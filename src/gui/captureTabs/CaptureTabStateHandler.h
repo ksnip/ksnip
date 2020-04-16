@@ -38,6 +38,8 @@ public:
 	bool currentTabIsSaved();
 	QString currentTabPath();
 	void setCurrentTabSaveState(const SaveResultDto &saveResult);
+	int count() const;
+	int currentTabIndex() const;
 
 signals:
 	void updateTabInfo(int index, const QString &title, const QString &toolTip);

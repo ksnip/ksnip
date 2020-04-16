@@ -120,3 +120,12 @@ QSharedPointer<CaptureTabState> CaptureTabStateHandler::getCurrentTabStateFromCa
 
 	return mCachedCurrentTabState;
 }
+
+int CaptureTabStateHandler::count() const
+{
+	return mCaptureTabStates.count();
+}
+int CaptureTabStateHandler::currentTabIndex() const
+{
+	return mCurrentTabIndex;
+}

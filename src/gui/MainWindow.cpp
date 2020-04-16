@@ -97,7 +97,7 @@ void MainWindow::handleGuiStartup()
 		if (mConfig->captureOnStartup()) {
 			capture(mConfig->captureMode());
 		} else if (mConfig->startMinimizedToTray() && mConfig->useTrayIcon()) {
-			hide();
+			showHidden();
 		} else {
 			showEmpty();
 		}
@@ -227,6 +227,13 @@ void MainWindow::showEmpty()
 	currentCaptureChanged();
     setEnablements(false);
     QMainWindow::show();
+}
+
+void MainWindow::showHidden()
+{
+	currentCaptureChanged();
+	setEnablements(false);
+	hide();
 }
 
 void MainWindow::show()

@@ -61,6 +61,7 @@ public:
     explicit MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
     ~MainWindow() override;
     void showEmpty();
+	void showHidden();
     void show();
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
 

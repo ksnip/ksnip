@@ -212,11 +212,11 @@ hhmmss 形式で時間を表す変数 ($T) を含めることができます。<
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>自動的に新しいキャプチャーをクリップボードにコピーする</translation>
     </message>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>自動的に新しいキャプチャーをデフォルトの場所に保存する</translation>
     </message>
 </context>
 <context>
@@ -756,11 +756,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を付けて保存...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>貼り付け</translation>
     </message>
 </context>
 <context>

@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağış</translation>
     </message>
 </context>
 <context>
@@ -51,11 +51,11 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Filigran Resmi Gerekli</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Lüffen Filigran Resmini Ayarlar &gt; Seçenekler &gt; Ek Açıklama &gt; Güncelle kısmından ekleyin</translation>
     </message>
 </context>
 <context>

@@ -532,7 +532,8 @@ bool MainWindow::discardChanges()
 	auto image = mKImageAnnotator->image();
 	auto isUnsaved = !mTabStateHandler->currentTabIsSaved();
 	auto pathToSource = mTabStateHandler->currentTabPath();
-	CanDiscardOperation operation(this, image, isUnsaved, pathToSource, mTrayIcon);
+	auto filename = mTabStateHandler->currentTabFilename();
+	CanDiscardOperation operation(this, image, isUnsaved, pathToSource, filename, mTrayIcon);
 	return operation.execute();
 }
 

@@ -37,6 +37,7 @@ public:
 	void add(int index, const QString &filename, const QString &path, bool isSaved);
 	bool currentTabIsSaved();
 	QString currentTabPath();
+	QString currentTabFilename();
 	void setCurrentTabSaveState(const SaveResultDto &saveResult);
 	int count() const;
 	int currentTabIndex() const;

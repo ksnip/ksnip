@@ -19,12 +19,13 @@
 
 #include "CanDiscardOperation.h"
 
-CanDiscardOperation::CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, const QString &pathToImageSource, TrayIcon *trayIcon)
+CanDiscardOperation::CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, const QString &pathToImageSource, const QString &filename, TrayIcon *trayIcon)
 {
 	mParent = parent;
 	mImage = image;
 	mIsUnsaved = isUnsaved;
 	mPathToImageSource = pathToImageSource;
+	mFilename = filename;
 	mConfig = KsnipConfigProvider::instance();
 	mTrayIcon = trayIcon;
 }
@@ -53,5 +54,5 @@ bool CanDiscardOperation::saveImage() const
 MessageBoxResponse CanDiscardOperation::getSaveBeforeDiscard() const
 {
 	return MessageBoxHelper::yesNoCancel(tr("Warning - ") + QApplication::applicationName(),
-		                                 tr("The capture has been modified.\nDo you want to save it?"));
+		                                 tr("The capture \"%1\" has been modified.\nDo you want to save it?").arg(mFilename));
 }

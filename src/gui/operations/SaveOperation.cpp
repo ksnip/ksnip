@@ -56,7 +56,7 @@ SaveResultDto SaveOperation::execute()
 
 QString SaveOperation::getSavePath() const
 {
-	return mPathToImageSource.isNull() ? mSavePathProvider.savePath() : mPathToImageSource;
+	return PathHelper::isPathValid(mPathToImageSource) ? mPathToImageSource : mSavePathProvider.savePath();
 }
 
 SaveResultDto SaveOperation::save(const QString &path)

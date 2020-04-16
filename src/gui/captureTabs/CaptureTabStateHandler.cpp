@@ -44,6 +44,12 @@ QString CaptureTabStateHandler::currentTabPath()
 	return currentTabState.isNull() ? QString() : currentTabState->path;
 }
 
+QString CaptureTabStateHandler::currentTabFilename()
+{
+	auto currentTabState = getCurrentTabStateFromCache();
+	return currentTabState.isNull() ? QString() : currentTabState->filename;
+}
+
 void CaptureTabStateHandler::setCurrentTabSaveState(const SaveResultDto &saveResult)
 {
 	auto currentTabState = getCurrentTabStateFromCache();
@@ -129,3 +135,4 @@ int CaptureTabStateHandler::currentTabIndex() const
 {
 	return mCurrentTabIndex;
 }
+

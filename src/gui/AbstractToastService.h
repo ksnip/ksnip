@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,24 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_NOTIFYOPERATION_H
-#define KSNIP_NOTIFYOPERATION_H
+#ifndef ABSTRACTTOASTSERVICE_H
+#define ABSTRACTTOASTSERVICE_H
 
-#include "src/gui/TrayIcon.h"
-#include "src/common/enum/NotificationTypes.h"
-
-class NotifyOperation
+class AbstractToastService
 {
 public:
-	NotifyOperation(AbstractToastService *toastService, const QString &title, const QString &message, NotificationTypes notificationType);
-	~NotifyOperation() = default;
-	bool execute();
-
-private:
-	AbstractToastService *mToastService;
-	QString mTitle;
-	QString mMessage;
-	NotificationTypes mNotificationType;
+	virtual void showInfoToast(const QString &title, const QString &message) = 0;
+	virtual void showWarningToast(const QString &title, const QString &message) = 0;
+	virtual void showCriticalToast(const QString &title, const QString &message) = 0;
 };
 
-#endif //KSNIP_NOTIFYOPERATION_H
+#endif //ABSTRACTTOASTSERVICE_H

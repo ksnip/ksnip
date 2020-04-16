@@ -23,9 +23,10 @@
 #include <QSystemTrayIcon>
 #include <QMenu>
 
+#include "AbstractToastService.h"
 #include "src/common/enum/CaptureModes.h"
 
-class TrayIcon : public QSystemTrayIcon
+class TrayIcon : public QSystemTrayIcon, public AbstractToastService
 {
 Q_OBJECT
 public:
@@ -38,9 +39,9 @@ public:
 	void setUploadAction(QAction *action);
 	void setQuitAction(QAction *action);
 	void setEnabled(bool enabled);
-	void showInfoToast(const QString &title, const QString &message);
-	void showWarningToast(const QString &title, const QString &message);
-	void showCriticalToast(const QString &title, const QString &message);
+	void showInfoToast(const QString &title, const QString &message) override;
+	void showWarningToast(const QString &title, const QString &message) override;
+	void showCriticalToast(const QString &title, const QString &message) override;
 
 signals:
 	void showEditorTriggered() const;

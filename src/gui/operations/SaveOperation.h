@@ -27,13 +27,14 @@
 #include "src/backend/config/KsnipConfig.h"
 #include "src/backend/config/SavePathProvider.h"
 #include "src/backend/ImageSaver.h"
+#include "src/gui/AbstractToastService.h"
 
 class SaveOperation : public QObject
 {
 	Q_OBJECT
 public:
-    SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, TrayIcon *trayIcon);
-	SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, TrayIcon *trayIcon);
+    SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, AbstractToastService *toastService);
+	SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, AbstractToastService *toastService);
     ~SaveOperation() override = default;
 	SaveResultDto execute();
 
@@ -44,7 +45,7 @@ private:
     ImageSaver mImageSaver;
     QString mPathToImageSource;
     bool mIsInstantSave;
-    TrayIcon *mTrayIcon;
+	AbstractToastService *mToastService;
 	void notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const;
 	SaveResultDto save(const QString &path);
 	QString getSavePath() const;

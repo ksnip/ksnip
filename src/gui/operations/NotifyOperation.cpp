@@ -19,28 +19,28 @@
 
 #include "NotifyOperation.h"
 
-NotifyOperation::NotifyOperation(TrayIcon *trayIcon, const QString &title, const QString &message, NotificationTypes notificationType) :
-	mTrayIcon(trayIcon),
+NotifyOperation::NotifyOperation(AbstractToastService *toastService, const QString &title, const QString &message, NotificationTypes notificationType) :
+	mToastService(toastService),
 	mTitle(title),
 	mMessage(message),
 	mNotificationType(notificationType)
 {
-	Q_ASSERT(mTrayIcon != nullptr);
+	Q_ASSERT(mToastService != nullptr);
 }
 
 bool NotifyOperation::execute()
 {
 	switch (mNotificationType) {
 		case NotificationTypes::Information:
-			mTrayIcon->showInfoToast(mTitle, mMessage);
+			mToastService->showInfoToast(mTitle, mMessage);
 			qInfo("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 		case NotificationTypes::Warning:
-			mTrayIcon->showWarningToast(mTitle, mMessage);
+			mToastService->showWarningToast(mTitle, mMessage);
 			qWarning("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 		case NotificationTypes::Critical:
-			mTrayIcon->showCriticalToast(mTitle, mMessage);
+			mToastService->showCriticalToast(mTitle, mMessage);
 			qCritical("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 	}

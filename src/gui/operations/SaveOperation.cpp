@@ -19,16 +19,16 @@
 
 #include "SaveOperation.h"
 
-SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, TrayIcon *trayIcon) :
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, AbstractToastService *toastService) :
 	mParent(parent),
 	mImage(image),
 	mIsInstantSave(isInstantSave),
-	mTrayIcon(trayIcon)
+	mToastService(toastService)
 {
     Q_ASSERT(mParent != nullptr);
 }
 
-SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, TrayIcon *trayIcon) : SaveOperation(parent, image, isInstantSave, trayIcon)
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, AbstractToastService *toastService) : SaveOperation(parent, image, isInstantSave, toastService)
 {
 	mPathToImageSource = pathToImageSource;
 }
@@ -71,6 +71,6 @@ SaveResultDto SaveOperation::save(const QString &path)
 
 void SaveOperation::notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const
 {
-	NotifyOperation operation(mTrayIcon, title, message + QStringLiteral(" ") + path, notificationType);
+	NotifyOperation operation(mToastService, title, message + QStringLiteral(" ") + path, notificationType);
 	operation.execute();
 }

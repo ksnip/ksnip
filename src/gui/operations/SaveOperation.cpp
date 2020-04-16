@@ -19,14 +19,13 @@
 
 #include "SaveOperation.h"
 
-SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, TrayIcon *trayIcon)
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, TrayIcon *trayIcon) :
+	mParent(parent),
+	mImage(image),
+	mIsInstantSave(isInstantSave),
+	mTrayIcon(trayIcon)
 {
-    Q_ASSERT(parent != nullptr);
-
-    mParent = parent;
-    mImage = image;
-    mIsInstantSave = isInstantSave;
-    mTrayIcon = trayIcon;
+    Q_ASSERT(mParent != nullptr);
 }
 
 SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, TrayIcon *trayIcon) : SaveOperation(parent, image, isInstantSave, trayIcon)

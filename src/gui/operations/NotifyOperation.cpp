@@ -19,14 +19,13 @@
 
 #include "NotifyOperation.h"
 
-NotifyOperation::NotifyOperation(TrayIcon *trayIcon, const QString &title, const QString &message, NotificationTypes notificationType)
+NotifyOperation::NotifyOperation(TrayIcon *trayIcon, const QString &title, const QString &message, NotificationTypes notificationType) :
+	mTrayIcon(trayIcon),
+	mTitle(title),
+	mMessage(message),
+	mNotificationType(notificationType)
 {
-	Q_ASSERT(trayIcon != nullptr);
-
-	mTrayIcon = trayIcon;
-	mTitle = title;
-	mMessage = message;
-	mNotificationType = notificationType;
+	Q_ASSERT(mTrayIcon != nullptr);
 }
 
 bool NotifyOperation::execute()

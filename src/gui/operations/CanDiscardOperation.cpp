@@ -19,15 +19,15 @@
 
 #include "CanDiscardOperation.h"
 
-CanDiscardOperation::CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, const QString &pathToImageSource, const QString &filename, TrayIcon *trayIcon)
+CanDiscardOperation::CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, const QString &pathToImageSource, const QString &filename, TrayIcon *trayIcon) :
+	mParent(parent),
+	mImage(image),
+	mIsUnsaved(isUnsaved),
+	mPathToImageSource(pathToImageSource),
+	mFilename(filename),
+	mConfig(KsnipConfigProvider::instance()),
+	mTrayIcon(trayIcon)
 {
-	mParent = parent;
-	mImage = image;
-	mIsUnsaved = isUnsaved;
-	mPathToImageSource = pathToImageSource;
-	mFilename = filename;
-	mConfig = KsnipConfigProvider::instance();
-	mTrayIcon = trayIcon;
 }
 
 bool CanDiscardOperation::execute()

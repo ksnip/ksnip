@@ -6,7 +6,7 @@ Version v1.7.0 - Work in Progress
 Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features 
 for your screenshots.
 
-![Ksnip](https://i.imgur.com/TsDWwXC.png "Ksnip with annotations")
+![Ksnip](https://i.imgur.com/8AtcUlL.jpg "Ksnip with annotations")
 
 
 # Features
@@ -28,6 +28,8 @@ Latest ksnip version contains following features:
 * Annotate screenshots with pen, marker, rectangles, ellipses, texts and other tools.
 * Add watermarks to captured images.
 * Global HotKeys for taking Screenshots (Currently only for Windows and X11).
+* Tabs for Screenshots and images.
+* Open existing images via dialog, drag-and-drop or paste from clipboard.
 * Many configuration options.
 
 
@@ -73,9 +75,6 @@ The usual installation for snaps, will install latest version:
 
 The continuous build version is also available as edge, in order to install it you need to provide the edge flag:  
 `$ sudo snap install ksnip --edge`  
-
-One additional step is currently required for snaps, the slot must be connected to the kde framework:  
-`$ snap connect ksnip:kde-frameworks-5-plug kde-frameworks-5-core18:kde-frameworks-5-core18-slot`  
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/ksnip)
 

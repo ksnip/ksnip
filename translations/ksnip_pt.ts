@@ -211,11 +211,11 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticamente copiar novas capturas para a área de transferência</translation>
     </message>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticamente salvar novas capturas para o diretório padrão</translation>
     </message>
 </context>
 <context>
@@ -757,11 +757,11 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar como...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Colar</translation>
     </message>
 </context>
 <context>

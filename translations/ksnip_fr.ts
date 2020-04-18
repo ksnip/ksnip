@@ -199,7 +199,7 @@ Vous devrez redémarrer knsip pour le prendre en compte.</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
-        <translation>Icône dans la barre des tâches</translation>
+        <translation>Utilise l&apos;icône du tiroir</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.

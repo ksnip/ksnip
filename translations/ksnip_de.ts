@@ -222,7 +222,7 @@ Diese Änderung erfordert einen Neustart.</translation>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished">Der Autor:</translation>
+        <translation>Der Autor:</translation>
     </message>
     <message>
         <source>Contributors:</source>

@@ -29,7 +29,7 @@ class CapturePrinter : public QObject
 {
 Q_OBJECT
 public:
-	explicit CapturePrinter();
+	explicit CapturePrinter() = default;
 	~CapturePrinter() override = default;
 	void print(const QImage &image, const QString &defaultPath);
 	void printPreview(const QImage &image, const QString &defaultPath);

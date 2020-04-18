@@ -19,16 +19,12 @@
 
 #include "CapturePrinter.h"
 
-CapturePrinter::CapturePrinter()
-{
-}
-
 void CapturePrinter::print(const QImage &image, const QString &defaultPath)
 {
     QPrinter printer;
     printer.setOutputFileName(defaultPath);
     printer.setOutputFormat(QPrinter::NativeFormat);
-    QPrintDialog printDialog(&printer, 0);
+    QPrintDialog printDialog(&printer, nullptr);
 
     if (printDialog.exec() == QDialog::Accepted) {
 	    printCapture(image, &printer);
@@ -55,7 +51,7 @@ void CapturePrinter::printPreview(const QImage &image, const QString &defaultPat
     QPrinter printer;
     printer.setOutputFileName(defaultPath);
     printer.setOutputFormat(QPrinter::NativeFormat);
-    QPrintPreviewDialog printDialog(&printer);
+    QPrintPreviewDialog printDialog(&printer, nullptr, Qt::Window);
 	connect(&printDialog, &QPrintPreviewDialog::paintRequested, [this, image](QPrinter *p)
 	{
 		printCapture(image, p);

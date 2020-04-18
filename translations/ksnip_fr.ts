@@ -221,11 +221,11 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier automatiquement les nouvelles captures dans le presse-papier</translation>
     </message>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer automatiquement les nouvelles captures dans l&apos;emplacement par défaut</translation>
     </message>
 </context>
 <context>
@@ -768,11 +768,11 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistré sous…</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Coller</translation>
     </message>
 </context>
 <context>

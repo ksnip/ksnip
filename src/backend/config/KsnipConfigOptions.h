@@ -30,6 +30,7 @@ public:
 	static QString autoCopyToClipboardNewCapturesString();
 	static QString autoSaveNewCapturesString();
 	static QString saveToolSelectionString();
+	static QString autoHideTabsString();
 	static QString captureOnStartupString();
 	static QString freezeImageWhileSnippingEnabledString();
 	static QString positionString();

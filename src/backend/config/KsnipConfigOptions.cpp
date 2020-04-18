@@ -44,6 +44,11 @@ QString KsnipConfigOptions::saveToolSelectionString()
 	return applicationSectionString() + QStringLiteral("SaveToolsSelection");
 }
 
+QString KsnipConfigOptions::autoHideTabsString()
+{
+	return applicationSectionString() + QStringLiteral("AutoHideTabs");
+}
+
 QString KsnipConfigOptions::captureOnStartupString()
 {
 	return applicationSectionString() + QStringLiteral("CaptureOnStartup");

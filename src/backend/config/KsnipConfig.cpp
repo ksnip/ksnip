@@ -87,6 +87,20 @@ void KsnipConfig::setSaveToolSelection(bool enabled)
 	saveValue(KsnipConfigOptions::saveToolSelectionString(), enabled);
 }
 
+bool KsnipConfig::autoHideTabs() const
+{
+	return loadValue(KsnipConfigOptions::autoHideTabsString(), false).toBool();
+}
+
+void KsnipConfig::setAutoHideTabs(bool enabled)
+{
+	if (autoHideTabs() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::autoHideTabsString(), enabled);
+	emit annotatorConfigChanged();
+}
+
 bool KsnipConfig::captureOnStartup() const
 {
 	return loadValue(KsnipConfigOptions::captureOnStartupString(), false).toBool();
@@ -196,7 +210,7 @@ QString KsnipConfig::applicationStyle() const
 	return loadValue(KsnipConfigOptions::applicationStyleString(), defaultStyle).toString();
 }
 
-void KsnipConfig::setApplicationStyle(QString style)
+void KsnipConfig::setApplicationStyle(const QString &style)
 {
     if (applicationStyle() == style) {
         return;
@@ -272,8 +286,7 @@ void KsnipConfig::setTextBold(bool  bold)
     font.setBold(bold);
 
 	saveValue(KsnipConfigOptions::textFontString(), font);
-    emit painterUpdated();
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 bool KsnipConfig::textItalic() const
@@ -290,8 +303,7 @@ void KsnipConfig::setTextItalic(bool  italic)
     font.setItalic(italic);
 
 	saveValue(KsnipConfigOptions::textFontString(), font);
-    emit painterUpdated();
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 bool KsnipConfig::textUnderline() const
@@ -308,8 +320,7 @@ void KsnipConfig::setTextUnderline(bool  underline)
     font.setUnderline(underline);
 
 	saveValue(KsnipConfigOptions::textFontString(), font);
-    emit painterUpdated();
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 QFont KsnipConfig::textFont() const
@@ -327,8 +338,7 @@ void KsnipConfig::setTextFont(const QFont& font)
     tmpFont.setFamily(font.family());
 
 	saveValue(KsnipConfigOptions::textFontString(), tmpFont);
-    emit painterUpdated();
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 QFont KsnipConfig::numberFont() const
@@ -347,8 +357,7 @@ void KsnipConfig::setNumberFont(const QFont& font)
     tmpFont.setBold(true);
 
 	saveValue(KsnipConfigOptions::numberFontString(), tmpFont);
-    emit painterUpdated();
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 bool KsnipConfig::itemShadowEnabled() const
@@ -363,7 +372,7 @@ void KsnipConfig::setItemShadowEnabled(bool enabled)
     }
 
 	saveValue(KsnipConfigOptions::itemShadowEnabledString(), enabled);
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 bool KsnipConfig::smoothPathEnabled() const
@@ -378,7 +387,7 @@ void KsnipConfig::setSmoothPathEnabled(bool  enabled)
     }
 
 	saveValue(KsnipConfigOptions::smoothPathEnabledString(), enabled);
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 int KsnipConfig::smoothFactor() const
@@ -393,7 +402,7 @@ void KsnipConfig::setSmoothFactor(int  factor)
     }
 
 	saveValue(KsnipConfigOptions::smoothPathFactorString(), factor);
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 bool KsnipConfig::rotateWatermarkEnabled() const

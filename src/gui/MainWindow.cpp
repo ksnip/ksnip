@@ -66,7 +66,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	qApp->installEventFilter(mDragAndDropHandler);
 	connect(mDragAndDropHandler, &DragAndDropHandler::imageDropped, this, &MainWindow::loadImageFromFile);
 
-	connect(mConfig, &KsnipConfig::toolConfigChanged, this, &MainWindow::setupImageAnnotator);
+	connect(mConfig, &KsnipConfig::annotatorConfigChanged, this, &MainWindow::setupImageAnnotator);
 
 	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabChanged);
 	connect(mKImageAnnotator, &KImageAnnotator::tabMoved, mTabStateHandler, &CaptureTabStateHandler::tabMoved);
@@ -546,7 +546,7 @@ bool MainWindow::discardChanges()
 
 void MainWindow::setupImageAnnotator()
 {
-	mKImageAnnotator->setTabBarAutoHide(false);
+	mKImageAnnotator->setTabBarAutoHide(mConfig->autoHideTabs());
 	mKImageAnnotator->setSaveToolSelection(mConfig->saveToolSelection());
 	mKImageAnnotator->setSmoothFactor(mConfig->smoothFactor());
 	mKImageAnnotator->setSmoothPathEnabled(mConfig->smoothPathEnabled());

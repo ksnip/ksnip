@@ -38,6 +38,7 @@ ApplicationSettings::~ApplicationSettings()
 	delete mSaveKsnipToolSelectionCheckbox;
 	delete mCaptureOnStartupCheckbox;
 	delete mUseTrayIconCheckBox;
+	delete mAutoHideTabsCheckbox;
 	delete mMinimizeToTrayCheckBox;
 	delete mCloseToTrayCheckBox;
 	delete mStartMinimizedToTrayCheckBox;
@@ -61,6 +62,7 @@ void ApplicationSettings::initGui()
 	mMinimizeToTrayCheckBox = new QCheckBox(this);
 	mCloseToTrayCheckBox = new QCheckBox(this);
 	mStartMinimizedToTrayCheckBox = new QCheckBox(this);
+	mAutoHideTabsCheckbox = new QCheckBox(this);
 	mApplicationStyleLabel = new QLabel(this);
 	mApplicationStyleCombobox = new QComboBox(this);
 	mSaveLocationLabel = new QLabel(this);
@@ -80,6 +82,9 @@ void ApplicationSettings::initGui()
 	mMinimizeToTrayCheckBox->setText(tr("Minimize to Tray"));
 	mStartMinimizedToTrayCheckBox->setText(tr("Start Minimized to Tray."));
 	mCloseToTrayCheckBox->setText(tr("Close to Tray"));
+
+	mAutoHideTabsCheckbox->setText(tr("Auto Hide Tabs"));
+	mAutoHideTabsCheckbox->setToolTip(tr("Hide Tabbar when only on Tab is used."));
 
 	connect(mUseTrayIconCheckBox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTrayIconChanged);
 
@@ -109,13 +114,14 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 7, 1, 1, 3);
 	mLayout->addWidget(mMinimizeToTrayCheckBox, 8, 1, 1, 3);
 	mLayout->addWidget(mCloseToTrayCheckBox, 9, 1, 1, 3);
-	mLayout->setRowMinimumHeight(10, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 11, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 11, 2, Qt::AlignLeft);
-	mLayout->setRowMinimumHeight(12, 15);
-	mLayout->addWidget(mSaveLocationLabel, 13, 0, 1, 4);
-	mLayout->addWidget(mSaveLocationLineEdit, 14, 0, 1, 4);
-	mLayout->addWidget(mBrowseButton, 14, 4);
+	mLayout->addWidget(mAutoHideTabsCheckbox, 10, 0, 1, 4);
+	mLayout->setRowMinimumHeight(11, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 12, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 12, 2, Qt::AlignLeft);
+	mLayout->setRowMinimumHeight(13, 15);
+	mLayout->addWidget(mSaveLocationLabel, 14, 0, 1, 4);
+	mLayout->addWidget(mSaveLocationLineEdit, 15, 0, 1, 4);
+	mLayout->addWidget(mBrowseButton, 15, 4);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -133,6 +139,7 @@ void ApplicationSettings::loadConfig()
 	mMinimizeToTrayCheckBox->setChecked(mConfig->minimizeToTray());
 	mStartMinimizedToTrayCheckBox->setChecked(mConfig->startMinimizedToTray());
 	mCloseToTrayCheckBox->setChecked(mConfig->closeToTray());
+	mAutoHideTabsCheckbox->setChecked(mConfig->autoHideTabs());
 
 	useTrayIconChanged();
 
@@ -153,6 +160,7 @@ void ApplicationSettings::saveSettings()
 	mConfig->setMinimizeToTray(mMinimizeToTrayCheckBox->isChecked());
 	mConfig->setStartMinimizedToTray(mStartMinimizedToTrayCheckBox->isChecked());
 	mConfig->setCloseToTray(mCloseToTrayCheckBox->isChecked());
+	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
 
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 

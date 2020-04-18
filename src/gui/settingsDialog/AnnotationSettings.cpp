@@ -19,7 +19,22 @@
 
 #include "AnnotationSettings.h"
 
-AnnotationSettings::AnnotationSettings(KsnipConfig *config)
+AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
+	mSmoothPathCheckbox(new QCheckBox(this)),
+	mItemShadowCheckbox(new QCheckBox(this)),
+	mRotateWatermarkCheckbox(new QCheckBox(this)),
+	mTextFontLabel(new QLabel(this)),
+	mNumberFontLabel(new QLabel(this)),
+	mSmoothFactorLabel(new QLabel(this)),
+	mWatermarkImageLabel(new QLabel(this)),
+	mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
+	mTextFontCombobox(new QFontComboBox(this)),
+	mNumberFontCombobox(new QFontComboBox(this)),
+	mTextBoldButton(new QToolButton(this)),
+	mTextItalicButton(new QToolButton(this)),
+	mTextUnderlineButton(new QToolButton(this)),
+	mUpdateWatermarkImageButton(new QPushButton(this)),
+	mLayout(new QGridLayout(this))
 {
     Q_ASSERT(config != nullptr);
 
@@ -64,22 +79,6 @@ void AnnotationSettings::saveSettings()
 void AnnotationSettings::initGui()
 {
     auto const fixedButtonSize = 100;
-
-    mSmoothPathCheckbox = new QCheckBox(this);
-    mItemShadowCheckbox = new QCheckBox(this);
-    mRotateWatermarkCheckbox = new QCheckBox(this);
-    mTextFontLabel = new QLabel(this);
-    mNumberFontLabel = new QLabel(this);
-    mSmoothFactorLabel = new QLabel(this);
-    mWatermarkImageLabel = new QLabel(this);
-    mSmoothFactorCombobox = new NumericComboBox(1, 1, 15);
-    mTextFontCombobox = new QFontComboBox(this);
-    mNumberFontCombobox = new QFontComboBox(this);
-    mTextBoldButton = new QToolButton(this);
-    mTextItalicButton = new QToolButton(this);
-    mTextUnderlineButton = new QToolButton(this);
-    mUpdateWatermarkImageButton = new QPushButton(this);
-    mLayout = new QGridLayout(this);
 
     mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
     mItemShadowCheckbox->setToolTip(tr("When enabled, paint items cast shadows."));

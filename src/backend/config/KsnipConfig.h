@@ -56,6 +56,9 @@ public:
 	virtual bool saveToolSelection() const;
 	virtual void setSaveToolSelection(bool enabled);
 
+	virtual bool autoHideTabs() const;
+	virtual void setAutoHideTabs(bool enabled);
+
 	virtual bool captureOnStartup() const;
 	virtual void setCaptureOnStartup(bool enabled);
 
@@ -75,7 +78,7 @@ public:
 	virtual void setSaveFormat(const QString &format);
 
 	virtual QString applicationStyle() const;
-	virtual void setApplicationStyle(QString style);
+	virtual void setApplicationStyle(const QString &style);
 
 	virtual bool useTrayIcon() const;
 	virtual void setUseTrayIcon(bool enabled);
@@ -206,8 +209,7 @@ public:
 	virtual void setWindowUnderCursorHotKey(const QKeySequence &keySequence);
 
 signals:
-    void painterUpdated() const;
-	void toolConfigChanged() const;
+	void annotatorConfigChanged() const;
 	void hotKeysChanged() const;
 
 private:

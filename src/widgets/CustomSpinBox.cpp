@@ -25,7 +25,7 @@ CustomSpinBox::CustomSpinBox(int min, int max, QWidget* parent) :
 {
     setMinimum(min);
     setMaximum(max);
-    setWrapping(true);
+    setWrapping(false);
 
     connect(this, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &CustomSpinBox::valueChanged);
 }

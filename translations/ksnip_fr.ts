@@ -684,7 +684,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Upload capture image to imgur.com</source>
-        <translation>Exporter une capture d&apos;image sur imgur.com</translation>
+        <translation>Envoyer une capture d&apos;image sur imgur.com</translation>
     </message>
     <message>
         <source>Print</source>

@@ -680,7 +680,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation>Export</translation>
+        <translation>Envois</translation>
     </message>
     <message>
         <source>Upload capture image to imgur.com</source>

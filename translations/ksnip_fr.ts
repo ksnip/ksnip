@@ -187,7 +187,7 @@ Vous devrez redémarrer knsip pour le prendre en compte.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Choisir</translation>
+        <translation>Naviguer</translation>
     </message>
     <message>
         <source>Application Settings</source>

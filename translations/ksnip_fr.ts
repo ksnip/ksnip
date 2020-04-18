@@ -199,7 +199,7 @@ Vous devrez redémarrer knsip pour le prendre en compte.</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
-        <translation>Utilise l&apos;icône du tiroir</translation>
+        <translation>Utiliser l&apos;icône de la barre des tâches</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
@@ -300,7 +300,7 @@ Voulez-vous l&apos;enregistrer ?</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation>Écran Actuel</translation>
+        <translation>Écran actuel</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
@@ -448,8 +448,8 @@ dans les captures d&apos;écran.</translation>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Afficher une loupe qui grossit le fond d&apos;écran.
-Cette option ne marche que si &quot;Geler l&apos;image
-avant capture&quot; est activé.</translation>
+Cette option ne marche que si « Geler l&apos;image
+avant capture » est activé.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -564,19 +564,19 @@ MacOs.</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation>Secret</translation>
+        <translation>Client secret</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation>PIN</translation>
+        <translation>NIP</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation>Entrez le Pin Imgur pour l&apos;échanger contre un jeton.</translation>
+        <translation>Entrez le NIP Imgur pour l&apos;échanger contre un jeton.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation>Obtenir PIN</translation>
+        <translation>Obtenir NIP</translation>
     </message>
     <message>
         <source>Get Token</source>
@@ -676,7 +676,7 @@ et la capture de l&apos;écran.</translation>
     <name>MainWindow</name>
     <message>
         <source>Unsaved</source>
-        <translation>Non Enregistré</translation>
+        <translation>Non enregistré</translation>
     </message>
     <message>
         <source>Upload</source>

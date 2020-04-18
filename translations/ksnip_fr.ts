@@ -112,7 +112,7 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation>Police (nombres)</translation>
+        <translation>Police numérotage</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>

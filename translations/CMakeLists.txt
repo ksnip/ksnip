@@ -7,6 +7,7 @@ set(KSNIP_LANG_TS
 	ksnip_es.ts
 	ksnip_eu.ts
 	ksnip_fr.ts
+	ksnip_fr_CA.ts
 	ksnip_gl.ts
 	ksnip_hu.ts
 	ksnip_id.ts
@@ -16,8 +17,8 @@ set(KSNIP_LANG_TS
 	ksnip_no.ts
 	ksnip_pl.ts
 	ksnip_pt.ts
-	ksnip_sv.ts
 	ksnip_ru.ts
+	ksnip_sv.ts
 	ksnip_tr.ts
 	ksnip_uk.ts
 	ksnip_zh_Hans.ts)

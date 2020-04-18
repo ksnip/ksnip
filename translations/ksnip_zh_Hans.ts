@@ -216,6 +216,14 @@ Change requires restart.</source>
         <source>Automatically save new captures to default location</source>
         <translation>自动将新的捕获保存到默认位置</translation>
     </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -259,10 +267,9 @@ Change requires restart.</source>
         <translation>警告 - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation>捕获已被修改。
-您要保存吗？</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -762,6 +769,17 @@ and capturing screenshot.</source>
     <message>
         <source>Paste</source>
         <translation>粘贴</translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

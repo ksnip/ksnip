@@ -158,16 +158,6 @@ les rendra plus lisses.</translation>
         <translation>Capturer l&apos;écran au lancement avec le mode par défaut</translation>
     </message>
     <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Sauvegarder immédiatement dans le répertoire par défaut</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Lorsque activé, la capture d&apos;écran sera automatiquement
-enregistrée à l&apos;emplacement par défaut.</translation>
-    </message>
-    <message>
         <source>Application Style</source>
         <translation>Style de l&apos;application</translation>
     </message>
@@ -227,6 +217,14 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
         <source>Automatically save new captures to default location</source>
         <translation>Enregistrer automatiquement les nouvelles captures dans l&apos;emplacement par défaut</translation>
     </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -270,10 +268,9 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
         <translation>Alerte - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation>La capture a été modifiée.
-Voulez-vous l&apos;enregistrer ?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -773,6 +770,17 @@ et la capture de l&apos;écran.</translation>
     <message>
         <source>Paste</source>
         <translation>Coller</translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -217,6 +217,14 @@ A mudança requer reinicialização.</translation>
         <source>Automatically save new captures to default location</source>
         <translation>Automaticamente salvar novas capturas para o diretório padrão</translation>
     </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -260,10 +268,9 @@ A mudança requer reinicialização.</translation>
         <translation>Aviso - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation>A captura foi modificada.
-Você quer salvá-la?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -762,6 +769,17 @@ e captura de tela.</translation>
     <message>
         <source>Paste</source>
         <translation>Colar</translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

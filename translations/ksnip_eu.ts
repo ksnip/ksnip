@@ -217,6 +217,14 @@ Ksnip berrabiarazi behar du aldaketak eragina izateko.</translation>
         <source>Automatically save new captures to default location</source>
         <translation>Gorde kaptura berriak lehenetsitako kokagunera automatikoki</translation>
     </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -260,10 +268,9 @@ Ksnip berrabiarazi behar du aldaketak eragina izateko.</translation>
         <translation>Oharra - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation>Argazkia aldatu da.
-Nahi duzu gorde?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -763,6 +770,17 @@ eta pantaila-argazkiaren artean.</translation>
     <message>
         <source>Paste</source>
         <translation>Itsatsi</translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

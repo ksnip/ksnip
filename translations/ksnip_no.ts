@@ -216,6 +216,14 @@ Change requires restart.</source>
         <source>Automatically save new captures to default location</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -259,10 +267,9 @@ Change requires restart.</source>
         <translation type="unfinished">Advarsel - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished">Avbildningen har blitt endret.
-Ønsker du å lagre den?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -752,6 +759,17 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

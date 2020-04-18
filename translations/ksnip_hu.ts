@@ -217,6 +217,14 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
         <source>Automatically save new captures to default location</source>
         <translation>Az új képernyőmentéseket automatikusan mentse az alapértelmezett helyre</translation>
     </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -260,10 +268,9 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
         <translation>Figyelem - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation>A rögzített kép megváltozott.
-Akarod menteni?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -764,6 +771,17 @@ másodpercben megadva.</translation>
     <message>
         <source>Paste</source>
         <translation>Beillesztés</translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -218,6 +218,14 @@ hhmmss 形式で時間を表す変数 ($T) を含めることができます。<
         <source>Automatically save new captures to default location</source>
         <translation>自動的に新しいキャプチャーをデフォルトの場所に保存する</translation>
     </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -261,10 +269,9 @@ hhmmss 形式で時間を表す変数 ($T) を含めることができます。<
         <translation>警告 - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation>キャプチャーが変更されています。
-保存しますか？</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -761,6 +768,17 @@ and capturing screenshot.</source>
     <message>
         <source>Paste</source>
         <translation>貼り付け</translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

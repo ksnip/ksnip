@@ -19,12 +19,17 @@
 
 #include "CapturePrinter.h"
 
+CapturePrinter::CapturePrinter(QWidget *parent) : mParent(parent)
+{
+	Q_ASSERT(mParent != nullptr);
+}
+
 void CapturePrinter::print(const QImage &image, const QString &defaultPath)
 {
     QPrinter printer;
     printer.setOutputFileName(defaultPath);
     printer.setOutputFormat(QPrinter::NativeFormat);
-    QPrintDialog printDialog(&printer, nullptr);
+    QPrintDialog printDialog(&printer, mParent);
 
     if (printDialog.exec() == QDialog::Accepted) {
 	    printCapture(image, &printer);
@@ -51,7 +56,7 @@ void CapturePrinter::printPreview(const QImage &image, const QString &defaultPat
     QPrinter printer;
     printer.setOutputFileName(defaultPath);
     printer.setOutputFormat(QPrinter::NativeFormat);
-    QPrintPreviewDialog printDialog(&printer, nullptr, Qt::Window);
+    QPrintPreviewDialog printDialog(&printer, mParent, Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
 	connect(&printDialog, &QPrintPreviewDialog::paintRequested, [this, image](QPrinter *p)
 	{
 		printCapture(image, p);

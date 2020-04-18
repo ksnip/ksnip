@@ -39,7 +39,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mPasteEmbeddedAction(new QAction(this)),
 		mClipboard(new ClipboardWrapper(QApplication::clipboard())),
 		mConfig(KsnipConfigProvider::instance()),
-		mCapturePrinter(new CapturePrinter),
+		mCapturePrinter(new CapturePrinter(this)),
 		mCaptureUploader(new CaptureUploader()),
 		mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 		mTrayIcon(new TrayIcon(this)),

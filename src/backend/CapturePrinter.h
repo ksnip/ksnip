@@ -29,10 +29,13 @@ class CapturePrinter : public QObject
 {
 Q_OBJECT
 public:
-	explicit CapturePrinter() = default;
+	explicit CapturePrinter(QWidget *parent);
 	~CapturePrinter() override = default;
 	void print(const QImage &image, const QString &defaultPath);
 	void printPreview(const QImage &image, const QString &defaultPath);
+
+private:
+	QWidget *mParent;
 
 private slots:
 	void printCapture(const QImage &image, QPrinter *p);

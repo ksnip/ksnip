@@ -112,7 +112,7 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation>Police numérotage</translation>
+        <translation>Police du numérotage</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
@@ -124,7 +124,7 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Modifier</translation>
+        <translation>Actualiser</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>

@@ -28,17 +28,17 @@
 class TranslationLoader
 {
 public:
-    TranslationLoader();
+    TranslationLoader() = default;
     ~TranslationLoader() = default;
     void load(const QApplication &app) const;
 
 private:
-    QString mPathToTranslation;
 
-	bool loadTranslationFromAbsolutePath(QTranslator *translator) const;
-	bool loadTranslationFromRelativePath(QTranslator *translator) const;
-	bool loadTranslationForAppImage(QTranslator *translator) const;
-    bool loadTranslation(QTranslator *translator, const QString &path) const;
+	bool loadTranslationFromAbsolutePath(QTranslator *translator, const QString &path, const QString &applicationName) const;
+	bool loadTranslationFromRelativePath(QTranslator *translator, const QString &path, const QString &applicationName) const;
+	bool loadTranslationForAppImage(QTranslator *translator, const QString &path, const QString &applicationName) const;
+    bool loadTranslation(QTranslator *translator, const QString &path, const QString &applicationName) const;
+	void loadTranslations(const QApplication &app, QTranslator *translator, QString &path, const QString &applicationName) const;
 };
 
 #endif //KSNIP_TRANSLATIONLOADER_H

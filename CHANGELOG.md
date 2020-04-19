@@ -11,6 +11,7 @@
 * New: Insert embedded image into an existing screenshot. ([#293](https://github.com/ksnip/ksnip/issues/293))
 * New: Show screenshots in tabs. ([#298](https://github.com/ksnip/ksnip/issues/298))
 * New: Add Maximize Window Button in Print Preview. ([#190](https://github.com/ksnip/ksnip/issues/190))
+* New kImageAnnotator: Add option to translate UI. ([#54](https://github.com/ksnip/kImageAnnotator/issues/54))
 * Changed: Save As option was added and useInstantSave config was removed. ([#285](https://github.com/ksnip/ksnip/issues/285))
 * Changed: Disable scroll down with zero value in timeout widget. ([#294](https://github.com/ksnip/ksnip/issues/294))
 * Fixed: Compilation error with Qt 5.15. ([#279](https://github.com/ksnip/ksnip/issues/279))

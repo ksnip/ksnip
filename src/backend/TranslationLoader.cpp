@@ -19,52 +19,57 @@
 
 #include "TranslationLoader.h"
 
-TranslationLoader::TranslationLoader()
-{
-    mPathToTranslation = QStringLiteral(KSNIP_LANG_INSTAL_DIR);
-}
-
 void TranslationLoader::load(const QApplication &app) const
 {
-    auto translator = new QTranslator();
-    auto translationSuccessfullyLoaded = loadTranslationFromAbsolutePath(translator);
+    auto ksnipTranslator = new QTranslator();
+    auto kImageAnnotatorTranslator = new QTranslator();
+
+	auto pathToKsnipTranslations = QStringLiteral(KSNIP_LANG_INSTAL_DIR);
+	auto pathToKImageAnnotatorTranslations = QStringLiteral(KIMAGEANNOTATOR_LANG_INSTAL_DIR);
+
+	loadTranslations(app, ksnipTranslator, pathToKsnipTranslations, QStringLiteral("ksnip"));
+	loadTranslations(app, kImageAnnotatorTranslator, pathToKImageAnnotatorTranslations, QStringLiteral("kImageAnnotator"));
+}
+
+void TranslationLoader::loadTranslations(const QApplication &app, QTranslator *translator, QString &path, const QString &applicationName) const
+{
+	auto translationSuccessfullyLoaded = loadTranslationFromAbsolutePath(translator, path, applicationName);
 
 	if (!translationSuccessfullyLoaded) {
-		translationSuccessfullyLoaded = loadTranslationFromRelativePath(translator);
+		translationSuccessfullyLoaded = loadTranslationFromRelativePath(translator, path, applicationName);
 	}
 
-    // Fix for appimages as they need to use relative paths
-    if (!translationSuccessfullyLoaded) {
-        translationSuccessfullyLoaded = loadTranslationForAppImage(translator);
-    }
+	// Fix for appimages as they need to use relative paths
+	if (!translationSuccessfullyLoaded) {
+	    translationSuccessfullyLoaded = loadTranslationForAppImage(translator, path, applicationName);
+	}
 
-    if (translationSuccessfullyLoaded) {
-        app.installTranslator(translator);
-    } else {
-        qWarning("Unable to find any translation files.");
-    }
+	if (translationSuccessfullyLoaded) {
+	    app.installTranslator(translator);  
+	} else {
+	    qWarning("Unable to find any translation files for %s.", qPrintable(applicationName));
+	}
 }
 
-bool TranslationLoader::loadTranslationFromAbsolutePath(QTranslator *translator) const
+bool TranslationLoader::loadTranslationFromAbsolutePath(QTranslator *translator, const QString &path, const QString &applicationName) const
 {
-	return loadTranslation(translator, mPathToTranslation);
+	return loadTranslation(translator, path, applicationName);
 }
 
-bool TranslationLoader::loadTranslationFromRelativePath(QTranslator *translator) const
+bool TranslationLoader::loadTranslationFromRelativePath(QTranslator *translator, const QString &path, const QString &applicationName) const
 {
 	auto relativePathToAppDir = QCoreApplication::applicationDirPath() + QStringLiteral("/");
-	return loadTranslation(translator, relativePathToAppDir + mPathToTranslation);
+	return loadTranslation(translator, relativePathToAppDir + path, applicationName);
 }
 
-bool TranslationLoader::loadTranslationForAppImage(QTranslator *translator) const
+bool TranslationLoader::loadTranslationForAppImage(QTranslator *translator, const QString &path, const QString &applicationName) const
 {
     auto relativePathToAppDir = QCoreApplication::applicationDirPath() + QStringLiteral("/../..");
-    return loadTranslation(translator, relativePathToAppDir + mPathToTranslation);
+    return loadTranslation(translator, relativePathToAppDir + path, applicationName);
 }
 
-bool TranslationLoader::loadTranslation(QTranslator *translator, const QString &path) const
+bool TranslationLoader::loadTranslation(QTranslator *translator, const QString &path, const QString &applicationName) const
 {
-    auto applicationName = QStringLiteral("ksnip");
-    auto separator = QStringLiteral("_");
+	auto separator = QStringLiteral("_");
     return translator->load(QLocale(), applicationName, separator, path);
 }

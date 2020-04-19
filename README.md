@@ -112,6 +112,7 @@ We are always looking for help with translations, contributors are welcome!
 For translations we use [Weblate](https://hosted.weblate.org/projects/ksnip/translations/)!  
 [![Translation status](https://hosted.weblate.org/widgets/ksnip/-/translations/multi-green.svg)](https://hosted.weblate.org/engage/ksnip/?utm_source=widget)
 
+For translations of Annotator related texts, please refer to [kImageAnnotator](https://github.com/ksnip/kImageAnnotator)
 
 # Known Issues
 

@@ -219,11 +219,11 @@ Herstart om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabbladen automatisch verbergen</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verberg de tabbladbalk als er slechts één tabblad geopend is.</translation>
     </message>
 </context>
 <context>
@@ -270,7 +270,8 @@ Herstart om de wijziging toe te passen.</translation>
     <message>
         <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>De schermfoto &apos;%1&apos; is bewerkt.
+Wil je hem opslaan?</translation>
     </message>
 </context>
 <context>
@@ -773,14 +774,14 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingesloten plakken</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Vastleggen</translation>
     </message>
 </context>
 <context>

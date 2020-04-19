@@ -211,7 +211,7 @@ Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Neue Aufnahmen in die Zwischenablage automatisch kopieren</translation>
     </message>
     <message>
         <source>Automatically save new captures to default location</source>
@@ -230,11 +230,11 @@ Diese Änderung erfordert einen Neustart.</translation>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished">Der Autor:</translation>
+        <translation>Der Autor:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Mitwirkende:</translation>
+        <translation>Mitwirkenden:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
@@ -445,8 +445,8 @@ Screenshots sichtbar sein soll.</translation>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Zeigt eine Lupe an, welche in das Hintergrundbild
-hineinzoomt. Diese Option  funktioniert nur, wenn
-&apos;Bild während der Aufnahme einfrieren&apos; aktiviert wurde.</translation>
+hineinzoomt. Diese Option funktioniert nur, wenn
+„Bild während der Aufnahme einfrieren“ aktiviert wurde.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -603,7 +603,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation>Nach dem Upload Imgur-Link im Standardbrowser öffnen</translation>
+        <translation>Nach dem Hochladen Imgur-Link im Standardbrowser öffnen</translation>
     </message>
     <message>
         <source>Link directly to image</source>
@@ -760,11 +760,11 @@ und der Aufnahme.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern als…</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Einfügen</translation>
     </message>
     <message>
         <source>Paste Embedded</source>

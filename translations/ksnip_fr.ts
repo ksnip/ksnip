@@ -332,7 +332,7 @@ Do you want to save it?</source>
     <name>CaptureUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Upload sur imgur.com terminé !</translation>
+        <translation>Téléversement sur imgur.com terminé !</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -553,7 +553,7 @@ MacOs.</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation>Demander une confirmation avant d&apos;exporter</translation>
+        <translation>Demander une confirmation avant de téléverser</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -573,7 +573,7 @@ MacOs.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation>Obtenir NIP</translation>
+        <translation>Obtenir un NIP</translation>
     </message>
     <message>
         <source>Get Token</source>
@@ -681,7 +681,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Upload capture image to imgur.com</source>
-        <translation>Envoyer une capture d&apos;image sur imgur.com</translation>
+        <translation>Téléverser une capture d&apos;image sur imgur.com</translation>
     </message>
     <message>
         <source>Print</source>
@@ -717,7 +717,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>&amp;A Propos</translation>
+        <translation>&amp;À propos</translation>
     </message>
     <message>
         <source>Open</source>
@@ -725,7 +725,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>&amp;Editer</translation>
+        <translation>&amp;Modifier</translation>
     </message>
     <message>
         <source>&amp;Options</source>
@@ -765,7 +765,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Enregistré sous…</translation>
+        <translation>Enregistrer sous…</translation>
     </message>
     <message>
         <source>Paste</source>
@@ -879,7 +879,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Vous êtes sur le point d&apos;exporter la capture d&apos;écran sur imgur.com, voulez-vous continuer ?</translation>
+        <translation>Vous êtes sur le point de téléverser la capture d&apos;écran sur imgur.com, voulez-vous continuer ?</translation>
     </message>
 </context>
 <context>

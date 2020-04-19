@@ -218,11 +218,11 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj flikar automatiskt</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj flikfältet när endast en flik används.</translation>
     </message>
 </context>
 <context>
@@ -269,7 +269,8 @@ Change requires restart.</source>
     <message>
         <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Klippet &quot;%1&quot; har ändrats.
+Vill du spara det?</translation>
     </message>
 </context>
 <context>
@@ -771,14 +772,14 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Klistra in inbäddat</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Klipp</translation>
     </message>
 </context>
 <context>

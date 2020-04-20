@@ -23,9 +23,9 @@
 class AbstractToastService
 {
 public:
-	virtual void showInfoToast(const QString &title, const QString &message) = 0;
-	virtual void showWarningToast(const QString &title, const QString &message) = 0;
-	virtual void showCriticalToast(const QString &title, const QString &message) = 0;
+	virtual void showInfoToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
+	virtual void showWarningToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
+	virtual void showCriticalToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
 };
 
 #endif //ABSTRACTTOASTSERVICE_H

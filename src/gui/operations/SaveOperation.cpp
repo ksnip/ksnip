@@ -71,6 +71,7 @@ SaveResultDto SaveOperation::save(const QString &path)
 
 void SaveOperation::notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const
 {
-	NotifyOperation operation(mToastService, title, message + QStringLiteral(" ") + path, notificationType);
+	auto parentDirectory = PathHelper::extractPath(path);
+	NotifyOperation operation(mToastService, title, message + QStringLiteral(" ") + path, parentDirectory, notificationType);
 	operation.execute();
 }

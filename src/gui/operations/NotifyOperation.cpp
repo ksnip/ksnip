@@ -19,6 +19,12 @@
 
 #include "NotifyOperation.h"
 
+NotifyOperation::NotifyOperation(AbstractToastService *toastService, const QString &title, const QString &message, const QString &contentUrl, NotificationTypes notificationType)
+	: NotifyOperation(toastService, title, message, notificationType)
+{
+	mContentUrl = contentUrl;
+}
+
 NotifyOperation::NotifyOperation(AbstractToastService *toastService, const QString &title, const QString &message, NotificationTypes notificationType) :
 	mToastService(toastService),
 	mTitle(title),
@@ -32,17 +38,18 @@ bool NotifyOperation::execute()
 {
 	switch (mNotificationType) {
 		case NotificationTypes::Information:
-			mToastService->showInfoToast(mTitle, mMessage);
+			mToastService->showInfoToast(mTitle, mMessage, mContentUrl);
 			qInfo("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 		case NotificationTypes::Warning:
-			mToastService->showWarningToast(mTitle, mMessage);
+			mToastService->showWarningToast(mTitle, mMessage, mContentUrl);
 			qWarning("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 		case NotificationTypes::Critical:
-			mToastService->showCriticalToast(mTitle, mMessage);
+			mToastService->showCriticalToast(mTitle, mMessage, mContentUrl);
 			qCritical("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 	}
 	return true;
 }
+

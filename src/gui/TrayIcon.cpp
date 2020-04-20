@@ -26,6 +26,7 @@ TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
 	mShowEditorAction = new QAction(tr("Show Editor"), this);
 	connect(mShowEditorAction, &QAction::triggered, this, &TrayIcon::showEditorTriggered);
 	connect(this, &QSystemTrayIcon::activated, this, &TrayIcon::activated);
+	connect(this, &QSystemTrayIcon::messageClicked, this, &TrayIcon::openContentUrl);
 }
 
 void TrayIcon::setupMenu()
@@ -87,24 +88,36 @@ void TrayIcon::setEnabled(bool enabled)
 	}
 }
 
-void TrayIcon::showInfoToast(const QString &title, const QString &message)
+void TrayIcon::showInfoToast(const QString &title, const QString &message, const QString &contentUrl)
 {
-	showMessage(title, message, QSystemTrayIcon::Information);
+	showMessage(title, message, contentUrl, QSystemTrayIcon::Information);
 }
 
-void TrayIcon::showWarningToast(const QString &title, const QString &message)
+void TrayIcon::showWarningToast(const QString &title, const QString &message, const QString &contentUrl)
 {
-	showMessage(title, message, QSystemTrayIcon::Warning);
+	showMessage(title, message, contentUrl, QSystemTrayIcon::Warning);
 }
 
-void TrayIcon::showCriticalToast(const QString &title, const QString &message)
+void TrayIcon::showCriticalToast(const QString &title, const QString &message, const QString &contentUrl)
 {
-	showMessage(title, message, QSystemTrayIcon::Critical);
+	showMessage(title, message, contentUrl, QSystemTrayIcon::Critical);
+}
+
+void TrayIcon::showMessage(const QString &title, const QString &message, const QString &contentUrl, QSystemTrayIcon::MessageIcon messageIcon)
+{
+	mToastContentUrl = contentUrl;
+	QSystemTrayIcon::showMessage(title, message, messageIcon);
 }
 
 void TrayIcon::activated(ActivationReason reason) const
 {
 	if(reason != ActivationReason::Context) {
 		emit showEditorTriggered();
+	}
+}
+void TrayIcon::openContentUrl()
+{
+	if(!mToastContentUrl.isEmpty() && !mToastContentUrl.isNull()) {
+		QDesktopServices::openUrl(mToastContentUrl);
 	}
 }

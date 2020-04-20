@@ -22,6 +22,8 @@
 
 #include <QSystemTrayIcon>
 #include <QMenu>
+#include <QDesktopServices>
+#include <QUrl>
 
 #include "AbstractToastService.h"
 #include "src/common/enum/CaptureModes.h"
@@ -39,9 +41,9 @@ public:
 	void setUploadAction(QAction *action);
 	void setQuitAction(QAction *action);
 	void setEnabled(bool enabled);
-	void showInfoToast(const QString &title, const QString &message) override;
-	void showWarningToast(const QString &title, const QString &message) override;
-	void showCriticalToast(const QString &title, const QString &message) override;
+	void showInfoToast(const QString &title, const QString &message, const QString &contentUrl) override;
+	void showWarningToast(const QString &title, const QString &message, const QString &contentUrl) override;
+	void showCriticalToast(const QString &title, const QString &message, const QString &contentUrl) override;
 
 signals:
 	void showEditorTriggered() const;
@@ -55,11 +57,14 @@ private:
 	QAction *mUploadAction;
 	QAction *mShowEditorAction;
 	QAction *mQuitAction;
+	QString mToastContentUrl;
 
 	void setupMenu();
 
 private slots:
 	void activated(ActivationReason reason) const;
+	void openContentUrl();
+	void showMessage(const QString &title, const QString &message, const QString &contentUrl, QSystemTrayIcon::MessageIcon messageIcon);
 };
 
 #endif //KSNIP_TRAYICON_H

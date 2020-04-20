@@ -220,11 +220,11 @@ hhmmss 形式で時間を表す変数 ($T) を含めることができます。<
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>タブを自動で隠す</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>タブが一つのときはタブバーを隠します。</translation>
     </message>
 </context>
 <context>
@@ -271,7 +271,8 @@ hhmmss 形式で時間を表す変数 ($T) を含めることができます。<
     <message>
         <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>キャプチャー &quot;%1&quot; は変更されています。
+保存しますか？</translation>
     </message>
 </context>
 <context>
@@ -778,7 +779,7 @@ and capturing screenshot.</source>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>キャプチャー</translation>
     </message>
 </context>
 <context>

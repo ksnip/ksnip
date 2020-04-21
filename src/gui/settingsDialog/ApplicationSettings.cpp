@@ -94,7 +94,8 @@ void ApplicationSettings::initGui()
 
 	mSaveLocationLabel->setText(tr("Capture save location and filename") + QStringLiteral(":"));
 
-	mSaveLocationLineEdit->setToolTip(tr("Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format."));
+	mSaveLocationLineEdit->setToolTip(tr("Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.\n"
+									        "Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default."));
 
 	mBrowseButton->setText(tr("Browse"));
 	connect(mBrowseButton, &QPushButton::clicked, this, &ApplicationSettings::chooseSaveDirectory);
@@ -140,7 +141,7 @@ void ApplicationSettings::loadConfig()
 
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
 
-	mSaveLocationLineEdit->setText(mConfig->saveDirectory() + mConfig->saveFilename() + mConfig->saveFormat());
+	mSaveLocationLineEdit->setText(mConfig->saveDirectory() + mConfig->saveFilename() + QStringLiteral(".") + mConfig->saveFormat());
 }
 
 void ApplicationSettings::saveSettings()

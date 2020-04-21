@@ -147,7 +147,12 @@ void KsnipConfig::setSaveDirectory(const QString& path)
 QString KsnipConfig::saveFilename() const
 {
 	auto defaultFilename = QStringLiteral("ksnip_$Y$M$D-$T");
-	return loadValue(KsnipConfigOptions::saveFilenameString(), defaultFilename).toString();
+	auto filename = loadValue(KsnipConfigOptions::saveFilenameString(), defaultFilename).toString();
+	if (filename.isEmpty() || filename.isNull()) {
+		filename = defaultFilename;
+	}
+
+	return filename;
 }
 
 void KsnipConfig::setSaveFilename(const QString& filename)
@@ -161,12 +166,12 @@ void KsnipConfig::setSaveFilename(const QString& filename)
 QString KsnipConfig::saveFormat() const
 {
 	auto defaultFormat = QStringLiteral("png");
-	auto saveFormatString = loadValue(KsnipConfigOptions::saveFormatString(), defaultFormat).toString();
-	if (!saveFormatString.isEmpty()) {
-		return QStringLiteral(".") + saveFormatString;
-    } else {
-		return {};
+	auto format = loadValue(KsnipConfigOptions::saveFormatString(), defaultFormat).toString();
+	if (format.isEmpty() || format.isNull()) {
+		format = defaultFormat;
     }
+
+	return format;
 }
 
 void KsnipConfig::setSaveFormat(const QString& format)

@@ -1,6 +1,7 @@
 # Change log
 
 ## Release 1.7.0
+* Fixed: When 'Capture Save Location' is not set, ksnip fails to save. ([#263](https://github.com/ksnip/ksnip/issues/263))
 
 ## Release 1.6.1
 * Change: Allow opening link directly to image without opening in browser. ([#248](https://github.com/ksnip/kImageAnnotator/issues/248))

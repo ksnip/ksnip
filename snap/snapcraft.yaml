@@ -1,0 +1,67 @@
+name: ksnip
+base: core18
+adopt-info: ksnip
+icon: desktop/ksnip.svg
+grade: stable
+confinement: strict
+summary: Screenshot and Annotation Tool
+description: |
+  Qt based cross-platform screenshot tool that provides many annotation features for your screenshots.
+
+
+apps:
+  ksnip:
+    command: ksnip
+    common-id: ksnip
+    environment:
+      # Coerce XDG_CURRENT_DESKTOP to Unity so that App Indicators
+      # are used and do not fall back to Notification Area applets
+      # or disappear completely.
+      XDG_CURRENT_DESKTOP: Unity:Unity7
+      # Set theme fix on gnome/gtk
+      QT_QPA_PLATFORMTHEME: gtk3
+    desktop: share/applications/ksnip.desktop
+    extensions: [kde-neon]
+    plugs:
+      - home
+      - removable-media
+      - unity7
+
+parts:
+  ksnip:
+    source: .
+    plugin: cmake
+    parse-info: [share/metainfo/ksnip.appdata.xml]
+    after:
+      - kimageannotator
+    build-snaps:
+      - kde-frameworks-5-core18-sdk
+    build-packages:
+      - libglvnd-dev
+      - libx11-dev
+    configflags:
+      - -DCMAKE_FIND_ROOT_PATH=/snap/kde-frameworks-5-core18-sdk/current;/snap/kimageannotator/current
+    override-pull: |
+      snapcraftctl pull
+      sed -i 's|Icon=.*|Icon=share/pixmaps/ksnip.svg|g' desktop/ksnip.desktop
+      snapcraftctl set-version $(cat CMakeLists.txt | grep project\(ksnip | cut -d" " -f5 | cut -d")" -f1)
+  kimageannotator:
+    source: https://github.com/ksnip/kImageAnnotator.git
+    plugin: cmake
+    after:
+      - kcolorpicker
+    configflags:
+      - -DCMAKE_FIND_ROOT_PATH=/snap/kde-frameworks-5-core18-sdk/current;/snap/kcolorpicker/current
+  kcolorpicker:
+    source: https://github.com/ksnip/kColorPicker.git
+    plugin: cmake
+    configflags:
+      - -DCMAKE_FIND_ROOT_PATH=/snap/kde-frameworks-5-core18-sdk/current
+  cleanup:
+    after: [kcolorpicker, kimageannotator, ksnip]
+    plugin: nil
+    build-snaps: [ kde-frameworks-5-core18 ]
+    override-prime: |
+        set -eux
+        cd /snap/kde-frameworks-5-core18/current
+        find . -type f,l -exec rm -f $SNAPCRAFT_PRIME/{} \;

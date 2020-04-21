@@ -1,12 +1,27 @@
 # Change log
 
 ## Release 1.7.0
+* New: Provide ksnip snap. ([#147](https://github.com/ksnip/ksnip/issues/147))
+* New: Pasting image or path to image from clipboard. ([#275](https://github.com/ksnip/ksnip/issues/275))
+* New: Save to same file when editing existing image. ([#271](https://github.com/ksnip/ksnip/issues/271))
+* New: Support for PrtScrn hotkey. ([#239](https://github.com/ksnip/ksnip/issues/239))
+* New: Auto save new screenshot. ([#291](https://github.com/ksnip/ksnip/issues/291))
+* New: Remember file for already saved images. ([#292](https://github.com/ksnip/ksnip/issues/292))
+* New: Add support for drag and drop images into ksnip. ([#282](https://github.com/ksnip/ksnip/issues/282))
+* New: Insert embedded image into an existing screenshot. ([#293](https://github.com/ksnip/ksnip/issues/293))
+* New: Show screenshots in tabs. ([#298](https://github.com/ksnip/ksnip/issues/298))
+* New: Add Maximize Window Button in Print Preview. ([#190](https://github.com/ksnip/ksnip/issues/190))
+* New kImageAnnotator: Add option to translate UI. ([#54](https://github.com/ksnip/kImageAnnotator/issues/54))
+* Changed: Save As option was added and useInstantSave config was removed. ([#285](https://github.com/ksnip/ksnip/issues/285))
+* Changed: Disable scroll down with zero value in timeout widget. ([#294](https://github.com/ksnip/ksnip/issues/294))
+* Fixed: Compilation error with Qt 5.15. ([#279](https://github.com/ksnip/ksnip/issues/279))
+* Fixed: Undo and redo translation reverts back to English. ([#209](https://github.com/ksnip/ksnip/issues/209))
 * Fixed: When 'Capture Save Location' is not set, ksnip fails to save. ([#263](https://github.com/ksnip/ksnip/issues/263))
 
 ## Release 1.6.1
-* Change: Allow opening link directly to image without opening in browser. ([#248](https://github.com/ksnip/kImageAnnotator/issues/248))
-* Change: Always use transparent snipping area background for Wayland. ([#176](https://github.com/ksnip/kImageAnnotator/issues/176))
-* Change: Disable unavailable config options. ([#254](https://github.com/ksnip/kImageAnnotator/issues/254))
+* Changed: Allow opening link directly to image without opening in browser. ([#248](https://github.com/ksnip/kImageAnnotator/issues/248))
+* Changed: Always use transparent snipping area background for Wayland. ([#176](https://github.com/ksnip/kImageAnnotator/issues/176))
+* Changed: Disable unavailable config options. ([#254](https://github.com/ksnip/kImageAnnotator/issues/254))
 * Fixed kImageAnnotator: Edit border around text box doesn't disappear when done with editing. ([#71](https://github.com/ksnip/kImageAnnotator/issues/71))
 * Fixed kImageAnnotator: Edit border not shown under Windows when NoFillNoBorder selected for Text Tool. ([#72](https://github.com/ksnip/kImageAnnotator/issues/72))
 * Fixed kImageAnnotator: When adding text with background under Windows a filled rect is show in top left corner. ([#73](https://github.com/ksnip/kImageAnnotator/issues/73))

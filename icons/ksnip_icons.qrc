@@ -8,7 +8,10 @@
     <file>light/clock.svg</file>
     <file>light/crop.svg</file>
     <file>light/save.svg</file>
+    <file>light/saveAs.svg</file>
     <file>light/copy.svg</file>
+    <file>light/paste.svg</file>
+    <file>light/pasteEmbedded.svg</file>
     <file>light/undo.svg</file>
     <file>light/redo.svg</file>
     <file>light/currentScreen.svg</file>
@@ -24,7 +27,10 @@
     <file>dark/clock.svg</file>
     <file>dark/crop.svg</file>
     <file>dark/save.svg</file>
+    <file>dark/saveAs.svg</file>
     <file>dark/copy.svg</file>
+    <file>dark/paste.svg</file>
+    <file>dark/pasteEmbedded.svg</file>
     <file>dark/undo.svg</file>
     <file>dark/redo.svg</file>
     <file>dark/currentScreen.svg</file>

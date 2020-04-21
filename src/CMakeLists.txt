@@ -18,9 +18,14 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MessageBoxHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/PathHelper.cpp
+	${CMAKE_SOURCE_DIR}/src/common/helper/FileUrlHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/common/handler/DragAndDropHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/ScaledSizeProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/common/provider/ApplicationTitleProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/common/provider/NewCaptureNameProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/common/provider/PathFromCaptureProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomToolButton.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomCursor.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CursorFactory.cpp
@@ -50,6 +55,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/DonateTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/TrayIcon.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/ClipboardWrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/GlobalHotKey.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/NativeKeyEventFilter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/AbstractKeyHandler.cpp
@@ -65,6 +71,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/operations/UploadOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/HandleUploadResponseOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/NotifyOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/captureTabs/CaptureTabStateHandler.cpp
 	)
 
 if (APPLE)

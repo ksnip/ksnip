@@ -25,196 +25,204 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Támogatás</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Képlopó</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished"></translation>
+        <translation>Licenc </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished"></translation>
+        <translation>Kérlek használd </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation> a hiba jelentéséhez.</translation>
     </message>
 </context>
 <context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Vízjel-kép szükséges</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Addj vízjelet-képet az Opciók&gt; Beállítások&gt; Kiemelés&gt; Frissítés menüponttal</translation>
     </message>
 </context>
 <context>
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished"></translation>
+        <translation>Festék árnyék</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha engedélyezve van, a festék elemek árnyat vetnek.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Sima festő útvonal</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha engedélyezve van, kiüríti a tollat és a
+jelölő útvonalakat a rajz befejezése után.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Simasági faktor</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished"></translation>
+        <translation>A simasági tényező növekedésével
+csökken a toll és a jelölő pontossága,
+de simábbá teszi.</translation>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Szöveg betűtipus</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Állítsd be a betűtipust a szöveghez.</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Félkövér</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Dőlt</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Aláhúzott</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorszámozó betűtipus</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished"></translation>
+        <translation>Állítsd be a betűtipust a számozáshoz.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Vízjel-kép</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Frissítés</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Vízjel forgatása</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha engedélyezve van, a vízjel 45°-kal elforgatva lesz hozzáadva a képhez</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiemelés beállításai</translation>
     </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished"></translation>
+        <translation>A mentettlen módosítások elvetése előtt kérdezzen rá a mentésre</translation>
     </message>
     <message>
         <source>Save ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Mentse a program pozícióját mozgás közben, és töltse be indításkor</translation>
     </message>
     <message>
         <source>Save ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Mentse a program kijelölő eszközét, és töltse be indításkor</translation>
     </message>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation type="unfinished"></translation>
+        <translation>Képernyő mentése program indításkor az alapértelmezett módon</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Alkalmazás stílusa</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Beállítja az alkalmazás stílusát, amely meghatározza a grafikus felhasználói felület megjelenését és hangulatát.
+A módosításhoz érvényesítéséhez a program újraindítása szükséges.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Mentés helye és fájlneve</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished"></translation>
+        <translation>A fájl neve tartalmazhatja a következő operandusokat: $ Y, $ M, $ D (dátum), $ h, $ m, $ s (idő) vagy $ T (idő) hhmmss formátumban.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallózás</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Alkalmazás beállítások</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished"></translation>
+        <translation>Rögzített kép mentésének helye</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Tálcaikon használata</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha engedélyezve van, a tálcaikon rákerül a tálcára, ha az oprenszer ablakkezelője támogatja ezt a funkciót.
+A változtatás érvenyesítéséhez újra kell indítani a programot.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Kicsinyítés a tálcára</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezáráskor lehelyezés a tálcára</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
+        <translation>Indítás tálcára kicsinyítve.</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation>Az új képernyőmentéseket automatikusan másolja a vágólapra</translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation>Az új képernyőmentéseket automatikusan mentse az alapértelmezett helyre</translation>
+    </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -222,45 +230,45 @@ Change requires restart.</source>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished"></translation>
+        <translation>A szerzőről:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Közreműködők:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Spanyol fordítás</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Holland fordítás</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Orosz fordítás</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Norvég fordítás</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Francia fordítás</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Lengyel fordítás</translation>
     </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished"></translation>
+        <translation>Figyelem - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -269,163 +277,228 @@ Do you want to save it?</source>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Új</translation>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Terület</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Rajzolj (kijelölő) területet az egérrel</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished"></translation>
+        <translation>Teljes képernyő (minden monitor)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation type="unfinished"></translation>
+        <translation>A teljes képernyő rögzítése, beleértve az összes monitort</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuális képernyő</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuális képernyő rögzítése, ahol az egér található</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktív ablak</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktív ablak rögzítése, ahol a fókusz van</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Kurzor alatti ablak</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Az egérmutató alatt lévő ablak rögzítése</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Legutoljára használt kijelölés</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
+        <translation>Képernyőkép rögzítése a legutoljára használt kijelölés szerint</translation>
     </message>
 </context>
 <context>
     <name>CaptureUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished"></translation>
+        <translation>Az imgur.com-ra való feltöltés befejeződött!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
+        <translation>Új azonosító, próbáld meg újra feltölteni…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished"></translation>
+        <translation>Az Imgur azonosító lejárt, igényelj egy újat…</translation>
     </message>
 </context>
 <context>
     <name>DonateTab</name>
     <message>
         <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Támogatsz egy sörrel?</translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Naná</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>ide</translation>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Légy támogató</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>Lehetséges </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Az adományokat mindig szívesen fogadjuk</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResponseOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Sikeres feltöltés</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished"></translation>
+        <translation>Feltöltés ide</translation>
     </message>
 </context>
 <context>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Globális gyorsbillentyűk bekapcsolása</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Kijelölt terület rögzítése</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Teljes képernyő rögzítése</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuális képernyő rögzítése</translation>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktív ablak rögzítése</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Kurzor alatti ablak rögzítése</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Globális gyorsbillentyűk</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation type="unfinished"></translation>
+        <translation>A gyorsbillentyűk jelenleg csak Windows-on és X11-en támogatottak</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Legutoljára használt kijelölés szerinti rögzítés</translation>
     </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Egérkurzor rögzítése a képernyőképen</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type="unfinished"></translation>
+        <translation>Az egérkurzor látszódni fog
+a képernyőképen.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép fagyasztása rögzítéskor</translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation>Mutassa a nagyítót rögzítéskor</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation>Mutasson a nagyítót, ami nagyítja a háttérképet.
+Ez az opció csak akkor működik, ha a
+&apos;Kép fagyasztása rögzítéskor&apos; engedélyezve van.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation>Mutassa a vonalzót a rögzítés területén</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation>Vízszintes és függőleges vonalak az asztal széleitől
+a rögzítési területen lévő kurzorig.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation>Mutassa a rögzítési terület helyét és méretét</translation>
+    </message>
+    <message>
+        <source>When left mouse is not pressed the position
+is show, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation>Ha a bal egérgomb nincs lenyomva, a pozició
+az egérgomb lenyomásakor jelenik meg,
+a kiválasztott terület mérete balra látható
+és fölötte a rögzített terület.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation>Kurzor színe a rögzítés területén</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area
+cursor. Change requires ksnip restart to
+take effect.</source>
+        <translation>Kurzor színének beállítása
+a rögzítés területe felett.
+Újraindítás szükséges.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation>Kurzor vastagsága a rögzítési területen</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area
+cursor. Change requires ksnip restart to
+take effect.</source>
+        <translation>Kurzor vastagságának beállítása
+a rögzítés területe felett.
+Újraindítás szükséges.</translation>
+    </message>
+    <message>
+        <source>Image Grabber</source>
+        <translation>Képlopás</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -434,307 +507,280 @@ the behavior of delayed screenshots, with this
 option enabled the delay happens before the
 snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
-This feature doesn&apos;t work for Wayland and is always
-used for MacOs.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation>Mikor ez az opció be van kapcsolva
+a program lefagyasztja a hátteret,
+miközben a téglalap alakú kivágás történik.
+Ez az opció szintén megváltoztatja a
+késleltetett képernyőkép funkcióját.
+Ha engedélyezve van, a késleltetés a kivágás előtt történik,
+míg ha nem engedélyezzük, a késleltetés a kivágás után történik.
+Hasonlóan, mint MacOS rendszeren, viszont nem működik Waylanden.</translation>
     </message>
 </context>
 <context>
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur előznény</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Bezár</translation>
     </message>
     <message>
         <source>Time Stamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Idő bélyegző</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Link</translation>
     </message>
     <message>
         <source>Delete Link</source>
-        <translation type="unfinished"></translation>
+        <translation>Link törlése</translation>
     </message>
 </context>
 <context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Névtelen feltöltés kényszerítése</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Mindig másolja az Imgur linket a vágólapra</translation>
     </message>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished"></translation>
+        <translation>Megerősítés kérése feltöltés előtt</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Ügyfél ID</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished"></translation>
+        <translation>Ügyfél titkosító</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>PIN</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished"></translation>
+        <translation>Írd be az imgur Pin kódot, ami egy azonosítóra lesz cserélve.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>PIN beszerzése</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Azonosító beszerzése</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur előzmény</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur feltöltő</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználónév</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished"></translation>
+        <translation>Várakozás az imgur.com-ra…</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználónév:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>imgur.com azonosító sikeresen feltöltve.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished"></translation>
+        <translation>imgur.com azonosító feltöltésekor hiba.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation type="unfinished"></translation>
+        <translation>imgur link megnyitása a böngészőben, feltöltés után</translation>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Közvetlen link a képhez</translation>
     </message>
 </context>
 <context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Új</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Késleltés a képernyőkép rögzítése előtt
+másodpercben megadva.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>mp</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Mentés</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation type="unfinished"></translation>
+        <translation>Képernyőkép mentés a rendszerre</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Másolás</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Képernyőkép másolása a vágólapra</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>Eszközök</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Visszavonás</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Megismételés</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished"></translation>
+        <translation>körbevágás</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Képernyőkép körbevágása</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <source>Unsaved</source>
-        <translation type="unfinished"></translation>
+        <translation>Mentetlen</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Feltöltés</translation>
     </message>
     <message>
         <source>Upload capture image to imgur.com</source>
-        <translation type="unfinished"></translation>
+        <translation>Képernyőkép feltöltése az imgur.com-ra</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyomtatás</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation type="unfinished"></translation>
+        <translation>Megnyitja a nyomtató párbeszédpanelt, és lehetőséget biztosít a kép kinyomtatására</translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Nyomtatási előnézet</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Megnyitja a Nyomtatási előnézet párbeszédpanelt, ahol a kép tájolása megváltoztatható</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"></translation>
+        <translation>Lépték</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Képernyőkép lépték</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Kilépés</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>Névjegy</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Megnyitás</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerkesztés</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opciók</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Súgó</translation>
     </message>
     <message>
         <source>Open Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép megnyitása</translation>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation type="unfinished"></translation>
+        <translation>Képfájlok (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Vízjel hozzáadása</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vízjel hozzáadása a rögzített képhez. Töbszörös vízjelezés is lehetséges.</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>Fájl</translation>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem lehet a képet megjeleníteni</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
+        <translation>Nincs kép, de ez várható volt.</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation>Mentés mint...</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation>Beillesztés</translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -742,114 +788,114 @@ and capturing screenshot.</source>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>Mentés másként</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Képek</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Minden fájl</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép mentve</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép mentése nem sikerült</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation type="unfinished"></translation>
+        <translation>Mentés helye</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép mentése nem sikerült ide</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Beállítások</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Mégse</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Képfogó</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur feltöltő</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Alkalmazás</translation>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiemelő</translation>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Gyorsbillentyűk</translation>
     </message>
 </context>
 <context>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Szerkesztő mutatása</translation>
     </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép kiválasztása</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Képek</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Minden fájl</translation>
     </message>
 </context>
 <context>
     <name>UploadOperation</name>
     <message>
         <source>Imgur Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur feltöltés</translation>
     </message>
     <message>
         <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>A képernyőképet készülsz feltölteni az imgur.com webhelyre, folytatod?</translation>
     </message>
 </context>
 <context>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzió</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation>build</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished"></translation>
+        <translation>Felhasználó:</translation>
     </message>
 </context>
 </TS>

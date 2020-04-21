@@ -2,7 +2,7 @@
  *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
@@ -48,17 +48,30 @@ void KsnipConfig::setPromptSaveBeforeExit(bool  enabled)
 	saveValue(KsnipConfigOptions::promptSaveBeforeExitString(), enabled);
 }
 
-bool KsnipConfig::alwaysCopyToClipboard() const
+bool KsnipConfig::autoCopyToClipboardNewCaptures() const
 {
-	return loadValue(KsnipConfigOptions::alwaysCopyToClipboardString(), false).toBool();
+	return loadValue(KsnipConfigOptions::autoCopyToClipboardNewCapturesString(), false).toBool();
 }
 
-void KsnipConfig::setAlwaysCopyToClipboard(bool  enabled)
+void KsnipConfig::setAutoCopyToClipboardNewCaptures(bool  enabled)
 {
-    if (alwaysCopyToClipboard() == enabled) {
+    if (autoCopyToClipboardNewCaptures() == enabled) {
         return;
     }
-	saveValue(KsnipConfigOptions::alwaysCopyToClipboardString(), enabled);
+	saveValue(KsnipConfigOptions::autoCopyToClipboardNewCapturesString(), enabled);
+}
+
+bool KsnipConfig::autoSaveNewCaptures() const
+{
+	return loadValue(KsnipConfigOptions::autoSaveNewCapturesString(), false).toBool();
+}
+
+void KsnipConfig::setAutoSaveNewCaptures(bool  enabled)
+{
+	if (autoSaveNewCaptures() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::autoSaveNewCapturesString(), enabled);
 }
 
 bool KsnipConfig::saveToolSelection() const
@@ -72,6 +85,20 @@ void KsnipConfig::setSaveToolSelection(bool enabled)
         return;
     }
 	saveValue(KsnipConfigOptions::saveToolSelectionString(), enabled);
+}
+
+bool KsnipConfig::autoHideTabs() const
+{
+	return loadValue(KsnipConfigOptions::autoHideTabsString(), false).toBool();
+}
+
+void KsnipConfig::setAutoHideTabs(bool enabled)
+{
+	if (autoHideTabs() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::autoHideTabsString(), enabled);
+	emit annotatorConfigChanged();
 }
 
 bool KsnipConfig::captureOnStartup() const
@@ -182,26 +209,13 @@ void KsnipConfig::setSaveFormat(const QString& format)
 	saveValue(KsnipConfigOptions::saveFormatString(), format);
 }
 
-bool KsnipConfig::useInstantSave() const
-{
-	return loadValue(KsnipConfigOptions::useInstantSaveString(), false).toBool();
-}
-
-void KsnipConfig::setUseInstantSave(const bool enabled)
-{
-    if (useInstantSave() == enabled) {
-        return;
-    }
-	saveValue(KsnipConfigOptions::useInstantSaveString(), enabled);
-}
-
 QString KsnipConfig::applicationStyle() const
 {
 	auto defaultStyle = QStringLiteral("Fusion");
 	return loadValue(KsnipConfigOptions::applicationStyleString(), defaultStyle).toString();
 }
 
-void KsnipConfig::setApplicationStyle(QString style)
+void KsnipConfig::setApplicationStyle(const QString &style)
 {
     if (applicationStyle() == style) {
         return;
@@ -277,8 +291,7 @@ void KsnipConfig::setTextBold(bool  bold)
     font.setBold(bold);
 
 	saveValue(KsnipConfigOptions::textFontString(), font);
-    emit painterUpdated();
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 bool KsnipConfig::textItalic() const
@@ -295,8 +308,7 @@ void KsnipConfig::setTextItalic(bool  italic)
     font.setItalic(italic);
 
 	saveValue(KsnipConfigOptions::textFontString(), font);
-    emit painterUpdated();
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 bool KsnipConfig::textUnderline() const
@@ -313,8 +325,7 @@ void KsnipConfig::setTextUnderline(bool  underline)
     font.setUnderline(underline);
 
 	saveValue(KsnipConfigOptions::textFontString(), font);
-    emit painterUpdated();
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 QFont KsnipConfig::textFont() const
@@ -332,8 +343,7 @@ void KsnipConfig::setTextFont(const QFont& font)
     tmpFont.setFamily(font.family());
 
 	saveValue(KsnipConfigOptions::textFontString(), tmpFont);
-    emit painterUpdated();
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 QFont KsnipConfig::numberFont() const
@@ -352,8 +362,7 @@ void KsnipConfig::setNumberFont(const QFont& font)
     tmpFont.setBold(true);
 
 	saveValue(KsnipConfigOptions::numberFontString(), tmpFont);
-    emit painterUpdated();
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 bool KsnipConfig::itemShadowEnabled() const
@@ -368,7 +377,7 @@ void KsnipConfig::setItemShadowEnabled(bool enabled)
     }
 
 	saveValue(KsnipConfigOptions::itemShadowEnabledString(), enabled);
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 bool KsnipConfig::smoothPathEnabled() const
@@ -383,7 +392,7 @@ void KsnipConfig::setSmoothPathEnabled(bool  enabled)
     }
 
 	saveValue(KsnipConfigOptions::smoothPathEnabledString(), enabled);
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 int KsnipConfig::smoothFactor() const
@@ -398,7 +407,7 @@ void KsnipConfig::setSmoothFactor(int  factor)
     }
 
 	saveValue(KsnipConfigOptions::smoothPathFactorString(), factor);
-	emit toolConfigChanged();
+	emit annotatorConfigChanged();
 }
 
 bool KsnipConfig::rotateWatermarkEnabled() const

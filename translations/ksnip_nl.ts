@@ -142,10 +142,6 @@ gladder.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Schermfoto altijd kopiëren naar klembord</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Altijd vragen om aanpassingen op te slaan</translation>
     </message>
@@ -160,16 +156,6 @@ gladder.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Schermfoto vastleggen met standaardmodus bij opstarten</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Schermfoto altijd direct opslaan in standaardmap</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Schakel dit in om niet te worden gevraagd waar een schermfoto moet
-worden opgeslagen, maar deze direct op te slaan in de standaardmap.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -223,6 +209,22 @@ Herstart om de wijziging toe te passen.</translation>
         <source>Start Minimized to Tray.</source>
         <translation>Geminimaliseerd opstarten.</translation>
     </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation>Nieuwe schermfoto&apos;s automatisch kopiëren naar klembord</translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation>Nieuwe schermfoto&apos;s automatisch opslaan in standaardlocatie</translation>
+    </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -266,10 +268,9 @@ Herstart om de wijziging toe te passen.</translation>
         <translation>Waarschuwing - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation>De schermfoto is aangepast.
-Wil je deze opslaan?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -761,6 +762,25 @@ van schermfoto, in seconden.</translation>
     <message>
         <source>No image provided to but one was expected.</source>
         <translation>Er werd een afbeelding verwacht, maar geen afbeelding opgegeven.</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation>Opslaan als...</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation>Plakken</translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

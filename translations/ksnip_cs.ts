@@ -142,10 +142,6 @@ je více vyhlazovat.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Kopírovat zachycení vždy do schránky</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Zobrazit výzvu k uložení před zahozením neuložených změn</translation>
     </message>
@@ -160,16 +156,6 @@ je více vyhlazovat.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Zachytit snímek obrazovky při spuštění ve výchozím režimu</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Okamžité uložení do výchozího umístění bez dialogu &apos;Uložit jako&apos;</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Pokud je povoleno, nebude se ptát kam uložit snímek obrazovky,
-ale okamžitě se uloží do výchozího umístění.</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -223,6 +209,22 @@ Změna vyžaduje restartování aplikace.</translation>
         <source>Start Minimized to Tray.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -266,10 +268,9 @@ Změna vyžaduje restartování aplikace.</translation>
         <translation>Varování - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation>Snímek byl upraven.
-Chcete ho uložit?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -753,6 +754,25 @@ a zachycením obrazovky.</translation>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>Soubory obrázků (*. png *. jpg *. bmp)</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

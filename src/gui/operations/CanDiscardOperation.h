@@ -2,7 +2,7 @@
  * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
@@ -31,7 +31,7 @@ class CanDiscardOperation : public QObject
 {
 	Q_OBJECT
 public:
-	CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, TrayIcon *trayIcon);
+	CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, const QString &pathToImageSource, const QString &filename, AbstractToastService *toastService);
 	~CanDiscardOperation() override = default;
 	bool execute();
 
@@ -40,7 +40,9 @@ private:
 	bool mIsUnsaved;
 	QWidget *mParent;
 	QImage mImage;
-	TrayIcon *mTrayIcon;
+	QString mPathToImageSource;
+	QString mFilename;
+	AbstractToastService *mToastService;
 
 	MessageBoxResponse getSaveBeforeDiscard() const;
 	bool saveImage() const;

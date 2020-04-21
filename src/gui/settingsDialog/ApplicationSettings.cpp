@@ -2,7 +2,7 @@
  * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
@@ -31,13 +31,14 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig)
 
 ApplicationSettings::~ApplicationSettings()
 {
-	delete mAlwaysCopyToClipboardCheckbox;
+	delete mAutoCopyToClipboardNewCapturesCheckbox;
+	delete mAutoSaveNewCapturesCheckbox;
 	delete mPromptToSaveBeforeExitCheckbox;
 	delete mSaveKsnipPositionCheckbox;
 	delete mSaveKsnipToolSelectionCheckbox;
 	delete mCaptureOnStartupCheckbox;
-	delete mUseInstantSaveCheckBox;
 	delete mUseTrayIconCheckBox;
+	delete mAutoHideTabsCheckbox;
 	delete mMinimizeToTrayCheckBox;
 	delete mCloseToTrayCheckBox;
 	delete mStartMinimizedToTrayCheckBox;
@@ -51,16 +52,17 @@ ApplicationSettings::~ApplicationSettings()
 
 void ApplicationSettings::initGui()
 {
-	mAlwaysCopyToClipboardCheckbox = new QCheckBox(this);
+	mAutoCopyToClipboardNewCapturesCheckbox = new QCheckBox(this);
+	mAutoSaveNewCapturesCheckbox = new QCheckBox(this);
 	mPromptToSaveBeforeExitCheckbox = new QCheckBox(this);
 	mSaveKsnipPositionCheckbox = new QCheckBox(this);
 	mSaveKsnipToolSelectionCheckbox = new QCheckBox(this);
 	mCaptureOnStartupCheckbox = new QCheckBox(this);
-	mUseInstantSaveCheckBox = new QCheckBox(this);
 	mUseTrayIconCheckBox = new QCheckBox(this);
 	mMinimizeToTrayCheckBox = new QCheckBox(this);
 	mCloseToTrayCheckBox = new QCheckBox(this);
 	mStartMinimizedToTrayCheckBox = new QCheckBox(this);
+	mAutoHideTabsCheckbox = new QCheckBox(this);
 	mApplicationStyleLabel = new QLabel(this);
 	mApplicationStyleCombobox = new QComboBox(this);
 	mSaveLocationLabel = new QLabel(this);
@@ -68,20 +70,21 @@ void ApplicationSettings::initGui()
 	mBrowseButton = new QPushButton(this);
 	mLayout = new QGridLayout;
 
-	mAlwaysCopyToClipboardCheckbox->setText(tr("Always copy capture to clipboard"));
+	mAutoCopyToClipboardNewCapturesCheckbox->setText(tr("Automatically copy new captures to clipboard"));
+	mAutoSaveNewCapturesCheckbox->setText(tr("Automatically save new captures to default location"));
 	mPromptToSaveBeforeExitCheckbox->setText(tr("Prompt to save before discarding unsaved changes"));
 	mSaveKsnipPositionCheckbox->setText(tr("Save ksnip position on move and load on startup"));
 	mSaveKsnipToolSelectionCheckbox->setText(tr("Save ksnip tool selection and load on startup"));
 	mCaptureOnStartupCheckbox->setText(tr("Capture screenshot at startup with default mode"));
-	mUseInstantSaveCheckBox->setText(tr("Instant save to default location without 'Save as' dialog"));
-	mUseInstantSaveCheckBox->setToolTip(tr("When enabled, will not ask where to save a screenshot\n"
-	                                       "when saving, but will save instantly to default location."));
 	mUseTrayIconCheckBox->setText(tr("Use Tray Icon"));
 	mUseTrayIconCheckBox->setToolTip(tr("When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.\n"
 									       "Change requires restart."));
 	mMinimizeToTrayCheckBox->setText(tr("Minimize to Tray"));
 	mStartMinimizedToTrayCheckBox->setText(tr("Start Minimized to Tray."));
 	mCloseToTrayCheckBox->setText(tr("Close to Tray"));
+
+	mAutoHideTabsCheckbox->setText(tr("Auto Hide Tabs"));
+	mAutoHideTabsCheckbox->setToolTip(tr("Hide Tabbar when only on Tab is used."));
 
 	connect(mUseTrayIconCheckBox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTrayIconChanged);
 
@@ -102,23 +105,24 @@ void ApplicationSettings::initGui()
 
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnMinimumWidth(0, ScaledSizeProvider::getScaledWidth(10));
-	mLayout->addWidget(mAlwaysCopyToClipboardCheckbox, 0, 0, 1, 4);
-	mLayout->addWidget(mPromptToSaveBeforeExitCheckbox, 1, 0, 1, 4);
-	mLayout->addWidget(mSaveKsnipPositionCheckbox, 2, 0, 1, 4);
-	mLayout->addWidget(mSaveKsnipToolSelectionCheckbox, 3, 0, 1, 4);
-	mLayout->addWidget(mCaptureOnStartupCheckbox, 4, 0, 1, 4);
-	mLayout->addWidget(mUseInstantSaveCheckBox, 5, 0, 1, 4);
+	mLayout->addWidget(mAutoCopyToClipboardNewCapturesCheckbox, 0, 0, 1, 4);
+	mLayout->addWidget(mAutoSaveNewCapturesCheckbox, 1, 0, 1, 4);
+	mLayout->addWidget(mPromptToSaveBeforeExitCheckbox, 2, 0, 1, 4);
+	mLayout->addWidget(mSaveKsnipPositionCheckbox, 3, 0, 1, 4);
+	mLayout->addWidget(mSaveKsnipToolSelectionCheckbox, 4, 0, 1, 4);
+	mLayout->addWidget(mCaptureOnStartupCheckbox, 5, 0, 1, 4);
 	mLayout->addWidget(mUseTrayIconCheckBox, 6, 0, 1, 4);
 	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 7, 1, 1, 3);
 	mLayout->addWidget(mMinimizeToTrayCheckBox, 8, 1, 1, 3);
 	mLayout->addWidget(mCloseToTrayCheckBox, 9, 1, 1, 3);
-	mLayout->setRowMinimumHeight(10, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 11, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 11, 2, Qt::AlignLeft);
-	mLayout->setRowMinimumHeight(12, 15);
-	mLayout->addWidget(mSaveLocationLabel, 13, 0, 1, 4);
-	mLayout->addWidget(mSaveLocationLineEdit, 14, 0, 1, 4);
-	mLayout->addWidget(mBrowseButton, 14, 4);
+	mLayout->addWidget(mAutoHideTabsCheckbox, 10, 0, 1, 4);
+	mLayout->setRowMinimumHeight(11, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 12, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 12, 2, Qt::AlignLeft);
+	mLayout->setRowMinimumHeight(13, 15);
+	mLayout->addWidget(mSaveLocationLabel, 14, 0, 1, 4);
+	mLayout->addWidget(mSaveLocationLineEdit, 15, 0, 1, 4);
+	mLayout->addWidget(mBrowseButton, 15, 4);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -126,16 +130,17 @@ void ApplicationSettings::initGui()
 
 void ApplicationSettings::loadConfig()
 {
-	mAlwaysCopyToClipboardCheckbox->setChecked(mConfig->alwaysCopyToClipboard());
+	mAutoCopyToClipboardNewCapturesCheckbox->setChecked(mConfig->autoCopyToClipboardNewCaptures());
+	mAutoSaveNewCapturesCheckbox->setChecked(mConfig->autoSaveNewCaptures());
 	mPromptToSaveBeforeExitCheckbox->setChecked(mConfig->promptSaveBeforeExit());
 	mSaveKsnipPositionCheckbox->setChecked(mConfig->savePosition());
 	mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveToolSelection());
 	mCaptureOnStartupCheckbox->setChecked(mConfig->captureOnStartup());
-	mUseInstantSaveCheckBox->setChecked(mConfig->useInstantSave());
 	mUseTrayIconCheckBox->setChecked(mConfig->useTrayIcon());
 	mMinimizeToTrayCheckBox->setChecked(mConfig->minimizeToTray());
 	mStartMinimizedToTrayCheckBox->setChecked(mConfig->startMinimizedToTray());
 	mCloseToTrayCheckBox->setChecked(mConfig->closeToTray());
+	mAutoHideTabsCheckbox->setChecked(mConfig->autoHideTabs());
 
 	useTrayIconChanged();
 
@@ -146,16 +151,17 @@ void ApplicationSettings::loadConfig()
 
 void ApplicationSettings::saveSettings()
 {
-	mConfig->setAlwaysCopyToClipboard(mAlwaysCopyToClipboardCheckbox->isChecked());
+	mConfig->setAutoCopyToClipboardNewCaptures(mAutoCopyToClipboardNewCapturesCheckbox->isChecked());
+	mConfig->setAutoSaveNewCaptures(mAutoSaveNewCapturesCheckbox->isChecked());
 	mConfig->setPromptSaveBeforeExit(mPromptToSaveBeforeExitCheckbox->isChecked());
 	mConfig->setSavePosition(mSaveKsnipPositionCheckbox->isChecked());
 	mConfig->setSaveToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
 	mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
-	mConfig->setUseInstantSave(mUseInstantSaveCheckBox->isChecked());
 	mConfig->setUseTrayIcon(mUseTrayIconCheckBox->isChecked());
 	mConfig->setMinimizeToTray(mMinimizeToTrayCheckBox->isChecked());
 	mConfig->setStartMinimizedToTray(mStartMinimizedToTrayCheckBox->isChecked());
 	mConfig->setCloseToTray(mCloseToTrayCheckBox->isChecked());
+	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
 
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 

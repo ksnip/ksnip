@@ -2,7 +2,7 @@
  * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
@@ -22,27 +22,23 @@
 KeySequenceLineEdit::KeySequenceLineEdit(QWidget *widget, const QList<Qt::Key> &allowedKeys) : QLineEdit(widget)
 {
 	mAllowedKeys = allowedKeys;
-
-	setupPrintKeyHandling();
 }
 
 KeySequenceLineEdit::~KeySequenceLineEdit()
 {
-	delete mPrintKeyHandler;
-	delete mNativeKeyFilter;
+	mSpecialKeyFilters.clear();
 }
 
 void KeySequenceLineEdit::keyPressEvent(QKeyEvent *event)
 {
 	mModifiers = event->modifiers();
-
-	if(mAllowedKeys.contains(static_cast<Qt::Key>(event->key()))) {
-		mKey = static_cast<Qt::Key>(event->key());
-	} else {
-		mKey = Qt::Key_unknown;
-	}
-
+	mKey = getAllowedKey(event);
 	updateKeySequence();
+}
+
+Qt::Key KeySequenceLineEdit::getAllowedKey(const QKeyEvent *event) const
+{
+	return mAllowedKeys.contains(static_cast<Qt::Key>(event->key())) ? static_cast<Qt::Key>(event->key()) : Qt::Key_unknown;
 }
 
 void KeySequenceLineEdit::updateKeySequence()
@@ -76,28 +72,48 @@ void KeySequenceLineEdit::setValue(const QKeySequence &keySequence)
 
 void KeySequenceLineEdit::focusInEvent(QFocusEvent *event)
 {
-	QApplication::instance()->installNativeEventFilter(mNativeKeyFilter);
-
+	setupSpecialKeyHandling();
 	QLineEdit::focusInEvent(event);
 }
 
 void KeySequenceLineEdit::focusOutEvent(QFocusEvent *event)
 {
-	QApplication::instance()->removeNativeEventFilter(mNativeKeyFilter);
-
+	removeSpecialKeyHandler();
 	QLineEdit::focusOutEvent(event);
 }
 
-void KeySequenceLineEdit::printKeyPressed()
+void KeySequenceLineEdit::removeSpecialKeyHandler()
 {
-	mKey = Qt::Key_Print;
+	for(const auto& keyFilter : mSpecialKeyFilters) {
+		QApplication::instance()->removeNativeEventFilter(keyFilter.data());
+	}
+	mSpecialKeyFilters.clear();
+}
+
+void KeySequenceLineEdit::keyPressed(Qt::Key key)
+{
+	mKey = key;
 	updateKeySequence();
 }
 
-void KeySequenceLineEdit::setupPrintKeyHandling()
+void KeySequenceLineEdit::setupSpecialKeyHandling()
 {
-	mPrintKeyHandler = KeyHandlerFactory::create();
-	mPrintKeyHandler->registerKey(Qt::Key_Print);
-	mNativeKeyFilter = new NativeKeyEventFilter(mPrintKeyHandler);
-	connect(mNativeKeyFilter, &NativeKeyEventFilter::triggered, this, &KeySequenceLineEdit::printKeyPressed);
+	addSpecialKeyHandler(Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::CTRL + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::ALT + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::SHIFT + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::CTRL + Qt::ALT + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::CTRL + Qt::SHIFT + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::ALT + Qt::SHIFT + Qt::Key_Print, Qt::Key_Print);
+	addSpecialKeyHandler(Qt::CTRL + Qt::ALT + Qt::SHIFT + Qt::Key_Print, Qt::Key_Print);
+}
+
+void KeySequenceLineEdit::addSpecialKeyHandler(const QKeySequence &keySequence, Qt::Key key)
+{
+	auto keyHandler = KeyHandlerFactory::create();
+	keyHandler->registerKey(keySequence);
+	auto keyFilter = QSharedPointer<NativeKeyEventFilter>(new NativeKeyEventFilter(keyHandler));
+	connect(keyFilter.data(), &NativeKeyEventFilter::triggered, [this, key]() { keyPressed(key); });
+	mSpecialKeyFilters.append(keyFilter);
+	QApplication::instance()->installNativeEventFilter(keyFilter.data());
 }

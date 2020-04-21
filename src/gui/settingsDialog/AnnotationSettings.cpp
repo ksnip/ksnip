@@ -2,7 +2,7 @@
  * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
@@ -19,7 +19,22 @@
 
 #include "AnnotationSettings.h"
 
-AnnotationSettings::AnnotationSettings(KsnipConfig *config)
+AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
+	mSmoothPathCheckbox(new QCheckBox(this)),
+	mItemShadowCheckbox(new QCheckBox(this)),
+	mRotateWatermarkCheckbox(new QCheckBox(this)),
+	mTextFontLabel(new QLabel(this)),
+	mNumberFontLabel(new QLabel(this)),
+	mSmoothFactorLabel(new QLabel(this)),
+	mWatermarkImageLabel(new QLabel(this)),
+	mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
+	mTextFontCombobox(new QFontComboBox(this)),
+	mNumberFontCombobox(new QFontComboBox(this)),
+	mTextBoldButton(new QToolButton(this)),
+	mTextItalicButton(new QToolButton(this)),
+	mTextUnderlineButton(new QToolButton(this)),
+	mUpdateWatermarkImageButton(new QPushButton(this)),
+	mLayout(new QGridLayout(this))
 {
     Q_ASSERT(config != nullptr);
 
@@ -64,22 +79,6 @@ void AnnotationSettings::saveSettings()
 void AnnotationSettings::initGui()
 {
     auto const fixedButtonSize = 100;
-
-    mSmoothPathCheckbox = new QCheckBox(this);
-    mItemShadowCheckbox = new QCheckBox(this);
-    mRotateWatermarkCheckbox = new QCheckBox(this);
-    mTextFontLabel = new QLabel(this);
-    mNumberFontLabel = new QLabel(this);
-    mSmoothFactorLabel = new QLabel(this);
-    mWatermarkImageLabel = new QLabel(this);
-    mSmoothFactorCombobox = new NumericComboBox(1, 1, 15);
-    mTextFontCombobox = new QFontComboBox(this);
-    mNumberFontCombobox = new QFontComboBox(this);
-    mTextBoldButton = new QToolButton(this);
-    mTextItalicButton = new QToolButton(this);
-    mTextUnderlineButton = new QToolButton(this);
-    mUpdateWatermarkImageButton = new QPushButton(this);
-    mLayout = new QGridLayout(this);
 
     mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
     mItemShadowCheckbox->setToolTip(tr("When enabled, paint items cast shadows."));

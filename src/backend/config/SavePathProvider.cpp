@@ -26,7 +26,7 @@ SavePathProvider::SavePathProvider()
 
 QString SavePathProvider::savePath() const
 {
-    return PathHelper::makeUniqueFilename(saveDirectory(), getFilename(), mConfig->saveFormat());
+    return PathHelper::makeUniqueFilename(saveDirectory(), getFilename(), getFormat(mConfig->saveFormat()));
 }
 
 QString SavePathProvider::savePathWithFormat(const QString &format) const

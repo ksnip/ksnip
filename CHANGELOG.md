@@ -17,6 +17,7 @@
 * Changed: Disable scroll down with zero value in timeout widget. ([#294](https://github.com/ksnip/ksnip/issues/294))
 * Fixed: Compilation error with Qt 5.15. ([#279](https://github.com/ksnip/ksnip/issues/279))
 * Fixed: Undo and redo translation reverts back to English. ([#209](https://github.com/ksnip/ksnip/issues/209))
+* Fixed: When 'Capture Save Location' is not set, ksnip fails to save. ([#263](https://github.com/ksnip/ksnip/issues/263))
 
 ## Release 1.6.1
 * Changed: Allow opening link directly to image without opening in browser. ([#248](https://github.com/ksnip/kImageAnnotator/issues/248))

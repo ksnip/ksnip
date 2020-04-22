@@ -19,9 +19,8 @@
 
 #include "ImageSaver.h"
 
-ImageSaver::ImageSaver()
+ImageSaver::ImageSaver() : mConfig(KsnipConfigProvider::instance())
 {
-    mConfig = KsnipConfigProvider::instance();
 }
 
 bool ImageSaver::save(const QImage &image, const QString &path)
@@ -33,6 +32,7 @@ bool ImageSaver::save(const QImage &image, const QString &path)
 	if (!isSuccessful) {
 		qCritical("Unable to save file '%s'", qPrintable(fullPath));
 	}
+
 	return isSuccessful;
 }
 

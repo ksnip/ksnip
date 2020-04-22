@@ -46,9 +46,12 @@ private:
     QString mPathToImageSource;
     bool mIsInstantSave;
 	AbstractToastService *mToastService;
+	KsnipConfig *mConfig;
+
 	void notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const;
 	SaveResultDto save(const QString &path);
 	QString getSavePath() const;
+	void updateSaveDirectoryIfRequired(const QString &path, const SaveResultDto &saveResult) const;
 };
 
 #endif //KSNIP_SAVEOPERATION_H

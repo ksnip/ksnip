@@ -104,9 +104,14 @@ QString KsnipConfigOptions::closeToTrayString()
 	return applicationSectionString() + QStringLiteral("CloseToTray");
 }
 
-QString KsnipConfigOptions::startMinimizedToTray()
+QString KsnipConfigOptions::startMinimizedToTrayString()
 {
 	return applicationSectionString() + QStringLiteral("StartMinimizedToTray");
+}
+
+QString KsnipConfigOptions::rememberLastSaveDirectoryString()
+{
+	return applicationSectionString() + QStringLiteral("RememberLastSaveDirectory");
 }
 
 QString KsnipConfigOptions::textFontString()
@@ -293,3 +298,4 @@ QString KsnipConfigOptions::mainWindowSectionString()
 {
 	return QStringLiteral("MainWindow/");
 }
+

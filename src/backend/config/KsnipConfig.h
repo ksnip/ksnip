@@ -92,6 +92,9 @@ public:
 	virtual bool startMinimizedToTray() const;
 	virtual void setStartMinimizedToTray(bool enabled);
 
+	virtual bool rememberLastSaveDirectory() const;
+	virtual void setRememberLastSaveDirectory(bool enabled);
+
 	// Annotator
 
 	virtual bool textBold() const;

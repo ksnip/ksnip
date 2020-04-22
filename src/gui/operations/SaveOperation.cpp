@@ -23,7 +23,8 @@ SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstan
 	mParent(parent),
 	mImage(image),
 	mIsInstantSave(isInstantSave),
-	mToastService(toastService)
+	mToastService(toastService),
+	mConfig(KsnipConfigProvider::instance())
 {
     Q_ASSERT(mParent != nullptr);
 }
@@ -50,7 +51,18 @@ SaveResultDto SaveOperation::execute()
 	    path = saveDialog.selectedFiles().first();
     }
 
-	return save(path);
+	auto saveResult = save(path);
+	updateSaveDirectoryIfRequired(path, saveResult);
+
+	return saveResult;
+}
+
+void SaveOperation::updateSaveDirectoryIfRequired(const QString &path, const SaveResultDto &saveResult) const
+{
+	if(!mIsInstantSave && saveResult.isSuccessful && mConfig->rememberLastSaveDirectory()){
+		auto directory = PathHelper::extractPath(path);
+		mConfig->setSaveDirectory(directory);
+	}
 }
 
 QString SaveOperation::getSavePath() const

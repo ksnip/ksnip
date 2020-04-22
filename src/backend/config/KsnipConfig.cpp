@@ -264,7 +264,7 @@ void KsnipConfig::setCloseToTray(bool enabled)
 
 bool KsnipConfig::startMinimizedToTray() const
 {
-	return loadValue(KsnipConfigOptions::startMinimizedToTray(), false).toBool();
+	return loadValue(KsnipConfigOptions::startMinimizedToTrayString(), false).toBool();
 }
 
 void KsnipConfig::setStartMinimizedToTray(bool enabled)
@@ -272,7 +272,20 @@ void KsnipConfig::setStartMinimizedToTray(bool enabled)
 	if (startMinimizedToTray() == enabled) {
 		return;
 	}
-	saveValue(KsnipConfigOptions::startMinimizedToTray(), enabled);
+	saveValue(KsnipConfigOptions::startMinimizedToTrayString(), enabled);
+}
+
+bool KsnipConfig::rememberLastSaveDirectory() const
+{
+	return loadValue(KsnipConfigOptions::rememberLastSaveDirectoryString(), false).toBool();
+}
+
+void KsnipConfig::setRememberLastSaveDirectory(bool enabled)
+{
+	if (rememberLastSaveDirectory() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::rememberLastSaveDirectoryString(), enabled);
 }
 
 // Annotator
@@ -809,3 +822,4 @@ QVariant KsnipConfig::loadValue(const QString &key, const QVariant &defaultValue
 {
 	return mConfig.value(key, defaultValue);
 }
+

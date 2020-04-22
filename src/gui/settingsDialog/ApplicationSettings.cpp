@@ -19,11 +19,28 @@
 
 #include "ApplicationSettings.h"
 
-ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig)
+ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
+	mConfig(ksnipConfig),
+	mAutoCopyToClipboardNewCapturesCheckbox(new QCheckBox(this)),
+	mAutoSaveNewCapturesCheckbox(new QCheckBox(this)),
+	mPromptToSaveBeforeExitCheckbox(new QCheckBox(this)),
+	mSaveKsnipPositionCheckbox(new QCheckBox(this)),
+	mSaveKsnipToolSelectionCheckbox(new QCheckBox(this)),
+	mCaptureOnStartupCheckbox(new QCheckBox(this)),
+	mUseTrayIconCheckBox(new QCheckBox(this)),
+	mMinimizeToTrayCheckBox(new QCheckBox(this)),
+	mCloseToTrayCheckBox(new QCheckBox(this)),
+	mStartMinimizedToTrayCheckBox(new QCheckBox(this)),
+	mAutoHideTabsCheckbox(new QCheckBox(this)),
+	mRememberSaveDirectoryCheckbox(new QCheckBox(this)),
+	mApplicationStyleLabel(new QLabel(this)),
+	mApplicationStyleCombobox(new QComboBox(this)),
+	mSaveLocationLabel(new QLabel(this)),
+	mSaveLocationLineEdit(new QLineEdit(this)),
+	mBrowseButton(new QPushButton(this)),
+	mLayout(new QGridLayout)
 {
-	Q_ASSERT(ksnipConfig != nullptr);
-
-	mConfig = ksnipConfig;
+	Q_ASSERT(mConfig != nullptr);
 
 	initGui();
 	loadConfig();
@@ -42,6 +59,7 @@ ApplicationSettings::~ApplicationSettings()
 	delete mMinimizeToTrayCheckBox;
 	delete mCloseToTrayCheckBox;
 	delete mStartMinimizedToTrayCheckBox;
+	delete mRememberSaveDirectoryCheckbox;
 	delete mApplicationStyleLabel;
 	delete mApplicationStyleCombobox;
 	delete mSaveLocationLabel;
@@ -52,24 +70,6 @@ ApplicationSettings::~ApplicationSettings()
 
 void ApplicationSettings::initGui()
 {
-	mAutoCopyToClipboardNewCapturesCheckbox = new QCheckBox(this);
-	mAutoSaveNewCapturesCheckbox = new QCheckBox(this);
-	mPromptToSaveBeforeExitCheckbox = new QCheckBox(this);
-	mSaveKsnipPositionCheckbox = new QCheckBox(this);
-	mSaveKsnipToolSelectionCheckbox = new QCheckBox(this);
-	mCaptureOnStartupCheckbox = new QCheckBox(this);
-	mUseTrayIconCheckBox = new QCheckBox(this);
-	mMinimizeToTrayCheckBox = new QCheckBox(this);
-	mCloseToTrayCheckBox = new QCheckBox(this);
-	mStartMinimizedToTrayCheckBox = new QCheckBox(this);
-	mAutoHideTabsCheckbox = new QCheckBox(this);
-	mApplicationStyleLabel = new QLabel(this);
-	mApplicationStyleCombobox = new QComboBox(this);
-	mSaveLocationLabel = new QLabel(this);
-	mSaveLocationLineEdit = new QLineEdit(this);
-	mBrowseButton = new QPushButton(this);
-	mLayout = new QGridLayout;
-
 	mAutoCopyToClipboardNewCapturesCheckbox->setText(tr("Automatically copy new captures to clipboard"));
 	mAutoSaveNewCapturesCheckbox->setText(tr("Automatically save new captures to default location"));
 	mPromptToSaveBeforeExitCheckbox->setText(tr("Prompt to save before discarding unsaved changes"));
@@ -85,6 +85,10 @@ void ApplicationSettings::initGui()
 
 	mAutoHideTabsCheckbox->setText(tr("Auto Hide Tabs"));
 	mAutoHideTabsCheckbox->setToolTip(tr("Hide Tabbar when only on Tab is used."));
+
+	mRememberSaveDirectoryCheckbox->setText(tr("Remember last Save Directory"));
+	mRememberSaveDirectoryCheckbox->setToolTip(tr("When enabled will overwrite the save directory stored in settings\n"
+											         "with the latest save directory, for every save."));
 
 	connect(mUseTrayIconCheckBox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTrayIconChanged);
 
@@ -116,13 +120,14 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mMinimizeToTrayCheckBox, 8, 1, 1, 3);
 	mLayout->addWidget(mCloseToTrayCheckBox, 9, 1, 1, 3);
 	mLayout->addWidget(mAutoHideTabsCheckbox, 10, 0, 1, 4);
-	mLayout->setRowMinimumHeight(11, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 12, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 12, 2, Qt::AlignLeft);
-	mLayout->setRowMinimumHeight(13, 15);
-	mLayout->addWidget(mSaveLocationLabel, 14, 0, 1, 4);
-	mLayout->addWidget(mSaveLocationLineEdit, 15, 0, 1, 4);
-	mLayout->addWidget(mBrowseButton, 15, 4);
+	mLayout->addWidget(mRememberSaveDirectoryCheckbox, 11, 0, 1, 4);
+	mLayout->setRowMinimumHeight(12, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 13, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 13, 2, Qt::AlignLeft);
+	mLayout->setRowMinimumHeight(14, 15);
+	mLayout->addWidget(mSaveLocationLabel, 15, 0, 1, 4);
+	mLayout->addWidget(mSaveLocationLineEdit, 16, 0, 1, 4);
+	mLayout->addWidget(mBrowseButton, 16, 4);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -141,6 +146,7 @@ void ApplicationSettings::loadConfig()
 	mStartMinimizedToTrayCheckBox->setChecked(mConfig->startMinimizedToTray());
 	mCloseToTrayCheckBox->setChecked(mConfig->closeToTray());
 	mAutoHideTabsCheckbox->setChecked(mConfig->autoHideTabs());
+	mRememberSaveDirectoryCheckbox->setChecked(mConfig->rememberLastSaveDirectory());
 
 	useTrayIconChanged();
 
@@ -162,6 +168,7 @@ void ApplicationSettings::saveSettings()
 	mConfig->setStartMinimizedToTray(mStartMinimizedToTrayCheckBox->isChecked());
 	mConfig->setCloseToTray(mCloseToTrayCheckBox->isChecked());
 	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
+	mConfig->setRememberLastSaveDirectory(mRememberSaveDirectoryCheckbox->isChecked());
 
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 

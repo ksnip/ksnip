@@ -11,10 +11,13 @@ include(GNUInstallDirs)
 
 if (WIN32)
 	set(KSNIP_LANG_INSTAL_DIR "translations")
+	set(KIMAGEANNOTATOR_LANG_INSTAL_DIR "translations")
 elseif (APPLE)
 	set(KSNIP_LANG_INSTAL_DIR "../Resources")
+	set(KIMAGEANNOTATOR_LANG_INSTAL_DIR "../Resources")
 elseif (UNIX)
 	set(KSNIP_LANG_INSTAL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATAROOTDIR}/ksnip/translations")
+	set(KIMAGEANNOTATOR_LANG_INSTAL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATAROOTDIR}/kImageAnnotator/translations")
 endif ()
 
 configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/src/BuildConfig.h)
@@ -44,7 +47,7 @@ elseif (UNIX AND NOT APPLE)
     find_package(XCB COMPONENTS XFIXES)
 endif ()
 
-set(KIMAGEANNOTATOR_MIN_VERSION "0.2.1")
+set(KIMAGEANNOTATOR_MIN_VERSION "0.2.2")
 find_package(kImageAnnotator ${KIMAGEANNOTATOR_MIN_VERSION} REQUIRED)
 
 set(BASEPATH "${CMAKE_SOURCE_DIR}")

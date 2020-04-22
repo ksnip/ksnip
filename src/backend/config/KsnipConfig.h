@@ -2,7 +2,7 @@
  *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
@@ -47,11 +47,17 @@ public:
 	virtual bool promptSaveBeforeExit() const;
 	virtual void setPromptSaveBeforeExit(bool enabled);
 
-	virtual bool alwaysCopyToClipboard() const;
-	virtual void setAlwaysCopyToClipboard(bool enabled);
+	virtual bool autoCopyToClipboardNewCaptures() const;
+	virtual void setAutoCopyToClipboardNewCaptures(bool enabled);
+
+	virtual bool autoSaveNewCaptures() const;
+	virtual void setAutoSaveNewCaptures(bool enabled);
 
 	virtual bool saveToolSelection() const;
 	virtual void setSaveToolSelection(bool enabled);
+
+	virtual bool autoHideTabs() const;
+	virtual void setAutoHideTabs(bool enabled);
 
 	virtual bool captureOnStartup() const;
 	virtual void setCaptureOnStartup(bool enabled);
@@ -74,11 +80,8 @@ public:
 	virtual QString saveFormat() const;
 	virtual void setSaveFormat(const QString &format);
 
-	virtual bool useInstantSave() const;
-	virtual void setUseInstantSave(bool enabled);
-
 	virtual QString applicationStyle() const;
-	virtual void setApplicationStyle(QString style);
+	virtual void setApplicationStyle(const QString &style);
 
 	virtual bool useTrayIcon() const;
 	virtual void setUseTrayIcon(bool enabled);
@@ -209,8 +212,7 @@ public:
 	virtual void setWindowUnderCursorHotKey(const QKeySequence &keySequence);
 
 signals:
-    void painterUpdated() const;
-	void toolConfigChanged() const;
+	void annotatorConfigChanged() const;
 	void hotKeysChanged() const;
 
 private:

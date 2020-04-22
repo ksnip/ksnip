@@ -2,7 +2,7 @@
  * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
@@ -19,8 +19,9 @@
 
 #include "CapturePrinter.h"
 
-CapturePrinter::CapturePrinter()
+CapturePrinter::CapturePrinter(QWidget *parent) : mParent(parent)
 {
+	Q_ASSERT(mParent != nullptr);
 }
 
 void CapturePrinter::print(const QImage &image, const QString &defaultPath)
@@ -28,7 +29,7 @@ void CapturePrinter::print(const QImage &image, const QString &defaultPath)
     QPrinter printer;
     printer.setOutputFileName(defaultPath);
     printer.setOutputFormat(QPrinter::NativeFormat);
-    QPrintDialog printDialog(&printer, 0);
+    QPrintDialog printDialog(&printer, mParent);
 
     if (printDialog.exec() == QDialog::Accepted) {
 	    printCapture(image, &printer);
@@ -55,7 +56,7 @@ void CapturePrinter::printPreview(const QImage &image, const QString &defaultPat
     QPrinter printer;
     printer.setOutputFileName(defaultPath);
     printer.setOutputFormat(QPrinter::NativeFormat);
-    QPrintPreviewDialog printDialog(&printer);
+    QPrintPreviewDialog printDialog(&printer, mParent, Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
 	connect(&printDialog, &QPrintPreviewDialog::paintRequested, [this, image](QPrinter *p)
 	{
 		printCapture(image, p);

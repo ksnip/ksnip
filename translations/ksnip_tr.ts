@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağış</translation>
     </message>
 </context>
 <context>
@@ -51,11 +51,11 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Filigran Resmi Gerekli</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Lüffen Filigran Resmini Ayarlar &gt; Seçenekler &gt; Ek Açıklama &gt; Güncelle kısmından ekleyin</translation>
     </message>
 </context>
 <context>
@@ -142,10 +142,6 @@ daha düzgün hale getirir.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation type="unfinished">Yakalanan görüntüyü her zaman panoya kopyala</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation type="unfinished">Kaydedilmemiş değişiklikleri iptal etmeden önce, kaydetmek için uyar</translation>
     </message>
@@ -160,16 +156,6 @@ daha düzgün hale getirir.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation type="unfinished">Uygulama başlarken varsayılan kipte ekran görüntüsünü yakala</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation type="unfinished">&apos;Farklı kaydet&apos; iletişim penceresi olmadan doğrudan varsayılan konuma kaydet</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation type="unfinished">Etkinleştirildiğinde, düzenleme sonrasında kaydederken ekran görüntüsünün nereye
-kaydedileceği sorulmaz, bunun yerine doğrudan varsayılan konuma kaydedilir.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -222,6 +208,22 @@ Change requires restart.</source>
         <source>Start Minimized to Tray.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -265,10 +267,9 @@ Change requires restart.</source>
         <translation type="unfinished">Uyarı - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished">Yakalanan görüntü değiştirildi.
-Kaydetmek ister misiniz?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -753,6 +754,25 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

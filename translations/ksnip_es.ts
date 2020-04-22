@@ -25,22 +25,22 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Donar</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">Herramienta de Captura de pantalla</translation>
+        <translation>Herramienta de captura de pantalla</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Licencia: </translation>
+        <translation>Licencia: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Favor usar </translation>
+        <translation>Favor use </translation>
     </message>
     <message>
         <source> to report bugs.</source>
@@ -142,10 +142,6 @@ más suaves.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Siempre copiar captura al portapapeles</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Solicitar guardar antes de descartar cambios no guardados</translation>
     </message>
@@ -160,16 +156,6 @@ más suaves.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Captura de pantalla al inicio con el modo predeterminado</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Guardado instantáneo en la ubicación predeterminada sin el cuadro de diálogo &apos;Guardar como&apos;</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Cuando está habilitado, no preguntar dónde guardar la captura de pantalla,
-se guarda instantáneamente en la ubicación predeterminada.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -221,6 +207,22 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
+        <translation>Iniciar minimizado en la barra de tareas.</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation>Copiar automáticamente al portapapeles las nuevas capturas</translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation>Guardar automáticamente las nuevas capturas a la ubicación por defecto</translation>
+    </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -228,35 +230,35 @@ El cambio requiere que se reinicie.</translation>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished">El autor:</translation>
+        <translation>El autor:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Colaboradores:</translation>
+        <translation>Colaboradores:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">Traducción Española</translation>
+        <translation>Traducción española</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">Traducción holandesa</translation>
+        <translation>Traducción holandesa</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">Traducción rusa</translation>
+        <translation>Traducción rusa</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">Traducción noruega</translation>
+        <translation>Traducción noruega</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">Traducción francesa</translation>
+        <translation>Traducción francesa</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">Traducción polaca</translation>
+        <translation>Traducción polaca</translation>
     </message>
 </context>
 <context>
@@ -266,10 +268,9 @@ El cambio requiere que se reinicie.</translation>
         <translation>Advertencia - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation>La captura ha sido modificada.
-¿Desea guardarla?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -346,27 +347,27 @@ Do you want to save it?</source>
     <name>DonateTab</name>
     <message>
         <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>¿Donar una cerveza?</translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Por supuesto, puedes hacerlo</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>aquí</translation>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Ser un patrocinador</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>También es posible, </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Las donaciones son siempre bienvenidas</translation>
     </message>
 </context>
 <context>
@@ -755,6 +756,25 @@ y la captura de pantalla.</translation>
     <message>
         <source>No image provided to but one was expected.</source>
         <translation>No se esperaba ninguna imagen a excepción de una.</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

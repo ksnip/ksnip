@@ -2,7 +2,7 @@
  * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
@@ -11,7 +11,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
@@ -19,19 +19,23 @@
 
 #include "SaveOperation.h"
 
-SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, TrayIcon *trayIcon)
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, AbstractToastService *toastService) :
+	mParent(parent),
+	mImage(image),
+	mIsInstantSave(isInstantSave),
+	mToastService(toastService)
 {
-    Q_ASSERT(parent != nullptr);
-
-    mParent = parent;
-    mImage = image;
-    mIsInstantSave = isInstantSave;
-    mTrayIcon = trayIcon;
+    Q_ASSERT(mParent != nullptr);
 }
 
-bool SaveOperation::execute()
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, AbstractToastService *toastService) : SaveOperation(parent, image, isInstantSave, toastService)
 {
-    auto path = mSavePathProvider.savePath();
+	mPathToImageSource = pathToImageSource;
+}
+
+SaveResultDto SaveOperation::execute()
+{
+    auto path = getSavePath();
 
     if(!mIsInstantSave){
 	    auto title = tr("Save As");
@@ -40,7 +44,7 @@ bool SaveOperation::execute()
 	    saveDialog.setAcceptMode(QFileDialog::AcceptSave);
 
 	    if (saveDialog.exec() != QDialog::Accepted) {
-		    return false;
+		    return SaveResultDto(false, path);
 	    }
 
 	    path = saveDialog.selectedFiles().first();
@@ -49,7 +53,12 @@ bool SaveOperation::execute()
 	return save(path);
 }
 
-bool SaveOperation::save(const QString &path)
+QString SaveOperation::getSavePath() const
+{
+	return PathHelper::isPathValid(mPathToImageSource) ? mPathToImageSource : mSavePathProvider.savePath();
+}
+
+SaveResultDto SaveOperation::save(const QString &path)
 {
 	auto successful = mImageSaver.save(mImage, path);
 	if(successful) {
@@ -57,11 +66,12 @@ bool SaveOperation::save(const QString &path)
 	} else {
 		notify(tr("Saving Image Failed"), tr("Failed to save image to"), path, NotificationTypes::Critical);
 	}
-	return successful;
+	return SaveResultDto(successful, path);
 }
 
 void SaveOperation::notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const
 {
-	NotifyOperation operation(mTrayIcon, title, message + QStringLiteral(" ") + path, notificationType);
+	auto parentDirectory = PathHelper::extractPath(path);
+	NotifyOperation operation(mToastService, title, message + QStringLiteral(" ") + path, parentDirectory, notificationType);
 	operation.execute();
 }

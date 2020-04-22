@@ -25,14 +25,14 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Contributo económico</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">Strumento per la cattura di schermate</translation>
+        <translation>Applicazione per la cattura di schermate</translation>
     </message>
     <message>
         <source>License: </source>
@@ -139,10 +139,6 @@ make them more smooth.</source>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Copia automaticamente la schermata negli appunti</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Chiedi conferma prima di scartare i cambiamenti non salvati</translation>
     </message>
@@ -157,15 +153,6 @@ make them more smooth.</source>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Salva una schermata all&apos;avvio usando la modalità di default</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Salva direttamente nella posizione di default senza chiedere nulla</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Se abilitato, non chiede la posizione in cui salvare una schermata: salverà invece direttamente nella posizione di default.</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -217,6 +204,22 @@ Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
+        <translation>Iniziare minimizzato.</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -259,10 +262,10 @@ Questa impostazione richiede il riavvio.</translation>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished"></translation>
+        <translation>Attenzione - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -271,31 +274,31 @@ Do you want to save it?</source>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuovo</translation>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Area rettangolare</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Traccia un&apos;area rettangolare con il mouse</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Ultima area rettangolare usata</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
+        <translation>Cattura usando la ultima area rettangolare usata</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermo completo (tutti gli schermi)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation type="unfinished"></translation>
+        <translation>Cattura di tutti gli schermi collegati</translation>
     </message>
     <message>
         <source>Current Screen</source>
@@ -597,7 +600,7 @@ enabled for MacOs.</source>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nuovo</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
@@ -737,6 +740,25 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

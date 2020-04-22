@@ -25,26 +25,26 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Поддержать</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">— инструмент для создания скриншотов</translation>
+        <translation>Программа для скриншотов</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Лицензия: </translation>
+        <translation>Лицензия: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Пожалуйста, используйте </translation>
+        <translation>Пожалуйста, используйте </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> для отчета об ошибках.</translation>
+        <translation> для отчета об ошибках.</translation>
     </message>
 </context>
 <context>
@@ -141,10 +141,6 @@ make them more smooth.</source>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Всегда копировать скриншот в буфер обмена</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Выводить диалог сохранения изменений перед отменой</translation>
     </message>
@@ -159,16 +155,6 @@ make them more smooth.</source>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Делать скриншот при запуске</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Автоматически сохранять скриншот</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Программа не будет каждый раз спрашивать,
-куда сохранить скриншот.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -223,6 +209,22 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
+        <translation>Запускать свёрнутым в трей.</translation>
+    </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation>Автоматически копировать новые скриншоты в буфер обмена</translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation>Автоматически сохранять новые скриншоты в папку по умолчанию</translation>
+    </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -230,35 +232,35 @@ Change requires restart.</source>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished">Разработчик:</translation>
+        <translation>Разработчик:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Благодарность:</translation>
+        <translation>Соавторы:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">перевод на испанский</translation>
+        <translation>перевод на испанский</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">перевод на нидерландский</translation>
+        <translation>перевод на нидерландский</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">перевод на русский</translation>
+        <translation>перевод на русский</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">перевод на норвежский букмол</translation>
+        <translation>перевод на норвежский букмол</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">перевод на французский</translation>
+        <translation>перевод на французский</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">перевод на польский</translation>
+        <translation>перевод на польский</translation>
     </message>
 </context>
 <context>
@@ -268,10 +270,9 @@ Change requires restart.</source>
         <translation>Внимание - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation>Скриншот был изменён.
-Сохранить изменения?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -348,27 +349,27 @@ Do you want to save it?</source>
     <name>DonateTab</name>
     <message>
         <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Поддержать пивом?</translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Конечно, вы можете это сделать</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>здесь</translation>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Стать спонсором</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>Тоже возможно,</translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожертвования всегда приветствуются</translation>
     </message>
 </context>
 <context>
@@ -506,7 +507,14 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если включено - замораживает фон при выборе
+прямоугольной области. Также меняет поведение
+отложенных снимков экрана: при включенной
+опции задержка происходит до того, как будет
+показана область снимка, а при отключенной 
+опции задержка произойдет после того, как будет
+показана область отсечения. Эта функция всегда 
+отключена для Wayland и всегда включена для MacOS.</translation>
     </message>
 </context>
 <context>
@@ -604,7 +612,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Прямая ссылка на изображение</translation>
     </message>
 </context>
 <context>
@@ -754,6 +762,25 @@ and capturing screenshot.</source>
         <source>No image provided to but one was expected.</source>
         <translation>Отсутствует необходимое изображение.</translation>
     </message>
+    <message>
+        <source>Save As...</source>
+        <translation>Сохранить как…</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation>Вставить</translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
@@ -858,15 +885,15 @@ and capturing screenshot.</source>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Версия</translation>
+        <translation>Версия</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">Сборка</translation>
+        <translation>Сборка</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished">Программа использует:</translation>
+        <translation>Программа использует:</translation>
     </message>
 </context>
 </TS>

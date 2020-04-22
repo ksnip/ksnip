@@ -20,6 +20,7 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     mv build/src/ksnip*.exe packageDir/ksnip.exe
     windeployqt.exe packageDir/ksnip.exe
     cp build/translations/ksnip_*.qm ./packageDir/translations/
+    cp build/translations/kImageAnnotator_*.qm ./packageDir/translations/
 	cp /c/openssl/libeay32.dll ./packageDir/
 	cp /c/openssl/ssleay32.dll ./packageDir/
 	
@@ -35,5 +36,6 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     mv build/src/ksnip*.app packageDir/ksnip.app
     macdeployqt packageDir/ksnip.app
     cp build/translations/ksnip_*.qm ./packageDir/ksnip.app/Contents/Resources/
+    cp build/translations/kImageAnnotator_*.qm ./packageDir/ksnip.app/Contents/Resources/
     sudo hdiutil create ksnip-${VERSION}.dmg -volname "Ksnip" -fs HFS+ -srcfolder packageDir/
 fi

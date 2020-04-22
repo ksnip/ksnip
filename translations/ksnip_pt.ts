@@ -142,10 +142,6 @@ torná-los mais suaves.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Sempre copiar a captura para a área de transferência</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Avisar para salvar antes de descartar um trabalho não salvo</translation>
     </message>
@@ -160,16 +156,6 @@ torná-los mais suaves.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Capturar a tela ao iniciar, utilizando o modo padrão de captura</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Salvar instantaneamente no local padrão sem a caixa de diálogo &quot;Salvar como&quot;</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Quando ativado, não perguntará onde salvar uma captura de tela
-ao salvar, mas salvará instantaneamente no local padrão.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -223,6 +209,22 @@ A mudança requer reinicialização.</translation>
         <source>Start Minimized to Tray.</source>
         <translation>Iniciar Minimizado para Bandeja.</translation>
     </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation>Automaticamente copiar novas capturas para a área de transferência</translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation>Automaticamente salvar novas capturas para o diretório padrão</translation>
+    </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -266,10 +268,9 @@ A mudança requer reinicialização.</translation>
         <translation>Aviso - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation>A captura foi modificada.
-Você quer salvá-la?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -760,6 +761,25 @@ e captura de tela.</translation>
     <message>
         <source>No image provided to but one was expected.</source>
         <translation>Nenhuma imagem fornecida, mas uma era esperada.</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation>Salvar como...</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation>Colar</translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

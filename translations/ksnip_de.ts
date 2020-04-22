@@ -142,10 +142,6 @@ macht sie glatter.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Always copy capture to clipboard</source>
-        <translation>Aufnahme immer in die Zwischenablage kopieren</translation>
-    </message>
-    <message>
         <source>Prompt to save before discarding unsaved changes</source>
         <translation>Aufforderung zum Speichern, bevor nicht gespeicherte Änderungen verworfen werden</translation>
     </message>
@@ -160,16 +156,6 @@ macht sie glatter.</translation>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Beim Starten Screenshot im Standardmodus aufnehmen</translation>
-    </message>
-    <message>
-        <source>Instant save to default location without &apos;Save as&apos; dialog</source>
-        <translation>Sofort am Standardspeicherort speichern, ohne &quot;Speichern unter&quot;-Dialog zu öffnen</translation>
-    </message>
-    <message>
-        <source>When enabled, will not ask where to save a screenshot
-when saving, but will save instantly to default location.</source>
-        <translation>Wenn aktiviert, wird nicht gefragt, wo ein Screenshot gespeichert werden soll,
-sondern speichert sofort am Standardspeicherort.</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -223,16 +209,32 @@ Diese Änderung erfordert einen Neustart.</translation>
         <source>Start Minimized to Tray.</source>
         <translation>Beim System-Start zum Tray minimieren.</translation>
     </message>
+    <message>
+        <source>Automatically copy new captures to clipboard</source>
+        <translation>Neue Aufnahmen in die Zwischenablage automatisch kopieren</translation>
+    </message>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished">Der Autor:</translation>
+        <translation>Der Autor:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Mitwirkende:</translation>
+        <translation>Mitwirkenden:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
@@ -266,10 +268,9 @@ Diese Änderung erfordert einen Neustart.</translation>
         <translation>Warnung - </translation>
     </message>
     <message>
-        <source>The capture has been modified.
+        <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation>Die Aufnahme wurde geändert.
-Möchten Sie sie speichern?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -444,8 +445,8 @@ Screenshots sichtbar sein soll.</translation>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Zeigt eine Lupe an, welche in das Hintergrundbild
-hineinzoomt. Diese Option  funktioniert nur, wenn
-&apos;Bild während der Aufnahme einfrieren&apos; aktiviert wurde.</translation>
+hineinzoomt. Diese Option funktioniert nur, wenn
+„Bild während der Aufnahme einfrieren“ aktiviert wurde.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -602,7 +603,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation>Nach dem Upload Imgur-Link im Standardbrowser öffnen</translation>
+        <translation>Nach dem Hochladen Imgur-Link im Standardbrowser öffnen</translation>
     </message>
     <message>
         <source>Link directly to image</source>
@@ -756,6 +757,25 @@ und der Aufnahme.</translation>
     <message>
         <source>No image provided to but one was expected.</source>
         <translation>Es wurde kein Bild zur Verfügung gestellt, obwohl eines erwartet wurde.</translation>
+    </message>
+    <message>
+        <source>Save As...</source>
+        <translation>Speichern als…</translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation>Einfügen</translation>
+    </message>
+    <message>
+        <source>Paste Embedded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCaptureNameProvider</name>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

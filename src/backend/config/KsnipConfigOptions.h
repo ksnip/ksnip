@@ -36,14 +36,14 @@ public:
 	static QString positionString();
 	static QString captureModeString();
 	static QString saveDirectoryString();
-	static QString lastSaveDirectoryString();
 	static QString saveFilenameString();
 	static QString saveFormatString();
 	static QString applicationStyleString();
 	static QString useTrayIconString();
 	static QString minimizeToTrayString();
 	static QString closeToTrayString();
-	static QString startMinimizedToTray();
+	static QString startMinimizedToTrayString();
+	static QString rememberLastSaveDirectoryString();
 	static QString textFontString();
 	static QString numberFontString();
 	static QString itemShadowEnabledString();

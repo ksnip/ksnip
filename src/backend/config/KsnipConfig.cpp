@@ -171,24 +171,6 @@ void KsnipConfig::setSaveDirectory(const QString& path)
 	saveValue(KsnipConfigOptions::saveDirectoryString(), path);
 }
 
-QString KsnipConfig::lastSaveDirectory() const
-{
-	auto lastSaveDirectoryString = loadValue(KsnipConfigOptions::lastSaveDirectoryString(), QDir::homePath()).toString();
-	if (!lastSaveDirectoryString.isEmpty()) {
-		return lastSaveDirectoryString + QStringLiteral("/");
-    } else {
-		return {};
-    }
-}
-
-void KsnipConfig::setLastSaveDirectory(const QString& path)
-{
-    if (lastSaveDirectory() == path) {
-        return;
-    }
-	saveValue(KsnipConfigOptions::lastSaveDirectoryString(), path);
-}
-
 QString KsnipConfig::saveFilename() const
 {
 	auto defaultFilename = QStringLiteral("ksnip_$Y$M$D-$T");
@@ -282,7 +264,7 @@ void KsnipConfig::setCloseToTray(bool enabled)
 
 bool KsnipConfig::startMinimizedToTray() const
 {
-	return loadValue(KsnipConfigOptions::startMinimizedToTray(), false).toBool();
+	return loadValue(KsnipConfigOptions::startMinimizedToTrayString(), false).toBool();
 }
 
 void KsnipConfig::setStartMinimizedToTray(bool enabled)
@@ -290,7 +272,20 @@ void KsnipConfig::setStartMinimizedToTray(bool enabled)
 	if (startMinimizedToTray() == enabled) {
 		return;
 	}
-	saveValue(KsnipConfigOptions::startMinimizedToTray(), enabled);
+	saveValue(KsnipConfigOptions::startMinimizedToTrayString(), enabled);
+}
+
+bool KsnipConfig::rememberLastSaveDirectory() const
+{
+	return loadValue(KsnipConfigOptions::rememberLastSaveDirectoryString(), false).toBool();
+}
+
+void KsnipConfig::setRememberLastSaveDirectory(bool enabled)
+{
+	if (rememberLastSaveDirectory() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::rememberLastSaveDirectoryString(), enabled);
 }
 
 // Annotator
@@ -827,3 +822,4 @@ QVariant KsnipConfig::loadValue(const QString &key, const QVariant &defaultValue
 {
 	return mConfig.value(key, defaultValue);
 }
+

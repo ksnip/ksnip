@@ -81,6 +81,7 @@ private:
     AbstractImageGrabber *mImageGrabber;
     RunMode mMode;
     bool mHidden;
+    bool mSessionManagerRequestedQuit;
     Qt::WindowState mSelectedWindowState;
     bool mWindowStateChangeLock;
     QAction *mSaveAsAction;
@@ -148,6 +149,8 @@ private slots:
 	void loadImageFromFile(const QString &path);
 	void tabCloseRequested(int index);
 	void removeTab(int currentTabIndex);
+	void sessionFinished();
+	void captureCanceled();
 };
 
 #endif // KSNIP_MAINWINDOW_H

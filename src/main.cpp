@@ -41,6 +41,7 @@ int main(int argc, char** argv)
     app.setOrganizationDomain(QStringLiteral("ksnip.org"));
     app.setApplicationName(QStringLiteral("ksnip"));
     app.setApplicationVersion(QStringLiteral(KSNIP_VERSION));
+    app.setDesktopFileName(QStringLiteral("ksnip.desktop"));
 
     app.setStyle(KsnipConfigProvider::instance()->applicationStyle());
 

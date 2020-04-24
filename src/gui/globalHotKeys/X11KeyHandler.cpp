@@ -22,6 +22,11 @@
 #include <xcb/xcb.h>
 #include <X11/Xlib.h>
 
+X11KeyHandler::X11KeyHandler()
+{
+	mFixedModifiers = { 0, Mod2Mask, LockMask, (Mod2Mask | LockMask)};
+}
+
 X11KeyHandler::~X11KeyHandler()
 {
 	unregisterKey();
@@ -35,7 +40,9 @@ bool X11KeyHandler::registerKey(const QKeySequence &keySequence)
 	}
 
 	mKeyCodeCombo = mKeyCodeMapper.map(keySequence);
-	XGrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier, DefaultRootWindow(display), true, GrabModeAsync, GrabModeAsync);
+	for(auto fixedModifier : mFixedModifiers) {
+		XGrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier | fixedModifier, DefaultRootWindow(display), true, GrabModeAsync, GrabModeAsync);
+	}
 
 	XSync(display, False);
 	return true;
@@ -58,6 +65,9 @@ void X11KeyHandler::unregisterKey() const
 		return;
 	}
 
-	XUngrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier, DefaultRootWindow(display));
+	for(auto fixedModifier : mFixedModifiers) {
+		XUngrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier | fixedModifier, DefaultRootWindow(display));
+	}
+
 	XSync(display, False);
 }

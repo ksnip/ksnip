@@ -46,7 +46,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mSelectedWindowState(Qt::WindowActive),
 		mWindowStateChangeLock(false),
 		mDragAndDropHandler(new DragAndDropHandler),
-		mTabStateHandler(new CaptureTabStateHandler)
+		mTabStateHandler(new CaptureTabStateHandler),
+		mSessionManagerRequestedQuit(false)
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -58,6 +59,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	}
 
 	initGui();
+
+	connect(qApp, &QGuiApplication::commitDataRequest, this, &MainWindow::sessionFinished);
 
 	setWindowIcon(QIcon(QStringLiteral(":/icons/ksnip.svg")));
 	setPosition(mConfig->windowPosition());
@@ -78,8 +81,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	connect(mKImageAnnotator, &KImageAnnotator::tabCloseRequested, this, &MainWindow::tabCloseRequested);
 
 	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processCapture);
-	connect(mImageGrabber, &AbstractImageGrabber::canceled, [this]()
-	{ setHidden(false); });
+	connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::captureCanceled);
 
 	connect(mCaptureUploader, &CaptureUploader::finished, this, &MainWindow::uploadFinished);
 
@@ -275,7 +277,9 @@ void MainWindow::moveEvent(QMoveEvent* event)
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
-	event->ignore();
+	if(!mSessionManagerRequestedQuit) {
+		event->ignore();
+	}
 	mTrayIcon->isVisible() && mConfig->closeToTray() ? hide() : quit();
 }
 
@@ -651,4 +655,14 @@ void MainWindow::removeTab(int currentTabIndex)
 	mKImageAnnotator->removeTab(currentTabIndex);
 	mTabStateHandler->tabRemoved(currentTabIndex);
 	currentCaptureChanged();
+}
+
+void MainWindow::sessionFinished()
+{
+	mSessionManagerRequestedQuit = true;
+}
+
+void MainWindow::captureCanceled()
+{
+	setHidden(false);
 }

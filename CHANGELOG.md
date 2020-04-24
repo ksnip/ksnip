@@ -20,6 +20,10 @@
 * Fixed: Undo and redo translation reverts back to English. ([#209](https://github.com/ksnip/ksnip/issues/209))
 * Fixed: When 'Capture Save Location' is not set, ksnip fails to save. ([#263](https://github.com/ksnip/ksnip/issues/263))
 
+## Release 1.6.2
+* Fixed: Window decoration and alt+tab menu show Wayland generic icon on KDE Plasma. ([#269](https://github.com/ksnip/kImageAnnotator/issues/269))
+* Fixed: Logout canceled by 'ksnip' under KDE. ([#281](https://github.com/ksnip/kImageAnnotator/issues/281))
+
 ## Release 1.6.1
 * Changed: Allow opening link directly to image without opening in browser. ([#248](https://github.com/ksnip/kImageAnnotator/issues/248))
 * Changed: Always use transparent snipping area background for Wayland. ([#176](https://github.com/ksnip/kImageAnnotator/issues/176))

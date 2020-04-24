@@ -36,7 +36,7 @@
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Licenza </translation>
+        <translation>Licenza: </translation>
     </message>
     <message>
         <source>Please use </source>
@@ -44,18 +44,18 @@
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> per segnalare malfunzionamenti.</translation>
+        <translation> per segnalare malfunzionamenti.</translation>
     </message>
 </context>
 <context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation>Aggiungere Immagine</translation>
+        <translation>Immagine filigrana Necessaria</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>È necessario aggiungere un&apos;immagine tramite il menù Opzioni &gt; Impostazioni &gt; Annotatore &gt; Aggiorna</translation>
+        <translation>È necessario aggiungere un&apos;immagine Filigrana tramite il menù Opzioni &gt; Impostazioni &gt; Annotatore &gt; Aggiorna</translation>
     </message>
 </context>
 <context>
@@ -75,7 +75,8 @@
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation>Se abilitato, smussa i tratti di penna o pennarello dopo che sono stati tracciati.</translation>
+        <translation>Se abilitato, smussa i tratti di penna e pennarello
+dopo che sono stati tracciati.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
@@ -208,15 +209,15 @@ Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia automaticamente le nuove acquisizioni negli appunti</translation>
     </message>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva automaticamente le nuove acquisizioni nella posizione predefinita</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Nascondi le schede automaticamente</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
@@ -267,7 +268,8 @@ Questa impostazione richiede il riavvio.</translation>
     <message>
         <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;acquisizione &quot;%1&quot; è stata modificata.
+Desideri salvarla?</translation>
     </message>
 </context>
 <context>
@@ -302,23 +304,23 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermo attuale</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation type="unfinished"></translation>
+        <translation>Acquisisci lo schermo nella posizione del mouse</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Finestra attiva</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation type="unfinished"></translation>
+        <translation>Acquisisci la finestra attualmente in primo piano</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Finestra sotto il cursore</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
@@ -329,99 +331,99 @@ Do you want to save it?</source>
     <name>CaptureUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished"></translation>
+        <translation>Il caricamento su imgur.com è stato completato!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
+        <translation>Ricevuto nuovo token,nuova prova di upload in corso…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished"></translation>
+        <translation>Il token Imgur è scaduto, richiesta nuovo token in corso…</translation>
     </message>
 </context>
 <context>
     <name>DonateTab</name>
     <message>
         <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Dona una birra?</translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Certo, puoi farlo</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>qui</translation>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Diventa uno sponsor</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>Anche possibile, </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Le donazioni sono sempre ben accette</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResponseOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Il caricamento è andato a buon fine</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished"></translation>
+        <translation>Caricato su</translation>
     </message>
 </context>
 <context>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Abilita scorciatoie globali</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation type="unfinished"></translation>
+        <translation>Le scorciatoie sono attualmente supportate solo su Windows e X11</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Acquisisci area rettangolare</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Acquisisci l&apos;ultima area rettangolare</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Acquisisci l&apos;intero schermo</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Acquisisci lo Schermo attuale</translation>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Acquisisci la finestra attiva</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Acquisisci la finestra sotto il Cursore</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Scorciatoie Globali</translation>
     </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Includi il cursore del mouse nell&apos;acquisizione schermo</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on

@@ -44,7 +44,7 @@
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> para reportar errores.</translation>
+        <translation> para informar errores.</translation>
     </message>
 </context>
 <context>
@@ -219,11 +219,11 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto ocultar pestañas</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar barra de pestañas cuando hay solo una pestaña en uso.</translation>
     </message>
 </context>
 <context>
@@ -270,7 +270,8 @@ El cambio requiere que se reinicie.</translation>
     <message>
         <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>La captura &quot;%&quot; ha sido modificada.
+¿Deseas guardarla?</translation>
     </message>
 </context>
 <context>
@@ -509,7 +510,14 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando está habilitado, congelará el fondo mientras
+se selecciona una región rectangular. También cambia
+el comportamiento de las capturas con retardo, con esta
+opción habilitada, el retardo ocurre antes que el 
+área a capturar sea mostrada y con la opción deshabilitada
+el retardo ocurre después que el área a capturar sea mostrada.
+Esta opción está siempre deshabilitada para Wayland y siempre
+habilitada para MacOs.</translation>
     </message>
 </context>
 <context>
@@ -607,7 +615,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Enlazar directamente a la imagen</translation>
     </message>
 </context>
 <context>
@@ -759,22 +767,22 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar como...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Pegar</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Pegar embebido</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura</translation>
     </message>
 </context>
 <context>
@@ -880,15 +888,15 @@ y la captura de pantalla.</translation>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Versión</translation>
+        <translation>Versión</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">Construcción</translation>
+        <translation>Construcción</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished">Usando:</translation>
+        <translation>Usando:</translation>
     </message>
 </context>
 </TS>

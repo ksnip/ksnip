@@ -219,11 +219,11 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Fülek automatikus elrejtése</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>A fülsáv elrejtése a fülek használatakor.</translation>
     </message>
 </context>
 <context>
@@ -270,7 +270,8 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
     <message>
         <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>A(z) &quot;%1&quot; kép megváltozott.
+El akarod menteni?</translation>
     </message>
 </context>
 <context>
@@ -774,14 +775,14 @@ másodpercben megadva.</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Beágyazott beillesztés</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Képlopás</translation>
     </message>
 </context>
 <context>

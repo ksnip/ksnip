@@ -34,8 +34,10 @@ X11KeyHandler::~X11KeyHandler()
 
 bool X11KeyHandler::registerKey(const QKeySequence &keySequence)
 {
+	qDebug("Global Hotkey: Trying to register Hotkey");
 	auto display = QX11Info::display();
 	if(!display) {
+		qDebug("Global Hotkey: No Display Found");
 		return false;
 	}
 
@@ -45,23 +47,33 @@ bool X11KeyHandler::registerKey(const QKeySequence &keySequence)
 	}
 
 	XSync(display, False);
+	qDebug("Global Hotkey: Hotkey registered %s + %s", qPrintable(QString::number(mKeyCodeCombo.modifier)), qPrintable(qPrintable(QString::number(mKeyCodeCombo.key))));
 	return true;
 }
 
 bool X11KeyHandler::isKeyPressed(void *message)
 {
 	auto genericEvent = static_cast<xcb_generic_event_t *>(message);
+//	qDebug("Global Hotkey: Native event occurred");
 	if (genericEvent->response_type == XCB_KEY_PRESS) {
 		auto keyEvent = static_cast<xcb_key_press_event_t *>(message);
-		return keyEvent->detail == mKeyCodeCombo.key && keyEvent->state == mKeyCodeCombo.modifier;
+		qDebug("Global Hotkey: Hotkey pressed %s + %s", qPrintable(QString::number(keyEvent->state)), qPrintable(qPrintable(QString::number(keyEvent->detail))));
+		auto isMatch = keyEvent->detail == mKeyCodeCombo.key && keyEvent->state == mKeyCodeCombo.modifier;
+		if(isMatch) {
+			qDebug("We have a match");
+		}
+		return isMatch;
 	}
+//	qDebug("Global Hotkey: Event was not Hotkey");
 	return false;
 }
 
 void X11KeyHandler::unregisterKey() const
 {
+	qDebug("Global Hotkey: Trying to unregister Hotkey");
 	auto display = QX11Info::display();
 	if(!display) {
+		qDebug("Global Hotkey: No Display Found");
 		return;
 	}
 
@@ -70,4 +82,6 @@ void X11KeyHandler::unregisterKey() const
 	}
 
 	XSync(display, False);
+
+	qDebug("Global Hotkey: Hotkey unregistered %s + %s", qPrintable(QString::number(mKeyCodeCombo.modifier)), qPrintable(qPrintable(QString::number(mKeyCodeCombo.key))));
 }

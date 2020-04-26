@@ -27,8 +27,10 @@ AbstractKeyHandler* KeyHandlerFactory::create()
 
 #if defined(__linux__)
     if(PlatformChecker::instance()->isWayland()) {
+    	qDebug("Global Hotkey; Dummy Key Handler resolved");
 	    return new DummyKeyHandler;
     } else {
+	    qDebug("Global Hotkey; X11 Key Handler resolved");
 	    return new X11KeyHandler;
     }
 #endif

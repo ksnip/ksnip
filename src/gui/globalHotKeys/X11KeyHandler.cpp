@@ -43,26 +43,29 @@ bool X11KeyHandler::registerKey(const QKeySequence &keySequence)
 
 	mKeyCodeCombo = mKeyCodeMapper.map(keySequence);
 	for(auto fixedModifier : mFixedModifiers) {
+		qDebug("Global Hotkey: Hotkey registered %s + %s", qPrintable(QString::number(mKeyCodeCombo.modifier | fixedModifier)), qPrintable(qPrintable(QString::number(mKeyCodeCombo.key))));
 		XGrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier | fixedModifier, DefaultRootWindow(display), true, GrabModeAsync, GrabModeAsync);
 	}
 
 	XSync(display, False);
-	qDebug("Global Hotkey: Hotkey registered %s + %s", qPrintable(QString::number(mKeyCodeCombo.modifier)), qPrintable(qPrintable(QString::number(mKeyCodeCombo.key))));
 	return true;
 }
 
 bool X11KeyHandler::isKeyPressed(void *message)
 {
 	auto genericEvent = static_cast<xcb_generic_event_t *>(message);
-	qDebug("Global Hotkey: Native event occurred");
 	if (genericEvent->response_type == XCB_KEY_PRESS) {
 		auto keyEvent = static_cast<xcb_key_press_event_t *>(message);
 		qDebug("--> Global Hotkey: Hotkey pressed %s + %s", qPrintable(QString::number(keyEvent->state)), qPrintable(qPrintable(QString::number(keyEvent->detail))));
-		auto isMatch = keyEvent->detail == mKeyCodeCombo.key && keyEvent->state == mKeyCodeCombo.modifier;
-		if(isMatch) {
-			qDebug("--> We have a match");
+
+		auto isMatch = false;
+		for(auto fixedModifier : mFixedModifiers) {
+			isMatch = keyEvent->detail == mKeyCodeCombo.key && keyEvent->state == (mKeyCodeCombo.modifier | fixedModifier);
+			if(isMatch) {
+				qDebug("--> We have a match");
+				return isMatch;
+			}
 		}
-		return isMatch;
 	}
 	return false;
 }
@@ -77,10 +80,9 @@ void X11KeyHandler::unregisterKey() const
 	}
 
 	for(auto fixedModifier : mFixedModifiers) {
+		qDebug("Global Hotkey: Hotkey unregistered %s + %s", qPrintable(QString::number(mKeyCodeCombo.modifier | fixedModifier)), qPrintable(qPrintable(QString::number(mKeyCodeCombo.key))));
 		XUngrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier | fixedModifier, DefaultRootWindow(display));
 	}
 
 	XSync(display, False);
-
-	qDebug("Global Hotkey: Hotkey unregistered %s + %s", qPrintable(QString::number(mKeyCodeCombo.modifier)), qPrintable(qPrintable(QString::number(mKeyCodeCombo.key))));
 }

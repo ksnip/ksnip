@@ -54,17 +54,16 @@ bool X11KeyHandler::registerKey(const QKeySequence &keySequence)
 bool X11KeyHandler::isKeyPressed(void *message)
 {
 	auto genericEvent = static_cast<xcb_generic_event_t *>(message);
-//	qDebug("Global Hotkey: Native event occurred");
+	qDebug("Global Hotkey: Native event occurred");
 	if (genericEvent->response_type == XCB_KEY_PRESS) {
 		auto keyEvent = static_cast<xcb_key_press_event_t *>(message);
-		qDebug("Global Hotkey: Hotkey pressed %s + %s", qPrintable(QString::number(keyEvent->state)), qPrintable(qPrintable(QString::number(keyEvent->detail))));
+		qDebug("--> Global Hotkey: Hotkey pressed %s + %s", qPrintable(QString::number(keyEvent->state)), qPrintable(qPrintable(QString::number(keyEvent->detail))));
 		auto isMatch = keyEvent->detail == mKeyCodeCombo.key && keyEvent->state == mKeyCodeCombo.modifier;
 		if(isMatch) {
-			qDebug("We have a match");
+			qDebug("--> We have a match");
 		}
 		return isMatch;
 	}
-//	qDebug("Global Hotkey: Event was not Hotkey");
 	return false;
 }
 

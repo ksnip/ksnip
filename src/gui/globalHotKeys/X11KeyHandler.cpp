@@ -22,9 +22,22 @@
 #include <xcb/xcb.h>
 #include <X11/Xlib.h>
 
-X11KeyHandler::X11KeyHandler()
+static int errorHandler(Display *d, XErrorEvent *e)
 {
-	mFixedModifiers = { 0, Mod2Mask, LockMask, (Mod2Mask | LockMask)};
+	switch (e->error_code) {
+		case BadAccess:
+			qDebug("Key sequence already in use by other Application");
+			return 1;
+		default:
+			qDebug("Unknown Error Code: %s", qPrintable(QString::number(e->error_code)));
+			return 0;
+	}
+}
+
+X11KeyHandler::X11KeyHandler() :
+	mFixedModifiers({ 0, Mod2Mask, LockMask, (Mod2Mask | LockMask)})
+{
+	XSetErrorHandler(errorHandler);
 }
 
 X11KeyHandler::~X11KeyHandler()

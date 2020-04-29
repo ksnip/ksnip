@@ -98,8 +98,12 @@ void MainWindow::setPosition(const QPoint &lastPosition)
 	qDebug("Screen Geometry: W=%s H=%s", qPrintable(QString::number(screenGeometry.width())), qPrintable(QString::number(screenGeometry.height())));
 	if(!screenGeometry.contains(lastPosition)) {
 		qDebug("Ksnip is outside Screen");
-		auto screenCenter = screenGeometry.center();
-		position = QPoint(screenCenter.x() - size().width(), screenCenter.y() - size().height());
+		auto screenCenter = QPoint(screenGeometry.width() / 2, screenGeometry.height() / 2);
+		auto ksnipSize = size();
+		qDebug("Screen Center manuel: X=%s Y=%s", qPrintable(QString::number(screenCenter.x())), qPrintable(QString::number(screenCenter.y())));
+		qDebug("Screen Center qt: X=%s Y=%s", qPrintable(QString::number(screenGeometry.center().x())), qPrintable(QString::number(screenGeometry.center().y())));
+		qDebug("Ksnip Size: W=%s H=%s", qPrintable(QString::number(ksnipSize.width())), qPrintable(QString::number(ksnipSize.height())));
+		position = QPoint(screenCenter.x() - ksnipSize.width() / 2, screenCenter.y() - ksnipSize.height() / 2);
 		qDebug("New Position: W=%s H=%s", qPrintable(QString::number(position.x())), qPrintable(QString::number(position.y())));
 	}
 	move(position);

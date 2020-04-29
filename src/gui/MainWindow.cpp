@@ -92,11 +92,15 @@ void MainWindow::handleGuiStartup()
 
 void MainWindow::setPosition(const QPoint &lastPosition)
 {
+	qDebug("Last position: X=%s Y=%s", qPrintable(QString::number(lastPosition.x())), qPrintable(QString::number(lastPosition.y())));
 	auto position = lastPosition;
 	auto screenGeometry = QApplication::desktop()->screenGeometry();
+	qDebug("Screen Geometry: W=%s H=%s", qPrintable(QString::number(screenGeometry.width())), qPrintable(QString::number(screenGeometry.height())));
 	if(!screenGeometry.contains(lastPosition)) {
+		qDebug("Ksnip is outside Screen");
 		auto screenCenter = screenGeometry.center();
 		position = QPoint(screenCenter.x() - size().width(), screenCenter.y() - size().height());
+		qDebug("New Position: W=%s H=%s", qPrintable(QString::number(position.x())), qPrintable(QString::number(position.y())));
 	}
 	move(position);
 }

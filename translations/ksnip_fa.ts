@@ -5,53 +5,53 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation type="unfinished"></translation>
+        <translation>درباره </translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>درباره</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>نسخه</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>مولف</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>بستن</translation>
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>حمایت</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>ابزار اسکرین‌شات</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished"></translation>
+        <translation>مجوز: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished"></translation>
+        <translation>خواهشمندیم استفاده کنید </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation> گزارش اشکالات.</translation>
     </message>
 </context>
 <context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>تصویر واترمارک نیاز است</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>

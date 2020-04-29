@@ -58,7 +58,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	connect(qApp, &QGuiApplication::commitDataRequest, this, &MainWindow::sessionFinished);
 
 	setWindowIcon(QIcon(QStringLiteral(":/icons/ksnip.svg")));
-	setPosition(mConfig->windowPosition());
+	setPosition();
 
 	connect(mConfig, &KsnipConfig::toolConfigChanged, this, &MainWindow::setupImageAnnotator);
 
@@ -90,21 +90,14 @@ void MainWindow::handleGuiStartup()
 	}
 }
 
-void MainWindow::setPosition(const QPoint &lastPosition)
+void MainWindow::setPosition()
 {
-	qDebug("Last position: X=%s Y=%s", qPrintable(QString::number(lastPosition.x())), qPrintable(QString::number(lastPosition.y())));
-	auto position = lastPosition;
+	auto position = mConfig->windowPosition();
 	auto screenGeometry = QApplication::desktop()->screenGeometry();
-	qDebug("Screen Geometry: W=%s H=%s", qPrintable(QString::number(screenGeometry.width())), qPrintable(QString::number(screenGeometry.height())));
-	if(!screenGeometry.contains(lastPosition)) {
-		qDebug("Ksnip is outside Screen");
-		auto screenCenter = QPoint(screenGeometry.width() / 2, screenGeometry.height() / 2);
+	if(!screenGeometry.contains(position)) {
+		auto screenCenter = screenGeometry.center();
 		auto ksnipSize = size();
-		qDebug("Screen Center manuel: X=%s Y=%s", qPrintable(QString::number(screenCenter.x())), qPrintable(QString::number(screenCenter.y())));
-		qDebug("Screen Center qt: X=%s Y=%s", qPrintable(QString::number(screenGeometry.center().x())), qPrintable(QString::number(screenGeometry.center().y())));
-		qDebug("Ksnip Size: W=%s H=%s", qPrintable(QString::number(ksnipSize.width())), qPrintable(QString::number(ksnipSize.height())));
 		position = QPoint(screenCenter.x() - ksnipSize.width() / 2, screenCenter.y() - ksnipSize.height() / 2);
-		qDebug("New Position: W=%s H=%s", qPrintable(QString::number(position.x())), qPrintable(QString::number(position.y())));
 	}
 	move(position);
 }

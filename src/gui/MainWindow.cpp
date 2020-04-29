@@ -338,7 +338,7 @@ void MainWindow::initGui()
 
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
-    mPrintAction->setShortcut(QKeySequence::Print);
+    mPrintAction->setShortcut(Qt::CTRL + Qt::Key_P);
     mPrintAction->setIcon(QIcon::fromTheme(QStringLiteral("document-print")));
     connect(mPrintAction, &QAction::triggered, this, &MainWindow::printClicked);
 
@@ -359,7 +359,7 @@ void MainWindow::initGui()
 	connect(mAddWatermarkAction, &QAction::triggered, this, &MainWindow::addWatermark);
 
     mQuitAction->setText(tr("Quit"));
-    mQuitAction->setShortcut(QKeySequence::Quit);
+    mQuitAction->setShortcut(Qt::CTRL + Qt::Key_Q);
     mQuitAction->setIcon(QIcon::fromTheme(QStringLiteral("application-exit")));
     connect(mQuitAction, &QAction::triggered, this, &MainWindow::quit);
 

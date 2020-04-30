@@ -219,11 +219,11 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticamente ocultar Abas</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar a barra de Abas quando apenas uma Aba é usada.</translation>
     </message>
 </context>
 <context>
@@ -270,7 +270,8 @@ A mudança requer reinicialização.</translation>
     <message>
         <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>A captura &quot;%1&quot; foi modificada.
+Deseja salvá-la?</translation>
     </message>
 </context>
 <context>
@@ -772,14 +773,14 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Colar incorporado</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar</translation>
     </message>
 </context>
 <context>

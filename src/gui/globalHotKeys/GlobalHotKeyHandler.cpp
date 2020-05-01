@@ -41,10 +41,8 @@ void GlobalHotKeyHandler::removeHotKeys()
 
 void GlobalHotKeyHandler::setupHotKeys()
 {
-	qDebug("Global Hotkeys: Setting up global hotkeys");
 	removeHotKeys();
 	if(mConfig->globalHotKeysEnabled()) {
-		qDebug("Global Hotkeys: Global Hotkey Enabled");
 		createHotKey(mConfig->rectAreaHotKey(), CaptureModes::RectArea);
 		createHotKey(mConfig->lastRectAreaHotKey(), CaptureModes::LastRectArea);
 		createHotKey(mConfig->fullScreenHotKey(), CaptureModes::FullScreen);

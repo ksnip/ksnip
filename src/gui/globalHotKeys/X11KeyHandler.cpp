@@ -17,27 +17,17 @@
  * Boston, MA 02110-1301, USA.
  */
 
+/*
+ * Inspired by Skycoder42`s QHotKey implementation https://github.com/Skycoder42/QHotkey/blob/master/QHotkey/qhotkey_x11.cpp
+ */
+
 #include "X11KeyHandler.h"
 
-#include <xcb/xcb.h>
-#include <X11/Xlib.h>
-
-static int errorHandler(Display *d, XErrorEvent *e)
-{
-	switch (e->error_code) {
-		case BadAccess:
-			qDebug("Key sequence already in use by other Application");
-			return 1;
-		default:
-			qDebug("Unknown Error Code: %s", qPrintable(QString::number(e->error_code)));
-			return 0;
-	}
-}
+#include "X11ErrorLogger.h"
 
 X11KeyHandler::X11KeyHandler() :
 	mFixedModifiers({ 0, Mod2Mask, LockMask, (Mod2Mask | LockMask)})
 {
-	XSetErrorHandler(errorHandler);
 }
 
 X11KeyHandler::~X11KeyHandler()
@@ -47,17 +37,15 @@ X11KeyHandler::~X11KeyHandler()
 
 bool X11KeyHandler::registerKey(const QKeySequence &keySequence)
 {
-	qDebug("Global Hotkey: Trying to register Hotkey");
 	auto display = QX11Info::display();
 	if(!display) {
-		qDebug("Global Hotkey: No Display Found");
 		return false;
 	}
 
+	X11ErrorLogger x11ErrorLogger;
 	mKeyCodeCombo = mKeyCodeMapper.map(keySequence);
 	for(auto fixedModifier : mFixedModifiers) {
-		qDebug("Global Hotkey: Hotkey registered %s + %s", qPrintable(QString::number(mKeyCodeCombo.modifier | fixedModifier)), qPrintable(qPrintable(QString::number(mKeyCodeCombo.key))));
-		XGrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier | fixedModifier, DefaultRootWindow(display), true, GrabModeAsync, GrabModeAsync);
+		GrabKey(display, fixedModifier);
 	}
 
 	XSync(display, False);
@@ -69,33 +57,40 @@ bool X11KeyHandler::isKeyPressed(void *message)
 	auto genericEvent = static_cast<xcb_generic_event_t *>(message);
 	if (genericEvent->response_type == XCB_KEY_PRESS) {
 		auto keyEvent = static_cast<xcb_key_press_event_t *>(message);
-		qDebug("--> Global Hotkey: Hotkey pressed %s + %s", qPrintable(QString::number(keyEvent->state)), qPrintable(qPrintable(QString::number(keyEvent->detail))));
 
-		auto isMatch = false;
 		for(auto fixedModifier : mFixedModifiers) {
-			isMatch = keyEvent->detail == mKeyCodeCombo.key && keyEvent->state == (mKeyCodeCombo.modifier | fixedModifier);
-			if(isMatch) {
-				qDebug("--> We have a match");
-				return isMatch;
+			if(isMatching(keyEvent, fixedModifier)) {
+				return true;
 			}
 		}
 	}
 	return false;
 }
 
+bool X11KeyHandler::isMatching(const xcb_key_press_event_t *keyEvent, unsigned int fixedModifier) const
+{ return keyEvent->detail == mKeyCodeCombo.key && keyEvent->state == (mKeyCodeCombo.modifier | fixedModifier); }
+
 void X11KeyHandler::unregisterKey() const
 {
-	qDebug("Global Hotkey: Trying to unregister Hotkey");
 	auto display = QX11Info::display();
 	if(!display) {
-		qDebug("Global Hotkey: No Display Found");
 		return;
 	}
 
+	X11ErrorLogger x11ErrorLogger;
 	for(auto fixedModifier : mFixedModifiers) {
-		qDebug("Global Hotkey: Hotkey unregistered %s + %s", qPrintable(QString::number(mKeyCodeCombo.modifier | fixedModifier)), qPrintable(qPrintable(QString::number(mKeyCodeCombo.key))));
-		XUngrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier | fixedModifier, DefaultRootWindow(display));
+		UngrabKey(display, fixedModifier);
 	}
 
 	XSync(display, False);
+}
+
+void X11KeyHandler::GrabKey(Display *display, unsigned int fixedModifier) const
+{
+	XGrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier | fixedModifier, DefaultRootWindow(display), true, GrabModeAsync, GrabModeAsync);
+}
+
+void X11KeyHandler::UngrabKey(Display *display, unsigned int fixedModifier) const
+{
+	XUngrabKey(display, mKeyCodeCombo.key, mKeyCodeCombo.modifier | fixedModifier, DefaultRootWindow(display));
 }

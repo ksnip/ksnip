@@ -92,6 +92,7 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/LinuxSnippingArea.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11KeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToX11KeyCodeTranslator.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11ErrorLogger.cpp
 		)
 elseif (WIN32)
 	set(KSNIP_SRCS

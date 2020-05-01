@@ -63,7 +63,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	connect(qApp, &QGuiApplication::commitDataRequest, this, &MainWindow::sessionFinished);
 
 	setWindowIcon(QIcon(QStringLiteral(":/icons/ksnip.svg")));
-	setPosition(mConfig->windowPosition());
+	setPosition();
 
 	setAcceptDrops(true);
 	qApp->installEventFilter(mDragAndDropHandler);
@@ -106,13 +106,14 @@ void MainWindow::handleGuiStartup()
 	}
 }
 
-void MainWindow::setPosition(const QPoint &lastPosition)
+void MainWindow::setPosition()
 {
-	auto position = lastPosition;
+	auto position = mConfig->windowPosition();
 	auto screenGeometry = QApplication::desktop()->screenGeometry();
-	if(!screenGeometry.contains(lastPosition)) {
+	if(!screenGeometry.contains(position)) {
 		auto screenCenter = screenGeometry.center();
-		position = QPoint(screenCenter.x() - size().width(), screenCenter.y() - size().height());
+		auto ksnipSize = size();
+		position = QPoint(screenCenter.x() - ksnipSize.width() / 2, screenCenter.y() - ksnipSize.height() / 2);
 	}
 	move(position);
 }
@@ -385,7 +386,7 @@ void MainWindow::initGui()
 
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
-    mPrintAction->setShortcut(QKeySequence::Print);
+    mPrintAction->setShortcut(Qt::CTRL + Qt::Key_P);
     mPrintAction->setIcon(QIcon::fromTheme(QStringLiteral("document-print")));
     connect(mPrintAction, &QAction::triggered, this, &MainWindow::printClicked);
 
@@ -406,7 +407,7 @@ void MainWindow::initGui()
 	connect(mAddWatermarkAction, &QAction::triggered, this, &MainWindow::addWatermark);
 
     mQuitAction->setText(tr("Quit"));
-    mQuitAction->setShortcut(QKeySequence::Quit);
+    mQuitAction->setShortcut(Qt::CTRL + Qt::Key_Q);
     mQuitAction->setIcon(QIcon::fromTheme(QStringLiteral("application-exit")));
     connect(mQuitAction, &QAction::triggered, this, &MainWindow::quit);
 

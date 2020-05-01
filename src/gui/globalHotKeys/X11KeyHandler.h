@@ -23,6 +23,8 @@
 #include <QX11Info>
 #include <QVector>
 
+#include <xcb/xcb.h>
+
 #include "AbstractKeyHandler.h"
 #include "KeySequenceToX11KeyCodeTranslator.h"
 
@@ -41,6 +43,10 @@ private:
 	QVector<unsigned int> mFixedModifiers;
 
 	void unregisterKey() const;
+
+	void GrabKey(Display *display, unsigned int fixedModifier) const;
+	void UngrabKey(Display *display, unsigned int fixedModifier) const;
+	bool isMatching(const xcb_key_press_event_t *keyEvent, unsigned int fixedModifier) const;
 };
 
 #endif //KSNIP_X11KEYHANDLER_H

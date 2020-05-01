@@ -139,7 +139,7 @@ private slots:
     void showSettingsDialog();
     void showAboutDialog();
     void showScaleDialog();
-	void setPosition(const QPoint &lastPosition);
+	void setPosition();
 	void handleGuiStartup();
 	void saveClicked();
 	void saveAsClicked();

@@ -50,6 +50,9 @@ unsigned int KeySequenceToX11KeyCodeTranslator::getModifier(const QString &modif
 	if (modifierString.contains(QStringLiteral("CTRL"))) {
 		modifier |= ControlMask;
 	}
+	if (modifierString.contains(QStringLiteral("META"))) {
+		modifier |= Mod4Mask;
+	}
 
 	return modifier;
 }

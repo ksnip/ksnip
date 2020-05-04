@@ -17,39 +17,31 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IMGURHISTORYDIALOG_H
-#define KSNIP_IMGURHISTORYDIALOG_H
+#include "UploadImgurOperation.h"
 
-#include <QDialog>
-#include <QTableWidget>
-#include <QVBoxLayout>
-#include <QApplication>
-#include <QDesktopServices>
-#include <QUrl>
-#include <QHeaderView>
-#include <QPushButton>
-
-#include "backend/uploader/imgur/ImgurResponseLogger.h"
-
-class ImgurHistoryDialog : public QDialog
+UploadImgurOperation::UploadImgurOperation(const QImage &image, CaptureImgurUploader *uploader)
 {
-Q_OBJECT
-public:
-	explicit ImgurHistoryDialog();
-	~ImgurHistoryDialog() override;
+	mImage = image;
+	mUploader = uploader;
+	mConfig = KsnipConfigProvider::instance();
+}
 
-private:
-	QVBoxLayout *mLayout;
-	QTableWidget *mTableWidget;
-	QPushButton *mCloseButton;
+bool UploadImgurOperation::execute()
+{
+	if (!mImage.isNull() && proceedWithUpload()) {
+		mUploader->upload(mImage);
+		return true;
+	}
+	return false;
+}
 
-	void addEntryToTable(const QString &entry, int row) const;
-	void populateTable(const QStringList &logEntries);
-	void createTable(int rowCount);
+bool UploadImgurOperation::proceedWithUpload() const
+{
+	return mConfig->imgurConfirmBeforeUpload() ? getProceedWithUpload() : true;
+}
 
-private slots:
-	void cellClicked(int row, int column) const;
-
-};
-
-#endif //KSNIP_IMGURHISTORYDIALOG_H
+bool UploadImgurOperation::getProceedWithUpload() const
+{
+	return MessageBoxHelper::yesNo(tr("Imgur Upload"),
+		                           tr("You are about to upload the screenshot to a imgur.com, do you want to proceed?"));
+}

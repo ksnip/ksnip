@@ -33,8 +33,9 @@
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/config/KsnipConfigProvider.h"
-#include "src/backend/uploader/CaptureUploader.h"
+#include "backend/uploader/imgur/CaptureImgurUploader.h"
 #include "src/backend/CapturePrinter.h"
+#include "src/backend/uploader/script/CaptureScriptUploader.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
@@ -45,7 +46,8 @@
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/operations/AddWatermarkOperation.h"
 #include "src/gui/operations/CanDiscardOperation.h"
-#include "src/gui/operations/UploadOperation.h"
+#include "src/gui/operations/UploadImgurOperation.h"
+#include "src/gui/operations/UploadScriptOperation.h"
 #include "src/gui/operations/HandleUploadResponseOperation.h"
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
 #include "src/gui/TrayIcon.h"
@@ -85,7 +87,7 @@ private:
     Qt::WindowState mSelectedWindowState;
     bool mWindowStateChangeLock;
     QAction *mSaveAsAction;
-    QAction *mUploadToImgurAction;
+    QAction *mUploadImgurAction;
     QAction *mPrintAction;
     QAction *mPrintPreviewAction;
     QAction *mQuitAction;
@@ -96,11 +98,13 @@ private:
     QAction *mAddWatermarkAction;
     QAction *mPasteAction;
     QAction *mPasteEmbeddedAction;
+    QAction *mUploadScriptAction;
     MainToolBar *mToolBar;
 	ClipboardWrapper *mClipboard;
     KsnipConfig *mConfig;
     CapturePrinter *mCapturePrinter;
-    CaptureUploader *mCaptureUploader;
+    CaptureImgurUploader *mCaptureImgurUploader;
+	CaptureScriptUploader *mCaptureScriptUploader;
     KImageAnnotator *mKImageAnnotator;
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
@@ -124,7 +128,8 @@ private:
 private slots:
     void saveCapture(bool saveInstant);
     void copyCaptureToClipboard();
-    void upload();
+    void uploadImgur();
+    void uploadScript();
     void uploadFinished(const QString &response);
     void printClicked();
     void printPreviewClicked();

@@ -21,33 +21,35 @@
 #include "MainWindow.h"
 
 MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
-		QMainWindow(),
-		mImageGrabber(imageGrabber),
-		mMode(mode),
-		mKImageAnnotator(new KImageAnnotator),
-		mSaveAsAction(new QAction(this)),
-		mUploadToImgurAction(new QAction(this)),
-		mPrintAction(new QAction(this)),
-		mPrintPreviewAction(new QAction(this)),
-		mQuitAction(new QAction(this)),
-		mSettingsDialogAction(new QAction(this)),
-		mAboutAction(new QAction(this)),
-		mOpenImageAction(new QAction(this)),
-		mScaleAction(new QAction(this)),
-		mAddWatermarkAction(new QAction(this)),
-		mPasteAction(new QAction(this)),
-		mPasteEmbeddedAction(new QAction(this)),
-		mClipboard(new ClipboardWrapper(QApplication::clipboard())),
-		mConfig(KsnipConfigProvider::instance()),
-		mCapturePrinter(new CapturePrinter(this)),
-		mCaptureUploader(new CaptureUploader()),
-		mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
-		mTrayIcon(new TrayIcon(this)),
-		mSelectedWindowState(Qt::WindowActive),
-		mWindowStateChangeLock(false),
-		mDragAndDropHandler(new DragAndDropHandler),
-		mTabStateHandler(new CaptureTabStateHandler),
-		mSessionManagerRequestedQuit(false)
+	QMainWindow(),
+	mImageGrabber(imageGrabber),
+	mMode(mode),
+	mKImageAnnotator(new KImageAnnotator),
+	mSaveAsAction(new QAction(this)),
+	mUploadImgurAction(new QAction(this)),
+	mPrintAction(new QAction(this)),
+	mPrintPreviewAction(new QAction(this)),
+	mQuitAction(new QAction(this)),
+	mSettingsDialogAction(new QAction(this)),
+	mAboutAction(new QAction(this)),
+	mOpenImageAction(new QAction(this)),
+	mScaleAction(new QAction(this)),
+	mAddWatermarkAction(new QAction(this)),
+	mPasteAction(new QAction(this)),
+	mPasteEmbeddedAction(new QAction(this)),
+	mUploadScriptAction(new QAction(this)),
+	mClipboard(new ClipboardWrapper(QApplication::clipboard())),
+	mConfig(KsnipConfigProvider::instance()),
+	mCapturePrinter(new CapturePrinter(this)),
+	mCaptureImgurUploader(new CaptureImgurUploader()),
+	mCaptureScriptUploader(new CaptureScriptUploader()),
+	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
+	mTrayIcon(new TrayIcon(this)),
+	mSelectedWindowState(Qt::WindowActive),
+	mWindowStateChangeLock(false),
+	mDragAndDropHandler(new DragAndDropHandler),
+	mTabStateHandler(new CaptureTabStateHandler),
+	mSessionManagerRequestedQuit(false)
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -83,7 +85,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processCapture);
 	connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::captureCanceled);
 
-	connect(mCaptureUploader, &CaptureUploader::finished, this, &MainWindow::uploadFinished);
+	connect(mCaptureImgurUploader, &CaptureImgurUploader::finished, this, &MainWindow::uploadFinished);
 
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::capture);
 
@@ -121,7 +123,7 @@ void MainWindow::setPosition()
 MainWindow::~MainWindow()
 {
     delete mKImageAnnotator;
-    delete mUploadToImgurAction;
+    delete mUploadImgurAction;
     delete mPrintAction;
     delete mPrintPreviewAction;
     delete mQuitAction;
@@ -132,7 +134,8 @@ MainWindow::~MainWindow()
     delete mAddWatermarkAction;
     delete mSaveAsAction;
     delete mCapturePrinter;
-    delete mCaptureUploader;
+    delete mCaptureImgurUploader;
+    delete mCaptureScriptUploader;
     delete mTrayIcon;
     delete mClipboard;
     delete mDragAndDropHandler;
@@ -319,7 +322,8 @@ void MainWindow::setEnablements(bool enabled)
 {
     mPrintAction->setEnabled(enabled);
     mPrintPreviewAction->setEnabled(enabled);
-    mUploadToImgurAction->setEnabled(enabled);
+    mUploadImgurAction->setEnabled(enabled);
+    mUploadScriptAction->setEnabled(enabled);
 	mScaleAction->setEnabled(enabled);
 	mAddWatermarkAction->setEnabled(enabled);
     mToolBar->setCopyActionEnabled(enabled);
@@ -379,10 +383,15 @@ void MainWindow::initGui()
 	mSaveAsAction->setIcon(IconLoader::load(QStringLiteral("saveAs")));
 	connect(mSaveAsAction, &QAction::triggered, this, &MainWindow::saveAsClicked);
 
-    mUploadToImgurAction->setText(tr("Upload"));
-    mUploadToImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
-    mUploadToImgurAction->setShortcut(Qt::SHIFT + Qt::Key_I);
-    connect(mUploadToImgurAction, &QAction::triggered, this, &MainWindow::upload);
+    mUploadImgurAction->setText(tr("Upload"));
+    mUploadImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
+    mUploadImgurAction->setShortcut(Qt::SHIFT + Qt::Key_I);
+    connect(mUploadImgurAction, &QAction::triggered, this, &MainWindow::uploadImgur);
+
+	mUploadScriptAction->setText(tr("Script Upload"));
+	mUploadScriptAction->setToolTip(tr("Upload capture via custom script"));
+	mUploadScriptAction->setShortcut(Qt::SHIFT + Qt::Key_S);
+    connect(mUploadScriptAction, &QAction::triggered, this, &MainWindow::uploadScript);
 
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
@@ -443,7 +452,8 @@ void MainWindow::initGui()
     menu->addAction(mOpenImageAction);
     menu->addAction(mToolBar->saveAction());
     menu->addAction(mSaveAsAction);
-    menu->addAction(mUploadToImgurAction);
+    menu->addAction(mUploadImgurAction);
+    menu->addAction(mUploadScriptAction);
     menu->addSeparator();
     menu->addAction(mPrintAction);
     menu->addAction(mPrintPreviewAction);
@@ -473,7 +483,7 @@ void MainWindow::initGui()
 	    mTrayIcon->setOpenAction(mOpenImageAction);
 	    mTrayIcon->setSaveAction(mToolBar->saveAction());
 	    mTrayIcon->setCopyAction(mToolBar->copyToClipboardAction());
-	    mTrayIcon->setUploadAction(mUploadToImgurAction);
+	    mTrayIcon->setUploadAction(mUploadImgurAction);
 	    mTrayIcon->setQuitAction(mQuitAction);
 	    mTrayIcon->setEnabled(true);
     }
@@ -499,10 +509,17 @@ void MainWindow::copyCaptureToClipboard()
     }
 }
 
-void MainWindow::upload()
+void MainWindow::uploadImgur()
 {
 	auto image = mKImageAnnotator->image();
-	UploadOperation operation(image, mCaptureUploader);
+	UploadImgurOperation operation(image, mCaptureImgurUploader);
+	operation.execute();
+}
+
+void MainWindow::uploadScript()
+{
+	auto image = mKImageAnnotator->image();
+	UploadScriptOperation operation(image, mCaptureScriptUploader);
 	operation.execute();
 }
 

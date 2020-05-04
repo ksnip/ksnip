@@ -18,13 +18,13 @@
  *
  */
 
-#include "ImgurUploader.h"
+#include "ImgurWrapper.h"
 
-ImgurUploader::ImgurUploader(QObject* parent) : QObject(parent),
-    mAccessManager(new QNetworkAccessManager(this))
+ImgurWrapper::ImgurWrapper(QObject* parent) : QObject(parent),
+                                              mAccessManager(new QNetworkAccessManager(this))
 {
     connect(mAccessManager, &QNetworkAccessManager::finished,
-            this, &ImgurUploader::handleReply);
+            this, &ImgurWrapper::handleReply);
 
     // Client ID that will only be used for anonymous upload
     mClientId = "16d41e28a3ba71e";
@@ -36,7 +36,7 @@ ImgurUploader::ImgurUploader(QObject* parent) : QObject(parent),
  * was successful the upload Fished signal will be emitted which holds the url
  * to the image.
  */
-void ImgurUploader::startUpload(const QImage& image, const QByteArray& accessToken) const
+void ImgurWrapper::startUpload(const QImage& image, const QByteArray& accessToken) const
 {
     // Convert the image into a byteArray
     QByteArray imageByteArray;
@@ -73,7 +73,7 @@ void ImgurUploader::startUpload(const QImage& image, const QByteArray& accessTok
  * topenUpdate signal will be emitted if the request was successful or otherwise
  * the tokenError.
  */
-void ImgurUploader::getAccessToken(const QByteArray& pin, const QByteArray& clientId, const QByteArray& clientSecret) const
+void ImgurWrapper::getAccessToken(const QByteArray& pin, const QByteArray& clientId, const QByteArray& clientSecret) const
 {
     QNetworkRequest request;
 
@@ -99,7 +99,7 @@ void ImgurUploader::getAccessToken(const QByteArray& pin, const QByteArray& clie
  * tokenRefreshRequired signal, after which this function should be called to
  * refresh the token.
  */
-void ImgurUploader::refreshToken(const QByteArray& refreshToken, const QByteArray& clientId, const QByteArray& clientSecret) const
+void ImgurWrapper::refreshToken(const QByteArray& refreshToken, const QByteArray& clientId, const QByteArray& clientSecret) const
 {
     QNetworkRequest request;
 
@@ -124,7 +124,7 @@ void ImgurUploader::refreshToken(const QByteArray& refreshToken, const QByteArra
  * function is not opening the pin window in the browser, it only returns the
  * correct url to it.
  */
-QUrl ImgurUploader::pinRequestUrl(const QString& clientId) const
+QUrl ImgurWrapper::pinRequestUrl(const QString& clientId) const
 {
     QUrl url(QStringLiteral("https://api.imgur.com/oauth2/authorize"));
     QUrlQuery urlQuery;
@@ -145,7 +145,7 @@ QUrl ImgurUploader::pinRequestUrl(const QString& clientId) const
  * successful, 403 is mostly returned when a token has expired, anything else is
  * an error that we currently cannot handle
  */
-void ImgurUploader::handleDataResponse(const QDomElement& element) const
+void ImgurWrapper::handleDataResponse(const QDomElement& element) const
 {
     if (element.attribute(QStringLiteral("status")) == QStringLiteral("200") && !element.elementsByTagName(QStringLiteral("link")).isEmpty()) {
         auto link = element.elementsByTagName(QStringLiteral("link")).at(0).toElement().text();
@@ -168,7 +168,7 @@ void ImgurUploader::handleDataResponse(const QDomElement& element) const
  * Called when a new token was received, either when first time getting access
  * or refreshing a token
  */
-void ImgurUploader::handleTokenResponse(const QDomElement& element) const
+void ImgurWrapper::handleTokenResponse(const QDomElement& element) const
 {
     if (!element.elementsByTagName(QStringLiteral("access_token")).isEmpty() &&
             !element.elementsByTagName(QStringLiteral("refresh_token")).isEmpty() &&
@@ -190,7 +190,7 @@ void ImgurUploader::handleTokenResponse(const QDomElement& element) const
 /*
  * This function will be called when we've got the reply from imgur
  */
-void ImgurUploader::handleReply(QNetworkReply* reply)
+void ImgurWrapper::handleReply(QNetworkReply* reply)
 {
     // Only for troubleshooting, if reply->readAll is called the parser will fail!
 //    qDebug("----------------------------------------------------------------");

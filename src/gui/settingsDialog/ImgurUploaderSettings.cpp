@@ -70,11 +70,11 @@ void ImgurUploaderSettings::initGui()
 	mImgurGetPinButton = new QPushButton(this);
 	mImgurGetTokenButton = new QPushButton(this);
 	mImgurHistoryButton = new QPushButton(this);
-	mImgurUploader = new ImgurUploader(this);
+	mImgurUploader = new ImgurWrapper(this);
 	mLayout = new QGridLayout(this);
 
-	connect(mImgurUploader, &ImgurUploader::tokenUpdated, this, &ImgurUploaderSettings::imgurTokenUpdated);
-	connect(mImgurUploader, &ImgurUploader::error, this, &ImgurUploaderSettings::imgurTokenError);
+	connect(mImgurUploader, &ImgurWrapper::tokenUpdated, this, &ImgurUploaderSettings::imgurTokenUpdated);
+	connect(mImgurUploader, &ImgurWrapper::error, this, &ImgurUploaderSettings::imgurTokenError);
 
 	mImgurForceAnonymousCheckbox->setText(tr("Force anonymous upload"));
 	mImgurOpenLinkInBrowserCheckbox->setText(tr("After uploading open Imgur link in default browser"));

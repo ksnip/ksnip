@@ -187,6 +187,22 @@ public:
 	virtual bool imgurOpenLinkInBrowser() const;
 	virtual void setImgurOpenLinkInBrowser(bool enabled);
 
+	// Script Uploader
+	virtual QString uploadScriptPath() const;
+	virtual void setUploadScriptPath(const QString &path);
+
+	virtual bool uploadScriptConfirmBeforeUpload() const;
+	virtual void setUploadScriptConfirmBeforeUpload(bool enabled);
+
+	virtual bool uploadScriptCopyOutputToClipboard() const;
+	virtual void setUploadScriptCopyOutputToClipboard(bool enabled);
+
+	virtual QString uploadScriptCopyOutputAfter() const;
+	virtual void setUploadScriptCopyOutputAfter(const QString &after);
+
+	virtual QString uploadScriptCopyOutputBefore() const;
+	virtual void setUploadScriptCopyOutputBefore(const QString &before);
+
 	// HotKeys
 
 	virtual bool isGlobalHotKeysEnabledReadOnly() const;

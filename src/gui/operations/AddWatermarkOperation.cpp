@@ -27,7 +27,7 @@ AddWatermarkOperation::AddWatermarkOperation(KImageAnnotator *kImageAnnotator)
 
 void AddWatermarkOperation::execute()
 {
-	auto watermarkImage = mImageLoader.load();
+	auto watermarkImage = mWatermarkImageLoader.load();
 	if(watermarkImage.isNull()) {
 		NotifyAboutMissingWatermarkImage();
 		return;

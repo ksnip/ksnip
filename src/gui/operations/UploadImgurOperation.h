@@ -17,31 +17,31 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_UPLOADOPERATION_H
-#define KSNIP_UPLOADOPERATION_H
+#ifndef KSNIP_UPLOADIMGUROPERATION_H
+#define KSNIP_UPLOADIMGUROPERATION_H
 
 #include <QCoreApplication>
 #include <QImage>
 
-#include "src/backend/uploader/CaptureUploader.h"
+#include "src/backend/uploader/imgur/CaptureImgurUploader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/common/helper/MessageBoxHelper.h"
 
-class UploadOperation : public QObject
+class UploadImgurOperation : public QObject
 {
 	Q_OBJECT
 public:
-	UploadOperation(const QImage &image, CaptureUploader *uploader);
-	~UploadOperation() override = default;
+	UploadImgurOperation(const QImage &image, CaptureImgurUploader *uploader);
+	~UploadImgurOperation() override = default;
 	bool execute();
 
 private:
 	KsnipConfig *mConfig;
-	CaptureUploader *mUploader;
+	CaptureImgurUploader *mUploader;
 	QImage mImage;
 
 	bool proceedWithUpload() const;
 	bool getProceedWithUpload() const;
 };
 
-#endif //KSNIP_UPLOADOPERATION_H
+#endif //KSNIP_UPLOADIMGUROPERATION_H

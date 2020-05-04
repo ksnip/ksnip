@@ -29,7 +29,7 @@
 #include <QDesktopServices>
 
 #include "backend/config/KsnipConfig.h"
-#include "backend/uploader/ImgurUploader.h"
+#include "backend/uploader/imgur/ImgurWrapper.h"
 #include "gui/ImgurHistoryDialog.h"
 #include "src/common/provider/ScaledSizeProvider.h"
 
@@ -54,7 +54,7 @@ private:
 	QPushButton *mImgurGetPinButton;
 	QPushButton *mImgurGetTokenButton;
 	QPushButton *mImgurHistoryButton;
-	ImgurUploader *mImgurUploader;
+	ImgurWrapper *mImgurUploader;
 
 	QGridLayout *mLayout;
 	KsnipConfig *mConfig;

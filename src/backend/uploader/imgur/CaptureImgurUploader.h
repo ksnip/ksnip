@@ -17,21 +17,21 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CAPTUREUPLOADER_H
-#define KSNIP_CAPTUREUPLOADER_H
+#ifndef KSNIP_CAPTUREIMGURUPLOADER_H
+#define KSNIP_CAPTUREIMGURUPLOADER_H
 
 #include <QImage>
 
-#include "ImgurUploader.h"
+#include "ImgurWrapper.h"
 #include "ImgurResponseLogger.h"
 #include "backend/config/KsnipConfigProvider.h"
 
-class CaptureUploader : public QObject
+class CaptureImgurUploader : public QObject
 {
 Q_OBJECT
 public:
-    explicit CaptureUploader();
-    ~CaptureUploader() override;
+    explicit CaptureImgurUploader();
+    ~CaptureImgurUploader() override;
 
     void upload(const QImage &image);
 
@@ -40,7 +40,7 @@ signals:
     void error(const QString &error) const;
 
 private:
-    ImgurUploader *mImgurUploader;
+    ImgurWrapper *mImgurUploader;
     ImgurResponseLogger *mImgurResponseLogger;
     KsnipConfig *mConfig;
     QImage mImage;
@@ -52,4 +52,4 @@ private slots:
     void imgurTokenRefresh();
 };
 
-#endif //KSNIP_CAPTUREUPLOADER_H
+#endif //KSNIP_CAPTUREIMGURUPLOADER_H

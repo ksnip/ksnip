@@ -704,6 +704,73 @@ void KsnipConfig::setImgurOpenLinkInBrowser(bool enabled)
 	saveValue(KsnipConfigOptions::imgurOpenLinkInBrowserString(), enabled);
 }
 
+// Script Uploader
+
+QString KsnipConfig::uploadScriptPath() const
+{
+	return loadValue(KsnipConfigOptions::uploadScriptPathString(), QString()).toString();
+}
+
+void KsnipConfig::setUploadScriptPath(const QString &path)
+{
+	if (uploadScriptPath() == path) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::uploadScriptPathString(), path);
+}
+
+bool KsnipConfig::uploadScriptConfirmBeforeUpload() const
+{
+	return loadValue(KsnipConfigOptions::uploadScriptConfirmBeforeUploadString(), true).toBool();
+}
+
+void KsnipConfig::setUploadScriptConfirmBeforeUpload(bool enabled)
+{
+	if (uploadScriptConfirmBeforeUpload() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::uploadScriptConfirmBeforeUploadString(), enabled);
+}
+
+bool KsnipConfig::uploadScriptCopyOutputToClipboard() const
+{
+	return loadValue(KsnipConfigOptions::uploadScriptCopyOutputToClipboardString(), false).toBool();
+}
+
+void KsnipConfig::setUploadScriptCopyOutputToClipboard(bool enabled)
+{
+	if (uploadScriptCopyOutputToClipboard() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::uploadScriptCopyOutputToClipboardString(), enabled);
+}
+
+QString KsnipConfig::uploadScriptCopyOutputAfter() const
+{
+	return loadValue(KsnipConfigOptions::uploadScriptCopyOutputAfterString(), QString()).toString();
+}
+
+void KsnipConfig::setUploadScriptCopyOutputAfter(const QString &after)
+{
+	if (uploadScriptCopyOutputAfter() == after) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::uploadScriptCopyOutputAfterString(), after);
+}
+
+QString KsnipConfig::uploadScriptCopyOutputBefore() const
+{
+	return loadValue(KsnipConfigOptions::uploadScriptCopyOutputBeforeString(), QString()).toString();
+}
+
+void KsnipConfig::setUploadScriptCopyOutputBefore(const QString &before)
+{
+	if (uploadScriptCopyOutputBefore() == before) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::uploadScriptCopyOutputBeforeString(), before);
+}
+
 // HotKeys
 
 bool KsnipConfig::isGlobalHotKeysEnabledReadOnly() const

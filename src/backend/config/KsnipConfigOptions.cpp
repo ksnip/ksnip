@@ -234,6 +234,31 @@ QString KsnipConfigOptions::imgurConfirmBeforeUploadString()
 	return imgurSectionString() + QStringLiteral("ConfirmBeforeUpload");
 }
 
+QString KsnipConfigOptions::uploadScriptPathString()
+{
+	return uploadScriptSectionString() + QStringLiteral("UploadScriptPath");
+}
+
+QString KsnipConfigOptions::uploadScriptConfirmBeforeUploadString()
+{
+	return uploadScriptSectionString() + QStringLiteral("ConfirmBeforeUpload");
+}
+
+QString KsnipConfigOptions::uploadScriptCopyOutputToClipboardString()
+{
+	return uploadScriptSectionString() + QStringLiteral("CopyOutputToClipboard");
+}
+
+QString KsnipConfigOptions::uploadScriptCopyOutputAfterString()
+{
+	return uploadScriptSectionString() + QStringLiteral("CopyOutputAfter");
+}
+
+QString KsnipConfigOptions::uploadScriptCopyOutputBeforeString()
+{
+	return uploadScriptSectionString() + QStringLiteral("CopyOutputBefore");
+}
+
 QString KsnipConfigOptions::globalHotKeysEnabledString()
 {
 	return hotKeysSectionString() + QStringLiteral("GlobalHotKeysEnabled");
@@ -287,6 +312,11 @@ QString KsnipConfigOptions::annotatorSectionString()
 QString KsnipConfigOptions::imgurSectionString()
 {
 	return QStringLiteral("Imgur/");
+}
+
+QString KsnipConfigOptions::uploadScriptSectionString()
+{
+	return QStringLiteral("UploadScript/");
 }
 
 QString KsnipConfigOptions::hotKeysSectionString()

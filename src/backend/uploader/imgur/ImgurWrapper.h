@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef KSNIP_IMAGEUPLOADER_H
-#define KSNIP_IMAGEUPLOADER_H
+#ifndef KSNIP_IMGURWRAPPER_H
+#define KSNIP_IMGURWRAPPER_H
 
 #include <QObject>
 #include <QUrl>
@@ -31,11 +31,11 @@
 
 #include "UploadResponse.h"
 
-class ImgurUploader : public QObject
+class ImgurWrapper : public QObject
 {
     Q_OBJECT
 public:
-    explicit ImgurUploader(QObject *parent = nullptr);
+    explicit ImgurWrapper(QObject *parent = nullptr);
     void startUpload(const QImage &image, const QByteArray &accessToken = nullptr) const;
     void getAccessToken(const QByteArray &pin, const QByteArray &clientId, const QByteArray &clientSecret) const;
     void refreshToken(const QByteArray &refreshToken, const QByteArray &clientId, const QByteArray &clientSecret) const;
@@ -58,4 +58,4 @@ private slots:
     void handleReply(QNetworkReply *reply);
 };
 
-#endif // KSNIP_IMAGEUPLOADER_H
+#endif // KSNIP_IMGURWRAPPER_H

@@ -17,38 +17,33 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ADDWATERMARKOPERATION_H
-#define KSNIP_ADDWATERMARKOPERATION_H
+#ifndef KSNIP_UPLOADSCRIPTOPERATION_H
+#define KSNIP_UPLOADSCRIPTOPERATION_H
 
 #include <QCoreApplication>
+#include <QImage>
 
-#include <random>
-
-#include <kImageAnnotator/KImageAnnotator.h>
-
-#include "WatermarkImagePreparer.h"
-#include "src/common/helper/MessageBoxHelper.h"
-#include "src/backend/WatermarkImageLoader.h"
+#include "src/backend/uploader/script/CaptureScriptUploader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
+#include "src/common/helper/MessageBoxHelper.h"
+#include "src/common/helper/PathHelper.h"
 
-using kImageAnnotator::KImageAnnotator;
-
-class AddWatermarkOperation : public QObject
+class UploadScriptOperation : public QObject
 {
 	Q_OBJECT
 public:
-	explicit AddWatermarkOperation(KImageAnnotator *kImageAnnotator);
-	~AddWatermarkOperation() override = default;
-	void execute();
+	UploadScriptOperation(const QImage &image, CaptureScriptUploader *uploader);
+	~UploadScriptOperation() override = default;
+	bool execute();
 
 private:
-	KImageAnnotator *mKImageAnnotator;
-	WatermarkImagePreparer mImagePreparer;
-	WatermarkImageLoader mWatermarkImageLoader;
 	KsnipConfig *mConfig;
+	CaptureScriptUploader *mUploader;
+	QImage mImage;
 
-	QPointF getPositionForWatermark(const QPixmap &image, const QSize &availableSpace) const;
-	void NotifyAboutMissingWatermarkImage() const;
+	bool proceedWithUpload() const;
+	bool getProceedWithUpload() const;
+	void NotifyAboutMissingScript() const;
 };
 
-#endif //KSNIP_ADDWATERMARKOPERATION_H
+#endif //KSNIP_UPLOADSCRIPTOPERATION_H

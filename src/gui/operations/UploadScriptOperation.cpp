@@ -17,31 +17,38 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "UploadOperation.h"
+#include "UploadScriptOperation.h"
 
-UploadOperation::UploadOperation(const QImage &image, CaptureUploader *uploader)
+UploadScriptOperation::UploadScriptOperation(const QImage &image, CaptureScriptUploader *uploader)
 {
 	mImage = image;
 	mUploader = uploader;
 	mConfig = KsnipConfigProvider::instance();
 }
 
-bool UploadOperation::execute()
+bool UploadScriptOperation::execute()
 {
-	if (!mImage.isNull() && proceedWithUpload()) {
+	if(!PathHelper::isPathValid(mConfig->uploadScriptPath())) {
+		NotifyAboutMissingScript();
+	} else if (!mImage.isNull() && proceedWithUpload()) {
 		mUploader->upload(mImage);
 		return true;
 	}
 	return false;
 }
 
-bool UploadOperation::proceedWithUpload() const
+void UploadScriptOperation::NotifyAboutMissingScript() const
 {
-	return mConfig->imgurConfirmBeforeUpload() ? getProceedWithUpload() : true;
+	MessageBoxHelper::ok(tr("Upload Script Required"), tr("Please add an upload script via Options > Settings > Upload Script"));
 }
 
-bool UploadOperation::getProceedWithUpload() const
+bool UploadScriptOperation::proceedWithUpload() const
 {
-	return MessageBoxHelper::yesNo(tr("Imgur Upload"),
-		                           tr("You are about to upload the screenshot to a imgur.com, do you want to proceed?"));
+	return mConfig->uploadScriptConfirmBeforeUpload() ? getProceedWithUpload() : true;
+}
+
+bool UploadScriptOperation::getProceedWithUpload() const
+{
+	return MessageBoxHelper::yesNo(tr("Custom Script Upload"),
+		                           tr("You are about to process the screenshot via custom script, do you want to proceed?"));
 }

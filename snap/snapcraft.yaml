@@ -26,6 +26,11 @@ apps:
       - home
       - removable-media
       - unity7
+      - network
+      - network-manager-observe
+      - network-observe
+      - opengl
+      - system-observe
 
 parts:
   ksnip:

@@ -1,6 +1,7 @@
 # Change log
 
 ## Release 1.6.2
+* Changed: Add missing plugs to silence snap socket warnings. ([#313](https://github.com/ksnip/ksnip/issues/313))
 * Fixed: Window decoration and alt+tab menu show Wayland generic icon on KDE Plasma. ([#269](https://github.com/ksnip/kImageAnnotator/issues/269))
 * Fixed: Logout canceled by 'ksnip' under KDE. ([#281](https://github.com/ksnip/kImageAnnotator/issues/281))
 * Fixed: Ksnip not displayed on the monitor (off screen). ([#307](https://github.com/ksnip/kImageAnnotator/issues/307))

@@ -75,6 +75,15 @@ The usual installation for snaps, will install latest version:
 The continuous build version is also available as edge, in order to install it you need to provide the edge flag:  
 `$ sudo snap install ksnip --edge`  
 
+Snap startup time can be speed up and console output cleaned up by running following commands:
+```
+snap connect ksnip:network-observe 
+snap connect ksnip:network-manager-observe 
+snap connect ksnip:system-observe 
+snap connect ksnip:removable-media 
+```
+This needs to be done only once and connects some snap plugs which are currently not auto-connected.  
+ 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/ksnip)
 
 ### EXE (Windows)

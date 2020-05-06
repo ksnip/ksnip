@@ -17,33 +17,31 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_UPLOADSCRIPTOPERATION_H
-#define KSNIP_UPLOADSCRIPTOPERATION_H
+#ifndef KSNIP_UPLOADOPERATION_H
+#define KSNIP_UPLOADOPERATION_H
 
 #include <QCoreApplication>
 #include <QImage>
 
-#include "src/backend/uploader/script/CaptureScriptUploader.h"
+#include "src/backend/uploader/IUploader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/common/helper/MessageBoxHelper.h"
-#include "src/common/helper/PathHelper.h"
 
-class UploadScriptOperation : public QObject
+class UploadOperation : public QObject
 {
 	Q_OBJECT
 public:
-	UploadScriptOperation(const QImage &image, CaptureScriptUploader *uploader);
-	~UploadScriptOperation() override = default;
+	UploadOperation(const QImage &image, QSharedPointer<IUploader> uploader);
+	~UploadOperation() override = default;
 	bool execute();
 
 private:
 	KsnipConfig *mConfig;
-	CaptureScriptUploader *mUploader;
+	QSharedPointer<IUploader> mUploader;
 	QImage mImage;
 
 	bool proceedWithUpload() const;
 	bool getProceedWithUpload() const;
-	void NotifyAboutMissingScript() const;
 };
 
-#endif //KSNIP_UPLOADSCRIPTOPERATION_H
+#endif //KSNIP_UPLOADOPERATION_H

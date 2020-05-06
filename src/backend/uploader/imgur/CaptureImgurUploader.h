@@ -24,6 +24,7 @@
 
 #include "ImgurWrapper.h"
 #include "ImgurResponseLogger.h"
+#include "src/backend/uploader/UploadResult.h"
 #include "backend/config/KsnipConfigProvider.h"
 
 class CaptureImgurUploader : public QObject
@@ -40,7 +41,7 @@ signals:
     void error(const QString &error) const;
 
 private:
-    ImgurWrapper *mImgurUploader;
+    ImgurWrapper *mImgurWrapper;
     ImgurResponseLogger *mImgurResponseLogger;
     KsnipConfig *mConfig;
     QImage mImage;

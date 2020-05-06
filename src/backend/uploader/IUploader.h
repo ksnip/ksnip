@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2030 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,26 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_UPLOADSCRIPTRESULT_H
-#define KSNIP_UPLOADSCRIPTRESULT_H
+#ifndef KSNIP_IUPLOADER_H
+#define KSNIP_IUPLOADER_H
 
-#include <QString>
+#include "UploadResult.h"
+#include "src/common/enum/UploaderType.h"
 
-#include "src/common/enum/UploadScriptStatus.h"
-
-struct UploadScriptResult
+class IUploader
 {
-	UploadScriptStatus status;
-	QString result;
+public:
+	virtual void upload(const QImage &image) = 0;
+	virtual UploaderType type() const = 0;
 
-	explicit UploadScriptResult(UploadScriptStatus status) {
-		this->status = status;
-	}
-
-	explicit UploadScriptResult(const QString &result) {
-		this->result = result;
-		this->status = UploadScriptStatus::NoError;
-	}
+protected:
+	virtual void finished(const UploadResult &result) = 0;
 };
 
-#endif //KSNIP_UPLOADSCRIPTRESULT_H
+#endif //KSNIP_IUPLOADER_H

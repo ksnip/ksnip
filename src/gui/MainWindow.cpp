@@ -26,7 +26,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mMode(mode),
 	mKImageAnnotator(new KImageAnnotator),
 	mSaveAsAction(new QAction(this)),
-	mUploadImgurAction(new QAction(this)),
+	mUploadAction(new QAction(this)),
 	mPrintAction(new QAction(this)),
 	mPrintPreviewAction(new QAction(this)),
 	mQuitAction(new QAction(this)),
@@ -37,7 +37,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mAddWatermarkAction(new QAction(this)),
 	mPasteAction(new QAction(this)),
 	mPasteEmbeddedAction(new QAction(this)),
-	mUploadScriptAction(new QAction(this)),
 	mClipboard(new ClipboardWrapper(QApplication::clipboard())),
 	mConfig(KsnipConfigProvider::instance()),
 	mCapturePrinter(new CapturePrinter(this)),
@@ -85,7 +84,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processCapture);
 	connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::captureCanceled);
 
-	connect(mCaptureImgurUploader, &CaptureImgurUploader::finished, this, &MainWindow::uploadFinished);
+	connect(mCaptureImgurUploader, &CaptureImgurUploader::finished, this, &MainWindow::uploadFinished_OLD);
 
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::capture);
 
@@ -123,7 +122,7 @@ void MainWindow::setPosition()
 MainWindow::~MainWindow()
 {
     delete mKImageAnnotator;
-    delete mUploadImgurAction;
+    delete mUploadAction;
     delete mPrintAction;
     delete mPrintPreviewAction;
     delete mQuitAction;
@@ -322,8 +321,7 @@ void MainWindow::setEnablements(bool enabled)
 {
     mPrintAction->setEnabled(enabled);
     mPrintPreviewAction->setEnabled(enabled);
-    mUploadImgurAction->setEnabled(enabled);
-    mUploadScriptAction->setEnabled(enabled);
+    mUploadAction->setEnabled(enabled);
 	mScaleAction->setEnabled(enabled);
 	mAddWatermarkAction->setEnabled(enabled);
     mToolBar->setCopyActionEnabled(enabled);
@@ -383,15 +381,10 @@ void MainWindow::initGui()
 	mSaveAsAction->setIcon(IconLoader::load(QStringLiteral("saveAs")));
 	connect(mSaveAsAction, &QAction::triggered, this, &MainWindow::saveAsClicked);
 
-    mUploadImgurAction->setText(tr("Upload"));
-    mUploadImgurAction->setToolTip(tr("Upload capture image to imgur.com"));
-    mUploadImgurAction->setShortcut(Qt::SHIFT + Qt::Key_I);
-    connect(mUploadImgurAction, &QAction::triggered, this, &MainWindow::uploadImgur);
-
-	mUploadScriptAction->setText(tr("Script Upload"));
-	mUploadScriptAction->setToolTip(tr("Upload capture via custom script"));
-	mUploadScriptAction->setShortcut(Qt::SHIFT + Qt::Key_S);
-    connect(mUploadScriptAction, &QAction::triggered, this, &MainWindow::uploadScript);
+    mUploadAction->setText(tr("Upload"));
+    mUploadAction->setToolTip(tr("Upload capture to external source"));
+    mUploadAction->setShortcut(Qt::SHIFT + Qt::Key_U);
+    connect(mUploadAction, &QAction::triggered, this, &MainWindow::upload);
 
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
@@ -452,8 +445,7 @@ void MainWindow::initGui()
     menu->addAction(mOpenImageAction);
     menu->addAction(mToolBar->saveAction());
     menu->addAction(mSaveAsAction);
-    menu->addAction(mUploadImgurAction);
-    menu->addAction(mUploadScriptAction);
+    menu->addAction(mUploadAction);
     menu->addSeparator();
     menu->addAction(mPrintAction);
     menu->addAction(mPrintPreviewAction);
@@ -483,7 +475,7 @@ void MainWindow::initGui()
 	    mTrayIcon->setOpenAction(mOpenImageAction);
 	    mTrayIcon->setSaveAction(mToolBar->saveAction());
 	    mTrayIcon->setCopyAction(mToolBar->copyToClipboardAction());
-	    mTrayIcon->setUploadAction(mUploadImgurAction);
+	    mTrayIcon->setUploadAction(mUploadAction);
 	    mTrayIcon->setQuitAction(mQuitAction);
 	    mTrayIcon->setEnabled(true);
     }
@@ -509,21 +501,17 @@ void MainWindow::copyCaptureToClipboard()
     }
 }
 
-void MainWindow::uploadImgur()
+void MainWindow::upload()
 {
+	mUploader = UploaderFactory::create();
+	connect(dynamic_cast<QObject*>(mUploader.data()), SIGNAL(finished(UploadResult)), this, SLOT(uploadFinished(UploadResult)));
+
 	auto image = mKImageAnnotator->image();
-	UploadImgurOperation operation(image, mCaptureImgurUploader);
+	UploadOperation operation(image, mUploader);
 	operation.execute();
 }
 
-void MainWindow::uploadScript()
-{
-	auto image = mKImageAnnotator->image();
-	UploadScriptOperation operation(image, mCaptureScriptUploader);
-	operation.execute();
-}
-
-void MainWindow::uploadFinished(const QString &response)
+void MainWindow::uploadFinished_OLD(const QString &response)
 {
 	HandleUploadResponseOperation handleUploadResponseOperation(response, mTrayIcon);
 	handleUploadResponseOperation.execute();
@@ -683,4 +671,10 @@ void MainWindow::sessionFinished()
 void MainWindow::captureCanceled()
 {
 	setHidden(false);
+}
+
+void MainWindow::uploadFinished(const UploadResult &result)
+{
+	mUploader.clear();
+	qDebug("Upload finished!");
 }

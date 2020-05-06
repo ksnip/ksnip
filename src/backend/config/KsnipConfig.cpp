@@ -567,6 +567,34 @@ void KsnipConfig::setLastRectArea(const QRect &rectArea)
 	saveValue(KsnipConfigOptions::lastRectAreaString(), rectArea);
 }
 
+// Uploader
+
+bool KsnipConfig::confirmBeforeUpload() const
+{
+	return loadValue(KsnipConfigOptions::confirmBeforeUploadString(), true).toBool();
+}
+
+void KsnipConfig::setConfirmBeforeUpload(bool enabled)
+{
+	if (confirmBeforeUpload() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::confirmBeforeUploadString(), enabled);
+}
+
+UploaderType KsnipConfig::uploaderType() const
+{
+	return loadValue(KsnipConfigOptions::uploaderTypeString(), static_cast<int>(UploaderType::Imgur)).value<UploaderType >();
+}
+
+void KsnipConfig::setUploaderType(UploaderType type)
+{
+	if (uploaderType() == type) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::uploaderTypeString(), static_cast<int>(type));
+}
+
 // Imgur Uploader
 
 QString KsnipConfig::imgurUsername() const
@@ -678,19 +706,6 @@ void KsnipConfig::setImgurAlwaysCopyToClipboard(bool  enabled)
 	saveValue(KsnipConfigOptions::imgurAlwaysCopyToClipboardString(), enabled);
 }
 
-bool KsnipConfig::imgurConfirmBeforeUpload() const
-{
-	return loadValue(KsnipConfigOptions::imgurConfirmBeforeUploadString(), true).toBool();
-}
-
-void KsnipConfig::setImgurConfirmBeforeUpload(bool enabled)
-{
-    if (imgurConfirmBeforeUpload() == enabled) {
-        return;
-    }
-	saveValue(KsnipConfigOptions::imgurConfirmBeforeUploadString(), enabled);
-}
-
 bool KsnipConfig::imgurOpenLinkInBrowser() const
 {
 	return loadValue(KsnipConfigOptions::imgurOpenLinkInBrowserString(), true).toBool();
@@ -717,19 +732,6 @@ void KsnipConfig::setUploadScriptPath(const QString &path)
 		return;
 	}
 	saveValue(KsnipConfigOptions::uploadScriptPathString(), path);
-}
-
-bool KsnipConfig::uploadScriptConfirmBeforeUpload() const
-{
-	return loadValue(KsnipConfigOptions::uploadScriptConfirmBeforeUploadString(), true).toBool();
-}
-
-void KsnipConfig::setUploadScriptConfirmBeforeUpload(bool enabled)
-{
-	if (uploadScriptConfirmBeforeUpload() == enabled) {
-		return;
-	}
-	saveValue(KsnipConfigOptions::uploadScriptConfirmBeforeUploadString(), enabled);
 }
 
 bool KsnipConfig::uploadScriptCopyOutputToClipboard() const

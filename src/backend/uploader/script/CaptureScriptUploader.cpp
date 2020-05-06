@@ -30,9 +30,14 @@ void CaptureScriptUploader::upload(const QImage &image)
 	if(saveImageLocally(image)) {
 		mProcessHandler.start(mConfig->uploadScriptPath(), { mPathToImage });
 	} else {
-		auto result = UploadScriptResult(UploadScriptStatus::UnableToSaveTemporaryImage);
+		auto result = UploadResult(UploadStatus::UnableToSaveTemporaryImage);
 		emit finished(result);
 	}
+}
+
+UploaderType CaptureScriptUploader::type() const
+{
+	return UploaderType::Script;
 }
 
 bool CaptureScriptUploader::saveImageLocally(const QImage &image)
@@ -55,7 +60,7 @@ void CaptureScriptUploader::scriptFinished(int exitCode, QProcess::ExitStatus ex
 		writeToConsole(output);
 		cleanup();
 
-		emit finished(UploadScriptResult(result));
+		emit finished(UploadResult(UploadStatus::NoError, result));
 	}
 }
 
@@ -79,24 +84,24 @@ void CaptureScriptUploader::errorOccurred(QProcess::ProcessError errorType)
 	cleanup();
 
 	auto status = mapErrorTypeToStatus(errorType);
-	emit finished(UploadScriptResult(status));
+	emit finished(UploadResult(status));
 }
 
-UploadScriptStatus CaptureScriptUploader::mapErrorTypeToStatus(QProcess::ProcessError errorType) const
+UploadStatus CaptureScriptUploader::mapErrorTypeToStatus(QProcess::ProcessError errorType) const
 {
 	switch (errorType) {
 		case QProcess::FailedToStart:
-			return UploadScriptStatus::FailedToStart;
+			return UploadStatus::FailedToStart;
 		case QProcess::Crashed:
-			return UploadScriptStatus::Crashed;
+			return UploadStatus::Crashed;
 		case QProcess::Timedout:
-			return UploadScriptStatus::Timedout;
+			return UploadStatus::Timedout;
 		case QProcess::ReadError:
-			return UploadScriptStatus::ReadError;
+			return UploadStatus::ReadError;
 		case QProcess::WriteError:
-			return UploadScriptStatus::WriteError;
+			return UploadStatus::WriteError;
 		default:
-			return UploadScriptStatus::UnknownError;
+			return UploadStatus::UnknownError;
 	}
 }
 
@@ -111,3 +116,4 @@ void CaptureScriptUploader::writeToConsole(const QString &output) const
 {
 	qInfo("%s", qPrintable(output));
 }
+

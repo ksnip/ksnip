@@ -31,7 +31,8 @@
 
 #include "KsnipConfigOptions.h"
 #include "src/common/enum/CaptureModes.h"
-#include "common/helper/PathHelper.h"
+#include "src/common/helper/PathHelper.h"
+#include "src/common/enum/UploaderType.h"
 
 class KsnipConfig : public QObject
 {
@@ -155,6 +156,14 @@ public:
 	virtual QRect lastRectArea() const;
 	virtual void setLastRectArea(const QRect &rectArea);
 
+	// Uploader
+
+	virtual bool confirmBeforeUpload() const;
+	virtual void setConfirmBeforeUpload(bool enabled);
+
+	virtual UploaderType uploaderType() const;
+	virtual void setUploaderType(UploaderType type);
+
     // Imgur Uploader
 
 	virtual QString imgurUsername() const;
@@ -181,18 +190,13 @@ public:
 	virtual bool imgurAlwaysCopyToClipboard() const;
 	virtual void setImgurAlwaysCopyToClipboard(bool enabled);
 
-	virtual bool imgurConfirmBeforeUpload() const;
-	virtual void setImgurConfirmBeforeUpload(bool enabled);
-
 	virtual bool imgurOpenLinkInBrowser() const;
 	virtual void setImgurOpenLinkInBrowser(bool enabled);
 
 	// Script Uploader
+
 	virtual QString uploadScriptPath() const;
 	virtual void setUploadScriptPath(const QString &path);
-
-	virtual bool uploadScriptConfirmBeforeUpload() const;
-	virtual void setUploadScriptConfirmBeforeUpload(bool enabled);
 
 	virtual bool uploadScriptCopyOutputToClipboard() const;
 	virtual void setUploadScriptCopyOutputToClipboard(bool enabled);

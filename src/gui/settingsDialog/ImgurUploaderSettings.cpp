@@ -65,7 +65,7 @@ void ImgurUploaderSettings::saveSettings()
 	mConfig->setImgurForceAnonymous(mForceAnonymousCheckbox->isChecked());
 	mConfig->setImgurLinkDirectlyToImage(mDirectLinkToImageCheckbox->isChecked());
 	mConfig->setImgurAlwaysCopyToClipboard(mAlwaysCopyToClipboardCheckBox->isChecked());
-	mConfig->setImgurConfirmBeforeUpload(mConfirmBeforeUploadCheckbox->isChecked());
+	mConfig->setConfirmBeforeUpload(mConfirmBeforeUploadCheckbox->isChecked());
 	mConfig->setImgurOpenLinkInBrowser(mOpenLinkInBrowserCheckbox->isChecked());
 }
 
@@ -129,7 +129,7 @@ void ImgurUploaderSettings::loadConfig()
 	mOpenLinkInBrowserCheckbox->setChecked(mConfig->imgurOpenLinkInBrowser());
 	mDirectLinkToImageCheckbox->setChecked(mConfig->imgurLinkDirectlyToImage());
 	mAlwaysCopyToClipboardCheckBox->setChecked(mConfig->imgurAlwaysCopyToClipboard());
-	mConfirmBeforeUploadCheckbox->setChecked(mConfig->imgurConfirmBeforeUpload());
+	mConfirmBeforeUploadCheckbox->setChecked(mConfig->confirmBeforeUpload());
 
 	mUsernameLabel->setText(tr("Username") + ": " + mConfig->imgurUsername());
 	if(!mConfig->imgurClientId().isEmpty()) {

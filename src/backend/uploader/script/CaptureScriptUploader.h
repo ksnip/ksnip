@@ -22,22 +22,21 @@
 
 #include <QProcess>
 
-#include "UploadScriptResult.h"
+#include "src/backend/uploader/IUploader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
-#include "src/common/enum/UploadScriptStatus.h"
+#include "src/common/enum/UploadStatus.h"
 
-class CaptureScriptUploader : public QObject
+class CaptureScriptUploader : public QObject, public IUploader
 {
 	Q_OBJECT
 public:
 	CaptureScriptUploader();
 	~CaptureScriptUploader() override = default;
+	void upload(const QImage &image) override;
+	UploaderType type() const override;
 
 signals:
-	void finished(const UploadScriptResult &result) const;
-
-public slots:
-	void upload(const QImage &image);
+	void finished(const UploadResult &result) override;
 
 private:
 	KsnipConfig * mConfig;
@@ -51,7 +50,7 @@ private slots:
 	void cleanup();
 	QString parseOutput(const QString &output) const;
 	void writeToConsole(const QString &output) const;
-	UploadScriptStatus mapErrorTypeToStatus(QProcess::ProcessError errorType) const;
+	UploadStatus mapErrorTypeToStatus(QProcess::ProcessError errorType) const;
 };
 
 #endif //KSNIP_CAPTURESCRIPTUPLOADER_H

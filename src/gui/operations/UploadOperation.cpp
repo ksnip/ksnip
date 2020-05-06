@@ -17,19 +17,21 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "UploadScriptOperation.h"
+#include "UploadOperation.h"
 
-UploadScriptOperation::UploadScriptOperation(const QImage &image, CaptureScriptUploader *uploader)
+UploadOperation::UploadOperation(const QImage &image, QSharedPointer<IUploader> uploader) :
+	mImage(image),
+	mUploader(uploader),
+	mConfig(KsnipConfigProvider::instance())
 {
-	mImage = image;
-	mUploader = uploader;
-	mConfig = KsnipConfigProvider::instance();
+	Q_ASSERT(!mUploader.isNull());
 }
 
-bool UploadScriptOperation::execute()
+bool UploadOperation::execute()
 {
-	if(!PathHelper::isPathValid(mConfig->uploadScriptPath())) {
-		NotifyAboutMissingScript();
+	if (mUploader->type() == UploaderType::Script && !PathHelper::isPathValid(mConfig->uploadScriptPath())) {
+		MessageBoxHelper::ok(tr("Upload Script Required"),
+			                 tr("Please add an upload script via Options > Settings > Upload Script"));
 	} else if (!mImage.isNull() && proceedWithUpload()) {
 		mUploader->upload(mImage);
 		return true;
@@ -37,18 +39,13 @@ bool UploadScriptOperation::execute()
 	return false;
 }
 
-void UploadScriptOperation::NotifyAboutMissingScript() const
+bool UploadOperation::proceedWithUpload() const
 {
-	MessageBoxHelper::ok(tr("Upload Script Required"), tr("Please add an upload script via Options > Settings > Upload Script"));
+	return mConfig->confirmBeforeUpload() ? getProceedWithUpload() : true;
 }
 
-bool UploadScriptOperation::proceedWithUpload() const
+bool UploadOperation::getProceedWithUpload() const
 {
-	return mConfig->uploadScriptConfirmBeforeUpload() ? getProceedWithUpload() : true;
-}
-
-bool UploadScriptOperation::getProceedWithUpload() const
-{
-	return MessageBoxHelper::yesNo(tr("Custom Script Upload"),
-		                           tr("You are about to process the screenshot via custom script, do you want to proceed?"));
+	return MessageBoxHelper::yesNo(tr("Capture Upload"),
+		                           tr("You are about to upload the image to an external destination, do you want to proceed?"));
 }

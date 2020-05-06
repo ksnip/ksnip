@@ -229,19 +229,19 @@ QString KsnipConfigOptions::imgurAlwaysCopyToClipboardString()
 	return imgurSectionString() + QStringLiteral("AlwaysCopyToClipboard");
 }
 
-QString KsnipConfigOptions::imgurConfirmBeforeUploadString()
-{
-	return imgurSectionString() + QStringLiteral("ConfirmBeforeUpload");
-}
-
 QString KsnipConfigOptions::uploadScriptPathString()
 {
 	return uploadScriptSectionString() + QStringLiteral("UploadScriptPath");
 }
 
-QString KsnipConfigOptions::uploadScriptConfirmBeforeUploadString()
+QString KsnipConfigOptions::confirmBeforeUploadString()
 {
-	return uploadScriptSectionString() + QStringLiteral("ConfirmBeforeUpload");
+	return uploaderSectionString() + QStringLiteral("ConfirmBeforeUpload");
+}
+
+QString KsnipConfigOptions::uploaderTypeString()
+{
+	return uploaderSectionString() + QStringLiteral("UploaderType");
 }
 
 QString KsnipConfigOptions::uploadScriptCopyOutputToClipboardString()
@@ -307,6 +307,11 @@ QString KsnipConfigOptions::imageGrabberSectionString()
 QString KsnipConfigOptions::annotatorSectionString()
 {
 	return QStringLiteral("Painter/");
+}
+
+QString KsnipConfigOptions::uploaderSectionString()
+{
+	return QStringLiteral("Uploader/");
 }
 
 QString KsnipConfigOptions::imgurSectionString()

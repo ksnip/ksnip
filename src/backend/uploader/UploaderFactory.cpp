@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,19 +17,16 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_UPLOADSCRIPTSTATUS_H
-#define KSNIP_UPLOADSCRIPTSTATUS_H
+#include "UploaderFactory.h"
 
-enum class UploadScriptStatus
+QSharedPointer<IUploader> UploaderFactory::create()
 {
-	NoError,
-	UnableToSaveTemporaryImage,
-	FailedToStart, //### file not found, resource error
-	Crashed,
-	Timedout,
-	ReadError,
-	WriteError,
-	UnknownError
-};
+	auto uploaderType = KsnipConfigProvider::instance()->uploaderType();
 
-#endif //KSNIP_UPLOADSCRIPTSTATUS_H
+	switch (uploaderType) {
+		case UploaderType::Imgur:
+			return QSharedPointer<IUploader>(new CaptureImgurUploader);
+		case UploaderType::Script:
+			return QSharedPointer<IUploader>(new CaptureScriptUploader);
+	}
+}

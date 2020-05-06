@@ -22,7 +22,6 @@
 ScriptUploaderSettings::ScriptUploaderSettings(KsnipConfig *ksnipConfig) :
 	mConfig(ksnipConfig),
 	mLayout(new QGridLayout(this)),
-	mConfirmBeforeUploadCheckbox(new QCheckBox(this)),
 	mCopyOutputToClipboardCheckbox(new QCheckBox(this)),
 	mCopyOutputAfterLabel(new QLabel(this)),
 	mCopyOutputBeforeLabel(new QLabel(this)),
@@ -39,7 +38,6 @@ ScriptUploaderSettings::ScriptUploaderSettings(KsnipConfig *ksnipConfig) :
 ScriptUploaderSettings::~ScriptUploaderSettings()
 {
 	delete mLayout;
-	delete mConfirmBeforeUploadCheckbox;
 	delete mCopyOutputToClipboardCheckbox;
 	delete mCopyOutputAfterLabel;
 	delete mCopyOutputBeforeLabel;
@@ -52,7 +50,6 @@ ScriptUploaderSettings::~ScriptUploaderSettings()
 
 void ScriptUploaderSettings::saveSettings()
 {
-	mConfig->setUploadScriptConfirmBeforeUpload(mConfirmBeforeUploadCheckbox->isChecked());
 	mConfig->setUploadScriptCopyOutputToClipboard(mCopyOutputToClipboardCheckbox->isChecked());
 	mConfig->setUploadScriptCopyOutputAfter(mCopyOutputAfterLineEdit->text());
 	mConfig->setUploadScriptCopyOutputBefore(mCopyOutputBeforeLineEdit->text());
@@ -61,7 +58,6 @@ void ScriptUploaderSettings::saveSettings()
 
 void ScriptUploaderSettings::initGui()
 {
-	mConfirmBeforeUploadCheckbox->setText(tr("Ask for confirmation before uploading"));
 	mCopyOutputToClipboardCheckbox->setText(tr("Copy script output to clipboard"));
 	connect(mCopyOutputToClipboardCheckbox, &QCheckBox::stateChanged, this, &ScriptUploaderSettings::copyToClipboardChanged);
 
@@ -85,15 +81,14 @@ void ScriptUploaderSettings::initGui()
 
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnMinimumWidth(0, ScaledSizeProvider::getScaledWidth(10));
-	mLayout->addWidget(mConfirmBeforeUploadCheckbox, 0, 0, 1, 3);
-	mLayout->addWidget(mCopyOutputToClipboardCheckbox, 1, 0, 1, 3);
-	mLayout->addWidget(mCopyOutputAfterLabel, 2, 1, 1, 1);
-	mLayout->addWidget(mCopyOutputAfterLineEdit, 2, 2, 1, 1);
-	mLayout->addWidget(mCopyOutputBeforeLabel, 3, 1, 1, 1);
-	mLayout->addWidget(mCopyOutputBeforeLineEdit, 3, 2, 1, 1);
-	mLayout->addWidget(mScriptPathLabel, 5, 0, 1, 1);
-	mLayout->addWidget(mUploadScriptPathLineEdit, 5, 1, 1, 2);
-	mLayout->addWidget(mBrowseButton, 5, 3, 1, 1);
+	mLayout->addWidget(mCopyOutputToClipboardCheckbox, 0, 0, 1, 3);
+	mLayout->addWidget(mCopyOutputAfterLabel, 1, 1, 1, 1);
+	mLayout->addWidget(mCopyOutputAfterLineEdit, 1, 2, 1, 1);
+	mLayout->addWidget(mCopyOutputBeforeLabel, 2, 1, 1, 1);
+	mLayout->addWidget(mCopyOutputBeforeLineEdit, 2, 2, 1, 1);
+	mLayout->addWidget(mScriptPathLabel, 3, 0, 1, 1);
+	mLayout->addWidget(mUploadScriptPathLineEdit, 3, 1, 1, 2);
+	mLayout->addWidget(mBrowseButton, 3, 3, 1, 1);
 
 	setTitle(tr("Script Uploader"));
 	setLayout(mLayout);
@@ -101,7 +96,6 @@ void ScriptUploaderSettings::initGui()
 
 void ScriptUploaderSettings::loadConfig()
 {
-	mConfirmBeforeUploadCheckbox->setChecked(mConfig->uploadScriptConfirmBeforeUpload());
 	mCopyOutputToClipboardCheckbox->setChecked(mConfig->uploadScriptCopyOutputToClipboard());
 	mCopyOutputAfterLineEdit->setText(mConfig->uploadScriptCopyOutputAfter());
 	mCopyOutputBeforeLineEdit->setText(mConfig->uploadScriptCopyOutputBefore());

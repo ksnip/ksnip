@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,31 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_UPLOADIMGUROPERATION_H
-#define KSNIP_UPLOADIMGUROPERATION_H
+#ifndef KSNIP_UPLOADSTATUS_H
+#define KSNIP_UPLOADSTATUS_H
 
-#include <QCoreApplication>
-#include <QImage>
-
-#include "src/backend/uploader/imgur/CaptureImgurUploader.h"
-#include "src/backend/config/KsnipConfigProvider.h"
-#include "src/common/helper/MessageBoxHelper.h"
-
-class UploadImgurOperation : public QObject
+enum class UploadStatus
 {
-	Q_OBJECT
-public:
-	UploadImgurOperation(const QImage &image, CaptureImgurUploader *uploader);
-	~UploadImgurOperation() override = default;
-	bool execute();
-
-private:
-	KsnipConfig *mConfig;
-	CaptureImgurUploader *mUploader;
-	QImage mImage;
-
-	bool proceedWithUpload() const;
-	bool getProceedWithUpload() const;
+	NoError,
+	UnableToSaveTemporaryImage,
+	FailedToStart, //### file not found, resource error
+	Crashed,
+	Timedout,
+	ReadError,
+	WriteError,
+	WebError,
+	UnknownError
 };
 
-#endif //KSNIP_UPLOADIMGUROPERATION_H
+#endif //KSNIP_UPLOADSTATUS_H

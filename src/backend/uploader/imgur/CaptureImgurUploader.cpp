@@ -21,19 +21,19 @@
 
 CaptureImgurUploader::CaptureImgurUploader()
 {
-    mImgurUploader = new ImgurWrapper();
+	mImgurWrapper = new ImgurWrapper();
     mImgurResponseLogger = new ImgurResponseLogger();
     mConfig = KsnipConfigProvider::instance();
 
-    connect(mImgurUploader, &ImgurWrapper::uploadFinished, this, &CaptureImgurUploader::imgurUploadFinished);
-    connect(mImgurUploader, &ImgurWrapper::error, this, &CaptureImgurUploader::imgurError);
-    connect(mImgurUploader, &ImgurWrapper::tokenUpdated, this, &CaptureImgurUploader::imgurTokenUpdated);
-    connect(mImgurUploader, &ImgurWrapper::tokenRefreshRequired, this, &CaptureImgurUploader::imgurTokenRefresh);
+    connect(mImgurWrapper, &ImgurWrapper::uploadFinished, this, &CaptureImgurUploader::imgurUploadFinished);
+    connect(mImgurWrapper, &ImgurWrapper::error, this, &CaptureImgurUploader::imgurError);
+    connect(mImgurWrapper, &ImgurWrapper::tokenUpdated, this, &CaptureImgurUploader::imgurTokenUpdated);
+    connect(mImgurWrapper, &ImgurWrapper::tokenRefreshRequired, this, &CaptureImgurUploader::imgurTokenRefresh);
 }
 
 CaptureImgurUploader::~CaptureImgurUploader()
 {
-    delete mImgurUploader;
+    delete mImgurWrapper;
     delete mImgurResponseLogger;
 }
 
@@ -42,9 +42,9 @@ void CaptureImgurUploader::upload(const QImage &image)
     mImage = image;
 
     if (!mConfig->imgurForceAnonymous() && !mConfig->imgurAccessToken().isEmpty()) {
-        mImgurUploader->startUpload(mImage, mConfig->imgurAccessToken());
+        mImgurWrapper->startUpload(mImage, mConfig->imgurAccessToken());
     } else {
-        mImgurUploader->startUpload(mImage);
+        mImgurWrapper->startUpload(mImage);
     }
 }
 
@@ -76,6 +76,6 @@ void CaptureImgurUploader::imgurTokenUpdated(const QString &accessToken, const Q
 
 void CaptureImgurUploader::imgurTokenRefresh()
 {
-    mImgurUploader->refreshToken(mConfig->imgurRefreshToken(), mConfig->imgurClientId(), mConfig->imgurClientSecret());
+    mImgurWrapper->refreshToken(mConfig->imgurRefreshToken(), mConfig->imgurClientId(), mConfig->imgurClientSecret());
     qInfo("%s", qPrintable(tr("Imgur token has expired, requesting new token…")));
 }

@@ -11,6 +11,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/CaptureImgurUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurResponseLogger.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/script/CaptureScriptUploader.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploaderFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/TranslationLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ImageSaver.cpp
@@ -70,8 +71,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/operations/UpdateWatermarkOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/WatermarkImagePreparer.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/CanDiscardOperation.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/operations/UploadImgurOperation.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/operations/UploadScriptOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/operations/UploadOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/HandleUploadResponseOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/NotifyOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureTabs/CaptureTabStateHandler.cpp

@@ -42,7 +42,6 @@ public:
 private:
 	QGridLayout *mLayout;
 	KsnipConfig *mConfig;
-	QCheckBox *mConfirmBeforeUploadCheckbox;
 	QCheckBox *mCopyOutputToClipboardCheckbox;
 	QLineEdit *mCopyOutputAfterLineEdit;
 	QLineEdit *mCopyOutputBeforeLineEdit;

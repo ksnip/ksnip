@@ -27,13 +27,13 @@
 
 #include <kImageAnnotator/KImageAnnotator.h>
 
-#include "gui/aboutDialog/AboutDialog.h"
+#include "src/gui/aboutDialog/AboutDialog.h"
 #include "src/gui/settingsDialog/SettingsDialog.h"
 #include "src/widgets/CustomToolButton.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/config/KsnipConfigProvider.h"
-#include "backend/uploader/imgur/CaptureImgurUploader.h"
+#include "src/backend/uploader/UploaderFactory.h"
 #include "src/backend/CapturePrinter.h"
 #include "src/backend/uploader/script/CaptureScriptUploader.h"
 #include "src/common/loader/IconLoader.h"
@@ -46,8 +46,7 @@
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/operations/AddWatermarkOperation.h"
 #include "src/gui/operations/CanDiscardOperation.h"
-#include "src/gui/operations/UploadImgurOperation.h"
-#include "src/gui/operations/UploadScriptOperation.h"
+#include "src/gui/operations/UploadOperation.h"
 #include "src/gui/operations/HandleUploadResponseOperation.h"
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
 #include "src/gui/TrayIcon.h"
@@ -87,7 +86,7 @@ private:
     Qt::WindowState mSelectedWindowState;
     bool mWindowStateChangeLock;
     QAction *mSaveAsAction;
-    QAction *mUploadImgurAction;
+    QAction *mUploadAction;
     QAction *mPrintAction;
     QAction *mPrintPreviewAction;
     QAction *mQuitAction;
@@ -98,13 +97,12 @@ private:
     QAction *mAddWatermarkAction;
     QAction *mPasteAction;
     QAction *mPasteEmbeddedAction;
-    QAction *mUploadScriptAction;
     MainToolBar *mToolBar;
 	ClipboardWrapper *mClipboard;
     KsnipConfig *mConfig;
     CapturePrinter *mCapturePrinter;
     CaptureImgurUploader *mCaptureImgurUploader;
-	CaptureScriptUploader *mCaptureScriptUploader;
+	IUploader *mCaptureScriptUploader;
     KImageAnnotator *mKImageAnnotator;
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
@@ -113,6 +111,7 @@ private:
 	CaptureTabStateHandler *mTabStateHandler;
 	NewCaptureNameProvider mNewCaptureNameProvider;
 	PathFromCaptureProvider mPathFromCaptureProvider;
+	QSharedPointer<IUploader> mUploader;
 
     void currentCaptureChanged();
     void setEnablements(bool enabled);
@@ -128,9 +127,9 @@ private:
 private slots:
     void saveCapture(bool saveInstant);
     void copyCaptureToClipboard();
-    void uploadImgur();
-    void uploadScript();
-    void uploadFinished(const QString &response);
+    void upload();
+    void uploadFinished_OLD(const QString &response);
+    void uploadFinished(const UploadResult &result);
     void printClicked();
     void printPreviewClicked();
     void instantSave();

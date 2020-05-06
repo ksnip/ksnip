@@ -7,10 +7,10 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurWrapper.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/UploadResponse.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/CaptureImgurUploader.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurResponse.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurResponseLogger.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/uploader/script/CaptureScriptUploader.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/script/ScriptUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploaderFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/TranslationLoader.cpp

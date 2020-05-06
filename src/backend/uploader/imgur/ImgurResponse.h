@@ -18,17 +18,17 @@
  *
  */
 
-#ifndef KSNIP_UPLOADRESPONSE_H
-#define KSNIP_UPLOADRESPONSE_H
+#ifndef KSNIP_IMGURRESPONSE_H
+#define KSNIP_IMGURRESPONSE_H
 
 #include <QString>
 #include <QDateTime>
 
-class UploadResponse
+class ImgurResponse
 {
 public:
-    explicit UploadResponse(const QString &link, const QString &deleteHash);
-    ~UploadResponse() = default;
+    explicit ImgurResponse(const QString &link, const QString &deleteHash);
+    ~ImgurResponse() = default;
     QString link() const;
     QString deleteHash() const;
     QDateTime timeStamp() const;
@@ -39,4 +39,4 @@ private:
     QDateTime mTimeStamp;
 };
 
-#endif //KSNIP_UPLOADRESPONSE_H
+#endif //KSNIP_IMGURRESPONSE_H

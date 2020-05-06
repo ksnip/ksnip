@@ -29,7 +29,7 @@
 #include <QImage>
 #include <QBuffer>
 
-#include "UploadResponse.h"
+#include "ImgurResponse.h"
 
 class ImgurWrapper : public QObject
 {
@@ -42,7 +42,7 @@ public:
     QUrl pinRequestUrl(const QString &clientId) const;
 
 signals:
-    void uploadFinished(const UploadResponse &response) const;
+    void uploadFinished(const ImgurResponse &response) const;
     void error(const QString &message) const;
     void tokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username) const;
     void tokenRefreshRequired() const;

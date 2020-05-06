@@ -18,26 +18,26 @@
  *
  */
 
-#include "UploadResponse.h"
+#include "ImgurResponse.h"
 
-UploadResponse::UploadResponse(const QString &link, const QString &deleteHash)
+ImgurResponse::ImgurResponse(const QString &link, const QString &deleteHash)
 {
     mLink = link;
     mDeleteHash = deleteHash;
     mTimeStamp = QDateTime::currentDateTime();
 }
 
-QString UploadResponse::link() const
+QString ImgurResponse::link() const
 {
     return mLink;
 }
 
-QString UploadResponse::deleteHash() const
+QString ImgurResponse::deleteHash() const
 {
     return mDeleteHash;
 }
 
-QDateTime UploadResponse::timeStamp() const
+QDateTime ImgurResponse::timeStamp() const
 {
     return mTimeStamp;
 }

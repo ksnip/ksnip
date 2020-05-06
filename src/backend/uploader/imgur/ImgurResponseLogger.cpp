@@ -28,7 +28,7 @@ ImgurResponseLogger::ImgurResponseLogger()
     mLogFilePath = mLogPath + QStringLiteral("/") + mLogFilename;
 }
 
-void ImgurResponseLogger::log(const UploadResponse &response)
+void ImgurResponseLogger::log(const ImgurResponse &response)
 {
     createPathIfRequired();
     auto logEntry = getLogEntry(response);
@@ -52,7 +52,7 @@ void ImgurResponseLogger::createPathIfRequired() const
     qdir.mkpath(mLogPath);
 }
 
-QString ImgurResponseLogger::getLogEntry(const UploadResponse &response) const
+QString ImgurResponseLogger::getLogEntry(const ImgurResponse &response) const
 {
     auto separator = QStringLiteral(",");
     auto deleteLink = QStringLiteral("https://imgur.com/delete/") + response.deleteHash();

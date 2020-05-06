@@ -40,8 +40,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mClipboard(new ClipboardWrapper(QApplication::clipboard())),
 	mConfig(KsnipConfigProvider::instance()),
 	mCapturePrinter(new CapturePrinter(this)),
-	mCaptureImgurUploader(new CaptureImgurUploader()),
-	mCaptureScriptUploader(new CaptureScriptUploader()),
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 	mTrayIcon(new TrayIcon(this)),
 	mSelectedWindowState(Qt::WindowActive),
@@ -83,8 +81,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processCapture);
 	connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::captureCanceled);
-
-	connect(mCaptureImgurUploader, &CaptureImgurUploader::finished, this, &MainWindow::uploadFinished_OLD);
 
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::capture);
 
@@ -133,8 +129,6 @@ MainWindow::~MainWindow()
     delete mAddWatermarkAction;
     delete mSaveAsAction;
     delete mCapturePrinter;
-    delete mCaptureImgurUploader;
-    delete mCaptureScriptUploader;
     delete mTrayIcon;
     delete mClipboard;
     delete mDragAndDropHandler;
@@ -511,12 +505,6 @@ void MainWindow::upload()
 	operation.execute();
 }
 
-void MainWindow::uploadFinished_OLD(const QString &response)
-{
-	HandleUploadResponseOperation handleUploadResponseOperation(response, mTrayIcon);
-	handleUploadResponseOperation.execute();
-}
-
 void MainWindow::printClicked()
 {
 	auto savePath = mSavePathProvider.savePathWithFormat(QStringLiteral("pdf"));
@@ -677,4 +665,7 @@ void MainWindow::uploadFinished(const UploadResult &result)
 {
 	mUploader.clear();
 	qDebug("Upload finished!");
+
+//	HandleUploadResponseOperation handleUploadResponseOperation(response, mTrayIcon);
+//	handleUploadResponseOperation.execute();
 }

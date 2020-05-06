@@ -22,8 +22,8 @@
 
 #include <QSharedPointer>
 
-#include "src/backend/uploader/imgur/CaptureImgurUploader.h"
-#include "src/backend/uploader/script/CaptureScriptUploader.h"
+#include "src/backend/uploader/imgur/ImgurUploader.h"
+#include "src/backend/uploader/script/ScriptUploader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
 class UploaderFactory

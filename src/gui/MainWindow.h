@@ -35,7 +35,7 @@
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/backend/uploader/UploaderFactory.h"
 #include "src/backend/CapturePrinter.h"
-#include "src/backend/uploader/script/CaptureScriptUploader.h"
+#include "src/backend/uploader/script/ScriptUploader.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
@@ -101,8 +101,6 @@ private:
 	ClipboardWrapper *mClipboard;
     KsnipConfig *mConfig;
     CapturePrinter *mCapturePrinter;
-    CaptureImgurUploader *mCaptureImgurUploader;
-	IUploader *mCaptureScriptUploader;
     KImageAnnotator *mKImageAnnotator;
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
@@ -128,7 +126,6 @@ private slots:
     void saveCapture(bool saveInstant);
     void copyCaptureToClipboard();
     void upload();
-    void uploadFinished_OLD(const QString &response);
     void uploadFinished(const UploadResult &result);
     void printClicked();
     void printPreviewClicked();

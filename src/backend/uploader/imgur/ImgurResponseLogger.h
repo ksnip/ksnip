@@ -25,7 +25,7 @@
 #include <QFile>
 #include <QTextStream>
 
-#include "UploadResponse.h"
+#include "ImgurResponse.h"
 
 class ImgurResponseLogger
 {
@@ -33,7 +33,7 @@ public:
     explicit ImgurResponseLogger();
     ~ImgurResponseLogger() = default;
 
-    void log(const UploadResponse &response);
+    void log(const ImgurResponse &response);
 	QStringList getLogs() const;
 
 private:
@@ -41,7 +41,7 @@ private:
     QString mLogPath;
     QString mLogFilePath;
     void createPathIfRequired() const;
-    QString getLogEntry(const UploadResponse &response) const;
+    QString getLogEntry(const ImgurResponse &response) const;
     void writeLogEntry(const QString &logEntry) const;
 };
 

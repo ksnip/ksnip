@@ -17,27 +17,31 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "CaptureImgurUploader.h"
+#include "ImgurUploader.h"
 
-CaptureImgurUploader::CaptureImgurUploader()
+ImgurUploader::ImgurUploader() :
+	mImgurWrapper(new ImgurWrapper),
+	mImgurResponseLogger(new ImgurResponseLogger),
+	mConfig(KsnipConfigProvider::instance())
 {
-	mImgurWrapper = new ImgurWrapper();
-    mImgurResponseLogger = new ImgurResponseLogger();
-    mConfig = KsnipConfigProvider::instance();
-
-    connect(mImgurWrapper, &ImgurWrapper::uploadFinished, this, &CaptureImgurUploader::imgurUploadFinished);
-    connect(mImgurWrapper, &ImgurWrapper::error, this, &CaptureImgurUploader::imgurError);
-    connect(mImgurWrapper, &ImgurWrapper::tokenUpdated, this, &CaptureImgurUploader::imgurTokenUpdated);
-    connect(mImgurWrapper, &ImgurWrapper::tokenRefreshRequired, this, &CaptureImgurUploader::imgurTokenRefresh);
+    connect(mImgurWrapper, &ImgurWrapper::uploadFinished, this, &ImgurUploader::imgurUploadFinished);
+    connect(mImgurWrapper, &ImgurWrapper::error, this, &ImgurUploader::imgurError);
+    connect(mImgurWrapper, &ImgurWrapper::tokenUpdated, this, &ImgurUploader::imgurTokenUpdated);
+    connect(mImgurWrapper, &ImgurWrapper::tokenRefreshRequired, this, &ImgurUploader::imgurTokenRefresh);
 }
 
-CaptureImgurUploader::~CaptureImgurUploader()
+UploaderType ImgurUploader::type() const
+{
+	return UploaderType::Imgur;
+}
+
+ImgurUploader::~ImgurUploader()
 {
     delete mImgurWrapper;
     delete mImgurResponseLogger;
 }
 
-void CaptureImgurUploader::upload(const QImage &image)
+void ImgurUploader::upload(const QImage &image)
 {
     mImage = image;
 
@@ -48,23 +52,23 @@ void CaptureImgurUploader::upload(const QImage &image)
     }
 }
 
-void CaptureImgurUploader::imgurUploadFinished(const UploadResponse &response)
+void ImgurUploader::imgurUploadFinished(const ImgurResponse &response)
 {
     qInfo("%s", qPrintable(tr("Upload to imgur.com finished!")));
-    emit finished(response.link());
+    emit finished(UploadResult(UploadStatus::NoError, response.link()));
 
     mImgurResponseLogger->log(response);
 
     mImage = QImage();
 }
 
-void CaptureImgurUploader::imgurError(const QString &message)
+void ImgurUploader::imgurError(const QString &message)
 {
     qCritical("MainWindow: Imgur uploader returned error: '%s'", qPrintable(message));
-    emit error(message);
+	emit finished(UploadResult(UploadStatus::NoError, message));
 }
 
-void CaptureImgurUploader::imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username)
+void ImgurUploader::imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username)
 {
     mConfig->setImgurAccessToken(accessToken.toUtf8());
     mConfig->setImgurRefreshToken(refreshToken.toUtf8());
@@ -74,7 +78,7 @@ void CaptureImgurUploader::imgurTokenUpdated(const QString &accessToken, const Q
     upload(mImage);
 }
 
-void CaptureImgurUploader::imgurTokenRefresh()
+void ImgurUploader::imgurTokenRefresh()
 {
     mImgurWrapper->refreshToken(mConfig->imgurRefreshToken(), mConfig->imgurClientId(), mConfig->imgurClientSecret());
     qInfo("%s", qPrintable(tr("Imgur token has expired, requesting new token…")));

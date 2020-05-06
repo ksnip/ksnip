@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,40 +17,41 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CAPTURESCRIPTUPLOADER_H
-#define KSNIP_CAPTURESCRIPTUPLOADER_H
+#ifndef KSNIP_IMGURUPLOADER_H
+#define KSNIP_IMGURUPLOADER_H
 
-#include <QProcess>
+#include <QImage>
 
+#include "ImgurWrapper.h"
+#include "ImgurResponseLogger.h"
 #include "src/backend/uploader/IUploader.h"
+#include "src/backend/uploader/UploadResult.h"
 #include "src/backend/config/KsnipConfigProvider.h"
-#include "src/common/enum/UploadStatus.h"
 
-class CaptureScriptUploader : public QObject, public IUploader
+class ImgurUploader : public QObject, public IUploader
 {
-	Q_OBJECT
+Q_OBJECT
 public:
-	CaptureScriptUploader();
-	~CaptureScriptUploader() override = default;
-	void upload(const QImage &image) override;
+    explicit ImgurUploader();
+    ~ImgurUploader() override;
+
+    void upload(const QImage &image) override;
 	UploaderType type() const override;
 
 signals:
-	void finished(const UploadResult &result) override;
+    void finished(const UploadResult &result) override;
 
 private:
-	KsnipConfig * mConfig;
-	QProcess mProcessHandler;
-	QString mPathToImage;
+    ImgurWrapper *mImgurWrapper;
+    ImgurResponseLogger *mImgurResponseLogger;
+    KsnipConfig *mConfig;
+    QImage mImage;
 
 private slots:
-	void scriptFinished(int exitCode, QProcess::ExitStatus exitStatus);
-	void errorOccurred(QProcess::ProcessError error);
-	bool saveImageLocally(const QImage &image);
-	void cleanup();
-	QString parseOutput(const QString &output) const;
-	void writeToConsole(const QString &output) const;
-	UploadStatus mapErrorTypeToStatus(QProcess::ProcessError errorType) const;
+    void imgurUploadFinished(const ImgurResponse &response);
+    void imgurError(const QString &message);
+    void imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username);
+    void imgurTokenRefresh();
 };
 
-#endif //KSNIP_CAPTURESCRIPTUPLOADER_H
+#endif //KSNIP_IMGURUPLOADER_H

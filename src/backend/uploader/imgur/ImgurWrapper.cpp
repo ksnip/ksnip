@@ -151,7 +151,7 @@ void ImgurWrapper::handleDataResponse(const QDomElement& element) const
         auto link = element.elementsByTagName(QStringLiteral("link")).at(0).toElement().text();
         auto deleteHash = element.elementsByTagName(QStringLiteral("deletehash")).at(0).toElement().text();
 
-        emit uploadFinished(UploadResponse(link, deleteHash));
+        emit uploadFinished(ImgurResponse(link, deleteHash));
     } else if (element.attribute(QStringLiteral("status")) == QStringLiteral("403")) {
         emit tokenRefreshRequired();
     } else {

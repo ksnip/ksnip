@@ -17,15 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "CaptureScriptUploader.h"
+#include "ScriptUploader.h"
 
-CaptureScriptUploader::CaptureScriptUploader() : mConfig(KsnipConfigProvider::instance())
+ScriptUploader::ScriptUploader() : mConfig(KsnipConfigProvider::instance())
 {
-	connect(&mProcessHandler, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &CaptureScriptUploader::scriptFinished);
-	connect(&mProcessHandler, &QProcess::errorOccurred, this, &CaptureScriptUploader::errorOccurred);
+	connect(&mProcessHandler, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &ScriptUploader::scriptFinished);
+	connect(&mProcessHandler, &QProcess::errorOccurred, this, &ScriptUploader::errorOccurred);
 }
 
-void CaptureScriptUploader::upload(const QImage &image)
+void ScriptUploader::upload(const QImage &image)
 {
 	if(saveImageLocally(image)) {
 		mProcessHandler.start(mConfig->uploadScriptPath(), { mPathToImage });
@@ -35,12 +35,12 @@ void CaptureScriptUploader::upload(const QImage &image)
 	}
 }
 
-UploaderType CaptureScriptUploader::type() const
+UploaderType ScriptUploader::type() const
 {
 	return UploaderType::Script;
 }
 
-bool CaptureScriptUploader::saveImageLocally(const QImage &image)
+bool ScriptUploader::saveImageLocally(const QImage &image)
 {
 	auto timestamp = QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMddhhmmssz"));
 	auto filename = QStringLiteral("ksnip-tmp-") + timestamp + QStringLiteral(".png");
@@ -48,7 +48,7 @@ bool CaptureScriptUploader::saveImageLocally(const QImage &image)
 	return image.save(mPathToImage);
 }
 
-void CaptureScriptUploader::scriptFinished(int exitCode, QProcess::ExitStatus exitStatus)
+void ScriptUploader::scriptFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
 	Q_UNUSED(exitCode);
 	Q_UNUSED(exitStatus);
@@ -64,7 +64,7 @@ void CaptureScriptUploader::scriptFinished(int exitCode, QProcess::ExitStatus ex
 	}
 }
 
-QString CaptureScriptUploader::parseOutput(const QString &output) const
+QString ScriptUploader::parseOutput(const QString &output) const
 {
 	auto startTag = mConfig->uploadScriptCopyOutputAfter();
 	auto startTagLength = startTag.length();
@@ -78,7 +78,7 @@ QString CaptureScriptUploader::parseOutput(const QString &output) const
 	return output.mid(indexFrom, indexTo - indexFrom);
 }
 
-void CaptureScriptUploader::errorOccurred(QProcess::ProcessError errorType)
+void ScriptUploader::errorOccurred(QProcess::ProcessError errorType)
 {
 	writeToConsole(mProcessHandler.readAllStandardError());
 	cleanup();
@@ -87,7 +87,7 @@ void CaptureScriptUploader::errorOccurred(QProcess::ProcessError errorType)
 	emit finished(UploadResult(status));
 }
 
-UploadStatus CaptureScriptUploader::mapErrorTypeToStatus(QProcess::ProcessError errorType) const
+UploadStatus ScriptUploader::mapErrorTypeToStatus(QProcess::ProcessError errorType) const
 {
 	switch (errorType) {
 		case QProcess::FailedToStart:
@@ -105,14 +105,14 @@ UploadStatus CaptureScriptUploader::mapErrorTypeToStatus(QProcess::ProcessError 
 	}
 }
 
-void CaptureScriptUploader::cleanup()
+void ScriptUploader::cleanup()
 {
 	QFile file(mPathToImage);
 	file.remove();
 	mPathToImage.clear();
 }
 
-void CaptureScriptUploader::writeToConsole(const QString &output) const
+void ScriptUploader::writeToConsole(const QString &output) const
 {
 	qInfo("%s", qPrintable(output));
 }

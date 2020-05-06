@@ -25,8 +25,8 @@ QSharedPointer<IUploader> UploaderFactory::create()
 
 	switch (uploaderType) {
 		case UploaderType::Imgur:
-			return QSharedPointer<IUploader>(new CaptureImgurUploader);
+			return QSharedPointer<IUploader>(new ImgurUploader);
 		case UploaderType::Script:
-			return QSharedPointer<IUploader>(new CaptureScriptUploader);
+			return QSharedPointer<IUploader>(new ScriptUploader);
 	}
 }

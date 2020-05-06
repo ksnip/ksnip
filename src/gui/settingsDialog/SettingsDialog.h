@@ -30,6 +30,7 @@
 #include "ApplicationSettings.h"
 #include "ImageGrabberSettings.h"
 #include "ImgurUploaderSettings.h"
+#include "ScriptUploaderSettings.h"
 #include "HotKeySettings.h"
 #include "backend/config/KsnipConfigProvider.h"
 
@@ -46,6 +47,7 @@ private:
 	ApplicationSettings *mApplicationSettings;
 	ImageGrabberSettings *mImageGrabberSettings;
 	ImgurUploaderSettings *mImgurUploaderSettings;
+	ScriptUploaderSettings *mScriptUploaderSettings;
 	HotKeySettings *mHotKeySettings;
     AnnotationSettings *mAnnotationSettings;
     QListWidget *mListWidget;

@@ -53,6 +53,7 @@ void SettingsDialog::saveSettings()
     mApplicationSettings->saveSettings();
     mImageGrabberSettings->saveSettings();
     mImgurUploaderSettings->saveSettings();
+    mScriptUploaderSettings->saveSettings();
     mAnnotationSettings->saveSettings();
     mHotKeySettings->saveSettings();
 }
@@ -62,6 +63,7 @@ void SettingsDialog::initGui()
 	mApplicationSettings = new ApplicationSettings(mConfig);
 	mImageGrabberSettings = new ImageGrabberSettings(mConfig);
 	mImgurUploaderSettings = new ImgurUploaderSettings(mConfig);
+	mScriptUploaderSettings = new ScriptUploaderSettings(mConfig);
     mAnnotationSettings = new AnnotationSettings(mConfig);
     mHotKeySettings = new HotKeySettings(mConfig);
 
@@ -79,12 +81,14 @@ void SettingsDialog::initGui()
     mStackedLayout->addWidget(mApplicationSettings);
     mStackedLayout->addWidget(mImageGrabberSettings);
     mStackedLayout->addWidget(mImgurUploaderSettings);
+    mStackedLayout->addWidget(mScriptUploaderSettings);
 	mStackedLayout->addWidget(mAnnotationSettings);
 	mStackedLayout->addWidget(mHotKeySettings);
 
     mListWidget->addItem(tr("Application"));
     mListWidget->addItem(tr("Image Grabber"));
     mListWidget->addItem(tr("Imgur Uploader"));
+    mListWidget->addItem(tr("Script Uploader"));
     mListWidget->addItem(tr("Annotator"));
     mListWidget->addItem(tr("HotKeys"));
     mListWidget->setCurrentRow(0);

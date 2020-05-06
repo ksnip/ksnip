@@ -42,19 +42,19 @@ public:
 	void saveSettings();
 
 private:
-	QCheckBox *mImgurForceAnonymousCheckbox;
-	QCheckBox *mImgurDirectLinkToImageCheckbox;
-	QCheckBox *mImgurAlwaysCopyToClipboardCheckBox;
-	QCheckBox *mImgurConfirmBeforeUploadCheckbox;
-	QCheckBox *mImgurOpenLinkInBrowserCheckbox;
-	QLineEdit *mImgurClientIdLineEdit;
-	QLineEdit *mImgurClientSecretLineEdit;
-	QLineEdit *mImgurPinLineEdit;
-	QLabel *mImgurUsernameLabel;
-	QPushButton *mImgurGetPinButton;
-	QPushButton *mImgurGetTokenButton;
-	QPushButton *mImgurHistoryButton;
-	ImgurWrapper *mImgurUploader;
+	QCheckBox *mForceAnonymousCheckbox;
+	QCheckBox *mDirectLinkToImageCheckbox;
+	QCheckBox *mAlwaysCopyToClipboardCheckBox;
+	QCheckBox *mConfirmBeforeUploadCheckbox;
+	QCheckBox *mOpenLinkInBrowserCheckbox;
+	QLineEdit *mClientIdLineEdit;
+	QLineEdit *mClientSecretLineEdit;
+	QLineEdit *mPinLineEdit;
+	QLabel *mUsernameLabel;
+	QPushButton *mGetPinButton;
+	QPushButton *mGetTokenButton;
+	QPushButton *mHistoryButton;
+	ImgurWrapper *mImgurWrapper;
 
 	QGridLayout *mLayout;
 	KsnipConfig *mConfig;

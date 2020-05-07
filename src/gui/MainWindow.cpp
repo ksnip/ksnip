@@ -46,6 +46,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mWindowStateChangeLock(false),
 	mDragAndDropHandler(new DragAndDropHandler),
 	mTabStateHandler(new CaptureTabStateHandler),
+	mUploaderProvider(new UploaderProvider),
 	mSessionManagerRequestedQuit(false)
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
@@ -83,6 +84,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::captureCanceled);
 
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::capture);
+
+	connect(mUploaderProvider, &UploaderProvider::finished, this, &MainWindow::uploadFinished);
 
 	loadSettings();
 	handleGuiStartup();
@@ -133,6 +136,7 @@ MainWindow::~MainWindow()
     delete mClipboard;
     delete mDragAndDropHandler;
     delete mTabStateHandler;
+    delete mUploaderProvider;
 }
 
 void MainWindow::processInstantCapture(const CaptureDto &capture)
@@ -497,11 +501,8 @@ void MainWindow::copyCaptureToClipboard()
 
 void MainWindow::upload()
 {
-	mUploader = UploaderFactory::create();
-	connect(dynamic_cast<QObject*>(mUploader.data()), SIGNAL(finished(UploadResult)), this, SLOT(uploadFinished(UploadResult)));
-
 	auto image = mKImageAnnotator->image();
-	UploadOperation operation(image, mUploader);
+	UploadOperation operation(image, mUploaderProvider->get());
 	operation.execute();
 }
 
@@ -663,9 +664,6 @@ void MainWindow::captureCanceled()
 
 void MainWindow::uploadFinished(const UploadResult &result)
 {
-	mUploader.clear();
-	qDebug("Upload finished!");
-
-//	HandleUploadResponseOperation handleUploadResponseOperation(response, mTrayIcon);
-//	handleUploadResponseOperation.execute();
+	HandleUploadResponseOperation handleUploadResponseOperation(result, mTrayIcon);
+	handleUploadResponseOperation.execute();
 }

@@ -17,16 +17,42 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "UploaderFactory.h"
+#include "UploaderProvider.h"
 
-QSharedPointer<IUploader> UploaderFactory::create()
+UploaderProvider::UploaderProvider() :
+	mConfig(KsnipConfigProvider::instance()),
+	mImgurUploader(nullptr),
+	mScriptUploader(nullptr)
 {
-	auto uploaderType = KsnipConfigProvider::instance()->uploaderType();
+}
 
-	switch (uploaderType) {
+UploaderProvider::~UploaderProvider()
+{
+	delete mImgurUploader;
+	delete mScriptUploader;
+}
+
+IUploader* UploaderProvider::get()
+{
+	switch (mConfig->uploaderType()) {
 		case UploaderType::Imgur:
-			return QSharedPointer<IUploader>(new ImgurUploader);
+			if(mImgurUploader == nullptr) {
+				mImgurUploader = new ImgurUploader;
+				connectSignals(mImgurUploader);
+			}
+			return mImgurUploader;
 		case UploaderType::Script:
-			return QSharedPointer<IUploader>(new ScriptUploader);
+			if(mScriptUploader == nullptr) {
+				mScriptUploader = new ScriptUploader;
+				connectSignals(mScriptUploader);
+			}
+			return mScriptUploader;
 	}
 }
+
+void UploaderProvider::connectSignals(IUploader *uploader)
+{ 
+	connect(dynamic_cast<QObject*>(uploader), SIGNAL(finished(UploadResult)), this, SIGNAL(finished(UploadResult)));
+}
+
+

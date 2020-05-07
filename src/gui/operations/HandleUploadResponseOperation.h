@@ -26,18 +26,19 @@
 #include <QClipboard>
 
 #include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/uploader/UploadResult.h"
 #include "src/gui/operations/NotifyOperation.h"
 
 class HandleUploadResponseOperation : public QObject
 {
 	Q_OBJECT
 public:
-	explicit HandleUploadResponseOperation(const QString &response, TrayIcon *trayIcon);
+	explicit HandleUploadResponseOperation(const UploadResult &result, TrayIcon *trayIcon);
 	~HandleUploadResponseOperation() override = default;
 	bool execute();
 
 private:
-	QString mResponse;
+	UploadResult mUploadResult;
 	TrayIcon *mTrayIcon;
 	KsnipConfig *mConfig;
 	QClipboard *mClipboard;

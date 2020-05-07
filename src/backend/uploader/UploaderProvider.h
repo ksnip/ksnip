@@ -17,19 +17,31 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_UPLOADERFACTORY_H
-#define KSNIP_UPLOADERFACTORY_H
+#ifndef KSNIP_UPLOADERPROVIDER_H
+#define KSNIP_UPLOADERPROVIDER_H
 
-#include <QSharedPointer>
+#include <QObject>
 
 #include "src/backend/uploader/imgur/ImgurUploader.h"
 #include "src/backend/uploader/script/ScriptUploader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
-class UploaderFactory
+class UploaderProvider : public QObject
 {
+	Q_OBJECT
 public:
-	static QSharedPointer<IUploader> create();
+	UploaderProvider();
+	~UploaderProvider() override;
+	IUploader* get();
+
+signals:
+	virtual void finished(const UploadResult &result);
+
+private:
+	KsnipConfig *mConfig;
+	IUploader *mImgurUploader;
+	IUploader *mScriptUploader;
+	void connectSignals(IUploader *uploader);
 };
 
-#endif //KSNIP_UPLOADERFACTORY_H
+#endif //KSNIP_UPLOADERPROVIDER_H

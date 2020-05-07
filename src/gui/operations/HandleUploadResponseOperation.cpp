@@ -19,20 +19,28 @@
 
 #include "HandleUploadResponseOperation.h"
 
-HandleUploadResponseOperation::HandleUploadResponseOperation(const QString &response, TrayIcon *trayIcon) : QObject(nullptr)
+HandleUploadResponseOperation::HandleUploadResponseOperation(const UploadResult &result, TrayIcon *trayIcon) :
+	mUploadResult(result),
+	mTrayIcon(trayIcon),
+	mConfig(KsnipConfigProvider::instance()),
+	mClipboard(QApplication::clipboard())
 {
-	mResponse = response;
-	mTrayIcon = trayIcon;
-	mConfig = KsnipConfigProvider::instance();
-	mClipboard = QApplication::clipboard();
 }
 
 bool HandleUploadResponseOperation::execute()
 {
-	auto url = formatUrl(mResponse);
-	openInBrowser(url);
-	copyToClipboard(url);
-	notifyAboutUpload(url);
+	if(mUploadResult.status != UploadStatus::NoError) {
+		return false;
+	} else if (mUploadResult.type == UploaderType::Imgur) {
+		auto url = formatUrl(mUploadResult.content);
+		openInBrowser(url);
+		copyToClipboard(url);
+		notifyAboutUpload(url);
+	} else if (mUploadResult.type == UploaderType::Script) {
+		if (mConfig->uploadScriptCopyOutputToClipboard()) {
+			mClipboard->setText(mUploadResult.content);
+		}
+	}
 
 	return true;
 }

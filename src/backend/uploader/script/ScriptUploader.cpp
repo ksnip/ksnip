@@ -30,7 +30,7 @@ void ScriptUploader::upload(const QImage &image)
 	if(saveImageLocally(image)) {
 		mProcessHandler.start(mConfig->uploadScriptPath(), { mPathToImage });
 	} else {
-		auto result = UploadResult(UploadStatus::UnableToSaveTemporaryImage);
+		auto result = UploadResult(UploadStatus::UnableToSaveTemporaryImage, type());
 		emit finished(result);
 	}
 }
@@ -60,7 +60,7 @@ void ScriptUploader::scriptFinished(int exitCode, QProcess::ExitStatus exitStatu
 		writeToConsole(output);
 		cleanup();
 
-		emit finished(UploadResult(UploadStatus::NoError, result));
+		emit finished(UploadResult(UploadStatus::NoError, type(), result));
 	}
 }
 
@@ -84,7 +84,7 @@ void ScriptUploader::errorOccurred(QProcess::ProcessError errorType)
 	cleanup();
 
 	auto status = mapErrorTypeToStatus(errorType);
-	emit finished(UploadResult(status));
+	emit finished(UploadResult(status, type()));
 }
 
 UploadStatus ScriptUploader::mapErrorTypeToStatus(QProcess::ProcessError errorType) const

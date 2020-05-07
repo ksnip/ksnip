@@ -55,17 +55,15 @@ void ImgurUploader::upload(const QImage &image)
 void ImgurUploader::imgurUploadFinished(const ImgurResponse &response)
 {
     qInfo("%s", qPrintable(tr("Upload to imgur.com finished!")));
-    emit finished(UploadResult(UploadStatus::NoError, response.link()));
-
     mImgurResponseLogger->log(response);
 
-    mImage = QImage();
+	emit finished(UploadResult(UploadStatus::NoError, type(), response.link()));
 }
 
 void ImgurUploader::imgurError(const QString &message)
 {
     qCritical("MainWindow: Imgur uploader returned error: '%s'", qPrintable(message));
-	emit finished(UploadResult(UploadStatus::NoError, message));
+	emit finished(UploadResult(UploadStatus::NoError, type(), message));
 }
 
 void ImgurUploader::imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username)

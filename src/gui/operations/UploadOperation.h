@@ -31,13 +31,13 @@ class UploadOperation : public QObject
 {
 	Q_OBJECT
 public:
-	UploadOperation(const QImage &image, QSharedPointer<IUploader> uploader);
+	UploadOperation(const QImage &image, IUploader *uploader);
 	~UploadOperation() override = default;
 	bool execute();
 
 private:
 	KsnipConfig *mConfig;
-	QSharedPointer<IUploader> mUploader;
+	IUploader *mUploader;
 	QImage mImage;
 
 	bool proceedWithUpload() const;

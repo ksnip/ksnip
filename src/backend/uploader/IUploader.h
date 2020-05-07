@@ -26,6 +26,7 @@
 class IUploader
 {
 public:
+	virtual ~IUploader() = default;
 	virtual void upload(const QImage &image) = 0;
 	virtual UploaderType type() const = 0;
 

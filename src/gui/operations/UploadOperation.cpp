@@ -19,12 +19,12 @@
 
 #include "UploadOperation.h"
 
-UploadOperation::UploadOperation(const QImage &image, QSharedPointer<IUploader> uploader) :
+UploadOperation::UploadOperation(const QImage &image, IUploader* uploader) :
 	mImage(image),
 	mUploader(uploader),
 	mConfig(KsnipConfigProvider::instance())
 {
-	Q_ASSERT(!mUploader.isNull());
+	Q_ASSERT(mUploader != nullptr);
 }
 
 bool UploadOperation::execute()

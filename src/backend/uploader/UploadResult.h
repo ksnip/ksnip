@@ -23,18 +23,22 @@
 #include <QString>
 
 #include "src/common/enum/UploadStatus.h"
+#include "src/common/enum/UploaderType.h"
 
 struct UploadResult
 {
 	UploadStatus status;
+	UploaderType type;
 	QString content;
 
-	explicit UploadResult(UploadStatus status) {
+	explicit UploadResult(UploadStatus status, UploaderType type) {
 		this->status = status;
+		this->type = type;
 	}
 
-	explicit UploadResult(UploadStatus status, const QString &content) {
+	explicit UploadResult(UploadStatus status, UploaderType type, const QString &content) {
 		this->status = status;
+		this->type = type;
 		this->content = content;
 	}
 };

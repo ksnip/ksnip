@@ -33,7 +33,7 @@
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/config/KsnipConfigProvider.h"
-#include "src/backend/uploader/UploaderFactory.h"
+#include "src/backend/uploader/UploaderProvider.h"
 #include "src/backend/CapturePrinter.h"
 #include "src/backend/uploader/script/ScriptUploader.h"
 #include "src/common/loader/IconLoader.h"
@@ -109,7 +109,7 @@ private:
 	CaptureTabStateHandler *mTabStateHandler;
 	NewCaptureNameProvider mNewCaptureNameProvider;
 	PathFromCaptureProvider mPathFromCaptureProvider;
-	QSharedPointer<IUploader> mUploader;
+	UploaderProvider *mUploaderProvider;
 
     void currentCaptureChanged();
     void setEnablements(bool enabled);

@@ -11,7 +11,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurResponseLogger.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/script/ScriptUploader.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploaderFactory.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploaderProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/TranslationLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ImageSaver.cpp

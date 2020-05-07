@@ -189,10 +189,6 @@ Change requires ksnip restart to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Browse</source>
         <translation type="unfinished"></translation>
     </message>
@@ -218,6 +214,20 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -320,21 +330,6 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>CaptureUploader</name>
-    <message>
-        <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Imgur token has expired, requesting new token…</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -520,6 +515,21 @@ take effect.</source>
     </message>
 </context>
 <context>
+    <name>ImgurUploader</name>
+    <message>
+        <source>Upload to imgur.com finished!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Received new token, trying upload again…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imgur token has expired, requesting new token…</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
@@ -535,10 +545,6 @@ take effect.</source>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ask for confirmation before uploading</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -665,10 +671,6 @@ and capturing screenshot.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Upload capture image to imgur.com</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Print</source>
         <translation type="unfinished"></translation>
     </message>
@@ -752,6 +754,10 @@ and capturing screenshot.</source>
         <source>Paste Embedded</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Upload capture to external source</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
@@ -792,6 +798,52 @@ and capturing screenshot.</source>
     </message>
 </context>
 <context>
+    <name>ScriptUploaderSettings</name>
+    <message>
+        <source>Copy script output to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only output following this string will be copied to clipboard, excluding that string.
+If omitted, everything from start will be copied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only output before this string will be copied to clipboard, excluding that string.
+If omitted, everything up to the end will be copied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path to script that will be called for uploading. During upload the script will be called
+with the path to a temporary png file as a single argument.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Upload Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
@@ -825,6 +877,14 @@ and capturing screenshot.</source>
         <source>HotKeys</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TrayIcon</name>
@@ -851,11 +911,42 @@ and capturing screenshot.</source>
 <context>
     <name>UploadOperation</name>
     <message>
-        <source>Imgur Upload</source>
+        <source>Upload Script Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
+        <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Upload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are about to upload the image to an external destination, do you want to proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UploaderSettings</name>
+    <message>
+        <source>Ask for confirmation before uploading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploader Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imgur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploader</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -172,10 +172,6 @@ Change requires ksnip restart to take effect.</source>
         <translation type="unfinished">Місце автоматичного збереження та формат назви знятків</translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished">У назві файлу можна використати $Y, $M, $D для позначення дати; $h, $m, $s для часу; $T для часу форматі hhmmss.</translation>
-    </message>
-    <message>
         <source>Browse</source>
         <translation type="unfinished">Вибрати</translation>
     </message>
@@ -223,6 +219,20 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -326,21 +336,6 @@ Do you want to save it?</source>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Зробити зняток останньої вибраної прямокутної області</translation>
-    </message>
-</context>
-<context>
-    <name>CaptureUploader</name>
-    <message>
-        <source>Upload to imgur.com finished!</source>
-        <translation>Завантаження на imgur.com завершено!</translation>
-    </message>
-    <message>
-        <source>Received new token, trying upload again…</source>
-        <translation>Отримано новий токен, спроба завантажити ще раз…</translation>
-    </message>
-    <message>
-        <source>Imgur token has expired, requesting new token…</source>
-        <translation>Термін дії токену Imgur закінчився, запитується новий токен…</translation>
     </message>
 </context>
 <context>
@@ -536,6 +531,21 @@ enabled for MacOs.</source>
     </message>
 </context>
 <context>
+    <name>ImgurUploader</name>
+    <message>
+        <source>Upload to imgur.com finished!</source>
+        <translation type="unfinished">Завантаження на imgur.com завершено!</translation>
+    </message>
+    <message>
+        <source>Received new token, trying upload again…</source>
+        <translation type="unfinished">Отримано новий токен, спроба завантажити ще раз…</translation>
+    </message>
+    <message>
+        <source>Imgur token has expired, requesting new token…</source>
+        <translation type="unfinished">Термін дії токену Imgur закінчився, запитується новий токен…</translation>
+    </message>
+</context>
+<context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
@@ -544,10 +554,6 @@ enabled for MacOs.</source>
     <message>
         <source>Always copy Imgur link to clipboard</source>
         <translation type="unfinished">Завжди копіювати посилання з Imgur до буферу обміну</translation>
-    </message>
-    <message>
-        <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Питати підтвердження перед завантаженням</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -674,10 +680,6 @@ and capturing screenshot.</source>
         <translation>Завантажити</translation>
     </message>
     <message>
-        <source>Upload capture image to imgur.com</source>
-        <translation>Завантажити зняток на imgur.com</translation>
-    </message>
-    <message>
         <source>Print</source>
         <translation>Роздрукувати</translation>
     </message>
@@ -769,6 +771,10 @@ and capturing screenshot.</source>
         <source>Paste Embedded</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Upload capture to external source</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
@@ -809,6 +815,52 @@ and capturing screenshot.</source>
     </message>
 </context>
 <context>
+    <name>ScriptUploaderSettings</name>
+    <message>
+        <source>Copy script output to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only output following this string will be copied to clipboard, excluding that string.
+If omitted, everything from start will be copied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only output before this string will be copied to clipboard, excluding that string.
+If omitted, everything up to the end will be copied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path to script that will be called for uploading. During upload the script will be called
+with the path to a temporary png file as a single argument.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Вибрати</translation>
+    </message>
+    <message>
+        <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Upload Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
@@ -842,6 +894,14 @@ and capturing screenshot.</source>
         <source>HotKeys</source>
         <translation>Гарячі клавіші</translation>
     </message>
+    <message>
+        <source>Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TrayIcon</name>
@@ -868,12 +928,43 @@ and capturing screenshot.</source>
 <context>
     <name>UploadOperation</name>
     <message>
-        <source>Imgur Upload</source>
-        <translation type="unfinished">Завантаження на Imgur</translation>
+        <source>Upload Script Required</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation type="unfinished">Ви збираєтеся завантажити зняток на imgur.com. Почати завантаження?</translation>
+        <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Upload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are about to upload the image to an external destination, do you want to proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UploaderSettings</name>
+    <message>
+        <source>Ask for confirmation before uploading</source>
+        <translation type="unfinished">Питати підтвердження перед завантаженням</translation>
+    </message>
+    <message>
+        <source>Uploader Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imgur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -169,10 +169,6 @@ O cambio require do reinicio do ksnip para que teña efecto.</translation>
         <translation type="unfinished">Localización e nome do ficheiro da captura</translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation type="unfinished">O nome de ficheiro pode conter $D, $M, $Y, para a data, $h, $m, $s  para a hora ou $T para a hora no formato hhmmss.</translation>
-    </message>
-    <message>
         <source>Browse</source>
         <translation type="unfinished">Navegar</translation>
     </message>
@@ -219,6 +215,20 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -321,21 +331,6 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>CaptureUploader</name>
-    <message>
-        <source>Upload to imgur.com finished!</source>
-        <translation>Rematou o envío a imgur.com.</translation>
-    </message>
-    <message>
-        <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Imgur token has expired, requesting new token…</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -525,6 +520,21 @@ enabled for MacOs.</source>
     </message>
 </context>
 <context>
+    <name>ImgurUploader</name>
+    <message>
+        <source>Upload to imgur.com finished!</source>
+        <translation type="unfinished">Rematou o envío a imgur.com.</translation>
+    </message>
+    <message>
+        <source>Received new token, trying upload again…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imgur token has expired, requesting new token…</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
@@ -532,10 +542,6 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ask for confirmation before uploading</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -663,10 +669,6 @@ e a captura de pantalla.</translation>
         <translation>Envío</translation>
     </message>
     <message>
-        <source>Upload capture image to imgur.com</source>
-        <translation>Enviar a imaxe da captura a imgur.com</translation>
-    </message>
-    <message>
         <source>Print</source>
         <translation>Imprimir</translation>
     </message>
@@ -758,6 +760,10 @@ e a captura de pantalla.</translation>
         <source>Paste Embedded</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Upload capture to external source</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
@@ -798,6 +804,52 @@ e a captura de pantalla.</translation>
     </message>
 </context>
 <context>
+    <name>ScriptUploaderSettings</name>
+    <message>
+        <source>Copy script output to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only output following this string will be copied to clipboard, excluding that string.
+If omitted, everything from start will be copied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only output before this string will be copied to clipboard, excluding that string.
+If omitted, everything up to the end will be copied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path to script that will be called for uploading. During upload the script will be called
+with the path to a temporary png file as a single argument.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Navegar</translation>
+    </message>
+    <message>
+        <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Upload Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
@@ -831,6 +883,14 @@ e a captura de pantalla.</translation>
         <source>HotKeys</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TrayIcon</name>
@@ -857,12 +917,43 @@ e a captura de pantalla.</translation>
 <context>
     <name>UploadOperation</name>
     <message>
-        <source>Imgur Upload</source>
-        <translation type="unfinished">Enviar a Imgur</translation>
+        <source>Upload Script Required</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation type="unfinished">Está a piques de enviar a captura de pantalla a imgur.com, quere continuar?</translation>
+        <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Upload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are about to upload the image to an external destination, do you want to proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UploaderSettings</name>
+    <message>
+        <source>Ask for confirmation before uploading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploader Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imgur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

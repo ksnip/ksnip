@@ -28,6 +28,7 @@
 
 class VersionTab : public QWidget
 {
+	Q_OBJECT
 public:
 	VersionTab();
 	~VersionTab() override;

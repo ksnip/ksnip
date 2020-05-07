@@ -194,10 +194,6 @@ Ksnip berrabiarazi behar du aldaketak eragina izateko.</translation>
         <translation>Argazkia egin, gorde kokapena eta fitxategiaren izena</translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation>Fitxategia izan dezake $Y, $M, $D datarako, $h, $m, $s ordurako, edo $T unerako hhmmss formatuan.</translation>
-    </message>
-    <message>
         <source>Browse</source>
         <translation>Arakatu</translation>
     </message>
@@ -223,6 +219,20 @@ Ksnip berrabiarazi behar du aldaketak eragina izateko.</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -326,21 +336,6 @@ Do you want to save it?</source>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Egin kurtsorearen azpian dagoenaren argazkia</translation>
-    </message>
-</context>
-<context>
-    <name>CaptureUploader</name>
-    <message>
-        <source>Upload to imgur.com finished!</source>
-        <translation>imgur.com gunera kargatu da!</translation>
-    </message>
-    <message>
-        <source>Received new token, trying upload again…</source>
-        <translation>Token berri bat jaso da, berriro kargatzen saiatzen…</translation>
-    </message>
-    <message>
-        <source>Imgur token has expired, requesting new token…</source>
-        <translation>Imgur-en tokena iraungi da, token berria eskatzen…</translation>
     </message>
 </context>
 <context>
@@ -542,6 +537,21 @@ dago eta MacO-rako beti aktibatuta.</translation>
     </message>
 </context>
 <context>
+    <name>ImgurUploader</name>
+    <message>
+        <source>Upload to imgur.com finished!</source>
+        <translation type="unfinished">imgur.com gunera kargatu da!</translation>
+    </message>
+    <message>
+        <source>Received new token, trying upload again…</source>
+        <translation type="unfinished">Token berri bat jaso da, berriro kargatzen saiatzen…</translation>
+    </message>
+    <message>
+        <source>Imgur token has expired, requesting new token…</source>
+        <translation type="unfinished">Imgur-en tokena iraungi da, token berria eskatzen…</translation>
+    </message>
+</context>
+<context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
@@ -558,10 +568,6 @@ dago eta MacO-rako beti aktibatuta.</translation>
     <message>
         <source>Always copy Imgur link to clipboard</source>
         <translation>Kopiatu beti Imgur-en esteka arbelera</translation>
-    </message>
-    <message>
-        <source>Ask for confirmation before uploading</source>
-        <translation>Eskatu berrespena kargatu aurretik</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -688,10 +694,6 @@ eta pantaila-argazkiaren artean.</translation>
         <translation>Kargatu</translation>
     </message>
     <message>
-        <source>Upload capture image to imgur.com</source>
-        <translation>Kargatu pantaila-irudia imgur-com webgunera</translation>
-    </message>
-    <message>
         <source>Print</source>
         <translation>Inprimatu</translation>
     </message>
@@ -775,6 +777,10 @@ eta pantaila-argazkiaren artean.</translation>
         <source>Paste Embedded</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Upload capture to external source</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
@@ -815,6 +821,52 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
 </context>
 <context>
+    <name>ScriptUploaderSettings</name>
+    <message>
+        <source>Copy script output to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only output following this string will be copied to clipboard, excluding that string.
+If omitted, everything from start will be copied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only output before this string will be copied to clipboard, excluding that string.
+If omitted, everything up to the end will be copied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path to script that will be called for uploading. During upload the script will be called
+with the path to a temporary png file as a single argument.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Arakatu</translation>
+    </message>
+    <message>
+        <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Upload Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
@@ -848,6 +900,14 @@ eta pantaila-argazkiaren artean.</translation>
         <source>HotKeys</source>
         <translation>Laster-teklak</translation>
     </message>
+    <message>
+        <source>Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TrayIcon</name>
@@ -874,12 +934,43 @@ eta pantaila-argazkiaren artean.</translation>
 <context>
     <name>UploadOperation</name>
     <message>
-        <source>Imgur Upload</source>
-        <translation>Imgur-era kargatu</translation>
+        <source>Upload Script Required</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>Pantaila-irudia imgur.com webgunera kargatzeko prest, ekin nahi diozu?</translation>
+        <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Upload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are about to upload the image to an external destination, do you want to proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UploaderSettings</name>
+    <message>
+        <source>Ask for confirmation before uploading</source>
+        <translation type="unfinished">Eskatu berrespena kargatu aurretik</translation>
+    </message>
+    <message>
+        <source>Uploader Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imgur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -28,6 +28,7 @@
 
 class DonateTab : public QWidget
 {
+	Q_OBJECT
 public:
 	DonateTab();
 	~DonateTab() override;

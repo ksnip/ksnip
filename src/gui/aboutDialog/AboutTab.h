@@ -27,6 +27,7 @@
 
 class AboutTab : public QWidget
 {
+	Q_OBJECT
 public:
 	AboutTab();
 	~AboutTab() override;

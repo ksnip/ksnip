@@ -172,10 +172,6 @@ A módosításhoz érvényesítéséhez a program újraindítása szükséges.</
         <translation>Mentés helye és fájlneve</translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation>A fájl neve tartalmazhatja a következő operandusokat: $ Y, $ M, $ D (dátum), $ h, $ m, $ s (idő) vagy $ T (idő) hhmmss formátumban.</translation>
-    </message>
-    <message>
         <source>Browse</source>
         <translation>Tallózás</translation>
     </message>
@@ -224,6 +220,20 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
         <translation>A fülsáv elrejtése a fülek használatakor.</translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -327,21 +337,6 @@ El akarod menteni?</translation>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Képernyőkép rögzítése a legutoljára használt kijelölés szerint</translation>
-    </message>
-</context>
-<context>
-    <name>CaptureUploader</name>
-    <message>
-        <source>Upload to imgur.com finished!</source>
-        <translation>Az imgur.com-ra való feltöltés befejeződött!</translation>
-    </message>
-    <message>
-        <source>Received new token, trying upload again…</source>
-        <translation>Új azonosító, próbáld meg újra feltölteni…</translation>
-    </message>
-    <message>
-        <source>Imgur token has expired, requesting new token…</source>
-        <translation>Az Imgur azonosító lejárt, igényelj egy újat…</translation>
     </message>
 </context>
 <context>
@@ -544,6 +539,21 @@ Hasonlóan, mint MacOS rendszeren, viszont nem működik Waylanden.</translation
     </message>
 </context>
 <context>
+    <name>ImgurUploader</name>
+    <message>
+        <source>Upload to imgur.com finished!</source>
+        <translation type="unfinished">Az imgur.com-ra való feltöltés befejeződött!</translation>
+    </message>
+    <message>
+        <source>Received new token, trying upload again…</source>
+        <translation type="unfinished">Új azonosító, próbáld meg újra feltölteni…</translation>
+    </message>
+    <message>
+        <source>Imgur token has expired, requesting new token…</source>
+        <translation type="unfinished">Az Imgur azonosító lejárt, igényelj egy újat…</translation>
+    </message>
+</context>
+<context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
@@ -552,10 +562,6 @@ Hasonlóan, mint MacOS rendszeren, viszont nem működik Waylanden.</translation
     <message>
         <source>Always copy Imgur link to clipboard</source>
         <translation>Mindig másolja az Imgur linket a vágólapra</translation>
-    </message>
-    <message>
-        <source>Ask for confirmation before uploading</source>
-        <translation>Megerősítés kérése feltöltés előtt</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -682,10 +688,6 @@ másodpercben megadva.</translation>
         <translation>Feltöltés</translation>
     </message>
     <message>
-        <source>Upload capture image to imgur.com</source>
-        <translation>Képernyőkép feltöltése az imgur.com-ra</translation>
-    </message>
-    <message>
         <source>Print</source>
         <translation>Nyomtatás</translation>
     </message>
@@ -777,6 +779,10 @@ másodpercben megadva.</translation>
         <source>Paste Embedded</source>
         <translation>Beágyazott beillesztés</translation>
     </message>
+    <message>
+        <source>Upload capture to external source</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
@@ -817,6 +823,52 @@ másodpercben megadva.</translation>
     </message>
 </context>
 <context>
+    <name>ScriptUploaderSettings</name>
+    <message>
+        <source>Copy script output to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only output following this string will be copied to clipboard, excluding that string.
+If omitted, everything from start will be copied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only output before this string will be copied to clipboard, excluding that string.
+If omitted, everything up to the end will be copied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path to script that will be called for uploading. During upload the script will be called
+with the path to a temporary png file as a single argument.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Tallózás</translation>
+    </message>
+    <message>
+        <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Upload Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
@@ -850,6 +902,14 @@ másodpercben megadva.</translation>
         <source>HotKeys</source>
         <translation>Gyorsbillentyűk</translation>
     </message>
+    <message>
+        <source>Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TrayIcon</name>
@@ -876,12 +936,43 @@ másodpercben megadva.</translation>
 <context>
     <name>UploadOperation</name>
     <message>
-        <source>Imgur Upload</source>
-        <translation>Imgur feltöltés</translation>
+        <source>Upload Script Required</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>A képernyőképet készülsz feltölteni az imgur.com webhelyre, folytatod?</translation>
+        <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Upload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are about to upload the image to an external destination, do you want to proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UploaderSettings</name>
+    <message>
+        <source>Ask for confirmation before uploading</source>
+        <translation type="unfinished">Megerősítés kérése feltöltés előtt</translation>
+    </message>
+    <message>
+        <source>Uploader Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imgur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

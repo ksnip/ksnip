@@ -171,10 +171,6 @@ Change requires ksnip restart to take effect.</source>
         <translation>捕获保存位置和文件名</translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.</source>
-        <translation>文件名可以包含$Y，$M，$D表示日期，$h，$M，$s表示时间，或$T表示时间，格式为hhmmss。</translation>
-    </message>
-    <message>
         <source>Browse</source>
         <translation>浏览</translation>
     </message>
@@ -222,6 +218,20 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -325,21 +335,6 @@ Do you want to save it?</source>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>捕获上一次选择的矩形区域的屏幕截图</translation>
-    </message>
-</context>
-<context>
-    <name>CaptureUploader</name>
-    <message>
-        <source>Upload to imgur.com finished!</source>
-        <translation>上传到imgur.com完成！</translation>
-    </message>
-    <message>
-        <source>Received new token, trying upload again…</source>
-        <translation>收到新令牌，正在尝试再次上传…</translation>
-    </message>
-    <message>
-        <source>Imgur token has expired, requesting new token…</source>
-        <translation>Imgur令牌已过期，正在请求新令牌…</translation>
     </message>
 </context>
 <context>
@@ -541,6 +536,21 @@ enabled for MacOs.</source>
     </message>
 </context>
 <context>
+    <name>ImgurUploader</name>
+    <message>
+        <source>Upload to imgur.com finished!</source>
+        <translation type="unfinished">上传到imgur.com完成！</translation>
+    </message>
+    <message>
+        <source>Received new token, trying upload again…</source>
+        <translation type="unfinished">收到新令牌，正在尝试再次上传…</translation>
+    </message>
+    <message>
+        <source>Imgur token has expired, requesting new token…</source>
+        <translation type="unfinished">Imgur令牌已过期，正在请求新令牌…</translation>
+    </message>
+</context>
+<context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
@@ -549,10 +559,6 @@ enabled for MacOs.</source>
     <message>
         <source>Always copy Imgur link to clipboard</source>
         <translation>总是将Imgur链接复制到剪贴板</translation>
-    </message>
-    <message>
-        <source>Ask for confirmation before uploading</source>
-        <translation>上传前要求确认</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -679,10 +685,6 @@ and capturing screenshot.</source>
         <translation>上传</translation>
     </message>
     <message>
-        <source>Upload capture image to imgur.com</source>
-        <translation>将捕获的图像上传到imgur.com</translation>
-    </message>
-    <message>
         <source>Print</source>
         <translation>打印</translation>
     </message>
@@ -774,6 +776,10 @@ and capturing screenshot.</source>
         <source>Paste Embedded</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Upload capture to external source</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
@@ -814,6 +820,52 @@ and capturing screenshot.</source>
     </message>
 </context>
 <context>
+    <name>ScriptUploaderSettings</name>
+    <message>
+        <source>Copy script output to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only output following this string will be copied to clipboard, excluding that string.
+If omitted, everything from start will be copied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only output before this string will be copied to clipboard, excluding that string.
+If omitted, everything up to the end will be copied.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path to script that will be called for uploading. During upload the script will be called
+with the path to a temporary png file as a single argument.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">浏览</translation>
+    </message>
+    <message>
+        <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Upload Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
@@ -847,6 +899,14 @@ and capturing screenshot.</source>
         <source>HotKeys</source>
         <translation>快捷键</translation>
     </message>
+    <message>
+        <source>Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TrayIcon</name>
@@ -873,12 +933,43 @@ and capturing screenshot.</source>
 <context>
     <name>UploadOperation</name>
     <message>
-        <source>Imgur Upload</source>
-        <translation>Imgur上传程序</translation>
+        <source>Upload Script Required</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You are about to upload the screenshot to a imgur.com, do you want to proceed?</source>
-        <translation>您即将将屏幕截图上传到 imgur.com，要继续吗？</translation>
+        <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture Upload</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You are about to upload the image to an external destination, do you want to proceed?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UploaderSettings</name>
+    <message>
+        <source>Ask for confirmation before uploading</source>
+        <translation type="unfinished">上传前要求确认</translation>
+    </message>
+    <message>
+        <source>Uploader Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Imgur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

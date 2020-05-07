@@ -26,6 +26,7 @@
 
 class AuthorTab : public QWidget
 {
+	Q_OBJECT
 public:
 	AuthorTab();
 	~AuthorTab() override;

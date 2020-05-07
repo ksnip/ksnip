@@ -21,6 +21,7 @@ Latest ksnip version contains following features:
 * Capture mouse cursor as annotation item that can be moved and deleted.
 * Customizable capture delay for all capture options.
 * Upload screenshots directly to imgur.com in anonymous or user mode.
+* Upload screenshots via custom user defined scripts.
 * Command line support, for taking screenshot and saving it to default location, filename and format.
 * Customizable default location, filename and format for saving new screenshots with wildcards for Year ($Y), Month ($M), Day ($D) and Time ($T).
 * Print screenshot or save is to pdf/ps.

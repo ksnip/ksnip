@@ -74,7 +74,11 @@ void ScriptUploaderSettings::initGui()
 
 	mCopyOutputBeforeLineEdit->setToolTip(mCopyOutputBeforeLabel->toolTip());
 
-	mScriptPathLabel->setText(tr("Script: "));
+	mScriptPathLabel->setText(tr("Script:"));
+	mScriptPathLabel->setToolTip(tr("Path to script that will be called for uploading. During upload the script will be called\n"
+								 "with the path to a temporary png file as a single argument."));
+
+	mUploadScriptPathLineEdit->setToolTip(mScriptPathLabel->toolTip());
 
 	mBrowseButton->setText(tr("Browse"));
 	connect(mBrowseButton, &QPushButton::clicked, this, &ScriptUploaderSettings::ShowScriptSelectionDialog);

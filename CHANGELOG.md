@@ -13,6 +13,7 @@
 * New: Add Maximize Window Button in Print Preview. ([#190](https://github.com/ksnip/ksnip/issues/190))
 * New: Click on toast message opens content. ([#303](https://github.com/ksnip/ksnip/issues/303))
 * New: Remember last used folder in the save file dialog. ([#264](https://github.com/ksnip/ksnip/issues/264))
+* New: Custom script for upload images . ([#268](https://github.com/ksnip/ksnip/issues/268))
 * New kImageAnnotator: Add option to translate UI. ([#54](https://github.com/ksnip/kImageAnnotator/issues/54))
 * Changed: Save As option was added and useInstantSave config was removed. ([#285](https://github.com/ksnip/ksnip/issues/285))
 * Changed: Disable scroll down with zero value in timeout widget. ([#294](https://github.com/ksnip/ksnip/issues/294))

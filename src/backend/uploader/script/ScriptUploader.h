@@ -41,7 +41,7 @@ signals:
 private:
 	KsnipConfig * mConfig;
 	QProcess mProcessHandler;
-	QString mPathToImage;
+	QString mPathToTmpImage;
 
 private slots:
 	void scriptFinished(int exitCode, QProcess::ExitStatus exitStatus);

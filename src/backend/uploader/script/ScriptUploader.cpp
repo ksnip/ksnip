@@ -28,7 +28,7 @@ ScriptUploader::ScriptUploader() : mConfig(KsnipConfigProvider::instance())
 void ScriptUploader::upload(const QImage &image)
 {
 	if(saveImageLocally(image)) {
-		mProcessHandler.start(mConfig->uploadScriptPath(), { mPathToImage });
+		mProcessHandler.start(mConfig->uploadScriptPath(), { mPathToTmpImage });
 	} else {
 		auto result = UploadResult(UploadStatus::UnableToSaveTemporaryImage, type());
 		emit finished(result);
@@ -44,8 +44,9 @@ bool ScriptUploader::saveImageLocally(const QImage &image)
 {
 	auto timestamp = QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMddhhmmssz"));
 	auto filename = QStringLiteral("ksnip-tmp-") + timestamp + QStringLiteral(".png");
-	mPathToImage = mConfig->saveDirectory() + QStringLiteral("/") + filename;
-	return image.save(mPathToImage);
+
+	mPathToTmpImage = mConfig->saveDirectory() + QStringLiteral("/") + filename;
+	return image.save(mPathToTmpImage);
 }
 
 void ScriptUploader::scriptFinished(int exitCode, QProcess::ExitStatus exitStatus)
@@ -67,13 +68,13 @@ void ScriptUploader::scriptFinished(int exitCode, QProcess::ExitStatus exitStatu
 QString ScriptUploader::parseOutput(const QString &output) const
 {
 	auto startTag = mConfig->uploadScriptCopyOutputAfter();
-	auto startTagLength = startTag.length();
 	auto endTag = mConfig->uploadScriptCopyOutputBefore();
+	auto startTagLength = startTag.length();
 
 	auto startIndex = output.indexOf(startTag);
 	auto endIndex = output.indexOf(endTag);
-	auto indexFrom = startIndex > -1 ? startIndex + startTagLength : 0;
-	auto indexTo = endIndex > -1 ? endIndex : output.length() - 1;
+	auto indexFrom = startIndex == -1 || startTag.isEmpty() ? 0 : startIndex + startTagLength;
+	auto indexTo = endIndex == -1  || endTag.isEmpty()? output.length() - 1 : endIndex;
 
 	return output.mid(indexFrom, indexTo - indexFrom);
 }
@@ -107,9 +108,9 @@ UploadStatus ScriptUploader::mapErrorTypeToStatus(QProcess::ProcessError errorTy
 
 void ScriptUploader::cleanup()
 {
-	QFile file(mPathToImage);
+	QFile file(mPathToTmpImage);
 	file.remove();
-	mPathToImage.clear();
+	mPathToTmpImage.clear();
 }
 
 void ScriptUploader::writeToConsole(const QString &output) const

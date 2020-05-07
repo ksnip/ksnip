@@ -24,34 +24,43 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 	QDialog(parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
 	mOkButton(new QPushButton),
 	mCancelButton(new QPushButton),
-	mListWidget(new QListWidget),
+	mTreeWidget(new QTreeWidget),
 	mStackedLayout(new QStackedLayout),
-	mConfig(KsnipConfigProvider::instance())
+	mConfig(KsnipConfigProvider::instance()),
+	mApplicationSettings(new ApplicationSettings(mConfig)),
+	mImageGrabberSettings(new ImageGrabberSettings(mConfig)),
+	mImgurUploaderSettings(new ImgurUploaderSettings(mConfig)),
+	mScriptUploaderSettings(new ScriptUploaderSettings(mConfig)),
+	mAnnotationSettings(new AnnotationSettings(mConfig)),
+	mHotKeySettings(new HotKeySettings(mConfig)),
+	mUploaderSettings(new UploaderSettings(mConfig))
 {
     setWindowTitle(QApplication::applicationName() + QStringLiteral(" - ") + tr("Settings"));
 
     initGui();
 
-    connect(mListWidget, &QListWidget::itemSelectionChanged, this, &SettingsDialog::switchTab);
+    connect(mTreeWidget, &QTreeWidget::itemSelectionChanged, this, &SettingsDialog::switchTab);
 }
 
 SettingsDialog::~SettingsDialog()
 {
     delete mOkButton;
     delete mCancelButton;
-    delete mListWidget;
+    delete mTreeWidget;
     delete mStackedLayout;
     delete mApplicationSettings;
     delete mImageGrabberSettings;
     delete mImgurUploaderSettings;
     delete mAnnotationSettings;
     delete mHotKeySettings;
+    delete mUploaderSettings;
 }
 
 void SettingsDialog::saveSettings()
 {
     mApplicationSettings->saveSettings();
     mImageGrabberSettings->saveSettings();
+    mUploaderSettings->saveSettings();
     mImgurUploaderSettings->saveSettings();
     mScriptUploaderSettings->saveSettings();
     mAnnotationSettings->saveSettings();
@@ -60,13 +69,6 @@ void SettingsDialog::saveSettings()
 
 void SettingsDialog::initGui()
 {
-	mApplicationSettings = new ApplicationSettings(mConfig);
-	mImageGrabberSettings = new ImageGrabberSettings(mConfig);
-	mImgurUploaderSettings = new ImgurUploaderSettings(mConfig);
-	mScriptUploaderSettings = new ScriptUploaderSettings(mConfig);
-    mAnnotationSettings = new AnnotationSettings(mConfig);
-    mHotKeySettings = new HotKeySettings(mConfig);
-
     mOkButton->setText(tr("OK"));
     connect(mOkButton, &QPushButton::clicked, this, &SettingsDialog::okClicked);
 
@@ -80,22 +82,40 @@ void SettingsDialog::initGui()
 
     mStackedLayout->addWidget(mApplicationSettings);
     mStackedLayout->addWidget(mImageGrabberSettings);
+    mStackedLayout->addWidget(mUploaderSettings);
     mStackedLayout->addWidget(mImgurUploaderSettings);
     mStackedLayout->addWidget(mScriptUploaderSettings);
 	mStackedLayout->addWidget(mAnnotationSettings);
 	mStackedLayout->addWidget(mHotKeySettings);
 
-    mListWidget->addItem(tr("Application"));
-    mListWidget->addItem(tr("Image Grabber"));
-    mListWidget->addItem(tr("Imgur Uploader"));
-    mListWidget->addItem(tr("Script Uploader"));
-    mListWidget->addItem(tr("Annotator"));
-    mListWidget->addItem(tr("HotKeys"));
-    mListWidget->setCurrentRow(0);
-    mListWidget->setFixedWidth(mListWidget->sizeHintForColumn(0) + 20);
+	auto application = new QTreeWidgetItem(mTreeWidget, { tr("Application") });
+	auto imageGrabber = new QTreeWidgetItem(mTreeWidget, { tr("Image Grabber") });
+	auto uploader = new QTreeWidgetItem(mTreeWidget, { tr("Uploader") });
+	auto imgurUploader = new QTreeWidgetItem(uploader, { tr("Imgur Uploader") });
+	auto scriptUploader = new QTreeWidgetItem(uploader, { tr("Script Uploader") });
+	auto annotator = new QTreeWidgetItem(mTreeWidget, { tr("Annotator") });
+	auto hotkeys = new QTreeWidgetItem(mTreeWidget, { tr("HotKeys") });
+
+	mNavigatorItems.append(application);
+	mNavigatorItems.append(imageGrabber);
+	mNavigatorItems.append(uploader);
+	mNavigatorItems.append(imgurUploader);
+	mNavigatorItems.append(scriptUploader);
+	mNavigatorItems.append(annotator);
+	mNavigatorItems.append(hotkeys);
+
+	mTreeWidget->addTopLevelItem(application);
+	mTreeWidget->addTopLevelItem(imageGrabber);
+	mTreeWidget->addTopLevelItem(uploader);
+	mTreeWidget->addTopLevelItem(annotator);
+    mTreeWidget->addTopLevelItem(hotkeys);
+	mTreeWidget->setHeaderHidden(true);
+    mTreeWidget->setItemSelected(mNavigatorItems[0], true);
+    mTreeWidget->setFixedWidth(mTreeWidget->minimumSizeHint().width() + ScaledSizeProvider::getScaledWidth(100));
+    mTreeWidget->expandAll();
 
     auto listAndStackLayout = new QHBoxLayout;
-    listAndStackLayout->addWidget(mListWidget);
+    listAndStackLayout->addWidget(mTreeWidget);
     listAndStackLayout->addLayout(mStackedLayout);
 
     auto mainLayout = new QVBoxLayout();
@@ -107,7 +127,7 @@ void SettingsDialog::initGui()
 
 void SettingsDialog::switchTab()
 {
-    mStackedLayout->setCurrentIndex(mListWidget->currentRow());
+    mStackedLayout->setCurrentIndex(mNavigatorItems.indexOf(mTreeWidget->currentItem()));
 }
 
 void SettingsDialog::okClicked()

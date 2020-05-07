@@ -50,6 +50,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/ImgurUploaderSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/ScriptUploaderSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/HotKeySettings.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/UploaderSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/SettingsDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AboutDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AboutTab.cpp

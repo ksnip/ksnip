@@ -24,7 +24,6 @@ ImgurUploaderSettings::ImgurUploaderSettings(KsnipConfig *ksnipConfig) :
 	mForceAnonymousCheckbox(new QCheckBox(this)),
 	mDirectLinkToImageCheckbox(new QCheckBox(this)),
 	mAlwaysCopyToClipboardCheckBox(new QCheckBox(this)),
-	mConfirmBeforeUploadCheckbox(new QCheckBox(this)),
 	mOpenLinkInBrowserCheckbox(new QCheckBox(this)),
 	mClientIdLineEdit(new QLineEdit(this)),
 	mClientSecretLineEdit(new QLineEdit(this)),
@@ -47,7 +46,6 @@ ImgurUploaderSettings::~ImgurUploaderSettings()
 	delete mForceAnonymousCheckbox;
 	delete mDirectLinkToImageCheckbox;
 	delete mAlwaysCopyToClipboardCheckBox;
-	delete mConfirmBeforeUploadCheckbox;
 	delete mOpenLinkInBrowserCheckbox;
 	delete mClientIdLineEdit;
 	delete mClientSecretLineEdit;
@@ -65,7 +63,6 @@ void ImgurUploaderSettings::saveSettings()
 	mConfig->setImgurForceAnonymous(mForceAnonymousCheckbox->isChecked());
 	mConfig->setImgurLinkDirectlyToImage(mDirectLinkToImageCheckbox->isChecked());
 	mConfig->setImgurAlwaysCopyToClipboard(mAlwaysCopyToClipboardCheckBox->isChecked());
-	mConfig->setConfirmBeforeUpload(mConfirmBeforeUploadCheckbox->isChecked());
 	mConfig->setImgurOpenLinkInBrowser(mOpenLinkInBrowserCheckbox->isChecked());
 }
 
@@ -78,7 +75,6 @@ void ImgurUploaderSettings::initGui()
 	mOpenLinkInBrowserCheckbox->setText(tr("After uploading open Imgur link in default browser"));
 	mDirectLinkToImageCheckbox->setText(tr("Link directly to image"));
 	mAlwaysCopyToClipboardCheckBox->setText(tr("Always copy Imgur link to clipboard"));
-	mConfirmBeforeUploadCheckbox->setText(tr("Ask for confirmation before uploading"));
 
 	mClientIdLineEdit->setPlaceholderText(tr("Client ID"));
 	connect(mClientIdLineEdit, &QLineEdit::textChanged, this, &ImgurUploaderSettings::imgurClientEntered);
@@ -109,15 +105,14 @@ void ImgurUploaderSettings::initGui()
 	mLayout->addWidget(mOpenLinkInBrowserCheckbox, 1, 0, 1, 3);
 	mLayout->addWidget(mDirectLinkToImageCheckbox, 2, 0, 1, 3);
 	mLayout->addWidget(mAlwaysCopyToClipboardCheckBox, 3, 0, 1, 3);
-	mLayout->addWidget(mConfirmBeforeUploadCheckbox, 4, 0, 1, 3);
-	mLayout->setRowMinimumHeight(5, 15);
-	mLayout->addWidget(mUsernameLabel, 6, 0, 1, 3);
-	mLayout->addWidget(mHistoryButton, 6, 3, 1, 1);
-	mLayout->addWidget(mClientIdLineEdit, 7, 0, 1, 3);
-	mLayout->addWidget(mClientSecretLineEdit, 8, 0, 1, 3);
-	mLayout->addWidget(mGetPinButton, 8, 3, 1, 1);
-	mLayout->addWidget(mPinLineEdit, 9, 0, 1, 3);
-	mLayout->addWidget(mGetTokenButton, 9, 3, 1, 1);
+	mLayout->setRowMinimumHeight(4, 15);
+	mLayout->addWidget(mUsernameLabel, 5, 0, 1, 3);
+	mLayout->addWidget(mHistoryButton, 5, 3, 1, 1);
+	mLayout->addWidget(mClientIdLineEdit, 6, 0, 1, 3);
+	mLayout->addWidget(mClientSecretLineEdit, 7, 0, 1, 3);
+	mLayout->addWidget(mGetPinButton, 7, 3, 1, 1);
+	mLayout->addWidget(mPinLineEdit, 8, 0, 1, 3);
+	mLayout->addWidget(mGetTokenButton, 8, 3, 1, 1);
 
 	setTitle(tr("Imgur Uploader"));
 	setLayout(mLayout);
@@ -129,7 +124,6 @@ void ImgurUploaderSettings::loadConfig()
 	mOpenLinkInBrowserCheckbox->setChecked(mConfig->imgurOpenLinkInBrowser());
 	mDirectLinkToImageCheckbox->setChecked(mConfig->imgurLinkDirectlyToImage());
 	mAlwaysCopyToClipboardCheckBox->setChecked(mConfig->imgurAlwaysCopyToClipboard());
-	mConfirmBeforeUploadCheckbox->setChecked(mConfig->confirmBeforeUpload());
 
 	mUsernameLabel->setText(tr("Username") + ": " + mConfig->imgurUsername());
 	if(!mConfig->imgurClientId().isEmpty()) {

@@ -45,7 +45,6 @@ private:
 	QCheckBox *mForceAnonymousCheckbox;
 	QCheckBox *mDirectLinkToImageCheckbox;
 	QCheckBox *mAlwaysCopyToClipboardCheckBox;
-	QCheckBox *mConfirmBeforeUploadCheckbox;
 	QCheckBox *mOpenLinkInBrowserCheckbox;
 	QLineEdit *mClientIdLineEdit;
 	QLineEdit *mClientSecretLineEdit;

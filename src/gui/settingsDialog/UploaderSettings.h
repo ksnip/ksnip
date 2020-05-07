@@ -17,46 +17,35 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_SCRIPTUPLOADERSETTINGS_H
-#define KSNIP_SCRIPTUPLOADERSETTINGS_H
+#ifndef KSNIP_UPLOADERSETTINGS_H
+#define KSNIP_UPLOADERSETTINGS_H
 
 #include <QGroupBox>
 #include <QCheckBox>
-#include <QLineEdit>
-#include <QLabel>
 #include <QGridLayout>
-#include <QPushButton>
-#include <QFileDialog>
+#include <QLabel>
+#include <QComboBox>
 
 #include "src/backend/config/KsnipConfig.h"
-#include "src/common/provider/ScaledSizeProvider.h"
+#include "src/common/enum/UploaderType.h"
 
-class ScriptUploaderSettings : public QGroupBox
+class UploaderSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit ScriptUploaderSettings(KsnipConfig *ksnipConfig);
-	~ScriptUploaderSettings() override;
+	explicit UploaderSettings(KsnipConfig *ksnipConfig);
+	~UploaderSettings() override;
 	void saveSettings();
 
 private:
 	QGridLayout *mLayout;
 	KsnipConfig *mConfig;
-	QCheckBox *mCopyOutputToClipboardCheckbox;
-	QLineEdit *mCopyOutputAfterLineEdit;
-	QLineEdit *mCopyOutputBeforeLineEdit;
-	QLineEdit *mUploadScriptPathLineEdit;
-	QLabel *mCopyOutputAfterLabel;
-	QLabel *mCopyOutputBeforeLabel;
-	QLabel *mScriptPathLabel;
-	QPushButton *mBrowseButton;
+	QCheckBox *mConfirmBeforeUploadCheckbox;
+	QComboBox *mUploaderTypeComboBox;
+	QLabel *mUploaderTypeLabel;
 
 	void initGui();
 	void loadConfig();
-
-private slots:
-	void ShowScriptSelectionDialog();
-	void copyToClipboardChanged();
 };
 
-#endif //KSNIP_SCRIPTUPLOADERSETTINGS_H
+#endif //KSNIP_UPLOADERSETTINGS_H

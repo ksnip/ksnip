@@ -22,7 +22,7 @@
 #define KSNIP_SETTINGSDIALOG_H
 
 #include <QDialog>
-#include <QListWidget>
+#include <QTreeWidget>
 #include <QStackedLayout>
 #include <QApplication>
 
@@ -32,7 +32,9 @@
 #include "ImgurUploaderSettings.h"
 #include "ScriptUploaderSettings.h"
 #include "HotKeySettings.h"
-#include "backend/config/KsnipConfigProvider.h"
+#include "UploaderSettings.h"
+#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/common/provider/ScaledSizeProvider.h"
 
 class SettingsDialog : public QDialog
 {
@@ -42,6 +44,7 @@ public:
     ~SettingsDialog() override;
 
 private:
+	KsnipConfig *mConfig;
     QPushButton *mOkButton;
     QPushButton *mCancelButton;
 	ApplicationSettings *mApplicationSettings;
@@ -50,9 +53,10 @@ private:
 	ScriptUploaderSettings *mScriptUploaderSettings;
 	HotKeySettings *mHotKeySettings;
     AnnotationSettings *mAnnotationSettings;
-    QListWidget *mListWidget;
+    UploaderSettings *mUploaderSettings;
+	QTreeWidget *mTreeWidget;
     QStackedLayout *mStackedLayout;
-    KsnipConfig *mConfig;
+    QList<QTreeWidgetItem*> mNavigatorItems;
 
     void saveSettings();
     void initGui();

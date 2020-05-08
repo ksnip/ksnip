@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_HANDLEUPLOADRESPONSEOPERATION_H
-#define KSNIP_HANDLEUPLOADRESPONSEOPERATION_H
+#ifndef KSNIP_HANDLEUPLOADRESULTOPERATION_H
+#define KSNIP_HANDLEUPLOADRESULTOPERATION_H
 
 #include <QUrl>
 #include <QApplication>
@@ -29,12 +29,12 @@
 #include "src/backend/uploader/UploadResult.h"
 #include "src/gui/operations/NotifyOperation.h"
 
-class HandleUploadResponseOperation : public QObject
+class HandleUploadResultOperation : public QObject
 {
 	Q_OBJECT
 public:
-	explicit HandleUploadResponseOperation(const UploadResult &result, TrayIcon *trayIcon);
-	~HandleUploadResponseOperation() override = default;
+	explicit HandleUploadResultOperation(const UploadResult &result, TrayIcon *trayIcon);
+	~HandleUploadResultOperation() override = default;
 	bool execute();
 
 private:
@@ -43,11 +43,14 @@ private:
 	KsnipConfig *mConfig;
 	QClipboard *mClipboard;
 
-	QUrl formatUrl(QString &response) const;
-	void copyToClipboard(const QUrl &url) const;
-
-	void openInBrowser(const QUrl &url) const;
-	void notifyAboutUpload(const QUrl &url) const;
+	void notifyImgurSuccessfulUpload(const QString &url) const;
+	void handleImgurResult();
+	void handleScriptResult();
+	void copyToClipboard(const QString &url) const;
+	void OpenUrl(const QString &url) const;
+	void handleUploadError();
+	void notifyScriptSuccessfulUpload() const;
+	void notifyFailedUpload(const QString &message) const;
 };
 
-#endif //KSNIP_HANDLEUPLOADRESPONSEOPERATION_H
+#endif //KSNIP_HANDLEUPLOADRESULTOPERATION_H

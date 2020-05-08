@@ -57,7 +57,17 @@ void ImgurUploader::imgurUploadFinished(const ImgurResponse &response)
     qInfo("%s", qPrintable(tr("Upload to imgur.com finished!")));
     mImgurResponseLogger->log(response);
 
-	emit finished(UploadResult(UploadStatus::NoError, type(), response.link()));
+	auto url = formatResponseUrl(response);
+
+	emit finished(UploadResult(UploadStatus::NoError, type(), url));
+}
+
+QString ImgurUploader::formatResponseUrl(const ImgurResponse &response) const
+{
+	if (!mConfig->imgurLinkDirectlyToImage()) {
+		return response.link().remove(QStringLiteral(".png"));
+	}
+	return response.link();
 }
 
 void ImgurUploader::imgurError(const QString &message)

@@ -664,6 +664,6 @@ void MainWindow::captureCanceled()
 
 void MainWindow::uploadFinished(const UploadResult &result)
 {
-	HandleUploadResponseOperation handleUploadResponseOperation(result, mTrayIcon);
+	HandleUploadResultOperation handleUploadResponseOperation(result, mTrayIcon);
 	handleUploadResponseOperation.execute();
 }

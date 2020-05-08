@@ -52,6 +52,7 @@ private slots:
     void imgurError(const QString &message);
     void imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username);
     void imgurTokenRefresh();
+	QString formatResponseUrl(const ImgurResponse &response) const;
 };
 
 #endif //KSNIP_IMGURUPLOADER_H

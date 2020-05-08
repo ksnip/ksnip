@@ -47,7 +47,7 @@
 #include "src/gui/operations/AddWatermarkOperation.h"
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/UploadOperation.h"
-#include "src/gui/operations/HandleUploadResponseOperation.h"
+#include "src/gui/operations/HandleUploadResultOperation.h"
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
 #include "src/gui/TrayIcon.h"
 #include "ClipboardWrapper.h"

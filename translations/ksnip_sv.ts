@@ -222,17 +222,19 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Kom ihåg senaste mappen som sparats i</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vid aktivering kommer den i inställningarna lagrade sparamappen
+att skrivas över med senaste sparamappen, varje gång något sparas.</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
-        <translation type="unfinished"></translation>
+        <translation>Filnamn kan innehålla $Y, $M, $D för datum, $h, $m, $s för tid eller $T för tid i hhmmss-format.
+Format som stöds är JPG, PNG och BMP. Om inget format anges används PNG som standard.</translation>
     </message>
 </context>
 <context>
@@ -778,7 +780,7 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Ladda upp skärmklipp till extern källa</translation>
     </message>
 </context>
 <context>
@@ -823,11 +825,11 @@ och själva skärmklippet.</translation>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera skriptutdata till urklipp</translation>
     </message>
     <message>
         <source>After:</source>
-        <translation type="unfinished"></translation>
+        <translation>Efter:</translation>
     </message>
     <message>
         <source>Only output following this string will be copied to clipboard, excluding that string.

@@ -223,17 +223,19 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Lembrar o último diretório onde os arquivos foram salvos</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado, substituirá o diretório de &quot;salvar&quot; armazenado nas configurações
+para o diretório mais recente onde foi salvo, isso para cada vez que usar o comando salvar.</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
-        <translation type="unfinished"></translation>
+        <translation>O nome do arquivo pode conter $Y, $M, $D para data, $h, $m, $s para hora ou $T para hora no formato hhmmss.
+Os formatos suportados são JPG, PNG e BMP. Se nenhum formato for fornecido, o PNG será usado como padrão.</translation>
     </message>
 </context>
 <context>
@@ -779,7 +781,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Carregar captura para fonte externa</translation>
     </message>
 </context>
 <context>
@@ -824,34 +826,37 @@ e captura de tela.</translation>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar saída de script para a área de transferência</translation>
     </message>
     <message>
         <source>After:</source>
-        <translation type="unfinished"></translation>
+        <translation>Depois:</translation>
     </message>
     <message>
         <source>Only output following this string will be copied to clipboard, excluding that string.
 If omitted, everything from start will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Somente a saída após esta sequência será copiada para a área de transferência, excluindo essa sequência.
+Se omitido, tudo desde o início será copiado.</translation>
     </message>
     <message>
         <source>Before:</source>
-        <translation type="unfinished"></translation>
+        <translation>Antes:</translation>
     </message>
     <message>
         <source>Only output before this string will be copied to clipboard, excluding that string.
 If omitted, everything up to the end will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Somente a saída antes dessa sequência será copiada para a área de transferência, excluindo essa sequência.
+Se omitido, tudo até o fim será copiado.</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Script:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Caminho para o script que será chamado para upload. Durante o upload, o script será chamado
+com o caminho para um arquivo png temporário como um único argumento.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -859,11 +864,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Script Uploader</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecione o Script para Upload</translation>
     </message>
 </context>
 <context>
@@ -902,11 +907,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploader</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Script de Uploader</translation>
     </message>
 </context>
 <context>
@@ -935,19 +940,19 @@ with the path to a temporary png file as a single argument.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Script de Upload Requerido</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicione um script de upload em Opções&gt; Configurações&gt; Script Uploader</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar Upload</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Você está prestes a enviar a imagem para um destino externo. Deseja continuar?</translation>
     </message>
 </context>
 <context>
@@ -958,19 +963,19 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo de Uploader:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Script</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploader</translation>
     </message>
 </context>
 <context>

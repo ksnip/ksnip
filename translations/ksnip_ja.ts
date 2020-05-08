@@ -55,7 +55,7 @@
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>オプション &gt; 設定 &gt; 注釈 &gt; 更新 からウォーターマーク画像を追加してください</translation>
+        <translation>「オプション」 &gt; 「設定」 &gt; 「注釈」 &gt; 「更新」でウォーターマーク画像を追加してください</translation>
     </message>
 </context>
 <context>
@@ -223,17 +223,19 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>最後に保存したディレクトリを記憶する</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>有効にすると、保存するたびに
+保存先の設定が上書きされます。</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル名には、日付を表す $Y、$M、$D、時間を表す $h、$m、$s、hhmmss 形式で時間を表す $T を含めることができます。
+サポートしているファイル形式は JPG、PNG、BMP で、指定しない場合は PNG がデフォルトで使用されます。</translation>
     </message>
 </context>
 <context>
@@ -538,15 +540,15 @@ macOS では常に有効になります。</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">imgur.com へのアップロードが完了しました！</translation>
+        <translation>imgur.com へのアップロードが完了しました！</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">新しいトークンを受け取りました。アップロードを再試行しています…</translation>
+        <translation>新しいトークンを受け取りました。アップロードを再試行しています…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">Imgur トークンの期限切れです。新しいトークンを要求しています…</translation>
+        <translation>Imgur トークンの期限切れです。新しいトークンを要求しています…</translation>
     </message>
 </context>
 <context>
@@ -777,7 +779,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>キャプチャーを外部ソースにアップロードします</translation>
     </message>
 </context>
 <context>
@@ -822,46 +824,49 @@ and capturing screenshot.</source>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリプトの出力をクリップボードにコピーする</translation>
     </message>
     <message>
         <source>After:</source>
-        <translation type="unfinished"></translation>
+        <translation>後:</translation>
     </message>
     <message>
         <source>Only output following this string will be copied to clipboard, excluding that string.
 If omitted, everything from start will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>この文字列より後の出力を (この文字列を除外したうえで) クリップボードに
+コピーします。省略した場合はすべてコピーします。</translation>
     </message>
     <message>
         <source>Before:</source>
-        <translation type="unfinished"></translation>
+        <translation>前:</translation>
     </message>
     <message>
         <source>Only output before this string will be copied to clipboard, excluding that string.
 If omitted, everything up to the end will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>この文字列より前の出力を (この文字列を除外したうえで) クリップボードに
+コピーします。省略した場合はすべてコピーします。</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリプト:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>アップロード用のスクリプトのパス。スクリプトは、アップロード中に
+単一の一時ファイル (PNG) を引数として呼び出されます。</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">参照</translation>
+        <translation>参照</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリプトアップローダー</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>アップロードスクリプトを選択</translation>
     </message>
 </context>
 <context>
@@ -900,11 +905,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>アップローダー</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリプトアップローダー</translation>
     </message>
 </context>
 <context>
@@ -933,42 +938,42 @@ with the path to a temporary png file as a single argument.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>アップロードスクリプトが必要です</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>「オプション」 &gt; 「設定」 &gt; 「アップロードスクリプト」でアップロードスクリプトを追加してください</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>キャプチャーをアップロード</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>外部の場所に画像をアップロードしようとしています。続行しますか？</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">アップロード前に確認する</translation>
+        <translation>アップロード前に確認する</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>アップローダーの種類:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリプト</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>アップローダー</translation>
     </message>
 </context>
 <context>

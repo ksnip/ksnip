@@ -365,14 +365,58 @@ Do you want to save it?</source>
     </message>
 </context>
 <context>
-    <name>HandleUploadResponseOperation</name>
+    <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation>上传成功</translation>
+        <translation type="unfinished">上传成功</translation>
+    </message>
+    <message>
+        <source>Upload script </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> finished successfully.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation>上传到</translation>
+        <translation type="unfinished">上传到</translation>
+    </message>
+    <message>
+        <source>Unable to save temporary image for upload.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to start process, check path and permissions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process crashed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process timed out.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process read error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process write error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Web error, check console output.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown process error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload Failed</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

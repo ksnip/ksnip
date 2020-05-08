@@ -369,14 +369,58 @@ Deseja salvá-la?</translation>
     </message>
 </context>
 <context>
-    <name>HandleUploadResponseOperation</name>
+    <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation>Upload bem-sucedido</translation>
+        <translation type="unfinished">Upload bem-sucedido</translation>
+    </message>
+    <message>
+        <source>Upload script </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> finished successfully.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation>Upado para</translation>
+        <translation type="unfinished">Upado para</translation>
+    </message>
+    <message>
+        <source>Unable to save temporary image for upload.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to start process, check path and permissions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process crashed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process timed out.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process read error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process write error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Web error, check console output.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown process error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload Failed</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

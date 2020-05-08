@@ -367,14 +367,58 @@ Wil je hem opslaan?</translation>
     </message>
 </context>
 <context>
-    <name>HandleUploadResponseOperation</name>
+    <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation>Afbeelding geüpload</translation>
+        <translation type="unfinished">Afbeelding geüpload</translation>
+    </message>
+    <message>
+        <source>Upload script </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> finished successfully.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation>Geüpload naar</translation>
+        <translation type="unfinished">Geüpload naar</translation>
+    </message>
+    <message>
+        <source>Unable to save temporary image for upload.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to start process, check path and permissions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process crashed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process timed out.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process read error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process write error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Web error, check console output.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown process error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload Failed</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

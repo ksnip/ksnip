@@ -15,6 +15,7 @@
 * New: Remember last used folder in the save file dialog. ([#264](https://github.com/ksnip/ksnip/issues/264))
 * New: Custom script for upload images . ([#268](https://github.com/ksnip/ksnip/issues/268))
 * New kImageAnnotator: Add option to translate UI. ([#54](https://github.com/ksnip/kImageAnnotator/issues/54))
+* New kImageAnnotator: Saved image expand to include annotations out of border. ([#90](https://github.com/ksnip/kImageAnnotator/issues/90))  
 * Changed: Save As option was added and useInstantSave config was removed. ([#285](https://github.com/ksnip/ksnip/issues/285))
 * Changed: Disable scroll down with zero value in timeout widget. ([#294](https://github.com/ksnip/ksnip/issues/294))
 * Fixed: Compilation error with Qt 5.15. ([#279](https://github.com/ksnip/ksnip/issues/279))

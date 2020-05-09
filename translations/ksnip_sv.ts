@@ -371,55 +371,55 @@ Vill du spara det?</translation>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">Uppladdning slutförd</translation>
+        <translation>Uppladdning slutförd</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>Ladda upp skript </translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation> har slutförts.</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished">Uppladdat till</translation>
+        <translation>Uppladdat till</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan inte spara temporär bild för uppladdning.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Det gick inte att starta processen, kontrollera sökväg och behörigheter.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>Processen kraschade</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidsgränsen för processen överskreds.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Läsfel i processen.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrivfel i processen.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Webbfel, kontrollera utdata i konsolen.</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Okänt processfel.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppladdning misslyckades</translation>
     </message>
 </context>
 <context>
@@ -585,15 +585,15 @@ alltid aktiverad för MacOS.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">Uppladdning till imgur.com slutförd!</translation>
+        <translation>Uppladdning till imgur.com slutförd!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">Tog emot ny token. Försöker ladda upp igen…</translation>
+        <translation>Tog emot ny token. Försöker ladda upp igen…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">Imgur-token har upphört att gälla. Ber om ny token…</translation>
+        <translation>Imgur-token har upphört att gälla. Ber om ny token…</translation>
     </message>
 </context>
 <context>
@@ -878,37 +878,40 @@ och själva skärmklippet.</translation>
     <message>
         <source>Only output following this string will be copied to clipboard, excluding that string.
 If omitted, everything from start will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Endast utdata efter den här strängen kopieras till urklipp, exklusive den här strängen.
+Om det utelämnas, kopieras allt från början.</translation>
     </message>
     <message>
         <source>Before:</source>
-        <translation type="unfinished"></translation>
+        <translation>Före:</translation>
     </message>
     <message>
         <source>Only output before this string will be copied to clipboard, excluding that string.
 If omitted, everything up to the end will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Endast utdata före den här strängen kopieras till urklipp, exklusive den här strängen.
+Om det utelämnas, kopieras allt fram till slutet.</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Skript:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sökväg till det skript som kommer att anropas för uppladdning. Under uppladdningen
+kommer skriptet att anropas med sökvägen till en temporär png-fil som enskilt argument.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Bläddra</translation>
+        <translation>Bläddra</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppladdare för skript</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Välj uppladdningsskript</translation>
     </message>
 </context>
 <context>
@@ -947,11 +950,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppladdare</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppladdare för skript</translation>
     </message>
 </context>
 <context>
@@ -980,42 +983,42 @@ with the path to a temporary png file as a single argument.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppladdningsskript krävs</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till ett uppladdningsskript via Alternativ&gt; Inställningar&gt;Uppladdningsskript</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Skärmklippsuppladdning</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Du håller på att ladda upp bilden till en extern destination, vill du fortsätta?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Bekräfta före uppladdning</translation>
+        <translation>Bekräfta före uppladdning</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppladdartyp:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Skript</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppladdare</translation>
     </message>
 </context>
 <context>

@@ -223,17 +223,19 @@ Herstart om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Recentste opslagmap onthouden</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel in om de opslagmap uit de instellingen te vervangen door
+de recentste opslagmap.</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
-        <translation type="unfinished"></translation>
+        <translation>De bestandsnaam mag $Y, $M, $D en bevatten voor datums, $h, $m, $s voor tijdstippen, of $T voor tijdstippen in hhmmss-opmaak.
+Ondersteunde bestandsformaten: JPG, PNG en BMP. Als je niks opgeeft, wordt PNG gebruikt.</translation>
     </message>
 </context>
 <context>
@@ -370,55 +372,55 @@ Wil je hem opslaan?</translation>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">Afbeelding geüpload</translation>
+        <translation>Afbeelding geüpload</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>Het uploadscript </translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation> is uitgevoerd.</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished">Geüpload naar</translation>
+        <translation>Geüpload naar</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>De tijdelijke afbeelding, nodig voor het uploaden, kan niet worden opgeslagen.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Het proces kan niet worden gestart. Controleer het pad en de toegangsrechten.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>Het proces is gecrasht</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>Het proces is verlopen.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Leesfout.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schrijffout.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Netwerkfout. Controleer de opdrachtvensteruitvoer.</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Onbekende procesfout.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploaden mislukt</translation>
     </message>
 </context>
 <context>
@@ -585,15 +587,15 @@ standaard ingeschakeld op macOS.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">Afbeelding geüpload naar imgur.com!</translation>
+        <translation>Afbeelding geüpload naar imgur.com!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">Nieuwe toegangssleutel ontvangen; bezig met opnieuw uploaden…</translation>
+        <translation>Nieuwe toegangssleutel ontvangen; bezig met opnieuw uploaden…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">Imgur-toegangssleutel verlopen; bezig met aanvragen van nieuwe…</translation>
+        <translation>Imgur-toegangssleutel verlopen; bezig met aanvragen van nieuwe…</translation>
     </message>
 </context>
 <context>
@@ -824,7 +826,7 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermfoto uploaden naar online-dienst</translation>
     </message>
 </context>
 <context>
@@ -869,46 +871,49 @@ van schermfoto, in seconden.</translation>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Scriptuitvoer kopiëren naar klembord</translation>
     </message>
     <message>
         <source>After:</source>
-        <translation type="unfinished"></translation>
+        <translation>Na:</translation>
     </message>
     <message>
         <source>Only output following this string will be copied to clipboard, excluding that string.
 If omitted, everything from start will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alleen de na deze zin volgende uitvoer wordt gekopieerd naar het klembord, minus die zin.
+Indien overgeslagen wordt alles gekopieerd.</translation>
     </message>
     <message>
         <source>Before:</source>
-        <translation type="unfinished"></translation>
+        <translation>Voor:</translation>
     </message>
     <message>
         <source>Only output before this string will be copied to clipboard, excluding that string.
 If omitted, everything up to the end will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alleen de voor deze zin volgende uitvoer wordt gekopieerd naar het klembord, minus die zin.
+Indien overgeslagen wordt alles gekopieerd.</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Script:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pad naar het script dat moet worden gebruikt bij het uploaden. Tijdens het uploaden
+wordt dit script aangeroepen op het pad van de tijdelijke png.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Bladeren</translation>
+        <translation>Bladeren</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Script-uploader</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploadscript kiezen</translation>
     </message>
 </context>
 <context>
@@ -947,11 +952,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploader</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Script-uploader</translation>
     </message>
 </context>
 <context>
@@ -980,42 +985,42 @@ with the path to a temporary png file as a single argument.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploadscript vereist</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg een uploadscript toe via Opties --&gt; Instellingen --&gt; Uploadscript</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermfoto uploaden</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Je staat op het punt om een afbeelding te uploaden. Wil je doorgaan?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Vragen alvorens te uploaden</translation>
+        <translation>Vragen alvorens te uploaden</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Soort upload:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Script</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploader</translation>
     </message>
 </context>
 <context>

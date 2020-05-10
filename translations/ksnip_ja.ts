@@ -372,55 +372,55 @@ Do you want to save it?</source>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">アップロードが成功しました</translation>
+        <translation>アップロードに成功しました</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>アップロードスクリプト </translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation> が正常に終了しました。</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished">アップロード先:</translation>
+        <translation>アップロード先:</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>アップロードするための一時画像を保存できません。</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>プロセスを起動できません。パスとパーミッションを確認してください。</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>プロセスがクラッシュしました</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>プロセスがタイムアウトしました。</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>プロセスの読み取りエラーです。</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>プロセスの書き込みエラーです。</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>ウェブのエラーです。コンソールの出力を確認してください。</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation>プロセスの不明なエラーです。</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>アップロードに失敗しました</translation>
     </message>
 </context>
 <context>

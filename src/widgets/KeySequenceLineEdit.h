@@ -36,6 +36,7 @@ public:
 	~KeySequenceLineEdit() override;
 	QKeySequence value() const;
 	void setValue(const QKeySequence &keySequence);
+	void clear();
 
 protected:
 	void keyPressEvent(QKeyEvent *event) override;

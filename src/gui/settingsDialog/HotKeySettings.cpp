@@ -19,11 +19,24 @@
 
 #include "HotKeySettings.h"
 
-HotKeySettings::HotKeySettings(KsnipConfig *ksnipConfig)
+HotKeySettings::HotKeySettings(KsnipConfig *ksnipConfig) :
+	mConfig(ksnipConfig),
+	mEnableGlobalHotKeysCheckBox(new QCheckBox(this)),
+	mRectAreaLabel(new QLabel(this)),
+	mLastRectAreaLabel(new QLabel(this)),
+	mFullScreenLabel(new QLabel(this)),
+	mCurrentScreenLabel(new QLabel(this)),
+	mActiveWindowLabel(new QLabel(this)),
+	mWindowUnderCursorLabel(new QLabel(this)),
+	mRectAreaClearPushButton(new QPushButton(this)),
+	mLastRectAreaClearPushButton(new QPushButton(this)),
+	mFullScreenClearPushButton(new QPushButton(this)),
+	mCurrentScreenClearPushButton(new QPushButton(this)),
+	mActiveWindowClearPushButton(new QPushButton(this)),
+	mWindowUnderCursorClearPushButton(new QPushButton(this)),
+	mLayout(new QGridLayout(this))
 {
-	Q_ASSERT(ksnipConfig != nullptr);
-
-	mConfig = ksnipConfig;
+	Q_ASSERT(mConfig != nullptr);
 
 	initGui();
 	loadConfig();
@@ -44,6 +57,12 @@ HotKeySettings::~HotKeySettings()
 	delete mCurrentScreenKeySequenceLineEdit;
 	delete mActiveWindowKeySequenceLineEdit;
 	delete mWindowUnderCursorKeySequenceLineEdit;
+	delete mRectAreaClearPushButton;
+	delete mLastRectAreaClearPushButton;
+	delete mFullScreenClearPushButton;
+	delete mCurrentScreenClearPushButton;
+	delete mActiveWindowClearPushButton;
+	delete mWindowUnderCursorClearPushButton;
 	delete mLayout;
 }
 
@@ -61,20 +80,12 @@ void HotKeySettings::saveSettings()
 void HotKeySettings::initGui()
 {
 	auto allowedKeys = HotKeyMap::instance()->getAllKeys();
-	mEnableGlobalHotKeysCheckBox = new QCheckBox(this);
-	mRectAreaLabel = new QLabel(this);
-	mLastRectAreaLabel = new QLabel(this);
-	mFullScreenLabel = new QLabel(this);
-	mCurrentScreenLabel = new QLabel(this);
-	mActiveWindowLabel = new QLabel(this);
-	mWindowUnderCursorLabel = new QLabel(this);
 	mRectAreaKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
 	mLastRectAreaKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
 	mFullScreenKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
 	mCurrentScreenKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
 	mActiveWindowKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
 	mWindowUnderCursorKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
-	mLayout = new QGridLayout(this);
 
 	mEnableGlobalHotKeysCheckBox->setText(tr("Enable Global HotKeys"));
 	mEnableGlobalHotKeysCheckBox->setToolTip(tr("HotKeys are currently supported only for Windows and X11"));
@@ -87,21 +98,52 @@ void HotKeySettings::initGui()
 	mActiveWindowLabel->setText(tr("Capture active Window") + QStringLiteral(":"));
 	mWindowUnderCursorLabel->setText(tr("Capture Window under Cursor") + QStringLiteral(":"));
 
+	auto clearText = tr("Clear");
+	mRectAreaClearPushButton->setText(clearText);
+	connect(mRectAreaClearPushButton, &QPushButton::clicked, mRectAreaKeySequenceLineEdit, &KeySequenceLineEdit::clear);
+
+	mLastRectAreaClearPushButton->setText(clearText);
+	connect(mLastRectAreaClearPushButton, &QPushButton::clicked, mLastRectAreaKeySequenceLineEdit, &KeySequenceLineEdit::clear);
+
+	mFullScreenClearPushButton->setText(clearText);
+	connect(mFullScreenClearPushButton, &QPushButton::clicked, mFullScreenKeySequenceLineEdit, &KeySequenceLineEdit::clear);
+
+	mCurrentScreenClearPushButton->setText(clearText);
+	connect(mCurrentScreenClearPushButton, &QPushButton::clicked, mCurrentScreenKeySequenceLineEdit, &KeySequenceLineEdit::clear);
+
+	mActiveWindowClearPushButton->setText(clearText);
+	connect(mActiveWindowClearPushButton, &QPushButton::clicked, mActiveWindowKeySequenceLineEdit, &KeySequenceLineEdit::clear);
+
+	mWindowUnderCursorClearPushButton->setText(clearText);
+	connect(mWindowUnderCursorClearPushButton, &QPushButton::clicked, mWindowUnderCursorKeySequenceLineEdit, &KeySequenceLineEdit::clear);
+
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnStretch(1, 1);
-	mLayout->addWidget(mEnableGlobalHotKeysCheckBox, 0, 0, 1, 2);
-	mLayout->addWidget(mRectAreaLabel, 1, 0);
-	mLayout->addWidget(mRectAreaKeySequenceLineEdit, 1, 1);
-	mLayout->addWidget(mLastRectAreaLabel, 2, 0);
-	mLayout->addWidget(mLastRectAreaKeySequenceLineEdit, 2, 1);
-	mLayout->addWidget(mFullScreenLabel, 3, 0);
-	mLayout->addWidget(mFullScreenKeySequenceLineEdit, 3, 1);
-	mLayout->addWidget(mCurrentScreenLabel, 4, 0);
-	mLayout->addWidget(mCurrentScreenKeySequenceLineEdit, 4, 1);
-	mLayout->addWidget(mActiveWindowLabel, 5, 0);
-	mLayout->addWidget(mActiveWindowKeySequenceLineEdit, 5, 1);
-	mLayout->addWidget(mWindowUnderCursorLabel, 6, 0);
-	mLayout->addWidget(mWindowUnderCursorKeySequenceLineEdit, 6, 1);
+	mLayout->addWidget(mEnableGlobalHotKeysCheckBox, 0, 0, 1, 3);
+
+	mLayout->addWidget(mRectAreaLabel, 1, 0, 1, 1);
+	mLayout->addWidget(mRectAreaKeySequenceLineEdit, 1, 1, 1, 1);
+	mLayout->addWidget(mRectAreaClearPushButton, 1, 2, 1, 1);
+
+	mLayout->addWidget(mLastRectAreaLabel, 2, 0,1,1);
+	mLayout->addWidget(mLastRectAreaKeySequenceLineEdit, 2, 1, 1, 1);
+	mLayout->addWidget(mLastRectAreaClearPushButton, 2, 2, 1, 1);
+
+	mLayout->addWidget(mFullScreenLabel, 3, 0, 1, 1);
+	mLayout->addWidget(mFullScreenKeySequenceLineEdit, 3, 1, 1, 1);
+	mLayout->addWidget(mFullScreenClearPushButton, 3, 2, 1, 1);
+
+	mLayout->addWidget(mCurrentScreenLabel, 4, 0, 1, 1);
+	mLayout->addWidget(mCurrentScreenKeySequenceLineEdit, 4, 1, 1, 1);
+	mLayout->addWidget(mCurrentScreenClearPushButton, 4, 2, 1, 1);
+
+	mLayout->addWidget(mActiveWindowLabel, 5, 0, 1, 1);
+	mLayout->addWidget(mActiveWindowKeySequenceLineEdit, 5, 1, 1, 1);
+	mLayout->addWidget(mActiveWindowClearPushButton, 5, 2, 1, 1);
+
+	mLayout->addWidget(mWindowUnderCursorLabel, 6, 0, 1, 1);
+	mLayout->addWidget(mWindowUnderCursorKeySequenceLineEdit, 6, 1, 1, 1);
+	mLayout->addWidget(mWindowUnderCursorClearPushButton, 6, 2, 1, 1);
 
 	setTitle(tr("Global HotKeys"));
 	setLayout(mLayout);

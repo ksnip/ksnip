@@ -64,6 +64,12 @@ QKeySequence KeySequenceLineEdit::value() const
 	return mKeySequence;
 }
 
+void KeySequenceLineEdit::clear()
+{
+	mKeySequence = QKeySequence();
+	updateText();
+}
+
 void KeySequenceLineEdit::setValue(const QKeySequence &keySequence)
 {
 	mKeySequence = keySequence;

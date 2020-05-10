@@ -54,7 +54,7 @@ void GlobalHotKeyHandler::setupHotKeys()
 
 void GlobalHotKeyHandler::createHotKey(const QKeySequence &keySequence, CaptureModes captureMode)
 {
-	if(mSupportedCaptureModes.contains(captureMode)) {
+	if(mSupportedCaptureModes.contains(captureMode) && !keySequence.isEmpty()) {
 		auto hotKey = QSharedPointer<GlobalHotKey>(new GlobalHotKey(QApplication::instance(), keySequence));
 		connect(hotKey.data(), &GlobalHotKey::pressed, [this, captureMode](){ emit newCaptureTriggered(captureMode); });
 		mGlobalHotKeys.append(hotKey);

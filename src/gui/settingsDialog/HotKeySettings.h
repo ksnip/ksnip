@@ -24,6 +24,7 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QGridLayout>
+#include <QPushButton>
 
 #include "src/backend/config/KsnipConfig.h"
 #include "src/widgets/KeySequenceLineEdit.h"
@@ -51,6 +52,12 @@ private:
 	KeySequenceLineEdit *mCurrentScreenKeySequenceLineEdit;
 	KeySequenceLineEdit *mActiveWindowKeySequenceLineEdit;
 	KeySequenceLineEdit *mWindowUnderCursorKeySequenceLineEdit;
+	QPushButton *mRectAreaClearPushButton;
+	QPushButton *mLastRectAreaClearPushButton;
+	QPushButton *mFullScreenClearPushButton;
+	QPushButton *mCurrentScreenClearPushButton;
+	QPushButton *mActiveWindowClearPushButton;
+	QPushButton *mWindowUnderCursorClearPushButton;
 	QGridLayout *mLayout;
 
 	KsnipConfig *mConfig;

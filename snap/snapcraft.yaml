@@ -30,7 +30,6 @@ apps:
       - network-manager-observe
       - network-observe
       - opengl
-      - system-observe
 
 parts:
   ksnip:

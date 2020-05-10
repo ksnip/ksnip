@@ -7,8 +7,6 @@ make DESTDIR=appdir -j$(nproc) install ; find appdir/
 echo "--> Copy SSL libs to appDir"
 mkdir -p appdir/usr/lib/
 cp /lib/x86_64-linux-gnu/libssl.so.1.0.0 appdir/usr/lib/
-echo "---- ls appDir lib dir ------"
-ls -al appdir/usr/lib/
 
 echo "--> Package appImage"
 unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH

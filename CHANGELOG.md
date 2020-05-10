@@ -22,6 +22,7 @@
 * Fixed: Compilation error with Qt 5.15. ([#279](https://github.com/ksnip/ksnip/issues/279))
 * Fixed: Undo and redo translation reverts back to English. ([#209](https://github.com/ksnip/ksnip/issues/209))
 * Fixed: When 'Capture Save Location' is not set, ksnip fails to save. ([#263](https://github.com/ksnip/ksnip/issues/263))
+* Fixed: Connections that required ssl not working on AppImages. ([#320](https://github.com/ksnip/ksnip/issues/320))
 
 ## Release 1.6.2
 * Changed: Add missing plugs to silence snap socket warnings. ([#313](https://github.com/ksnip/ksnip/issues/313))

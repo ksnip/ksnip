@@ -5,7 +5,13 @@ cmake . -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=/usr -DVERSION_S
 make DESTDIR=appdir -j$(nproc) install ; find appdir/
 
 echo "--> Copy SSL libs to appDir"
-cp /lib/x86_64-linux-gnu/libssl.so.1.0.0 appdir/usr/lib
+echo "---- ls lib dir ------"
+ls -al /lib/x86_64-linux-gnu/
+echo "---- ls current dir ------"
+ls -al
+cp /lib/x86_64-linux-gnu/libssl.so.1.0.0 appdir/usr/lib/
+echo "---- ls appDir lib dir ------"
+ls -al appdir/usr/lib/
 
 echo "--> Package appImage"
 unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH

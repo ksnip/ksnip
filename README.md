@@ -76,10 +76,11 @@ The usual installation for snaps, will install latest version:
 The continuous build version is also available as edge, in order to install it you need to provide the edge flag:  
 `$ sudo snap install ksnip --edge`  
 
-Snap startup time can be speed up and console output cleaned up by running following commands:  
+Snap startup time can be speed up and console output cleaned up from following error `Could not create AF_NETLINK socket (Permission denied)` by running following commands:  
 `$ snap connect ksnip:network-observe`  
 `$ snap connect ksnip:network-manager-observe`  
-`$ snap connect ksnip:system-observe`  
+
+If you need to save screenshots to a removable media, following additional connection is required:  
 `$ snap connect ksnip:removable-media`  
 
 This needs to be done only once and connects some snap plugs which are currently not auto-connected.  

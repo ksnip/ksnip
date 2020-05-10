@@ -20,7 +20,7 @@
 
 #include "SettingsDialog.h"
 
-SettingsDialog::SettingsDialog(QWidget *parent) :
+SettingsDialog::SettingsDialog(QWidget *parent, const QList<CaptureModes> &captureModes) :
 	QDialog(parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
 	mOkButton(new QPushButton),
 	mCancelButton(new QPushButton),
@@ -32,7 +32,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 	mImgurUploaderSettings(new ImgurUploaderSettings(mConfig)),
 	mScriptUploaderSettings(new ScriptUploaderSettings(mConfig)),
 	mAnnotationSettings(new AnnotationSettings(mConfig)),
-	mHotKeySettings(new HotKeySettings(mConfig)),
+	mHotKeySettings(new HotKeySettings(mConfig, captureModes)),
 	mUploaderSettings(new UploaderSettings(mConfig))
 {
     setWindowTitle(QApplication::applicationName() + QStringLiteral(" - ") + tr("Settings"));

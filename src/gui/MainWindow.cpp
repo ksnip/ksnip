@@ -575,7 +575,7 @@ void MainWindow::showDialog(const std::function<void ()>& showDialogMethod)
 void MainWindow::showSettingsDialog()
 {
 	showDialog([&](){
-		SettingsDialog settingsDialog(this);
+		SettingsDialog settingsDialog(this, mImageGrabber->supportedCaptureModes());
 		settingsDialog.exec();
 	});
 }

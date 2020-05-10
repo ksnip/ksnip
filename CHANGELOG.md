@@ -19,6 +19,7 @@
 * New kImageAnnotator: Saved image expand to include annotations out of border. ([#90](https://github.com/ksnip/kImageAnnotator/issues/90))  
 * Changed: Save As option was added and useInstantSave config was removed. ([#285](https://github.com/ksnip/ksnip/issues/285))
 * Changed: Disable scroll down with zero value in timeout widget. ([#294](https://github.com/ksnip/ksnip/issues/294))
+* Changed: Disable unsupported capture modes in settings. ([#322](https://github.com/ksnip/ksnip/issues/322))
 * Changed kImageAnnotator: Make dropdown buttons show popup on click. ([#89](https://github.com/ksnip/kImageAnnotator/issues/89))
 * Fixed: Compilation error with Qt 5.15. ([#279](https://github.com/ksnip/ksnip/issues/279))
 * Fixed: Undo and redo translation reverts back to English. ([#209](https://github.com/ksnip/ksnip/issues/209))

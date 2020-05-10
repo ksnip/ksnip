@@ -34,7 +34,7 @@ class HotKeySettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit HotKeySettings(KsnipConfig *ksnipConfig);
+	explicit HotKeySettings(KsnipConfig *ksnipConfig, const QList<CaptureModes> &captureModes);
 	~HotKeySettings() override;
 	void saveSettings();
 
@@ -59,7 +59,7 @@ private:
 	QPushButton *mActiveWindowClearPushButton;
 	QPushButton *mWindowUnderCursorClearPushButton;
 	QGridLayout *mLayout;
-
+	QList<CaptureModes> mCaptureModes;
 	KsnipConfig *mConfig;
 
 	void initGui();

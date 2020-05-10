@@ -19,8 +19,9 @@
 
 #include "HotKeySettings.h"
 
-HotKeySettings::HotKeySettings(KsnipConfig *ksnipConfig) :
+HotKeySettings::HotKeySettings(KsnipConfig *ksnipConfig, const QList<CaptureModes> &captureModes) :
 	mConfig(ksnipConfig),
+	mCaptureModes(captureModes),
 	mEnableGlobalHotKeysCheckBox(new QCheckBox(this)),
 	mRectAreaLabel(new QLabel(this)),
 	mLastRectAreaLabel(new QLabel(this)),
@@ -165,16 +166,34 @@ void HotKeySettings::loadConfig()
 void HotKeySettings::globalHotKeysStateChanged()
 {
 	auto hotKeysEnabled = mEnableGlobalHotKeysCheckBox->isChecked() && mEnableGlobalHotKeysCheckBox->isEnabled();
-	mRectAreaLabel->setEnabled(hotKeysEnabled);
-	mLastRectAreaLabel->setEnabled(hotKeysEnabled);
-	mFullScreenLabel->setEnabled(hotKeysEnabled);
-	mCurrentScreenLabel->setEnabled(hotKeysEnabled);
-	mActiveWindowLabel->setEnabled(hotKeysEnabled);
-	mWindowUnderCursorLabel->setEnabled(hotKeysEnabled);
-	mRectAreaKeySequenceLineEdit->setEnabled(hotKeysEnabled);
-	mLastRectAreaKeySequenceLineEdit->setEnabled(hotKeysEnabled);
-	mFullScreenKeySequenceLineEdit->setEnabled(hotKeysEnabled);
-	mCurrentScreenKeySequenceLineEdit->setEnabled(hotKeysEnabled);
-	mActiveWindowKeySequenceLineEdit->setEnabled(hotKeysEnabled);
-	mWindowUnderCursorKeySequenceLineEdit->setEnabled(hotKeysEnabled);
+	auto isRectAreaSupported = mCaptureModes.contains(CaptureModes::RectArea);
+	auto isLastRectAreaSupported = mCaptureModes.contains(CaptureModes::LastRectArea);
+	auto isFullScreenSupported = mCaptureModes.contains(CaptureModes::FullScreen);
+	auto isCurrentScreenSupported = mCaptureModes.contains(CaptureModes::CurrentScreen);
+	auto isActiveWindowSupported = mCaptureModes.contains(CaptureModes::ActiveWindow);
+	auto isWindowUnderCursorSupported = mCaptureModes.contains(CaptureModes::WindowUnderCursor);
+
+	mRectAreaLabel->setEnabled(hotKeysEnabled && isRectAreaSupported);
+	mRectAreaKeySequenceLineEdit->setEnabled(hotKeysEnabled && isRectAreaSupported);
+	mRectAreaClearPushButton->setEnabled(hotKeysEnabled && isRectAreaSupported);
+
+	mLastRectAreaLabel->setEnabled(hotKeysEnabled && isLastRectAreaSupported);
+	mLastRectAreaKeySequenceLineEdit->setEnabled(hotKeysEnabled && isLastRectAreaSupported);
+	mLastRectAreaClearPushButton->setEnabled(hotKeysEnabled && isLastRectAreaSupported);
+
+	mFullScreenLabel->setEnabled(hotKeysEnabled && isFullScreenSupported);
+	mFullScreenKeySequenceLineEdit->setEnabled(hotKeysEnabled && isFullScreenSupported);
+	mFullScreenClearPushButton->setEnabled(hotKeysEnabled && isFullScreenSupported);
+
+	mCurrentScreenLabel->setEnabled(hotKeysEnabled && isCurrentScreenSupported);
+	mCurrentScreenKeySequenceLineEdit->setEnabled(hotKeysEnabled && isCurrentScreenSupported);
+	mCurrentScreenClearPushButton->setEnabled(hotKeysEnabled && isCurrentScreenSupported);
+
+	mActiveWindowLabel->setEnabled(hotKeysEnabled && isActiveWindowSupported);
+	mActiveWindowKeySequenceLineEdit->setEnabled(hotKeysEnabled && isActiveWindowSupported);
+	mActiveWindowClearPushButton->setEnabled(hotKeysEnabled && isActiveWindowSupported);
+
+	mWindowUnderCursorLabel->setEnabled(hotKeysEnabled && isWindowUnderCursorSupported);
+	mWindowUnderCursorKeySequenceLineEdit->setEnabled(hotKeysEnabled && isWindowUnderCursorSupported);
+	mWindowUnderCursorClearPushButton->setEnabled(hotKeysEnabled && isWindowUnderCursorSupported);
 }

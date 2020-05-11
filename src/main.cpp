@@ -26,8 +26,8 @@
 
 #include "BuildConfig.h"
 #include "src/gui/MainWindow.h"
+#include "src/gui/InstanceLock.h"
 #include "src/backend/imageGrabber/ImageGrabberFactory.h"
-#include "src/backend/config/KsnipConfigProvider.h"
 #include "src/backend/TranslationLoader.h"
 #include "src/backend/KsnipCommandLine.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
@@ -55,16 +55,23 @@ int main(int argc, char** argv)
     auto arguments = QCoreApplication::arguments();
     MainWindow* window;
 
-    // If there are no options except the the ksnip executable name, just run the application
-    if (arguments.count() <= 1) {
-        window = new MainWindow(imageGrabber, RunMode::GUI);
-        return app.exec();
-    }
-
 	if (commandLine.isVersionSet()) {
 		qInfo("Version: %s", qPrintable(KSNIP_VERSION));
 		qInfo("Build: %s", qPrintable(KSNIP_BUILD_NUMBER));
 		return 0;
+	}
+
+	InstanceLock instanceLock;
+
+//	if(!instanceLock.lock()) {
+//		qDebug("Another instance running");
+//		return 0;
+//	}
+
+	// If there are no options except the the ksnip executable name, just run the application
+	if (arguments.count() <= 1) {
+		window = new MainWindow(imageGrabber, RunMode::GUI);
+		return app.exec();
 	}
 
     if (commandLine.isEditSet()) {

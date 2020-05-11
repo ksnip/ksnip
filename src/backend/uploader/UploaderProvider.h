@@ -35,7 +35,7 @@ public:
 	IUploader* get();
 
 signals:
-	virtual void finished(const UploadResult &result);
+	void finished(const UploadResult &result);
 
 private:
 	KsnipConfig *mConfig;

@@ -215,7 +215,7 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation>Automaticamente ocultar Abas</translation>
+        <translation>Automaticamente ocultar abas</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
@@ -372,55 +372,55 @@ Deseja salvá-la?</translation>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">Upload bem-sucedido</translation>
+        <translation>Upload bem sucedido</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>Upload script </translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation> terminou com sucesso.</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished">Upado para</translation>
+        <translation>Upado para</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível salvar a imagem temporária para upload.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível iniciar o processo, verifique o caminho e as permissões.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>Processo travado</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>O tempo limite do processo expirou.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro de leitura do processo.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro de gravação do processo.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro na Web, verifique a saída do console.</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro de processo desconhecido.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha no upload</translation>
     </message>
 </context>
 <context>
@@ -586,7 +586,7 @@ e sempre ativado para MacOs.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">Upload para imgur.com finalizado!</translation>
+        <translation>Upload para imgur.com finalizado!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -870,7 +870,7 @@ e captura de tela.</translation>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation>Copiar saída de script para a área de transferência</translation>
+        <translation>Copiar saída do script para a área de transferência</translation>
     </message>
     <message>
         <source>After:</source>
@@ -904,11 +904,11 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Navegar</translation>
+        <translation>Navegar</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Script Uploader</translation>
+        <translation>Script de Uploader</translation>
     </message>
     <message>
         <source>Select Upload Script</source>

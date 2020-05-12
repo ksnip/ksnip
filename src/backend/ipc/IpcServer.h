@@ -31,6 +31,9 @@ public:
 	~IpcServer() override;
 	bool start();
 
+signals:
+	void received(const QByteArray &data);
+
 private:
 	QLocalServer *mLocalServer;
 

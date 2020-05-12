@@ -29,7 +29,7 @@ public:
 	IpcClient();
 	~IpcClient() override;
 	void start();
-	void write(const QByteArray &data);
+	void send(const QByteArray &data);
 
 private:
 	QLocalSocket *mLocalSocket;

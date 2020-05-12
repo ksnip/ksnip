@@ -35,7 +35,7 @@ void IpcClient::start()
 	mLocalSocket->connectToServer(QStringLiteral("ksnip-server"));
 }
 
-void IpcClient::write(const QByteArray &data)
+void IpcClient::send(const QByteArray &data)
 {
 	mLocalSocket->write(data);
 	mLocalSocket->waitForBytesWritten();

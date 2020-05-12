@@ -47,5 +47,6 @@ void IpcServer::processData()
 {
 	auto clientSocket = dynamic_cast<QLocalSocket*>(sender());
 	auto data = clientSocket->readAll();
+	emit received(data);
 }
 

@@ -22,8 +22,7 @@
 QSharedPointer<IBootstrapper> BootstrapperFactory::create()
 {
 	if(isSingleInstance()) {
-		InstanceLock instanceLock;
-		if (instanceLock.lock()) {
+		if (mInstanceLock.lock()) {
 			return QSharedPointer<IBootstrapper>(new SingleInstanceServerBootstrapper());
 		} else {
 			return QSharedPointer<IBootstrapper>(new SingleInstanceClientBootstrapper());

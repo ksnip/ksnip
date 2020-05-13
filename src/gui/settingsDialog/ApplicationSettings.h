@@ -53,6 +53,7 @@ private:
 	QCheckBox *mCloseToTrayCheckBox;
 	QCheckBox *mStartMinimizedToTrayCheckBox;
 	QCheckBox *mAutoHideTabsCheckbox;
+	QCheckBox *mUseSingleInstanceCheckBox;
 	QCheckBox *mRememberSaveDirectoryCheckbox;
 	QLabel *mApplicationStyleLabel;
 	QComboBox *mApplicationStyleCombobox;

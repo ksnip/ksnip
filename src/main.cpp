@@ -40,6 +40,6 @@ int main(int argc, char** argv)
 
     app.setStyle(KsnipConfigProvider::instance()->applicationStyle());
 
-	auto bootstrapper = BootstrapperFactory::create();
-	return bootstrapper->start(app);
+	BootstrapperFactory bootstrapperFactory;
+	return bootstrapperFactory.create()->start(app);
 }

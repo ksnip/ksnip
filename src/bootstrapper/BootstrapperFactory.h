@@ -31,8 +31,15 @@
 class BootstrapperFactory
 {
 public:
-	static QSharedPointer<IBootstrapper> create();
-	static bool isSingleInstance();
+	BootstrapperFactory() = default;
+	~BootstrapperFactory() = default;
+
+	QSharedPointer<IBootstrapper> create();
+
+private:
+	InstanceLock mInstanceLock;
+
+	bool isSingleInstance();
 };
 
 

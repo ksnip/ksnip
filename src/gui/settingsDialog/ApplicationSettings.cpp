@@ -32,6 +32,7 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	mCloseToTrayCheckBox(new QCheckBox(this)),
 	mStartMinimizedToTrayCheckBox(new QCheckBox(this)),
 	mAutoHideTabsCheckbox(new QCheckBox(this)),
+	mUseSingleInstanceCheckBox(new QCheckBox(this)),
 	mRememberSaveDirectoryCheckbox(new QCheckBox(this)),
 	mApplicationStyleLabel(new QLabel(this)),
 	mApplicationStyleCombobox(new QComboBox(this)),
@@ -59,6 +60,7 @@ ApplicationSettings::~ApplicationSettings()
 	delete mMinimizeToTrayCheckBox;
 	delete mCloseToTrayCheckBox;
 	delete mStartMinimizedToTrayCheckBox;
+	delete mUseSingleInstanceCheckBox;
 	delete mRememberSaveDirectoryCheckbox;
 	delete mApplicationStyleLabel;
 	delete mApplicationStyleCombobox;
@@ -85,6 +87,12 @@ void ApplicationSettings::initGui()
 
 	mAutoHideTabsCheckbox->setText(tr("Auto Hide Tabs"));
 	mAutoHideTabsCheckbox->setToolTip(tr("Hide Tabbar when only on Tab is used."));
+
+	mUseSingleInstanceCheckBox->setText(tr("Run ksnip as single instance"));
+	mUseSingleInstanceCheckBox->setToolTip(tr("Enabling this option will allow only one ksnip instance to run,\n"
+										         "all other instances started after the first will pass it's\n"
+				                                 "arguments to the first and close. Changing this option requires\n"
+									             "a new start of all instances."));
 
 	mRememberSaveDirectoryCheckbox->setText(tr("Remember last Save Directory"));
 	mRememberSaveDirectoryCheckbox->setToolTip(tr("When enabled will overwrite the save directory stored in settings\n"
@@ -120,14 +128,15 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mMinimizeToTrayCheckBox, 8, 1, 1, 3);
 	mLayout->addWidget(mCloseToTrayCheckBox, 9, 1, 1, 3);
 	mLayout->addWidget(mAutoHideTabsCheckbox, 10, 0, 1, 4);
-	mLayout->addWidget(mRememberSaveDirectoryCheckbox, 11, 0, 1, 4);
-	mLayout->setRowMinimumHeight(12, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 13, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 13, 2, Qt::AlignLeft);
-	mLayout->setRowMinimumHeight(14, 15);
-	mLayout->addWidget(mSaveLocationLabel, 15, 0, 1, 4);
-	mLayout->addWidget(mSaveLocationLineEdit, 16, 0, 1, 4);
-	mLayout->addWidget(mBrowseButton, 16, 4);
+	mLayout->addWidget(mUseSingleInstanceCheckBox, 11, 0, 1, 4);
+	mLayout->addWidget(mRememberSaveDirectoryCheckbox, 12, 0, 1, 4);
+	mLayout->setRowMinimumHeight(13, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 14, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 14, 2, Qt::AlignLeft);
+	mLayout->setRowMinimumHeight(15, 15);
+	mLayout->addWidget(mSaveLocationLabel, 16, 0, 1, 4);
+	mLayout->addWidget(mSaveLocationLineEdit, 17, 0, 1, 4);
+	mLayout->addWidget(mBrowseButton, 17, 4);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -146,6 +155,7 @@ void ApplicationSettings::loadConfig()
 	mStartMinimizedToTrayCheckBox->setChecked(mConfig->startMinimizedToTray());
 	mCloseToTrayCheckBox->setChecked(mConfig->closeToTray());
 	mAutoHideTabsCheckbox->setChecked(mConfig->autoHideTabs());
+	mUseSingleInstanceCheckBox->setChecked(mConfig->useSingleInstance());
 	mRememberSaveDirectoryCheckbox->setChecked(mConfig->rememberLastSaveDirectory());
 
 	useTrayIconChanged();
@@ -167,11 +177,10 @@ void ApplicationSettings::saveSettings()
 	mConfig->setMinimizeToTray(mMinimizeToTrayCheckBox->isChecked());
 	mConfig->setStartMinimizedToTray(mStartMinimizedToTrayCheckBox->isChecked());
 	mConfig->setCloseToTray(mCloseToTrayCheckBox->isChecked());
+	mConfig->setUseSingleInstance(mUseSingleInstanceCheckBox->isChecked());
 	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
 	mConfig->setRememberLastSaveDirectory(mRememberSaveDirectoryCheckbox->isChecked());
-
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
-
 	mConfig->setSaveDirectory(PathHelper::extractPath(mSaveLocationLineEdit->displayText()));
 	mConfig->setSaveFilename(PathHelper::extractFilename(mSaveLocationLineEdit->displayText()));
 	mConfig->setSaveFormat(PathHelper::extractFormat(mSaveLocationLineEdit->displayText()));

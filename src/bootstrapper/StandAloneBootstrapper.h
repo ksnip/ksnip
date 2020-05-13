@@ -38,23 +38,28 @@ public:
 
 	int start(const QApplication &app) override;
 
+protected:
+	void createCommandLineParser(const QApplication &app);
+	void createImageGrabber();
+	int showVersion() const;
+	bool isStartedWithoutArguments() const;
+	bool isVersionRequested() const;
+	bool isEditRequested() const;
+
 private:
 	AbstractImageGrabber *mImageGrabber;
 	KsnipCommandLine *mCommandLine;
 	MainWindow *mMainWindow;
 
 	void loadTranslations(const QApplication &app) const;
-	void createImageGrabber();
-	void createCommandLineParser(const QApplication &app);
-	void createMainWindow(RunMode mode);
-	int showVersion() const;
+
+	virtual void createMainWindow(RunMode mode);
 	int startKsnip(const QApplication &app);
 	int startKsnipAndEditImage(const QApplication &app);
 	CaptureModes getCaptureMode() const;
 	RunMode getRunMode() const;
 	int getDelay() const;
 	int startKsnipAndTakeCapture(const QApplication &app);
-	bool startedWithoutArguments() const;
 };
 
 

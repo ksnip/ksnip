@@ -29,7 +29,7 @@ class IpcServer : public QObject
 public:
 	IpcServer();
 	~IpcServer() override;
-	bool start();
+	bool listen(const QString &name);
 
 signals:
 	void received(const QByteArray &data);

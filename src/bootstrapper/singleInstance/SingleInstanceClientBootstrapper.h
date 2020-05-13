@@ -17,23 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IPCCLIENT_H
-#define KSNIP_IPCCLIENT_H
+#ifndef KSNIP_SINGLEINSTANCECLIENTBOOTSTRAPPER_H
+#define KSNIP_SINGLEINSTANCECLIENTBOOTSTRAPPER_H
 
-#include <QLocalSocket>
+#include <QApplication>
 
-class IpcClient : public QObject
+#include "src/bootstrapper/StandAloneBootstrapper.h"
+#include "src/bootstrapper/IBootstrapper.h"
+#include "src/bootstrapper/singleInstance/SingleInstanceConstants.h"
+#include "src/backend/ipc/IpcClient.h"
+
+class SingleInstanceClientBootstrapper : public StandAloneBootstrapper
 {
-	Q_OBJECT
 public:
-	IpcClient();
-	~IpcClient() override;
-	void connectTo(const QString &name);
-	void send(const QByteArray &data);
+	SingleInstanceClientBootstrapper();
+	~SingleInstanceClientBootstrapper();
+
+	int start(const QApplication &app) override;
 
 private:
-	QLocalSocket *mLocalSocket;
+	IpcClient *mIpcClient;
 };
 
 
-#endif //KSNIP_IPCCLIENT_H
+#endif //KSNIP_SINGLEINSTANCECLIENTBOOTSTRAPPER_H

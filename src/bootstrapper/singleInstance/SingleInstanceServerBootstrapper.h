@@ -17,14 +17,23 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "SingleInstanceClientBootstrapper.h"
+#ifndef KSNIP_SINGLEINSTANCESERVERBOOTSTRAPPER_H
+#define KSNIP_SINGLEINSTANCESERVERBOOTSTRAPPER_H
 
-int SingleInstanceClientBootstrapper::start(const QApplication &app)
+#include "src/bootstrapper/StandAloneBootstrapper.h"
+#include "src/bootstrapper/singleInstance/SingleInstanceConstants.h"
+#include "src/backend/ipc/IpcServer.h"
+
+class SingleInstanceServerBootstrapper : public StandAloneBootstrapper
 {
-	qDebug("Another instance running");
-	IpcClient client;
-	client.start();
-	client.send("Test send from client");
+public:
+	SingleInstanceServerBootstrapper();
+	~SingleInstanceServerBootstrapper();
 
-	return 0;
-}
+	int start(const QApplication &app) override;
+
+private:
+	IpcServer *mIpcServer;
+};
+
+#endif //KSNIP_SINGLEINSTANCESERVERBOOTSTRAPPER_H

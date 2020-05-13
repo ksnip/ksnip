@@ -17,22 +17,34 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_SINGLEINSTANCECLIENTBOOTSTRAPPER_H
-#define KSNIP_SINGLEINSTANCECLIENTBOOTSTRAPPER_H
+#include "SingleInstanceClientBootstrapper.h"
 
-#include <QApplication>
-
-#include "src/bootstrapper/IBootstrapper.h"
-#include "src/backend/ipc/IpcClient.h"
-
-class SingleInstanceClientBootstrapper : public IBootstrapper
+SingleInstanceClientBootstrapper::SingleInstanceClientBootstrapper() :
+	mIpcClient(new IpcClient)
 {
-public:
-	SingleInstanceClientBootstrapper() = default;
-	~SingleInstanceClientBootstrapper() = default;
+	mIpcClient->connectTo(SingleInstance::ServerName);
+}
 
-	int start(const QApplication &app) override;
-};
+SingleInstanceClientBootstrapper::~SingleInstanceClientBootstrapper()
+{
+	delete mIpcClient;
+}
 
+int SingleInstanceClientBootstrapper::start(const QApplication &app)
+{
+	createImageGrabber();
+	createCommandLineParser(app);
 
-#endif //KSNIP_SINGLEINSTANCECLIENTBOOTSTRAPPER_H
+	if (isVersionRequested()) {
+		showVersion();
+	} else if (isStartedWithoutArguments()) {
+		mIpcClient->send("Start ksnip without arguments");
+	} else if (isEditRequested()) {
+		mIpcClient->send("Start ksnip and Edit file");
+	} else {
+		mIpcClient->send("Start ksnip and capture");
+	}
+
+	return 0;
+}
+

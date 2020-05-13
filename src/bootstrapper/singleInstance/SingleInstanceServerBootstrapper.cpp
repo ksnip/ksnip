@@ -17,22 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_SINGLEINSTANCESERVERBOOTSTRAPPER_H
-#define KSNIP_SINGLEINSTANCESERVERBOOTSTRAPPER_H
+#include "SingleInstanceServerBootstrapper.h"
 
-#include "src/bootstrapper/StandAloneBootstrapper.h"
-#include "src/backend/ipc/IpcServer.h"
-
-class SingleInstanceServerBootstrapper : public StandAloneBootstrapper
+SingleInstanceServerBootstrapper::SingleInstanceServerBootstrapper() :
+	mIpcServer(new IpcServer)
 {
-public:
-	SingleInstanceServerBootstrapper();
-	~SingleInstanceServerBootstrapper();
+}
 
-	int start(const QApplication &app) override;
+SingleInstanceServerBootstrapper::~SingleInstanceServerBootstrapper()
+{
+	delete mIpcServer;
+}
 
-private:
-	IpcServer *mIpcServer;
-};
+int SingleInstanceServerBootstrapper::start(const QApplication &app)
+{
+	mIpcServer->listen(SingleInstance::ServerName);
 
-#endif //KSNIP_SINGLEINSTANCESERVERBOOTSTRAPPER_H
+	QObject::connect(mIpcServer, &IpcServer::received, [](const QByteArray &data) {
+		qDebug("Client sent: %s", qPrintable(data));
+	});
+
+	return StandAloneBootstrapper::start(app);
+}

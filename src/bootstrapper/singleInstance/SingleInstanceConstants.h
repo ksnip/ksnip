@@ -17,24 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "SingleInstanceServerBootstrapper.h"
+#ifndef KSNIP_SINGLEINSTANCECONSTANTS_H
+#define KSNIP_SINGLEINSTANCECONSTANTS_H
 
-SingleInstanceServerBootstrapper::SingleInstanceServerBootstrapper() :
-	mIpcServer(new IpcServer)
-{
-	mIpcServer->start();
+#include <QString>
 
-	QObject::connect(mIpcServer, &IpcServer::received, [](const QByteArray &data) {
-		qDebug("Client sent: %s", qPrintable(data));
-	});
-}
+inline namespace SingleInstance {
 
-SingleInstanceServerBootstrapper::~SingleInstanceServerBootstrapper()
-{
-	delete mIpcServer;
-}
-int SingleInstanceServerBootstrapper::start(const QApplication &app)
-{
+const QString ServerName(QStringLiteral("org.ksnip.singleInstanceServer"));
 
-	return StandAloneBootstrapper::start(app);
-}
+} // namespace SingleInstance
+
+#endif //KSNIP_SINGLEINSTANCECONSTANTS_H

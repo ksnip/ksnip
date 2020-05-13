@@ -24,9 +24,9 @@
 #include <QSharedPointer>
 
 #include "src/backend/config/KsnipConfigProvider.h"
-#include "src/bootstrapper/SingleInstanceServerBootstrapper.h"
-#include "src/bootstrapper/SingleInstanceClientBootstrapper.h"
-#include "src/bootstrapper/InstanceLock.h"
+#include "src/bootstrapper/singleInstance/SingleInstanceServerBootstrapper.h"
+#include "src/bootstrapper/singleInstance/SingleInstanceClientBootstrapper.h"
+#include "src/bootstrapper/singleInstance/InstanceLock.h"
 
 class BootstrapperFactory
 {

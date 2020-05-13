@@ -29,9 +29,9 @@ IpcServer::~IpcServer()
 	delete mLocalServer;
 }
 
-bool IpcServer::start()
+bool IpcServer::listen(const QString &name)
 {
-	auto hasStarted = mLocalServer->listen(QStringLiteral("ksnip-server"));
+	auto hasStarted = mLocalServer->listen(name);
 	connect(mLocalServer, &QLocalServer::newConnection, this, &IpcServer::newConnection);
 
 	return hasStarted;

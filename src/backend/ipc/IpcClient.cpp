@@ -30,9 +30,10 @@ IpcClient::~IpcClient()
 	delete mLocalSocket;
 }
 
-void IpcClient::start()
+void IpcClient::connectTo(const QString &name)
 {
-	mLocalSocket->connectToServer(QStringLiteral("ksnip-server"));
+	mLocalSocket->connectToServer(
+		name);
 }
 
 void IpcClient::send(const QByteArray &data)

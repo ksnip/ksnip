@@ -38,22 +38,32 @@ int StandAloneBootstrapper::start(const QApplication &app)
 	createCommandLineParser(app);
 	loadTranslations(app);
 
-	if (mCommandLine->isVersionSet()) {
+	if (isVersionRequested()) {
 		return showVersion();
 	}
 
-	if (startedWithoutArguments()) {
+	if (isStartedWithoutArguments()) {
 		return startKsnip(app);
 	}
 
-	if (mCommandLine->isEditSet()) {
+	if (isEditRequested()) {
 		return startKsnipAndEditImage(app);
 	}
 
 	return startKsnipAndTakeCapture(app);
 }
 
-bool StandAloneBootstrapper::startedWithoutArguments() const
+bool StandAloneBootstrapper::isEditRequested() const
+{
+	return mCommandLine->isEditSet();
+}
+
+bool StandAloneBootstrapper::isVersionRequested() const
+{
+	return mCommandLine->isVersionSet();
+}
+
+bool StandAloneBootstrapper::isStartedWithoutArguments() const
 {
 	auto arguments = QCoreApplication::arguments();
 	return arguments.count() <= 1;

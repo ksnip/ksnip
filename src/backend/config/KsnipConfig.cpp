@@ -288,6 +288,19 @@ void KsnipConfig::setRememberLastSaveDirectory(bool enabled)
 	saveValue(KsnipConfigOptions::rememberLastSaveDirectoryString(), enabled);
 }
 
+bool KsnipConfig::useSingleInstance() const
+{
+	return loadValue(KsnipConfigOptions::useSingleInstanceString(), true).toBool();
+}
+
+void KsnipConfig::setUseSingleInstance(bool enabled)
+{
+	if (useSingleInstance() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::useSingleInstanceString(), enabled);
+}
+
 // Annotator
 
 bool KsnipConfig::textBold() const

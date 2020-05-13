@@ -17,24 +17,22 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "Bootstrapper.h"
+#include "StandAloneBootstrapper.h"
 
-Bootstrapper::Bootstrapper() :
+StandAloneBootstrapper::StandAloneBootstrapper() :
 	mImageGrabber(nullptr),
 	mCommandLine(nullptr),
-	mMainWindow(nullptr),
-	mIpcServer(nullptr)
+	mMainWindow(nullptr)
 {
 
 }
 
-Bootstrapper::~Bootstrapper()
+StandAloneBootstrapper::~StandAloneBootstrapper()
 {
 	delete mCommandLine;
-	delete mIpcServer;
 }
 
-int Bootstrapper::start(const QApplication &app)
+int StandAloneBootstrapper::start(const QApplication &app)
 {
 	createImageGrabber();
 	createCommandLineParser(app);
@@ -42,15 +40,6 @@ int Bootstrapper::start(const QApplication &app)
 
 	if (mCommandLine->isVersionSet()) {
 		return showVersion();
-	}
-
-	InstanceLock instanceLock;
-	if(!instanceLock.lock()) {
-		qDebug("Another instance running");
-		IpcClient client;
-		client.start();
-		client.send("Test send from client");
-		return 0;
 	}
 
 	if (startedWithoutArguments()) {
@@ -64,13 +53,13 @@ int Bootstrapper::start(const QApplication &app)
 	return startKsnipAndTakeCapture(app);
 }
 
-bool Bootstrapper::startedWithoutArguments() const
+bool StandAloneBootstrapper::startedWithoutArguments() const
 {
 	auto arguments = QCoreApplication::arguments();
 	return arguments.count() <= 1;
 }
 
-int Bootstrapper::startKsnipAndTakeCapture(const QApplication &app)
+int StandAloneBootstrapper::startKsnipAndTakeCapture(const QApplication &app)
 {
 	auto captureMode = getCaptureMode();
 	auto runMode = getRunMode();
@@ -82,7 +71,7 @@ int Bootstrapper::startKsnipAndTakeCapture(const QApplication &app)
 	return app.exec();
 }
 
-int Bootstrapper::getDelay() const
+int StandAloneBootstrapper::getDelay() const
 {
 	auto delay = 0;
 	if (mCommandLine->isDelaySet()) {
@@ -95,12 +84,12 @@ int Bootstrapper::getDelay() const
 	return delay * 1000;
 }
 
-RunMode Bootstrapper::getRunMode() const
+RunMode StandAloneBootstrapper::getRunMode() const
 {
 	return mCommandLine->isSaveSet() ? RunMode::CLI : RunMode::Edit;
 }
 
-CaptureModes Bootstrapper::getCaptureMode() const
+CaptureModes StandAloneBootstrapper::getCaptureMode() const
 {
 	if (mCommandLine->isCaptureModeSet()) {
 		return mCommandLine->captureMode();
@@ -110,7 +99,7 @@ CaptureModes Bootstrapper::getCaptureMode() const
 	}
 }
 
-int Bootstrapper::startKsnipAndEditImage(const QApplication &app)
+int StandAloneBootstrapper::startKsnipAndEditImage(const QApplication &app)
 {
 	auto pathToImage = mCommandLine->imagePath();
 	QPixmap pixmap(pathToImage);
@@ -127,48 +116,37 @@ int Bootstrapper::startKsnipAndEditImage(const QApplication &app)
 	return app.exec();
 }
 
-int Bootstrapper::startKsnip(const QApplication &app)
+int StandAloneBootstrapper::startKsnip(const QApplication &app)
 {
 	createMainWindow(RunMode::GUI);
 	return app.exec();
 }
 
-int Bootstrapper::showVersion() const
+int StandAloneBootstrapper::showVersion() const
 {
 	qInfo("Version: %s", qPrintable(KSNIP_VERSION));
 	qInfo("Build: %s", qPrintable(KSNIP_BUILD_NUMBER));
 	return 0;
 }
 
-void Bootstrapper::createMainWindow(RunMode mode)
+void StandAloneBootstrapper::createMainWindow(RunMode mode)
 {
 	Q_ASSERT(mMainWindow == nullptr);
 
 	mMainWindow = new MainWindow(mImageGrabber, mode);
-	createIpcServer();
 }
 
-void Bootstrapper::createIpcServer()
-{
-	mIpcServer = new IpcServer;
-	mIpcServer->start();
-
-	QObject::connect(mIpcServer, &IpcServer::received, [](const QByteArray &data) {
-		qDebug("Client sent: %s", qPrintable(data));
-	});
-}
-
-void Bootstrapper::createCommandLineParser(const QApplication &app)
+void StandAloneBootstrapper::createCommandLineParser(const QApplication &app)
 {
 	mCommandLine = new KsnipCommandLine (app, mImageGrabber->supportedCaptureModes());
 }
 
-void Bootstrapper::createImageGrabber()
+void StandAloneBootstrapper::createImageGrabber()
 {
 	mImageGrabber = ImageGrabberFactory::createImageGrabber();
 }
 
-void Bootstrapper::loadTranslations(const QApplication &app) const
+void StandAloneBootstrapper::loadTranslations(const QApplication &app) const
 {
 	TranslationLoader translationLoader;
 	translationLoader.load(app);

@@ -25,7 +25,7 @@
 #include <QApplication>
 
 #include "BuildConfig.h"
-#include "src/application/Bootstrapper.h"
+#include "src/bootstrapper/BootstrapperFactory.h"
 
 int main(int argc, char** argv)
 {
@@ -40,6 +40,6 @@ int main(int argc, char** argv)
 
     app.setStyle(KsnipConfigProvider::instance()->applicationStyle());
 
-    Bootstrapper bootstrapper;
-	return bootstrapper.start(app);
+	auto bootstrapper = BootstrapperFactory::create();
+	return bootstrapper->start(app);
 }

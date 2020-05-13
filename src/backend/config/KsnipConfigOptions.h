@@ -44,6 +44,7 @@ public:
 	static QString closeToTrayString();
 	static QString startMinimizedToTrayString();
 	static QString rememberLastSaveDirectoryString();
+	static QString useSingleInstanceString();
 	static QString textFontString();
 	static QString numberFontString();
 	static QString itemShadowEnabledString();

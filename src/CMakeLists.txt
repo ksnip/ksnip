@@ -78,8 +78,11 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/operations/HandleUploadResultOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/NotifyOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureTabs/CaptureTabStateHandler.cpp
-	${CMAKE_SOURCE_DIR}/src/application/InstanceLock.cpp
-	${CMAKE_SOURCE_DIR}/src/application/Bootstrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/bootstrapper/InstanceLock.cpp
+	${CMAKE_SOURCE_DIR}/src/bootstrapper/StandAloneBootstrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/bootstrapper/SingleInstanceClientBootstrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/bootstrapper/SingleInstanceServerBootstrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/bootstrapper/BootstrapperFactory.cpp
 	)
 
 if (APPLE)

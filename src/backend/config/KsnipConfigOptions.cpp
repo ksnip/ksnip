@@ -114,6 +114,11 @@ QString KsnipConfigOptions::rememberLastSaveDirectoryString()
 	return applicationSectionString() + QStringLiteral("RememberLastSaveDirectory");
 }
 
+QString KsnipConfigOptions::useSingleInstanceString()
+{
+	return applicationSectionString() + QStringLiteral("UseSingleInstanceString");
+}
+
 QString KsnipConfigOptions::textFontString()
 {
 	return annotatorSectionString() + QStringLiteral("TextFont");

@@ -96,6 +96,9 @@ public:
 	virtual bool rememberLastSaveDirectory() const;
 	virtual void setRememberLastSaveDirectory(bool enabled);
 
+	virtual bool useSingleInstance() const;
+	virtual void setUseSingleInstance(bool enabled);
+
 	// Annotator
 
 	virtual bool textBold() const;

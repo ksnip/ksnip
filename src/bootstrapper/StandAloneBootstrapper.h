@@ -17,40 +17,36 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_BOOTSTRAPPER_H
-#define KSNIP_BOOTSTRAPPER_H
+#ifndef KSNIP_STANDALONEBOOTSTRAPPER_H
+#define KSNIP_STANDALONEBOOTSTRAPPER_H
 
 #include <QApplication>
 
 #include "BuildConfig.h"
+#include "src/bootstrapper/IBootstrapper.h"
 #include "src/gui/MainWindow.h"
-#include "src/application/InstanceLock.h"
 #include "src/backend/imageGrabber/ImageGrabberFactory.h"
 #include "src/backend/TranslationLoader.h"
 #include "src/backend/KsnipCommandLine.h"
-#include "src/backend/ipc/IpcServer.h"
-#include "src/backend/ipc/IpcClient.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 
-class Bootstrapper
+class StandAloneBootstrapper : public IBootstrapper
 {
 public:
-	Bootstrapper();
-	~Bootstrapper();
+	StandAloneBootstrapper();
+	~StandAloneBootstrapper();
 
-	int start(const QApplication &app);
+	int start(const QApplication &app) override;
 
 private:
 	AbstractImageGrabber *mImageGrabber;
 	KsnipCommandLine *mCommandLine;
 	MainWindow *mMainWindow;
-	IpcServer *mIpcServer;
 
 	void loadTranslations(const QApplication &app) const;
 	void createImageGrabber();
 	void createCommandLineParser(const QApplication &app);
 	void createMainWindow(RunMode mode);
-	void createIpcServer();
 	int showVersion() const;
 	int startKsnip(const QApplication &app);
 	int startKsnipAndEditImage(const QApplication &app);
@@ -62,4 +58,4 @@ private:
 };
 
 
-#endif //KSNIP_BOOTSTRAPPER_H
+#endif //KSNIP_STANDALONEBOOTSTRAPPER_H

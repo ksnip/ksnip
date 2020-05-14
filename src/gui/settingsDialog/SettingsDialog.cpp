@@ -33,7 +33,8 @@ SettingsDialog::SettingsDialog(QWidget *parent, const QList<CaptureModes> &captu
 	mScriptUploaderSettings(new ScriptUploaderSettings(mConfig)),
 	mAnnotationSettings(new AnnotationSettings(mConfig)),
 	mHotKeySettings(new HotKeySettings(mConfig, captureModes)),
-	mUploaderSettings(new UploaderSettings(mConfig))
+	mUploaderSettings(new UploaderSettings(mConfig)),
+	mSaverSettings(new SaverSettings(mConfig))
 {
     setWindowTitle(QApplication::applicationName() + QStringLiteral(" - ") + tr("Settings"));
 
@@ -54,6 +55,7 @@ SettingsDialog::~SettingsDialog()
     delete mAnnotationSettings;
     delete mHotKeySettings;
     delete mUploaderSettings;
+    delete mSaverSettings;
 }
 
 void SettingsDialog::saveSettings()
@@ -65,6 +67,7 @@ void SettingsDialog::saveSettings()
     mScriptUploaderSettings->saveSettings();
     mAnnotationSettings->saveSettings();
     mHotKeySettings->saveSettings();
+    mSaverSettings->saveSettings();
 }
 
 void SettingsDialog::initGui()
@@ -81,6 +84,7 @@ void SettingsDialog::initGui()
     buttonLayout->setAlignment(Qt::AlignRight);
 
     mStackedLayout->addWidget(mApplicationSettings);
+    mStackedLayout->addWidget(mSaverSettings);
     mStackedLayout->addWidget(mImageGrabberSettings);
     mStackedLayout->addWidget(mUploaderSettings);
     mStackedLayout->addWidget(mImgurUploaderSettings);
@@ -89,6 +93,7 @@ void SettingsDialog::initGui()
 	mStackedLayout->addWidget(mHotKeySettings);
 
 	auto application = new QTreeWidgetItem(mTreeWidget, { tr("Application") });
+	auto saver = new QTreeWidgetItem(application, { tr("Saver") });
 	auto imageGrabber = new QTreeWidgetItem(mTreeWidget, { tr("Image Grabber") });
 	auto uploader = new QTreeWidgetItem(mTreeWidget, { tr("Uploader") });
 	auto imgurUploader = new QTreeWidgetItem(uploader, { tr("Imgur Uploader") });
@@ -97,6 +102,7 @@ void SettingsDialog::initGui()
 	auto hotkeys = new QTreeWidgetItem(mTreeWidget, { tr("HotKeys") });
 
 	mNavigatorItems.append(application);
+	mNavigatorItems.append(saver);
 	mNavigatorItems.append(imageGrabber);
 	mNavigatorItems.append(uploader);
 	mNavigatorItems.append(imgurUploader);

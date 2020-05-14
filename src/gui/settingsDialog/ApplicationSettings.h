@@ -43,10 +43,8 @@ public:
 
 private:
 	QCheckBox *mAutoCopyToClipboardNewCapturesCheckbox;
-	QCheckBox *mAutoSaveNewCapturesCheckbox;
-	QCheckBox *mPromptToSaveBeforeExitCheckbox;
-	QCheckBox *mSaveKsnipPositionCheckbox;
-	QCheckBox *mSaveKsnipToolSelectionCheckbox;
+	QCheckBox *mRememberKsnipPositionCheckbox;
+	QCheckBox *mRememberKsnipToolSelectionCheckbox;
 	QCheckBox *mCaptureOnStartupCheckbox;
 	QCheckBox *mUseTrayIconCheckBox;
 	QCheckBox *mMinimizeToTrayCheckBox;
@@ -54,12 +52,8 @@ private:
 	QCheckBox *mStartMinimizedToTrayCheckBox;
 	QCheckBox *mAutoHideTabsCheckbox;
 	QCheckBox *mUseSingleInstanceCheckBox;
-	QCheckBox *mRememberSaveDirectoryCheckbox;
 	QLabel *mApplicationStyleLabel;
 	QComboBox *mApplicationStyleCombobox;
-	QLabel *mSaveLocationLabel;
-	QLineEdit *mSaveLocationLineEdit;
-	QPushButton *mBrowseButton;
 	QGridLayout *mLayout;
 	KsnipConfig *mConfig;
 
@@ -67,7 +61,6 @@ private:
 	void loadConfig();
 
 private slots:
-	void chooseSaveDirectory();
 	void useTrayIconChanged();
 };
 

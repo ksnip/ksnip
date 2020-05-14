@@ -19,7 +19,7 @@
 
 #include "KsnipConfigOptions.h"
 
-QString KsnipConfigOptions::savePositionString()
+QString KsnipConfigOptions::rememberPositionString()
 {
 	return applicationSectionString() + QStringLiteral("SavePosition");
 }
@@ -39,7 +39,7 @@ QString KsnipConfigOptions::autoSaveNewCapturesString()
 	return applicationSectionString() + QStringLiteral("AutoSaveNewCaptures");
 }
 
-QString KsnipConfigOptions::saveToolSelectionString()
+QString KsnipConfigOptions::rememberToolSelectionString()
 {
 	return applicationSectionString() + QStringLiteral("SaveToolsSelection");
 }

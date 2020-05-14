@@ -42,8 +42,8 @@ public:
 
     // Application
 
-	virtual bool savePosition() const;
-	virtual void setSavePosition(bool enabled);
+	virtual bool rememberPosition() const;
+	virtual void setRememberPosition(bool enabled);
 
 	virtual bool promptSaveBeforeExit() const;
 	virtual void setPromptSaveBeforeExit(bool enabled);
@@ -54,8 +54,8 @@ public:
 	virtual bool autoSaveNewCaptures() const;
 	virtual void setAutoSaveNewCaptures(bool enabled);
 
-	virtual bool saveToolSelection() const;
-	virtual void setSaveToolSelection(bool enabled);
+	virtual bool rememberToolSelection() const;
+	virtual void setRememberToolSelection(bool enabled);
 
 	virtual bool autoHideTabs() const;
 	virtual void setAutoHideTabs(bool enabled);

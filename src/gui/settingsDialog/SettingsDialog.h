@@ -33,6 +33,7 @@
 #include "ScriptUploaderSettings.h"
 #include "HotKeySettings.h"
 #include "UploaderSettings.h"
+#include "SaverSettings.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/common/provider/ScaledSizeProvider.h"
 
@@ -54,6 +55,7 @@ private:
 	HotKeySettings *mHotKeySettings;
     AnnotationSettings *mAnnotationSettings;
     UploaderSettings *mUploaderSettings;
+    SaverSettings *mSaverSettings;
 	QTreeWidget *mTreeWidget;
     QStackedLayout *mStackedLayout;
     QList<QTreeWidgetItem*> mNavigatorItems;

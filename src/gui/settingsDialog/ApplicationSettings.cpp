@@ -22,10 +22,8 @@
 ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	mConfig(ksnipConfig),
 	mAutoCopyToClipboardNewCapturesCheckbox(new QCheckBox(this)),
-	mAutoSaveNewCapturesCheckbox(new QCheckBox(this)),
-	mPromptToSaveBeforeExitCheckbox(new QCheckBox(this)),
-	mSaveKsnipPositionCheckbox(new QCheckBox(this)),
-	mSaveKsnipToolSelectionCheckbox(new QCheckBox(this)),
+	mRememberKsnipPositionCheckbox(new QCheckBox(this)),
+	mRememberKsnipToolSelectionCheckbox(new QCheckBox(this)),
 	mCaptureOnStartupCheckbox(new QCheckBox(this)),
 	mUseTrayIconCheckBox(new QCheckBox(this)),
 	mMinimizeToTrayCheckBox(new QCheckBox(this)),
@@ -33,12 +31,8 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	mStartMinimizedToTrayCheckBox(new QCheckBox(this)),
 	mAutoHideTabsCheckbox(new QCheckBox(this)),
 	mUseSingleInstanceCheckBox(new QCheckBox(this)),
-	mRememberSaveDirectoryCheckbox(new QCheckBox(this)),
 	mApplicationStyleLabel(new QLabel(this)),
 	mApplicationStyleCombobox(new QComboBox(this)),
-	mSaveLocationLabel(new QLabel(this)),
-	mSaveLocationLineEdit(new QLineEdit(this)),
-	mBrowseButton(new QPushButton(this)),
 	mLayout(new QGridLayout)
 {
 	Q_ASSERT(mConfig != nullptr);
@@ -50,10 +44,8 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 ApplicationSettings::~ApplicationSettings()
 {
 	delete mAutoCopyToClipboardNewCapturesCheckbox;
-	delete mAutoSaveNewCapturesCheckbox;
-	delete mPromptToSaveBeforeExitCheckbox;
-	delete mSaveKsnipPositionCheckbox;
-	delete mSaveKsnipToolSelectionCheckbox;
+	delete mRememberKsnipPositionCheckbox;
+	delete mRememberKsnipToolSelectionCheckbox;
 	delete mCaptureOnStartupCheckbox;
 	delete mUseTrayIconCheckBox;
 	delete mAutoHideTabsCheckbox;
@@ -61,22 +53,16 @@ ApplicationSettings::~ApplicationSettings()
 	delete mCloseToTrayCheckBox;
 	delete mStartMinimizedToTrayCheckBox;
 	delete mUseSingleInstanceCheckBox;
-	delete mRememberSaveDirectoryCheckbox;
 	delete mApplicationStyleLabel;
 	delete mApplicationStyleCombobox;
-	delete mSaveLocationLabel;
-	delete mSaveLocationLineEdit;
-	delete mBrowseButton;
 	delete mLayout;
 }
 
 void ApplicationSettings::initGui()
 {
 	mAutoCopyToClipboardNewCapturesCheckbox->setText(tr("Automatically copy new captures to clipboard"));
-	mAutoSaveNewCapturesCheckbox->setText(tr("Automatically save new captures to default location"));
-	mPromptToSaveBeforeExitCheckbox->setText(tr("Prompt to save before discarding unsaved changes"));
-	mSaveKsnipPositionCheckbox->setText(tr("Save ksnip position on move and load on startup"));
-	mSaveKsnipToolSelectionCheckbox->setText(tr("Save ksnip tool selection and load on startup"));
+	mRememberKsnipPositionCheckbox->setText(tr("Remember ksnip position on move and load on startup"));
+	mRememberKsnipToolSelectionCheckbox->setText(tr("Remember ksnip tool selection and load on startup"));
 	mCaptureOnStartupCheckbox->setText(tr("Capture screenshot at startup with default mode"));
 	mUseTrayIconCheckBox->setText(tr("Use Tray Icon"));
 	mUseTrayIconCheckBox->setToolTip(tr("When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.\n"
@@ -94,10 +80,6 @@ void ApplicationSettings::initGui()
 				                                 "arguments to the first and close. Changing this option requires\n"
 									             "a new start of all instances."));
 
-	mRememberSaveDirectoryCheckbox->setText(tr("Remember last Save Directory"));
-	mRememberSaveDirectoryCheckbox->setToolTip(tr("When enabled will overwrite the save directory stored in settings\n"
-											         "with the latest save directory, for every save."));
-
 	connect(mUseTrayIconCheckBox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTrayIconChanged);
 
 	mApplicationStyleLabel->setText(tr("Application Style") + QStringLiteral(":"));
@@ -107,36 +89,23 @@ void ApplicationSettings::initGui()
 	mApplicationStyleCombobox->setToolTip(mApplicationStyleLabel->toolTip());
 	mApplicationStyleCombobox->setFixedWidth(ScaledSizeProvider::getScaledWidth(100));
 
-	mSaveLocationLabel->setText(tr("Capture save location and filename") + QStringLiteral(":"));
 
-	mSaveLocationLineEdit->setToolTip(tr("Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.\n"
-									        "Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default."));
-
-	mBrowseButton->setText(tr("Browse"));
-	connect(mBrowseButton, &QPushButton::clicked, this, &ApplicationSettings::chooseSaveDirectory);
 
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnMinimumWidth(0, ScaledSizeProvider::getScaledWidth(10));
 	mLayout->addWidget(mAutoCopyToClipboardNewCapturesCheckbox, 0, 0, 1, 4);
-	mLayout->addWidget(mAutoSaveNewCapturesCheckbox, 1, 0, 1, 4);
-	mLayout->addWidget(mPromptToSaveBeforeExitCheckbox, 2, 0, 1, 4);
-	mLayout->addWidget(mSaveKsnipPositionCheckbox, 3, 0, 1, 4);
-	mLayout->addWidget(mSaveKsnipToolSelectionCheckbox, 4, 0, 1, 4);
-	mLayout->addWidget(mCaptureOnStartupCheckbox, 5, 0, 1, 4);
-	mLayout->addWidget(mUseTrayIconCheckBox, 6, 0, 1, 4);
-	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 7, 1, 1, 3);
-	mLayout->addWidget(mMinimizeToTrayCheckBox, 8, 1, 1, 3);
-	mLayout->addWidget(mCloseToTrayCheckBox, 9, 1, 1, 3);
-	mLayout->addWidget(mAutoHideTabsCheckbox, 10, 0, 1, 4);
-	mLayout->addWidget(mUseSingleInstanceCheckBox, 11, 0, 1, 4);
-	mLayout->addWidget(mRememberSaveDirectoryCheckbox, 12, 0, 1, 4);
-	mLayout->setRowMinimumHeight(13, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 14, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 14, 2, Qt::AlignLeft);
-	mLayout->setRowMinimumHeight(15, 15);
-	mLayout->addWidget(mSaveLocationLabel, 16, 0, 1, 4);
-	mLayout->addWidget(mSaveLocationLineEdit, 17, 0, 1, 4);
-	mLayout->addWidget(mBrowseButton, 17, 4);
+	mLayout->addWidget(mRememberKsnipPositionCheckbox, 1, 0, 1, 4);
+	mLayout->addWidget(mRememberKsnipToolSelectionCheckbox, 2, 0, 1, 4);
+	mLayout->addWidget(mCaptureOnStartupCheckbox, 3, 0, 1, 4);
+	mLayout->addWidget(mUseTrayIconCheckBox, 4, 0, 1, 4);
+	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 5, 1, 1, 3);
+	mLayout->addWidget(mMinimizeToTrayCheckBox, 6, 1, 1, 3);
+	mLayout->addWidget(mCloseToTrayCheckBox, 7, 1, 1, 3);
+	mLayout->addWidget(mAutoHideTabsCheckbox, 8, 0, 1, 4);
+	mLayout->addWidget(mUseSingleInstanceCheckBox, 9, 0, 1, 4);
+	mLayout->setRowMinimumHeight(10, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 11, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 11, 2, Qt::AlignLeft);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -145,10 +114,8 @@ void ApplicationSettings::initGui()
 void ApplicationSettings::loadConfig()
 {
 	mAutoCopyToClipboardNewCapturesCheckbox->setChecked(mConfig->autoCopyToClipboardNewCaptures());
-	mAutoSaveNewCapturesCheckbox->setChecked(mConfig->autoSaveNewCaptures());
-	mPromptToSaveBeforeExitCheckbox->setChecked(mConfig->promptSaveBeforeExit());
-	mSaveKsnipPositionCheckbox->setChecked(mConfig->savePosition());
-	mSaveKsnipToolSelectionCheckbox->setChecked(mConfig->saveToolSelection());
+	mRememberKsnipPositionCheckbox->setChecked(mConfig->rememberPosition());
+	mRememberKsnipToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
 	mCaptureOnStartupCheckbox->setChecked(mConfig->captureOnStartup());
 	mUseTrayIconCheckBox->setChecked(mConfig->useTrayIcon());
 	mMinimizeToTrayCheckBox->setChecked(mConfig->minimizeToTray());
@@ -156,22 +123,18 @@ void ApplicationSettings::loadConfig()
 	mCloseToTrayCheckBox->setChecked(mConfig->closeToTray());
 	mAutoHideTabsCheckbox->setChecked(mConfig->autoHideTabs());
 	mUseSingleInstanceCheckBox->setChecked(mConfig->useSingleInstance());
-	mRememberSaveDirectoryCheckbox->setChecked(mConfig->rememberLastSaveDirectory());
 
 	useTrayIconChanged();
 
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
-
-	mSaveLocationLineEdit->setText(mConfig->saveDirectory() + mConfig->saveFilename() + QStringLiteral(".") + mConfig->saveFormat());
 }
 
 void ApplicationSettings::saveSettings()
 {
 	mConfig->setAutoCopyToClipboardNewCaptures(mAutoCopyToClipboardNewCapturesCheckbox->isChecked());
-	mConfig->setAutoSaveNewCaptures(mAutoSaveNewCapturesCheckbox->isChecked());
-	mConfig->setPromptSaveBeforeExit(mPromptToSaveBeforeExitCheckbox->isChecked());
-	mConfig->setSavePosition(mSaveKsnipPositionCheckbox->isChecked());
-	mConfig->setSaveToolSelection(mSaveKsnipToolSelectionCheckbox->isChecked());
+
+	mConfig->setRememberPosition(mRememberKsnipPositionCheckbox->isChecked());
+	mConfig->setRememberToolSelection(mRememberKsnipToolSelectionCheckbox->isChecked());
 	mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
 	mConfig->setUseTrayIcon(mUseTrayIconCheckBox->isChecked());
 	mConfig->setMinimizeToTray(mMinimizeToTrayCheckBox->isChecked());
@@ -179,30 +142,7 @@ void ApplicationSettings::saveSettings()
 	mConfig->setCloseToTray(mCloseToTrayCheckBox->isChecked());
 	mConfig->setUseSingleInstance(mUseSingleInstanceCheckBox->isChecked());
 	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
-	mConfig->setRememberLastSaveDirectory(mRememberSaveDirectoryCheckbox->isChecked());
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
-	mConfig->setSaveDirectory(PathHelper::extractPath(mSaveLocationLineEdit->displayText()));
-	mConfig->setSaveFilename(PathHelper::extractFilename(mSaveLocationLineEdit->displayText()));
-	mConfig->setSaveFormat(PathHelper::extractFormat(mSaveLocationLineEdit->displayText()));
-}
-
-void ApplicationSettings::chooseSaveDirectory()
-{
-	auto path = QFileDialog::getExistingDirectory(this, tr("Capture save location"), mConfig->saveDirectory());
-	if(!path.isEmpty()) {
-		auto filename = PathHelper::extractFilename(mSaveLocationLineEdit->text());
-		auto format = PathHelper::extractFormat(mSaveLocationLineEdit->text());
-
-		if(!filename.isEmpty()) {
-			path.append(QLatin1Char('/')).append(filename);
-		}
-
-		if(!format.isEmpty()) {
-			path.append(QLatin1Char('.')).append(format);
-		}
-
-		mSaveLocationLineEdit->setText(path);
-	}
 }
 
 void ApplicationSettings::useTrayIconChanged()

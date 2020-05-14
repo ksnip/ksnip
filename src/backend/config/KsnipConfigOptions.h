@@ -25,11 +25,11 @@
 class KsnipConfigOptions
 {
 public:
-	static QString savePositionString();
+	static QString rememberPositionString();
 	static QString promptSaveBeforeExitString();
 	static QString autoCopyToClipboardNewCapturesString();
 	static QString autoSaveNewCapturesString();
-	static QString saveToolSelectionString();
+	static QString rememberToolSelectionString();
 	static QString autoHideTabsString();
 	static QString captureOnStartupString();
 	static QString freezeImageWhileSnippingEnabledString();

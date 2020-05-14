@@ -546,7 +546,7 @@ bool MainWindow::discardChanges()
 void MainWindow::setupImageAnnotator()
 {
 	mKImageAnnotator->setTabBarAutoHide(mConfig->autoHideTabs());
-	mKImageAnnotator->setSaveToolSelection(mConfig->saveToolSelection());
+	mKImageAnnotator->setSaveToolSelection(mConfig->rememberToolSelection());
 	mKImageAnnotator->setSmoothFactor(mConfig->smoothFactor());
 	mKImageAnnotator->setSmoothPathEnabled(mConfig->smoothPathEnabled());
 	mKImageAnnotator->setTextFont(mConfig->textFont());

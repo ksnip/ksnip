@@ -22,17 +22,17 @@
 
 // Application
 
-bool KsnipConfig::savePosition() const
+bool KsnipConfig::rememberPosition() const
 {
-	return loadValue(KsnipConfigOptions::savePositionString(), true).toBool();
+	return loadValue(KsnipConfigOptions::rememberPositionString(), true).toBool();
 }
 
-void KsnipConfig::setSavePosition(bool enabled)
+void KsnipConfig::setRememberPosition(bool enabled)
 {
-	if (savePosition() == enabled) {
+	if (rememberPosition() == enabled) {
         return;
     }
-	saveValue(KsnipConfigOptions::savePositionString(), enabled);
+	saveValue(KsnipConfigOptions::rememberPositionString(), enabled);
 }
 
 bool KsnipConfig::promptSaveBeforeExit() const
@@ -74,17 +74,17 @@ void KsnipConfig::setAutoSaveNewCaptures(bool  enabled)
 	saveValue(KsnipConfigOptions::autoSaveNewCapturesString(), enabled);
 }
 
-bool KsnipConfig::saveToolSelection() const
+bool KsnipConfig::rememberToolSelection() const
 {
-	return loadValue(KsnipConfigOptions::saveToolSelectionString(), true).toBool();
+	return loadValue(KsnipConfigOptions::rememberToolSelectionString(), true).toBool();
 }
 
-void KsnipConfig::setSaveToolSelection(bool enabled)
+void KsnipConfig::setRememberToolSelection(bool enabled)
 {
-	if (saveToolSelection() == enabled) {
+	if (rememberToolSelection() == enabled) {
         return;
     }
-	saveValue(KsnipConfigOptions::saveToolSelectionString(), enabled);
+	saveValue(KsnipConfigOptions::rememberToolSelectionString(), enabled);
 }
 
 bool KsnipConfig::autoHideTabs() const
@@ -118,7 +118,7 @@ QPoint KsnipConfig::windowPosition() const
 {
 	// If we are not saving the position we return the default and ignore what
     // has been save earlier
-	if (!savePosition()) {
+	if (!rememberPosition()) {
 	    return { 200, 200 };
     }
 
@@ -137,7 +137,7 @@ void KsnipConfig::setWindowPosition(const QPoint& position)
 CaptureModes KsnipConfig::captureMode() const
 {
     // If we are not storing the tool selection, always return the rect area as default
-	if (!saveToolSelection()) {
+	if (!rememberToolSelection()) {
         return CaptureModes::RectArea;
     }
 

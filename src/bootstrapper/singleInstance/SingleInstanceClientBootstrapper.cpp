@@ -36,14 +36,36 @@ int SingleInstanceClientBootstrapper::start(const QApplication &app)
 	createCommandLineParser(app);
 
 	if (isVersionRequested()) {
-		showVersion();
-	} else if (isStartedWithoutArguments()) {
-		mIpcClient->send("Start ksnip without arguments");
-	} else if (isEditRequested()) {
-		mIpcClient->send("Start ksnip and Edit file");
+		return showVersion();
 	} else {
-		mIpcClient->send("Start ksnip and capture");
+		return notifyServer();
 	}
+}
+
+bool SingleInstanceClientBootstrapper::isImagePathValid(const QString &imagePath) const
+{
+	QPixmap pixmap(imagePath);
+	auto imageValid = pixmap.isNull();
+	return imageValid;
+}
+
+int SingleInstanceClientBootstrapper::notifyServer() const
+{
+	SingleInstanceParameter parameter;
+	if (isStartedWithoutArguments()) {
+		parameter = SingleInstanceParameter();
+	} else if (isEditRequested()) {
+		auto imagePath = getImagePath();
+		if (isImagePathValid(imagePath)) {
+			qWarning("Unable to open image file %s.", qPrintable(imagePath));
+			return 1;
+		}
+
+		parameter = SingleInstanceParameter(imagePath);
+	} else {
+		parameter = SingleInstanceParameter(getCaptureMode(), getSave(), getCaptureCursor(), getDelay());
+	}
+	mIpcClient->send(mParameterTranslator.translate(parameter));
 
 	return 0;
 }

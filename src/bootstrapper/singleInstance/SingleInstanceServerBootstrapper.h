@@ -22,18 +22,28 @@
 
 #include "src/bootstrapper/StandAloneBootstrapper.h"
 #include "src/bootstrapper/singleInstance/SingleInstanceConstants.h"
+#include "src/bootstrapper/singleInstance/SingleInstanceParameterTranslator.h"
 #include "src/backend/ipc/IpcServer.h"
 
-class SingleInstanceServerBootstrapper : public StandAloneBootstrapper
+class SingleInstanceServerBootstrapper : public QObject, public StandAloneBootstrapper
 {
+	Q_OBJECT
 public:
 	SingleInstanceServerBootstrapper();
-	~SingleInstanceServerBootstrapper();
-
+	~SingleInstanceServerBootstrapper() override;
 	int start(const QApplication &app) override;
 
 private:
 	IpcServer *mIpcServer;
+	SingleInstanceParameterTranslator mParameterTranslator;
+
+	void show() const;
+	void processImage(const QString &imagePath);
+	void capture(const SingleInstanceParameter &parameter) const;
+
+private slots:
+	void processData(const QByteArray &data);
+	void startServer() const;
 };
 
 #endif //KSNIP_SINGLEINSTANCESERVERBOOTSTRAPPER_H

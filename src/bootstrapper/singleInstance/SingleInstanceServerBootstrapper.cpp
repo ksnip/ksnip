@@ -31,11 +31,44 @@ SingleInstanceServerBootstrapper::~SingleInstanceServerBootstrapper()
 
 int SingleInstanceServerBootstrapper::start(const QApplication &app)
 {
-	mIpcServer->listen(SingleInstance::ServerName);
-
-	QObject::connect(mIpcServer, &IpcServer::received, [](const QByteArray &data) {
-		qDebug("Client sent: %s", qPrintable(data));
-	});
-
+	startServer();
 	return StandAloneBootstrapper::start(app);
+}
+void SingleInstanceServerBootstrapper::startServer() const
+{
+	mIpcServer->listen(ServerName);
+	connect(mIpcServer, &IpcServer::received, this, &SingleInstanceServerBootstrapper::processData);
+}
+
+void SingleInstanceServerBootstrapper::processData(const QByteArray &data)
+{
+	auto parameter = mParameterTranslator.translate(data);
+	switch (parameter.startupMode) {
+		case SingleInstanceStartupModes::Start:
+			show();
+			break;
+		case SingleInstanceStartupModes::Edit:
+			processImage(parameter.imagePath);
+			break;
+		case SingleInstanceStartupModes::Capture:
+			capture(parameter);
+			break;
+	}
+}
+
+void SingleInstanceServerBootstrapper::capture(const SingleInstanceParameter &parameter) const
+{
+	mMainWindow->captureScreenshot(parameter.captureMode, parameter.captureCursor, parameter.delay);
+}
+
+void SingleInstanceServerBootstrapper::show() const
+{
+	mMainWindow->show();
+}
+
+void SingleInstanceServerBootstrapper::processImage(const QString &imagePath)
+{
+	QPixmap pixmap(imagePath);
+	auto captureDto = CaptureFromFileDto(pixmap, imagePath);
+	mMainWindow->processCapture(captureDto);
 }

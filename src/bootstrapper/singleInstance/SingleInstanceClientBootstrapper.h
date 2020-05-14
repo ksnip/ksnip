@@ -25,6 +25,7 @@
 #include "src/bootstrapper/StandAloneBootstrapper.h"
 #include "src/bootstrapper/IBootstrapper.h"
 #include "src/bootstrapper/singleInstance/SingleInstanceConstants.h"
+#include "src/bootstrapper/singleInstance/SingleInstanceParameterTranslator.h"
 #include "src/backend/ipc/IpcClient.h"
 
 class SingleInstanceClientBootstrapper : public StandAloneBootstrapper
@@ -37,6 +38,10 @@ public:
 
 private:
 	IpcClient *mIpcClient;
+	SingleInstanceParameterTranslator mParameterTranslator;
+
+	bool isImagePathValid(const QString &imagePath) const;
+	int notifyServer() const;
 };
 
 

@@ -73,12 +73,17 @@ int StandAloneBootstrapper::startKsnipAndTakeCapture(const QApplication &app)
 {
 	auto captureMode = getCaptureMode();
 	auto runMode = getRunMode();
-	auto captureCursor = mCommandLine->isCursorSet();
+	auto captureCursor = getCaptureCursor();
 	auto delay = getDelay();
 
 	createMainWindow(runMode);
 	mMainWindow->captureScreenshot(captureMode, captureCursor, delay);
 	return app.exec();
+}
+
+bool StandAloneBootstrapper::getCaptureCursor() const
+{
+	return mCommandLine->isCursorSet();
 }
 
 int StandAloneBootstrapper::getDelay() const
@@ -96,7 +101,12 @@ int StandAloneBootstrapper::getDelay() const
 
 RunMode StandAloneBootstrapper::getRunMode() const
 {
-	return mCommandLine->isSaveSet() ? RunMode::CLI : RunMode::Edit;
+	return getSave() ? RunMode::CLI : RunMode::Edit;
+}
+
+bool StandAloneBootstrapper::getSave() const
+{
+	return mCommandLine->isSaveSet();
 }
 
 CaptureModes StandAloneBootstrapper::getCaptureMode() const
@@ -111,7 +121,7 @@ CaptureModes StandAloneBootstrapper::getCaptureMode() const
 
 int StandAloneBootstrapper::startKsnipAndEditImage(const QApplication &app)
 {
-	auto pathToImage = mCommandLine->imagePath();
+	auto pathToImage = getImagePath();
 	QPixmap pixmap(pathToImage);
 
 	if (pixmap.isNull()) {
@@ -124,6 +134,11 @@ int StandAloneBootstrapper::startKsnipAndEditImage(const QApplication &app)
 	createMainWindow(RunMode::Edit);
 	mMainWindow->processImage(captureDto);
 	return app.exec();
+}
+
+QString StandAloneBootstrapper::getImagePath() const
+{
+	return mCommandLine->imagePath();
 }
 
 int StandAloneBootstrapper::startKsnip(const QApplication &app)

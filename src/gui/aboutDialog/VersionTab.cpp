@@ -33,6 +33,7 @@ VersionTab::VersionTab()
 								  "<li>KDE Wayland</li>"
 								  "<li>Gnome Wayland</li>"
 								  "</ul>"));
+	mContent->setTextInteractionFlags(Qt::TextSelectableByMouse);
 	mLayout->addWidget(mContent);
 	setLayout(mLayout);
 }

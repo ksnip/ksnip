@@ -5,53 +5,53 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation type="unfinished"></translation>
+        <translation>সম্পর্কে </translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>সম্পর্কে</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>ভার্সন</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রোগ্রামার</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>বন্ধ করুন</translation>
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>অনুদান করুন</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>স্ক্রিনশট নেয়ার টুল</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished"></translation>
+        <translation>লাইসেন্স </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished"></translation>
+        <translation>দয়া করে ব্যবহার করুন </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation> ত্রুটি রিপোর্ট করতে</translation>
     </message>
 </context>
 <context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>ওয়াটারমার্ক দেয়ার ছবি লাগবে</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>

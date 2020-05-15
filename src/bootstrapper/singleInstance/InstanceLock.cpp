@@ -37,12 +37,8 @@ bool InstanceLock::lock()
 		return true;
 	} else {
 		attachDetach();
-		if (create()) {
-			return true;
-		}
+		return create();
 	}
-
-	return false;
 }
 
 bool InstanceLock::create()

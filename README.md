@@ -30,7 +30,7 @@ Latest ksnip version contains following features:
 * Global HotKeys for taking Screenshots (Currently only for Windows and X11).
 * Tabs for Screenshots and images.
 * Open existing images via dialog, drag-and-drop or paste from clipboard.
-* Run as single instance application
+* Run as single instance application (secondary instances send cli parameter to primary instance).
 * Many configuration options.
 
 

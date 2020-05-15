@@ -23,14 +23,11 @@ QSharedPointer<IBootstrapper> BootstrapperFactory::create()
 {
 	if(isSingleInstance()) {
 		if (mInstanceLock.lock()) {
-			qDebug("Mode: Single Instance - Server");
 			return QSharedPointer<IBootstrapper>(new SingleInstanceServerBootstrapper());
 		} else {
-			qDebug("Mode: Single Instance - Client");
 			return QSharedPointer<IBootstrapper>(new SingleInstanceClientBootstrapper());
 		}
 	} else {
-		qDebug("Mode: Standalone");
 		return QSharedPointer<IBootstrapper>(new StandAloneBootstrapper());
 	}
 }

@@ -22,7 +22,6 @@
 QByteArray SingleInstanceParameterTranslator::translate(const SingleInstanceParameter &parameter) const
 {
 	switch (parameter.startupMode) {
-
 		case SingleInstanceStartupModes::Start:
 			return getStartParameter();
 		case SingleInstanceStartupModes::Edit:
@@ -36,17 +35,22 @@ SingleInstanceParameter SingleInstanceParameterTranslator::translate(const QByte
 {
 	auto parameters = byteArray.split(getSeparator()[0]);
 
-	auto startupMode = parameters[0];
-	if(startupMode == getStartParameter()) {
+	if(parameters.empty()) {
+		qCritical("Startup mode must be provided.");
 		return SingleInstanceParameter();
-	} else if (startupMode == getEditParameter()) {
+	}
+
+	auto startupMode = parameters[0];
+	if (startupMode == getEditParameter() && parameters.count() == 2) {
 		return SingleInstanceParameter(parameters[1]);
-	} else{
+	} else if (startupMode == getCaptureParameter() && parameters.count() == 5){
 		auto captureMode = getCaptureMode(parameters[1]);
 		auto save = getBoolean(parameters[2]);
 		auto captureCursor = getBoolean(parameters[3]);
 		auto delay = parameters[4].toInt();
 		return SingleInstanceParameter(captureMode, save, captureCursor, delay);
+	} else {
+		return SingleInstanceParameter();
 	}
 }
 

@@ -33,13 +33,33 @@ InstanceLock::~InstanceLock()
 
 bool InstanceLock::lock()
 {
-	if (mSingular->attach(QSharedMemory::ReadOnly)) {
-		mSingular->detach();
-		return false;
-	}
-	else if (mSingular->create(1)) {
+	if (create()) {
 		return true;
+	} else {
+		attachDetach();
+		if (create()) {
+			return true;
+		}
 	}
 
+	return false;
+}
+
+bool InstanceLock::create()
+{
+	if (mSingular->create(1)) {
+		mSingular->lock();
+		mSingular->unlock();
+		return true;
+	}
+	return false;
+}
+
+bool InstanceLock::attachDetach()
+{
+	if (mSingular->attach(QSharedMemory::ReadOnly)) {
+		mSingular->detach();
+		return true;
+	}
 	return false;
 }

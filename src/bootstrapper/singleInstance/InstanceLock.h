@@ -33,6 +33,9 @@ public:
 
 private:
 	QSharedMemory *mSingular;
+
+	bool create();
+	bool attachDetach();
 };
 
 

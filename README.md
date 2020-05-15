@@ -140,9 +140,11 @@ Please report any bugs or feature requests related to the annotation editor on t
 All other bugs or feature requests please report on the [ksnip](https://github.com/ksnip/ksnip/issues) github page under the issue section.
 
 # Contribution
-Any contribution, be it Code, Translation or other is always welcome. We are currently looking for someone to help produce a Snap [#147](https://github.com/ksnip/ksnip/issues/147) and Flatpak [#127](https://github.com/ksnip/ksnip/issues/127) 
-version of ksnip and also help with setting up the CI/CD Pipeline for building both. Another area where help is wanted is MacOS support, we are currently looking for someone who
-could help fix bugs under MacOS.
+Any contribution, be it Code, Translation or other is always welcome. We are currently looking for someone to:
+* Produce a Flatpak [#127](https://github.com/ksnip/ksnip/issues/127).
+* Write code and fix bugs for MacOS.  
+* Write wiki entries and documentation for ksnip.  
+* Package ksnip for different OS and Destros.
 
 # Donate a Beer?
 You would like to donate a Beer? Sure, you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)

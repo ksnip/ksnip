@@ -32,12 +32,13 @@ IpcClient::~IpcClient()
 
 void IpcClient::connectTo(const QString &name)
 {
-	mLocalSocket->connectToServer(
-		name);
+	qDebug("Trying to connect to %s", qPrintable(name));
+	mLocalSocket->connectToServer(name);
 }
 
 void IpcClient::send(const QByteArray &data)
 {
+	qDebug("Sending to server: %s", qPrintable(data));
 	mLocalSocket->write(data);
 	mLocalSocket->waitForBytesWritten();
 }

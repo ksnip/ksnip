@@ -22,6 +22,7 @@
 IpcServer::IpcServer() :
 	mLocalServer(new QLocalServer())
 {
+	mLocalServer->setSocketOptions(QLocalServer::WorldAccessOption);
 }
 
 IpcServer::~IpcServer()
@@ -31,9 +32,15 @@ IpcServer::~IpcServer()
 
 bool IpcServer::listen(const QString &name)
 {
+	qDebug("Trying to start server %s", qPrintable(name));
 	auto hasStarted = mLocalServer->listen(name);
 	connect(mLocalServer, &QLocalServer::newConnection, this, &IpcServer::newConnection);
 
+	if (!hasStarted) {
+		qDebug("Failed to start server: %s", qPrintable(mLocalServer->errorString()));
+	} else {
+		qDebug("Server %s started", qPrintable(mLocalServer->fullServerName()));
+	}
 	return hasStarted;
 }
 
@@ -47,6 +54,7 @@ void IpcServer::processData()
 {
 	auto clientSocket = dynamic_cast<QLocalSocket*>(sender());
 	auto data = clientSocket->readAll();
+	qDebug("Received from Client: %s", qPrintable(data));
 	emit received(data);
 }
 

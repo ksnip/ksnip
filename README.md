@@ -5,7 +5,7 @@ Version v1.7.0 - Work in Progress
 Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features 
 for your screenshots.
 
-![Ksnip](https://i.imgur.com/coZ8ypl.png "Ksnip with annotations")
+![Ksnip](https://imgur.com/boTBnmV.png "Ksnip with annotations")
 
 
 # Features

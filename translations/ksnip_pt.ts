@@ -173,7 +173,7 @@ Requer reiniciar o ksnip para aplicar as mudanças.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Navegar</translation>
+        <translation>Selecionar</translation>
     </message>
     <message>
         <source>Application Settings</source>
@@ -590,11 +590,11 @@ e sempre ativado para MacOs.</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">Recebido um novo token, tentando fazer o upload novamente…</translation>
+        <translation>Recebido um novo token, tentando fazer o upload novamente…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">O token Imgur expirou, solicitando novo token…</translation>
+        <translation>O token Imgur expirou, solicitando novo token…</translation>
     </message>
 </context>
 <context>
@@ -904,7 +904,7 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>Browse</source>
-        <translation>Navegar</translation>
+        <translation>Selecionar</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1003,7 +1003,7 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Confirmar antes de fazer o upload</translation>
+        <translation>Confirmar antes de fazer o upload</translation>
     </message>
     <message>
         <source>Uploader Type:</source>

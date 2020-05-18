@@ -72,6 +72,7 @@ elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
                                                                  libqt5-qtx11extras-devel \
                                                                  libqt5-qtdeclarative-devel \
                                                                  libqt5-qtbase-devel \
+                                                                 libqt5-qtsvg-devel \
                                                                  rpm-build \
                                                                  update-desktop-files
     docker exec build-container bash -c "source ci/scripts/common/setup_dependencies_linux_noSudo.sh"

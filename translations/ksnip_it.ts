@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Please use </source>
-        <translation type=>Usa </translation>
+        <translation>Usa </translation>
     </message>
     <message>
         <source> to report bugs.</source>
@@ -217,22 +217,22 @@ Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type=>Nascondi la barra delle schede quando viene utilizzata solo la scheda</translation>
+        <translation>Nascondi la barra delle schede quando viene utilizzata solo la scheda</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type=>Ricorda l'ultima directory di salvataggio</translation>
+        <translation>Ricorda l'ultima directory di salvataggio</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type=>Se abilitato, sovrascriverà la directory di salvataggio memorizzata nelle impostazioni
+        <translation>Se abilitato, sovrascriverà la directory di salvataggio memorizzata nelle impostazioni
 con l'ultima directory di salvataggio, per ogni salvataggio.</translation>
     </message>
     <message>
         <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
-        <translation type=>Il nome file può contenere $Y, $M, $D per data, $h, $m, $s per l'ora o $T per l'ora nel formato hhmmss.
+        <translation>Il nome file può contenere $Y, $M, $D per data, $h, $m, $s per l'ora o $T per l'ora nel formato hhmmss.
 I formati supportati sono JPG, PNG e BMP. Se non viene fornito alcun formato, PNG verrà utilizzato come predefinito.</translation>
     </message>
 </context>
@@ -240,35 +240,35 @@ I formati supportati sono JPG, PNG e BMP. Se non viene fornito alcun formato, PN
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type=>Autore:</translation>
+        <translation>Autore:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type=>Collaboratori:</translation>
+        <translation>Collaboratori:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type=>Traduzione in spagnolo</translation>
+        <translation>Traduzione in spagnolo</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type=>Traduzione in olandese</translation>
+        <translation>Traduzione in olandese</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type=>Traduzione in russo</translation>
+        <translation>Traduzione in russo</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type=>Traduzione in Bokmål norvegese</translation>
+        <translation>Traduzione in Bokmål norvegese</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type=>Traduzione in francese</translation>
+        <translation>Traduzione in francese</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type=>Traduzione in polacco</translation>
+        <translation>Traduzione in polacco</translation>
     </message>
 </context>
 <context>
@@ -336,7 +336,7 @@ Desideri salvarla?</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation type=>Cattura ciò che si trova attualmente sotto il cursore del mouse</translation>
+        <translation>Cattura ciò che si trova attualmente sotto il cursore del mouse</translation>
     </message>
 </context>
 <context>
@@ -370,55 +370,55 @@ Desideri salvarla?</translation>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type=>Il caricamento è andato a buon fine</translation>
+        <translation>Il caricamento è andato a buon fine</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type=>Carica script</translation>
+        <translation>Carica script</translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type=>finito con successo</translation>
+        <translation>finito con successo</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type=>Caricato su</translation>
+        <translation>Caricato su</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type=>Impossibile salvare l'immagine temporanea per il caricamento.</translation>
+        <translation>Impossibile salvare l'immagine temporanea per il caricamento.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type=>Impossibile avviare il processo, controllare il percorso e le autorizzazioni.</translation>
+        <translation>Impossibile avviare il processo, controllare il percorso e le autorizzazioni.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type=>Il processo si è interrotto</translation>
+        <translation>Il processo si è interrotto</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type=>Processo scaduto.</translation>
+        <translation>Processo scaduto.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type=>Errore in lettura del processo.</translation>
+        <translation>Errore in lettura del processo.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type=>Errore in scrittura del processo.</translation>
+        <translation>Errore in scrittura del processo.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type=>Errore Web, controlla l'output della console.</translation>
+        <translation>Errore Web, controlla l'output della console.</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type=>Errore di processo sconosciuto.</translation>
+        <translation>Errore di processo sconosciuto.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type=>Caricamento fallito</translation>
+        <translation>Caricamento fallito</translation>
     </message>
 </context>
 <context>
@@ -469,16 +469,16 @@ Desideri salvarla?</translation>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type=>Il cursore del mouse dovrebbe essere visibile su
+        <translation>Il cursore del mouse dovrebbe essere visibile su
 screenshot.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type=>Blocca l'immagine durante lo snipping</translation>
+        <translation>Blocca l'immagine durante lo snipping</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type=>Mostra la lente d'ingrandimento sull'area di cattura</translation>
+        <translation>Mostra la lente d'ingrandimento sull'area di cattura</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
@@ -488,49 +488,49 @@ with &apos;Freeze Image while snipping&apos; enabled.</source>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type=>Mostra righelli area di cattura</translation>
+        <translation>Mostra righelli area di cattura</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type=>Linee orizzontali e verticali che vanno da
+        <translation>Linee orizzontali e verticali che vanno da
 bordi del desktop per il cursore sull'area di cattura.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type=>Mostra le informazioni sulla posizione e sulla dimensione dell'area di cattura</translation>
+        <translation>Mostra le informazioni sulla posizione e sulla dimensione dell'area di cattura</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type=>Quando il mouse sinistro non viene premuto la posizione
+        <translation>Quando il mouse sinistro non viene premuto la posizione
 viene mostrato, quando si preme il pulsante del mouse,
 la dimensione dell'area selezionata è mostrata a sinistra
 e sopra dall'area catturata.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type=>Colore del cursore dell'area di cattura</translation>
+        <translation>Colore del cursore dell'area di cattura</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type=>Imposta il colore dell'area di cattura
+        <translation>Imposta il colore dell'area di cattura
 cursore. La modifica richiede il riavvio di ksnip su
 prende effetto.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type=>Spessore cursore area di cattura</translation>
+        <translation>Spessore cursore area di cattura</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type=>Imposta lo spessore dell'area di cattura
+        <translation>Imposta lo spessore dell'area di cattura
 cursore. La modifica richiede il riavvio di ksnip perchè
 abbia effetto.</translation>
     </message>
@@ -547,7 +547,7 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type=>Se abilitato, blocca lo sfondo mentre
+        <translation>Se abilitato, blocca lo sfondo mentre
 selezioni una regione rettangolare. Inoltre cambia
 il comportamento di schermate ritardate, con questo
 opzione abilitata il ritardo si verifica prima dell'opzione area di cattura 
@@ -565,7 +565,7 @@ abilitato per MacOs.</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type=>Chiudi</translation>
+        <translation>Chiudi</translation>
     </message>
     <message>
         <source>Time Stamp</source>
@@ -573,249 +573,249 @@ abilitato per MacOs.</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type=>Link</translation>
+        <translation>Link</translation>
     </message>
     <message>
         <source>Delete Link</source>
-        <translation type=>Cancella Link</translation>
+        <translation>Cancella Link</translation>
     </message>
 </context>
 <context>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type=>Il caricamento su imgur.com è stato completato!</translation>
+        <translation>Il caricamento su imgur.com è stato completato!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type=>Ricevuto nuovo token,nuova prova di upload in corso…</translation>
+        <translation>Ricevuto nuovo token,nuova prova di upload in corso…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type=>Il token Imgur è scaduto, richiesta nuovo token in corso…</translation>
+        <translation>Il token Imgur è scaduto, richiesta nuovo token in corso…</translation>
     </message>
 </context>
 <context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation type=>Forza caricamento anonimo</translation>
+        <translation>Forza caricamento anonimo</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation type=>Dopo aver caricato, apri il link Imgur nel browser predefinito</translation>
+        <translation>Dopo aver caricato, apri il link Imgur nel browser predefinito</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type=>Copia sempre il link Imgur negli Appunti</translation>
+        <translation>Copia sempre il link Imgur negli Appunti</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type=>ID Client</translation>
+        <translation>ID Client</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type=>Client Secreto</translation>
+        <translation>Client Secreto</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type=>PIN</translation>
+        <translation>PIN</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type=>Inserisci il Pin imgur che verrà scambiato con un token.</translation>
+        <translation>Inserisci il Pin imgur che verrà scambiato con un token.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type=>Ottieni PIN</translation>
+        <translation>Ottieni PIN</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type=>Ottieni Token</translation>
+        <translation>Ottieni Token</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type=>Cronologia Imgur</translation>
+        <translation>Cronologia Imgur</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type=>Carica Imgur</translation>
+        <translation>Carica Imgur</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type=>Nome Utente</translation>
+        <translation>Nome Utente</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type=>In attesa di imgur.com...</translation>
+        <translation>In attesa di imgur.com...</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type=>Nome Utente:</translation>
+        <translation>Nome Utente:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type=>Token Imgur.com aggiornato correttamente.</translation>
+        <translation>Token Imgur.com aggiornato correttamente.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type=>Errore di aggiornamento del token imgur.com.</translation>
+        <translation>Errore di aggiornamento del token imgur.com.</translation>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type=>Link direttamente all'immagine</translation>
+        <translation>Link direttamente all'immagine</translation>
     </message>
 </context>
 <context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation type=>Nuovo</translation>
+        <translation>Nuovo</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation type=>Ritardo in secondi tra l'attivazione
+        <translation>Ritardo in secondi tra l'attivazione
 e cattura screenshot.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type=>s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type=>Salva</translation>
+        <translation>Salva</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation type=>Salva Cattura Schermo nel file system</translation>
+        <translation>Salva Cattura Schermo nel file system</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type=>Copia</translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation type=>Copia Cattura Schermo negli Appunti</translation>
+        <translation>Copia Cattura Schermo negli Appunti</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type=>Annulla</translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type=>Rifai</translation>
+        <translation>Rifai</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type=>Ritaglia</translation>
+        <translation>Ritaglia</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation type=>Ritaglia Cattura Schermo</translation>
+        <translation>Ritaglia Cattura Schermo</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type=>Strumenti</translation>
+        <translation>Strumenti</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <source>Unable to show image</source>
-        <translation type=>Impossibile mostrare l'immagine</translation>
+        <translation>Impossibile mostrare l'immagine</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
-        <translation type=>Nessuna immagine fornita, ma una era prevista.</translation>
+        <translation>Nessuna immagine fornita, ma una era prevista.</translation>
     </message>
     <message>
         <source>Unsaved</source>
-        <translation type=>Non Salvato</translation>
+        <translation>Non Salvato</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation type=>Carica</translation>
+        <translation>Carica</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type=>Stampa</translation>
+        <translation>Stampa</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation type=>Apre la finestra di dialogo della stampante e fornisci l'opzione per stampare l'immagine</translation>
+        <translation>Apre la finestra di dialogo della stampante e fornisci l'opzione per stampare l'immagine</translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation type=>Anteprima di Stampa</translation>
+        <translation>Anteprima di Stampa</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation type=>Apre la finestra di dialogo Anteprima di stampa in cui è possibile modificare l'orientamento dell'immagine</translation>
+        <translation>Apre la finestra di dialogo Anteprima di stampa in cui è possibile modificare l'orientamento dell'immagine</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type=>Scala</translation>
+        <translation>Scala</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
-        <translation type=>Scala Cattura Schermo</translation>
+        <translation>Scala Cattura Schermo</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type=>Aggiungi Filigrana</translation>
+        <translation>Aggiungi Filigrana</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation type=>Aggiungi filigrana all'immagine acquisita. È possibile aggiungere più filigrane.</translation>
+        <translation>Aggiungi filigrana all'immagine acquisita. È possibile aggiungere più filigrane.</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type=>Esci</translation>
+        <translation>Esci</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type=>Impostazioni</translation>
+        <translation>Impostazioni</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type=>Informazioni</translation>
+        <translation>Informazioni</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation type=>Apri</translation>
+        <translation>Apri</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type=>FIle</translation>
+        <translation>FIle</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type=>Modifica</translation>
+        <translation>Modifica</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation type=>Opzioni</translation>
+        <translation>Opzioni</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type=>Aiuto</translation>
+        <translation>Aiuto</translation>
     </message>
     <message>
         <source>Open Image</source>
-        <translation type=>Apri Immagine</translation>
+        <translation>Apri Immagine</translation>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation type=>File immagine (*.png *.jpg *.bmp)</translation>
+        <translation>File immagine (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type=>Salva Come...</translation>
+        <translation>Salva Come...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type=>Incolla</translation>
+        <translation>Incolla</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
@@ -823,45 +823,45 @@ e cattura screenshot.</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type=>Carica l'acquisizione su una fonte esterna</translation>
+        <translation>Carica l'acquisizione su una fonte esterna</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type=>Cattura</translation>
+        <translation>Cattura</translation>
     </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type=>Salva Come</translation>
+        <translation>Salva Come</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type=>Immagini</translation>
+        <translation>Immagini</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type=>Tutti i FIle</translation>
+        <translation>Tutti i FIle</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type=>Immagine Salvata</translation>
+        <translation>Immagine Salvata</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation type=>Salvato in</translation>
+        <translation>Salvato in</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type=>Salvataggio Immagine Fallito</translation>
+        <translation>Salvataggio Immagine Fallito</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation type=>Salvataggio Immagine fallito in</translation>
+        <translation>Salvataggio Immagine fallito in</translation>
     </message>
 </context>
 <context>

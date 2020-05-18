@@ -55,7 +55,8 @@ elif [[ "${BINARY_TYPE}" == "deb" ]]; then
 												                           qttools5-dev \
                                                    qttools5-dev-tools \
                                                    extra-cmake-modules \
-                                                   libqt5svg5-dev \
+                                                   qt5-image-formats-plugins \
+                                                   libqt5svg5 \
                                                    devscripts \
                                                    debhelper
     docker exec build-container bash -c "source ci/scripts/common/setup_dependencies_linux_noSudo.sh"

@@ -52,7 +52,7 @@ elif [[ "${BINARY_TYPE}" == "deb" ]]; then
                                                    build-essential \
                                                    qt5-default \
                                                    libqt5x11extras5-dev \
-												                           qttools5-dev \
+												   qttools5-dev \
                                                    qttools5-dev-tools \
                                                    extra-cmake-modules \
                                                    libqt5svg5-dev \
@@ -72,7 +72,6 @@ elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
                                                                  libqt5-qtx11extras-devel \
                                                                  libqt5-qtdeclarative-devel \
                                                                  libqt5-qtbase-devel \
-                                                                 libqt5svg5-dev \
                                                                  rpm-build \
                                                                  update-desktop-files
     docker exec build-container bash -c "source ci/scripts/common/setup_dependencies_linux_noSudo.sh"

@@ -650,6 +650,11 @@ void MainWindow::removeTab(int currentTabIndex)
 	mKImageAnnotator->removeTab(currentTabIndex);
 	mTabStateHandler->tabRemoved(currentTabIndex);
 	currentCaptureChanged();
+
+	if(mTabStateHandler->count() == 0) {
+		setEnablements(false);
+		QWidget::resize(minimumSizeHint());
+	}
 }
 
 void MainWindow::sessionFinished()

@@ -37,17 +37,18 @@ public:
 	void close() override;
 	bool isSaved() const override;
 	QString path() const override;
-	void save(bool isInstant) override;
+	void saveAs() override;
+	void save() override;
 	void load(const CaptureDto &capture) override;
-
-signals:
-	void captureChanged() const override;
-	void captureEmpty() const override;
+	QImage image() const override;
+	void insertImageItem(const QPointF &pos, const QPixmap &pixmap) override;
+	void addListener(ICaptureChangeListener *captureChangeListener) override;
 
 private:
 	KImageAnnotator *mKImageAnnotator;
 	IToastService *mToastService;
 	QWidget *mParent;
+	ICaptureChangeListener *mCaptureChangeListener;
 };
 
 #endif //KSNIP_SINGLECAPTUREHANDLER_H

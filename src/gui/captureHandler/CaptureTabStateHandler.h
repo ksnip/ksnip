@@ -35,10 +35,10 @@ public:
 	explicit CaptureTabStateHandler();
 	~CaptureTabStateHandler() override = default;
 	void add(int index, const QString &filename, const QString &path, bool isSaved);
-	bool currentTabIsSaved();
-	QString currentTabPath();
-	QString currentTabFilename();
-	void setCurrentTabSaveState(const SaveResultDto &saveResult);
+	bool isSaved(int index);
+	QString path(int index);
+	QString filename(int index);
+	void setSaveState(int index, const SaveResultDto &saveResult);
 	int count() const;
 	int currentTabIndex() const;
 
@@ -53,11 +53,10 @@ public slots:
 
 private:
 	int mCurrentTabIndex;
-	QSharedPointer<CaptureTabState> mCachedCurrentTabState;
 	QList<QSharedPointer<CaptureTabState>> mCaptureTabStates;
 
-	QSharedPointer<CaptureTabState> getCurrentTabStateFromCache();
-	void updateCurrentTabInfo();
+	void refreshTabInfo(int index);
+	QSharedPointer<CaptureTabState> getTabState(int index);
 };
 
 #endif //KSNIP_CAPTURETABSTATEHANDLER_H

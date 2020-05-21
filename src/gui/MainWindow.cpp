@@ -46,9 +46,9 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mSelectedWindowState(Qt::WindowActive),
 	mWindowStateChangeLock(false),
 	mDragAndDropHandler(new DragAndDropHandler),
-	mTabStateHandler(new CaptureTabStateHandler),
 	mUploaderProvider(new UploaderProvider),
-	mSessionManagerRequestedQuit(false)
+	mSessionManagerRequestedQuit(false),
+	mCaptureHandler(CaptureHandlerFactory::create(mKImageAnnotator, mTrayIcon, this))
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -72,21 +72,14 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	connect(mConfig, &KsnipConfig::annotatorConfigChanged, this, &MainWindow::setupImageAnnotator);
 
-	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabChanged);
-	connect(mKImageAnnotator, &KImageAnnotator::tabMoved, mTabStateHandler, &CaptureTabStateHandler::tabMoved);
-	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabContentChanged);
-	connect(mTabStateHandler, &CaptureTabStateHandler::updateTabInfo, mKImageAnnotator, &KImageAnnotator::updateTabInfo);
-
-	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, this, &MainWindow::currentCaptureChanged);
-	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, this, &MainWindow::currentCaptureChanged);
-	connect(mKImageAnnotator, &KImageAnnotator::tabCloseRequested, this, &MainWindow::tabCloseRequested);
-
 	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processCapture);
 	connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::captureCanceled);
 
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::capture);
 
 	connect(mUploaderProvider, &UploaderProvider::finished, this, &MainWindow::uploadFinished);
+
+	mCaptureHandler->addListener(this);
 
 	loadSettings();
 	handleGuiStartup();
@@ -136,21 +129,17 @@ MainWindow::~MainWindow()
     delete mTrayIcon;
     delete mClipboard;
     delete mDragAndDropHandler;
-    delete mTabStateHandler;
     delete mUploaderProvider;
+    delete mCaptureHandler;
 }
 
 void MainWindow::processInstantCapture(const CaptureDto &capture)
 {
-	loadCapture(capture);
-	instantSave();
+	mCaptureHandler->load(capture);
+	mCaptureHandler->saveAs();
 	mKImageAnnotator->close();
 	close();
 }
-
-//
-// Public Functions
-//
 
 void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay)
 {
@@ -159,13 +148,7 @@ void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor,
 
 void MainWindow::quit()
 {
-	while (mTabStateHandler->count() != 0) {
-		if (!discardChanges()) {
-			return;
-		}
-		int currentTabIndex = mTabStateHandler->currentTabIndex();
-		removeTab(currentTabIndex);
-	}
+	mCaptureHandler->close();
 
 	mTrayIcon->hide();
 	QCoreApplication::exit(0);
@@ -181,19 +164,19 @@ void MainWindow::processCapture(const CaptureDto &capture)
 	}
 
 	showImage(capture);
-	currentCaptureChanged();
+	captureChanged();
 	capturePostProcessing();
 }
 
 void MainWindow::processImage(const CaptureDto &capture)
 {
 	showImage(capture);
-	currentCaptureChanged();
+	captureChanged();
 }
 
 void MainWindow::showImage(const CaptureDto &capture)
 {
-	loadCapture(capture);
+	mCaptureHandler->load(capture);
 
 	setHidden(false);
 	setEnablements(true);
@@ -209,33 +192,21 @@ void MainWindow::capturePostProcessing()
 	}
 
 	if (mConfig->autoSaveNewCaptures()) {
-		saveCapture(true);
-	}
-}
-
-void MainWindow::loadCapture(const CaptureDto &capture)
-{
-	auto path = mPathFromCaptureProvider.pathFrom(capture);
-	auto isSaved = PathHelper::isPathValid(path);
-	auto filename = mNewCaptureNameProvider.nextName(path);
-	auto index = mKImageAnnotator->addImage(capture.screenshot, filename, path);
-	mTabStateHandler->add(index, filename, path, isSaved);
-	if (capture.isCursorValid()) {
-		mKImageAnnotator->insertImageItem(capture.cursor.position, capture.cursor.image);
+		mCaptureHandler->save();
 	}
 }
 
 void MainWindow::showEmpty()
 {
     setHidden(false);
-	currentCaptureChanged();
+	captureChanged();
     setEnablements(false);
     QMainWindow::show();
 }
 
 void MainWindow::showHidden()
 {
-	currentCaptureChanged();
+	captureChanged();
 	setEnablements(false);
 	hide();
 }
@@ -267,10 +238,6 @@ QSize MainWindow::sizeHint() const
 	return { width, height };
 }
 
-//
-// Protected Functions
-//
-
 void MainWindow::moveEvent(QMoveEvent* event)
 {
     mConfig->setWindowPosition(pos());
@@ -298,20 +265,16 @@ void MainWindow::changeEvent(QEvent *event)
 	QWidget::changeEvent(event);
 }
 
-//
-// Private Functions
-//
-
-void MainWindow::currentCaptureChanged()
+void MainWindow::captureChanged()
 {
-    mToolBar->setSaveActionEnabled(!mTabStateHandler->currentTabIsSaved());
+    mToolBar->setSaveActionEnabled(!mCaptureHandler->isSaved());
 	updateApplicationTitle();
 }
 
 void MainWindow::updateApplicationTitle()
 {
-	auto path = mTabStateHandler->currentTabPath();
-	auto isUnsaved = !mTabStateHandler->currentTabIsSaved();
+	auto path = mCaptureHandler->path();
+	auto isUnsaved = !mCaptureHandler->isSaved();
 	auto applicationTitle = ApplicationTitleProvider::getApplicationTitle(QApplication::applicationName(), path, tr("Unsaved"), isUnsaved);
 	setWindowTitle(applicationTitle);
 }
@@ -484,19 +447,9 @@ void MainWindow::initGui()
 	setCentralWidget(mKImageAnnotator);
 }
 
-void MainWindow::saveCapture(bool saveInstant)
-{
-	auto image = mKImageAnnotator->image();
-	SaveOperation operation(this, image, saveInstant, mTabStateHandler->currentTabPath(), mTrayIcon);
-	auto saveResult = operation.execute();
-	mTabStateHandler->setCurrentTabSaveState(saveResult);
-
-	currentCaptureChanged();
-}
-
 void MainWindow::copyCaptureToClipboard()
 {
-    auto image = mKImageAnnotator->image();
+    auto image = mCaptureHandler->image();
     if (!image.isNull()) {
 	    mClipboard->setImage(image);
     }
@@ -504,7 +457,7 @@ void MainWindow::copyCaptureToClipboard()
 
 void MainWindow::upload()
 {
-	auto image = mKImageAnnotator->image();
+	auto image = mCaptureHandler->image();
 	UploadOperation operation(image, mUploaderProvider->get());
 	operation.execute();
 }
@@ -512,38 +465,21 @@ void MainWindow::upload()
 void MainWindow::printClicked()
 {
 	auto savePath = mSavePathProvider.savePathWithFormat(QStringLiteral("pdf"));
-	auto image = mKImageAnnotator->image();
+	auto image = mCaptureHandler->image();
 	mCapturePrinter->print(image, savePath);
 }
 
 void MainWindow::printPreviewClicked()
 {
 	auto savePath = mSavePathProvider.savePathWithFormat(QStringLiteral("pdf"));
-	auto image = mKImageAnnotator->image();
+	auto image = mCaptureHandler->image();
 	mCapturePrinter->printPreview(image, savePath);
-}
-
-void MainWindow::instantSave()
-{
-	auto screenshot = mKImageAnnotator->image();
-    SaveOperation operation(this, screenshot, true, mTrayIcon);
-    operation.execute();
 }
 
 void MainWindow::showOpenImageDialog()
 {
     auto path = QFileDialog::getOpenFileName(this, tr("Open Image"), mSavePathProvider.saveDirectory(), tr("Image Files (*.png *.jpg *.bmp)"));
 	loadImageFromFile(path);
-}
-
-bool MainWindow::discardChanges()
-{
-	auto image = mKImageAnnotator->image();
-	auto isUnsaved = !mTabStateHandler->currentTabIsSaved();
-	auto pathToSource = mTabStateHandler->currentTabPath();
-	auto filename = mTabStateHandler->currentTabFilename();
-	CanDiscardOperation operation(this, image, isUnsaved, pathToSource, filename, mTrayIcon);
-	return operation.execute();
 }
 
 void MainWindow::setupImageAnnotator()
@@ -617,17 +553,17 @@ void MainWindow::pasteFromClipboard()
 void MainWindow::pasteEmbeddedFromClipboard()
 {
 	auto pixmap = mClipboard->pixmap();
-	mKImageAnnotator->insertImageItem({}, pixmap);
+	mCaptureHandler->insertImageItem({}, pixmap);
 }
 
 void MainWindow::saveClicked()
 {
-	saveCapture(true);
+	mCaptureHandler->save();
 }
 
 void MainWindow::saveAsClicked()
 {
-	saveCapture(false);
+	mCaptureHandler->saveAs();
 }
 
 void MainWindow::loadImageFromFile(const QString &path)
@@ -637,27 +573,6 @@ void MainWindow::loadImageFromFile(const QString &path)
 		setHidden(false);
 		CaptureFromFileDto captureDto(pixmap, path);
 		processImage(captureDto);
-	}
-}
-
-void MainWindow::tabCloseRequested(int index)
-{
-	if (!discardChanges()) {
-		return;
-	}
-	removeTab(index);
-}
-
-void MainWindow::removeTab(int currentTabIndex)
-{
-	mKImageAnnotator->removeTab(currentTabIndex);
-	mTabStateHandler->tabRemoved(currentTabIndex);
-	currentCaptureChanged();
-
-	if(mTabStateHandler->count() == 0) {
-		setEnablements(false);
-		mKImageAnnotator->hide();
-		resize(minimumSize());
 	}
 }
 
@@ -676,4 +591,10 @@ void MainWindow::uploadFinished(const UploadResult &result)
 {
 	HandleUploadResultOperation handleUploadResponseOperation(result, mTrayIcon);
 	handleUploadResponseOperation.execute();
+}
+
+void MainWindow::captureEmpty()
+{
+	setEnablements(false);
+	resize(minimumSize());
 }

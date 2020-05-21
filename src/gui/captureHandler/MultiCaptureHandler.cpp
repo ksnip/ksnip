@@ -23,12 +23,17 @@ MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToas
 	mKImageAnnotator(kImageAnnotator),
 	mToastService(toastService),
 	mParent(parent),
+	mCaptureChangeListener(nullptr),
 	mTabStateHandler(new CaptureTabStateHandler)
 {
 	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabChanged);
 	connect(mKImageAnnotator, &KImageAnnotator::tabMoved, mTabStateHandler, &CaptureTabStateHandler::tabMoved);
 	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabContentChanged);
 	connect(mTabStateHandler, &CaptureTabStateHandler::updateTabInfo, mKImageAnnotator, &KImageAnnotator::updateTabInfo);
+
+	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, this, &MultiCaptureHandler::captureChanged);
+	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, this, &MultiCaptureHandler::captureChanged);
+	connect(mKImageAnnotator, &KImageAnnotator::tabCloseRequested, this, &MultiCaptureHandler::tabCloseRequested);
 }
 
 MultiCaptureHandler::~MultiCaptureHandler()
@@ -39,20 +44,20 @@ MultiCaptureHandler::~MultiCaptureHandler()
 void MultiCaptureHandler::close()
 {
 	while (mTabStateHandler->count() != 0) {
-		if (!discardChanges()) {
+		int index = mTabStateHandler->currentTabIndex();
+		if (!discardChanges(index)) {
 			return;
 		}
-		int currentTabIndex = mTabStateHandler->currentTabIndex();
-		removeTab(currentTabIndex);
+		removeTab(index);
 	}
 }
 
-bool MultiCaptureHandler::discardChanges()
+bool MultiCaptureHandler::discardChanges(int index)
 {
-	auto image = mKImageAnnotator->image();
-	auto isUnsaved = !mTabStateHandler->currentTabIsSaved();
-	auto pathToSource = mTabStateHandler->currentTabPath();
-	auto filename = mTabStateHandler->currentTabFilename();
+	auto image = mKImageAnnotator->imageAt(index);
+	auto isUnsaved = !mTabStateHandler->isSaved(index);
+	auto pathToSource = mTabStateHandler->path(index);
+	auto filename = mTabStateHandler->filename(index);
 	CanDiscardOperation operation(mParent, image, isUnsaved, pathToSource, filename, mToastService);
 	return operation.execute();
 }
@@ -61,31 +66,41 @@ void MultiCaptureHandler::removeTab(int currentTabIndex)
 {
 	mKImageAnnotator->removeTab(currentTabIndex);
 	mTabStateHandler->tabRemoved(currentTabIndex);
-	emit captureChanged();
+	captureChanged();
 
 	if(mTabStateHandler->count() == 0) {
-		emit captureEmpty();
+		mKImageAnnotator->hide();
+		captureEmpty();
 	}
 }
 
 bool MultiCaptureHandler::isSaved() const
 {
-	return mTabStateHandler->currentTabIsSaved();
+	return mTabStateHandler->isSaved(mTabStateHandler->currentTabIndex());
 }
 
 QString MultiCaptureHandler::path() const
 {
-	return mTabStateHandler->currentTabPath();
+	return mTabStateHandler->path(mTabStateHandler->currentTabIndex());
 }
 
-void MultiCaptureHandler::save(bool isInstant)
+void MultiCaptureHandler::saveAs()
 {
-	auto image = mKImageAnnotator->image();
-	SaveOperation operation(mParent, image, isInstant, mTabStateHandler->currentTabPath(), mToastService);
-	auto saveResult = operation.execute();
-	mTabStateHandler->setCurrentTabSaveState(saveResult);
+	saveAt(mTabStateHandler->currentTabIndex(), false);
+}
 
-	emit captureChanged();
+void MultiCaptureHandler::save()
+{
+	saveAt(mTabStateHandler->currentTabIndex(), true);
+}
+
+void MultiCaptureHandler::saveAt(int index, bool isInstant)
+{
+	auto image = mKImageAnnotator->imageAt(index);
+	SaveOperation operation(mParent, image, isInstant, mTabStateHandler->path(0), mToastService);
+	auto saveResult = operation.execute();
+	mTabStateHandler->setSaveState(index, saveResult);
+	captureChanged();
 }
 
 void MultiCaptureHandler::load(const CaptureDto &capture)
@@ -93,9 +108,46 @@ void MultiCaptureHandler::load(const CaptureDto &capture)
 	auto path = mPathFromCaptureProvider.pathFrom(capture);
 	auto isSaved = PathHelper::isPathValid(path);
 	auto filename = mNewCaptureNameProvider.nextName(path);
-	auto index = mKImageAnnotator->addImage(capture.screenshot, filename, path);
+	auto index = mKImageAnnotator->addTab(capture.screenshot, filename, path);
 	mTabStateHandler->add(index, filename, path, isSaved);
 	if (capture.isCursorValid()) {
 		mKImageAnnotator->insertImageItem(capture.cursor.position, capture.cursor.image);
+	}
+}
+
+void MultiCaptureHandler::tabCloseRequested(int index)
+{
+	if (!discardChanges(index)) {
+		return;
+	}
+	removeTab(index);
+}
+
+QImage MultiCaptureHandler::image() const
+{
+	return mKImageAnnotator->image();
+}
+
+void MultiCaptureHandler::insertImageItem(const QPointF &pos, const QPixmap &pixmap)
+{
+	mKImageAnnotator->insertImageItem(pos, pixmap);
+}
+
+void MultiCaptureHandler::addListener(ICaptureChangeListener *captureChangeListener)
+{
+	mCaptureChangeListener = captureChangeListener;
+}
+
+void MultiCaptureHandler::captureChanged()
+{
+	if(mCaptureChangeListener != nullptr) {
+		mCaptureChangeListener->captureChanged();
+	}
+}
+
+void MultiCaptureHandler::captureEmpty()
+{
+	if(mCaptureChangeListener != nullptr) {
+		mCaptureChangeListener->captureEmpty();
 	}
 }

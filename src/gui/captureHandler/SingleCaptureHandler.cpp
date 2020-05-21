@@ -22,7 +22,8 @@
 SingleCaptureHandler::SingleCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent) :
 	mKImageAnnotator(kImageAnnotator),
 	mToastService(toastService),
-	mParent(parent)
+	mParent(parent),
+	mCaptureChangeListener(nullptr)
 {
 
 }
@@ -42,7 +43,12 @@ QString SingleCaptureHandler::path() const
 	return QString();
 }
 
-void SingleCaptureHandler::save(bool isInstant)
+void SingleCaptureHandler::saveAs()
+{
+
+}
+
+void SingleCaptureHandler::save()
 {
 
 }
@@ -50,4 +56,19 @@ void SingleCaptureHandler::save(bool isInstant)
 void SingleCaptureHandler::load(const CaptureDto &capture)
 {
 
+}
+
+QImage SingleCaptureHandler::image() const
+{
+	return mKImageAnnotator->image();
+}
+
+void SingleCaptureHandler::insertImageItem(const QPointF &pos, const QPixmap &pixmap)
+{
+	mKImageAnnotator->insertImageItem(pos, pixmap);
+}
+
+void SingleCaptureHandler::addListener(ICaptureChangeListener *captureChangeListener)
+{
+	mCaptureChangeListener = captureChangeListener;
 }

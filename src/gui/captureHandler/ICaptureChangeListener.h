@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,25 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ICAPTUREHANDLER_H
-#define KSNIP_ICAPTUREHANDLER_H
+#ifndef KSNIP_ICAPTURECHANGELISTENER_H
+#define KSNIP_ICAPTURECHANGELISTENER_H
 
-#include "src/gui/captureHandler/ICaptureChangeListener.h"
-#include "src/common/dtos/CaptureDto.h"
-
-class ICaptureHandler
+class ICaptureChangeListener
 {
 public:
-	virtual ~ICaptureHandler() = default;
-	virtual void close() = 0;
-	virtual bool isSaved() const = 0;
-	virtual QString path() const = 0;
-	virtual void saveAs() = 0;
-	virtual void save() = 0;
-	virtual void load(const CaptureDto &capture) = 0;
-	virtual QImage image() const = 0;
-	virtual void insertImageItem(const QPointF &pos, const QPixmap &pixmap) = 0;
-	virtual void addListener(ICaptureChangeListener *captureChangeListener) = 0;
+	virtual ~ICaptureChangeListener() = default;
+	virtual void captureChanged() = 0;
+	virtual void captureEmpty() = 0;
 };
 
-#endif //KSNIP_ICAPTUREHANDLER_H
+#endif //KSNIP_ICAPTURECHANGELISTENER_H

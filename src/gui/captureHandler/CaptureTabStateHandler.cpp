@@ -20,8 +20,7 @@
 #include "CaptureTabStateHandler.h"
 
 CaptureTabStateHandler::CaptureTabStateHandler() :
-	mCurrentTabIndex(-1),
-	mCachedCurrentTabState(nullptr)
+	mCurrentTabIndex(-1)
 {
 }
 
@@ -29,35 +28,35 @@ void CaptureTabStateHandler::add(int index, const QString &filename, const QStri
 {
 	auto newState = QSharedPointer<CaptureTabState>(new CaptureTabState(index, filename, path, isSaved));
 	mCaptureTabStates.append(newState);
-	updateCurrentTabInfo();
+	refreshTabInfo(index);
 }
 
-bool CaptureTabStateHandler::currentTabIsSaved()
+bool CaptureTabStateHandler::isSaved(int index)
 {
-	auto currentTabState = getCurrentTabStateFromCache();
-	return currentTabState.isNull() ? true : currentTabState->isSaved;
+	auto tabState = getTabState(index);
+	return tabState.isNull() ? true : tabState->isSaved;
 }
 
-QString CaptureTabStateHandler::currentTabPath()
+QString CaptureTabStateHandler::path(int index)
 {
-	auto currentTabState = getCurrentTabStateFromCache();
-	return currentTabState.isNull() ? QString() : currentTabState->path;
+	auto tabState = getTabState(index);
+	return tabState.isNull() ? QString() : tabState->path;
 }
 
-QString CaptureTabStateHandler::currentTabFilename()
+QString CaptureTabStateHandler::filename(int index)
 {
-	auto currentTabState = getCurrentTabStateFromCache();
-	return currentTabState.isNull() ? QString() : currentTabState->filename;
+	auto tabState = getTabState(index);
+	return tabState.isNull() ? QString() : tabState->filename;
 }
 
-void CaptureTabStateHandler::setCurrentTabSaveState(const SaveResultDto &saveResult)
+void CaptureTabStateHandler::setSaveState(int index, const SaveResultDto &saveResult)
 {
-	auto currentTabState = getCurrentTabStateFromCache();
-	if (!currentTabState.isNull()) {
-		currentTabState->isSaved = saveResult.isSuccessful;
-		currentTabState->path = saveResult.path;
-		currentTabState->filename = PathHelper::extractFilename(saveResult.path);
-		updateCurrentTabInfo();
+	auto tabState = getTabState(index);
+	if (!tabState.isNull()) {
+		tabState->isSaved = saveResult.isSuccessful;
+		tabState->path = saveResult.path;
+		tabState->filename = PathHelper::extractFilename(saveResult.path);
+		refreshTabInfo(index);
 	}
 }
 
@@ -90,49 +89,43 @@ void CaptureTabStateHandler::tabRemoved(int index)
 			iterator++;
 		}
 	}
-
-	if(mCachedCurrentTabState->index == index) {
-		mCachedCurrentTabState.clear();
-	}
 }
 
 void CaptureTabStateHandler::currentTabContentChanged()
 {
-	auto currentTabState = getCurrentTabStateFromCache();
+	auto currentTabState = getTabState(mCurrentTabIndex);
 	if (!currentTabState.isNull()) {
 		currentTabState->isSaved = false;
-		updateCurrentTabInfo();
+		refreshTabInfo(mCurrentTabIndex);
 	}
 }
 
-void CaptureTabStateHandler::updateCurrentTabInfo()
+void CaptureTabStateHandler::refreshTabInfo(int index)
 {
-	auto currentTabState = getCurrentTabStateFromCache();
-	if (!currentTabState.isNull()) {
-		auto title = currentTabState->isSaved ? currentTabState->filename : currentTabState->filename + QStringLiteral("*");
-		emit updateTabInfo(currentTabState->index, title, currentTabState->path);
+	auto tabState = getTabState(index);
+	if (!tabState.isNull()) {
+		auto title = tabState->isSaved ? tabState->filename : tabState->filename + QStringLiteral("*");
+		emit updateTabInfo(tabState->index, title, tabState->path);
 	}
-}
-
-QSharedPointer<CaptureTabState> CaptureTabStateHandler::getCurrentTabStateFromCache()
-{
-	if (mCachedCurrentTabState.isNull() || mCachedCurrentTabState->index != mCurrentTabIndex) {
-		for (auto &state : mCaptureTabStates) {
-			if (state->index == mCurrentTabIndex) {
-				mCachedCurrentTabState = state;
-			}
-		}
-	}
-
-	return mCachedCurrentTabState;
 }
 
 int CaptureTabStateHandler::count() const
 {
 	return mCaptureTabStates.count();
 }
+
 int CaptureTabStateHandler::currentTabIndex() const
 {
 	return mCurrentTabIndex;
+}
+
+QSharedPointer<CaptureTabState> CaptureTabStateHandler::getTabState(int index)
+{
+	for (auto &state : mCaptureTabStates) {
+		if (state->index == index) {
+			return state;
+		}
+	}
+	return QSharedPointer<CaptureTabState>(nullptr);
 }
 

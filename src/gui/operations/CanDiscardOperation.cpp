@@ -19,7 +19,7 @@
 
 #include "CanDiscardOperation.h"
 
-CanDiscardOperation::CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, const QString &pathToImageSource, const QString &filename, AbstractToastService *toastService) :
+CanDiscardOperation::CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, const QString &pathToImageSource, const QString &filename, IToastService *toastService) :
 	mParent(parent),
 	mImage(image),
 	mIsUnsaved(isUnsaved),

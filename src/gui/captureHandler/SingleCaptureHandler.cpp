@@ -19,7 +19,7 @@
 
 #include "SingleCaptureHandler.h"
 
-SingleCaptureHandler::SingleCaptureHandler(KImageAnnotator *kImageAnnotator, AbstractToastService *toastService, QWidget *parent) :
+SingleCaptureHandler::SingleCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent) :
 	mKImageAnnotator(kImageAnnotator),
 	mToastService(toastService),
 	mParent(parent)

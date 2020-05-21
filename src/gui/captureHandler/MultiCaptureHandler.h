@@ -26,7 +26,7 @@
 #include "src/gui/captureHandler/CaptureTabStateHandler.h"
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/SaveOperation.h"
-#include "src/gui/AbstractToastService.h"
+#include "src/gui/IToastService.h"
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
 
@@ -36,7 +36,7 @@ class MultiCaptureHandler : public QObject, public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit MultiCaptureHandler(KImageAnnotator *kImageAnnotator, AbstractToastService *toastService, QWidget *parent);
+	explicit MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent);
 	~MultiCaptureHandler() override;
 	void close() override;
 	bool isSaved() const override;
@@ -51,7 +51,7 @@ signals:
 private:
 	KImageAnnotator *mKImageAnnotator;
 	CaptureTabStateHandler *mTabStateHandler;
-	AbstractToastService *mToastService;
+	IToastService *mToastService;
 	QWidget *mParent;
 	NewCaptureNameProvider mNewCaptureNameProvider;
 	PathFromCaptureProvider mPathFromCaptureProvider;

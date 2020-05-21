@@ -24,7 +24,7 @@
 
 #include "src/gui/captureHandler/ICaptureHandler.h"
 #include "src/gui/operations/CanDiscardOperation.h"
-#include "src/gui/AbstractToastService.h"
+#include "src/gui/IToastService.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -32,7 +32,7 @@ class SingleCaptureHandler : public QObject, public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit SingleCaptureHandler(KImageAnnotator *kImageAnnotator, AbstractToastService *toastService, QWidget *parent);
+	explicit SingleCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent);
 	~SingleCaptureHandler() override = default;
 	void close() override;
 	bool isSaved() const override;
@@ -46,7 +46,7 @@ signals:
 
 private:
 	KImageAnnotator *mKImageAnnotator;
-	AbstractToastService *mToastService;
+	IToastService *mToastService;
 	QWidget *mParent;
 };
 

@@ -26,7 +26,7 @@
 class CaptureHandlerFactory
 {
 public:
-	static ICaptureHandler* create(KImageAnnotator *kImageAnnotator, AbstractToastService *toastService, QWidget *parent);
+	static ICaptureHandler* create(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent);
 };
 
 #endif //KSNIP_CAPTUREHANDLERFACTORY_H

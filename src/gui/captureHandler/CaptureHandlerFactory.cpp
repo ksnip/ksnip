@@ -19,7 +19,7 @@
 
 #include "CaptureHandlerFactory.h"
 
-ICaptureHandler* CaptureHandlerFactory::create(KImageAnnotator * kImageAnnotator, AbstractToastService *toastService, QWidget *parent)
+ICaptureHandler* CaptureHandlerFactory::create(KImageAnnotator * kImageAnnotator, IToastService *toastService, QWidget *parent)
 {
 	if(true) {
 		return new MultiCaptureHandler(kImageAnnotator, toastService, parent);

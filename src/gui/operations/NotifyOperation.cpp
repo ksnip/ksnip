@@ -19,13 +19,13 @@
 
 #include "NotifyOperation.h"
 
-NotifyOperation::NotifyOperation(AbstractToastService *toastService, const QString &title, const QString &message, const QString &contentUrl, NotificationTypes notificationType)
+NotifyOperation::NotifyOperation(IToastService *toastService, const QString &title, const QString &message, const QString &contentUrl, NotificationTypes notificationType)
 	: NotifyOperation(toastService, title, message, notificationType)
 {
 	mContentUrl = contentUrl;
 }
 
-NotifyOperation::NotifyOperation(AbstractToastService *toastService, const QString &title, const QString &message, NotificationTypes notificationType) :
+NotifyOperation::NotifyOperation(IToastService *toastService, const QString &title, const QString &message, NotificationTypes notificationType) :
 	mToastService(toastService),
 	mTitle(title),
 	mMessage(message),

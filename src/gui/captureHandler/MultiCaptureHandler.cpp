@@ -19,7 +19,7 @@
 
 #include "MultiCaptureHandler.h"
 
-MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, AbstractToastService *toastService, QWidget *parent) :
+MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent) :
 	mKImageAnnotator(kImageAnnotator),
 	mToastService(toastService),
 	mParent(parent),

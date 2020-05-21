@@ -19,7 +19,7 @@
 
 #include "SaveOperation.h"
 
-SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, AbstractToastService *toastService) :
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, IToastService *toastService) :
 	mParent(parent),
 	mImage(image),
 	mIsInstantSave(isInstantSave),
@@ -29,7 +29,7 @@ SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstan
     Q_ASSERT(mParent != nullptr);
 }
 
-SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, AbstractToastService *toastService) : SaveOperation(parent, image, isInstantSave, toastService)
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, IToastService *toastService) : SaveOperation(parent, image, isInstantSave, toastService)
 {
 	mPathToImageSource = pathToImageSource;
 }

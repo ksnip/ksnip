@@ -17,10 +17,10 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ABSTRACTTOASTSERVICE_H
-#define KSNIP_ABSTRACTTOASTSERVICE_H
+#ifndef KSNIP_ITOASTSERVICE_H
+#define KSNIP_ITOASTSERVICE_H
 
-class AbstractToastService
+class IToastService
 {
 public:
 	virtual void showInfoToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
@@ -28,4 +28,4 @@ public:
 	virtual void showCriticalToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
 };
 
-#endif //KSNIP_ABSTRACTTOASTSERVICE_H
+#endif //KSNIP_ITOASTSERVICE_H

@@ -25,10 +25,10 @@
 #include <QDesktopServices>
 #include <QUrl>
 
-#include "AbstractToastService.h"
+#include "IToastService.h"
 #include "src/common/enum/CaptureModes.h"
 
-class TrayIcon : public QSystemTrayIcon, public AbstractToastService
+class TrayIcon : public QSystemTrayIcon, public IToastService
 {
 Q_OBJECT
 public:

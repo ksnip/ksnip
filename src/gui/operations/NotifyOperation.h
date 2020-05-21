@@ -26,13 +26,13 @@
 class NotifyOperation
 {
 public:
-	NotifyOperation(AbstractToastService *toastService, const QString &title, const QString &message, const QString &contentUrl, NotificationTypes notificationType);
-	NotifyOperation(AbstractToastService *toastService, const QString &title, const QString &message, NotificationTypes notificationType);
+	NotifyOperation(IToastService *toastService, const QString &title, const QString &message, const QString &contentUrl, NotificationTypes notificationType);
+	NotifyOperation(IToastService *toastService, const QString &title, const QString &message, NotificationTypes notificationType);
 	~NotifyOperation() = default;
 	bool execute();
 
 private:
-	AbstractToastService *mToastService;
+	IToastService *mToastService;
 	QString mTitle;
 	QString mMessage;
 	QString mContentUrl;

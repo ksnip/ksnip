@@ -669,6 +669,7 @@ void MainWindow::sessionFinished()
 void MainWindow::captureCanceled()
 {
 	setHidden(false);
+	show();
 }
 
 void MainWindow::uploadFinished(const UploadResult &result)

@@ -22,12 +22,12 @@
 QByteArray SingleInstanceParameterTranslator::translate(const SingleInstanceParameter &parameter) const
 {
 	switch (parameter.startupMode) {
-		case SingleInstanceStartupModes::Start:
-			return getStartParameter();
 		case SingleInstanceStartupModes::Edit:
 			return getEditParameters(parameter.imagePath);
 		case SingleInstanceStartupModes::Capture:
 			return getCaptureParameters(parameter.captureMode, parameter.save, parameter.captureCursor, parameter.delay);
+		default:
+			return getStartParameter();
 	}
 }
 
@@ -108,8 +108,6 @@ QByteArray SingleInstanceParameterTranslator::getSaveParameter(bool save) const
 QByteArray SingleInstanceParameterTranslator::getCaptureModeParameter(const CaptureModes &captureModes) const
 {
 	switch (captureModes) {
-		case CaptureModes::RectArea:
-			return QByteArray("rectArea");
 		case CaptureModes::LastRectArea:
 			return QByteArray("lastRectArea");
 		case CaptureModes::FullScreen:
@@ -120,6 +118,8 @@ QByteArray SingleInstanceParameterTranslator::getCaptureModeParameter(const Capt
 			return QByteArray("activeWindow");
 		case CaptureModes::WindowUnderCursor:
 			return QByteArray("windowUnderCursor");
+		default:
+			return QByteArray("rectArea");
 	}
 }
 

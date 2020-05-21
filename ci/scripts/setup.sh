@@ -52,7 +52,7 @@ elif [[ "${BINARY_TYPE}" == "deb" ]]; then
                                                    build-essential \
                                                    qt5-default \
                                                    libqt5x11extras5-dev \
-												   qttools5-dev \
+												                           qttools5-dev \
                                                    qttools5-dev-tools \
                                                    extra-cmake-modules \
                                                    libqt5svg5-dev \

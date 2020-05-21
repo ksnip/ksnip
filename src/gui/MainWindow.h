@@ -98,6 +98,7 @@ private:
     QAction *mPasteAction;
     QAction *mPasteEmbeddedAction;
     MainToolBar *mToolBar;
+    QLayout *mMainLayout;
 	ClipboardWrapper *mClipboard;
     KsnipConfig *mConfig;
     CapturePrinter *mCapturePrinter;

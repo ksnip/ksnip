@@ -37,6 +37,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mAddWatermarkAction(new QAction(this)),
 	mPasteAction(new QAction(this)),
 	mPasteEmbeddedAction(new QAction(this)),
+	mMainLayout(layout()),
 	mClipboard(new ClipboardWrapper(QApplication::clipboard())),
 	mConfig(KsnipConfigProvider::instance()),
 	mCapturePrinter(new CapturePrinter(this)),
@@ -90,7 +91,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	loadSettings();
 	handleGuiStartup();
 	setupImageAnnotator();
-	QWidget::resize(minimumSize());
+	resize(minimumSize());
 }
 
 void MainWindow::handleGuiStartup()
@@ -478,6 +479,8 @@ void MainWindow::initGui()
 	    mTrayIcon->setEnabled(true);
     }
 
+	mMainLayout->setSizeConstraint(QLayout::SetFixedSize);
+
 	setCentralWidget(mKImageAnnotator);
 }
 
@@ -653,7 +656,8 @@ void MainWindow::removeTab(int currentTabIndex)
 
 	if(mTabStateHandler->count() == 0) {
 		setEnablements(false);
-		QWidget::resize(minimumSizeHint());
+		mKImageAnnotator->hide();
+		resize(minimumSize());
 	}
 }
 

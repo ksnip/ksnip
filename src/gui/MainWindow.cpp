@@ -148,7 +148,9 @@ void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor,
 
 void MainWindow::quit()
 {
-	mCaptureHandler->close();
+	if(!mCaptureHandler->canClose()){
+		return;
+	}
 
 	mTrayIcon->hide();
 	QCoreApplication::exit(0);

@@ -27,7 +27,7 @@ class ICaptureHandler
 {
 public:
 	virtual ~ICaptureHandler() = default;
-	virtual void close() = 0;
+	virtual bool canClose() = 0;
 	virtual bool isSaved() const = 0;
 	virtual QString path() const = 0;
 	virtual void saveAs() = 0;

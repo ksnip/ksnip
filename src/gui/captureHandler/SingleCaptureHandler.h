@@ -34,7 +34,7 @@ Q_OBJECT
 public:
 	explicit SingleCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent);
 	~SingleCaptureHandler() override = default;
-	void close() override;
+	bool canClose() override;
 	bool isSaved() const override;
 	QString path() const override;
 	void saveAs() override;
@@ -49,6 +49,16 @@ private:
 	IToastService *mToastService;
 	QWidget *mParent;
 	ICaptureChangeListener *mCaptureChangeListener;
+	bool mIsSaved;
+	QString mPath;
+
+	bool discardChanges();
+	void resetStats();
+
+private slots:
+	void captureChanged();
+	void innerSave(bool isInstant);
+	void markUnsaved();
 };
 
 #endif //KSNIP_SINGLECAPTUREHANDLER_H

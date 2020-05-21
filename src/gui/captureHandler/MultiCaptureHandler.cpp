@@ -41,15 +41,16 @@ MultiCaptureHandler::~MultiCaptureHandler()
 	delete mTabStateHandler;
 }
 
-void MultiCaptureHandler::close()
+bool MultiCaptureHandler::canClose()
 {
 	while (mTabStateHandler->count() != 0) {
 		int index = mTabStateHandler->currentTabIndex();
 		if (!discardChanges(index)) {
-			return;
+			return false;
 		}
 		removeTab(index);
 	}
+	return true;
 }
 
 bool MultiCaptureHandler::discardChanges(int index)
@@ -97,7 +98,7 @@ void MultiCaptureHandler::save()
 void MultiCaptureHandler::saveAt(int index, bool isInstant)
 {
 	auto image = mKImageAnnotator->imageAt(index);
-	SaveOperation operation(mParent, image, isInstant, mTabStateHandler->path(0), mToastService);
+	SaveOperation operation(mParent, image, isInstant, mTabStateHandler->path(index), mToastService);
 	auto saveResult = operation.execute();
 	mTabStateHandler->setSaveState(index, saveResult);
 	captureChanged();

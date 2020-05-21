@@ -38,7 +38,7 @@ Q_OBJECT
 public:
 	explicit MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent);
 	~MultiCaptureHandler() override;
-	void close() override;
+	bool canClose() override;
 	bool isSaved() const override;
 	QString path() const override;
 	void saveAs() override;
@@ -59,10 +59,10 @@ private:
 
 	bool discardChanges(int index);
 	void removeTab(int currentTabIndex);
+	void saveAt(int index, bool isInstant);
 
 private slots:
 	void tabCloseRequested(int index);
-	void saveAt(int index, bool isInstant);
 	void captureChanged();
 	void captureEmpty();
 };

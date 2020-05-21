@@ -17,15 +17,16 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ABSTRACTTOASTSERVICE_H
-#define KSNIP_ABSTRACTTOASTSERVICE_H
+#ifndef KSNIP_CAPTUREHANDLERFACTORY_H
+#define KSNIP_CAPTUREHANDLERFACTORY_H
 
-class AbstractToastService
+#include "src/gui/captureHandler/SingleCaptureHandler.h"
+#include "src/gui/captureHandler/MultiCaptureHandler.h"
+
+class CaptureHandlerFactory
 {
 public:
-	virtual void showInfoToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
-	virtual void showWarningToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
-	virtual void showCriticalToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
+	static ICaptureHandler* create(KImageAnnotator *kImageAnnotator, AbstractToastService *toastService, QWidget *parent);
 };
 
-#endif //KSNIP_ABSTRACTTOASTSERVICE_H
+#endif //KSNIP_CAPTUREHANDLERFACTORY_H

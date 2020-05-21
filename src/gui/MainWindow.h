@@ -50,8 +50,8 @@
 #include "src/gui/operations/HandleUploadResultOperation.h"
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
 #include "src/gui/TrayIcon.h"
-#include "ClipboardWrapper.h"
-#include "captureTabs/CaptureTabStateHandler.h"
+#include "src/gui/ClipboardWrapper.h"
+#include "src/gui/captureHandler/CaptureTabStateHandler.h"
 
 using kImageAnnotator::KImageAnnotator;
 

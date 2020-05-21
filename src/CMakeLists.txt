@@ -78,7 +78,10 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/operations/UploadOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/HandleUploadResultOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/NotifyOperation.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/captureTabs/CaptureTabStateHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/CaptureTabStateHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/CaptureHandlerFactory.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/SingleCaptureHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/MultiCaptureHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/BootstrapperFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/StandAloneBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/InstanceLock.cpp

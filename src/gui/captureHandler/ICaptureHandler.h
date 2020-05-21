@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,15 +17,26 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ABSTRACTTOASTSERVICE_H
-#define KSNIP_ABSTRACTTOASTSERVICE_H
+#ifndef KSNIP_ICAPTUREHANDLER_H
+#define KSNIP_ICAPTUREHANDLER_H
 
-class AbstractToastService
+#include <QObject>
+
+#include "src/common/dtos/CaptureDto.h"
+
+class ICaptureHandler
 {
 public:
-	virtual void showInfoToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
-	virtual void showWarningToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
-	virtual void showCriticalToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
+	virtual ~ICaptureHandler() = default;
+	virtual void close() = 0;
+	virtual bool isSaved() const = 0;
+	virtual QString path() const = 0;
+	virtual void save(bool isInstant) = 0;
+	virtual void load(const CaptureDto &capture) = 0;
+
+protected:
+	virtual void captureChanged() const = 0;
+	virtual void captureEmpty() const = 0;
 };
 
-#endif //KSNIP_ABSTRACTTOASTSERVICE_H
+#endif //KSNIP_ICAPTUREHANDLER_H

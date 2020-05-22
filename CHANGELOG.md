@@ -28,6 +28,7 @@
 * Fixed: Undo and redo translation reverts back to English. ([#209](https://github.com/ksnip/ksnip/issues/209))
 * Fixed: When 'Capture Save Location' is not set, ksnip fails to save. ([#263](https://github.com/ksnip/ksnip/issues/263))
 * Fixed: Connections that required ssl not working on AppImages. ([#320](https://github.com/ksnip/ksnip/issues/320))
+* Fixed: Main window hangs when pressing `Esc` on selecting screenshot area state. ([#330](https://github.com/ksnip/ksnip/issues/330))
 
 ## Release 1.6.2
 * Changed: Add missing plugs to silence snap socket warnings. ([#313](https://github.com/ksnip/ksnip/issues/313))

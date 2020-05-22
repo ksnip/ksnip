@@ -21,7 +21,7 @@
 
 ICaptureHandler* CaptureHandlerFactory::create(KImageAnnotator * kImageAnnotator, IToastService *toastService, QWidget *parent)
 {
-	if(true) {
+	if(KsnipConfigProvider::instance()->useTabs()) {
 		return new MultiCaptureHandler(kImageAnnotator, toastService, parent);
 	} else {
 		return new SingleCaptureHandler(kImageAnnotator, toastService, parent);

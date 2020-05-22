@@ -87,6 +87,20 @@ void KsnipConfig::setRememberToolSelection(bool enabled)
 	saveValue(KsnipConfigOptions::rememberToolSelectionString(), enabled);
 }
 
+bool KsnipConfig::useTabs() const
+{
+	return loadValue(KsnipConfigOptions::useTabsString(), true).toBool();
+}
+
+void KsnipConfig::setUseTabs(bool enabled)
+{
+	if (useTabs() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::useTabsString(), enabled);
+	emit annotatorConfigChanged();
+}
+
 bool KsnipConfig::autoHideTabs() const
 {
 	return loadValue(KsnipConfigOptions::autoHideTabsString(), false).toBool();

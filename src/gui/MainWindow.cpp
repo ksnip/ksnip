@@ -486,7 +486,6 @@ void MainWindow::showOpenImageDialog()
 
 void MainWindow::setupImageAnnotator()
 {
-	mKImageAnnotator->setTabBarAutoHide(mConfig->autoHideTabs());
 	mKImageAnnotator->setSaveToolSelection(mConfig->rememberToolSelection());
 	mKImageAnnotator->setSmoothFactor(mConfig->smoothFactor());
 	mKImageAnnotator->setSmoothPathEnabled(mConfig->smoothPathEnabled());

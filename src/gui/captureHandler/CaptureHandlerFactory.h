@@ -22,6 +22,7 @@
 
 #include "src/gui/captureHandler/SingleCaptureHandler.h"
 #include "src/gui/captureHandler/MultiCaptureHandler.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 
 class CaptureHandlerFactory
 {

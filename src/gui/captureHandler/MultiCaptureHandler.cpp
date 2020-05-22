@@ -24,7 +24,8 @@ MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToas
 	mToastService(toastService),
 	mParent(parent),
 	mCaptureChangeListener(nullptr),
-	mTabStateHandler(new CaptureTabStateHandler)
+	mTabStateHandler(new CaptureTabStateHandler),
+	mConfig(KsnipConfigProvider::instance())
 {
 	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabChanged);
 	connect(mKImageAnnotator, &KImageAnnotator::tabMoved, mTabStateHandler, &CaptureTabStateHandler::tabMoved);
@@ -34,6 +35,10 @@ MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToas
 	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, this, &MultiCaptureHandler::captureChanged);
 	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, this, &MultiCaptureHandler::captureChanged);
 	connect(mKImageAnnotator, &KImageAnnotator::tabCloseRequested, this, &MultiCaptureHandler::tabCloseRequested);
+
+	connect(mConfig, &KsnipConfig::annotatorConfigChanged, this, &MultiCaptureHandler::annotatorConfigChanged);
+
+	annotatorConfigChanged();
 }
 
 MultiCaptureHandler::~MultiCaptureHandler()
@@ -151,4 +156,9 @@ void MultiCaptureHandler::captureEmpty()
 	if(mCaptureChangeListener != nullptr) {
 		mCaptureChangeListener->captureEmpty();
 	}
+}
+
+void MultiCaptureHandler::annotatorConfigChanged()
+{
+	mKImageAnnotator->setTabBarAutoHide(mConfig->autoHideTabs());
 }

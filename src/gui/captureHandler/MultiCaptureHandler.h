@@ -29,6 +29,7 @@
 #include "src/gui/IToastService.h"
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -56,6 +57,7 @@ private:
 	ICaptureChangeListener *mCaptureChangeListener;
 	NewCaptureNameProvider mNewCaptureNameProvider;
 	PathFromCaptureProvider mPathFromCaptureProvider;
+	KsnipConfig *mConfig;
 
 	bool discardChanges(int index);
 	void removeTab(int currentTabIndex);
@@ -65,6 +67,7 @@ private slots:
 	void tabCloseRequested(int index);
 	void captureChanged();
 	void captureEmpty();
+	void annotatorConfigChanged();
 };
 
 #endif //KSNIP_MULTICAPTUREHANDLER_H

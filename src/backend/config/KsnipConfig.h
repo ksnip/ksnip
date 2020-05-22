@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef KSNIPCONFIG_H
-#define KSNIPCONFIG_H
+#ifndef KSNIP_KSNIPCONFIG_H
+#define KSNIP_KSNIPCONFIG_H
 
 #include <QObject>
 #include <QDirModel>
@@ -56,6 +56,9 @@ public:
 
 	virtual bool rememberToolSelection() const;
 	virtual void setRememberToolSelection(bool enabled);
+
+	virtual bool useTabs() const;
+	virtual void setUseTabs(bool enabled);
 
 	virtual bool autoHideTabs() const;
 	virtual void setAutoHideTabs(bool enabled);
@@ -245,4 +248,4 @@ private:
 	QVariant loadValue(const QString &key, const QVariant &defaultValue = QVariant()) const;
 };
 
-#endif // KSNIPCONFIG_H
+#endif // KSNIP_KSNIPCONFIG_H

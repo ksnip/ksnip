@@ -29,6 +29,7 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	mMinimizeToTrayCheckBox(new QCheckBox(this)),
 	mCloseToTrayCheckBox(new QCheckBox(this)),
 	mStartMinimizedToTrayCheckBox(new QCheckBox(this)),
+	mUseTabsCheckbox(new QCheckBox(this)),
 	mAutoHideTabsCheckbox(new QCheckBox(this)),
 	mUseSingleInstanceCheckBox(new QCheckBox(this)),
 	mApplicationStyleLabel(new QLabel(this)),
@@ -48,6 +49,7 @@ ApplicationSettings::~ApplicationSettings()
 	delete mRememberKsnipToolSelectionCheckbox;
 	delete mCaptureOnStartupCheckbox;
 	delete mUseTrayIconCheckBox;
+	delete mUseTabsCheckbox;
 	delete mAutoHideTabsCheckbox;
 	delete mMinimizeToTrayCheckBox;
 	delete mCloseToTrayCheckBox;
@@ -71,6 +73,9 @@ void ApplicationSettings::initGui()
 	mStartMinimizedToTrayCheckBox->setText(tr("Start Minimized to Tray."));
 	mCloseToTrayCheckBox->setText(tr("Close to Tray"));
 
+	mUseTabsCheckbox->setText(tr("Use Tabs"));
+	mUseTabsCheckbox->setToolTip(tr("Change requires restart."));
+
 	mAutoHideTabsCheckbox->setText(tr("Auto Hide Tabs"));
 	mAutoHideTabsCheckbox->setToolTip(tr("Hide Tabbar when only on Tab is used."));
 
@@ -81,6 +86,7 @@ void ApplicationSettings::initGui()
 									             "a new start of all instances."));
 
 	connect(mUseTrayIconCheckBox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTrayIconChanged);
+	connect(mUseTabsCheckbox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTabsChanged);
 
 	mApplicationStyleLabel->setText(tr("Application Style") + QStringLiteral(":"));
 	mApplicationStyleLabel->setToolTip(tr("Sets the application style which defines the look and feel of the GUI.\n"
@@ -88,8 +94,6 @@ void ApplicationSettings::initGui()
 	mApplicationStyleCombobox->addItems(QStyleFactory::keys());
 	mApplicationStyleCombobox->setToolTip(mApplicationStyleLabel->toolTip());
 	mApplicationStyleCombobox->setFixedWidth(ScaledSizeProvider::getScaledWidth(100));
-
-
 
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnMinimumWidth(0, ScaledSizeProvider::getScaledWidth(10));
@@ -101,11 +105,12 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 5, 1, 1, 3);
 	mLayout->addWidget(mMinimizeToTrayCheckBox, 6, 1, 1, 3);
 	mLayout->addWidget(mCloseToTrayCheckBox, 7, 1, 1, 3);
-	mLayout->addWidget(mAutoHideTabsCheckbox, 8, 0, 1, 4);
-	mLayout->addWidget(mUseSingleInstanceCheckBox, 9, 0, 1, 4);
-	mLayout->setRowMinimumHeight(10, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 11, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 11, 2, Qt::AlignLeft);
+	mLayout->addWidget(mUseTabsCheckbox, 8, 0, 1, 4);
+	mLayout->addWidget(mAutoHideTabsCheckbox, 9, 1, 1, 3);
+	mLayout->addWidget(mUseSingleInstanceCheckBox, 10, 0, 1, 4);
+	mLayout->setRowMinimumHeight(11, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 12, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 12, 2, Qt::AlignLeft);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -121,18 +126,18 @@ void ApplicationSettings::loadConfig()
 	mMinimizeToTrayCheckBox->setChecked(mConfig->minimizeToTray());
 	mStartMinimizedToTrayCheckBox->setChecked(mConfig->startMinimizedToTray());
 	mCloseToTrayCheckBox->setChecked(mConfig->closeToTray());
+	mUseTabsCheckbox->setChecked(mConfig->useTabs());
 	mAutoHideTabsCheckbox->setChecked(mConfig->autoHideTabs());
 	mUseSingleInstanceCheckBox->setChecked(mConfig->useSingleInstance());
+	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
 
 	useTrayIconChanged();
-
-	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
+	useTabsChanged();
 }
 
 void ApplicationSettings::saveSettings()
 {
 	mConfig->setAutoCopyToClipboardNewCaptures(mAutoCopyToClipboardNewCapturesCheckbox->isChecked());
-
 	mConfig->setRememberPosition(mRememberKsnipPositionCheckbox->isChecked());
 	mConfig->setRememberToolSelection(mRememberKsnipToolSelectionCheckbox->isChecked());
 	mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
@@ -141,6 +146,7 @@ void ApplicationSettings::saveSettings()
 	mConfig->setStartMinimizedToTray(mStartMinimizedToTrayCheckBox->isChecked());
 	mConfig->setCloseToTray(mCloseToTrayCheckBox->isChecked());
 	mConfig->setUseSingleInstance(mUseSingleInstanceCheckBox->isChecked());
+	mConfig->setUseTabs(mUseTabsCheckbox->isChecked());
 	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 }
@@ -150,4 +156,9 @@ void ApplicationSettings::useTrayIconChanged()
 	mMinimizeToTrayCheckBox->setEnabled(mUseTrayIconCheckBox->isChecked());
 	mCloseToTrayCheckBox->setEnabled(mUseTrayIconCheckBox->isChecked());
 	mStartMinimizedToTrayCheckBox->setEnabled(mUseTrayIconCheckBox->isChecked());
+}
+
+void ApplicationSettings::useTabsChanged()
+{
+	mAutoHideTabsCheckbox->setEnabled(mUseTabsCheckbox->isChecked());
 }

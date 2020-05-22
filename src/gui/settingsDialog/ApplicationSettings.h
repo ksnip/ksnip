@@ -50,6 +50,7 @@ private:
 	QCheckBox *mMinimizeToTrayCheckBox;
 	QCheckBox *mCloseToTrayCheckBox;
 	QCheckBox *mStartMinimizedToTrayCheckBox;
+	QCheckBox *mUseTabsCheckbox;
 	QCheckBox *mAutoHideTabsCheckbox;
 	QCheckBox *mUseSingleInstanceCheckBox;
 	QLabel *mApplicationStyleLabel;
@@ -62,6 +63,7 @@ private:
 
 private slots:
 	void useTrayIconChanged();
+	void useTabsChanged();
 };
 
 #endif //KSNIP_APPLICATIONSETTINGS_H

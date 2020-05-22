@@ -44,6 +44,11 @@ QString KsnipConfigOptions::rememberToolSelectionString()
 	return applicationSectionString() + QStringLiteral("SaveToolsSelection");
 }
 
+QString KsnipConfigOptions::useTabsString()
+{
+	return applicationSectionString() + QStringLiteral("UseTabs");
+}
+
 QString KsnipConfigOptions::autoHideTabsString()
 {
 	return applicationSectionString() + QStringLiteral("AutoHideTabs");

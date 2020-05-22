@@ -16,6 +16,7 @@
 * New: Custom script for upload images. ([#268](https://github.com/ksnip/ksnip/issues/268))
 * New: Disable single global hotkey by clearing the shortcut. ([#316](https://github.com/ksnip/ksnip/issues/316))
 * New: Run ksnip as single instance. ([#238](https://github.com/ksnip/ksnip/issues/238))
+* New: Add option for disabling tabs. ([#329](https://github.com/ksnip/ksnip/issues/329))
 * New kImageAnnotator: Add option to translate UI. ([#54](https://github.com/ksnip/kImageAnnotator/issues/54))
 * New kImageAnnotator: Saved image expand to include annotations out of border. ([#90](https://github.com/ksnip/kImageAnnotator/issues/90))  
 * New kImageAnnotator: Add support for stickers. ([#74](https://github.com/ksnip/kImageAnnotator/issues/74))
@@ -29,6 +30,7 @@
 * Fixed: When 'Capture Save Location' is not set, ksnip fails to save. ([#263](https://github.com/ksnip/ksnip/issues/263))
 * Fixed: Connections that required ssl not working on AppImages. ([#320](https://github.com/ksnip/ksnip/issues/320))
 * Fixed: Main window hangs when pressing `Esc` on selecting screenshot area state. ([#330](https://github.com/ksnip/ksnip/issues/330))
+* Fixed kImageAnnotator: Using select tool marks image as changed. ([#97](https://github.com/ksnip/kImageAnnotator/issues/97))
 
 ## Release 1.6.2
 * Changed: Add missing plugs to silence snap socket warnings. ([#313](https://github.com/ksnip/ksnip/issues/313))

@@ -142,18 +142,6 @@ de simábbá teszi.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Prompt to save before discarding unsaved changes</source>
-        <translation>A mentettlen módosítások elvetése előtt kérdezzen rá a mentésre</translation>
-    </message>
-    <message>
-        <source>Save ksnip position on move and load on startup</source>
-        <translation>Mentse a program pozícióját mozgás közben, és töltse be indításkor</translation>
-    </message>
-    <message>
-        <source>Save ksnip tool selection and load on startup</source>
-        <translation>Mentse a program kijelölő eszközét, és töltse be indításkor</translation>
-    </message>
-    <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Képernyő mentése program indításkor az alapértelmezett módon</translation>
     </message>
@@ -168,20 +156,8 @@ Change requires ksnip restart to take effect.</source>
 A módosításhoz érvényesítéséhez a program újraindítása szükséges.</translation>
     </message>
     <message>
-        <source>Capture save location and filename</source>
-        <translation>Mentés helye és fájlneve</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation>Tallózás</translation>
-    </message>
-    <message>
         <source>Application Settings</source>
         <translation>Alkalmazás beállítások</translation>
-    </message>
-    <message>
-        <source>Capture save location</source>
-        <translation>Rögzített kép mentésének helye</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -210,10 +186,6 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
         <translation>Az új képernyőmentéseket automatikusan másolja a vágólapra</translation>
     </message>
     <message>
-        <source>Automatically save new captures to default location</source>
-        <translation>Az új képernyőmentéseket automatikusan mentse az alapértelmezett helyre</translation>
-    </message>
-    <message>
         <source>Auto Hide Tabs</source>
         <translation>Fülek automatikus elrejtése</translation>
     </message>
@@ -222,17 +194,30 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
         <translation>A fülsáv elrejtése a fülek használatakor.</translation>
     </message>
     <message>
-        <source>Remember last Save Directory</source>
+        <source>Remember ksnip position on move and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>When enabled will overwrite the save directory stored in settings
-with the latest save directory, for every save.</source>
+        <source>Remember ksnip tool selection and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
-Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
+        <source>Use Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run ksnip as single instance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass it&apos;s
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -459,6 +444,10 @@ El akarod menteni?</translation>
         <source>Capture Last Rect Area</source>
         <translation>Legutoljára használt kijelölés szerinti rögzítés</translation>
     </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -667,6 +656,15 @@ Hasonlóan, mint MacOS rendszeren, viszont nem működik Waylanden.</translation
         <source>Link directly to image</source>
         <translation>Közvetlen link a képhez</translation>
     </message>
+    <message>
+        <source>Base Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base url that will be used for communication with Imgur.
+Changing requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -867,6 +865,49 @@ másodpercben megadva.</translation>
     </message>
 </context>
 <context>
+    <name>SaverSettings</name>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished">Az új képernyőmentéseket automatikusan mentse az alapértelmezett helyre</translation>
+    </message>
+    <message>
+        <source>Prompt to save before discarding unsaved changes</source>
+        <translation type="unfinished">A mentettlen módosítások elvetése előtt kérdezzen rá a mentésre</translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location and filename</source>
+        <translation type="unfinished">Mentés helye és fájlneve</translation>
+    </message>
+    <message>
+        <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
+Filename can contain following wildcards:
+- $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+- Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Tallózás</translation>
+    </message>
+    <message>
+        <source>Saver Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location</source>
+        <translation type="unfinished">Rögzített kép mentésének helye</translation>
+    </message>
+</context>
+<context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
@@ -952,6 +993,10 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saver</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -140,18 +140,6 @@ make them more smooth.</source>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Prompt to save before discarding unsaved changes</source>
-        <translation>Chiedi conferma prima di scartare i cambiamenti non salvati</translation>
-    </message>
-    <message>
-        <source>Save ksnip position on move and load on startup</source>
-        <translation>Salva la posizione di ksnip e riutilizzala all&apos;avvio</translation>
-    </message>
-    <message>
-        <source>Save ksnip tool selection and load on startup</source>
-        <translation>Salva lo strumento selezionato in ksnip e riutilizzalo all&apos;avvio</translation>
-    </message>
-    <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Salva una schermata all&apos;avvio usando la modalità di default</translation>
     </message>
@@ -184,20 +172,8 @@ Change requires ksnip restart to take effect.</source>
 Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
-        <source>Capture save location and filename</source>
-        <translation>Posizione e nome del file per il salvataggio</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation>Sfoglia</translation>
-    </message>
-    <message>
         <source>Application Settings</source>
         <translation>Impostazioni Applicazione</translation>
-    </message>
-    <message>
-        <source>Capture save location</source>
-        <translation>Posizione di salvataggio della schermata</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
@@ -208,10 +184,6 @@ Questa impostazione richiede il riavvio.</translation>
         <translation>Copia automaticamente le nuove acquisizioni negli appunti</translation>
     </message>
     <message>
-        <source>Automatically save new captures to default location</source>
-        <translation>Salva automaticamente le nuove acquisizioni nella posizione predefinita</translation>
-    </message>
-    <message>
         <source>Auto Hide Tabs</source>
         <translation>Nascondi le schede automaticamente</translation>
     </message>
@@ -220,20 +192,31 @@ Questa impostazione richiede il riavvio.</translation>
         <translation>Nascondi la barra delle schede quando viene utilizzata solo la scheda</translation>
     </message>
     <message>
-        <source>Remember last Save Directory</source>
-        <translation>Ricorda l'ultima directory di salvataggio</translation>
+        <source>Remember ksnip position on move and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>When enabled will overwrite the save directory stored in settings
-with the latest save directory, for every save.</source>
-        <translation>Se abilitato, sovrascriverà la directory di salvataggio memorizzata nelle impostazioni
-con l'ultima directory di salvataggio, per ogni salvataggio.</translation>
+        <source>Remember ksnip tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
-Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
-        <translation>Il nome file può contenere $Y, $M, $D per data, $h, $m, $s per l'ora o $T per l'ora nel formato hhmmss.
-I formati supportati sono JPG, PNG e BMP. Se non viene fornito alcun formato, PNG verrà utilizzato come predefinito.</translation>
+        <source>Use Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run ksnip as single instance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass it&apos;s
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -386,7 +369,7 @@ Desideri salvarla?</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation>Impossibile salvare l'immagine temporanea per il caricamento.</translation>
+        <translation>Impossibile salvare l&apos;immagine temporanea per il caricamento.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
@@ -410,7 +393,7 @@ Desideri salvarla?</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation>Errore Web, controlla l'output della console.</translation>
+        <translation>Errore Web, controlla l&apos;output della console.</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
@@ -459,6 +442,10 @@ Desideri salvarla?</translation>
         <source>Global HotKeys</source>
         <translation>Scorciatoie Globali</translation>
     </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -474,11 +461,11 @@ screenshot.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation>Blocca l'immagine durante lo snipping</translation>
+        <translation>Blocca l&apos;immagine durante lo snipping</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation>Mostra la lente d'ingrandimento sull'area di cattura</translation>
+        <translation>Mostra la lente d&apos;ingrandimento sull&apos;area di cattura</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
@@ -494,11 +481,11 @@ with &apos;Freeze Image while snipping&apos; enabled.</source>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
         <translation>Linee orizzontali e verticali che vanno da
-bordi del desktop per il cursore sull'area di cattura.</translation>
+bordi del desktop per il cursore sull&apos;area di cattura.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation>Mostra le informazioni sulla posizione e sulla dimensione dell'area di cattura</translation>
+        <translation>Mostra le informazioni sulla posizione e sulla dimensione dell&apos;area di cattura</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
@@ -507,18 +494,18 @@ the size of the select area is shown left
 and above from the captured area.</source>
         <translation>Quando il mouse sinistro non viene premuto la posizione
 viene mostrato, quando si preme il pulsante del mouse,
-la dimensione dell'area selezionata è mostrata a sinistra
-e sopra dall'area catturata.</translation>
+la dimensione dell&apos;area selezionata è mostrata a sinistra
+e sopra dall&apos;area catturata.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation>Colore del cursore dell'area di cattura</translation>
+        <translation>Colore del cursore dell&apos;area di cattura</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation>Imposta il colore dell'area di cattura
+        <translation>Imposta il colore dell&apos;area di cattura
 cursore. La modifica richiede il riavvio di ksnip su
 prende effetto.</translation>
     </message>
@@ -530,7 +517,7 @@ prende effetto.</translation>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation>Imposta lo spessore dell'area di cattura
+        <translation>Imposta lo spessore dell&apos;area di cattura
 cursore. La modifica richiede il riavvio di ksnip perchè
 abbia effetto.</translation>
     </message>
@@ -550,9 +537,9 @@ enabled for MacOs.</source>
         <translation>Se abilitato, blocca lo sfondo mentre
 selezioni una regione rettangolare. Inoltre cambia
 il comportamento di schermate ritardate, con questo
-opzione abilitata il ritardo si verifica prima dell'opzione area di cattura 
-e mostra con l'opzione disabilitata il ritardo si verifica dopo la visualizzazione
-dell'area di cattura.
+opzione abilitata il ritardo si verifica prima dell&apos;opzione area di cattura 
+e mostra con l&apos;opzione disabilitata il ritardo si verifica dopo la visualizzazione
+dell&apos;area di cattura.
 Questa funzione è sempre disabilitata per Wayland e sempre
 abilitato per MacOs.</translation>
     </message>
@@ -663,7 +650,16 @@ abilitato per MacOs.</translation>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation>Link direttamente all'immagine</translation>
+        <translation>Link direttamente all&apos;immagine</translation>
+    </message>
+    <message>
+        <source>Base Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base url that will be used for communication with Imgur.
+Changing requires restart.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -675,7 +671,7 @@ abilitato per MacOs.</translation>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation>Ritardo in secondi tra l'attivazione
+        <translation>Ritardo in secondi tra l&apos;attivazione
 e cattura screenshot.</translation>
     </message>
     <message>
@@ -723,7 +719,7 @@ e cattura screenshot.</translation>
     <name>MainWindow</name>
     <message>
         <source>Unable to show image</source>
-        <translation>Impossibile mostrare l'immagine</translation>
+        <translation>Impossibile mostrare l&apos;immagine</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
@@ -743,7 +739,7 @@ e cattura screenshot.</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation>Apre la finestra di dialogo della stampante e fornisci l'opzione per stampare l'immagine</translation>
+        <translation>Apre la finestra di dialogo della stampante e fornisci l&apos;opzione per stampare l&apos;immagine</translation>
     </message>
     <message>
         <source>Print Preview</source>
@@ -751,7 +747,7 @@ e cattura screenshot.</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation>Apre la finestra di dialogo Anteprima di stampa in cui è possibile modificare l'orientamento dell'immagine</translation>
+        <translation>Apre la finestra di dialogo Anteprima di stampa in cui è possibile modificare l&apos;orientamento dell&apos;immagine</translation>
     </message>
     <message>
         <source>Scale</source>
@@ -767,7 +763,7 @@ e cattura screenshot.</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation>Aggiungi filigrana all'immagine acquisita. È possibile aggiungere più filigrane.</translation>
+        <translation>Aggiungi filigrana all&apos;immagine acquisita. È possibile aggiungere più filigrane.</translation>
     </message>
     <message>
         <source>Quit</source>
@@ -823,7 +819,7 @@ e cattura screenshot.</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation>Carica l'acquisizione su una fonte esterna</translation>
+        <translation>Carica l&apos;acquisizione su una fonte esterna</translation>
     </message>
 </context>
 <context>
@@ -862,6 +858,50 @@ e cattura screenshot.</translation>
     <message>
         <source>Failed to save image to</source>
         <translation>Salvataggio Immagine fallito in</translation>
+    </message>
+</context>
+<context>
+    <name>SaverSettings</name>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished">Salva automaticamente le nuove acquisizioni nella posizione predefinita</translation>
+    </message>
+    <message>
+        <source>Prompt to save before discarding unsaved changes</source>
+        <translation type="unfinished">Chiedi conferma prima di scartare i cambiamenti non salvati</translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished">Ricorda l&apos;ultima directory di salvataggio</translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished">Se abilitato, sovrascriverà la directory di salvataggio memorizzata nelle impostazioni
+con l&apos;ultima directory di salvataggio, per ogni salvataggio.</translation>
+    </message>
+    <message>
+        <source>Capture save location and filename</source>
+        <translation type="unfinished">Posizione e nome del file per il salvataggio</translation>
+    </message>
+    <message>
+        <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
+Filename can contain following wildcards:
+- $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+- Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Sfoglia</translation>
+    </message>
+    <message>
+        <source>Saver Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location</source>
+        <translation type="unfinished">Posizione di salvataggio della schermata</translation>
     </message>
 </context>
 <context>
@@ -914,7 +954,7 @@ with the path to a temporary png file as a single argument.</source>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Impostazioni</translation>
     </message>
     <message>
         <source>OK</source>
@@ -934,7 +974,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Carica Imgur</translation>
     </message>
     <message>
         <source>Annotator</source>
@@ -950,6 +990,10 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saver</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -968,11 +1012,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Immagini</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tutti i FIle</translation>
     </message>
 </context>
 <context>

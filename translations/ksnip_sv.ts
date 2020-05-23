@@ -141,18 +141,6 @@ för penna och markör, men gör dem mjukare.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Prompt to save before discarding unsaved changes</source>
-        <translation>Fråga om att spara, innan osparade ändringar kasseras</translation>
-    </message>
-    <message>
-        <source>Save ksnip position on move and load on startup</source>
-        <translation>Spara ksip-positionen vid förflyttning och läs in vid uppstart</translation>
-    </message>
-    <message>
-        <source>Save ksnip tool selection and load on startup</source>
-        <translation>Spara senast använda verktyg och läs in vid uppstart</translation>
-    </message>
-    <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Ta skärmklipp vid uppstart med standardläget</translation>
     </message>
@@ -167,20 +155,8 @@ Change requires ksnip restart to take effect.</source>
 Ändringar tillämpas efter omstart av ksnip.</translation>
     </message>
     <message>
-        <source>Capture save location and filename</source>
-        <translation>Klipplagringsplats och filnamn</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation>Bläddra</translation>
-    </message>
-    <message>
         <source>Application Settings</source>
         <translation>Programinställningar</translation>
-    </message>
-    <message>
-        <source>Capture save location</source>
-        <translation>Klipplagringsplats</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -209,10 +185,6 @@ Change requires restart.</source>
         <translation>Kopiera automatiskt nya skärmklipp till urklipp</translation>
     </message>
     <message>
-        <source>Automatically save new captures to default location</source>
-        <translation>Spara automatiskt nya skärmklipp till standardplatsen</translation>
-    </message>
-    <message>
         <source>Auto Hide Tabs</source>
         <translation>Dölj flikar automatiskt</translation>
     </message>
@@ -221,20 +193,31 @@ Change requires restart.</source>
         <translation>Dölj flikfältet när endast en flik används.</translation>
     </message>
     <message>
-        <source>Remember last Save Directory</source>
-        <translation>Kom ihåg senaste mappen som sparats i</translation>
+        <source>Remember ksnip position on move and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>When enabled will overwrite the save directory stored in settings
-with the latest save directory, for every save.</source>
-        <translation>Vid aktivering kommer den i inställningarna lagrade sparamappen
-att skrivas över med senaste sparamappen, varje gång något sparas.</translation>
+        <source>Remember ksnip tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
-Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
-        <translation>Filnamn kan innehålla $Y, $M, $D för datum, $h, $m, $s för tid eller $T för tid i hhmmss-format.
-Format som stöds är JPG, PNG och BMP. Om inget format anges används PNG som standard.</translation>
+        <source>Use Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run ksnip as single instance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass it&apos;s
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -460,6 +443,10 @@ Vill du spara det?</translation>
         <source>Capture Last Rect Area</source>
         <translation>Avbilda tidigare rektangulära område</translation>
     </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -666,6 +653,15 @@ alltid aktiverad för MacOS.</translation>
         <source>Link directly to image</source>
         <translation>Länka direkt till bilden</translation>
     </message>
+    <message>
+        <source>Base Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base url that will be used for communication with Imgur.
+Changing requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -866,6 +862,50 @@ och själva skärmklippet.</translation>
     </message>
 </context>
 <context>
+    <name>SaverSettings</name>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished">Spara automatiskt nya skärmklipp till standardplatsen</translation>
+    </message>
+    <message>
+        <source>Prompt to save before discarding unsaved changes</source>
+        <translation type="unfinished">Fråga om att spara, innan osparade ändringar kasseras</translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished">Kom ihåg senaste mappen som sparats i</translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished">Vid aktivering kommer den i inställningarna lagrade sparamappen
+att skrivas över med senaste sparamappen, varje gång något sparas.</translation>
+    </message>
+    <message>
+        <source>Capture save location and filename</source>
+        <translation type="unfinished">Klipplagringsplats och filnamn</translation>
+    </message>
+    <message>
+        <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
+Filename can contain following wildcards:
+- $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+- Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Bläddra</translation>
+    </message>
+    <message>
+        <source>Saver Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location</source>
+        <translation type="unfinished">Klipplagringsplats</translation>
+    </message>
+</context>
+<context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
@@ -955,6 +995,10 @@ kommer skriptet att anropas med sökvägen till en temporär png-fil som enskilt
     <message>
         <source>Script Uploader</source>
         <translation>Uppladdare för skript</translation>
+    </message>
+    <message>
+        <source>Saver</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

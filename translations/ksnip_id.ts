@@ -142,18 +142,6 @@ membuatnya lebih halus.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Konfirmasi dulu sebelum mengabaikan perubahan yang belum disimpan</translation>
-    </message>
-    <message>
-        <source>Save ksnip position on move and load on startup</source>
-        <translation type="unfinished">Simpan posisi ksnip saat memindahkan dan panggil saat startup</translation>
-    </message>
-    <message>
-        <source>Save ksnip tool selection and load on startup</source>
-        <translation type="unfinished">Simpan pilihan alat-alat ksnip dan panggil saat startup</translation>
-    </message>
-    <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation type="unfinished">Tangkap layar pada startup dengan moda bawaan</translation>
     </message>
@@ -168,20 +156,8 @@ Change requires ksnip restart to take effect.</source>
 Perubahan ini membutuhkan ksnip ditutup dan buka lagi.</translation>
     </message>
     <message>
-        <source>Capture save location and filename</source>
-        <translation type="unfinished">Lokasi penyimpanan dan nama file hasil tangkapan</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation type="unfinished">Telusuri</translation>
-    </message>
-    <message>
         <source>Application Settings</source>
         <translation type="unfinished">Pengaturan Aplikasi</translation>
-    </message>
-    <message>
-        <source>Capture save location</source>
-        <translation type="unfinished">Lokasi penyimpanan tangkapan</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -209,10 +185,6 @@ Change requires restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Auto Hide Tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -221,17 +193,30 @@ Change requires restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Remember last Save Directory</source>
+        <source>Remember ksnip position on move and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>When enabled will overwrite the save directory stored in settings
-with the latest save directory, for every save.</source>
+        <source>Remember ksnip tool selection and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
-Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
+        <source>Use Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run ksnip as single instance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass it&apos;s
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -457,6 +442,10 @@ Do you want to save it?</source>
         <source>Capture Last Rect Area</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -656,6 +645,15 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Link directly to image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base url that will be used for communication with Imgur.
+Changing requires restart.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -858,6 +856,49 @@ gambar, dalam detik.</translation>
     </message>
 </context>
 <context>
+    <name>SaverSettings</name>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prompt to save before discarding unsaved changes</source>
+        <translation type="unfinished">Konfirmasi dulu sebelum mengabaikan perubahan yang belum disimpan</translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location and filename</source>
+        <translation type="unfinished">Lokasi penyimpanan dan nama file hasil tangkapan</translation>
+    </message>
+    <message>
+        <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
+Filename can contain following wildcards:
+- $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+- Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Telusuri</translation>
+    </message>
+    <message>
+        <source>Saver Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location</source>
+        <translation type="unfinished">Lokasi penyimpanan tangkapan</translation>
+    </message>
+</context>
+<context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
@@ -943,6 +984,10 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saver</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -142,18 +142,6 @@ je více vyhlazovat.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Prompt to save before discarding unsaved changes</source>
-        <translation>Zobrazit výzvu k uložení před zahozením neuložených změn</translation>
-    </message>
-    <message>
-        <source>Save ksnip position on move and load on startup</source>
-        <translation>Uložit pozici aplikace při pohybu a načíst při spuštění</translation>
-    </message>
-    <message>
-        <source>Save ksnip tool selection and load on startup</source>
-        <translation>Uložit vybraný nástroj aplikace a načíst při spuštění</translation>
-    </message>
-    <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Zachytit snímek obrazovky při spuštění ve výchozím režimu</translation>
     </message>
@@ -186,20 +174,8 @@ Change requires ksnip restart to take effect.</source>
 Změna vyžaduje restartování aplikace.</translation>
     </message>
     <message>
-        <source>Capture save location and filename</source>
-        <translation>Umístění a název souboru pro uložení zachycení</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation>Procházet</translation>
-    </message>
-    <message>
         <source>Application Settings</source>
         <translation>Nastavení aplikace</translation>
-    </message>
-    <message>
-        <source>Capture save location</source>
-        <translation>Umístění pro uložení zachycení</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
@@ -207,10 +183,6 @@ Změna vyžaduje restartování aplikace.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Automatically save new captures to default location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -222,17 +194,30 @@ Změna vyžaduje restartování aplikace.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Remember last Save Directory</source>
+        <source>Remember ksnip position on move and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>When enabled will overwrite the save directory stored in settings
-with the latest save directory, for every save.</source>
+        <source>Remember ksnip tool selection and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
-Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
+        <source>Use Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run ksnip as single instance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass it&apos;s
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -458,6 +443,10 @@ Do you want to save it?</source>
         <source>Global HotKeys</source>
         <translation>Globální klávesové zkratky</translation>
     </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -655,6 +644,15 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Link directly to image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base url that will be used for communication with Imgur.
+Changing requires restart.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -857,6 +855,49 @@ a zachycením obrazovky.</translation>
     </message>
 </context>
 <context>
+    <name>SaverSettings</name>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prompt to save before discarding unsaved changes</source>
+        <translation type="unfinished">Zobrazit výzvu k uložení před zahozením neuložených změn</translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location and filename</source>
+        <translation type="unfinished">Umístění a název souboru pro uložení zachycení</translation>
+    </message>
+    <message>
+        <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
+Filename can contain following wildcards:
+- $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+- Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Procházet</translation>
+    </message>
+    <message>
+        <source>Saver Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location</source>
+        <translation type="unfinished">Umístění pro uložení zachycení</translation>
+    </message>
+</context>
+<context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
@@ -942,6 +983,10 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saver</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

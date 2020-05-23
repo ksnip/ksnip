@@ -141,18 +141,6 @@ make them more smooth.</source>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Prompt to save before discarding unsaved changes</source>
-        <translation>在放弃未保存的更改之前提示保存</translation>
-    </message>
-    <message>
-        <source>Save ksnip position on move and load on startup</source>
-        <translation>保存ksnip上次使用时的位置，并在启动时加载</translation>
-    </message>
-    <message>
-        <source>Save ksnip tool selection and load on startup</source>
-        <translation>保存ksnip工具选择并在启动时加载</translation>
-    </message>
-    <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>使用默认模式在启动时捕获屏幕截图</translation>
     </message>
@@ -167,20 +155,8 @@ Change requires ksnip restart to take effect.</source>
 更改要求ksnip重新启动才能生效。</translation>
     </message>
     <message>
-        <source>Capture save location and filename</source>
-        <translation>捕获保存位置和文件名</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation>浏览</translation>
-    </message>
-    <message>
         <source>Application Settings</source>
         <translation>应用程序设置</translation>
-    </message>
-    <message>
-        <source>Capture save location</source>
-        <translation>捕获保存位置</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -209,10 +185,6 @@ Change requires restart.</source>
         <translation>自动将新的捕获复制到剪贴板</translation>
     </message>
     <message>
-        <source>Automatically save new captures to default location</source>
-        <translation>自动将新的捕获保存到默认位置</translation>
-    </message>
-    <message>
         <source>Auto Hide Tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -221,17 +193,30 @@ Change requires restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Remember last Save Directory</source>
+        <source>Remember ksnip position on move and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>When enabled will overwrite the save directory stored in settings
-with the latest save directory, for every save.</source>
+        <source>Remember ksnip tool selection and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
-Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
+        <source>Use Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run ksnip as single instance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass it&apos;s
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -457,6 +442,10 @@ Do you want to save it?</source>
         <source>Capture Last Rect Area</source>
         <translation>捕捉上一次的矩形区域</translation>
     </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -664,6 +653,15 @@ enabled for MacOs.</source>
         <source>Link directly to image</source>
         <translation>直接链接到图片</translation>
     </message>
+    <message>
+        <source>Base Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base url that will be used for communication with Imgur.
+Changing requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -864,6 +862,49 @@ and capturing screenshot.</source>
     </message>
 </context>
 <context>
+    <name>SaverSettings</name>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished">自动将新的捕获保存到默认位置</translation>
+    </message>
+    <message>
+        <source>Prompt to save before discarding unsaved changes</source>
+        <translation type="unfinished">在放弃未保存的更改之前提示保存</translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location and filename</source>
+        <translation type="unfinished">捕获保存位置和文件名</translation>
+    </message>
+    <message>
+        <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
+Filename can contain following wildcards:
+- $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+- Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">浏览</translation>
+    </message>
+    <message>
+        <source>Saver Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location</source>
+        <translation type="unfinished">捕获保存位置</translation>
+    </message>
+</context>
+<context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
@@ -949,6 +990,10 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saver</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

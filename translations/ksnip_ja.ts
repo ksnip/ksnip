@@ -141,18 +141,6 @@ make them more smooth.</source>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Prompt to save before discarding unsaved changes</source>
-        <translation>未保存の変更を破棄する前に保存するか確認する</translation>
-    </message>
-    <message>
-        <source>Save ksnip position on move and load on startup</source>
-        <translation>ksnip のウィンドウ位置を記憶する</translation>
-    </message>
-    <message>
-        <source>Save ksnip tool selection and load on startup</source>
-        <translation>選択した ksnip のツールを記憶する</translation>
-    </message>
-    <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>起動時にデフォルトモードでスクリーンショットを撮る</translation>
     </message>
@@ -186,20 +174,8 @@ Change requires ksnip restart to take effect.</source>
 この変更は ksnip を再起動すると有効になります。</translation>
     </message>
     <message>
-        <source>Capture save location and filename</source>
-        <translation>キャプチャーの保存場所とファイル名</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation>参照</translation>
-    </message>
-    <message>
         <source>Application Settings</source>
         <translation>アプリケーション設定</translation>
-    </message>
-    <message>
-        <source>Capture save location</source>
-        <translation>キャプチャーの保存場所</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
@@ -210,10 +186,6 @@ Change requires ksnip restart to take effect.</source>
         <translation>自動的に新しいキャプチャーをクリップボードにコピーする</translation>
     </message>
     <message>
-        <source>Automatically save new captures to default location</source>
-        <translation>自動的に新しいキャプチャーをデフォルトの場所に保存する</translation>
-    </message>
-    <message>
         <source>Auto Hide Tabs</source>
         <translation>タブを自動で隠す</translation>
     </message>
@@ -222,20 +194,31 @@ Change requires ksnip restart to take effect.</source>
         <translation>タブが一つのときはタブバーを隠します。</translation>
     </message>
     <message>
-        <source>Remember last Save Directory</source>
-        <translation>最後に保存したディレクトリを記憶する</translation>
+        <source>Remember ksnip position on move and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>When enabled will overwrite the save directory stored in settings
-with the latest save directory, for every save.</source>
-        <translation>有効にすると、保存するたびに
-保存先の設定が上書きされます。</translation>
+        <source>Remember ksnip tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
-Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
-        <translation>ファイル名には、日付を表す $Y、$M、$D、時間を表す $h、$m、$s、hhmmss 形式で時間を表す $T を含めることができます。
-サポートしているファイル形式は JPG、PNG、BMP で、指定しない場合は PNG がデフォルトで使用されます。</translation>
+        <source>Use Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run ksnip as single instance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass it&apos;s
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -461,6 +444,10 @@ Do you want to save it?</source>
         <source>Global HotKeys</source>
         <translation>グローバルホットキー</translation>
     </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -665,6 +652,15 @@ macOS では常に有効になります。</translation>
         <source>Link directly to image</source>
         <translation>画像に直接リンクする</translation>
     </message>
+    <message>
+        <source>Base Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base url that will be used for communication with Imgur.
+Changing requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -865,6 +861,50 @@ and capturing screenshot.</source>
     </message>
 </context>
 <context>
+    <name>SaverSettings</name>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished">自動的に新しいキャプチャーをデフォルトの場所に保存する</translation>
+    </message>
+    <message>
+        <source>Prompt to save before discarding unsaved changes</source>
+        <translation type="unfinished">未保存の変更を破棄する前に保存するか確認する</translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished">最後に保存したディレクトリを記憶する</translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished">有効にすると、保存するたびに
+保存先の設定が上書きされます。</translation>
+    </message>
+    <message>
+        <source>Capture save location and filename</source>
+        <translation type="unfinished">キャプチャーの保存場所とファイル名</translation>
+    </message>
+    <message>
+        <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
+Filename can contain following wildcards:
+- $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+- Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">参照</translation>
+    </message>
+    <message>
+        <source>Saver Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location</source>
+        <translation type="unfinished">キャプチャーの保存場所</translation>
+    </message>
+</context>
+<context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
@@ -954,6 +994,10 @@ with the path to a temporary png file as a single argument.</source>
     <message>
         <source>Script Uploader</source>
         <translation>スクリプトアップローダー</translation>
+    </message>
+    <message>
+        <source>Saver</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -142,18 +142,6 @@ torná-los mais suaves.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Prompt to save before discarding unsaved changes</source>
-        <translation>Avisar para salvar antes de descartar um trabalho não salvo</translation>
-    </message>
-    <message>
-        <source>Save ksnip position on move and load on startup</source>
-        <translation>Salvar a posição da janela do ksnip para relembrar na inicialização</translation>
-    </message>
-    <message>
-        <source>Save ksnip tool selection and load on startup</source>
-        <translation>Salvar o último modo de captura utilizado e carregá-lo na inicialização</translation>
-    </message>
-    <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Capturar a tela ao iniciar, utilizando o modo padrão de captura</translation>
     </message>
@@ -168,20 +156,8 @@ Change requires ksnip restart to take effect.</source>
 Requer reiniciar o ksnip para aplicar as mudanças.</translation>
     </message>
     <message>
-        <source>Capture save location and filename</source>
-        <translation>Local e nome do arquivo para a captura</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation>Selecionar</translation>
-    </message>
-    <message>
         <source>Application Settings</source>
         <translation>Configurações da Aplicação</translation>
-    </message>
-    <message>
-        <source>Capture save location</source>
-        <translation>Local para salvar a captura</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -210,10 +186,6 @@ A mudança requer reinicialização.</translation>
         <translation>Automaticamente copiar novas capturas para a área de transferência</translation>
     </message>
     <message>
-        <source>Automatically save new captures to default location</source>
-        <translation>Automaticamente salvar novas capturas para o diretório padrão</translation>
-    </message>
-    <message>
         <source>Auto Hide Tabs</source>
         <translation>Automaticamente ocultar abas</translation>
     </message>
@@ -222,20 +194,31 @@ A mudança requer reinicialização.</translation>
         <translation>Ocultar a barra de Abas quando apenas uma Aba é usada.</translation>
     </message>
     <message>
-        <source>Remember last Save Directory</source>
-        <translation>Lembrar o último diretório onde os arquivos foram salvos</translation>
+        <source>Remember ksnip position on move and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>When enabled will overwrite the save directory stored in settings
-with the latest save directory, for every save.</source>
-        <translation>Quando ativado, substituirá o diretório de &quot;salvar&quot; armazenado nas configurações
-para o diretório mais recente onde foi salvo, isso para cada vez que usar o comando salvar.</translation>
+        <source>Remember ksnip tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
-Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
-        <translation>O nome do arquivo pode conter $Y, $M, $D para data, $h, $m, $s para hora ou $T para hora no formato hhmmss.
-Os formatos suportados são JPG, PNG e BMP. Se nenhum formato for fornecido, o PNG será usado como padrão.</translation>
+        <source>Use Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run ksnip as single instance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass it&apos;s
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -461,6 +444,10 @@ Deseja salvá-la?</translation>
         <source>Capture Last Rect Area</source>
         <translation>Captura da Última área retangular</translation>
     </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -667,6 +654,15 @@ e sempre ativado para MacOs.</translation>
         <source>Link directly to image</source>
         <translation>Link direto para a imagem</translation>
     </message>
+    <message>
+        <source>Base Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base url that will be used for communication with Imgur.
+Changing requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -867,6 +863,50 @@ e captura de tela.</translation>
     </message>
 </context>
 <context>
+    <name>SaverSettings</name>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished">Automaticamente salvar novas capturas para o diretório padrão</translation>
+    </message>
+    <message>
+        <source>Prompt to save before discarding unsaved changes</source>
+        <translation type="unfinished">Avisar para salvar antes de descartar um trabalho não salvo</translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished">Lembrar o último diretório onde os arquivos foram salvos</translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished">Quando ativado, substituirá o diretório de &quot;salvar&quot; armazenado nas configurações
+para o diretório mais recente onde foi salvo, isso para cada vez que usar o comando salvar.</translation>
+    </message>
+    <message>
+        <source>Capture save location and filename</source>
+        <translation type="unfinished">Local e nome do arquivo para a captura</translation>
+    </message>
+    <message>
+        <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
+Filename can contain following wildcards:
+- $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+- Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Selecionar</translation>
+    </message>
+    <message>
+        <source>Saver Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location</source>
+        <translation type="unfinished">Local para salvar a captura</translation>
+    </message>
+</context>
+<context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
@@ -956,6 +996,10 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     <message>
         <source>Script Uploader</source>
         <translation>Script de Uploader</translation>
+    </message>
+    <message>
+        <source>Saver</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -142,18 +142,6 @@ gladder.</translation>
 <context>
     <name>ApplicationSettings</name>
     <message>
-        <source>Prompt to save before discarding unsaved changes</source>
-        <translation>Altijd vragen om aanpassingen op te slaan</translation>
-    </message>
-    <message>
-        <source>Save ksnip position on move and load on startup</source>
-        <translation>ksnip-vensterpositie onthouden bij verplaatsen en laden bij opstarten</translation>
-    </message>
-    <message>
-        <source>Save ksnip tool selection and load on startup</source>
-        <translation>ksnip-hulpmiddelkeuze onthouden en laden bij opstarten</translation>
-    </message>
-    <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Schermfoto vastleggen met standaardmodus bij opstarten</translation>
     </message>
@@ -168,20 +156,8 @@ Change requires ksnip restart to take effect.</source>
 Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
     <message>
-        <source>Capture save location and filename</source>
-        <translation>Opslaglocatie en bestandsnaam</translation>
-    </message>
-    <message>
-        <source>Browse</source>
-        <translation>Bladeren</translation>
-    </message>
-    <message>
         <source>Application Settings</source>
         <translation>Programma-instellingen</translation>
-    </message>
-    <message>
-        <source>Capture save location</source>
-        <translation>Opslaglocatie</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -210,10 +186,6 @@ Herstart om de wijziging toe te passen.</translation>
         <translation>Nieuwe schermfoto&apos;s automatisch kopiëren naar klembord</translation>
     </message>
     <message>
-        <source>Automatically save new captures to default location</source>
-        <translation>Nieuwe schermfoto&apos;s automatisch opslaan in standaardlocatie</translation>
-    </message>
-    <message>
         <source>Auto Hide Tabs</source>
         <translation>Tabbladen automatisch verbergen</translation>
     </message>
@@ -222,20 +194,31 @@ Herstart om de wijziging toe te passen.</translation>
         <translation>Verberg de tabbladbalk als er slechts één tabblad geopend is.</translation>
     </message>
     <message>
-        <source>Remember last Save Directory</source>
-        <translation>Recentste opslagmap onthouden</translation>
+        <source>Remember ksnip position on move and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>When enabled will overwrite the save directory stored in settings
-with the latest save directory, for every save.</source>
-        <translation>Schakel in om de opslagmap uit de instellingen te vervangen door
-de recentste opslagmap.</translation>
+        <source>Remember ksnip tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
-Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.</source>
-        <translation>De bestandsnaam mag $Y, $M, $D en bevatten voor datums, $h, $m, $s voor tijdstippen, of $T voor tijdstippen in hhmmss-opmaak.
-Ondersteunde bestandsformaten: JPG, PNG en BMP. Als je niks opgeeft, wordt PNG gebruikt.</translation>
+        <source>Use Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run ksnip as single instance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass it&apos;s
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -461,6 +444,10 @@ Wil je hem opslaan?</translation>
         <source>Capture Last Rect Area</source>
         <translation>Vorig rechthoekig gebied vastleggen</translation>
     </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -668,6 +655,15 @@ standaard ingeschakeld op macOS.</translation>
         <source>Link directly to image</source>
         <translation>Directe link naar afbeelding</translation>
     </message>
+    <message>
+        <source>Base Url:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base url that will be used for communication with Imgur.
+Changing requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MainToolBar</name>
@@ -868,6 +864,50 @@ van schermfoto, in seconden.</translation>
     </message>
 </context>
 <context>
+    <name>SaverSettings</name>
+    <message>
+        <source>Automatically save new captures to default location</source>
+        <translation type="unfinished">Nieuwe schermfoto&apos;s automatisch opslaan in standaardlocatie</translation>
+    </message>
+    <message>
+        <source>Prompt to save before discarding unsaved changes</source>
+        <translation type="unfinished">Altijd vragen om aanpassingen op te slaan</translation>
+    </message>
+    <message>
+        <source>Remember last Save Directory</source>
+        <translation type="unfinished">Recentste opslagmap onthouden</translation>
+    </message>
+    <message>
+        <source>When enabled will overwrite the save directory stored in settings
+with the latest save directory, for every save.</source>
+        <translation type="unfinished">Schakel in om de opslagmap uit de instellingen te vervangen door
+de recentste opslagmap.</translation>
+    </message>
+    <message>
+        <source>Capture save location and filename</source>
+        <translation type="unfinished">Opslaglocatie en bestandsnaam</translation>
+    </message>
+    <message>
+        <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
+Filename can contain following wildcards:
+- $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
+- Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse</source>
+        <translation type="unfinished">Bladeren</translation>
+    </message>
+    <message>
+        <source>Saver Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture save location</source>
+        <translation type="unfinished">Opslaglocatie</translation>
+    </message>
+</context>
+<context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
@@ -957,6 +997,10 @@ wordt dit script aangeroepen op het pad van de tijdelijke png.</translation>
     <message>
         <source>Script Uploader</source>
         <translation>Script-uploader</translation>
+    </message>
+    <message>
+        <source>Saver</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

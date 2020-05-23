@@ -25,21 +25,11 @@ bool PathHelper::isPathValid(const QString &path)
 	return !path.isNull() && !path.isEmpty();
 }
 
-/*
- * Split the path into sections each divided by forward slash and return
- * everything from begin to the last part just before the filename.
- */
 QString PathHelper::extractPath(const QString& path)
 {
     return path.section(QStringLiteral("/"), 0, -2);
 }
 
-/*
- * Split the path in section divided by forward slash. Check if the last section
- * contains a dot which could be used as demarcation for the file format, we
- * need to remove it. If no file format was provided, just return the last
- * section.
- */
 QString PathHelper::extractFilename(const QString& path)
 {
     if (path.section(QStringLiteral("/"), -1).contains(QLatin1Char('.'))) {
@@ -49,11 +39,6 @@ QString PathHelper::extractFilename(const QString& path)
     }
 }
 
-/*
- * Split the path in section divided by forward slash. If the last section
- * contains a dot, split it again and return the part after the last dot. If no
- * dot was found, return empty string, we have no file format.
- */
 QString PathHelper::extractFormat(const QString& path)
 {
     if (path.section(QStringLiteral("/"), -1).contains(QLatin1Char('.'))) {
@@ -63,27 +48,66 @@ QString PathHelper::extractFormat(const QString& path)
     }
 }
 
-QString PathHelper::replaceWildcards(QString filename)
+QString PathHelper::replaceDateTimeWildcards(const QString &filename)
 {
-    filename.replace(QStringLiteral("$Y"), QDateTime::currentDateTime().toString(QStringLiteral("yyyy")));
-    filename.replace(QStringLiteral("$M"), QDateTime::currentDateTime().toString(QStringLiteral("MM")));
-    filename.replace(QStringLiteral("$D"), QDateTime::currentDateTime().toString(QStringLiteral("dd")));
-    filename.replace(QStringLiteral("$T"), QDateTime::currentDateTime().toString(QStringLiteral("hhmmss")));
-    filename.replace(QStringLiteral("$h"), QDateTime::currentDateTime().toString(QStringLiteral("hh")));
-    filename.replace(QStringLiteral("$m"), QDateTime::currentDateTime().toString(QStringLiteral("mm")));
-    filename.replace(QStringLiteral("$s"), QDateTime::currentDateTime().toString(QStringLiteral("ss")));
-    return filename;
+	auto filenameWithoutWildcards = filename;
+	filenameWithoutWildcards.replace(QStringLiteral("$Y"), QDateTime::currentDateTime().toString(QStringLiteral("yyyy")));
+	filenameWithoutWildcards.replace(QStringLiteral("$M"), QDateTime::currentDateTime().toString(QStringLiteral("MM")));
+	filenameWithoutWildcards.replace(QStringLiteral("$D"), QDateTime::currentDateTime().toString(QStringLiteral("dd")));
+	filenameWithoutWildcards.replace(QStringLiteral("$T"), QDateTime::currentDateTime().toString(QStringLiteral("hhmmss")));
+	filenameWithoutWildcards.replace(QStringLiteral("$h"), QDateTime::currentDateTime().toString(QStringLiteral("hh")));
+	filenameWithoutWildcards.replace(QStringLiteral("$m"), QDateTime::currentDateTime().toString(QStringLiteral("mm")));
+	filenameWithoutWildcards.replace(QStringLiteral("$s"), QDateTime::currentDateTime().toString(QStringLiteral("ss")));
+    return filenameWithoutWildcards;
 }
 
 QString PathHelper::makeUniqueFilename(const QString& path, const QString& filename, const QString& extension)
 {
-    if (!QFile::exists(path + filename + extension)) {
-        return path + filename + extension;
+	auto uniqueFilename = path + filename + extension;
+    if (QFile::exists(uniqueFilename)) {
+	    auto i = 1;
+	    auto openingParentheses = QStringLiteral("(");
+	    auto closingParentheses = QStringLiteral(")") ;
+	    while (QFile::exists(uniqueFilename)) {
+		    i++;
+		    uniqueFilename = path + filename + openingParentheses + QString::number(i) + closingParentheses + extension;
+	    }
     }
+	return uniqueFilename;
 
-    auto i = 1;
-    while (QFile::exists(path + filename + QStringLiteral("(") + QString::number(i) + QStringLiteral(")") + extension)) {
-        i++;
-    }
-    return path + filename + QStringLiteral("(") + QString::number(i) + QStringLiteral(")") + extension;
+}
+
+QString PathHelper::replaceNumberWildCards(const QString &filename, const QString &directory, const QString &format)
+{
+	auto filenameWithoutWildcards = filename;
+	auto wildcard = QLatin1Char('#');
+	if(filenameWithoutWildcards.contains(wildcard)) {
+		auto firstWildcardIndex = filename.indexOf(wildcard);
+		auto lastWildcardIndex = filename.lastIndexOf(wildcard);
+		auto leftPart = filename.left(firstWildcardIndex);
+		auto rightPart = filename.mid(lastWildcardIndex + 1);
+		auto digitCount = filename.count(wildcard);
+		auto highestNumber = getHighestWildcardNumber(directory, format, leftPart, rightPart);
+
+		filenameWithoutWildcards = leftPart + QString("%1").arg(highestNumber + 1, digitCount, 10, QChar('0')) + rightPart;
+	}
+
+	return filenameWithoutWildcards;
+}
+
+int PathHelper::getHighestWildcardNumber(const QString &directory, const QString &format, const QString &leftPart, const QString &rightPart)
+{
+	auto rightPartWithFormat = rightPart + format;
+	QDir parentDirectory(directory);
+	auto number = 0;
+	auto allFiles = parentDirectory.entryList({ QStringLiteral("*") + format }, QDir::Files);
+	for(auto file : allFiles) {
+		if(file.startsWith(leftPart) && file.endsWith(rightPartWithFormat)) {
+			file.remove(leftPart);
+			file.remove(rightPartWithFormat);
+			auto currentNumber = file.toInt();
+			number = qMax(number, currentNumber);
+		}
+	}
+	return number;
 }

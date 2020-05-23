@@ -36,7 +36,8 @@ QString SavePathProvider::savePathWithFormat(const QString &format) const
 
 QString SavePathProvider::getFilename() const
 {
-    return PathHelper::replaceWildcards(mConfig->saveFilename());
+	auto filename = PathHelper::replaceDateTimeWildcards(mConfig->saveFilename());
+	return PathHelper::replaceNumberWildCards(filename, saveDirectory(), getFormat(mConfig->saveFormat()));
 }
 
 QString SavePathProvider::getFormat(const QString &format) const
@@ -46,6 +47,6 @@ QString SavePathProvider::getFormat(const QString &format) const
 
 QString SavePathProvider::saveDirectory() const
 {
-	return PathHelper::replaceWildcards(mConfig->saveDirectory());
+	return PathHelper::replaceDateTimeWildcards(mConfig->saveDirectory());
 }
 

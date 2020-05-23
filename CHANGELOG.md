@@ -17,6 +17,7 @@
 * New: Disable single global hotkey by clearing the shortcut. ([#316](https://github.com/ksnip/ksnip/issues/316))
 * New: Run ksnip as single instance. ([#238](https://github.com/ksnip/ksnip/issues/238))
 * New: Add option for disabling tabs. ([#329](https://github.com/ksnip/ksnip/issues/329))
+* New: Add count wildcard format for filename. ([#318](https://github.com/ksnip/ksnip/issues/318))
 * New kImageAnnotator: Add option to translate UI. ([#54](https://github.com/ksnip/kImageAnnotator/issues/54))
 * New kImageAnnotator: Saved image expand to include annotations out of border. ([#90](https://github.com/ksnip/kImageAnnotator/issues/90))  
 * New kImageAnnotator: Add support for stickers. ([#74](https://github.com/ksnip/kImageAnnotator/issues/74))

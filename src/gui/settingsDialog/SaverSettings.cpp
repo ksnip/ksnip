@@ -56,8 +56,10 @@ void SaverSettings::initGui()
 
 	mSaveLocationLabel->setText(tr("Capture save location and filename") + QStringLiteral(":"));
 
-	mSaveLocationLineEdit->setToolTip(tr("Filename can contain $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.\n"
-										 "Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default."));
+	mSaveLocationLineEdit->setToolTip(tr("Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.\n"
+									         "Filename can contain following wildcards:\n"
+									         "- $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.\n"
+		                                     "- Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002."));
 
 	mBrowseButton->setText(tr("Browse"));
 	connect(mBrowseButton, &QPushButton::clicked, this, &SaverSettings::chooseSaveDirectory);

@@ -23,7 +23,7 @@ Latest ksnip version contains following features:
 * Upload screenshots directly to imgur.com in anonymous or user mode.
 * Upload screenshots via custom user defined scripts.
 * Command line support, for taking screenshot and saving it to default location, filename and format.
-* Customizable default location, filename and format for saving new screenshots with wildcards for Year ($Y), Month ($M), Day ($D) and Time ($T).
+* Filename wildcards for Year ($Y), Month ($M), Day ($D), Time ($T) and Counter (multiple # characters for number with zero leading padding).
 * Print screenshot or save is to pdf/ps.
 * Annotate screenshots with pen, marker, rectangles, ellipses, texts and other tools.
 * Add watermarks to captured images.

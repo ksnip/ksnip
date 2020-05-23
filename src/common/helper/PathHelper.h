@@ -24,6 +24,7 @@
 #include <QString>
 #include <QDateTime>
 #include <QFile>
+#include <QDir>
 
 class PathHelper
 {
@@ -32,8 +33,12 @@ public:
     static QString extractPath(const QString &path);
     static QString extractFilename(const QString &path);
     static QString extractFormat(const QString &path);
-    static QString replaceWildcards(QString filename);
+    static QString replaceDateTimeWildcards(const QString &filename);
     static QString makeUniqueFilename(const QString &path, const QString &filename, const QString &extension = QString());
+	static QString replaceNumberWildCards(const QString &filename, const QString &directory, const QString &format);
+
+private:
+	static int getHighestWildcardNumber(const QString &directory, const QString &format, const QString &leftPart, const QString &rightPartWithFormat);
 };
 
 #endif // KSNIP_PATHHELPER_H

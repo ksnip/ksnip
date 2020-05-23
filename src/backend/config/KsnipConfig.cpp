@@ -18,6 +18,7 @@
  *
  */
 
+#include <common/constants/DefaultValues.h>
 #include "KsnipConfig.h"
 
 // Application
@@ -744,6 +745,19 @@ void KsnipConfig::setImgurOpenLinkInBrowser(bool enabled)
 		return;
 	}
 	saveValue(KsnipConfigOptions::imgurOpenLinkInBrowserString(), enabled);
+}
+
+QString KsnipConfig::imgurBaseUrl() const
+{
+	return loadValue(KsnipConfigOptions::imgurBaseUrlString(), DefaultValues::ImgurBaseUrl).toString();
+}
+
+void KsnipConfig::setImgurBaseUrl(const QString &baseUrl)
+{
+	if (imgurBaseUrl() == baseUrl) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::imgurBaseUrlString(), baseUrl);
 }
 
 // Script Uploader

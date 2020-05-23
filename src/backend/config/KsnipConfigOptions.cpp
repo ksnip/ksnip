@@ -239,6 +239,11 @@ QString KsnipConfigOptions::imgurAlwaysCopyToClipboardString()
 	return imgurSectionString() + QStringLiteral("AlwaysCopyToClipboard");
 }
 
+QString KsnipConfigOptions::imgurBaseUrlString()
+{
+	return imgurSectionString() + QStringLiteral("BaseUrl");
+}
+
 QString KsnipConfigOptions::uploadScriptPathString()
 {
 	return uploadScriptSectionString() + QStringLiteral("UploadScriptPath");

@@ -199,6 +199,9 @@ public:
 	virtual bool imgurOpenLinkInBrowser() const;
 	virtual void setImgurOpenLinkInBrowser(bool enabled);
 
+	virtual QString imgurBaseUrl() const;
+	virtual void setImgurBaseUrl(const QString &baseUrl);
+
 	// Script Uploader
 
 	virtual QString uploadScriptPath() const;

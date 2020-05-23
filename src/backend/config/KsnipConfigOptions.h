@@ -69,6 +69,7 @@ public:
 	static QString imgurLinkDirectlyToImageString();
 	static QString imgurOpenLinkInBrowserString();
 	static QString imgurAlwaysCopyToClipboardString();
+	static QString imgurBaseUrlString();
 	static QString uploadScriptPathString();
 	static QString confirmBeforeUploadString();
 	static QString uploadScriptCopyOutputToClipboardString();

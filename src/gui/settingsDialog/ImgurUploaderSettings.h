@@ -42,6 +42,7 @@ public:
 	void saveSettings();
 
 private:
+	KsnipConfig *mConfig;
 	QCheckBox *mForceAnonymousCheckbox;
 	QCheckBox *mDirectLinkToImageCheckbox;
 	QCheckBox *mAlwaysCopyToClipboardCheckBox;
@@ -49,14 +50,14 @@ private:
 	QLineEdit *mClientIdLineEdit;
 	QLineEdit *mClientSecretLineEdit;
 	QLineEdit *mPinLineEdit;
+	QLineEdit *mBaseUrlLineEdit;
 	QLabel *mUsernameLabel;
+	QLabel *mBaseUrlLabel;
 	QPushButton *mGetPinButton;
 	QPushButton *mGetTokenButton;
 	QPushButton *mHistoryButton;
 	ImgurWrapper *mImgurWrapper;
-
 	QGridLayout *mLayout;
-	KsnipConfig *mConfig;
 
 	void initGui();
 	void loadConfig();

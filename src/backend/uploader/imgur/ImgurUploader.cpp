@@ -20,9 +20,10 @@
 #include "ImgurUploader.h"
 
 ImgurUploader::ImgurUploader() :
-	mImgurWrapper(new ImgurWrapper),
-	mImgurResponseLogger(new ImgurResponseLogger),
-	mConfig(KsnipConfigProvider::instance())
+	mConfig(KsnipConfigProvider::instance()),
+	mImgurWrapper(new ImgurWrapper(mConfig->imgurBaseUrl(), nullptr)),
+	mImgurResponseLogger(new ImgurResponseLogger)
+
 {
     connect(mImgurWrapper, &ImgurWrapper::uploadFinished, this, &ImgurUploader::imgurUploadFinished);
     connect(mImgurWrapper, &ImgurWrapper::error, this, &ImgurUploader::imgurError);

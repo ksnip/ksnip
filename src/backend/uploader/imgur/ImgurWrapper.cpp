@@ -20,11 +20,12 @@
 
 #include "ImgurWrapper.h"
 
-ImgurWrapper::ImgurWrapper(QObject* parent) : QObject(parent),
-                                              mAccessManager(new QNetworkAccessManager(this))
+ImgurWrapper::ImgurWrapper(const QString &imgurUrl, QObject *parent) :
+	mBaseImgutUrl(imgurUrl),
+	QObject(parent),
+    mAccessManager(new QNetworkAccessManager(this))
 {
-    connect(mAccessManager, &QNetworkAccessManager::finished,
-            this, &ImgurWrapper::handleReply);
+    connect(mAccessManager, &QNetworkAccessManager::finished, this, &ImgurWrapper::handleReply);
 
     // Client ID that will only be used for anonymous upload
     mClientId = "16d41e28a3ba71e";
@@ -44,7 +45,7 @@ void ImgurWrapper::startUpload(const QImage& image, const QByteArray& accessToke
     image.save(&buffer, "PNG");
 
     // Create the network request for posting the image
-    QUrl url(QStringLiteral("https://api.imgur.com/3/upload.xml"));
+    QUrl url(mBaseImgutUrl + QStringLiteral("/3/upload.xml"));
     QUrlQuery urlQuery;
 
     // Add params that we send with the picture
@@ -79,7 +80,7 @@ void ImgurWrapper::getAccessToken(const QByteArray& pin, const QByteArray& clien
 
     // Build the URL that we will request the token from. The XML indicates we
     // want the response in XML format.
-    request.setUrl(QUrl(QStringLiteral("https://api.imgur.com/oauth2/token.xml")));
+    request.setUrl(QUrl(mBaseImgutUrl + QStringLiteral("/oauth2/token.xml")));
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/x-www-form-urlencoded"));
 
     // Prepare the params that we send with the request
@@ -105,7 +106,7 @@ void ImgurWrapper::refreshToken(const QByteArray& refreshToken, const QByteArray
 
     // Build the URL that we will request the token from. The XML indicates we
     // want the response in XML format
-    request.setUrl(QUrl(QStringLiteral("https://api.imgur.com/oauth2/token.xml")));
+    request.setUrl(QUrl(mBaseImgutUrl + QStringLiteral("/oauth2/token.xml")));
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/x-www-form-urlencoded"));
 
     // Prepare the params
@@ -126,7 +127,7 @@ void ImgurWrapper::refreshToken(const QByteArray& refreshToken, const QByteArray
  */
 QUrl ImgurWrapper::pinRequestUrl(const QString& clientId) const
 {
-    QUrl url(QStringLiteral("https://api.imgur.com/oauth2/authorize"));
+    QUrl url(mBaseImgutUrl + QStringLiteral("/oauth2/authorize"));
     QUrlQuery urlQuery;
     urlQuery.addQueryItem(QStringLiteral("client_id"), clientId);
     urlQuery.addQueryItem(QStringLiteral("response_type"), QStringLiteral("pin"));

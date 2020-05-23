@@ -17,6 +17,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
+#include <common/constants/DefaultValues.h>
 #include "ImgurUploaderSettings.h"
 
 ImgurUploaderSettings::ImgurUploaderSettings(KsnipConfig *ksnipConfig) :
@@ -28,11 +29,13 @@ ImgurUploaderSettings::ImgurUploaderSettings(KsnipConfig *ksnipConfig) :
 	mClientIdLineEdit(new QLineEdit(this)),
 	mClientSecretLineEdit(new QLineEdit(this)),
 	mPinLineEdit(new QLineEdit(this)),
+	mBaseUrlLineEdit(new QLineEdit(this)),
 	mUsernameLabel(new QLabel(this)),
+	mBaseUrlLabel(new QLabel(this)),
 	mGetPinButton(new QPushButton(this)),
 	mGetTokenButton(new QPushButton(this)),
 	mHistoryButton(new QPushButton(this)),
-	mImgurWrapper(new ImgurWrapper(this)),
+	mImgurWrapper(new ImgurWrapper(mConfig->imgurBaseUrl(), this)),
 	mLayout(new QGridLayout(this))
 {
 	Q_ASSERT(mConfig != nullptr);
@@ -50,7 +53,9 @@ ImgurUploaderSettings::~ImgurUploaderSettings()
 	delete mClientIdLineEdit;
 	delete mClientSecretLineEdit;
 	delete mPinLineEdit;
+	delete mBaseUrlLineEdit;
 	delete mUsernameLabel;
+	delete mBaseUrlLabel;
 	delete mGetPinButton;
 	delete mGetTokenButton;
 	delete mHistoryButton;
@@ -64,6 +69,9 @@ void ImgurUploaderSettings::saveSettings()
 	mConfig->setImgurLinkDirectlyToImage(mDirectLinkToImageCheckbox->isChecked());
 	mConfig->setImgurAlwaysCopyToClipboard(mAlwaysCopyToClipboardCheckBox->isChecked());
 	mConfig->setImgurOpenLinkInBrowser(mOpenLinkInBrowserCheckbox->isChecked());
+
+	auto imgurBaseUrl = mBaseUrlLineEdit->text().isEmpty() ? DefaultValues::ImgurBaseUrl : mBaseUrlLineEdit->text();
+	mConfig->setImgurBaseUrl(imgurBaseUrl);
 }
 
 void ImgurUploaderSettings::initGui()
@@ -76,6 +84,10 @@ void ImgurUploaderSettings::initGui()
 	mDirectLinkToImageCheckbox->setText(tr("Link directly to image"));
 	mAlwaysCopyToClipboardCheckBox->setText(tr("Always copy Imgur link to clipboard"));
 
+	mBaseUrlLabel->setText(tr("Base Url:"));
+	mBaseUrlLabel->setToolTip(tr("Base url that will be used for communication with Imgur.\n"
+	                             "Changing requires restart."));
+
 	mClientIdLineEdit->setPlaceholderText(tr("Client ID"));
 	connect(mClientIdLineEdit, &QLineEdit::textChanged, this, &ImgurUploaderSettings::imgurClientEntered);
 
@@ -87,6 +99,9 @@ void ImgurUploaderSettings::initGui()
 	connect(mPinLineEdit, &QLineEdit::textChanged, [this](const QString & text) {
 		mGetTokenButton->setEnabled(text.length() > 8);
 	});
+
+	mBaseUrlLineEdit->setPlaceholderText(DefaultValues::ImgurBaseUrl);
+	mBaseUrlLineEdit->setToolTip(mBaseUrlLabel->toolTip());
 
 	mGetPinButton->setText(tr("Get PIN"));
 	connect(mGetPinButton, &QPushButton::clicked, this, &ImgurUploaderSettings::requestImgurPin);
@@ -106,13 +121,16 @@ void ImgurUploaderSettings::initGui()
 	mLayout->addWidget(mDirectLinkToImageCheckbox, 2, 0, 1, 3);
 	mLayout->addWidget(mAlwaysCopyToClipboardCheckBox, 3, 0, 1, 3);
 	mLayout->setRowMinimumHeight(4, 15);
-	mLayout->addWidget(mUsernameLabel, 5, 0, 1, 3);
-	mLayout->addWidget(mHistoryButton, 5, 3, 1, 1);
-	mLayout->addWidget(mClientIdLineEdit, 6, 0, 1, 3);
-	mLayout->addWidget(mClientSecretLineEdit, 7, 0, 1, 3);
-	mLayout->addWidget(mGetPinButton, 7, 3, 1, 1);
-	mLayout->addWidget(mPinLineEdit, 8, 0, 1, 3);
-	mLayout->addWidget(mGetTokenButton, 8, 3, 1, 1);
+	mLayout->addWidget(mBaseUrlLabel, 5, 0, 1, 1);
+	mLayout->addWidget(mBaseUrlLineEdit, 5, 1, 1, 2);
+	mLayout->setRowMinimumHeight(6, 15);
+	mLayout->addWidget(mUsernameLabel, 7, 0, 1, 3);
+	mLayout->addWidget(mHistoryButton, 7, 3, 1, 1);
+	mLayout->addWidget(mClientIdLineEdit, 8, 0, 1, 3);
+	mLayout->addWidget(mClientSecretLineEdit, 9, 0, 1, 3);
+	mLayout->addWidget(mGetPinButton, 9, 3, 1, 1);
+	mLayout->addWidget(mPinLineEdit, 10, 0, 1, 3);
+	mLayout->addWidget(mGetTokenButton, 10, 3, 1, 1);
 
 	setTitle(tr("Imgur Uploader"));
 	setLayout(mLayout);
@@ -124,6 +142,9 @@ void ImgurUploaderSettings::loadConfig()
 	mOpenLinkInBrowserCheckbox->setChecked(mConfig->imgurOpenLinkInBrowser());
 	mDirectLinkToImageCheckbox->setChecked(mConfig->imgurLinkDirectlyToImage());
 	mAlwaysCopyToClipboardCheckBox->setChecked(mConfig->imgurAlwaysCopyToClipboard());
+
+	auto imgutBaseUrl = mConfig->imgurBaseUrl() == DefaultValues::ImgurBaseUrl ? QString() : mConfig->imgurBaseUrl();
+	mBaseUrlLineEdit->setText(imgutBaseUrl);
 
 	mUsernameLabel->setText(tr("Username") + ": " + mConfig->imgurUsername());
 	if(!mConfig->imgurClientId().isEmpty()) {

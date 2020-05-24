@@ -194,30 +194,33 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Kom ihåg ksip-positionen vid förflyttning och läs in vid uppstart</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Kom ihåg senast använda verktyg och läs in vid uppstart</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd flikar</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändring kräver omstart.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Kör ksnip som enskild instans</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Om du aktiverar detta alternativ kan endast en ksnip-instans köras,
+alla instanser som startas efter den första, kommer att skicka
+sina argument vidare till den första och sedan avslutas.
+Om du ändrar det här alternativet måste alla öppna instanser startas om.</translation>
     </message>
 </context>
 <context>
@@ -445,7 +448,7 @@ Vill du spara det?</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Rensa</translation>
     </message>
 </context>
 <context>
@@ -655,12 +658,13 @@ alltid aktiverad för MacOS.</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Grundläggande URL:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Grundläggande URL som används för kommunikation med Imgur.
+Ändring kräver omstart.</translation>
     </message>
 </context>
 <context>
@@ -865,44 +869,47 @@ och själva skärmklippet.</translation>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished">Spara automatiskt nya skärmklipp till standardplatsen</translation>
+        <translation>Spara automatiskt nya skärmklipp till standardplatsen</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Fråga om att spara, innan osparade ändringar kasseras</translation>
+        <translation>Fråga om att spara, innan osparade ändringar kasseras</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished">Kom ihåg senaste mappen som sparats i</translation>
+        <translation>Kom ihåg senaste lagringsmappen</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished">Vid aktivering kommer den i inställningarna lagrade sparamappen
-att skrivas över med senaste sparamappen, varje gång något sparas.</translation>
+        <translation>Vid aktivering kommer den i inställningarna sparade lagringsmappen
+att skrivas över med senaste lagringsmappen, varje gång något sparas.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Klipplagringsplats och filnamn</translation>
+        <translation>Klipplagringsplats och filnamn</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Formaten som stöds är JPG, PNG och BMP. Om inget format anges används PNG som standard.
+Filnamn kan innehålla följande jokertecken: 
+- $Y, $M, $D för datum, $h, $m, $s för tid eller $T för tid i hhmmss-format.
+- Flera på varandra följande # för räknare. #### kommer att resultera i 0001, nästa klipp blir 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Bläddra</translation>
+        <translation>Bläddra</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar för lagring</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Klipplagringsplats</translation>
+        <translation>Klipplagringsplats</translation>
     </message>
 </context>
 <context>
@@ -998,7 +1005,7 @@ kommer skriptet att anropas med sökvägen till en temporär png-fil som enskilt
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparare</translation>
     </message>
 </context>
 <context>

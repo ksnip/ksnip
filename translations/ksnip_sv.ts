@@ -194,7 +194,7 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation>Kom ihåg ksip-positionen vid förflyttning och läs in vid uppstart</translation>
+        <translation>Kom ihåg ksnip-positionen vid förflyttning och läs in vid uppstart</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
@@ -1005,7 +1005,7 @@ kommer skriptet att anropas med sökvägen till en temporär png-fil som enskilt
     </message>
     <message>
         <source>Saver</source>
-        <translation>Sparare</translation>
+        <translation>Lagring</translation>
     </message>
 </context>
 <context>

@@ -195,30 +195,32 @@ Herstart om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip-vensterpositie onthouden en automatisch daar plaatsen bij opstarten</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip-gereedschapselectie onthouden en automatisch laden bij opstarten</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabbladen gebruiken</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Herstart om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Slechts één ksnip-proces toestaan</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel deze optie in om slechts één ksnip-proces toe te staan.
+Alle latere processen geven hun opdrachten door aan het eerste.
+Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
 </context>
 <context>
@@ -446,7 +448,7 @@ Wil je hem opslaan?</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Wissen</translation>
     </message>
 </context>
 <context>
@@ -657,12 +659,13 @@ standaard ingeschakeld op macOS.</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Basis-url:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>De basis-url voor communicatie met Imgur.
+Herstart om de wijzigingen toe te passen.</translation>
     </message>
 </context>
 <context>
@@ -867,44 +870,47 @@ van schermfoto, in seconden.</translation>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished">Nieuwe schermfoto&apos;s automatisch opslaan in standaardlocatie</translation>
+        <translation>Nieuwe schermfoto&apos;s automatisch opslaan in standaardlocatie</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Altijd vragen om aanpassingen op te slaan</translation>
+        <translation>Altijd vragen om aanpassingen op te slaan</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished">Recentste opslagmap onthouden</translation>
+        <translation>Recentste opslagmap onthouden</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished">Schakel in om de opslagmap uit de instellingen te vervangen door
+        <translation>Schakel in om de opslagmap uit de instellingen te vervangen door
 de recentste opslagmap.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Opslaglocatie en bestandsnaam</translation>
+        <translation>Opslaglocatie en bestandsnaam</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ondersteunde bestandsformaten: JPG, PNG en BMP. Als je geen formaat opgeeft, dan wordt PNG gebruikt.
+De bestandsnaam mag de volgende jokertekens bevatten:
+- $Y, $M, $D voor datum, $h, $m, $s voor tijd, of $T voor tijd in de opmaak &apos;uummss&apos;.
+- Gebruik # voor optelling. Voorbeeld: #### geeft 0001, met als opvolger 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Bladeren</translation>
+        <translation>Bladeren</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaginstellingen</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Opslaglocatie</translation>
+        <translation>Opslaglocatie</translation>
     </message>
 </context>
 <context>
@@ -1000,7 +1006,7 @@ wordt dit script aangeroepen op het pad van de tijdelijke png.</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslaan</translation>
     </message>
 </context>
 <context>

@@ -39,6 +39,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/widgets/ColorButton.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/MainToolBar.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/KeySequenceLineEdit.cpp
+	${CMAKE_SOURCE_DIR}/src/widgets/CustomLineEdit.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/MainWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AbstractSnippingArea.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/SnippingAreaAdorner.cpp

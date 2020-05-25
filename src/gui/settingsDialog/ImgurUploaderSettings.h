@@ -32,6 +32,7 @@
 #include "backend/uploader/imgur/ImgurWrapper.h"
 #include "gui/ImgurHistoryDialog.h"
 #include "src/common/provider/ScaledSizeProvider.h"
+#include "src/widgets/CustomLineEdit.h"
 
 class ImgurUploaderSettings : public QGroupBox
 {
@@ -50,7 +51,7 @@ private:
 	QLineEdit *mClientIdLineEdit;
 	QLineEdit *mClientSecretLineEdit;
 	QLineEdit *mPinLineEdit;
-	QLineEdit *mBaseUrlLineEdit;
+	CustomLineEdit *mBaseUrlLineEdit;
 	QLabel *mUsernameLabel;
 	QLabel *mBaseUrlLabel;
 	QPushButton *mGetPinButton;

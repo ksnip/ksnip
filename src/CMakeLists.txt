@@ -2,7 +2,6 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/main.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfig.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfigOptions.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/config/SavePathProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfigProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp
@@ -12,9 +11,12 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurResponseLogger.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/script/ScriptUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploaderProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/saver/SavePathProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/saver/ImageSaver.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/saver/WildCardResolver.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/saver/UniqueNameProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/TranslationLoader.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/ImageSaver.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/KsnipCommandLine.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/WatermarkImageLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ipc/IpcServer.cpp

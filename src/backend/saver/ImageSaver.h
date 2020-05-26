@@ -26,7 +26,7 @@
 #include <QObject>
 #include <QString>
 
-#include "config/KsnipConfigProvider.h"
+#include "backend/config/KsnipConfigProvider.h"
 
 class ImageSaver
 {

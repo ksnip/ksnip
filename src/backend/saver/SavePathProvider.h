@@ -20,7 +20,9 @@
 #ifndef KSNIP_SAVEPATHPROVIDER_H
 #define KSNIP_SAVEPATHPROVIDER_H
 
-#include "KsnipConfigProvider.h"
+#include "src/backend/saver/WildcardResolver.h"
+#include "src/backend/saver/UniqueNameProvider.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 
 class SavePathProvider
 {

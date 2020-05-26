@@ -34,12 +34,6 @@ public:
     static QString extractFilename(const QString &path);
     static QString extractFilenameWithFormat(const QString &path);
     static QString extractFormat(const QString &path);
-    static QString replaceDateTimeWildcards(const QString &filename);
-    static QString makeUniqueFilename(const QString &path, const QString &filename, const QString &format = QString());
-	static QString replaceNumberWildCards(const QString &filename, const QString &directory, const QString &format);
-
-private:
-	static int getHighestWildcardNumber(const QString &directory, const QString &leftPart, const QString &rightPart, const QString &format);
 };
 
 #endif // KSNIP_PATHHELPER_H

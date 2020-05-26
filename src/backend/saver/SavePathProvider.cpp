@@ -26,18 +26,18 @@ SavePathProvider::SavePathProvider()
 
 QString SavePathProvider::savePath() const
 {
-    return PathHelper::makeUniqueFilename(saveDirectory(), getFilename(), getFormat(mConfig->saveFormat()));
+    return UniqueNameProvider::makeUniqueFilename(saveDirectory(), getFilename(), getFormat(mConfig->saveFormat()));
 }
 
 QString SavePathProvider::savePathWithFormat(const QString &format) const
 {
-    return PathHelper::makeUniqueFilename(saveDirectory(), getFilename(), getFormat(format));
+    return UniqueNameProvider::makeUniqueFilename(saveDirectory(), getFilename(), getFormat(format));
 }
 
 QString SavePathProvider::getFilename() const
 {
-	auto filename = PathHelper::replaceDateTimeWildcards(mConfig->saveFilename());
-	return PathHelper::replaceNumberWildCards(filename, saveDirectory(), getFormat(mConfig->saveFormat()));
+	auto filename = WildcardResolver::replaceDateTimeWildcards(mConfig->saveFilename());
+	return WildcardResolver::replaceNumberWildcards(filename, saveDirectory(), getFormat(mConfig->saveFormat()));
 }
 
 QString SavePathProvider::getFormat(const QString &format) const
@@ -47,6 +47,6 @@ QString SavePathProvider::getFormat(const QString &format) const
 
 QString SavePathProvider::saveDirectory() const
 {
-	return PathHelper::replaceDateTimeWildcards(mConfig->saveDirectory());
+	return WildcardResolver::replaceDateTimeWildcards(mConfig->saveDirectory());
 }
 

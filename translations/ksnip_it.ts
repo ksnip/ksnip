@@ -193,7 +193,7 @@ Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ricorda la posizione della finestra di ksnip e caricala all&apos;avvio</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>

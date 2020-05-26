@@ -142,7 +142,7 @@ make them more smooth.</source>
     <name>ApplicationSettings</name>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation>起動時にデフォルトモードでスクリーンショットを撮る</translation>
+        <translation>起動時に既定のモードでスクリーンショットを撮る</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -195,30 +195,33 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip の移動位置を記憶して起動時に読み込む</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>選択した ksnip のツールを記憶して起動時に読み込む</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>タブを使用する</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>変更には再起動が必要です。</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip をシングルインスタンスとして実行する</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>このオプションを有効にすると、ksnip のインスタンスを一つだけ実行
+できるようになります。インスタンスを複数起動しようとした場合、
+実行中のインスタンスに引数を渡して終了します。このオプションの
+変更は、すべてのインスタンスを起動し直す必要があります。</translation>
     </message>
 </context>
 <context>
@@ -446,7 +449,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>消去</translation>
     </message>
 </context>
 <context>
@@ -590,7 +593,7 @@ macOS では常に有効になります。</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation>アップロード後 Imgur のリンクをデフォルトのブラウザーで開く</translation>
+        <translation>アップロード後 Imgur のリンクを既定のブラウザーで開く</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
@@ -654,12 +657,13 @@ macOS では常に有効になります。</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>ベース URL:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur との通信時に使用するベース URL です。
+変更には再起動が必要です。</translation>
     </message>
 </context>
 <context>
@@ -864,44 +868,47 @@ and capturing screenshot.</source>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished">自動的に新しいキャプチャーをデフォルトの場所に保存する</translation>
+        <translation>自動的に新しいキャプチャーを既定の場所に保存する</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">未保存の変更を破棄する前に保存するか確認する</translation>
+        <translation>未保存の変更を破棄する前に保存するか確認する</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished">最後に保存したディレクトリを記憶する</translation>
+        <translation>最後に保存したディレクトリを記憶する</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished">有効にすると、保存するたびに
+        <translation>有効にすると、保存するたびに
 保存先の設定が上書きされます。</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">キャプチャーの保存場所とファイル名</translation>
+        <translation>キャプチャーの保存場所とファイル名</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>JPG、PNG、BMP をサポートしています。ファイル形式を指定しない場合は PNG になります。
+ファイル名には次のワイルドカードを含めることができます:
+- 日付: $Y, $M, $D, 時刻: $h, $m, $s, hhmmss 形式の時刻: $T
+- 回数を表す連続した #。#### は 0001 に置換され、0002 のように増加します。</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">参照</translation>
+        <translation>参照</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>保存設定</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">キャプチャーの保存場所</translation>
+        <translation>キャプチャーの保存場所</translation>
     </message>
 </context>
 <context>
@@ -997,7 +1004,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
 </context>
 <context>

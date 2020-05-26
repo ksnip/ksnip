@@ -51,7 +51,7 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation>Imagem de marca d&apos;água é necessária</translation>
+        <translation>Imagem para marca d&apos;água é necessária</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
@@ -120,7 +120,7 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation>Imagem de Marca D&apos;água</translation>
+        <translation>Imagem de marca d&apos;água</translation>
     </message>
     <message>
         <source>Update</source>
@@ -128,7 +128,7 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation>Rotacionar Marca D&apos;água</translation>
+        <translation>Rotacionar marca d&apos;água</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
@@ -143,7 +143,7 @@ torná-los mais suaves.</translation>
     <name>ApplicationSettings</name>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation>Capturar a tela ao iniciar, utilizando o modo padrão de captura</translation>
+        <translation>Capturar a tela ao iniciar utilizando o modo padrão de captura</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -191,41 +191,44 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation>Ocultar a barra de Abas quando apenas uma Aba é usada.</translation>
+        <translation>Ocultar a barra de abas quando apenas uma aba é usada.</translation>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Lembrar posição do ksnip ao mover a janela e carregar essa posição na inicialização</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Lembrar posição da ferramenta de seleção do ksnip e carregar na inicialização</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar Abas</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Executar o ksnip como instância única</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>A ativação dessa opção permitirá que apenas uma instância do ksnip seja executada,
+todas as outras instâncias iniciadas após a primeira passarão
+argumentos para a primeira. Alterar esta opção requer
+um novo início de todas as instâncias.</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation>O Autor:</translation>
+        <translation>Autor:</translation>
     </message>
     <message>
         <source>Contributors:</source>
@@ -233,27 +236,27 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation>Tradução para o Espanhol</translation>
+        <translation>Tradução para Espanhol</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation>Tradução para o Holandês</translation>
+        <translation>Tradução para Holandês</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation>Tradução para o Russo</translation>
+        <translation>Tradução para Russo</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation>Tradução para o Norueguês Bokmål</translation>
+        <translation>Tradução para Norueguês Bokmål</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation>Tradução para o Francês</translation>
+        <translation>Tradução para Francês</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation>Tradução para o Polonês</translation>
+        <translation>Tradução para Polonês</translation>
     </message>
 </context>
 <context>
@@ -387,11 +390,11 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation>Erro de leitura do processo.</translation>
+        <translation>Erro no processo de leitura.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation>Erro de gravação do processo.</translation>
+        <translation>Erro no processo de gravação.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
@@ -399,7 +402,7 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation>Erro de processo desconhecido.</translation>
+        <translation>Erro desconhecido.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
@@ -446,7 +449,7 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Apagar</translation>
     </message>
 </context>
 <context>
@@ -573,11 +576,11 @@ e sempre ativado para MacOs.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Upload para imgur.com finalizado!</translation>
+        <translation>Upload para imgur.com concluído!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation>Recebido um novo token, tentando fazer o upload novamente…</translation>
+        <translation>Novo token recebido , tentando fazer o upload novamente…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
@@ -600,7 +603,7 @@ e sempre ativado para MacOs.</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation>Chave Secreta</translation>
+        <translation>Client Secret</translation>
     </message>
     <message>
         <source>PIN</source>
@@ -640,7 +643,7 @@ e sempre ativado para MacOs.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation>Erro de atualização do token Imgur.com.</translation>
+        <translation>Erro na atualização do token Imgur.com.</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
@@ -656,12 +659,13 @@ e sempre ativado para MacOs.</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Url base:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Url base que será usado para comunicação com Imgur.
+Mudança requer reinicialização.</translation>
     </message>
 </context>
 <context>
@@ -789,7 +793,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation>Adicionar Marca d&apos;água</translation>
+        <translation>Adicionar marca d&apos;água</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
@@ -821,7 +825,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation>Carregar captura para fonte externa</translation>
+        <translation>Enviar captura para fonte externa</translation>
     </message>
 </context>
 <context>
@@ -859,22 +863,22 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation>Falha ao salvar a imagem no</translation>
+        <translation>Falha ao salvar a imagem em</translation>
     </message>
 </context>
 <context>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished">Automaticamente salvar novas capturas para o diretório padrão</translation>
+        <translation>Automaticamente salvar novas capturas para o diretório padrão</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Avisar para salvar antes de descartar um trabalho não salvo</translation>
+        <translation>Avisar para salvar antes de descartar um trabalho não salvo</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished">Lembrar o último diretório onde os arquivos foram salvos</translation>
+        <translation>Lembrar o último diretório onde os arquivos foram salvos</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
@@ -884,26 +888,29 @@ para o diretório mais recente onde foi salvo, isso para cada vez que usar o com
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Local e nome do arquivo para a captura</translation>
+        <translation>Local e nome do arquivo para a captura</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Os formatos suportados são JPG, PNG e BMP. Se nenhum formato for fornecido, o PNG será usado como padrão.
+O nome do arquivo pode conter os seguintes curingas:
+- $Y, $M, $D para data, $h, $m, $s para hora ou $T para hora no formato hhmmss.
+- # múltiplos consecutivos para contador. #### resultará em 0001, a próxima captura será 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Selecionar</translation>
+        <translation>Selecionar</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurações para Salvar arquivos</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Local para salvar a captura</translation>
+        <translation>Local para salvar a captura</translation>
     </message>
 </context>
 <context>
@@ -919,7 +926,7 @@ Filename can contain following wildcards:
     <message>
         <source>Only output following this string will be copied to clipboard, excluding that string.
 If omitted, everything from start will be copied.</source>
-        <translation>Somente a saída após esta sequência será copiada para a área de transferência, excluindo essa sequência.
+        <translation type="unfinished">Somente a saída após esta sequência será copiada para a área de transferência, excluindo essa sequência.
 Se omitido, tudo desde o início será copiado.</translation>
     </message>
     <message>
@@ -929,7 +936,7 @@ Se omitido, tudo desde o início será copiado.</translation>
     <message>
         <source>Only output before this string will be copied to clipboard, excluding that string.
 If omitted, everything up to the end will be copied.</source>
-        <translation>Somente a saída antes dessa sequência será copiada para a área de transferência, excluindo essa sequência.
+        <translation type="unfinished">Somente a saída antes dessa sequência será copiada para a área de transferência, excluindo essa sequência.
 Se omitido, tudo até o fim será copiado.</translation>
     </message>
     <message>
@@ -999,7 +1006,7 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar</translation>
     </message>
 </context>
 <context>
@@ -1032,7 +1039,7 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Adicione um script de upload em Opções&gt; Configurações&gt; Script Uploader</translation>
+        <translation>Adicione um script de upload em Opções&gt; Configurações&gt; Script de Uploader</translation>
     </message>
     <message>
         <source>Capture Upload</source>

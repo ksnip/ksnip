@@ -25,27 +25,50 @@ bool PathHelper::isPathValid(const QString &path)
 	return !path.isNull() && !path.isEmpty();
 }
 
-QString PathHelper::extractPath(const QString& path)
+QString PathHelper::extractParentDirectory(const QString& path)
 {
-    return path.section(QStringLiteral("/"), 0, -2);
+    return path.section(QLatin1Char('/'), 0, -2);
 }
 
 QString PathHelper::extractFilename(const QString& path)
 {
-    if (path.section(QStringLiteral("/"), -1).contains(QLatin1Char('.'))) {
-        return path.section(QStringLiteral("/"), -1).section(".", 0, -2);
+	auto filename = extractFilenameWithFormat(path);
+	if (filename.contains(QLatin1Char('.'))) {
+        return filename.section(QLatin1Char('.'), 0, -2);
     } else {
-        return path.section(QStringLiteral("/"), -1);
+        return filename;
     }
+}
+
+QString PathHelper::extractFilenameWithFormat(const QString &path)
+{
+	return path.section(QLatin1Char('/'), -1);
 }
 
 QString PathHelper::extractFormat(const QString& path)
 {
-    if (path.section(QStringLiteral("/"), -1).contains(QLatin1Char('.'))) {
-        return path.section(QStringLiteral("."), -1);
+	auto filename = extractFilenameWithFormat(path);
+	if (filename.contains(QLatin1Char('.'))) {
+        return path.section(QLatin1Char('.'), -1);
     } else {
         return {};
     }
+}
+
+QString PathHelper::makeUniqueFilename(const QString& path, const QString& filename, const QString& format)
+{
+	auto uniqueFilename = path + filename + format;
+	if (QFile::exists(uniqueFilename)) {
+		auto i = 1;
+		auto openingParentheses = QStringLiteral("(");
+		auto closingParentheses = QStringLiteral(")") ;
+		while (QFile::exists(uniqueFilename)) {
+			i++;
+			uniqueFilename = path + filename + openingParentheses + QString::number(i) + closingParentheses + format;
+		}
+	}
+	return uniqueFilename;
+
 }
 
 QString PathHelper::replaceDateTimeWildcards(const QString &filename)
@@ -61,22 +84,6 @@ QString PathHelper::replaceDateTimeWildcards(const QString &filename)
     return filenameWithoutWildcards;
 }
 
-QString PathHelper::makeUniqueFilename(const QString& path, const QString& filename, const QString& extension)
-{
-	auto uniqueFilename = path + filename + extension;
-    if (QFile::exists(uniqueFilename)) {
-	    auto i = 1;
-	    auto openingParentheses = QStringLiteral("(");
-	    auto closingParentheses = QStringLiteral(")") ;
-	    while (QFile::exists(uniqueFilename)) {
-		    i++;
-		    uniqueFilename = path + filename + openingParentheses + QString::number(i) + closingParentheses + extension;
-	    }
-    }
-	return uniqueFilename;
-
-}
-
 QString PathHelper::replaceNumberWildCards(const QString &filename, const QString &directory, const QString &format)
 {
 	auto filenameWithoutWildcards = filename;
@@ -87,7 +94,7 @@ QString PathHelper::replaceNumberWildCards(const QString &filename, const QStrin
 		auto leftPart = filename.left(firstWildcardIndex);
 		auto rightPart = filename.mid(lastWildcardIndex + 1);
 		auto digitCount = filename.count(wildcard);
-		auto highestNumber = getHighestWildcardNumber(directory, format, leftPart, rightPart);
+		auto highestNumber = getHighestWildcardNumber(directory, leftPart, rightPart, format);
 
 		filenameWithoutWildcards = leftPart + QString("%1").arg(highestNumber + 1, digitCount, 10, QChar('0')) + rightPart;
 	}
@@ -95,7 +102,7 @@ QString PathHelper::replaceNumberWildCards(const QString &filename, const QStrin
 	return filenameWithoutWildcards;
 }
 
-int PathHelper::getHighestWildcardNumber(const QString &directory, const QString &format, const QString &leftPart, const QString &rightPart)
+int PathHelper::getHighestWildcardNumber(const QString &directory, const QString &leftPart, const QString &rightPart, const QString &format)
 {
 	auto rightPartWithFormat = rightPart + format;
 	QDir parentDirectory(directory);

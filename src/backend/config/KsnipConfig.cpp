@@ -465,6 +465,36 @@ void KsnipConfig::setRotateWatermarkEnabled(bool enabled)
 	saveValue(KsnipConfigOptions::rotateWatermarkEnabledString(), enabled);
 }
 
+QStringList KsnipConfig::stickerPaths() const
+{
+	return loadValue(KsnipConfigOptions::stickerPathsString(), QVariant::fromValue(QStringList())).value<QStringList>();
+}
+
+void KsnipConfig::setStickerPaths(const QStringList &paths)
+{
+	if (stickerPaths() == paths) {
+		return;
+	}
+
+	saveValue(KsnipConfigOptions::stickerPathsString(), QVariant::fromValue(paths));
+	emit annotatorConfigChanged();
+}
+
+bool KsnipConfig::useDefaultSticker() const
+{
+	return loadValue(KsnipConfigOptions::useDefaultStickerString(), true).toBool();
+}
+
+void KsnipConfig::setUseDefaultSticker(bool enabled)
+{
+	if (useDefaultSticker() == enabled) {
+		return;
+	}
+
+	saveValue(KsnipConfigOptions::useDefaultStickerString(), enabled);
+	emit annotatorConfigChanged();
+}
+
 // Image Grabber
 
 bool KsnipConfig::isFreezeImageWhileSnippingEnabledReadOnly() const

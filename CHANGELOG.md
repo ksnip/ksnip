@@ -19,6 +19,7 @@
 * New: Add option for disabling tabs. ([#329](https://github.com/ksnip/ksnip/issues/329))
 * New: Add count wildcard format for filename. ([#318](https://github.com/ksnip/ksnip/issues/318))
 * New: Allow to change upload imgur URI. ([#159](https://github.com/ksnip/ksnip/issues/159))
+* New: Support for adding custom stickers. ([#246](https://github.com/ksnip/ksnip/issues/246))
 * New kImageAnnotator: Add option to translate UI. ([#54](https://github.com/ksnip/kImageAnnotator/issues/54))
 * New kImageAnnotator: Saved image expand to include annotations out of border. ([#90](https://github.com/ksnip/kImageAnnotator/issues/90))  
 * New kImageAnnotator: Add support for stickers. ([#74](https://github.com/ksnip/kImageAnnotator/issues/74))

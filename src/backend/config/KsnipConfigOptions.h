@@ -52,6 +52,8 @@ public:
 	static QString smoothPathEnabledString();
 	static QString smoothPathFactorString();
 	static QString rotateWatermarkEnabledString();
+	static QString stickerPathsString();
+	static QString useDefaultStickerString();
 	static QString captureCursorString();
 	static QString snippingAreaRulersEnabledString();
 	static QString snippingAreaPositionAndSizeInfoEnabledString();

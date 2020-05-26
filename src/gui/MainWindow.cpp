@@ -492,6 +492,7 @@ void MainWindow::setupImageAnnotator()
 	mKImageAnnotator->setTextFont(mConfig->textFont());
 	mKImageAnnotator->setNumberFont(mConfig->numberFont());
 	mKImageAnnotator->setItemShadowEnabled(mConfig->itemShadowEnabled());
+	mKImageAnnotator->setStickers(mConfig->stickerPaths(), mConfig->useDefaultSticker());
 }
 
 void MainWindow::captureDelayChanged(int delay)

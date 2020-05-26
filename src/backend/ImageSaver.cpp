@@ -38,7 +38,7 @@ bool ImageSaver::save(const QImage &image, const QString &path)
 
 void ImageSaver::ensurePathExists(const QString &path)
 {
-	auto directory = PathHelper::extractPath(path);
+	auto directory = PathHelper::extractParentDirectory(path);
 	QDir dir(directory);
 	if(!dir.exists()) {
 		dir.mkpath(QStringLiteral("."));

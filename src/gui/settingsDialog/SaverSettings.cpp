@@ -90,7 +90,7 @@ void SaverSettings::saveSettings()
 	mConfig->setAutoSaveNewCaptures(mAutoSaveNewCapturesCheckbox->isChecked());
 	mConfig->setPromptSaveBeforeExit(mPromptToSaveBeforeExitCheckbox->isChecked());
 	mConfig->setRememberLastSaveDirectory(mRememberSaveDirectoryCheckbox->isChecked());
-	mConfig->setSaveDirectory(PathHelper::extractPath(mSaveLocationLineEdit->displayText()));
+	mConfig->setSaveDirectory(PathHelper::extractParentDirectory(mSaveLocationLineEdit->displayText()));
 	mConfig->setSaveFilename(PathHelper::extractFilename(mSaveLocationLineEdit->displayText()));
 	mConfig->setSaveFormat(PathHelper::extractFormat(mSaveLocationLineEdit->displayText()));
 }

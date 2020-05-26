@@ -154,6 +154,16 @@ QString KsnipConfigOptions::rotateWatermarkEnabledString()
 	return annotatorSectionString() + QStringLiteral("RotateWatermark");
 }
 
+QString KsnipConfigOptions::stickerPathsString()
+{
+	return annotatorSectionString() + QStringLiteral("StickerPaths");
+}
+
+QString KsnipConfigOptions::useDefaultStickerString()
+{
+	return annotatorSectionString() + QStringLiteral("UseDefaultSticker");
+}
+
 QString KsnipConfigOptions::captureCursorString()
 {
 	return imageGrabberSectionString() + QStringLiteral("CaptureCursor");

@@ -34,7 +34,8 @@ SettingsDialog::SettingsDialog(QWidget *parent, const QList<CaptureModes> &captu
 	mAnnotationSettings(new AnnotationSettings(mConfig)),
 	mHotKeySettings(new HotKeySettings(mConfig, captureModes)),
 	mUploaderSettings(new UploaderSettings(mConfig)),
-	mSaverSettings(new SaverSettings(mConfig))
+	mSaverSettings(new SaverSettings(mConfig)),
+	mStickerSettings(new StickerSettings(mConfig))
 {
     setWindowTitle(QApplication::applicationName() + QStringLiteral(" - ") + tr("Settings"));
 
@@ -56,6 +57,7 @@ SettingsDialog::~SettingsDialog()
     delete mHotKeySettings;
     delete mUploaderSettings;
     delete mSaverSettings;
+    delete mStickerSettings;
 }
 
 void SettingsDialog::saveSettings()
@@ -68,6 +70,7 @@ void SettingsDialog::saveSettings()
     mAnnotationSettings->saveSettings();
     mHotKeySettings->saveSettings();
     mSaverSettings->saveSettings();
+    mStickerSettings->saveSettings();
 }
 
 void SettingsDialog::initGui()
@@ -90,6 +93,7 @@ void SettingsDialog::initGui()
     mStackedLayout->addWidget(mImgurUploaderSettings);
     mStackedLayout->addWidget(mScriptUploaderSettings);
 	mStackedLayout->addWidget(mAnnotationSettings);
+	mStackedLayout->addWidget(mStickerSettings);
 	mStackedLayout->addWidget(mHotKeySettings);
 
 	auto application = new QTreeWidgetItem(mTreeWidget, { tr("Application") });
@@ -99,6 +103,7 @@ void SettingsDialog::initGui()
 	auto imgurUploader = new QTreeWidgetItem(uploader, { tr("Imgur Uploader") });
 	auto scriptUploader = new QTreeWidgetItem(uploader, { tr("Script Uploader") });
 	auto annotator = new QTreeWidgetItem(mTreeWidget, { tr("Annotator") });
+	auto stickers = new QTreeWidgetItem(annotator, { tr("Stickers") });
 	auto hotkeys = new QTreeWidgetItem(mTreeWidget, { tr("HotKeys") });
 
 	mNavigatorItems.append(application);
@@ -108,6 +113,7 @@ void SettingsDialog::initGui()
 	mNavigatorItems.append(imgurUploader);
 	mNavigatorItems.append(scriptUploader);
 	mNavigatorItems.append(annotator);
+	mNavigatorItems.append(stickers);
 	mNavigatorItems.append(hotkeys);
 
 	mTreeWidget->addTopLevelItem(application);

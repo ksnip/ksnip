@@ -131,6 +131,12 @@ public:
 	virtual bool rotateWatermarkEnabled() const;
 	virtual void setRotateWatermarkEnabled(bool enabled);
 
+	virtual QStringList stickerPaths() const;
+	virtual void setStickerPaths(const QStringList &paths);
+
+	virtual bool useDefaultSticker() const;
+	virtual void setUseDefaultSticker(bool enabled);
+
     // Image Grabber
 
     virtual bool isFreezeImageWhileSnippingEnabledReadOnly() const;

@@ -60,7 +60,7 @@ SaveResultDto SaveOperation::execute()
 void SaveOperation::updateSaveDirectoryIfRequired(const QString &path, const SaveResultDto &saveResult) const
 {
 	if(!mIsInstantSave && saveResult.isSuccessful && mConfig->rememberLastSaveDirectory()){
-		auto directory = PathHelper::extractPath(path);
+		auto directory = PathHelper::extractParentDirectory(path);
 		mConfig->setSaveDirectory(directory);
 	}
 }
@@ -83,7 +83,7 @@ SaveResultDto SaveOperation::save(const QString &path)
 
 void SaveOperation::notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const
 {
-	auto parentDirectory = PathHelper::extractPath(path);
+	auto parentDirectory = PathHelper::extractParentDirectory(path);
 	NotifyOperation operation(mToastService, title, message + QStringLiteral(" ") + path, parentDirectory, notificationType);
 	operation.execute();
 }

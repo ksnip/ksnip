@@ -42,7 +42,7 @@ QString SavePathProvider::getFilename() const
 
 QString SavePathProvider::getFormat(const QString &format) const
 {
-    return format.startsWith(QStringLiteral(".")) ? format : QStringLiteral(".") + format;
+    return format.startsWith(QLatin1Char('.')) ? format : QLatin1Char('.') + format;
 }
 
 QString SavePathProvider::saveDirectory() const

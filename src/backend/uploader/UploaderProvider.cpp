@@ -36,18 +36,30 @@ IUploader* UploaderProvider::get()
 {
 	switch (mConfig->uploaderType()) {
 		case UploaderType::Imgur:
-			if(mImgurUploader == nullptr) {
-				mImgurUploader = new ImgurUploader;
-				connectSignals(mImgurUploader);
-			}
-			return mImgurUploader;
+			return getImgurUploader();
 		case UploaderType::Script:
-			if(mScriptUploader == nullptr) {
-				mScriptUploader = new ScriptUploader;
-				connectSignals(mScriptUploader);
-			}
-			return mScriptUploader;
+			return getScriptUploader();
+		default:
+			return getImgurUploader();
 	}
+}
+
+IUploader* UploaderProvider::getScriptUploader()
+{
+	if(mScriptUploader == nullptr) {
+		mScriptUploader = new ScriptUploader;
+		connectSignals(mScriptUploader);
+	}
+	return mScriptUploader;
+}
+
+IUploader* UploaderProvider::getImgurUploader()
+{
+	if(mImgurUploader == nullptr) {
+		mImgurUploader = new ImgurUploader;
+		connectSignals(mImgurUploader);
+	}
+	return mImgurUploader;
 }
 
 void UploaderProvider::connectSignals(IUploader *uploader)

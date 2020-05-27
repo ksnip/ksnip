@@ -41,7 +41,10 @@ private:
 	KsnipConfig *mConfig;
 	IUploader *mImgurUploader;
 	IUploader *mScriptUploader;
+
 	void connectSignals(IUploader *uploader);
+	IUploader* getImgurUploader();
+	IUploader* getScriptUploader();
 };
 
 #endif //KSNIP_UPLOADERPROVIDER_H

@@ -13,7 +13,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploaderProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/saver/SavePathProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/saver/ImageSaver.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/saver/WildCardResolver.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/saver/WildcardResolver.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/saver/UniqueNameProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/TranslationLoader.cpp

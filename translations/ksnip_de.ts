@@ -187,11 +187,11 @@ Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabs automatisch ausblenden</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tab-Leiste ausblenden, wenn nur ein Tab verwendet wird.</translation>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
@@ -199,26 +199,29 @@ Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Ksnip Werkzeugauswahl speichern und beim Starten laden</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabs verwenden</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Änderung erfordert Neustart.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur eine Instanz von ksnip starten</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach Aktivierung dieser Option wird nur eine ksnip-Instanz
+ausgeführt, danach gestartetet Instanzen übergeben ihre
+Argumente an diese und beenden sich. Das ändern dieser
+Option erfordert einen Neustartaller Instanzen.</translation>
     </message>
 </context>
 <context>

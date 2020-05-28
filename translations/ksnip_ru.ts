@@ -186,38 +186,41 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Авто скрытие вкладок</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрывать панель при одной вкладке.</translation>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Запоминать расположение ksnip и восстанавливать при запуске</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Запоминать выбранный инструмент ksnip и восстанавливать при запуске</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать вкладки</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменение требует перезапуска.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Запускать только один экземпляр ksnip</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Включение этой настройки разрешит запуск только одного экземпляра
+ksnip, все другие экземпляры, запущенные после первого, будут 
+передавать свои аргументы первому экземпляру и закрываться. 
+Изменение этой настройки потребует запуска всех экземпляров заново.</translation>
     </message>
 </context>
 <context>
@@ -264,7 +267,8 @@ a new start of all instances.</source>
     <message>
         <source>The capture &quot;%1&quot; has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Снимок &quot;%1&quot; был изменён.
+Вы хотите сохранить его?</translation>
     </message>
 </context>
 <context>
@@ -353,55 +357,55 @@ Do you want to save it?</source>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">Загрузка завершена</translation>
+        <translation>Успешно загружено</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>Скрипт загрузки </translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation> успешно завершено.</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished">Загрузка на</translation>
+        <translation>Загружено на</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось сохранить временное изображение для загрузки.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось запустить процесс, проверьте путь и права доступа.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>Процесс аварийно завершился</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>Время процесса истекло.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка чтения процесса.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка записи процесса.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка веб, проверьте вывод консоли.</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Неизвестная ошибка процесса.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка не удалась</translation>
     </message>
 </context>
 <context>
@@ -444,7 +448,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить</translation>
     </message>
 </context>
 <context>
@@ -569,15 +573,15 @@ enabled for MacOs.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">Загрузка на imgur.com завершена!</translation>
+        <translation>Загрузка на imgur.com завершена!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">Получен новый токен, повторная попытка загрузки…</translation>
+        <translation>Получен новый токен, повторная попытка загрузки…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">Срок действия токена истек, запрашивается новый токен…</translation>
+        <translation>Срок действия токена истек, запрашивается новый токен…</translation>
     </message>
 </context>
 <context>
@@ -652,12 +656,13 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Базовый URL:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Базовый URL, используемый для связи с Imgur.
+Изменение потребует перезапуска.</translation>
     </message>
 </context>
 <context>
@@ -813,18 +818,18 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Вставить интегрированным</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузить снимок на внешний источник</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Снимок</translation>
     </message>
 </context>
 <context>
@@ -862,89 +867,96 @@ and capturing screenshot.</source>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished">Автоматически сохранять новые скриншоты в папку по умолчанию</translation>
+        <translation>Автоматически сохранять новые снимки в папку по умолчанию</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Выводить диалог сохранения изменений перед отменой</translation>
+        <translation>Выводить диалог сохранения изменений перед отменой</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Запоминать последнюю папку для сохранения</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>При включении каждый раз будет перезаписываться папка 
+сохранения, указанная в настройках, на последнюю используемую.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Место автоматического сохранения и формат названия скриншотов</translation>
+        <translation>Место сохранения снимков и название файла</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Поддерживаемые форматы: JPG, PNG и BMP. Если формат не указан, будет выбран PNG как по умолчанию.
+Имя файла может содержать следующие подстановочные знаки:
+- $Y, $M, $D для даты, $h, $m, $s для времени, или $T для времени в формате hhmmss.
+- Используйте многократно # для счётчиков. #### приведет к результату 0001, следующий снимок будет 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Обзор</translation>
+        <translation>Обзор</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки сохранения</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Место сохранения</translation>
+        <translation>Место сохранения снимка</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать вывод скрипта в буфер обмена</translation>
     </message>
     <message>
         <source>After:</source>
-        <translation type="unfinished"></translation>
+        <translation>После:</translation>
     </message>
     <message>
         <source>Only output following this string will be copied to clipboard, excluding that string.
 If omitted, everything from start will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вывод следующей строки будет скопирован в буфер обмена, исключая эту строку.
+Если пропущено, будет скопировано всё с самого начала.</translation>
     </message>
     <message>
         <source>Before:</source>
-        <translation type="unfinished"></translation>
+        <translation>Перед:</translation>
     </message>
     <message>
         <source>Only output before this string will be copied to clipboard, excluding that string.
 If omitted, everything up to the end will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вывод предыдущей строки будет скопирован в буфер обмена, исключая эту строку.
+Если пропущено, будет скопировано всё до самого конца.</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрипт:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Путь к скрипту, вызываемому при выгрузке. В процессе выгрузки скрипт будет
+вызван с путем к временному png файлу как один аргумент.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Обзор</translation>
+        <translation>Обзор</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрипт загрузчика</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать скрипт загрузчика</translation>
     </message>
 </context>
 <context>
@@ -983,15 +995,15 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузчик</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрипт загрузчика</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранение</translation>
     </message>
 </context>
 <context>
@@ -1020,42 +1032,42 @@ with the path to a temporary png file as a single argument.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Необходим скрипт загрузчика</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста добавьте скрипт загрузки через Опции &gt; Настройки &gt; Скрипт загрузки</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Выгрузка снимка</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы собираетесь выгрузить изображение на внешний ресурс, хотите продолжить?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Спрашивать перед загрузкой</translation>
+        <translation>Запрашивать подтверждение перед выгрузкой</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип загрузчика:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрипт</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузчик</translation>
     </message>
 </context>
 <context>

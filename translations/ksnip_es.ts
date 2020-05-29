@@ -563,7 +563,7 @@ habilitada para MacOs.</translation>
     </message>
     <message>
         <source>Time Stamp</source>
-        <translation>Sello de tiempo</translation>
+        <translation>Marca de tiempo</translation>
     </message>
     <message>
         <source>Link</source>

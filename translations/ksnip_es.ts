@@ -51,11 +51,11 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation>Se requiere una imagen de marca de agua</translation>
+        <translation>Imagen de Marca de Agua Requerida</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Por favor, añada una imagen de marca de agua a través de Opciones &gt; Configuración &gt; Anotador &gt; Actualizar</translation>
+        <translation>Agrega una Imagen de Marca de Agua via Opciones &gt; Configuracion &gt; Anotador &gt; Actualizar</translation>
     </message>
 </context>
 <context>
@@ -195,30 +195,33 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Recordar la posición de ksnip y mantenerla al reiniciar</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Recordar la última selección de herramientas al iniciar</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar pestañas</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>El cambio requiere reiniciar.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantener ksnip como una única instancia al abrirla nuevamente</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Habilitando esta opción permitirá solo una instancia de ksnip abierta,
+todas las demás instancias iniciadas después no se abrirán y pasarán
+sus argumentos a la primera abierta. Al cambiar esta opción se necesita
+reiniciar las otras instancias.</translation>
     </message>
 </context>
 <context>
@@ -355,55 +358,55 @@ Do you want to save it?</source>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">Subida con éxito</translation>
+        <translation>Subida con éxito</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>Script de subida </translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation> finalizado exitosamente.</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished">Subido a</translation>
+        <translation>Subido a</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Incapaz de guardar temporalmente la imagen para subir.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Incapaz de iniciar el proceso, revise la ruta y los permisos.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>Proceso se cayó</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>Proceso con tiempo de espera agotado.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Proceso con error de lectura.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Proceso con error de escritura.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Error Web, revise la salida en la consola.</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Proceso con error desconocido.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Subida fallida</translation>
     </message>
 </context>
 <context>
@@ -446,7 +449,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpiar</translation>
     </message>
 </context>
 <context>
@@ -575,15 +578,15 @@ habilitada para MacOs.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">Subir a imgur.com terminado!</translation>
+        <translation>Subir a imgur.com terminada!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">Recibí una nueva ficha, intentando subirla de nuevo…</translation>
+        <translation>Recibí un nuevo token, intentando subirla de nuevo…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">La ficha de Imgur ha caducado, solicitando una nueva ficha…</translation>
+        <translation>La token de Imgur ha caducado, solicitando un nuevo token…</translation>
     </message>
 </context>
 <context>
@@ -658,12 +661,13 @@ habilitada para MacOs.</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Url base:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>La url base que será usada para la comunicación con Imgur.
+Cambiarla requiere reiniciar.</translation>
     </message>
 </context>
 <context>
@@ -823,7 +827,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Subir captura a una fuente externa</translation>
     </message>
 </context>
 <context>
@@ -868,89 +872,96 @@ y la captura de pantalla.</translation>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished">Guardar automáticamente las nuevas capturas a la ubicación por defecto</translation>
+        <translation>Guardar automáticamente las nuevas capturas a la ubicación por defecto</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Solicitar guardar antes de descartar cambios no guardados</translation>
+        <translation>Preguntar antes de descartar cambios no guardados</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Recordar última carpeta de guardado</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando está habilitado, sobreescribe la última carpeta guardada en las configuraciones
+con la última carpeta en donde se guarda, esto lo hace en cada guardado.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Captura, guarda la ubicación y el nombre del archivo</translation>
+        <translation>Captura la ubicación de guardado y el nombre del archivo</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Los formatos soportados son JPG, PNG and BMP. Si no se indica un formato, se usará PNG por defecto.
+El nombre del archivo puede contener los siguientes comodines:
+- $Y, $M, $D para la fecha, $h, $m, $s para la hora, or $T para hora en el formato hhmmss.
+- Multiples consecutivos # para un correlativo. #### generará un 0001, siguiente captura será 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Navegar</translation>
+        <translation>Navegar</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuraciones de guardado</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Captura y guarda la ubicación</translation>
+        <translation>Captura y guarda la ubicación</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar script de salida al portapapeles</translation>
     </message>
     <message>
         <source>After:</source>
-        <translation type="unfinished"></translation>
+        <translation>Después:</translation>
     </message>
     <message>
         <source>Only output following this string will be copied to clipboard, excluding that string.
 If omitted, everything from start will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Solo la salida después de este texto será copiado al portapapeles, excluyendo este texto.
+Si se omite, todo será copiado desde el inicio.</translation>
     </message>
     <message>
         <source>Before:</source>
-        <translation type="unfinished"></translation>
+        <translation>Antes:</translation>
     </message>
     <message>
         <source>Only output before this string will be copied to clipboard, excluding that string.
 If omitted, everything up to the end will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Solo la salida antes de este texto será copiado al portapapeles, excluyendo este texto.
+Si se omite, todo será copiado hasta el final.</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Script:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruta para el script que será llamado para la subida. Durante la subida el script será usado
+con la ruta al archivo png temporal como simple argumento.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Navegar</translation>
+        <translation>Navegar</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Script de subida</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccione script de subida</translation>
     </message>
 </context>
 <context>
@@ -989,15 +1000,15 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Subir imágenes</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Subir con script</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardado</translation>
     </message>
 </context>
 <context>
@@ -1026,42 +1037,42 @@ with the path to a temporary png file as a single argument.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Script de subida requerido</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Agregue un script de subida vía Opciones -&gt; Configuraciones -&gt; Subir por script</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar subida</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Estás a punto de subir la imagen a un destino externo, ¿Quieres proceder?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Pedir confirmación antes de subir</translation>
+        <translation>Pedir confirmación antes de subir</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo de subida:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Script</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Subir imagen</translation>
     </message>
 </context>
 <context>

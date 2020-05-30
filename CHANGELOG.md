@@ -24,6 +24,7 @@
 * New kImageAnnotator: Saved image expand to include annotations out of border. ([#90](https://github.com/ksnip/kImageAnnotator/issues/90))  
 * New kImageAnnotator: Add support for stickers. ([#74](https://github.com/ksnip/kImageAnnotator/issues/74))
 * New kImageAnnotator: Add tab context menu for close all tabs and close other tabs. ([#93](https://github.com/ksnip/kImageAnnotator/issues/93))
+* New kImageAnnotator: Add Number with Arrow/pointer tool. ([#79](https://github.com/ksnip/kImageAnnotator/issues/79))
 * Changed: Save As option was added and useInstantSave config was removed. ([#285](https://github.com/ksnip/ksnip/issues/285))
 * Changed: Disable scroll down with zero value in timeout widget. ([#294](https://github.com/ksnip/ksnip/issues/294))
 * Changed: Disable unsupported capture modes in settings. ([#322](https://github.com/ksnip/ksnip/issues/322))

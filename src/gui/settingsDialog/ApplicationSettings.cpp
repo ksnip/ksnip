@@ -70,7 +70,7 @@ void ApplicationSettings::initGui()
 	mUseTrayIconCheckBox->setToolTip(tr("When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.\n"
 									       "Change requires restart."));
 	mMinimizeToTrayCheckBox->setText(tr("Minimize to Tray"));
-	mStartMinimizedToTrayCheckBox->setText(tr("Start Minimized to Tray."));
+	mStartMinimizedToTrayCheckBox->setText(tr("Start Minimized to Tray"));
 	mCloseToTrayCheckBox->setText(tr("Close to Tray"));
 
 	mUseTabsCheckbox->setText(tr("Use Tabs"));

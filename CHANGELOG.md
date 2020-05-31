@@ -36,7 +36,7 @@
 * Fixed: When 'Capture Save Location' is not set, ksnip fails to save. ([#263](https://github.com/ksnip/ksnip/issues/263))
 * Fixed: Connections that required ssl not working on AppImages. ([#320](https://github.com/ksnip/ksnip/issues/320))
 * Fixed: Main window hangs when pressing `Esc` on selecting screenshot area state. ([#330](https://github.com/ksnip/ksnip/issues/330))
-* Fixed: Unable to resize ksnip window under windows. ([#335](https://github.com/ksnip/ksnip/issues/335))
+* Fixed: Unable to resize ksnip window. ([#335](https://github.com/ksnip/ksnip/issues/335))
 * Fixed kImageAnnotator: Using select tool marks image as changed. ([#97](https://github.com/ksnip/kImageAnnotator/issues/97))
 
 ## Release 1.6.2

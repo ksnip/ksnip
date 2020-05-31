@@ -444,8 +444,6 @@ void MainWindow::initGui()
 	    mTrayIcon->setEnabled(true);
     }
 
-	mMainLayout->setSizeConstraint(QLayout::SetFixedSize);
-
 	setCentralWidget(mKImageAnnotator);
 }
 
@@ -598,5 +596,7 @@ void MainWindow::uploadFinished(const UploadResult &result)
 void MainWindow::captureEmpty()
 {
 	setEnablements(false);
+	mMainLayout->setSizeConstraint(QLayout::SetFixedSize); // Workaround that allows us to return to toolbar only size
 	resize(minimumSize());
+	mMainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
 }

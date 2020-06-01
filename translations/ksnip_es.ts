@@ -179,7 +179,7 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray.</source>
-        <translation>Iniciar minimizado en la barra de tareas.</translation>
+        <translation>Iniciar minimizado en la barra de tareas</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>

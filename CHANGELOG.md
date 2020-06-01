@@ -37,6 +37,7 @@
 * Fixed: Connections that required ssl not working on AppImages. ([#320](https://github.com/ksnip/ksnip/issues/320))
 * Fixed: Main window hangs when pressing `Esc` on selecting screenshot area state. ([#330](https://github.com/ksnip/ksnip/issues/330))
 * Fixed: Unable to resize ksnip window. ([#335](https://github.com/ksnip/ksnip/issues/335))
+* Fixed: Rectangle picker is not closed with -r -s switches when mouse button is released. ([#338](https://github.com/ksnip/ksnip/issues/338))
 * Fixed kImageAnnotator: Using select tool marks image as changed. ([#97](https://github.com/ksnip/kImageAnnotator/issues/97))
 
 ## Release 1.6.2

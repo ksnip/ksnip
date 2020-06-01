@@ -136,7 +136,7 @@ MainWindow::~MainWindow()
 void MainWindow::processInstantCapture(const CaptureDto &capture)
 {
 	mCaptureHandler->load(capture);
-	mCaptureHandler->saveAs();
+	mCaptureHandler->save();
 	mKImageAnnotator->close();
 	close();
 }

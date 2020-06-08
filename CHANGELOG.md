@@ -40,6 +40,7 @@
 * Fixed: Rectangle picker is not closed with -r -s switches when mouse button is released. ([#338](https://github.com/ksnip/ksnip/issues/338))
 * Fixed kImageAnnotator: Using select tool marks image as changed. ([#97](https://github.com/ksnip/kImageAnnotator/issues/97))
 * Fixed kImageAnnotator: Emoticon selector shows a half of current emoticon. ([#104](https://github.com/ksnip/kImageAnnotator/issues/104))
+* Fixed kImageAnnotator: FillPicker text or icon sometimes not visible. ([#105](https://github.com/ksnip/kImageAnnotator/issues/105))
 
 ## Release 1.6.2
 * Changed: Add missing plugs to silence snap socket warnings. ([#313](https://github.com/ksnip/ksnip/issues/313))

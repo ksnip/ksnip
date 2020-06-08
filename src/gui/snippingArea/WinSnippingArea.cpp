@@ -55,16 +55,12 @@ QRect WinSnippingArea::getSnippingAreaGeometry() const
 
 QRect WinSnippingArea::getFullScreenRect() const
 {
-    QRect fullScreenRect = QDesktopWidget().rect();
+    QRect fullScreenRect;
     auto screenCount = QDesktopWidget().screenCount();
     for(int i = 0; i < screenCount; i++) {
         auto screenRect = QDesktopWidget().screenGeometry(i);
-        if(screenRect.x() < fullScreenRect.x()) {
-            fullScreenRect.moveLeft(screenRect.x());
-        }
-        if(screenRect.y() < fullScreenRect.y()) {
-            fullScreenRect.moveBottom(screenRect.y());
-        }
+		fullScreenRect = fullScreenRect.united(screenRect);
     }
+
     return fullScreenRect;
 }

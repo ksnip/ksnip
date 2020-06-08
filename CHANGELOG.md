@@ -38,6 +38,7 @@
 * Fixed: Main window hangs when pressing `Esc` on selecting screenshot area state. ([#330](https://github.com/ksnip/ksnip/issues/330))
 * Fixed: Unable to resize ksnip window. ([#335](https://github.com/ksnip/ksnip/issues/335))
 * Fixed: Rectangle picker is not closed with -r -s switches when mouse button is released. ([#338](https://github.com/ksnip/ksnip/issues/338))
+* Fixed: Not able to use ksnip if multiple screens are connected under windows. ([#261](https://github.com/ksnip/ksnip/issues/261))
 * Fixed kImageAnnotator: Using select tool marks image as changed. ([#97](https://github.com/ksnip/kImageAnnotator/issues/97))
 * Fixed kImageAnnotator: Emoticon selector shows a half of current emoticon. ([#104](https://github.com/ksnip/kImageAnnotator/issues/104))
 * Fixed kImageAnnotator: FillPicker text or icon sometimes not visible. ([#105](https://github.com/ksnip/kImageAnnotator/issues/105))

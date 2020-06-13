@@ -1,20 +1,27 @@
 ksnip Docker container
 ======================
 
-## Installation
+## Building the container yourself
 
 ```bash
-docker-compose build
+# build
+docker-compose build ksnip-desktop-build
+
+# run
+docker-compose up ksnip-desktop-build
 ```
 
-## Running the container
+## Running the pre-built container
 
 ```bash
-docker-compose up
+docker-compose up ksnip-desktop-pre-built
 ```
+
+## Using the container
 
 - Visit <http://localhost:6080/>
 - Run `qtcreator`
 - Open project `/code/ksnip/CMakeLists.txt` (*File* menu)
 - Press <kbd>Ctrl + B</kbd> to build and run ksnip
+
 

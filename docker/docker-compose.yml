@@ -12,7 +12,7 @@ services:
     build: .
     volumes:
       - /dev/shm:/dev/shm
-#      - ./home:/home
+      - ..:/root/code/ksnip
     environment:
       - TZ=Europe/Vienna
     ports:

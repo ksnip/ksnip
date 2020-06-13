@@ -19,5 +19,5 @@ RUN mkdir /root/code && cd /root/code && \
     git clone git://github.com/ksnip/kImageAnnotator && \
     git clone git://github.com/KDE/extra-cmake-modules
 
-COPY setup.sh /root/code
-RUN cd /root/code && ./setup.sh
+COPY build-deps.sh /root/code
+RUN /root/code/build-deps.sh

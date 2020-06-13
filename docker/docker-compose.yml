@@ -1,0 +1,18 @@
+#
+# Installation:
+# docker-compose build
+# docker-compose up
+#
+
+version: '3'
+services:
+  # https://github.com/fcwu/docker-ubuntu-vnc-desktop
+  desktop:
+    build: .
+    volumes:
+      - /dev/shm:/dev/shm
+      - ./home:/home
+    environment:
+      - TZ=Europe/Vienna
+    ports:
+      - "6080:80"

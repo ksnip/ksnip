@@ -12,8 +12,10 @@ services:
     build: .
     volumes:
       - /dev/shm:/dev/shm
-      - ..:/root/code/ksnip
+      - ..:/code/ksnip
     environment:
       - TZ=Europe/Vienna
+      - USER=ksnip
+      - PASSWORD=ksnip
     ports:
       - "6080:80"

@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /root/code || exit 0
+cd /code || exit 0
 export BUILD_TYPE="Release"
 
 echo "--> Install Extra CMake Modules"

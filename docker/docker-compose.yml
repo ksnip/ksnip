@@ -8,10 +8,11 @@ version: '3'
 services:
   # https://github.com/fcwu/docker-ubuntu-vnc-desktop
   desktop:
+    container_name: ksnip-desktop
     build: .
     volumes:
       - /dev/shm:/dev/shm
-      - ./home:/home
+#      - ./home:/home
     environment:
       - TZ=Europe/Vienna
     ports:

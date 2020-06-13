@@ -10,7 +10,7 @@ RUN sudo apt -y install dirmngr cmake less mc htop git qtcreator qt5-default g++
 # install smartgit
 RUN cd /tmp && wget https://www.syntevo.com/downloads/smartgit/smartgit-20_1_2.deb && sudo dpkg -i smartgit-20_1_2.deb || sudo apt install -fy
 
-RUN mkdir /root/Code && cd /root/Code && \
-    git clone https://github.com/ksnip/ksnip.git && \
-    git clone git://github.com/DamirPorobic/kColorPicker && \
-    git clone git://github.com/DamirPorobic/kImageAnnotator
+RUN mkdir /root/code && cd /root/code && \
+    git clone git://github.com/ksnip/ksnip && \
+    git clone git://github.com/ksnip/kColorPicker && \
+    git clone git://github.com/ksnip/kImageAnnotator

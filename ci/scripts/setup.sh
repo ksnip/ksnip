@@ -24,7 +24,7 @@ if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
     source /opt/qt*/bin/qt*-env.sh
 
     echo "--> Install Extra CMake Modules"
-    git clone git://anongit.kde.org/extra-cmake-modules
+    git clone git://github.com/KDE/extra-cmake-modules
     cd extra-cmake-modules
     mkdir build && cd build
     cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
@@ -52,7 +52,7 @@ elif [[ "${BINARY_TYPE}" == "deb" ]]; then
                                                    build-essential \
                                                    qt5-default \
                                                    libqt5x11extras5-dev \
-												                           qttools5-dev \
+												   qttools5-dev \
                                                    qttools5-dev-tools \
                                                    extra-cmake-modules \
                                                    libqt5svg5-dev \

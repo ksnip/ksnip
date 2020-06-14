@@ -123,7 +123,7 @@ void SettingsDialog::initGui()
     mTreeWidget->addTopLevelItem(hotkeys);
 	mTreeWidget->setHeaderHidden(true);
     mTreeWidget->setItemSelected(mNavigatorItems[0], true);
-    mTreeWidget->setFixedWidth(mTreeWidget->minimumSizeHint().width() + ScaledSizeProvider::getScaledWidth(100));
+    mTreeWidget->setFixedWidth(mTreeWidget->minimumSizeHint().width() + 100);
     mTreeWidget->expandAll();
 
     auto listAndStackLayout = new QHBoxLayout;

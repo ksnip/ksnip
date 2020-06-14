@@ -26,11 +26,7 @@ LinuxSnippingArea::LinuxSnippingArea() : AbstractSnippingArea()
 
 QRect LinuxSnippingArea::selectedRectArea() const
 {
-	auto scaleFactor = DesktopScaleFactorProvider::instance()->ScaleFactor();
-    return { MathHelper::multiplyIntWithReal(mCaptureArea.x(), scaleFactor),
-			 MathHelper::multiplyIntWithReal(mCaptureArea.y(), scaleFactor),
-			 MathHelper::multiplyIntWithReal(mCaptureArea.width(), scaleFactor),
-			 MathHelper::multiplyIntWithReal(mCaptureArea.height(),scaleFactor) };
+	return mCaptureArea;
 }
 
 void LinuxSnippingArea::setFullScreen()

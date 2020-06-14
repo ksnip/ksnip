@@ -28,7 +28,6 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DragAndDropHandler.cpp
-	${CMAKE_SOURCE_DIR}/src/common/provider/ScaledSizeProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/ApplicationTitleProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/NewCaptureNameProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/PathFromCaptureProvider.cpp
@@ -115,7 +114,6 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/backend/config/KsnipWaylandConfig.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/PlatformChecker.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/CommandRunner.cpp
-		${CMAKE_SOURCE_DIR}/src/common/platform/DesktopScaleFactorProvider.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/LinuxSnippingArea.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11KeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToX11KeyCodeTranslator.cpp

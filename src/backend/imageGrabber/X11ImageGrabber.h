@@ -23,7 +23,6 @@
 
 #include "AbstractImageGrabber.h"
 #include "X11Wrapper.h"
-#include "src/common/platform/DesktopScaleFactorProvider.h"
 #include "src/common/helper/MathHelper.h"
 #include "src/gui/snippingArea/LinuxSnippingArea.h"
 
@@ -41,8 +40,6 @@ protected:
 
 private:
     X11Wrapper *mX11Wrapper;
-
-	QRect scaleRect(const QRect &rect) const;
 };
 
 #endif // X11IMAGEGRABBER_H

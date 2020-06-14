@@ -113,7 +113,7 @@ void ImgurUploaderSettings::initGui()
 	connect(mHistoryButton, &QPushButton::clicked, this, &ImgurUploaderSettings::showImgurHistoryDialog);
 
 	mLayout->setAlignment(Qt::AlignTop);
-	mLayout->setColumnMinimumWidth(0, ScaledSizeProvider::getScaledWidth(10));
+	mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mForceAnonymousCheckbox, 0, 0, 1, 3);
 	mLayout->addWidget(mOpenLinkInBrowserCheckbox, 1, 0, 1, 3);
 	mLayout->addWidget(mDirectLinkToImageCheckbox, 2, 0, 1, 3);

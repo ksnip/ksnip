@@ -27,7 +27,6 @@
 
 #include "CaptureModePicker.h"
 #include "CustomSpinBox.h"
-#include "src/common/provider/ScaledSizeProvider.h"
 
 class MainToolBar : public QToolBar
 {

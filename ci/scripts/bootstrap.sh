@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
-    sudo add-apt-repository ppa:beineri/opt-qt571-trusty -y
+    sudo add-apt-repository ppa:beineri/opt-qt594-trusty -y
     sudo apt-get update -qq
 
     echo "--> Download linuxdeployqt tool"
@@ -18,7 +18,7 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
 
     echo "--> Download Dependencies"
 
-    QT_BASE_URL="https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_57/qt.57.win32_msvc2015/5.7.1-0"
+    QT_BASE_URL="https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_594/qt.594.win32_msvc2015/5.9.4-0"
     wget --quiet -O qtbase.7z "${QT_BASE_URL}qtbase-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
     wget --quiet -O qtwinextras.7z "${QT_BASE_URL}qtwinextras-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
     wget --quiet -O qttools.7z "${QT_BASE_URL}qttools-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"

@@ -84,7 +84,7 @@ void ScriptUploaderSettings::initGui()
 	connect(mBrowseButton, &QPushButton::clicked, this, &ScriptUploaderSettings::ShowScriptSelectionDialog);
 
 	mLayout->setAlignment(Qt::AlignTop);
-	mLayout->setColumnMinimumWidth(0, ScaledSizeProvider::getScaledWidth(10));
+	mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mCopyOutputToClipboardCheckbox, 0, 0, 1, 3);
 	mLayout->addWidget(mCopyOutputAfterLabel, 1, 1, 1, 1);
 	mLayout->addWidget(mCopyOutputAfterLineEdit, 1, 2, 1, 1);

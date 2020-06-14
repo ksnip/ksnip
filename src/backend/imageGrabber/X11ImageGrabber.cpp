@@ -41,20 +41,12 @@ bool X11ImageGrabber::isSnippingAreaBackgroundTransparent() const
 
 QRect X11ImageGrabber::activeWindowRect() const
 {
-	auto rect = mX11Wrapper->getActiveWindowRect();
-	return scaleRect(rect);
+	return mX11Wrapper->getActiveWindowRect();
 }
 
 QRect X11ImageGrabber::fullScreenRect() const
 {
-	auto rect = mX11Wrapper->getFullScreenRect();
-	return scaleRect(rect);
-}
-
-QRect X11ImageGrabber::scaleRect(const QRect &rect) const
-{
-	auto scaleFactor = DesktopScaleFactorProvider::instance()->ScaleFactor();
-	return { rect.x() , rect.y(), MathHelper::divideIntByReal(rect.width(), scaleFactor), MathHelper::divideIntByReal(rect.height(), scaleFactor) };
+	return mX11Wrapper->getFullScreenRect();
 }
 
 CursorDto X11ImageGrabber::getCursorWithPosition() const

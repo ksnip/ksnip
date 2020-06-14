@@ -31,7 +31,6 @@
 #include <QFileDialog>
 
 #include "src/backend/config/KsnipConfig.h"
-#include "src/common/provider/ScaledSizeProvider.h"
 
 class ApplicationSettings : public QGroupBox
 {

@@ -93,10 +93,10 @@ void ApplicationSettings::initGui()
 	                                      "Change requires ksnip restart to take effect."));
 	mApplicationStyleCombobox->addItems(QStyleFactory::keys());
 	mApplicationStyleCombobox->setToolTip(mApplicationStyleLabel->toolTip());
-	mApplicationStyleCombobox->setFixedWidth(ScaledSizeProvider::getScaledWidth(100));
+	mApplicationStyleCombobox->setFixedWidth(100);
 
 	mLayout->setAlignment(Qt::AlignTop);
-	mLayout->setColumnMinimumWidth(0, ScaledSizeProvider::getScaledWidth(10));
+	mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mAutoCopyToClipboardNewCapturesCheckbox, 0, 0, 1, 4);
 	mLayout->addWidget(mRememberKsnipPositionCheckbox, 1, 0, 1, 4);
 	mLayout->addWidget(mRememberKsnipToolSelectionCheckbox, 2, 0, 1, 4);

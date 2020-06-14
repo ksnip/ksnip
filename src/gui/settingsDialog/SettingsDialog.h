@@ -36,7 +36,6 @@
 #include "SaverSettings.h"
 #include "StickerSettings.h"
 #include "src/backend/config/KsnipConfigProvider.h"
-#include "src/common/provider/ScaledSizeProvider.h"
 
 class SettingsDialog : public QDialog
 {

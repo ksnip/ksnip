@@ -20,7 +20,7 @@ git clone git://github.com/DamirPorobic/kColorPicker
 git clone git://github.com/DamirPorobic/kImageAnnotator
 
 if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
-    sudo apt-get -y install qt57base qt57x11extras qt57tools qt57svg
+    sudo apt-get -y install qt57base qt59x11extras qt59tools qt59svg
     source /opt/qt*/bin/qt*-env.sh
 
     echo "--> Install Extra CMake Modules"

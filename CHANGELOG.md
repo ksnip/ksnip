@@ -43,6 +43,7 @@
 * Fixed kImageAnnotator: Emoticon selector shows a half of current emoticon. ([#104](https://github.com/ksnip/kImageAnnotator/issues/104))
 * Fixed kImageAnnotator: FillPicker text or icon sometimes not visible. ([#105](https://github.com/ksnip/kImageAnnotator/issues/105))
 * Fixed kImageAnnotator: Wrong image scaling on hdpi screen. ([#81](https://github.com/ksnip/kImageAnnotator/issues/81))
+* Fixed kImageAnnotator: Copy area size differs from last capture. ([#107](https://github.com/ksnip/kImageAnnotator/issues/107))
 
 ## Release 1.6.2
 * Changed: Add missing plugs to silence snap socket warnings. ([#313](https://github.com/ksnip/ksnip/issues/313))

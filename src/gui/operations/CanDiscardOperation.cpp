@@ -53,6 +53,7 @@ bool CanDiscardOperation::saveImage() const
 
 MessageBoxResponse CanDiscardOperation::getSaveBeforeDiscard() const
 {
+	auto quote = mFilename.isEmpty() ? QString() : QStringLiteral("\"");
 	return MessageBoxHelper::yesNoCancel(tr("Warning - ") + QApplication::applicationName(),
-		                                 tr("The capture \"%1\" has been modified.\nDo you want to save it?").arg(mFilename));
+		                                 tr("The capture %1%2%3 has been modified.\nDo you want to save it?").arg(quote).arg(mFilename).arg(quote));
 }

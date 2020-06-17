@@ -53,6 +53,9 @@ private:
 
 	void initGui();
 	void loadConfig();
+
+private slots:
+	void freezeImageWhileSnippingStateChanged();
 };
 
 #endif //KSNIP_IMAGEGRABBERSETTINGS_H

@@ -81,10 +81,8 @@ void ImageGrabberSettings::initGui()
 	                                                 "the delay happens after the snipping area is shown.\n"
 	                                                 "This feature is always disabled for Wayland and always\n"
 	                                                 "enabled for MacOs."));
-	connect(mFreezeImageWhileSnippingCheckbox, &QCheckBox::stateChanged, [this]()
-	{
-		mSnippingAreaMagnifyingGlassCheckbox->setEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());
-	});
+	connect(mFreezeImageWhileSnippingCheckbox, &QCheckBox::stateChanged, this, &ImageGrabberSettings::freezeImageWhileSnippingStateChanged);
+
 	mSnippingAreaMagnifyingGlassCheckbox->setText(tr("Show magnifying glass on snipping area"));
 	mSnippingAreaMagnifyingGlassCheckbox->setToolTip(tr("Show a magnifying glass which zooms into\n"
 	                                                    "the background image. This option only works\n"
@@ -128,6 +126,11 @@ void ImageGrabberSettings::initGui()
 	setLayout(mLayout);
 }
 
+void ImageGrabberSettings::freezeImageWhileSnippingStateChanged()
+{
+	mSnippingAreaMagnifyingGlassCheckbox->setEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());
+}
+
 void ImageGrabberSettings::loadConfig()
 {
 	mFreezeImageWhileSnippingCheckbox->setChecked(mConfig->freezeImageWhileSnippingEnabled());
@@ -139,4 +142,6 @@ void ImageGrabberSettings::loadConfig()
 	mSnippingAreaPositionAndSizeInfoCheckbox->setChecked(mConfig->snippingAreaPositionAndSizeInfoEnabled());
 	mSnippingCursorColorButton->setColor(mConfig->snippingCursorColor());
 	mSnippingCursorSizeCombobox->setValue(mConfig->snippingCursorSize());
+
+	freezeImageWhileSnippingStateChanged();
 }

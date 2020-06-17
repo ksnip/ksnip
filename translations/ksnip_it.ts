@@ -189,7 +189,7 @@ Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation>Nascondi la barra delle schede quando viene utilizzata solo la scheda</translation>
+        <translation>Nascondi la barra delle schede quando ce n&apos;è una sola.</translation>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>

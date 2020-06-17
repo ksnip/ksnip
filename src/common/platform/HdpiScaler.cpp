@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,34 +17,32 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "LinuxSnippingArea.h"
+#include "HdpiScaler.h"
 
-LinuxSnippingArea::LinuxSnippingArea() : AbstractSnippingArea()
+QRect HdpiScaler::unscale(const QRect &rect) const
 {
-	setWindowFlags(windowFlags() | Qt::Tool | Qt::X11BypassWindowManagerHint);
+	auto factor = scaleFactor();
+	return {
+		static_cast<int>(rect.x() / factor),
+		static_cast<int>(rect.y() / factor),
+		static_cast<int>(rect.width() / factor),
+		static_cast<int>(rect.height() / factor)
+	};
 }
 
-QRect LinuxSnippingArea::selectedRectArea() const
+QRect HdpiScaler::scale(const QRect &rect) const
 {
-	if(isBackgroundTransparent()) {
-		return mCaptureArea;
-	} else {
-		return mHdpiScaler.scale(mCaptureArea);
-	}
+	auto factor = scaleFactor();
+	return {
+		static_cast<int>(rect.x() * factor),
+		static_cast<int>(rect.y() * factor),
+		static_cast<int>(rect.width() * factor),
+		static_cast<int>(rect.height() * factor)
+	};
 }
 
-void LinuxSnippingArea::setFullScreen()
+qreal HdpiScaler::scaleFactor() const
 {
-    setFixedSize(QDesktopWidget().size());
-    QWidget::showFullScreen();
-}
-
-QPoint LinuxSnippingArea::getMousePosition() const
-{
-    return QCursor::pos();
-}
-
-QRect LinuxSnippingArea::getSnippingAreaGeometry() const
-{
-    return geometry();
+	auto desktopWidget = QApplication::desktop();
+	return desktopWidget->devicePixelRatioF();
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,26 +17,23 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_LINUXSNIPPINGAREA_H
-#define KSNIP_LINUXSNIPPINGAREA_H
+#ifndef KSNIP_HDPISCALER_H
+#define KSNIP_HDPISCALER_H
 
-#include "AbstractSnippingArea.h"
-#include "src/common/platform/HdpiScaler.h"
+#include <QApplication>
+#include <QDesktopWidget>
 
-class LinuxSnippingArea : public AbstractSnippingArea
+class HdpiScaler
 {
 public:
-	explicit LinuxSnippingArea();
-	~LinuxSnippingArea() override = default;
-    QRect selectedRectArea() const override;
+	HdpiScaler() = default;
+	~HdpiScaler() = default;
 
-protected:
-	void setFullScreen() override;
-    QPoint getMousePosition() const override;
-	QRect getSnippingAreaGeometry() const override;
+	QRect unscale(const QRect &rect) const;
+	QRect scale(const QRect &rect) const;
 
 private:
-	HdpiScaler mHdpiScaler;
+	qreal scaleFactor() const;
 };
 
-#endif //KSNIP_LINUXSNIPPINGAREA_H
+#endif //KSNIP_HDPISCALER_H

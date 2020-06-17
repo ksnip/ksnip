@@ -23,7 +23,7 @@
 
 #include "AbstractImageGrabber.h"
 #include "X11Wrapper.h"
-#include "src/common/helper/MathHelper.h"
+#include "src/common/platform/HdpiScaler.h"
 #include "src/gui/snippingArea/LinuxSnippingArea.h"
 
 class X11ImageGrabber : public AbstractImageGrabber
@@ -40,6 +40,7 @@ protected:
 
 private:
     X11Wrapper *mX11Wrapper;
+	HdpiScaler mHdpiScaler;
 };
 
 #endif // X11IMAGEGRABBER_H

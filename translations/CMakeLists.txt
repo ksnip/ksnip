@@ -5,6 +5,7 @@ set(KSNIP_LANG_TS
 	ksnip_cs.ts
 	ksnip_da.ts
 	ksnip_de.ts
+	ksnip_el.ts
 	ksnip_es.ts
 	ksnip_eu.ts
 	ksnip_fa.ts

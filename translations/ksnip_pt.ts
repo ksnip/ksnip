@@ -832,7 +832,7 @@ e captura de tela.</translation>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation>Capturar</translation>
+        <translation>Imagem</translation>
     </message>
 </context>
 <context>

@@ -361,7 +361,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Upload script </source>
-        <translation>Скрипт загрузки </translation>
+        <translation>Скрипт закачивания </translation>
     </message>
     <message>
         <source> finished successfully.</source>
@@ -373,7 +373,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation>Не удалось сохранить временное изображение для загрузки.</translation>
+        <translation>Не удалось сохранить временное изображение для закачивания.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
@@ -405,7 +405,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation>Загрузка не удалась</translation>
+        <translation>Закачивание не удалось</translation>
     </message>
 </context>
 <context>
@@ -550,7 +550,7 @@ enabled for MacOs.</source>
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation>История загрузок</translation>
+        <translation>История Imgur</translation>
     </message>
     <message>
         <source>Close</source>
@@ -573,11 +573,11 @@ enabled for MacOs.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Загрузка на imgur.com завершена!</translation>
+        <translation>Закачивание на imgur.com завершено!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation>Получен новый токен, повторная попытка загрузки…</translation>
+        <translation>Получен новый токен, повторная попытка закачивания…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
@@ -588,7 +588,7 @@ enabled for MacOs.</source>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation>Загрузить анонимно</translation>
+        <translation>Закачать анонимно</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
@@ -620,7 +620,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation>История загрузок</translation>
+        <translation>История Imgur</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
@@ -648,7 +648,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation>После выгрузки открыть ссылку Imgur в браузере по умолчанию</translation>
+        <translation>После закачивания открыть ссылку Imgur в браузере по умолчанию</translation>
     </message>
     <message>
         <source>Link directly to image</source>
@@ -726,7 +726,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload</source>
-        <translation>Загрузить на Imgur</translation>
+        <translation>Закачать</translation>
     </message>
     <message>
         <source>Print</source>
@@ -822,7 +822,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation>Загрузить снимок на внешний источник</translation>
+        <translation>Закачать снимок на внешний источник</translation>
     </message>
 </context>
 <context>
@@ -943,7 +943,7 @@ If omitted, everything up to the end will be copied.</source>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation>Путь к скрипту, вызываемому при выгрузке. В процессе выгрузки скрипт будет
+        <translation>Путь к скрипту, вызываемому при закачивания. В процессе закачивания скрипт будет
 вызван с путем к временному png файлу как один аргумент.</translation>
     </message>
     <message>
@@ -952,11 +952,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Скрипт загрузчика</translation>
+        <translation>Скрипт закачивания</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation>Выбрать скрипт загрузчика</translation>
+        <translation>Выбрать скрипт закачивания</translation>
     </message>
 </context>
 <context>
@@ -995,11 +995,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Загрузчик</translation>
+        <translation>Закачивание</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Скрипт загрузчика</translation>
+        <translation>Скрипт закачивания</translation>
     </message>
     <message>
         <source>Saver</source>
@@ -1032,30 +1032,30 @@ with the path to a temporary png file as a single argument.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation>Необходим скрипт загрузчика</translation>
+        <translation>Необходим скрипт закачивания</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Пожалуйста добавьте скрипт загрузки через Опции &gt; Настройки &gt; Скрипт загрузки</translation>
+        <translation>Пожалуйста добавьте скрипт закачивания через Опции &gt; Настройки &gt; Скрипт закачивания</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation>Выгрузка снимка</translation>
+        <translation>Закачивание снимка</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation>Вы собираетесь выгрузить изображение на внешний ресурс, хотите продолжить?</translation>
+        <translation>Вы собираетесь закачать изображение на внешний ресурс, хотите продолжить?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation>Запрашивать подтверждение перед выгрузкой</translation>
+        <translation>Запрашивать подтверждение перед закачиванием</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation>Тип загрузчика:</translation>
+        <translation>Тип закачивания:</translation>
     </message>
     <message>
         <source>Imgur</source>
@@ -1067,7 +1067,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Загрузчик</translation>
+        <translation>Закачивание</translation>
     </message>
 </context>
 <context>

@@ -1,16 +1,16 @@
 # [ksnip](http://ksnip.org/) &middot; [![Build Status][travis-badge]][travis-url] [![GitHub commits (since latest release)][gh-comm-since-badge]][gh-comm-since-url] [![Translation status][weblate-badge]][weblate-url] [![GitHub total downloads][gh-dl-badge]][gh-dl-url] [![SourceForge total downloads][sf-dt-badge]][sf-dt-badge-url] 
 
-Version v1.7.0 - Work in Progress
+Version v1.7.0
 
 Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features 
 for your screenshots.
 
-![Ksnip](https://imgur.com/boTBnmV.png "Ksnip with annotations")
+![Ksnip](https://imgur.com/q19HXqI.png "Ksnip with annotations")
 
 
 # Features
 Latest ksnip version contains following features:
-* Supports Linux (X11 and experimental KDE and Gnome Wayland support), Windows and MacOS.
+* Supports Linux (X11, KDE Wayland and Gnome Wayland), Windows and MacOS.
 * Taking screenshot of a custom rectangular area that can be drawn with mouse cursor.
 * Taking screenshot of last selected rectangular area without selecting again.
 * Taking screenshot of the screen/monitor where the mouse cursor is currently located.
@@ -26,6 +26,7 @@ Latest ksnip version contains following features:
 * Filename wildcards for Year ($Y), Month ($M), Day ($D), Time ($T) and Counter (multiple # characters for number with zero leading padding).
 * Print screenshot or save is to pdf/ps.
 * Annotate screenshots with pen, marker, rectangles, ellipses, texts and other tools.
+* Annotate screenshots with stickers and add custom stickers.
 * Add watermarks to captured images.
 * Global HotKeys for taking Screenshots (Currently only for Windows and X11).
 * Tabs for Screenshots and images.

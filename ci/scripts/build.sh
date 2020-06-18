@@ -20,7 +20,7 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     mv build/src/ksnip*.exe packageDir/ksnip.exe
     windeployqt.exe packageDir/ksnip.exe
     cp build/translations/ksnip_*.qm ./packageDir/translations/
-    cp ${KIMAGEANNOTATOR}/translations/kImageAnnotator_*.qm ./packageDir/translations/
+    cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./packageDir/translations/
 	cp /c/openssl/libeay32.dll ./packageDir/
 	cp /c/openssl/ssleay32.dll ./packageDir/
 	

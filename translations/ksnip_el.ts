@@ -173,10 +173,6 @@ Change requires restart.</source>
         <translation>Κλείσιμο στο πλαίσιο συστήματος</translation>
     </message>
     <message>
-        <source>Start Minimized to Tray.</source>
-        <translation>Εκκίνηση ελαχιστοποιημένο στο πλαίσιο συστήματος.</translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation>Αυτόματη αντιγραφή των νέων συλλήψεων στο πρόχειρο</translation>
     </message>
@@ -214,6 +210,10 @@ all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
         <translation>Ενεργοποιώντας αυτήν την επιλογή θα επιτρέπεται μόνον μια εκτέλεση του knsip. Όλες οι μετέπειτα εκτελέσεις θα περάσουν τα ορίσματά τους στην πρώτη υπόσταση και θα κλείσουν. Η αλλαγή της επιλογής αυτής απαιτεί επανεκκίνηση όλων των εκτελέσεων.</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -258,9 +258,9 @@ a new start of all instances.</source>
         <translation>Προειδοποίηση - </translation>
     </message>
     <message>
-        <source>The capture &quot;%1&quot; has been modified.
+        <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation>Η σύλληψη &quot;%1&quot; έχει τροποποιηθεί. Θέλετε να την αποθηκεύσετε;</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -964,7 +964,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Αποστολέας</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -972,6 +972,37 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Saver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StickerSettings</name>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use Default Stickers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sticker Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Sticker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vector Image Files (*.svg)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

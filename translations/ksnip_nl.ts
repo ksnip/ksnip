@@ -178,10 +178,6 @@ Herstart om de wijziging toe te passen.</translation>
         <translation>Sluiten naar systeemvak</translation>
     </message>
     <message>
-        <source>Start Minimized to Tray.</source>
-        <translation>Geminimaliseerd opstarten.</translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation>Nieuwe schermfoto&apos;s automatisch kopiëren naar klembord</translation>
     </message>
@@ -221,6 +217,10 @@ a new start of all instances.</source>
         <translation>Schakel deze optie in om slechts één ksnip-proces toe te staan.
 Alle latere processen geven hun opdrachten door aan het eerste.
 Herstart ksnip om de wijzigingen toe te passen.</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -265,10 +265,9 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
         <translation>Waarschuwing - </translation>
     </message>
     <message>
-        <source>The capture &quot;%1&quot; has been modified.
+        <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation>De schermfoto &apos;%1&apos; is bewerkt.
-Wil je hem opslaan?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1007,6 +1006,37 @@ wordt dit script aangeroepen op het pad van de tijdelijke png.</translation>
     <message>
         <source>Saver</source>
         <translation>Opslaan</translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StickerSettings</name>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use Default Stickers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sticker Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Sticker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vector Image Files (*.svg)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

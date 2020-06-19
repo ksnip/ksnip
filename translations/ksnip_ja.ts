@@ -178,10 +178,6 @@ Change requires ksnip restart to take effect.</source>
         <translation>アプリケーション設定</translation>
     </message>
     <message>
-        <source>Start Minimized to Tray.</source>
-        <translation>トレイに最小化した状態で起動する</translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation>自動的に新しいキャプチャーをクリップボードにコピーする</translation>
     </message>
@@ -222,6 +218,10 @@ a new start of all instances.</source>
 できるようになります。インスタンスを複数起動しようとした場合、
 実行中のインスタンスに引数を渡して終了します。このオプションの
 変更は、すべてのインスタンスを起動し直す必要があります。</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -266,10 +266,9 @@ a new start of all instances.</source>
         <translation>警告 - </translation>
     </message>
     <message>
-        <source>The capture &quot;%1&quot; has been modified.
+        <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation>キャプチャー &quot;%1&quot; は変更されています。
-保存しますか？</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1005,6 +1004,37 @@ with the path to a temporary png file as a single argument.</source>
     <message>
         <source>Saver</source>
         <translation>保存</translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StickerSettings</name>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use Default Stickers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sticker Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Sticker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vector Image Files (*.svg)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

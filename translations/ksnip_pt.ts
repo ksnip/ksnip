@@ -178,10 +178,6 @@ A mudança requer reinicialização.</translation>
         <translation>Fechar para a bandeja</translation>
     </message>
     <message>
-        <source>Start Minimized to Tray.</source>
-        <translation>Iniciar Minimizado para Bandeja.</translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation>Automaticamente copiar novas capturas para a área de transferência</translation>
     </message>
@@ -222,6 +218,10 @@ a new start of all instances.</source>
 todas as outras instâncias iniciadas após a primeira passarão
 argumentos para a primeira. Alterar esta opção requer
 um novo início de todas as instâncias.</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -266,10 +266,9 @@ um novo início de todas as instâncias.</translation>
         <translation>Aviso - </translation>
     </message>
     <message>
-        <source>The capture &quot;%1&quot; has been modified.
+        <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation>A captura &quot;%1&quot; foi modificada.
-Deseja salvá-la?</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1007,6 +1006,37 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     <message>
         <source>Saver</source>
         <translation>Salvar</translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StickerSettings</name>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use Default Stickers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sticker Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Sticker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vector Image Files (*.svg)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

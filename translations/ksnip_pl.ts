@@ -173,10 +173,6 @@ Change requires restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Start Minimized to Tray.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -213,6 +209,10 @@ Change requires restart.</source>
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -258,7 +258,7 @@ a new start of all instances.</source>
         <translation type="unfinished">Ostrzeżenie </translation>
     </message>
     <message>
-        <source>The capture &quot;%1&quot; has been modified.
+        <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -973,6 +973,37 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Saver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stickers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StickerSettings</name>
+    <message>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use Default Stickers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sticker Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Sticker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vector Image Files (*.svg)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

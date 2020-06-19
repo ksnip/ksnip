@@ -221,7 +221,7 @@ um novo início de todas as instâncias.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar minimizado na bandeja</translation>
     </message>
 </context>
 <context>
@@ -268,7 +268,8 @@ um novo início de todas as instâncias.</translation>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>A captura %1%2%3 foi modificada.
+Deseja salvá-la?</translation>
     </message>
 </context>
 <context>
@@ -1009,34 +1010,34 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Adesivos</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Subir</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Descer</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar adesivos padrão</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurações de Adesivos</translation>
     </message>
     <message>
         <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar Adesivo</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos de imagem vetorial (*.svg)</translation>
     </message>
 </context>
 <context>

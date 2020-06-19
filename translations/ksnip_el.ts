@@ -456,61 +456,61 @@ screenshots.</source>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished"></translation>
+        <translation>Πάγωμα της οθόνης κατά την σύλληψη</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση του μεγεθυντικού φακού στην περιοχή σύλληψης</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφανίζει έναν μεγεθυντικό φακό ο οποίος εστιάζει στην εικόνα του παρασκηνίου. Αυτή η επιλογή λειτουργεί μόνο όταν το &quot;πάγωμα της οθόνης κατά την σύλληψη&quot; είναι ενεργοποιημένο.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση των χαράκων στην περιοχή σύλληψης</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Οριζόντιες και κάθετες γραμμές από τις άκρες της επιφάνειας εργασίας μέχρι τον δρομέα στην περιοχή της σύλληψης.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση των πληροφοριών θέσης και μεγέθους στην περιοχή σύλληψης</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Όταν το αριστερό κλικ του ποντικιού δεν είναι πιεσμένο, εμφανίζεται η θέση. Όταν το κλικ του ποντικιού είναι πατημένο, το μέγεθος της επιλεγμένης περιοχής εμφανίζεται στα αριστερά και κάτω από την περιοχή σύλληψης.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρώμα του δρομέα της περιοχής σύλληψης</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ορίζει το χρώμα του δρομέα της περιοχής σύλληψης. Για να ληφθεί υπόψιν η αλλαγή, απαιτείται επανεκκίνηση του ksnip.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>Πάχος του δρομέα της περιοχής σύλληψης</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ορίζει το πάχος του δρομέα της περιοχής σύλληψης. Για να ληφθεί υπόψιν η αλλαγή απαιτείται επανεκκίνηση του ksnip.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Σύλληψη εικόνας</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -521,14 +521,14 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Όταν είναι ενεργοποιημένο, το παρασκήνιο θα είναι παγωμένο κατά την επιλογή της ορθογώνιας περιοχής. Επίσης αλλάζει την συμπεριφορά των στιγμιότυπων με καθυστέρηση: η καθυστέρηση λαμβάνει χώρα πριν την εμφάνιση της περιοχής σύλληψης ενώ όταν είναι απενεργοποιημένο η καθυστέρηση λαμβάνει χώρα μετά την εμφάνιση της περιοχής σύλληψης. Αυτό το χαρακτηριστικό είναι απενεργοποιημένο για τον εξυπηρετητή Wayland και πάντα ενεργοποιημένο για το MacOs.</translation>
     </message>
 </context>
 <context>
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Ιστορικό Imgur</translation>
     </message>
     <message>
         <source>Close</source>
@@ -551,26 +551,26 @@ enabled for MacOs.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished"></translation>
+        <translation>Η αποστολή στο Imgur ολοκληρώθηκε!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
+        <translation>Λήψη νέου αδειοδοτικού, προσπάθεια αποστολής ξανά…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished"></translation>
+        <translation>Το αδειοδοτικό του Imgur έληξε, γίνεται αίτηση νέας αδειοδότησης…</translation>
     </message>
 </context>
 <context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Εξαναγκασμός ανώνυμης αποστολής</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγραφή πάντα του δεσμού Imgur στο πρόχειρο</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -578,7 +578,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished"></translation>
+        <translation>Μυστικό πελάτη</translation>
     </message>
     <message>
         <source>PIN</source>
@@ -586,11 +586,11 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished"></translation>
+        <translation>Εισαγάγετε το PIN του Imgur το οποίο θα χρησιμοποιηθεί για την αδειοδότηση.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>Λήψη PIN</translation>
     </message>
     <message>
         <source>Get Token</source>
@@ -598,11 +598,11 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished"></translation>
+        <translation>Ιστορικό Imgur</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποστολέας Imgur</translation>
     </message>
     <message>
         <source>Username</source>
@@ -610,7 +610,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναμονή του imgur.com…</translation>
     </message>
     <message>
         <source>Username:</source>
@@ -618,19 +618,19 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το αδειοδοτικό του imgur.com ενημερώθηκε επιτυχώς.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Σφάλμα στην ενημέρωση της αδειοδότησης του imgur.com.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετά την αποστολή άνοιγμα του δεσμού Imgur στον προκαθορισμένο φυλλομετρητή</translation>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Απευθείας δεσμός της εικόνας</translation>
     </message>
     <message>
         <source>Base Url:</source>
@@ -639,7 +639,7 @@ enabled for MacOs.</source>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το βασικό url που θα χρησιμοποιηθεί για την επικοινωνία με το Imgur. Για να ληφθεί υπόψιν η αλλαγή απαιτείται επανεκκίνηση.</translation>
     </message>
 </context>
 <context>
@@ -651,11 +651,11 @@ Changing requires restart.</source>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Καθυστέρηση σε δευτερόλεπτα μεταξύ της ενεργοποίησης και της σύλληψης του στιγμιότυπου.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">δ</translation>
+        <translation>δ</translation>
     </message>
     <message>
         <source>Save</source>
@@ -663,7 +663,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση της σύλληψης στο σύστημα αρχείων</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -671,7 +671,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγραφή της σύλληψης στο πρόχειρο</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -710,7 +710,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation type="unfinished"></translation>
+        <translation>Ανοίγει τον διάλογο εκτύπωσης και προσφέρει την επιλογή εκτύπωσης της εικόνας</translation>
     </message>
     <message>
         <source>Print Preview</source>
@@ -718,7 +718,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ανοίγει τον διάλογο προεπισκόπησης της εκτύπωσης από όπου μπορεί να γίνει αλλαγή του προσανατολισμού</translation>
     </message>
     <message>
         <source>Scale</source>
@@ -770,7 +770,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη υδατογραφήματος στο στιγμιότυπο. Υποστηρίζεται και η πολλαπλή προσθήκη.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -778,11 +778,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation type="unfinished"></translation>
+        <translation>Αδύνατη η εμφάνιση της εικόνας</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναμενόταν μια εικόνα και δεν παρείχατε κάποια.</translation>
     </message>
     <message>
         <source>Save As...</source>
@@ -794,11 +794,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Ενσωματωμένη επικόλληση</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποστολή της σύλληψης σε εξωτερική πηγή</translation>
     </message>
 </context>
 <context>
@@ -824,11 +824,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Η εικόνα αποθηκεύτηκε</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Η αποθήκευση της εικόνας απέτυχε</translation>
     </message>
     <message>
         <source>Saved to</source>
@@ -836,38 +836,41 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία αποθήκευσης της εικόνας στο</translation>
     </message>
 </context>
 <context>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτόματη αποθήκευση των νέων λήψεων στην προκαθορισμένη τοποθεσία</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Προτροπή για αποθήκευση πριν την απόρριψη των μη αποθηκευμένων αλλαγών</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Απομνημόνευση του τελευταίου καταλόγου αποθήκευσης</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Όταν είναι ενεργοποιημένο απομνημονεύεται ο τελευταία χρησιμοποιούμενος κατάλογος για χρήση στις επόμενες αποθηκεύσεις.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Τοποθεσία και όνομα αρχείου αποθήκευσης της σύλληψης</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Οι υποστηριζόμενοι τύποι είναι JPG, PNG και BMP. Αν δεν ορίσετε τον τύπο θα χρησιμοποιηθεί εξ ορισμού το PNG.
+Το όνομα αρχείου μπορεί να περιέχει τα ακόλουθα σύμβολα υποκατάστασης:
+- $Y, $M, $D για την ημερομηνία, $h, $m, $s για την ώρα, ή $T για την ώρα σε μορφή hhmmss.
+- Πολλαπλές ακολουθίες # για τον μετρητή. Με χρήση των #### θα λάβετε 0001, και στην επόμενη σύλληψη θα γίνει 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -875,36 +878,38 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση των ρυθμίσεων</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished"></translation>
+        <translation>Τοποθεσία αποθήκευσης της σύλληψης</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγραφή της εξόδου της μακροεντολής στο πρόχειρο</translation>
     </message>
     <message>
         <source>After:</source>
-        <translation type="unfinished">Μετά από:</translation>
+        <translation>Μετά:</translation>
     </message>
     <message>
         <source>Only output following this string will be copied to clipboard, excluding that string.
 If omitted, everything from start will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Μόνο η έξοδος μετά από αυτήν την συμβολοσειρά θα αντιγραφεί στο πρόχειρο, εξαιρουμένου της συμβολοσειράς.
+Αν παραλειφθεί, η αντιγραφή θα γίνει από την αρχή.</translation>
     </message>
     <message>
         <source>Before:</source>
-        <translation type="unfinished">Πριν</translation>
+        <translation>Πριν:</translation>
     </message>
     <message>
         <source>Only output before this string will be copied to clipboard, excluding that string.
 If omitted, everything up to the end will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Μόνο η έξοδος πριν από αυτήν την συμβολοσειρά θα αντιγραφεί στο πρόχειρο, εξαιρουμένου της συμβολοσειράς.
+Αν παραλειφθεί, η αντιγραφή θα γίνει μέχρι το τέλος.</translation>
     </message>
     <message>
         <source>Script:</source>
@@ -913,7 +918,7 @@ If omitted, everything up to the end will be copied.</source>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Η διαδρομή της μακροεντολής που θα εκτελεστεί για την αποστολή. Κατά την αποστολή η μακροεντολή θα εκτελεστεί με μοναδικό όρισμα την διαδρομή ενός προσωρινού αρχείου png.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -921,58 +926,58 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Μακροεντολή αποστολής</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλογή μακροεντολής αποστολής</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Ρυθμίσεις</translation>
+        <translation>Ρυθμίσεις</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished">Εντάξει</translation>
+        <translation>Εντάξει</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation>Ακύρωση</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Σύλληψη εικόνας</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποστολέας Imgur</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished">Εφαρμογή</translation>
+        <translation>Εφαρμογή</translation>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished"></translation>
+        <translation>Σχολιαστής</translation>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished">Πλήκτρα συντόμευσης</translation>
+        <translation>Πλήκτρα συντομεύσεων</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished">Αποστολέας</translation>
+        <translation>Αποστολέας</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Μακροεντολή αποστολής</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση</translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -1010,56 +1015,56 @@ with the path to a temporary png file as a single argument.</source>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση επεξεργαστή</translation>
     </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished">Επιλογή εικόνας</translation>
+        <translation>Επιλογή εικόνας</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Εικόνες</translation>
+        <translation>Εικόνες</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Όλα τα αρχεία</translation>
+        <translation>Όλα τα αρχεία</translation>
     </message>
 </context>
 <context>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Απαιτείται μια μακροεντολή αποστολής</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Παρακαλώ προσθέστε μια μακροεντολή αποστολής από το μενού Επιλογές &gt; Ρυθμίσεις &gt; Μακροεντολή αποστολής</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποστολή της σύλληψης</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Πρόκειται να κάνετε αποστολή της εικόνας σε έναν εξωτερικό προορισμό. Επιθυμείτε να συνεχίσετε;</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished"></translation>
+        <translation>Ερώτηση επιβεβαίωσης πριν την αποστολή</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Τύπος αποστολέα:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished">Imgur</translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>

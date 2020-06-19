@@ -220,7 +220,7 @@ Om du ändrar det här alternativet måste alla öppna instanser startas om.</tr
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Starta minimerad i systemfältet</translation>
     </message>
 </context>
 <context>
@@ -267,7 +267,8 @@ Om du ändrar det här alternativet måste alla öppna instanser startas om.</tr
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Klippet %1%2%3 har ändrats.
+Vill du spara det?</translation>
     </message>
 </context>
 <context>
@@ -1008,34 +1009,34 @@ kommer skriptet att anropas med sökvägen till en temporär png-fil som enskilt
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Dekaler</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Upp</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Ner</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Använda standarddekaler</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Dekalinställningar</translation>
     </message>
     <message>
         <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till dekal</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Vektorbilder (*.svg)</translation>
     </message>
 </context>
 <context>

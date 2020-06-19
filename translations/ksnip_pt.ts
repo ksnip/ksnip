@@ -195,7 +195,7 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation>Lembrar posição da ferramenta de seleção do ksnip e carregar na inicialização</translation>
+        <translation>Lembrar última ferramenta selecionada e carregar na inicialização</translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -882,12 +882,12 @@ e captura de tela.</translation>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished">Quando ativado, substituirá o diretório de &quot;salvar&quot; armazenado nas configurações
+        <translation>Quando ativado, substituirá o diretório de &quot;salvamento&quot; armazenado nas configurações
 para o diretório mais recente onde foi salvo, isso para cada vez que usar o comando salvar.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation>Local e nome do arquivo para a captura</translation>
+        <translation>Local e nome do arquivo para salvar a captura</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.

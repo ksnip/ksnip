@@ -43,6 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_usr}/share/applications/%{name}.desktop
 %{_usr}/share/pixmaps/%{name}.svg
 %{_usr}/share/%{name}/translations/*.qm
+%{_usr}/share/kImageAnnotator/translations/*.qm
 %{_usr}/share/metainfo/%{name}.appdata.xml
 
 %changelog

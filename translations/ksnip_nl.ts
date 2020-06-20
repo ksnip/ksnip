@@ -220,7 +220,7 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Geminimaliseerd in systeemvak opstarten</translation>
     </message>
 </context>
 <context>
@@ -267,7 +267,8 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>De schermfoto, %1%2%3, is bewerkt.
+Wil je deze opslaan?</translation>
     </message>
 </context>
 <context>
@@ -1009,34 +1010,34 @@ wordt dit script aangeroepen op het pad van de tijdelijke png.</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Stickers</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Omhoog</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Omlaag</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Standaardstickers gebruiken</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Stickerinstellingen</translation>
     </message>
     <message>
         <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
+        <translation>Sticker toevoegen</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Vector-afbeeldingsbestanden (*.svg)</translation>
     </message>
 </context>
 <context>

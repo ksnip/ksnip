@@ -28,6 +28,7 @@ class ICaptureHandler
 public:
 	virtual ~ICaptureHandler() = default;
 	virtual bool canClose() = 0;
+	virtual bool canTakeNew() = 0;
 	virtual bool isSaved() const = 0;
 	virtual QString path() const = 0;
 	virtual void saveAs() = 0;

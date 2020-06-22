@@ -36,6 +36,11 @@ bool SingleCaptureHandler::canClose()
 	return discardChanges();
 }
 
+bool SingleCaptureHandler::canTakeNew()
+{
+	return discardChanges();
+}
+
 bool SingleCaptureHandler::isSaved() const
 {
 	return mIsSaved;

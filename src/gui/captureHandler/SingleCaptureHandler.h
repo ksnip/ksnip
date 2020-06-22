@@ -35,6 +35,7 @@ public:
 	explicit SingleCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent);
 	~SingleCaptureHandler() override = default;
 	bool canClose() override;
+	bool canTakeNew() override;
 	bool isSaved() const override;
 	QString path() const override;
 	void saveAs() override;

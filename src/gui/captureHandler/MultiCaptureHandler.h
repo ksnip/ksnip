@@ -40,6 +40,7 @@ public:
 	explicit MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent);
 	~MultiCaptureHandler() override;
 	bool canClose() override;
+	bool canTakeNew() override;
 	bool isSaved() const override;
 	QString path() const override;
 	void saveAs() override;

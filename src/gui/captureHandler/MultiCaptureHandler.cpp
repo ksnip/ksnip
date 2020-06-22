@@ -58,6 +58,11 @@ bool MultiCaptureHandler::canClose()
 	return true;
 }
 
+bool MultiCaptureHandler::canTakeNew()
+{
+	return true;
+}
+
 bool MultiCaptureHandler::discardChanges(int index)
 {
 	auto image = mKImageAnnotator->imageAt(index);

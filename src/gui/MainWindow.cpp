@@ -324,6 +324,10 @@ bool MainWindow::hidden() const
 
 void MainWindow::capture(CaptureModes captureMode)
 {
+	if(!mCaptureHandler->canTakeNew()){
+		return;
+	}
+
     setHidden(true);
     mConfig->setCaptureMode(captureMode);
 

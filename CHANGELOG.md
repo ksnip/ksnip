@@ -2,6 +2,7 @@
 
 ## Release 1.7.1
 * Fixed: User not prompted to save when taking new screenshot without tabs. ([#357](https://github.com/ksnip/ksnip/issues/357))
+* Fixed: kImageAnnotator not translated with AppImage. ([#358](https://github.com/ksnip/ksnip/issues/358))
 * Fixed kImageAnnotator: Crashes after undoing a number annotation. ([#106](https://github.com/ksnip/kImageAnnotator/issues/114))
 * Fixed kImageAnnotator: Text overlapping when resizing text box. ([#53](https://github.com/ksnip/kImageAnnotator/issues/53))
 * Fixed kImageAnnotator: Snap lines to degrees not working when CTRL pressed before clicking annotation area. ([#113](https://github.com/ksnip/kImageAnnotator/issues/113))

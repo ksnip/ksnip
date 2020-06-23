@@ -171,7 +171,7 @@ Aldaketak berrabiaraztea eskatzen du.</translation>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
         <translation>Erabiltzailearen Interfaze Grafikoaren itxura ezartzen du.
-Ksnip berrabiarazi behar du aldaketak eragina izateko.</translation>
+Ksnip berrabiarazi behar du aldaketek eragina izateko.</translation>
     </message>
     <message>
         <source>Application Settings</source>
@@ -183,42 +183,45 @@ Ksnip berrabiarazi behar du aldaketak eragina izateko.</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Fitxak automatikoki ezkutatu</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezkutatu fitxen barra fitxa bakarra dagoenean.</translation>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Ksnip-en kokapena gogoratu eta abiatzean mantendu</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Gogoratu lanabesen hautapena abiatzean</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Erabili fitxak</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aldaketak berrabiaraztea eskatzen du.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Erabili ksnip instantzia bakarrean</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aukera hau aktibatuta ksnip instantzia bakarra irekiko da,
+instantzia honen ondoren irekitako guztiak bere argumentuak
+irekitako lehenengora pasatuko dizkiote eta itxiko dira. Aukera
+hau aktibatzean gainerako instantziak berrabiarazi behar dira.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Abiatu erretiluan minimizatua</translation>
     </message>
 </context>
 <context>
@@ -265,7 +268,8 @@ a new start of all instances.</source>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>%1%2%3 argazkia aldatu da.
+Nahi duzu gordetzea?</translation>
     </message>
 </context>
 <context>
@@ -354,55 +358,55 @@ Do you want to save it?</source>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">Karga ongi burutu da</translation>
+        <translation>Karga ongi burutu da</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>Kargarako scripta </translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation> behar bezala burutu da.</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished">Kargatuta hona</translation>
+        <translation>Kargatuta hona</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezin izan da irudia behin behinean gorde kargatzeko.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezin izan da prozesua abiarazi, begiratu bidea eta baimenak.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozesuak huts egin du</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozesuaren epemuga agortu da.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozesuaren irakurketa errorea.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozesuaren irakurketa errorea.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Web errorea, begiratu kontsolaren irteera.</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozesuaren errore ezezaguna.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Kargak huts egin du</translation>
     </message>
 </context>
 <context>
@@ -445,7 +449,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Garbitu</translation>
     </message>
 </context>
 <context>
@@ -573,15 +577,15 @@ dago eta MacO-rako beti aktibatuta.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">imgur.com gunera kargatu da!</translation>
+        <translation>imgur.com gunera kargatu da!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">Token berri bat jaso da, berriro kargatzen saiatzen…</translation>
+        <translation>Token berri bat jaso da, berriro kargatzen saiatzen…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">Imgur-en tokena iraungi da, token berria eskatzen…</translation>
+        <translation>Imgur-en tokena iraungi da, token berria eskatzen…</translation>
     </message>
 </context>
 <context>
@@ -656,12 +660,13 @@ dago eta MacO-rako beti aktibatuta.</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Url oinarria:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur-ekin komunikatzeko erabiliko den url oinarria.
+Aldatzeak berrabiaraztea eskatzen du.</translation>
     </message>
 </context>
 <context>
@@ -817,18 +822,18 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Itsatsi kapsulatua</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Kargatu argazkia kanpoko iturburu batera</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Argazkia</translation>
     </message>
 </context>
 <context>
@@ -866,89 +871,96 @@ eta pantaila-argazkiaren artean.</translation>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished">Gorde kaptura berriak lehenetsitako kokagunera automatikoki</translation>
+        <translation>Gorde automatikoki kaptura berriak lehenetsitako kokagunera</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Eskatu gordetzea gorde gabeko aldaketak baztertu aurretik</translation>
+        <translation>Eskatu gordetzea gorde gabeko aldaketak baztertu aurretik</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Gogoratu gordetzeko erabilitako azken direktorioa</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktibatuta dagoenean ezarpenetan gordetako direktorioa gainidatziko du
+gordetzeko erabilitako karpetarekin, gordetzen den aldiro.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Argazkia egin, gorde kokapena eta fitxategiaren izena</translation>
+        <translation>Atzitu gordetzeko kokapena eta fitxategiaren izena</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Onartzen diren formatuak dira JPG, PNG eta BMP. Formaturik zehazten ez bada, PNG erabiliko da lehenetsi gisa.
+Fitxategiaren izenak honako komodinak eduki ditzake:
+- $Y, $M, $D datarako, $h, $m, $s ordurako, edo $T denborarako hhmmss formatuan.
+- Hainbat # jarraian kontagailurako. #### bihurtuko da 0001 eta hurrengo argazkian 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Arakatu</translation>
+        <translation>Arakatu</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Gordetze-ezarpenak</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Argazkia egin eta gorde kokapena</translation>
+        <translation>Atzitu gordetzeko kokapena</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiatu irteerako scripta arbelera</translation>
     </message>
     <message>
         <source>After:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ondoren:</translation>
     </message>
     <message>
         <source>Only output following this string will be copied to clipboard, excluding that string.
 If omitted, everything from start will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Arbelera bakarrik kopiatuko da testu honen ondorengo irteera, testu hau kanpo.
+Zehazten ez bada hasieratik dena kopiatuko da.</translation>
     </message>
     <message>
         <source>Before:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aurretik:</translation>
     </message>
     <message>
         <source>Only output before this string will be copied to clipboard, excluding that string.
 If omitted, everything up to the end will be copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Arbelera bakarrik kopiatuko da testu honen aurreko irteera, testu hau kanpo.
+Zehazten ez bada bukaeraraino dena kopiatuko da.</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Scripta:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kargan eskatuko den scriptaren bidea. Kargan scripta erabiliko da behinbehineko
+png fitxategi baten bidea argumentu sinplea duela.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Arakatu</translation>
+        <translation>Arakatu</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Kargarako scripta</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Hautatu kargarako scripta</translation>
     </message>
 </context>
 <context>
@@ -987,46 +999,46 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Kargagailua</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Scriptaren kargagailua</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Gordegailua</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Eranskailuak</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Gora</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Behera</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Erabili berezko eranskailuak</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Eranskailuen ezarpenak</translation>
     </message>
     <message>
         <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehitu eranskailua</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Irudi bektorialen fitxategiak (*.svg)</translation>
     </message>
 </context>
 <context>
@@ -1055,42 +1067,42 @@ with the path to a temporary png file as a single argument.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Kargarako scripta behar da</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehitu kargarako script bat Aukerak » Ezarpenak » Kargarako scripta</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Argazkiaren karga</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Argazkia kanpoko kokapen batera igotzear zaude, ekin nahi diozu?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Eskatu berrespena kargatu aurretik</translation>
+        <translation>Eskatu berrespena kargatu aurretik</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Karga mota:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Scripta</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Kargagailua</translation>
     </message>
 </context>
 <context>

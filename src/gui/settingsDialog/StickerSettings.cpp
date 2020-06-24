@@ -89,10 +89,10 @@ void StickerSettings::initGui()
 {
 	connect(mListWidget, &QListWidget::currentRowChanged, this, &StickerSettings::currentRowChanged);
 
-	mAddButton->setText(QStringLiteral("Add"));
+	mAddButton->setText(tr("Add"));
 	connect(mAddButton, &QPushButton::clicked, this, &StickerSettings::addTriggered);
 
-	mRemoveButton->setText(QStringLiteral("Remove"));
+	mRemoveButton->setText(tr("Remove"));
 	connect(mRemoveButton, &QPushButton::clicked, this, &StickerSettings::removeTriggered);
 
 	mUpButton->setText(tr("Up"));

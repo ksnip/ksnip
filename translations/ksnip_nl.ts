@@ -1039,6 +1039,14 @@ wordt dit script aangeroepen op het pad van de tijdelijke png.</translation>
         <source>Vector Image Files (*.svg)</source>
         <translation>Vector-afbeeldingsbestanden (*.svg)</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TrayIcon</name>

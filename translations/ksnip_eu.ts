@@ -1040,6 +1040,14 @@ png fitxategi baten bidea argumentu sinplea duela.</translation>
         <source>Vector Image Files (*.svg)</source>
         <translation>Irudi bektorialen fitxategiak (*.svg)</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TrayIcon</name>

@@ -1006,6 +1006,14 @@ with the path to a temporary png file as a single argument.</source>
         <source>Vector Image Files (*.svg)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TrayIcon</name>

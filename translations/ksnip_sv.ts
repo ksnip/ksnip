@@ -1038,6 +1038,14 @@ kommer skriptet att anropas med sökvägen till en temporär png-fil som enskilt
         <source>Vector Image Files (*.svg)</source>
         <translation>Vektorbilder (*.svg)</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TrayIcon</name>

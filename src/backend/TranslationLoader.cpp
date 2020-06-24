@@ -24,8 +24,8 @@ void TranslationLoader::load(const QApplication &app) const
     auto ksnipTranslator = new QTranslator();
     auto kImageAnnotatorTranslator = new QTranslator();
 
-	auto pathToKsnipTranslations = QStringLiteral(KSNIP_LANG_INSTAL_DIR);
-	auto pathToKImageAnnotatorTranslations = QStringLiteral(KIMAGEANNOTATOR_LANG_INSTAL_DIR);
+	auto pathToKsnipTranslations = QStringLiteral(KSNIP_LANG_INSTALL_DIR);
+	auto pathToKImageAnnotatorTranslations = QStringLiteral(KIMAGEANNOTATOR_LANG_INSTALL_DIR);
 
 	loadTranslations(app, ksnipTranslator, pathToKsnipTranslations, QStringLiteral("ksnip"));
 	loadTranslations(app, kImageAnnotatorTranslator, pathToKImageAnnotatorTranslations, QStringLiteral("kImageAnnotator"));

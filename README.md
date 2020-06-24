@@ -145,7 +145,7 @@ Any contribution, be it Code, Translation or other is always welcome. We are cur
 * Produce a Flatpak [#127](https://github.com/ksnip/ksnip/issues/127).
 * Write code and fix bugs for MacOS.  
 * Write wiki entries and documentation for ksnip.  
-* Package ksnip for different OS and Destros.
+* Package ksnip for different OS and Distros.
 
 # Donate a Beer?
 You would like to donate a Beer? Sure, you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)

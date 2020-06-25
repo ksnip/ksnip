@@ -202,22 +202,25 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>修改需要重启后生效。</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>以单实例模式运行 ksnip</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>启用该选项将只允许一个 ksnip 实例运行，
+所有其它另外启动的实例会将其命令行参数传递给第一个
+实例并自动关闭。改变该选项后需要重新启动所有正在
+运行的实例才能生效。</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>启动时最小化到托盘</translation>
     </message>
 </context>
 <context>
@@ -346,22 +349,22 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation>永远欢迎捐款</translation>
+        <translation>欢迎捐款</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">上传成功</translation>
+        <translation>上传成功</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>上传脚本 </translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation> 已成功完成。</translation>
     </message>
     <message>
         <source>Uploaded to</source>
@@ -369,39 +372,39 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>无法为上传保存临时图像。</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>无法启动进程，请检查路径和权限是否正确。</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>进程已崩溃</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>进程超时。</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>进程读错误。</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>进程写错误。</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>网络错误，请检查控制台输出。</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation>未知的处理错误。</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>上传失败</translation>
     </message>
 </context>
 <context>
@@ -677,7 +680,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>s</source>
-        <translation>s</translation>
+        <translation>秒</translation>
     </message>
     <message>
         <source>Save</source>
@@ -760,7 +763,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>＆关于</translation>
+        <translation>关于(&amp;A)</translation>
     </message>
     <message>
         <source>Open</source>
@@ -768,15 +771,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>＆编辑</translation>
+        <translation>编辑(&amp;E)</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation>＆选项</translation>
+        <translation>选项(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;帮助</translation>
+        <translation>帮助(&amp;H)</translation>
     </message>
     <message>
         <source>Open Image</source>
@@ -784,7 +787,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>图像文件（* .png * .jpg * .bmp）</translation>
+        <translation>图像文件 (* .png * .jpg * .bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -796,7 +799,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>＆文件</translation>
+        <translation>文件(&amp;F)</translation>
     </message>
     <message>
         <source>Unable to show image</source>
@@ -827,7 +830,7 @@ and capturing screenshot.</source>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>捕获</translation>
     </message>
 </context>
 <context>
@@ -1025,15 +1028,15 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>矢量图像文件 (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>添加</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>移除</translation>
     </message>
 </context>
 <context>
@@ -1093,7 +1096,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>脚本</translation>
     </message>
     <message>
         <source>Uploader</source>
@@ -1108,7 +1111,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Build</source>
-        <translation>Build</translation>
+        <translation>构建版本</translation>
     </message>
     <message>
         <source>Using:</source>

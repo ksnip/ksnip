@@ -221,7 +221,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>トレイに最小化して起動する</translation>
     </message>
 </context>
 <context>
@@ -268,7 +268,8 @@ a new start of all instances.</source>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>キャプチャー %1%2%3 は変更されています。
+保存しますか？</translation>
     </message>
 </context>
 <context>
@@ -818,7 +819,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>貼り付け (埋め込み)</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
@@ -895,7 +896,7 @@ Filename can contain following wildcards:
         <translation>JPG、PNG、BMP をサポートしています。ファイル形式を指定しない場合は PNG になります。
 ファイル名には次のワイルドカードを含めることができます:
 - 日付: $Y, $M, $D, 時刻: $h, $m, $s, hhmmss 形式の時刻: $T
-- 回数を表す連続した #。#### は 0001 に置換され、0002 のように増加します。</translation>
+- 番号を表す連続した #。#### は 0001 に置換され、0002 のように増加します。</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1007,42 +1008,42 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>ステッカー</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>上へ</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>下へ</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>既定のステッカーを使用する</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>ステッカー設定</translation>
     </message>
     <message>
         <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
+        <translation>ステッカーを追加</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>ベクター画像ファイル (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
 </context>
 <context>

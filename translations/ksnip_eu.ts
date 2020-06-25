@@ -1042,11 +1042,11 @@ png fitxategi baten bidea argumentu sinplea duela.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehitu</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Kendu</translation>
     </message>
 </context>
 <context>

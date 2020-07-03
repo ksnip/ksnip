@@ -183,11 +183,11 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Cacher automatiquement les onglets</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cacher la barre d&apos;onglets tant qu&apos;il n&apos;y a qu&apos;un seul onglet.</translation>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
@@ -199,26 +199,29 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer les onglets</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le changement requiert un redémarrage.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Exécuter Ksnip en tant qu&apos;instance unique</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>En activant cette option, une seule instance de Ksnip pourra fonctionner à la fois,
+toutes les autres instances démarrées après la première passeront ses arguments
+à la première et se fermeront. Changer cette option nécessite un redémarrage de
+tous les instances de Ksnip.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Démarrer en miniature dans la barre des tâches</translation>
     </message>
 </context>
 <context>
@@ -265,7 +268,8 @@ a new start of all instances.</source>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>La capture %1%2%3 a été modifiée.
+Voulez-vous l&apos;enregistrer ?</translation>
     </message>
 </context>
 <context>
@@ -362,7 +366,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation> terminé avec succès.</translation>
     </message>
     <message>
         <source>Uploaded to</source>
@@ -370,39 +374,39 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de sauvegarder une image temporaire pour le téléversement.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de démarrer le processus, vérifiez le chemin et les permissions.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>L’application a planté</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>L’application a mis trop de temps à répondre.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur de lecture de l’application.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur d’écriture de l’application.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur web, vérifier la sortie de la console.</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur de traitement inconnue.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de téléversement</translation>
     </message>
 </context>
 <context>
@@ -445,7 +449,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Effacer</translation>
     </message>
 </context>
 <context>
@@ -656,12 +660,13 @@ MacOs.</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>URL de base :</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>L’URL de base sera utilisée pour communiquer avec Imgur.
+La modifier nécessite un redémarrage.</translation>
     </message>
 </context>
 <context>
@@ -817,18 +822,18 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Coller l&apos;intégration</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Envoyer la capture vers une source externe</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturer</translation>
     </message>
 </context>
 <context>
@@ -874,7 +879,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Se souvenir du dernier dossier d’enregistrement</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
@@ -890,7 +895,10 @@ with the latest save directory, for every save.</source>
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Les formats supportés sont JPG, PNG et BMP. Si aucun format n’est spécifié, PNG sera utilisé par défaut.
+Le nom du fichier peut contenir les jokers suivants :
+- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format « hhmmss ».
+- Plusieurs caractères # permettent de numéroter. Par exemple : #### donnera 0001 puis 0002 à la prochaine capture.</translation>
     </message>
     <message>
         <source>Browse</source>

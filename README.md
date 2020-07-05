@@ -7,10 +7,9 @@ for your screenshots.
 
 ![Ksnip](https://imgur.com/cogRcTo.png "Ksnip with annotations")
 
-
 # Features
 Latest ksnip version contains following features:
-* Supports Linux (X11, KDE Wayland and Gnome Wayland), Windows and MacOS.
+* Supports Linux (X11, Plasma Wayland and Gnome Wayland), Windows and macOS.
 * Taking screenshot of a custom rectangular area that can be drawn with mouse cursor.
 * Taking screenshot of last selected rectangular area without selecting again.
 * Taking screenshot of the screen/monitor where the mouse cursor is currently located.
@@ -34,20 +33,18 @@ Latest ksnip version contains following features:
 * Run as single instance application (secondary instances send cli parameter to primary instance).
 * Many configuration options.
 
-
 # Supported Screenshot Types
-|              | Rect Area | Last Rect Area | Full Screen | Current Screen | Active Window | Window Under Cursor | Without Mouse Cursor |
-| -------------|:---------:|:--------------:|:-----------:|:--------------:|:-------------:|:-------------------:|:--------------------:|
-| X11          | X         | X              | X           | X              | X             |                     | X                    |
-| KDE Wayland  |           |                | X           | X              |               | X                   |                      |
-| Gnome Wayland| X         | X              | X           | X              | X             |                     | X                    |
-| Windows      | X         | X              | X           | X              | X             |                     | X                    |
-| MacOS        | X         | X              | X           | X              |               |                     |                      |
-
+|               | Rect Area | Last Rect Area | Full Screen | Current Screen | Active Window | Window Under Cursor | Without Mouse Cursor |
+| --------------|:---------:|:--------------:|:-----------:|:--------------:|:-------------:|:-------------------:|:--------------------:|
+| X11           | X         | X              | X           | X              | X             |                     | X                    |
+| Plasma Wayland|           |                | X           | X              |               | X                   |                      |
+| Gnome Wayland | X         | X              | X           | X              | X             |                     | X                    |
+| Windows       | X         | X              | X           | X              | X             |                     | X                    |
+| macOS         | X         | X              | X           | X              |               |                     |                      |
 
 # Installing Binaries
 Binaries can be downloaded from the release page [here](https://github.com/ksnip/ksnip/releases). Currently we 
-provide RPM, DEB and AppImage for Linux, zipped EXE for Windows and APP for MacOS in a DMG package.
+provide RPM, DEB and AppImage for Linux, zipped EXE for Windows and APP for macOS in a DMG package.
 
 ### Continuous build
 We build and provide all supported binaries for every pushed commit, those can be found at the top of the
@@ -93,15 +90,13 @@ This needs to be done only once and connects some snap plugs which are currently
 The exe file with all required dependencies comes in a zipped package, which just need to be unzipped 
 with your favorite zip tool. Ksnip can then be started by just double clicking ksnip.exe.
 
-### APP (MacOS)
+### APP (macOS)
 The app file comes in a dmg package which needs to be opened and the ksnip.app file needs to be dragged 
 and dropped into the Application folder. After that the application can be started by double clicking ksnip.app
 
-
 # Dependencies
 ksnip depends on [kImageAnnotator](https://github.com/ksnip/kImageAnnotator) and [kColoPicker](https://github.com/DamirPorobic/kColorPicker) which needs
-to be installed before building ksnip from source. Install instructions can be found on the github pages.
-
+to be installed before building ksnip from source. Install instructions can be found on the Github pages.
 
 # Building from source
 1. Get latest release from GitHub by cloning the repo:  
@@ -117,7 +112,6 @@ to be installed before building ksnip from source. Install instructions can be f
 6. Run the application:  
     `$ ksnip`  
 
-
 # Translations
 We are always looking for help with translations, contributors are welcome!  
 For translations we use [Weblate](https://hosted.weblate.org/projects/ksnip/translations/)!  
@@ -130,22 +124,21 @@ For translations of Annotator related texts, please refer to [kImageAnnotator](h
 ### X11
 1. Snipping Area with transparent background doesn't work when Compositor is disabled, freeze background is used in that case.
 
-### MacOs
+### macOS
 1. Snipping Area with transparent background doesn't work, freeze background is always used. Issue [#151](https://github.com/ksnip/ksnip/issues/151)
 2. Second activation of snipping area doesn't get focus, you need to switch to the right side in order to see the snipping area. Issue [#152](https://github.com/ksnip/ksnip/issues/152)
 3. Mouse Cursor is always captured. Issue [#153](https://github.com/ksnip/ksnip/issues/153)
 
-
 # Bug report
 Please report any bugs or feature requests related to the annotation editor on the [kImageAnnotator](https://github.com/ksnip/kImageAnnotator/issues) github page under the issue section.
-All other bugs or feature requests please report on the [ksnip](https://github.com/ksnip/ksnip/issues) github page under the issue section.
+All other bugs or feature requests please report on the [ksnip](https://github.com/ksnip/ksnip/issues) Github page under the issue section.
 
 # Contribution
 Any contribution, be it Code, Translation or other is always welcome. We are currently looking for someone to:
 * Produce a Flatpak [#127](https://github.com/ksnip/ksnip/issues/127).
-* Write code and fix bugs for MacOS.  
+* Write code and fix bugs for macOS.  
 * Write wiki entries and documentation for ksnip.  
-* Package ksnip for different OS and Distros.
+* Package ksnip for different OS and distros.
 
 # Donate a Beer?
 You would like to donate a Beer? Sure, you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)

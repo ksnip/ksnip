@@ -22,43 +22,49 @@
 bool DragAndDropHandler::eventFilter(QObject *obj, QEvent *event)
 {
 	if(event->type() == QEvent::DragEnter) {
-		handleDragEnter(dynamic_cast<QDragEnterEvent *>(event));
+		return handleDragEnter(dynamic_cast<QDragEnterEvent *>(event));
 	} else if(event->type() == QEvent::Drop) {
-		handleDrop(dynamic_cast<QDropEvent *>(event));
+		return handleDrop(dynamic_cast<QDropEvent *>(event));
 	} else if(event->type() == QEvent::GraphicsSceneDrop) {
-		handleDrop(dynamic_cast<QGraphicsSceneDragDropEvent *>(event));
+		return handleDrop(dynamic_cast<QGraphicsSceneDragDropEvent *>(event));
 	} else if (event->type() ==  QEvent::GraphicsSceneDragEnter) {
-		handleDragEnter(dynamic_cast<QGraphicsSceneDragDropEvent *>(event));
+		return handleDragEnter(dynamic_cast<QGraphicsSceneDragDropEvent *>(event));
 	}
 	return QObject::eventFilter(obj, event);
 }
 
-void DragAndDropHandler::handleDragEnter(QDragEnterEvent *event)
+bool DragAndDropHandler::handleDragEnter(QDragEnterEvent *event)
 {
 	if (event->mimeData()->hasUrls()) {
 		event->acceptProposedAction();
+		return true;
 	}
+	return false;
 }
 
-void DragAndDropHandler::handleDragEnter(QGraphicsSceneDragDropEvent *event)
+bool DragAndDropHandler::handleDragEnter(QGraphicsSceneDragDropEvent *event)
 {
 	if (event->mimeData()->hasUrls()) {
 		event->acceptProposedAction();
+		return true;
 	}
+	return false;
 }
 
-void DragAndDropHandler::handleDrop(QDropEvent *event)
+bool DragAndDropHandler::handleDrop(QDropEvent *event)
 {
 	auto path = getUrlFromMimeData(event->mimeData());
 	event->acceptProposedAction();
 	emit imageDropped(path);
+	return true;
 }
 
-void DragAndDropHandler::handleDrop(QGraphicsSceneDragDropEvent *event)
+bool DragAndDropHandler::handleDrop(QGraphicsSceneDragDropEvent *event)
 {
 	auto path = getUrlFromMimeData(event->mimeData());
 	event->acceptProposedAction();
 	emit imageDropped(path);
+	return true;
 }
 
 QString DragAndDropHandler::getUrlFromMimeData(const QMimeData *mimeData) const

@@ -37,10 +37,10 @@ signals:
 	void imageDropped(const QString &path);
 
 private:
-	void handleDragEnter(QDragEnterEvent *event);
-	void handleDragEnter(QGraphicsSceneDragDropEvent *event);
-	void handleDrop(QDropEvent *event);
-	void handleDrop(QGraphicsSceneDragDropEvent *event);
+	bool handleDragEnter(QDragEnterEvent *event);
+	bool handleDragEnter(QGraphicsSceneDragDropEvent *event);
+	bool handleDrop(QDropEvent *event);
+	bool handleDrop(QGraphicsSceneDragDropEvent *event);
 	QString getUrlFromMimeData(const QMimeData *mimeData) const;
 };
 

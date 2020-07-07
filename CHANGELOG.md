@@ -2,7 +2,7 @@
 
 ## Release 1.7.2
 * Fixed: ksnip becomes unresponsive when file dropped into it. ([#373](https://github.com/ksnip/ksnip/issues/373))
-* Fixed kImageAnnotator: Tests with shared library not building. ([#132](https://github.com/ksnip/kImageAnnotator/issues/132))
+* Fixed kImageAnnotator: Tests fail to build with shared library. ([#128](https://github.com/ksnip/kImageAnnotator/issues/128))
 
 ## Release 1.7.1
 * Fixed: User not prompted to save when taking new screenshot without tabs. ([#357](https://github.com/ksnip/ksnip/issues/357))

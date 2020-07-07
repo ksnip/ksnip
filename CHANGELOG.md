@@ -1,5 +1,7 @@
 # Change log
 
+## Release 1.7.2
+
 ## Release 1.7.1
 * Fixed: User not prompted to save when taking new screenshot without tabs. ([#357](https://github.com/ksnip/ksnip/issues/357))
 * Fixed: kImageAnnotator not translated with AppImage. ([#358](https://github.com/ksnip/ksnip/issues/358))

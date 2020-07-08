@@ -220,7 +220,7 @@ ksnip, все другие экземпляры, запущенные после
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Запускать свёрнутым в трей</translation>
     </message>
 </context>
 <context>

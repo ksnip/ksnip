@@ -124,7 +124,7 @@ daha düzgün hale getirir.</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Güncelle</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
@@ -132,7 +132,7 @@ daha düzgün hale getirir.</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Etkinleştirildiğinde, filigran 45 derece açıyla eklenecektir.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
@@ -170,7 +170,7 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pencereyi küçült</translation>
     </message>
     <message>
         <source>Close to Tray</source>
@@ -178,11 +178,11 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yeni kayıtları otomatik olarak kopyala</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pencelereleri otomatik gizle</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
@@ -198,11 +198,11 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pencereleri kullan</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Değişiklikler için yeniden başlatma gerekli</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
@@ -217,7 +217,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Küçültülmüş durumda başlat</translation>
     </message>
 </context>
 <context>
@@ -319,7 +319,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">En son seçilen bölgeyi seç</translation>
     </message>
 </context>
 <context>
@@ -338,7 +338,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sponsor ol</translation>
     </message>
     <message>
         <source>Also possible, </source>
@@ -353,15 +353,15 @@ Do you want to save it?</source>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yükleme Başarılı</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yükleme kodu</translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"> başarıyla yüklendi.</translation>
     </message>
     <message>
         <source>Uploaded to</source>
@@ -369,7 +369,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">geçici resimi kaydederken sorun oluştu</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
@@ -377,19 +377,19 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">İşlem kesintiye uğradı</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zaman aşımı</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">İşlemi okuma hatası</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">İşlemi yazma hatası</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
@@ -397,18 +397,18 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bilinmeyen işlem hatası</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yükleme Başarısız</translation>
     </message>
 </context>
 <context>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kısayolları Aktifleştir</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
@@ -416,11 +416,11 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bütün Ekrani Kaydet</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Şuanki Ekrani Kaydet</translation>
     </message>
     <message>
         <source>Capture active Window</source>
@@ -428,23 +428,23 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Imlecin Altındaki Ekranı Kaydet</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Evrensel Kısayollar</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kısayollar şimdilik sadece Windows ve X11 de desteklenmektedir</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Son Seçimi Kaydet</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Temizle</translation>
     </message>
 </context>
 <context>
@@ -570,11 +570,11 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yeni token alındı, yeniden yükleniliyor...</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Imgur tokeninin süresi doldu, yeni token isteniliyor...</translation>
     </message>
 </context>
 <context>
@@ -625,7 +625,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Imgur.com Bekleniliyor...</translation>
     </message>
     <message>
         <source>Username:</source>
@@ -641,7 +641,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yüklenme gerçekleştikten sonra Imgur linkini varsayılan tarayıcı ile aç</translation>
     </message>
     <message>
         <source>Link directly to image</source>
@@ -649,7 +649,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ana Url:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
@@ -976,11 +976,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kısayollar</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yükleyici</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -992,42 +992,42 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Etiketler</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yukarı</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Aşağı</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Varsayılan Etiketi Kullan</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Etiket Ayarları</translation>
     </message>
     <message>
         <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Etiket Ekle</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vektör Resim Dosyalari (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ekle</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kaldır</translation>
     </message>
 </context>
 <context>
@@ -1041,7 +1041,7 @@ with the path to a temporary png file as a single argument.</source>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Resmi Seç</translation>
     </message>
     <message>
         <source>Images</source>
@@ -1056,7 +1056,7 @@ with the path to a temporary png file as a single argument.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yükleme Kodu Gerekli</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
@@ -1068,7 +1068,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Resmi harici konuma yüklemek üzerisiniz, devam etmek istiyormusunuz?</translation>
     </message>
 </context>
 <context>
@@ -1079,7 +1079,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yükleyici Türü:</translation>
     </message>
     <message>
         <source>Imgur</source>
@@ -1091,7 +1091,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yükleyici</translation>
     </message>
 </context>
 <context>

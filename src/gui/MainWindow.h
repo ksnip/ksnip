@@ -42,6 +42,7 @@
 #include "src/gui/operations/AddWatermarkOperation.h"
 #include "src/gui/operations/UploadOperation.h"
 #include "src/gui/operations/HandleUploadResultOperation.h"
+#include "src/gui/pinWindow/PinWindowHandler.h"
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
 #include "src/gui/TrayIcon.h"
 #include "src/gui/ClipboardWrapper.h"
@@ -92,6 +93,7 @@ private:
     QAction *mAddWatermarkAction;
     QAction *mPasteAction;
     QAction *mPasteEmbeddedAction;
+    QAction *mPinAction;
     MainToolBar *mToolBar;
     QLayout *mMainLayout;
 	ClipboardWrapper *mClipboard;
@@ -104,6 +106,7 @@ private:
 	DragAndDropHandler *mDragAndDropHandler;
 	UploaderProvider *mUploaderProvider;
 	ICaptureHandler *mCaptureHandler;
+	PinWindowHandler *mPinWindowHandler;
 
     void setEnablements(bool enabled);
     void loadSettings();
@@ -141,6 +144,7 @@ private slots:
 	void loadImageFromFile(const QString &path);
 	void sessionFinished();
 	void captureCanceled();
+	void showPinWindow();
 };
 
 #endif // KSNIP_MAINWINDOW_H

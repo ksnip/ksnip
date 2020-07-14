@@ -309,7 +309,6 @@ void MainWindow::setHidden(bool isHidden)
     mHidden = isHidden;
     if (mHidden) {
         setWindowOpacity(0.0);
-        showMinimized();
     } else {
         setWindowOpacity(1.0);
 		setWindowState(Qt::WindowActive);

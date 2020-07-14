@@ -184,8 +184,9 @@ void MainWindow::showImage(const CaptureDto &capture)
 	setEnablements(true);
 
 	if(mSelectedWindowState != Qt::WindowMaximized) {
-		resize(mKImageAnnotator->sizeHint());
+		adjustSize();
 	}
+
 	show();
 }
 

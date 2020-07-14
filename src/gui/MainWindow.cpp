@@ -180,10 +180,12 @@ void MainWindow::showImage(const CaptureDto &capture)
 {
 	mCaptureHandler->load(capture);
 
-	setHidden(false);
+	setInvisible(false);
 	setEnablements(true);
 
-	adjustSize();
+	if(mSelectedWindowState != Qt::WindowMaximized) {
+		resize(mKImageAnnotator->sizeHint());
+	}
 	show();
 }
 
@@ -200,7 +202,7 @@ void MainWindow::capturePostProcessing()
 
 void MainWindow::showEmpty()
 {
-    setHidden(false);
+	setInvisible(false);
 	captureChanged();
     setEnablements(false);
     QMainWindow::show();
@@ -215,10 +217,10 @@ void MainWindow::showHidden()
 
 void MainWindow::show()
 {
+	setWindowState(mSelectedWindowState);
 	activateWindow();
 	raise();
 	QMainWindow::show();
-	setWindowState(mSelectedWindowState);
 }
 
 QMenu* MainWindow::createPopupMenu()
@@ -300,25 +302,15 @@ void MainWindow::loadSettings()
     mToolBar->setCaptureDelay(mConfig->captureDelay() / 1000);
 }
 
-void MainWindow::setHidden(bool isHidden)
+void MainWindow::setInvisible(bool isInvisible)
 {
-    if (isHidden == hidden()) {
+    if (isInvisible == mIsInvisible) {
         return;
     }
 
-    mHidden = isHidden;
-    if (mHidden) {
-        setWindowOpacity(0.0);
-    } else {
-        setWindowOpacity(1.0);
-		setWindowState(Qt::WindowActive);
-    }
-	mWindowStateChangeLock = isHidden;
-}
-
-bool MainWindow::hidden() const
-{
-    return mHidden;
+	mIsInvisible = isInvisible;
+	setVisible(!mIsInvisible);
+	mWindowStateChangeLock = isInvisible;
 }
 
 void MainWindow::capture(CaptureModes captureMode)
@@ -327,7 +319,7 @@ void MainWindow::capture(CaptureModes captureMode)
 		return;
 	}
 
-    setHidden(true);
+	setInvisible(true);
     mConfig->setCaptureMode(captureMode);
 
 	captureScreenshot(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
@@ -542,7 +534,7 @@ void MainWindow::pasteFromClipboard()
 	auto pixmap = mClipboard->pixmap();
 
 	if(!pixmap.isNull()) {
-		setHidden(false);
+		setInvisible(false);
 		if(mClipboard->url().isNull()) {
 			CaptureDto captureDto(pixmap);
 			processImage(captureDto);
@@ -573,7 +565,7 @@ void MainWindow::loadImageFromFile(const QString &path)
 {
 	auto pixmap = QPixmap(path);
 	if(!pixmap.isNull()) {
-		setHidden(false);
+		setInvisible(false);
 		CaptureFromFileDto captureDto(pixmap, path);
 		processImage(captureDto);
 	}
@@ -586,7 +578,7 @@ void MainWindow::sessionFinished()
 
 void MainWindow::captureCanceled()
 {
-	setHidden(false);
+	setInvisible(false);
 	show();
 }
 

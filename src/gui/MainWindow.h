@@ -76,7 +76,7 @@ protected:
 private:
     AbstractImageGrabber *mImageGrabber;
     RunMode mMode;
-    bool mHidden;
+    bool mIsInvisible;
     bool mSessionManagerRequestedQuit;
     Qt::WindowState mSelectedWindowState;
     bool mWindowStateChangeLock;
@@ -107,8 +107,7 @@ private:
 
     void setEnablements(bool enabled);
     void loadSettings();
-    void setHidden(bool isHidden);
-    bool hidden() const;
+    void setInvisible(bool isInvisible);
     void capture(CaptureModes captureMode);
     void initGui();
 	void processInstantCapture(const CaptureDto &capture);

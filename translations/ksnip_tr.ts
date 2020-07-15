@@ -120,7 +120,7 @@ daha düzgün hale getirir.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Filigran Resmi</translation>
     </message>
     <message>
         <source>Update</source>
@@ -128,7 +128,7 @@ daha düzgün hale getirir.</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Filigrani Döndür</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
@@ -136,7 +136,7 @@ daha düzgün hale getirir.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yorumcu Ayarları</translation>
     </message>
 </context>
 <context>
@@ -161,12 +161,13 @@ Değişiklik sonrası Ksnip&apos;in yeniden başlatılması gerekir.</translatio
     </message>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pencere Iconu Kullan</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Etkinleştirildiğinde, Eğer işletim sisteminiz izin veriyor ise Görev çubuğuna simge ekler. 
+            Değişikliklerin uygulanması için yeniden başlatmak gerekir</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
@@ -174,7 +175,7 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Görev çubuğuna küçült</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
@@ -190,11 +191,11 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ksnip pozisyonunu hatırla</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">ksnip seçimini hatırla</translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -373,7 +374,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">İşlem başlatılamadı, yolu ve yetkileri kontrol edin.</translation>
     </message>
     <message>
         <source>Process crashed</source>
@@ -393,7 +394,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Web hatası, konsol çıkışını kontrol edin</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
@@ -794,34 +795,34 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Resim gösterilemiyor</translation>
     </message>
     <message>
         <source>No image provided to but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Resim belirtilmedi</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Farklı Kaydet...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yapıştır</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gömülü Yapıştır</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Seçimi harici kaynağa yükle</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yakala</translation>
     </message>
 </context>
 <context>
@@ -840,26 +841,26 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Resim Kaydedildi</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Resim Kaydedilemedi</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kayıt edildiği yer</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Resmi konuma kayıt edilemedi</translation>
     </message>
 </context>
 <context>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Varsayılan noktaya otomatik olarak kaydet</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
@@ -867,7 +868,7 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Son kayıt dizinini hatırla</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
@@ -984,11 +985,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yükleyici Kodu</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kaydedici</translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -1034,7 +1035,7 @@ with the path to a temporary png file as a single argument.</source>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Düzenleyici Göster</translation>
     </message>
 </context>
 <context>
@@ -1060,11 +1061,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lütfen yükleme kodu ekleyin &gt; Ayarlar &gt; Yükleme Kodu</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yüklemi Kaydet</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
@@ -1083,11 +1084,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kod</translation>
     </message>
     <message>
         <source>Uploader</source>

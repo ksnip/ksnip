@@ -818,35 +818,22 @@ void KsnipConfig::setUploadScriptCopyOutputToClipboard(bool enabled)
 	saveValue(KsnipConfigOptions::uploadScriptCopyOutputToClipboardString(), enabled);
 }
 
-QString KsnipConfig::uploadScriptCopyOutputAfter() const
+QString KsnipConfig::uploadScriptCopyOutputFilter() const
 {
-	return loadValue(KsnipConfigOptions::uploadScriptCopyOutputAfterString(), QString()).toString();
+	return loadValue(KsnipConfigOptions::uploadScriptCopyOutputFilterString(), QString()).toString();
 }
 
-void KsnipConfig::setUploadScriptCopyOutputAfter(const QString &after)
+void KsnipConfig::setUploadScriptCopyOutputFilter(const QString &regex)
 {
-	if (uploadScriptCopyOutputAfter() == after) {
+	if (uploadScriptCopyOutputFilter() == regex) {
 		return;
 	}
-	saveValue(KsnipConfigOptions::uploadScriptCopyOutputAfterString(), after);
-}
-
-QString KsnipConfig::uploadScriptCopyOutputBefore() const
-{
-	return loadValue(KsnipConfigOptions::uploadScriptCopyOutputBeforeString(), QString()).toString();
-}
-
-void KsnipConfig::setUploadScriptCopyOutputBefore(const QString &before)
-{
-	if (uploadScriptCopyOutputBefore() == before) {
-		return;
-	}
-	saveValue(KsnipConfigOptions::uploadScriptCopyOutputBeforeString(), before);
+	saveValue(KsnipConfigOptions::uploadScriptCopyOutputFilterString(), regex);
 }
 
 bool KsnipConfig::uploadScriptStopOnStdErr() const
 {
-	return loadValue(KsnipConfigOptions::uploadScriptStopOnStdErr(), true).toBool();
+	return loadValue(KsnipConfigOptions::uploadScriptStopOnStdErrString(), true).toBool();
 }
 
 void KsnipConfig::setUploadScriptStopOnStdErr(bool enabled)
@@ -854,7 +841,7 @@ void KsnipConfig::setUploadScriptStopOnStdErr(bool enabled)
 	if (uploadScriptStopOnStdErr() == enabled) {
 		return;
 	}
-	saveValue(KsnipConfigOptions::uploadScriptStopOnStdErr(), enabled);
+	saveValue(KsnipConfigOptions::uploadScriptStopOnStdErrString(), enabled);
 }
 
 // HotKeys

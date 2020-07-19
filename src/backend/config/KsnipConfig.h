@@ -216,11 +216,8 @@ public:
 	virtual bool uploadScriptCopyOutputToClipboard() const;
 	virtual void setUploadScriptCopyOutputToClipboard(bool enabled);
 
-	virtual QString uploadScriptCopyOutputAfter() const;
-	virtual void setUploadScriptCopyOutputAfter(const QString &after);
-
-	virtual QString uploadScriptCopyOutputBefore() const;
-	virtual void setUploadScriptCopyOutputBefore(const QString &before);
+	virtual QString uploadScriptCopyOutputFilter() const;
+	virtual void setUploadScriptCopyOutputFilter(const QString &regex);
 
 	virtual bool uploadScriptStopOnStdErr() const;
 	virtual void setUploadScriptStopOnStdErr(bool enabled);

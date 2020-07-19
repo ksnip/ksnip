@@ -21,6 +21,7 @@
 #define KSNIP_SCRIPTUPLOADER_H
 
 #include <QProcess>
+#include <QRegularExpression>
 
 #include "src/backend/uploader/IUploader.h"
 #include "src/backend/config/KsnipConfigProvider.h"

@@ -75,16 +75,19 @@ void ScriptUploader::handleSuccess()
 
 QString ScriptUploader::parseOutput(const QString &output) const
 {
-	auto startTag = mConfig->uploadScriptCopyOutputAfter();
-	auto endTag = mConfig->uploadScriptCopyOutputBefore();
-	auto startTagLength = startTag.length();
+	auto outputFilter = mConfig->uploadScriptCopyOutputFilter();
+	auto result = output;
 
-	auto startIndex = output.indexOf(startTag);
-	auto endIndex = output.indexOf(endTag);
-	auto indexFrom = startIndex == -1 || startTag.isEmpty() ? 0 : startIndex + startTagLength;
-	auto indexTo = endIndex == -1  || endTag.isEmpty()? output.length() - 1 : endIndex;
+	if(!outputFilter.isEmpty()) {
+		QRegularExpression regEx(outputFilter);
+		auto expressionMatch = regEx.match(output);
+		if(expressionMatch.hasMatch()) {
+			result = expressionMatch.captured(0);
+		}
+	}
 
-	return output.mid(indexFrom, indexTo - indexFrom);
+	return result;
+
 }
 
 void ScriptUploader::errorOccurred(QProcess::ProcessError errorType)

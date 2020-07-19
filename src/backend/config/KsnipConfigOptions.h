@@ -75,9 +75,8 @@ public:
 	static QString uploadScriptPathString();
 	static QString confirmBeforeUploadString();
 	static QString uploadScriptCopyOutputToClipboardString();
-	static QString uploadScriptStopOnStdErr();
-	static QString uploadScriptCopyOutputAfterString();
-	static QString uploadScriptCopyOutputBeforeString();
+	static QString uploadScriptStopOnStdErrString();
+	static QString uploadScriptCopyOutputFilterString();
 	static QString globalHotKeysEnabledString();
 	static QString rectAreaHotKeyString();
 	static QString lastRectAreaHotKeyString();

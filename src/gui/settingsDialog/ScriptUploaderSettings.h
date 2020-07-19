@@ -43,11 +43,9 @@ private:
 	KsnipConfig *mConfig;
 	QCheckBox *mCopyOutputToClipboardCheckbox;
 	QCheckBox *mStopOnStdErrCheckbox;
-	QLineEdit *mCopyOutputAfterLineEdit;
-	QLineEdit *mCopyOutputBeforeLineEdit;
+	QLineEdit *mCopyOutputFilterLineEdit;
 	QLineEdit *mUploadScriptPathLineEdit;
-	QLabel *mCopyOutputAfterLabel;
-	QLabel *mCopyOutputBeforeLabel;
+	QLabel *mCopyOutputFilterLabel;
 	QLabel *mScriptPathLabel;
 	QPushButton *mBrowseButton;
 

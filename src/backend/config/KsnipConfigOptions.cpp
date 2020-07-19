@@ -274,19 +274,14 @@ QString KsnipConfigOptions::uploadScriptCopyOutputToClipboardString()
 	return uploadScriptSectionString() + QStringLiteral("CopyOutputToClipboard");
 }
 
-QString KsnipConfigOptions::uploadScriptStopOnStdErr()
+QString KsnipConfigOptions::uploadScriptStopOnStdErrString()
 {
 	return uploadScriptSectionString() + QStringLiteral("UploadScriptStoOnStdErr");
 }
 
-QString KsnipConfigOptions::uploadScriptCopyOutputAfterString()
+QString KsnipConfigOptions::uploadScriptCopyOutputFilterString()
 {
-	return uploadScriptSectionString() + QStringLiteral("CopyOutputAfter");
-}
-
-QString KsnipConfigOptions::uploadScriptCopyOutputBeforeString()
-{
-	return uploadScriptSectionString() + QStringLiteral("CopyOutputBefore");
+	return uploadScriptSectionString() + QStringLiteral("CopyOutputFilter");
 }
 
 QString KsnipConfigOptions::globalHotKeysEnabledString()

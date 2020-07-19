@@ -31,7 +31,8 @@ MacImageGrabber::MacImageGrabber() : AbstractImageGrabber(new MacSnippingArea),
 
 QRect MacImageGrabber::fullScreenRect() const
 {
-    return mMacWrapper->getFullScreenRect();
+    auto rect = mMacWrapper->getFullScreenRect();
+    return mHdpiScaler.unscale(rect);
 }
 
 QRect MacImageGrabber::activeWindowRect() const

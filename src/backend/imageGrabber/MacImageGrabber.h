@@ -23,6 +23,7 @@
 #include "AbstractImageGrabber.h"
 #include "MacWrapper.h"
 #include "src/gui/snippingArea/MacSnippingArea.h"
+#include "src/common/platform/HdpiScaler.h"
 
 class MacImageGrabber  : public AbstractImageGrabber
 {
@@ -38,6 +39,7 @@ protected slots:
 
 private:
     MacWrapper *mMacWrapper;
+    HdpiScaler mHdpiScaler;
 };
 
 

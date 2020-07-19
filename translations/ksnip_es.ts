@@ -407,6 +407,10 @@ Do you want to save it?</source>
         <source>Upload Failed</source>
         <translation>Subida fallida</translation>
     </message>
+    <message>
+        <source>Script wrote to StdErr.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HotKeySettings</name>
@@ -921,26 +925,6 @@ El nombre del archivo puede contener los siguientes comodines:
         <translation>Copiar script de salida al portapapeles</translation>
     </message>
     <message>
-        <source>After:</source>
-        <translation>Después:</translation>
-    </message>
-    <message>
-        <source>Only output following this string will be copied to clipboard, excluding that string.
-If omitted, everything from start will be copied.</source>
-        <translation>Solo la salida después de este texto será copiado al portapapeles, excluyendo este texto.
-Si se omite, todo será copiado desde el inicio.</translation>
-    </message>
-    <message>
-        <source>Before:</source>
-        <translation>Antes:</translation>
-    </message>
-    <message>
-        <source>Only output before this string will be copied to clipboard, excluding that string.
-If omitted, everything up to the end will be copied.</source>
-        <translation>Solo la salida antes de este texto será copiado al portapapeles, excluyendo este texto.
-Si se omite, todo será copiado hasta el final.</translation>
-    </message>
-    <message>
         <source>Script:</source>
         <translation>Script:</translation>
     </message>
@@ -961,6 +945,24 @@ con la ruta al archivo png temporal como simple argumento.</translation>
     <message>
         <source>Select Upload Script</source>
         <translation>Seleccione script de subida</translation>
+    </message>
+    <message>
+        <source>Stop when upload script writes to StdErr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Marks the upload as failed when script writes to StdErr.
+Without this setting errors in the script will be unnoticed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
+When omitted, everything is copied.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

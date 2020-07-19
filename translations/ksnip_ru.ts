@@ -406,6 +406,10 @@ Do you want to save it?</source>
         <source>Upload Failed</source>
         <translation>Закачивание не удалось</translation>
     </message>
+    <message>
+        <source>Script wrote to StdErr.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HotKeySettings</name>
@@ -916,26 +920,6 @@ Filename can contain following wildcards:
         <translation>Копировать вывод скрипта в буфер обмена</translation>
     </message>
     <message>
-        <source>After:</source>
-        <translation>После:</translation>
-    </message>
-    <message>
-        <source>Only output following this string will be copied to clipboard, excluding that string.
-If omitted, everything from start will be copied.</source>
-        <translation>Вывод следующей строки будет скопирован в буфер обмена, исключая эту строку.
-Если пропущено, будет скопировано всё с самого начала.</translation>
-    </message>
-    <message>
-        <source>Before:</source>
-        <translation>Перед:</translation>
-    </message>
-    <message>
-        <source>Only output before this string will be copied to clipboard, excluding that string.
-If omitted, everything up to the end will be copied.</source>
-        <translation>Вывод предыдущей строки будет скопирован в буфер обмена, исключая эту строку.
-Если пропущено, будет скопировано всё до самого конца.</translation>
-    </message>
-    <message>
         <source>Script:</source>
         <translation>Скрипт:</translation>
     </message>
@@ -956,6 +940,24 @@ with the path to a temporary png file as a single argument.</source>
     <message>
         <source>Select Upload Script</source>
         <translation>Выбрать скрипт закачивания</translation>
+    </message>
+    <message>
+        <source>Stop when upload script writes to StdErr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Marks the upload as failed when script writes to StdErr.
+Without this setting errors in the script will be unnoticed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
+When omitted, everything is copied.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

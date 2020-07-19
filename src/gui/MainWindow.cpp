@@ -48,7 +48,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mDragAndDropHandler(new DragAndDropHandler),
 	mUploaderProvider(new UploaderProvider),
 	mSessionManagerRequestedQuit(false),
-	mCaptureHandler(CaptureHandlerFactory::create(mKImageAnnotator, mTrayIcon, this))
+	mCaptureHandler(CaptureHandlerFactory::create(mKImageAnnotator, mTrayIcon, this)),
+	mWidgetHider(WidgetHiderFactory::create(this))
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -310,7 +311,7 @@ void MainWindow::setInvisible(bool isInvisible)
     }
 
 	mIsInvisible = isInvisible;
-	setVisible(!mIsInvisible);
+	mWidgetHider->setHidden(isInvisible);
 	mWindowStateChangeLock = isInvisible;
 }
 

@@ -1,7 +1,8 @@
 # Change log
 
 ## Release 1.7.2
-* Fixed: ksnip becomes unresponsive when file dropped into it. ([#373](https://github.com/ksnip/ksnip/issues/373))
+* Fixed: Ksnip becomes unresponsive when file dropped into it. ([#373](https://github.com/ksnip/ksnip/issues/373))
+* Fixed: Ksnip window always visible on screenshots on Gnome Wayland. ([#375](https://github.com/ksnip/ksnip/issues/375))
 * Fixed kImageAnnotator: Tests fail to build with shared library. ([#128](https://github.com/ksnip/kImageAnnotator/issues/128))
 
 ## Release 1.7.1

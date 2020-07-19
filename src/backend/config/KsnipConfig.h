@@ -222,6 +222,9 @@ public:
 	virtual QString uploadScriptCopyOutputBefore() const;
 	virtual void setUploadScriptCopyOutputBefore(const QString &before);
 
+	virtual bool uploadScriptStopOnStdErr() const;
+	virtual void setUploadScriptStopOnStdErr(bool enabled);
+
 	// HotKeys
 
 	virtual bool isGlobalHotKeysEnabledReadOnly() const;

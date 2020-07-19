@@ -844,6 +844,19 @@ void KsnipConfig::setUploadScriptCopyOutputBefore(const QString &before)
 	saveValue(KsnipConfigOptions::uploadScriptCopyOutputBeforeString(), before);
 }
 
+bool KsnipConfig::uploadScriptStopOnStdErr() const
+{
+	return loadValue(KsnipConfigOptions::uploadScriptStopOnStdErr(), true).toBool();
+}
+
+void KsnipConfig::setUploadScriptStopOnStdErr(bool enabled)
+{
+	if (uploadScriptStopOnStdErr() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::uploadScriptStopOnStdErr(), enabled);
+}
+
 // HotKeys
 
 bool KsnipConfig::isGlobalHotKeysEnabledReadOnly() const

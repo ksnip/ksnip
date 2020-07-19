@@ -274,6 +274,11 @@ QString KsnipConfigOptions::uploadScriptCopyOutputToClipboardString()
 	return uploadScriptSectionString() + QStringLiteral("CopyOutputToClipboard");
 }
 
+QString KsnipConfigOptions::uploadScriptStopOnStdErr()
+{
+	return uploadScriptSectionString() + QStringLiteral("UploadScriptStoOnStdErr");
+}
+
 QString KsnipConfigOptions::uploadScriptCopyOutputAfterString()
 {
 	return uploadScriptSectionString() + QStringLiteral("CopyOutputAfter");

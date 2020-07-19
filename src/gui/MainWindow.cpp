@@ -132,6 +132,7 @@ MainWindow::~MainWindow()
     delete mDragAndDropHandler;
     delete mUploaderProvider;
     delete mCaptureHandler;
+    delete mWidgetHider;
 }
 
 void MainWindow::processInstantCapture(const CaptureDto &capture)

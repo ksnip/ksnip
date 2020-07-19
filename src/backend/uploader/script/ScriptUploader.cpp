@@ -54,15 +54,23 @@ void ScriptUploader::scriptFinished(int exitCode, QProcess::ExitStatus exitStatu
 	Q_UNUSED(exitCode);
 	Q_UNUSED(exitStatus);
 
-	if(exitStatus != QProcess::ExitStatus::CrashExit) {
-		auto output = QString(mProcessHandler.readAllStandardOutput());
-		auto result = parseOutput(output);
-
-		writeToConsole(output);
-		cleanup();
-
-		emit finished(UploadResult(UploadStatus::NoError, type(), result));
+	auto stdErrOutput = mProcessHandler.readAllStandardError();
+	if(mConfig->uploadScriptStopOnStdErr() && !stdErrOutput.isEmpty()) {
+		handleError(UploadStatus::ScriptWroteToStdErr, stdErrOutput);
+	} else if(exitStatus == QProcess::ExitStatus::NormalExit) {
+		handleSuccess();
 	}
+}
+
+void ScriptUploader::handleSuccess()
+{
+	auto output = QString(mProcessHandler.readAllStandardOutput());
+	auto result = parseOutput(output);
+
+	writeToConsole(output);
+	cleanup();
+
+	emit finished(UploadResult(UploadStatus::NoError, type(), result));
 }
 
 QString ScriptUploader::parseOutput(const QString &output) const
@@ -81,10 +89,16 @@ QString ScriptUploader::parseOutput(const QString &output) const
 
 void ScriptUploader::errorOccurred(QProcess::ProcessError errorType)
 {
-	writeToConsole(mProcessHandler.readAllStandardError());
+	auto status = mapErrorTypeToStatus(errorType);
+	auto stdErrOutput = mProcessHandler.readAllStandardError();
+	handleError(status, stdErrOutput);
+}
+
+void ScriptUploader::handleError(const UploadStatus &status, const QString &stdErrOutput)
+{
+	writeToConsole(stdErrOutput);
 	cleanup();
 
-	auto status = mapErrorTypeToStatus(errorType);
 	emit finished(UploadResult(status, type()));
 }
 

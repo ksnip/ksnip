@@ -1,6 +1,7 @@
 # Change log
 
 ## Release 1.7.2
+* Changed: Stop upload script when process writes to stderr. ([#383](https://github.com/ksnip/ksnip/issues/383))
 * Fixed: Ksnip becomes unresponsive when file dropped into it. ([#373](https://github.com/ksnip/ksnip/issues/373))
 * Fixed: Ksnip window always visible on screenshots on Gnome Wayland. ([#375](https://github.com/ksnip/ksnip/issues/375))
 * Fixed kImageAnnotator: Tests fail to build with shared library. ([#128](https://github.com/ksnip/kImageAnnotator/issues/128))

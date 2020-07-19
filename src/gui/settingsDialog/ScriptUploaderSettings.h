@@ -42,6 +42,7 @@ private:
 	QGridLayout *mLayout;
 	KsnipConfig *mConfig;
 	QCheckBox *mCopyOutputToClipboardCheckbox;
+	QCheckBox *mStopOnStdErrCheckbox;
 	QLineEdit *mCopyOutputAfterLineEdit;
 	QLineEdit *mCopyOutputBeforeLineEdit;
 	QLineEdit *mUploadScriptPathLineEdit;

@@ -125,6 +125,9 @@ void HandleUploadResultOperation::handleUploadError()
 		case UploadStatus::UnknownError:
 			notifyFailedUpload(tr("Unknown process error."));
 			break;
+		case UploadStatus::ScriptWroteToStdErr:
+			notifyFailedUpload(tr("Script wrote to StdErr."));
+			break;
 	}
 }
 

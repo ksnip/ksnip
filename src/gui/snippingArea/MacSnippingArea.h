@@ -21,6 +21,7 @@
 #define KSNIP_MACSNIPPINGAREA_H
 
 #include "AbstractSnippingArea.h"
+#include "src/common/platform/HdpiScaler.h"
 
 class MacSnippingArea : public AbstractSnippingArea
 {
@@ -33,6 +34,9 @@ protected:
     void setFullScreen() override;
     QPoint getMousePosition() const override;
     QRect getSnippingAreaGeometry() const override;
+
+private:
+    HdpiScaler mHdpiScaler;
 };
 
 

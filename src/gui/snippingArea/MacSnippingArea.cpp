@@ -26,7 +26,7 @@ MacSnippingArea::MacSnippingArea() : AbstractSnippingArea()
 
 QRect MacSnippingArea::selectedRectArea() const
 {
-    return mCaptureArea;
+    return mHdpiScaler.scale(mCaptureArea);
 }
 
 void MacSnippingArea::setFullScreen()

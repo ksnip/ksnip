@@ -44,5 +44,12 @@ QRect HdpiScaler::scale(const QRect &rect) const
 qreal HdpiScaler::scaleFactor() const
 {
 	auto desktopWidget = QApplication::desktop();
+	qDebug("devicePixelRatio: %s", qPrintable(QString::number(desktopWidget->devicePixelRatio())));
+	qDebug("devicePixelRatioF: %s", qPrintable(QString::number(desktopWidget->devicePixelRatioF())));
+	qDebug("logicalDpiX: %s", qPrintable(QString::number(desktopWidget->logicalDpiX())));
+	qDebug("logicalDpiY: %s", qPrintable(QString::number(desktopWidget->logicalDpiY())));
+	qDebug("physicalDpiX: %s", qPrintable(QString::number(desktopWidget->physicalDpiX())));
+	qDebug("physicalDpiY: %s", qPrintable(QString::number(desktopWidget->physicalDpiY())));
+
 	return desktopWidget->devicePixelRatioF();
 }

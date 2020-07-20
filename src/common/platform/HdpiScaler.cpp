@@ -55,7 +55,7 @@ qreal HdpiScaler::scaleFactor() const
 	
 	auto scaleFactor = static_cast<qreal>(desktopWidget->physicalDpiX()) / static_cast<qreal>(desktopWidget->logicalDpiX());
 	qDebug("ScaleFacotr: %s", qPrintable(QString::number(scaleFactor)));
-	return scaleFactor;
+	return 2;
 #endif
 	
 #if defined(__linux__) || defined(_WIN32)

@@ -85,6 +85,7 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/setup_dependencies_windows.sh
 elif [[ "${BINARY_TYPE}" == "app" ]]; then
     brew install qt5
+    brew upgrade qt
 
     export PATH="/usr/local/opt/qt/bin:$PATH"
 

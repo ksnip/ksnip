@@ -410,7 +410,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリプトが StdErr に書き込みました。</translation>
     </message>
 </context>
 <context>
@@ -945,21 +945,23 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>アップロードスクリプトが StdErr に書き込む時に停止する</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリプトが StdErr に書き込む時に、アップロードに失敗したとしてマークします。
+この設定がないとスクリプト内のエラーに気付けません。</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>絞り込み:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>正規表現の式です。この正規表現に一致するもののみクリップボードにコピーします。
+省略した場合、すべてコピーします。</translation>
     </message>
 </context>
 <context>

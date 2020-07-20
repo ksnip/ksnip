@@ -409,7 +409,7 @@ Vill du spara det?</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skript skrev till StdErr.</translation>
     </message>
 </context>
 <context>
@@ -946,21 +946,23 @@ kommer skriptet att anropas med sökvägen till en temporär png-fil som enskilt
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Stoppa när uppladdningsskript skriver till StdErr</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Markerar uppladdning som misslyckad när skript skriver till StdErr.
+Utan den här inställningen visas inga fel i skriptet.</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>RegEx-uttryck. Kopiera endast till urklipp, vad som matchar RegEx-uttrycket.
+När detta utelämnas kopieras allt.</translation>
     </message>
 </context>
 <context>

@@ -44,12 +44,21 @@ QRect HdpiScaler::scale(const QRect &rect) const
 qreal HdpiScaler::scaleFactor() const
 {
 	auto desktopWidget = QApplication::desktop();
+	
+#if defined(__APPLE__)
 	qDebug("devicePixelRatio: %s", qPrintable(QString::number(desktopWidget->devicePixelRatio())));
 	qDebug("devicePixelRatioF: %s", qPrintable(QString::number(desktopWidget->devicePixelRatioF())));
 	qDebug("logicalDpiX: %s", qPrintable(QString::number(desktopWidget->logicalDpiX())));
 	qDebug("logicalDpiY: %s", qPrintable(QString::number(desktopWidget->logicalDpiY())));
 	qDebug("physicalDpiX: %s", qPrintable(QString::number(desktopWidget->physicalDpiX())));
 	qDebug("physicalDpiY: %s", qPrintable(QString::number(desktopWidget->physicalDpiY())));
-
+	
+	auto scaleFactor = static_cast<qreal>(desktopWidget->physicalDpiX()) / static_cast<qreal>(desktopWidget->logicalDpiX());
+	qDebug("ScaleFacotr: %s", qPrintable(QString::number(scaleFactor)));
+	return scaleFactor;
+#endif
+	
+#if defined(__linux__) || defined(_WIN32)
 	return desktopWidget->devicePixelRatioF();
+#endif
 }

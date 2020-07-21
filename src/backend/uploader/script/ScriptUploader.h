@@ -21,6 +21,7 @@
 #define KSNIP_SCRIPTUPLOADER_H
 
 #include <QProcess>
+#include <QRegularExpression>
 
 #include "src/backend/uploader/IUploader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
@@ -51,6 +52,8 @@ private slots:
 	QString parseOutput(const QString &output) const;
 	void writeToConsole(const QString &output) const;
 	UploadStatus mapErrorTypeToStatus(QProcess::ProcessError errorType) const;
+	void handleSuccess();
+	void handleError(const UploadStatus &status, const QString &stdErrOutput);
 };
 
 #endif //KSNIP_SCRIPTUPLOADER_H

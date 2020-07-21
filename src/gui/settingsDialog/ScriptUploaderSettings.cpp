@@ -23,11 +23,10 @@ ScriptUploaderSettings::ScriptUploaderSettings(KsnipConfig *ksnipConfig) :
 	mConfig(ksnipConfig),
 	mLayout(new QGridLayout(this)),
 	mCopyOutputToClipboardCheckbox(new QCheckBox(this)),
-	mCopyOutputAfterLabel(new QLabel(this)),
-	mCopyOutputBeforeLabel(new QLabel(this)),
+	mStopOnStdErrCheckbox(new QCheckBox(this)),
+	mCopyOutputFilterLabel(new QLabel(this)),
 	mScriptPathLabel(new QLabel(this)),
-	mCopyOutputAfterLineEdit(new QLineEdit(this)),
-	mCopyOutputBeforeLineEdit(new QLineEdit(this)),
+	mCopyOutputFilterLineEdit(new QLineEdit(this)),
 	mUploadScriptPathLineEdit(new QLineEdit(this)),
 	mBrowseButton(new QPushButton(this))
 {
@@ -39,40 +38,36 @@ ScriptUploaderSettings::~ScriptUploaderSettings()
 {
 	delete mLayout;
 	delete mCopyOutputToClipboardCheckbox;
-	delete mCopyOutputAfterLabel;
-	delete mCopyOutputBeforeLabel;
+	delete mStopOnStdErrCheckbox;
+	delete mCopyOutputFilterLabel;
 	delete mScriptPathLabel;
-	delete mCopyOutputAfterLineEdit;
-	delete mCopyOutputBeforeLineEdit;
+	delete mCopyOutputFilterLineEdit;
 	delete mUploadScriptPathLineEdit;
 	delete mBrowseButton;
 }
 
 void ScriptUploaderSettings::saveSettings()
 {
+	mConfig->setUploadScriptStopOnStdErr(mStopOnStdErrCheckbox->isChecked());
 	mConfig->setUploadScriptCopyOutputToClipboard(mCopyOutputToClipboardCheckbox->isChecked());
-	mConfig->setUploadScriptCopyOutputAfter(mCopyOutputAfterLineEdit->text());
-	mConfig->setUploadScriptCopyOutputBefore(mCopyOutputBeforeLineEdit->text());
+	mConfig->setUploadScriptCopyOutputFilter(mCopyOutputFilterLineEdit->text());
 	mConfig->setUploadScriptPath(mUploadScriptPathLineEdit->text());
 }
 
 void ScriptUploaderSettings::initGui()
 {
+	mStopOnStdErrCheckbox->setText(tr("Stop when upload script writes to StdErr"));
+	mStopOnStdErrCheckbox->setToolTip(tr("Marks the upload as failed when script writes to StdErr.\n"
+									        "Without this setting errors in the script will be unnoticed."));
+
 	mCopyOutputToClipboardCheckbox->setText(tr("Copy script output to clipboard"));
 	connect(mCopyOutputToClipboardCheckbox, &QCheckBox::stateChanged, this, &ScriptUploaderSettings::copyToClipboardChanged);
 
-	mCopyOutputAfterLabel->setText(tr("After:"));
-	mCopyOutputAfterLabel->setToolTip(tr("Only output following this string will be copied to clipboard, excluding that string.\n"
-									         "If omitted, everything from start will be copied."));
+	mCopyOutputFilterLabel->setText(tr("Filter:"));
+	mCopyOutputFilterLabel->setToolTip(tr("RegEx Expression. Only copy to clipboard what matches the RegEx Expression.\n"
+									         "When omitted, everything is copied."));
 
-	mCopyOutputAfterLineEdit->setToolTip(mCopyOutputAfterLabel->toolTip());
-
-
-	mCopyOutputBeforeLabel->setText(tr("Before:"));
-	mCopyOutputBeforeLabel->setToolTip(tr("Only output before this string will be copied to clipboard, excluding that string.\n"
-	                                          "If omitted, everything up to the end will be copied."));
-
-	mCopyOutputBeforeLineEdit->setToolTip(mCopyOutputBeforeLabel->toolTip());
+	mCopyOutputFilterLineEdit->setToolTip(mCopyOutputFilterLabel->toolTip());
 
 	mScriptPathLabel->setText(tr("Script:"));
 	mScriptPathLabel->setToolTip(tr("Path to script that will be called for uploading. During upload the script will be called\n"
@@ -85,11 +80,10 @@ void ScriptUploaderSettings::initGui()
 
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnMinimumWidth(0, 10);
-	mLayout->addWidget(mCopyOutputToClipboardCheckbox, 0, 0, 1, 3);
-	mLayout->addWidget(mCopyOutputAfterLabel, 1, 1, 1, 1);
-	mLayout->addWidget(mCopyOutputAfterLineEdit, 1, 2, 1, 1);
-	mLayout->addWidget(mCopyOutputBeforeLabel, 2, 1, 1, 1);
-	mLayout->addWidget(mCopyOutputBeforeLineEdit, 2, 2, 1, 1);
+	mLayout->addWidget(mStopOnStdErrCheckbox, 0, 0, 1, 3);
+	mLayout->addWidget(mCopyOutputToClipboardCheckbox, 1, 0, 1, 3);
+	mLayout->addWidget(mCopyOutputFilterLabel, 2, 1, 1, 1);
+	mLayout->addWidget(mCopyOutputFilterLineEdit, 2, 2, 1, 1);
 	mLayout->addWidget(mScriptPathLabel, 3, 0, 1, 1);
 	mLayout->addWidget(mUploadScriptPathLineEdit, 3, 1, 1, 2);
 	mLayout->addWidget(mBrowseButton, 3, 3, 1, 1);
@@ -100,9 +94,9 @@ void ScriptUploaderSettings::initGui()
 
 void ScriptUploaderSettings::loadConfig()
 {
+	mStopOnStdErrCheckbox->setChecked(mConfig->uploadScriptStopOnStdErr());
 	mCopyOutputToClipboardCheckbox->setChecked(mConfig->uploadScriptCopyOutputToClipboard());
-	mCopyOutputAfterLineEdit->setText(mConfig->uploadScriptCopyOutputAfter());
-	mCopyOutputBeforeLineEdit->setText(mConfig->uploadScriptCopyOutputBefore());
+	mCopyOutputFilterLineEdit->setText(mConfig->uploadScriptCopyOutputFilter());
 	mUploadScriptPathLineEdit->setText(mConfig->uploadScriptPath());
 
 	copyToClipboardChanged();
@@ -119,8 +113,6 @@ void ScriptUploaderSettings::ShowScriptSelectionDialog()
 void ScriptUploaderSettings::copyToClipboardChanged()
 {
 	auto enabled = mCopyOutputToClipboardCheckbox->isChecked();
-	mCopyOutputAfterLabel->setEnabled(enabled);
-	mCopyOutputAfterLineEdit->setEnabled(enabled);
-	mCopyOutputBeforeLabel->setEnabled(enabled);
-	mCopyOutputBeforeLineEdit->setEnabled(enabled);
+	mCopyOutputFilterLabel->setEnabled(enabled);
+	mCopyOutputFilterLineEdit->setEnabled(enabled);
 }

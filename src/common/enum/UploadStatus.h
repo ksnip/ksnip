@@ -30,7 +30,8 @@ enum class UploadStatus
 	ReadError,
 	WriteError,
 	WebError,
-	UnknownError
+	UnknownError,
+	ScriptWroteToStdErr
 };
 
 #endif //KSNIP_UPLOADSTATUS_H

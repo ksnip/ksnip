@@ -399,6 +399,10 @@ Do you want to save it?</source>
         <source>Upload Failed</source>
         <translation>Αποτυχία αποστολής</translation>
     </message>
+    <message>
+        <source>Script wrote to StdErr.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HotKeySettings</name>
@@ -892,26 +896,6 @@ Filename can contain following wildcards:
         <translation>Αντιγραφή της εξόδου της μακροεντολής στο πρόχειρο</translation>
     </message>
     <message>
-        <source>After:</source>
-        <translation>Μετά:</translation>
-    </message>
-    <message>
-        <source>Only output following this string will be copied to clipboard, excluding that string.
-If omitted, everything from start will be copied.</source>
-        <translation>Μόνο η έξοδος μετά από αυτήν την συμβολοσειρά θα αντιγραφεί στο πρόχειρο, εξαιρουμένου της συμβολοσειράς.
-Αν παραλειφθεί, η αντιγραφή θα γίνει από την αρχή.</translation>
-    </message>
-    <message>
-        <source>Before:</source>
-        <translation>Πριν:</translation>
-    </message>
-    <message>
-        <source>Only output before this string will be copied to clipboard, excluding that string.
-If omitted, everything up to the end will be copied.</source>
-        <translation>Μόνο η έξοδος πριν από αυτήν την συμβολοσειρά θα αντιγραφεί στο πρόχειρο, εξαιρουμένου της συμβολοσειράς.
-Αν παραλειφθεί, η αντιγραφή θα γίνει μέχρι το τέλος.</translation>
-    </message>
-    <message>
         <source>Script:</source>
         <translation>Μακροεντολή:</translation>
     </message>
@@ -931,6 +915,24 @@ with the path to a temporary png file as a single argument.</source>
     <message>
         <source>Select Upload Script</source>
         <translation>Επιλογή μακροεντολής αποστολής</translation>
+    </message>
+    <message>
+        <source>Stop when upload script writes to StdErr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Marks the upload as failed when script writes to StdErr.
+Without this setting errors in the script will be unnoticed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
+When omitted, everything is copied.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,30 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "MacSnippingArea.h"
+#ifndef KSNIP_WIDGETHIDER_H
+#define KSNIP_WIDGETHIDER_H
 
-MacSnippingArea::MacSnippingArea() : AbstractSnippingArea()
-{
-    setWindowFlags(windowFlags() | Qt::WindowFullscreenButtonHint);
-}
+#include <QWidget>
 
-QRect MacSnippingArea::selectedRectArea() const
+class WidgetHider
 {
-    return mHdpiScaler.scale(mCaptureArea);
-}
+public:
+	explicit WidgetHider(QWidget *widget);
+	~WidgetHider() = default;
+	virtual void setHidden(bool isHidden);
 
-void MacSnippingArea::setFullScreen()
-{
-    setFixedSize(QDesktopWidget().size());
-    QWidget::showFullScreen();
-}
+protected:
+	QWidget *mWidget;
+};
 
-QPoint MacSnippingArea::getMousePosition() const
-{
-    return QCursor::pos();
-}
-
-QRect MacSnippingArea::getSnippingAreaGeometry() const
-{
-    return geometry();
-}
+#endif //KSNIP_WIDGETHIDER_H

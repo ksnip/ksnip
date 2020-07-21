@@ -22,6 +22,7 @@
 
 #include <QApplication>
 #include <QDesktopWidget>
+#include <QScreen>
 
 class HdpiScaler
 {

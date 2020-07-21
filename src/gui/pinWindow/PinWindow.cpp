@@ -25,10 +25,11 @@ PinWindow::PinWindow(const QPixmap &pixmap, const QString &title) :
 	mCentralWidget(new QLabel(this)),
 	mDropShadowEffect(new QGraphicsDropShadowEffect(this))
 {
-	setWindowFlags(windowFlags() | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+	setWindowFlags(windowFlags() | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::CoverWindow);
 	setAttribute(Qt::WA_TranslucentBackground);
 	setModal(false);
 	setWindowTitle(title);
+	setAttribute(Qt::WA_DeleteOnClose);
 
 	mCentralWidget->setPixmap(pixmap);
 	mLayout->addWidget(mCentralWidget);

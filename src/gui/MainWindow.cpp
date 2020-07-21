@@ -50,7 +50,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mUploaderProvider(new UploaderProvider),
 	mSessionManagerRequestedQuit(false),
 	mCaptureHandler(CaptureHandlerFactory::create(mKImageAnnotator, mTrayIcon, this)),
-	mPinWindowHandler(new PinWindowHandler(this))
+	mPinWindowHandler(new PinWindowHandler(this)),
+	mWidgetHider(WidgetHiderFactory::create(this))
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -133,6 +134,7 @@ MainWindow::~MainWindow()
     delete mDragAndDropHandler;
     delete mUploaderProvider;
     delete mCaptureHandler;
+    delete mWidgetHider;
 }
 
 void MainWindow::processInstantCapture(const CaptureDto &capture)
@@ -182,10 +184,13 @@ void MainWindow::showImage(const CaptureDto &capture)
 {
 	mCaptureHandler->load(capture);
 
-	setHidden(false);
+	setInvisible(false);
 	setEnablements(true);
 
-	adjustSize();
+	if(mSelectedWindowState != Qt::WindowMaximized) {
+		adjustSize();
+	}
+
 	show();
 }
 
@@ -202,7 +207,7 @@ void MainWindow::capturePostProcessing()
 
 void MainWindow::showEmpty()
 {
-    setHidden(false);
+	setInvisible(false);
 	captureChanged();
     setEnablements(false);
     QMainWindow::show();
@@ -217,10 +222,10 @@ void MainWindow::showHidden()
 
 void MainWindow::show()
 {
+	setWindowState(mSelectedWindowState);
 	activateWindow();
 	raise();
 	QMainWindow::show();
-	setWindowState(mSelectedWindowState);
 }
 
 QMenu* MainWindow::createPopupMenu()
@@ -302,26 +307,15 @@ void MainWindow::loadSettings()
     mToolBar->setCaptureDelay(mConfig->captureDelay() / 1000);
 }
 
-void MainWindow::setHidden(bool isHidden)
+void MainWindow::setInvisible(bool isInvisible)
 {
-    if (isHidden == hidden()) {
+    if (isInvisible == mIsInvisible) {
         return;
     }
 
-    mHidden = isHidden;
-    if (mHidden) {
-        setWindowOpacity(0.0);
-        showMinimized();
-    } else {
-        setWindowOpacity(1.0);
-		setWindowState(Qt::WindowActive);
-    }
-	mWindowStateChangeLock = isHidden;
-}
-
-bool MainWindow::hidden() const
-{
-    return mHidden;
+	mIsInvisible = isInvisible;
+	mWidgetHider->setHidden(isInvisible);
+	mWindowStateChangeLock = isInvisible;
 }
 
 void MainWindow::capture(CaptureModes captureMode)
@@ -330,7 +324,7 @@ void MainWindow::capture(CaptureModes captureMode)
 		return;
 	}
 
-    setHidden(true);
+	setInvisible(true);
     mConfig->setCaptureMode(captureMode);
 
 	captureScreenshot(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
@@ -552,7 +546,7 @@ void MainWindow::pasteFromClipboard()
 	auto pixmap = mClipboard->pixmap();
 
 	if(!pixmap.isNull()) {
-		setHidden(false);
+		setInvisible(false);
 		if(mClipboard->url().isNull()) {
 			CaptureDto captureDto(pixmap);
 			processImage(captureDto);
@@ -583,7 +577,7 @@ void MainWindow::loadImageFromFile(const QString &path)
 {
 	auto pixmap = QPixmap(path);
 	if(!pixmap.isNull()) {
-		setHidden(false);
+		setInvisible(false);
 		CaptureFromFileDto captureDto(pixmap, path);
 		processImage(captureDto);
 	}
@@ -596,7 +590,7 @@ void MainWindow::sessionFinished()
 
 void MainWindow::captureCanceled()
 {
-	setHidden(false);
+	setInvisible(false);
 	show();
 }
 

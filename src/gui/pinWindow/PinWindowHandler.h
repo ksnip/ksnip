@@ -35,7 +35,7 @@ public:
 	void add(const QPixmap &pixmap);
 
 public slots:
-	void close()
+	void close();
 	void closeAll();
 	void closeOther();
 

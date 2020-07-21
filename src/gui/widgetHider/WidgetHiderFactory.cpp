@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,30 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "MacSnippingArea.h"
+#include "WidgetHiderFactory.h"
 
-MacSnippingArea::MacSnippingArea() : AbstractSnippingArea()
+WidgetHider *WidgetHiderFactory::create(QWidget *widget)
 {
-    setWindowFlags(windowFlags() | Qt::WindowFullscreenButtonHint);
-}
+#if defined(__APPLE__) || defined(_WIN32)
+	return new WidgetHider(widget);
+#endif
 
-QRect MacSnippingArea::selectedRectArea() const
-{
-    return mHdpiScaler.scale(mCaptureArea);
-}
-
-void MacSnippingArea::setFullScreen()
-{
-    setFixedSize(QDesktopWidget().size());
-    QWidget::showFullScreen();
-}
-
-QPoint MacSnippingArea::getMousePosition() const
-{
-    return QCursor::pos();
-}
-
-QRect MacSnippingArea::getSnippingAreaGeometry() const
-{
-    return geometry();
+#if defined(__linux__)
+	auto platformChecker = PlatformChecker::instance();
+	if (platformChecker->isWayland() && platformChecker->isGnome()) {
+		return new GnomeWaylandWidgetHider(widget);
+	} else {
+		return new WidgetHider(widget);
+	}
+#endif
 }

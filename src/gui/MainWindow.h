@@ -27,8 +27,17 @@
 
 #include <kImageAnnotator/KImageAnnotator.h>
 
+#include "src/gui/TrayIcon.h"
+#include "src/gui/ClipboardWrapper.h"
 #include "src/gui/aboutDialog/AboutDialog.h"
 #include "src/gui/settingsDialog/SettingsDialog.h"
+#include "src/gui/operations/AddWatermarkOperation.h"
+#include "src/gui/operations/UploadOperation.h"
+#include "src/gui/operations/HandleUploadResultOperation.h"
+#include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
+#include "src/gui/captureHandler/CaptureHandlerFactory.h"
+#include "src/gui/captureHandler/ICaptureChangeListener.h"
+#include "src/gui/widgetHider/WidgetHiderFactory.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/config/KsnipConfigProvider.h"
@@ -39,15 +48,7 @@
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/handler/DragAndDropHandler.h"
-#include "src/gui/operations/AddWatermarkOperation.h"
-#include "src/gui/operations/UploadOperation.h"
-#include "src/gui/operations/HandleUploadResultOperation.h"
 #include "src/gui/pinWindow/PinWindowHandler.h"
-#include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
-#include "src/gui/TrayIcon.h"
-#include "src/gui/ClipboardWrapper.h"
-#include "src/gui/captureHandler/CaptureHandlerFactory.h"
-#include "src/gui/captureHandler/ICaptureChangeListener.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -77,7 +78,7 @@ protected:
 private:
     AbstractImageGrabber *mImageGrabber;
     RunMode mMode;
-    bool mHidden;
+    bool mIsInvisible;
     bool mSessionManagerRequestedQuit;
     Qt::WindowState mSelectedWindowState;
     bool mWindowStateChangeLock;
@@ -107,11 +108,11 @@ private:
 	UploaderProvider *mUploaderProvider;
 	ICaptureHandler *mCaptureHandler;
 	PinWindowHandler *mPinWindowHandler;
+	WidgetHider *mWidgetHider;
 
     void setEnablements(bool enabled);
     void loadSettings();
-    void setHidden(bool isHidden);
-    bool hidden() const;
+    void setInvisible(bool isInvisible);
     void capture(CaptureModes captureMode);
     void initGui();
 	void processInstantCapture(const CaptureDto &capture);

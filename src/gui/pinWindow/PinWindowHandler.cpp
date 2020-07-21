@@ -23,7 +23,6 @@ PinWindowHandler::PinWindowHandler(QWidget *parent) :
 	QObject(parent),
 	mParent(parent)
 {
-
 }
 
 PinWindowHandler::~PinWindowHandler()

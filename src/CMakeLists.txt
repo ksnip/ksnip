@@ -43,6 +43,12 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/widgets/KeySequenceLineEdit.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomLineEdit.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/MainWindow.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/TrayIcon.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/ClipboardWrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/WidgetHider.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/GnomeWaylandWidgetHider.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/WidgetHiderFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AbstractSnippingArea.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/SnippingAreaAdorner.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AdornerMagnifyingGlass.cpp
@@ -64,9 +70,6 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/VersionTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AuthorTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/DonateTab.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/TrayIcon.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/ClipboardWrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/GlobalHotKey.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/NativeKeyEventFilter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/AbstractKeyHandler.cpp

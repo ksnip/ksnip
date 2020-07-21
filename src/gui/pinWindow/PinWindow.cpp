@@ -37,14 +37,42 @@ PinWindow::PinWindow(const QPixmap &pixmap, const QString &title) :
 	auto margin = 15;
 	setContentsMargins(margin, margin, margin, margin);
 
-	mDropShadowEffect->setColor(QColor(160,160,160));
-	mDropShadowEffect->setBlurRadius(margin * 2);
-	mDropShadowEffect->setOffset(0);
-	setGraphicsEffect(mDropShadowEffect);
+	addDropShadow(margin);
 }
 
 PinWindow::~PinWindow()
 {
 	delete mLayout;
 	delete mCentralWidget;
+	delete mDropShadowEffect;
+}
+
+void PinWindow::addDropShadow(int margin)
+{
+	mDropShadowEffect->setColor(QColor(160, 160, 160));
+	mDropShadowEffect->setBlurRadius(margin * 2);
+	mDropShadowEffect->setOffset(0);
+	setGraphicsEffect(mDropShadowEffect);
+}
+
+void PinWindow::mouseDoubleClickEvent(QMouseEvent *event)
+{
+	Q_UNUSED(event)
+	emit close();
+}
+
+void PinWindow::keyPressEvent(QKeyEvent *event)
+{
+	if(event->key() == Qt::Key_Escape) {
+		emit close();
+	}
+}
+
+void PinWindow::contextMenuEvent(QContextMenuEvent *event)
+{
+	QMenu menu;
+	menu.addAction(tr("Close"), this, &PinWindow::closeRequest);
+	menu.addAction(tr("Close Other"), this, &PinWindow::closeOtherRequest);
+	menu.addAction(tr("Close All"), this, &PinWindow::closeAllRequest);
+	menu.exec(event->globalPos());
 }

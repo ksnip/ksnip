@@ -26,6 +26,8 @@
 #include <QGraphicsDropShadowEffect>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QMenu>
+#include <QContextMenuEvent>
 
 class PinWindow : public QDialog
 {
@@ -34,10 +36,21 @@ public:
 	explicit PinWindow(const QPixmap &pixmap, const QString &title);
 	~PinWindow() override;
 
+signals:
+	void closeRequest();
+	void closeOtherRequest();
+	void closeAllRequest();
+
+protected:
+	void mouseDoubleClickEvent(QMouseEvent *event) override;
+	void contextMenuEvent(QContextMenuEvent *event) override;
+	void keyPressEvent(QKeyEvent *event) override;
+
 private:
 	QLabel *mCentralWidget;
 	QVBoxLayout *mLayout;
 	QGraphicsDropShadowEffect *mDropShadowEffect;
+	void addDropShadow(int margin);
 };
 
 #endif //KSNIP_PINWINDOW_H

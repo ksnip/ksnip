@@ -35,13 +35,14 @@ public:
 	void add(const QPixmap &pixmap);
 
 public slots:
-	void close();
-	void closeAll();
-	void closeOther();
+	void closeRequested();
+	void closeAllRequested();
+	void closeOtherRequested();
 
 private:
 	QWidget *mParent;
 	QList<QSharedPointer<PinWindow>> mPinWindows;
+	QSharedPointer<PinWindow> CreatePinWindow(const QPixmap &pixmap) const;
 };
 
 #endif //KSNIP_PINWINDOWHANDLER_H

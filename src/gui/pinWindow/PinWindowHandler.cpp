@@ -32,25 +32,35 @@ PinWindowHandler::~PinWindowHandler()
 
 void PinWindowHandler::add(const QPixmap &pixmap)
 {
-	auto titel = tr("Pin Window %1").arg(QString::number(mPinWindows.count() + 1));
-	auto pinWindow = QSharedPointer<PinWindow>(new PinWindow(pixmap, titel));
+	auto pinWindow = CreatePinWindow(pixmap);
 	pinWindow->show();
 	mPinWindows.append(pinWindow);
 }
 
-void PinWindowHandler::close()
+QSharedPointer<PinWindow> PinWindowHandler::CreatePinWindow(const QPixmap &pixmap) const
+{
+	auto title = tr("Pin Window %1").arg(QString::number(mPinWindows.count() + 1));
+	auto pinWindow = QSharedPointer<PinWindow>(new PinWindow(pixmap, title));
+	connect(pinWindow.data(), &PinWindow::closeRequest, this, &PinWindowHandler::closeRequested);
+	connect(pinWindow.data(), &PinWindow::closeOtherRequest, this, &PinWindowHandler::closeOtherRequested);
+	connect(pinWindow.data(), &PinWindow::closeAllRequest, this, &PinWindowHandler::closeAllRequested);
+
+	return pinWindow;
+}
+
+void PinWindowHandler::closeRequested()
 {
 	auto caller = dynamic_cast<PinWindow*>(sender());
 	caller->hide();
 	for(const auto& pinWindow : mPinWindows){
 		if(pinWindow.data() == caller) {
-			mPinWindows.removeAll(pinWindow);
+			mPinWindows.removeOne(pinWindow);
 			break;
 		}
 	}
 }
 
-void PinWindowHandler::closeAll()
+void PinWindowHandler::closeAllRequested()
 {
 	for(const auto& pinWindow : mPinWindows){
 		pinWindow->hide();
@@ -58,7 +68,13 @@ void PinWindowHandler::closeAll()
 	mPinWindows.clear();
 }
 
-void PinWindowHandler::closeOther()
+void PinWindowHandler::closeOtherRequested()
 {
 	auto caller = dynamic_cast<PinWindow*>(sender());
+	for (auto iterator = mPinWindows.begin(); iterator != mPinWindows.end(); ++iterator) {
+		if(iterator->data() != caller) {
+			iterator->data()->hide();
+			mPinWindows.removeOne(*iterator);
+		}
+	}
 }

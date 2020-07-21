@@ -298,6 +298,7 @@ void MainWindow::setEnablements(bool enabled)
     mToolBar->setCopyActionEnabled(enabled);
     mToolBar->setCropEnabled(enabled);
 	mSaveAsAction->setEnabled(enabled);
+	mPinAction->setEnabled(enabled);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mKImageAnnotator->isVisible());
 }
 
@@ -408,6 +409,7 @@ void MainWindow::initGui()
 	mPinAction->setText(tr("Pin"));
 	mPinAction->setToolTip(tr("Pin screenshot to foreground in frameless window"));
 	mPinAction->setShortcut(Qt::SHIFT + Qt::Key_P);
+	mPinAction->setIcon(IconLoader::load(QStringLiteral("pin")));
 	connect(mPinAction, &QAction::triggered, this, &MainWindow::showPinWindow);
 
 	auto menu = menuBar()->addMenu(tr("&File"));

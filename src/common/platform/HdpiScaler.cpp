@@ -52,10 +52,17 @@ qreal HdpiScaler::scaleFactor() const
 	qDebug("logicalDpiY: %s", qPrintable(QString::number(desktopWidget->logicalDpiY())));
 	qDebug("physicalDpiX: %s", qPrintable(QString::number(desktopWidget->physicalDpiX())));
 	qDebug("physicalDpiY: %s", qPrintable(QString::number(desktopWidget->physicalDpiY())));
-	
-	auto scaleFactor = static_cast<qreal>(desktopWidget->physicalDpiX()) / static_cast<qreal>(desktopWidget->logicalDpiX());
-	qDebug("ScaleFacotr: %s", qPrintable(QString::number(scaleFactor)));
-	return scaleFactor;
+
+    auto screen = QApplication::primaryScreen();
+    qDebug("QScreen devicePixelRatio: %s", qPrintable(QString::number(screen->devicePixelRatio())));
+    qDebug("QScreen logicalDotsPerInch: %s", qPrintable(QString::number(screen->logicalDotsPerInch())));
+    qDebug("QScreen logicalDotsPerInchX: %s", qPrintable(QString::number(screen->logicalDotsPerInchX())));
+    qDebug("QScreen logicalDotsPerInchY: %s", qPrintable(QString::number(screen->logicalDotsPerInchY())));
+    qDebug("QScreen physicalDotsPerInch: %s", qPrintable(QString::number(screen->physicalDotsPerInch())));
+    qDebug("QScreen physicalDotsPerInchX: %s", qPrintable(QString::number(screen->physicalDotsPerInchX())));
+    qDebug("QScreen physicalDotsPerInchY: %s", qPrintable(QString::number(screen->physicalDotsPerInchY())));
+
+	return screen->devicePixelRatio();
 #endif
 	
 #if defined(__linux__) || defined(_WIN32)

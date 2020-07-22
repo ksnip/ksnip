@@ -45,12 +45,17 @@ protected:
 	void mouseDoubleClickEvent(QMouseEvent *event) override;
 	void contextMenuEvent(QContextMenuEvent *event) override;
 	void keyPressEvent(QKeyEvent *event) override;
+	void enterEvent(QEvent *event) override;
+	void leaveEvent(QEvent *event) override;
 
 private:
 	QLabel *mCentralWidget;
 	QVBoxLayout *mLayout;
 	QGraphicsDropShadowEffect *mDropShadowEffect;
-	void addDropShadow(int margin);
+	int mMargin;
+	int mHoverMargin;
+
+	void addDropShadow();
 };
 
 #endif //KSNIP_PINWINDOW_H

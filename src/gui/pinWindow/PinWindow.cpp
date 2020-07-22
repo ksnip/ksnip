@@ -23,7 +23,8 @@ PinWindow::PinWindow(const QPixmap &pixmap, const QString &title) :
 	QDialog(nullptr),
 	mLayout(new QVBoxLayout(this)),
 	mCentralWidget(new QLabel(this)),
-	mDropShadowEffect(new QGraphicsDropShadowEffect(this))
+	mDropShadowEffect(new QGraphicsDropShadowEffect(this)),
+	mMargin(15)
 {
 	setWindowFlags(windowFlags() | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::CoverWindow);
 	setAttribute(Qt::WA_TranslucentBackground);
@@ -34,10 +35,9 @@ PinWindow::PinWindow(const QPixmap &pixmap, const QString &title) :
 	mCentralWidget->setPixmap(pixmap);
 	mLayout->addWidget(mCentralWidget);
 
-	auto margin = 15;
-	setContentsMargins(margin, margin, margin, margin);
+	setContentsMargins(mMargin, mMargin, mMargin, mMargin);
 
-	addDropShadow(margin);
+	addDropShadow();
 }
 
 PinWindow::~PinWindow()
@@ -47,10 +47,10 @@ PinWindow::~PinWindow()
 	delete mDropShadowEffect;
 }
 
-void PinWindow::addDropShadow(int margin)
+void PinWindow::addDropShadow()
 {
 	mDropShadowEffect->setColor(QColor(160, 160, 160));
-	mDropShadowEffect->setBlurRadius(margin * 2);
+	mDropShadowEffect->setBlurRadius(mMargin * 2);
 	mDropShadowEffect->setOffset(0);
 	setGraphicsEffect(mDropShadowEffect);
 }
@@ -75,4 +75,16 @@ void PinWindow::contextMenuEvent(QContextMenuEvent *event)
 	menu.addAction(tr("Close Other"), this, &PinWindow::closeOtherRequest);
 	menu.addAction(tr("Close All"), this, &PinWindow::closeAllRequest);
 	menu.exec(event->globalPos());
+}
+
+void PinWindow::enterEvent(QEvent *event)
+{
+	mDropShadowEffect->setBlurRadius(mDropShadowEffect->blurRadius() + 4);
+	QWidget::enterEvent(event);
+}
+
+void PinWindow::leaveEvent(QEvent *event)
+{
+	mDropShadowEffect->setBlurRadius(mDropShadowEffect->blurRadius() - 4);
+	QWidget::leaveEvent(event);
 }

@@ -28,6 +28,7 @@
 #include <QLabel>
 #include <QMenu>
 #include <QContextMenuEvent>
+#include <QWheelEvent>
 
 class PinWindow : public QDialog
 {
@@ -47,13 +48,15 @@ protected:
 	void keyPressEvent(QKeyEvent *event) override;
 	void enterEvent(QEvent *event) override;
 	void leaveEvent(QEvent *event) override;
+	void wheelEvent(QWheelEvent *event) override;
 
 private:
 	QLabel *mCentralWidget;
 	QVBoxLayout *mLayout;
 	QGraphicsDropShadowEffect *mDropShadowEffect;
 	int mMargin;
-	int mHoverMargin;
+	int mMinSize;
+	QPixmap mImage;
 
 	void addDropShadow();
 };

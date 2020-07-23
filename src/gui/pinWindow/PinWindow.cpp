@@ -24,7 +24,9 @@ PinWindow::PinWindow(const QPixmap &pixmap, const QString &title) :
 	mLayout(new QVBoxLayout(this)),
 	mCentralWidget(new QLabel(this)),
 	mDropShadowEffect(new QGraphicsDropShadowEffect(this)),
-	mMargin(15)
+	mMargin(10),
+	mMinSize(50),
+	mImage(pixmap)
 {
 	setWindowFlags(windowFlags() | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::CoverWindow);
 	setAttribute(Qt::WA_TranslucentBackground);
@@ -32,7 +34,7 @@ PinWindow::PinWindow(const QPixmap &pixmap, const QString &title) :
 	setWindowTitle(title);
 	setAttribute(Qt::WA_DeleteOnClose);
 
-	mCentralWidget->setPixmap(pixmap);
+	mCentralWidget->setPixmap(mImage);
 	mLayout->addWidget(mCentralWidget);
 
 	setContentsMargins(mMargin, mMargin, mMargin, mMargin);
@@ -87,4 +89,16 @@ void PinWindow::leaveEvent(QEvent *event)
 {
 	mDropShadowEffect->setBlurRadius(mDropShadowEffect->blurRadius() - 4);
 	QWidget::leaveEvent(event);
+}
+
+void PinWindow::wheelEvent(QWheelEvent *event)
+{
+	auto delta = event->delta() / 10;
+	auto scaledSize = QSize(mCentralWidget->width() + delta, mCentralWidget->height() + delta);
+
+	if(scaledSize.width() > mMinSize && scaledSize.height() > mMinSize) {
+		auto scaledImage = mImage.scaled(scaledSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+		mCentralWidget->setPixmap(scaledImage);
+		adjustSize();
+	}
 }

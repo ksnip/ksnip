@@ -46,12 +46,12 @@ qreal HdpiScaler::scaleFactor() const
 	auto desktopWidget = QApplication::desktop();
 	
 #if defined(__APPLE__)
-	qDebug("devicePixelRatio: %s", qPrintable(QString::number(desktopWidget->devicePixelRatio())));
-	qDebug("devicePixelRatioF: %s", qPrintable(QString::number(desktopWidget->devicePixelRatioF())));
-	qDebug("logicalDpiX: %s", qPrintable(QString::number(desktopWidget->logicalDpiX())));
-	qDebug("logicalDpiY: %s", qPrintable(QString::number(desktopWidget->logicalDpiY())));
-	qDebug("physicalDpiX: %s", qPrintable(QString::number(desktopWidget->physicalDpiX())));
-	qDebug("physicalDpiY: %s", qPrintable(QString::number(desktopWidget->physicalDpiY())));
+	qDebug("DesktopWidget devicePixelRatio: %s", qPrintable(QString::number(desktopWidget->devicePixelRatio())));
+	qDebug("DesktopWidget devicePixelRatioF: %s", qPrintable(QString::number(desktopWidget->devicePixelRatioF())));
+	qDebug("DesktopWidget logicalDpiX: %s", qPrintable(QString::number(desktopWidget->logicalDpiX())));
+	qDebug("DesktopWidget logicalDpiY: %s", qPrintable(QString::number(desktopWidget->logicalDpiY())));
+	qDebug("DesktopWidget physicalDpiX: %s", qPrintable(QString::number(desktopWidget->physicalDpiX())));
+	qDebug("DesktopWidget physicalDpiY: %s", qPrintable(QString::number(desktopWidget->physicalDpiY())));
 
     auto screen = QApplication::primaryScreen();
     qDebug("QScreen devicePixelRatio: %s", qPrintable(QString::number(screen->devicePixelRatio())));
@@ -62,7 +62,16 @@ qreal HdpiScaler::scaleFactor() const
     qDebug("QScreen physicalDotsPerInchX: %s", qPrintable(QString::number(screen->physicalDotsPerInchX())));
     qDebug("QScreen physicalDotsPerInchY: %s", qPrintable(QString::number(screen->physicalDotsPerInchY())));
 
-	return screen->devicePixelRatio();
+    auto widget = QApplication::activeWindow();
+    qDebug("Widget devicePixelRatio: %s", qPrintable(QString::number(widget->devicePixelRatio())));
+    qDebug("Widget devicePixelRatioF: %s", qPrintable(QString::number(widget->devicePixelRatioF())));
+    qDebug("Widget logicalDpiX: %s", qPrintable(QString::number(widget->logicalDpiX())));
+    qDebug("Widget logicalDpiY: %s", qPrintable(QString::number(widget->logicalDpiY())));
+    qDebug("Widget physicalDpiX: %s", qPrintable(QString::number(widget->physicalDpiX())));
+    qDebug("Widget physicalDpiY: %s", qPrintable(QString::number(widget->physicalDpiY())));
+
+	return widget->devicePixelRatio();
+
 #endif
 	
 #if defined(__linux__) || defined(_WIN32)

@@ -409,7 +409,7 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Het script is weggeschreven naar StdErr.</translation>
     </message>
 </context>
 <context>
@@ -947,21 +947,23 @@ wordt dit script aangeroepen op het pad van de tijdelijke png.</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Stoppen als uploadscript is weggeschreven naar StdErr</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Markeert de upload als &apos;mislukt&apos; als het script wordt weggeschreven naar StdErr.
+Schakel uit om scriptfouten te negeren.</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Reguliere uitdrukking. Kopieer alleen tekst naar het klembord die hiermee overeenkomt.
+Sla over om álles te kopiëren.</translation>
     </message>
 </context>
 <context>

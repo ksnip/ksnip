@@ -33,6 +33,8 @@
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/helper/PathHelper.h"
 #include "src/common/enum/UploaderType.h"
+#include "src/common/constants/DefaultValues.h"
+
 
 class KsnipConfig : public QObject
 {

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
-    sudo add-apt-repository ppa:beineri/opt-qt594-trusty -y
+    sudo add-apt-repository ppa:beineri/opt-qt594-xenial -y
     sudo apt-get update -qq
 
     echo "--> Download linuxdeployqt tool"

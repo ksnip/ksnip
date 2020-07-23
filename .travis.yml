@@ -7,20 +7,7 @@ services: xvfb
 git:
   depth: false
 
-matrix:
-  include:
-    - os: linux
-      env: BINARY_TYPE=AppImage
-    - os: linux
-      env: BINARY_TYPE=deb
-      services: docker
-    - os: linux
-      env: BINARY_TYPE=rpm
-      services: docker
-    - os: windows
-      env: BINARY_TYPE=exe
-    - os: osx
-      env: BINARY_TYPE=app
+
 
 before_install:
   - source ci/scripts/bootstrap.sh
@@ -37,9 +24,36 @@ after_success:
 
 jobs:
   include:
+    - stage: build
+      matrix:
+        include:
+          - os: linux
+            env: BINARY_TYPE=AppImage
+          - os: linux
+            env: BINARY_TYPE=deb
+            services: docker
+          - os: linux
+            env: BINARY_TYPE=rpm
+            services: docker
+          - os: windows
+            env: BINARY_TYPE=exe
+          - os: osx
+            env: BINARY_TYPE=app
+      before_install:
+        - source ci/scripts/bootstrap.sh
+      install:
+        - source ci/scripts/setup.sh
+      script:
+        - source ci/scripts/build.sh
+      after_success:
+        - source ci/scripts/upload.sh
     - stage: test
       os: linux
       env: BINARY_TYPE=AppImage
+      before_install:
+        - source ci/scripts/bootstrap.sh
+      install:
+        - source ci/scripts/setup.sh
       script:
         - mkdir build ; cd build
         - cmake .. -DBUILD_TESTS=ON ; make

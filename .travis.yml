@@ -1,7 +1,8 @@
 language: cpp
 compiler: gcc
 sudo: required
-dist: trusty
+dist: xenial
+services: xvfb
 
 git:
   depth: false
@@ -32,6 +33,17 @@ script:
 
 after_success:
   - source ci/scripts/upload.sh
+
+
+jobs:
+  include:
+    - stage: test
+      os: linux
+      env: BINARY_TYPE=AppImage
+      script:
+        - mkdir build ; cd build
+        - cmake .. -DBUILD_TESTS=ON ; make
+        - xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" make test CTEST_OUTPUT_ON_FAILURE=1
 
 branches:
   except:

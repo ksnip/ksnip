@@ -7,21 +7,6 @@ services: xvfb
 git:
   depth: false
 
-
-
-before_install:
-  - source ci/scripts/bootstrap.sh
-
-install:
-  - source ci/scripts/setup.sh
-
-script:
-  - source ci/scripts/build.sh
-
-after_success:
-  - source ci/scripts/upload.sh
-
-
 jobs:
   include:
     - stage: build

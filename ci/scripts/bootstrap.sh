@@ -1,8 +1,7 @@
 #!/bin/bash
 
 if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
-    sudo add-apt-repository ppa:beineri/opt-qt594-xenial -y
-    sudo apt-get update -qq
+    source ci/scripts/common/bootstrap_ubuntu_repos.sh
 
     echo "--> Download linuxdeployqt tool"
     wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
@@ -24,7 +23,7 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     wget --quiet -O qttools.7z "${QT_BASE_URL}qttools-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
     wget --quiet -O qttranslations.7z "${QT_BASE_URL}qttranslations-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
     wget --quiet -O qtsvg.7z "${QT_BASE_URL}qtsvg-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
-	wget --quiet -O openssl.zip "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip"
+	  wget --quiet -O openssl.zip "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip"
 
     7z x qtbase.7z -o/c/qt
     7z x qtwinextras.7z -o/c/qt

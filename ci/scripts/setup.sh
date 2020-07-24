@@ -20,30 +20,8 @@ git clone git://github.com/DamirPorobic/kColorPicker
 git clone git://github.com/DamirPorobic/kImageAnnotator
 
 if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
-    sudo apt-get -y install mesa-common-dev libglu1-mesa-dev qt59base qt59x11extras qt59tools qt59svg
-    source /opt/qt*/bin/qt*-env.sh
-
-    echo "--> Install Extra CMake Modules"
-    git clone git://github.com/KDE/extra-cmake-modules
-    cd extra-cmake-modules
-    mkdir build && cd build
-    cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
-    make && sudo make install
-    cd ../..
-
-    echo "--> Install kColorPicker"
-    cd kColorPicker
-    mkdir build && cd build
-    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
-    make && sudo make install
-    cd ../..
-
-    echo "--> Install kImageAnnotator"
-    cd kImageAnnotator
-    mkdir build && cd build
-    cmake .. -DBUILD_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
-    make && sudo make install
-    cd ../..
+    source ci/scripts/common/setup_ubuntu_qt.sh
+    source ci/scripts/common/setup_dependencies_ubuntu.sh
 
 elif [[ "${BINARY_TYPE}" == "deb" ]]; then
     docker exec build-container apt-get update

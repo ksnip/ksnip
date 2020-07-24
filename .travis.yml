@@ -10,28 +10,43 @@ git:
 jobs:
   include:
     - stage: build
-      matrix:
-        include:
-          - os: linux
-            env: BINARY_TYPE=AppImage
-          - os: linux
-            env: BINARY_TYPE=deb
-            services: docker
-          - os: linux
-            env: BINARY_TYPE=rpm
-            services: docker
-          - os: windows
-            env: BINARY_TYPE=exe
-          - os: osx
-            env: BINARY_TYPE=app
-      before_install:
-        - source ci/scripts/bootstrap.sh
-      install:
-        - source ci/scripts/setup.sh
-      script:
-        - source ci/scripts/build.sh
-      after_success:
-        - source ci/scripts/upload.sh
+      os: linux
+      env: BINARY_TYPE=AppImage
+      before_install: source ci/scripts/bootstrap.sh
+      install: source ci/scripts/setup.sh
+      script: source ci/scripts/build.sh
+      after_success: source ci/scripts/upload.sh
+    - stage: build
+      os: linux
+      env: BINARY_TYPE=deb
+      services: docker
+      before_install: source ci/scripts/bootstrap.sh
+      install: source ci/scripts/setup.sh
+      script: source ci/scripts/build.sh
+      after_success: source ci/scripts/upload.sh
+    - stage: build
+      os: linux
+      env: BINARY_TYPE=rpm
+      services: docker
+      before_install: source ci/scripts/bootstrap.sh
+      install: source ci/scripts/setup.sh
+      script: source ci/scripts/build.sh
+      after_success: source ci/scripts/upload.sh
+    - stage: build
+      os: windows
+      env: BINARY_TYPE=exe
+      before_install: source ci/scripts/bootstrap.sh
+      install: source ci/scripts/setup.sh
+      script: source ci/scripts/build.sh
+      after_success: source ci/scripts/upload.sh
+    - stage: build
+      os: osx
+      env: BINARY_TYPE=app
+      before_install: source ci/scripts/bootstrap.sh
+      install: source ci/scripts/setup.sh
+      script: source ci/scripts/build.sh
+      after_success: source ci/scripts/upload.sh
+
     - stage: test
       os: linux
       env: BINARY_TYPE=AppImage

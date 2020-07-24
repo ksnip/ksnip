@@ -20,7 +20,7 @@ git clone git://github.com/DamirPorobic/kColorPicker
 git clone git://github.com/DamirPorobic/kImageAnnotator
 
 if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
-    sudo apt-get -y install qt59base qt59x11extras qt59tools qt59svg
+    sudo apt-get -y install mesa-common-dev libglu1-mesa-dev qt59base qt59x11extras qt59tools qt59svg
     source /opt/qt*/bin/qt*-env.sh
 
     echo "--> Install Extra CMake Modules"
@@ -52,7 +52,7 @@ elif [[ "${BINARY_TYPE}" == "deb" ]]; then
                                                    build-essential \
                                                    qt5-default \
                                                    libqt5x11extras5-dev \
-												   qttools5-dev \
+												                           qttools5-dev \
                                                    qttools5-dev-tools \
                                                    extra-cmake-modules \
                                                    libqt5svg5-dev \

@@ -17,27 +17,14 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_FILEDIALOGADAPTER_H
-#define KSNIP_FILEDIALOGADAPTER_H
+#include "SnapFileDialogAdapter.h"
 
-#include <QFileDialog>
-
-#if defined(__linux__)
-#include "src/common/platform/CommandRunner.h"
-#endif
-
-class FileDialogAdapter
+QString SnapFileDialogAdapter::getExistingDirectory(QWidget *parent, const QString &title, const QString &directory)
 {
-public:
-	explicit FileDialogAdapter();
-	~FileDialogAdapter() = default;
-	QString	getExistingDirectory(QWidget *parent, const QString &title, const QString &directory);
-	QString	getOpenFileName(QWidget *parent, const QString &title, const QString &directory);
+	return QFileDialog::getExistingDirectory(parent, title, directory, QFileDialog::DontUseNativeDialog);
+}
 
-#if defined(__linux__)
-private:
-	bool mIsSnap;
-#endif
-};
-
-#endif //KSNIP_FILEDIALOGADAPTER_H
+QString SnapFileDialogAdapter::getOpenFileName(QWidget *parent, const QString &title, const QString &directory)
+{
+	return QFileDialog::getOpenFileName(parent, title, directory, nullptr, nullptr, QFileDialog::DontUseNativeDialog);
+}

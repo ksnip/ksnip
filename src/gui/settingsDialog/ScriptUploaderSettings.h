@@ -29,7 +29,7 @@
 #include <QFileDialog>
 
 #include "src/backend/config/KsnipConfig.h"
-#include "src/common/adapter/FileDialogAdapter.h"
+#include "common/adapter/fileDialog/FileDialogAdapterFactory.h"
 
 class ScriptUploaderSettings : public QGroupBox
 {
@@ -49,7 +49,7 @@ private:
 	QLabel *mCopyOutputFilterLabel;
 	QLabel *mScriptPathLabel;
 	QPushButton *mBrowseButton;
-	FileDialogAdapter mFileDialog;
+	IFileDialogAdapter *mFileDialog;
 
 	void initGui();
 	void loadConfig();

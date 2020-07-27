@@ -19,40 +19,12 @@
 
 #include "FileDialogAdapter.h"
 
-FileDialogAdapter::FileDialogAdapter()
-{
-#if defined(__linux__)
-	CommandRunner commandRunner;
-	mIsSnap = commandRunner.isEnvironmentVariableSet(QStringLiteral("SNAP"));
-#endif
-}
-
 QString FileDialogAdapter::getExistingDirectory(QWidget *parent, const QString &title, const QString &directory)
 {
-#if defined(__linux__)
-	if (mIsSnap) {
-		return QFileDialog::getExistingDirectory(parent, title, directory, QFileDialog::DontUseNativeDialog);
-	} else {
-		return QFileDialog::getExistingDirectory(parent, title, directory);
-	}
-#endif
-
-#if  defined(_WIN32) || defined(__APPLE__)
 	return QFileDialog::getExistingDirectory(parent, title, directory);
-#endif
 }
 
 QString FileDialogAdapter::getOpenFileName(QWidget *parent, const QString &title, const QString &directory)
 {
-#if defined(__linux__)
-	if (mIsSnap) {
-		return QFileDialog::getOpenFileName(parent, title, directory, nullptr, nullptr, QFileDialog::DontUseNativeDialog);
-	} else {
-		return QFileDialog::getOpenFileName(parent, title, directory);
-	}
-#endif
-
-#if  defined(_WIN32) || defined(__APPLE__)
 	return QFileDialog::getOpenFileName(parent, title, directory);
-#endif
 }

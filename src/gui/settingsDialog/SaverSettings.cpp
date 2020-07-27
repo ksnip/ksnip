@@ -27,7 +27,8 @@ SaverSettings::SaverSettings(KsnipConfig *ksnipConfig) :
 	mSaveLocationLabel(new QLabel(this)),
 	mSaveLocationLineEdit(new QLineEdit(this)),
 	mBrowseButton(new QPushButton(this)),
-	mLayout(new QGridLayout)
+	mLayout(new QGridLayout),
+	mFileDialog(FileDialogAdapterFactory::create())
 {
 	Q_ASSERT(mConfig != nullptr);
 
@@ -43,6 +44,7 @@ SaverSettings::~SaverSettings()
 	delete mSaveLocationLabel;
 	delete mSaveLocationLineEdit;
 	delete mBrowseButton;
+	delete mFileDialog;
 }
 
 void SaverSettings::initGui()
@@ -97,7 +99,7 @@ void SaverSettings::saveSettings()
 
 void SaverSettings::chooseSaveDirectory()
 {
-	auto path = mFileDialog.getExistingDirectory(this, tr("Capture save location"), mConfig->saveDirectory());
+	auto path = mFileDialog->getExistingDirectory(this, tr("Capture save location"), mConfig->saveDirectory());
 	if(!path.isEmpty()) {
 		auto filename = PathHelper::extractFilename(mSaveLocationLineEdit->text());
 		auto format = PathHelper::extractFormat(mSaveLocationLineEdit->text());

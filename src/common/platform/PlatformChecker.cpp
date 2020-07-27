@@ -48,7 +48,7 @@ bool PlatformChecker::isGnome() const
 void PlatformChecker::checkPlatform()
 {
     CommandRunner runner;
-    auto output = runner.getEnviromentVariable(QStringLiteral("XDG_SESSION_TYPE"));
+    auto output = runner.getEnvironmentVariable(QStringLiteral("XDG_SESSION_TYPE"));
     if (outputContainsValue(output, QStringLiteral("x11"))) {
         mPlatform = Platform::X11;
     } else if (outputContainsValue(output, QStringLiteral("wayland"))) {
@@ -61,7 +61,7 @@ void PlatformChecker::checkPlatform()
 void PlatformChecker::checkEnvironment()
 {
     CommandRunner runner;
-    auto output = runner.getEnviromentVariable(QStringLiteral("XDG_CURRENT_DESKTOP"));
+    auto output = runner.getEnvironmentVariable(QStringLiteral("XDG_CURRENT_DESKTOP"));
     if (outputContainsValue(output, QStringLiteral("kde"))) {
         mEnvironment = Environment::KDE;
     } else if (outputContainsValue(output, QStringLiteral("gnome"))) {

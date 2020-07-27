@@ -29,6 +29,7 @@
 #include <QFileDialog>
 
 #include "src/backend/config/KsnipConfig.h"
+#include "src/common/adapter/FileDialogAdapter.h"
 
 class SaverSettings : public QGroupBox
 {
@@ -47,6 +48,7 @@ private:
 	QPushButton *mBrowseButton;
 	QGridLayout *mLayout;
 	KsnipConfig *mConfig;
+	FileDialogAdapter mFileDialog;
 
 	void initGui();
 	void loadConfig();

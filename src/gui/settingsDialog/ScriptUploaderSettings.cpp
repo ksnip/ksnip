@@ -104,7 +104,7 @@ void ScriptUploaderSettings::loadConfig()
 
 void ScriptUploaderSettings::ShowScriptSelectionDialog()
 {
-	auto path = QFileDialog::getOpenFileName(this, tr("Select Upload Script"), mConfig->uploadScriptPath());
+	auto path = mFileDialog.getOpenFileName(this, tr("Select Upload Script"), mConfig->uploadScriptPath());
 	if(PathHelper::isPathValid(path)) {
 		mUploadScriptPathLineEdit->setText(path);
 	}

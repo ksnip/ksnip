@@ -21,6 +21,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/WatermarkImageLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ipc/IpcServer.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ipc/IpcClient.cpp
+	${CMAKE_SOURCE_DIR}/src/common/adapter/FileDialogAdapter.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MessageBoxHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/PathHelper.cpp

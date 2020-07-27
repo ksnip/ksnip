@@ -97,7 +97,7 @@ void SaverSettings::saveSettings()
 
 void SaverSettings::chooseSaveDirectory()
 {
-	auto path = QFileDialog::getExistingDirectory(this, tr("Capture save location"), mConfig->saveDirectory());
+	auto path = mFileDialog.getExistingDirectory(this, tr("Capture save location"), mConfig->saveDirectory());
 	if(!path.isEmpty()) {
 		auto filename = PathHelper::extractFilename(mSaveLocationLineEdit->text());
 		auto format = PathHelper::extractFormat(mSaveLocationLineEdit->text());

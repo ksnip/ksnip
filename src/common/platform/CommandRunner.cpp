@@ -19,7 +19,7 @@
 
 #include "CommandRunner.h"
 
-QString CommandRunner::getEnviromentVariable(const QString& variable) const
+QString CommandRunner::getEnvironmentVariable(const QString& variable) const
 {
     QString value;
 
@@ -39,4 +39,9 @@ QString CommandRunner::getEnviromentVariable(const QString& variable) const
         pclose(stream);
     }
     return value;
+}
+
+bool CommandRunner::isEnvironmentVariableSet(const QString &variable) const
+{
+	return QProcessEnvironment::systemEnvironment().contains(variable);
 }

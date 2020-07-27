@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,20 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef COMMANDRUNNER_H
-#define COMMANDRUNNER_H
+#ifndef KSNIP_FILEDIALOGADAPTER_H
+#define KSNIP_FILEDIALOGADAPTER_H
 
-#include <QString>
-#include <QProcess>
+#include <QFileDialog>
 
-class CommandRunner
+#if defined(__linux__)
+#include "src/common/platform/CommandRunner.h"
+#endif
+
+class FileDialogAdapter
 {
 public:
-    QString getEnvironmentVariable(const QString &variable) const;
-    bool isEnvironmentVariableSet(const QString &variable) const;
+	explicit FileDialogAdapter();
+	~FileDialogAdapter() = default;
+	QString	getExistingDirectory(QWidget *parent, const QString &title, const QString &directory);
+	QString	getOpenFileName(QWidget *parent, const QString &title, const QString &directory);
 
+#if defined(__linux__)
 private:
-    const int mMaxBuffer = 256;
+	bool mIsSnap;
+#endif
 };
 
-#endif // COMMANDRUNNER_H
+#endif //KSNIP_FILEDIALOGADAPTER_H

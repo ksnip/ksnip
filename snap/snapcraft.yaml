@@ -43,6 +43,9 @@ parts:
     build-packages:
       - libglvnd-dev
       - libx11-dev
+    stage-packages:
+      - curl
+      - ftp
     configflags:
       - -DCMAKE_FIND_ROOT_PATH=/snap/kde-frameworks-5-core18-sdk/current;/snap/kimageannotator/current
     override-pull: |

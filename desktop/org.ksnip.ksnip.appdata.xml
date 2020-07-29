@@ -11,19 +11,29 @@
 ​       </p>
         <p>Screenshots:</p>
         <ul>
-            <li>Supports Linux (X11 and experimental KDE and Gnome Wayland support), Windows and MacOS.</li>
+            <li>Supports Linux (X11, Plasma Wayland and Gnome Wayland), Windows and macOS.</li>
             <li>Taking screenshot of a custom rectangular area that can be drawn with mouse cursor.</li>
+            <li>Taking screenshot of last selected rectangular area without selecting again.</li>
             <li>Taking screenshot of the screen/monitor where the mouse cursor is currently located.</li>
-            <li>Taking Screenshot of full screen, including all screens/monitors.</li>
-            <li>Taking Screenshot of window that currently has focus.</li>
+            <li>Taking screenshot of full screen, including all screens/monitors.</li>
+            <li>Taking screenshot of window that currently has focus.</li>
             <li>Taking screenshot of window under mouse cursor.</li>
             <li>Take screenshot with or without mouse cursor.</li>
+            <li>Capture mouse cursor as annotation item that can be moved and deleted.</li>
             <li>Customizable capture delay for all capture options.</li>
             <li>Upload screenshots directly to imgur.com in anonymous or user mode.</li>
+            <li>Upload screenshots via custom user defined scripts.</li>
             <li>Command line support, for taking screenshot and saving it to default location, filename and format.</li>
-            <li>Customizable default location, filename and format for saving new screenshots with wildcards for Year ($Y), Month ($M), Day ($D) and Time ($T).</li>
+            <li>Filename wildcards for Year ($Y), Month ($M), Day ($D), Time ($T) and Counter (multiple # characters for number with zero leading padding).</li>
             <li>Print screenshot or save is to pdf/ps.</li>
             <li>Annotate screenshots with pen, marker, rectangles, ellipses, texts and other tools.</li>
+            <li>Annotate screenshots with stickers and add custom stickers.</li>
+            <li>Add watermarks to captured images.</li>
+            <li>Global HotKeys for taking Screenshots (Currently only for Windows and X11).</li>
+            <li>Tabs for Screenshots and images.</li>
+            <li>Open existing images via dialog, drag-and-drop or paste from clipboard.</li>
+            <li>Run as single instance application (secondary instances send cli parameter to primary instance).</li>
+            <li>Pin Screenshots in Frameless windows that stay on top of other windows.</li>
             <li>Many configuration options.</li>
         </ul>
     </description>
@@ -32,27 +42,31 @@
     <screenshots>
         <screenshot type="default">
             <caption>Main Window</caption>
-            <image>https://i.imgur.com/C7RebRa.png</image>
+            <image>https://i.imgur.com/IXCsNl1.png</image>
         </screenshot>
         <screenshot>
             <caption>Crop Window</caption>
-            <image>https://i.imgur.com/lBUJHN3.png</image>
+            <image>https://i.imgur.com/gXolSAI.png</image>
         </screenshot>
         <screenshot>
             <caption>Snipping Window 1</caption>
-            <image>https://i.imgur.com/27HLXXj.png</image>
+            <image>https://i.imgur.com/gXolSAI.png</image>
         </screenshot>
         <screenshot>
             <caption>Snipping Window 2</caption>
-            <image>https://i.imgur.com/avt9bGL.png</image>
+            <image>https://i.imgur.com/gXolSAI.png</image>
         </screenshot>
         <screenshot>
             <caption>Settings Dialog</caption>
-            <image>https://i.imgur.com/SWbKOXY.png</image>
+            <image>https://i.imgur.com/gXolSAI.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Sticker Settings</caption>
+            <image>https://i.imgur.com/PCLxIUo.png</image>
         </screenshot>
         <screenshot>
             <caption>Imgur History Links</caption>
-            <image>https://i.imgur.com/ww3i5Jk.png</image>
+            <image>https://i.imgur.com/gXolSAI.png</image>
         </screenshot>
     </screenshots>
     <provides>

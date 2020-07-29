@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-    <id>ksnip</id>
+    <id>org.ksnip.ksnip</id>
     <metadata_license>FSFAP</metadata_license>
     <project_license>GPL-2.0+</project_license>
     <name>ksnip</name>
@@ -8,7 +8,7 @@
     <description>
         <p>
 ​       Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features for your screenshots.
-​    </p>
+​       </p>
         <p>Screenshots:</p>
         <ul>
             <li>Supports Linux (X11 and experimental KDE and Gnome Wayland support), Windows and MacOS.</li>
@@ -27,7 +27,7 @@
             <li>Many configuration options.</li>
         </ul>
     </description>
-    <launchable type="desktop-id">ksnip.desktop</launchable>
+    <launchable type="desktop-id">org.ksnip.ksnip.desktop</launchable>
     <url type="homepage">http://ksnip.org</url>
     <screenshots>
         <screenshot type="default">
@@ -56,7 +56,8 @@
         </screenshot>
     </screenshots>
     <provides>
-        <id>ksnip.desktop</id>
+        <id>ksnip</id>
+        <id>org.ksnip.ksnip.desktop</id>
     </provides>
     <update_contact>damir.porobic@gmx.com</update_contact>
 </component>

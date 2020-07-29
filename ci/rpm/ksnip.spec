@@ -40,10 +40,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %{_usr}/bin/%{name}
-%{_usr}/share/applications/%{name}.desktop
-%{_usr}/share/pixmaps/%{name}.svg
+%{_usr}/share/applications/org.%{name}.%{name}.desktop
+%{_usr}/share/icons/hicolor/scalable/apps/%{name}.svg
 %{_usr}/share/%{name}/translations/*.qm
 %{_usr}/share/kImageAnnotator/translations/*.qm
-%{_usr}/share/metainfo/%{name}.appdata.xml
+%{_usr}/share/metainfo/org.%{name}.%{name}.appdata.xml
 
 %changelog

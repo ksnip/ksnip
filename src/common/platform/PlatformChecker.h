@@ -25,6 +25,7 @@
 #include "CommandRunner.h"
 #include "src/common/enum/Platform.h"
 #include "src/common/enum/Environment.h"
+#include "src/common/enum/PackageManager.h"
 
 class PlatformChecker
 {
@@ -35,13 +36,16 @@ public:
     bool isWayland() const;
     bool isKde() const;
     bool isGnome() const;
+    bool isSnap() const;
 
 private:
     Platform mPlatform;
     Environment mEnvironment;
+    PackageManager mPackageManager;
 
     void checkPlatform();
     void checkEnvironment();
+    void checkCheckPackageManager();
     bool outputContainsValue(const QString& output, const QString& value) const;
 
     PlatformChecker();

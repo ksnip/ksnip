@@ -17,22 +17,26 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_FILEDIALOGADAPTERFACTORY_H
-#define KSNIP_FILEDIALOGADAPTERFACTORY_H
+#ifndef KSNIP_WAYLANDIMAGEGRABBER_H
+#define KSNIP_WAYLANDIMAGEGRABBER_H
 
-#include "FileDialogAdapter.h"
-#include "SnapFileDialogAdapter.h"
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusReply>
 
-#if defined(__linux__)
-#include "src/common/platform/PlatformChecker.h"
-#endif
+#include "AbstractImageGrabber.h"
+#include "src/gui/snippingArea/LinuxSnippingArea.h"
 
-class FileDialogAdapterFactory
+class WaylandImageGrabber  : public AbstractImageGrabber
 {
 public:
-	FileDialogAdapterFactory() = default;
-	~FileDialogAdapterFactory() = default;
-	static IFileDialogAdapter* create();
+	explicit WaylandImageGrabber();
+	QRect fullScreenRect() const override;
+	QRect activeWindowRect() const override;
+
+protected:
+	void grab() override;
+	CursorDto getCursorWithPosition() const override;
 };
 
-#endif //KSNIP_FILEDIALOGADAPTERFACTORY_H
+#endif //KSNIP_WAYLANDIMAGEGRABBER_H

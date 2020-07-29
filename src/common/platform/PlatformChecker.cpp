@@ -45,6 +45,11 @@ bool PlatformChecker::isGnome() const
     return mEnvironment == Environment::Gnome;
 }
 
+bool PlatformChecker::isSnap() const
+{
+	return mPackageManager == PackageManager::Snap;
+}
+
 void PlatformChecker::checkPlatform()
 {
     CommandRunner runner;
@@ -71,13 +76,27 @@ void PlatformChecker::checkEnvironment()
     }
 }
 
+void PlatformChecker::checkCheckPackageManager()
+{
+	CommandRunner runner;
+	if (runner.isEnvironmentVariableSet(QStringLiteral("SNAP"))) {
+		mPackageManager = PackageManager::Snap;
+	} else {
+		mPackageManager = PackageManager::Unknown;
+	}
+}
+
 bool PlatformChecker::outputContainsValue(const QString& output, const QString& value) const
 {
     return output.contains(value.toLatin1(), Qt::CaseInsensitive);
 }
 
-PlatformChecker::PlatformChecker()
+PlatformChecker::PlatformChecker() :
+	mEnvironment(Environment::Unknown),
+	mPlatform(Platform::Unknown),
+	mPackageManager(PackageManager::Unknown)
 {
     checkPlatform();
     checkEnvironment();
+    checkCheckPackageManager();
 }

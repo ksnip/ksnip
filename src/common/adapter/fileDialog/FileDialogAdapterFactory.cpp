@@ -22,9 +22,7 @@
 IFileDialogAdapter *FileDialogAdapterFactory::create()
 {
 #if defined(__linux__)
-	CommandRunner commandRunner;
-	auto isSnap = commandRunner.isEnvironmentVariableSet(QStringLiteral("SNAP"));
-	if (isSnap) {
+	if (PlatformChecker::instance()->isSnap()) {
 		return new SnapFileDialogAdapter;
 	} else {
 		return new FileDialogAdapter;

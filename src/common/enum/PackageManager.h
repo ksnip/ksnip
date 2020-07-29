@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,22 +17,14 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_FILEDIALOGADAPTERFACTORY_H
-#define KSNIP_FILEDIALOGADAPTERFACTORY_H
+#ifndef KSNIP_PACKAGEMANAGER_H
+#define KSNIP_PACKAGEMANAGER_H
 
-#include "FileDialogAdapter.h"
-#include "SnapFileDialogAdapter.h"
-
-#if defined(__linux__)
-#include "src/common/platform/PlatformChecker.h"
-#endif
-
-class FileDialogAdapterFactory
+enum class PackageManager
 {
-public:
-	FileDialogAdapterFactory() = default;
-	~FileDialogAdapterFactory() = default;
-	static IFileDialogAdapter* create();
+	Snap,
+	Flatpak,
+	Unknown
 };
 
-#endif //KSNIP_FILEDIALOGADAPTERFACTORY_H
+#endif //KSNIP_PACKAGEMANAGER_H

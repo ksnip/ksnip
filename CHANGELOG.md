@@ -1,5 +1,8 @@
 # Change log
 
+## Release 1.7.3
+* Changed: Install svg icon file in hicolor theme dir instead of usr/share/pixmaps/. ([#297](https://github.com/ksnip/ksnip/issues/297))
+
 ## Release 1.7.2
 * Changed: Stop upload script when process writes to stderr. ([#383](https://github.com/ksnip/ksnip/issues/383))
 * Changed: Upload script uses regex to select output for clipboard. ([#384](https://github.com/ksnip/ksnip/issues/384))

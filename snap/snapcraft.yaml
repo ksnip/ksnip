@@ -20,7 +20,7 @@ apps:
       XDG_CURRENT_DESKTOP: Unity:Unity7
       # Set theme fix on gnome/gtk
       QT_QPA_PLATFORMTHEME: gtk3
-    desktop: share/applications/ksnip.desktop
+    desktop: share/applications/org.ksnip.ksnip.desktop
     extensions: [kde-neon]
     plugs:
       - home
@@ -35,7 +35,7 @@ parts:
   ksnip:
     source: .
     plugin: cmake
-    parse-info: [share/metainfo/ksnip.appdata.xml]
+    parse-info: [share/metainfo/org.ksnip.ksnip.appdata.xml]
     after:
       - kimageannotator
     build-snaps:
@@ -50,7 +50,7 @@ parts:
       - -DCMAKE_FIND_ROOT_PATH=/snap/kde-frameworks-5-core18-sdk/current;/snap/kimageannotator/current
     override-pull: |
       snapcraftctl pull
-      sed -i 's|Icon=.*|Icon=share/pixmaps/ksnip.svg|g' desktop/ksnip.desktop
+      sed -i 's|Icon=.*|Icon=share/icons/hicolor/scalable/apps/ksnip.svg|g' desktop/org.ksnip.ksnip.desktop
       snapcraftctl set-version $(cat CMakeLists.txt | grep project\(ksnip | cut -d" " -f5 | cut -d")" -f1)
   kimageannotator:
     source: https://github.com/ksnip/kImageAnnotator.git

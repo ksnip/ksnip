@@ -33,10 +33,10 @@ int main(int argc, char** argv)
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
 
     app.setOrganizationName(QStringLiteral("ksnip"));
-    app.setOrganizationDomain(QStringLiteral("ksnip.org"));
+    app.setOrganizationDomain(QStringLiteral("ksnip.ksnip.org"));
     app.setApplicationName(QStringLiteral("ksnip"));
     app.setApplicationVersion(QStringLiteral(KSNIP_VERSION));
-    app.setDesktopFileName(QStringLiteral("ksnip.desktop"));
+    app.setDesktopFileName(QStringLiteral("org.ksnip.ksnip.desktop"));
 
     app.setStyle(KsnipConfigProvider::instance()->applicationStyle());
 

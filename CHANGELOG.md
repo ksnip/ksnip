@@ -6,6 +6,7 @@
 * Fixed: Ksnip becomes unresponsive when file dropped into it. ([#373](https://github.com/ksnip/ksnip/issues/373))
 * Fixed: Ksnip window always visible on screenshots on Gnome Wayland. ([#375](https://github.com/ksnip/ksnip/issues/375))
 * Fixed: Selecting path in Snap via file-chooser sets home directory to /run/user/1000. ([#388](https://github.com/ksnip/ksnip/issues/388))
+* Fixed: Snap not able to run custom upload script. ([#380](https://github.com/ksnip/ksnip/issues/380))
 * Fixed kImageAnnotator: Tests fail to build with shared library. ([#128](https://github.com/ksnip/kImageAnnotator/issues/128))
 
 ## Release 1.7.1

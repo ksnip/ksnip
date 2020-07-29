@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,29 +17,32 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IMAGESAVER_H
-#define KSNIP_IMAGESAVER_H
+#ifndef KSNIP_PINWINDOWHANDLER_H
+#define KSNIP_PINWINDOWHANDLER_H
 
-#include <QImage>
-#include <QFileDialog>
-#include <QCoreApplication>
 #include <QObject>
-#include <QString>
+#include <QSharedPointer>
+#include <QList>
 
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "PinWindow.h"
 
-class ImageSaver
+class PinWindowHandler : public QObject
 {
+Q_OBJECT
 public:
-	explicit ImageSaver();
-	~ImageSaver() = default;
-    bool save(const QImage &image, const QString &path);
+	explicit PinWindowHandler(QWidget *parent);
+	~PinWindowHandler() override;
+	void add(const QPixmap &pixmap);
+
+public slots:
+	void closeRequested();
+	void closeAllRequested();
+	void closeOtherRequested();
 
 private:
-    KsnipConfig* mConfig;
-
-	void ensurePathExists(const QString &path);
-    QString ensureFilenameHasFormat(const QString &path);
+	QWidget *mParent;
+	QList<QSharedPointer<PinWindow>> mPinWindows;
+	QSharedPointer<PinWindow> CreatePinWindow(const QPixmap &pixmap) const;
 };
 
-#endif //KSNIP_IMAGESAVER_H
+#endif //KSNIP_PINWINDOWHANDLER_H

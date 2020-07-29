@@ -1,6 +1,6 @@
 # [ksnip](http://ksnip.org/) &middot; [![Build Status][travis-badge]][travis-url] [![GitHub commits (since latest release)][gh-comm-since-badge]][gh-comm-since-url] [![Translation status][weblate-badge]][weblate-url] [![GitHub total downloads][gh-dl-badge]][gh-dl-url] [![SourceForge total downloads][sf-dt-badge]][sf-dt-badge-url] 
 
-Version v1.7.2
+Version v1.8.0 - Work in Progress
 
 Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features 
 for your screenshots.
@@ -31,6 +31,7 @@ Latest ksnip version contains following features:
 * Tabs for Screenshots and images.
 * Open existing images via dialog, drag-and-drop or paste from clipboard.
 * Run as single instance application (secondary instances send cli parameter to primary instance).
+* Pin Screenshots in Frameless windows that stay on top of other windows.
 * Many configuration options.
 
 # Supported Screenshot Types

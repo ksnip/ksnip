@@ -1,5 +1,9 @@
 # Change log
 
+## Release 1.8.0
+* New: Pin screenshots in frameless windows that stay in foreground. ([#365](https://github.com/ksnip/ksnip/issues/365))
+* New: Support for unit tests. ([#80](https://github.com/ksnip/ksnip/issues/80))
+
 ## Release 1.7.2
 * Changed: Stop upload script when process writes to stderr. ([#383](https://github.com/ksnip/ksnip/issues/383))
 * Changed: Upload script uses regex to select output for clipboard. ([#384](https://github.com/ksnip/ksnip/issues/384))

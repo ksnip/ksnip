@@ -18,7 +18,6 @@
  *
  */
 
-#include <common/constants/DefaultValues.h>
 #include "KsnipConfig.h"
 
 // Application

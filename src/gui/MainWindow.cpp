@@ -37,6 +37,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mAddWatermarkAction(new QAction(this)),
 	mPasteAction(new QAction(this)),
 	mPasteEmbeddedAction(new QAction(this)),
+	mPinAction(new QAction(this)),
 	mMainLayout(layout()),
 	mClipboard(new ClipboardWrapper(QApplication::clipboard())),
 	mConfig(KsnipConfigProvider::instance()),
@@ -49,6 +50,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mUploaderProvider(new UploaderProvider),
 	mSessionManagerRequestedQuit(false),
 	mCaptureHandler(CaptureHandlerFactory::create(mKImageAnnotator, mTrayIcon, this)),
+	mPinWindowHandler(new PinWindowHandler(this)),
 	mWidgetHider(WidgetHiderFactory::create(this))
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
@@ -296,6 +298,7 @@ void MainWindow::setEnablements(bool enabled)
     mToolBar->setCopyActionEnabled(enabled);
     mToolBar->setCropEnabled(enabled);
 	mSaveAsAction->setEnabled(enabled);
+	mPinAction->setEnabled(enabled);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mKImageAnnotator->isVisible());
 }
 
@@ -377,6 +380,7 @@ void MainWindow::initGui()
 
     mSettingsDialogAction->setText(tr("Settings"));
     mSettingsDialogAction->setIcon(QIcon::fromTheme(QStringLiteral("emblem-system")));
+	mSettingsDialogAction->setShortcut(Qt::ALT + Qt::Key_F7);
 	connect(mSettingsDialogAction, &QAction::triggered, this, &MainWindow::showSettingsDialog);
 
     mAboutAction->setText(tr("&About"));
@@ -402,6 +406,12 @@ void MainWindow::initGui()
 	connect(mPasteEmbeddedAction, &QAction::triggered, this, &MainWindow::pasteEmbeddedFromClipboard);
 	connect(mClipboard, &ClipboardWrapper::changed, [this] (bool isPixmap){ mPasteEmbeddedAction->setEnabled(isPixmap && mKImageAnnotator->isVisible()); });
 
+	mPinAction->setText(tr("Pin"));
+	mPinAction->setToolTip(tr("Pin screenshot to foreground in frameless window"));
+	mPinAction->setShortcut(Qt::SHIFT + Qt::Key_P);
+	mPinAction->setIcon(IconLoader::load(QStringLiteral("pin")));
+	connect(mPinAction, &QAction::triggered, this, &MainWindow::showPinWindow);
+
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
     menu->addAction(mOpenImageAction);
@@ -425,6 +435,7 @@ void MainWindow::initGui()
     menu->addAction(mScaleAction);
     menu->addAction(mAddWatermarkAction);
     menu = menuBar()->addMenu(tr("&Options"));
+    menu->addAction(mPinAction);
     menu->addAction(mSettingsDialogAction);
     menu = menuBar()->addMenu(tr("&Help"));
     menu->addAction(mAboutAction);
@@ -597,4 +608,9 @@ void MainWindow::captureEmpty()
 	mMainLayout->setSizeConstraint(QLayout::SetFixedSize); // Workaround that allows us to return to toolbar only size
 	resize(minimumSize());
 	mMainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+}
+
+void MainWindow::showPinWindow()
+{
+	mPinWindowHandler->add(QPixmap::fromImage(mCaptureHandler->image()));
 }

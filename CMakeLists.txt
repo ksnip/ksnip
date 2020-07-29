@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(ksnip LANGUAGES CXX VERSION 1.7.2)
+project(ksnip LANGUAGES CXX VERSION 1.8.0)
 
 if (DEFINED VERSION_SUFIX AND NOT "${VERSION_SUFIX}" STREQUAL "")
     set(KSNIP_VERSION_SUFIX "-${VERSION_SUFIX}")
@@ -30,6 +30,8 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+option(BUILD_TESTS "Build Unit Tests" OFF)
+
 set(QT_MIN_VERSION "5.9.4")
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED Widgets Network Xml PrintSupport DBus Svg)
@@ -56,3 +58,12 @@ include_directories("${BASEPATH}")
 add_subdirectory(src)
 add_subdirectory(translations)
 add_subdirectory(desktop)
+
+if (BUILD_TESTS)
+	configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/tests/BuildConfig.h)
+
+	find_package(Qt5 ${QT_MIN_VERSION} REQUIRED Test)
+	enable_testing()
+	add_subdirectory(tests)
+
+endif (BUILD_TESTS)

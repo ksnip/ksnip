@@ -25,8 +25,8 @@
 #include "NotifyOperation.h"
 #include "src/common/dtos/SaveResultDto.h"
 #include "src/backend/config/KsnipConfig.h"
-#include "backend/saver/SavePathProvider.h"
-#include "backend/saver/ImageSaver.h"
+#include "src/backend/saver/SavePathProvider.h"
+#include "src/backend/saver/ImageSaver.h"
 #include "src/gui/IToastService.h"
 
 class SaveOperation : public QObject

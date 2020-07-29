@@ -28,10 +28,11 @@
 #include <QPushButton>
 #include <QDesktopServices>
 
-#include "backend/config/KsnipConfig.h"
-#include "backend/uploader/imgur/ImgurWrapper.h"
-#include "gui/ImgurHistoryDialog.h"
+#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/uploader/imgur/ImgurWrapper.h"
+#include "src/gui/ImgurHistoryDialog.h"
 #include "src/widgets/CustomLineEdit.h"
+#include "src/common/constants/DefaultValues.h"
 
 class ImgurUploaderSettings : public QGroupBox
 {

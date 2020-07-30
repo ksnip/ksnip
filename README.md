@@ -87,6 +87,15 @@ This needs to be done only once and connects some snap plugs which are currently
  
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/ksnip)
 
+### Flatpak (Linux)
+The usual installation for flatpaks, will install latest version:  
+`$ flatpak install flathub org.ksnip.ksnip`  
+
+Then just start it:  
+`$ flatpak run org.ksnip.ksnip`  
+
+<a href='https://flathub.org/apps/details/org.ksnip.ksnip'><img width='220' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
+
 ### EXE (Windows)
 The exe file with all required dependencies comes in a zipped package, which just need to be unzipped 
 with your favorite zip tool. Ksnip can then be started by just double clicking ksnip.exe.

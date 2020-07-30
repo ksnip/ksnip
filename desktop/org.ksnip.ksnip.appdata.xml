@@ -4,12 +4,12 @@
     <metadata_license>FSFAP</metadata_license>
     <project_license>GPL-2.0+</project_license>
     <name>ksnip</name>
-    <summary>Screenshot tool with annotation features</summary>
+    <summary>Cross-Platform Screenshot tool with annotation features</summary>
     <description>
         <p>
 ​       Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features for your screenshots.
 ​       </p>
-        <p>Screenshots:</p>
+        <p>Features:</p>
         <ul>
             <li>Supports Linux (X11, Plasma Wayland and Gnome Wayland), Windows and macOS.</li>
             <li>Taking screenshot of a custom rectangular area that can be drawn with mouse cursor.</li>
@@ -78,7 +78,6 @@
     <releases>
         <release type="stable" version="1.7.3" date="2020-07-30T00:00:00Z">
             <description>
-                <p>Changelog:</p>
                 <ul>
                     <li>Provide ksnip flatpak.</li>
                     <li>Changed: Install svg icon file in hicolor theme dir instead of usr/share/pixmaps/.</li>
@@ -87,7 +86,6 @@
         </release>
         <release type="stable" version="1.7.2" date="2020-07-29T00:00:00Z">
             <description>
-                <p>Changelog:</p>
                 <ul>
                     <li>Changed: Stop upload script when process writes to stderr.</li>
                     <li>Changed: Upload script uses regex to select output for clipboard.</li>

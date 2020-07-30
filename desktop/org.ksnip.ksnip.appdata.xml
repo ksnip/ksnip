@@ -74,4 +74,21 @@
         <id>org.ksnip.ksnip.desktop</id>
     </provides>
     <update_contact>damir.porobic@gmx.com</update_contact>
+    <content_rating type="oars-1.0" />
+    <releases>
+        <release type="stable" version="1.7.2" date="2020-07-29T00:00:00Z">
+            <description>
+                <p>Changelog:</p>
+                <ul>
+                    <li>Changed: Stop upload script when process writes to stderr.</li>
+                    <li>Changed: Upload script uses regex to select output for clipboard.</li>
+                    <li>Fixed: Ksnip becomes unresponsive when file dropped into it.</li>
+                    <li>Fixed: Ksnip window always visible on screenshots on Gnome Wayland.</li>
+                    <li>Fixed: Selecting path in Snap via file-chooser sets home directory to /run/user/1000.</li>
+                    <li>Fixed: Snap not able to run custom upload script.</li>
+                    <li>Fixed: kImageAnnotator: Tests fail to build with shared library.</li>
+                </ul>
+            </description>
+        </release>
+    </releases>
 </component>

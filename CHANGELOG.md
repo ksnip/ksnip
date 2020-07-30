@@ -1,6 +1,7 @@
 # Change log
 
 ## Release 1.7.3
+* New: Provide ksnip flatpak. ([#127](https://github.com/ksnip/ksnip/issues/127))
 * Changed: Install svg icon file in hicolor theme dir instead of usr/share/pixmaps/. ([#297](https://github.com/ksnip/ksnip/issues/297))
 
 ## Release 1.7.2

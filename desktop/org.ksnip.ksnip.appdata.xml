@@ -76,6 +76,15 @@
     <update_contact>damir.porobic@gmx.com</update_contact>
     <content_rating type="oars-1.0" />
     <releases>
+        <release type="stable" version="1.7.3" date="2020-07-30T00:00:00Z">
+            <description>
+                <p>Changelog:</p>
+                <ul>
+                    <li>Provide ksnip flatpak.</li>
+                    <li>Changed: Install svg icon file in hicolor theme dir instead of usr/share/pixmaps/.</li>
+                </ul>
+            </description>
+        </release>
         <release type="stable" version="1.7.2" date="2020-07-29T00:00:00Z">
             <description>
                 <p>Changelog:</p>

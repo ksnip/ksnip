@@ -27,7 +27,7 @@ AuthorTab::AuthorTab()
 		           QStringLiteral("<b>") + tr("The Author:") + QStringLiteral("</b><br>") +
 				   QStringLiteral("Damir Porobic ") + createEmailEntry(QStringLiteral("damir.porobic@gmx.com")) + QStringLiteral("<br><br>") +
 				   QStringLiteral("<b>") + tr("Contributors:") + QStringLiteral("</b><br>") +
-				   createContributorEntry(QStringLiteral("Galileo Sartor"), tr("Snap Support")) +
+				   createContributorEntry(QStringLiteral("Galileo Sartor"), tr("Snap & Flatpak Support")) +
 				   createContributorEntry(QStringLiteral("Luis Vásquez"), tr("Spanish Translation"), QStringLiteral("lvaskz@protonmail.com")) +
 				   createContributorEntry(QStringLiteral("Heimen Stoffels"), tr("Dutch Translation"), QStringLiteral("vistausss@outlook.com")) +
 				   createContributorEntry(QStringLiteral("Yury Martynov"), tr("Russian Translation"), QStringLiteral("email@linxon.ru")) +

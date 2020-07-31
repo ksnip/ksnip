@@ -358,7 +358,7 @@ Voulez-vous l&apos;enregistrer ?</translation>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">Téléversement réussi</translation>
+        <translation>Téléversement réussi</translation>
     </message>
     <message>
         <source>Upload script </source>
@@ -370,7 +370,7 @@ Voulez-vous l&apos;enregistrer ?</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished">Téléversé vers</translation>
+        <translation>Téléversé vers</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
@@ -581,15 +581,15 @@ MacOs.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">Téléversement sur imgur.com terminé !</translation>
+        <translation>Téléversement sur imgur.com terminé !</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">Nouveau jeton reçu, nouvelle tentative de téléversement…</translation>
+        <translation>Nouveau jeton reçu, nouvelle tentative de téléversement…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">Jeton Imgur expiré, demande de renouvellement…</translation>
+        <translation>Jeton Imgur expiré, demande de renouvellement…</translation>
     </message>
 </context>
 <context>
@@ -875,11 +875,11 @@ et la capture de l&apos;écran.</translation>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished">Enregistrer automatiquement les nouvelles captures dans l&apos;emplacement par défaut</translation>
+        <translation>Enregistrer automatiquement les nouvelles captures dans l&apos;emplacement par défaut</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Proposer d&apos;enregistrer en cas d&apos;abandon de modifications non enregistrées</translation>
+        <translation>Proposer d&apos;enregistrer en cas d&apos;abandon de modifications non enregistrées</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>

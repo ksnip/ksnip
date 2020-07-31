@@ -258,6 +258,10 @@ tous les instances de Ksnip.</translation>
         <source>Polish Translation</source>
         <translation>Traduction en polonais</translation>
     </message>
+    <message>
+        <source>Snap &amp; Flatpak Support</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -832,12 +836,42 @@ et la capture de l&apos;écran.</translation>
         <source>Upload capture to external source</source>
         <translation>Envoyer la capture vers une source externe</translation>
     </message>
+    <message>
+        <source>Pin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin screenshot to foreground in frameless window</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
         <translation>Capturer</translation>
+    </message>
+</context>
+<context>
+    <name>PinWindow</name>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Fermer</translation>
+    </message>
+    <message>
+        <source>Close Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close All</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PinWindowHandler</name>
+    <message>
+        <source>Pin Window %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

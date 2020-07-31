@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Doner</translation>
     </message>
 </context>
 <context>
@@ -178,11 +178,11 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier nye avbildninger til utklippstavle automatisk</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Skjul faner automatisk</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
@@ -330,34 +330,34 @@ Do you want to save it?</source>
     <name>DonateTab</name>
     <message>
         <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
+        <translation>Spander øl?</translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Såklart du kan gjøre dette</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>her</translation>
     </message>
     <message>
         <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Bli en sponsor</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>Også mulig, </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Donasjoner er alltid velkomne</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Opplastet</translation>
     </message>
     <message>
         <source>Upload script </source>
@@ -849,14 +849,14 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Lukk alle</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fest vindu %1</translation>
     </message>
 </context>
 <context>
@@ -875,7 +875,7 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilde lagret</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
@@ -1122,11 +1122,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Skript</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Opplaster</translation>
     </message>
 </context>
 <context>

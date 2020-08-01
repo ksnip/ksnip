@@ -166,8 +166,8 @@ Değişiklik sonrası Ksnip&apos;in yeniden başlatılması gerekir.</translatio
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Etkinleştirildiğinde, Eğer işletim sisteminiz izin veriyor ise Görev çubuğuna simge ekler. 
-            Değişikliklerin uygulanması için yeniden başlatmak gerekir</translation>
+        <translation>Etkinleştirildiğinde, işletim sisteminin pencere yöneticisi destekliyorsa görev çubuğuna bir tepsi simgesi ekleyecektir.
+Değişiklik yeniden başlatma gerektirir.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
@@ -366,7 +366,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished">Yükleme kodu</translation>
+        <translation>Yükleme kodu </translation>
     </message>
     <message>
         <source> finished successfully.</source>
@@ -583,11 +583,11 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">Yeni token alındı, yeniden yükleniliyor...</translation>
+        <translation>Yeni belirteç alındı, tekrar yüklenmeye çalışılıyor…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">Imgur tokeninin süresi doldu, yeni token isteniliyor...</translation>
+        <translation>Imgur belirtecinin süresi doldu, yeni belirteç isteniyor…</translation>
     </message>
 </context>
 <context>
@@ -638,7 +638,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished">Imgur.com Bekleniliyor...</translation>
+        <translation>Imgur.com bekleniyor…</translation>
     </message>
     <message>
         <source>Username:</source>
@@ -646,7 +646,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished">Imgur.com belirteci başarıyla alındı.</translation>
+        <translation>Imgur.com belirteci başarıyla güncellendi.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>

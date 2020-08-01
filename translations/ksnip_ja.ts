@@ -260,7 +260,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Snap と Flatpak のサポート</translation>
     </message>
 </context>
 <context>
@@ -835,11 +835,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>ピン留め</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンショットを枠のないウィンドウ内に前景としてピン留めします</translation>
     </message>
 </context>
 <context>
@@ -853,22 +853,22 @@ and capturing screenshot.</source>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">閉じる</translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>他のを閉じる</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>すべて閉じる</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>ピン留めウィンドウ %1</translation>
     </message>
 </context>
 <context>

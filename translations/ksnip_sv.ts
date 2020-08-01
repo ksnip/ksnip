@@ -259,7 +259,7 @@ Om du ändrar det här alternativet måste alla öppna instanser startas om.</tr
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Snap- &amp; Flatpak-stöd</translation>
     </message>
 </context>
 <context>
@@ -836,11 +836,11 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Fäst</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fäst skärmklipp i förgrunden i ramlöst fönster</translation>
     </message>
 </context>
 <context>
@@ -854,22 +854,22 @@ och själva skärmklippet.</translation>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Stäng</translation>
+        <translation>Stäng</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Stäng övriga</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Stäng alla</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fäst fönster %1</translation>
     </message>
 </context>
 <context>

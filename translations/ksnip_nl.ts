@@ -259,7 +259,7 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Snap- en Flatpak-ondersteuning</translation>
     </message>
 </context>
 <context>
@@ -841,11 +841,11 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Vastmaken</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermfoto vastmaken aan voorgrond van naadloos venster</translation>
     </message>
 </context>
 <context>
@@ -859,22 +859,22 @@ van schermfoto, in seconden.</translation>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Sluiten</translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Anderen sluiten</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alles sluiten</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Venster %1 vastmaken</translation>
     </message>
 </context>
 <context>

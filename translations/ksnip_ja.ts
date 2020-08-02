@@ -334,20 +334,8 @@ Do you want to save it?</source>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>Donate a Beer?</source>
-        <translation>寄付について</translation>
-    </message>
-    <message>
-        <source>Sure, you can do that</source>
-        <translation>寄付していただける場合は、</translation>
-    </message>
-    <message>
         <source>here</source>
         <translation>こちらからお願いします</translation>
-    </message>
-    <message>
-        <source>Become a Sponsor</source>
-        <translation>スポンサーになる</translation>
     </message>
     <message>
         <source>Also possible, </source>
@@ -356,6 +344,22 @@ Do you want to save it?</source>
     <message>
         <source>Donations are always welcome</source>
         <translation>寄付はいつでも大歓迎です</translation>
+    </message>
+    <message>
+        <source>Donation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a GitHub Sponsor</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

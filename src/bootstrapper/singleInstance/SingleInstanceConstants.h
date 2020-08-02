@@ -24,7 +24,7 @@
 
 inline namespace SingleInstance {
 
-const QString ServerName(QStringLiteral("org.ksnip.singleInstanceServer"));
+const QString ServerName(QStringLiteral("org.ksnip.ksnip.singleInstanceServer"));
 
 } // namespace SingleInstance
 

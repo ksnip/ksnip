@@ -343,6 +343,7 @@ Do you want to save it?</source>
     <message>
         <source>Become a GitHub Sponsor</source>
         <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Sure, you can do that</source>
         <translation>Såklart du kan gjøre dette</translation>

@@ -145,13 +145,15 @@ All other bugs or feature requests please report on the [ksnip](https://github.c
 
 # Contribution
 Any contribution, be it Code, Translation or other is always welcome. We are currently looking for someone to:
-* Produce a Flatpak [#127](https://github.com/ksnip/ksnip/issues/127).
 * Write code and fix bugs for macOS.  
 * Write wiki entries and documentation for ksnip.  
 * Package ksnip for different OS and distros.
 
-# Donate a Beer?
-You would like to donate a Beer? Sure, you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)
+# Donation 
+
+ksnip is a non-profitable open source projects but still has some costs that need to be covered, like domain costs or Apple Developer Account.
+If you want to help us cover those costs or just simply want to thank us for our open source work by donating a beer or soda,
+you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)
 
 [travis-badge]:        https://img.shields.io/travis/ksnip/ksnip.svg?label=travis&logo=travis
 [travis-url]:          https://travis-ci.org/ksnip/ksnip

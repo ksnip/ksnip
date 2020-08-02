@@ -71,7 +71,7 @@ void PlatformChecker::checkEnvironment()
 	qDebug("Check Environment: %s", qPrintable(output));
     if (outputContainsValue(output, QStringLiteral("kde"))) {
         mEnvironment = Environment::KDE;
-    } else if (outputContainsValue(output, QStringLiteral("gnome"))) {
+    } else if (outputContainsValue(output, QStringLiteral("gnome")) || outputContainsValue(output, QStringLiteral("unity"))) {
         mEnvironment = Environment::Gnome;
     } else {
         mEnvironment = Environment::Unknown;

@@ -346,19 +346,19 @@ Vill du spara det?</translation>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Donation</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip är ett icke lönsamt projekt med öppen källkod, men&lt;br/&gt; har fortfarande vissa kostnader som måste täckas,&lt;br/&gt;som domänkostnader eller Apple Developer Account.</translation>
     </message>
     <message>
         <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Om du vill hjälpa oss att täcka dessa kostnader eller bara&lt;br/&gt;helt enkelt tacka oss för vårt öppen källkodsarbete&lt;br/&gt;genom att donera en öl eller läsk, kan du göra det.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Bli en GitHub-sponsor</translation>
     </message>
 </context>
 <context>

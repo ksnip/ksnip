@@ -339,7 +339,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation>スポンサーになっていただける場合は、 </translation>
+        <translation>スポンサーになっていただける場合は </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
@@ -347,19 +347,19 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>寄付</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip は非営利のオープンソースプロジェクトですが&lt;br/&gt;Apple Developer アカウントやドメインの維持などに費用がかかっています.</translation>
     </message>
     <message>
         <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>そういった費用を扶助していただける場合や&lt;br/&gt;私たちのオープンソース活動に対してビールやソーダを奢っていただける場合は&lt;br/&gt;</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub スポンサーになる</translation>
     </message>
 </context>
 <context>

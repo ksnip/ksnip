@@ -21,8 +21,10 @@
 #define KSNIP_HDPISCALER_H
 
 #include <QApplication>
+#include <QGuiApplication>
 #include <QDesktopWidget>
 #include <QScreen>
+#include <QWindow>
 
 class HdpiScaler
 {

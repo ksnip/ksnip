@@ -104,6 +104,10 @@ with your favorite zip tool. Ksnip can then be started by just double clicking k
 The app file comes in a dmg package which needs to be opened and the ksnip.app file needs to be dragged 
 and dropped into the Application folder. After that the application can be started by double clicking ksnip.app
 
+### Homebrew Cask (macOS)
+Just install via brew and start using from your Applications folder.  
+`$ brew cask install ksnip`
+
 # Dependencies
 ksnip depends on [kImageAnnotator](https://github.com/ksnip/kImageAnnotator) and [kColoPicker](https://github.com/DamirPorobic/kColorPicker) which needs
 to be installed before building ksnip from source. Install instructions can be found on the Github pages.

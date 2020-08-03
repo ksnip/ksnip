@@ -346,19 +346,19 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Doneren</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip is een opensourceproject zonder winstoogmerk, maar&lt;br/&gt;maakt nog steeds kosten die gedekt moeten worden,&lt;br/&gt;zoals domeinnaamkosten en kosten van een Apple Ontwikkelaarsaccount.</translation>
     </message>
     <message>
         <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Als je ons wilt helpen de kosten te dekken of&lt;br/&gt;ons wilt bedanken voor ons opensourcewerk&lt;br/&gt;door een drankje te schenken, dan kun je dat</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub-sponsor worden</translation>
     </message>
 </context>
 <context>

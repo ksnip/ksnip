@@ -3,12 +3,13 @@
     <id>org.ksnip.ksnip</id>
     <metadata_license>FSFAP</metadata_license>
     <project_license>GPL-2.0+</project_license>
+    <developer_name>Damir Porobic</developer_name>
     <name>ksnip</name>
     <summary>Cross-Platform Screenshot tool with annotation features</summary>
     <description>
         <p>
-​       Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features for your screenshots.
-​       </p>
+​        Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features for your screenshots.
+​        </p>
         <p>Features:</p>
         <ul>
             <li>Supports Linux (X11, Plasma Wayland and Gnome Wayland), Windows and macOS.</li>

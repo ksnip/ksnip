@@ -25,7 +25,7 @@
 #include <QLabel>
 #include <QGridLayout>
 
-#include "backend/config/KsnipConfig.h"
+#include "src/backend/config/KsnipConfig.h"
 #include "src/widgets/ColorButton.h"
 #include "src/widgets/NumericComboBox.h"
 

@@ -92,6 +92,8 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/CaptureHandlerFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/SingleCaptureHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/MultiCaptureHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindow.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindowHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/BootstrapperFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/StandAloneBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/InstanceLock.cpp
@@ -118,6 +120,7 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/KdeWaylandImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/X11Wrapper.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeWaylandImageGrabber.cpp
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WaylandImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/config/KsnipWaylandConfig.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/PlatformChecker.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/CommandRunner.cpp

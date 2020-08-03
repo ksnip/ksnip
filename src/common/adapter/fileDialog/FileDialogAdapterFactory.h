@@ -24,7 +24,7 @@
 #include "SnapFileDialogAdapter.h"
 
 #if defined(__linux__)
-#include "src/common/platform/CommandRunner.h"
+#include "src/common/platform/PlatformChecker.h"
 #endif
 
 class FileDialogAdapterFactory

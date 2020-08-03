@@ -258,6 +258,10 @@ hau aktibatzean gainerako instantziak berrabiarazi behar dira.</translation>
         <source>Polish Translation</source>
         <translation>Polonierako itzulpena</translation>
     </message>
+    <message>
+        <source>Snap &amp; Flatpak Support</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -330,20 +334,8 @@ Nahi duzu gordetzea?</translation>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>Donate a Beer?</source>
-        <translation>Garagardo bat hartzeko laguntza bat?</translation>
-    </message>
-    <message>
-        <source>Sure, you can do that</source>
-        <translation>Seguru egin dezakezula</translation>
-    </message>
-    <message>
         <source>here</source>
         <translation>hemen</translation>
-    </message>
-    <message>
-        <source>Become a Sponsor</source>
-        <translation>Babesle egin</translation>
     </message>
     <message>
         <source>Also possible, </source>
@@ -352,6 +344,22 @@ Nahi duzu gordetzea?</translation>
     <message>
         <source>Donations are always welcome</source>
         <translation>Diru-laguntzak beti dira ongi etorriak</translation>
+    </message>
+    <message>
+        <source>Donation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a GitHub Sponsor</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -832,12 +840,42 @@ eta pantaila-argazkiaren artean.</translation>
         <source>Upload capture to external source</source>
         <translation>Kargatu argazkia kanpoko iturburu batera</translation>
     </message>
+    <message>
+        <source>Pin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin screenshot to foreground in frameless window</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
         <translation>Argazkia</translation>
+    </message>
+</context>
+<context>
+    <name>PinWindow</name>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Itxi</translation>
+    </message>
+    <message>
+        <source>Close Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close All</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PinWindowHandler</name>
+    <message>
+        <source>Pin Window %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -253,6 +253,10 @@ a new start of all instances.</source>
         <source>Polish Translation</source>
         <translation>Traduzione in polacco</translation>
     </message>
+    <message>
+        <source>Snap &amp; Flatpak Support</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -324,20 +328,8 @@ Do you want to save it?</source>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>Donate a Beer?</source>
-        <translation>Dona una birra?</translation>
-    </message>
-    <message>
-        <source>Sure, you can do that</source>
-        <translation>Certo, puoi farlo</translation>
-    </message>
-    <message>
         <source>here</source>
         <translation>qui</translation>
-    </message>
-    <message>
-        <source>Become a Sponsor</source>
-        <translation>Diventa uno sponsor</translation>
     </message>
     <message>
         <source>Also possible, </source>
@@ -346,6 +338,22 @@ Do you want to save it?</source>
     <message>
         <source>Donations are always welcome</source>
         <translation>Le donazioni sono sempre ben accette</translation>
+    </message>
+    <message>
+        <source>Donation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a GitHub Sponsor</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -824,12 +832,42 @@ e cattura screenshot.</translation>
         <source>Upload capture to external source</source>
         <translation>Carica l&apos;acquisizione su una fonte esterna</translation>
     </message>
+    <message>
+        <source>Pin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin screenshot to foreground in frameless window</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
         <translation>Cattura</translation>
+    </message>
+</context>
+<context>
+    <name>PinWindow</name>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Chiudi</translation>
+    </message>
+    <message>
+        <source>Close Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close All</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PinWindowHandler</name>
+    <message>
+        <source>Pin Window %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

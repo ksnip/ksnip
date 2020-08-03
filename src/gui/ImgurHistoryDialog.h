@@ -29,7 +29,7 @@
 #include <QHeaderView>
 #include <QPushButton>
 
-#include "backend/uploader/imgur/ImgurResponseLogger.h"
+#include "src/backend/uploader/imgur/ImgurResponseLogger.h"
 
 class ImgurHistoryDialog : public QDialog
 {

@@ -8,16 +8,11 @@ summary: Screenshot and Annotation Tool
 description: |
   Qt based cross-platform screenshot tool that provides many annotation features for your screenshots.
 
-
 apps:
   ksnip:
     command: ksnip
-    common-id: ksnip
+    common-id: org.ksnip.ksnip
     environment:
-      # Coerce XDG_CURRENT_DESKTOP to Unity so that App Indicators
-      # are used and do not fall back to Notification Area applets
-      # or disappear completely.
-      XDG_CURRENT_DESKTOP: Unity:Unity7
       # Set theme fix on gnome/gtk
       QT_QPA_PLATFORMTHEME: gtk3
     desktop: share/applications/org.ksnip.ksnip.desktop

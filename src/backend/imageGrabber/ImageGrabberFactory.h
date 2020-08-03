@@ -28,6 +28,7 @@
 #include "X11ImageGrabber.h"
 #include "KdeWaylandImageGrabber.h"
 #include "GnomeWaylandImageGrabber.h"
+#include "WaylandImageGrabber.h"
 #include "src/common/platform/PlatformChecker.h"
 #endif
 

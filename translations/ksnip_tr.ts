@@ -166,8 +166,8 @@ Değişiklik sonrası Ksnip&apos;in yeniden başlatılması gerekir.</translatio
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Etkinleştirildiğinde, Eğer işletim sisteminiz izin veriyor ise Görev çubuğuna simge ekler. 
-            Değişikliklerin uygulanması için yeniden başlatmak gerekir</translation>
+        <translation>Etkinleştirildiğinde, işletim sisteminin pencere yöneticisi destekliyorsa görev çubuğuna bir tepsi simgesi ekleyecektir.
+Değişiklik yeniden başlatma gerektirir.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
@@ -255,6 +255,10 @@ a new start of all instances.</source>
         <source>Polish Translation</source>
         <translation type="unfinished">Polanyaca Çeviriler</translation>
     </message>
+    <message>
+        <source>Snap &amp; Flatpak Support</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -326,20 +330,8 @@ Do you want to save it?</source>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>Donate a Beer?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>here</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Become a Sponsor</source>
-        <translation type="unfinished">Sponsor ol</translation>
     </message>
     <message>
         <source>Also possible, </source>
@@ -347,6 +339,22 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Donations are always welcome</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Donation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a GitHub Sponsor</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -358,7 +366,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished">Yükleme kodu</translation>
+        <translation>Yükleme kodu </translation>
     </message>
     <message>
         <source> finished successfully.</source>
@@ -575,11 +583,11 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">Yeni token alındı, yeniden yükleniliyor...</translation>
+        <translation>Yeni belirteç alındı, tekrar yüklenmeye çalışılıyor…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">Imgur tokeninin süresi doldu, yeni token isteniliyor...</translation>
+        <translation>Imgur belirtecinin süresi doldu, yeni belirteç isteniyor…</translation>
     </message>
 </context>
 <context>
@@ -630,7 +638,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished">Imgur.com Bekleniliyor...</translation>
+        <translation>Imgur.com bekleniyor…</translation>
     </message>
     <message>
         <source>Username:</source>
@@ -638,7 +646,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished">Imgur.com belirteci başarıyla alındı.</translation>
+        <translation>Imgur.com belirteci başarıyla güncellendi.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
@@ -821,12 +829,42 @@ ve ekran görüntüsünü yakalanır.</translation>
         <source>Upload capture to external source</source>
         <translation type="unfinished">Seçimi harici kaynağa yükle</translation>
     </message>
+    <message>
+        <source>Pin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin screenshot to foreground in frameless window</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
         <translation type="unfinished">Yakala</translation>
+    </message>
+</context>
+<context>
+    <name>PinWindow</name>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Kapat</translation>
+    </message>
+    <message>
+        <source>Close Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close All</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PinWindowHandler</name>
+    <message>
+        <source>Pin Window %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

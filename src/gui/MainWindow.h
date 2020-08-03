@@ -48,6 +48,7 @@
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/handler/DragAndDropHandler.h"
+#include "src/gui/pinWindow/PinWindowHandler.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -93,6 +94,7 @@ private:
     QAction *mAddWatermarkAction;
     QAction *mPasteAction;
     QAction *mPasteEmbeddedAction;
+    QAction *mPinAction;
     MainToolBar *mToolBar;
     QLayout *mMainLayout;
 	ClipboardWrapper *mClipboard;
@@ -105,6 +107,7 @@ private:
 	DragAndDropHandler *mDragAndDropHandler;
 	UploaderProvider *mUploaderProvider;
 	ICaptureHandler *mCaptureHandler;
+	PinWindowHandler *mPinWindowHandler;
 	WidgetHider *mWidgetHider;
 
     void setEnablements(bool enabled);
@@ -142,6 +145,7 @@ private slots:
 	void loadImageFromFile(const QString &path);
 	void sessionFinished();
 	void captureCanceled();
+	void showPinWindow();
 };
 
 #endif // KSNIP_MAINWINDOW_H

@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Doner</translation>
     </message>
 </context>
 <context>
@@ -178,11 +178,11 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier nye avbildninger til utklippstavle automatisk</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Skjul faner automatisk</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
@@ -253,6 +253,10 @@ a new start of all instances.</source>
     <message>
         <source>Polish Translation</source>
         <translation type="unfinished">Polsk oversettelse</translation>
+    </message>
+    <message>
+        <source>Snap &amp; Flatpak Support</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -325,35 +329,43 @@ Do you want to save it?</source>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>Donate a Beer?</source>
+        <source>Donation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a GitHub Sponsor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sure, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Såklart du kan gjøre dette</translation>
     </message>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Become a Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>her</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>Også mulig, </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Donasjoner er alltid velkomne</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Opplastet</translation>
     </message>
     <message>
         <source>Upload script </source>
@@ -817,12 +829,42 @@ og avbildning av skjerm.</translation>
         <source>Upload capture to external source</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Pin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pin screenshot to foreground in frameless window</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PinWindow</name>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Lukk</translation>
+    </message>
+    <message>
+        <source>Close Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close All</source>
+        <translation>Lukk alle</translation>
+    </message>
+</context>
+<context>
+    <name>PinWindowHandler</name>
+    <message>
+        <source>Pin Window %1</source>
+        <translation>Fest vindu %1</translation>
     </message>
 </context>
 <context>
@@ -841,7 +883,7 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilde lagret</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
@@ -1088,11 +1130,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Skript</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Opplaster</translation>
     </message>
 </context>
 <context>

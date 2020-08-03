@@ -28,10 +28,17 @@ AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
 #if defined(__linux__)
     if (PlatformChecker::instance()->isX11()) {
         return new X11ImageGrabber();
-    } else if (PlatformChecker::instance()->isWayland() && PlatformChecker::instance()->isKde()) {
-        return new KdeWaylandImageGrabber();
-    } else if (PlatformChecker::instance()->isWayland() && PlatformChecker::instance()->isGnome()) {
-        return new GnomeWaylandImageGrabber();
+    } else if (PlatformChecker::instance()->isWayland()) {
+    	if (false &&  PlatformChecker::instance()->isSnap()) {
+		    return new WaylandImageGrabber();
+    	} else if(PlatformChecker::instance()->isKde()) {
+		    return new KdeWaylandImageGrabber();
+	    } else if (PlatformChecker::instance()->isGnome()) {
+		    return new GnomeWaylandImageGrabber();
+	    } else {
+		    qCritical("Unknown wayland platform, using default wayland Image Grabber.");
+		    return new WaylandImageGrabber();
+    	}
     } else {
         qCritical("Unknown platform, using default X11 Image Grabber.");
         return new X11ImageGrabber();

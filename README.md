@@ -1,6 +1,6 @@
 # [ksnip](http://ksnip.org/) &middot; [![Build Status][travis-badge]][travis-url] [![GitHub commits (since latest release)][gh-comm-since-badge]][gh-comm-since-url] [![Translation status][weblate-badge]][weblate-url] [![GitHub total downloads][gh-dl-badge]][gh-dl-url] [![SourceForge total downloads][sf-dt-badge]][sf-dt-badge-url] 
 
-Version v1.7.3
+Version v1.8.0 - Work in Progress
 
 Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features 
 for your screenshots.
@@ -31,6 +31,7 @@ Latest ksnip version contains following features:
 * Tabs for Screenshots and images.
 * Open existing images via dialog, drag-and-drop or paste from clipboard.
 * Run as single instance application (secondary instances send cli parameter to primary instance).
+* Pin Screenshots in Frameless windows that stay on top of other windows.
 * Many configuration options.
 
 # Supported Screenshot Types
@@ -86,6 +87,15 @@ This needs to be done only once and connects some snap plugs which are currently
  
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/ksnip)
 
+### Flatpak (Linux)
+The usual installation for flatpaks, will install latest version:  
+`$ flatpak install flathub org.ksnip.ksnip`  
+
+Then just start it:  
+`$ flatpak run org.ksnip.ksnip`  
+
+<a href='https://flathub.org/apps/details/org.ksnip.ksnip'><img width='220' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
+
 ### EXE (Windows)
 The exe file with all required dependencies comes in a zipped package, which just need to be unzipped 
 with your favorite zip tool. Ksnip can then be started by just double clicking ksnip.exe.
@@ -93,6 +103,10 @@ with your favorite zip tool. Ksnip can then be started by just double clicking k
 ### APP (macOS)
 The app file comes in a dmg package which needs to be opened and the ksnip.app file needs to be dragged 
 and dropped into the Application folder. After that the application can be started by double clicking ksnip.app
+
+### Homebrew Cask (macOS)
+Just install via brew and start using from your Applications folder.  
+`$ brew cask install ksnip`
 
 # Dependencies
 ksnip depends on [kImageAnnotator](https://github.com/ksnip/kImageAnnotator) and [kColoPicker](https://github.com/DamirPorobic/kColorPicker) which needs
@@ -135,13 +149,15 @@ All other bugs or feature requests please report on the [ksnip](https://github.c
 
 # Contribution
 Any contribution, be it Code, Translation or other is always welcome. We are currently looking for someone to:
-* Produce a Flatpak [#127](https://github.com/ksnip/ksnip/issues/127).
 * Write code and fix bugs for macOS.  
 * Write wiki entries and documentation for ksnip.  
 * Package ksnip for different OS and distros.
 
-# Donate a Beer?
-You would like to donate a Beer? Sure, you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)
+# Donation 
+
+ksnip is a non-profitable open source projects but still has some costs that need to be covered, like domain costs or Apple Developer Account.
+If you want to help us cover those costs or just simply want to thank us for our open source work by donating a beer or soda,
+you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)
 
 [travis-badge]:        https://img.shields.io/travis/ksnip/ksnip.svg?label=travis&logo=travis
 [travis-url]:          https://travis-ci.org/ksnip/ksnip

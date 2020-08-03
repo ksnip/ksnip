@@ -17,7 +17,6 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <common/constants/DefaultValues.h>
 #include "ImgurUploaderSettings.h"
 
 ImgurUploaderSettings::ImgurUploaderSettings(KsnipConfig *ksnipConfig) :

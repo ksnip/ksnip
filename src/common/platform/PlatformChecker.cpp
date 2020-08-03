@@ -45,10 +45,16 @@ bool PlatformChecker::isGnome() const
     return mEnvironment == Environment::Gnome;
 }
 
+bool PlatformChecker::isSnap() const
+{
+	return mPackageManager == PackageManager::Snap;
+}
+
 void PlatformChecker::checkPlatform()
 {
     CommandRunner runner;
     auto output = runner.getEnvironmentVariable(QStringLiteral("XDG_SESSION_TYPE"));
+    qDebug("Check Platform: %s", qPrintable(output));
     if (outputContainsValue(output, QStringLiteral("x11"))) {
         mPlatform = Platform::X11;
     } else if (outputContainsValue(output, QStringLiteral("wayland"))) {
@@ -62,13 +68,24 @@ void PlatformChecker::checkEnvironment()
 {
     CommandRunner runner;
     auto output = runner.getEnvironmentVariable(QStringLiteral("XDG_CURRENT_DESKTOP"));
+	qDebug("Check Environment: %s", qPrintable(output));
     if (outputContainsValue(output, QStringLiteral("kde"))) {
         mEnvironment = Environment::KDE;
-    } else if (outputContainsValue(output, QStringLiteral("gnome"))) {
+    } else if (outputContainsValue(output, QStringLiteral("gnome")) || outputContainsValue(output, QStringLiteral("unity"))) {
         mEnvironment = Environment::Gnome;
     } else {
         mEnvironment = Environment::Unknown;
     }
+}
+
+void PlatformChecker::checkCheckPackageManager()
+{
+	CommandRunner runner;
+	if (runner.isEnvironmentVariableSet(QStringLiteral("SNAP"))) {
+		mPackageManager = PackageManager::Snap;
+	} else {
+		mPackageManager = PackageManager::Unknown;
+	}
 }
 
 bool PlatformChecker::outputContainsValue(const QString& output, const QString& value) const
@@ -76,8 +93,12 @@ bool PlatformChecker::outputContainsValue(const QString& output, const QString& 
     return output.contains(value.toLatin1(), Qt::CaseInsensitive);
 }
 
-PlatformChecker::PlatformChecker()
+PlatformChecker::PlatformChecker() :
+	mEnvironment(Environment::Unknown),
+	mPlatform(Platform::Unknown),
+	mPackageManager(PackageManager::Unknown)
 {
     checkPlatform();
     checkEnvironment();
+    checkCheckPackageManager();
 }

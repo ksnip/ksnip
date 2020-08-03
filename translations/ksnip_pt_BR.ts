@@ -89,7 +89,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Fonte do Texto</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
@@ -97,15 +97,15 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Negrito</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
+        <translation>Itálico</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Sublinhado</translation>
     </message>
     <message>
         <source>Numbering Font</source>

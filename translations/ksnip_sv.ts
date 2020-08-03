@@ -257,6 +257,10 @@ Om du ändrar det här alternativet måste alla öppna instanser startas om.</tr
         <source>Polish Translation</source>
         <translation>Polsk översättning</translation>
     </message>
+    <message>
+        <source>Snap &amp; Flatpak Support</source>
+        <translation>Snap- &amp; Flatpak-stöd</translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -329,20 +333,8 @@ Vill du spara det?</translation>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>Donate a Beer?</source>
-        <translation>Donera en öl?</translation>
-    </message>
-    <message>
-        <source>Sure, you can do that</source>
-        <translation>Absolut, det kan du göra</translation>
-    </message>
-    <message>
         <source>here</source>
         <translation>här</translation>
-    </message>
-    <message>
-        <source>Become a Sponsor</source>
-        <translation>Bli sposor</translation>
     </message>
     <message>
         <source>Also possible, </source>
@@ -351,6 +343,22 @@ Vill du spara det?</translation>
     <message>
         <source>Donations are always welcome</source>
         <translation>Donationer är alltid välkomna</translation>
+    </message>
+    <message>
+        <source>Donation</source>
+        <translation>Donation</translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
+        <translation>ksnip är ett icke lönsamt projekt med öppen källkod, men&lt;br/&gt; har fortfarande vissa kostnader som måste täckas,&lt;br/&gt;som domänkostnader eller Apple Developer Account.</translation>
+    </message>
+    <message>
+        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
+        <translation>Om du vill hjälpa oss att täcka dessa kostnader eller bara&lt;br/&gt;helt enkelt tacka oss för vårt öppen källkodsarbete&lt;br/&gt;genom att donera en öl eller läsk, kan du göra det.</translation>
+    </message>
+    <message>
+        <source>Become a GitHub Sponsor</source>
+        <translation>Bli en GitHub-sponsor</translation>
     </message>
 </context>
 <context>
@@ -830,12 +838,42 @@ och själva skärmklippet.</translation>
         <source>Upload capture to external source</source>
         <translation>Ladda upp skärmklipp till extern källa</translation>
     </message>
+    <message>
+        <source>Pin</source>
+        <translation>Fäst</translation>
+    </message>
+    <message>
+        <source>Pin screenshot to foreground in frameless window</source>
+        <translation>Fäst skärmklipp i förgrunden i ramlöst fönster</translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
         <translation>Klipp</translation>
+    </message>
+</context>
+<context>
+    <name>PinWindow</name>
+    <message>
+        <source>Close</source>
+        <translation>Stäng</translation>
+    </message>
+    <message>
+        <source>Close Other</source>
+        <translation>Stäng övriga</translation>
+    </message>
+    <message>
+        <source>Close All</source>
+        <translation>Stäng alla</translation>
+    </message>
+</context>
+<context>
+    <name>PinWindowHandler</name>
+    <message>
+        <source>Pin Window %1</source>
+        <translation>Fäst fönster %1</translation>
     </message>
 </context>
 <context>

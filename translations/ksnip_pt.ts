@@ -260,7 +260,7 @@ um novo início de todas as instâncias.</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Suporte a Snap e Flatpak</translation>
     </message>
 </context>
 <context>
@@ -347,19 +347,19 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Doação</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation type="unfinished"></translation>
+        <translation>O ksnip é um projeto de código aberto sem fins lucrativos, mas &lt;br/&gt; ainda tem alguns custos que precisam ser cobertos, &lt;br/&gt; como os custos de domínio ou a conta de desenvolvedor da Apple.</translation>
     </message>
     <message>
         <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Se você deseja nos ajudar a cobrir esses custos ou simplesmente &lt;br/&gt; quer nos agradecer pelo nosso trabalho de código aberto &lt;br/&gt; doando uma cerveja ou refrigerante, você pode fazer isso</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Torne-se um patrocinador do GitHub</translation>
     </message>
 </context>
 <context>
@@ -418,7 +418,7 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Script escrito para StdErr.</translation>
     </message>
 </context>
 <context>
@@ -841,11 +841,11 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Fixar</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fixar captura de tela em primeiro plano na janela sem moldura</translation>
     </message>
 </context>
 <context>
@@ -859,22 +859,22 @@ e captura de tela.</translation>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Fechar</translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar Outros</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar Todos</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fixar janela %1</translation>
     </message>
 </context>
 <context>
@@ -985,21 +985,23 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Parar quando o script de upload é gravado no StdErr</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Marca o upload como malsucedido quando o script grava no StdErr.
+Sem essa configuração, os erros no script não serão notados.</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtro:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Expressão RegEx. Apenas copie para a área de transferência aquilo que corresponda à expressão RegEx.
+Quando omitido, tudo é copiado.</translation>
     </message>
 </context>
 <context>

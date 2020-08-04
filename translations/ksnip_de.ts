@@ -55,7 +55,7 @@
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Bitte fügen Sie ein Bild für das Wasserzeichen via  Optionen &gt; Einstellungen &gt; Annotator &gt; Aktualisieren hinzu</translation>
+        <translation>Bitte fügen Sie ein Bild für das Wasserzeichen via Optionen &gt; Einstellungen &gt; Annotator &gt; Aktualisieren hinzu</translation>
     </message>
 </context>
 <context>
@@ -179,7 +179,7 @@ Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation>Neue Aufnahmen in die Zwischenablage automatisch kopieren</translation>
+        <translation>Neue Aufnahmen automatisch in die Zwischenablage kopieren</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
@@ -191,7 +191,7 @@ Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Position von ksnip beim Verschieben merken und beim Starten laden</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
@@ -215,13 +215,13 @@ all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
         <translation>Nach Aktivierung dieser Option wird nur eine ksnip-Instanz
-ausgeführt, danach gestartetet Instanzen übergeben ihre
-Argumente an diese und beenden sich. Das ändern dieser
-Option erfordert einen Neustartaller Instanzen.</translation>
+ausgeführt, danach gestartete Instanzen übergeben ihre
+Argumente an diese und beenden sich. Das Ändern dieser
+Option erfordert einen Neustart aller Instanzen.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Im Tray minimiert starten</translation>
     </message>
 </context>
 <context>
@@ -260,7 +260,7 @@ Option erfordert einen Neustartaller Instanzen.</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Snap- und Flatpak-Support</translation>
     </message>
 </context>
 <context>
@@ -272,7 +272,8 @@ Option erfordert einen Neustartaller Instanzen.</translation>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Bildschirmaufnahme %1%2%3 wurde verändert.
+Speichern?</translation>
     </message>
 </context>
 <context>
@@ -346,11 +347,11 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Spende</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip ist ein gemeinnütziges Open-Source-Projekt,&lt;br/&gt;dennoch müssen einige Kosten gedeckt werden,&lt;br/&gt;z.B. Domain-Kosten oder der Apple Developer Account.</translation>
     </message>
     <message>
         <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
@@ -682,9 +683,8 @@ Changing requires restart.</source>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation>Zeitverzögerung in Sekunden zwischen
-dem Anstoßen der Bildschirmaufnahme
-und der Aufnahme.</translation>
+        <translation>Zeitverzögerung in Sekunden zwischen dem Auslösen
+und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>s</source>
@@ -906,7 +906,7 @@ und der Aufnahme.</translation>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Neue Aufnahmen automatisch im Standardverzeichnis speichern</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
@@ -914,7 +914,7 @@ und der Aufnahme.</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Zuletzt verwendeten Speicherort merken</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
@@ -949,7 +949,7 @@ Filename can contain following wildcards:
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Skriptausgabe in Zwischenablage kopieren</translation>
     </message>
     <message>
         <source>Script:</source>
@@ -1011,7 +1011,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation>Imgur Hochlader</translation>
+        <translation></translation>
     </message>
     <message>
         <source>Application</source>

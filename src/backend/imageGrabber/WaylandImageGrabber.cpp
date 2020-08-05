@@ -39,7 +39,7 @@ QRect WaylandImageGrabber::activeWindowRect() const
 
 void WaylandImageGrabber::grab()
 {
-	QDBusInterface interface(QStringLiteral("org.freedesktop.portal.Screenshot"), QStringLiteral("/org/freedesktop/portal/Screenshot"), QStringLiteral("org.freedesktop.portal.Screenshot"));
+	QDBusInterface interface(QStringLiteral("org.freedesktop.portal.Desktop"), QStringLiteral("/org/freedesktop/portal/Screenshot"), QStringLiteral("org.freedesktop.portal.Screenshot"));
 	QDBusPendingReply<bool, QString> reply;
 
 	reply = interface.asyncCall(QStringLiteral("Screenshot"), "s", "a");

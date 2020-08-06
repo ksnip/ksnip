@@ -51,22 +51,22 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation>Imagem para marca d&apos;água é necessária</translation>
+        <translation>Marca d&apos;água Obrigatória</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Adicione uma imagem de marca d&apos;água em: Opções &gt; Configurações &gt; Editor &gt; Selecionar</translation>
+        <translation>Por favor, adicione uma marca d&apos;água em: Opções &gt; Configurações &gt; Editor &gt; Atualizar</translation>
     </message>
 </context>
 <context>
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
-        <translation>Exibir sombras dos objetos desenhados</translation>
+        <translation>Projetar Sombras</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation>Quando habilitado, os itens projetam sombras.</translation>
+        <translation>Quando ativado, os itens projetam sombras.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
@@ -75,12 +75,12 @@
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation>Quando habilitado, suaviza a caneta e
+        <translation>Quando ativado, suaviza a caneta e
 o marcador após finalizar o desenho.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation>Fator de suavização</translation>
+        <translation>Fator de Suavização</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
@@ -112,7 +112,7 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation>Fonte dos números</translation>
+        <translation>Fonte dos Números</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
@@ -120,15 +120,15 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation>Imagem de marca d&apos;água</translation>
+        <translation>Marca d&apos;água</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation>Selecionar</translation>
+        <translation>Atualizar</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation>Rotacionar marca d&apos;água</translation>
+        <translation>Girar marca d&apos;água</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
@@ -166,16 +166,16 @@ Requer reiniciar o ksnip para aplicar as mudanças.</translation>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation>Quando ativado adiciona um ícone de bandeja na barra de tarefas, se o gerenciador de janelas do SO oferecer suporte.
+        <translation>Quando ativado, adiciona um ícone de bandeja na barra de tarefas, se o gerenciador de janelas do SO oferecer suporte.
 A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation>Minimizar para a bandeja</translation>
+        <translation>Minimizar para a Bandeja</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation>Fechar para a bandeja</translation>
+        <translation>Fechar para a Bandeja</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
@@ -183,7 +183,7 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation>Automaticamente ocultar abas</translation>
+        <translation>Automaticamente Ocultar Abas</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
@@ -221,7 +221,7 @@ um novo início de todas as instâncias.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation>Iniciar minimizado na bandeja</translation>
+        <translation>Iniciar Minimizado na Bandeja</translation>
     </message>
 </context>
 <context>
@@ -304,23 +304,23 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation>Janela ativa</translation>
+        <translation>Janela Ativa</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation>Capturar a janela que atualmente está com o foco</translation>
+        <translation>Capturar a janela em foco</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation>Janela sob o cursor</translation>
+        <translation>Janela Sob o Cursor</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation>Capturar o que está atualmente sob o cursor do mouse</translation>
+        <translation>Capturar o que está sob o cursor do mouse</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation>Última área retangular</translation>
+        <translation>Última Área Retangular</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
@@ -358,7 +358,7 @@ Deseja salvá-la?</translation>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation>Upload bem sucedido</translation>
+        <translation>Enviado com Sucesso</translation>
     </message>
     <message>
         <source>Upload script </source>
@@ -370,11 +370,11 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation>Upado para</translation>
+        <translation>Enviado para</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation>Não foi possível salvar a imagem temporária para upload.</translation>
+        <translation>Não foi possível salvar a imagem temporária para envio.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
@@ -406,7 +406,7 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation>Falha no upload</translation>
+        <translation>Falha no envio</translation>
     </message>
 </context>
 <context>
@@ -513,7 +513,8 @@ acima da área selecionada.</translation>
 cursor. Change requires ksnip restart to
 take effect.</source>
         <translation>Define a cor do cursor ao capturar área retangular.
-A alteração requer que o ksnip reinicie para surtir efeito.</translation>
+A alteração requer que o ksnip reinicie para
+surtir efeito.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
@@ -524,7 +525,8 @@ A alteração requer que o ksnip reinicie para surtir efeito.</translation>
 cursor. Change requires ksnip restart to
 take effect.</source>
         <translation>Define a espessura do cursor ao capturar área retangular.
-A alteração requer que o ksnip reinicie para surtir efeito.</translation>
+A alteração requer que o ksnip reinicie para
+surtir efeito.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -576,11 +578,11 @@ e sempre ativado para MacOs.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Upload para imgur.com concluído!</translation>
+        <translation>Envio para imgur.com concluído!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation>Novo token recebido , tentando fazer o upload novamente…</translation>
+        <translation>Novo token recebido , tentando enviar novamente…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
@@ -591,11 +593,11 @@ e sempre ativado para MacOs.</translation>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation>Forçar upload anônimo</translation>
+        <translation>Forçar envio anônimo</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation>Sempre copiar o link Imgur para a área de transferência</translation>
+        <translation>Sempre copiar o link de Imgur para a área de transferência</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -627,7 +629,7 @@ e sempre ativado para MacOs.</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation>Histórico do Imgur</translation>
+        <translation>Uploader do Imgur</translation>
     </message>
     <message>
         <source>Username</source>
@@ -651,7 +653,7 @@ e sempre ativado para MacOs.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation>Depois do upload, abrir link do Imgur no navegador padrão</translation>
+        <translation>Depois de enviar, abrir link do Imgur no navegador padrão</translation>
     </message>
     <message>
         <source>Link directly to image</source>
@@ -729,7 +731,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation>Upload</translation>
+        <translation>Enviar</translation>
     </message>
     <message>
         <source>Print</source>
@@ -821,7 +823,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation>Colar incorporado</translation>
+        <translation>Colar Aqui</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
@@ -870,7 +872,7 @@ e captura de tela.</translation>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation>Automaticamente salvar novas capturas para o diretório padrão</translation>
+        <translation>Automaticamente salvar novas capturas na pasta padrão</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
@@ -878,13 +880,13 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation>Lembrar o último diretório onde os arquivos foram salvos</translation>
+        <translation>Lembrar a Última Pasta Salva</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation>Quando ativado, substituirá o diretório de &quot;salvamento&quot; armazenado nas configurações
-para o diretório mais recente onde foi salvo, isso para cada vez que usar o comando salvar.</translation>
+        <translation>Quando ativado, substituirá a pasta armazenada nas configurações
+pela pasta mais recente salva, toda vez que salvar.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
@@ -921,7 +923,7 @@ O nome do arquivo pode conter os seguintes curingas:
     </message>
     <message>
         <source>After:</source>
-        <translation>Depois de:</translation>
+        <translation>Depois:</translation>
     </message>
     <message>
         <source>Only output following this string will be copied to clipboard, excluding that string.
@@ -959,7 +961,7 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation>Selecione o Script para Upload</translation>
+        <translation>Selecione o Script para Envio</translation>
     </message>
 </context>
 <context>
@@ -982,7 +984,7 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation>Serviço Imgur</translation>
+        <translation>Uploader Imgur</translation>
     </message>
     <message>
         <source>Application</source>
@@ -1010,7 +1012,7 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>Stickers</source>
-        <translation>Adesivos</translation>
+        <translation>Figurinhas</translation>
     </message>
 </context>
 <context>
@@ -1025,19 +1027,19 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation>Usar adesivos padrão</translation>
+        <translation>Usar Figurinhas Padrão</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation>Configurações de Adesivos</translation>
+        <translation>Configurações de Figurinhas</translation>
     </message>
     <message>
         <source>Add Sticker</source>
-        <translation>Adicionar Adesivo</translation>
+        <translation>Adicionar Figurinha</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation>Arquivos de imagem vetorial (*.svg)</translation>
+        <translation>Arquivos de Imagem Vetorial (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
@@ -1067,7 +1069,7 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>All Files</source>
-        <translation>Todos os arquivos</translation>
+        <translation>Todos os Arquivos</translation>
     </message>
 </context>
 <context>
@@ -1078,11 +1080,11 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Adicione um script de upload em Opções&gt; Configurações&gt; Script de Uploader</translation>
+        <translation>Adicione um script de envio em Opções&gt; Configurações&gt; Script de Envio</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation>Capturar Upload</translation>
+        <translation>Capturar Envio</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
@@ -1093,7 +1095,7 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation>Confirmar antes de fazer o upload</translation>
+        <translation>Confirmar antes de enviar</translation>
     </message>
     <message>
         <source>Uploader Type:</source>

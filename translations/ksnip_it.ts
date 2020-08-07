@@ -193,30 +193,33 @@ Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Ricorda l&apos;ultimo strumento usato e selezionalo alla partenza</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Usa l&apos;interfaccia con le schede</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Questo cambio richiede far ripartire l&apos;applicazione</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Usa ksnip in una sola finestra</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Abilitare questa opzione consentirà l&apos;esecuzione di una sola istanza di ksnip,
+tutte le altre istanze avviate dopo la prima passeranno
+argomenti alla prima e si chiuderanno. La modifica di questa opzione richiede
+un nuovo inizio di tutte le istanze.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniziare minimizzato nella barra delle applicazione</translation>
     </message>
 </context>
 <context>
@@ -255,7 +258,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Versione Snap &amp; Flatpack</translation>
     </message>
 </context>
 <context>
@@ -267,7 +270,8 @@ a new start of all instances.</source>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>La cattura %1%2%3 è stata modificata
+Vuoi salvarla?</translation>
     </message>
 </context>
 <context>

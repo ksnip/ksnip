@@ -444,7 +444,7 @@ void MainWindow::initGui()
 
     if(mConfig->useTrayIcon()) {
 	    connect(mTrayIcon, &TrayIcon::showEditorTriggered, this, &MainWindow::show);
-	    mTrayIcon->setNewCaptureAction(mToolBar->newCaptureAction());
+	    mTrayIcon->setCaptureActions(mToolBar->captureActions());
 	    mTrayIcon->setOpenAction(mOpenImageAction);
 	    mTrayIcon->setSaveAction(mToolBar->saveAction());
 	    mTrayIcon->setCopyAction(mToolBar->copyToClipboardAction());

@@ -20,6 +20,8 @@
 #ifndef KSNIP_CAPTUREMODES_H
 #define KSNIP_CAPTUREMODES_H
 
+#include <QMetaType>
+
 enum class CaptureModes
 {
     RectArea,
@@ -29,5 +31,7 @@ enum class CaptureModes
     ActiveWindow,
     WindowUnderCursor
 };
+
+Q_DECLARE_METATYPE(CaptureModes)
 
 #endif // KSNIP_CAPTUREMODES_H

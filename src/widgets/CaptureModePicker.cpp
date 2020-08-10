@@ -29,10 +29,12 @@ CaptureModePicker::CaptureModePicker(const QList<CaptureModes> &captureModes)
 
 void CaptureModePicker::setCaptureMode(CaptureModes mode)
 {
-    auto action = mActionToCaptureMode.key(mode, nullptr);
-    if (action != nullptr) {
-        setDefaultAction(action);
-        mSelectedCaptureMode = mode;
+    for(auto action : mCaptureActions) {
+	    if (action->data().value<CaptureModes>() == mode) {
+		    setDefaultAction(action);
+		    mSelectedCaptureMode = mode;
+		    return;
+	    }
     }
 }
 
@@ -105,9 +107,8 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         menu->addAction(action);
     }
 
-    auto allActions = mActionToCaptureMode.keys();
-    if (!allActions.isEmpty()) {
-        setDefaultAction(allActions[0]);
+    if (!mCaptureActions.isEmpty()) {
+        setDefaultAction(mCaptureActions.first());
     }
     setMenu(menu);
 }
@@ -124,8 +125,9 @@ QAction *CaptureModePicker::createAction(const QString &text, const QString &too
     action->setToolTip(tooltip);
 	action->setIcon(IconLoader::load(iconName));
 	action->setShortcut(shortcut);
+	action->setData(static_cast<int>(captureMode));
     connect(action, &QAction::triggered, [this, captureMode]() { selectCaptureMode(captureMode); } );
-    mActionToCaptureMode[action] = captureMode;
+	mCaptureActions.append(action);
     return action;
 }
 
@@ -133,4 +135,9 @@ void CaptureModePicker::selectCaptureMode(CaptureModes mode)
 {
     mSelectedCaptureMode = mode;
     emit captureModeSelected(mode);
+}
+
+QList<QAction*> CaptureModePicker::captureActions() const
+{
+	return mCaptureActions;
 }

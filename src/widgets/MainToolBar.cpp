@@ -196,3 +196,8 @@ QAction *MainToolBar::redoAction() const
 {
     return mRedoAction;
 }
+
+QList<QAction *> MainToolBar::captureActions() const
+{
+	return mCaptureModePicker->captureActions();
+}

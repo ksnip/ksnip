@@ -19,11 +19,20 @@
 
 #include "TrayIcon.h"
 
-TrayIcon::TrayIcon(QObject *parent) : QSystemTrayIcon(parent)
+TrayIcon::TrayIcon(QObject *parent) :
+	QSystemTrayIcon(parent),
+	mOpenAction(nullptr),
+	mSaveAction(nullptr),
+	mCopyAction(nullptr),
+	mUploadAction(nullptr),
+	mShowEditorAction(nullptr),
+	mQuitAction(nullptr)
 {
-	setIcon(QPixmap(":/icons/ksnip.svg"));
+	auto ksnipIcon = QPixmap(":/icons/ksnip.svg");
+	setIcon(ksnipIcon);
 
 	mShowEditorAction = new QAction(tr("Show Editor"), this);
+	mShowEditorAction->setIcon(ksnipIcon);
 	connect(mShowEditorAction, &QAction::triggered, this, &TrayIcon::showEditorTriggered);
 	connect(this, &QSystemTrayIcon::activated, this, &TrayIcon::activated);
 	connect(this, &QSystemTrayIcon::messageClicked, this, &TrayIcon::openContentUrl);
@@ -33,7 +42,10 @@ void TrayIcon::setupMenu()
 {
 	mMenu.addAction(mShowEditorAction);
 	mMenu.addSeparator();
-	mMenu.addAction(mNewCaptureAction);
+	for(auto captureAction : mCaptureActions) {
+		mMenu.addAction(captureAction);
+	}
+	mMenu.addSeparator();
 	mMenu.addAction(mOpenAction);
 	mMenu.addAction(mSaveAction);
 	mMenu.addAction(mCopyAction);
@@ -48,9 +60,9 @@ TrayIcon::~TrayIcon()
 	delete mShowEditorAction;
 }
 
-void TrayIcon::setNewCaptureAction(QAction *action)
+void TrayIcon::setCaptureActions(const QList<QAction*> &captureActions)
 {
-	mNewCaptureAction = action;
+	mCaptureActions = captureActions;
 }
 
 void TrayIcon::setOpenAction(QAction *action)

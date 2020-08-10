@@ -34,7 +34,7 @@ Q_OBJECT
 public:
 	explicit TrayIcon(QObject *parent);
 	~TrayIcon() override;
-	void setNewCaptureAction(QAction *action);
+	void setCaptureActions(const QList<QAction*> &captureActions);
 	void setOpenAction(QAction *action);
 	void setSaveAction(QAction *action);
 	void setCopyAction(QAction *action);
@@ -50,7 +50,7 @@ signals:
 
 private:
 	QMenu mMenu;
-	QAction *mNewCaptureAction;
+	QList<QAction*> mCaptureActions;
 	QAction *mOpenAction;
 	QAction *mSaveAction;
 	QAction *mCopyAction;

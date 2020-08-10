@@ -45,6 +45,7 @@ public:
     QAction* cropAction() const;
     QAction* undoAction() const;
     QAction* redoAction() const;
+    QList<QAction*> captureActions() const;
 
 signals:
     void captureModeSelected(CaptureModes mode) const;

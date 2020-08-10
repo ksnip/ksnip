@@ -34,13 +34,14 @@ public:
     ~CaptureModePicker() override = default;
     void setCaptureMode(CaptureModes mode);
     CaptureModes captureMode() const;
+    QList<QAction*> captureActions() const;
 
 signals:
     void captureModeSelected(CaptureModes mode) const;
 
 private:
     CaptureModes mSelectedCaptureMode;
-    QHash<QAction *, CaptureModes> mActionToCaptureMode;
+    QList<QAction*> mCaptureActions;
 
     void init(const QList<CaptureModes> &captureModes);
     void selectCaptureMode(CaptureModes mode);

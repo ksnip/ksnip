@@ -26,13 +26,15 @@ PinWindow::PinWindow(const QPixmap &pixmap, const QString &title) :
 	mDropShadowEffect(new QGraphicsDropShadowEffect(this)),
 	mMargin(10),
 	mMinSize(50),
-	mImage(pixmap)
+	mImage(pixmap),
+	mIsMoving(false)
 {
 	setWindowFlags(windowFlags() | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::CoverWindow);
 	setAttribute(Qt::WA_TranslucentBackground);
 	setModal(false);
 	setWindowTitle(title);
 	setAttribute(Qt::WA_DeleteOnClose);
+	setMouseTracking(true);
 
 	mCentralWidget->setPixmap(mImage);
 	mLayout->addWidget(mCentralWidget);
@@ -61,6 +63,32 @@ void PinWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
 	Q_UNUSED(event)
 	emit close();
+}
+
+void PinWindow::mousePressEvent(QMouseEvent *event)
+{
+	if(event->button() == Qt::LeftButton) {
+		mIsMoving = true;
+		mMoveOffset = event->globalPos() - pos();
+	}
+	QWidget::mousePressEvent(event);
+}
+
+void PinWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+	if(event->button() == Qt::LeftButton) {
+		mIsMoving = false;
+		mMoveOffset = {};
+	}
+	QWidget::mouseReleaseEvent(event);
+}
+
+void PinWindow::mouseMoveEvent(QMouseEvent *event)
+{
+	if(mIsMoving) {
+		move(event->globalPos() - mMoveOffset);
+	}
+	QWidget::mouseMoveEvent(event);
 }
 
 void PinWindow::keyPressEvent(QKeyEvent *event)

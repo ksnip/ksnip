@@ -44,6 +44,9 @@ signals:
 
 protected:
 	void mouseDoubleClickEvent(QMouseEvent *event) override;
+	void mousePressEvent(QMouseEvent *event) override;
+	void mouseReleaseEvent(QMouseEvent *event) override;
+	void mouseMoveEvent(QMouseEvent *event) override;
 	void contextMenuEvent(QContextMenuEvent *event) override;
 	void keyPressEvent(QKeyEvent *event) override;
 	void enterEvent(QEvent *event) override;
@@ -57,6 +60,8 @@ private:
 	int mMargin;
 	int mMinSize;
 	QPixmap mImage;
+	QPoint mMoveOffset;
+	bool mIsMoving{};
 
 	void addDropShadow();
 };

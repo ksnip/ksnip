@@ -28,7 +28,7 @@ bool ImageSaver::save(const QImage &image, const QString &path)
     ensurePathExists(path);
     auto fullPath = ensureFilenameHasFormat(path);
 
-	auto isSuccessful = image.save(fullPath);
+	auto isSuccessful = image.save(fullPath, nullptr, getSaveQuality());
 	if (!isSuccessful) {
 		qCritical("Unable to save file '%s'", qPrintable(fullPath));
 	}
@@ -52,4 +52,10 @@ QString ImageSaver::ensureFilenameHasFormat(const QString &path)
         return path + QStringLiteral(".") + mConfig->saveFormat();
     }
     return path;
+}
+
+int ImageSaver::getSaveQuality()
+{
+	auto defaultQualityFactor = -1;
+	return mConfig->saveQualityMode() == SaveQualityMode::Default ? defaultQualityFactor : mConfig->saveQualityFactor();
 }

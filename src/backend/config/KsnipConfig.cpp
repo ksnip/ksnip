@@ -155,8 +155,7 @@ CaptureModes KsnipConfig::captureMode() const
         return CaptureModes::RectArea;
     }
 
-	auto modeEnumAsInt = loadValue(KsnipConfigOptions::captureModeString()).toInt();
-    return static_cast<CaptureModes>(modeEnumAsInt);
+	return loadValue(KsnipConfigOptions::captureModeString(), (int)CaptureModes::RectArea).value<CaptureModes>();
 }
 
 void KsnipConfig::setCaptureMode(CaptureModes mode)
@@ -313,6 +312,34 @@ void KsnipConfig::setUseSingleInstance(bool enabled)
 		return;
 	}
 	saveValue(KsnipConfigOptions::useSingleInstanceString(), enabled);
+}
+
+SaveQualityMode KsnipConfig::saveQualityMode() const
+{
+	return loadValue(KsnipConfigOptions::saveQualityModeString(), (int)SaveQualityMode::Default).value<SaveQualityMode>();
+}
+
+void KsnipConfig::setSaveQualityMode(SaveQualityMode mode)
+{
+	if (saveQualityMode() == mode) {
+		return;
+	}
+
+	saveValue(KsnipConfigOptions::saveQualityModeString(), static_cast<int>(mode));
+}
+
+int KsnipConfig::saveQualityFactor() const
+{
+	return loadValue(KsnipConfigOptions::saveQualityFactorString(), 50).toInt();
+}
+
+void KsnipConfig::setSaveQualityFactor(int factor)
+{
+	if (saveQualityFactor() == factor) {
+		return;
+	}
+
+	saveValue(KsnipConfigOptions::saveQualityFactorString(), factor);
 }
 
 // Annotator

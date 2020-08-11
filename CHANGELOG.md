@@ -4,6 +4,7 @@
 * New: Pin screenshots in frameless windows that stay in foreground. ([#365](https://github.com/ksnip/ksnip/issues/365))
 * New: Support for unit tests. ([#80](https://github.com/ksnip/ksnip/issues/80))
 * New: Add brew cask package for ksnip. ([#394](https://github.com/ksnip/ksnip/issues/394))
+* New: Allow setting image quality when saving images. ([#382](https://github.com/ksnip/ksnip/issues/382))
 * Changed: Show all Screenshot options in System Tray. ([#404](https://github.com/ksnip/ksnip/issues/404))
 
 ## Release 1.7.3

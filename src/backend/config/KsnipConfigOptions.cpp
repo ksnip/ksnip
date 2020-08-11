@@ -74,6 +74,16 @@ QString KsnipConfigOptions::captureModeString()
 	return imageGrabberSectionString() + QStringLiteral("CaptureMode");
 }
 
+QString KsnipConfigOptions::saveQualityModeString()
+{
+	return saveSectionString() + QStringLiteral("SaveQualityMode");
+}
+
+QString KsnipConfigOptions::saveQualityFactorString()
+{
+	return saveSectionString() + QStringLiteral("SaveQualityFactor");
+}
+
 QString KsnipConfigOptions::saveDirectoryString()
 {
 	return applicationSectionString() + QStringLiteral("SaveDirectory");
@@ -357,5 +367,10 @@ QString KsnipConfigOptions::hotKeysSectionString()
 QString KsnipConfigOptions::mainWindowSectionString()
 {
 	return QStringLiteral("MainWindow/");
+}
+
+QString KsnipConfigOptions::saveSectionString()
+{
+	return QStringLiteral("Save/");
 }
 

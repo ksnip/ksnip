@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,30 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IMAGESAVER_H
-#define KSNIP_IMAGESAVER_H
+#ifndef KSNIP_SAVEQUALITYMODE_H
+#define KSNIP_SAVEQUALITYMODE_H
 
-#include <QImage>
-#include <QFileDialog>
-#include <QCoreApplication>
-#include <QObject>
-#include <QString>
-
-#include "src/backend/config/KsnipConfigProvider.h"
-
-class ImageSaver
+enum class SaveQualityMode
 {
-public:
-	explicit ImageSaver();
-	~ImageSaver() = default;
-    bool save(const QImage &image, const QString &path);
-
-private:
-    KsnipConfig* mConfig;
-
-	void ensurePathExists(const QString &path);
-    QString ensureFilenameHasFormat(const QString &path);
-	int getSaveQuality();
+	Default,
+	Factor
 };
 
-#endif //KSNIP_IMAGESAVER_H
+Q_DECLARE_METATYPE(SaveQualityMode)
+
+#endif //KSNIP_SAVEQUALITYMODE_H

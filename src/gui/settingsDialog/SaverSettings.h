@@ -62,6 +62,7 @@ private:
 
 private slots:
 	void chooseSaveDirectory();
+	SaveQualityMode getSaveQualityMode();
 };
 
 

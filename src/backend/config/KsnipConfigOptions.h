@@ -36,6 +36,8 @@ public:
 	static QString freezeImageWhileSnippingEnabledString();
 	static QString positionString();
 	static QString captureModeString();
+	static QString saveQualityModeString();
+	static QString saveQualityFactorString();
 	static QString saveDirectoryString();
 	static QString saveFilenameString();
 	static QString saveFormatString();
@@ -95,6 +97,7 @@ private:
 	static QString uploadScriptSectionString();
 	static QString hotKeysSectionString();
 	static QString mainWindowSectionString();
+	static QString saveSectionString();
 };
 
 #endif //KSNIP_KSNIPCONFIGOPTIONS_H

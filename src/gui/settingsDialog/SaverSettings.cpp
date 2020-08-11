@@ -62,7 +62,8 @@ void SaverSettings::initGui()
 
 	mSaveQualityDefaultRadioButton->setText(tr("Default"));
 	mSaveQualityFactorRadioButton->setText(tr("Factor"));
-	mSaveQualityFactorRadioButton->setToolTip(tr("Specify 0 to obtain small compressed files, 100 for large uncompressed files"));
+	mSaveQualityFactorRadioButton->setToolTip(tr("Specify 0 to obtain small compressed files, 100 for large uncompressed files.\n"
+											        "Not all image formats support the full range, JEPG does."));
 
 	mSaveQualityFactorSpinBox->setToolTip(mSaveQualityFactorRadioButton->toolTip());
 
@@ -109,6 +110,9 @@ void SaverSettings::loadConfig()
 	mAutoSaveNewCapturesCheckbox->setChecked(mConfig->autoSaveNewCaptures());
 	mPromptToSaveBeforeExitCheckbox->setChecked(mConfig->promptSaveBeforeExit());
 	mRememberSaveDirectoryCheckbox->setChecked(mConfig->rememberLastSaveDirectory());
+	mSaveQualityFactorSpinBox->setValue(mConfig->saveQualityFactor());
+	mSaveQualityDefaultRadioButton->setChecked(mConfig->saveQualityMode() == SaveQualityMode::Default);
+	mSaveQualityFactorRadioButton->setChecked(mConfig->saveQualityMode() == SaveQualityMode::Factor);
 	mSaveLocationLineEdit->setText(mConfig->saveDirectory() + mConfig->saveFilename() + QStringLiteral(".") + mConfig->saveFormat());
 }
 
@@ -117,6 +121,8 @@ void SaverSettings::saveSettings()
 	mConfig->setAutoSaveNewCaptures(mAutoSaveNewCapturesCheckbox->isChecked());
 	mConfig->setPromptSaveBeforeExit(mPromptToSaveBeforeExitCheckbox->isChecked());
 	mConfig->setRememberLastSaveDirectory(mRememberSaveDirectoryCheckbox->isChecked());
+	mConfig->setSaveQualityMode(getSaveQualityMode());
+	mConfig->setSaveQualityFactor(mSaveQualityFactorSpinBox->value());
 	mConfig->setSaveDirectory(PathHelper::extractParentDirectory(mSaveLocationLineEdit->displayText()));
 	mConfig->setSaveFilename(PathHelper::extractFilename(mSaveLocationLineEdit->displayText()));
 	mConfig->setSaveFormat(PathHelper::extractFormat(mSaveLocationLineEdit->displayText()));
@@ -139,4 +145,9 @@ void SaverSettings::chooseSaveDirectory()
 
 		mSaveLocationLineEdit->setText(path);
 	}
+}
+
+SaveQualityMode SaverSettings::getSaveQualityMode()
+{
+	return mSaveQualityDefaultRadioButton->isChecked() ? SaveQualityMode::Default : SaveQualityMode::Factor;
 }

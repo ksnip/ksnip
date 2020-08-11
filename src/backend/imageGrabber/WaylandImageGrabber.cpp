@@ -40,18 +40,14 @@ QRect WaylandImageGrabber::activeWindowRect() const
 void WaylandImageGrabber::grab()
 {
 	QDBusInterface interface(QStringLiteral("org.freedesktop.portal.Desktop"), QStringLiteral("/org/freedesktop/portal/Screenshot"), QStringLiteral("org.freedesktop.portal.Screenshot"));
-	QDBusPendingReply<bool, QString> reply;
+	QDBusPendingReply<QDBusObjectPath> reply;
 
-	reply = interface.asyncCall(QStringLiteral("Screenshot"), "s", "a");
-
-	reply.waitForFinished();
+	reply = interface.call(QStringLiteral("Screenshot"), "", QVariantMap());
 
 	if (reply.isError()) {
 		qCritical("Invalid reply from DBus: %s", qPrintable(reply.error().message()));
-		emit canceled();
 	} else {
-		qCritical("Dbus success");
-		emit canceled();
+		qCritical("Dbus success: %s", qPrintable(reply.argumentAt<0>().path()));
 	}
 }
 

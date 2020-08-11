@@ -24,10 +24,15 @@ SaverSettings::SaverSettings(KsnipConfig *ksnipConfig) :
 	mAutoSaveNewCapturesCheckbox(new QCheckBox(this)),
 	mPromptToSaveBeforeExitCheckbox(new QCheckBox(this)),
 	mRememberSaveDirectoryCheckbox(new QCheckBox(this)),
+	mSaveQualityDefaultRadioButton(new QRadioButton(this)),
+	mSaveQualityFactorRadioButton(new QRadioButton(this)),
 	mSaveLocationLabel(new QLabel(this)),
 	mSaveLocationLineEdit(new QLineEdit(this)),
 	mBrowseButton(new QPushButton(this)),
+	mSaveQualityFactorSpinBox(new CustomSpinBox(0, 100, this)),
 	mLayout(new QGridLayout),
+	mSaveQualityLayout(new QGridLayout),
+	mSaveQualityGroupBox(new QGroupBox(this)),
 	mFileDialog(FileDialogAdapterFactory::create())
 {
 	Q_ASSERT(mConfig != nullptr);
@@ -41,9 +46,12 @@ SaverSettings::~SaverSettings()
 	delete mAutoSaveNewCapturesCheckbox;
 	delete mPromptToSaveBeforeExitCheckbox;
 	delete mRememberSaveDirectoryCheckbox;
+	delete mSaveQualityDefaultRadioButton;
+	delete mSaveQualityFactorRadioButton;
 	delete mSaveLocationLabel;
 	delete mSaveLocationLineEdit;
 	delete mBrowseButton;
+	delete mSaveQualityGroupBox;
 	delete mFileDialog;
 }
 
@@ -51,6 +59,14 @@ void SaverSettings::initGui()
 {
 	mAutoSaveNewCapturesCheckbox->setText(tr("Automatically save new captures to default location"));
 	mPromptToSaveBeforeExitCheckbox->setText(tr("Prompt to save before discarding unsaved changes"));
+
+	mSaveQualityDefaultRadioButton->setText(tr("Default"));
+	mSaveQualityFactorRadioButton->setText(tr("Factor"));
+	mSaveQualityFactorRadioButton->setToolTip(tr("Specify 0 to obtain small compressed files, 100 for large uncompressed files"));
+
+	mSaveQualityFactorSpinBox->setToolTip(mSaveQualityFactorRadioButton->toolTip());
+
+	mSaveQualityGroupBox->setTitle(tr("Save Quality"));
 
 	mRememberSaveDirectoryCheckbox->setText(tr("Remember last Save Directory"));
 	mRememberSaveDirectoryCheckbox->setToolTip(tr("When enabled will overwrite the save directory stored in settings\n"
@@ -66,14 +82,23 @@ void SaverSettings::initGui()
 	mBrowseButton->setText(tr("Browse"));
 	connect(mBrowseButton, &QPushButton::clicked, this, &SaverSettings::chooseSaveDirectory);
 
+	mSaveQualityLayout->addWidget(mSaveQualityDefaultRadioButton, 0, 0, 1, 1);
+	mSaveQualityLayout->addWidget(mSaveQualityFactorRadioButton, 1, 0, 1, 1);
+	mSaveQualityLayout->addWidget(mSaveQualityFactorSpinBox, 1, 1, 1, 1);
+	mSaveQualityLayout->setColumnStretch(2, 1);
+
+	mSaveQualityGroupBox->setLayout(mSaveQualityLayout);
+
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->addWidget(mAutoSaveNewCapturesCheckbox, 0, 0, 1, 4);
 	mLayout->addWidget(mPromptToSaveBeforeExitCheckbox, 1, 0, 1, 4);
 	mLayout->addWidget(mRememberSaveDirectoryCheckbox, 2, 0, 1, 4);
 	mLayout->setRowMinimumHeight(3, 15);
-	mLayout->addWidget(mSaveLocationLabel, 4, 0, 1, 4);
-	mLayout->addWidget(mSaveLocationLineEdit, 5, 0, 1, 4);
-	mLayout->addWidget(mBrowseButton, 5, 4);
+	mLayout->addWidget(mSaveQualityGroupBox, 4, 0, 1, 4);
+	mLayout->setRowMinimumHeight(5, 15);
+	mLayout->addWidget(mSaveLocationLabel, 6, 0, 1, 4);
+	mLayout->addWidget(mSaveLocationLineEdit, 7, 0, 1, 3);
+	mLayout->addWidget(mBrowseButton, 7, 3);
 
 	setTitle(tr("Saver Settings"));
 	setLayout(mLayout);

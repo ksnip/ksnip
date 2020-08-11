@@ -27,9 +27,11 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include <QFileDialog>
+#include <QRadioButton>
 
 #include "src/backend/config/KsnipConfig.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
+#include "src/widgets/CustomSpinBox.h"
 
 class SaverSettings : public QGroupBox
 {
@@ -43,10 +45,15 @@ private:
 	QCheckBox *mAutoSaveNewCapturesCheckbox;
 	QCheckBox *mPromptToSaveBeforeExitCheckbox;
 	QCheckBox *mRememberSaveDirectoryCheckbox;
+	QRadioButton *mSaveQualityDefaultRadioButton;
+	QRadioButton *mSaveQualityFactorRadioButton;
 	QLabel *mSaveLocationLabel;
 	QLineEdit *mSaveLocationLineEdit;
 	QPushButton *mBrowseButton;
+	CustomSpinBox *mSaveQualityFactorSpinBox;
 	QGridLayout *mLayout;
+	QGridLayout *mSaveQualityLayout;
+	QGroupBox *mSaveQualityGroupBox;
 	KsnipConfig *mConfig;
 	IFileDialogAdapter *mFileDialog;
 

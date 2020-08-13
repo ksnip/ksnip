@@ -5,11 +5,11 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>О программе </translation>
+        <translation>О приложении </translation>
     </message>
     <message>
         <source>About</source>
-        <translation>О программе</translation>
+        <translation>О приложении</translation>
     </message>
     <message>
         <source>Version</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation>Поддержать</translation>
+        <translation>Пожертвовать</translation>
     </message>
 </context>
 <context>
@@ -86,8 +86,9 @@ marker paths after finished drawing.</source>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation>Увеличить коэффициент сглаживания
-и сделать точность маркера более гладким.</translation>
+        <translation>Увеличение коэффициента сглаживания
+уменьшит точность ручки и маркера,
+но сделает их более плавными.</translation>
     </message>
     <message>
         <source>Text Font</source>
@@ -165,8 +166,8 @@ Change requires ksnip restart to take effect.</source>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation>При включении добавит иконку в трей.
-Изменение требует перезагрузки приложения</translation>
+        <translation>При включении добавит значок в системный лоток панели задач, если оконный менеджер ОС поддерживает это.
+Изменение требует перезапуска приложения.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
@@ -259,7 +260,7 @@ ksnip, все другие экземпляры, запущенные после
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Поддержка Snap и Flatpak</translation>
     </message>
 </context>
 <context>
@@ -271,7 +272,8 @@ ksnip, все другие экземпляры, запущенные после
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Снимок %1%2%3 был изменён.
+Желаете сохранить его?</translation>
     </message>
 </context>
 <context>
@@ -310,7 +312,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation>Сделать скриншот текущего (сфокусированного) окна</translation>
+        <translation>Сделать снимок текущего окна</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
@@ -337,7 +339,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation>Тоже возможно,</translation>
+        <translation>Также возможно, </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
@@ -345,19 +347,19 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожертвование</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip — это некоммерческий проект с открытым исходным кодом,&lt;br/&gt;однако он всё же требует расходов, таких как оплата домена&lt;br/&gt;или учётной записи разработчика Apple.</translation>
     </message>
     <message>
         <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Если хотите помочь нам компенсировать эти расходы,&lt;br/&gt; или просто хотите отблагодарить нас за вклад в ПО с открытым исходным кодом,&lt;br/&gt; подарив пиво или содовую, можете сделать это</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Стать спонсором на GitHub</translation>
     </message>
 </context>
 <context>
@@ -416,7 +418,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрипт написал в стандартный вывод ошибок.</translation>
     </message>
 </context>
 <context>
@@ -487,7 +489,8 @@ screenshots.</source>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Показывает лупу во время выделения области.
-Эта опция работает, если включена &apos;Заморозить выделенную область&apos;</translation>
+Эта опция работает только, если включена 
+опция «Заморозить выделенную область».</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -508,7 +511,10 @@ desktop edges to cursor on snipping area.</source>
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation>При выделении отображает информацию о положении и размере зоны обрезки.</translation>
+        <translation>Отображает позицию курсора,
+пока левая кнопка мыши не нажата.
+Когда кнопка мыши нажата, отображает размер
+выделенной области слева и сверху от неё.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
@@ -635,7 +641,7 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation>Параметры Imgur</translation>
+        <translation>Загрузчик в Imgur</translation>
     </message>
     <message>
         <source>Username</source>
@@ -726,30 +732,30 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation>Обрезать и оставить только часть скриншота</translation>
+        <translation>Обрезать снимок</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <source>Unsaved</source>
-        <translation>Не сохранён</translation>
+        <translation>Не сохранено</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation>Закачать</translation>
+        <translation>Загрузить</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation>Печать…</translation>
+        <translation>Печать</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation>Открыть диалоговое окно с возможностью распечатать изображение</translation>
+        <translation>Открывает диалоговое окно принтера для предоставления опций печати</translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation>Предосмотр печати…</translation>
+        <translation>Предпросмотр печати</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
@@ -761,27 +767,27 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Scale Screen Capture</source>
-        <translation>Изменить размер скриншота</translation>
+        <translation>Изменить размер снимка</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation>Закрыть</translation>
+        <translation>Выход</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Настройки…</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>&amp;О программе…</translation>
+        <translation>&amp;О приложении</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation>Открыть…</translation>
+        <translation>Открыть</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>&amp;Правка</translation>
+        <translation>&amp;Редактировать</translation>
     </message>
     <message>
         <source>&amp;Options</source>
@@ -789,7 +795,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Справка</translation>
+        <translation>&amp;Помощь</translation>
     </message>
     <message>
         <source>Open Image</source>
@@ -797,7 +803,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Файлы изображений (*.png, *.jpg, *.bmp)</translation>
+        <translation>Файлы изображений (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -837,11 +843,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрепить</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрепить снимок на переднем плане в безрамочном окне</translation>
     </message>
 </context>
 <context>
@@ -855,22 +861,22 @@ and capturing screenshot.</source>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Закрыть</translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть остальные</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть все</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрепить окно %1</translation>
     </message>
 </context>
 <context>
@@ -964,8 +970,8 @@ Filename can contain following wildcards:
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation>Путь к скрипту, вызываемому при закачивания. В процессе закачивания скрипт будет
-вызван с путем к временному png файлу как один аргумент.</translation>
+        <translation>Путь к скрипту, вызываемому для загрузки. В процессе загрузки скрипт будет вызван
+с путём к временному PNG-файлу в качестве единственного аргумента.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -973,29 +979,31 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Скрипт закачивания</translation>
+        <translation>Скриптовый загрузчик</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation>Выбрать скрипт закачивания</translation>
+        <translation>Выбрать скрипт загрузки</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Прерваться, если скрипт загрузки напишет в стандартный поток ошибок</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Отметит загрузку как неудачную, если скрипт напишет в стандартный поток ошибок.
+Без этой опции ошибки скрипта будут проигнорированы.</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Фильтр:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Регулярное выражение. В буфер обмена будет скопировано только то, что удовлетворяет этому выражению.
+Если не задано, будет скопировано всё.</translation>
     </message>
 </context>
 <context>
@@ -1010,23 +1018,23 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Отменить</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>Настройки захвата</translation>
+        <translation>Захват изображения</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation>Параметры Imgur</translation>
+        <translation>Загрузчик в Imgur</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation>Основное</translation>
+        <translation>Приложение</translation>
     </message>
     <message>
         <source>Annotator</source>
-        <translation>Параметры рисования</translation>
+        <translation>Параметры аннотирования</translation>
     </message>
     <message>
         <source>HotKeys</source>
@@ -1034,11 +1042,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Закачивание</translation>
+        <translation>Загрузчик</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Скрипт закачивания</translation>
+        <translation>Скриптовый загрузчик</translation>
     </message>
     <message>
         <source>Saver</source>
@@ -1046,49 +1054,49 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Стикеры</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Вверх</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Вниз</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать стикеры по умолчанию</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки стикеров</translation>
     </message>
     <message>
         <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить стикер</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы векторных изображений (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation>Показать</translation>
+        <translation>Показать редактор</translation>
     </message>
 </context>
 <context>
@@ -1110,30 +1118,30 @@ When omitted, everything is copied.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation>Необходим скрипт закачивания</translation>
+        <translation>Необходим скрипт загрузки</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Пожалуйста добавьте скрипт закачивания через Опции &gt; Настройки &gt; Скрипт закачивания</translation>
+        <translation>Пожалуйста добавьте скрипт загрузки через Опции → Настройки → Скрипт загрузки</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation>Закачивание снимка</translation>
+        <translation>Загрузка снимка</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation>Вы собираетесь закачать изображение на внешний ресурс, хотите продолжить?</translation>
+        <translation>Вы собираетесь загрузить изображение на внешний ресурс, хотите продолжить?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation>Запрашивать подтверждение перед закачиванием</translation>
+        <translation>Запрашивать подтверждение перед загрузкой</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation>Тип закачивания:</translation>
+        <translation>Тип загрузчика:</translation>
     </message>
     <message>
         <source>Imgur</source>
@@ -1145,7 +1153,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Закачивание</translation>
+        <translation>Загрузчик</translation>
     </message>
 </context>
 <context>

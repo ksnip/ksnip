@@ -260,7 +260,7 @@ hau aktibatzean gainerako instantziak berrabiarazi behar dira.</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Snap eta Flatpak euskarria</translation>
     </message>
 </context>
 <context>
@@ -347,19 +347,19 @@ Nahi duzu gordetzea?</translation>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Dohaintza</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip irabazi asmorik gabeko kode irekiko proiektu bat da, baina &lt;br/&gt;oraindik ere estali behar diren kostuak ditu, &lt;br/&gt; domeinu kostuak edo Apple Developer kontua bezala.</translation>
     </message>
     <message>
         <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Kostu horiek estaltzen lagundu nahi baduzu edo besterik gabe&lt;br/&gt; eskerrak eman nahi dizkiguzu gure kode irekikoko lanagatik &lt;br/&gt; garagardo edo soda bat emanez, horixe egin dezakezu</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Bihurtu GitHub-en babeslea</translation>
     </message>
 </context>
 <context>
@@ -842,7 +842,7 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Ainguratu</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
@@ -868,14 +868,14 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Itxi denak</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ainguratu %1 leihoa</translation>
     </message>
 </context>
 <context>
@@ -995,7 +995,7 @@ Without this setting errors in the script will be unnoticed.</source>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Iragazkia:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.

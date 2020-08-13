@@ -24,12 +24,12 @@ DonateTab::DonateTab()
 	mLayout = new QVBoxLayout();
 	mContent = new QLabel();
 	mContent->setText(QStringLiteral("<b>") + tr("Donation") + QStringLiteral("</b>") + QStringLiteral("<br/>") +
-					  tr("ksnip is a non-profitable open source projects but<br/>"
+					  tr("ksnip is a non-profitable copylefted libre software project, and<br/>"
 		                    "still has some costs that need to be covered,<br/>"
-		                    "like domain costs or Apple Developer Account.") + QStringLiteral("<br/>") +
-		              tr("If you want to help us cover those costs or just<br/>"
-			                 "simply want to thank us for our open source work<br/>"
-					         "by donating a beer or soda, You can do that") + QStringLiteral(" <a href=\"https://www.paypal.me/damirporobic\">") + tr("here") + QStringLiteral("</a>.<br/><br/>") +
+		                    "like domain costs and an Apple Developer account.") + QStringLiteral("<br/>") +
+		              tr("If you want to help or just<br/>"
+			                 "want to appreciate the work being done<br/>"
+					         "by treating developers to a beer or coffee, you can do that") + QStringLiteral(" <a href=\"https://www.paypal.me/damirporobic\">") + tr("here") + QStringLiteral("</a>.<br/><br/>") +
 					  tr("Donations are always welcome") + QStringLiteral(" :)") + QStringLiteral("<br/><br/>") +
 		              QStringLiteral("<b>") + tr("Become a GitHub Sponsor") + QStringLiteral("?</b>") + QStringLiteral("<br/>") +
 		              tr("Also possible, ") + QStringLiteral(" <a href=\"https://github.com/sponsors/DamirPorobic\">") + tr("here") + QStringLiteral("</a>."));

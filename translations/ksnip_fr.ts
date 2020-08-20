@@ -136,7 +136,7 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation>Réglages des annotations</translation>
+        <translation>Annotations</translation>
     </message>
 </context>
 <context>
@@ -191,11 +191,11 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Se souvenir de la position de la fenêtre principale au démarrage de l&apos;application</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Se souvenir du dernier outil utilisé au démarrage de l&apos;application</translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -260,7 +260,7 @@ tous les instances de Ksnip.</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Support Snap &amp; Flatpak</translation>
     </message>
 </context>
 <context>
@@ -347,19 +347,19 @@ Voulez-vous l&apos;enregistrer ?</translation>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Dons</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip est un projet à but non lucratif, mais doit&lt;br/&gt;quand même supporter certaines dépenses,&lt;br/&gt;comme par exemple le nom de domaine ou le compte développeur Apple.</translation>
     </message>
     <message>
         <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Si vous souhaitez nous aider à supporter ces dépenses&lt;br/&gt;ou simplement nous remercier pour notre contribution&lt;br/&gt;au logiciel libre en donnant une bière ou un soda, c&apos;est possible</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Devenir un Sponsor sur GitHub</translation>
     </message>
 </context>
 <context>
@@ -370,7 +370,7 @@ Voulez-vous l&apos;enregistrer ?</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>Script d&apos;envoi vers le serveur </translation>
     </message>
     <message>
         <source> finished successfully.</source>
@@ -418,7 +418,7 @@ Voulez-vous l&apos;enregistrer ?</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le script a écrit sur StdErr.</translation>
     </message>
 </context>
 <context>
@@ -511,9 +511,10 @@ depuis les bords de l&apos;écran pour aider au cadrage.</translation>
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation>Montrer l&apos;aire de la zone lorsque le bouton de
-gauche de la souris est enfoncé, affiche sinon
-sa position (en haut à gauche de la zone).</translation>
+        <translation>Afficher la position du curseur lors d&apos;une
+capture, ou les dimensions de la zone
+sélectionnée lorsque le bouton gauche
+de la souris est maintenu appuyé.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
@@ -723,7 +724,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>Refaire</translation>
+        <translation>Rétablir</translation>
     </message>
     <message>
         <source>Crop</source>
@@ -762,7 +763,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation>Échelle</translation>
+        <translation>Redimensionner</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
@@ -774,7 +775,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Réglages</translation>
+        <translation>Préférences</translation>
     </message>
     <message>
         <source>&amp;About</source>
@@ -786,7 +787,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>&amp;Modifier</translation>
+        <translation>É&amp;dition</translation>
     </message>
     <message>
         <source>&amp;Options</source>
@@ -842,40 +843,40 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Épingler</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Épingler la capture au premier plan dans une fenêtre sans bords</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation>Capturer</translation>
+        <translation>Capture</translation>
     </message>
 </context>
 <context>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Fermer</translation>
+        <translation>Fermer</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer les autres</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout fermer</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Épingler la fenêtre %1</translation>
     </message>
 </context>
 <context>
@@ -926,11 +927,12 @@ et la capture de l&apos;écran.</translation>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Proposer le dernier emplacement utilisé pour l&apos;enregistrement
+plutôt que celui défini ci-dessous.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Emplacement de sauvegarde et nom de fichier</translation>
+        <translation>Répertoire d&apos;enregistrement et nom du fichier</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
@@ -944,68 +946,71 @@ Le nom du fichier peut contenir les jokers suivants :
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Parcourir</translation>
+        <translation>Parcourir</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres d&apos;enregistrement</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Répertoire de sauvegarde des captures</translation>
+        <translation>Répertoire d&apos;enregistrement des captures</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier la sortie du script vers le presse-papier</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Script :</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chemin vers le script qui sera utilisé pour l&apos;envoi vers le serveur. Le script sera appelé
+avec le chemin vers une image temporaire au format PNG comme unique argument.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Parcourir</translation>
+        <translation>Parcourir</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Script d&apos;envoi</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionner le script d&apos;envoi</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrêter quand le script d&apos;envoi écrit sur StdErr</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;envoie sera noté comme échoué si le script a écrit sur StdErr.
+Si cette case n&apos;est pas cochée, les erreurs du script passerons inaperçues.</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtre :</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Expression rationnelle (RegEx). Seules les lignes correspondant à la RegEx seront
+copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les lignes seront copiées.</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
-        <translation>Réglages</translation>
+        <translation>Préférences</translation>
     </message>
     <message>
         <source>OK</source>
@@ -1037,54 +1042,54 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Envoi sur un serveur</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Script d&apos;envoi</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrement</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Stickers</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Monter</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Descendre</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser les stickers par défaut</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres des stickers</translation>
     </message>
     <message>
         <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter un sticker</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Images vectorielles (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
 </context>
 <context>
@@ -1113,42 +1118,42 @@ When omitted, everything is copied.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Un script d&apos;envoi est nécessaire</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez ajouter un script d&apos;envoi dans Options &gt; Paramètres &gt; Script d&apos;envoi</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Envoi de la capture</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>La capture va être envoyée sur un serveur externe. Souhaitez-vous continuer ?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Demander une confirmation avant de téléverser</translation>
+        <translation>Demander une confirmation avant d&apos;envoyer une image sur un serveur</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Méthode d&apos;envoi :</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Script</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Envoi sur un serveur</translation>
     </message>
 </context>
 <context>

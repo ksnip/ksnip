@@ -58,7 +58,7 @@ static QImage readImage(int pipeFd)
     QImage image;
     dataStream >> image;
     return image;
-};
+}
 
 KdeWaylandImageGrabber::KdeWaylandImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea)
 {

@@ -50,6 +50,10 @@ elseif (WIN32)
   list(APPEND QT_COMPONENTS WinExtras)
 endif()
 
+if (BUILD_TESTS)
+  list(APPEND QT_COMPONENTS Test)
+endif()
+
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED ${QT_COMPONENTS})
 
 set(KIMAGEANNOTATOR_MIN_VERSION "0.4.0")
@@ -65,7 +69,6 @@ add_subdirectory(desktop)
 if (BUILD_TESTS)
 	configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/tests/BuildConfig.h)
 
-	find_package(Qt5 ${QT_MIN_VERSION} REQUIRED Test)
 	enable_testing()
 	add_subdirectory(tests)
 

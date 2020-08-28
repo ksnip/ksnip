@@ -109,7 +109,7 @@ Just install via brew and start using from your Applications folder.
 `$ brew cask install ksnip`
 
 # Dependencies
-ksnip depends on [kImageAnnotator](https://github.com/ksnip/kImageAnnotator) and [kColoPicker](https://github.com/DamirPorobic/kColorPicker) which needs
+ksnip depends on [kImageAnnotator](https://github.com/ksnip/kImageAnnotator) and [kColorPicker](https://github.com/DamirPorobic/kColorPicker) which needs
 to be installed before building ksnip from source. Install instructions can be found on the Github pages.
 
 # Building from source

@@ -34,7 +34,6 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/provider/ApplicationTitleProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/NewCaptureNameProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/PathFromCaptureProvider.cpp
-	${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomToolButton.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomCursor.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CursorFactory.cpp
@@ -112,6 +111,7 @@ if (APPLE)
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/DummyKeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/MacKeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToMacKeyCodeTranslator.cpp
+		${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.mm
 		)
 elseif (UNIX)
     set(KSNIP_SRCS
@@ -128,6 +128,7 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11KeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToX11KeyCodeTranslator.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11ErrorLogger.cpp
+		${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
 		)
 elseif (WIN32)
 	set(KSNIP_SRCS
@@ -137,6 +138,7 @@ elseif (WIN32)
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/WinSnippingArea.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/WinKeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToWinKeyCodeTranslator.cpp
+		${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
 		)
 endif ()
 
@@ -172,7 +174,7 @@ target_link_libraries(ksnip
 					  )
 
 if (APPLE)
-	target_link_libraries(ksnip "-framework CoreGraphics")
+	target_link_libraries(ksnip "-framework CoreGraphics -framework AppKit")
 elseif (UNIX)
 	target_link_libraries(ksnip
             Qt5::X11Extras

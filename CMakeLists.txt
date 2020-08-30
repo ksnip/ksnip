@@ -32,15 +32,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 option(BUILD_TESTS "Build Unit Tests" OFF)
 
-set(QT_MIN_VERSION "5.9.4")
-
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED Widgets Network Xml PrintSupport DBus Svg)
-
-if (WIN32)
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED WinExtras)
-elseif (UNIX AND NOT APPLE)
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED X11Extras)
-
+if (UNIX AND NOT APPLE)
     # Without ECM we're unable to load XCB
     find_package(ECM REQUIRED NO_MODULE)
     set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -48,6 +40,21 @@ elseif (UNIX AND NOT APPLE)
     find_package(X11 REQUIRED)
     find_package(XCB COMPONENTS XFIXES)
 endif ()
+
+set(QT_COMPONENTS Core Widgets Network Xml PrintSupport DBus Svg)
+set(QT_MIN_VERSION 5.9.4)
+
+if (X11_FOUND)
+  list(APPEND QT_COMPONENTS X11Extras)
+elseif (WIN32)
+  list(APPEND QT_COMPONENTS WinExtras)
+endif()
+
+if (BUILD_TESTS)
+  list(APPEND QT_COMPONENTS Test)
+endif()
+
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED ${QT_COMPONENTS})
 
 set(KIMAGEANNOTATOR_MIN_VERSION "0.4.0")
 find_package(kImageAnnotator ${KIMAGEANNOTATOR_MIN_VERSION} REQUIRED)
@@ -62,7 +69,6 @@ add_subdirectory(desktop)
 if (BUILD_TESTS)
 	configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/tests/BuildConfig.h)
 
-	find_package(Qt5 ${QT_MIN_VERSION} REQUIRED Test)
 	enable_testing()
 	add_subdirectory(tests)
 

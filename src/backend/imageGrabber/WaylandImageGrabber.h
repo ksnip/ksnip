@@ -37,6 +37,12 @@ public:
 protected:
 	void grab() override;
 	CursorDto getCursorWithPosition() const override;
+
+private:
+	int mRequestTokenCounter;
+
+	void gotScreenshotResponse(uint response, const QVariantMap& results);
+	QString getRequestToken();
 };
 
 #endif //KSNIP_WAYLANDIMAGEGRABBER_H

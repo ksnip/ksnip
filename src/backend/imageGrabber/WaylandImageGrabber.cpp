@@ -19,7 +19,9 @@
 
 #include "WaylandImageGrabber.h"
 
-WaylandImageGrabber::WaylandImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea)
+WaylandImageGrabber::WaylandImageGrabber() :
+	AbstractImageGrabber(new LinuxSnippingArea),
+	mRequestTokenCounter(1)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);
 	addSupportedCaptureMode(CaptureModes::LastRectArea);
@@ -39,19 +41,51 @@ QRect WaylandImageGrabber::activeWindowRect() const
 
 void WaylandImageGrabber::grab()
 {
-	QDBusInterface interface(QStringLiteral("org.freedesktop.portal.Desktop"), QStringLiteral("/org/freedesktop/portal/Screenshot"), QStringLiteral("org.freedesktop.portal.Screenshot"));
-	QDBusPendingReply<QDBusObjectPath> reply;
+	auto message = QDBusMessage::createMethodCall(QLatin1String("org.freedesktop.portal.Desktop"),
+	                                                      QLatin1String("/org/freedesktop/portal/desktop"),
+	                                                      QLatin1String("org.freedesktop.portal.Screenshot"),
+	                                                      QLatin1String("Screenshot"));
 
-	reply = interface.call(QStringLiteral("Screenshot"), "", QVariantMap());
+	message << QLatin1String("x11:") << QVariantMap{{QLatin1String("interactive"), true}, {QLatin1String("handle_token"), getRequestToken()}};
 
-	if (reply.isError()) {
-		qCritical("Invalid reply from DBus: %s", qPrintable(reply.error().message()));
-	} else {
-		qCritical("Dbus success: %s", qPrintable(reply.argumentAt<0>().path()));
-	}
+	auto pendingCall = QDBusConnection::sessionBus().asyncCall(message);
+	auto watcher = new QDBusPendingCallWatcher(pendingCall);
+	connect(watcher, &QDBusPendingCallWatcher::finished, [this] (QDBusPendingCallWatcher *watcher) {
+		QDBusPendingReply<QDBusObjectPath> reply = *watcher;
+		if (reply.isError()) {
+			qDebug("Couldn't get reply");
+			qWarning("Error: %s", qPrintable(reply.error().message()));
+		} else {
+			QDBusConnection::sessionBus().connect(QString(),
+			                                      reply.value().path(),
+			                                      QLatin1String("org.freedesktop.portal.Request"),
+			                                      QLatin1String("Response"),
+			                                      this,
+			                                      SLOT(gotScreenshotResponse(uint,QVariantMap)));
+		}
+	});
 }
 
 CursorDto WaylandImageGrabber::getCursorWithPosition() const
 {
 	return CursorDto();
+}
+
+void WaylandImageGrabber::gotScreenshotResponse(uint response, const QVariantMap& results)
+{
+	if (!response) {
+		if (results.contains(QLatin1String("uri"))) {
+			qDebug("Success");
+			emit finished(CaptureDto(QPixmap::fromImage(QImage(results.value(QLatin1String("uri")).toString()))));
+		}
+	} else {
+		qDebug("Failed to take screenshot");
+	}
+}
+
+
+QString WaylandImageGrabber::getRequestToken()
+{
+	mRequestTokenCounter += 1;
+	return QString("u%1").arg(mRequestTokenCounter);
 }

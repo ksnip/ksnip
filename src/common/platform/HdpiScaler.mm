@@ -19,6 +19,10 @@
 
 #include "HdpiScaler.h"
 
+#if defined(__APPLE__)
+#include <AppKit/AppKit.h>
+#endif
+
 QRect HdpiScaler::unscale(const QRect &rect) const
 {
 	auto factor = scaleFactor();
@@ -49,7 +53,18 @@ qreal HdpiScaler::scaleFactor() const
     auto myWindow = QGuiApplication::topLevelWindows().first();
     qDebug("QWindow devicePixelRatio: %s", qPrintable(QString::number(myWindow->devicePixelRatio())));
 
-	return myWindow->devicePixelRatio();
+	NSRect frame = NSMakeRect(0, 0, 200, 200);
+	NSWindow* window  = [[[NSWindow alloc] initWithContentRect:frame
+	styleMask:NSWindowStyleMaskBorderless
+	backing:NSBackingStoreBuffered
+	defer:NO] autorelease];
+	[window makeKeyAndOrderFront:NSApp];
+	NSSize backingSize = [window.contentView convertSizeToBacking:NSMakeSize(1.0, 1.0)];
+
+	qDebug("view backingSize: w %s, h %s", qPrintable(QString::number(backingSize.width)), qPrintable(QString::number(backingSize.height)));
+	qDebug("screen backingScaleFactor: %s", qPrintable(QString::number([[NSScreen mainScreen] backingScaleFactor])));
+
+	return [[NSScreen mainScreen] backingScaleFactor];
 
 #endif
 	

@@ -26,7 +26,7 @@ DonateTab::DonateTab()
 	mContent->setText(QStringLiteral("<b>") + tr("Donation") + QStringLiteral("</b>") + QStringLiteral("<br/>") +
 					  tr("ksnip is a non-profitable copylefted libre software project, and<br/>"
 		                    "still has some costs that need to be covered,<br/>"
-		                    "like domain costs and an Apple Developer account.") + QStringLiteral("<br/>") +
+		                    "like domain costs or hardware costs for cross-platform support.") + QStringLiteral("<br/>") +
 		              tr("If you want to help or just<br/>"
 			                 "want to appreciate the work being done<br/>"
 					         "by treating developers to a beer or coffee, you can do that") + QStringLiteral(" <a href=\"https://www.paypal.me/damirporobic\">") + tr("here") + QStringLiteral("</a>.<br/><br/>") +

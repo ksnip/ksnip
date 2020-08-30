@@ -155,7 +155,7 @@ Any contribution welcome, be it code, translations or other things. Currently th
 
 # Donation 
 
-ksnip is a non-profitable copylefted libre software project, and still has some costs that need to be covered, like domain costs or Apple Developer Account.
+ksnip is a non-profitable copylefted libre software project, and still has some costs that need to be covered, like domain costs or hardware costs for cross-platform support.
 If you want to help or just want appreciate the work being done by treating developers to a beer or coffee,
 you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)
 

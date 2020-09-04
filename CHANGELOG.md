@@ -5,7 +5,10 @@
 * New: Support for unit tests. ([#80](https://github.com/ksnip/ksnip/issues/80))
 * New: Add brew cask package for ksnip. ([#394](https://github.com/ksnip/ksnip/issues/394))
 * New: Allow setting image quality when saving images. ([#382](https://github.com/ksnip/ksnip/issues/382))
+* New kImageAnnotator: Add Pixelate image area tool. ([#140](https://github.com/ksnip/kImageAnnotator/issues/140))
 * Changed: Show all Screenshot options in System Tray. ([#404](https://github.com/ksnip/ksnip/issues/404))
+* Changed kImageAnnotator: Draw point when clicking and releasing without moving cursor. ([#136](https://github.com/ksnip/kImageAnnotator/issues/136))
+* Fixed kImageAnnotator: Blur radius not updated when changing current items settings. ([#142](https://github.com/ksnip/kImageAnnotator/issues/142))
 
 ## Release 1.7.3
 * New: Provide ksnip flatpak. ([#127](https://github.com/ksnip/ksnip/issues/127))

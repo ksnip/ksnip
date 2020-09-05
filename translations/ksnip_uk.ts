@@ -32,7 +32,7 @@
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">— інструмент для знятків екрана</translation>
+        <translation>Засіб для створення знімків вікон</translation>
     </message>
     <message>
         <source>License: </source>
@@ -62,61 +62,61 @@
     <name>AnnotationSettings</name>
     <message>
         <source>Paint Item Shadows</source>
-        <translation type="unfinished">Відображати тінь під намальованими елементами</translation>
+        <translation>Малювати тіні</translation>
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished">Показувати тінь навколо елементів, накладених на зображення у редакторі.</translation>
+        <translation>Якщо позначено, навколо намальованих об&apos;єктів буде показано тіні.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished">Згладжувати намальовані елементи</translation>
+        <translation>Згладжувати намальовані контури</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished">Згладжувати лінії, намальовані ручкою
-чи маркером, після завершення малювання.</translation>
+        <translation>Якщо позначено, згладжувати лінії, які намальовано
+пером або маркером, після завершення малювання.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished">Коефіцієнт згладжування</translation>
+        <translation>Коефіцієнт згладжування</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished">Збільшення коефіцієнта зменьшить чіткість
-ліній, залишених ручкою чи маркером, тоді як
-зменшення коефіцієнта зробить їх більш гладкими.</translation>
+        <translation>Збільшення коефіцієнта згладжування зменшить чіткість
+ліній, залишених пером чи маркером, але зробить їх 
+плавнішими.</translation>
     </message>
     <message>
         <source>Text Font</source>
-        <translation type="unfinished">Шрифт</translation>
+        <translation>Шрифт тексту</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished">Вибрати шрифт для інструмента «Текст».</translation>
+        <translation>Встановлює шрифт для інструмента малювання «Текст».</translation>
     </message>
     <message>
         <source>Bold</source>
-        <translation type="unfinished">Напівжирний</translation>
+        <translation>Жирний</translation>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished">Курсивний</translation>
+        <translation>Курсив</translation>
     </message>
     <message>
         <source>Underline</source>
-        <translation type="unfinished">Підкреслений</translation>
+        <translation>Підкреслення</translation>
     </message>
     <message>
         <source>Numbering Font</source>
-        <translation type="unfinished">Шрифт для нумерації</translation>
+        <translation>Шрифт для нумерації</translation>
     </message>
     <message>
         <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished">Вибрати шрифт для інструмента «Номер».</translation>
+        <translation>Встановлює шрифт для інструмента малювання «Нумерація».</translation>
     </message>
     <message>
         <source>Watermark Image</source>
@@ -143,21 +143,21 @@ make them more smooth.</source>
     <name>ApplicationSettings</name>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished">Робити зняток при відкритті програми</translation>
+        <translation>Захоплювати знімок після запуску у типовому режимі</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished">Оформлення програми</translation>
+        <translation>Стиль вікна програми</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished">Оформлення програми визначає її вигляд.
+        <translation>Встановлює стиль вікна програми, який визначає її вигляд.
 Щоб оформлення змінилося, перезапустіть ksnip.</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished">Налаштування програми</translation>
+        <translation>Параметри програми</translation>
     </message>
     <message>
         <source>Use Tray Icon</source>
@@ -179,97 +179,101 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation>Автоматично копіювати нові знятки до буферу обміну</translation>
+        <translation>Автоматично копіювати нові знімки до буферу обміну</translation>
     </message>
     <message>
         <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоприховування вкладок</translation>
     </message>
     <message>
         <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ховати панель вкладок, якщо використано лише одну вкладку.</translation>
     </message>
     <message>
         <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Запам&apos;ятовувати позицію ksnip при русі і завантажувати її після запуску</translation>
     </message>
     <message>
         <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Запам&apos;ятовувати позначену у ksnip область і завантажувати її після запуску</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати вкладки</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Набуття змінами чинності потребує перезапуску.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Запускати ksnip у режимі єдиного екземпляра</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass it&apos;s
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Позначення цього пункту дозволить вам запускати лише один екземпляр ksnip.
+Усі інші екземпляри, які буде запущено після першого, передаватимуть свої
+аргументи першому екземпляру і завершуватимуть роботу. Для набуття
+чинності після внесення змін усі екземпляри програми слід перезапустити.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Запускати згорнутим до лотка</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
     <message>
         <source>The Author:</source>
-        <translation type="unfinished">Розробник:</translation>
+        <translation>Автор:</translation>
     </message>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Подяка:</translation>
+        <translation>Учасники розробки:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">переклад іспанською</translation>
+        <translation>Переклад іспанською</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">переклад нідерландською</translation>
+        <translation>Переклад голландською</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">переклад російською</translation>
+        <translation>Переклад російською</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">переклад норвезьким букмолом</translation>
+        <translation>Переклад норвезькою (букмол)</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">переклад французькою</translation>
+        <translation>Переклад французькою</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">переклад польською</translation>
+        <translation>Переклад польською</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтримка Snap &amp; Flatpak</translation>
     </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished">Увага - </translation>
+        <translation>Попередження — </translation>
     </message>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Захоплене зображення %1%2%3 було змінено.
+Хочете його зберегти?</translation>
     </message>
 </context>
 <context>
@@ -292,7 +296,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation>Зробити зняток усього екрану з усіх моніторів</translation>
+        <translation>Зробити знімок усього екрана з усіх моніторів</translation>
     </message>
     <message>
         <source>Current Screen</source>
@@ -300,7 +304,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation>Зробити зняток екрану, на якому розташований курсор миші</translation>
+        <translation>Зробити знімок екрана, на якому розташовано вказівник миші</translation>
     </message>
     <message>
         <source>Active Window</source>
@@ -308,7 +312,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation>Зробити зняток сфокусованого вікна</translation>
+        <translation>Зробити знімок сфокусованого вікна</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
@@ -316,7 +320,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation>Зробити зняток вікна, на якому розташований курсор миші</translation>
+        <translation>Зробити знімок вікна, на якому розташовано вказівник миші</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
@@ -324,7 +328,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation>Зробити зняток останньої вибраної прямокутної області</translation>
+        <translation>Зробити знімок останньої позначеної прямокутної області</translation>
     </message>
 </context>
 <context>
@@ -343,78 +347,78 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожертва</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip є неприбутковими проєктами з відкритим кодом, але&lt;br/&gt;їхній розвиток потребує певних фінансових вкладень,&lt;br/&gt;зокрема сплат за домен сайта та обліковий запис розробника Apple.</translation>
     </message>
     <message>
         <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо ви хочете допомогти нам компенсувати наш час або просто&lt;br/&gt;хочете віддячити нам за роботу над відкритим кодом,&lt;br/&gt;пригостивши нас пивом або лимонадом, ви можете зробити це</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Стати спонсором на GitHub</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">Завантаження успішно завершено</translation>
+        <translation>Успішне вивантаження</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>Скрипт вивантаження </translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation> успішно завершено.</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished">Завантажено до</translation>
+        <translation>Вивантажено до</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося зберегти тимчасове зображення для вивантаження.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося запустити процес. Перевірте шлях і права доступу.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>Аварійне завершення процесу</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевищено час очікування на очікування даних від процесу.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка під час читання даних з процесу.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка під час спроби записати дані до процесу.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка із мережею, ознайомтеся із виведеними до консолі даними.</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Невідома помилка обробки.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Невдала спроба вивантаження</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрипт записано до StdErr.</translation>
     </message>
 </context>
 <context>
@@ -457,88 +461,89 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистити</translation>
     </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation type="unfinished">Показувати курсор миші на знятку</translation>
+        <translation>Показувати вказівник миші на знімку</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type="unfinished">Курсор миші буде бачно на зображенні.</translation>
+        <translation>Чи має бути показано вказівник миші
+на знімках.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Заморозити зображення у момент зйомки знятка</translation>
+        <translation>Заморозити зображення у момент створення знімка</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Показувати лупу під час виділення області знятка</translation>
+        <translation>Показувати лупу під час позначення області знімка</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Показувати збільшувано скло, яке дає змогу
-приблизити зображення, щоб роздивитися пікселі.
-Ця функція працює лише у тому випадку, якщо
-ввімкнено замороження зображення.</translation>
+        <translation>Показувати збільшувальне скло, яке дає змогу
+наблизити фонове зображення. Цей пункт
+працюватиме, лише якщо ввімкнено замороження зображення.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Показувати лінії-лінійки, що відходять від курсору</translation>
+        <translation>Показувати лінії-лінійки області вирізання</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Показувати горизонтальну та вертикальну лінії,
-які відходять від краю екрану до курсору миші
-під час виділення області знятка.</translation>
+        <translation>Показувати горизонтальну та вертикальну лінії,
+які відходять від краю екрана до вказівника миші
+під час позначення області знімка.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Показувати інформацію про положення курсору та розмір виділеної області</translation>
+        <translation>Показувати інформацію щодо позиції і розміру позначеної області</translation>
     </message>
     <message>
         <source>When left mouse is not pressed the position
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished">Показувати положення курсору до виділення
-області. Під час виділення — показувати розмір
-вибраної області зліва та згори.</translation>
+        <translation>Якщо не буде натиснуто ліву кнопку миші,
+ програма показуватиме позицію. Якщо кнопку 
+натиснуто, буде показано розміри позначено
+області у верхньому лівому куті позначеної області.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Колір курсору під час виділення області знятка</translation>
+        <translation>Колір курсора під час позначення області знімка</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished">Вибрати колір курсору при виділенні
-області знятка. Щоб колір змінився,
+        <translation>Вибрати колір курсора при позначенні
+області знімка. Щоб колір змінився,
 треба перезапустити програму.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Товщина курсору при виділенні області знятка</translation>
+        <translation>Товщина курсора при позначенні області знімка</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation type="unfinished">Встановити товщину курсору при виділенні
-області знятка. Щоб товщина змінилася,
+        <translation>Встановити товщину курсора при позначенні
+області знімка. Щоб товщина змінилася,
 треба перезапустити програму.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished">Зйомка знятка</translation>
+        <translation>Захоплення знімків</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -549,7 +554,13 @@ snipping area is show and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо позначено, заморозить фон при виборі прямокутної області.
+Також буде змінено поведінку при створенні знімків із
+затримкою: із позначеним пунктом затримку буде додано перед
+створенням позначеної області, а якщо пункт не позначено,
+затримку буде застосовано після показу позначеної області.
+Цю можливість завжди вимкнено у Wayland і завжди увімкнено
+у macOS.</translation>
     </message>
 </context>
 <context>
@@ -579,62 +590,62 @@ enabled for MacOs.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">Завантаження на imgur.com завершено!</translation>
+        <translation>Вивантаження на imgur.com завершено!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">Отримано новий токен, спроба завантажити ще раз…</translation>
+        <translation>Отримано новий жетон, спробуємо вивантажити ще раз…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">Термін дії токену Imgur закінчився, запитується новий токен…</translation>
+        <translation>Термін дії жетона Imgur вичерпано, надсилаємо запит щодо нового жетона…</translation>
     </message>
 </context>
 <context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished">Завантажити анонімно</translation>
+        <translation>Примусове анонімне вивантаження</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished">Завжди копіювати посилання з Imgur до буферу обміну</translation>
+        <translation>Завжди копіювати посилання Imgur до буфера обміну даними</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished">ID клієнта</translation>
+        <translation>Ід. клієнта</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished">Секретний ключ клієнта</translation>
+        <translation>Закритий ключ клієнта</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished">PIN-код</translation>
+        <translation>PIN</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished">Введіть PIN-код, який буде замінено на токен.</translation>
+        <translation>Вкажіть PIN-код imgur, який буде обміняно на жетон.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished">Отримати PIN-код</translation>
+        <translation>Отримати PIN-код</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished">Отримати токен</translation>
+        <translation>Отримати жетон</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished">Історія завантажень</translation>
+        <translation>Журнал Imgur</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished">Завантаження на Imgur</translation>
+        <translation>Вивантажувач на Imgur</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Ім’я користувача</translation>
+        <translation>Користувач</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
@@ -642,15 +653,15 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished">Ім’я користувача:</translation>
+        <translation>Користувач:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished">Токен imgur.com успішно оновлено.</translation>
+        <translation>Жетор Imgur.com успішно оновлено.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished">Помилка при оновленні токену imgur.com.</translation>
+        <translation>Помилка під час спроби оновити жетон Imgur.com.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
@@ -662,12 +673,13 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Базова адреса:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Базова адреса, яку буде використано для обміну даними з Imgur.
+Для набуття змінами чинності слід перезапустити програму.</translation>
     </message>
 </context>
 <context>
@@ -680,7 +692,7 @@ Changing requires restart.</source>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
         <translation>Затримка у секундах перед тим,
-як буде зроблено зняток.</translation>
+як буде зроблено знімок.</translation>
     </message>
     <message>
         <source>s</source>
@@ -692,7 +704,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation>Зберегти зняток у файловій системі</translation>
+        <translation>Зберегти знімок у файловій системі</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -700,7 +712,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation>Копіювати зняток у буфер обміну</translation>
+        <translation>Копіювати знімок до буфера обміну</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -716,11 +728,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished">Обрізати</translation>
+        <translation>Обрізати</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation type="unfinished">Обрізати й залишити лише частину знятка</translation>
+        <translation>Обрізати захоплене з екрана</translation>
     </message>
 </context>
 <context>
@@ -755,7 +767,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Scale Screen Capture</source>
-        <translation>Змінити розмір знятка</translation>
+        <translation>Змінити розмір знімка</translation>
     </message>
     <message>
         <source>Quit</source>
@@ -779,7 +791,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation>&amp;Опції</translation>
+        <translation>&amp;Налаштування</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -799,7 +811,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation>Додати водяний знак до знятку. Можна додати декілька знаків.</translation>
+        <translation>Додати водяний знак до знімка. Можна додати декілька знаків.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -823,63 +835,63 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Вставити вбудованим</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Вивантажити знімок на зовнішній сервер</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Пришпилити</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Пришпилити знімок вікна до переднього плану у вікні без рамки</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Захопити</translation>
     </message>
 </context>
 <context>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Закрити</translation>
+        <translation>Закрити</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрити інші</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрити всі</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Пришпилити вікно %1</translation>
     </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Зберегти як</translation>
+        <translation>Зберегти як</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Зображення</translation>
+        <translation>зображення</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Усі файли</translation>
+        <translation>усі файли</translation>
     </message>
     <message>
         <source>Image Saved</source>
@@ -902,89 +914,96 @@ and capturing screenshot.</source>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished">Автоматично зберігати нові знятки до папки за замовчуванням</translation>
+        <translation>Автоматично зберігати нові знімки до типової теки</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Питати, чи не бажаєте зберігти зміни зображення, перед їх відміною</translation>
+        <translation>Питати, чи бажаєте зберегти зміни до зображення, перш ніж їх відкидати</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Запам&apos;ятовувати останній каталог зберігання</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо позначено, програма перезаписуватиме каталог зберігання
+знімків у параметрах останнім каталогом зберігання під час кожного збереження знімка.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Місце автоматичного збереження та формат назви знятків</translation>
+        <translation>Місце автоматичного збереження та формат назви знімків</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтримуваними форматами є JPG, PNG і BMP. Якщо формат не вказано, типово буде використано PNG.
+Шаблон може включати такі рядки-замінники:
+- $Y (рік), $M (місяць), $D (день) для дати, $h (години), $m (хвилини), $s (секунди) для часу або $T для часу у форматі ггххсс.
+- Декілька послідовних # для лічильника. #### дасть нумерацію 0001, далі 0002 тощо.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Вибрати</translation>
+        <translation>Вибрати</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри засобу зберігання</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Місце збереження</translation>
+        <translation>Місце збереження знімків</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати виведення скрипту до буфера обміну</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрипт:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Шлях до скрипту, який буде викликано для вивантаження даних. Під час вивантаження
+скрипт буде викликано із параметром шляху до тимчасового файла png як єдиним аргументом.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Вибрати</translation>
+        <translation>Вибрати</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Вивантажувач скриптів</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Виберіть скрипт для вивантаження</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Зупиняти обробку, якщо скрипт виведення записує щось до StdErr</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Позначати вивантаження як невдале, якщо скрипт записує щось до StdErr.
+Якщо пункт не позначено, програма не братиме до уваги повідомлення про помилки, які виведено скриптом.</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Фільтр:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Формальний вираз. Копіювати до буфера обміну даними лише те, що відповідає
+формальному виразу. Якщо не вказано, буде скопійовано усі дані.</translation>
     </message>
 </context>
 <context>
@@ -1003,7 +1022,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>Зйомка знятка</translation>
+        <translation>Захоплення знімків</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
@@ -1023,54 +1042,54 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Вивантажувач</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Вивантажувач скриптів</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Зберігач</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Стікери</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>↑</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>↓</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовувати типові стікери</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри стікерів</translation>
     </message>
     <message>
         <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати стікер</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>файли векторних зображень (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Вилучити</translation>
     </message>
 </context>
 <context>
@@ -1088,68 +1107,68 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Зображення</translation>
+        <translation>зображення</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Усі файли</translation>
+        <translation>усі файли</translation>
     </message>
 </context>
 <context>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Потрібен скрипт вивантаження</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Будь ласка, додайте скрипт вивантаження за допомогою пункту меню «Налаштування &gt; Параметри &gt; Скрипт вивантаження»</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Вивантаження захопленого зображення</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви наказали програмі вивантажити зображення на віддалений сервер. Хочете зробити саме це?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Питати підтвердження перед завантаженням</translation>
+        <translation>Питати підтвердження перед вивантаженням</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Тип вивантажувача:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрипт</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Вивантажувач</translation>
     </message>
 </context>
 <context>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Версія</translation>
+        <translation>Версія</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">Збірка</translation>
+        <translation>Збірка</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished">Програма використовує:</translation>
+        <translation>Використовуємо:</translation>
     </message>
 </context>
 </TS>

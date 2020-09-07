@@ -163,7 +163,7 @@ void MainWindow::quit()
 void MainWindow::processCapture(const CaptureDto &capture)
 {
 	if (!capture.isValid()) {
-		NotifyOperation operation(mTrayIcon, tr("Unable to show image"), tr("No image provided to but one was expected."), NotificationTypes::Critical);
+		NotifyOperation operation(mTrayIcon, tr("Unable to show image"), tr("No image provided but one was expected."), NotificationTypes::Critical);
 		operation.execute();
 		showEmpty();
 		return;

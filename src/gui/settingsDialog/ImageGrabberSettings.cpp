@@ -77,7 +77,7 @@ void ImageGrabberSettings::initGui()
 	                                                 "selecting a rectangular region. It also changes\n"
 	                                                 "the behavior of delayed screenshots, with this\n"
 	                                                 "option enabled the delay happens before the\n"
-	                                                 "snipping area is show and with the option disabled\n"
+	                                                 "snipping area is shown and with the option disabled\n"
 	                                                 "the delay happens after the snipping area is shown.\n"
 	                                                 "This feature is always disabled for Wayland and always\n"
 	                                                 "enabled for MacOs."));
@@ -92,8 +92,8 @@ void ImageGrabberSettings::initGui()
 	mSnippingAreaRulersCheckbox->setToolTip(tr("Horizontal and vertical lines going from\n"
 	                                           "desktop edges to cursor on snipping area."));
 	mSnippingAreaPositionAndSizeInfoCheckbox->setText(tr("Show Snipping Area position and size info"));
-	mSnippingAreaPositionAndSizeInfoCheckbox->setToolTip(tr("When left mouse is not pressed the position\n"
-	                                                        "is show, when the mouse button is pressed,\n"
+	mSnippingAreaPositionAndSizeInfoCheckbox->setToolTip(tr("When left mouse button is not pressed the position\n"
+	                                                        "is shown, when the mouse button is pressed,\n"
 	                                                        "the size of the select area is shown left\n"
 	                                                        "and above from the captured area."));
 	mSnippingCursorColorLabel->setText(tr("Snipping Area cursor color") + QStringLiteral(":"));

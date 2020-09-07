@@ -77,11 +77,11 @@ void ApplicationSettings::initGui()
 	mUseTabsCheckbox->setToolTip(tr("Change requires restart."));
 
 	mAutoHideTabsCheckbox->setText(tr("Auto Hide Tabs"));
-	mAutoHideTabsCheckbox->setToolTip(tr("Hide Tabbar when only on Tab is used."));
+	mAutoHideTabsCheckbox->setToolTip(tr("Hide Tabbar when only one Tab is used."));
 
 	mUseSingleInstanceCheckBox->setText(tr("Run ksnip as single instance"));
 	mUseSingleInstanceCheckBox->setToolTip(tr("Enabling this option will allow only one ksnip instance to run,\n"
-										         "all other instances started after the first will pass it's\n"
+										         "all other instances started after the first will pass its\n"
 				                                 "arguments to the first and close. Changing this option requires\n"
 									             "a new start of all instances."));
 

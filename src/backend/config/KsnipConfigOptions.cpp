@@ -41,7 +41,7 @@ QString KsnipConfigOptions::autoSaveNewCapturesString()
 
 QString KsnipConfigOptions::rememberToolSelectionString()
 {
-	return applicationSectionString() + QStringLiteral("SaveToolsSelection");
+	return annotatorSectionString() + QStringLiteral("SaveToolsSelection");
 }
 
 QString KsnipConfigOptions::useTabsString()

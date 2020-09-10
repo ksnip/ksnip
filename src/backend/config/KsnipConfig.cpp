@@ -74,19 +74,6 @@ void KsnipConfig::setAutoSaveNewCaptures(bool  enabled)
 	saveValue(KsnipConfigOptions::autoSaveNewCapturesString(), enabled);
 }
 
-bool KsnipConfig::rememberToolSelection() const
-{
-	return loadValue(KsnipConfigOptions::rememberToolSelectionString(), true).toBool();
-}
-
-void KsnipConfig::setRememberToolSelection(bool enabled)
-{
-	if (rememberToolSelection() == enabled) {
-        return;
-    }
-	saveValue(KsnipConfigOptions::rememberToolSelectionString(), enabled);
-}
-
 bool KsnipConfig::useTabs() const
 {
 	return loadValue(KsnipConfigOptions::useTabsString(), true).toBool();
@@ -343,6 +330,19 @@ void KsnipConfig::setSaveQualityFactor(int factor)
 }
 
 // Annotator
+
+bool KsnipConfig::rememberToolSelection() const
+{
+	return loadValue(KsnipConfigOptions::rememberToolSelectionString(), true).toBool();
+}
+
+void KsnipConfig::setRememberToolSelection(bool enabled)
+{
+	if (rememberToolSelection() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::rememberToolSelectionString(), enabled);
+}
 
 bool KsnipConfig::textBold() const
 {

@@ -57,9 +57,6 @@ public:
 	virtual bool autoSaveNewCaptures() const;
 	virtual void setAutoSaveNewCaptures(bool enabled);
 
-	virtual bool rememberToolSelection() const;
-	virtual void setRememberToolSelection(bool enabled);
-
 	virtual bool useTabs() const;
 	virtual void setUseTabs(bool enabled);
 
@@ -112,6 +109,9 @@ public:
 	virtual void setSaveQualityFactor(int factor);
 
 	// Annotator
+
+	virtual bool rememberToolSelection() const;
+	virtual void setRememberToolSelection(bool enabled);
 
 	virtual bool textBold() const;
 	virtual void setTextBold(bool bold);

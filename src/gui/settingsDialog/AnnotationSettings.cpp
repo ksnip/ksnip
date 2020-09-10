@@ -23,6 +23,7 @@ AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 	mSmoothPathCheckbox(new QCheckBox(this)),
 	mItemShadowCheckbox(new QCheckBox(this)),
 	mRotateWatermarkCheckbox(new QCheckBox(this)),
+	mRememberToolSelectionCheckbox(new QCheckBox(this)),
 	mTextFontLabel(new QLabel(this)),
 	mNumberFontLabel(new QLabel(this)),
 	mSmoothFactorLabel(new QLabel(this)),
@@ -49,7 +50,8 @@ AnnotationSettings::~AnnotationSettings()
     delete mSmoothPathCheckbox;
     delete mItemShadowCheckbox;
     delete mRotateWatermarkCheckbox;
-    delete mTextFontLabel;
+    delete mRememberToolSelectionCheckbox;
+	delete mTextFontLabel;
     delete mNumberFontLabel;
     delete mSmoothFactorLabel;
     delete mWatermarkImageLabel;
@@ -74,13 +76,15 @@ void AnnotationSettings::saveSettings()
     mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
     mConfig->setRotateWatermarkEnabled(mRotateWatermarkCheckbox->isChecked());
+	mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
 }
 
 void AnnotationSettings::initGui()
 {
     auto const fixedButtonSize = 100;
 
-    mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
+	mRememberToolSelectionCheckbox->setText(tr("Remember annotation tool selection and load on startup"));
+	mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
     mItemShadowCheckbox->setToolTip(tr("When enabled, paint items cast shadows."));
 
     mSmoothPathCheckbox->setText(tr("Smooth Painter Paths"));
@@ -131,8 +135,8 @@ void AnnotationSettings::initGui()
 
     mLayout->setAlignment(Qt::AlignTop);
     mLayout->setColumnMinimumWidth(0, 10);
-    mLayout->addWidget(mItemShadowCheckbox, 0, 0, 1, 6);
-    mLayout->setRowMinimumHeight(1, 15);
+	mLayout->addWidget(mRememberToolSelectionCheckbox, 0, 0, 1, 6);
+    mLayout->addWidget(mItemShadowCheckbox, 1, 0, 1, 6);
     mLayout->addWidget(mSmoothPathCheckbox, 2, 0, 1, 6);
     mLayout->addWidget(mSmoothFactorLabel, 3, 1, 1, 3);
     mLayout->addWidget(mSmoothFactorCombobox, 3, 3, 1,3, Qt::AlignLeft);
@@ -142,7 +146,7 @@ void AnnotationSettings::initGui()
     mLayout->addWidget(mTextBoldButton, 5, 4);
     mLayout->addWidget(mTextItalicButton, 5, 5);
     mLayout->addWidget(mTextUnderlineButton, 5, 6);
-    mLayout->addWidget(mNumberFontLabel, 6, 0, 1, 2);
+    mLayout->addWidget(mNumberFontLabel, 5, 0, 1, 2);
     mLayout->addWidget(mNumberFontCombobox, 6, 3);
 	mLayout->setRowMinimumHeight(7, 15);
     mLayout->addWidget(mWatermarkImageLabel, 8, 0, 1, 3);
@@ -164,7 +168,8 @@ void AnnotationSettings::loadConfig()
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
     mRotateWatermarkCheckbox->setChecked(mConfig->rotateWatermarkEnabled());
-    smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
+	mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
+	smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
 }
 
 void AnnotationSettings::smoothPathCheckboxClicked(bool checked)

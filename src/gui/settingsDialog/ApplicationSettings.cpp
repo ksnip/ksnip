@@ -22,8 +22,7 @@
 ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	mConfig(ksnipConfig),
 	mAutoCopyToClipboardNewCapturesCheckbox(new QCheckBox(this)),
-	mRememberKsnipPositionCheckbox(new QCheckBox(this)),
-	mRememberKsnipToolSelectionCheckbox(new QCheckBox(this)),
+	mRememberPositionCheckbox(new QCheckBox(this)),
 	mCaptureOnStartupCheckbox(new QCheckBox(this)),
 	mUseTrayIconCheckBox(new QCheckBox(this)),
 	mMinimizeToTrayCheckBox(new QCheckBox(this)),
@@ -45,8 +44,7 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 ApplicationSettings::~ApplicationSettings()
 {
 	delete mAutoCopyToClipboardNewCapturesCheckbox;
-	delete mRememberKsnipPositionCheckbox;
-	delete mRememberKsnipToolSelectionCheckbox;
+	delete mRememberPositionCheckbox;
 	delete mCaptureOnStartupCheckbox;
 	delete mUseTrayIconCheckBox;
 	delete mUseTabsCheckbox;
@@ -63,8 +61,7 @@ ApplicationSettings::~ApplicationSettings()
 void ApplicationSettings::initGui()
 {
 	mAutoCopyToClipboardNewCapturesCheckbox->setText(tr("Automatically copy new captures to clipboard"));
-	mRememberKsnipPositionCheckbox->setText(tr("Remember ksnip position on move and load on startup"));
-	mRememberKsnipToolSelectionCheckbox->setText(tr("Remember ksnip tool selection and load on startup"));
+	mRememberPositionCheckbox->setText(tr("Remember position on move and load on startup"));
 	mCaptureOnStartupCheckbox->setText(tr("Capture screenshot at startup with default mode"));
 	mUseTrayIconCheckBox->setText(tr("Use Tray Icon"));
 	mUseTrayIconCheckBox->setToolTip(tr("When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.\n"
@@ -98,19 +95,18 @@ void ApplicationSettings::initGui()
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mAutoCopyToClipboardNewCapturesCheckbox, 0, 0, 1, 4);
-	mLayout->addWidget(mRememberKsnipPositionCheckbox, 1, 0, 1, 4);
-	mLayout->addWidget(mRememberKsnipToolSelectionCheckbox, 2, 0, 1, 4);
-	mLayout->addWidget(mCaptureOnStartupCheckbox, 3, 0, 1, 4);
-	mLayout->addWidget(mUseTrayIconCheckBox, 4, 0, 1, 4);
-	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 5, 1, 1, 3);
-	mLayout->addWidget(mMinimizeToTrayCheckBox, 6, 1, 1, 3);
-	mLayout->addWidget(mCloseToTrayCheckBox, 7, 1, 1, 3);
-	mLayout->addWidget(mUseTabsCheckbox, 8, 0, 1, 4);
-	mLayout->addWidget(mAutoHideTabsCheckbox, 9, 1, 1, 3);
-	mLayout->addWidget(mUseSingleInstanceCheckBox, 10, 0, 1, 4);
-	mLayout->setRowMinimumHeight(11, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 12, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 12, 2, Qt::AlignLeft);
+	mLayout->addWidget(mRememberPositionCheckbox, 1, 0, 1, 4);
+	mLayout->addWidget(mCaptureOnStartupCheckbox, 2, 0, 1, 4);
+	mLayout->addWidget(mUseTrayIconCheckBox, 3, 0, 1, 4);
+	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 4, 1, 1, 3);
+	mLayout->addWidget(mMinimizeToTrayCheckBox, 5, 1, 1, 3);
+	mLayout->addWidget(mCloseToTrayCheckBox, 6, 1, 1, 3);
+	mLayout->addWidget(mUseTabsCheckbox, 7, 0, 1, 4);
+	mLayout->addWidget(mAutoHideTabsCheckbox, 8, 1, 1, 3);
+	mLayout->addWidget(mUseSingleInstanceCheckBox, 9, 0, 1, 4);
+	mLayout->setRowMinimumHeight(10, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 11, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 11, 2, Qt::AlignLeft);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -119,8 +115,7 @@ void ApplicationSettings::initGui()
 void ApplicationSettings::loadConfig()
 {
 	mAutoCopyToClipboardNewCapturesCheckbox->setChecked(mConfig->autoCopyToClipboardNewCaptures());
-	mRememberKsnipPositionCheckbox->setChecked(mConfig->rememberPosition());
-	mRememberKsnipToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
+	mRememberPositionCheckbox->setChecked(mConfig->rememberPosition());
 	mCaptureOnStartupCheckbox->setChecked(mConfig->captureOnStartup());
 	mUseTrayIconCheckBox->setChecked(mConfig->useTrayIcon());
 	mMinimizeToTrayCheckBox->setChecked(mConfig->minimizeToTray());
@@ -138,8 +133,7 @@ void ApplicationSettings::loadConfig()
 void ApplicationSettings::saveSettings()
 {
 	mConfig->setAutoCopyToClipboardNewCaptures(mAutoCopyToClipboardNewCapturesCheckbox->isChecked());
-	mConfig->setRememberPosition(mRememberKsnipPositionCheckbox->isChecked());
-	mConfig->setRememberToolSelection(mRememberKsnipToolSelectionCheckbox->isChecked());
+	mConfig->setRememberPosition(mRememberPositionCheckbox->isChecked());
 	mConfig->setCaptureOnStartup(mCaptureOnStartupCheckbox->isChecked());
 	mConfig->setUseTrayIcon(mUseTrayIconCheckBox->isChecked());
 	mConfig->setMinimizeToTray(mMinimizeToTrayCheckBox->isChecked());

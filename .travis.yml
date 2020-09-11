@@ -1,8 +1,8 @@
 language: cpp
 compiler: gcc
-sudo: required
 dist: xenial
 services: xvfb
+os: linux
 
 git:
   depth: false

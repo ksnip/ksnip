@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+wget -c https://github.com/damirporobic/uploadtool/raw/master/upload.sh
 
 # Fix link to travis ci, the default links to the private projects section, we use travis-ci.org for public open source
 export UPLOADTOOL_BODY="Travis CI build log: https://travis-ci.org/${TRAVIS_REPO_SLUG}/builds/${TRAVIS_BUILD_ID}/"

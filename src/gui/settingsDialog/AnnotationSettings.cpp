@@ -146,7 +146,7 @@ void AnnotationSettings::initGui()
     mLayout->addWidget(mTextBoldButton, 5, 4);
     mLayout->addWidget(mTextItalicButton, 5, 5);
     mLayout->addWidget(mTextUnderlineButton, 5, 6);
-    mLayout->addWidget(mNumberFontLabel, 5, 0, 1, 2);
+    mLayout->addWidget(mNumberFontLabel, 6, 0, 1, 2);
     mLayout->addWidget(mNumberFontCombobox, 6, 3);
 	mLayout->setRowMinimumHeight(7, 15);
     mLayout->addWidget(mWatermarkImageLabel, 8, 0, 1, 3);

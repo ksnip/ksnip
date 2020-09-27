@@ -34,6 +34,9 @@ public:
 	QRect fullScreenRect() const override;
 	QRect activeWindowRect() const override;
 
+public slots:
+    void gotScreenshotResponse(uint response, const QVariantMap& results);
+
 protected:
 	void grab() override;
 	CursorDto getCursorWithPosition() const override;
@@ -41,7 +44,6 @@ protected:
 private:
 	int mRequestTokenCounter;
 
-	void gotScreenshotResponse(uint response, const QVariantMap& results);
 	QString getRequestToken();
 };
 

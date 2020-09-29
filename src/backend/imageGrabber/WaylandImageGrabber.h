@@ -29,6 +29,7 @@
 
 class WaylandImageGrabber  : public AbstractImageGrabber
 {
+    Q_OBJECT
 public:
 	explicit WaylandImageGrabber();
 	QRect fullScreenRect() const override;

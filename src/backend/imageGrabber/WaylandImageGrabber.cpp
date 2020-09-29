@@ -79,13 +79,14 @@ void WaylandImageGrabber::gotScreenshotResponse(uint response, const QVariantMap
 	if (!response) {
 		if (results.contains(QLatin1String("uri"))) {
 			qDebug("Success");
-			emit finished(CaptureDto(QPixmap::fromImage(QImage(results.value(QLatin1String("uri")).toString()))));
+            auto uri = results.value(QLatin1String("uri")).toString();
+            qDebug("Uri: %s", qPrintable(uri));
+			emit finished(CaptureDto(QPixmap::fromImage(QImage(uri.remove(QStringLiteral("file://"))))));
 		}
 	} else {
 		qDebug("Failed to take screenshot");
 	}
 }
-
 
 QString WaylandImageGrabber::getRequestToken()
 {

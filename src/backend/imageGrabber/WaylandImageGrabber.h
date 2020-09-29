@@ -29,10 +29,14 @@
 
 class WaylandImageGrabber  : public AbstractImageGrabber
 {
+    Q_OBJECT
 public:
 	explicit WaylandImageGrabber();
 	QRect fullScreenRect() const override;
 	QRect activeWindowRect() const override;
+
+public slots:
+    void gotScreenshotResponse(uint response, const QVariantMap& results);
 
 protected:
 	void grab() override;
@@ -41,7 +45,6 @@ protected:
 private:
 	int mRequestTokenCounter;
 
-	void gotScreenshotResponse(uint response, const QVariantMap& results);
 	QString getRequestToken();
 };
 

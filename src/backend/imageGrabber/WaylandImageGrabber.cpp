@@ -46,7 +46,7 @@ void WaylandImageGrabber::grab()
 	                                                      QLatin1String("org.freedesktop.portal.Screenshot"),
 	                                                      QLatin1String("Screenshot"));
 
-	message << QLatin1String("x11:") << QVariantMap{{QLatin1String("interactive"), true}, {QLatin1String("handle_token"), getRequestToken()}};
+	message << QLatin1String("wayland:") << QVariantMap{{QLatin1String("interactive"), false}, {QLatin1String("handle_token"), getRequestToken()}};
 
 	auto pendingCall = QDBusConnection::sessionBus().asyncCall(message);
 	auto watcher = new QDBusPendingCallWatcher(pendingCall);
@@ -56,6 +56,8 @@ void WaylandImageGrabber::grab()
 			qDebug("Couldn't get reply");
 			qWarning("Error: %s", qPrintable(reply.error().message()));
 		} else {
+		    qDebug("Got reply");
+		    qDebug("The path: %s", qPrintable(reply.value().path()));
 			QDBusConnection::sessionBus().connect(QString(),
 			                                      reply.value().path(),
 			                                      QLatin1String("org.freedesktop.portal.Request"),
@@ -73,16 +75,18 @@ CursorDto WaylandImageGrabber::getCursorWithPosition() const
 
 void WaylandImageGrabber::gotScreenshotResponse(uint response, const QVariantMap& results)
 {
+    qDebug("Response called");
 	if (!response) {
 		if (results.contains(QLatin1String("uri"))) {
 			qDebug("Success");
-			emit finished(CaptureDto(QPixmap::fromImage(QImage(results.value(QLatin1String("uri")).toString()))));
+            auto uri = results.value(QLatin1String("uri")).toString();
+            qDebug("Uri: %s", qPrintable(uri));
+			emit finished(CaptureDto(QPixmap::fromImage(QImage(uri.remove(QStringLiteral("file://"))))));
 		}
 	} else {
 		qDebug("Failed to take screenshot");
 	}
 }
-
 
 QString WaylandImageGrabber::getRequestToken()
 {

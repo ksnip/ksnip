@@ -9,7 +9,7 @@ for your screenshots.
 
 # Features
 Latest ksnip version contains following features:
-* Supports Linux (X11, Plasma Wayland and GNOME Wayland), Windows and macOS.
+* Supports Linux (X11, Plasma Wayland, GNOME Wayland and xdg-desktop-portal Wayland), Windows and macOS.
 * Screenshot of a custom rectangular area that can be drawn with mouse cursor.
 * Screenshot of last selected rectangular area without selecting again.
 * Screenshot of the screen/monitor where the mouse cursor is currently located.

@@ -29,7 +29,8 @@ enum class CaptureModes
     FullScreen,
     CurrentScreen,
     ActiveWindow,
-    WindowUnderCursor
+    WindowUnderCursor,
+    Dialog
 };
 
 Q_DECLARE_METATYPE(CaptureModes)

@@ -23,10 +23,7 @@ WaylandImageGrabber::WaylandImageGrabber() :
 	AbstractImageGrabber(new LinuxSnippingArea),
 	mRequestTokenCounter(1)
 {
-	addSupportedCaptureMode(CaptureModes::RectArea);
-	addSupportedCaptureMode(CaptureModes::LastRectArea);
-	addSupportedCaptureMode(CaptureModes::FullScreen);
-	addSupportedCaptureMode(CaptureModes::CurrentScreen);
+	addSupportedCaptureMode(CaptureModes::Dialog);
 }
 
 QRect WaylandImageGrabber::fullScreenRect() const
@@ -53,11 +50,8 @@ void WaylandImageGrabber::grab()
 	connect(watcher, &QDBusPendingCallWatcher::finished, [this] (QDBusPendingCallWatcher *watcher) {
 		QDBusPendingReply<QDBusObjectPath> reply = *watcher;
 		if (reply.isError()) {
-			qDebug("Couldn't get reply");
 			qWarning("Error: %s", qPrintable(reply.error().message()));
 		} else {
-		    qDebug("Got reply");
-		    qDebug("The path: %s", qPrintable(reply.value().path()));
 			QDBusConnection::sessionBus().connect(QString(),
 			                                      reply.value().path(),
 			                                      QLatin1String("org.freedesktop.portal.Request"),
@@ -75,13 +69,12 @@ CursorDto WaylandImageGrabber::getCursorWithPosition() const
 
 void WaylandImageGrabber::gotScreenshotResponse(uint response, const QVariantMap& results)
 {
-    qDebug("Response called");
 	if (!response) {
 		if (results.contains(QLatin1String("uri"))) {
-			qDebug("Success");
             auto uri = results.value(QLatin1String("uri")).toString();
-            qDebug("Uri: %s", qPrintable(uri));
-			emit finished(CaptureDto(QPixmap::fromImage(QImage(uri.remove(QStringLiteral("file://"))))));
+            auto path = uri.remove(QLatin1String("file://"));
+            auto capture = CaptureFromFileDto(QPixmap::fromImage(QImage(path)), path);
+            emit finished(capture);
 		}
 	} else {
 		qDebug("Failed to take screenshot");

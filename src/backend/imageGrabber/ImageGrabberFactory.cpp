@@ -29,9 +29,6 @@ AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
     if (PlatformChecker::instance()->isX11()) {
         return new X11ImageGrabber();
     } else if (PlatformChecker::instance()->isWayland()) {
-
-        return new WaylandImageGrabber();
-
     	if (PlatformChecker::instance()->isSnap()) {
 		    return new WaylandImageGrabber();
     	} else if(PlatformChecker::instance()->isKde()) {

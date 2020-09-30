@@ -107,6 +107,16 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         menu->addAction(action);
     }
 
+    if (isCaptureModeSupported(captureModes, CaptureModes::Dialog)) {
+        auto action = createAction(
+                tr("Dialog"),
+                tr("Opens a dialog that allows selecting the type of screenshot"),
+                QStringLiteral("windowUnderCursor.svg"),
+                CaptureModes::Dialog,
+                QKeySequence(Qt::SHIFT + Qt::Key_D));
+        menu->addAction(action);
+    }
+
     if (!mCaptureActions.isEmpty()) {
         setDefaultAction(mCaptureActions.first());
     }

@@ -26,6 +26,7 @@
 
 #include "AbstractImageGrabber.h"
 #include "src/gui/snippingArea/LinuxSnippingArea.h"
+#include "src/common/dtos/CaptureFromFileDto.h"
 
 class WaylandImageGrabber  : public AbstractImageGrabber
 {

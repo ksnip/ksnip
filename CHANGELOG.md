@@ -5,10 +5,12 @@
 * New: Support for unit tests. ([#80](https://github.com/ksnip/ksnip/issues/80))
 * New: Add brew cask package for ksnip. ([#394](https://github.com/ksnip/ksnip/issues/394))
 * New: Allow setting image quality when saving images. ([#382](https://github.com/ksnip/ksnip/issues/382))
+* New: Add support for cross-platform wayland screenshots using xdg-desktop-portal. ([#243](https://github.com/ksnip/ksnip/issues/243))
 * New kImageAnnotator: Add Pixelate image area tool. ([#140](https://github.com/ksnip/kImageAnnotator/issues/140))
 * New kImageAnnotator: Zoom in and out. ([#123](https://github.com/ksnip/kImageAnnotator/issues/123))
 * Changed: Show all Screenshot options in System Tray. ([#404](https://github.com/ksnip/ksnip/issues/404))
 * Changed kImageAnnotator: Draw point when clicking and releasing without moving cursor. ([#136](https://github.com/ksnip/kImageAnnotator/issues/136))
+* Fixed: Snap crashing when trying to take screenshot under Wayland. ([#389](https://github.com/ksnip/ksnip/issues/389))
 * Fixed kImageAnnotator: Blur radius not updated when changing current items settings. ([#142](https://github.com/ksnip/kImageAnnotator/issues/142))
 * Fixed kImageAnnotator: Text tool opens many unix sockets. ([#144](https://github.com/ksnip/kImageAnnotator/issues/144))
 

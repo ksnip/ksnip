@@ -143,7 +143,7 @@ torná-los mais suaves.</translation>
     <name>ApplicationSettings</name>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation>Capturar a tela ao iniciar utilizando o modo padrão de captura</translation>
+        <translation>Capturar o ecrã ao iniciar a utilizar o modo padrão de captura</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -166,7 +166,7 @@ Requer reiniciar o ksnip para aplicar as mudanças.</translation>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation>Quando ativado adiciona um ícone de bandeja na barra de tarefas, se o gerenciador de janelas do SO oferecer suporte.
+        <translation>Quando ativado adiciona um ícone de bandeja na barra de tarefas, se o gestor de janelas do SO oferecer suporte.
 A mudança requer reinicialização.</translation>
     </message>
     <message>
@@ -288,23 +288,23 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation>Desenhar uma área retangular com o mouse</translation>
+        <translation>Desenhar uma área retangular com o rato</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation>Tela cheia (Todos os monitores)</translation>
+        <translation>Ecrã cheio (Todos os monitores)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation>Capturar tela inteira incluindo todos os monitores</translation>
+        <translation>Capturar ecrã inteiro incluindo todos os monitores</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation>Tela atual</translation>
+        <translation>Ecrã atual</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation>Capturar a tela onde o mouse está localizado</translation>
+        <translation>Capturar o ecrã onde o rato está localizado</translation>
     </message>
     <message>
         <source>Active Window</source>
@@ -320,7 +320,7 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation>Capturar o que está atualmente sob o cursor do mouse</translation>
+        <translation>Capturar o que está atualmente sob o cursor do rato</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
@@ -328,7 +328,7 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation>Realizar uma captura de tela da última área retangular selecionada</translation>
+        <translation>Realizar uma captura de ecrã da última área retangular selecionada</translation>
     </message>
 </context>
 <context>
@@ -433,11 +433,11 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation>Captura da Tela cheia</translation>
+        <translation>Captura do ecrã cheio</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation>Captura da Tela atual</translation>
+        <translation>Captura do ecrã atual</translation>
     </message>
     <message>
         <source>Capture active Window</source>
@@ -445,7 +445,7 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation>Captura da Janela sob o mouse</translation>
+        <translation>Captura da Janela sob o rato</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
@@ -468,13 +468,13 @@ Deseja salvá-la?</translation>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation>Capturar o cursor do mouse na captura de tela</translation>
+        <translation>Capturar o cursor do rato na captura de ecrã</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation>O cursor do mouse estará visível nas
-capturas de tela.</translation>
+        <translation>O cursor do rato estará visível nas
+capturas de ecrã.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
@@ -511,8 +511,8 @@ antes de iniciar a captura de uma área retangular.</translation>
 is show, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation>Enquanto o botão do mouse não for pressionado, a posição
-vertical e horizontal será exibida, quando o botão do mouse for
+        <translation>Enquanto o botão do rato não for pressionado, a posição
+vertical e horizontal será exibida, quando o botão do rato for
 pressionado, a altura será exibida à esquerda e o comprimento
 acima da área selecionada.</translation>
     </message>
@@ -553,7 +553,7 @@ This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
         <translation>Quando ativado, congelará o plano de fundo ao
 selecionar uma região retangular. Também altera
-o comportamento de capturas de tela atrasadas,
+o comportamento de capturas de ecrã atrasadas,
 com esta opção ativada, o atraso ocorre antes da
 área de corte ser exibida e com a opção desativada,
 o atraso ocorre após a exibição da área de corte.
@@ -581,7 +581,7 @@ e sempre ativado para MacOs.</translation>
     </message>
     <message>
         <source>Delete Link</source>
-        <translation>Excluir Link</translation>
+        <translation>Apagar Link</translation>
     </message>
 </context>
 <context>
@@ -643,11 +643,11 @@ e sempre ativado para MacOs.</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Nome de usuário</translation>
+        <translation>Nome de utilizador</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation>Nome de usuário:</translation>
+        <translation>Nome de utilizador:</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
@@ -690,7 +690,7 @@ Mudança requer reinicialização.</translation>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
         <translation>Atraso em segundos entre o acionamento
-e captura de tela.</translation>
+e captura de ecrã.</translation>
     </message>
     <message>
         <source>s</source>
@@ -702,7 +702,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation>Salvar captura de tela nos arquivos</translation>
+        <translation>Gravar captura de ecrã para o sistema de ficheiros</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -710,7 +710,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation>Copiar captura de tela para a área de transferência</translation>
+        <translation>Copiar captura de ecrã para a área de transferência</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -730,7 +730,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation>Recortar captura de tela</translation>
+        <translation>Recortar captura de ecrã</translation>
     </message>
 </context>
 <context>
@@ -765,7 +765,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
-        <translation>Redimensionar captura de tela</translation>
+        <translation>Redimensionar captura de ecrã</translation>
     </message>
     <message>
         <source>Quit</source>
@@ -801,7 +801,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Arquivos de imagem (*.png *.jpg *.bmp)</translation>
+        <translation>Ficheiros de imagem (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -845,7 +845,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation>Fixar captura de tela em primeiro plano na janela sem moldura</translation>
+        <translation>Fixar captura de ecrã em primeiro plano na janela sem moldura</translation>
     </message>
 </context>
 <context>
@@ -889,7 +889,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation>Todos os arquivos</translation>
+        <translation>Todos os ficheiros</translation>
     </message>
     <message>
         <source>Image Saved</source>
@@ -930,7 +930,7 @@ para o diretório mais recente onde foi salvo, isso para cada vez que usar o com
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation>Local e nome do arquivo para salvar a captura</translation>
+        <translation>Local e nome do ficheiro para gravar a captura</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
@@ -969,7 +969,7 @@ O nome do arquivo pode conter os seguintes curingas:
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
         <translation>Caminho para o script que será chamado para upload. Durante o upload, o script será chamado
-com o caminho para um arquivo png temporário como um único argumento.</translation>
+com o caminho para um ficheiro png temporário como um único argumento.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1079,7 +1079,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation>Arquivos de imagem vetorial (*.svg)</translation>
+        <translation>Ficheiros de imagem vetorial (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
@@ -1109,7 +1109,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation>Todos os arquivos</translation>
+        <translation>Todos os ficheiros</translation>
     </message>
 </context>
 <context>

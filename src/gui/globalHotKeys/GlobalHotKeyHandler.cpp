@@ -49,6 +49,7 @@ void GlobalHotKeyHandler::setupHotKeys()
 		createHotKey(mConfig->currentScreenHotKey(), CaptureModes::CurrentScreen);
 		createHotKey(mConfig->activeWindowHotKey(), CaptureModes::ActiveWindow);
 		createHotKey(mConfig->windowUnderCursorHotKey(), CaptureModes::WindowUnderCursor);
+        createHotKey(mConfig->windowUnderCursorHotKey(), CaptureModes::Portal);
 	}
 }
 

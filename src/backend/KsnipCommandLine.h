@@ -38,6 +38,7 @@ public:
     bool isCurrentScreenSet() const;
     bool isActiveWindowSet() const;
     bool isWindowsUnderCursorSet() const;
+    bool isPortalSet() const;
     bool isDelaySet() const;
     bool isCursorSet() const;
     bool isEditSet() const;
@@ -55,6 +56,7 @@ private:
     QCommandLineOption *mCurrentScreenOption = nullptr;
     QCommandLineOption *mActiveWindowOption = nullptr;
     QCommandLineOption *mWindowUnderCursorOption = nullptr;
+    QCommandLineOption *mPortalOption = nullptr;
     QCommandLineOption *mDelayOption = nullptr;
     QCommandLineOption *mCursorOption = nullptr;
     QCommandLineOption *mEditOption = nullptr;

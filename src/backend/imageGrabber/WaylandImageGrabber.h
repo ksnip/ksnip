@@ -47,6 +47,14 @@ private:
 	int mRequestTokenCounter;
 
 	QString getRequestToken();
+
+    static QString getPathToScreenshot(const QVariantMap &results);
+    static bool isTemporaryImage(const QString &path);
+    static bool isResponseValid(uint response, const QVariantMap &results);
+    QDBusMessage getDBusMessage();
+
+private slots:
+    void portalResponse(QDBusPendingCallWatcher *watcher);
 };
 
 #endif //KSNIP_WAYLANDIMAGEGRABBER_H

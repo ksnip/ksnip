@@ -66,7 +66,9 @@ CaptureModes SingleInstanceParameterTranslator::getCaptureMode(const QByteArray 
 		return CaptureModes::CurrentScreen;
 	} else if (captureMode == QByteArray("activeWindow")) {
 		return CaptureModes::ActiveWindow;
-	} else {
+	} else if (captureMode == QByteArray("portal")) {
+        return CaptureModes::Portal;
+    } else {
 		return CaptureModes::WindowUnderCursor;
 	}
 }
@@ -118,6 +120,8 @@ QByteArray SingleInstanceParameterTranslator::getCaptureModeParameter(const Capt
 			return QByteArray("activeWindow");
 		case CaptureModes::WindowUnderCursor:
 			return QByteArray("windowUnderCursor");
+        case CaptureModes::Portal:
+            return QByteArray("portal");
 		default:
 			return QByteArray("rectArea");
 	}

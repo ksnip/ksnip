@@ -255,6 +255,9 @@ public:
 	virtual QKeySequence windowUnderCursorHotKey() const;
 	virtual void setWindowUnderCursorHotKey(const QKeySequence &keySequence);
 
+    virtual QKeySequence portalHotKey() const;
+    virtual void setPortalHotKey(const QKeySequence &keySequence);
+
 signals:
 	void annotatorConfigChanged() const;
 	void hotKeysChanged() const;

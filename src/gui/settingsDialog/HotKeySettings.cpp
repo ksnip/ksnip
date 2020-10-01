@@ -29,12 +29,14 @@ HotKeySettings::HotKeySettings(KsnipConfig *ksnipConfig, const QList<CaptureMode
 	mCurrentScreenLabel(new QLabel(this)),
 	mActiveWindowLabel(new QLabel(this)),
 	mWindowUnderCursorLabel(new QLabel(this)),
+	mPortalLabel(new QLabel(this)),
 	mRectAreaClearPushButton(new QPushButton(this)),
 	mLastRectAreaClearPushButton(new QPushButton(this)),
 	mFullScreenClearPushButton(new QPushButton(this)),
 	mCurrentScreenClearPushButton(new QPushButton(this)),
 	mActiveWindowClearPushButton(new QPushButton(this)),
 	mWindowUnderCursorClearPushButton(new QPushButton(this)),
+	mPortalClearPushButton(new QPushButton(this)),
 	mLayout(new QGridLayout(this))
 {
 	Q_ASSERT(mConfig != nullptr);
@@ -52,18 +54,21 @@ HotKeySettings::~HotKeySettings()
 	delete mCurrentScreenLabel;
 	delete mActiveWindowLabel;
 	delete mWindowUnderCursorLabel;
+	delete mPortalLabel;
 	delete mRectAreaKeySequenceLineEdit;
 	delete mLastRectAreaKeySequenceLineEdit;
 	delete mFullScreenKeySequenceLineEdit;
 	delete mCurrentScreenKeySequenceLineEdit;
 	delete mActiveWindowKeySequenceLineEdit;
 	delete mWindowUnderCursorKeySequenceLineEdit;
+	delete mPortalKeySequenceLineEdit;
 	delete mRectAreaClearPushButton;
 	delete mLastRectAreaClearPushButton;
 	delete mFullScreenClearPushButton;
 	delete mCurrentScreenClearPushButton;
 	delete mActiveWindowClearPushButton;
 	delete mWindowUnderCursorClearPushButton;
+	delete mPortalClearPushButton;
 	delete mLayout;
 }
 
@@ -76,6 +81,7 @@ void HotKeySettings::saveSettings()
 	mConfig->setCurrentScreenHotKey(mCurrentScreenKeySequenceLineEdit->value());
 	mConfig->setActiveWindowHotKey(mActiveWindowKeySequenceLineEdit->value());
 	mConfig->setWindowUnderCursorHotKey(mWindowUnderCursorKeySequenceLineEdit->value());
+	mConfig->setPortalHotKey(mPortalKeySequenceLineEdit->value());
 }
 
 void HotKeySettings::initGui()
@@ -87,17 +93,19 @@ void HotKeySettings::initGui()
 	mCurrentScreenKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
 	mActiveWindowKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
 	mWindowUnderCursorKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
+	mPortalKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
 
 	mEnableGlobalHotKeysCheckBox->setText(tr("Enable Global HotKeys"));
 	mEnableGlobalHotKeysCheckBox->setToolTip(tr("HotKeys are currently supported only for Windows and X11"));
 	connect(mEnableGlobalHotKeysCheckBox, &QCheckBox::stateChanged, this, &HotKeySettings::globalHotKeysStateChanged);
 
-	mRectAreaLabel->setText(tr("Capture Rect Area") + QStringLiteral(":"));
-	mLastRectAreaLabel->setText(tr("Capture Last Rect Area") + QStringLiteral(":"));
-	mFullScreenLabel->setText(tr("Capture Full Screen") + QStringLiteral(":"));
-	mCurrentScreenLabel->setText(tr("Capture current Screen") + QStringLiteral(":"));
-	mActiveWindowLabel->setText(tr("Capture active Window") + QStringLiteral(":"));
-	mWindowUnderCursorLabel->setText(tr("Capture Window under Cursor") + QStringLiteral(":"));
+	mRectAreaLabel->setText(tr("Capture Rect Area") + QLatin1Literal(":"));
+	mLastRectAreaLabel->setText(tr("Capture Last Rect Area") + QLatin1Literal(":"));
+	mFullScreenLabel->setText(tr("Capture Full Screen") + QLatin1Literal(":"));
+	mCurrentScreenLabel->setText(tr("Capture current Screen") + QLatin1Literal(":"));
+	mActiveWindowLabel->setText(tr("Capture active Window") + QLatin1Literal(":"));
+	mWindowUnderCursorLabel->setText(tr("Capture Window under Cursor") + QLatin1Literal(":"));
+	mPortalLabel->setText(tr("Capture using Portal") + QLatin1Literal(":"));
 
 	auto clearText = tr("Clear");
 	mRectAreaClearPushButton->setText(clearText);
@@ -117,6 +125,9 @@ void HotKeySettings::initGui()
 
 	mWindowUnderCursorClearPushButton->setText(clearText);
 	connect(mWindowUnderCursorClearPushButton, &QPushButton::clicked, mWindowUnderCursorKeySequenceLineEdit, &KeySequenceLineEdit::clear);
+
+    mPortalClearPushButton->setText(clearText);
+    connect(mPortalClearPushButton, &QPushButton::clicked, mPortalKeySequenceLineEdit, &KeySequenceLineEdit::clear);
 
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnStretch(1, 1);
@@ -146,6 +157,10 @@ void HotKeySettings::initGui()
 	mLayout->addWidget(mWindowUnderCursorKeySequenceLineEdit, 6, 1, 1, 1);
 	mLayout->addWidget(mWindowUnderCursorClearPushButton, 6, 2, 1, 1);
 
+    mLayout->addWidget(mPortalLabel, 7, 0, 1, 1);
+    mLayout->addWidget(mPortalKeySequenceLineEdit, 7, 1, 1, 1);
+    mLayout->addWidget(mPortalClearPushButton, 7, 2, 1, 1);
+
 	setTitle(tr("Global HotKeys"));
 	setLayout(mLayout);
 }
@@ -160,6 +175,7 @@ void HotKeySettings::loadConfig()
 	mCurrentScreenKeySequenceLineEdit->setValue(mConfig->currentScreenHotKey());
 	mActiveWindowKeySequenceLineEdit->setValue(mConfig->activeWindowHotKey());
 	mWindowUnderCursorKeySequenceLineEdit->setValue(mConfig->windowUnderCursorHotKey());
+	mPortalKeySequenceLineEdit->setValue(mConfig->portalHotKey());
 	globalHotKeysStateChanged();
 }
 
@@ -172,6 +188,7 @@ void HotKeySettings::globalHotKeysStateChanged()
 	auto isCurrentScreenSupported = mCaptureModes.contains(CaptureModes::CurrentScreen);
 	auto isActiveWindowSupported = mCaptureModes.contains(CaptureModes::ActiveWindow);
 	auto isWindowUnderCursorSupported = mCaptureModes.contains(CaptureModes::WindowUnderCursor);
+	auto isPortalSupported = mCaptureModes.contains(CaptureModes::Portal);
 
 	mRectAreaLabel->setEnabled(hotKeysEnabled && isRectAreaSupported);
 	mRectAreaKeySequenceLineEdit->setEnabled(hotKeysEnabled && isRectAreaSupported);
@@ -196,4 +213,8 @@ void HotKeySettings::globalHotKeysStateChanged()
 	mWindowUnderCursorLabel->setEnabled(hotKeysEnabled && isWindowUnderCursorSupported);
 	mWindowUnderCursorKeySequenceLineEdit->setEnabled(hotKeysEnabled && isWindowUnderCursorSupported);
 	mWindowUnderCursorClearPushButton->setEnabled(hotKeysEnabled && isWindowUnderCursorSupported);
+
+    mPortalLabel->setEnabled(hotKeysEnabled && isPortalSupported);
+    mPortalKeySequenceLineEdit->setEnabled(hotKeysEnabled && isPortalSupported);
+    mPortalClearPushButton->setEnabled(hotKeysEnabled && isPortalSupported);
 }

@@ -976,6 +976,20 @@ void KsnipConfig::setWindowUnderCursorHotKey(const QKeySequence &keySequence)
 	emit hotKeysChanged();
 }
 
+QKeySequence KsnipConfig::portalHotKey() const
+{
+    return loadValue(KsnipConfigOptions::portalHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_T)).value<QKeySequence>();
+}
+
+void KsnipConfig::setPortalHotKey(const QKeySequence &keySequence)
+{
+    if (portalHotKey() == keySequence) {
+        return;
+    }
+    saveValue(KsnipConfigOptions::portalHotKeyString(), keySequence);
+    emit hotKeysChanged();
+}
+
 // Misc
 
 void KsnipConfig::saveValue(const QString &key, const QVariant &value)
@@ -988,4 +1002,3 @@ QVariant KsnipConfig::loadValue(const QString &key, const QVariant &defaultValue
 {
 	return mConfig.value(key, defaultValue);
 }
-

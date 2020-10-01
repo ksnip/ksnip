@@ -86,6 +86,7 @@ public:
 	static QString currentScreenHotKeyString();
 	static QString activeWindowHotKeyString();
 	static QString windowUnderCursorHotKeyString();
+	static QString portalHotKeyString();
 
 	static QString uploaderTypeString();
 private:

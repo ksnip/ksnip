@@ -329,6 +329,11 @@ QString KsnipConfigOptions::windowUnderCursorHotKeyString()
 	return hotKeysSectionString() + QStringLiteral("WindowUnderCursorHotKey");
 }
 
+QString KsnipConfigOptions::portalHotKeyString()
+{
+    return hotKeysSectionString() + QStringLiteral("PortalHotKey");
+}
+
 QString KsnipConfigOptions::applicationSectionString()
 {
 	return QStringLiteral("Application/");;

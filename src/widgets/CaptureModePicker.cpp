@@ -107,13 +107,13 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         menu->addAction(action);
     }
 
-    if (isCaptureModeSupported(captureModes, CaptureModes::Dialog)) {
+    if (isCaptureModeSupported(captureModes, CaptureModes::Portal)) {
         auto action = createAction(
-                tr("Dialog"),
-                tr("Opens a dialog that allows selecting the type of screenshot"),
-                QStringLiteral("windowUnderCursor.svg"),
-                CaptureModes::Dialog,
-                QKeySequence(Qt::SHIFT + Qt::Key_D));
+                tr("Screenshot Portal"),
+                tr("Uses the screenshot Portal for taking screenshot"),
+                QStringLiteral("fullScreen.svg"),
+                CaptureModes::Portal,
+                QKeySequence(Qt::SHIFT + Qt::Key_T));
         menu->addAction(action);
     }
 

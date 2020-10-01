@@ -30,7 +30,7 @@ enum class CaptureModes
     CurrentScreen,
     ActiveWindow,
     WindowUnderCursor,
-    Dialog
+    Portal
 };
 
 Q_DECLARE_METATYPE(CaptureModes)

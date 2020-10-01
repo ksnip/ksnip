@@ -23,7 +23,7 @@ WaylandImageGrabber::WaylandImageGrabber() :
 	AbstractImageGrabber(new LinuxSnippingArea),
 	mRequestTokenCounter(1)
 {
-	addSupportedCaptureMode(CaptureModes::Dialog);
+	addSupportedCaptureMode(CaptureModes::Portal);
 }
 
 QRect WaylandImageGrabber::fullScreenRect() const
@@ -38,28 +38,25 @@ QRect WaylandImageGrabber::activeWindowRect() const
 
 void WaylandImageGrabber::grab()
 {
-	auto message = QDBusMessage::createMethodCall(QLatin1String("org.freedesktop.portal.Desktop"),
-	                                                      QLatin1String("/org/freedesktop/portal/desktop"),
-	                                                      QLatin1String("org.freedesktop.portal.Screenshot"),
-	                                                      QLatin1String("Screenshot"));
-
-	message << QLatin1String("wayland:") << QVariantMap{{QLatin1String("interactive"), false}, {QLatin1String("handle_token"), getRequestToken()}};
-
-	auto pendingCall = QDBusConnection::sessionBus().asyncCall(message);
+    auto message = getDBusMessage();
+    auto pendingCall = QDBusConnection::sessionBus().asyncCall(message);
 	auto watcher = new QDBusPendingCallWatcher(pendingCall);
-	connect(watcher, &QDBusPendingCallWatcher::finished, [this] (QDBusPendingCallWatcher *watcher) {
-		QDBusPendingReply<QDBusObjectPath> reply = *watcher;
-		if (reply.isError()) {
-			qWarning("Error: %s", qPrintable(reply.error().message()));
-		} else {
-			QDBusConnection::sessionBus().connect(QString(),
-			                                      reply.value().path(),
-			                                      QLatin1String("org.freedesktop.portal.Request"),
-			                                      QLatin1String("Response"),
-			                                      this,
-			                                      SLOT(gotScreenshotResponse(uint,QVariantMap)));
-		}
-	});
+	connect(watcher, &QDBusPendingCallWatcher::finished, this, &WaylandImageGrabber::portalResponse);
+}
+
+QDBusMessage WaylandImageGrabber::getDBusMessage()
+{
+    auto message = QDBusMessage::createMethodCall(
+            QLatin1String("org.freedesktop.portal.Desktop"),
+            QLatin1String("/org/freedesktop/portal/desktop"),
+            QLatin1String("org.freedesktop.portal.Screenshot"),
+            QLatin1String("Screenshot"));
+
+    message << QLatin1String("wayland:") << QVariantMap{
+        {QLatin1String("interactive"), false},
+        {QLatin1String("handle_token"), getRequestToken()}
+    };
+    return message;
 }
 
 CursorDto WaylandImageGrabber::getCursorWithPosition() const
@@ -69,20 +66,52 @@ CursorDto WaylandImageGrabber::getCursorWithPosition() const
 
 void WaylandImageGrabber::gotScreenshotResponse(uint response, const QVariantMap& results)
 {
-	if (!response) {
-		if (results.contains(QLatin1String("uri"))) {
-            auto uri = results.value(QLatin1String("uri")).toString();
-            auto path = uri.remove(QLatin1String("file://"));
-            auto capture = CaptureFromFileDto(QPixmap::fromImage(QImage(path)), path);
-            emit finished(capture);
-		}
+	if (isResponseValid(response, results)) {
+        auto path = getPathToScreenshot(results);
+        if(isTemporaryImage(path)) {
+            emit finished(CaptureDto(QPixmap::fromImage(QImage(path))));
+        } else {
+            emit finished(CaptureFromFileDto(QPixmap::fromImage(QImage(path)), path));
+        }
 	} else {
-		qDebug("Failed to take screenshot");
-	}
+        qCritical("Failed to take screenshot");
+    }
+}
+
+bool WaylandImageGrabber::isResponseValid(uint response, const QVariantMap &results)
+{
+    return !response && results.contains(QLatin1String("uri"));
+}
+
+bool WaylandImageGrabber::isTemporaryImage(const QString &path)
+{
+    return path.contains(QLatin1String("/tmp/"));
+}
+
+QString WaylandImageGrabber::getPathToScreenshot(const QVariantMap &results)
+{
+    auto uri = results.value(QLatin1String("uri")).toString();
+    return uri.remove(QLatin1String("file://"));
 }
 
 QString WaylandImageGrabber::getRequestToken()
 {
 	mRequestTokenCounter += 1;
 	return QString("u%1").arg(mRequestTokenCounter);
+}
+
+void WaylandImageGrabber::portalResponse(QDBusPendingCallWatcher *watcher)
+{
+    QDBusPendingReply<QDBusObjectPath> reply = *watcher;
+
+    if (reply.isError()) {
+        qCritical("Error: %s", qPrintable(reply.error().message()));
+    } else {
+        QDBusConnection::sessionBus().connect(QString(),
+                                              reply.value().path(),
+                                              QLatin1String("org.freedesktop.portal.Request"),
+                                              QLatin1String("Response"),
+                                              this,
+                                              SLOT(gotScreenshotResponse(uint,QVariantMap)));
+    }
 }

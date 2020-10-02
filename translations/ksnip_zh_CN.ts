@@ -857,15 +857,15 @@ and capturing screenshot.</source>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">关闭</translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭其它</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭所有</translation>
     </message>
 </context>
 <context>
@@ -918,7 +918,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>记住上次保存的目录</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
@@ -957,7 +957,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>脚本：</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
@@ -974,11 +974,11 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>选择上传脚本</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>在上传脚本输出至标准错误时停止</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
@@ -1107,7 +1107,7 @@ When omitted, everything is copied.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>需要上传脚本</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
@@ -1119,7 +1119,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>您即将把图像上传至外部站点。您是否想要继续？</translation>
     </message>
 </context>
 <context>

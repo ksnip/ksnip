@@ -24,7 +24,6 @@ set(KSNIP_LANG_TS
 	ksnip_sv.ts
 	ksnip_tr.ts
 	ksnip_uk.ts
-	ksnip_zh_CN.ts
 	ksnip_zh_Hans.ts)
 
 if (DEFINED UPDATE_TS_FILES)

@@ -651,6 +651,24 @@ void KsnipConfig::setLastRectArea(const QRect &rectArea)
 	saveValue(KsnipConfigOptions::lastRectAreaString(), rectArea);
 }
 
+bool KsnipConfig::isForceGenericWaylandEnabledReadOnly() const
+{
+    return true;
+}
+
+bool KsnipConfig::forceGenericWaylandEnabled() const
+{
+    return loadValue(KsnipConfigOptions::forceGenericWaylandEnabledString(), false).toBool();
+}
+
+void KsnipConfig::setForceGenericWaylandEnabled(bool enabled)
+{
+    if (forceGenericWaylandEnabled() == enabled) {
+        return;
+    }
+    saveValue(KsnipConfigOptions::forceGenericWaylandEnabledString(), enabled);
+}
+
 // Uploader
 
 bool KsnipConfig::confirmBeforeUpload() const

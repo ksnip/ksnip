@@ -19,11 +19,21 @@
 
 #include "ImageGrabberSettings.h"
 
-ImageGrabberSettings::ImageGrabberSettings(KsnipConfig *ksnipConfig)
+ImageGrabberSettings::ImageGrabberSettings(KsnipConfig *ksnipConfig) :
+    mCaptureCursorCheckbox(new QCheckBox(this)),
+    mFreezeImageWhileSnippingCheckbox(new QCheckBox(this)),
+    mSnippingAreaRulersCheckbox(new QCheckBox(this)),
+    mSnippingAreaPositionAndSizeInfoCheckbox(new QCheckBox(this)),
+    mSnippingAreaMagnifyingGlassCheckbox(new QCheckBox(this)),
+    mForceGenericWaylandCheckbox(new QCheckBox(this)),
+    mSnippingCursorSizeLabel(new QLabel(this)),
+    mSnippingCursorColorLabel(new QLabel(this)),
+    mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
+    mSnippingCursorColorButton(new ColorButton(this)),
+    mLayout(new QGridLayout(this)),
+    mConfig(ksnipConfig)
 {
-	Q_ASSERT(ksnipConfig != nullptr);
-
-	mConfig = ksnipConfig;
+	Q_ASSERT(mConfig != nullptr);
 
 	initGui();
 	loadConfig();
@@ -36,6 +46,7 @@ ImageGrabberSettings::~ImageGrabberSettings()
 	delete mSnippingAreaRulersCheckbox;
 	delete mSnippingAreaPositionAndSizeInfoCheckbox;
 	delete mSnippingAreaMagnifyingGlassCheckbox;
+	delete mForceGenericWaylandCheckbox;
 	delete mSnippingCursorSizeLabel;
 	delete mSnippingCursorColorLabel;
 	delete mSnippingCursorColorButton;
@@ -50,23 +61,13 @@ void ImageGrabberSettings::saveSettings()
 	mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
     mConfig->setSnippingAreaRulersEnabled(mSnippingAreaRulersCheckbox->isChecked());
 	mConfig->setSnippingAreaPositionAndSizeInfoEnabled(mSnippingAreaPositionAndSizeInfoCheckbox->isChecked());
+	mConfig->setForceGenericWaylandEnabled(mForceGenericWaylandCheckbox->isChecked());
 	mConfig->setSnippingCursorColor(mSnippingCursorColorButton->color());
 	mConfig->setSnippingCursorSize(mSnippingCursorSizeCombobox->value());
 }
 
 void ImageGrabberSettings::initGui()
 {
-	mCaptureCursorCheckbox = new QCheckBox(this);
-	mFreezeImageWhileSnippingCheckbox = new QCheckBox(this);
-	mSnippingAreaRulersCheckbox = new QCheckBox(this);
-	mSnippingAreaPositionAndSizeInfoCheckbox = new QCheckBox(this);
-	mSnippingAreaMagnifyingGlassCheckbox = new QCheckBox(this);
-	mSnippingCursorSizeLabel = new QLabel(this);
-	mSnippingCursorColorLabel = new QLabel(this);
-	mSnippingCursorSizeCombobox = new NumericComboBox(1, 2, 3);
-	mSnippingCursorColorButton = new ColorButton(this);
-	mLayout = new QGridLayout(this);
-
 	auto const fixedButtonSize = 100;
 
 	mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot"));
@@ -96,13 +97,20 @@ void ImageGrabberSettings::initGui()
 	                                                        "is shown, when the mouse button is pressed,\n"
 	                                                        "the size of the select area is shown left\n"
 	                                                        "and above from the captured area."));
-	mSnippingCursorColorLabel->setText(tr("Snipping Area cursor color") + QStringLiteral(":"));
+    mForceGenericWaylandCheckbox->setText(tr("Force Generic Wayland Screenshot"));
+    mForceGenericWaylandCheckbox->setToolTip(tr("GNOME and KDE Plasma support it's own Wayland\n"
+                                                   "and the Generic XDG-DESKTOP-PORTAL screenshots.\n"
+                                                   "Enabling this option will force KDE Plasma and\n"
+                                                   "GNOME to use the XDG-DESKTOP-PORTAL screenshots.\n"
+                                                   "Change in this option require a ksnip restart."));
+
+	mSnippingCursorColorLabel->setText(tr("Snipping Area cursor color") + QLatin1Literal(":"));
 	mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area\n"
 	                                         "cursor. Change requires ksnip restart to\n"
 	                                         "take effect."));
 	mSnippingCursorColorButton->setMinimumWidth(fixedButtonSize);
 	mSnippingCursorColorButton->setToolTip(mSnippingCursorColorLabel->toolTip());
-	mSnippingCursorSizeLabel->setText(tr("Snipping Area cursor thickness") + QStringLiteral(":"));
+	mSnippingCursorSizeLabel->setText(tr("Snipping Area cursor thickness") + QLatin1Literal(":"));
 	mSnippingCursorSizeLabel->setToolTip(tr("Sets the thickness of the snipping area\n"
 	                                        "cursor. Change requires ksnip restart to\n"
 	                                        "take effect."));
@@ -116,11 +124,12 @@ void ImageGrabberSettings::initGui()
 	mLayout->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 2, 1, 1, 3);
 	mLayout->addWidget(mSnippingAreaRulersCheckbox, 3, 0, 1, 3);
 	mLayout->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 4, 0, 1, 3);
-	mLayout->setRowMinimumHeight(5, 15);
-	mLayout->addWidget(mSnippingCursorColorLabel, 6, 0, 1, 2);
-	mLayout->addWidget(mSnippingCursorColorButton, 6, 2, Qt::AlignLeft);
-	mLayout->addWidget(mSnippingCursorSizeLabel, 7, 0, 1, 2);
-	mLayout->addWidget(mSnippingCursorSizeCombobox, 7, 2, Qt::AlignLeft);
+	mLayout->addWidget(mForceGenericWaylandCheckbox, 5, 0, 1, 3);
+	mLayout->setRowMinimumHeight(6, 15);
+	mLayout->addWidget(mSnippingCursorColorLabel, 7, 0, 1, 2);
+	mLayout->addWidget(mSnippingCursorColorButton, 7, 2, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingCursorSizeLabel, 8, 0, 1, 2);
+	mLayout->addWidget(mSnippingCursorSizeCombobox, 8, 2, Qt::AlignLeft);
 
 	setTitle(tr("Image Grabber"));
 	setLayout(mLayout);
@@ -140,6 +149,8 @@ void ImageGrabberSettings::loadConfig()
 	mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());
 	mSnippingAreaRulersCheckbox->setChecked(mConfig->snippingAreaRulersEnabled());
 	mSnippingAreaPositionAndSizeInfoCheckbox->setChecked(mConfig->snippingAreaPositionAndSizeInfoEnabled());
+    mForceGenericWaylandCheckbox->setChecked(mConfig->forceGenericWaylandEnabled());
+    mForceGenericWaylandCheckbox->setEnabled(!mConfig->isForceGenericWaylandEnabledReadOnly());
 	mSnippingCursorColorButton->setColor(mConfig->snippingCursorColor());
 	mSnippingCursorSizeCombobox->setValue(mConfig->snippingCursorSize());
 

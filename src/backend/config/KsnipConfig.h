@@ -177,6 +177,10 @@ public:
 	virtual QRect lastRectArea() const;
 	virtual void setLastRectArea(const QRect &rectArea);
 
+	virtual bool isForceGenericWaylandEnabledReadOnly() const;
+	virtual bool forceGenericWaylandEnabled() const;
+	virtual void setForceGenericWaylandEnabled(bool enabled);
+
 	// Uploader
 
 	virtual bool confirmBeforeUpload() const;

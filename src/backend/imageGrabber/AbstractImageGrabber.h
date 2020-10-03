@@ -73,10 +73,10 @@ protected slots:
 	virtual void grab();
 
 private:
-    AbstractSnippingArea *mSnippingArea;
+    AbstractSnippingArea* mSnippingArea;
 	bool mFreezeImageWhileSnipping;
 	QList<CaptureModes> mSupportedCaptureModes;
-	KsnipConfig *mConfig;
+	KsnipConfig* mConfig;
 
 	void openSnippingArea();
 	void connectSnippingAreaCancel();

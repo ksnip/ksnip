@@ -48,3 +48,8 @@ bool KsnipWaylandConfig::snippingAreaMagnifyingGlassEnabled() const
 {
 	return false;
 }
+
+bool KsnipWaylandConfig::isForceGenericWaylandEnabledReadOnly() const
+{
+    return false;
+}

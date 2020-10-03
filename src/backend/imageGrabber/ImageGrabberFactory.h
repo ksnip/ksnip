@@ -30,6 +30,7 @@
 #include "GnomeWaylandImageGrabber.h"
 #include "WaylandImageGrabber.h"
 #include "src/common/platform/PlatformChecker.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 #endif
 
 #if  defined(_WIN32)

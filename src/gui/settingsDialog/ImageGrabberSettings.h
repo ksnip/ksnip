@@ -43,6 +43,7 @@ private:
 	QCheckBox *mSnippingAreaRulersCheckbox;
 	QCheckBox *mSnippingAreaPositionAndSizeInfoCheckbox;
 	QCheckBox *mSnippingAreaMagnifyingGlassCheckbox;
+	QCheckBox *mForceGenericWaylandCheckbox;
 	QLabel *mSnippingCursorSizeLabel;
 	QLabel *mSnippingCursorColorLabel;
 	ColorButton *mSnippingCursorColorButton;

@@ -214,6 +214,11 @@ QString KsnipConfigOptions::lastRectAreaString()
 	return imageGrabberSectionString() + QStringLiteral("LastRectArea");
 }
 
+QString KsnipConfigOptions::forceGenericWaylandEnabledString()
+{
+    return imageGrabberSectionString() + QStringLiteral("ForceGenericWaylandEnabled");
+}
+
 QString KsnipConfigOptions::imgurUsernameString()
 {
 	return imgurSectionString() + QStringLiteral("Username");

@@ -43,7 +43,7 @@ void AbstractImageGrabber::grabImage(CaptureModes captureMode, bool captureCurso
     setCaptureDelay(delay);
     setCaptureMode(captureMode);
 
-    QTimer::singleShot(mCaptureDelay, this, &AbstractImageGrabber::grab);
+    QTimer::singleShot(captureDelay(), this, &AbstractImageGrabber::grab);
 }
 
 void AbstractImageGrabber::addSupportedCaptureMode(CaptureModes captureMode)

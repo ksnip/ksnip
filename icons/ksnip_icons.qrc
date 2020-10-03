@@ -21,6 +21,7 @@
     <file>light/windowUnderCursor.svg</file>
     <file>light/fullScreen.svg</file>
     <file>light/pin.svg</file>
+    <file>light/wayland.svg</file>
 
     <file>dark/bold.svg</file>
     <file>dark/italic.svg</file>
@@ -41,5 +42,6 @@
     <file>dark/windowUnderCursor.svg</file>
     <file>dark/fullScreen.svg</file>
     <file>dark/pin.svg</file>
+    <file>dark/wayland.svg</file>
 </qresource>
 </RCC>

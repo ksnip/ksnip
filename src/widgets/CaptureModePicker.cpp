@@ -111,7 +111,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         auto action = createAction(
                 tr("Screenshot Portal"),
                 tr("Uses the screenshot Portal for taking screenshot"),
-                QStringLiteral("fullScreen.svg"),
+                QStringLiteral("wayland.svg"),
                 CaptureModes::Portal,
                 QKeySequence(Qt::SHIFT + Qt::Key_T));
         menu->addAction(action);

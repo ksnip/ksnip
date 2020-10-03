@@ -84,7 +84,7 @@ QPixmap WaylandImageGrabber::createPixmapFromPath(const QString &path) const
     auto capture = QPixmap::fromImage(QImage(path));
 
     if(mConfig->scaleGenericWaylandScreenshotsEnabled()) {
-        auto factor = mHdpiScaler.scaleFactor();
+        qreal factor = mHdpiScaler.scaleFactor();
         qCritical("Scale factor is %s", qPrintable(QString::number(factor)));
         capture.setDevicePixelRatio(factor);
     }

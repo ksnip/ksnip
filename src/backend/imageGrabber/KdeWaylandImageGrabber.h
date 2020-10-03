@@ -39,12 +39,9 @@ class KdeWaylandImageGrabber : public AbstractImageGrabber
 {
 public:
     explicit KdeWaylandImageGrabber();
-	QRect fullScreenRect() const override;
-	QRect activeWindowRect() const override;
 
 protected:
 	void grab() override;
-	CursorDto getCursorWithPosition() const override;
 
 private:
     void startReadImage(int readPipe);

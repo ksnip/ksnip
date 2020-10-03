@@ -20,7 +20,7 @@
 
 #include "X11ImageGrabber.h"
 
-X11ImageGrabber::X11ImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea), mX11Wrapper(new X11Wrapper)
+X11ImageGrabber::X11ImageGrabber() : AbstractRectAreaImageGrabber(new LinuxSnippingArea), mX11Wrapper(new X11Wrapper)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);
 	addSupportedCaptureMode(CaptureModes::LastRectArea);
@@ -36,7 +36,7 @@ X11ImageGrabber::~X11ImageGrabber()
 
 bool X11ImageGrabber::isSnippingAreaBackgroundTransparent() const
 {
-	return mX11Wrapper->isCompositorActive() && AbstractImageGrabber::isSnippingAreaBackgroundTransparent();
+	return mX11Wrapper->isCompositorActive() && AbstractRectAreaImageGrabber::isSnippingAreaBackgroundTransparent();
 }
 
 QRect X11ImageGrabber::activeWindowRect() const

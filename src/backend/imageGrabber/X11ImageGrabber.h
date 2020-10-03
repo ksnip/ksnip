@@ -21,12 +21,12 @@
 #ifndef X11IMAGEGRABBER_H
 #define X11IMAGEGRABBER_H
 
-#include "AbstractImageGrabber.h"
+#include "AbstractRectAreaImageGrabber.h"
 #include "X11Wrapper.h"
 #include "src/common/platform/HdpiScaler.h"
 #include "src/gui/snippingArea/LinuxSnippingArea.h"
 
-class X11ImageGrabber : public AbstractImageGrabber
+class X11ImageGrabber : public AbstractRectAreaImageGrabber
 {
 public:
     explicit X11ImageGrabber();

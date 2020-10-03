@@ -19,7 +19,7 @@
 
 #include "GnomeWaylandImageGrabber.h"
 
-GnomeWaylandImageGrabber::GnomeWaylandImageGrabber() : AbstractImageGrabber(new LinuxSnippingArea)
+GnomeWaylandImageGrabber::GnomeWaylandImageGrabber() : AbstractRectAreaImageGrabber(new LinuxSnippingArea)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);
 	addSupportedCaptureMode(CaptureModes::LastRectArea);
@@ -42,12 +42,12 @@ CursorDto GnomeWaylandImageGrabber::getCursorWithPosition() const
 
 void GnomeWaylandImageGrabber::grab()
 {
-    QDBusInterface interface(QStringLiteral("org.gnome.Shell.Screenshot"), QStringLiteral("/org/gnome/Shell/Screenshot"), QStringLiteral("org.gnome.Shell.Screenshot"));
+    QDBusInterface interface(QLatin1Literal("org.gnome.Shell.Screenshot"), QLatin1Literal("/org/gnome/Shell/Screenshot"), QLatin1Literal("org.gnome.Shell.Screenshot"));
     QDBusPendingReply<bool, QString> reply;
-    if (mCaptureMode == CaptureModes::ActiveWindow) {
-        reply = interface.asyncCall(QStringLiteral("ScreenshotWindow"), true, mCaptureCursor, false, tmpScreenshotFilename());
+    if (captureMode() == CaptureModes::ActiveWindow) {
+        reply = interface.asyncCall(QLatin1Literal("ScreenshotWindow"), true, isCaptureCursorEnabled(), false, tmpScreenshotFilename());
     } else {
-        reply = interface.asyncCall(QStringLiteral("Screenshot"), mCaptureCursor, false, tmpScreenshotFilename());
+        reply = interface.asyncCall(QLatin1Literal("Screenshot"), isCaptureCursorEnabled(), false, tmpScreenshotFilename());
     }
 
     reply.waitForFinished();
@@ -63,7 +63,7 @@ void GnomeWaylandImageGrabber::grab()
 
 void GnomeWaylandImageGrabber::postProcessing(const QPixmap& pixmap)
 {
-    if (mCaptureMode == CaptureModes::ActiveWindow) {
+    if (captureMode() == CaptureModes::ActiveWindow) {
         emit finished(CaptureDto(pixmap));
     } else {
 	    setCaptureRectFromCorrectSource();
@@ -73,9 +73,9 @@ void GnomeWaylandImageGrabber::postProcessing(const QPixmap& pixmap)
 
 QString GnomeWaylandImageGrabber::tmpScreenshotFilename() const
 {
-    auto path = QStringLiteral("/tmp/");
-    auto filename = QStringLiteral("ksnip-") + QString::number(MathHelper::randomInt());
-    auto extension = QStringLiteral(".png");
+    auto path = QLatin1Literal("/tmp/");
+    auto filename = QLatin1Literal("ksnip-") + QString::number(MathHelper::randomInt());
+    auto extension = QLatin1Literal(".png");
     return path + filename + extension;
 }
 

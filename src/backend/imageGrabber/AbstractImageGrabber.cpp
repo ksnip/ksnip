@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2017 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,36 +19,12 @@
 
 #include "AbstractImageGrabber.h"
 
-AbstractImageGrabber::AbstractImageGrabber(AbstractSnippingArea *snippingArea) : mSnippingArea(snippingArea)
+AbstractImageGrabber::AbstractImageGrabber() :
+    mConfig(KsnipConfigProvider::instance()),
+    mIsCaptureCursorEnabled(false),
+    mCaptureDelay(0),
+    mCaptureMode(CaptureModes::FullScreen)
 {
-    Q_ASSERT(snippingArea != nullptr);
-	mConfig = KsnipConfigProvider::instance();
-	connectSnippingAreaCancel();
-}
-
-AbstractImageGrabber::~AbstractImageGrabber()
-{
-    delete mSnippingArea;
-}
-
-void AbstractImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, int delay, bool freezeImageWhileSnipping)
-{
-	mCaptureCursor = captureCursor;
-	mCaptureDelay = mDelayHandler.getDelay(delay);
-	mFreezeImageWhileSnipping = freezeImageWhileSnipping;
-
-	if (isCaptureModeSupported(captureMode)) {
-		mCaptureMode = captureMode;
-	} else {
-		qWarning("Unsupported Capture Mode selected, falling back to full screen.");
-		mCaptureMode = CaptureModes::FullScreen;
-	}
-
-	if (isRectAreaCaptureWithoutBackground()) {
-		openSnippingAreaWithoutBackground();
-	} else {
-		QTimer::singleShot(mCaptureDelay, this, &AbstractImageGrabber::prepareGrab);
-	}
 }
 
 bool AbstractImageGrabber::isCaptureModeSupported(CaptureModes captureMode) const
@@ -61,189 +37,56 @@ QList<CaptureModes> AbstractImageGrabber::supportedCaptureModes() const
     return mSupportedCaptureModes;
 }
 
-/*
- * Returns the rect of the screen where the mouse cursor is currently located
- */
-QRect AbstractImageGrabber::currentScreenRect() const
+void AbstractImageGrabber::grabImage(CaptureModes captureMode, bool captureCursor, int delay)
 {
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 0))
-    auto screen = QGuiApplication::screenAt(QCursor::pos());
-    if (screen == nullptr) {
-        screen = QGuiApplication::primaryScreen();
-    }
-    return screen->geometry();
-#else
-    auto screen = QApplication::desktop()->screenNumber(QCursor::pos());
-    return QApplication::desktop()->screenGeometry(screen);
-#endif
-}
+    setIsCaptureCursorEnabled(captureCursor);
+    setCaptureDelay(delay);
+    setCaptureMode(captureMode);
 
-QRect AbstractImageGrabber::lastRectArea() const
-{
-	auto rectArea = mConfig->lastRectArea();
-	if(rectArea.isNull()) {
-		qWarning("ImageGrabber: No RectArea found, capturing full screen.");
-		return fullScreenRect();
-	}
-	return rectArea;
+    QTimer::singleShot(mCaptureDelay, this, &AbstractImageGrabber::grab);
 }
 
 void AbstractImageGrabber::addSupportedCaptureMode(CaptureModes captureMode)
 {
-	mSupportedCaptureModes.append(captureMode);
+    mSupportedCaptureModes.append(captureMode);
 }
 
-void AbstractImageGrabber::openSnippingAreaWithoutBackground()
+void AbstractImageGrabber::setCaptureDelay(int delay)
 {
-	connectSnippingAreaFinish();
-    mSnippingArea->showWithoutBackground();
+    mCaptureDelay = mDelayHandler.getDelay(delay);
 }
 
-void AbstractImageGrabber::openSnippingAreaWithBackground(const QPixmap& background)
+int AbstractImageGrabber::captureDelay() const
 {
-	connectSnippingAreaFinish();
-    mSnippingArea->showWithBackground(background);
+    return mCaptureDelay;
 }
 
-QRect AbstractImageGrabber::selectedSnippingAreaRect() const
+CaptureModes AbstractImageGrabber::captureMode() const
 {
-    return mSnippingArea->selectedRectArea();
+    return mCaptureMode;
 }
 
-QPixmap AbstractImageGrabber::snippingAreaBackground() const
+void AbstractImageGrabber::setCaptureMode(CaptureModes captureMode)
 {
-	return mSnippingArea->background();
+    if (isCaptureModeSupported(captureMode)) {
+        mCaptureMode = captureMode;
+    } else {
+        qWarning("Unsupported Capture Mode selected, falling back to full screen.");
+        mCaptureMode = CaptureModes::FullScreen;
+    }
 }
 
-QPixmap AbstractImageGrabber::getScreenshotFromRect(const QRect &rect) const
+bool AbstractImageGrabber::isCaptureDelayBelowMin() const
 {
-	auto screen = QGuiApplication::primaryScreen();
-	auto windowId = QApplication::desktop()->winId();
-	auto rectPosition = rect.topLeft();
-	return screen->grabWindow(windowId, rectPosition.x(), rectPosition.y(), rect.width(), rect.height());
+    return mCaptureDelay <= mDelayHandler.minDelayInMs();
 }
 
-QPixmap AbstractImageGrabber::getScreenshot() const
+bool AbstractImageGrabber::isCaptureCursorEnabled() const
 {
-	if (isRectAreaCaptureWithBackground()) {
-		return snippingAreaBackground().copy(mCaptureRect);
-	} else {
-		return getScreenshotFromRect(mCaptureRect);
-	}
+    return mIsCaptureCursorEnabled;
 }
 
-void AbstractImageGrabber::setCaptureRectFromCorrectSource()
+void AbstractImageGrabber::setIsCaptureCursorEnabled(bool enabled)
 {
-	switch (mCaptureMode) {
-		case CaptureModes::RectArea:
-			mCaptureRect = selectedSnippingAreaRect();
-			break;
-		case CaptureModes::LastRectArea:
-			mCaptureRect = lastRectArea();
-			break;
-		case CaptureModes::FullScreen:
-			mCaptureRect = fullScreenRect();
-			break;
-		case CaptureModes::CurrentScreen:
-			mCaptureRect = currentScreenRect();
-			break;
-		case CaptureModes::ActiveWindow:
-			mCaptureRect = activeWindowRect();
-			if (mCaptureRect.isNull()) {
-				qWarning("ImageGrabber::getActiveWindow: Found no window with focus.");
-				mCaptureRect = currentScreenRect();
-			}
-			break;
-	}
-}
-
-bool AbstractImageGrabber::isSnippingAreaBackgroundTransparent() const
-{
-	return !mFreezeImageWhileSnipping;
-}
-
-void AbstractImageGrabber::prepareGrab()
-{
-	if (isRectAreaCaptureWithBackground()) {
-		openSnippingArea();
-	} else {
-		grab();
-	}
-}
-
-void AbstractImageGrabber::grab()
-{
-	setCaptureRectFromCorrectSource();
-	CaptureDto capture(getScreenshot());
-
-	if (shouldCaptureCursor()) {
-		capture.cursor = getCursorRelativeToScreenshot();
-	}
-	emit finished(capture);
-}
-
-CursorDto AbstractImageGrabber::getCursorRelativeToScreenshot() const
-{
-	auto cursor = getCursorImageWithPositionFromCorrectSource();
-	if(mCaptureRect.contains(cursor.position)) {
-		cursor.position -= mCaptureRect.topLeft();
-		return cursor;
-	}
-	return {};
-}
-
-bool AbstractImageGrabber::shouldCaptureCursor() const
-{
-	return mCaptureCursor && !(mCaptureMode == CaptureModes::RectArea && mCaptureDelay <= mDelayHandler.minDelayInMs());
-}
-
-void AbstractImageGrabber::openSnippingArea()
-{
-	if (isSnippingAreaBackgroundTransparent()) {
-		openSnippingAreaWithoutBackground();
-	} else {
-		auto screenRect = fullScreenRect();
-		auto background = getScreenshotFromRect(screenRect);
-		mStoredCursorImageWithPosition = getCursorWithPosition();
-		openSnippingAreaWithBackground(background);
-	}
-}
-
-void AbstractImageGrabber::connectSnippingAreaCancel()
-{
-    connect(mSnippingArea, &AbstractSnippingArea::canceled, this, &AbstractImageGrabber::canceled);
-}
-
-void AbstractImageGrabber::connectSnippingAreaFinish()
-{
-	disconnectSnippingAreaFinish();
-
-	if (isSnippingAreaBackgroundTransparent()) {
-		connect(mSnippingArea, &AbstractSnippingArea::finished, [this]()
-		{
-			QTimer::singleShot(mCaptureDelay, this, &AbstractImageGrabber::grab);
-		});
-	} else {
-		connect(mSnippingArea, &AbstractSnippingArea::finished, this, &AbstractImageGrabber::grab);
-	}
-}
-
-void AbstractImageGrabber::disconnectSnippingAreaFinish()
-{
-	disconnect(mSnippingArea, &AbstractSnippingArea::finished, nullptr, nullptr);
-}
-
-CursorDto AbstractImageGrabber::getCursorImageWithPositionFromCorrectSource() const
-{
-	return isRectAreaCaptureWithBackground() ? mStoredCursorImageWithPosition : getCursorWithPosition();
-}
-
-bool AbstractImageGrabber::isRectAreaCaptureWithBackground() const
-{
-	return mCaptureMode == CaptureModes::RectArea && !isSnippingAreaBackgroundTransparent();
-}
-
-bool AbstractImageGrabber::isRectAreaCaptureWithoutBackground() const
-{
-	return mCaptureMode == CaptureModes::RectArea && isSnippingAreaBackgroundTransparent();
+    mIsCaptureCursorEnabled = enabled;
 }

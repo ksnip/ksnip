@@ -24,11 +24,11 @@
 #include <QtDBus/QDBusInterface>
 #include <QtDBus/QDBusReply>
 
-#include "AbstractImageGrabber.h"
+#include "AbstractRectAreaImageGrabber.h"
 #include "src/common/helper/MathHelper.h"
 #include "src/gui/snippingArea/LinuxSnippingArea.h"
 
-class GnomeWaylandImageGrabber : public AbstractImageGrabber
+class GnomeWaylandImageGrabber : public AbstractRectAreaImageGrabber
 {
 public:
     explicit GnomeWaylandImageGrabber();

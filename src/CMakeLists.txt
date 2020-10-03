@@ -4,6 +4,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfigOptions.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfigProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractRectAreaImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurWrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurResponse.cpp
@@ -154,7 +155,7 @@ elseif (APPLE)
 	set(MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSION})
 	set(MACOSX_BUNDLE_LONG_VERSION_STRING ${KSNIP_VERSION})
 
-	set(MACOSX_ICON ${CMAKE_SOURCE_DIR}/icons/ksnip.icns)
+	set(MACOSX_ICON ${CMAKE_SOURCE_DIR}/icons/ksnip.icns backend/imageGrabber/AbstractImageGrabber.cpp backend/imageGrabber/AbstractImageGrabber.h)
 	set_source_files_properties(${MACOSX_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
 
 	add_executable(ksnip MACOSX_BUNDLE ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${MACOSX_ICON})

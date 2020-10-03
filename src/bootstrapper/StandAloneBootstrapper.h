@@ -55,7 +55,7 @@ protected:
 	bool getSave() const;
 
 private:
-	AbstractImageGrabber *mImageGrabber;
+    AbstractImageGrabber *mImageGrabber;
 	KsnipCommandLine *mCommandLine;
 
 	void loadTranslations(const QApplication &app) const;

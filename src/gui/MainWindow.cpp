@@ -147,7 +147,7 @@ void MainWindow::processInstantCapture(const CaptureDto &capture)
 
 void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay)
 {
-	mImageGrabber->grabImage(captureMode, captureCursor, delay, mConfig->freezeImageWhileSnippingEnabled());
+    mImageGrabber->grabImage(captureMode, captureCursor, delay);
 }
 
 void MainWindow::quit()

@@ -20,7 +20,7 @@
 #ifndef KSNIP_MACIMAGEGRABBER_H
 #define KSNIP_MACIMAGEGRABBER_H
 
-#include "AbstractImageGrabber.h"
+#include "AbstractRectAreaImageGrabber.h"
 #include "MacWrapper.h"
 #include "src/gui/snippingArea/MacSnippingArea.h"
 

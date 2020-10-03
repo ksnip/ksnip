@@ -20,20 +20,10 @@
 #include "WaylandImageGrabber.h"
 
 WaylandImageGrabber::WaylandImageGrabber() :
-	AbstractImageGrabber(new LinuxSnippingArea),
-	mRequestTokenCounter(1)
+        AbstractImageGrabber(),
+        mRequestTokenCounter(1)
 {
 	addSupportedCaptureMode(CaptureModes::Portal);
-}
-
-QRect WaylandImageGrabber::fullScreenRect() const
-{
-	return {};
-}
-
-QRect WaylandImageGrabber::activeWindowRect() const
-{
-	return {};
 }
 
 void WaylandImageGrabber::grab()
@@ -57,11 +47,6 @@ QDBusMessage WaylandImageGrabber::getDBusMessage()
         {QLatin1String("handle_token"), getRequestToken()}
     };
     return message;
-}
-
-CursorDto WaylandImageGrabber::getCursorWithPosition() const
-{
-	return CursorDto();
 }
 
 void WaylandImageGrabber::gotScreenshotResponse(uint response, const QVariantMap& results)

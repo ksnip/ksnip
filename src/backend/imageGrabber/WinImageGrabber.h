@@ -20,7 +20,7 @@
 #ifndef KSNIP_WINIMAGEGRABBER_H
 #define KSNIP_WINIMAGEGRABBER_H
 
-#include "AbstractImageGrabber.h"
+#include "AbstractRectAreaImageGrabber.h"
 #include "WinWrapper.h"
 #include "gui/snippingArea/WinSnippingArea.h"
 

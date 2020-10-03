@@ -35,6 +35,8 @@ public:
 	bool snippingAreaMagnifyingGlassEnabled() const override;
 
     bool isForceGenericWaylandEnabledReadOnly() const override;
+
+    bool isScaleGenericWaylandScreenshotEnabledReadOnly() const override;
 };
 
 #endif //KSNIP_KSNIPWAYLANDCONFIG_H

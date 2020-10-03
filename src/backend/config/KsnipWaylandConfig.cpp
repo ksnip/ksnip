@@ -53,3 +53,8 @@ bool KsnipWaylandConfig::isForceGenericWaylandEnabledReadOnly() const
 {
     return false;
 }
+
+bool KsnipWaylandConfig::isScaleGenericWaylandScreenshotEnabledReadOnly() const
+{
+    return false;
+}

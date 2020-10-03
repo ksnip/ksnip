@@ -34,9 +34,7 @@ public:
 
 	QRect unscale(const QRect &rect) const;
 	QRect scale(const QRect &rect) const;
-
-private:
-	qreal scaleFactor() const;
+    qreal scaleFactor() const;
 };
 
 #endif //KSNIP_HDPISCALER_H

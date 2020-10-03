@@ -219,6 +219,11 @@ QString KsnipConfigOptions::forceGenericWaylandEnabledString()
     return imageGrabberSectionString() + QStringLiteral("ForceGenericWaylandEnabled");
 }
 
+QString KsnipConfigOptions::scaleWaylandScreenshotsEnabledString()
+{
+    return imageGrabberSectionString() + QStringLiteral("ScaleGenericWaylandScreenshotsEnabledString");
+}
+
 QString KsnipConfigOptions::imgurUsernameString()
 {
 	return imgurSectionString() + QStringLiteral("Username");

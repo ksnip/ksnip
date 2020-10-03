@@ -181,6 +181,10 @@ public:
 	virtual bool forceGenericWaylandEnabled() const;
 	virtual void setForceGenericWaylandEnabled(bool enabled);
 
+    virtual bool isScaleGenericWaylandScreenshotEnabledReadOnly() const;
+    virtual bool scaleGenericWaylandScreenshotsEnabled() const;
+    virtual void setScaleGenericWaylandScreenshots(bool enabled);
+
 	// Uploader
 
 	virtual bool confirmBeforeUpload() const;

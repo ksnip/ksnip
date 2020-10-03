@@ -27,6 +27,7 @@
 #include "AbstractImageGrabber.h"
 #include "src/gui/snippingArea/LinuxSnippingArea.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
+#include "src/common/platform/HdpiScaler.h"
 
 class WaylandImageGrabber  : public AbstractImageGrabber
 {
@@ -45,6 +46,7 @@ protected:
 
 private:
 	int mRequestTokenCounter;
+    HdpiScaler mHdpiScaler;
 
 	QString getRequestToken();
 
@@ -55,6 +57,8 @@ private:
 
 private slots:
     void portalResponse(QDBusPendingCallWatcher *watcher);
+
+    QPixmap createPixmapFromPath(const QString &path) const;
 };
 
 #endif //KSNIP_WAYLANDIMAGEGRABBER_H

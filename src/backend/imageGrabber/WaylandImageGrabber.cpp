@@ -68,14 +68,28 @@ void WaylandImageGrabber::gotScreenshotResponse(uint response, const QVariantMap
 {
 	if (isResponseValid(response, results)) {
         auto path = getPathToScreenshot(results);
+        auto screenshot = createPixmapFromPath(path);
         if(isTemporaryImage(path)) {
-            emit finished(CaptureDto(QPixmap::fromImage(QImage(path))));
+            emit finished(CaptureDto(screenshot));
         } else {
-            emit finished(CaptureFromFileDto(QPixmap::fromImage(QImage(path)), path));
+            emit finished(CaptureFromFileDto(screenshot, path));
         }
 	} else {
         qCritical("Failed to take screenshot");
     }
+}
+
+QPixmap WaylandImageGrabber::createPixmapFromPath(const QString &path) const
+{
+    auto capture = QPixmap::fromImage(QImage(path));
+
+    if(mConfig->scaleGenericWaylandScreenshotsEnabled()) {
+        auto factor = mHdpiScaler.scaleFactor();
+        qCritical("Scale factor is %s", qPrintable(QString::number(factor)));
+        capture.setDevicePixelRatio(factor);
+    }
+
+    return capture;
 }
 
 bool WaylandImageGrabber::isResponseValid(uint response, const QVariantMap &results)

@@ -669,6 +669,24 @@ void KsnipConfig::setForceGenericWaylandEnabled(bool enabled)
     saveValue(KsnipConfigOptions::forceGenericWaylandEnabledString(), enabled);
 }
 
+bool KsnipConfig::isScaleGenericWaylandScreenshotEnabledReadOnly() const
+{
+    return true;
+}
+
+bool KsnipConfig::scaleGenericWaylandScreenshotsEnabled() const
+{
+    return loadValue(KsnipConfigOptions::scaleWaylandScreenshotsEnabledString(), false).toBool();
+}
+
+void KsnipConfig::setScaleGenericWaylandScreenshots(bool enabled)
+{
+    if (scaleGenericWaylandScreenshotsEnabled() == enabled) {
+        return;
+    }
+    saveValue(KsnipConfigOptions::scaleWaylandScreenshotsEnabledString(), enabled);
+}
+
 // Uploader
 
 bool KsnipConfig::confirmBeforeUpload() const

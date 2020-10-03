@@ -56,8 +56,9 @@ protected:
 	CaptureModes mCaptureMode;
 	CursorDto mStoredCursorImageWithPosition;
 	DelayHandler mDelayHandler;
+    KsnipConfig* mConfig;
 
-	void addSupportedCaptureMode(CaptureModes captureMode);
+    void addSupportedCaptureMode(CaptureModes captureMode);
 	void openSnippingAreaWithoutBackground();
     void openSnippingAreaWithBackground(const QPixmap &background);
     QRect selectedSnippingAreaRect() const;
@@ -76,7 +77,6 @@ private:
     AbstractSnippingArea* mSnippingArea;
 	bool mFreezeImageWhileSnipping;
 	QList<CaptureModes> mSupportedCaptureModes;
-	KsnipConfig* mConfig;
 
 	void openSnippingArea();
 	void connectSnippingAreaCancel();

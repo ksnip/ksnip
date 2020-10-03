@@ -66,6 +66,7 @@ public:
 	static QString lastRectAreaString();
 	static QString forceGenericWaylandEnabledString();
 	static QString scaleWaylandScreenshotsEnabledString();
+	static QString genericWaylandScreenshotScaleFactorString();
 	static QString imgurUsernameString();
 	static QString imgurClientIdString();
 	static QString imgurClientSecretString();

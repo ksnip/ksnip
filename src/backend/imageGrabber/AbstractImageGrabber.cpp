@@ -69,7 +69,7 @@ QRect AbstractImageGrabber::currentScreenRect() const
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 0))
     auto screen = QGuiApplication::screenAt(QCursor::pos());
     if (screen == nullptr) {
-      screen = QGuiApplication::primaryScreen();
+        screen = QGuiApplication::primaryScreen();
     }
     return screen->geometry();
 #else

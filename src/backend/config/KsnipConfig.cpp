@@ -687,19 +687,6 @@ void KsnipConfig::setScaleGenericWaylandScreenshots(bool enabled)
     saveValue(KsnipConfigOptions::scaleWaylandScreenshotsEnabledString(), enabled);
 }
 
-qreal KsnipConfig::genericWaylandScreenshotScaleFactor() const
-{
-    return loadValue(KsnipConfigOptions::genericWaylandScreenshotScaleFactorString(), mHdpiScaler.scaleFactor()).toDouble();
-}
-
-void KsnipConfig::setGenericWaylandScreenshotScaleFactor(qreal factor)
-{
-    if (genericWaylandScreenshotScaleFactor() == factor) {
-        return;
-    }
-    saveValue(KsnipConfigOptions::genericWaylandScreenshotScaleFactorString(), factor);
-}
-
 // Uploader
 
 bool KsnipConfig::confirmBeforeUpload() const

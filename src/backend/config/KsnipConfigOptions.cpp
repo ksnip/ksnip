@@ -21,375 +21,371 @@
 
 QString KsnipConfigOptions::rememberPositionString()
 {
-	return applicationSectionString() + QLatin1Literal("SavePosition");
+	return applicationSectionString() + QStringLiteral("SavePosition");
 }
 
 QString KsnipConfigOptions::promptSaveBeforeExitString()
 {
-	return applicationSectionString() + QLatin1Literal("PromptSaveBeforeExit");
+	return applicationSectionString() + QStringLiteral("PromptSaveBeforeExit");
 }
 
 QString KsnipConfigOptions::autoCopyToClipboardNewCapturesString()
 {
-	return applicationSectionString() + QLatin1Literal("AutoCopyToClipboardNewCaptures");
+	return applicationSectionString() + QStringLiteral("AutoCopyToClipboardNewCaptures");
 }
 
 QString KsnipConfigOptions::autoSaveNewCapturesString()
 {
-	return applicationSectionString() + QLatin1Literal("AutoSaveNewCaptures");
+	return applicationSectionString() + QStringLiteral("AutoSaveNewCaptures");
 }
 
 QString KsnipConfigOptions::rememberToolSelectionString()
 {
-	return annotatorSectionString() + QLatin1Literal("SaveToolsSelection");
+	return annotatorSectionString() + QStringLiteral("SaveToolsSelection");
 }
 
 QString KsnipConfigOptions::useTabsString()
 {
-	return applicationSectionString() + QLatin1Literal("UseTabs");
+	return applicationSectionString() + QStringLiteral("UseTabs");
 }
 
 QString KsnipConfigOptions::autoHideTabsString()
 {
-	return applicationSectionString() + QLatin1Literal("AutoHideTabs");
+	return applicationSectionString() + QStringLiteral("AutoHideTabs");
 }
 
 QString KsnipConfigOptions::captureOnStartupString()
 {
-	return applicationSectionString() + QLatin1Literal("CaptureOnStartup");
+	return applicationSectionString() + QStringLiteral("CaptureOnStartup");
 }
 
 QString KsnipConfigOptions::freezeImageWhileSnippingEnabledString()
 {
-	return imageGrabberSectionString() + QLatin1Literal("FreezeImageWhileSnippingEnabled");
+	return imageGrabberSectionString() + QStringLiteral("FreezeImageWhileSnippingEnabled");
 }
 
 QString KsnipConfigOptions::positionString()
 {
-	return mainWindowSectionString() + QLatin1Literal("Position");
+	return mainWindowSectionString() + QStringLiteral("Position");
 }
 
 QString KsnipConfigOptions::captureModeString()
 {
-	return imageGrabberSectionString() + QLatin1Literal("CaptureMode");
+	return imageGrabberSectionString() + QStringLiteral("CaptureMode");
 }
 
 QString KsnipConfigOptions::saveQualityModeString()
 {
-	return saveSectionString() + QLatin1Literal("SaveQualityMode");
+	return saveSectionString() + QStringLiteral("SaveQualityMode");
 }
 
 QString KsnipConfigOptions::saveQualityFactorString()
 {
-	return saveSectionString() + QLatin1Literal("SaveQualityFactor");
+	return saveSectionString() + QStringLiteral("SaveQualityFactor");
 }
 
 QString KsnipConfigOptions::saveDirectoryString()
 {
-	return applicationSectionString() + QLatin1Literal("SaveDirectory");
+	return applicationSectionString() + QStringLiteral("SaveDirectory");
 }
 
 QString KsnipConfigOptions::saveFilenameString()
 {
-	return applicationSectionString() + QLatin1Literal("SaveFilename");
+	return applicationSectionString() + QStringLiteral("SaveFilename");
 }
 
 QString KsnipConfigOptions::saveFormatString()
 {
-	return applicationSectionString() + QLatin1Literal("SaveFormat");
+	return applicationSectionString() + QStringLiteral("SaveFormat");
 }
 
 QString KsnipConfigOptions::applicationStyleString()
 {
-	return applicationSectionString() + QLatin1Literal("ApplicationStyle");
+	return applicationSectionString() + QStringLiteral("ApplicationStyle");
 }
 
 QString KsnipConfigOptions::useTrayIconString()
 {
-	return applicationSectionString() + QLatin1Literal("UseTrayIcon");
+	return applicationSectionString() + QStringLiteral("UseTrayIcon");
 }
 
 QString KsnipConfigOptions::minimizeToTrayString()
 {
-	return applicationSectionString() + QLatin1Literal("MinimizeToTray");
+	return applicationSectionString() + QStringLiteral("MinimizeToTray");
 }
 
 QString KsnipConfigOptions::closeToTrayString()
 {
-	return applicationSectionString() + QLatin1Literal("CloseToTray");
+	return applicationSectionString() + QStringLiteral("CloseToTray");
 }
 
 QString KsnipConfigOptions::startMinimizedToTrayString()
 {
-	return applicationSectionString() + QLatin1Literal("StartMinimizedToTray");
+	return applicationSectionString() + QStringLiteral("StartMinimizedToTray");
 }
 
 QString KsnipConfigOptions::rememberLastSaveDirectoryString()
 {
-	return applicationSectionString() + QLatin1Literal("RememberLastSaveDirectory");
+	return applicationSectionString() + QStringLiteral("RememberLastSaveDirectory");
 }
 
 QString KsnipConfigOptions::useSingleInstanceString()
 {
-	return applicationSectionString() + QLatin1Literal("UseSingleInstanceString");
+	return applicationSectionString() + QStringLiteral("UseSingleInstanceString");
 }
 
 QString KsnipConfigOptions::textFontString()
 {
-	return annotatorSectionString() + QLatin1Literal("TextFont");
+	return annotatorSectionString() + QStringLiteral("TextFont");
 }
 
 QString KsnipConfigOptions::numberFontString()
 {
-	return annotatorSectionString() + QLatin1Literal("NumberFont");
+	return annotatorSectionString() + QStringLiteral("NumberFont");
 }
 
 QString KsnipConfigOptions::itemShadowEnabledString()
 {
-	return annotatorSectionString() + QLatin1Literal("ItemShadowEnabled");
+	return annotatorSectionString() + QStringLiteral("ItemShadowEnabled");
 }
 
 QString KsnipConfigOptions::smoothPathEnabledString()
 {
-	return annotatorSectionString() + QLatin1Literal("SmoothPathEnabled");
+	return annotatorSectionString() + QStringLiteral("SmoothPathEnabled");
 }
 
 QString KsnipConfigOptions::smoothPathFactorString()
 {
-	return annotatorSectionString() + QLatin1Literal("SmoothPathFactor");
+	return annotatorSectionString() + QStringLiteral("SmoothPathFactor");
 }
 
 QString KsnipConfigOptions::rotateWatermarkEnabledString()
 {
-	return annotatorSectionString() + QLatin1Literal("RotateWatermark");
+	return annotatorSectionString() + QStringLiteral("RotateWatermark");
 }
 
 QString KsnipConfigOptions::stickerPathsString()
 {
-	return annotatorSectionString() + QLatin1Literal("StickerPaths");
+	return annotatorSectionString() + QStringLiteral("StickerPaths");
 }
 
 QString KsnipConfigOptions::useDefaultStickerString()
 {
-	return annotatorSectionString() + QLatin1Literal("UseDefaultSticker");
+	return annotatorSectionString() + QStringLiteral("UseDefaultSticker");
 }
 
 QString KsnipConfigOptions::captureCursorString()
 {
-	return imageGrabberSectionString() + QLatin1Literal("CaptureCursor");
+	return imageGrabberSectionString() + QStringLiteral("CaptureCursor");
 }
 
 QString KsnipConfigOptions::snippingAreaRulersEnabledString()
 {
-	return imageGrabberSectionString() + QLatin1Literal("SnippingAreaRulersEnabled");
+	return imageGrabberSectionString() + QStringLiteral("SnippingAreaRulersEnabled");
 }
 
 QString KsnipConfigOptions::snippingAreaPositionAndSizeInfoEnabledString()
 {
-	return imageGrabberSectionString() + QLatin1Literal("SnippingAreaPositionAndSizeInfoEnabled");
+	return imageGrabberSectionString() + QStringLiteral("SnippingAreaPositionAndSizeInfoEnabled");
 }
 
 QString KsnipConfigOptions::snippingAreaMagnifyingGlassEnabledString()
 {
-	return imageGrabberSectionString() + QLatin1Literal("SnippingAreaMagnifyingGlassEnabled");
+	return imageGrabberSectionString() + QStringLiteral("SnippingAreaMagnifyingGlassEnabled");
 }
 
 QString KsnipConfigOptions::captureDelayString()
 {
-	return imageGrabberSectionString() + QLatin1Literal("CaptureDelay");
+	return imageGrabberSectionString() + QStringLiteral("CaptureDelay");
 }
 
 QString KsnipConfigOptions::snippingCursorSizeString()
 {
-	return imageGrabberSectionString() + QLatin1Literal("SnippingCursorSize");
+	return imageGrabberSectionString() + QStringLiteral("SnippingCursorSize");
 }
 
 QString KsnipConfigOptions::snippingCursorColorString()
 {
-	return imageGrabberSectionString() + QLatin1Literal("SnippingCursorColor");
+	return imageGrabberSectionString() + QStringLiteral("SnippingCursorColor");
 }
 
 QString KsnipConfigOptions::lastRectAreaString()
 {
-	return imageGrabberSectionString() + QLatin1Literal("LastRectArea");
+	return imageGrabberSectionString() + QStringLiteral("LastRectArea");
 }
 
 QString KsnipConfigOptions::forceGenericWaylandEnabledString()
 {
-    return imageGrabberSectionString() + QLatin1Literal("ForceGenericWaylandEnabled");
+    return imageGrabberSectionString() + QStringLiteral("ForceGenericWaylandEnabled");
 }
 
 QString KsnipConfigOptions::scaleWaylandScreenshotsEnabledString()
 {
-    return imageGrabberSectionString() + QLatin1Literal("ScaleGenericWaylandScreenshotsEnabledString");
-}
-
-QString KsnipConfigOptions::genericWaylandScreenshotScaleFactorString()
-{
-    return imageGrabberSectionString() + QLatin1Literal("GenericWaylandScreenshotScaleFactorString");
+    return imageGrabberSectionString() + QStringLiteral("ScaleGenericWaylandScreenshotsEnabledString");
 }
 
 QString KsnipConfigOptions::imgurUsernameString()
 {
-	return imgurSectionString() + QLatin1Literal("Username");
+	return imgurSectionString() + QStringLiteral("Username");
 }
 
 QString KsnipConfigOptions::imgurClientIdString()
 {
-	return imgurSectionString() + QLatin1Literal("ClientId");
+	return imgurSectionString() + QStringLiteral("ClientId");
 }
 
 QString KsnipConfigOptions::imgurClientSecretString()
 {
-	return imgurSectionString() + QLatin1Literal("ClientSecret");
+	return imgurSectionString() + QStringLiteral("ClientSecret");
 }
 
 QString KsnipConfigOptions::imgurAccessTokenString()
 {
-	return imgurSectionString() + QLatin1Literal("AccessToken");
+	return imgurSectionString() + QStringLiteral("AccessToken");
 }
 
 QString KsnipConfigOptions::imgurRefreshTokenString()
 {
-	return imgurSectionString() + QLatin1Literal("RefreshToken");
+	return imgurSectionString() + QStringLiteral("RefreshToken");
 }
 
 QString KsnipConfigOptions::imgurForceAnonymousString()
 {
-	return imgurSectionString() + QLatin1Literal("ForceAnonymous");
+	return imgurSectionString() + QStringLiteral("ForceAnonymous");
 }
 
 QString KsnipConfigOptions::imgurLinkDirectlyToImageString()
 {
-	return imgurSectionString() + QLatin1Literal("OpenLinkDirectlyToImage");
+	return imgurSectionString() + QStringLiteral("OpenLinkDirectlyToImage");
 }
 
 QString KsnipConfigOptions::imgurOpenLinkInBrowserString()
 {
-	return imgurSectionString() + QLatin1Literal("OpenLinkInBrowser");
+	return imgurSectionString() + QStringLiteral("OpenLinkInBrowser");
 }
 
 QString KsnipConfigOptions::imgurAlwaysCopyToClipboardString()
 {
-	return imgurSectionString() + QLatin1Literal("AlwaysCopyToClipboard");
+	return imgurSectionString() + QStringLiteral("AlwaysCopyToClipboard");
 }
 
 QString KsnipConfigOptions::imgurBaseUrlString()
 {
-	return imgurSectionString() + QLatin1Literal("BaseUrl");
+	return imgurSectionString() + QStringLiteral("BaseUrl");
 }
 
 QString KsnipConfigOptions::uploadScriptPathString()
 {
-	return uploadScriptSectionString() + QLatin1Literal("UploadScriptPath");
+	return uploadScriptSectionString() + QStringLiteral("UploadScriptPath");
 }
 
 QString KsnipConfigOptions::confirmBeforeUploadString()
 {
-	return uploaderSectionString() + QLatin1Literal("ConfirmBeforeUpload");
+	return uploaderSectionString() + QStringLiteral("ConfirmBeforeUpload");
 }
 
 QString KsnipConfigOptions::uploaderTypeString()
 {
-	return uploaderSectionString() + QLatin1Literal("UploaderType");
+	return uploaderSectionString() + QStringLiteral("UploaderType");
 }
 
 QString KsnipConfigOptions::uploadScriptCopyOutputToClipboardString()
 {
-	return uploadScriptSectionString() + QLatin1Literal("CopyOutputToClipboard");
+	return uploadScriptSectionString() + QStringLiteral("CopyOutputToClipboard");
 }
 
 QString KsnipConfigOptions::uploadScriptStopOnStdErrString()
 {
-	return uploadScriptSectionString() + QLatin1Literal("UploadScriptStoOnStdErr");
+	return uploadScriptSectionString() + QStringLiteral("UploadScriptStoOnStdErr");
 }
 
 QString KsnipConfigOptions::uploadScriptCopyOutputFilterString()
 {
-	return uploadScriptSectionString() + QLatin1Literal("CopyOutputFilter");
+	return uploadScriptSectionString() + QStringLiteral("CopyOutputFilter");
 }
 
 QString KsnipConfigOptions::globalHotKeysEnabledString()
 {
-	return hotKeysSectionString() + QLatin1Literal("GlobalHotKeysEnabled");
+	return hotKeysSectionString() + QStringLiteral("GlobalHotKeysEnabled");
 }
 
 QString KsnipConfigOptions::rectAreaHotKeyString()
 {
-	return hotKeysSectionString() + QLatin1Literal("RectAreaHotKey");
+	return hotKeysSectionString() + QStringLiteral("RectAreaHotKey");
 }
 
 QString KsnipConfigOptions::lastRectAreaHotKeyString()
 {
-	return hotKeysSectionString() + QLatin1Literal("LastRectAreaHotKey");
+	return hotKeysSectionString() + QStringLiteral("LastRectAreaHotKey");
 }
 
 QString KsnipConfigOptions::fullScreenHotKeyString()
 {
-	return hotKeysSectionString() + QLatin1Literal("FullScreenHotKey");
+	return hotKeysSectionString() + QStringLiteral("FullScreenHotKey");
 }
 
 QString KsnipConfigOptions::currentScreenHotKeyString()
 {
-	return hotKeysSectionString() + QLatin1Literal("CurrentScreenHotKey");
+	return hotKeysSectionString() + QStringLiteral("CurrentScreenHotKey");
 }
 
 QString KsnipConfigOptions::activeWindowHotKeyString()
 {
-	return hotKeysSectionString() + QLatin1Literal("ActiveWindowHotKey");
+	return hotKeysSectionString() + QStringLiteral("ActiveWindowHotKey");
 }
 
 QString KsnipConfigOptions::windowUnderCursorHotKeyString()
 {
-	return hotKeysSectionString() + QLatin1Literal("WindowUnderCursorHotKey");
+	return hotKeysSectionString() + QStringLiteral("WindowUnderCursorHotKey");
 }
 
 QString KsnipConfigOptions::portalHotKeyString()
 {
-    return hotKeysSectionString() + QLatin1Literal("PortalHotKey");
+    return hotKeysSectionString() + QStringLiteral("PortalHotKey");
 }
 
 QString KsnipConfigOptions::applicationSectionString()
 {
-	return QLatin1Literal("Application/");;
+	return QStringLiteral("Application/");;
 }
 
 QString KsnipConfigOptions::imageGrabberSectionString()
 {
-	return QLatin1Literal("ImageGrabber/");
+	return QStringLiteral("ImageGrabber/");
 }
 
 QString KsnipConfigOptions::annotatorSectionString()
 {
-	return QLatin1Literal("Painter/");
+	return QStringLiteral("Painter/");
 }
 
 QString KsnipConfigOptions::uploaderSectionString()
 {
-	return QLatin1Literal("Uploader/");
+	return QStringLiteral("Uploader/");
 }
 
 QString KsnipConfigOptions::imgurSectionString()
 {
-	return QLatin1Literal("Imgur/");
+	return QStringLiteral("Imgur/");
 }
 
 QString KsnipConfigOptions::uploadScriptSectionString()
 {
-	return QLatin1Literal("UploadScript/");
+	return QStringLiteral("UploadScript/");
 }
 
 QString KsnipConfigOptions::hotKeysSectionString()
 {
-	return QLatin1Literal("HotKeys/");
+	return QStringLiteral("HotKeys/");
 }
 
 QString KsnipConfigOptions::mainWindowSectionString()
 {
-	return QLatin1Literal("MainWindow/");
+	return QStringLiteral("MainWindow/");
 }
 
 QString KsnipConfigOptions::saveSectionString()
 {
-	return QLatin1Literal("Save/");
+	return QStringLiteral("Save/");
 }
+

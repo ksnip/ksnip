@@ -29,10 +29,8 @@ ImageGrabberSettings::ImageGrabberSettings(KsnipConfig *ksnipConfig) :
     mScaleGenericWaylandScreenshotsCheckbox(new QCheckBox(this)),
     mSnippingCursorSizeLabel(new QLabel(this)),
     mSnippingCursorColorLabel(new QLabel(this)),
-    mGenericWaylandScreenshotScaleFactorLabel(new QLabel(this)),
     mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
     mSnippingCursorColorButton(new ColorButton(this)),
-    mGenericWaylandScreenshotScaleFactorSpinBox(new QDoubleSpinBox(this)),
     mLayout(new QGridLayout(this)),
     mConfig(ksnipConfig)
 {
@@ -53,10 +51,8 @@ ImageGrabberSettings::~ImageGrabberSettings()
 	delete mScaleGenericWaylandScreenshotsCheckbox;
 	delete mSnippingCursorSizeLabel;
 	delete mSnippingCursorColorLabel;
-	delete mGenericWaylandScreenshotScaleFactorLabel;
 	delete mSnippingCursorColorButton;
 	delete mSnippingCursorSizeCombobox;
-	delete mGenericWaylandScreenshotScaleFactorSpinBox;
 	delete mLayout;
 }
 
@@ -69,14 +65,13 @@ void ImageGrabberSettings::saveSettings()
 	mConfig->setSnippingAreaPositionAndSizeInfoEnabled(mSnippingAreaPositionAndSizeInfoCheckbox->isChecked());
 	mConfig->setForceGenericWaylandEnabled(mForceGenericWaylandCheckbox->isChecked());
 	mConfig->setScaleGenericWaylandScreenshots(mScaleGenericWaylandScreenshotsCheckbox->isChecked());
-	mConfig->setGenericWaylandScreenshotScaleFactor(mGenericWaylandScreenshotScaleFactorSpinBox->value());
 	mConfig->setSnippingCursorColor(mSnippingCursorColorButton->color());
 	mConfig->setSnippingCursorSize(mSnippingCursorSizeCombobox->value());
 }
 
 void ImageGrabberSettings::initGui()
 {
-	auto const fixedButtonSize = 70;
+	auto const fixedButtonSize = 100;
 
 	mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot"));
 	mCaptureCursorCheckbox->setToolTip(tr("Should mouse cursor be visible on\n"
@@ -96,6 +91,7 @@ void ImageGrabberSettings::initGui()
 	mSnippingAreaMagnifyingGlassCheckbox->setToolTip(tr("Show a magnifying glass which zooms into\n"
 	                                                    "the background image. This option only works\n"
 	                                                    "with 'Freeze Image while snipping' enabled."));
+	mSnippingAreaMagnifyingGlassCheckbox->setEnabled(false);
 
 	mSnippingAreaRulersCheckbox->setText(tr("Show Snipping Area rulers"));
 	mSnippingAreaRulersCheckbox->setToolTip(tr("Horizontal and vertical lines going from\n"
@@ -120,14 +116,6 @@ void ImageGrabberSettings::initGui()
                                                               "differently. Enabling this option will\n"
                                                               "determine the current screen scaling and\n"
                                                               "apply that to the screenshot in ksnip."));
-    connect(mScaleGenericWaylandScreenshotsCheckbox, &QCheckBox::stateChanged, this, &ImageGrabberSettings::scaleGenericWaylandScreenshotsStateChanged);
-
-
-    mGenericWaylandScreenshotScaleFactorLabel->setText(tr("Generic Wayland Scale Factor") + QLatin1Literal(":"));
-    mGenericWaylandScreenshotScaleFactorSpinBox->setMinimum(0.25);
-    mGenericWaylandScreenshotScaleFactorSpinBox->setMaximum(3);
-    mGenericWaylandScreenshotScaleFactorSpinBox->setSingleStep(0.25);
-    mGenericWaylandScreenshotScaleFactorSpinBox->setMinimumWidth(fixedButtonSize);
 
 	mSnippingCursorColorLabel->setText(tr("Snipping Area cursor color") + QLatin1Literal(":"));
 	mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area\n"
@@ -151,13 +139,11 @@ void ImageGrabberSettings::initGui()
 	mLayout->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 4, 0, 1, 3);
 	mLayout->addWidget(mForceGenericWaylandCheckbox, 5, 0, 1, 3);
 	mLayout->addWidget(mScaleGenericWaylandScreenshotsCheckbox, 6, 0, 1, 3);
-	mLayout->addWidget(mGenericWaylandScreenshotScaleFactorLabel, 7, 1, 1, 1);
-	mLayout->addWidget(mGenericWaylandScreenshotScaleFactorSpinBox, 7, 2, Qt::AlignLeft);
-	mLayout->setRowMinimumHeight(8, 15);
-	mLayout->addWidget(mSnippingCursorColorLabel, 9, 0, 1, 2);
-	mLayout->addWidget(mSnippingCursorColorButton, 9, 2, Qt::AlignLeft);
-	mLayout->addWidget(mSnippingCursorSizeLabel, 10, 0, 1, 2);
-	mLayout->addWidget(mSnippingCursorSizeCombobox, 10, 2, Qt::AlignLeft);
+	mLayout->setRowMinimumHeight(7, 15);
+	mLayout->addWidget(mSnippingCursorColorLabel, 8, 0, 1, 2);
+	mLayout->addWidget(mSnippingCursorColorButton, 8, 2, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingCursorSizeLabel, 9, 0, 1, 2);
+	mLayout->addWidget(mSnippingCursorSizeCombobox, 9, 2, Qt::AlignLeft);
 
 	setTitle(tr("Image Grabber"));
 	setLayout(mLayout);
@@ -166,13 +152,6 @@ void ImageGrabberSettings::initGui()
 void ImageGrabberSettings::freezeImageWhileSnippingStateChanged()
 {
 	mSnippingAreaMagnifyingGlassCheckbox->setEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());
-}
-
-void ImageGrabberSettings::scaleGenericWaylandScreenshotsStateChanged()
-{
-    auto isEnabled = mScaleGenericWaylandScreenshotsCheckbox->isChecked() && mScaleGenericWaylandScreenshotsCheckbox->isEnabled();
-    mGenericWaylandScreenshotScaleFactorLabel->setEnabled(isEnabled);
-    mGenericWaylandScreenshotScaleFactorSpinBox->setEnabled(isEnabled);
 }
 
 void ImageGrabberSettings::loadConfig()
@@ -188,10 +167,8 @@ void ImageGrabberSettings::loadConfig()
     mForceGenericWaylandCheckbox->setEnabled(!mConfig->isForceGenericWaylandEnabledReadOnly());
     mScaleGenericWaylandScreenshotsCheckbox->setChecked(mConfig->scaleGenericWaylandScreenshotsEnabled());
     mScaleGenericWaylandScreenshotsCheckbox->setEnabled(!mConfig->isScaleGenericWaylandScreenshotEnabledReadOnly());
-    mGenericWaylandScreenshotScaleFactorSpinBox->setValue(mConfig->genericWaylandScreenshotScaleFactor());
 	mSnippingCursorColorButton->setColor(mConfig->snippingCursorColor());
 	mSnippingCursorSizeCombobox->setValue(mConfig->snippingCursorSize());
 
 	freezeImageWhileSnippingStateChanged();
-    scaleGenericWaylandScreenshotsStateChanged();
 }

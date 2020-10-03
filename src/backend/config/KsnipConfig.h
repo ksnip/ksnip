@@ -35,7 +35,7 @@
 #include "src/common/helper/PathHelper.h"
 #include "src/common/enum/UploaderType.h"
 #include "src/common/constants/DefaultValues.h"
-#include "src/common/platform/HdpiScaler.h"
+
 
 class KsnipConfig : public QObject
 {
@@ -185,9 +185,6 @@ public:
     virtual bool scaleGenericWaylandScreenshotsEnabled() const;
     virtual void setScaleGenericWaylandScreenshots(bool enabled);
 
-    virtual qreal genericWaylandScreenshotScaleFactor() const;
-    virtual void setGenericWaylandScreenshotScaleFactor(qreal factor);
-
 	// Uploader
 
 	virtual bool confirmBeforeUpload() const;
@@ -275,7 +272,6 @@ signals:
 
 private:
     QSettings mConfig;
-    HdpiScaler mHdpiScaler;
 
 	void saveValue(const QString &key, const QVariant &value);
 	QVariant loadValue(const QString &key, const QVariant &defaultValue = QVariant()) const;

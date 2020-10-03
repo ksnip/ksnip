@@ -24,7 +24,6 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QGridLayout>
-#include <QDoubleSpinBox>
 
 #include "src/backend/config/KsnipConfig.h"
 #include "src/widgets/ColorButton.h"
@@ -48,10 +47,8 @@ private:
 	QCheckBox *mScaleGenericWaylandScreenshotsCheckbox;
 	QLabel *mSnippingCursorSizeLabel;
 	QLabel *mSnippingCursorColorLabel;
-	QLabel *mGenericWaylandScreenshotScaleFactorLabel;
 	ColorButton *mSnippingCursorColorButton;
 	NumericComboBox *mSnippingCursorSizeCombobox;
-    QDoubleSpinBox *mGenericWaylandScreenshotScaleFactorSpinBox;
 	QGridLayout *mLayout;
 
 	KsnipConfig *mConfig;
@@ -61,7 +58,6 @@ private:
 
 private slots:
 	void freezeImageWhileSnippingStateChanged();
-	void scaleGenericWaylandScreenshotsStateChanged();
 };
 
 #endif //KSNIP_IMAGEGRABBERSETTINGS_H

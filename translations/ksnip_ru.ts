@@ -5,11 +5,11 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>О приложении </translation>
+        <translation>О&#xa0;приложении </translation>
     </message>
     <message>
         <source>About</source>
-        <translation>О приложении</translation>
+        <translation>О&#xa0;приложении</translation>
     </message>
     <message>
         <source>Version</source>
@@ -138,6 +138,10 @@ make them more smooth.</source>
         <source>Annotator Settings</source>
         <translation>Параметры рисования</translation>
     </message>
+    <message>
+        <source>Remember annotation tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -186,18 +190,6 @@ Change requires restart.</source>
         <translation>Авто скрытие вкладок</translation>
     </message>
     <message>
-        <source>Hide Tabbar when only on Tab is used.</source>
-        <translation>Скрывать панель при одной вкладке.</translation>
-    </message>
-    <message>
-        <source>Remember ksnip position on move and load on startup</source>
-        <translation>Запоминать расположение ksnip и восстанавливать при запуске</translation>
-    </message>
-    <message>
-        <source>Remember ksnip tool selection and load on startup</source>
-        <translation>Запоминать выбранный инструмент ksnip и восстанавливать при запуске</translation>
-    </message>
-    <message>
         <source>Use Tabs</source>
         <translation>Использовать вкладки</translation>
     </message>
@@ -210,18 +202,23 @@ Change requires restart.</source>
         <translation>Запускать только один экземпляр ksnip</translation>
     </message>
     <message>
-        <source>Enabling this option will allow only one ksnip instance to run,
-all other instances started after the first will pass it&apos;s
-arguments to the first and close. Changing this option requires
-a new start of all instances.</source>
-        <translation>Включение этой настройки разрешит запуск только одного экземпляра
-ksnip, все другие экземпляры, запущенные после первого, будут 
-передавать свои аргументы первому экземпляру и закрываться. 
-Изменение этой настройки потребует запуска всех экземпляров заново.</translation>
-    </message>
-    <message>
         <source>Start Minimized to Tray</source>
         <translation>Запускать свёрнутым в трей</translation>
+    </message>
+    <message>
+        <source>Remember position on move and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only one Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass its
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -330,6 +327,14 @@ Do you want to save it?</source>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Сделать скриншот последней выделенной области</translation>
     </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses the screenshot Portal for taking screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DonateTab</name>
@@ -350,16 +355,16 @@ Do you want to save it?</source>
         <translation>Пожертвование</translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation>ksnip — это некоммерческий проект с открытым исходным кодом,&lt;br/&gt;однако он всё же требует расходов, таких как оплата домена&lt;br/&gt;или учётной записи разработчика Apple.</translation>
-    </message>
-    <message>
-        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation>Если хотите помочь нам компенсировать эти расходы,&lt;br/&gt; или просто хотите отблагодарить нас за вклад в ПО с открытым исходным кодом,&lt;br/&gt; подарив пиво или содовую, можете сделать это</translation>
-    </message>
-    <message>
         <source>Become a GitHub Sponsor</source>
         <translation>Стать спонсором на GitHub</translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -463,6 +468,10 @@ Do you want to save it?</source>
         <source>Clear</source>
         <translation>Очистить</translation>
     </message>
+    <message>
+        <source>Capture using Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -507,16 +516,6 @@ desktop edges to cursor on snipping area.</source>
         <translation>Выводить информацию о положении и размере зоны обрезки (линейка)</translation>
     </message>
     <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Отображает позицию курсора,
-пока левая кнопка мыши не нажата.
-Когда кнопка мыши нажата, отображает размер
-выделенной области слева и сверху от неё.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor color</source>
         <translation>Цвет курсора</translation>
     </message>
@@ -549,18 +548,42 @@ take effect.</source>
 selecting a rectangular region. It also changes
 the behavior of delayed screenshots, with this
 option enabled the delay happens before the
-snipping area is show and with the option disabled
+snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation>Если включено - замораживает фон при выборе
-прямоугольной области. Также меняет поведение
-отложенных снимков экрана: при включенной
-опции задержка происходит до того, как будет
-показана область снимка, а при отключенной 
-опции задержка произойдет после того, как будет
-показана область отсечения. Эта функция всегда 
-отключена для Wayland и всегда включена для MacOS.</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support it&apos;s own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland Screenshots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generic Wayland implementations that use
+XDG-DESKTOP-PORTAL handle screen scaling
+differently. Enabling this option will
+determine the current screen scaling and
+apply that to the screenshot in ksnip.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -822,10 +845,6 @@ and capturing screenshot.</source>
         <translation>Невозможно показать изображение</translation>
     </message>
     <message>
-        <source>No image provided to but one was expected.</source>
-        <translation>Отсутствует необходимое изображение.</translation>
-    </message>
-    <message>
         <source>Save As...</source>
         <translation>Сохранить как…</translation>
     </message>
@@ -848,6 +867,10 @@ and capturing screenshot.</source>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
         <translation>Закрепить снимок на переднем плане в безрамочном окне</translation>
+    </message>
+    <message>
+        <source>No image provided but one was expected.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -955,6 +978,23 @@ Filename can contain following wildcards:
     <message>
         <source>Capture save location</source>
         <translation>Место сохранения снимка</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Factor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JEPG does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Quality</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

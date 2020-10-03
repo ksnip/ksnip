@@ -138,6 +138,10 @@ macht sie glatter.</translation>
         <source>Annotator Settings</source>
         <translation>Beschriftungseinstellungen</translation>
     </message>
+    <message>
+        <source>Remember annotation tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -186,18 +190,6 @@ Diese Änderung erfordert einen Neustart.</translation>
         <translation>Tabs automatisch ausblenden</translation>
     </message>
     <message>
-        <source>Hide Tabbar when only on Tab is used.</source>
-        <translation>Tab-Leiste ausblenden, wenn nur ein Tab verwendet wird.</translation>
-    </message>
-    <message>
-        <source>Remember ksnip position on move and load on startup</source>
-        <translation>Position von ksnip beim Verschieben merken und beim Starten laden</translation>
-    </message>
-    <message>
-        <source>Remember ksnip tool selection and load on startup</source>
-        <translation>Ksnip Werkzeugauswahl speichern und beim Starten laden</translation>
-    </message>
-    <message>
         <source>Use Tabs</source>
         <translation>Tabs verwenden</translation>
     </message>
@@ -210,18 +202,23 @@ Diese Änderung erfordert einen Neustart.</translation>
         <translation>Nur eine Instanz von ksnip starten</translation>
     </message>
     <message>
-        <source>Enabling this option will allow only one ksnip instance to run,
-all other instances started after the first will pass it&apos;s
-arguments to the first and close. Changing this option requires
-a new start of all instances.</source>
-        <translation>Nach Aktivierung dieser Option wird nur eine ksnip-Instanz
-ausgeführt, danach gestartete Instanzen übergeben ihre
-Argumente an diese und beenden sich. Das Ändern dieser
-Option erfordert einen Neustart aller Instanzen.</translation>
-    </message>
-    <message>
         <source>Start Minimized to Tray</source>
         <translation>Im Tray minimiert starten</translation>
+    </message>
+    <message>
+        <source>Remember position on move and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only one Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass its
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -330,6 +327,14 @@ Speichern?</translation>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Einen Screenshot des zuletzt ausgewählten rechteckigen Bereichs aufnehmen</translation>
     </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses the screenshot Portal for taking screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DonateTab</name>
@@ -350,15 +355,15 @@ Speichern?</translation>
         <translation>Spende</translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation>ksnip ist ein gemeinnütziges Open-Source-Projekt,&lt;br/&gt;dennoch müssen einige Kosten gedeckt werden,&lt;br/&gt;z.B. Domain-Kosten oder der Apple Developer Account.</translation>
-    </message>
-    <message>
-        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
+        <source>Become a GitHub Sponsor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
+        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -463,6 +468,10 @@ Speichern?</translation>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Capture using Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -507,16 +516,6 @@ Bildschirmrand zum Mauszeiger anzeigen.</translation>
         <translation>Position und Größe des Ausschnittsbereichs anzeigen</translation>
     </message>
     <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Solange die linke Maustaste noch nicht gedrückt wurde, wird
-die Mausposition angezeigt. Nachdem die linke Maustaste
-gedrückt wurde, wird die Größe des ausgewählten Bereichs
-an dessen linken und oberen Rand angezeigt.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor color</source>
         <translation>Ausschnittsbereich Mauszeigerfarbe</translation>
     </message>
@@ -549,10 +548,41 @@ Neustart von ksnip, um wirksam zu werden.</translation>
 selecting a rectangular region. It also changes
 the behavior of delayed screenshots, with this
 option enabled the delay happens before the
-snipping area is show and with the option disabled
+snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support it&apos;s own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland Screenshots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generic Wayland implementations that use
+XDG-DESKTOP-PORTAL handle screen scaling
+differently. Enabling this option will
+determine the current screen scaling and
+apply that to the screenshot in ksnip.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -814,10 +844,6 @@ und der Aufnahme des Bildschirmfotos.</translation>
         <translation>Bild kann nicht angezeigt werden</translation>
     </message>
     <message>
-        <source>No image provided to but one was expected.</source>
-        <translation>Es wurde kein Bild zur Verfügung gestellt, obwohl eines erwartet wurde.</translation>
-    </message>
-    <message>
         <source>Save As...</source>
         <translation>Speichern als…</translation>
     </message>
@@ -839,6 +865,10 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No image provided but one was expected.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -943,6 +973,23 @@ Filename can contain following wildcards:
     <message>
         <source>Capture save location</source>
         <translation type="unfinished">Speicherort für Aufnahmen</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Factor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JEPG does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Quality</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -137,6 +137,10 @@ make them more smooth.</source>
         <source>Annotator Settings</source>
         <translation>注釈設定</translation>
     </message>
+    <message>
+        <source>Remember annotation tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -186,18 +190,6 @@ Change requires ksnip restart to take effect.</source>
         <translation>タブを自動で隠す</translation>
     </message>
     <message>
-        <source>Hide Tabbar when only on Tab is used.</source>
-        <translation>タブが一つのときはタブバーを隠します。</translation>
-    </message>
-    <message>
-        <source>Remember ksnip position on move and load on startup</source>
-        <translation>ksnip の移動位置を記憶して起動時に読み込む</translation>
-    </message>
-    <message>
-        <source>Remember ksnip tool selection and load on startup</source>
-        <translation>選択した ksnip のツールを記憶して起動時に読み込む</translation>
-    </message>
-    <message>
         <source>Use Tabs</source>
         <translation>タブを使用する</translation>
     </message>
@@ -210,18 +202,23 @@ Change requires ksnip restart to take effect.</source>
         <translation>ksnip をシングルインスタンスとして実行する</translation>
     </message>
     <message>
-        <source>Enabling this option will allow only one ksnip instance to run,
-all other instances started after the first will pass it&apos;s
-arguments to the first and close. Changing this option requires
-a new start of all instances.</source>
-        <translation>このオプションを有効にすると、ksnip のインスタンスを一つだけ実行
-できるようになります。インスタンスを複数起動しようとした場合、
-実行中のインスタンスに引数を渡して終了します。このオプションの
-変更は、すべてのインスタンスを起動し直す必要があります。</translation>
-    </message>
-    <message>
         <source>Start Minimized to Tray</source>
         <translation>トレイに最小化して起動する</translation>
+    </message>
+    <message>
+        <source>Remember position on move and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only one Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass its
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -330,6 +327,14 @@ Do you want to save it?</source>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>現在マウスカーソルがあるウィンドウをキャプチャーします</translation>
     </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses the screenshot Portal for taking screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DonateTab</name>
@@ -350,16 +355,16 @@ Do you want to save it?</source>
         <translation>寄付</translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation>ksnip は非営利のオープンソースプロジェクトですが&lt;br/&gt;Apple Developer アカウントやドメインの維持などに費用がかかっています.</translation>
-    </message>
-    <message>
-        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation>そういった費用を扶助していただける場合や&lt;br/&gt;私たちのオープンソース活動に対してビールやソーダを奢っていただける場合は&lt;br/&gt;</translation>
-    </message>
-    <message>
         <source>Become a GitHub Sponsor</source>
         <translation>GitHub スポンサーになる</translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -463,6 +468,10 @@ Do you want to save it?</source>
         <source>Clear</source>
         <translation>消去</translation>
     </message>
+    <message>
+        <source>Capture using Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -507,16 +516,6 @@ desktop edges to cursor on snipping area.</source>
         <translation>範囲選択画面でカーソル位置情報や選択サイズ情報を表示する</translation>
     </message>
     <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>マウスの左ボタンを押していない
-時はカーソルの位置情報を表示し、
-押している時は選択範囲の左辺と
-上辺にサイズを表示します。</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor color</source>
         <translation>範囲選択カーソルの色</translation>
     </message>
@@ -547,16 +546,42 @@ take effect.</source>
 selecting a rectangular region. It also changes
 the behavior of delayed screenshots, with this
 option enabled the delay happens before the
-snipping area is show and with the option disabled
+snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation>有効にすると、範囲選択画面の背景を固定します。
-遅延スクリーンショットの挙動にも影響し、このオ
-プションが有効だと遅延発生後に範囲選択画面が表
-示され、無効だと範囲を選択した後に遅延が発生し
-ます。この機能は Wayland では常に無効になり、
-macOS では常に有効になります。</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support it&apos;s own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland Screenshots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generic Wayland implementations that use
+XDG-DESKTOP-PORTAL handle screen scaling
+differently. Enabling this option will
+determine the current screen scaling and
+apply that to the screenshot in ksnip.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -738,10 +763,6 @@ and capturing screenshot.</source>
         <translation>画像を表示できません</translation>
     </message>
     <message>
-        <source>No image provided to but one was expected.</source>
-        <translation>期待された画像の提供がありません。</translation>
-    </message>
-    <message>
         <source>Unsaved</source>
         <translation>未保存</translation>
     </message>
@@ -844,6 +865,10 @@ and capturing screenshot.</source>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
         <translation>スクリーンショットを枠のないウィンドウ内に前景としてピン留めします</translation>
+    </message>
+    <message>
+        <source>No image provided but one was expected.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -951,6 +976,23 @@ Filename can contain following wildcards:
     <message>
         <source>Capture save location</source>
         <translation>キャプチャーの保存場所</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Factor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JEPG does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Quality</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

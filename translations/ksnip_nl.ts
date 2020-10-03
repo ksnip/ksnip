@@ -138,6 +138,10 @@ gladder.</translation>
         <source>Annotator Settings</source>
         <translation>Aantekeningsinstellingen</translation>
     </message>
+    <message>
+        <source>Remember annotation tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -186,18 +190,6 @@ Herstart om de wijziging toe te passen.</translation>
         <translation>Tabbladen automatisch verbergen</translation>
     </message>
     <message>
-        <source>Hide Tabbar when only on Tab is used.</source>
-        <translation>Verberg de tabbladbalk als er slechts één tabblad geopend is.</translation>
-    </message>
-    <message>
-        <source>Remember ksnip position on move and load on startup</source>
-        <translation>ksnip-vensterpositie onthouden en automatisch daar plaatsen bij opstarten</translation>
-    </message>
-    <message>
-        <source>Remember ksnip tool selection and load on startup</source>
-        <translation>ksnip-gereedschapselectie onthouden en automatisch laden bij opstarten</translation>
-    </message>
-    <message>
         <source>Use Tabs</source>
         <translation>Tabbladen gebruiken</translation>
     </message>
@@ -210,17 +202,23 @@ Herstart om de wijziging toe te passen.</translation>
         <translation>Slechts één ksnip-proces toestaan</translation>
     </message>
     <message>
-        <source>Enabling this option will allow only one ksnip instance to run,
-all other instances started after the first will pass it&apos;s
-arguments to the first and close. Changing this option requires
-a new start of all instances.</source>
-        <translation>Schakel deze optie in om slechts één ksnip-proces toe te staan.
-Alle latere processen geven hun opdrachten door aan het eerste.
-Herstart ksnip om de wijzigingen toe te passen.</translation>
-    </message>
-    <message>
         <source>Start Minimized to Tray</source>
         <translation>Geminimaliseerd in systeemvak opstarten</translation>
+    </message>
+    <message>
+        <source>Remember position on move and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only one Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass its
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -329,6 +327,14 @@ Wil je deze opslaan?</translation>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Maak een schermfoto van het laatst geselecteerde rechthoekige gebied</translation>
     </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses the screenshot Portal for taking screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DonateTab</name>
@@ -349,16 +355,16 @@ Wil je deze opslaan?</translation>
         <translation>Doneren</translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation>ksnip is een opensourceproject zonder winstoogmerk, maar&lt;br/&gt;maakt nog steeds kosten die gedekt moeten worden,&lt;br/&gt;zoals domeinnaamkosten en kosten van een Apple Ontwikkelaarsaccount.</translation>
-    </message>
-    <message>
-        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation>Als je ons wilt helpen de kosten te dekken of&lt;br/&gt;ons wilt bedanken voor ons opensourcewerk&lt;br/&gt;door een drankje te schenken, dan kun je dat</translation>
-    </message>
-    <message>
         <source>Become a GitHub Sponsor</source>
         <translation>GitHub-sponsor worden</translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -462,6 +468,10 @@ Wil je deze opslaan?</translation>
         <source>Clear</source>
         <translation>Wissen</translation>
     </message>
+    <message>
+        <source>Capture using Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -506,16 +516,6 @@ de schermranden naar de cursor op het vastleggebied.</translation>
         <translation>Positie- en grootte-informatie tonen op vastleggebied</translation>
     </message>
     <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Als je de linkermuisknop niet indrukt, dan wordt
-de positie getoond. Doe je dat wél, dan wordt de
-grootte van het selectiegebied getoond, zowel aan
-de linker- als bovenzijde van het vastgelegde gebied.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor color</source>
         <translation>Cursorkleur binnen vastleggebied</translation>
     </message>
@@ -548,17 +548,42 @@ toe te passen.</translation>
 selecting a rectangular region. It also changes
 the behavior of delayed screenshots, with this
 option enabled the delay happens before the
-snipping area is show and with the option disabled
+snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation>Met deze optie bevries je de achtergrond tijdens het
-selecteren van een rechthoekig gebied. Dit past tevens
-het gedrag aan van vertraagde schermfoto&apos;s: de vertraging
-wordt toegepast voordat het selectiegebied wordt getoond
-in plaats van erna.
-Deze functie is standaard uitgeschakeld op Wayland en
-standaard ingeschakeld op macOS.</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support it&apos;s own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland Screenshots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generic Wayland implementations that use
+XDG-DESKTOP-PORTAL handle screen scaling
+differently. Enabling this option will
+determine the current screen scaling and
+apply that to the screenshot in ksnip.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -820,10 +845,6 @@ van schermfoto, in seconden.</translation>
         <translation>Kan afbeelding niet tonen</translation>
     </message>
     <message>
-        <source>No image provided to but one was expected.</source>
-        <translation>Er werd een afbeelding verwacht, maar geen afbeelding opgegeven.</translation>
-    </message>
-    <message>
         <source>Save As...</source>
         <translation>Opslaan als...</translation>
     </message>
@@ -846,6 +867,10 @@ van schermfoto, in seconden.</translation>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
         <translation>Schermfoto vastmaken aan voorgrond van naadloos venster</translation>
+    </message>
+    <message>
+        <source>No image provided but one was expected.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -953,6 +978,23 @@ De bestandsnaam mag de volgende jokertekens bevatten:
     <message>
         <source>Capture save location</source>
         <translation>Opslaglocatie</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Factor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JEPG does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Quality</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

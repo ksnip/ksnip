@@ -137,6 +137,10 @@ för penna och markör, men gör dem mjukare.</translation>
         <source>Annotator Settings</source>
         <translation>Anteckningsinställningar</translation>
     </message>
+    <message>
+        <source>Remember annotation tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -185,18 +189,6 @@ Change requires restart.</source>
         <translation>Dölj flikar automatiskt</translation>
     </message>
     <message>
-        <source>Hide Tabbar when only on Tab is used.</source>
-        <translation>Dölj flikfältet när endast en flik används.</translation>
-    </message>
-    <message>
-        <source>Remember ksnip position on move and load on startup</source>
-        <translation>Kom ihåg ksnip-positionen vid förflyttning och läs in vid uppstart</translation>
-    </message>
-    <message>
-        <source>Remember ksnip tool selection and load on startup</source>
-        <translation>Kom ihåg senast använda verktyg och läs in vid uppstart</translation>
-    </message>
-    <message>
         <source>Use Tabs</source>
         <translation>Använd flikar</translation>
     </message>
@@ -209,18 +201,23 @@ Change requires restart.</source>
         <translation>Kör ksnip som enskild instans</translation>
     </message>
     <message>
-        <source>Enabling this option will allow only one ksnip instance to run,
-all other instances started after the first will pass it&apos;s
-arguments to the first and close. Changing this option requires
-a new start of all instances.</source>
-        <translation>Om du aktiverar detta alternativ kan endast en ksnip-instans köras,
-alla instanser som startas efter den första, kommer att skicka
-sina argument vidare till den första och sedan avslutas.
-Om du ändrar det här alternativet måste alla öppna instanser startas om.</translation>
-    </message>
-    <message>
         <source>Start Minimized to Tray</source>
         <translation>Starta minimerad i systemfältet</translation>
+    </message>
+    <message>
+        <source>Remember position on move and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only one Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass its
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -329,6 +326,14 @@ Vill du spara det?</translation>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Tar ett skärmklipp av senast markerade rektangulära område</translation>
     </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses the screenshot Portal for taking screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DonateTab</name>
@@ -349,16 +354,16 @@ Vill du spara det?</translation>
         <translation>Donation</translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation>ksnip är ett icke lönsamt projekt med öppen källkod, men&lt;br/&gt; har fortfarande vissa kostnader som måste täckas,&lt;br/&gt;som domänkostnader eller Apple Developer Account.</translation>
-    </message>
-    <message>
-        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation>Om du vill hjälpa oss att täcka dessa kostnader eller bara&lt;br/&gt;helt enkelt tacka oss för vårt öppen källkodsarbete&lt;br/&gt;genom att donera en öl eller läsk, kan du göra det.</translation>
-    </message>
-    <message>
         <source>Become a GitHub Sponsor</source>
         <translation>Bli en GitHub-sponsor</translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -462,6 +467,10 @@ Vill du spara det?</translation>
         <source>Clear</source>
         <translation>Rensa</translation>
     </message>
+    <message>
+        <source>Capture using Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -506,16 +515,6 @@ skrivbordskanten till markören i klippområdet.</translation>
         <translation>Visa klippområdesplacering och storleksinformation</translation>
     </message>
     <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>När vänster musknapp inte hålls ner, visas
-positionen. När musknappen hålls ner, visas
-storleken på markerat område till vänster
-och över klippområdet.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor color</source>
         <translation>Färg på klippområdesmarkören</translation>
     </message>
@@ -546,18 +545,42 @@ take effect.</source>
 selecting a rectangular region. It also changes
 the behavior of delayed screenshots, with this
 option enabled the delay happens before the
-snipping area is show and with the option disabled
+snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation>Vid aktivering fryses bilden medan det rektangulära
-området markeras. Det ändrar också beteendet för
-fördröjt skärmklipp. Med detta alternativ aktiverat,
-sker fördröjningen innan klippområdet visas och med
-alternativet avaktiverat, sker fördröjningen efter
-klippområdet visas.
-Denna funktion är alltid inaktiverad för Wayland och
-alltid aktiverad för MacOS.</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support it&apos;s own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland Screenshots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generic Wayland implementations that use
+XDG-DESKTOP-PORTAL handle screen scaling
+differently. Enabling this option will
+determine the current screen scaling and
+apply that to the screenshot in ksnip.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -819,10 +842,6 @@ och själva skärmklippet.</translation>
         <translation>Kan inte visa bilden</translation>
     </message>
     <message>
-        <source>No image provided to but one was expected.</source>
-        <translation>Ingen bild tillgänglig, men en var förväntad.</translation>
-    </message>
-    <message>
         <source>Save As...</source>
         <translation>Spara som...</translation>
     </message>
@@ -845,6 +864,10 @@ och själva skärmklippet.</translation>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
         <translation>Fäst skärmklipp i förgrunden i ramlöst fönster</translation>
+    </message>
+    <message>
+        <source>No image provided but one was expected.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -952,6 +975,23 @@ Filnamn kan innehålla följande jokertecken:
     <message>
         <source>Capture save location</source>
         <translation>Klipplagringsplats</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Factor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JEPG does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Quality</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

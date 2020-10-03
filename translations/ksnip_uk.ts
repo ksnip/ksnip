@@ -87,7 +87,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх 
+ліній, залишених пером чи маркером, але зробить їх&#x2028;
 плавнішими.</translation>
     </message>
     <message>
@@ -138,6 +138,10 @@ make them more smooth.</source>
         <source>Annotator Settings</source>
         <translation>Налаштування анотатора</translation>
     </message>
+    <message>
+        <source>Remember annotation tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -186,18 +190,6 @@ Change requires restart.</source>
         <translation>Автоприховування вкладок</translation>
     </message>
     <message>
-        <source>Hide Tabbar when only on Tab is used.</source>
-        <translation>Ховати панель вкладок, якщо використано лише одну вкладку.</translation>
-    </message>
-    <message>
-        <source>Remember ksnip position on move and load on startup</source>
-        <translation>Запам&apos;ятовувати позицію ksnip при русі і завантажувати її після запуску</translation>
-    </message>
-    <message>
-        <source>Remember ksnip tool selection and load on startup</source>
-        <translation>Запам&apos;ятовувати позначену у ksnip область і завантажувати її після запуску</translation>
-    </message>
-    <message>
         <source>Use Tabs</source>
         <translation>Використовувати вкладки</translation>
     </message>
@@ -210,18 +202,23 @@ Change requires restart.</source>
         <translation>Запускати ksnip у режимі єдиного екземпляра</translation>
     </message>
     <message>
-        <source>Enabling this option will allow only one ksnip instance to run,
-all other instances started after the first will pass it&apos;s
-arguments to the first and close. Changing this option requires
-a new start of all instances.</source>
-        <translation>Позначення цього пункту дозволить вам запускати лише один екземпляр ksnip.
-Усі інші екземпляри, які буде запущено після першого, передаватимуть свої
-аргументи першому екземпляру і завершуватимуть роботу. Для набуття
-чинності після внесення змін усі екземпляри програми слід перезапустити.</translation>
-    </message>
-    <message>
         <source>Start Minimized to Tray</source>
         <translation>Запускати згорнутим до лотка</translation>
+    </message>
+    <message>
+        <source>Remember position on move and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only one Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass its
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -330,6 +327,14 @@ Do you want to save it?</source>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Зробити знімок останньої позначеної прямокутної області</translation>
     </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses the screenshot Portal for taking screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DonateTab</name>
@@ -350,16 +355,16 @@ Do you want to save it?</source>
         <translation>Пожертва</translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation>ksnip є неприбутковими проєктами з відкритим кодом, але&lt;br/&gt;їхній розвиток потребує певних фінансових вкладень,&lt;br/&gt;зокрема сплат за домен сайта та обліковий запис розробника Apple.</translation>
-    </message>
-    <message>
-        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation>Якщо ви хочете допомогти нам компенсувати наш час або просто&lt;br/&gt;хочете віддячити нам за роботу над відкритим кодом,&lt;br/&gt;пригостивши нас пивом або лимонадом, ви можете зробити це</translation>
-    </message>
-    <message>
         <source>Become a GitHub Sponsor</source>
         <translation>Стати спонсором на GitHub</translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -463,6 +468,10 @@ Do you want to save it?</source>
         <source>Clear</source>
         <translation>Очистити</translation>
     </message>
+    <message>
+        <source>Capture using Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -490,7 +499,7 @@ the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Показувати збільшувальне скло, яке дає змогу
 наблизити фонове зображення. Цей пункт
-працюватиме, лише якщо ввімкнено замороження зображення.</translation>
+працюватиме,&#x2028;лише якщо ввімкнено замороження зображення.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -506,16 +515,6 @@ desktop edges to cursor on snipping area.</source>
     <message>
         <source>Show Snipping Area position and size info</source>
         <translation>Показувати інформацію щодо позиції і розміру позначеної області</translation>
-    </message>
-    <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Якщо не буде натиснуто ліву кнопку миші,
- програма показуватиме позицію. Якщо кнопку 
-натиснуто, буде показано розміри позначено
-області у верхньому лівому куті позначеної області.</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
@@ -550,17 +549,42 @@ take effect.</source>
 selecting a rectangular region. It also changes
 the behavior of delayed screenshots, with this
 option enabled the delay happens before the
-snipping area is show and with the option disabled
+snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation>Якщо позначено, заморозить фон при виборі прямокутної області.
-Також буде змінено поведінку при створенні знімків із
-затримкою: із позначеним пунктом затримку буде додано перед
-створенням позначеної області, а якщо пункт не позначено,
-затримку буде застосовано після показу позначеної області.
-Цю можливість завжди вимкнено у Wayland і завжди увімкнено
-у macOS.</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support it&apos;s own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland Screenshots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generic Wayland implementations that use
+XDG-DESKTOP-PORTAL handle screen scaling
+differently. Enabling this option will
+determine the current screen scaling and
+apply that to the screenshot in ksnip.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -822,10 +846,6 @@ and capturing screenshot.</source>
         <translation>Не вдається показати зображення</translation>
     </message>
     <message>
-        <source>No image provided to but one was expected.</source>
-        <translation>Не було надано жодного зображення, як очікувалося.</translation>
-    </message>
-    <message>
         <source>Save As...</source>
         <translation>Зберегти як…</translation>
     </message>
@@ -848,6 +868,10 @@ and capturing screenshot.</source>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
         <translation>Пришпилити знімок вікна до переднього плану у вікні без рамки</translation>
+    </message>
+    <message>
+        <source>No image provided but one was expected.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -955,6 +979,23 @@ Filename can contain following wildcards:
     <message>
         <source>Capture save location</source>
         <translation>Місце збереження знімків</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Factor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JEPG does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Quality</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -138,6 +138,10 @@ je více vyhlazovat.</translation>
         <source>Annotator Settings</source>
         <translation>Nastavení značkovače</translation>
     </message>
+    <message>
+        <source>Remember annotation tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -186,18 +190,6 @@ Změna vyžaduje restartování aplikace.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Use Tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -210,14 +202,22 @@ Změna vyžaduje restartování aplikace.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enabling this option will allow only one ksnip instance to run,
-all other instances started after the first will pass it&apos;s
-arguments to the first and close. Changing this option requires
-a new start of all instances.</source>
+        <source>Start Minimized to Tray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Start Minimized to Tray</source>
+        <source>Remember position on move and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only one Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass its
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -326,6 +326,14 @@ Do you want to save it?</source>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Zachycení okna, které je aktuálně pod kurzorem myši</translation>
     </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses the screenshot Portal for taking screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DonateTab</name>
@@ -346,15 +354,15 @@ Do you want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Become a GitHub Sponsor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -459,6 +467,10 @@ Do you want to save it?</source>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Capture using Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -503,16 +515,6 @@ okraje plochy ke kurzoru snímané oblasti.</translation>
         <translation>Zobrazit informace o poloze a velikosti oblasti snímku</translation>
     </message>
     <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Pokud není stisknuto levé tlačítko myši,
-je zobrazena pozice, při stisknutí tlačítka myši
-je zobrazna velikost vybrané oblasti vlevo a nad 
-zachycenou oblastí.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor color</source>
         <translation>Barva kurzoru v oblasti výstřižku</translation>
     </message>
@@ -543,10 +545,41 @@ Změna vyžaduje restart aplikace.</translation>
 selecting a rectangular region. It also changes
 the behavior of delayed screenshots, with this
 option enabled the delay happens before the
-snipping area is show and with the option disabled
+snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support it&apos;s own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland Screenshots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generic Wayland implementations that use
+XDG-DESKTOP-PORTAL handle screen scaling
+differently. Enabling this option will
+determine the current screen scaling and
+apply that to the screenshot in ksnip.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -728,10 +761,6 @@ a zachycením obrazovky.</translation>
         <translation>Obrázek nelze zobrazit</translation>
     </message>
     <message>
-        <source>No image provided to but one was expected.</source>
-        <translation>Žádný obrázek k dispozici, ale jeden byl očekáván.</translation>
-    </message>
-    <message>
         <source>Unsaved</source>
         <translation>Neuloženo</translation>
     </message>
@@ -833,6 +862,10 @@ a zachycením obrazovky.</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No image provided but one was expected.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -937,6 +970,23 @@ Filename can contain following wildcards:
     <message>
         <source>Capture save location</source>
         <translation type="unfinished">Umístění pro uložení zachycení</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Factor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JEPG does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Quality</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

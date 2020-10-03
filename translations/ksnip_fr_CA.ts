@@ -138,6 +138,10 @@ les rendra plus lisses.</translation>
         <source>Annotator Settings</source>
         <translation>Réglages des annotations</translation>
     </message>
+    <message>
+        <source>Remember annotation tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -186,18 +190,6 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Hide Tabbar when only on Tab is used.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remember ksnip position on move and load on startup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remember ksnip tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Use Tabs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -210,14 +202,22 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Enabling this option will allow only one ksnip instance to run,
-all other instances started after the first will pass it&apos;s
-arguments to the first and close. Changing this option requires
-a new start of all instances.</source>
+        <source>Start Minimized to Tray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Start Minimized to Tray</source>
+        <source>Remember position on move and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only one Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass its
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -326,6 +326,14 @@ Do you want to save it?</source>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Fait une capture d&apos;écran de la dernière zone sélectionnée</translation>
     </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses the screenshot Portal for taking screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DonateTab</name>
@@ -346,15 +354,15 @@ Do you want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Become a GitHub Sponsor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -459,6 +467,10 @@ Do you want to save it?</source>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Capture using Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -485,8 +497,8 @@ dans les captures d&apos;écran.</translation>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Afficher une loupe qui grossit le fond d&apos;écran.
-Cette option ne marche que si « Geler l&apos;image
-avant capture » est activé.</translation>
+Cette option ne marche que si «&#xa0;Geler l&apos;image
+avant capture&#xa0;» est activé.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -501,15 +513,6 @@ depuis les bords de l&apos;écran pour aider au cadrage.</translation>
     <message>
         <source>Show Snipping Area position and size info</source>
         <translation>Montrer la taille et position du cadrage</translation>
-    </message>
-    <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Montrer l&apos;aire de la zone lorsque le bouton de
-gauche de la souris est enfoncé, affiche sinon
-sa position (en haut à gauche de la zone).</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
@@ -544,18 +547,42 @@ redémarrage de ksnip pour prendre effet.</translation>
 selecting a rectangular region. It also changes
 the behavior of delayed screenshots, with this
 option enabled the delay happens before the
-snipping area is show and with the option disabled
+snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation>Lorsque activé, le fond d&apos;écran sera gelé pendant la
-sélection de la zone à capturer. Cela impacte aussi le
-comportement des captures retardées. Le délai a lieu
-avant l&apos;affichage de la zone de sélection lorsque l&apos;option
-est activée, après l&apos;affichage de la zone de sélection
-lorsque l&apos;option est désactivée. Cette option n&apos;est pas
-disponible pour Wayland et toujours active pour
-MacOs.</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support it&apos;s own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland Screenshots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generic Wayland implementations that use
+XDG-DESKTOP-PORTAL handle screen scaling
+differently. Enabling this option will
+determine the current screen scaling and
+apply that to the screenshot in ksnip.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -816,10 +843,6 @@ et la capture de l&apos;écran.</translation>
         <translation>Impossible d&apos;afficher l&apos;image</translation>
     </message>
     <message>
-        <source>No image provided to but one was expected.</source>
-        <translation>Aucune image fournie, bien qu&apos;attendue.</translation>
-    </message>
-    <message>
         <source>Save As...</source>
         <translation>Enregistré sous…</translation>
     </message>
@@ -841,6 +864,10 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No image provided but one was expected.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -945,6 +972,23 @@ Filename can contain following wildcards:
     <message>
         <source>Capture save location</source>
         <translation type="unfinished">Répertoire de sauvegarde des captures</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Factor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JEPG does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Quality</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

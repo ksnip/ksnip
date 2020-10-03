@@ -138,6 +138,10 @@ haien leuntasuna areagotuz.</translation>
         <source>Annotator Settings</source>
         <translation>Nabarmentzearen ezarpenak</translation>
     </message>
+    <message>
+        <source>Remember annotation tool selection and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -186,18 +190,6 @@ Ksnip berrabiarazi behar du aldaketek eragina izateko.</translation>
         <translation>Fitxak automatikoki ezkutatu</translation>
     </message>
     <message>
-        <source>Hide Tabbar when only on Tab is used.</source>
-        <translation>Ezkutatu fitxen barra fitxa bakarra dagoenean.</translation>
-    </message>
-    <message>
-        <source>Remember ksnip position on move and load on startup</source>
-        <translation>Ksnip-en kokapena gogoratu eta abiatzean mantendu</translation>
-    </message>
-    <message>
-        <source>Remember ksnip tool selection and load on startup</source>
-        <translation>Gogoratu lanabesen hautapena abiatzean</translation>
-    </message>
-    <message>
         <source>Use Tabs</source>
         <translation>Erabili fitxak</translation>
     </message>
@@ -210,18 +202,23 @@ Ksnip berrabiarazi behar du aldaketek eragina izateko.</translation>
         <translation>Erabili ksnip instantzia bakarrean</translation>
     </message>
     <message>
-        <source>Enabling this option will allow only one ksnip instance to run,
-all other instances started after the first will pass it&apos;s
-arguments to the first and close. Changing this option requires
-a new start of all instances.</source>
-        <translation>Aukera hau aktibatuta ksnip instantzia bakarra irekiko da,
-instantzia honen ondoren irekitako guztiak bere argumentuak
-irekitako lehenengora pasatuko dizkiote eta itxiko dira. Aukera
-hau aktibatzean gainerako instantziak berrabiarazi behar dira.</translation>
-    </message>
-    <message>
         <source>Start Minimized to Tray</source>
         <translation>Abiatu erretiluan minimizatua</translation>
+    </message>
+    <message>
+        <source>Remember position on move and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only one Tab is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass its
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -330,6 +327,14 @@ Nahi duzu gordetzea?</translation>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Egin kurtsorearen azpian dagoenaren argazkia</translation>
     </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uses the screenshot Portal for taking screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DonateTab</name>
@@ -350,16 +355,16 @@ Nahi duzu gordetzea?</translation>
         <translation>Dohaintza</translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable open source projects but&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or Apple Developer Account.</source>
-        <translation>ksnip irabazi asmorik gabeko kode irekiko proiektu bat da, baina &lt;br/&gt;oraindik ere estali behar diren kostuak ditu, &lt;br/&gt; domeinu kostuak edo Apple Developer kontua bezala.</translation>
-    </message>
-    <message>
-        <source>If you want to help us cover those costs or just&lt;br/&gt;simply want to thank us for our open source work&lt;br/&gt;by donating a beer or soda, You can do that</source>
-        <translation>Kostu horiek estaltzen lagundu nahi baduzu edo besterik gabe&lt;br/&gt; eskerrak eman nahi dizkiguzu gure kode irekikoko lanagatik &lt;br/&gt; garagardo edo soda bat emanez, horixe egin dezakezu</translation>
-    </message>
-    <message>
         <source>Become a GitHub Sponsor</source>
         <translation>Bihurtu GitHub-en babeslea</translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -463,6 +468,10 @@ Nahi duzu gordetzea?</translation>
         <source>Clear</source>
         <translation>Garbitu</translation>
     </message>
+    <message>
+        <source>Capture using Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -507,15 +516,6 @@ datozen lerro horizontalak eta bertikalak.</translation>
         <translation>Erakutsi ebaketa arearen kokapena eta tamainaren informazioa</translation>
     </message>
     <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Saguaren ezkerreko botoia sakatu gabe erakusten
-da kokapena, sakatuta erakusten da argazkiaren
-altuera eta zabalera pixeletan ezkerrean eta goian.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor color</source>
         <translation>Ebaketarako kurtsorearen kolorea</translation>
     </message>
@@ -548,18 +548,42 @@ berrabiaraztea aplikatzeko.</translation>
 selecting a rectangular region. It also changes
 the behavior of delayed screenshots, with this
 option enabled the delay happens before the
-snipping area is show and with the option disabled
+snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation>Aktibatuta dagoenean atzeko planoa izoztu egingo da
-area laukizuzena hautatzen den bitartean. Aldatzen da
-ere atzeratutako pantaila argazkiaren portaera, aukera
-hau aktibatuta atzerapena gertatzen da ebakitzeko
-zona ikusgai egon aurretik eta aukera hau desaktibatuta
-badago atzerapena gertatzen da ebaketa eremua erakutsi
-ondoren. Ezaugarri hau Wayland-erako beti desaktibatuta
-dago eta MacO-rako beti aktibatuta.</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support it&apos;s own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland Screenshots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generic Wayland implementations that use
+XDG-DESKTOP-PORTAL handle screen scaling
+differently. Enabling this option will
+determine the current screen scaling and
+apply that to the screenshot in ksnip.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -741,10 +765,6 @@ eta pantaila-argazkiaren artean.</translation>
         <translation>Ezin da irudia erakutsi</translation>
     </message>
     <message>
-        <source>No image provided to but one was expected.</source>
-        <translation>Ez da irudirik eman, baina bat espero zen.</translation>
-    </message>
-    <message>
         <source>Unsaved</source>
         <translation>Gorde gabe</translation>
     </message>
@@ -846,6 +866,10 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No image provided but one was expected.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -954,6 +978,23 @@ Fitxategiaren izenak honako komodinak eduki ditzake:
     <message>
         <source>Capture save location</source>
         <translation>Atzitu gordetzeko kokapena</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Factor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JEPG does.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save Quality</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

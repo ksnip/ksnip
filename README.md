@@ -36,13 +36,14 @@ Latest ksnip version contains following features:
 * Many configuration options.
 
 # Supported Screenshot Types
-|               | Rect Area | Last Rect Area | Full Screen | Current Screen | Active Window | Window Under Cursor | Without Mouse Cursor |
-| --------------|:---------:|:--------------:|:-----------:|:--------------:|:-------------:|:-------------------:|:--------------------:|
-| X11           | X         | X              | X           | X              | X             |                     | X                    |
-| Plasma Wayland|           |                | X           | X              |               | X                   |                      |
-| Gnome Wayland | X         | X              | X           | X              | X             |                     | X                    |
-| Windows       | X         | X              | X           | X              | X             |                     | X                    |
-| macOS         | X         | X              | X           | X              |               |                     |                      |
+|                    | Rect Area | Last Rect Area | Full Screen | Current Screen | Active Window | Window Under Cursor | Without Mouse Cursor | Screenshot Portal |
+| -------------------|:---------:|:--------------:|:-----------:|:--------------:|:-------------:|:-------------------:|:--------------------:|:-----------------:|
+| X11                | X         | X              | X           | X              | X             |                     | X                    |                   |
+| Plasma Wayland     |           |                | X           | X              |               | X                   |                      |                   |
+| Gnome Wayland      | X         | X              | X           | X              | X             |                     | X                    |                   |
+| xdg-desktop-portal |           |                |             |                |               |                     |                      | X                 |
+| Windows            | X         | X              | X           | X              | X             |                     | X                    |                   |
+| macOS              | X         | X              | X           | X              |               |                     |                      |                   |
 
 # Installing Binaries
 Binaries can be downloaded from the release page [here](https://github.com/ksnip/ksnip/releases). Currently

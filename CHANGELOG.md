@@ -11,6 +11,7 @@
 * Changed: Show all Screenshot options in System Tray. ([#404](https://github.com/ksnip/ksnip/issues/404))
 * Changed kImageAnnotator: Draw point when clicking and releasing without moving cursor. ([#136](https://github.com/ksnip/kImageAnnotator/issues/136))
 * Fixed: Snap crashing when trying to take screenshot under Wayland. ([#389](https://github.com/ksnip/ksnip/issues/389))
+* Fixed: zh_Hans translation won't load. ([#429](https://github.com/ksnip/ksnip/issues/429))
 * Fixed kImageAnnotator: Blur radius not updated when changing current items settings. ([#142](https://github.com/ksnip/kImageAnnotator/issues/142))
 * Fixed kImageAnnotator: Text tool opens many unix sockets. ([#144](https://github.com/ksnip/kImageAnnotator/issues/144))
 

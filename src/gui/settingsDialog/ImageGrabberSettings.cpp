@@ -71,7 +71,7 @@ void ImageGrabberSettings::saveSettings()
 
 void ImageGrabberSettings::initGui()
 {
-	auto const fixedButtonSize = 100;
+	auto const fixedButtonSize = 70;
 
 	mCaptureCursorCheckbox->setText(tr("Capture mouse cursor on screenshot"));
 	mCaptureCursorCheckbox->setToolTip(tr("Should mouse cursor be visible on\n"
@@ -91,7 +91,6 @@ void ImageGrabberSettings::initGui()
 	mSnippingAreaMagnifyingGlassCheckbox->setToolTip(tr("Show a magnifying glass which zooms into\n"
 	                                                    "the background image. This option only works\n"
 	                                                    "with 'Freeze Image while snipping' enabled."));
-	mSnippingAreaMagnifyingGlassCheckbox->setEnabled(false);
 
 	mSnippingAreaRulersCheckbox->setText(tr("Show Snipping Area rulers"));
 	mSnippingAreaRulersCheckbox->setToolTip(tr("Horizontal and vertical lines going from\n"

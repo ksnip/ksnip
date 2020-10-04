@@ -103,7 +103,7 @@ void ImageGrabberSettings::initGui()
 	                                                        "and above from the captured area."));
 
     mForceGenericWaylandCheckbox->setText(tr("Force Generic Wayland Screenshot"));
-    mForceGenericWaylandCheckbox->setToolTip(tr("GNOME and KDE Plasma support it's own Wayland\n"
+    mForceGenericWaylandCheckbox->setToolTip(tr("GNOME and KDE Plasma support their own Wayland\n"
                                                    "and the Generic XDG-DESKTOP-PORTAL screenshots.\n"
                                                    "Enabling this option will force KDE Plasma and\n"
                                                    "GNOME to use the XDG-DESKTOP-PORTAL screenshots.\n"

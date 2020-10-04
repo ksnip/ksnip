@@ -63,7 +63,7 @@ void SaverSettings::initGui()
 	mSaveQualityDefaultRadioButton->setText(tr("Default"));
 	mSaveQualityFactorRadioButton->setText(tr("Factor"));
 	mSaveQualityFactorRadioButton->setToolTip(tr("Specify 0 to obtain small compressed files, 100 for large uncompressed files.\n"
-											        "Not all image formats support the full range, JEPG does."));
+											        "Not all image formats support the full range, JPEG does."));
 
 	mSaveQualityFactorSpinBox->setToolTip(mSaveQualityFactorRadioButton->toolTip());
 

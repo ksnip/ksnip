@@ -27,7 +27,9 @@
 class CaptureHandlerFactory
 {
 public:
-	static ICaptureHandler *create(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent);
+	explicit CaptureHandlerFactory() = default;
+	~CaptureHandlerFactory() = default;
+	static ICaptureHandler *create(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService, QWidget *parent);
 };
 
 #endif //KSNIP_CAPTUREHANDLERFACTORY_H

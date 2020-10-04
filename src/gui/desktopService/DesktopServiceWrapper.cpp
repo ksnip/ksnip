@@ -17,13 +17,9 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "CaptureHandlerFactory.h"
+#include "DesktopServiceWrapper.h"
 
-ICaptureHandler * CaptureHandlerFactory::create(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService, QWidget *parent)
+void DesktopServiceWrapper::openUrl(const QUrl &url)
 {
-	if(KsnipConfigProvider::instance()->useTabs()) {
-		return new MultiCaptureHandler(imageAnnotator, toastService, clipboard, desktopService, parent);
-	} else {
-		return new SingleCaptureHandler(imageAnnotator, toastService, clipboard, parent);
-	}
+	QDesktopServices::openUrl(url);
 }

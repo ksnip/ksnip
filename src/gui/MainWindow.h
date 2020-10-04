@@ -38,6 +38,7 @@
 #include "src/gui/captureHandler/ICaptureChangeListener.h"
 #include "src/gui/widgetHider/WidgetHiderFactory.h"
 #include "src/gui/pinWindow/PinWindowHandler.h"
+#include "src/gui/desktopService/DesktopServiceWrapper.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/config/KsnipConfigProvider.h"
@@ -101,6 +102,7 @@ private:
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
     TrayIcon *mTrayIcon;
+    IDesktopService *mDesktopService;
 	DragAndDropHandler *mDragAndDropHandler;
 	UploaderProvider *mUploaderProvider;
 	ICaptureHandler *mCaptureHandler;

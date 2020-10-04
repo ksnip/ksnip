@@ -19,7 +19,7 @@
 
 #include "MultiCaptureHandler.h"
 
-MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent) :
+MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService, QWidget *parent) :
 	mImageAnnotator(imageAnnotator),
 	mToastService(toastService),
 	mParent(parent),
@@ -27,6 +27,7 @@ MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToast
 	mTabStateHandler(new CaptureTabStateHandler),
 	mConfig(KsnipConfigProvider::instance()),
 	mClipboard(clipboard),
+	mDesktopService(desktopService),
 	mSaveContextMenuAction(new TabContextMenuAction(this)),
 	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
 	mOpenDirectoryContextMenuAction(new TabContextMenuAction(this)),
@@ -238,7 +239,7 @@ void MultiCaptureHandler::updateContextMenuActions(int index)
 void MultiCaptureHandler::openDirectoryTab(int index)
 {
 	auto path = mTabStateHandler->path(index);
-	QDesktopServices::openUrl(PathHelper::extractParentDirectory(path));
+	mDesktopService->openUrl(PathHelper::extractParentDirectory(path));
 }
 
 void MultiCaptureHandler::copyToClipboardTab(int index)

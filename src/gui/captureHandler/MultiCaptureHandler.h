@@ -20,8 +20,6 @@
 #ifndef KSNIP_MULTICAPTUREHANDLER_H
 #define KSNIP_MULTICAPTUREHANDLER_H
 
-#include <QDesktopServices>
-
 #include "src/gui/captureHandler/ICaptureHandler.h"
 #include "src/gui/captureHandler/CaptureTabStateHandler.h"
 #include "src/gui/captureHandler/TabContextMenuAction.h"
@@ -30,6 +28,7 @@
 #include "src/gui/IToastService.h"
 #include "src/gui/clipboard/IClipboard.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
+#include "src/gui/desktopService/IDesktopService.h"
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
 #include "src/common/loader/IconLoader.h"
@@ -39,7 +38,7 @@ class MultiCaptureHandler : public QObject, public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent);
+	explicit MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService, QWidget *parent);
 	~MultiCaptureHandler() override;
 	bool canClose() override;
 	bool canTakeNew() override;
@@ -63,6 +62,7 @@ private:
 	PathFromCaptureProvider mPathFromCaptureProvider;
 	KsnipConfig *mConfig;
 	IClipboard *mClipboard;
+	IDesktopService *mDesktopService;
 	TabContextMenuAction *mSaveContextMenuAction;
 	TabContextMenuAction *mSaveAsContextMenuAction;
 	TabContextMenuAction *mOpenDirectoryContextMenuAction;

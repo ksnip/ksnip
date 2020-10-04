@@ -44,12 +44,13 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mCapturePrinter(new CapturePrinter(this)),
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 	mTrayIcon(new TrayIcon(this)),
+	mDesktopService(new DesktopServiceWrapper),
 	mSelectedWindowState(Qt::WindowActive),
 	mWindowStateChangeLock(false),
 	mDragAndDropHandler(new DragAndDropHandler),
 	mUploaderProvider(new UploaderProvider),
 	mSessionManagerRequestedQuit(false),
-	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mClipboard, this)),
+	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mClipboard, mDesktopService, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
 	mWidgetHider(WidgetHiderFactory::create(this))
 {
@@ -130,6 +131,7 @@ MainWindow::~MainWindow()
     delete mSaveAsAction;
     delete mCapturePrinter;
     delete mTrayIcon;
+    delete mDesktopService;
     delete mClipboard;
     delete mDragAndDropHandler;
     delete mUploaderProvider;

@@ -25,10 +25,9 @@
 
 #include <functional>
 
-#include <kImageAnnotator/KImageAnnotator.h>
-
 #include "src/gui/TrayIcon.h"
-#include "src/gui/ClipboardWrapper.h"
+#include "src/gui/clipboard/ClipboardWrapper.h"
+#include "src/gui/imageAnnotator/KImageAnnotatorWrapper.h"
 #include "src/gui/aboutDialog/AboutDialog.h"
 #include "src/gui/settingsDialog/SettingsDialog.h"
 #include "src/gui/operations/AddWatermarkOperation.h"
@@ -38,6 +37,7 @@
 #include "src/gui/captureHandler/CaptureHandlerFactory.h"
 #include "src/gui/captureHandler/ICaptureChangeListener.h"
 #include "src/gui/widgetHider/WidgetHiderFactory.h"
+#include "src/gui/pinWindow/PinWindowHandler.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/config/KsnipConfigProvider.h"
@@ -48,9 +48,6 @@
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/handler/DragAndDropHandler.h"
-#include "src/gui/pinWindow/PinWindowHandler.h"
-
-using kImageAnnotator::KImageAnnotator;
 
 class MainWindow : public QMainWindow, public ICaptureChangeListener
 {
@@ -100,7 +97,7 @@ private:
 	IClipboard *mClipboard;
     KsnipConfig *mConfig;
     CapturePrinter *mCapturePrinter;
-    KImageAnnotator *mKImageAnnotator;
+    IImageAnnotator *mImageAnnotator;
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
     TrayIcon *mTrayIcon;

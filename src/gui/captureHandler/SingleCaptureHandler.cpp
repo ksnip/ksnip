@@ -19,17 +19,17 @@
 
 #include "SingleCaptureHandler.h"
 
-SingleCaptureHandler::SingleCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent) :
-	mKImageAnnotator(kImageAnnotator),
-	mToastService(toastService),
-	mParent(parent),
-	mCaptureChangeListener(nullptr),
-	mIsSaved(true),
-	mClipboard(clipboard)
+SingleCaptureHandler::SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent) :
+		mImageAnnotator(imageAnnotator),
+		mToastService(toastService),
+		mParent(parent),
+		mCaptureChangeListener(nullptr),
+		mIsSaved(true),
+		mClipboard(clipboard)
 {
-	mKImageAnnotator->setTabBarAutoHide(true);
+	mImageAnnotator->setTabBarAutoHide(true);
 
-	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, this, &SingleCaptureHandler::markUnsaved);
+	connect(mImageAnnotator, &IImageAnnotator::imageChanged, this, &SingleCaptureHandler::markUnsaved);
 }
 
 bool SingleCaptureHandler::canClose()
@@ -64,13 +64,13 @@ void SingleCaptureHandler::save()
 
 void SingleCaptureHandler::copy()
 {
-	auto image = mKImageAnnotator->image();
+	auto image = mImageAnnotator->image();
 	mClipboard->setImage(image);
 }
 
 void SingleCaptureHandler::innerSave(bool isInstant)
 {
-	auto image = mKImageAnnotator->image();
+	auto image = mImageAnnotator->image();
 	SaveOperation operation(mParent, image, isInstant, mPath, mToastService);
 	auto saveResult = operation.execute();
 	mPath =  saveResult.path;
@@ -81,9 +81,9 @@ void SingleCaptureHandler::innerSave(bool isInstant)
 void SingleCaptureHandler::load(const CaptureDto &capture)
 {
 	resetStats();
-	mKImageAnnotator->loadImage(capture.screenshot);
+	mImageAnnotator->loadImage(capture.screenshot);
 	if (capture.isCursorValid()) {
-		mKImageAnnotator->insertImageItem(capture.cursor.position, capture.cursor.image);
+		mImageAnnotator->insertImageItem(capture.cursor.position, capture.cursor.image);
 	}
 }
 
@@ -95,12 +95,12 @@ void SingleCaptureHandler::resetStats()
 
 QImage SingleCaptureHandler::image() const
 {
-	return mKImageAnnotator->image();
+	return mImageAnnotator->image();
 }
 
 void SingleCaptureHandler::insertImageItem(const QPointF &pos, const QPixmap &pixmap)
 {
-	mKImageAnnotator->insertImageItem(pos, pixmap);
+	mImageAnnotator->insertImageItem(pos, pixmap);
 }
 
 void SingleCaptureHandler::addListener(ICaptureChangeListener *captureChangeListener)
@@ -110,7 +110,7 @@ void SingleCaptureHandler::addListener(ICaptureChangeListener *captureChangeList
 
 bool SingleCaptureHandler::discardChanges()
 {
-	auto image = mKImageAnnotator->image();
+	auto image = mImageAnnotator->image();
 	auto filename = PathHelper::extractFilename(mPath);
 	CanDiscardOperation operation(mParent, image, !mIsSaved, mPath, filename, mToastService);
 	return operation.execute();

@@ -22,27 +22,24 @@
 
 #include <QDesktopServices>
 
-#include <kImageAnnotator/KImageAnnotator.h>
-
 #include "src/gui/captureHandler/ICaptureHandler.h"
 #include "src/gui/captureHandler/CaptureTabStateHandler.h"
 #include "src/gui/captureHandler/TabContextMenuAction.h"
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/IToastService.h"
-#include "src/gui/IClipboard.h"
+#include "src/gui/clipboard/IClipboard.h"
+#include "src/gui/imageAnnotator/IImageAnnotator.h"
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
-using kImageAnnotator::KImageAnnotator;
-
 class MultiCaptureHandler : public QObject, public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent);
+	explicit MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent);
 	~MultiCaptureHandler() override;
 	bool canClose() override;
 	bool canTakeNew() override;
@@ -57,7 +54,7 @@ public:
 	void addListener(ICaptureChangeListener *captureChangeListener) override;
 
 private:
-	KImageAnnotator *mKImageAnnotator;
+	IImageAnnotator *mImageAnnotator;
 	CaptureTabStateHandler *mTabStateHandler;
 	IToastService *mToastService;
 	QWidget *mParent;

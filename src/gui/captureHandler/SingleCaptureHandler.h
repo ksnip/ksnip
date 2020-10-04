@@ -20,20 +20,17 @@
 #ifndef KSNIP_SINGLECAPTUREHANDLER_H
 #define KSNIP_SINGLECAPTUREHANDLER_H
 
-#include <kImageAnnotator/KImageAnnotator.h>
-
 #include "src/gui/captureHandler/ICaptureHandler.h"
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/IToastService.h"
-#include "src/gui/IClipboard.h"
-
-using kImageAnnotator::KImageAnnotator;
+#include "src/gui/clipboard/IClipboard.h"
+#include "src/gui/imageAnnotator/IImageAnnotator.h"
 
 class SingleCaptureHandler : public QObject, public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit SingleCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent);
+	explicit SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent);
 	~SingleCaptureHandler() override = default;
 	bool canClose() override;
 	bool canTakeNew() override;
@@ -48,7 +45,7 @@ public:
 	void addListener(ICaptureChangeListener *captureChangeListener) override;
 
 private:
-	KImageAnnotator *mKImageAnnotator;
+	IImageAnnotator *mImageAnnotator;
 	IToastService *mToastService;
 	QWidget *mParent;
 	ICaptureChangeListener *mCaptureChangeListener;

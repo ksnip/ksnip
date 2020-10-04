@@ -24,7 +24,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	QMainWindow(),
 	mImageGrabber(imageGrabber),
 	mMode(mode),
-	mKImageAnnotator(new KImageAnnotator),
+	mImageAnnotator(new KImageAnnotatorWrapper),
 	mSaveAsAction(new QAction(this)),
 	mUploadAction(new QAction(this)),
 	mPrintAction(new QAction(this)),
@@ -49,7 +49,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mDragAndDropHandler(new DragAndDropHandler),
 	mUploaderProvider(new UploaderProvider),
 	mSessionManagerRequestedQuit(false),
-	mCaptureHandler(CaptureHandlerFactory::create(mKImageAnnotator, mTrayIcon, mClipboard, this)),
+	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mClipboard, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
 	mWidgetHider(WidgetHiderFactory::create(this))
 {
@@ -117,7 +117,7 @@ void MainWindow::setPosition()
 
 MainWindow::~MainWindow()
 {
-    delete mKImageAnnotator;
+    delete mImageAnnotator;
     delete mUploadAction;
     delete mPrintAction;
     delete mPrintPreviewAction;
@@ -141,7 +141,7 @@ void MainWindow::processInstantCapture(const CaptureDto &capture)
 {
 	mCaptureHandler->load(capture);
 	mCaptureHandler->save();
-	mKImageAnnotator->close();
+	mImageAnnotator->close();
 	close();
 }
 
@@ -240,8 +240,8 @@ QSize MainWindow::sizeHint() const
 {
 	auto minHeight = mToolBar->sizeHint().height();
 	auto minWidth = mToolBar->sizeHint().width();
-	auto annotatorHeight = mKImageAnnotator->sizeHint().height();
-	auto annotatorWidth = mKImageAnnotator->sizeHint().width();
+	auto annotatorHeight = mImageAnnotator->sizeHint().height();
+	auto annotatorWidth = mImageAnnotator->sizeHint().width();
 	auto height = minHeight + annotatorHeight;
 	auto width = minWidth > annotatorWidth ? minWidth : annotatorWidth;
 	return { width, height };
@@ -299,7 +299,7 @@ void MainWindow::setEnablements(bool enabled)
     mToolBar->setCropEnabled(enabled);
 	mSaveAsAction->setEnabled(enabled);
 	mPinAction->setEnabled(enabled);
-	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mKImageAnnotator->isVisible());
+	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
 }
 
 void MainWindow::loadSettings()
@@ -333,13 +333,13 @@ void MainWindow::capture(CaptureModes captureMode)
 
 void MainWindow::initGui()
 {
-    mToolBar = new MainToolBar(mImageGrabber->supportedCaptureModes(), mKImageAnnotator->undoAction(), mKImageAnnotator->redoAction());
+    mToolBar = new MainToolBar(mImageGrabber->supportedCaptureModes(), mImageAnnotator->undoAction(), mImageAnnotator->redoAction());
 
     connect(mToolBar, &MainToolBar::captureModeSelected, this, &MainWindow::capture);
     connect(mToolBar, &MainToolBar::saveActionTriggered, this, &MainWindow::saveClicked);
     connect(mToolBar, &MainToolBar::copyActionTriggered, this, &MainWindow::copyCaptureToClipboard);
     connect(mToolBar, &MainToolBar::captureDelayChanged, this, &MainWindow::captureDelayChanged);
-    connect(mToolBar, &MainToolBar::cropActionTriggered, mKImageAnnotator, &KImageAnnotator::showCropper);
+    connect(mToolBar, &MainToolBar::cropActionTriggered, mImageAnnotator, &IImageAnnotator::showCropper);
 
 	mSaveAsAction->setText(tr("Save As..."));
 	mSaveAsAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_S);
@@ -402,9 +402,9 @@ void MainWindow::initGui()
 	mPasteEmbeddedAction->setText(tr("Paste Embedded"));
 	mPasteEmbeddedAction->setIcon(IconLoader::load(QLatin1Literal("pasteEmbedded")));
 	mPasteEmbeddedAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_V);
-	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mKImageAnnotator->isVisible());
+	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
 	connect(mPasteEmbeddedAction, &QAction::triggered, this, &MainWindow::pasteEmbeddedFromClipboard);
-	connect(mClipboard, &ClipboardWrapper::changed, [this] (bool isPixmap){ mPasteEmbeddedAction->setEnabled(isPixmap && mKImageAnnotator->isVisible()); });
+	connect(mClipboard, &ClipboardWrapper::changed, [this] (bool isPixmap){ mPasteEmbeddedAction->setEnabled(isPixmap && mImageAnnotator->isVisible()); });
 
 	mPinAction->setText(tr("Pin"));
 	mPinAction->setToolTip(tr("Pin screenshot to foreground in frameless window"));
@@ -453,7 +453,7 @@ void MainWindow::initGui()
 	    mTrayIcon->setEnabled(true);
     }
 
-	setCentralWidget(mKImageAnnotator);
+	setCentralWidget(mImageAnnotator->widget());
 }
 
 void MainWindow::copyCaptureToClipboard()
@@ -477,7 +477,7 @@ void MainWindow::printClicked()
 
 void MainWindow::printPreviewClicked()
 {
-	auto savePath = mSavePathProvider.savePathWithFormat(QStringLiteral("pdf"));
+	auto savePath = mSavePathProvider.savePathWithFormat(QLatin1Literal("pdf"));
 	auto image = mCaptureHandler->image();
 	mCapturePrinter->printPreview(image, savePath);
 }
@@ -490,13 +490,13 @@ void MainWindow::showOpenImageDialog()
 
 void MainWindow::setupImageAnnotator()
 {
-	mKImageAnnotator->setSaveToolSelection(mConfig->rememberToolSelection());
-	mKImageAnnotator->setSmoothFactor(mConfig->smoothFactor());
-	mKImageAnnotator->setSmoothPathEnabled(mConfig->smoothPathEnabled());
-	mKImageAnnotator->setTextFont(mConfig->textFont());
-	mKImageAnnotator->setNumberFont(mConfig->numberFont());
-	mKImageAnnotator->setItemShadowEnabled(mConfig->itemShadowEnabled());
-	mKImageAnnotator->setStickers(mConfig->stickerPaths(), mConfig->useDefaultSticker());
+	mImageAnnotator->setSaveToolSelection(mConfig->rememberToolSelection());
+	mImageAnnotator->setSmoothFactor(mConfig->smoothFactor());
+	mImageAnnotator->setSmoothPathEnabled(mConfig->smoothPathEnabled());
+	mImageAnnotator->setTextFont(mConfig->textFont());
+	mImageAnnotator->setNumberFont(mConfig->numberFont());
+	mImageAnnotator->setItemShadowEnabled(mConfig->itemShadowEnabled());
+	mImageAnnotator->setStickers(mConfig->stickerPaths(), mConfig->useDefaultSticker());
 }
 
 void MainWindow::captureDelayChanged(int delay)
@@ -506,7 +506,7 @@ void MainWindow::captureDelayChanged(int delay)
 
 void MainWindow::addWatermark()
 {
-	AddWatermarkOperation operation(mKImageAnnotator);
+	AddWatermarkOperation operation(mImageAnnotator);
 	operation.execute();
 }
 
@@ -536,7 +536,7 @@ void MainWindow::showAboutDialog()
 void MainWindow::showScaleDialog()
 {
 	showDialog([&](){
-		mKImageAnnotator->showScaler();
+		mImageAnnotator->showScaler();
 	});
 }
 

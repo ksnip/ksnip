@@ -17,17 +17,4 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CAPTUREHANDLERFACTORY_H
-#define KSNIP_CAPTUREHANDLERFACTORY_H
-
-#include "src/gui/captureHandler/SingleCaptureHandler.h"
-#include "src/gui/captureHandler/MultiCaptureHandler.h"
-#include "src/backend/config/KsnipConfigProvider.h"
-
-class CaptureHandlerFactory
-{
-public:
-	static ICaptureHandler *create(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent);
-};
-
-#endif //KSNIP_CAPTUREHANDLERFACTORY_H
+#include "IImageAnnotator.h"

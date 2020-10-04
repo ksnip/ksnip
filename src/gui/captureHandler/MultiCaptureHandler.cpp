@@ -17,32 +17,32 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <gui/ClipboardWrapper.h>
+#include <gui/clipboard/ClipboardWrapper.h>
 #include "MultiCaptureHandler.h"
 
-MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent) :
-	mKImageAnnotator(kImageAnnotator),
-	mToastService(toastService),
-	mParent(parent),
-	mCaptureChangeListener(nullptr),
-	mTabStateHandler(new CaptureTabStateHandler),
-	mConfig(KsnipConfigProvider::instance()),
-	mClipboard(clipboard),
-	mSaveContextMenuAction(new TabContextMenuAction(this)),
-	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
-	mOpenDirectoryContextMenuAction(new TabContextMenuAction(this)),
-	mCopyPathToClipboardContextMenuAction(new TabContextMenuAction(this)),
-	mCopyToClipboardContextMenuAction(new TabContextMenuAction(this))
+MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent) :
+		mImageAnnotator(imageAnnotator),
+		mToastService(toastService),
+		mParent(parent),
+		mCaptureChangeListener(nullptr),
+		mTabStateHandler(new CaptureTabStateHandler),
+		mConfig(KsnipConfigProvider::instance()),
+		mClipboard(clipboard),
+		mSaveContextMenuAction(new TabContextMenuAction(this)),
+		mSaveAsContextMenuAction(new TabContextMenuAction(this)),
+		mOpenDirectoryContextMenuAction(new TabContextMenuAction(this)),
+		mCopyPathToClipboardContextMenuAction(new TabContextMenuAction(this)),
+		mCopyToClipboardContextMenuAction(new TabContextMenuAction(this))
 {
-	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabChanged);
-	connect(mKImageAnnotator, &KImageAnnotator::tabMoved, mTabStateHandler, &CaptureTabStateHandler::tabMoved);
-	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabContentChanged);
-	connect(mTabStateHandler, &CaptureTabStateHandler::updateTabInfo, mKImageAnnotator, &KImageAnnotator::updateTabInfo);
+	connect(mImageAnnotator, &IImageAnnotator::currentTabChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabChanged);
+	connect(mImageAnnotator, &IImageAnnotator::tabMoved, mTabStateHandler, &CaptureTabStateHandler::tabMoved);
+	connect(mImageAnnotator, &IImageAnnotator::imageChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabContentChanged);
+	connect(mTabStateHandler, &CaptureTabStateHandler::updateTabInfo, mImageAnnotator, &IImageAnnotator::updateTabInfo);
 
-	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, this, &MultiCaptureHandler::captureChanged);
-	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, this, &MultiCaptureHandler::captureChanged);
-	connect(mKImageAnnotator, &KImageAnnotator::tabCloseRequested, this, &MultiCaptureHandler::tabCloseRequested);
-	connect(mKImageAnnotator, &KImageAnnotator::tabContextMenuOpened, this, &MultiCaptureHandler::updateContextMenuActions);
+	connect(mImageAnnotator, &IImageAnnotator::imageChanged, this, &MultiCaptureHandler::captureChanged);
+	connect(mImageAnnotator, &IImageAnnotator::currentTabChanged, this, &MultiCaptureHandler::captureChanged);
+	connect(mImageAnnotator, &IImageAnnotator::tabCloseRequested, this, &MultiCaptureHandler::tabCloseRequested);
+	connect(mImageAnnotator, &IImageAnnotator::tabContextMenuOpened, this, &MultiCaptureHandler::updateContextMenuActions);
 
 	connect(mConfig, &KsnipConfig::annotatorConfigChanged, this, &MultiCaptureHandler::annotatorConfigChanged);
 
@@ -54,6 +54,11 @@ MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToas
 MultiCaptureHandler::~MultiCaptureHandler()
 {
 	delete mTabStateHandler;
+	delete mSaveContextMenuAction;
+	delete mSaveAsContextMenuAction;
+	delete mOpenDirectoryContextMenuAction;
+	delete mCopyPathToClipboardContextMenuAction;
+	delete mCopyToClipboardContextMenuAction;
 }
 
 bool MultiCaptureHandler::canClose()
@@ -75,7 +80,7 @@ bool MultiCaptureHandler::canTakeNew()
 
 bool MultiCaptureHandler::discardChanges(int index)
 {
-	auto image = mKImageAnnotator->imageAt(index);
+	auto image = mImageAnnotator->imageAt(index);
 	auto isUnsaved = !mTabStateHandler->isSaved(index);
 	auto pathToSource = mTabStateHandler->path(index);
 	auto filename = mTabStateHandler->filename(index);
@@ -85,12 +90,12 @@ bool MultiCaptureHandler::discardChanges(int index)
 
 void MultiCaptureHandler::removeTab(int currentTabIndex)
 {
-	mKImageAnnotator->removeTab(currentTabIndex);
+	mImageAnnotator->removeTab(currentTabIndex);
 	mTabStateHandler->tabRemoved(currentTabIndex);
 	captureChanged();
 
 	if(mTabStateHandler->count() == 0) {
-		mKImageAnnotator->hide();
+		mImageAnnotator->hide();
 		captureEmpty();
 	}
 }
@@ -122,7 +127,7 @@ void MultiCaptureHandler::copy()
 
 void MultiCaptureHandler::saveAt(int index, bool isInstant)
 {
-	auto image = mKImageAnnotator->imageAt(index);
+	auto image = mImageAnnotator->imageAt(index);
 	SaveOperation operation(mParent, image, isInstant, mTabStateHandler->path(index), mToastService);
 	auto saveResult = operation.execute();
 	mTabStateHandler->setSaveState(index, saveResult);
@@ -134,10 +139,10 @@ void MultiCaptureHandler::load(const CaptureDto &capture)
 	auto path = mPathFromCaptureProvider.pathFrom(capture);
 	auto isSaved = PathHelper::isPathValid(path);
 	auto filename = mNewCaptureNameProvider.nextName(path);
-	auto index = mKImageAnnotator->addTab(capture.screenshot, filename, path);
+	auto index = mImageAnnotator->addTab(capture.screenshot, filename, path);
 	mTabStateHandler->add(index, filename, path, isSaved);
 	if (capture.isCursorValid()) {
-		mKImageAnnotator->insertImageItem(capture.cursor.position, capture.cursor.image);
+		mImageAnnotator->insertImageItem(capture.cursor.position, capture.cursor.image);
 	}
 }
 
@@ -151,12 +156,12 @@ void MultiCaptureHandler::tabCloseRequested(int index)
 
 QImage MultiCaptureHandler::image() const
 {
-	return mKImageAnnotator->image();
+	return mImageAnnotator->image();
 }
 
 void MultiCaptureHandler::insertImageItem(const QPointF &pos, const QPixmap &pixmap)
 {
-	mKImageAnnotator->insertImageItem(pos, pixmap);
+	mImageAnnotator->insertImageItem(pos, pixmap);
 }
 
 void MultiCaptureHandler::addListener(ICaptureChangeListener *captureChangeListener)
@@ -180,7 +185,7 @@ void MultiCaptureHandler::captureEmpty()
 
 void MultiCaptureHandler::annotatorConfigChanged()
 {
-	mKImageAnnotator->setTabBarAutoHide(mConfig->autoHideTabs());
+	mImageAnnotator->setTabBarAutoHide(mConfig->autoHideTabs());
 }
 
 void MultiCaptureHandler::addTabContextMenuActions()
@@ -210,7 +215,7 @@ void MultiCaptureHandler::addTabContextMenuActions()
 									mCopyToClipboardContextMenuAction,
 									mCopyPathToClipboardContextMenuAction
 	};
-	mKImageAnnotator->addTabContextMenuActions(actions);
+	mImageAnnotator->addTabContextMenuActions(actions);
 }
 
 void MultiCaptureHandler::saveAsTab(int index)
@@ -239,7 +244,7 @@ void MultiCaptureHandler::openDirectoryTab(int index)
 
 void MultiCaptureHandler::copyToClipboardTab(int index)
 {
-	auto image = mKImageAnnotator->imageAt(index);
+	auto image = mImageAnnotator->imageAt(index);
 	mClipboard->setImage(image);
 }
 

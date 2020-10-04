@@ -19,10 +19,10 @@
 
 #include "AddWatermarkOperation.h"
 
-AddWatermarkOperation::AddWatermarkOperation(KImageAnnotator *kImageAnnotator)
+AddWatermarkOperation::AddWatermarkOperation(IImageAnnotator *imageAnnotator) :
+	mImageAnnotator(imageAnnotator),
+	mConfig(KsnipConfigProvider::instance())
 {
-	mKImageAnnotator = kImageAnnotator;
-	mConfig = KsnipConfigProvider::instance();
 }
 
 void AddWatermarkOperation::execute()
@@ -33,11 +33,11 @@ void AddWatermarkOperation::execute()
 		return;
 	}
 
-	auto availableSpace = mKImageAnnotator->image().size();
+	auto availableSpace = mImageAnnotator->image().size();
 	auto rotated = mConfig->rotateWatermarkEnabled();
 	auto finishedWatermarkImage = mImagePreparer.prepare(watermarkImage, availableSpace, rotated);
 	auto position = getPositionForWatermark(finishedWatermarkImage, availableSpace);
-	mKImageAnnotator->insertImageItem(position, finishedWatermarkImage);
+	mImageAnnotator->insertImageItem(position, finishedWatermarkImage);
 }
 
 void AddWatermarkOperation::NotifyAboutMissingWatermarkImage() const

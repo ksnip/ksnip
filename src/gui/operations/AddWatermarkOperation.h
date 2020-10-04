@@ -24,25 +24,22 @@
 
 #include <random>
 
-#include <kImageAnnotator/KImageAnnotator.h>
-
 #include "WatermarkImagePreparer.h"
 #include "src/common/helper/MessageBoxHelper.h"
 #include "src/backend/WatermarkImageLoader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
-
-using kImageAnnotator::KImageAnnotator;
+#include "src/gui/imageAnnotator/IImageAnnotator.h"
 
 class AddWatermarkOperation : public QObject
 {
 	Q_OBJECT
 public:
-	explicit AddWatermarkOperation(KImageAnnotator *kImageAnnotator);
+	explicit AddWatermarkOperation(IImageAnnotator *imageAnnotator);
 	~AddWatermarkOperation() override = default;
 	void execute();
 
 private:
-	KImageAnnotator *mKImageAnnotator;
+	IImageAnnotator *mImageAnnotator;
 	WatermarkImagePreparer mImagePreparer;
 	WatermarkImageLoader mWatermarkImageLoader;
 	KsnipConfig *mConfig;

@@ -140,7 +140,7 @@ gladder.</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Aantekeningsgereedschap onthouden en laden na opstarten</translation>
     </message>
 </context>
 <context>
@@ -207,18 +207,21 @@ Herstart om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Remember position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Vensterpositie onthouden en laden na opstarten</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabbladbalk verbergen als er één tabblad geopend is</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel deze optie in om slechts één ksnip-proces toe te staan.
+Alle hierna gestarte processen geven opdrachten door aan het eerste
+en worden daarna afgesloten. Herstart alle ksnip-processen om deze
+wijziging toe te passen.</translation>
     </message>
 </context>
 <context>
@@ -329,11 +332,11 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermfotoportaal</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruik het schermfotoportaal om een schermfoto te maken</translation>
     </message>
 </context>
 <context>
@@ -360,11 +363,11 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip is een vrijesoftwareproject zonder winstoogmerk, maar&lt;br/&gt;maakt desondanks kosten,&lt;br/&gt;zoals domeinnaam- en hardwarekosten (voor platform-onafhankelijke ondersteuning).</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Als je wilt helpen of gewoon&lt;br/&gt;je waardering voor ons harde werk wilt tonen,&lt;br/&gt;dan kun je ons trakteren op een biertje of kopje koffie</translation>
     </message>
 </context>
 <context>
@@ -470,7 +473,7 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Vastleggen met portaal</translation>
     </message>
 </context>
 <context>
@@ -552,18 +555,26 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel in om de achtergrond te bevriezen tijdens het
+selecteren van een rechthoekig gebied. Dit verandert
+tevens het gedrag van vertraagde schermfoto&apos;s: de
+vertraging vindt plaats vóórdat het selectiegebied wordt
+getoond. Deze optie is altijd uitgeschakeld op Wayland en
+altijd ingeschakeld op macOS.</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Als de linkermuisknop niet wordt ingedrukt, wordt de
+positie getoond. Als de knop wél wordt ingedrukt,
+wordt de grootte van het selectiegebied links en
+bovenaan getoond.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Algemene Wayland-schermfoto afdwingen</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support it&apos;s own Wayland
@@ -571,11 +582,15 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME en KDE Plasma hebben ondersteuning voor zowel hun
+eigen manier van maken van schermfoto&apos;s als de algemene
+XDG-manier. Schakel deze optie in om de algemene XDG-manier
+af te dwingen.
+Herstart ksnip om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Grootte van algemene Wayland-schermfoto&apos;s aanpassen</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -583,7 +598,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Algemene Wayland-implementaties die XDG
+DESKTOP PORTAL gebruiken, handelen beeldgroottes
+allemaal anders af. Met deze optie wordt de huidige
+beeldgrootte bepaald en toegepast op de schermfoto
+in ksnip.</translation>
     </message>
 </context>
 <context>
@@ -870,7 +889,7 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Er werd een foto verwacht, maar niks opgegeven.</translation>
     </message>
 </context>
 <context>
@@ -981,20 +1000,21 @@ De bestandsnaam mag de volgende jokertekens bevatten:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Standaard</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Factor</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JEPG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geef 0 op om weinig compressie en 100 om hoge compressie toe te passen.
+Niet alle afbeeldingsformaten ondersteunen dit, maar jpeg in ieder geval wel.</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Opslagkwaliteit</translation>
     </message>
 </context>
 <context>

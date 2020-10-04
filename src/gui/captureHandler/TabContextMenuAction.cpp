@@ -26,7 +26,5 @@ TabContextMenuAction::TabContextMenuAction(QObject *parent) : QAction(parent)
 
 void TabContextMenuAction::actionTriggered()
 {
-	auto id = data().toInt();
-	qDebug("Tab id in action %s", qPrintable(QString::number(id)));
-	emit triggered(id);
+	emit triggered(data().toInt());
 }

@@ -37,6 +37,12 @@ bool CaptureTabStateHandler::isSaved(int index)
 	return tabState.isNull() || tabState->isSaved;
 }
 
+bool CaptureTabStateHandler::isPathValid(int index)
+{
+	auto tabState = getTabState(index);
+	return tabState.isNull() || PathHelper::isPathValid(tabState->path);
+}
+
 QString CaptureTabStateHandler::path(int index)
 {
 	auto tabState = getTabState(index);
@@ -128,4 +134,3 @@ QSharedPointer<CaptureTabState> CaptureTabStateHandler::getTabState(int index)
 	}
 	return QSharedPointer<CaptureTabState>(nullptr);
 }
-

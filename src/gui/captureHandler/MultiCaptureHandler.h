@@ -20,6 +20,8 @@
 #ifndef KSNIP_MULTICAPTUREHANDLER_H
 #define KSNIP_MULTICAPTUREHANDLER_H
 
+#include <QDesktopServices>
+
 #include <kImageAnnotator/KImageAnnotator.h>
 
 #include "src/gui/captureHandler/ICaptureHandler.h"
@@ -62,6 +64,7 @@ private:
 	KsnipConfig *mConfig;
 	TabContextMenuAction *mSaveContextMenuAction;
 	TabContextMenuAction *mSaveAsContextMenuAction;
+	TabContextMenuAction *mOpenDirectoryContextMenuAction;
 
 	bool discardChanges(int index);
 	void removeTab(int currentTabIndex);
@@ -73,9 +76,10 @@ private slots:
 	void captureEmpty();
 	void annotatorConfigChanged();
 	void addTabContextMenuActions();
-	void saveAsTab(int tabId);
-	void saveTab(int tabId);
-	void updateContextMenuActions(int tabId);
+	void saveAsTab(int index);
+	void saveTab(int index);
+	void openDirectoryTab(int index);
+	void updateContextMenuActions(int index);
 };
 
 #endif //KSNIP_MULTICAPTUREHANDLER_H

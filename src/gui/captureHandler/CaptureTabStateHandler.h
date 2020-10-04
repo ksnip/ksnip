@@ -36,6 +36,7 @@ public:
 	~CaptureTabStateHandler() override = default;
 	void add(int index, const QString &filename, const QString &path, bool isSaved);
 	bool isSaved(int index);
+	bool isPathValid(int index);
 	QString path(int index);
 	QString filename(int index);
 	void setSaveState(int index, const SaveResultDto &saveResult);

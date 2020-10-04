@@ -27,7 +27,8 @@ MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToas
 	mTabStateHandler(new CaptureTabStateHandler),
 	mConfig(KsnipConfigProvider::instance()),
 	mSaveContextMenuAction(new TabContextMenuAction(this)),
-	mSaveAsContextMenuAction(new TabContextMenuAction(this))
+	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
+	mOpenDirectoryContextMenuAction(new TabContextMenuAction(this))
 {
 	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabChanged);
 	connect(mKImageAnnotator, &KImageAnnotator::tabMoved, mTabStateHandler, &CaptureTabStateHandler::tabMoved);
@@ -177,25 +178,37 @@ void MultiCaptureHandler::addTabContextMenuActions()
 {
 	mSaveContextMenuAction->setText(tr("Save"));
 	mSaveAsContextMenuAction->setText(tr("Save As"));
+	mOpenDirectoryContextMenuAction->setText(tr("Open Directory"));
 
 	connect(mSaveContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveTab);
 	connect(mSaveAsContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveAsTab);
+	connect(mOpenDirectoryContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::openDirectoryTab);
 
-	mKImageAnnotator->addTabContextMenuActions(QList<QAction*>{ mSaveContextMenuAction, mSaveAsContextMenuAction });
+	auto actions = QList<QAction *>{
+		mSaveContextMenuAction,
+		mSaveAsContextMenuAction,
+		mOpenDirectoryContextMenuAction};
+	mKImageAnnotator->addTabContextMenuActions(actions);
 }
 
-void MultiCaptureHandler::saveAsTab(int tabId)
+void MultiCaptureHandler::saveAsTab(int index)
 {
-	saveAt(tabId, false);
+	saveAt(index, false);
 }
 
-void MultiCaptureHandler::saveTab(int tabId)
+void MultiCaptureHandler::saveTab(int index)
 {
-	saveAt(tabId, true);
+	saveAt(index, true);
 }
 
-void MultiCaptureHandler::updateContextMenuActions(int tabId)
+void MultiCaptureHandler::updateContextMenuActions(int index)
 {
-	auto isSaved = mTabStateHandler->isSaved(tabId);
-	mSaveContextMenuAction->setEnabled(!isSaved);
+	mSaveContextMenuAction->setEnabled(!mTabStateHandler->isSaved(index));
+	mOpenDirectoryContextMenuAction->setEnabled(mTabStateHandler->isPathValid(index));
+}
+
+void MultiCaptureHandler::openDirectoryTab(int index)
+{
+	auto path = mTabStateHandler->path(index);
+	QDesktopServices::openUrl(PathHelper::extractParentDirectory(path));
 }

@@ -7,6 +7,7 @@
 * New: Allow setting image quality when saving images. ([#382](https://github.com/ksnip/ksnip/issues/382))
 * New: Add support for cross-platform wayland screenshots using xdg-desktop-portal. ([#243](https://github.com/ksnip/ksnip/issues/243))
 * New: Add save and save as tab contextMenu items. ([#332](https://github.com/ksnip/ksnip/issues/332))
+* New: Add open directory context menu item on capture tabs. ([#339](https://github.com/ksnip/ksnip/issues/339))
 * New kImageAnnotator: Add Pixelate image area tool. ([#140](https://github.com/ksnip/kImageAnnotator/issues/140))
 * New kImageAnnotator: Zoom in and out. ([#123](https://github.com/ksnip/kImageAnnotator/issues/123))
 * New kImageAnnotator: Add interface for adding custom tab context menu actions. ([#96](https://github.com/ksnip/kImageAnnotator/issues/96)). ([#123](https://github.com/ksnip/kImageAnnotator/issues/123))

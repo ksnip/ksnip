@@ -30,7 +30,7 @@ public:
 	~TabContextMenuAction() override = default;
 
 signals:
-	void triggered(int tabId);
+	void triggered(int index);
 
 private slots:
 	void actionTriggered();

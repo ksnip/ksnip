@@ -139,7 +139,7 @@ för penna och markör, men gör dem mjukare.</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Kom ihåg val av anteckningsverktyg och läs in vid uppstart</translation>
     </message>
 </context>
 <context>
@@ -206,18 +206,21 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Remember position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Kom ihåg position vid förflyttning och läs in vid uppstart</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj flikfältet när endast en flik används.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Om du aktiverar detta alternativ kan endast en ksnip-instans köras,
+alla instanser som startas efter den första, kommer att skicka
+sina argument vidare till den första och sedan avslutas.
+Om det här alternativet ändras måste alla öppna instanser startas om.</translation>
     </message>
 </context>
 <context>
@@ -328,11 +331,11 @@ Vill du spara det?</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Skärmklippsportal</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Använder skärmklippsportalen för att ta skärmdump</translation>
     </message>
 </context>
 <context>
@@ -359,11 +362,11 @@ Vill du spara det?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip är ett icke-lönsamt mjukvaruprojekt, som&lt;br/&gt;fortfarande har vissa kostnader som måste täckas,&lt;br/&gt;som domänkostnader eller hårdvarukostnader för flerplattformsberoende stöd.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Om du vill hjälpa till eller bara&lt;br/&gt;uppskattar det arbete som görs&lt;br/&gt;genom att bjuda utvecklaren på en öl eller kaffe, kan du göra det</translation>
     </message>
 </context>
 <context>
@@ -469,7 +472,7 @@ Vill du spara det?</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Klipp ut med hjälp av Portal</translation>
     </message>
 </context>
 <context>
@@ -549,18 +552,28 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vid aktivering fryses bilden medan ett rektangulärt
+område markeras. Det ändrar också beteendet för
+fördröjt skärmklipp. Med detta alternativ aktiverat,
+sker fördröjningen innan klippområdet visas och med
+alternativet avaktiverat, sker fördröjningen efter
+klippområdet visas.
+Denna funktion är alltid inaktiverad för Wayland och
+alltid aktiverad för MacOS.</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>När vänster musknapp inte hålls ner, visas
+positionen. När musknappen hålls ner, visas
+storleken på markerat område till vänster
+och över klippområdet.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Framtvinga inbyggt Wayland-skärmklipp</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support it&apos;s own Wayland
@@ -568,11 +581,15 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME och KDE Plasma stödjer det egna Wayland
+och inbyggda XDG-DESKTOP-PORTAL-skärmklipp.
+Om alternativet aktiveras kommer KDE Plasma och
+GNOME att använda XDG-DESKTOP-PORTAL skärmklipp.
+Ändring i det här alternativet kräveratt ksnip startas om.</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Skala inbyggt Wayland-skärmklipp</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -580,7 +597,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Inbyggda Wayland-implementeringar som använder
+XDG-DESKTOP-PORTAL hanterar skärmskalning
+olikt. Aktivering av detta alternativ kommer
+avgöra aktuell skärmskalning och
+tillämpa det på skärmklipp i ksnip.</translation>
     </message>
 </context>
 <context>
@@ -867,7 +888,7 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen bild tillgänglig, men en var förväntad.</translation>
     </message>
 </context>
 <context>
@@ -978,20 +999,21 @@ Filnamn kan innehålla följande jokertecken:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Faktor</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JEPG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ange 0 för att erhålla små komprimerade filer, 100 för stora okomprimerade filer.
+Alla bildformat stödjer inte hela intervallet, det gör JEPG.</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara kvalitet</translation>
     </message>
 </context>
 <context>

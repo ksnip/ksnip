@@ -34,7 +34,7 @@ void CaptureTabStateHandler::add(int index, const QString &filename, const QStri
 bool CaptureTabStateHandler::isSaved(int index)
 {
 	auto tabState = getTabState(index);
-	return tabState.isNull() ? true : tabState->isSaved;
+	return tabState.isNull() || tabState->isSaved;
 }
 
 QString CaptureTabStateHandler::path(int index)

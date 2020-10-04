@@ -25,7 +25,9 @@ MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToas
 	mParent(parent),
 	mCaptureChangeListener(nullptr),
 	mTabStateHandler(new CaptureTabStateHandler),
-	mConfig(KsnipConfigProvider::instance())
+	mConfig(KsnipConfigProvider::instance()),
+	mSaveContextMenuAction(new TabContextMenuAction(this)),
+	mSaveAsContextMenuAction(new TabContextMenuAction(this))
 {
 	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabChanged);
 	connect(mKImageAnnotator, &KImageAnnotator::tabMoved, mTabStateHandler, &CaptureTabStateHandler::tabMoved);
@@ -35,8 +37,11 @@ MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToas
 	connect(mKImageAnnotator, &KImageAnnotator::imageChanged, this, &MultiCaptureHandler::captureChanged);
 	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, this, &MultiCaptureHandler::captureChanged);
 	connect(mKImageAnnotator, &KImageAnnotator::tabCloseRequested, this, &MultiCaptureHandler::tabCloseRequested);
+	connect(mKImageAnnotator, &KImageAnnotator::tabContextMenuOpened, this, &MultiCaptureHandler::updateContextMenuActions);
 
 	connect(mConfig, &KsnipConfig::annotatorConfigChanged, this, &MultiCaptureHandler::annotatorConfigChanged);
+
+	addTabContextMenuActions();
 
 	annotatorConfigChanged();
 }
@@ -97,12 +102,12 @@ QString MultiCaptureHandler::path() const
 
 void MultiCaptureHandler::saveAs()
 {
-	saveAt(mTabStateHandler->currentTabIndex(), false);
+	saveAsTab(mTabStateHandler->currentTabIndex());
 }
 
 void MultiCaptureHandler::save()
 {
-	saveAt(mTabStateHandler->currentTabIndex(), true);
+	saveTab(mTabStateHandler->currentTabIndex());
 }
 
 void MultiCaptureHandler::saveAt(int index, bool isInstant)
@@ -166,4 +171,31 @@ void MultiCaptureHandler::captureEmpty()
 void MultiCaptureHandler::annotatorConfigChanged()
 {
 	mKImageAnnotator->setTabBarAutoHide(mConfig->autoHideTabs());
+}
+
+void MultiCaptureHandler::addTabContextMenuActions()
+{
+	mSaveContextMenuAction->setText(tr("Save"));
+	mSaveAsContextMenuAction->setText(tr("Save As"));
+
+	connect(mSaveContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveTab);
+	connect(mSaveAsContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveAsTab);
+
+	mKImageAnnotator->addTabContextMenuActions(QList<QAction*>{ mSaveContextMenuAction, mSaveAsContextMenuAction });
+}
+
+void MultiCaptureHandler::saveAsTab(int tabId)
+{
+	saveAt(tabId, false);
+}
+
+void MultiCaptureHandler::saveTab(int tabId)
+{
+	saveAt(tabId, true);
+}
+
+void MultiCaptureHandler::updateContextMenuActions(int tabId)
+{
+	auto isSaved = mTabStateHandler->isSaved(tabId);
+	mSaveContextMenuAction->setEnabled(!isSaved);
 }

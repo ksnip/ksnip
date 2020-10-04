@@ -24,6 +24,7 @@
 
 #include "src/gui/captureHandler/ICaptureHandler.h"
 #include "src/gui/captureHandler/CaptureTabStateHandler.h"
+#include "src/gui/captureHandler/TabContextMenuAction.h"
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/IToastService.h"
@@ -59,6 +60,8 @@ private:
 	NewCaptureNameProvider mNewCaptureNameProvider;
 	PathFromCaptureProvider mPathFromCaptureProvider;
 	KsnipConfig *mConfig;
+	TabContextMenuAction *mSaveContextMenuAction;
+	TabContextMenuAction *mSaveAsContextMenuAction;
 
 	bool discardChanges(int index);
 	void removeTab(int currentTabIndex);
@@ -69,6 +72,10 @@ private slots:
 	void captureChanged();
 	void captureEmpty();
 	void annotatorConfigChanged();
+	void addTabContextMenuActions();
+	void saveAsTab(int tabId);
+	void saveTab(int tabId);
+	void updateContextMenuActions(int tabId);
 };
 
 #endif //KSNIP_MULTICAPTUREHANDLER_H

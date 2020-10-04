@@ -24,7 +24,8 @@ SingleCaptureHandler::SingleCaptureHandler(KImageAnnotator *kImageAnnotator, ITo
 	mToastService(toastService),
 	mParent(parent),
 	mCaptureChangeListener(nullptr),
-	mIsSaved(true)
+	mIsSaved(true),
+	mClipboard(new ClipboardWrapper(QGuiApplication::clipboard()))
 {
 	mKImageAnnotator->setTabBarAutoHide(true);
 
@@ -59,6 +60,12 @@ void SingleCaptureHandler::saveAs()
 void SingleCaptureHandler::save()
 {
 	innerSave(true);
+}
+
+void SingleCaptureHandler::copy()
+{
+	auto image = mKImageAnnotator->image();
+	mClipboard->setImage(image);
 }
 
 void SingleCaptureHandler::innerSave(bool isInstant)

@@ -33,6 +33,7 @@
 #include "src/gui/ClipboardWrapper.h"
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
+#include "src/common/loader/IconLoader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
 using kImageAnnotator::KImageAnnotator;
@@ -49,6 +50,7 @@ public:
 	QString path() const override;
 	void saveAs() override;
 	void save() override;
+	void copy() override;
 	void load(const CaptureDto &capture) override;
 	QImage image() const override;
 	void insertImageItem(const QPointF &pos, const QPixmap &pixmap) override;
@@ -68,6 +70,7 @@ private:
 	TabContextMenuAction *mSaveAsContextMenuAction;
 	TabContextMenuAction *mOpenDirectoryContextMenuAction;
 	TabContextMenuAction *mCopyPathToClipboardContextMenuAction;
+	TabContextMenuAction *mCopyToClipboardContextMenuAction;
 
 	bool discardChanges(int index);
 	void removeTab(int currentTabIndex);
@@ -83,6 +86,7 @@ private slots:
 	void saveTab(int index);
 	void openDirectoryTab(int index);
 	void updateContextMenuActions(int index);
+	void copyToClipboardTab(int index);
 	void copyPathToClipboardTab(int index);
 };
 

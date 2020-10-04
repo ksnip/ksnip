@@ -25,6 +25,7 @@
 #include "src/gui/captureHandler/ICaptureHandler.h"
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/IToastService.h"
+#include "src/gui/ClipboardWrapper.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -40,6 +41,7 @@ public:
 	QString path() const override;
 	void saveAs() override;
 	void save() override;
+	void copy() override;
 	void load(const CaptureDto &capture) override;
 	QImage image() const override;
 	void insertImageItem(const QPointF &pos, const QPixmap &pixmap) override;
@@ -52,6 +54,7 @@ private:
 	ICaptureChangeListener *mCaptureChangeListener;
 	bool mIsSaved;
 	QString mPath;
+	ClipboardWrapper *mClipboard;
 
 	bool discardChanges();
 	void resetStats();

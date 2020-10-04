@@ -33,6 +33,7 @@ public:
 	virtual QString path() const = 0;
 	virtual void saveAs() = 0;
 	virtual void save() = 0;
+	virtual void copy() = 0;
 	virtual void load(const CaptureDto &capture) = 0;
 	virtual QImage image() const = 0;
 	virtual void insertImageItem(const QPointF &pos, const QPixmap &pixmap) = 0;

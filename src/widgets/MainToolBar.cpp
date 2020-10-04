@@ -65,7 +65,7 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoA
     mCropButton->addAction(mCropAction);
     mCropButton->setDefaultAction(mCropAction);
 
-	auto clockPixmap = IconLoader::load(QStringLiteral("clock.svg")).pixmap(QSize(24, 24));
+	auto clockPixmap = IconLoader::load(QLatin1Literal("clock.svg")).pixmap(QSize(24, 24));
 	mDelayLabel->setPixmap(clockPixmap);
 	mDelayLabel->setContentsMargins(0, 0, 2, 0);
 	mDelayLabel->setToolTip(tr("Delay in seconds between triggering\n"
@@ -77,27 +77,27 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoA
 
     mSaveAction->setText(tr("Save"));
     mSaveAction->setToolTip(tr("Save Screen Capture to file system"));
-	mSaveAction->setIcon(IconLoader::load(QStringLiteral("save.svg")));
+	mSaveAction->setIcon(IconLoader::load(QLatin1Literal("save.svg")));
     mSaveAction->setShortcut(QKeySequence::Save);
     connect(mSaveAction, &QAction::triggered, this, &MainToolBar::saveActionTriggered);
 
     mCopyAction->setText(tr("Copy"));
     mCopyAction->setToolTip(tr("Copy Screen Capture to clipboard"));
-	mCopyAction->setIcon(IconLoader::load(QStringLiteral("copy.svg")));
+	mCopyAction->setIcon(IconLoader::load(QLatin1Literal("copy.svg")));
     mCopyAction->setShortcut(QKeySequence::Copy);
     connect(mCopyAction, &QAction::triggered, this, &MainToolBar::copyActionTriggered);
 
-    mUndoAction->setIcon(IconLoader::load(QStringLiteral("undo.svg")));;
+    mUndoAction->setIcon(IconLoader::load(QLatin1Literal("undo.svg")));;
     mUndoAction->setText(tr("Undo"));
     mUndoAction->setShortcut(QKeySequence::Undo);
 
-    mRedoAction->setIcon(IconLoader::load(QStringLiteral("redo.svg")));
+    mRedoAction->setIcon(IconLoader::load(QLatin1Literal("redo.svg")));
 	mRedoAction->setText(tr("Redo"));
     mRedoAction->setShortcut(QKeySequence::Redo);
 
     mCropAction->setText(tr("Crop"));
     mCropAction->setToolTip(tr("Crop Screen Capture"));
-    mCropAction->setIcon(IconLoader::load(QStringLiteral("crop.svg")));
+    mCropAction->setIcon(IconLoader::load(QLatin1Literal("crop.svg")));
     mCropAction->setShortcut(Qt::SHIFT + Qt::Key_C);
     connect(mCropAction, &QAction::triggered, this, &MainToolBar::cropActionTriggered);
 

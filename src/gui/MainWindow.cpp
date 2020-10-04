@@ -66,7 +66,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	connect(qApp, &QGuiApplication::commitDataRequest, this, &MainWindow::sessionFinished);
 
-	setWindowIcon(QIcon(QStringLiteral(":/icons/ksnip.svg")));
+	setWindowIcon(QIcon(QLatin1Literal(":/icons/ksnip.svg")));
 	setPosition();
 
 	setAcceptDrops(true);

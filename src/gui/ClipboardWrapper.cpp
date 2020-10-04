@@ -57,3 +57,8 @@ void ClipboardWrapper::selectionChanged(QClipboard::Mode mode) const
 		emit changed(isPixmap());
 	}
 }
+
+void ClipboardWrapper::setText(const QString &text)
+{
+	mClipboard->setText(text);
+}

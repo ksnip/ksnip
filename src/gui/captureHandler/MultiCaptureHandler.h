@@ -30,6 +30,7 @@
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/IToastService.h"
+#include "src/gui/ClipboardWrapper.h"
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
 #include "src/backend/config/KsnipConfigProvider.h"
@@ -62,9 +63,11 @@ private:
 	NewCaptureNameProvider mNewCaptureNameProvider;
 	PathFromCaptureProvider mPathFromCaptureProvider;
 	KsnipConfig *mConfig;
+	ClipboardWrapper *mClipboard;
 	TabContextMenuAction *mSaveContextMenuAction;
 	TabContextMenuAction *mSaveAsContextMenuAction;
 	TabContextMenuAction *mOpenDirectoryContextMenuAction;
+	TabContextMenuAction *mCopyPathToClipboardContextMenuAction;
 
 	bool discardChanges(int index);
 	void removeTab(int currentTabIndex);
@@ -80,6 +83,7 @@ private slots:
 	void saveTab(int index);
 	void openDirectoryTab(int index);
 	void updateContextMenuActions(int index);
+	void copyPathToClipboardTab(int index);
 };
 
 #endif //KSNIP_MULTICAPTUREHANDLER_H

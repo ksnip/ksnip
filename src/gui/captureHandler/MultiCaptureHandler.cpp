@@ -26,9 +26,11 @@ MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToas
 	mCaptureChangeListener(nullptr),
 	mTabStateHandler(new CaptureTabStateHandler),
 	mConfig(KsnipConfigProvider::instance()),
+	mClipboard(new ClipboardWrapper(QApplication::clipboard())),
 	mSaveContextMenuAction(new TabContextMenuAction(this)),
 	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
-	mOpenDirectoryContextMenuAction(new TabContextMenuAction(this))
+	mOpenDirectoryContextMenuAction(new TabContextMenuAction(this)),
+	mCopyPathToClipboardContextMenuAction(new TabContextMenuAction(this))
 {
 	connect(mKImageAnnotator, &KImageAnnotator::currentTabChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabChanged);
 	connect(mKImageAnnotator, &KImageAnnotator::tabMoved, mTabStateHandler, &CaptureTabStateHandler::tabMoved);
@@ -179,15 +181,18 @@ void MultiCaptureHandler::addTabContextMenuActions()
 	mSaveContextMenuAction->setText(tr("Save"));
 	mSaveAsContextMenuAction->setText(tr("Save As"));
 	mOpenDirectoryContextMenuAction->setText(tr("Open Directory"));
+	mCopyPathToClipboardContextMenuAction->setText(tr("Copy Path to Clipboard"));
 
 	connect(mSaveContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveTab);
 	connect(mSaveAsContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveAsTab);
 	connect(mOpenDirectoryContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::openDirectoryTab);
+	connect(mCopyPathToClipboardContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::copyPathToClipboardTab);
 
 	auto actions = QList<QAction *>{
 		mSaveContextMenuAction,
 		mSaveAsContextMenuAction,
-		mOpenDirectoryContextMenuAction};
+		mOpenDirectoryContextMenuAction,
+		mCopyPathToClipboardContextMenuAction};
 	mKImageAnnotator->addTabContextMenuActions(actions);
 }
 
@@ -203,12 +208,20 @@ void MultiCaptureHandler::saveTab(int index)
 
 void MultiCaptureHandler::updateContextMenuActions(int index)
 {
+	auto isPathValid = mTabStateHandler->isPathValid(index);
 	mSaveContextMenuAction->setEnabled(!mTabStateHandler->isSaved(index));
-	mOpenDirectoryContextMenuAction->setEnabled(mTabStateHandler->isPathValid(index));
+	mOpenDirectoryContextMenuAction->setEnabled(isPathValid);
+	mCopyPathToClipboardContextMenuAction->setEnabled(isPathValid);
 }
 
 void MultiCaptureHandler::openDirectoryTab(int index)
 {
 	auto path = mTabStateHandler->path(index);
 	QDesktopServices::openUrl(PathHelper::extractParentDirectory(path));
+}
+
+void MultiCaptureHandler::copyPathToClipboardTab(int index)
+{
+	auto path = mTabStateHandler->path(index);
+	mClipboard->setText(path);
 }

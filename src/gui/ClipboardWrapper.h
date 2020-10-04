@@ -35,6 +35,7 @@ public:
 	QPixmap pixmap() const;
 	bool isPixmap() const;
 	void setImage(const QImage &image);
+	void setText(const QString &text);
 	QString url() const;
 
 signals:

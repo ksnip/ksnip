@@ -17,22 +17,21 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <gui/clipboard/ClipboardWrapper.h>
 #include "MultiCaptureHandler.h"
 
 MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent) :
-		mImageAnnotator(imageAnnotator),
-		mToastService(toastService),
-		mParent(parent),
-		mCaptureChangeListener(nullptr),
-		mTabStateHandler(new CaptureTabStateHandler),
-		mConfig(KsnipConfigProvider::instance()),
-		mClipboard(clipboard),
-		mSaveContextMenuAction(new TabContextMenuAction(this)),
-		mSaveAsContextMenuAction(new TabContextMenuAction(this)),
-		mOpenDirectoryContextMenuAction(new TabContextMenuAction(this)),
-		mCopyPathToClipboardContextMenuAction(new TabContextMenuAction(this)),
-		mCopyToClipboardContextMenuAction(new TabContextMenuAction(this))
+	mImageAnnotator(imageAnnotator),
+	mToastService(toastService),
+	mParent(parent),
+	mCaptureChangeListener(nullptr),
+	mTabStateHandler(new CaptureTabStateHandler),
+	mConfig(KsnipConfigProvider::instance()),
+	mClipboard(clipboard),
+	mSaveContextMenuAction(new TabContextMenuAction(this)),
+	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
+	mOpenDirectoryContextMenuAction(new TabContextMenuAction(this)),
+	mCopyPathToClipboardContextMenuAction(new TabContextMenuAction(this)),
+	mCopyToClipboardContextMenuAction(new TabContextMenuAction(this))
 {
 	connect(mImageAnnotator, &IImageAnnotator::currentTabChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabChanged);
 	connect(mImageAnnotator, &IImageAnnotator::tabMoved, mTabStateHandler, &CaptureTabStateHandler::tabMoved);

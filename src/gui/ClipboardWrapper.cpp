@@ -19,10 +19,9 @@
 
 #include "ClipboardWrapper.h"
 
-ClipboardWrapper::ClipboardWrapper(QClipboard *clipboard)
+ClipboardWrapper::ClipboardWrapper() :
+	mClipboard(QGuiApplication::clipboard())
 {
-	mClipboard = clipboard;
-
 	connect(mClipboard, &QClipboard::changed, this, &ClipboardWrapper::selectionChanged);
 }
 

@@ -30,7 +30,7 @@
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/IToastService.h"
-#include "src/gui/ClipboardWrapper.h"
+#include "src/gui/IClipboard.h"
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
 #include "src/common/loader/IconLoader.h"
@@ -42,7 +42,7 @@ class MultiCaptureHandler : public QObject, public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent);
+	explicit MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent);
 	~MultiCaptureHandler() override;
 	bool canClose() override;
 	bool canTakeNew() override;
@@ -65,7 +65,7 @@ private:
 	NewCaptureNameProvider mNewCaptureNameProvider;
 	PathFromCaptureProvider mPathFromCaptureProvider;
 	KsnipConfig *mConfig;
-	ClipboardWrapper *mClipboard;
+	IClipboard *mClipboard;
 	TabContextMenuAction *mSaveContextMenuAction;
 	TabContextMenuAction *mSaveAsContextMenuAction;
 	TabContextMenuAction *mOpenDirectoryContextMenuAction;

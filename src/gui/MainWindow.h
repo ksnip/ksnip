@@ -97,7 +97,7 @@ private:
     QAction *mPinAction;
     MainToolBar *mToolBar;
     QLayout *mMainLayout;
-	ClipboardWrapper *mClipboard;
+	IClipboard *mClipboard;
     KsnipConfig *mConfig;
     CapturePrinter *mCapturePrinter;
     KImageAnnotator *mKImageAnnotator;

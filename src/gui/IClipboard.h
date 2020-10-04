@@ -17,17 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CAPTUREHANDLERFACTORY_H
-#define KSNIP_CAPTUREHANDLERFACTORY_H
+#ifndef KSNIP_ICLIPBOARD_H
+#define KSNIP_ICLIPBOARD_H
 
-#include "src/gui/captureHandler/SingleCaptureHandler.h"
-#include "src/gui/captureHandler/MultiCaptureHandler.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include <QObject>
 
-class CaptureHandlerFactory
+class IClipboard : public QObject
 {
+	Q_OBJECT
 public:
-	static ICaptureHandler *create(KImageAnnotator *kImageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent);
+	explicit IClipboard() = default;
+	~IClipboard() override = default;
+	virtual QPixmap pixmap() const = 0;
+	virtual bool isPixmap() const = 0;
+	virtual void setImage(const QImage &image) = 0;
+	virtual void setText(const QString &text) = 0;
+	virtual QString url() const = 0;
+
+signals:
+	void changed(bool isPixmap) const;
 };
 
-#endif //KSNIP_CAPTUREHANDLERFACTORY_H
+#endif //KSNIP_ICLIPBOARD_H

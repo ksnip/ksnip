@@ -17,16 +17,17 @@
  * Boston, MA 02110-1301, USA.
  */
 
+#include <gui/ClipboardWrapper.h>
 #include "MultiCaptureHandler.h"
 
-MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent) :
+MultiCaptureHandler::MultiCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent) :
 	mKImageAnnotator(kImageAnnotator),
 	mToastService(toastService),
 	mParent(parent),
 	mCaptureChangeListener(nullptr),
 	mTabStateHandler(new CaptureTabStateHandler),
 	mConfig(KsnipConfigProvider::instance()),
-	mClipboard(new ClipboardWrapper(QApplication::clipboard())),
+	mClipboard(clipboard),
 	mSaveContextMenuAction(new TabContextMenuAction(this)),
 	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
 	mOpenDirectoryContextMenuAction(new TabContextMenuAction(this)),

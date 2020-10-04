@@ -19,13 +19,13 @@
 
 #include "SingleCaptureHandler.h"
 
-SingleCaptureHandler::SingleCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent) :
+SingleCaptureHandler::SingleCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent) :
 	mKImageAnnotator(kImageAnnotator),
 	mToastService(toastService),
 	mParent(parent),
 	mCaptureChangeListener(nullptr),
 	mIsSaved(true),
-	mClipboard(new ClipboardWrapper(QGuiApplication::clipboard()))
+	mClipboard(clipboard)
 {
 	mKImageAnnotator->setTabBarAutoHide(true);
 

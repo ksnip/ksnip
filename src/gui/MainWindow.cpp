@@ -39,7 +39,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mPasteEmbeddedAction(new QAction(this)),
 	mPinAction(new QAction(this)),
 	mMainLayout(layout()),
-	mClipboard(new ClipboardWrapper(QApplication::clipboard())),
+	mClipboard(new ClipboardWrapper()),
 	mConfig(KsnipConfigProvider::instance()),
 	mCapturePrinter(new CapturePrinter(this)),
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
@@ -49,7 +49,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mDragAndDropHandler(new DragAndDropHandler),
 	mUploaderProvider(new UploaderProvider),
 	mSessionManagerRequestedQuit(false),
-	mCaptureHandler(CaptureHandlerFactory::create(mKImageAnnotator, mTrayIcon, this)),
+	mCaptureHandler(CaptureHandlerFactory::create(mKImageAnnotator, mTrayIcon, mClipboard, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
 	mWidgetHider(WidgetHiderFactory::create(this))
 {

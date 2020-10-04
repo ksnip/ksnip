@@ -20,29 +20,28 @@
 #ifndef KSNIP_CLIPBOARDWRAPPER_H
 #define KSNIP_CLIPBOARDWRAPPER_H
 
+#include <QGuiApplication>
 #include <QClipboard>
 #include <QPixmap>
 
+#include "IClipboard.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/helper/FileUrlHelper.h"
 
-class ClipboardWrapper : public QObject
+class ClipboardWrapper : public IClipboard
 {
 	Q_OBJECT
 public:
-	explicit ClipboardWrapper(QClipboard *clipboard);
+	explicit ClipboardWrapper();
 	~ClipboardWrapper() override = default;
-	QPixmap pixmap() const;
-	bool isPixmap() const;
-	void setImage(const QImage &image);
-	void setText(const QString &text);
-	QString url() const;
-
-signals:
-	void changed(bool isPixmap) const;
+	QPixmap pixmap() const override;
+	bool isPixmap() const override;
+	void setImage(const QImage &image) override;
+	void setText(const QString &text) override;
+	QString url() const override;
 
 private:
-	QClipboard *mClipboard;
+	QClipboard *mClipboard{};
 
 private slots:
 	void selectionChanged(QClipboard::Mode mode) const;

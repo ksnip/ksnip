@@ -25,7 +25,7 @@
 #include "src/gui/captureHandler/ICaptureHandler.h"
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/IToastService.h"
-#include "src/gui/ClipboardWrapper.h"
+#include "src/gui/IClipboard.h"
 
 using kImageAnnotator::KImageAnnotator;
 
@@ -33,7 +33,7 @@ class SingleCaptureHandler : public QObject, public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit SingleCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, QWidget *parent);
+	explicit SingleCaptureHandler(KImageAnnotator *kImageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent);
 	~SingleCaptureHandler() override = default;
 	bool canClose() override;
 	bool canTakeNew() override;
@@ -54,7 +54,7 @@ private:
 	ICaptureChangeListener *mCaptureChangeListener;
 	bool mIsSaved;
 	QString mPath;
-	ClipboardWrapper *mClipboard;
+	IClipboard *mClipboard;
 
 	bool discardChanges();
 	void resetStats();

@@ -49,6 +49,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/TrayIcon.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ClipboardWrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/IClipboard.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/WidgetHider.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/GnomeWaylandWidgetHider.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/WidgetHiderFactory.cpp

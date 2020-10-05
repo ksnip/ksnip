@@ -17,9 +17,34 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "DesktopServiceWrapper.h"
+#ifndef KSNIP_CLIPBOARDADAPTER_H
+#define KSNIP_CLIPBOARDADAPTER_H
 
-void DesktopServiceWrapper::openUrl(const QUrl &url)
+#include <QGuiApplication>
+#include <QClipboard>
+#include <QPixmap>
+
+#include "IClipboard.h"
+#include "src/common/dtos/CaptureFromFileDto.h"
+#include "src/common/helper/FileUrlHelper.h"
+
+class ClipboardAdapter : public IClipboard
 {
-	QDesktopServices::openUrl(url);
-}
+	Q_OBJECT
+public:
+	explicit ClipboardAdapter();
+	~ClipboardAdapter() override = default;
+	QPixmap pixmap() const override;
+	bool isPixmap() const override;
+	void setImage(const QImage &image) override;
+	void setText(const QString &text) override;
+	QString url() const override;
+
+private:
+	QClipboard *mClipboard{};
+
+private slots:
+	void selectionChanged(QClipboard::Mode mode) const;
+};
+
+#endif //KSNIP_CLIPBOARDADAPTER_H

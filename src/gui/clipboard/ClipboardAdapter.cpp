@@ -17,15 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "ClipboardWrapper.h"
+#include "ClipboardAdapter.h"
 
-ClipboardWrapper::ClipboardWrapper() :
+ClipboardAdapter::ClipboardAdapter() :
 	mClipboard(QGuiApplication::clipboard())
 {
-	connect(mClipboard, &QClipboard::changed, this, &ClipboardWrapper::selectionChanged);
+	connect(mClipboard, &QClipboard::changed, this, &ClipboardAdapter::selectionChanged);
 }
 
-QPixmap ClipboardWrapper::pixmap() const
+QPixmap ClipboardAdapter::pixmap() const
 {
 	auto pixmap = mClipboard->pixmap();
 
@@ -35,29 +35,29 @@ QPixmap ClipboardWrapper::pixmap() const
 	return pixmap;
 }
 
-QString ClipboardWrapper::url() const
+QString ClipboardAdapter::url() const
 {
 	return FileUrlHelper::parse(mClipboard->text());
 }
 
-bool ClipboardWrapper::isPixmap() const
+bool ClipboardAdapter::isPixmap() const
 {
 	return !pixmap().isNull();
 }
 
-void ClipboardWrapper::setImage(const QImage &image)
+void ClipboardAdapter::setImage(const QImage &image)
 {
 	mClipboard->setImage(image);
 }
 
-void ClipboardWrapper::selectionChanged(QClipboard::Mode mode) const
+void ClipboardAdapter::selectionChanged(QClipboard::Mode mode) const
 {
 	if(mode == QClipboard::Mode::Clipboard) {
 		emit changed(isPixmap());
 	}
 }
 
-void ClipboardWrapper::setText(const QString &text)
+void ClipboardAdapter::setText(const QString &text)
 {
 	mClipboard->setText(text);
 }

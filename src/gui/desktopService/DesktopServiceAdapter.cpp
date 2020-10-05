@@ -17,19 +17,9 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_DESKTOPSERVICEWRAPPER_H
-#define KSNIP_DESKTOPSERVICEWRAPPER_H
+#include "DesktopServiceAdapter.h"
 
-#include <QDesktopServices>
-
-#include "IDesktopService.h"
-
-class DesktopServiceWrapper : public IDesktopService
+void DesktopServiceAdapter::openUrl(const QUrl &url)
 {
-public:
-	explicit DesktopServiceWrapper() = default;
-	~DesktopServiceWrapper() = default;
-	void openUrl(const QUrl &url) override;
-};
-
-#endif //KSNIP_DESKTOPSERVICEWRAPPER_H
+	QDesktopServices::openUrl(url);
+}

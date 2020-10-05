@@ -24,7 +24,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	QMainWindow(),
 	mImageGrabber(imageGrabber),
 	mMode(mode),
-	mImageAnnotator(new KImageAnnotatorWrapper),
+	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
 	mUploadAction(new QAction(this)),
 	mPrintAction(new QAction(this)),
@@ -39,12 +39,12 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mPasteEmbeddedAction(new QAction(this)),
 	mPinAction(new QAction(this)),
 	mMainLayout(layout()),
-	mClipboard(new ClipboardWrapper()),
+	mClipboard(new ClipboardAdapter()),
 	mConfig(KsnipConfigProvider::instance()),
 	mCapturePrinter(new CapturePrinter(this)),
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 	mTrayIcon(new TrayIcon(this)),
-	mDesktopService(new DesktopServiceWrapper),
+	mDesktopService(new DesktopServiceAdapter),
 	mSelectedWindowState(Qt::WindowActive),
 	mWindowStateChangeLock(false),
 	mDragAndDropHandler(new DragAndDropHandler),
@@ -399,14 +399,14 @@ void MainWindow::initGui()
 	mPasteAction->setShortcut(Qt::CTRL + Qt::Key_V);
 	mPasteAction->setEnabled(mClipboard->isPixmap());
 	connect(mPasteAction, &QAction::triggered, this, &MainWindow::pasteFromClipboard);
-	connect(mClipboard, &ClipboardWrapper::changed, mPasteAction, &QAction::setEnabled);
+	connect(mClipboard, &ClipboardAdapter::changed, mPasteAction, &QAction::setEnabled);
 
 	mPasteEmbeddedAction->setText(tr("Paste Embedded"));
 	mPasteEmbeddedAction->setIcon(IconLoader::load(QLatin1Literal("pasteEmbedded")));
 	mPasteEmbeddedAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_V);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
 	connect(mPasteEmbeddedAction, &QAction::triggered, this, &MainWindow::pasteEmbeddedFromClipboard);
-	connect(mClipboard, &ClipboardWrapper::changed, [this] (bool isPixmap){ mPasteEmbeddedAction->setEnabled(isPixmap && mImageAnnotator->isVisible()); });
+	connect(mClipboard, &ClipboardAdapter::changed, [this] (bool isPixmap){ mPasteEmbeddedAction->setEnabled(isPixmap && mImageAnnotator->isVisible()); });
 
 	mPinAction->setText(tr("Pin"));
 	mPinAction->setToolTip(tr("Pin screenshot to foreground in frameless window"));

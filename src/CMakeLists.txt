@@ -48,11 +48,11 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/MainWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/TrayIcon.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/clipboard/ClipboardWrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/clipboard/ClipboardAdapter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/clipboard/IClipboard.h
-	${CMAKE_SOURCE_DIR}/src/gui/imageAnnotator/KImageAnnotatorWrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/imageAnnotator/KImageAnnotatorAdapter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/imageAnnotator/IImageAnnotator.h
-	${CMAKE_SOURCE_DIR}/src/gui/desktopService/DesktopServiceWrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/desktopService/DesktopServiceAdapter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/WidgetHider.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/GnomeWaylandWidgetHider.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/WidgetHiderFactory.cpp

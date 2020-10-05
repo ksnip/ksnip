@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_KIMAGEANNOTATORWRAPPER_H
-#define KSNIP_KIMAGEANNOTATORWRAPPER_H
+#ifndef KSNIP_KIMAGEANNOTATORADAPTER_H
+#define KSNIP_KIMAGEANNOTATORADAPTER_H
 
 #include <kImageAnnotator/KImageAnnotator.h>
 
@@ -26,12 +26,12 @@
 
 using kImageAnnotator::KImageAnnotator;
 
-class KImageAnnotatorWrapper : public IImageAnnotator
+class KImageAnnotatorAdapter : public IImageAnnotator
 {
 	Q_OBJECT
 public:
-	explicit KImageAnnotatorWrapper();
-	~KImageAnnotatorWrapper() override;
+	explicit KImageAnnotatorAdapter();
+	~KImageAnnotatorAdapter() override;
 	QImage image() const override;
 	QImage imageAt(int index) const override;
 	QAction *undoAction() override;
@@ -66,4 +66,4 @@ private:
 };
 
 
-#endif //KSNIP_KIMAGEANNOTATORWRAPPER_H
+#endif //KSNIP_KIMAGEANNOTATORADAPTER_H

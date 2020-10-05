@@ -140,7 +140,7 @@ ale uczyni je bardziej gładkimi.</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamiętaj wybór narzędzia do adnotacji i załaduj go podczas uruchamiania</translation>
     </message>
 </context>
 <context>
@@ -207,18 +207,21 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
     <message>
         <source>Remember position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamiętaj pozycję w ruchu i załaduj podczas uruchamiania</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukryj pasek zakładek, gdy używana jest tylko jedna karta.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Włączenie tej opcji pozwoli na uruchomienie tylko jednej instancji ksnip,
+wszystkie inne instancje uruchomione po pierwszym przejdą jego
+argumenty do pierwszego i zamknij. Zmiana tej opcji wymaga
+nowy początek wszystkich instancji.</translation>
     </message>
 </context>
 <context>
@@ -329,11 +332,11 @@ Chcesz go zapisać?</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Portal zrzutu ekranu</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Wykorzystuje portal do robienia zrzutów ekranu</translation>
     </message>
 </context>
 <context>
@@ -470,7 +473,7 @@ Chcesz go zapisać?</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Przechwytywanie za pomocą Portalu</translation>
     </message>
 </context>
 <context>

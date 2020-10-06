@@ -24,7 +24,7 @@
 #include "MacWrapper.h"
 #include "src/gui/snippingArea/MacSnippingArea.h"
 
-class MacImageGrabber  : public AbstractImageGrabber
+class MacImageGrabber  : public AbstractRectAreaImageGrabber
 {
 Q_OBJECT
 public:

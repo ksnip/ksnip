@@ -19,7 +19,8 @@
 
 #include "WinImageGrabber.h"
 
-WinImageGrabber::WinImageGrabber() : AbstractImageGrabber(new WinSnippingArea),
+WinImageGrabber::WinImageGrabber() :
+	AbstractRectAreaImageGrabber(new WinSnippingArea),
     mWinWrapper(new WinWrapper)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);

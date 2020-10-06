@@ -18,6 +18,7 @@
 * Fixed: zh_Hans translation won't load. ([#429](https://github.com/ksnip/ksnip/issues/429))
 * Fixed kImageAnnotator: Blur radius not updated when changing current items settings. ([#142](https://github.com/ksnip/kImageAnnotator/issues/142))
 * Fixed kImageAnnotator: Text tool opens many unix sockets. ([#144](https://github.com/ksnip/kImageAnnotator/issues/144))
+* Fixed kImageAnnotator: Text No Border and No Fill shows shadow beneath text. ([#148](https://github.com/ksnip/kImageAnnotator/issues/148))
 
 ## Release 1.7.3
 * New: Provide ksnip flatpak. ([#127](https://github.com/ksnip/ksnip/issues/127))

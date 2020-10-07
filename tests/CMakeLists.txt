@@ -1,8 +1,14 @@
 set(UNITTEST_SRC
-	${CMAKE_CURRENT_SOURCE_DIR}/common/helper/PathHelperTests.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/common/helper/PathHelperTests.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/MultiCaptureHandlerTests.cpp
 	)
 
 set(TESTUTILS_SRC
+		${CMAKE_CURRENT_SOURCE_DIR}/utils/CallCounter.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/mocks/CaptureTabStateHandlerMock.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/mocks/ImageAnnotatorMock.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/mocks/ClipboardMock.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/mocks/DesktopServiceMock.cpp
 	)
 
 add_library(KSNIP_STATIC STATIC ${KSNIP_SRCS})

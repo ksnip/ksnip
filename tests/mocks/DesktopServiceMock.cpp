@@ -17,13 +17,14 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "CaptureHandlerFactory.h"
+#include "DesktopServiceMock.h"
 
-ICaptureHandler * CaptureHandlerFactory::create(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent)
+void DesktopServiceMock::openUrl(const QUrl &url)
 {
-	if(KsnipConfigProvider::instance()->useTabs()) {
-		return new MultiCaptureHandler(imageAnnotator, toastService, clipboard, new DesktopServiceAdapter, new CaptureTabStateHandler, parent);
-	} else {
-		return new SingleCaptureHandler(imageAnnotator, toastService, clipboard, parent);
-	}
+	mOpenUrl = url;
+}
+
+QUrl DesktopServiceMock::openUrl_get() const
+{
+	return mOpenUrl;
 }

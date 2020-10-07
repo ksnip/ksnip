@@ -21,7 +21,7 @@
 #define KSNIP_MULTICAPTUREHANDLER_H
 
 #include "src/gui/captureHandler/ICaptureHandler.h"
-#include "src/gui/captureHandler/CaptureTabStateHandler.h"
+#include "src/gui/captureHandler/ICaptureTabStateHandler.h"
 #include "src/gui/captureHandler/TabContextMenuAction.h"
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/SaveOperation.h"
@@ -38,7 +38,8 @@ class MultiCaptureHandler : public QObject, public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService, QWidget *parent);
+	explicit MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService,
+								 ICaptureTabStateHandler *captureTabStateHandler, QWidget *parent);
 	~MultiCaptureHandler() override;
 	bool canClose() override;
 	bool canTakeNew() override;
@@ -54,7 +55,7 @@ public:
 
 private:
 	IImageAnnotator *mImageAnnotator;
-	CaptureTabStateHandler *mTabStateHandler;
+	ICaptureTabStateHandler *mTabStateHandler;
 	IToastService *mToastService;
 	QWidget *mParent;
 	ICaptureChangeListener *mCaptureChangeListener;

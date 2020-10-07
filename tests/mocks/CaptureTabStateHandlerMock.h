@@ -17,24 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CAPTURETABSTATEHANDLER_H
-#define KSNIP_CAPTURETABSTATEHANDLER_H
+#ifndef KSNIP_CAPTURETABSTATEHANDLERMOCK_H
+#define KSNIP_CAPTURETABSTATEHANDLERMOCK_H
 
-#include <QObject>
-#include <QList>
-#include <QSharedPointer>
+#include <QMap>
 
-#include "ICaptureTabStateHandler.h"
-#include "CaptureTabState.h"
-#include "src/common/dtos/SaveResultDto.h"
-#include "src/common/helper/PathHelper.h"
+#include "src/gui/captureHandler/ICaptureTabStateHandler.h"
+#include "tests/utils/CallCounter.h"
 
-class CaptureTabStateHandler : public ICaptureTabStateHandler
+class CaptureTabStateHandlerMock : public ICaptureTabStateHandler
 {
-	Q_OBJECT
+Q_OBJECT
 public:
-	explicit CaptureTabStateHandler();
-	~CaptureTabStateHandler() override = default;
+	explicit CaptureTabStateHandlerMock() = default;
+	~CaptureTabStateHandlerMock() override = default;
 	void add(int index, const QString &filename, const QString &path, bool isSaved) override;
 	bool isSaved(int index) override;
 	bool isPathValid(int index) override;
@@ -44,6 +40,13 @@ public:
 	int count() const override;
 	int currentTabIndex() const override;
 
+	// Mock Methods
+	void currentTabIndex_set(int index);
+	void path_set(int index, const QString &path);
+	int path_callCounter(int index) const;
+	void isPathValid_set(int index, bool value);
+	void isSaved_set(int index, bool value);
+
 public slots:
 	void tabMoved(int fromIndex, int toIndex) override;
 	void currentTabChanged(int index) override;
@@ -52,10 +55,11 @@ public slots:
 
 private:
 	int mCurrentTabIndex;
-	QList<QSharedPointer<CaptureTabState>> mCaptureTabStates;
-
-	void refreshTabInfo(int index);
-	QSharedPointer<CaptureTabState> getTabState(int index);
+	QMap<int,QString> mPathMap;
+	CallCounter<int> mPathCallCounter;
+	QMap<int,bool> mIsPathValidMap;
+	QMap<int,bool> mIsSaveMap;
 };
 
-#endif //KSNIP_CAPTURETABSTATEHANDLER_H
+
+#endif //KSNIP_CAPTURETABSTATEHANDLERMOCK_H

@@ -17,13 +17,49 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "CaptureHandlerFactory.h"
+#include "ClipboardMock.h"
 
-ICaptureHandler * CaptureHandlerFactory::create(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent)
+QPixmap ClipboardMock::pixmap() const
 {
-	if(KsnipConfigProvider::instance()->useTabs()) {
-		return new MultiCaptureHandler(imageAnnotator, toastService, clipboard, new DesktopServiceAdapter, new CaptureTabStateHandler, parent);
-	} else {
-		return new SingleCaptureHandler(imageAnnotator, toastService, clipboard, parent);
-	}
+	return QPixmap();
+}
+
+bool ClipboardMock::isPixmap() const
+{
+	return false;
+}
+
+void ClipboardMock::setImage(const QImage &image)
+{
+	mSetImage = image;
+}
+
+void ClipboardMock::setText(const QString &text)
+{
+	mSetText = text;
+}
+
+QString ClipboardMock::url() const
+{
+	return QString();
+}
+
+int ClipboardMock::setText_callCounter(const QString &text) const
+{
+	return -1;
+}
+
+int ClipboardMock::setImage_callCounter(const QImage &image) const
+{
+	return -1;
+}
+
+QImage ClipboardMock::setImage_set() const
+{
+	return mSetImage;
+}
+
+QString ClipboardMock::setText_get() const
+{
+	return mSetText;
 }

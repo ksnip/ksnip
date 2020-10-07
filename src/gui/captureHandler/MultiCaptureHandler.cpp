@@ -19,12 +19,13 @@
 
 #include "MultiCaptureHandler.h"
 
-MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService, QWidget *parent) :
+MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService,
+										 ICaptureTabStateHandler *captureTabStateHandler, QWidget *parent) :
 	mImageAnnotator(imageAnnotator),
 	mToastService(toastService),
 	mParent(parent),
 	mCaptureChangeListener(nullptr),
-	mTabStateHandler(new CaptureTabStateHandler),
+	mTabStateHandler(captureTabStateHandler),
 	mConfig(KsnipConfigProvider::instance()),
 	mClipboard(clipboard),
 	mDesktopService(desktopService),
@@ -34,10 +35,10 @@ MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToast
 	mCopyPathToClipboardContextMenuAction(new TabContextMenuAction(this)),
 	mCopyToClipboardContextMenuAction(new TabContextMenuAction(this))
 {
-	connect(mImageAnnotator, &IImageAnnotator::currentTabChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabChanged);
-	connect(mImageAnnotator, &IImageAnnotator::tabMoved, mTabStateHandler, &CaptureTabStateHandler::tabMoved);
-	connect(mImageAnnotator, &IImageAnnotator::imageChanged, mTabStateHandler, &CaptureTabStateHandler::currentTabContentChanged);
-	connect(mTabStateHandler, &CaptureTabStateHandler::updateTabInfo, mImageAnnotator, &IImageAnnotator::updateTabInfo);
+	connect(mImageAnnotator, &IImageAnnotator::currentTabChanged, mTabStateHandler, &ICaptureTabStateHandler::currentTabChanged);
+	connect(mImageAnnotator, &IImageAnnotator::tabMoved, mTabStateHandler, &ICaptureTabStateHandler::tabMoved);
+	connect(mImageAnnotator, &IImageAnnotator::imageChanged, mTabStateHandler, &ICaptureTabStateHandler::currentTabContentChanged);
+	connect(mTabStateHandler, &ICaptureTabStateHandler::updateTabInfo, mImageAnnotator, &IImageAnnotator::updateTabInfo);
 
 	connect(mImageAnnotator, &IImageAnnotator::imageChanged, this, &MultiCaptureHandler::captureChanged);
 	connect(mImageAnnotator, &IImageAnnotator::currentTabChanged, this, &MultiCaptureHandler::captureChanged);
@@ -59,6 +60,7 @@ MultiCaptureHandler::~MultiCaptureHandler()
 	delete mOpenDirectoryContextMenuAction;
 	delete mCopyPathToClipboardContextMenuAction;
 	delete mCopyToClipboardContextMenuAction;
+	delete mDesktopService;
 }
 
 bool MultiCaptureHandler::canClose()

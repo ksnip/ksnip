@@ -22,6 +22,8 @@
 
 #include "src/gui/captureHandler/SingleCaptureHandler.h"
 #include "src/gui/captureHandler/MultiCaptureHandler.h"
+#include "src/gui/captureHandler/CaptureTabStateHandler.h"
+#include "src/gui/desktopService/DesktopServiceAdapter.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
 class CaptureHandlerFactory
@@ -29,7 +31,7 @@ class CaptureHandlerFactory
 public:
 	explicit CaptureHandlerFactory() = default;
 	~CaptureHandlerFactory() = default;
-	static ICaptureHandler *create(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService, QWidget *parent);
+	static ICaptureHandler *create(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent);
 };
 
 #endif //KSNIP_CAPTUREHANDLERFACTORY_H

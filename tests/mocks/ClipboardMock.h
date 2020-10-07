@@ -17,13 +17,36 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "CaptureHandlerFactory.h"
+#ifndef KSNIP_CLIPBOARDMOCK_H
+#define KSNIP_CLIPBOARDMOCK_H
 
-ICaptureHandler * CaptureHandlerFactory::create(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent)
+#include <QPixmap>
+#include <QImage>
+
+#include "src/gui/clipboard/IClipboard.h"
+
+class ClipboardMock : public IClipboard
 {
-	if(KsnipConfigProvider::instance()->useTabs()) {
-		return new MultiCaptureHandler(imageAnnotator, toastService, clipboard, new DesktopServiceAdapter, new CaptureTabStateHandler, parent);
-	} else {
-		return new SingleCaptureHandler(imageAnnotator, toastService, clipboard, parent);
-	}
-}
+Q_OBJECT
+public:
+	explicit ClipboardMock() = default;
+	~ClipboardMock() override = default;
+	QPixmap pixmap() const override;
+	bool isPixmap() const override;
+	void setImage(const QImage &image) override;
+	void setText(const QString &text) override;
+	QString url() const override;
+
+	// Mock Methods
+	int setText_callCounter(const QString &text) const;
+	int setImage_callCounter(const QImage &image) const;
+	QImage setImage_set() const;
+	QString setText_get() const;
+
+private:
+	QImage mSetImage;
+	QString mSetText;
+};
+
+
+#endif //KSNIP_CLIPBOARDMOCK_H

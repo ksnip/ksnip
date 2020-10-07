@@ -17,13 +17,47 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "CaptureHandlerFactory.h"
+#ifndef KSNIP_CALLCOUNTER_H
+#define KSNIP_CALLCOUNTER_H
 
-ICaptureHandler * CaptureHandlerFactory::create(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent)
+#include <QList>
+#include <QPair>
+
+template<typename K>
+class CallCounter
 {
-	if(KsnipConfigProvider::instance()->useTabs()) {
-		return new MultiCaptureHandler(imageAnnotator, toastService, clipboard, new DesktopServiceAdapter, new CaptureTabStateHandler, parent);
-	} else {
-		return new SingleCaptureHandler(imageAnnotator, toastService, clipboard, parent);
+public:
+	explicit CallCounter() = default;
+	~CallCounter() = default;
+	void increment(K key);
+	int count(K key) const;
+
+private:
+	QList<QPair<K,int>> mInnerCounter;
+};
+
+template<typename K>
+void CallCounter<K>::increment(K key)
+{
+	for(auto entry : mInnerCounter) {
+		if(entry.first == key) {
+			entry.second++;
+			return;
+		}
 	}
+	mInnerCounter.append(QPair<K, int>(key,1));
 }
+
+template<typename K>
+int CallCounter<K>::count(K key) const
+{
+	for(auto entry : mInnerCounter) {
+		if(entry.first == key) {
+			return entry.second;
+		}
+	}
+	return 0;
+}
+
+
+#endif //KSNIP_CALLCOUNTER_H

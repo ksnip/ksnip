@@ -17,13 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "CaptureHandlerFactory.h"
+#ifndef KSNIP_DESKTOPSERVICEMOCK_H
+#define KSNIP_DESKTOPSERVICEMOCK_H
 
-ICaptureHandler * CaptureHandlerFactory::create(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent)
+#include <QString>
+#include <QUrl>
+
+#include "src/gui/desktopService/IDesktopService.h"
+
+class DesktopServiceMock : public IDesktopService
 {
-	if(KsnipConfigProvider::instance()->useTabs()) {
-		return new MultiCaptureHandler(imageAnnotator, toastService, clipboard, new DesktopServiceAdapter, new CaptureTabStateHandler, parent);
-	} else {
-		return new SingleCaptureHandler(imageAnnotator, toastService, clipboard, parent);
-	}
-}
+public:
+	explicit DesktopServiceMock() = default;
+	~DesktopServiceMock() override = default;
+	void openUrl(const QUrl &url) override;
+
+	// Mock Methods
+	QUrl openUrl_get() const;
+
+private:
+	QUrl mOpenUrl;
+};
+
+
+#endif //KSNIP_DESKTOPSERVICEMOCK_H

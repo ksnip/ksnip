@@ -577,18 +577,6 @@ bovenaan getoond.</translation>
         <translation>Algemene Wayland-schermfoto afdwingen</translation>
     </message>
     <message>
-        <source>GNOME and KDE Plasma support it&apos;s own Wayland
-and the Generic XDG-DESKTOP-PORTAL screenshots.
-Enabling this option will force KDE Plasma and
-GNOME to use the XDG-DESKTOP-PORTAL screenshots.
-Change in this option require a ksnip restart.</source>
-        <translation>GNOME en KDE Plasma hebben ondersteuning voor zowel hun
-eigen manier van maken van schermfoto&apos;s als de algemene
-XDG-manier. Schakel deze optie in om de algemene XDG-manier
-af te dwingen.
-Herstart ksnip om de wijziging toe te passen.</translation>
-    </message>
-    <message>
         <source>Scale Generic Wayland Screenshots</source>
         <translation>Grootte van algemene Wayland-schermfoto&apos;s aanpassen</translation>
     </message>
@@ -603,6 +591,14 @@ DESKTOP PORTAL gebruiken, handelen beeldgroottes
 allemaal anders af. Met deze optie wordt de huidige
 beeldgrootte bepaald en toegepast op de schermfoto
 in ksnip.</translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support their own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -893,6 +889,29 @@ van schermfoto, in seconden.</translation>
     </message>
 </context>
 <context>
+    <name>MultiCaptureHandler</name>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Opslaan</translation>
+    </message>
+    <message>
+        <source>Save As</source>
+        <translation type="unfinished">Opslaan als</translation>
+    </message>
+    <message>
+        <source>Open Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Kopiëren</translation>
+    </message>
+    <message>
+        <source>Copy Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
@@ -1007,14 +1026,13 @@ De bestandsnaam mag de volgende jokertekens bevatten:
         <translation>Factor</translation>
     </message>
     <message>
-        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
-Not all image formats support the full range, JEPG does.</source>
-        <translation>Geef 0 op om weinig compressie en 100 om hoge compressie toe te passen.
-Niet alle afbeeldingsformaten ondersteunen dit, maar jpeg in ieder geval wel.</translation>
-    </message>
-    <message>
         <source>Save Quality</source>
         <translation>Opslagkwaliteit</translation>
+    </message>
+    <message>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JPEG does.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -87,7 +87,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх 
+ліній, залишених пером чи маркером, але зробить їх&#x2028;
 плавнішими.</translation>
     </message>
     <message>
@@ -502,7 +502,7 @@ the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Показувати збільшувальне скло, яке дає змогу
 наблизити фонове зображення. Цей пункт
-працюватиме, лише якщо ввімкнено замороження зображення.</translation>
+працюватиме,&#x2028;лише якщо ввімкнено замороження зображення.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -580,18 +580,6 @@ and above from the captured area.</source>
         <translation>Примусове створення типового знімка Wayland</translation>
     </message>
     <message>
-        <source>GNOME and KDE Plasma support it&apos;s own Wayland
-and the Generic XDG-DESKTOP-PORTAL screenshots.
-Enabling this option will force KDE Plasma and
-GNOME to use the XDG-DESKTOP-PORTAL screenshots.
-Change in this option require a ksnip restart.</source>
-        <translation>У GNOME і Плазмі KDE передбачено власні засоби створення
-знімків Wayland та типових знімків XDG-DESKTOP-PORTAL.
-Якщо позначити цей пункт, програма примусово
-використовуватиме у Плазмі KDE і GNOME знімки XDG-DESKTOP-PORTAL.
-Для набуття чинності цим параметром ksnip слід перезапустити.</translation>
-    </message>
-    <message>
         <source>Scale Generic Wayland Screenshots</source>
         <translation>Масштабувати типові знімки у Wayland</translation>
     </message>
@@ -606,6 +594,14 @@ XDG-DESKTOP-PORTAL, обробляють масштабування
 екрана інакше. Вмикання цього параметра
 призведе до визначення поточного масштабування
 екрана і застосування його до знімка у ksnip.</translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support their own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -896,6 +892,29 @@ and capturing screenshot.</source>
     </message>
 </context>
 <context>
+    <name>MultiCaptureHandler</name>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Зберегти</translation>
+    </message>
+    <message>
+        <source>Save As</source>
+        <translation type="unfinished">Зберегти як</translation>
+    </message>
+    <message>
+        <source>Open Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Копіювати</translation>
+    </message>
+    <message>
+        <source>Copy Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
@@ -1010,14 +1029,13 @@ Filename can contain following wildcards:
         <translation>Коефіцієнт</translation>
     </message>
     <message>
-        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
-Not all image formats support the full range, JEPG does.</source>
-        <translation>Вкажіть 0 для отримання малих стиснених файлів або 100 для отримання великих файлів без стискання.
-Повний діапазон коефіцієнтів стискання передбачено не усіма форматами, але його підтримку передбачено у JPEG.</translation>
-    </message>
-    <message>
         <source>Save Quality</source>
         <translation>Якість збереження</translation>
+    </message>
+    <message>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JPEG does.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

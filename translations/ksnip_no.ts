@@ -562,14 +562,6 @@ and above from the captured area.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>GNOME and KDE Plasma support it&apos;s own Wayland
-and the Generic XDG-DESKTOP-PORTAL screenshots.
-Enabling this option will force KDE Plasma and
-GNOME to use the XDG-DESKTOP-PORTAL screenshots.
-Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Scale Generic Wayland Screenshots</source>
         <translation type="unfinished"></translation>
     </message>
@@ -579,6 +571,14 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support their own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -869,6 +869,29 @@ og avbildning av skjerm.</translation>
     </message>
 </context>
 <context>
+    <name>MultiCaptureHandler</name>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Lagre</translation>
+    </message>
+    <message>
+        <source>Save As</source>
+        <translation type="unfinished">Lagre som</translation>
+    </message>
+    <message>
+        <source>Open Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished">Kopier</translation>
+    </message>
+    <message>
+        <source>Copy Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
@@ -979,12 +1002,12 @@ Filename can contain following wildcards:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
-Not all image formats support the full range, JEPG does.</source>
+        <source>Save Quality</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Save Quality</source>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JPEG does.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

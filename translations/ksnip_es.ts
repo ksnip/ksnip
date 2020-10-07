@@ -140,7 +140,7 @@ más suaves.</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Recordar herramienta de selección y cargarla al iniciar</translation>
     </message>
 </context>
 <context>
@@ -203,22 +203,25 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar minimizado en la bandeja</translation>
     </message>
     <message>
         <source>Remember position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Recordar posición al mover y cargar al iniciar</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar barra de pestañas solo cuando una pestaña está en uso.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Habilitando esta opción  permitirá que solo una instancia de ksnip inicie,
+el resto de las instancias iniciadas después pasarán  sus
+argumentos a la primera y se cerrarán. Cambiar esta opción requiere
+un nuevo inicio de todas las instancias.</translation>
     </message>
 </context>
 <context>
@@ -257,7 +260,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Soporte para Snap y Flatpak</translation>
     </message>
 </context>
 <context>
@@ -269,7 +272,8 @@ a new start of all instances.</source>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>La captura %1%2%3 ha sido modificada.
+¿Quieres guardarla?</translation>
     </message>
 </context>
 <context>
@@ -328,11 +332,11 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Portal de capturas</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Usa el portal de capturas para tomar capturas</translation>
     </message>
 </context>
 <context>
@@ -351,19 +355,19 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Donación</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Ser un patrocinador de GitHub</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip es un projecto de software libre, y&lt;br/&gt;aún tiene algunos costos que necesitan ser cubiertos,&lt;br/&gt;como costos de dominios o hardware para soporte multi plataforma.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Si quieres ayudar o solo&lt;br/&gt;quieres apreciar el trabajo que se está haciendo&lt;br/&gt;invitando a los desarrolladores a una cerveza o un café, puede hacerlo</translation>
     </message>
 </context>
 <context>
@@ -422,7 +426,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Script escrito a la salida estándar de errores (StrErr).</translation>
     </message>
 </context>
 <context>
@@ -469,7 +473,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar usando Portal</translation>
     </message>
 </context>
 <context>
@@ -647,7 +651,7 @@ apply that to the screenshot in ksnip.</source>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation>Ingrese Pin imgur para intercambiarlo&#xa0;por una ficha.</translation>
+        <translation>Ingrese Pin imgur para intercambiarlo por una ficha.</translation>
     </message>
     <message>
         <source>Get PIN</source>

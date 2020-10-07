@@ -40,7 +40,7 @@ public:
 	virtual int currentTabIndex() const = 0;
 
 signals:
-	virtual void updateTabInfo(int index, const QString &title, const QString &toolTip);
+	void updateTabInfo(int index, const QString &title, const QString &toolTip);
 
 public slots:
 	virtual void tabMoved(int fromIndex, int toIndex) = 0;

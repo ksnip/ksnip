@@ -230,4 +230,38 @@ void MultiCaptureHandlerTests::TestUpdateContextMenuActions_Should_SetSaveAction
 	QCOMPARE(saveContextMenuAction->isEnabled(), true);
 }
 
+void MultiCaptureHandlerTests::TestCopyPath_Should_CopyCurrentTabPathToClipboard()
+{
+	auto path = QLatin1Literal("lala");
+	auto index = 22;
+	ImageAnnotatorMock imageAnnotatorMock;
+	ClipboardMock clipboardMock;
+	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &clipboardMock, nullptr, tabStateHandlerMock, nullptr);
+	tabStateHandlerMock->currentTabIndex_set(index);
+	tabStateHandlerMock->path_set(index, path);
+
+	multiCaptureHandler.copyPath();
+
+	QCOMPARE(tabStateHandlerMock->path_callCounter(index), 1);
+	QCOMPARE(clipboardMock.setText_get(), path);
+}
+
+void MultiCaptureHandlerTests::TestOenDirectory_Should_FetchCurrentTabPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService()
+{
+	auto index = 22;
+	ImageAnnotatorMock imageAnnotatorMock;
+	ClipboardMock clipboardMock;
+	auto desktopService = new DesktopServiceMock;
+	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &clipboardMock, desktopService, tabStateHandlerMock, nullptr);
+	tabStateHandlerMock->currentTabIndex_set(index);
+	tabStateHandlerMock->path_set(index, QLatin1String("/la/la.png"));
+
+	multiCaptureHandler.openDirectory();
+
+	QCOMPARE(tabStateHandlerMock->path_callCounter(index), 1);
+	QCOMPARE(desktopService->openUrl_get().toString(), QLatin1String("/la"));
+}
+
 QTEST_MAIN(MultiCaptureHandlerTests)

@@ -40,6 +40,8 @@ private slots:
 	void TestUpdateContextMenuActions_Should_SetAllActionThatRequirePathToDisabled_When_PathIsNotValid();
 	void TestUpdateContextMenuActions_Should_SetSaveActionToDisabled_When_CaptureSaved();
 	void TestUpdateContextMenuActions_Should_SetSaveActionToEnabled_When_CaptureNotSaved();
+	void TestCopyPath_Should_CopyCurrentTabPathToClipboard();
+	void TestOenDirectory_Should_FetchCurrentTabPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService();
 };
 
 #endif //KSNIP_MULTICAPTUREHANDLERTESTS_H

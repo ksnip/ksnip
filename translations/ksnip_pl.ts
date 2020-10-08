@@ -363,11 +363,11 @@ Chcesz go zapisać?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip jest niedochodowym projektem wolnego oprogramowania objętego licencją typu copylefted &lt;br/&gt; i nadal ma pewne koszty, które trzeba pokryć &lt;br/&gt;, takie jak koszty domeny lub koszty sprzętu do obsługi wielu platform.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Jeśli chcesz pomóc lub &lt;br/&gt;chcesz docenić wykonywaną pracę&lt;br/&gt; polegającą na poczęstowaniu programistów piwem lub kawą, możesz to zrobić</translation>
     </message>
 </context>
 <context>

@@ -597,7 +597,11 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME och KDE Plasma stödjer det egna Wayland
+och inbyggda XDG-DESKTOP-PORTAL-skärmklipp.
+Om alternativet aktiveras kommer KDE Plasma och
+GNOME att använda XDG-DESKTOP-PORTAL-skärmklipp.
+Ändring i det här alternativet kräveratt ksnip startas om.</translation>
     </message>
 </context>
 <context>
@@ -891,23 +895,23 @@ och själva skärmklippet.</translation>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Spara</translation>
+        <translation>Spara</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Spara som</translation>
+        <translation>Spara som</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna mapp</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Kopiera</translation>
+        <translation>Kopiera</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera sökväg</translation>
     </message>
 </context>
 <context>
@@ -1031,7 +1035,8 @@ Filnamn kan innehålla följande jokertecken:
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ange 0 för att erhålla små komprimerade filer, 100 för stora okomprimerade filer.
+Alla bildformat stödjer inte hela intervallet, det gör JEPG.</translation>
     </message>
 </context>
 <context>

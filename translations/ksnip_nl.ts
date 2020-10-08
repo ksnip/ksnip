@@ -598,7 +598,11 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME en KDE Plasma ondersteunen zowel hun eigen
+Wayland-implementatie als die van de algemene
+XDG-DESKTOP-PORTAL. Schakel deze optie in om KDE Plasma
+en GNOME XDG-DESKTOP-PORTAL te laten gebruiken voor het
+maken van schermfoto&apos;s. Herstart ksnip om de wijziging toe te passen.</translation>
     </message>
 </context>
 <context>
@@ -892,23 +896,23 @@ van schermfoto, in seconden.</translation>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Opslaan</translation>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Opslaan als</translation>
+        <translation>Opslaan als</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Map openen</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Kopiëren</translation>
+        <translation>Kopiëren</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Pad kopiëren</translation>
     </message>
 </context>
 <context>
@@ -1032,7 +1036,8 @@ De bestandsnaam mag de volgende jokertekens bevatten:
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geef 0 op om bestanden met lage compressie te verkrijgen en 100 voor bestanden met
+hoge compressie. Niet alle formaten ondersteunen det volledige bereik, maar jpeg wel.</translation>
     </message>
 </context>
 <context>

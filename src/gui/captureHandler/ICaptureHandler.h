@@ -23,17 +23,21 @@
 #include "src/gui/captureHandler/ICaptureChangeListener.h"
 #include "src/common/dtos/CaptureDto.h"
 
-class ICaptureHandler
+class ICaptureHandler : public QObject
 {
 public:
-	virtual ~ICaptureHandler() = default;
+	explicit ICaptureHandler() = default;
+	~ICaptureHandler() override = default;
 	virtual bool canClose() = 0;
 	virtual bool canTakeNew() = 0;
 	virtual bool isSaved() const = 0;
 	virtual QString path() const = 0;
+	virtual bool isPathValid() const = 0;
 	virtual void saveAs() = 0;
 	virtual void save() = 0;
 	virtual void copy() = 0;
+	virtual void copyPath() = 0;
+	virtual void openDirectory() = 0;
 	virtual void load(const CaptureDto &capture) = 0;
 	virtual QImage image() const = 0;
 	virtual void insertImageItem(const QPointF &pos, const QPixmap &pixmap) = 0;

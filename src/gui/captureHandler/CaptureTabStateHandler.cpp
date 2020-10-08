@@ -39,8 +39,7 @@ bool CaptureTabStateHandler::isSaved(int index)
 
 bool CaptureTabStateHandler::isPathValid(int index)
 {
-	auto tabState = getTabState(index);
-	return tabState.isNull() || PathHelper::isPathValid(tabState->path);
+	return PathHelper::isPathValid(path(index));
 }
 
 QString CaptureTabStateHandler::path(int index)

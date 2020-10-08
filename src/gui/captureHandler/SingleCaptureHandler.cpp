@@ -19,13 +19,14 @@
 
 #include "SingleCaptureHandler.h"
 
-SingleCaptureHandler::SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent) :
+SingleCaptureHandler::SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService, QWidget *parent) :
 		mImageAnnotator(imageAnnotator),
 		mToastService(toastService),
 		mParent(parent),
 		mCaptureChangeListener(nullptr),
 		mIsSaved(true),
-		mClipboard(clipboard)
+		mClipboard(clipboard),
+		mDesktopService(desktopService)
 {
 	mImageAnnotator->setTabBarAutoHide(true);
 
@@ -52,6 +53,11 @@ QString SingleCaptureHandler::path() const
 	return mPath;
 }
 
+bool SingleCaptureHandler::isPathValid() const
+{
+	return PathHelper::isPathValid(mPath);
+}
+
 void SingleCaptureHandler::saveAs()
 {
 	innerSave(false);
@@ -66,6 +72,16 @@ void SingleCaptureHandler::copy()
 {
 	auto image = mImageAnnotator->image();
 	mClipboard->setImage(image);
+}
+
+void SingleCaptureHandler::copyPath()
+{
+	mClipboard->setText(mPath);
+}
+
+void SingleCaptureHandler::openDirectory()
+{
+	mDesktopService->openUrl(PathHelper::extractParentDirectory(mPath));
 }
 
 void SingleCaptureHandler::innerSave(bool isInstant)

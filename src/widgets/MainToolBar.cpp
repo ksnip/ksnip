@@ -39,7 +39,7 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoA
 {
     connect(mCaptureModePicker, &CaptureModePicker::captureModeSelected, this, &MainToolBar::captureModeSelected);
 
-	setStyleSheet(QStringLiteral("QToolBar { border: 0px }"));
+	setStyleSheet(QLatin1Literal("QToolBar { border: 0px }"));
 
     mNewCaptureAction->setText(tr("New"));
     mNewCaptureAction->setShortcut(QKeySequence::New);

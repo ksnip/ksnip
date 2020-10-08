@@ -24,6 +24,6 @@ ICaptureHandler * CaptureHandlerFactory::create(IImageAnnotator *imageAnnotator,
 	if(KsnipConfigProvider::instance()->useTabs()) {
 		return new MultiCaptureHandler(imageAnnotator, toastService, clipboard, new DesktopServiceAdapter, new CaptureTabStateHandler, parent);
 	} else {
-		return new SingleCaptureHandler(imageAnnotator, toastService, clipboard, parent);
+		return new SingleCaptureHandler(imageAnnotator, toastService, clipboard, new DesktopServiceAdapter, parent);
 	}
 }

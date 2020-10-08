@@ -112,6 +112,11 @@ QString MultiCaptureHandler::path() const
 	return mTabStateHandler->path(mTabStateHandler->currentTabIndex());
 }
 
+bool MultiCaptureHandler::isPathValid() const
+{
+	return mTabStateHandler->isPathValid(mTabStateHandler->currentTabIndex());
+}
+
 void MultiCaptureHandler::saveAs()
 {
 	saveAsTab(mTabStateHandler->currentTabIndex());
@@ -125,6 +130,16 @@ void MultiCaptureHandler::save()
 void MultiCaptureHandler::copy()
 {
 	copyToClipboardTab(mTabStateHandler->currentTabIndex());
+}
+
+void MultiCaptureHandler::copyPath()
+{
+	copyPathToClipboardTab(mTabStateHandler->currentTabIndex());
+}
+
+void MultiCaptureHandler::openDirectory()
+{
+	openDirectoryTab(mTabStateHandler->currentTabIndex());
 }
 
 void MultiCaptureHandler::saveAt(int index, bool isInstant)

@@ -25,20 +25,24 @@
 #include "src/gui/IToastService.h"
 #include "src/gui/clipboard/IClipboard.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
+#include "src/gui/desktopService/IDesktopService.h"
 
-class SingleCaptureHandler : public QObject, public ICaptureHandler
+class SingleCaptureHandler : public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent);
+	explicit SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService, QWidget *parent);
 	~SingleCaptureHandler() override = default;
 	bool canClose() override;
 	bool canTakeNew() override;
 	bool isSaved() const override;
 	QString path() const override;
+	bool isPathValid() const override;
 	void saveAs() override;
 	void save() override;
 	void copy() override;
+	void copyPath() override;
+	void openDirectory() override;
 	void load(const CaptureDto &capture) override;
 	QImage image() const override;
 	void insertImageItem(const QPointF &pos, const QPixmap &pixmap) override;
@@ -52,6 +56,7 @@ private:
 	bool mIsSaved;
 	QString mPath;
 	IClipboard *mClipboard;
+	IDesktopService *mDesktopService;
 
 	bool discardChanges();
 	void resetStats();

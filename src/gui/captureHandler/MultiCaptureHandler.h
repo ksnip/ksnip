@@ -34,7 +34,7 @@
 #include "src/common/loader/IconLoader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
-class MultiCaptureHandler : public QObject, public ICaptureHandler
+class MultiCaptureHandler : public ICaptureHandler
 {
 Q_OBJECT
 public:
@@ -45,9 +45,12 @@ public:
 	bool canTakeNew() override;
 	bool isSaved() const override;
 	QString path() const override;
+	bool isPathValid() const override;
 	void saveAs() override;
 	void save() override;
 	void copy() override;
+	void copyPath() override;
+	void openDirectory() override;
 	void load(const CaptureDto &capture) override;
 	QImage image() const override;
 	void insertImageItem(const QPointF &pos, const QPixmap &pixmap) override;

@@ -84,7 +84,9 @@ private:
     QAction *mPrintAction;
     QAction *mPrintPreviewAction;
     QAction *mQuitAction;
-    QAction *mSettingsDialogAction;
+    QAction *mCopyPathAction;
+    QAction *mOpenDirectoryAction;
+    QAction *mSettingsAction;
     QAction *mAboutAction;
     QAction *mOpenImageAction;
     QAction *mScaleAction;

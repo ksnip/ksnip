@@ -21,37 +21,39 @@
 #include "MainWindow.h"
 
 MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
-	QMainWindow(),
-	mImageGrabber(imageGrabber),
-	mMode(mode),
-	mImageAnnotator(new KImageAnnotatorAdapter),
-	mSaveAsAction(new QAction(this)),
-	mUploadAction(new QAction(this)),
-	mPrintAction(new QAction(this)),
-	mPrintPreviewAction(new QAction(this)),
-	mQuitAction(new QAction(this)),
-	mSettingsDialogAction(new QAction(this)),
-	mAboutAction(new QAction(this)),
-	mOpenImageAction(new QAction(this)),
-	mScaleAction(new QAction(this)),
-	mAddWatermarkAction(new QAction(this)),
-	mPasteAction(new QAction(this)),
-	mPasteEmbeddedAction(new QAction(this)),
-	mPinAction(new QAction(this)),
-	mMainLayout(layout()),
-	mClipboard(new ClipboardAdapter()),
-	mConfig(KsnipConfigProvider::instance()),
-	mCapturePrinter(new CapturePrinter(this)),
-	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
-	mTrayIcon(new TrayIcon(this)),
-	mSelectedWindowState(Qt::WindowActive),
-	mWindowStateChangeLock(false),
-	mDragAndDropHandler(new DragAndDropHandler),
-	mUploaderProvider(new UploaderProvider),
-	mSessionManagerRequestedQuit(false),
-	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mClipboard, this)),
-	mPinWindowHandler(new PinWindowHandler(this)),
-	mWidgetHider(WidgetHiderFactory::create(this))
+		QMainWindow(),
+		mImageGrabber(imageGrabber),
+		mMode(mode),
+		mImageAnnotator(new KImageAnnotatorAdapter),
+		mSaveAsAction(new QAction(this)),
+		mUploadAction(new QAction(this)),
+		mPrintAction(new QAction(this)),
+		mPrintPreviewAction(new QAction(this)),
+		mQuitAction(new QAction(this)),
+		mCopyPathAction(new QAction(this)),
+		mOpenDirectoryAction(new QAction(this)),
+		mSettingsAction(new QAction(this)),
+		mAboutAction(new QAction(this)),
+		mOpenImageAction(new QAction(this)),
+		mScaleAction(new QAction(this)),
+		mAddWatermarkAction(new QAction(this)),
+		mPasteAction(new QAction(this)),
+		mPasteEmbeddedAction(new QAction(this)),
+		mPinAction(new QAction(this)),
+		mMainLayout(layout()),
+		mClipboard(new ClipboardAdapter()),
+		mConfig(KsnipConfigProvider::instance()),
+		mCapturePrinter(new CapturePrinter(this)),
+		mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
+		mTrayIcon(new TrayIcon(this)),
+		mSelectedWindowState(Qt::WindowActive),
+		mWindowStateChangeLock(false),
+		mDragAndDropHandler(new DragAndDropHandler),
+		mUploaderProvider(new UploaderProvider),
+		mSessionManagerRequestedQuit(false),
+		mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mClipboard, this)),
+		mPinWindowHandler(new PinWindowHandler(this)),
+		mWidgetHider(WidgetHiderFactory::create(this))
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -109,8 +111,8 @@ void MainWindow::setPosition()
 	auto screenGeometry = QApplication::desktop()->screenGeometry();
 	if(!screenGeometry.contains(position)) {
 		auto screenCenter = screenGeometry.center();
-		auto ksnipSize = size();
-		position = QPoint(screenCenter.x() - ksnipSize.width() / 2, screenCenter.y() - ksnipSize.height() / 2);
+		auto mainWindowSize = size();
+		position = QPoint(screenCenter.x() - mainWindowSize.width() / 2, screenCenter.y() - mainWindowSize.height() / 2);
 	}
 	move(position);
 }
@@ -122,7 +124,9 @@ MainWindow::~MainWindow()
     delete mPrintAction;
     delete mPrintPreviewAction;
     delete mQuitAction;
-    delete mSettingsDialogAction;
+    delete mCopyPathAction;
+    delete mOpenDirectoryAction;
+    delete mSettingsAction;
     delete mAboutAction;
     delete mOpenImageAction;
     delete mScaleAction;
@@ -277,6 +281,8 @@ void MainWindow::changeEvent(QEvent *event)
 void MainWindow::captureChanged()
 {
     mToolBar->setSaveActionEnabled(!mCaptureHandler->isSaved());
+	mCopyPathAction->setEnabled(mCaptureHandler->isPathValid());
+	mOpenDirectoryAction->setEnabled(mCaptureHandler->isPathValid());
 	updateApplicationTitle();
 }
 
@@ -378,10 +384,16 @@ void MainWindow::initGui()
     mQuitAction->setIcon(QIcon::fromTheme(QLatin1Literal("application-exit")));
     connect(mQuitAction, &QAction::triggered, this, &MainWindow::quit);
 
-    mSettingsDialogAction->setText(tr("Settings"));
-    mSettingsDialogAction->setIcon(QIcon::fromTheme(QLatin1Literal("emblem-system")));
-	mSettingsDialogAction->setShortcut(Qt::ALT + Qt::Key_F7);
-	connect(mSettingsDialogAction, &QAction::triggered, this, &MainWindow::showSettingsDialog);
+	mCopyPathAction->setText(tr("Copy Path"));
+	connect(mCopyPathAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::copyPath);
+
+	mOpenDirectoryAction->setText(tr("Open Directory"));
+	connect(mOpenDirectoryAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::openDirectory);
+
+    mSettingsAction->setText(tr("Settings"));
+    mSettingsAction->setIcon(QIcon::fromTheme(QLatin1Literal("emblem-system")));
+	mSettingsAction->setShortcut(Qt::ALT + Qt::Key_F7);
+	connect(mSettingsAction, &QAction::triggered, this, &MainWindow::showSettingsDialog);
 
     mAboutAction->setText(tr("&About"));
 	mAboutAction->setIcon(QIcon(QLatin1Literal(":/icons//ksnip")));
@@ -428,15 +440,18 @@ void MainWindow::initGui()
     menu->addAction(mToolBar->redoAction());
     menu->addSeparator();
     menu->addAction(mToolBar->copyToClipboardAction());
+    menu->addAction(mCopyPathAction);
     menu->addAction(mPasteAction);
     menu->addAction(mPasteEmbeddedAction);
 	menu->addSeparator();
     menu->addAction(mToolBar->cropAction());
     menu->addAction(mScaleAction);
     menu->addAction(mAddWatermarkAction);
+	menu = menuBar()->addMenu(tr("&View"));
+	menu->addAction(mOpenDirectoryAction);
     menu = menuBar()->addMenu(tr("&Options"));
     menu->addAction(mPinAction);
-    menu->addAction(mSettingsDialogAction);
+    menu->addAction(mSettingsAction);
     menu = menuBar()->addMenu(tr("&Help"));
     menu->addAction(mAboutAction);
 

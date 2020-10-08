@@ -87,7 +87,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх&#x2028;
+ліній, залишених пером чи маркером, але зробить їх 
 плавнішими.</translation>
     </message>
     <message>
@@ -502,7 +502,7 @@ the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Показувати збільшувальне скло, яке дає змогу
 наблизити фонове зображення. Цей пункт
-працюватиме,&#x2028;лише якщо ввімкнено замороження зображення.</translation>
+працюватиме, лише якщо ввімкнено замороження зображення.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -601,7 +601,11 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>У GNOME і Плазмі KDE передбачено власні засоби створення
+знімків Wayland та типових знімків XDG-DESKTOP-PORTAL.
+Якщо позначити цей пункт, програма примусово
+використовуватиме у Плазмі KDE і GNOME знімки XDG-DESKTOP-PORTAL.
+Для набуття чинності цим параметром ksnip слід перезапустити.</translation>
     </message>
 </context>
 <context>
@@ -895,23 +899,23 @@ and capturing screenshot.</source>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Зберегти</translation>
+        <translation>Зберегти</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Зберегти як</translation>
+        <translation>Зберегти як</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити каталог</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Копіювати</translation>
+        <translation>Копіювати</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати шлях</translation>
     </message>
 </context>
 <context>
@@ -1035,7 +1039,8 @@ Filename can contain following wildcards:
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вкажіть 0 для отримання малих стиснених файлів або 100 для отримання великих файлів без стискання.
+Повний діапазон коефіцієнтів стискання передбачено не усіма форматами, але його підтримку передбачено у JPEG.</translation>
     </message>
 </context>
 <context>

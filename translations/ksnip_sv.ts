@@ -890,6 +890,18 @@ och själva skärmklippet.</translation>
         <source>No image provided but one was expected.</source>
         <translation>Ingen bild tillgänglig, men en var förväntad.</translation>
     </message>
+    <message>
+        <source>Copy Path</source>
+        <translation type="unfinished">Kopiera sökväg</translation>
+    </message>
+    <message>
+        <source>Open Directory</source>
+        <translation type="unfinished">Öppna mapp</translation>
+    </message>
+    <message>
+        <source>&amp;View</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>

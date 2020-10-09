@@ -893,15 +893,15 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Pad kopiëren</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Map openen</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bekijken</translation>
     </message>
 </context>
 <context>

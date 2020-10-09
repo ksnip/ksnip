@@ -337,6 +337,18 @@ Speichern?</translation>
     </message>
 </context>
 <context>
+    <name>DeleteImageOperation</name>
+    <message>
+        <source>Delete Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The item &apos;%1&apos; will be deleted.
+Do you want to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DonateTab</name>
     <message>
         <source>here</source>
@@ -883,6 +895,10 @@ und der Aufnahme des Bildschirmfotos.</translation>
         <source>&amp;View</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -904,6 +920,10 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Copy Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

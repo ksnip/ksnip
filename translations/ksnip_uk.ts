@@ -87,7 +87,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх 
+ліній, залишених пером чи маркером, але зробить їх&#x2028;
 плавнішими.</translation>
     </message>
     <message>
@@ -340,6 +340,18 @@ Do you want to save it?</source>
     </message>
 </context>
 <context>
+    <name>DeleteImageOperation</name>
+    <message>
+        <source>Delete Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The item &apos;%1&apos; will be deleted.
+Do you want to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DonateTab</name>
     <message>
         <source>here</source>
@@ -502,7 +514,7 @@ the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Показувати збільшувальне скло, яке дає змогу
 наблизити фонове зображення. Цей пункт
-працюватиме, лише якщо ввімкнено замороження зображення.</translation>
+працюватиме,&#x2028;лише якщо ввімкнено замороження зображення.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -896,14 +908,18 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Копіювати шлях</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Відкрити каталог</translation>
     </message>
     <message>
         <source>&amp;View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -928,6 +944,10 @@ and capturing screenshot.</source>
     <message>
         <source>Copy Path</source>
         <translation>Копіювати шлях</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

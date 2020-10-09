@@ -339,6 +339,18 @@ Vill du spara det?</translation>
     </message>
 </context>
 <context>
+    <name>DeleteImageOperation</name>
+    <message>
+        <source>Delete Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The item &apos;%1&apos; will be deleted.
+Do you want to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DonateTab</name>
     <message>
         <source>here</source>
@@ -902,6 +914,10 @@ och själva skärmklippet.</translation>
         <source>&amp;View</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -924,6 +940,10 @@ och själva skärmklippet.</translation>
     <message>
         <source>Copy Path</source>
         <translation>Kopiera sökväg</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

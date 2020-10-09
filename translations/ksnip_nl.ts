@@ -340,6 +340,18 @@ Wil je deze opslaan?</translation>
     </message>
 </context>
 <context>
+    <name>DeleteImageOperation</name>
+    <message>
+        <source>Delete Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The item &apos;%1&apos; will be deleted.
+Do you want to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DonateTab</name>
     <message>
         <source>here</source>
@@ -893,14 +905,18 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pad kopiëren</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Map openen</translation>
     </message>
     <message>
         <source>&amp;View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -925,6 +941,10 @@ van schermfoto, in seconden.</translation>
     <message>
         <source>Copy Path</source>
         <translation>Pad kopiëren</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

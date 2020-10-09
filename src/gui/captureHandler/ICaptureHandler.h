@@ -38,6 +38,7 @@ public:
 	virtual void copy() = 0;
 	virtual void copyPath() = 0;
 	virtual void openDirectory() = 0;
+	virtual void removeImage() = 0;
 	virtual void load(const CaptureDto &capture) = 0;
 	virtual QImage image() const = 0;
 	virtual void insertImageItem(const QPointF &pos, const QPixmap &pixmap) = 0;

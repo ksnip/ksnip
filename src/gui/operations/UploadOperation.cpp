@@ -19,19 +19,25 @@
 
 #include "UploadOperation.h"
 
-UploadOperation::UploadOperation(const QImage &image, IUploader* uploader) :
-	mImage(image),
+UploadOperation::UploadOperation(QImage image, IUploader* uploader) :
+	mImage(std::move(image)),
 	mUploader(uploader),
-	mConfig(KsnipConfigProvider::instance())
+	mConfig(KsnipConfigProvider::instance()),
+	mMessageBoxService(new MessageBoxService)
 {
 	Q_ASSERT(mUploader != nullptr);
+}
+
+UploadOperation::~UploadOperation()
+{
+	delete mMessageBoxService;
 }
 
 bool UploadOperation::execute()
 {
 	if (mUploader->type() == UploaderType::Script && !PathHelper::isPathValid(mConfig->uploadScriptPath())) {
-		MessageBoxHelper::ok(tr("Upload Script Required"),
-			                 tr("Please add an upload script via Options > Settings > Upload Script"));
+		mMessageBoxService->ok(tr("Upload Script Required"),
+							  tr("Please add an upload script via Options > Settings > Upload Script"));
 	} else if (!mImage.isNull() && proceedWithUpload()) {
 		mUploader->upload(mImage);
 		return true;
@@ -41,11 +47,11 @@ bool UploadOperation::execute()
 
 bool UploadOperation::proceedWithUpload() const
 {
-	return mConfig->confirmBeforeUpload() ? getProceedWithUpload() : true;
+	return !mConfig->confirmBeforeUpload() || askIfCanProceedWithUpload();
 }
 
-bool UploadOperation::getProceedWithUpload() const
+bool UploadOperation::askIfCanProceedWithUpload() const
 {
-	return MessageBoxHelper::yesNo(tr("Capture Upload"),
-		                           tr("You are about to upload the image to an external destination, do you want to proceed?"));
+	return mMessageBoxService->yesNo(tr("Capture Upload"),
+									tr("You are about to upload the image to an external destination, do you want to proceed?"));
 }

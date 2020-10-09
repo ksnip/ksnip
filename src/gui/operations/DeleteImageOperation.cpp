@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,34 +17,26 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_UPLOADOPERATION_H
-#define KSNIP_UPLOADOPERATION_H
+#include "DeleteImageOperation.h"
 
-#include <QCoreApplication>
-#include <QImage>
-
-#include <utility>
-
-#include "src/backend/uploader/IUploader.h"
-#include "src/backend/config/KsnipConfigProvider.h"
-#include "src/gui/messageBoxService/MessageBoxService.h"
-
-class UploadOperation : public QObject
+DeleteImageOperation::DeleteImageOperation(QString path, IFileService *fileService, IMessageBoxService *messageBoxService) :
+	mPath(std::move(path)),
+	mFileService(fileService),
+	mMessageBoxService(messageBoxService)
 {
-	Q_OBJECT
-public:
-	UploadOperation(QImage image, IUploader *uploader);
-	~UploadOperation() override;
-	bool execute();
 
-private:
-	KsnipConfig *mConfig;
-	IUploader *mUploader;
-	QImage mImage;
-	IMessageBoxService *mMessageBoxService;
+}
 
-	bool proceedWithUpload() const;
-	bool askIfCanProceedWithUpload() const;
-};
+DeleteImageOperation::~DeleteImageOperation()
+{
+	delete mFileService;
+	delete mMessageBoxService;
+}
 
-#endif //KSNIP_UPLOADOPERATION_H
+bool DeleteImageOperation::execute()
+{
+	auto title = tr("Delete Image");
+	auto question = tr("The item \'%1\' will be deleted.\nDo you want to continue?").arg(mPath);
+	auto response = mMessageBoxService->okCancel(title, question);
+	return response && mFileService->remove(mPath);
+}

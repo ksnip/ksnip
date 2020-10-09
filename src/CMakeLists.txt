@@ -26,7 +26,6 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/adapter/fileDialog/SnapFileDialogAdapter.cpp
 	${CMAKE_SOURCE_DIR}/src/common/adapter/fileDialog/FileDialogAdapterFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
-	${CMAKE_SOURCE_DIR}/src/common/helper/MessageBoxHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/PathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/FileUrlHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
@@ -53,6 +52,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/imageAnnotator/KImageAnnotatorAdapter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/imageAnnotator/IImageAnnotator.h
 	${CMAKE_SOURCE_DIR}/src/gui/desktopService/DesktopServiceAdapter.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/fileService/FileService.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/WidgetHider.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/GnomeWaylandWidgetHider.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/WidgetHiderFactory.cpp
@@ -92,6 +92,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/operations/UploadOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/HandleUploadResultOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/NotifyOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/operations/DeleteImageOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/CaptureTabStateHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/ICaptureTabStateHandler.h
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/CaptureHandlerFactory.cpp
@@ -100,6 +101,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/TabContextMenuAction.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindowHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/messageBoxService/MessageBoxService.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/BootstrapperFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/StandAloneBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/InstanceLock.cpp

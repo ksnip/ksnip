@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,34 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_UPLOADOPERATION_H
-#define KSNIP_UPLOADOPERATION_H
+#ifndef KSNIP_FILESERVICE_H
+#define KSNIP_FILESERVICE_H
 
-#include <QCoreApplication>
-#include <QImage>
+#include <QFile>
 
-#include <utility>
+#include "IFileService.h"
 
-#include "src/backend/uploader/IUploader.h"
-#include "src/backend/config/KsnipConfigProvider.h"
-#include "src/gui/messageBoxService/MessageBoxService.h"
-
-class UploadOperation : public QObject
+class FileService : public IFileService
 {
-	Q_OBJECT
 public:
-	UploadOperation(QImage image, IUploader *uploader);
-	~UploadOperation() override;
-	bool execute();
-
-private:
-	KsnipConfig *mConfig;
-	IUploader *mUploader;
-	QImage mImage;
-	IMessageBoxService *mMessageBoxService;
-
-	bool proceedWithUpload() const;
-	bool askIfCanProceedWithUpload() const;
+	explicit FileService() = default;
+	~FileService() override = default;
+	bool remove(const QString &path) override;
 };
 
-#endif //KSNIP_UPLOADOPERATION_H
+
+#endif //KSNIP_FILESERVICE_H

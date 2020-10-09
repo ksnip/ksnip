@@ -25,7 +25,7 @@
 #include <random>
 
 #include "WatermarkImagePreparer.h"
-#include "src/common/helper/MessageBoxHelper.h"
+#include "src/gui/messageBoxService/MessageBoxService.h"
 #include "src/backend/WatermarkImageLoader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
@@ -35,7 +35,7 @@ class AddWatermarkOperation : public QObject
 	Q_OBJECT
 public:
 	explicit AddWatermarkOperation(IImageAnnotator *imageAnnotator);
-	~AddWatermarkOperation() override = default;
+	~AddWatermarkOperation() override;
 	void execute();
 
 private:
@@ -43,8 +43,9 @@ private:
 	WatermarkImagePreparer mImagePreparer;
 	WatermarkImageLoader mWatermarkImageLoader;
 	KsnipConfig *mConfig;
+	IMessageBoxService *mMessageBoxService;
 
-	QPointF getPositionForWatermark(const QPixmap &image, const QSize &availableSpace) const;
+	static QPointF getPositionForWatermark(const QPixmap &image, const QSize &availableSpace) ;
 	void NotifyAboutMissingWatermarkImage() const;
 };
 

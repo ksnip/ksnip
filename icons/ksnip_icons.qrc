@@ -22,6 +22,7 @@
     <file>light/fullScreen.svg</file>
     <file>light/pin.svg</file>
     <file>light/wayland.svg</file>
+    <file>light/delete.svg</file>
 
     <file>dark/bold.svg</file>
     <file>dark/italic.svg</file>
@@ -43,5 +44,6 @@
     <file>dark/fullScreen.svg</file>
     <file>dark/pin.svg</file>
     <file>dark/wayland.svg</file>
+    <file>dark/delete.svg</file>
 </qresource>
 </RCC>

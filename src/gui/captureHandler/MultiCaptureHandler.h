@@ -25,10 +25,13 @@
 #include "src/gui/captureHandler/TabContextMenuAction.h"
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/SaveOperation.h"
+#include "src/gui/operations/DeleteImageOperation.h"
 #include "src/gui/IToastService.h"
 #include "src/gui/clipboard/IClipboard.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
 #include "src/gui/desktopService/IDesktopService.h"
+#include "src/gui/fileService/FileService.h"
+#include "src/gui/messageBoxService/MessageBoxService.h"
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
 #include "src/common/loader/IconLoader.h"
@@ -51,6 +54,7 @@ public:
 	void copy() override;
 	void copyPath() override;
 	void openDirectory() override;
+	void removeImage() override;
 	void load(const CaptureDto &capture) override;
 	QImage image() const override;
 	void insertImageItem(const QPointF &pos, const QPixmap &pixmap) override;
@@ -72,6 +76,8 @@ private:
 	TabContextMenuAction *mOpenDirectoryContextMenuAction;
 	TabContextMenuAction *mCopyPathToClipboardContextMenuAction;
 	TabContextMenuAction *mCopyToClipboardContextMenuAction;
+	TabContextMenuAction *mDeleteImageContextMenuAction;
+	QAction *mContextMenuSeparatorAction;
 
 	bool discardChanges(int index);
 	void removeTab(int currentTabIndex);
@@ -89,6 +95,7 @@ private slots:
 	void updateContextMenuActions(int index);
 	void copyToClipboardTab(int index);
 	void copyPathToClipboardTab(int index);
+	void deleteImageTab(int index);
 };
 
 #endif //KSNIP_MULTICAPTUREHANDLER_H

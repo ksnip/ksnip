@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,22 +17,28 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_MESSAGEBOXHELPER_H
-#define KSNIP_MESSAGEBOXHELPER_H
+#ifndef KSNIP_DELETEIMAGEOPERATION_H
+#define KSNIP_DELETEIMAGEOPERATION_H
 
-#include <QMessageBox>
+#include <QObject>
 
-#include "src/common/enum/MessageBoxResponse.h"
+#include <utility>
 
-class MessageBoxHelper
+#include "src/gui/fileService/IFileService.h"
+#include "src/gui/messageBoxService/IMessageBoxService.h"
+
+class DeleteImageOperation : public QObject
 {
+	Q_OBJECT
 public:
-    static bool yesNo(const QString &title, const QString &question);
-    static MessageBoxResponse yesNoCancel(const QString &title, const QString &question);
-    static void ok(const QString &title, const QString &info);
+	explicit DeleteImageOperation(QString path, IFileService *fileService, IMessageBoxService *messageBoxService);
+	~DeleteImageOperation() override;
+	bool execute();
 
 private:
-	static MessageBoxResponse mapReplyToMessageBoxResponse(int reply);
+	QString mPath;
+	IFileService *mFileService;
+	IMessageBoxService *mMessageBoxService;
 };
 
-#endif //KSNIP_MESSAGEBOXHELPER_H
+#endif //KSNIP_DELETEIMAGEOPERATION_H

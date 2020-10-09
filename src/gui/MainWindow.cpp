@@ -40,6 +40,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mPasteAction(new QAction(this)),
 		mPasteEmbeddedAction(new QAction(this)),
 		mPinAction(new QAction(this)),
+		mRemoveImageAction(new QAction(this)),
 		mMainLayout(layout()),
 		mClipboard(new ClipboardAdapter()),
 		mConfig(KsnipConfigProvider::instance()),
@@ -283,6 +284,7 @@ void MainWindow::captureChanged()
     mToolBar->setSaveActionEnabled(!mCaptureHandler->isSaved());
 	mCopyPathAction->setEnabled(mCaptureHandler->isPathValid());
 	mOpenDirectoryAction->setEnabled(mCaptureHandler->isPathValid());
+	mRemoveImageAction->setEnabled(mCaptureHandler->isPathValid());
 	updateApplicationTitle();
 }
 
@@ -424,6 +426,10 @@ void MainWindow::initGui()
 	mPinAction->setIcon(IconLoader::load(QLatin1Literal("pin")));
 	connect(mPinAction, &QAction::triggered, this, &MainWindow::showPinWindow);
 
+	mRemoveImageAction->setText(tr("Delete"));
+	mRemoveImageAction->setIcon(IconLoader::load(QLatin1Literal("delete")));
+	connect(mRemoveImageAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::removeImage);
+
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
     menu->addAction(mOpenImageAction);
@@ -447,6 +453,8 @@ void MainWindow::initGui()
     menu->addAction(mToolBar->cropAction());
     menu->addAction(mScaleAction);
     menu->addAction(mAddWatermarkAction);
+	menu->addSeparator();
+	menu->addAction(mRemoveImageAction);
 	menu = menuBar()->addMenu(tr("&View"));
 	menu->addAction(mOpenDirectoryAction);
     menu = menuBar()->addMenu(tr("&Options"));
@@ -618,7 +626,7 @@ void MainWindow::captureEmpty()
 {
 	setEnablements(false);
 	mMainLayout->setSizeConstraint(QLayout::SetFixedSize); // Workaround that allows us to return to toolbar only size
-	resize(minimumSize());
+	adjustSize();
 	mMainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
 }
 

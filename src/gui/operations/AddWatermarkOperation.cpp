@@ -21,8 +21,15 @@
 
 AddWatermarkOperation::AddWatermarkOperation(IImageAnnotator *imageAnnotator) :
 	mImageAnnotator(imageAnnotator),
-	mConfig(KsnipConfigProvider::instance())
+	mConfig(KsnipConfigProvider::instance()),
+	mMessageBoxService(new MessageBoxService)
 {
+
+}
+
+AddWatermarkOperation::~AddWatermarkOperation()
+{
+	delete mMessageBoxService;
 }
 
 void AddWatermarkOperation::execute()
@@ -42,10 +49,10 @@ void AddWatermarkOperation::execute()
 
 void AddWatermarkOperation::NotifyAboutMissingWatermarkImage() const
 {
-	MessageBoxHelper::ok(tr("Watermark Image Required"), tr("Please add a Watermark Image via Options > Settings > Annotator > Update"));
+	mMessageBoxService->ok(tr("Watermark Image Required"), tr("Please add a Watermark Image via Options > Settings > Annotator > Update"));
 }
 
-QPointF AddWatermarkOperation::getPositionForWatermark(const QPixmap &image, const QSize &availableSpace) const
+QPointF AddWatermarkOperation::getPositionForWatermark(const QPixmap &image, const QSize &availableSpace)
 {
 	auto availableWidth = availableSpace.width() - image.rect().width();
 	auto availableHeight = availableSpace.height() - image.rect().height();

@@ -22,10 +22,12 @@
 
 #include "src/gui/captureHandler/ICaptureHandler.h"
 #include "src/gui/operations/CanDiscardOperation.h"
+#include "src/gui/operations/DeleteImageOperation.h"
 #include "src/gui/IToastService.h"
 #include "src/gui/clipboard/IClipboard.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
 #include "src/gui/desktopService/IDesktopService.h"
+#include "src/gui/fileService/FileService.h"
 
 class SingleCaptureHandler : public ICaptureHandler
 {
@@ -43,6 +45,7 @@ public:
 	void copy() override;
 	void copyPath() override;
 	void openDirectory() override;
+	void removeImage() override;
 	void load(const CaptureDto &capture) override;
 	QImage image() const override;
 	void insertImageItem(const QPointF &pos, const QPixmap &pixmap) override;
@@ -63,8 +66,10 @@ private:
 
 private slots:
 	void captureChanged();
+	void captureEmpty();
 	void innerSave(bool isInstant);
 	void markUnsaved();
+	void reset();
 };
 
 #endif //KSNIP_SINGLECAPTUREHANDLER_H

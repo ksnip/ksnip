@@ -33,7 +33,9 @@ MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToast
 	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
 	mOpenDirectoryContextMenuAction(new TabContextMenuAction(this)),
 	mCopyPathToClipboardContextMenuAction(new TabContextMenuAction(this)),
-	mCopyToClipboardContextMenuAction(new TabContextMenuAction(this))
+	mCopyToClipboardContextMenuAction(new TabContextMenuAction(this)),
+	mDeleteImageContextMenuAction(new TabContextMenuAction(this)),
+	mContextMenuSeparatorAction(new QAction(this))
 {
 	connect(mImageAnnotator, &IImageAnnotator::currentTabChanged, mTabStateHandler, &ICaptureTabStateHandler::currentTabChanged);
 	connect(mImageAnnotator, &IImageAnnotator::tabMoved, mTabStateHandler, &ICaptureTabStateHandler::tabMoved);
@@ -60,6 +62,8 @@ MultiCaptureHandler::~MultiCaptureHandler()
 	delete mOpenDirectoryContextMenuAction;
 	delete mCopyPathToClipboardContextMenuAction;
 	delete mCopyToClipboardContextMenuAction;
+	delete mDeleteImageContextMenuAction;
+	delete mContextMenuSeparatorAction;
 	delete mDesktopService;
 }
 
@@ -142,6 +146,11 @@ void MultiCaptureHandler::openDirectory()
 	openDirectoryTab(mTabStateHandler->currentTabIndex());
 }
 
+void MultiCaptureHandler::removeImage()
+{
+	deleteImageTab(mTabStateHandler->currentTabIndex());
+}
+
 void MultiCaptureHandler::saveAt(int index, bool isInstant)
 {
 	auto image = mImageAnnotator->imageAt(index);
@@ -220,17 +229,25 @@ void MultiCaptureHandler::addTabContextMenuActions()
 
 	mCopyPathToClipboardContextMenuAction->setText(tr("Copy Path"));
 
+	mContextMenuSeparatorAction->setSeparator(true);
+
+	mDeleteImageContextMenuAction->setText(tr("Delete"));
+	mDeleteImageContextMenuAction->setIcon(IconLoader::load(QLatin1Literal("delete.svg")));
+
 	connect(mSaveContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveTab);
 	connect(mSaveAsContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveAsTab);
 	connect(mOpenDirectoryContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::openDirectoryTab);
 	connect(mCopyPathToClipboardContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::copyPathToClipboardTab);
 	connect(mCopyToClipboardContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::copyToClipboardTab);
+	connect(mDeleteImageContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::deleteImageTab);
 
 	auto actions = QList<QAction *>{mSaveContextMenuAction,
 									mSaveAsContextMenuAction,
 									mOpenDirectoryContextMenuAction,
 									mCopyToClipboardContextMenuAction,
-									mCopyPathToClipboardContextMenuAction
+									mCopyPathToClipboardContextMenuAction,
+									mContextMenuSeparatorAction,
+									mDeleteImageContextMenuAction
 	};
 	mImageAnnotator->addTabContextMenuActions(actions);
 }
@@ -251,6 +268,7 @@ void MultiCaptureHandler::updateContextMenuActions(int index)
 	mSaveContextMenuAction->setEnabled(!mTabStateHandler->isSaved(index));
 	mOpenDirectoryContextMenuAction->setEnabled(isPathValid);
 	mCopyPathToClipboardContextMenuAction->setEnabled(isPathValid);
+	mDeleteImageContextMenuAction->setEnabled(isPathValid);
 }
 
 void MultiCaptureHandler::openDirectoryTab(int index)
@@ -269,4 +287,15 @@ void MultiCaptureHandler::copyPathToClipboardTab(int index)
 {
 	auto path = mTabStateHandler->path(index);
 	mClipboard->setText(path);
+}
+
+void MultiCaptureHandler::deleteImageTab(int index)
+{
+	auto path = mTabStateHandler->path(index);
+
+	DeleteImageOperation operation(path, new FileService, new MessageBoxService);
+
+	if(operation.execute()) {
+		removeTab(index);
+	}
 }

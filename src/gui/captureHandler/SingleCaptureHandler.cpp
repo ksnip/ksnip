@@ -84,6 +84,23 @@ void SingleCaptureHandler::openDirectory()
 	mDesktopService->openUrl(PathHelper::extractParentDirectory(mPath));
 }
 
+void SingleCaptureHandler::removeImage()
+{
+	DeleteImageOperation operation(mPath, new FileService, new MessageBoxService);
+	if(operation.execute()){
+		reset();
+	}
+}
+
+void SingleCaptureHandler::reset()
+{
+	mImageAnnotator->hide();
+	mPath = QString();
+	mIsSaved = true;
+	captureEmpty();
+	captureChanged();
+}
+
 void SingleCaptureHandler::innerSave(bool isInstant)
 {
 	auto image = mImageAnnotator->image();
@@ -136,6 +153,13 @@ void SingleCaptureHandler::captureChanged()
 {
 	if(mCaptureChangeListener != nullptr) {
 		mCaptureChangeListener->captureChanged();
+	}
+}
+
+void SingleCaptureHandler::captureEmpty()
+{
+	if(mCaptureChangeListener != nullptr) {
+		mCaptureChangeListener->captureEmpty();
 	}
 }
 

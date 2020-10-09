@@ -17,26 +17,32 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "MessageBoxHelper.h"
+#include "MessageBoxService.h"
 
-bool MessageBoxHelper::yesNo(const QString &title, const QString &question)
+bool MessageBoxService::yesNo(const QString &title, const QString &question)
 {
 	auto reply = QMessageBox::question(nullptr, title, question, QMessageBox::Yes | QMessageBox::No);
     return reply == QMessageBox::Yes;
 }
 
-MessageBoxResponse MessageBoxHelper::yesNoCancel(const QString &title, const QString &question)
+MessageBoxResponse MessageBoxService::yesNoCancel(const QString &title, const QString &question)
 {
 	auto reply = QMessageBox::question(nullptr, title, question, QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);
 	return mapReplyToMessageBoxResponse(reply);
 }
 
-void MessageBoxHelper::ok(const QString &title, const QString &info)
+void MessageBoxService::ok(const QString &title, const QString &info)
 {
 	QMessageBox::question(nullptr, title, info, QMessageBox::Ok);
 }
 
-MessageBoxResponse MessageBoxHelper::mapReplyToMessageBoxResponse(int reply)
+bool MessageBoxService::okCancel(const QString &title, const QString &info)
+{
+	auto reply = QMessageBox::question(nullptr, title, info, QMessageBox::Ok | QMessageBox::Cancel);
+	return reply == QMessageBox::Ok;
+}
+
+MessageBoxResponse MessageBoxService::mapReplyToMessageBoxResponse(int reply)
 {
 	switch (reply) {
 		case QMessageBox::Yes:

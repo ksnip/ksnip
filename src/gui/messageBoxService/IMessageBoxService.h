@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,34 +17,22 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_UPLOADOPERATION_H
-#define KSNIP_UPLOADOPERATION_H
+#ifndef KSNIP_IMESSAGEBOXSERVICE_H
+#define KSNIP_IMESSAGEBOXSERVICE_H
 
-#include <QCoreApplication>
-#include <QImage>
+#include "src/common/enum/MessageBoxResponse.h"
 
-#include <utility>
+class QString;
 
-#include "src/backend/uploader/IUploader.h"
-#include "src/backend/config/KsnipConfigProvider.h"
-#include "src/gui/messageBoxService/MessageBoxService.h"
-
-class UploadOperation : public QObject
+class IMessageBoxService
 {
-	Q_OBJECT
 public:
-	UploadOperation(QImage image, IUploader *uploader);
-	~UploadOperation() override;
-	bool execute();
-
-private:
-	KsnipConfig *mConfig;
-	IUploader *mUploader;
-	QImage mImage;
-	IMessageBoxService *mMessageBoxService;
-
-	bool proceedWithUpload() const;
-	bool askIfCanProceedWithUpload() const;
+	explicit IMessageBoxService() = default;
+	virtual ~IMessageBoxService() = default;
+	virtual bool yesNo(const QString &title, const QString &question) = 0;
+	virtual MessageBoxResponse yesNoCancel(const QString &title, const QString &question) = 0;
+	virtual void ok(const QString &title, const QString &info) = 0;
+	virtual bool okCancel(const QString &title, const QString &info) = 0;
 };
 
-#endif //KSNIP_UPLOADOPERATION_H
+#endif //KSNIP_IMESSAGEBOXSERVICE_H

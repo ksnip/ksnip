@@ -19,15 +19,22 @@
 
 #include "CanDiscardOperation.h"
 
-CanDiscardOperation::CanDiscardOperation(QWidget *parent, const QImage &image, bool isUnsaved, const QString &pathToImageSource, const QString &filename, IToastService *toastService) :
+CanDiscardOperation::CanDiscardOperation(QWidget *parent, QImage image, bool isUnsaved, QString pathToImageSource, QString filename, IToastService *toastService) :
 	mParent(parent),
-	mImage(image),
+	mImage(std::move(image)),
 	mIsUnsaved(isUnsaved),
-	mPathToImageSource(pathToImageSource),
-	mFilename(filename),
+	mPathToImageSource(std::move(pathToImageSource)),
+	mFilename(std::move(filename)),
 	mConfig(KsnipConfigProvider::instance()),
-	mToastService(toastService)
+	mToastService(toastService),
+	mMessageBoxService(new MessageBoxService)
 {
+
+}
+
+CanDiscardOperation::~CanDiscardOperation()
+{
+	delete mMessageBoxService;
 }
 
 bool CanDiscardOperation::execute()
@@ -53,7 +60,7 @@ bool CanDiscardOperation::saveImage() const
 
 MessageBoxResponse CanDiscardOperation::getSaveBeforeDiscard() const
 {
-	auto quote = mFilename.isEmpty() ? QString() : QStringLiteral("\"");
-	return MessageBoxHelper::yesNoCancel(tr("Warning - ") + QApplication::applicationName(),
-		                                 tr("The capture %1%2%3 has been modified.\nDo you want to save it?").arg(quote).arg(mFilename).arg(quote));
+	auto quote = mFilename.isEmpty() ? QString() : QLatin1Literal("\"");
+	return mMessageBoxService->yesNoCancel(tr("Warning - ") + QApplication::applicationName(),
+										  tr("The capture %1%2%3 has been modified.\nDo you want to save it?").arg(quote).arg(mFilename).arg(quote));
 }

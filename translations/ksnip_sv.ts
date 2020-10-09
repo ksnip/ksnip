@@ -892,15 +892,15 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished">Kopiera sökväg</translation>
+        <translation>Kopiera sökväg</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished">Öppna mapp</translation>
+        <translation>Öppna mapp</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Visa</translation>
     </message>
 </context>
 <context>

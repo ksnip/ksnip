@@ -908,15 +908,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished">Копіювати шлях</translation>
+        <translation>Копіювати шлях</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished">Відкрити каталог</translation>
+        <translation>Відкрити каталог</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>П&amp;ерегляд</translation>
     </message>
     <message>
         <source>Delete</source>

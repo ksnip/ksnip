@@ -199,7 +199,7 @@ Değişiklik yeniden başlatma gerektirir.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Ksnip tek örnek olarak çalışsın</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
@@ -207,11 +207,11 @@ Değişiklik yeniden başlatma gerektirir.</translation>
     </message>
     <message>
         <source>Remember position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Taşınan pozisyonu hatırla ve başlangıçta yükle</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Yalnızca tek sekme kullanıldığında, sekme çubuğunu gizle.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
@@ -257,7 +257,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Snap &amp; Flatpak Desteği</translation>
     </message>
 </context>
 <context>
@@ -363,11 +363,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağış</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub Sponsoru Olun</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
@@ -457,7 +457,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Etkin pencereyi yakala</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
@@ -753,11 +753,11 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Geri</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>İleri</translation>
     </message>
     <message>
         <source>Crop</source>
@@ -840,7 +840,7 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Fligran ekle</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
@@ -848,7 +848,7 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>D&amp;osya</translation>
     </message>
     <message>
         <source>Unable to show image</source>
@@ -872,7 +872,7 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Sabitle</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
@@ -884,15 +884,15 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Hedefi Kopyala</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Dizini Aç</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Görünüm</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -911,7 +911,7 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Dizini Aç</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -919,7 +919,7 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Hedefi Kopyala</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -941,11 +941,11 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Diğerlerini Kapat</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tümünü Kapat</translation>
     </message>
 </context>
 <context>
@@ -1022,7 +1022,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaydedici Ayarları</translation>
     </message>
     <message>
         <source>Capture save location</source>
@@ -1030,7 +1030,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Varsayılan</translation>
     </message>
     <message>
         <source>Factor</source>
@@ -1038,7 +1038,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Kayıt Kalitesi</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
@@ -1054,7 +1054,7 @@ Not all image formats support the full range, JPEG does.</source>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Betik:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
@@ -1071,7 +1071,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Karşıya Yükleme Betiği Seç</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>

@@ -50,7 +50,6 @@ qreal HdpiScaler::scaleFactor() const
     qDebug("QWindow devicePixelRatio: %s", qPrintable(QString::number(myWindow->devicePixelRatio())));
 
 	return myWindow->devicePixelRatio();
-
 #endif
 	
 #if defined(__linux__) || defined(_WIN32)

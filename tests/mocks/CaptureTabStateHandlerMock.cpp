@@ -19,6 +19,11 @@
 
 #include "CaptureTabStateHandlerMock.h"
 
+CaptureTabStateHandlerMock::CaptureTabStateHandlerMock() : mCurrentTabIndex(-1)
+{
+
+}
+
 void CaptureTabStateHandlerMock::add(int index, const QString &filename, const QString &path, bool isSaved)
 {
 

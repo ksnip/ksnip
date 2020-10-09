@@ -29,7 +29,7 @@ class CaptureTabStateHandlerMock : public ICaptureTabStateHandler
 {
 Q_OBJECT
 public:
-	explicit CaptureTabStateHandlerMock() = default;
+	explicit CaptureTabStateHandlerMock();
 	~CaptureTabStateHandlerMock() override = default;
 	void add(int index, const QString &filename, const QString &path, bool isSaved) override;
 	bool isSaved(int index) override;

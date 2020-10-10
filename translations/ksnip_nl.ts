@@ -343,12 +343,13 @@ Wil je deze opslaan?</translation>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeelding verwijderen</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;%1&apos; wordt verwijderd.
+Weet je zeker dat je wilt doorgaan?</translation>
     </message>
 </context>
 <context>
@@ -917,7 +918,7 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijderen</translation>
     </message>
 </context>
 <context>
@@ -944,7 +945,7 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijderen</translation>
     </message>
 </context>
 <context>

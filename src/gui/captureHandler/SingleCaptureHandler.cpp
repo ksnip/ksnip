@@ -19,14 +19,15 @@
 
 #include "SingleCaptureHandler.h"
 
-SingleCaptureHandler::SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService, QWidget *parent) :
+SingleCaptureHandler::SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IServiceLocator *serviceLocator, QWidget *parent) :
 		mImageAnnotator(imageAnnotator),
 		mToastService(toastService),
 		mParent(parent),
 		mCaptureChangeListener(nullptr),
 		mIsSaved(true),
-		mClipboard(clipboard),
-		mDesktopService(desktopService)
+		mServiceLocator(serviceLocator),
+		mClipboard(serviceLocator->clipboard()),
+		mDesktopService(serviceLocator->desktopService())
 {
 	mImageAnnotator->setTabBarAutoHide(true);
 
@@ -86,7 +87,7 @@ void SingleCaptureHandler::openDirectory()
 
 void SingleCaptureHandler::removeImage()
 {
-	DeleteImageOperation operation(mPath, new FileService, new MessageBoxService);
+	DeleteImageOperation operation(mPath, mServiceLocator->fileService(), mServiceLocator->messageBoxService());
 	if(operation.execute()){
 		reset();
 	}
@@ -113,17 +114,12 @@ void SingleCaptureHandler::innerSave(bool isInstant)
 
 void SingleCaptureHandler::load(const CaptureDto &capture)
 {
-	resetStats();
+	mPath = mPathFromCaptureProvider.pathFrom(capture);
+	mIsSaved = PathHelper::isPathValid(mPath);
 	mImageAnnotator->loadImage(capture.screenshot);
 	if (capture.isCursorValid()) {
 		mImageAnnotator->insertImageItem(capture.cursor.position, capture.cursor.image);
 	}
-}
-
-void SingleCaptureHandler::resetStats()
-{
-	mIsSaved = false;
-	mPath = QString();
 }
 
 QImage SingleCaptureHandler::image() const

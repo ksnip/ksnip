@@ -33,10 +33,8 @@ class ImageAnnotatorMock : public IImageAnnotator
 {
 Q_OBJECT
 public:
-	explicit ImageAnnotatorMock() = default;
+	explicit ImageAnnotatorMock();
 	~ImageAnnotatorMock() override = default;
-
-public:
 	QImage image() const override;
 	QImage imageAt(int index) const override;
 	QAction *undoAction() override;
@@ -55,6 +53,8 @@ public:
 	void imageAt_set(int index, const QImage &image);
 	QList<QAction*> tabContextMenuActions_get() const;
 	void tabContextMenuOpened_emit(int index) const;
+	int removeTab_callCounter(int index) const;
+	int hide_callCounter() const;
 
 public slots:
 	void loadImage(const QPixmap &pixmap) override;
@@ -76,6 +76,8 @@ private:
 	QMap<int,QImage> mImageAtMap;
 	CallCounter<int> mImageAtCallCounter;
 	QList<QAction*> mCustomContextMenuActions;
+	CallCounter<int> mRemoveTabCallCounter;
+	int mHideCallCounter;
 };
 
 #endif //KSNIP_IMAGEANNOTATORMOCK_H

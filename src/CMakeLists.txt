@@ -102,6 +102,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindowHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/messageBoxService/MessageBoxService.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/serviceLocator/ServiceLocator.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/BootstrapperFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/StandAloneBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/InstanceLock.cpp

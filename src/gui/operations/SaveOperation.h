@@ -33,7 +33,7 @@ class SaveOperation : public QObject
 {
 	Q_OBJECT
 public:
-    SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, IToastService *toastService);
+    SaveOperation(QWidget *parent, QImage image, bool isInstantSave, IToastService *toastService);
 	SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, IToastService *toastService);
     ~SaveOperation() override = default;
 	SaveResultDto execute();

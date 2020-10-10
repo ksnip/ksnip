@@ -19,16 +19,17 @@
 
 #include "MultiCaptureHandler.h"
 
-MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService,
+MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IServiceLocator *serviceLocator,
 										 ICaptureTabStateHandler *captureTabStateHandler, QWidget *parent) :
 	mImageAnnotator(imageAnnotator),
 	mToastService(toastService),
 	mParent(parent),
 	mCaptureChangeListener(nullptr),
 	mTabStateHandler(captureTabStateHandler),
+	mServiceLocator(serviceLocator),
 	mConfig(KsnipConfigProvider::instance()),
-	mClipboard(clipboard),
-	mDesktopService(desktopService),
+	mClipboard(mServiceLocator->clipboard()),
+	mDesktopService(mServiceLocator->desktopService()),
 	mSaveContextMenuAction(new TabContextMenuAction(this)),
 	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
 	mOpenDirectoryContextMenuAction(new TabContextMenuAction(this)),
@@ -64,7 +65,6 @@ MultiCaptureHandler::~MultiCaptureHandler()
 	delete mCopyToClipboardContextMenuAction;
 	delete mDeleteImageContextMenuAction;
 	delete mContextMenuSeparatorAction;
-	delete mDesktopService;
 }
 
 bool MultiCaptureHandler::canClose()
@@ -293,7 +293,7 @@ void MultiCaptureHandler::deleteImageTab(int index)
 {
 	auto path = mTabStateHandler->path(index);
 
-	DeleteImageOperation operation(path, new FileService, new MessageBoxService);
+	DeleteImageOperation operation(path, mServiceLocator->fileService(), mServiceLocator->messageBoxService());
 
 	if(operation.execute()) {
 		removeTab(index);

@@ -32,7 +32,7 @@ class DeleteImageOperation : public QObject
 	Q_OBJECT
 public:
 	explicit DeleteImageOperation(QString path, IFileService *fileService, IMessageBoxService *messageBoxService);
-	~DeleteImageOperation() override;
+	~DeleteImageOperation() override = default;
 	bool execute();
 
 private:

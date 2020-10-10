@@ -17,17 +17,23 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IFILESERVICE_H
-#define KSNIP_IFILESERVICE_H
+#ifndef KSNIP_ISERVICELOCATOR_H
+#define KSNIP_ISERVICELOCATOR_H
 
-#include <QString>
+#include "src/gui/fileService/IFileService.h"
+#include "src/gui/messageBoxService/IMessageBoxService.h"
+#include "src/gui/clipboard/IClipboard.h"
+#include "src/gui/desktopService/IDesktopService.h"
 
-class IFileService
+class IServiceLocator
 {
 public:
-	explicit IFileService() = default;
-	virtual ~IFileService() = default;
-	virtual bool remove(const QString &path) = 0;
+	explicit IServiceLocator() = default;
+	virtual ~IServiceLocator() = default;
+	virtual IMessageBoxService* messageBoxService() const = 0;
+	virtual IFileService* fileService() const = 0;
+	virtual IClipboard* clipboard() const = 0;
+	virtual IDesktopService* desktopService() const = 0;
 };
 
-#endif //KSNIP_IFILESERVICE_H
+#endif //KSNIP_ISERVICELOCATOR_H

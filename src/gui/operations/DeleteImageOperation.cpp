@@ -27,12 +27,6 @@ DeleteImageOperation::DeleteImageOperation(QString path, IFileService *fileServi
 
 }
 
-DeleteImageOperation::~DeleteImageOperation()
-{
-	delete mFileService;
-	delete mMessageBoxService;
-}
-
 bool DeleteImageOperation::execute()
 {
 	auto title = tr("Delete Image");

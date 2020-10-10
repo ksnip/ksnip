@@ -19,9 +19,11 @@
 
 #include "SaveOperation.h"
 
-SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, IToastService *toastService) :
+#include <utility>
+
+SaveOperation::SaveOperation(QWidget *parent, QImage image, bool isInstantSave, IToastService *toastService) :
 	mParent(parent),
-	mImage(image),
+	mImage(std::move(image)),
 	mIsInstantSave(isInstantSave),
 	mToastService(toastService),
 	mConfig(KsnipConfigProvider::instance())
@@ -40,7 +42,7 @@ SaveResultDto SaveOperation::execute()
 
     if(!mIsInstantSave){
 	    auto title = tr("Save As");
-	    auto filter = tr("Images") + QStringLiteral(" (*.png *.gif *.jpg);;") + tr("All Files") + QStringLiteral("(*)");
+	    auto filter = tr("Images") + QLatin1Literal(" (*.png *.gif *.jpg);;") + tr("All Files") + QLatin1Literal("(*)");
 	    QFileDialog saveDialog(mParent, title, path, filter);
 	    saveDialog.setAcceptMode(QFileDialog::AcceptSave);
 
@@ -84,6 +86,6 @@ SaveResultDto SaveOperation::save(const QString &path)
 void SaveOperation::notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const
 {
 	auto parentDirectory = PathHelper::extractParentDirectory(path);
-	NotifyOperation operation(mToastService, title, message + QStringLiteral(" ") + path, parentDirectory, notificationType);
+	NotifyOperation operation(mToastService, title, message + QLatin1Literal(" ") + path, parentDirectory, notificationType);
 	operation.execute();
 }

@@ -19,6 +19,12 @@
 
 #include "ImageAnnotatorMock.h"
 
+ImageAnnotatorMock::ImageAnnotatorMock() :
+	mHideCallCounter(0)
+{
+
+}
+
 QImage ImageAnnotatorMock::image() const
 {
 	return QImage();
@@ -63,7 +69,7 @@ void ImageAnnotatorMock::showScaler()
 
 void ImageAnnotatorMock::hide()
 {
-
+	mHideCallCounter++;
 }
 
 void ImageAnnotatorMock::close()
@@ -138,7 +144,7 @@ void ImageAnnotatorMock::setTabBarAutoHide(bool enabled)
 
 void ImageAnnotatorMock::removeTab(int index)
 {
-
+	mRemoveTabCallCounter.increment(index);
 }
 
 void ImageAnnotatorMock::setStickers(const QStringList &stickerPaths, bool keepDefault)
@@ -169,4 +175,14 @@ QList<QAction *> ImageAnnotatorMock::tabContextMenuActions_get() const
 void ImageAnnotatorMock::tabContextMenuOpened_emit(int index) const
 {
 	emit tabContextMenuOpened(index);
+}
+
+int ImageAnnotatorMock::removeTab_callCounter(int index) const
+{
+	return mRemoveTabCallCounter.count(index);
+}
+
+int ImageAnnotatorMock::hide_callCounter() const
+{
+	return mHideCallCounter;
 }

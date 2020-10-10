@@ -24,16 +24,15 @@
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/DeleteImageOperation.h"
 #include "src/gui/IToastService.h"
-#include "src/gui/clipboard/IClipboard.h"
+#include "src/gui/serviceLocator/IServiceLocator.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
-#include "src/gui/desktopService/IDesktopService.h"
-#include "src/gui/fileService/FileService.h"
+#include "src/common/provider/PathFromCaptureProvider.h"
 
 class SingleCaptureHandler : public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService, QWidget *parent);
+	explicit SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IServiceLocator *serviceLocator, QWidget *parent);
 	~SingleCaptureHandler() override = default;
 	bool canClose() override;
 	bool canTakeNew() override;
@@ -58,11 +57,12 @@ private:
 	ICaptureChangeListener *mCaptureChangeListener;
 	bool mIsSaved;
 	QString mPath;
+	IServiceLocator *mServiceLocator;
 	IClipboard *mClipboard;
 	IDesktopService *mDesktopService;
+	PathFromCaptureProvider mPathFromCaptureProvider;
 
 	bool discardChanges();
-	void resetStats();
 
 private slots:
 	void captureChanged();

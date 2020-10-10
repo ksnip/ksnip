@@ -19,11 +19,11 @@
 
 #include "CaptureHandlerFactory.h"
 
-ICaptureHandler * CaptureHandlerFactory::create(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, QWidget *parent)
+ICaptureHandler * CaptureHandlerFactory::create(IImageAnnotator *imageAnnotator, IToastService *toastService, IServiceLocator *serviceLocator, QWidget *parent)
 {
 	if(KsnipConfigProvider::instance()->useTabs()) {
-		return new MultiCaptureHandler(imageAnnotator, toastService, clipboard, new DesktopServiceAdapter, new CaptureTabStateHandler, parent);
+		return new MultiCaptureHandler(imageAnnotator, toastService, serviceLocator, new CaptureTabStateHandler, parent);
 	} else {
-		return new SingleCaptureHandler(imageAnnotator, toastService, clipboard, new DesktopServiceAdapter, parent);
+		return new SingleCaptureHandler(imageAnnotator, toastService, serviceLocator, parent);
 	}
 }

@@ -26,7 +26,6 @@
 #include <functional>
 
 #include "src/gui/TrayIcon.h"
-#include "src/gui/clipboard/ClipboardAdapter.h"
 #include "src/gui/imageAnnotator/KImageAnnotatorAdapter.h"
 #include "src/gui/aboutDialog/AboutDialog.h"
 #include "src/gui/settingsDialog/SettingsDialog.h"
@@ -38,6 +37,7 @@
 #include "src/gui/captureHandler/ICaptureChangeListener.h"
 #include "src/gui/widgetHider/WidgetHiderFactory.h"
 #include "src/gui/pinWindow/PinWindowHandler.h"
+#include "src/gui/serviceLocator/ServiceLocator.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/config/KsnipConfigProvider.h"
@@ -97,9 +97,10 @@ private:
     QAction *mRemoveImageAction;
     MainToolBar *mToolBar;
     QLayout *mMainLayout;
-	IClipboard *mClipboard;
     KsnipConfig *mConfig;
-    CapturePrinter *mCapturePrinter;
+	IServiceLocator *mServiceLocator;
+	IClipboard *mClipboard;
+	CapturePrinter *mCapturePrinter;
     IImageAnnotator *mImageAnnotator;
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;

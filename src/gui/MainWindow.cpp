@@ -42,8 +42,9 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mPinAction(new QAction(this)),
 		mRemoveImageAction(new QAction(this)),
 		mMainLayout(layout()),
-		mClipboard(new ClipboardAdapter()),
 		mConfig(KsnipConfigProvider::instance()),
+		mServiceLocator(new ServiceLocator),
+		mClipboard(mServiceLocator->clipboard()),
 		mCapturePrinter(new CapturePrinter(this)),
 		mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 		mTrayIcon(new TrayIcon(this)),
@@ -52,7 +53,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mDragAndDropHandler(new DragAndDropHandler),
 		mUploaderProvider(new UploaderProvider),
 		mSessionManagerRequestedQuit(false),
-		mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mClipboard, this)),
+		mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mServiceLocator, this)),
 		mPinWindowHandler(new PinWindowHandler(this)),
 		mWidgetHider(WidgetHiderFactory::create(this))
 {
@@ -135,7 +136,6 @@ MainWindow::~MainWindow()
     delete mSaveAsAction;
     delete mCapturePrinter;
     delete mTrayIcon;
-    delete mClipboard;
     delete mDragAndDropHandler;
     delete mUploaderProvider;
     delete mCaptureHandler;

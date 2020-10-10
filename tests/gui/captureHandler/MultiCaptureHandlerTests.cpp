@@ -23,25 +23,25 @@ void MultiCaptureHandlerTests::TestCopy_Should_CopyCurrentTabImageToClipboard()
 {
 	auto index = 22;
 	ImageAnnotatorMock imageAnnotatorMock;
-	ClipboardMock clipboardMock;
+	ServiceLocatorMock serviceLocatorMock;
 	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
-	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &clipboardMock, nullptr, tabStateHandlerMock, nullptr);
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, tabStateHandlerMock, nullptr);
 	tabStateHandlerMock->currentTabIndex_set(index);
 	imageAnnotatorMock.imageAt_set(index, QImage());
 
 	multiCaptureHandler.copy();
 
 	QCOMPARE(imageAnnotatorMock.imageAt_callCounter(index), 1);
-	QCOMPARE(clipboardMock.setImage_set(), imageAnnotatorMock.imageAt(index));
+	QCOMPARE(serviceLocatorMock.clipboard_mock()->setImage_set(), imageAnnotatorMock.imageAt(index));
 }
 
 void MultiCaptureHandlerTests::TestCopyToClipboardTab_Should_FetchCorrectImageFromAnnotator_And_CopyItToClipboard()
 {
 	int index = 22;
 	ImageAnnotatorMock imageAnnotatorMock;
-	ClipboardMock clipboardMock;
+	ServiceLocatorMock serviceLocatorMock;
 	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
-	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &clipboardMock, nullptr, tabStateHandlerMock, nullptr);
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, tabStateHandlerMock, nullptr);
 	tabStateHandlerMock->currentTabIndex_set(index);
 	imageAnnotatorMock.imageAt_set(index, QImage());
 	auto customActions = imageAnnotatorMock.tabContextMenuActions_get();
@@ -54,7 +54,7 @@ void MultiCaptureHandlerTests::TestCopyToClipboardTab_Should_FetchCorrectImageFr
 	}
 
 	QCOMPARE(imageAnnotatorMock.imageAt_callCounter(index), 1);
-	QCOMPARE(clipboardMock.setImage_set(), imageAnnotatorMock.imageAt(index));
+	QCOMPARE(serviceLocatorMock.clipboard_mock()->setImage_set(), imageAnnotatorMock.imageAt(index));
 }
 
 void MultiCaptureHandlerTests::TestCopyPathToClipboardTab_Should_FetchCorrectPathFromTabStateHandler_And_CopyItToClipboard()
@@ -62,8 +62,9 @@ void MultiCaptureHandlerTests::TestCopyPathToClipboardTab_Should_FetchCorrectPat
 	int index = 22;
 	ImageAnnotatorMock imageAnnotatorMock;
 	ClipboardMock clipboardMock;
+	ServiceLocatorMock serviceLocatorMock;
 	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
-	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &clipboardMock, nullptr, tabStateHandlerMock, nullptr);
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, tabStateHandlerMock, nullptr);
 	tabStateHandlerMock->currentTabIndex_set(index);
 	tabStateHandlerMock->path_set(index, QLatin1Literal("lala"));
 	auto customActions = imageAnnotatorMock.tabContextMenuActions_get();
@@ -76,17 +77,16 @@ void MultiCaptureHandlerTests::TestCopyPathToClipboardTab_Should_FetchCorrectPat
 	}
 
 	QCOMPARE(tabStateHandlerMock->path_callCounter(index), 1);
-	QCOMPARE(clipboardMock.setText_get(), tabStateHandlerMock->path(index));
+	QCOMPARE(serviceLocatorMock.clipboard_mock()->setText_get(), tabStateHandlerMock->path(index));
 }
 
 void MultiCaptureHandlerTests::TestOpenDirectoryTab_Should_FetchCorrectPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService()
 {
 	int index = 22;
 	ImageAnnotatorMock imageAnnotatorMock;
-	ClipboardMock clipboardMock;
-	auto desktopService = new DesktopServiceMock;
+	ServiceLocatorMock serviceLocatorMock;
 	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
-	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &clipboardMock, desktopService, tabStateHandlerMock, nullptr);
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, tabStateHandlerMock, nullptr);
 	tabStateHandlerMock->currentTabIndex_set(index);
 	tabStateHandlerMock->path_set(index, QLatin1Literal("/la/la.png"));
 	auto customActions = imageAnnotatorMock.tabContextMenuActions_get();
@@ -99,16 +99,16 @@ void MultiCaptureHandlerTests::TestOpenDirectoryTab_Should_FetchCorrectPathFromT
 	}
 
 	QCOMPARE(tabStateHandlerMock->path_callCounter(index), 1);
-	QCOMPARE(desktopService->openUrl_get().toString(), QLatin1Literal("/la"));
+	QCOMPARE(serviceLocatorMock.desktopService_mock()->openUrl_get().toString(), QLatin1Literal("/la"));
 }
 
 void MultiCaptureHandlerTests::TestUpdateContextMenuActions_Should_SetAllActionThatRequirePathToEnabled_When_PathIsValid()
 {
 	int index = 22;
 	ImageAnnotatorMock imageAnnotatorMock;
-	ClipboardMock clipboardMock;
+	ServiceLocatorMock serviceLocatorMock;
 	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
-	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &clipboardMock, nullptr, tabStateHandlerMock, nullptr);
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, tabStateHandlerMock, nullptr);
 	tabStateHandlerMock->currentTabIndex_set(index);
 	tabStateHandlerMock->isPathValid_set(index, true);
 	auto customActions = imageAnnotatorMock.tabContextMenuActions_get();
@@ -148,9 +148,9 @@ void MultiCaptureHandlerTests::TestUpdateContextMenuActions_Should_SetAllActionT
 {
 	int index = 22;
 	ImageAnnotatorMock imageAnnotatorMock;
-	ClipboardMock clipboardMock;
+	ServiceLocatorMock serviceLocatorMock;
 	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
-	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &clipboardMock, nullptr, tabStateHandlerMock, nullptr);
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, tabStateHandlerMock, nullptr);
 	tabStateHandlerMock->currentTabIndex_set(index);
 	tabStateHandlerMock->isPathValid_set(index, false);
 	auto customActions = imageAnnotatorMock.tabContextMenuActions_get();
@@ -190,9 +190,9 @@ void MultiCaptureHandlerTests::TestUpdateContextMenuActions_Should_SetSaveAction
 {
 	int index = 22;
 	ImageAnnotatorMock imageAnnotatorMock;
-	ClipboardMock clipboardMock;
+	ServiceLocatorMock serviceLocatorMock;
 	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
-	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &clipboardMock, nullptr, tabStateHandlerMock, nullptr);
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, tabStateHandlerMock, nullptr);
 	tabStateHandlerMock->currentTabIndex_set(index);
 	tabStateHandlerMock->isSaved_set(index, true);
 	auto customActions = imageAnnotatorMock.tabContextMenuActions_get();
@@ -212,9 +212,9 @@ void MultiCaptureHandlerTests::TestUpdateContextMenuActions_Should_SetSaveAction
 {
 	int index = 22;
 	ImageAnnotatorMock imageAnnotatorMock;
-	ClipboardMock clipboardMock;
+	ServiceLocatorMock serviceLocatorMock;
 	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
-	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &clipboardMock, nullptr, tabStateHandlerMock, nullptr);
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, tabStateHandlerMock, nullptr);
 	tabStateHandlerMock->currentTabIndex_set(index);
 	tabStateHandlerMock->isSaved_set(index, false);
 	auto customActions = imageAnnotatorMock.tabContextMenuActions_get();
@@ -235,33 +235,67 @@ void MultiCaptureHandlerTests::TestCopyPath_Should_CopyCurrentTabPathToClipboard
 	auto path = QLatin1Literal("lala");
 	auto index = 22;
 	ImageAnnotatorMock imageAnnotatorMock;
-	ClipboardMock clipboardMock;
+	ServiceLocatorMock serviceLocatorMock;
 	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
-	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &clipboardMock, nullptr, tabStateHandlerMock, nullptr);
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, tabStateHandlerMock, nullptr);
 	tabStateHandlerMock->currentTabIndex_set(index);
 	tabStateHandlerMock->path_set(index, path);
 
 	multiCaptureHandler.copyPath();
 
 	QCOMPARE(tabStateHandlerMock->path_callCounter(index), 1);
-	QCOMPARE(clipboardMock.setText_get(), path);
+	QCOMPARE(serviceLocatorMock.clipboard_mock()->setText_get(), path);
 }
 
-void MultiCaptureHandlerTests::TestOenDirectory_Should_FetchCurrentTabPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService()
+void MultiCaptureHandlerTests::TestOpenDirectory_Should_FetchCurrentTabPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService()
 {
 	auto index = 22;
 	ImageAnnotatorMock imageAnnotatorMock;
-	ClipboardMock clipboardMock;
-	auto desktopService = new DesktopServiceMock;
+	ServiceLocatorMock serviceLocatorMock;
 	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
-	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &clipboardMock, desktopService, tabStateHandlerMock, nullptr);
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, tabStateHandlerMock, nullptr);
 	tabStateHandlerMock->currentTabIndex_set(index);
 	tabStateHandlerMock->path_set(index, QLatin1String("/la/la.png"));
 
 	multiCaptureHandler.openDirectory();
 
 	QCOMPARE(tabStateHandlerMock->path_callCounter(index), 1);
-	QCOMPARE(desktopService->openUrl_get().toString(), QLatin1String("/la"));
+	QCOMPARE(serviceLocatorMock.desktopService_mock()->openUrl_get().toString(), QLatin1String("/la"));
+}
+
+void MultiCaptureHandlerTests::TestRemoveImage_Should_NotRemoveTab_When_OperationDidNotDeleteImage()
+{
+	auto path = QLatin1Literal("lala");
+	auto index = 22;
+	ImageAnnotatorMock imageAnnotatorMock;
+	ServiceLocatorMock serviceLocatorMock;
+	serviceLocatorMock.messageBoxService_mock()->okCancel_set(false);
+	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, tabStateHandlerMock, nullptr);
+	tabStateHandlerMock->currentTabIndex_set(index);
+	tabStateHandlerMock->path_set(index, path);
+
+	multiCaptureHandler.removeImage();
+
+	QCOMPARE(imageAnnotatorMock.removeTab_callCounter(index), 0);
+}
+
+void MultiCaptureHandlerTests::TestRemoveImage_Should_RemoveTab_When_OperationDidDeleteImage()
+{
+	auto path = QLatin1Literal("lala");
+	auto index = 22;
+	ImageAnnotatorMock imageAnnotatorMock;
+	ServiceLocatorMock serviceLocatorMock;
+	serviceLocatorMock.messageBoxService_mock()->okCancel_set(true);
+	serviceLocatorMock.fileService_mock()->remove_set(true);
+	auto tabStateHandlerMock = new CaptureTabStateHandlerMock;
+	MultiCaptureHandler multiCaptureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, tabStateHandlerMock, nullptr);
+	tabStateHandlerMock->currentTabIndex_set(index);
+	tabStateHandlerMock->path_set(index, path);
+
+	multiCaptureHandler.removeImage();
+
+	QCOMPARE(imageAnnotatorMock.removeTab_callCounter(index), 1);
 }
 
 QTEST_MAIN(MultiCaptureHandlerTests)

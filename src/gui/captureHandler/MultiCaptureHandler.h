@@ -27,11 +27,8 @@
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/operations/DeleteImageOperation.h"
 #include "src/gui/IToastService.h"
-#include "src/gui/clipboard/IClipboard.h"
+#include "src/gui/serviceLocator/IServiceLocator.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
-#include "src/gui/desktopService/IDesktopService.h"
-#include "src/gui/fileService/FileService.h"
-#include "src/gui/messageBoxService/MessageBoxService.h"
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
 #include "src/common/loader/IconLoader.h"
@@ -41,7 +38,7 @@ class MultiCaptureHandler : public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IClipboard *clipboard, IDesktopService *desktopService,
+	explicit MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IServiceLocator *serviceLocator,
 								 ICaptureTabStateHandler *captureTabStateHandler, QWidget *parent);
 	~MultiCaptureHandler() override;
 	bool canClose() override;
@@ -68,6 +65,7 @@ private:
 	ICaptureChangeListener *mCaptureChangeListener;
 	NewCaptureNameProvider mNewCaptureNameProvider;
 	PathFromCaptureProvider mPathFromCaptureProvider;
+	IServiceLocator *mServiceLocator;
 	KsnipConfig *mConfig;
 	IClipboard *mClipboard;
 	IDesktopService *mDesktopService;

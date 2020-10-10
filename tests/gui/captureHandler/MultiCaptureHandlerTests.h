@@ -24,13 +24,12 @@
 
 #include "src/gui/captureHandler/MultiCaptureHandler.h"
 #include "tests/mocks/ImageAnnotatorMock.h"
-#include "tests/mocks/ClipboardMock.h"
-#include "tests/mocks/DesktopServiceMock.h"
 #include "tests/mocks/CaptureTabStateHandlerMock.h"
+#include "tests/mocks/ServiceLocatorMock.h"
 
 class MultiCaptureHandlerTests : public QObject
 {
-Q_OBJECT
+	Q_OBJECT
 private slots:
 	void TestCopy_Should_CopyCurrentTabImageToClipboard();
 	void TestCopyToClipboardTab_Should_FetchCorrectImageFromAnnotator_And_CopyItToClipboard();
@@ -41,7 +40,9 @@ private slots:
 	void TestUpdateContextMenuActions_Should_SetSaveActionToDisabled_When_CaptureSaved();
 	void TestUpdateContextMenuActions_Should_SetSaveActionToEnabled_When_CaptureNotSaved();
 	void TestCopyPath_Should_CopyCurrentTabPathToClipboard();
-	void TestOenDirectory_Should_FetchCurrentTabPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService();
+	void TestOpenDirectory_Should_FetchCurrentTabPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService();
+	void TestRemoveImage_Should_NotRemoveTab_When_OperationDidNotDeleteImage();
+	void TestRemoveImage_Should_RemoveTab_When_OperationDidDeleteImage();
 };
 
 #endif //KSNIP_MULTICAPTUREHANDLERTESTS_H

@@ -30,6 +30,7 @@ class ServiceLocator : public IServiceLocator
 {
 public:
 	explicit ServiceLocator();
+	ServiceLocator(ServiceLocator &other);
 	~ServiceLocator() override;
 	IMessageBoxService* messageBoxService() const override;
 	IFileService* fileService() const override;

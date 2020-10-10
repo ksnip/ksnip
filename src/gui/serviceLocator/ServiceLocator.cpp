@@ -28,6 +28,15 @@ ServiceLocator::ServiceLocator() :
 
 }
 
+ServiceLocator::ServiceLocator(ServiceLocator &other) :
+	mMessageBoxService(new MessageBoxService),
+	mFileService(new FileService),
+	mClipboard(new ClipboardAdapter),
+	mDesktopService(new DesktopServiceAdapter)
+{
+
+}
+
 ServiceLocator::~ServiceLocator()
 {
 	delete mMessageBoxService;

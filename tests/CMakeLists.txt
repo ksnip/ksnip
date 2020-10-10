@@ -1,6 +1,7 @@
 set(UNITTEST_SRC
 		${CMAKE_CURRENT_SOURCE_DIR}/common/helper/PathHelperTests.cpp
 		${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/MultiCaptureHandlerTests.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/DeleteImageOperationTests.cpp
 	)
 
 set(TESTUTILS_SRC
@@ -9,6 +10,8 @@ set(TESTUTILS_SRC
 		${CMAKE_CURRENT_SOURCE_DIR}/mocks/ImageAnnotatorMock.cpp
 		${CMAKE_CURRENT_SOURCE_DIR}/mocks/ClipboardMock.cpp
 		${CMAKE_CURRENT_SOURCE_DIR}/mocks/DesktopServiceMock.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/mocks/MessageBoxServiceMock.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/mocks/FileServiceMock.cpp
 	)
 
 add_library(KSNIP_STATIC STATIC ${KSNIP_SRCS})

@@ -26,7 +26,7 @@
 
 class PathHelperTests : public QObject
 {
-Q_OBJECT
+	Q_OBJECT
 private slots:
 	void TestIsPathValid_Should_ReturnFalse_When_StringEmpty();
 	void TestIsPathValid_Should_ReturnFalse_When_StringNull();

@@ -19,7 +19,7 @@
 
 #include "DesktopServiceAdapter.h"
 
-void DesktopServiceAdapter::openUrl(const QUrl &url)
+void DesktopServiceAdapter::openFile(const QString &path)
 {
-	QDesktopServices::openUrl(url);
+	QDesktopServices::openUrl(QUrl::fromLocalFile(path));
 }

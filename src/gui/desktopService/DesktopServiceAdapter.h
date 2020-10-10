@@ -21,6 +21,7 @@
 #define KSNIP_DESKTOPSERVICEADAPTER_H
 
 #include <QDesktopServices>
+#include <QUrl>
 
 #include "IDesktopService.h"
 
@@ -29,7 +30,7 @@ class DesktopServiceAdapter : public IDesktopService
 public:
 	explicit DesktopServiceAdapter() = default;
 	~DesktopServiceAdapter() override = default;
-	void openUrl(const QUrl &url) override;
+	void openFile(const QString &path) override;
 };
 
 #endif //KSNIP_DESKTOPSERVICEADAPTER_H

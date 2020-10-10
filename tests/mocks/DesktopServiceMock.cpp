@@ -19,12 +19,12 @@
 
 #include "DesktopServiceMock.h"
 
-void DesktopServiceMock::openUrl(const QUrl &url)
+void DesktopServiceMock::openFile(const QString &path)
 {
-	mOpenUrl = url;
+	mOpenFilePath = path;
 }
 
-QUrl DesktopServiceMock::openUrl_get() const
+QUrl DesktopServiceMock::openFile_get() const
 {
-	return mOpenUrl;
+	return mOpenFilePath;
 }

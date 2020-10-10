@@ -30,13 +30,13 @@ class DesktopServiceMock : public IDesktopService
 public:
 	explicit DesktopServiceMock() = default;
 	~DesktopServiceMock() override = default;
-	void openUrl(const QUrl &url) override;
+	void openFile(const QString &path) override;
 
 	// Mock Methods
-	QUrl openUrl_get() const;
+	QUrl openFile_get() const;
 
 private:
-	QUrl mOpenUrl;
+	QString mOpenFilePath;
 };
 
 

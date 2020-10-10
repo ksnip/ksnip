@@ -82,7 +82,7 @@ void SingleCaptureHandler::copyPath()
 
 void SingleCaptureHandler::openDirectory()
 {
-	mDesktopService->openUrl(PathHelper::extractParentDirectory(mPath));
+	mDesktopService->openFile(PathHelper::extractParentDirectory(mPath));
 }
 
 void SingleCaptureHandler::removeImage()

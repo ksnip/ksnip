@@ -99,7 +99,7 @@ void MultiCaptureHandlerTests::TestOpenDirectoryTab_Should_FetchCorrectPathFromT
 	}
 
 	QCOMPARE(tabStateHandlerMock->path_callCounter(index), 1);
-	QCOMPARE(serviceLocatorMock.desktopService_mock()->openUrl_get().toString(), QLatin1Literal("/la"));
+	QCOMPARE(serviceLocatorMock.desktopService_mock()->openFile_get().toString(), QLatin1Literal("/la"));
 }
 
 void MultiCaptureHandlerTests::TestUpdateContextMenuActions_Should_SetAllActionThatRequirePathToEnabled_When_PathIsValid()
@@ -260,7 +260,7 @@ void MultiCaptureHandlerTests::TestOpenDirectory_Should_FetchCurrentTabPathFromT
 	multiCaptureHandler.openDirectory();
 
 	QCOMPARE(tabStateHandlerMock->path_callCounter(index), 1);
-	QCOMPARE(serviceLocatorMock.desktopService_mock()->openUrl_get().toString(), QLatin1String("/la"));
+	QCOMPARE(serviceLocatorMock.desktopService_mock()->openFile_get().toString(), QLatin1String("/la"));
 }
 
 void MultiCaptureHandlerTests::TestRemoveImage_Should_NotRemoveTab_When_OperationDidNotDeleteImage()

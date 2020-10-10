@@ -27,7 +27,7 @@ class IDesktopService
 public:
 	explicit IDesktopService() = default;
 	virtual ~IDesktopService() = default;
-	virtual void openUrl(const QUrl &url) = 0;
+	virtual void openFile(const QString &path) = 0;
 };
 
 #endif //KSNIP_IDESKTOPSERVICE_H

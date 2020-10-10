@@ -274,7 +274,7 @@ void MultiCaptureHandler::updateContextMenuActions(int index)
 void MultiCaptureHandler::openDirectoryTab(int index)
 {
 	auto path = mTabStateHandler->path(index);
-	mDesktopService->openUrl(PathHelper::extractParentDirectory(path));
+	mDesktopService->openFile(PathHelper::extractParentDirectory(path));
 }
 
 void MultiCaptureHandler::copyToClipboardTab(int index)

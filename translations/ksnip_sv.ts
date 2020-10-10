@@ -342,12 +342,13 @@ Vill du spara det?</translation>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort bild</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; kommer att tas bort.
+Vill du fortsätta?</translation>
     </message>
 </context>
 <context>
@@ -916,7 +917,7 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort</translation>
     </message>
 </context>
 <context>
@@ -943,7 +944,7 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort</translation>
     </message>
 </context>
 <context>

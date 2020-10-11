@@ -25,6 +25,11 @@ bool PathHelper::isPathValid(const QString &path)
 	return !path.isNull() && !path.isEmpty();
 }
 
+bool PathHelper::isPipePath(const QString &path)
+{
+	return path == QLatin1Literal("-");
+}
+
 QString PathHelper::extractParentDirectory(const QString& path)
 {
     return path.section(QLatin1Char('/'), 0, -2);

@@ -22,6 +22,8 @@
 
 #include <QApplication>
 
+#include <iostream>
+
 #include "BuildConfig.h"
 #include "src/bootstrapper/IBootstrapper.h"
 #include "src/gui/MainWindow.h"
@@ -63,6 +65,8 @@ private:
 	int startKsnip(const QApplication &app);
 	int startKsnipAndEditImage(const QApplication &app);
 	int startKsnipAndTakeCapture(const QApplication &app);
+	static QPixmap getPixmapFromCorrectSource(const QString &pathToImage);
+	static QPixmap getPixmapFromStdin();
 };
 
 

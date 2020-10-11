@@ -122,18 +122,44 @@ CaptureModes StandAloneBootstrapper::getCaptureMode() const
 int StandAloneBootstrapper::startKsnipAndEditImage(const QApplication &app)
 {
 	auto pathToImage = getImagePath();
-	QPixmap pixmap(pathToImage);
+	auto pixmap = getPixmapFromCorrectSource(pathToImage);
 
 	if (pixmap.isNull()) {
 		qWarning("Unable to open image file %s.", qPrintable(pathToImage));
 		return 1;
+	} else {
+		createMainWindow(RunMode::Edit);
+		if(PathHelper::isPipePath(pathToImage)) {
+			mMainWindow->processImage(CaptureDto(pixmap));
+		} else {
+			mMainWindow->processImage(CaptureFromFileDto(pixmap, pathToImage));
+		}
+		return app.exec();
 	}
+}
 
-	auto captureDto = CaptureFromFileDto(pixmap, pathToImage);
+QPixmap StandAloneBootstrapper::getPixmapFromCorrectSource(const QString &pathToImage)
+{
+	if (PathHelper::isPipePath(pathToImage)) {
+		qInfo("Reading image from stdin.");
+		return getPixmapFromStdin();
+	} else {
+		return QPixmap(pathToImage);
+	}
+}
 
-	createMainWindow(RunMode::Edit);
-	mMainWindow->processImage(captureDto);
-	return app.exec();
+QPixmap StandAloneBootstrapper::getPixmapFromStdin()
+{
+	QByteArray stdinImage;
+	while (!std::cin.eof()) {
+		char string[1024];
+		std::cin.read(string, sizeof(string));
+		auto length = std::cin.gcount();
+		stdinImage.append(string, length);
+	}
+	QPixmap pixmap;
+	pixmap.loadFromData(stdinImage);
+	return pixmap;
 }
 
 QString StandAloneBootstrapper::getImagePath() const

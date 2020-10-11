@@ -30,6 +30,7 @@ class PathHelper
 {
 public:
     static bool isPathValid(const QString &path);
+    static bool isPipePath(const QString &path);
     static QString extractParentDirectory(const QString &path);
     static QString extractFilename(const QString &path);
     static QString extractFilenameWithFormat(const QString &path);

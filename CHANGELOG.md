@@ -10,6 +10,7 @@
 * New: Add open directory context menu item on capture tabs. ([#339](https://github.com/ksnip/ksnip/issues/339))
 * New: Add copy path to clipboard context menu item on capture tabs. ([#331](https://github.com/ksnip/ksnip/issues/331))
 * New: Add option to delete saved images. ([#378](https://github.com/ksnip/ksnip/issues/378))
+* New: Add support for loading image from stdin. ([#414](https://github.com/ksnip/ksnip/issues/414))
 * New kImageAnnotator: Add Pixelate image area tool. ([#140](https://github.com/ksnip/kImageAnnotator/issues/140))
 * New kImageAnnotator: Zoom in and out. ([#123](https://github.com/ksnip/kImageAnnotator/issues/123))
 * New kImageAnnotator: Add interface for adding custom tab context menu actions. ([#96](https://github.com/ksnip/kImageAnnotator/issues/96)). ([#123](https://github.com/ksnip/kImageAnnotator/issues/123))

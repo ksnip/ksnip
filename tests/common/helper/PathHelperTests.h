@@ -30,6 +30,9 @@ class PathHelperTests : public QObject
 private slots:
 	void TestIsPathValid_Should_ReturnFalse_When_StringEmpty();
 	void TestIsPathValid_Should_ReturnFalse_When_StringNull();
+	void TestIsPipePath_Should_ReturnTrue_When_PathIsDash();
+	void TestIsPipePath_Should_ReturnFalse_When_PathIsNull();
+	void TestIsPipePath_Should_ReturnFalse_When_PathIsEmpty();
 	void TestIsPathValid_Should_ReturnTrue_When_StringHasContent();
 	void TestExtractParentDirectory_Should_ReturnStringWithParentDirectoryPath();
 	void TestExtractFilename_Should_ReturnStringWithFilenameWithoutFormat_When_FormatExists();

@@ -43,6 +43,30 @@ void PathHelperTests::TestIsPathValid_Should_ReturnTrue_When_StringHasContent()
 	QCOMPARE(result, true);
 }
 
+void PathHelperTests::TestIsPipePath_Should_ReturnTrue_When_PathIsDash()
+{
+	auto input = QLatin1Literal("-");
+	auto result = PathHelper::isPipePath(input);
+
+	QCOMPARE(result, true);
+}
+
+void PathHelperTests::TestIsPipePath_Should_ReturnFalse_When_PathIsNull()
+{
+	auto input = QString();
+	auto result = PathHelper::isPipePath(input);
+
+	QCOMPARE(result, false);
+}
+
+void PathHelperTests::TestIsPipePath_Should_ReturnFalse_When_PathIsEmpty()
+{
+	auto input = QLatin1Literal("");
+	auto result = PathHelper::isPipePath(input);
+
+	QCOMPARE(result, false);
+}
+
 void PathHelperTests::TestExtractParentDirectory_Should_ReturnStringWithParentDirectoryPath()
 {
 	auto expected = QLatin1Literal("/theRoot/theHome/myHome");

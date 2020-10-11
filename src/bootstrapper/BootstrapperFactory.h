@@ -33,7 +33,6 @@ class BootstrapperFactory
 public:
 	BootstrapperFactory() = default;
 	~BootstrapperFactory() = default;
-
 	QSharedPointer<IBootstrapper> create();
 
 private:
@@ -41,6 +40,5 @@ private:
 
 	bool isSingleInstance();
 };
-
 
 #endif //KSNIP_BOOTSTRAPPERFACTORY_H

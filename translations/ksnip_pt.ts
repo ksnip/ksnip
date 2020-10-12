@@ -66,7 +66,7 @@
     </message>
     <message>
         <source>When enabled, paint items cast shadows.</source>
-        <translation>Quando habilitado, os itens projetam sombras.</translation>
+        <translation>Quando ativado, os itens projetam sombras.</translation>
     </message>
     <message>
         <source>Smooth Painter Paths</source>
@@ -75,7 +75,7 @@
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation>Quando habilitado, suaviza a caneta e
+        <translation>Quando ativado, suaviza a caneta e
 o marcador após finalizar o desenho.</translation>
     </message>
     <message>

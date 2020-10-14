@@ -343,7 +343,7 @@ Chcesz go zapisać?</translation>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Usuń Obraz</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
@@ -889,7 +889,7 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiuj ścieżkę</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -897,11 +897,11 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Widok</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń</translation>
     </message>
 </context>
 <context>
@@ -924,11 +924,11 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kopiuj ścieżkę</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Usuń</translation>
     </message>
 </context>
 <context>

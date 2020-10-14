@@ -13,8 +13,9 @@
 * New: Add support for loading image from stdin. ([#414](https://github.com/ksnip/ksnip/issues/414))
 * New kImageAnnotator: Add Pixelate image area tool. ([#140](https://github.com/ksnip/kImageAnnotator/issues/140))
 * New kImageAnnotator: Zoom in and out. ([#123](https://github.com/ksnip/kImageAnnotator/issues/123))
-* New kImageAnnotator: Add interface for adding custom tab context menu actions. ([#96](https://github.com/ksnip/kImageAnnotator/issues/96)). ([#123](https://github.com/ksnip/kImageAnnotator/issues/123))
+* New kImageAnnotator: Add interface for adding custom tab context menu actions. ([#96](https://github.com/ksnip/kImageAnnotator/issues/96)).
 * Changed: Show all Screenshot options in System Tray. ([#404](https://github.com/ksnip/ksnip/issues/404))
+* Changed: Upload multiple stickers at once. ([#427](https://github.com/ksnip/ksnip/issues/427))
 * Changed kImageAnnotator: Draw point when clicking and releasing without moving cursor. ([#136](https://github.com/ksnip/kImageAnnotator/issues/136))
 * Changed kImageAnnotator: Zoom out less than 100%. ([#150](https://github.com/ksnip/kImageAnnotator/issues/150))
 * Fixed: Snap crashing when trying to take screenshot under Wayland. ([#389](https://github.com/ksnip/ksnip/issues/389))

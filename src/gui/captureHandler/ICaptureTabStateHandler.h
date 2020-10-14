@@ -22,7 +22,7 @@
 
 #include <QObject>
 
-class SaveResultDto;
+struct SaveResultDto;
 
 class ICaptureTabStateHandler : public QObject
 {

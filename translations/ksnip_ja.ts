@@ -139,7 +139,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>注釈ツールの選択を記憶して起動時に読み込みます</translation>
     </message>
 </context>
 <context>
@@ -207,18 +207,21 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Remember position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>移動位置を記憶して起動時に読み込む</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>タブが一つの時はタブバーを隠します。</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>このオプションを有効にすると、実行できる ksnip のインスタンス
+は一つだけになり、他のインスタンスを起動すると起動済みのイン
+スタンスに引数を渡して終了するようになります。このオプション
+の変更には、すべてのインスタンスを終了する必要があります。</translation>
     </message>
 </context>
 <context>
@@ -329,23 +332,24 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Screenshot Portal</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンショットの取得に Screenshot Portal を使用します</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>画像を削除</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;%1&apos; を削除します。
+続行しますか？</translation>
     </message>
 </context>
 <context>
@@ -372,11 +376,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip は非営利でコピーレフトの自由なソフトウェアプロジェクトですが、&lt;br/&gt;ドメインやクロスプラットフォームのサポートのためのハードウェアなどに&lt;br/&gt;費用がかかっています。</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>開発者をビールやコーヒーで支援していただける場合は</translation>
     </message>
 </context>
 <context>
@@ -482,7 +486,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Portal を使用してキャプチャー</translation>
     </message>
 </context>
 <context>
@@ -884,46 +888,46 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>パスをコピー</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>ディレクトリを開く</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>表示(&amp;V)</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">保存</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">名前を付けて保存</translation>
+        <translation>名前を付けて保存</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>ディレクトリを開く</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">コピー</translation>
+        <translation>コピー</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>パスをコピー</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
 </context>
 <context>
@@ -1034,20 +1038,21 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>既定</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>係数</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>保存品質</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを圧縮して小さくしたい場合は 0 を、大きくても非圧縮にしたい場合は 100 を指定してください。
+JPEG 以外の画像形式は 0 から 100 までの範囲をサポートしていない場合があります。</translation>
     </message>
 </context>
 <context>

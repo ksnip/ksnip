@@ -40,18 +40,18 @@
     </message>
     <message>
         <source>Please use </source>
-        <translation>Favor use </translation>
+        <translation>Utilice </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> para informar errores.</translation>
+        <translation> para informar de defectos.</translation>
     </message>
 </context>
 <context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation>Imagen de Marca de Agua Requerida</translation>
+        <translation>Imagen de marca de agua requerida</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
@@ -236,31 +236,31 @@ un nuevo inicio de todas las instancias.</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation>Traducción española</translation>
+        <translation>Traducción al castellano</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation>Traducción holandesa</translation>
+        <translation>Traducción al neerlandés</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation>Traducción rusa</translation>
+        <translation>Traducción al ruso</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation>Traducción noruega</translation>
+        <translation>Traducción al noruego «bokmål»</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation>Traducción francesa</translation>
+        <translation>Traducción al francés</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation>Traducción polaca</translation>
+        <translation>Traducción al polaco</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation>Soporte para Snap y Flatpak</translation>
+        <translation>Compatibilidad con Snap y Flatpak</translation>
     </message>
 </context>
 <context>
@@ -272,8 +272,8 @@ un nuevo inicio de todas las instancias.</translation>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation>La captura %1%2%3 ha sido modificada.
-¿Quieres guardarla?</translation>
+        <translation>Se ha modificado la captura %1%2%3.
+¿Quiere guardarla?</translation>
     </message>
 </context>
 <context>
@@ -284,39 +284,39 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Rectangular Area</source>
-        <translation>Área Rectangular</translation>
+        <translation>Área rectangular</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation>Dibuje un área rectangular con el mouse</translation>
+        <translation>Dibuje un área rectangular con el ratón</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation>Pantalla Completa( Todos los monitores)</translation>
+        <translation>Pantalla completa (todos los monitores)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation>Capturar pantalla completa incluyendo todos los monitores</translation>
+        <translation>Capturar pantalla completa, incluidos todos los monitores</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation>Pantalla Actual</translation>
+        <translation>Pantalla actual</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation>Capturar pantalla donde se localiza el Mouse</translation>
+        <translation>Capturar pantalla donde se localiza el ratón</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation>Ventana Activa</translation>
+        <translation>Ventana activa</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation>Capturar pantalla que está enfocada actualmente</translation>
+        <translation>Capturar ventana que actualmente tiene el foco</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation>Ventana debajo del cursor</translation>
+        <translation>Ventana bajo el puntero</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
@@ -343,12 +343,13 @@ Do you want to save it?</source>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar imagen</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Se eliminará el elemento «%1».
+¿Quiere proseguir?</translation>
     </message>
 </context>
 <context>
@@ -371,7 +372,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation>Ser un patrocinador de GitHub</translation>
+        <translation>Convertirse en patrocinador en GitHub</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
@@ -438,38 +439,38 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation>Script escrito a la salida estándar de errores (StrErr).</translation>
+        <translation>Secuencia transferida a la salida estándar de errores.</translation>
     </message>
 </context>
 <context>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation>Habilitar las HotKeys globales</translation>
+        <translation>Activar atajos de teclado globales</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation>Capturar el área del Rectángulo</translation>
+        <translation>Capturar área rectangular</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation>Captura de pantalla completa</translation>
+        <translation>Capturar pantalla completa</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation>Captura la pantalla actual</translation>
+        <translation>Capturar pantalla actual</translation>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation>Captura de ventana activa</translation>
+        <translation>Capturar ventana activa</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation>Captura de ventana bajo el cursor</translation>
+        <translation>Capturar ventana bajo el puntero</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation>Teclas de acceso directo</translation>
+        <translation>Atajos de teclado globales</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11</source>
@@ -485,7 +486,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation>Capturar usando Portal</translation>
+        <translation>Capturar mediante portal</translation>
     </message>
 </context>
 <context>
@@ -538,9 +539,9 @@ los bordes del escritorio al cursor en el área de corte.</translation>
         <source>Sets the color of the snipping area
 cursor. Change requires ksnip restart to
 take effect.</source>
-        <translation>Establece el color del área de recorte del
-cursor. El cambio requiere reiniciar ksnip para 
-tomar efecto.</translation>
+        <translation>Establece el color del cursor del área de recorte.
+El cambio requiere reiniciar ksnip para 
+que surta efecto.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
@@ -578,11 +579,11 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Forzar captura de pantalla genérica de Wayland</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Escalar capturas de pantalla genéricas de Wayland</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -613,7 +614,7 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Time Stamp</source>
-        <translation>Marca de tiempo</translation>
+        <translation>Cronomarcador</translation>
     </message>
     <message>
         <source>Link</source>
@@ -628,22 +629,22 @@ Change in this option require a ksnip restart.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Subir a imgur.com terminada!</translation>
+        <translation>Finalizó la carga en imgur.com.</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation>Recibí un nuevo token, intentando subirla de nuevo…</translation>
+        <translation>Se recibió una ficha nueva; reintentando la carga…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation>La token de Imgur ha caducado, solicitando un nuevo token…</translation>
+        <translation>La ficha de Imgur ha caducado; solicitando una nueva…</translation>
     </message>
 </context>
 <context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation>Forzar subida anónima</translation>
+        <translation>Forzar carga anónima</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
@@ -651,11 +652,11 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Client ID</source>
-        <translation>ID del Cliente</translation>
+        <translation>Id. de cliente</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation>Cliente secreto</translation>
+        <translation>Secreto de cliente</translation>
     </message>
     <message>
         <source>PIN</source>
@@ -663,7 +664,7 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation>Ingrese Pin imgur para intercambiarlo&#xa0;por una ficha.</translation>
+        <translation>Introduzca el PIN de Imgur, que se intercambiará por una ficha.</translation>
     </message>
     <message>
         <source>Get PIN</source>
@@ -671,11 +672,11 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Get Token</source>
-        <translation>Obtener Ficha</translation>
+        <translation>Obtener ficha</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation>Historial Imgur</translation>
+        <translation>Historial de Imgur</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
@@ -683,7 +684,7 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Username</source>
-        <translation>Nombre de Usuario</translation>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
@@ -695,7 +696,7 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation>Imgur.com ficha actualizada con éxito.</translation>
+        <translation>Se actualizó la ficha de Imgur.com correctamente.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
@@ -711,13 +712,13 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation>Url base:</translation>
+        <translation>URL de base:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation>La url base que será usada para la comunicación con Imgur.
-Cambiarla requiere reiniciar.</translation>
+        <translation>El URL de base que se utilizará para la comunicación con Imgur.
+Cambiarlo requiere reiniciar.</translation>
     </message>
 </context>
 <context>
@@ -729,12 +730,12 @@ Cambiarla requiere reiniciar.</translation>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation>Retraso en segundos entre la activación
+        <translation>Demora en segundos entre la activación
 y la captura de pantalla.</translation>
     </message>
     <message>
         <source>s</source>
-        <translation>ss</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Save</source>
@@ -750,7 +751,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation>Copiar capturas de pantalla al portapapeles</translation>
+        <translation>Copiar captura de pantalla en el portapapeles</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -766,7 +767,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation>Recorte</translation>
+        <translation>Recortar</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
@@ -781,7 +782,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Upload</source>
-        <translation>Subida</translation>
+        <translation>Cargar</translation>
     </message>
     <message>
         <source>Print</source>
@@ -789,15 +790,15 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation>Abre el cuadro de dialogo de la impresora y proporciona la opción para imprimir la imagen</translation>
+        <translation>Abre el cuadro de diálogo de la impresora y proporciona la opción para imprimir la imagen</translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation>Vista previa de impresión</translation>
+        <translation>Previsualizar impresión</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation>Abre el cuadro de dialogo Vista previa de impresión donde se puede cambiar la orientación de la imagen</translation>
+        <translation>Abre el cuadro de diálogo Previsualizar impresión, donde se puede cambiar la orientación de la imagen</translation>
     </message>
     <message>
         <source>Scale</source>
@@ -805,7 +806,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Scale Screen Capture</source>
-        <translation>Escalar Captura de imagen</translation>
+        <translation>Escalar captura de pantalla</translation>
     </message>
     <message>
         <source>Quit</source>
@@ -813,7 +814,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Ajustes</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>&amp;About</source>
@@ -833,19 +834,19 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Ayuda</translation>
+        <translation>Ay&amp;uda</translation>
     </message>
     <message>
         <source>Open Image</source>
-        <translation>Abrir Imagen</translation>
+        <translation>Abrir imagen</translation>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Archivos de Imagen (*.png *.jpg *.bmp)</translation>
+        <translation>Archivos de imagen (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation>Añade marca de agua</translation>
+        <translation>Añadir marca de agua</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
@@ -869,102 +870,102 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation>Pegar embebido</translation>
+        <translation>Pegar incrustado</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation>Subir captura a una fuente externa</translation>
+        <translation>Cargar captura en una fuente externa</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Anclar</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fija la captura de pantalla al primer plano en una ventana sin marco</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>No se proporcionó ninguna imagen aunque se esperaba una.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar ruta</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir directorio</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ver</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar</translation>
     </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Guardar</translation>
+        <translation>Guardar</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Salvar como</translation>
+        <translation>Guardar como</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir directorio</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Copiar</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar ruta</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation>Captura</translation>
+        <translation>Capturar</translation>
     </message>
 </context>
 <context>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Cerrar</translation>
+        <translation>Cerrar</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerrar otros</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerrar todo</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Anclar ventana %1</translation>
     </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation>Salvar como</translation>
+        <translation>Guardar como</translation>
     </message>
     <message>
         <source>Images</source>
@@ -980,22 +981,22 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation>Fallo en guardar imagen</translation>
+        <translation>No se pudo guardar la imagen</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation>Salvado a</translation>
+        <translation>Guardado en</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation>Falló salvar la imagen a</translation>
+        <translation>No se pudo guardar la imagen en</translation>
     </message>
 </context>
 <context>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation>Guardar automáticamente las nuevas capturas a la ubicación por defecto</translation>
+        <translation>Guardar automáticamente las capturas nuevas a la ubicación predeterminada</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>

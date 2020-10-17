@@ -391,7 +391,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload script </source>
-        <translation>Script de subida </translation>
+        <translation>Secuencia de carga </translation>
     </message>
     <message>
         <source> finished successfully.</source>
@@ -1028,7 +1028,7 @@ El nombre del archivo puede contener los siguientes comodines:
     </message>
     <message>
         <source>Browse</source>
-        <translation>Navegar</translation>
+        <translation>Examinar</translation>
     </message>
     <message>
         <source>Saver Settings</source>
@@ -1036,57 +1036,59 @@ El nombre del archivo puede contener los siguientes comodines:
     </message>
     <message>
         <source>Capture save location</source>
-        <translation>Captura y guarda la ubicación</translation>
+        <translation>Ubicación de guardado de capturas</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Predeterminado</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Factor</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Calidad de guardado</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Defina 0 para obtener archivos pequeños y comprimidos o 100 para archivos
+grandes y sin comprimir.
+No todos los formatos de archivo admiten todo el intervalo; JPG lo hace.</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation>Copiar script de salida al portapapeles</translation>
+        <translation>Copiar salida de la secuencia en el portapapeles</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation>Script:</translation>
+        <translation>Secuencia de órdenes:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation>Ruta para el script que será llamado para la subida. Durante la subida el script será usado
-con la ruta al archivo png temporal como simple argumento.</translation>
+        <translation>Ruta a la secuencia que se llamará para la carga. Durante la carga la secuencia se
+invocará con la ruta a un archivo PNG temporal como único argumento.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Navegar</translation>
+        <translation>Examinar</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Script de subida</translation>
+        <translation>Cargador por secuencia</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation>Seleccione script de subida</translation>
+        <translation>Seleccione secuencia de carga</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Detener cuando la secuencia de carga escriba en la salida de errores estándar</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
@@ -1095,7 +1097,7 @@ Without this setting errors in the script will be unnoticed.</source>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtro:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
@@ -1135,15 +1137,15 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation>Teclas de acceso directo</translation>
+        <translation>Atajos de teclado</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Subir imágenes</translation>
+        <translation>Cargador</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Subir con script</translation>
+        <translation>Cargar con secuencia</translation>
     </message>
     <message>
         <source>Saver</source>
@@ -1151,56 +1153,56 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Adhesivos</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Arriba</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Abajo</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizar adhesivos predeterminados</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración de adhesivos</translation>
     </message>
     <message>
         <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir adhesivo</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivos de imagen vectorial (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Quitar</translation>
     </message>
 </context>
 <context>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation>Mostrar el editor</translation>
+        <translation>Mostrar editor</translation>
     </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation>Seleccionar Imagen</translation>
+        <translation>Seleccionar imagen</translation>
     </message>
     <message>
         <source>Images</source>
@@ -1215,30 +1217,30 @@ When omitted, everything is copied.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation>Script de subida requerido</translation>
+        <translation>Se requiere la secuencia de carga</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Agregue un script de subida vía Opciones -&gt; Configuraciones -&gt; Subir por script</translation>
+        <translation>Añada una secuencia de carga en Opciones ▸ Configuración ▸ Secuencia de carga</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation>Capturar subida</translation>
+        <translation>Carga de captura</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation>Estás a punto de subir la imagen a un destino externo, ¿Quieres proceder?</translation>
+        <translation>Está a punto de cargar la imagen en un destino externo. ¿Quiere continuar?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation>Pedir confirmación antes de subir</translation>
+        <translation>Pedir confirmación antes de cargar</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation>Tipo de subida:</translation>
+        <translation>Tipo de cargador:</translation>
     </message>
     <message>
         <source>Imgur</source>
@@ -1246,7 +1248,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Script</source>
-        <translation>Script</translation>
+        <translation>Secuencia de órdenes</translation>
     </message>
     <message>
         <source>Uploader</source>

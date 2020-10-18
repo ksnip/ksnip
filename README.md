@@ -5,7 +5,7 @@ Version v1.8.0 - Work in Progress
 Ksnip is a Qt-based cross-platform screenshot tool that provides many annotation features
 for your screenshots.
 
-![Ksnip](https://imgur.com/cogRcTo.png "Ksnip with annotations")
+![ksnip](https://i.imgur.com/uEarQdP.png "Ksnip with annotations")
 
 # Features
 Latest ksnip version contains following features:
@@ -27,7 +27,7 @@ Latest ksnip version contains following features:
 * Annotate screenshots with pen, marker, rectangles, ellipses, texts and other tools.
 * Annotate screenshots with stickers and add custom stickers.
 * Obfuscate image regions with blur and pixelate.
-* Add effects to image (Drop Shadow, Border).
+* Add effects to image (Drop Shadow, Grayscale or Border).
 * Add watermarks to captured images.
 * Global hotkeys for capturing screenshots (currently only for Windows and X11).
 * Tabs for screenshots and images.

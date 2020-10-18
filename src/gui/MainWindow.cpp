@@ -199,6 +199,13 @@ void MainWindow::showImage(const CaptureDto &capture)
 	show();
 }
 
+void MainWindow::adjustSize()
+{
+	mMainLayout->setSizeConstraint(QLayout::SetFixedSize); // Workaround that allows us to return to toolbar only size
+	QMainWindow::adjustSize();
+	mMainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+}
+
 void MainWindow::capturePostProcessing()
 {
 	if (mConfig->autoCopyToClipboardNewCaptures()) {
@@ -245,10 +252,9 @@ QSize MainWindow::sizeHint() const
 {
 	auto minHeight = mToolBar->sizeHint().height();
 	auto minWidth = mToolBar->sizeHint().width();
-	auto annotatorHeight = mImageAnnotator->sizeHint().height();
-	auto annotatorWidth = mImageAnnotator->sizeHint().width();
-	auto height = minHeight + annotatorHeight;
-	auto width = minWidth > annotatorWidth ? minWidth : annotatorWidth;
+	auto annotatorSize = mImageAnnotator->sizeHint();
+	auto height = minHeight + annotatorSize.height();
+	auto width = minWidth > annotatorSize.width() ? minWidth : annotatorSize.width();
 	return { width, height };
 }
 
@@ -625,9 +631,7 @@ void MainWindow::uploadFinished(const UploadResult &result)
 void MainWindow::captureEmpty()
 {
 	setEnablements(false);
-	mMainLayout->setSizeConstraint(QLayout::SetFixedSize); // Workaround that allows us to return to toolbar only size
 	adjustSize();
-	mMainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
 }
 
 void MainWindow::showPinWindow()

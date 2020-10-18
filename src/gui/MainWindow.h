@@ -118,6 +118,7 @@ private:
     void initGui();
 	void processInstantCapture(const CaptureDto &capture);
 	void showDialog(const std::function<void ()>& showDialogMethod);
+	void adjustSize();
 
 private slots:
 	void captureChanged() override;

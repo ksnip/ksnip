@@ -43,7 +43,6 @@ public:
 	virtual bool isVisible() const = 0;
 	virtual QWidget* widget() const = 0;
 
-
 public slots:
 	virtual void loadImage(const QPixmap &pixmap) = 0;
 	virtual int addTab(const QPixmap &pixmap, const QString &title, const QString &toolTip) = 0;

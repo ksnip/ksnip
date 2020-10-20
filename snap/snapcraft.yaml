@@ -14,6 +14,7 @@ apps:
     common-id: org.ksnip.ksnip
     environment:
       # Set theme fix on gnome/gtk
+      XDG_CURRENT_DESKTOP: Unity:Unity7:$XDG_CURRENT_DESKTOP
       QT_QPA_PLATFORMTHEME: gtk3
     desktop: share/applications/org.ksnip.ksnip.desktop
     extensions: [kde-neon]

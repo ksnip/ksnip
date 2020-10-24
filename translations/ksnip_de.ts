@@ -211,7 +211,7 @@ Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tableiste verstecken wenn nur ein Tab offen ist</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
@@ -329,23 +329,24 @@ Speichern?</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Screenshot Portal</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwendet Screenshot Portal um Bildschirmaufnahmen zu erstellen</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild löschen</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Objekt &apos;%1&apos; wird gelöscht.
+Wollen Sie Fortfahren?</translation>
     </message>
 </context>
 <context>
@@ -368,7 +369,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub Sponsor werden</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
@@ -383,15 +384,15 @@ Do you want to continue?</source>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">Erfolgreich hochgeladen</translation>
+        <translation>Erfolgreich hochgeladen</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>Script hochladen </translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation> erfolgreich abgeschlossen.</translation>
     </message>
     <message>
         <source>Uploaded to</source>
@@ -399,15 +400,15 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Temporäres Bild kann nicht zum Hochladen gespeichert werden.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Starten des Prozesses nicht möglich, prüfen Sie Pfad und Berechtigungen.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozess abgestürzt</translation>
     </message>
     <message>
         <source>Process timed out.</source>
@@ -423,15 +424,15 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Web-Fehler, Konsolenausgabe prüfen.</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannter Prozessfehler</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Hochladen fehlgeschlagen</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
@@ -625,15 +626,15 @@ Change in this option require a ksnip restart.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">Hochladen zu imgur.com abgeschlossen!</translation>
+        <translation>Hochladen zu imgur.com abgeschlossen!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">Neues Token erhalten, versuche erneut hochzuladen …</translation>
+        <translation>Neues Token erhalten, versuche erneut hochzuladen …</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">Das Imgur-Token ist abgelaufen, fordere neues Token an …</translation>
+        <translation>Das Imgur-Token ist abgelaufen, fordere neues Token an …</translation>
     </message>
 </context>
 <context>
@@ -708,12 +709,13 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Basis-URL:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Basis-URL, die für Kommunikation mit Imgur verwendet wird.
+Änderung erfordert Neustart.</translation>
     </message>
 </context>
 <context>

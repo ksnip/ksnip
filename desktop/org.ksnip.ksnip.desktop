@@ -8,3 +8,24 @@ Name=ksnip
 GenericName=ksnip Screenshot Tool
 Comment=Cross-platform screenshot tool that provides many annotation features for your screenshots.
 Categories=Utility;
+Actions=Area;LastArea;FullScreen;Window;
+
+[Desktop Action Area]
+Exec=ksnip -r
+Icon=ksnip
+Name=Capture a rectangular area
+
+[Desktop Action LastArea]
+Exec=ksnip -l
+Icon=ksnip
+Name=Capture last selected rectangular area
+
+[Desktop Action FullScreen]
+Exec=ksnip -m
+Icon=ksnip
+Name=Capture a fullscreen
+
+[Desktop Action Window]
+Exec=ksnip -a
+Icon=ksnip
+Name=Capture the focused window

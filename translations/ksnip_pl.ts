@@ -343,12 +343,13 @@ Chcesz go zapisać?</translation>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished">Usuń Obraz</translation>
+        <translation>Usuń Obraz</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Element &apos;%1&apos; zostanie usunięty.
+Czy chcesz kontynuować?</translation>
     </message>
 </context>
 <context>
@@ -379,7 +380,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished">Jeśli chcesz pomóc lub &lt;br/&gt;chcesz docenić wykonywaną pracę&lt;br/&gt; polegającą na poczęstowaniu programistów piwem lub kawą, możesz to zrobić</translation>
+        <translation>Jeśli chcesz pomóc lub &lt;br/&gt;chcesz docenić wykonywaną pracę&lt;br/&gt; polegającą na poczęstowaniu programistów piwem lub kawą, możesz to zrobić</translation>
     </message>
 </context>
 <context>
@@ -485,7 +486,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished">Przechwytywanie za pomocą Portalu</translation>
+        <translation>Przechwytywanie za pomocą Portalu</translation>
     </message>
 </context>
 <context>
@@ -567,7 +568,14 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Po włączeniu tej opcji zamrozi tło, podczas gdy
+wybierając prostokątny obszar. To również zmienia
+zachowanie się opóźnionych zrzutów ekranu, z tym
+opcja włączona opóźnienie następuje przed
+obszar snippingu jest pokazany i z wyłączoną opcją
+opóźnienie następuje po ukazaniu się obszaru obcinania.
+Ta funkcja jest zawsze wyłączona dla Wayland i zawsze
+włączone dla MacO.</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
@@ -578,7 +586,7 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Force Generic Wayland Zrzut z ekranu</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
@@ -885,7 +893,7 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nie dostarczono żadnego obrazu, ale oczekiwano jednego.</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -893,11 +901,11 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Otwórz katalog</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">Widok</translation>
+        <translation>&amp;Widok</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -908,27 +916,27 @@ i wykonaniem zrzutu ekranu.</translation>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Zapisz</translation>
+        <translation>Zapisz</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Zapisz jako</translation>
+        <translation>Zapisz jako</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Otwórz katalog</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Kopiuj</translation>
+        <translation>Kopiuj</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished">Kopiuj ścieżkę</translation>
+        <translation>Kopiuj ścieżkę</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Usuń</translation>
+        <translation>Usuń</translation>
     </message>
 </context>
 <context>
@@ -1039,20 +1047,21 @@ Nazwa pliku może zawierać następujące symbole wieloznaczne:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Domyślnie</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Współczynnik</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Oszczędzaj na jakości</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Podaj 0, aby uzyskać małe pliki skompresowane, 100 dla dużych plików nieskompresowanych.
+Nie wszystkie formaty obrazów obsługują pełny zakres, JPEG obsługuje pełny zakres.</translation>
     </message>
 </context>
 <context>

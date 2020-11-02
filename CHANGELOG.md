@@ -18,6 +18,8 @@
 * New kImageAnnotator: Add drop shadow to captured images. ([#133](https://github.com/ksnip/kImageAnnotator/issues/133))
 * New kImageAnnotator: Add grayscale image effect. ([#151](https://github.com/ksnip/kImageAnnotator/issues/151))
 * New kImageAnnotator: Add numeric pointer with arrow annotation item. ([#152](https://github.com/ksnip/kImageAnnotator/issues/152))
+* New kImageAnnotator: Add text pointer annotation item. ([#154](https://github.com/ksnip/kImageAnnotator/issues/154))
+* New kImageAnnotator: Add text pointer with arrow annotation item. ([#153](https://github.com/ksnip/kImageAnnotator/issues/153))
 * Changed: Show all Screenshot options in System Tray. ([#404](https://github.com/ksnip/ksnip/issues/404))
 * Changed: Upload multiple stickers at once. ([#427](https://github.com/ksnip/ksnip/issues/427))
 * Changed kImageAnnotator: Draw point when clicking and releasing without moving cursor. ([#136](https://github.com/ksnip/kImageAnnotator/issues/136))

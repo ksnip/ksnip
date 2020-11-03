@@ -140,7 +140,7 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauvegarder l&apos;outil d&apos;annotation sélectionné pour l&apos;enclencher au démarrage</translation>
     </message>
 </context>
 <context>
@@ -207,18 +207,21 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     </message>
     <message>
         <source>Remember position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauvegarder la position lors du déplacement et la charger au démarrage</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Masquer la barre d&apos;onglet lorsqu&apos;il y a en qu&apos;un d&apos;utilisé.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cette option n&apos;autorise à lancer qu&apos;une seule instance ksnip.
+Si d&apos;autres instances sont lancés, elles passerons leurs
+arguments à la première avant de s&apos;arrêter. Il faut redémarrer
+toutes les instances pour activer ou désactiver cette option.</translation>
     </message>
 </context>
 <context>
@@ -270,7 +273,7 @@ a new start of all instances.</source>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
         <translation>La capture %1%2%3 a été modifiée.
-Voulez-vous l&apos;enregistrer&#xa0;?</translation>
+Voulez-vous l&apos;enregistrer ?</translation>
     </message>
 </context>
 <context>
@@ -329,23 +332,24 @@ Voulez-vous l&apos;enregistrer&#xa0;?</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Portail de capture d&apos;écran</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilise le portail de capture d&apos;écran pour les captures</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer l&apos;image</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;élément &apos;%1&apos; va être supprimer.
+Voulez-vous continuer ?</translation>
     </message>
 </context>
 <context>
@@ -372,11 +376,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip est un projet de logiciel libre, copyleft, sans but lucratif, et &lt;br/&gt;a qu&apos;en même certains coûts&lt;br/&gt;, par exemple les coûts de domaine ou les coûts de matériel pour la prise en charge multiplateforme.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Si vous voulez aider, ou simplement &lt;br/&gt;être reconnaissant de ce travail&lt;br/&gt;, en payant aux développeurs une bière ou un café : c&apos;est possible</translation>
     </message>
 </context>
 <context>
@@ -482,7 +486,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Capture par le portail</translation>
     </message>
 </context>
 <context>
@@ -510,8 +514,8 @@ dans les captures d&apos;écran.</translation>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Afficher une loupe qui grossit le fond d&apos;écran.
-Cette option ne marche que si «&#xa0;Geler l&apos;image
-avant capture&#xa0;» est activé.</translation>
+Cette option ne marche que si « Geler l&apos;image
+avant capture » est activé.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -564,22 +568,30 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pour figer l&apos;arrière-plan lors de la sélection
+rectangulaire. Cela affecte aussi le comportement
+des captures avec délai. Activé, la durée est avant
+l&apos;affichage de la zone de sélection. Désactivé, la
+durée est après. Cette fonctionnalité n&apos;est jamais
+active sur Wayland mais toujours sur MacOS.</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsque le bouton gauche de la souris n&apos;est pas enfoncé,
+la position s&apos;affiche, lorsque le bouton de la souris est
+enfoncé, la taille de la zone sélectionnée est indiquée à
+gauche et au-dessus de la zone capturée.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Captures Wayland Force Generic</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Captures Wayland Scale Generic</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -587,7 +599,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;implémentation de Generic Wayland
+qui utilise XDG-DESKTOP-PORTAL gère les
+changements d&apos;échelle différemment. Cette
+option détermine le changement d&apos;échelle
+en cours pour l&apos;appliquer à la capture ksnip.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -595,7 +611,11 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME et KDE Plasma prennent en charge leur 
+propre Wayland et les captures Generic
+XDG-DESKTOP-PORTAL. Cette option force KDE
+Plasma et GNOME à utiliser les captures
+ XDG-DESKTOP-PORTAL. Redémarrage requis.</translation>
     </message>
 </context>
 <context>
@@ -625,7 +645,7 @@ Change in this option require a ksnip restart.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Téléversement sur imgur.com terminé&#xa0;!</translation>
+        <translation>Téléversement sur imgur.com terminé !</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -708,7 +728,7 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation>URL de base&#xa0;:</translation>
+        <translation>URL de base :</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
@@ -882,34 +902,34 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Une image est attendue mais aucune fournie.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Chemin de copie</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir le dossier</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Afficher</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Enregistrer</translation>
+        <translation>Enregistrer</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Enregistrer sous</translation>
+        <translation>Enregistrer sous</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -1018,8 +1038,8 @@ Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
         <translation>Les formats supportés sont JPG, PNG et BMP. Si aucun format n’est spécifié, PNG sera utilisé par défaut.
-Le nom du fichier peut contenir les jokers suivants&#xa0;:
-- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format «&#xa0;hhmmss&#xa0;».
+Le nom du fichier peut contenir les jokers suivants :
+- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format « hhmmss ».
 - Plusieurs caractères # permettent de numéroter. Par exemple : #### donnera 0001 puis 0002 à la prochaine capture.</translation>
     </message>
     <message>

@@ -69,6 +69,16 @@ void SingleCaptureHandler::save()
 	innerSave(true);
 }
 
+void SingleCaptureHandler::rename()
+{
+	RenameOperation operation(mParent, mPath, QFileInfo(mPath).fileName(), mToastService);
+	const auto saveResult = operation.execute();
+	if (saveResult.isSuccessful) {
+		mPath = saveResult.path;
+		captureChanged();
+	}
+}
+
 void SingleCaptureHandler::copy()
 {
 	auto image = mImageAnnotator->image();

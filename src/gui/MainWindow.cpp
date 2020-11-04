@@ -399,6 +399,7 @@ void MainWindow::initGui()
 	connect(mCopyPathAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::copyPath);
 
 	mRenameAction->setText(tr("Rename"));
+	mRenameAction->setShortcut(Qt::Key_F2);
 	connect(mRenameAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::rename);
 
 	mOpenDirectoryAction->setText(tr("Open Directory"));

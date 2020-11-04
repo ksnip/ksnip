@@ -25,6 +25,7 @@
 #include "src/gui/captureHandler/TabContextMenuAction.h"
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/SaveOperation.h"
+#include "src/gui/operations/RenameOperation.h"
 #include "src/gui/operations/DeleteImageOperation.h"
 #include "src/gui/IToastService.h"
 #include "src/gui/serviceLocator/IServiceLocator.h"
@@ -48,6 +49,7 @@ public:
 	bool isPathValid() const override;
 	void saveAs() override;
 	void save() override;
+	void rename() override;
 	void copy() override;
 	void copyPath() override;
 	void openDirectory() override;
@@ -71,6 +73,7 @@ private:
 	IDesktopService *mDesktopService;
 	TabContextMenuAction *mSaveContextMenuAction;
 	TabContextMenuAction *mSaveAsContextMenuAction;
+	TabContextMenuAction *mRenameContextMenuAction;
 	TabContextMenuAction *mOpenDirectoryContextMenuAction;
 	TabContextMenuAction *mCopyPathToClipboardContextMenuAction;
 	TabContextMenuAction *mCopyToClipboardContextMenuAction;
@@ -88,6 +91,7 @@ private slots:
 	void annotatorConfigChanged();
 	void addTabContextMenuActions();
 	void saveAsTab(int index);
+	void renameTab(int index);
 	void saveTab(int index);
 	void openDirectoryTab(int index);
 	void updateContextMenuActions(int index);

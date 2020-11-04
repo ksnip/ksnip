@@ -31,6 +31,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mPrintPreviewAction(new QAction(this)),
 		mQuitAction(new QAction(this)),
 		mCopyPathAction(new QAction(this)),
+		mRenameAction(new QAction(this)),
 		mOpenDirectoryAction(new QAction(this)),
 		mSettingsAction(new QAction(this)),
 		mAboutAction(new QAction(this)),
@@ -127,6 +128,7 @@ MainWindow::~MainWindow()
     delete mPrintPreviewAction;
     delete mQuitAction;
     delete mCopyPathAction;
+    delete mRenameAction;
     delete mOpenDirectoryAction;
     delete mSettingsAction;
     delete mAboutAction;
@@ -289,6 +291,7 @@ void MainWindow::captureChanged()
 {
     mToolBar->setSaveActionEnabled(!mCaptureHandler->isSaved());
 	mCopyPathAction->setEnabled(mCaptureHandler->isPathValid());
+	mRenameAction->setEnabled(mCaptureHandler->isSaved());
 	mOpenDirectoryAction->setEnabled(mCaptureHandler->isPathValid());
 	mRemoveImageAction->setEnabled(mCaptureHandler->isPathValid());
 	updateApplicationTitle();
@@ -314,6 +317,7 @@ void MainWindow::setEnablements(bool enabled)
 	mSaveAsAction->setEnabled(enabled);
 	mPinAction->setEnabled(enabled);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
+	mRenameAction->setEnabled(enabled);
 }
 
 void MainWindow::loadSettings()
@@ -395,6 +399,10 @@ void MainWindow::initGui()
 	mCopyPathAction->setText(tr("Copy Path"));
 	connect(mCopyPathAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::copyPath);
 
+	mRenameAction->setText(tr("Rename"));
+	mRenameAction->setShortcut(Qt::Key_F2);
+	connect(mRenameAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::rename);
+
 	mOpenDirectoryAction->setText(tr("Open Directory"));
 	connect(mOpenDirectoryAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::openDirectory);
 
@@ -453,6 +461,7 @@ void MainWindow::initGui()
     menu->addSeparator();
     menu->addAction(mToolBar->copyToClipboardAction());
     menu->addAction(mCopyPathAction);
+    menu->addAction(mRenameAction);
     menu->addAction(mPasteAction);
     menu->addAction(mPasteEmbeddedAction);
 	menu->addSeparator();

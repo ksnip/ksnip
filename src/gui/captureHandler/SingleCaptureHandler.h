@@ -23,6 +23,7 @@
 #include "src/gui/captureHandler/ICaptureHandler.h"
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/DeleteImageOperation.h"
+#include "src/gui/operations/RenameOperation.h"
 #include "src/gui/IToastService.h"
 #include "src/gui/serviceLocator/IServiceLocator.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
@@ -41,6 +42,7 @@ public:
 	bool isPathValid() const override;
 	void saveAs() override;
 	void save() override;
+	void rename() override;
 	void copy() override;
 	void copyPath() override;
 	void openDirectory() override;

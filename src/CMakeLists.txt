@@ -85,6 +85,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/HotKeyMap.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/DummyKeyHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/SaveOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/operations/RenameOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/AddWatermarkOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/UpdateWatermarkOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/WatermarkImagePreparer.cpp

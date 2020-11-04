@@ -23,6 +23,7 @@
 #include <QObject>
 
 struct SaveResultDto;
+struct RenameResultDto;
 
 class ICaptureTabStateHandler : public QObject
 {
@@ -36,6 +37,7 @@ public:
 	virtual QString path(int index) = 0;
 	virtual QString filename(int index) = 0;
 	virtual void setSaveState(int index, const SaveResultDto &saveResult) = 0;
+	virtual void setRenameState(int index, const RenameResultDto &renameResult) = 0;
 	virtual int count() const = 0;
 	virtual int currentTabIndex() const = 0;
 

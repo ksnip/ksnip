@@ -27,6 +27,7 @@
 #include "ICaptureTabStateHandler.h"
 #include "CaptureTabState.h"
 #include "src/common/dtos/SaveResultDto.h"
+#include "src/common/dtos/RenameResultDto.h"
 #include "src/common/helper/PathHelper.h"
 
 class CaptureTabStateHandler : public ICaptureTabStateHandler
@@ -41,6 +42,7 @@ public:
 	QString path(int index) override;
 	QString filename(int index) override;
 	void setSaveState(int index, const SaveResultDto &saveResult) override;
+	void setRenameState(int index, const RenameResultDto &renameResult) override;
 	int count() const override;
 	int currentTabIndex() const override;
 

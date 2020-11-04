@@ -32,6 +32,7 @@ MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToast
 	mDesktopService(mServiceLocator->desktopService()),
 	mSaveContextMenuAction(new TabContextMenuAction(this)),
 	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
+	mRenameContextMenuAction(new TabContextMenuAction(this)),
 	mOpenDirectoryContextMenuAction(new TabContextMenuAction(this)),
 	mCopyPathToClipboardContextMenuAction(new TabContextMenuAction(this)),
 	mCopyToClipboardContextMenuAction(new TabContextMenuAction(this)),
@@ -60,6 +61,7 @@ MultiCaptureHandler::~MultiCaptureHandler()
 	delete mTabStateHandler;
 	delete mSaveContextMenuAction;
 	delete mSaveAsContextMenuAction;
+	delete mRenameContextMenuAction;
 	delete mOpenDirectoryContextMenuAction;
 	delete mCopyPathToClipboardContextMenuAction;
 	delete mCopyToClipboardContextMenuAction;
@@ -129,6 +131,11 @@ void MultiCaptureHandler::saveAs()
 void MultiCaptureHandler::save()
 {
 	saveTab(mTabStateHandler->currentTabIndex());
+}
+
+void MultiCaptureHandler::rename()
+{
+	renameTab(mTabStateHandler->currentTabIndex());
 }
 
 void MultiCaptureHandler::copy()
@@ -222,6 +229,8 @@ void MultiCaptureHandler::addTabContextMenuActions()
 	mSaveAsContextMenuAction->setText(tr("Save As"));
 	mSaveAsContextMenuAction->setIcon(IconLoader::load(QLatin1Literal("saveAs.svg")));
 
+	mRenameContextMenuAction->setText(tr("Rename"));
+
 	mOpenDirectoryContextMenuAction->setText(tr("Open Directory"));
 
 	mCopyToClipboardContextMenuAction->setText(tr("Copy"));
@@ -236,6 +245,7 @@ void MultiCaptureHandler::addTabContextMenuActions()
 
 	connect(mSaveContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveTab);
 	connect(mSaveAsContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveAsTab);
+	connect(mRenameContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::renameTab);
 	connect(mOpenDirectoryContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::openDirectoryTab);
 	connect(mCopyPathToClipboardContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::copyPathToClipboardTab);
 	connect(mCopyToClipboardContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::copyToClipboardTab);
@@ -243,6 +253,7 @@ void MultiCaptureHandler::addTabContextMenuActions()
 
 	auto actions = QList<QAction *>{mSaveContextMenuAction,
 									mSaveAsContextMenuAction,
+									mRenameContextMenuAction,
 									mOpenDirectoryContextMenuAction,
 									mCopyToClipboardContextMenuAction,
 									mCopyPathToClipboardContextMenuAction,
@@ -262,10 +273,21 @@ void MultiCaptureHandler::saveTab(int index)
 	saveAt(index, true);
 }
 
+void MultiCaptureHandler::renameTab(int index)
+{
+	RenameOperation operation(mParent, mTabStateHandler->path(index), mTabStateHandler->filename(index), mToastService);
+	const auto renameResult = operation.execute();
+	if (renameResult.isSuccessful) {
+		mTabStateHandler->setRenameState(index, renameResult);
+		captureChanged();
+	}
+}
+
 void MultiCaptureHandler::updateContextMenuActions(int index)
 {
 	auto isPathValid = mTabStateHandler->isPathValid(index);
 	mSaveContextMenuAction->setEnabled(!mTabStateHandler->isSaved(index));
+	mRenameContextMenuAction->setEnabled(mTabStateHandler->isSaved(index));
 	mOpenDirectoryContextMenuAction->setEnabled(isPathValid);
 	mCopyPathToClipboardContextMenuAction->setEnabled(isPathValid);
 	mDeleteImageContextMenuAction->setEnabled(isPathValid);

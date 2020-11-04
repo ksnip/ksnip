@@ -276,9 +276,9 @@ void MultiCaptureHandler::saveTab(int index)
 void MultiCaptureHandler::renameTab(int index)
 {
 	RenameOperation operation(mParent, mTabStateHandler->path(index), mTabStateHandler->filename(index), mToastService);
-	const auto renameResult = operation.execute();
-	if (renameResult.isSuccessful) {
-		mTabStateHandler->setRenameState(index, renameResult);
+	auto renameResult = operation.execute();
+	if(renameResult.isSuccessful) {
+		mTabStateHandler->renameFile(index, renameResult);
 		captureChanged();
 	}
 }
@@ -287,7 +287,7 @@ void MultiCaptureHandler::updateContextMenuActions(int index)
 {
 	auto isPathValid = mTabStateHandler->isPathValid(index);
 	mSaveContextMenuAction->setEnabled(!mTabStateHandler->isSaved(index));
-	mRenameContextMenuAction->setEnabled(mTabStateHandler->isSaved(index));
+	mRenameContextMenuAction->setEnabled(isPathValid);
 	mOpenDirectoryContextMenuAction->setEnabled(isPathValid);
 	mCopyPathToClipboardContextMenuAction->setEnabled(isPathValid);
 	mDeleteImageContextMenuAction->setEnabled(isPathValid);

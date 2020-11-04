@@ -22,31 +22,31 @@
 
 #include <QCoreApplication>
 #include <QFile>
-#include <QFileInfo>
 #include <QInputDialog>
 
 #include <utility>
 
 #include "NotifyOperation.h"
 #include "src/common/dtos/RenameResultDto.h"
+#include "src/common/helper/PathHelper.h"
 #include "src/gui/IToastService.h"
 
 class RenameOperation : public QObject
 {
-		Q_OBJECT
+	Q_OBJECT
 public:
 	RenameOperation(QWidget *parent, const QString &pathToImageSource, const QString &imageFilename, IToastService *toastService);
 	~RenameOperation() override = default;
 	RenameResultDto execute();
 
 private:
-	QString getNewFilename() const;
-	bool rename(const QString &newFilename);
-
 	QWidget* mParent;
 	QString mPathToImageSource;
 	QString mImageFilename;
 	IToastService *mToastService;
+
+	QString getNewFilename() const;
+	bool rename(const QString &newFilename);
 };
 
 #endif //KSNIP_RENAMEOPERATION_H

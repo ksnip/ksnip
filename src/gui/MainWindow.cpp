@@ -291,7 +291,7 @@ void MainWindow::captureChanged()
 {
     mToolBar->setSaveActionEnabled(!mCaptureHandler->isSaved());
 	mCopyPathAction->setEnabled(mCaptureHandler->isPathValid());
-	mRenameAction->setEnabled(mCaptureHandler->isSaved());
+	mRenameAction->setEnabled(mCaptureHandler->isPathValid());
 	mOpenDirectoryAction->setEnabled(mCaptureHandler->isPathValid());
 	mRemoveImageAction->setEnabled(mCaptureHandler->isPathValid());
 	updateApplicationTitle();

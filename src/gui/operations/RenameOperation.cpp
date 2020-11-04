@@ -29,26 +29,28 @@ RenameOperation::RenameOperation(QWidget *parent, const QString &pathToImageSour
 
 RenameResultDto RenameOperation::execute()
 {
-	const auto newFilename = getNewFilename();
+	auto newFilename = getNewFilename();
 	if (newFilename.isNull() || newFilename.isEmpty()) {
 		return RenameResultDto(false, mPathToImageSource);
 	}
 
-	const bool renameOk = rename(newFilename);
+	auto renameSuccessful = rename(newFilename);
 
-	if (renameOk) {
-		NotifyOperation operation(mToastService, tr("Image Renamed"),
-								  tr("Successfully renamed image to ") + newFilename,
-								  NotificationTypes::Information);
+	if (renameSuccessful) {
+		NotifyOperation operation(mToastService,
+							tr("Image Renamed"),
+							tr("Successfully renamed image to ") + newFilename,
+							NotificationTypes::Information);
 		operation.execute();
 	} else {
-		NotifyOperation operation(mToastService, tr("Image Rename Failed"),
-								  tr("Failed to rename image to ") + newFilename,
-								  NotificationTypes::Warning);
+		NotifyOperation operation(mToastService,
+							tr("Image Rename Failed"),
+							tr("Failed to rename image to ") + newFilename,
+							NotificationTypes::Warning);
 		operation.execute();
 	}
 
-	return RenameResultDto(true, mPathToImageSource);
+	return RenameResultDto(renameSuccessful, mPathToImageSource);
 }
 
 QString RenameOperation::getNewFilename() const
@@ -70,10 +72,14 @@ QString RenameOperation::getNewFilename() const
 
 bool RenameOperation::rename(const QString &newFilename)
 {
+	auto oldFilename = PathHelper::extractFilename(mPathToImageSource);
+	auto newPathToImageSource = mPathToImageSource;
+	newPathToImageSource.replace(oldFilename, newFilename);
+
 	QFile file(mPathToImageSource);
-	auto renameSuccessful = file.rename(newFilename);
+	auto renameSuccessful = file.rename(newPathToImageSource);
 	if (renameSuccessful) {
-		mPathToImageSource = QFileInfo(file).absoluteFilePath();
+		mPathToImageSource = newPathToImageSource;
 	}
 	return renameSuccessful;
 }

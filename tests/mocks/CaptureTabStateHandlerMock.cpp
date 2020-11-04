@@ -55,7 +55,7 @@ void CaptureTabStateHandlerMock::setSaveState(int index, const SaveResultDto &sa
 
 }
 
-void CaptureTabStateHandlerMock::setRenameState(int index, const RenameResultDto &renameResult)
+void CaptureTabStateHandlerMock::renameFile(int index, const RenameResultDto &renameResult)
 {
 
 }

@@ -65,7 +65,7 @@ void CaptureTabStateHandler::setSaveState(int index, const SaveResultDto &saveRe
 	}
 }
 
-void CaptureTabStateHandler::setRenameState(int index, const RenameResultDto &renameResult)
+void CaptureTabStateHandler::renameFile(int index, const RenameResultDto &renameResult)
 {
 	auto tabState = getTabState(index);
 	if (!tabState.isNull() && renameResult.isSuccessful) {

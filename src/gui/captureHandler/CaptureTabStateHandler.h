@@ -42,7 +42,7 @@ public:
 	QString path(int index) override;
 	QString filename(int index) override;
 	void setSaveState(int index, const SaveResultDto &saveResult) override;
-	void setRenameState(int index, const RenameResultDto &renameResult) override;
+	void renameFile(int index, const RenameResultDto &renameResult) override;
 	int count() const override;
 	int currentTabIndex() const override;
 

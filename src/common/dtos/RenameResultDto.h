@@ -27,8 +27,8 @@ struct RenameResultDto : public FilePathDto
     bool isSuccessful;
 
     explicit RenameResultDto(bool isSuccessful, const QString &path) {
-	this->isSuccessful = isSuccessful;
-	this->path = path;
+		this->isSuccessful = isSuccessful;
+		this->path = path;
     }
 };
 

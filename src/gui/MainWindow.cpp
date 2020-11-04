@@ -317,6 +317,7 @@ void MainWindow::setEnablements(bool enabled)
 	mSaveAsAction->setEnabled(enabled);
 	mPinAction->setEnabled(enabled);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
+	mRenameAction->setEnabled(enabled);
 }
 
 void MainWindow::loadSettings()

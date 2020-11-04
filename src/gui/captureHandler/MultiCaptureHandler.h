@@ -27,7 +27,6 @@
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/operations/RenameOperation.h"
 #include "src/gui/operations/DeleteImageOperation.h"
-#include "src/gui/operations/RenameOperation.h"
 #include "src/gui/IToastService.h"
 #include "src/gui/serviceLocator/IServiceLocator.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"

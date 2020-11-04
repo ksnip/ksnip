@@ -19,10 +19,11 @@
 
 #include "RenameOperation.h"
 
-#include <utility>
-
-RenameOperation::RenameOperation(QWidget *parent, const QString &pathToImageSource, const QString &imageFilename, IToastService *toastService)
-	: mParent(parent), mPathToImageSource(pathToImageSource), mImageFilename(imageFilename), mToastService(toastService)
+RenameOperation::RenameOperation(QWidget *parent, const QString &pathToImageSource, const QString &imageFilename, IToastService *toastService) :
+    mParent(parent),
+    mPathToImageSource(pathToImageSource),
+    mImageFilename(imageFilename),
+    mToastService(toastService)
 {
 }
 

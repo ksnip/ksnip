@@ -25,6 +25,8 @@
 #include <QFileInfo>
 #include <QInputDialog>
 
+#include <utility>
+
 #include "NotifyOperation.h"
 #include "src/common/dtos/SaveResultDto.h"
 #include "src/gui/IToastService.h"

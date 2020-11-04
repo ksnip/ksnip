@@ -53,11 +53,19 @@ RenameResultDto RenameOperation::execute()
 
 QString RenameOperation::getNewFilename() const
 {
-	QString newFilename = QInputDialog::getText(mParent, tr("Rename image"),
-												tr("New filename:"), QLineEdit::Normal,
-												mImageFilename);
+	QInputDialog dialog;
 
-	return newFilename;
+	dialog.setInputMode(QInputDialog::TextInput);
+	dialog.setWindowTitle(tr("Rename image"));
+	dialog.setLabelText(tr("New filename:"));
+	dialog.setTextEchoMode(QLineEdit::Normal);
+	dialog.setTextValue(mImageFilename);
+	dialog.resize(270, 0);
+
+	if (QDialog::Accepted == dialog.exec()) {
+		return dialog.textValue();
+	}
+	return QString();
 }
 
 bool RenameOperation::rename(const QString &newFilename)

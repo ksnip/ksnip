@@ -17,36 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_RENAMEOPERATION_H
-#define KSNIP_RENAMEOPERATION_H
+#ifndef KSNIP_RENAMERESULTDTO_H
+#define KSNIP_RENAMERESULTDTO_H
 
-#include <QCoreApplication>
-#include <QFile>
-#include <QFileInfo>
-#include <QInputDialog>
+#include "FilePathDto.h"
 
-#include <utility>
-
-#include "NotifyOperation.h"
-#include "src/common/dtos/RenameResultDto.h"
-#include "src/gui/IToastService.h"
-
-class RenameOperation : public QObject
+struct RenameResultDto : public FilePathDto
 {
-		Q_OBJECT
-public:
-	RenameOperation(QWidget *parent, const QString &pathToImageSource, const QString &imageFilename, IToastService *toastService);
-	~RenameOperation() override = default;
-	RenameResultDto execute();
+    bool isSuccessful;
 
-private:
-	QString getNewFilename() const;
-	bool rename(const QString &newFilename);
-
-	QWidget* mParent;
-	QString mPathToImageSource;
-	QString mImageFilename;
-	IToastService *mToastService;
+    explicit RenameResultDto(bool isSuccessful, const QString &path) {
+	this->isSuccessful = isSuccessful;
+	this->path = path;
+    }
 };
 
-#endif //KSNIP_RENAMEOPERATION_H
+#endif //KSNIP_RENAMERESULTDTO_H

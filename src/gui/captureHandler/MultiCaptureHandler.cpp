@@ -276,9 +276,9 @@ void MultiCaptureHandler::saveTab(int index)
 void MultiCaptureHandler::renameTab(int index)
 {
 	RenameOperation operation(mParent, mTabStateHandler->path(index), mTabStateHandler->filename(index), mToastService);
-	const auto saveResult = operation.execute();
-	if (saveResult.isSuccessful) {
-		mTabStateHandler->setSaveState(index, saveResult);
+	const auto renameResult = operation.execute();
+	if (renameResult.isSuccessful) {
+		mTabStateHandler->setRenameState(index, renameResult);
 		captureChanged();
 	}
 }

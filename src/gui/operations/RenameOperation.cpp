@@ -20,18 +20,18 @@
 #include "RenameOperation.h"
 
 RenameOperation::RenameOperation(QWidget *parent, const QString &pathToImageSource, const QString &imageFilename, IToastService *toastService) :
-    mParent(parent),
-    mPathToImageSource(pathToImageSource),
-    mImageFilename(imageFilename),
-    mToastService(toastService)
+	mParent(parent),
+	mPathToImageSource(pathToImageSource),
+	mImageFilename(imageFilename),
+	mToastService(toastService)
 {
 }
 
-SaveResultDto RenameOperation::execute()
+RenameResultDto RenameOperation::execute()
 {
 	const auto newFilename = getNewFilename();
 	if (newFilename.isEmpty()) {
-		return SaveResultDto(false, mPathToImageSource);
+		return RenameResultDto(false, mPathToImageSource);
 	}
 
 	const bool renameOk = rename(newFilename);
@@ -41,13 +41,13 @@ SaveResultDto RenameOperation::execute()
 								  "Successfully renamed image to " + newFilename,
 								  NotificationTypes::Information);
 		operation.execute();
-		return SaveResultDto(true, mPathToImageSource);
+		return RenameResultDto(true, mPathToImageSource);
 	} else {
 		NotifyOperation operation(mToastService, tr("Image Rename Failed"),
 								  "Failed to rename image to " + newFilename,
 								  NotificationTypes::Warning);
 		operation.execute();
-		return SaveResultDto(false, mPathToImageSource);
+		return RenameResultDto(false, mPathToImageSource);
 	}
 }
 

@@ -72,9 +72,9 @@ void SingleCaptureHandler::save()
 void SingleCaptureHandler::rename()
 {
 	RenameOperation operation(mParent, mPath, QFileInfo(mPath).fileName(), mToastService);
-	const auto saveResult = operation.execute();
-	if (saveResult.isSuccessful) {
-		mPath = saveResult.path;
+	const auto renameResult = operation.execute();
+	if (renameResult.isSuccessful) {
+		mPath = renameResult.path;
 		captureChanged();
 	}
 }

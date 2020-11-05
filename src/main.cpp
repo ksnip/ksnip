@@ -27,8 +27,25 @@
 #include "BuildConfig.h"
 #include "src/bootstrapper/BootstrapperFactory.h"
 
+#ifdef Q_OS_LINUX
+void wayland_hacks()
+{
+    // Workaround to https://github.com/ksnip/ksnip/issues/416
+    QByteArray currentDesktop = qgetenv("XDG_CURRENT_DESKTOP").toLower();
+    QByteArray sessionDesktop = qgetenv("XDG_SESSION_DESKTOP").toLower();
+    QByteArray sessionType = qgetenv("XDG_SESSION_TYPE").toLower();
+    if (sessionType.contains("wayland") && (currentDesktop.contains("gnome") || sessionDesktop.contains("gnome")))
+    {
+        qputenv("QT_QPA_PLATFORM", "xcb");
+    }
+}
+#endif
+
 int main(int argc, char** argv)
 {
+#ifdef Q_OS_LINUX
+    wayland_hacks();
+#endif
     QApplication app(argc, argv);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
 

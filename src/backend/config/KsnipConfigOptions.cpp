@@ -134,6 +134,11 @@ QString KsnipConfigOptions::useSingleInstanceString()
 	return applicationSectionString() + QLatin1Literal("UseSingleInstanceString");
 }
 
+QString KsnipConfigOptions::autoHideMainWindowString()
+{
+	return applicationSectionString() + QLatin1Literal("AutoHideMainWindowString");
+}
+
 QString KsnipConfigOptions::textFontString()
 {
 	return annotatorSectionString() + QLatin1Literal("TextFont");

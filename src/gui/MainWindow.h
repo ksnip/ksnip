@@ -146,7 +146,8 @@ private slots:
 	void saveAsClicked();
 	void updateApplicationTitle();
 	void capturePostProcessing();
-	void showImage(const CaptureDto &capture);
+	void loadImage(const CaptureDto &capture);
+	void showWindow();
 	void loadImageFromFile(const QString &path);
 	void sessionFinished();
 	void captureCanceled();

@@ -180,21 +180,30 @@ void MainWindow::processCapture(const CaptureDto &capture)
 		return;
 	}
 
-	showImage(capture);
+	loadImage(capture);
+
+	if (mConfig->autoShowMainWindowEnabled()) {
+		showWindow();
+	}
+
 	captureChanged();
 	capturePostProcessing();
 }
 
 void MainWindow::processImage(const CaptureDto &capture)
 {
-	showImage(capture);
+	loadImage(capture);
+	showWindow();
 	captureChanged();
 }
 
-void MainWindow::showImage(const CaptureDto &capture)
+void MainWindow::loadImage(const CaptureDto &capture)
 {
 	mCaptureHandler->load(capture);
+}
 
+void MainWindow::showWindow()
+{
 	setInvisible(false);
 	setEnablements(true);
 
@@ -240,6 +249,8 @@ void MainWindow::showHidden()
 
 void MainWindow::show()
 {
+	setInvisible(false);
+	setEnablements(true);
 	setWindowState(mSelectedWindowState);
 	activateWindow();
 	raise();
@@ -332,7 +343,7 @@ void MainWindow::loadSettings()
 
 void MainWindow::setInvisible(bool isInvisible)
 {
-    if (isInvisible == mIsInvisible) {
+	if (isInvisible == mIsInvisible) {
         return;
     }
 

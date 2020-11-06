@@ -593,6 +593,19 @@ void KsnipConfig::setSnippingAreaPositionAndSizeInfoEnabled(bool enabled)
 	saveValue(KsnipConfigOptions::snippingAreaPositionAndSizeInfoEnabledString(), enabled);
 }
 
+bool KsnipConfig::autoShowMainWindowEnabled() const
+{
+	return loadValue(KsnipConfigOptions::autoShowMainWindowEnabledString(), true).toBool();
+}
+
+void KsnipConfig::setAutoShowMainWindowEnabled(bool enabled)
+{
+	if (autoShowMainWindowEnabled() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::autoShowMainWindowEnabledString(), enabled);
+}
+
 bool KsnipConfig::isSnippingAreaMagnifyingGlassEnabledReadOnly() const
 {
 	return false;

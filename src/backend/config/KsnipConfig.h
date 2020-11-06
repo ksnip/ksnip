@@ -164,6 +164,9 @@ public:
 	virtual bool snippingAreaPositionAndSizeInfoEnabled() const;
 	virtual void setSnippingAreaPositionAndSizeInfoEnabled(bool enabled);
 
+	virtual bool autoShowMainWindowEnabled() const;
+	virtual void setAutoShowMainWindowEnabled(bool enabled);
+
 	virtual bool isSnippingAreaMagnifyingGlassEnabledReadOnly() const;
 	virtual bool snippingAreaMagnifyingGlassEnabled() const;
 	virtual void setSnippingAreaMagnifyingGlassEnabled(bool enabled);

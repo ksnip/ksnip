@@ -25,6 +25,7 @@ ImageGrabberSettings::ImageGrabberSettings(KsnipConfig *ksnipConfig) :
     mAutoHideMainWindow(new QCheckBox(this)),
     mSnippingAreaRulersCheckbox(new QCheckBox(this)),
     mSnippingAreaPositionAndSizeInfoCheckbox(new QCheckBox(this)),
+    mAutoShowMainWindowCheckbox(new QCheckBox(this)),
     mSnippingAreaMagnifyingGlassCheckbox(new QCheckBox(this)),
     mForceGenericWaylandCheckbox(new QCheckBox(this)),
     mScaleGenericWaylandScreenshotsCheckbox(new QCheckBox(this)),
@@ -48,6 +49,7 @@ ImageGrabberSettings::~ImageGrabberSettings()
 	delete mAutoHideMainWindow;
 	delete mSnippingAreaRulersCheckbox;
 	delete mSnippingAreaPositionAndSizeInfoCheckbox;
+	delete mAutoShowMainWindowCheckbox;
 	delete mSnippingAreaMagnifyingGlassCheckbox;
 	delete mForceGenericWaylandCheckbox;
 	delete mScaleGenericWaylandScreenshotsCheckbox;
@@ -66,6 +68,7 @@ void ImageGrabberSettings::saveSettings()
 	mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
 	mConfig->setSnippingAreaRulersEnabled(mSnippingAreaRulersCheckbox->isChecked());
 	mConfig->setSnippingAreaPositionAndSizeInfoEnabled(mSnippingAreaPositionAndSizeInfoCheckbox->isChecked());
+	mConfig->setAutoShowMainWindowEnabled(mAutoShowMainWindowCheckbox->isChecked());
 	mConfig->setForceGenericWaylandEnabled(mForceGenericWaylandCheckbox->isChecked());
 	mConfig->setScaleGenericWaylandScreenshots(mScaleGenericWaylandScreenshotsCheckbox->isChecked());
 	mConfig->setSnippingCursorColor(mSnippingCursorColorButton->color());
@@ -105,6 +108,9 @@ void ImageGrabberSettings::initGui()
 	                                                        "the size of the select area is shown left\n"
 	                                                        "and above from the captured area."));
 
+	mAutoShowMainWindowCheckbox->setText(tr("Auto Show MainWindow after capturing screenshot"));
+	mAutoShowMainWindowCheckbox->setToolTip(tr("Show MainWindow after capturing a new screenshot."));
+
     mForceGenericWaylandCheckbox->setText(tr("Force Generic Wayland Screenshot"));
     mForceGenericWaylandCheckbox->setToolTip(tr("GNOME and KDE Plasma support their own Wayland\n"
                                                    "and the Generic XDG-DESKTOP-PORTAL screenshots.\n"
@@ -142,14 +148,15 @@ void ImageGrabberSettings::initGui()
 	mLayout->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 2, 1, 1, 3);
 	mLayout->addWidget(mSnippingAreaRulersCheckbox, 3, 0, 1, 3);
 	mLayout->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 4, 0, 1, 3);
-	mLayout->addWidget(mForceGenericWaylandCheckbox, 5, 0, 1, 3);
-	mLayout->addWidget(mScaleGenericWaylandScreenshotsCheckbox, 6, 0, 1, 3);
-	mLayout->addWidget(mAutoHideMainWindow, 7, 0, 1, 3);
-	mLayout->setRowMinimumHeight(8, 15);
-	mLayout->addWidget(mSnippingCursorColorLabel, 9, 0, 1, 2);
-	mLayout->addWidget(mSnippingCursorColorButton, 9, 2, Qt::AlignLeft);
-	mLayout->addWidget(mSnippingCursorSizeLabel, 10, 0, 1, 2);
-	mLayout->addWidget(mSnippingCursorSizeCombobox, 10, 2, Qt::AlignLeft);
+	mLayout->addWidget(mAutoShowMainWindowCheckbox, 5, 0, 1, 3);
+	mLayout->addWidget(mForceGenericWaylandCheckbox, 6, 0, 1, 3);
+	mLayout->addWidget(mScaleGenericWaylandScreenshotsCheckbox, 7, 0, 1, 3);
+	mLayout->addWidget(mAutoHideMainWindow, 8, 0, 1, 3);
+	mLayout->setRowMinimumHeight(9, 15);
+	mLayout->addWidget(mSnippingCursorColorLabel, 10, 0, 1, 2);
+	mLayout->addWidget(mSnippingCursorColorButton, 10, 2, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingCursorSizeLabel, 11, 0, 1, 2);
+	mLayout->addWidget(mSnippingCursorSizeCombobox, 11, 2, Qt::AlignLeft);
 
 	setTitle(tr("Image Grabber"));
 	setLayout(mLayout);
@@ -170,6 +177,7 @@ void ImageGrabberSettings::loadConfig()
 	mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());
 	mSnippingAreaRulersCheckbox->setChecked(mConfig->snippingAreaRulersEnabled());
 	mSnippingAreaPositionAndSizeInfoCheckbox->setChecked(mConfig->snippingAreaPositionAndSizeInfoEnabled());
+	mAutoShowMainWindowCheckbox->setChecked(mConfig->autoShowMainWindowEnabled());
     mForceGenericWaylandCheckbox->setChecked(mConfig->forceGenericWaylandEnabled());
     mForceGenericWaylandCheckbox->setEnabled(!mConfig->isForceGenericWaylandEnabledReadOnly());
     mScaleGenericWaylandScreenshotsCheckbox->setChecked(mConfig->scaleGenericWaylandScreenshotsEnabled());

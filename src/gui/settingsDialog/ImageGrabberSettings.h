@@ -43,6 +43,7 @@ private:
 	QCheckBox *mAutoHideMainWindow;
 	QCheckBox *mSnippingAreaRulersCheckbox;
 	QCheckBox *mSnippingAreaPositionAndSizeInfoCheckbox;
+	QCheckBox *mAutoShowMainWindowCheckbox;
 	QCheckBox *mSnippingAreaMagnifyingGlassCheckbox;
 	QCheckBox *mForceGenericWaylandCheckbox;
 	QCheckBox *mScaleGenericWaylandScreenshotsCheckbox;

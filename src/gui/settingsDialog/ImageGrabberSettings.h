@@ -40,6 +40,7 @@ public:
 private:
 	QCheckBox *mCaptureCursorCheckbox;
 	QCheckBox *mFreezeImageWhileSnippingCheckbox;
+	QCheckBox *mAutoHideMainWindow;
 	QCheckBox *mSnippingAreaRulersCheckbox;
 	QCheckBox *mSnippingAreaPositionAndSizeInfoCheckbox;
 	QCheckBox *mSnippingAreaMagnifyingGlassCheckbox;

@@ -51,7 +51,6 @@ private:
 	QCheckBox *mUseTabsCheckbox;
 	QCheckBox *mAutoHideTabsCheckbox;
 	QCheckBox *mUseSingleInstanceCheckBox;
-	QCheckBox *mAutoHideMainWindow;
 	QLabel *mApplicationStyleLabel;
 	QComboBox *mApplicationStyleCombobox;
 	QGridLayout *mLayout;

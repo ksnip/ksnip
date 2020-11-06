@@ -22,6 +22,7 @@
 ImageGrabberSettings::ImageGrabberSettings(KsnipConfig *ksnipConfig) :
     mCaptureCursorCheckbox(new QCheckBox(this)),
     mFreezeImageWhileSnippingCheckbox(new QCheckBox(this)),
+    mAutoHideMainWindow(new QCheckBox(this)),
     mSnippingAreaRulersCheckbox(new QCheckBox(this)),
     mSnippingAreaPositionAndSizeInfoCheckbox(new QCheckBox(this)),
     mSnippingAreaMagnifyingGlassCheckbox(new QCheckBox(this)),
@@ -44,6 +45,7 @@ ImageGrabberSettings::~ImageGrabberSettings()
 {
 	delete mCaptureCursorCheckbox;
 	delete mFreezeImageWhileSnippingCheckbox;
+	delete mAutoHideMainWindow;
 	delete mSnippingAreaRulersCheckbox;
 	delete mSnippingAreaPositionAndSizeInfoCheckbox;
 	delete mSnippingAreaMagnifyingGlassCheckbox;
@@ -59,9 +61,10 @@ ImageGrabberSettings::~ImageGrabberSettings()
 void ImageGrabberSettings::saveSettings()
 {
 	mConfig->setFreezeImageWhileSnippingEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());
+	mConfig->setAutoHideMainWindow(mAutoHideMainWindow->isChecked());
 	mConfig->setSnippingAreaMagnifyingGlassEnabled(mSnippingAreaMagnifyingGlassCheckbox->isChecked());
 	mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
-    mConfig->setSnippingAreaRulersEnabled(mSnippingAreaRulersCheckbox->isChecked());
+	mConfig->setSnippingAreaRulersEnabled(mSnippingAreaRulersCheckbox->isChecked());
 	mConfig->setSnippingAreaPositionAndSizeInfoEnabled(mSnippingAreaPositionAndSizeInfoCheckbox->isChecked());
 	mConfig->setForceGenericWaylandEnabled(mForceGenericWaylandCheckbox->isChecked());
 	mConfig->setScaleGenericWaylandScreenshots(mScaleGenericWaylandScreenshotsCheckbox->isChecked());
@@ -86,6 +89,9 @@ void ImageGrabberSettings::initGui()
 	                                                 "This feature is always disabled for Wayland and always\n"
 	                                                 "enabled for MacOs."));
 	connect(mFreezeImageWhileSnippingCheckbox, &QCheckBox::stateChanged, this, &ImageGrabberSettings::freezeImageWhileSnippingStateChanged);
+
+	mAutoHideMainWindow->setText(tr("Auto Hide MainWindow during screenshot"));
+	mAutoHideMainWindow->setToolTip(tr("Hide MainWindow when capturing a new screenshot."));
 
 	mSnippingAreaMagnifyingGlassCheckbox->setText(tr("Show magnifying glass on snipping area"));
 	mSnippingAreaMagnifyingGlassCheckbox->setToolTip(tr("Show a magnifying glass which zooms into\n"
@@ -133,16 +139,17 @@ void ImageGrabberSettings::initGui()
 	mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 3);
 	mLayout->addWidget(mFreezeImageWhileSnippingCheckbox, 1, 0, 1, 3);
-	mLayout->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 2, 1, 1, 3);
-	mLayout->addWidget(mSnippingAreaRulersCheckbox, 3, 0, 1, 3);
-	mLayout->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 4, 0, 1, 3);
-	mLayout->addWidget(mForceGenericWaylandCheckbox, 5, 0, 1, 3);
-	mLayout->addWidget(mScaleGenericWaylandScreenshotsCheckbox, 6, 0, 1, 3);
-	mLayout->setRowMinimumHeight(7, 15);
-	mLayout->addWidget(mSnippingCursorColorLabel, 8, 0, 1, 2);
-	mLayout->addWidget(mSnippingCursorColorButton, 8, 2, Qt::AlignLeft);
-	mLayout->addWidget(mSnippingCursorSizeLabel, 9, 0, 1, 2);
-	mLayout->addWidget(mSnippingCursorSizeCombobox, 9, 2, Qt::AlignLeft);
+	mLayout->addWidget(mAutoHideMainWindow, 2, 0, 1, 3);
+	mLayout->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 3, 1, 1, 3);
+	mLayout->addWidget(mSnippingAreaRulersCheckbox, 4, 0, 1, 3);
+	mLayout->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 5, 0, 1, 3);
+	mLayout->addWidget(mForceGenericWaylandCheckbox, 6, 0, 1, 3);
+	mLayout->addWidget(mScaleGenericWaylandScreenshotsCheckbox, 7, 0, 1, 3);
+	mLayout->setRowMinimumHeight(8, 15);
+	mLayout->addWidget(mSnippingCursorColorLabel, 9, 0, 1, 2);
+	mLayout->addWidget(mSnippingCursorColorButton, 9, 2, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingCursorSizeLabel, 10, 0, 1, 2);
+	mLayout->addWidget(mSnippingCursorSizeCombobox, 10, 2, Qt::AlignLeft);
 
 	setTitle(tr("Image Grabber"));
 	setLayout(mLayout);
@@ -157,6 +164,7 @@ void ImageGrabberSettings::loadConfig()
 {
 	mFreezeImageWhileSnippingCheckbox->setChecked(mConfig->freezeImageWhileSnippingEnabled());
 	mFreezeImageWhileSnippingCheckbox->setEnabled(!mConfig->isFreezeImageWhileSnippingEnabledReadOnly());
+	mAutoHideMainWindow->setChecked(mConfig->autoHideMainWindow());
 	mSnippingAreaMagnifyingGlassCheckbox->setChecked(mConfig->snippingAreaMagnifyingGlassEnabled());
 	mSnippingAreaMagnifyingGlassCheckbox->setEnabled(!mConfig->isSnippingAreaMagnifyingGlassEnabledReadOnly());
 	mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());

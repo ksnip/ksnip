@@ -31,7 +31,6 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	mUseTabsCheckbox(new QCheckBox(this)),
 	mAutoHideTabsCheckbox(new QCheckBox(this)),
 	mUseSingleInstanceCheckBox(new QCheckBox(this)),
-	mAutoHideMainWindow(new QCheckBox(this)),
 	mApplicationStyleLabel(new QLabel(this)),
 	mApplicationStyleCombobox(new QComboBox(this)),
 	mLayout(new QGridLayout)
@@ -54,7 +53,6 @@ ApplicationSettings::~ApplicationSettings()
 	delete mCloseToTrayCheckBox;
 	delete mStartMinimizedToTrayCheckBox;
 	delete mUseSingleInstanceCheckBox;
-	delete mAutoHideMainWindow;
 	delete mApplicationStyleLabel;
 	delete mApplicationStyleCombobox;
 	delete mLayout;
@@ -84,9 +82,6 @@ void ApplicationSettings::initGui()
 				                                 "arguments to the first and close. Changing this option requires\n"
 									             "a new start of all instances."));
 
-	mAutoHideMainWindow->setText(tr("Auto Hide MainWindow during screenshot"));
-	mAutoHideMainWindow->setToolTip(tr("Hide MainWindow when capturing a new screenshot."));
-
 	connect(mUseTrayIconCheckBox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTrayIconChanged);
 	connect(mUseTabsCheckbox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTabsChanged);
 
@@ -109,7 +104,6 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mUseTabsCheckbox, 7, 0, 1, 4);
 	mLayout->addWidget(mAutoHideTabsCheckbox, 8, 1, 1, 3);
 	mLayout->addWidget(mUseSingleInstanceCheckBox, 9, 0, 1, 4);
-	mLayout->addWidget(mAutoHideMainWindow, 10, 0, 1, 4);
 	mLayout->setRowMinimumHeight(10, 15);
 	mLayout->addWidget(mApplicationStyleLabel, 11, 0, 1, 2);
 	mLayout->addWidget(mApplicationStyleCombobox, 11, 2, Qt::AlignLeft);
@@ -130,7 +124,6 @@ void ApplicationSettings::loadConfig()
 	mUseTabsCheckbox->setChecked(mConfig->useTabs());
 	mAutoHideTabsCheckbox->setChecked(mConfig->autoHideTabs());
 	mUseSingleInstanceCheckBox->setChecked(mConfig->useSingleInstance());
-	mAutoHideMainWindow->setChecked(mConfig->autoHideMainWindow());
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
 
 	useTrayIconChanged();
@@ -147,7 +140,6 @@ void ApplicationSettings::saveSettings()
 	mConfig->setStartMinimizedToTray(mStartMinimizedToTrayCheckBox->isChecked());
 	mConfig->setCloseToTray(mCloseToTrayCheckBox->isChecked());
 	mConfig->setUseSingleInstance(mUseSingleInstanceCheckBox->isChecked());
-	mConfig->setAutoHideMainWindow(mAutoHideMainWindow->isChecked());
 	mConfig->setUseTabs(mUseTabsCheckbox->isChecked());
 	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());

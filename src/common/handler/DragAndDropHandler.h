@@ -41,7 +41,7 @@ private:
 	bool handleDragEnter(QGraphicsSceneDragDropEvent *event);
 	bool handleDrop(QDropEvent *event);
 	bool handleDrop(QGraphicsSceneDragDropEvent *event);
-	QString getUrlFromMimeData(const QMimeData *mimeData) const;
+	QStringList getUrlsFromMimeData(const QMimeData *mimeData) const;
 };
 
 #endif //KSNIP_DRAGANDDROPHANDLER_H

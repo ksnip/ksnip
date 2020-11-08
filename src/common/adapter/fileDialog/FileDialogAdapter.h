@@ -31,6 +31,7 @@ public:
 	~FileDialogAdapter() override = default;
 	QString	getExistingDirectory(QWidget *parent, const QString &title, const QString &directory) override;
 	QString	getOpenFileName(QWidget *parent, const QString &title, const QString &directory) override;
+	QStringList	getOpenFileNames(QWidget *parent, const QString &title, const QString &directory, const QString &filter) override;
 };
 
 #endif //KSNIP_FILEDIALOGADAPTER_H

@@ -48,6 +48,7 @@
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/handler/DragAndDropHandler.h"
+#include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
 
 class MainWindow : public QMainWindow, public ICaptureChangeListener
 {
@@ -111,6 +112,7 @@ private:
 	ICaptureHandler *mCaptureHandler;
 	PinWindowHandler *mPinWindowHandler;
 	WidgetHider *mWidgetHider;
+	IFileDialogAdapter *mFileDialog;
 
     void setEnablements(bool enabled);
     void loadSettings();

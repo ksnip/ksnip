@@ -28,3 +28,8 @@ QString SnapFileDialogAdapter::getOpenFileName(QWidget *parent, const QString &t
 {
 	return QFileDialog::getOpenFileName(parent, title, directory, nullptr, nullptr, QFileDialog::DontUseNativeDialog);
 }
+
+QStringList SnapFileDialogAdapter::getOpenFileNames(QWidget *parent, const QString &title, const QString &directory, const QString &filter)
+{
+	return QFileDialog::getOpenFileNames(parent, title, directory, filter, nullptr, QFileDialog::DontUseNativeDialog);
+}

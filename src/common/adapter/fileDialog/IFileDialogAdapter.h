@@ -26,6 +26,7 @@ public:
 	virtual ~IFileDialogAdapter() = default;
 	virtual QString	getExistingDirectory(QWidget *parent, const QString &title, const QString &directory) = 0;
 	virtual QString	getOpenFileName(QWidget *parent, const QString &title, const QString &directory) = 0;
+	virtual QStringList	getOpenFileNames(QWidget *parent, const QString &title, const QString &directory, const QString &filter) = 0;
 };
 
 #endif //KSNIP_IFILEDIALOGADAPTER_H

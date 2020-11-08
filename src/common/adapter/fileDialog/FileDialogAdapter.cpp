@@ -28,3 +28,8 @@ QString FileDialogAdapter::getOpenFileName(QWidget *parent, const QString &title
 {
 	return QFileDialog::getOpenFileName(parent, title, directory);
 }
+
+QStringList FileDialogAdapter::getOpenFileNames(QWidget *parent, const QString &title, const QString &directory, const QString &filter)
+{
+	return QFileDialog::getOpenFileNames(parent, title, directory, filter);
+}

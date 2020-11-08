@@ -22,6 +22,8 @@
 
 MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		QMainWindow(),
+		mIsInvisible(false),
+		mToolBar(nullptr),
 		mImageGrabber(imageGrabber),
 		mMode(mode),
 		mImageAnnotator(new KImageAnnotatorAdapter),
@@ -56,7 +58,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mSessionManagerRequestedQuit(false),
 		mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mServiceLocator, this)),
 		mPinWindowHandler(new PinWindowHandler(this)),
-		mWidgetHider(WidgetHiderFactory::create(this))
+		mWidgetHider(WidgetHiderFactory::create(this)),
+		mFileDialog(FileDialogAdapterFactory::create())
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -142,6 +145,7 @@ MainWindow::~MainWindow()
     delete mUploaderProvider;
     delete mCaptureHandler;
     delete mWidgetHider;
+    delete mFileDialog;
 }
 
 void MainWindow::processInstantCapture(const CaptureDto &capture)
@@ -525,7 +529,10 @@ void MainWindow::printPreviewClicked()
 
 void MainWindow::showOpenImageDialog()
 {
-	auto pathList = QFileDialog::getOpenFileNames(this, tr("Open Images"), mSavePathProvider.saveDirectory(), tr("Image Files (*.png *.jpg *.bmp)"));
+	auto title = tr("Open Images");
+	auto directory = mSavePathProvider.saveDirectory();
+	auto filter = tr("Image Files (*.png *.jpg *.bmp)");
+	auto pathList = mFileDialog->getOpenFileNames(this, title, directory, filter);
 	for (const auto &path : pathList) {
 		loadImageFromFile(path);
 	}

@@ -301,6 +301,19 @@ void KsnipConfig::setUseSingleInstance(bool enabled)
 	saveValue(KsnipConfigOptions::useSingleInstanceString(), enabled);
 }
 
+bool KsnipConfig::autoHideMainWindow() const
+{
+	return loadValue(KsnipConfigOptions::autoHideMainWindowString(), true).toBool();
+}
+
+void KsnipConfig::setAutoHideMainWindow(bool enabled)
+{
+	if (autoHideMainWindow() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::autoHideMainWindowString(), enabled);
+}
+
 SaveQualityMode KsnipConfig::saveQualityMode() const
 {
 	return loadValue(KsnipConfigOptions::saveQualityModeString(), (int)SaveQualityMode::Default).value<SaveQualityMode>();

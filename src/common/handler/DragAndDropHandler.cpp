@@ -53,21 +53,33 @@ bool DragAndDropHandler::handleDragEnter(QGraphicsSceneDragDropEvent *event)
 
 bool DragAndDropHandler::handleDrop(QDropEvent *event)
 {
-	auto path = getUrlFromMimeData(event->mimeData());
+	auto paths = getUrlsFromMimeData(event->mimeData());
+	for(const auto& path: paths) {
+		emit imageDropped(path);
+	}
+
 	event->acceptProposedAction();
-	emit imageDropped(path);
 	return true;
 }
 
 bool DragAndDropHandler::handleDrop(QGraphicsSceneDragDropEvent *event)
 {
-	auto path = getUrlFromMimeData(event->mimeData());
+	auto paths = getUrlsFromMimeData(event->mimeData());
+	for(const auto& path: paths) {
+		emit imageDropped(path);
+	}
+
 	event->acceptProposedAction();
-	emit imageDropped(path);
 	return true;
 }
 
-QString DragAndDropHandler::getUrlFromMimeData(const QMimeData *mimeData) const
+QStringList DragAndDropHandler::getUrlsFromMimeData(const QMimeData *mimeData) const
 {
-	return FileUrlHelper::parse(mimeData->urls().first().toString());
+	QStringList urls;
+
+	for (const auto &url : mimeData->urls()) {
+		urls.push_back(FileUrlHelper::parse(url.toString()));
+	}
+
+	return urls;
 }

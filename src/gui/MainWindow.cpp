@@ -525,8 +525,10 @@ void MainWindow::printPreviewClicked()
 
 void MainWindow::showOpenImageDialog()
 {
-    auto path = QFileDialog::getOpenFileName(this, tr("Open Image"), mSavePathProvider.saveDirectory(), tr("Image Files (*.png *.jpg *.bmp)"));
-	loadImageFromFile(path);
+	auto pathList = QFileDialog::getOpenFileNames(this, tr("Open Images"), mSavePathProvider.saveDirectory(), tr("Image Files (*.png *.jpg *.bmp)"));
+	for (const auto &path : pathList) {
+		loadImageFromFile(path);
+	}
 }
 
 void MainWindow::setupImageAnnotator()

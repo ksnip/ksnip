@@ -28,7 +28,7 @@ class SnapFileDialogAdapter : public IFileDialogAdapter
 {
 public:
 	explicit SnapFileDialogAdapter() = default;
-	~SnapFileDialogAdapter() = default;
+	~SnapFileDialogAdapter() override = default;
 	QString	getExistingDirectory(QWidget *parent, const QString &title, const QString &directory) override;
 	QString	getOpenFileName(QWidget *parent, const QString &title, const QString &directory) override;
 };

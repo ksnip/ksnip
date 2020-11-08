@@ -90,9 +90,6 @@ void ImageGrabberSettings::initGui()
 	                                                 "enabled for MacOs."));
 	connect(mFreezeImageWhileSnippingCheckbox, &QCheckBox::stateChanged, this, &ImageGrabberSettings::freezeImageWhileSnippingStateChanged);
 
-	mAutoHideMainWindow->setText(tr("Auto Hide MainWindow during screenshot"));
-	mAutoHideMainWindow->setToolTip(tr("Hide MainWindow when capturing a new screenshot."));
-
 	mSnippingAreaMagnifyingGlassCheckbox->setText(tr("Show magnifying glass on snipping area"));
 	mSnippingAreaMagnifyingGlassCheckbox->setToolTip(tr("Show a magnifying glass which zooms into\n"
 	                                                    "the background image. This option only works\n"
@@ -122,6 +119,9 @@ void ImageGrabberSettings::initGui()
                                                               "determine the current screen scaling and\n"
                                                               "apply that to the screenshot in ksnip."));
 
+	mAutoHideMainWindow->setText(tr("Auto Hide MainWindow during screenshot"));
+	mAutoHideMainWindow->setToolTip(tr("Hide MainWindow when capturing a new screenshot."));
+
 	mSnippingCursorColorLabel->setText(tr("Snipping Area cursor color") + QLatin1Literal(":"));
 	mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area\n"
 	                                         "cursor. Change requires ksnip restart to\n"
@@ -139,12 +139,12 @@ void ImageGrabberSettings::initGui()
 	mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 3);
 	mLayout->addWidget(mFreezeImageWhileSnippingCheckbox, 1, 0, 1, 3);
-	mLayout->addWidget(mAutoHideMainWindow, 2, 0, 1, 3);
-	mLayout->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 3, 1, 1, 3);
-	mLayout->addWidget(mSnippingAreaRulersCheckbox, 4, 0, 1, 3);
-	mLayout->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 5, 0, 1, 3);
-	mLayout->addWidget(mForceGenericWaylandCheckbox, 6, 0, 1, 3);
-	mLayout->addWidget(mScaleGenericWaylandScreenshotsCheckbox, 7, 0, 1, 3);
+	mLayout->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 2, 1, 1, 3);
+	mLayout->addWidget(mSnippingAreaRulersCheckbox, 3, 0, 1, 3);
+	mLayout->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 4, 0, 1, 3);
+	mLayout->addWidget(mForceGenericWaylandCheckbox, 5, 0, 1, 3);
+	mLayout->addWidget(mScaleGenericWaylandScreenshotsCheckbox, 6, 0, 1, 3);
+	mLayout->addWidget(mAutoHideMainWindow, 7, 0, 1, 3);
 	mLayout->setRowMinimumHeight(8, 15);
 	mLayout->addWidget(mSnippingCursorColorLabel, 9, 0, 1, 2);
 	mLayout->addWidget(mSnippingCursorColorButton, 9, 2, Qt::AlignLeft);

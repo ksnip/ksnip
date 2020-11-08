@@ -36,7 +36,7 @@ private:
 	QVBoxLayout *mLayout;
 
 	QString createContributorEntry(const QString &name, const QString &role, const QString &email = QString()) const;
-	QString createEmailEntry(const QString &email) const;
+	static QString createEmailEntry(const QString &email) ;
 };
 
 

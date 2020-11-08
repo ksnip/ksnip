@@ -13,6 +13,7 @@
 * New: Add support for loading image from stdin. ([#414](https://github.com/ksnip/ksnip/issues/414))
 * New: Add screenshot options as application actions to desktop file. ([#450](https://github.com/ksnip/ksnip/issues/450))
 * New: Rename existing images. ([#438](https://github.com/ksnip/ksnip/issues/438))
+* New: Make hiding main window during screenshot optional. ([#386](https://github.com/ksnip/ksnip/issues/386))
 * New kImageAnnotator: Add Pixelate image area tool. ([#140](https://github.com/ksnip/kImageAnnotator/issues/140))
 * New kImageAnnotator: Zoom in and out. ([#123](https://github.com/ksnip/kImageAnnotator/issues/123))
 * New kImageAnnotator: Add interface for adding custom tab context menu actions. ([#96](https://github.com/ksnip/kImageAnnotator/issues/96))

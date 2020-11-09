@@ -122,6 +122,7 @@ private:
 	void processInstantCapture(const CaptureDto &capture);
 	void showDialog(const std::function<void ()>& showDialogMethod);
 	void adjustSize();
+	void showMainWindowIfRequired();
 
 private slots:
 	void captureChanged() override;

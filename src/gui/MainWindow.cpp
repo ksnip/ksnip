@@ -182,9 +182,7 @@ void MainWindow::processCapture(const CaptureDto &capture)
 
 	loadImage(capture);
 
-	if (mConfig->showMainWindowAfterTakingScreenshotEnabled()) {
-		showWindow();
-	}
+	showMainWindowIfRequired();
 
 	captureChanged();
 	capturePostProcessing();
@@ -219,6 +217,13 @@ void MainWindow::adjustSize()
 	mMainLayout->setSizeConstraint(QLayout::SetFixedSize); // Workaround that allows us to return to toolbar only size
 	QMainWindow::adjustSize();
 	mMainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+}
+
+void MainWindow::showMainWindowIfRequired()
+{
+	if (mConfig->showMainWindowAfterTakingScreenshotEnabled()) {
+		showWindow();
+	}
 }
 
 void MainWindow::capturePostProcessing()

@@ -182,7 +182,7 @@ void MainWindow::processCapture(const CaptureDto &capture)
 
 	loadImage(capture);
 
-	if (mConfig->autoShowMainWindowEnabled()) {
+	if (mConfig->showMainWindowAfterTakingScreenshotEnabled()) {
 		showWindow();
 	}
 

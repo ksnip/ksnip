@@ -593,17 +593,17 @@ void KsnipConfig::setSnippingAreaPositionAndSizeInfoEnabled(bool enabled)
 	saveValue(KsnipConfigOptions::snippingAreaPositionAndSizeInfoEnabledString(), enabled);
 }
 
-bool KsnipConfig::autoShowMainWindowEnabled() const
+bool KsnipConfig::showMainWindowAfterTakingScreenshotEnabled() const
 {
-	return loadValue(KsnipConfigOptions::autoShowMainWindowEnabledString(), true).toBool();
+	return loadValue(KsnipConfigOptions::showMainWindowAfterTakingScreenshotEnabledString(), true).toBool();
 }
 
-void KsnipConfig::setAutoShowMainWindowEnabled(bool enabled)
+void KsnipConfig::setShowMainWindowAfterTakingScreenshotEnabled(bool enabled)
 {
-	if (autoShowMainWindowEnabled() == enabled) {
+	if (showMainWindowAfterTakingScreenshotEnabled() == enabled) {
 		return;
 	}
-	saveValue(KsnipConfigOptions::autoShowMainWindowEnabledString(), enabled);
+	saveValue(KsnipConfigOptions::showMainWindowAfterTakingScreenshotEnabledString(), enabled);
 }
 
 bool KsnipConfig::isSnippingAreaMagnifyingGlassEnabledReadOnly() const

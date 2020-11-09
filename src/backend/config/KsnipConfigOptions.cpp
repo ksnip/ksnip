@@ -199,9 +199,9 @@ QString KsnipConfigOptions::snippingAreaMagnifyingGlassEnabledString()
 	return imageGrabberSectionString() + QLatin1Literal("SnippingAreaMagnifyingGlassEnabled");
 }
 
-QString KsnipConfigOptions::autoShowMainWindowEnabledString()
+QString KsnipConfigOptions::showMainWindowAfterTakingScreenshotEnabledString()
 {
-	return imageGrabberSectionString() + QLatin1Literal("AutoShowMainWindowEnabled");
+	return imageGrabberSectionString() + QLatin1Literal("ShowMainWindowAfterTakingScreenshotEnabled");
 }
 
 QString KsnipConfigOptions::captureDelayString()

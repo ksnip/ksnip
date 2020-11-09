@@ -347,7 +347,7 @@ void MainWindow::capture(CaptureModes captureMode)
 		return;
 	}
 
-	if (mConfig->autoHideMainWindow()) {
+	if (mConfig->hideMainWindowDuringScreenshot()) {
 		setInvisible(true);
 	}
 

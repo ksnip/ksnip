@@ -74,7 +74,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	connect(qApp, &QGuiApplication::commitDataRequest, this, &MainWindow::sessionFinished);
 
-	setWindowIcon(QIcon(QLatin1Literal(":/icons/ksnip.svg")));
+	setWindowIcon(IconLoader::load(QLatin1Literal("ksnip")));
 	setPosition();
 
 	setAcceptDrops(true);
@@ -368,7 +368,7 @@ void MainWindow::initGui()
 
 	mSaveAsAction->setText(tr("Save As..."));
 	mSaveAsAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_S);
-	mSaveAsAction->setIcon(IconLoader::load(QLatin1Literal("saveAs")));
+	mSaveAsAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("saveAs")));
 	connect(mSaveAsAction, &QAction::triggered, this, &MainWindow::saveAsClicked);
 
     mUploadAction->setText(tr("Upload"));
@@ -419,7 +419,7 @@ void MainWindow::initGui()
 	connect(mSettingsAction, &QAction::triggered, this, &MainWindow::showSettingsDialog);
 
     mAboutAction->setText(tr("&About"));
-	mAboutAction->setIcon(QIcon(QLatin1Literal(":/icons//ksnip")));
+	mAboutAction->setIcon(IconLoader::load(QLatin1Literal("ksnip")));
 	connect(mAboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
 
     mOpenImageAction->setText(tr("Open"));
@@ -428,14 +428,14 @@ void MainWindow::initGui()
     connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::showOpenImageDialog);
 
 	mPasteAction->setText(tr("Paste"));
-	mPasteAction->setIcon(IconLoader::load(QLatin1Literal("paste")));
+	mPasteAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("paste")));
 	mPasteAction->setShortcut(Qt::CTRL + Qt::Key_V);
 	mPasteAction->setEnabled(mClipboard->isPixmap());
 	connect(mPasteAction, &QAction::triggered, this, &MainWindow::pasteFromClipboard);
 	connect(mClipboard, &ClipboardAdapter::changed, mPasteAction, &QAction::setEnabled);
 
 	mPasteEmbeddedAction->setText(tr("Paste Embedded"));
-	mPasteEmbeddedAction->setIcon(IconLoader::load(QLatin1Literal("pasteEmbedded")));
+	mPasteEmbeddedAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("pasteEmbedded")));
 	mPasteEmbeddedAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_V);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
 	connect(mPasteEmbeddedAction, &QAction::triggered, this, &MainWindow::pasteEmbeddedFromClipboard);
@@ -444,11 +444,11 @@ void MainWindow::initGui()
 	mPinAction->setText(tr("Pin"));
 	mPinAction->setToolTip(tr("Pin screenshot to foreground in frameless window"));
 	mPinAction->setShortcut(Qt::SHIFT + Qt::Key_P);
-	mPinAction->setIcon(IconLoader::load(QLatin1Literal("pin")));
+	mPinAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("pin")));
 	connect(mPinAction, &QAction::triggered, this, &MainWindow::showPinWindow);
 
 	mRemoveImageAction->setText(tr("Delete"));
-	mRemoveImageAction->setIcon(IconLoader::load(QLatin1Literal("delete")));
+	mRemoveImageAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("delete")));
 	connect(mRemoveImageAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::removeImage);
 
 	auto menu = menuBar()->addMenu(tr("&File"));

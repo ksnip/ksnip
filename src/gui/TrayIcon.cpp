@@ -28,11 +28,11 @@ TrayIcon::TrayIcon(QObject *parent) :
 	mShowEditorAction(nullptr),
 	mQuitAction(nullptr)
 {
-	auto ksnipIcon = QPixmap(":/icons/ksnip.svg");
-	setIcon(ksnipIcon);
+	auto icon = IconLoader::loadForTheme(QLatin1Literal("ksnip"));
+	setIcon(icon);
 
 	mShowEditorAction = new QAction(tr("Show Editor"), this);
-	mShowEditorAction->setIcon(ksnipIcon);
+	mShowEditorAction->setIcon(icon);
 	connect(mShowEditorAction, &QAction::triggered, this, &TrayIcon::showEditorTriggered);
 	connect(this, &QSystemTrayIcon::activated, this, &TrayIcon::activated);
 	connect(this, &QSystemTrayIcon::messageClicked, this, &TrayIcon::openContentUrl);

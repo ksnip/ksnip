@@ -224,24 +224,24 @@ void MultiCaptureHandler::annotatorConfigChanged()
 void MultiCaptureHandler::addTabContextMenuActions()
 {
 	mSaveContextMenuAction->setText(tr("Save"));
-	mSaveContextMenuAction->setIcon(IconLoader::load(QLatin1Literal("save.svg")));
+	mSaveContextMenuAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("save.svg")));
 
 	mSaveAsContextMenuAction->setText(tr("Save As"));
-	mSaveAsContextMenuAction->setIcon(IconLoader::load(QLatin1Literal("saveAs.svg")));
+	mSaveAsContextMenuAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("saveAs.svg")));
 
 	mRenameContextMenuAction->setText(tr("Rename"));
 
 	mOpenDirectoryContextMenuAction->setText(tr("Open Directory"));
 
 	mCopyToClipboardContextMenuAction->setText(tr("Copy"));
-	mCopyToClipboardContextMenuAction->setIcon(IconLoader::load(QLatin1Literal("copy.svg")));
+	mCopyToClipboardContextMenuAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("copy.svg")));
 
 	mCopyPathToClipboardContextMenuAction->setText(tr("Copy Path"));
 
 	mContextMenuSeparatorAction->setSeparator(true);
 
 	mDeleteImageContextMenuAction->setText(tr("Delete"));
-	mDeleteImageContextMenuAction->setIcon(IconLoader::load(QLatin1Literal("delete.svg")));
+	mDeleteImageContextMenuAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("delete.svg")));
 
 	connect(mSaveContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveTab);
 	connect(mSaveAsContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveAsTab);

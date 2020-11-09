@@ -27,6 +27,7 @@
 
 #include "IToastService.h"
 #include "src/common/enum/CaptureModes.h"
+#include "src/common/loader/IconLoader.h"
 
 class TrayIcon : public QSystemTrayIcon, public IToastService
 {

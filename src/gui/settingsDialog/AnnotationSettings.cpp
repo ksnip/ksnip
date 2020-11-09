@@ -104,15 +104,15 @@ void AnnotationSettings::initGui()
     mTextFontCombobox->setToolTip(mTextFontLabel->toolTip());
     mTextFontCombobox->setEditable(false);
 
-    mTextBoldButton->setIcon(IconLoader::load(QStringLiteral("bold.svg")));
+    mTextBoldButton->setIcon(IconLoader::loadForTheme(QStringLiteral("bold.svg")));
     mTextBoldButton->setToolTip(tr("Bold"));
     mTextBoldButton->setCheckable(true);
 
-    mTextItalicButton->setIcon(IconLoader::load(QStringLiteral("italic.svg")));
+    mTextItalicButton->setIcon(IconLoader::loadForTheme(QStringLiteral("italic.svg")));
     mTextItalicButton->setToolTip(tr("Italic"));
     mTextItalicButton->setCheckable(true);
 
-    mTextUnderlineButton->setIcon(IconLoader::load(QStringLiteral("underline.svg")));
+    mTextUnderlineButton->setIcon(IconLoader::loadForTheme(QStringLiteral("underline.svg")));
     mTextUnderlineButton->setToolTip(tr("Underline"));
     mTextUnderlineButton->setCheckable(true);
 

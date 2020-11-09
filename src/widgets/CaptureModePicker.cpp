@@ -133,7 +133,7 @@ QAction *CaptureModePicker::createAction(const QString &text, const QString &too
     auto action = new QAction(this);
     action->setIconText(text);
     action->setToolTip(tooltip);
-	action->setIcon(IconLoader::load(iconName));
+	action->setIcon(IconLoader::loadForTheme(iconName));
 	action->setShortcut(shortcut);
 	action->setData(static_cast<int>(captureMode));
     connect(action, &QAction::triggered, [this, captureMode]() { selectCaptureMode(captureMode); } );

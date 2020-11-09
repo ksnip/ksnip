@@ -2,6 +2,7 @@
 <qresource prefix="/icons">
     <file>ksnip.svg</file>
 
+    <file>light/ksnip.svg</file>
     <file>light/bold.svg</file>
     <file>light/italic.svg</file>
     <file>light/underline.svg</file>
@@ -24,6 +25,7 @@
     <file>light/wayland.svg</file>
     <file>light/delete.svg</file>
 
+    <file>dark/ksnip.svg</file>
     <file>dark/bold.svg</file>
     <file>dark/italic.svg</file>
     <file>dark/underline.svg</file>

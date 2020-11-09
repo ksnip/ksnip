@@ -19,15 +19,20 @@
 
 #include "IconLoader.h"
 
-QIcon IconLoader::load(const QString& name)
+QIcon IconLoader::load(const QString &name)
+{
+	return QIcon(QLatin1Literal(":/icons/") + name);
+}
+
+QIcon IconLoader::loadForTheme(const QString& name)
 {
     auto type = getThemePrefix();
-    return QIcon(QStringLiteral(":/icons/") + type + name);
+    return QIcon(QLatin1Literal(":/icons/") + type + name);
 }
 
 QString IconLoader::getThemePrefix()
 {
-    return isDarkTheme() ? QStringLiteral("dark/") : QStringLiteral("light/");
+    return isDarkTheme() ? QLatin1Literal("dark/") : QLatin1Literal("light/");
 }
 
 double IconLoader::getThemeLuma()

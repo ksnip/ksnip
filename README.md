@@ -146,6 +146,17 @@ For translations of annotator-related texts, please refer to [kImageAnnotator](h
 2. Second activation of snipping area doesn't get focus, you need to switch to the right side in order to see the snipping area. Issue [#152](https://github.com/ksnip/ksnip/issues/152)
 3. Mouse cursor is always captured. Issue [#153](https://github.com/ksnip/ksnip/issues/153)
 
+### Wayland
+1. Portal and Native Screenshots not working under KDE Plasma `>= 5.80`. The issue is coming from a recent change in KDE 
+Plasma that prevents access to DBUS Interfaces responsible for taking screenshots. This issue is going to be fixed in 
+future Plasma releases for the Portal Screenshots. Workaround for making the Portal Screenshots work is adding the string 
+`X-KDE-DBUS-Restricted-Interfaces=org.kde.kwin.Screenshot` to the 
+`/usr/share/applications/org.freedesktop.impl.portal.desktop.kde.desktop` file and then restarting. Don't forget to 
+enforce Portal screenshots in settings. Issue [#424](https://github.com/ksnip/ksnip/issues/424)
+2. Under Gnome Wayland copying images to clipboard and then pasting them somewhere might not work. This happens currently
+with native Wayland. A workaround is using XWayland by starting ksnip like this `QT_QPA_PLATFORM=xcb /usr/bin/ksnip` or
+switch to XWayland completely by exporting that variable `export QT_QPA_PLATFORM=xcb`. Issue [#416](https://github.com/ksnip/ksnip/issues/416)
+
 # Bug report
 Please report any bugs or feature requests related to the annotation editor on the [kImageAnnotator](https://github.com/ksnip/kImageAnnotator/issues) GitHub page under the "Issue" section.
 All other bugs or feature requests can be reported on the [ksnip](https://github.com/ksnip/ksnip/issues) GitHub page under the "Issue" section.

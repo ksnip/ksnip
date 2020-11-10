@@ -31,8 +31,8 @@ public:
     explicit CustomCursor(const QColor &color = nullptr, int size = 22);
 
 private:
-    QPixmap createCrossPixmap(const QColor &color, int size) const;
-    QPixmap createEmptyPixmap() const;
+    static QPixmap createCrossPixmap(const QColor &color, int size) ;
+    static QPixmap createEmptyPixmap() ;
 };
 
 #endif // CUSTOMCURSOR_H

@@ -27,7 +27,7 @@ class CursorFactory
 {
 public:
     CursorFactory();
-    QCursor *createSnippingCursor();
+    QCursor createSnippingCursor();
 
 private:
     KsnipConfig *mConfig;

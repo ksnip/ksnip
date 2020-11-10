@@ -28,7 +28,7 @@ public:
 	explicit AdornerRulers();
 	~AdornerRulers();
 	void update(const QPoint &mousePosition, const QRect &screenRect);
-	void draw(QPainter &painter);
+	void paint(QPainter *painter);
 
 private:
 	QPen *mPen;

@@ -28,7 +28,7 @@ public:
 	explicit AdornerPositionInfo();
 	~AdornerPositionInfo();
 	void update(const QPoint &mousePosition);
-	void draw(QPainter &painter);
+	void paint(QPainter *painter);
 
 private:
 	QFont mFont;

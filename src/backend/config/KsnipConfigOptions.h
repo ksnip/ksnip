@@ -49,6 +49,7 @@ public:
 	static QString rememberLastSaveDirectoryString();
 	static QString useSingleInstanceString();
 	static QString hideMainWindowDuringScreenshotString();
+	static QString allowResizingRectCaptureString();
 	static QString textFontString();
 	static QString numberFontString();
 	static QString itemShadowEnabledString();

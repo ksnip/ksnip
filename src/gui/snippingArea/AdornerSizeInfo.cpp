@@ -19,10 +19,10 @@
 
 #include "AdornerSizeInfo.h"
 
-AdornerSizeInfo::AdornerSizeInfo()
+AdornerSizeInfo::AdornerSizeInfo() :
+	mFontMetric(new QFontMetrics(mFont)),
+	mSizeInfoPen(new QPen(Qt::red, 1))
 {
-	mFontMetric = new QFontMetrics(mFont);
-	mSizeInfoPen = new QPen(Qt::red, 1);
 }
 
 AdornerSizeInfo::~AdornerSizeInfo()
@@ -38,14 +38,14 @@ void AdornerSizeInfo::update(const QRect &captureRect)
 	updateSizeInfoText(captureRect);
 }
 
-void AdornerSizeInfo::draw(QPainter &painter)
+void AdornerSizeInfo::paint(QPainter *painter)
 {
-	painter.setBrush(Qt::NoBrush);
-	painter.setPen(*mSizeInfoPen);
-	painter.drawPath(mWidthInfo);
-	painter.drawPath(mHeightInfo);
-	painter.drawText(mWidthTextPosition, mWidthInfoText);
-	painter.drawText(mHeightTextPosition, mHeightInfoText);
+	painter->setBrush(Qt::NoBrush);
+	painter->setPen(*mSizeInfoPen);
+	painter->drawPath(mWidthInfo);
+	painter->drawPath(mHeightInfo);
+	painter->drawText(mWidthTextPosition, mWidthInfoText);
+	painter->drawText(mHeightTextPosition, mHeightInfoText);
 }
 
 void AdornerSizeInfo::updateWidthInfo(const QRect &captureRect)

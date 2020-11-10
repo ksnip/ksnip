@@ -139,6 +139,11 @@ QString KsnipConfigOptions::hideMainWindowDuringScreenshotString()
 	return applicationSectionString() + QLatin1Literal("HideMainWindowDuringScreenshotString");
 }
 
+QString KsnipConfigOptions::allowResizingRectCaptureString()
+{
+	return applicationSectionString() + QLatin1Literal("AllowResizingRectCaptureString");
+}
+
 QString KsnipConfigOptions::textFontString()
 {
 	return annotatorSectionString() + QLatin1Literal("TextFont");
@@ -398,4 +403,3 @@ QString KsnipConfigOptions::saveSectionString()
 {
 	return QLatin1Literal("Save/");
 }
-

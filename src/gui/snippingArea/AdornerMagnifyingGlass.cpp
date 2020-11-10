@@ -19,15 +19,15 @@
 
 #include "AdornerMagnifyingGlass.h"
 
-AdornerMagnifyingGlass::AdornerMagnifyingGlass()
+AdornerMagnifyingGlass::AdornerMagnifyingGlass() :
+	mOffsetToMouse(QPoint(20, 20)),
+	mScaleFactor(QSize(600, 600)),
+	mZoomInAreaSize(QSize(100, 100)),
+	mBackgroundOffset(QPoint(50,50)),
+	mCrossHairPen(new QPen(Qt::red, 6))
 {
-	mOffsetToMouse = QPoint(20, 20);
-	mScaleFactor = QSize(600, 600);
 	mVisibleRect.setWidth(200);
 	mVisibleRect.setHeight(200);
-	mZoomInAreaSize = QSize(100, 100);
-	mBackgroundOffset = QPoint(50,50);
-	mCrossHairPen = new QPen(Qt::red, 6);
 }
 
 AdornerMagnifyingGlass::~AdornerMagnifyingGlass()
@@ -46,22 +46,22 @@ void AdornerMagnifyingGlass::update(const QPoint &mousePosition, const QRect &sc
 	updateCrossHair();
 }
 
-void AdornerMagnifyingGlass::draw(QPainter &painter)
+void AdornerMagnifyingGlass::paint(QPainter *painter)
 {
 	if (mBackgroundWithMargine.isNull()) {
 		return;
 	}
 
-	painter.setBrush(Qt::NoBrush);
-	painter.setRenderHint(QPainter::Antialiasing);
-	painter.setClipRegion(QRegion(mVisibleRect, QRegion::Ellipse));
-	painter.drawPixmap(mVisibleRect, mImage);
+	painter->setBrush(Qt::NoBrush);
+	painter->setRenderHint(QPainter::Antialiasing);
+	painter->setClipRegion(QRegion(mVisibleRect, QRegion::Ellipse));
+	painter->drawPixmap(mVisibleRect, mImage);
 
-	painter.setPen(*mCrossHairPen);
-	painter.drawLine(mCrossHairTop);
-	painter.drawLine(mCrossHairBottom);
-	painter.drawLine(mCrossHairLeft);
-	painter.drawLine(mCrossHairRight);
+	painter->setPen(*mCrossHairPen);
+	painter->drawLine(mCrossHairTop);
+	painter->drawLine(mCrossHairBottom);
+	painter->drawLine(mCrossHairLeft);
+	painter->drawLine(mCrossHairRight);
 }
 
 void AdornerMagnifyingGlass::setBackgroundImage(const QPixmap *background)

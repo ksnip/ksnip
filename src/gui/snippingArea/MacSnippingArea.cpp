@@ -35,11 +35,6 @@ void MacSnippingArea::setFullScreen()
     QWidget::showFullScreen();
 }
 
-QPoint MacSnippingArea::getMousePosition() const
-{
-    return QCursor::pos();
-}
-
 QRect MacSnippingArea::getSnippingAreaGeometry() const
 {
     return geometry();

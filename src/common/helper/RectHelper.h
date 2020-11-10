@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,25 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_LINUXSNIPPINGAREA_H
-#define KSNIP_LINUXSNIPPINGAREA_H
+#ifndef KSNIP_RECTHELPER_H
+#define KSNIP_RECTHELPER_H
 
-#include "AbstractSnippingArea.h"
-#include "src/common/platform/HdpiScaler.h"
+#include <QRectF>
 
-class LinuxSnippingArea : public AbstractSnippingArea
+class RectHelper
 {
 public:
-	explicit LinuxSnippingArea();
-	~LinuxSnippingArea() override = default;
-    QRect selectedRectArea() const override;
+	static QPointF topLeft(const QRectF &rect);
+	static QPointF top(const QRectF &rect);
+	static QPointF topRight(const QRectF &rect);
+	static QPointF right(const QRectF &rect);
+	static QPointF bottomRight(const QRectF &rect);
+	static QPointF bottom(const QRectF &rect);
+	static QPointF bottomLeft(const QRectF &rect);
+	static QPointF left(const QRectF &rect);
 
 protected:
-	void setFullScreen() override;
-	QRect getSnippingAreaGeometry() const override;
-
-private:
-	HdpiScaler mHdpiScaler;
+	RectHelper() = default;
+	~RectHelper() = default;
 };
 
-#endif //KSNIP_LINUXSNIPPINGAREA_H
+
+#endif //KSNIP_RECTHELPER_H

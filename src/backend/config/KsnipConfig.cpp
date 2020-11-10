@@ -306,12 +306,25 @@ bool KsnipConfig::hideMainWindowDuringScreenshot() const
 	return loadValue(KsnipConfigOptions::hideMainWindowDuringScreenshotString(), true).toBool();
 }
 
-void KsnipConfig::hideMainWindowDuringScreenshot(bool enabled)
+void KsnipConfig::setHideMainWindowDuringScreenshot(bool enabled)
 {
 	if (hideMainWindowDuringScreenshot() == enabled) {
 		return;
 	}
 	saveValue(KsnipConfigOptions::hideMainWindowDuringScreenshotString(), enabled);
+}
+
+bool KsnipConfig::allowResizingRectCapture() const
+{
+	return loadValue(KsnipConfigOptions::allowResizingRectCaptureString(), false).toBool();
+}
+
+void KsnipConfig::setAllowResizingRectCapture(bool enabled)
+{
+	if (allowResizingRectCapture() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::allowResizingRectCaptureString(), enabled);
 }
 
 SaveQualityMode KsnipConfig::saveQualityMode() const

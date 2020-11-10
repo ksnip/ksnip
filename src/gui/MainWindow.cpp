@@ -52,6 +52,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 		mTrayIcon(new TrayIcon(this)),
 		mSelectedWindowState(Qt::WindowActive),
+		mBeforeScreenshotWindowState(Qt::WindowActive),
 		mWindowStateChangeLock(false),
 		mDragAndDropHandler(new DragAndDropHandler),
 		mUploaderProvider(new UploaderProvider),
@@ -221,7 +222,7 @@ void MainWindow::adjustSize()
 
 void MainWindow::showMainWindowIfRequired()
 {
-	if (mConfig->showMainWindowAfterTakingScreenshotEnabled()) {
+	if (mBeforeScreenshotWindowState != Qt::WindowMinimized || mConfig->showMainWindowAfterTakingScreenshotEnabled()) {
 		showWindow();
 	}
 }
@@ -288,6 +289,8 @@ void MainWindow::moveEvent(QMoveEvent* event)
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
+	mSelectedWindowState = Qt::WindowMinimized;
+
 	if(!mSessionManagerRequestedQuit) {
 		event->ignore();
 	}
@@ -298,6 +301,9 @@ void MainWindow::changeEvent(QEvent *event)
 {
 	if (event->type() == QEvent::WindowStateChange) {
 		if(isMinimized() && mTrayIcon->isVisible() && mConfig->minimizeToTray()) {
+			if (!mWindowStateChangeLock) {
+				mSelectedWindowState = Qt::WindowMinimized;
+			}
 			event->ignore();
 			hide();
 		} else if (!mWindowStateChangeLock)  {
@@ -362,6 +368,8 @@ void MainWindow::capture(CaptureModes captureMode)
 	if(!mCaptureHandler->canTakeNew()){
 		return;
 	}
+
+	mBeforeScreenshotWindowState = mSelectedWindowState;
 
 	if (mConfig->autoHideMainWindow()) {
 		setInvisible(true);

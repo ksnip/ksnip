@@ -79,6 +79,7 @@ private:
     bool mIsInvisible;
     bool mSessionManagerRequestedQuit;
     Qt::WindowState mSelectedWindowState;
+    Qt::WindowState mBeforeScreenshotWindowState;
     bool mWindowStateChangeLock;
     QAction *mSaveAsAction;
     QAction *mUploadAction;

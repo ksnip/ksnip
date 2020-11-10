@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,24 +15,29 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
- *
  */
 
-#ifndef CUSTOMCURSOR_H
-#define CUSTOMCURSOR_H
+#ifndef KSNIP_RECTHELPER_H
+#define KSNIP_RECTHELPER_H
 
-#include <QCursor>
-#include <QPainter>
+#include <QRectF>
 
-class CustomCursor : public QCursor
+class RectHelper
 {
 public:
-    CustomCursor();
-    explicit CustomCursor(const QColor &color = nullptr, int size = 22);
+	static QPointF topLeft(const QRectF &rect);
+	static QPointF top(const QRectF &rect);
+	static QPointF topRight(const QRectF &rect);
+	static QPointF right(const QRectF &rect);
+	static QPointF bottomRight(const QRectF &rect);
+	static QPointF bottom(const QRectF &rect);
+	static QPointF bottomLeft(const QRectF &rect);
+	static QPointF left(const QRectF &rect);
 
-private:
-    static QPixmap createCrossPixmap(const QColor &color, int size) ;
-    static QPixmap createEmptyPixmap() ;
+protected:
+	RectHelper() = default;
+	~RectHelper() = default;
 };
 
-#endif // CUSTOMCURSOR_H
+
+#endif //KSNIP_RECTHELPER_H

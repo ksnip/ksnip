@@ -28,7 +28,7 @@ CustomCursor::CustomCursor(const QColor &color, int size) : QCursor(createCrossP
 {
 }
 
-QPixmap CustomCursor::createCrossPixmap(const QColor& color, int size) const
+QPixmap CustomCursor::createCrossPixmap(const QColor& color, int size)
 {
     auto pixmap = createEmptyPixmap();
     QPainter painter(&pixmap);
@@ -42,7 +42,7 @@ QPixmap CustomCursor::createCrossPixmap(const QColor& color, int size) const
     return pixmap;
 }
 
-QPixmap CustomCursor::createEmptyPixmap() const
+QPixmap CustomCursor::createEmptyPixmap()
 {
     QPixmap pixmap(QSize(32, 32));
     pixmap.fill(Qt::transparent);

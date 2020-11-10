@@ -218,10 +218,10 @@ Zmiana wymaga ponownego uruchomienia.</translation>
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished">Włączenie tej opcji pozwoli na uruchomienie tylko jednej instancji ksnip,
-wszystkie inne instancje uruchomione po pierwszym przejdą jego
-argumenty do pierwszego i zamknij. Zmiana tej opcji wymaga
-nowy początek wszystkich instancji.</translation>
+        <translation>Włączenie tej opcji pozwoli na uruchomienie tylko jednej instancji ksnip,
+wszystkie inne instancje uruchomione po pierwszym przekażą ich
+argumenty do pierwszego i zostaną zamknięte. Zmiana tej opcji wymaga
+nowego uruchomienia wszystkich instancji.</translation>
     </message>
 </context>
 <context>
@@ -568,11 +568,11 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished">Po włączeniu tej opcji zamrozi tło, podczas gdy
-wybierając prostokątny obszar. To również zmienia
-zachowanie się opóźnionych zrzutów ekranu, z tym
+        <translation>Po włączeniu tej opcji zamrozi tło, podczas
+wybierania prostokątnego obszaru. Zmienia to również
+zachowanie się opóźnionych zrzutów ekranu, z tym że
 opcja włączona opóźnienie następuje przed
-obszar snippingu jest pokazany i z wyłączoną opcją
+obszarem snippingu jest pokazana i z wyłączoną opcją
 opóźnienie następuje po ukazaniu się obszaru obcinania.
 Ta funkcja jest zawsze wyłączona dla Wayland i zawsze
 włączone dla MacO.</translation>
@@ -582,15 +582,18 @@ włączone dla MacO.</translation>
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gdy lewy przycisk myszy nie jest wciśnięty wyświetlana 
+jest pozycja, po naciśnięciu przycisku myszy 
+rozmiar zaznaczonego obszaru jest pokazywany po lewej stronie 
+i powyżej przechwyconego obszaru.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished">Force Generic Wayland Zrzut z ekranu</translation>
+        <translation>Force Generic Wayland Zrzut z ekranu</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Skalowanie generycznych zrzutów ekranu Wayland</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -598,7 +601,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Generyczne implementacje Waylanda które używają
+XDG-DESKTOP-PORTAL obsługują skalowanie ekranu
+inaczej. Włączenie tej opcji określi 
+bieżące skalowanie ekranu i 
+zastosuje je do zrzutu ekranu w ksnip.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -606,7 +613,11 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME i KDE Plasma obsługują własny Wayland
+i zrzuty ekranu Generic XDG-DESKTOP-PORTAL.
+Włączenie tej opcji wymusi KDE Plasma i
+GNOME do korzystania ze zrzutów ekranu XDG-DESKTOP-PORTAL.
+Zmiana tej opcji wymaga ponownego uruchomienia ksnip.</translation>
     </message>
 </context>
 <context>
@@ -893,7 +904,7 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished">Nie dostarczono żadnego obrazu, ale oczekiwano jednego.</translation>
+        <translation>Nie dostarczono żadnego obrazu, ale oczekiwano jednego.</translation>
     </message>
     <message>
         <source>Copy Path</source>

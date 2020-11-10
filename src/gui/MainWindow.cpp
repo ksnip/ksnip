@@ -354,7 +354,7 @@ void MainWindow::loadSettings()
 
 void MainWindow::setInvisible(bool isInvisible)
 {
-	if (isInvisible == mIsInvisible) {
+    if (isInvisible == mIsInvisible) {
         return;
     }
 
@@ -371,7 +371,7 @@ void MainWindow::capture(CaptureModes captureMode)
 
 	mBeforeScreenshotWindowState = mSelectedWindowState;
 
-	if (mConfig->autoHideMainWindow()) {
+	if (mConfig->hideMainWindowDuringScreenshot()) {
 		setInvisible(true);
 	}
 

@@ -19,22 +19,22 @@
 
 #include "ImageGrabberSettings.h"
 
-ImageGrabberSettings::ImageGrabberSettings(KsnipConfig *ksnipConfig) :
-    mCaptureCursorCheckbox(new QCheckBox(this)),
-    mFreezeImageWhileSnippingCheckbox(new QCheckBox(this)),
-    mAutoHideMainWindow(new QCheckBox(this)),
-    mSnippingAreaRulersCheckbox(new QCheckBox(this)),
-    mSnippingAreaPositionAndSizeInfoCheckbox(new QCheckBox(this)),
-    mShowMainWindowAfterTakingScreenshotCheckbox(new QCheckBox(this)),
-    mSnippingAreaMagnifyingGlassCheckbox(new QCheckBox(this)),
-    mForceGenericWaylandCheckbox(new QCheckBox(this)),
-    mScaleGenericWaylandScreenshotsCheckbox(new QCheckBox(this)),
-    mSnippingCursorSizeLabel(new QLabel(this)),
-    mSnippingCursorColorLabel(new QLabel(this)),
-    mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
-    mSnippingCursorColorButton(new ColorButton(this)),
-    mLayout(new QGridLayout(this)),
-    mConfig(ksnipConfig)
+ImageGrabberSettings::ImageGrabberSettings(KsnipConfig *config) :
+	mCaptureCursorCheckbox(new QCheckBox(this)),
+	mFreezeImageWhileSnippingCheckbox(new QCheckBox(this)),
+	mHideMainWindowDuringScreenshotCheckbox(new QCheckBox(this)),
+	mSnippingAreaRulersCheckbox(new QCheckBox(this)),
+	mSnippingAreaPositionAndSizeInfoCheckbox(new QCheckBox(this)),
+	mShowMainWindowAfterTakingScreenshotCheckbox(new QCheckBox(this)),
+	mSnippingAreaMagnifyingGlassCheckbox(new QCheckBox(this)),
+	mForceGenericWaylandCheckbox(new QCheckBox(this)),
+	mScaleGenericWaylandScreenshotsCheckbox(new QCheckBox(this)),
+	mSnippingCursorSizeLabel(new QLabel(this)),
+	mSnippingCursorColorLabel(new QLabel(this)),
+	mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
+	mSnippingCursorColorButton(new ColorButton(this)),
+	mLayout(new QGridLayout(this)),
+	mConfig(config)
 {
 	Q_ASSERT(mConfig != nullptr);
 
@@ -46,7 +46,7 @@ ImageGrabberSettings::~ImageGrabberSettings()
 {
 	delete mCaptureCursorCheckbox;
 	delete mFreezeImageWhileSnippingCheckbox;
-	delete mAutoHideMainWindow;
+	delete mHideMainWindowDuringScreenshotCheckbox;
 	delete mSnippingAreaRulersCheckbox;
 	delete mSnippingAreaPositionAndSizeInfoCheckbox;
 	delete mShowMainWindowAfterTakingScreenshotCheckbox;
@@ -63,7 +63,7 @@ ImageGrabberSettings::~ImageGrabberSettings()
 void ImageGrabberSettings::saveSettings()
 {
 	mConfig->setFreezeImageWhileSnippingEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());
-	mConfig->setAutoHideMainWindow(mAutoHideMainWindow->isChecked());
+	mConfig->hideMainWindowDuringScreenshot(mHideMainWindowDuringScreenshotCheckbox->isChecked());
 	mConfig->setSnippingAreaMagnifyingGlassEnabled(mSnippingAreaMagnifyingGlassCheckbox->isChecked());
 	mConfig->setCaptureCursor(mCaptureCursorCheckbox->isChecked());
 	mConfig->setSnippingAreaRulersEnabled(mSnippingAreaRulersCheckbox->isChecked());
@@ -125,8 +125,8 @@ void ImageGrabberSettings::initGui()
                                                               "determine the current screen scaling and\n"
                                                               "apply that to the screenshot in ksnip."));
 
-	mAutoHideMainWindow->setText(tr("Auto Hide MainWindow during screenshot"));
-	mAutoHideMainWindow->setToolTip(tr("Hide MainWindow when capturing a new screenshot."));
+	mHideMainWindowDuringScreenshotCheckbox->setText(tr("Hide MainWindow during screenshot"));
+	mHideMainWindowDuringScreenshotCheckbox->setToolTip(tr("Hide MainWindow when capturing a new screenshot."));
 
 	mSnippingCursorColorLabel->setText(tr("Snipping Area cursor color") + QLatin1Literal(":"));
 	mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area\n"
@@ -151,7 +151,7 @@ void ImageGrabberSettings::initGui()
 	mLayout->addWidget(mShowMainWindowAfterTakingScreenshotCheckbox, 5, 0, 1, 3);
 	mLayout->addWidget(mForceGenericWaylandCheckbox, 6, 0, 1, 3);
 	mLayout->addWidget(mScaleGenericWaylandScreenshotsCheckbox, 7, 0, 1, 3);
-	mLayout->addWidget(mAutoHideMainWindow, 8, 0, 1, 3);
+	mLayout->addWidget(mHideMainWindowDuringScreenshotCheckbox, 8, 0, 1, 3);
 	mLayout->setRowMinimumHeight(9, 15);
 	mLayout->addWidget(mSnippingCursorColorLabel, 10, 0, 1, 2);
 	mLayout->addWidget(mSnippingCursorColorButton, 10, 2, Qt::AlignLeft);
@@ -171,7 +171,7 @@ void ImageGrabberSettings::loadConfig()
 {
 	mFreezeImageWhileSnippingCheckbox->setChecked(mConfig->freezeImageWhileSnippingEnabled());
 	mFreezeImageWhileSnippingCheckbox->setEnabled(!mConfig->isFreezeImageWhileSnippingEnabledReadOnly());
-	mAutoHideMainWindow->setChecked(mConfig->autoHideMainWindow());
+	mHideMainWindowDuringScreenshotCheckbox->setChecked(mConfig->hideMainWindowDuringScreenshot());
 	mSnippingAreaMagnifyingGlassCheckbox->setChecked(mConfig->snippingAreaMagnifyingGlassEnabled());
 	mSnippingAreaMagnifyingGlassCheckbox->setEnabled(!mConfig->isSnippingAreaMagnifyingGlassEnabledReadOnly());
 	mCaptureCursorCheckbox->setChecked(mConfig->captureCursor());

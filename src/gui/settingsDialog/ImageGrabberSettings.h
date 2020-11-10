@@ -33,14 +33,14 @@ class ImageGrabberSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit ImageGrabberSettings(KsnipConfig *ksnipConfig);
+	explicit ImageGrabberSettings(KsnipConfig *config);
 	~ImageGrabberSettings() override;
 	void saveSettings();
 
 private:
 	QCheckBox *mCaptureCursorCheckbox;
 	QCheckBox *mFreezeImageWhileSnippingCheckbox;
-	QCheckBox *mAutoHideMainWindow;
+	QCheckBox *mHideMainWindowDuringScreenshotCheckbox;
 	QCheckBox *mSnippingAreaRulersCheckbox;
 	QCheckBox *mSnippingAreaPositionAndSizeInfoCheckbox;
 	QCheckBox *mShowMainWindowAfterTakingScreenshotCheckbox;

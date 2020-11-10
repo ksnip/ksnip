@@ -301,17 +301,17 @@ void KsnipConfig::setUseSingleInstance(bool enabled)
 	saveValue(KsnipConfigOptions::useSingleInstanceString(), enabled);
 }
 
-bool KsnipConfig::autoHideMainWindow() const
+bool KsnipConfig::hideMainWindowDuringScreenshot() const
 {
-	return loadValue(KsnipConfigOptions::autoHideMainWindowString(), true).toBool();
+	return loadValue(KsnipConfigOptions::hideMainWindowDuringScreenshotString(), true).toBool();
 }
 
-void KsnipConfig::setAutoHideMainWindow(bool enabled)
+void KsnipConfig::hideMainWindowDuringScreenshot(bool enabled)
 {
-	if (autoHideMainWindow() == enabled) {
+	if (hideMainWindowDuringScreenshot() == enabled) {
 		return;
 	}
-	saveValue(KsnipConfigOptions::autoHideMainWindowString(), enabled);
+	saveValue(KsnipConfigOptions::hideMainWindowDuringScreenshotString(), enabled);
 }
 
 SaveQualityMode KsnipConfig::saveQualityMode() const

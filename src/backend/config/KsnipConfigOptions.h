@@ -48,7 +48,7 @@ public:
 	static QString startMinimizedToTrayString();
 	static QString rememberLastSaveDirectoryString();
 	static QString useSingleInstanceString();
-	static QString autoHideMainWindowString();
+	static QString hideMainWindowDuringScreenshotString();
 	static QString textFontString();
 	static QString numberFontString();
 	static QString itemShadowEnabledString();

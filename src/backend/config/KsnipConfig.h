@@ -102,8 +102,8 @@ public:
 	virtual bool useSingleInstance() const;
 	virtual void setUseSingleInstance(bool enabled);
 
-	virtual bool autoHideMainWindow() const;
-	virtual void setAutoHideMainWindow(bool enabled);
+	virtual bool hideMainWindowDuringScreenshot() const;
+	virtual void hideMainWindowDuringScreenshot(bool enabled);
 
 	virtual SaveQualityMode saveQualityMode() const;
 	virtual void setSaveQualityMode(SaveQualityMode mode);

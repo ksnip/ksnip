@@ -32,7 +32,6 @@ public:
 
 protected:
     void setFullScreen() override;
-    QPoint getMousePosition() const override;
     QRect getSnippingAreaGeometry() const override;
 
 private:

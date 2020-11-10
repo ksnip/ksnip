@@ -17,29 +17,30 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_SNIPPINGAREARESIZER_H
-#define KSNIP_SNIPPINGAREARESIZER_H
+#ifndef KSNIP_SNIPPINGAREASELECTOR_H
+#define KSNIP_SNIPPINGAREASELECTOR_H
 
 #include <QPainter>
 #include <QMouseEvent>
-#include <QCursor>
-#include <QVector>
 
-#include "src/common/helper/RectHelper.h"
+#include "SnippingAreaAdorner.h"
+#include "src/backend/config/KsnipConfig.h"
+#include "src/widgets/CursorFactory.h"
 
-class SnippingAreaResizer : public QObject
+class SnippingAreaSelector : public QObject
 {
-Q_OBJECT
+	Q_OBJECT
 public:
-	explicit SnippingAreaResizer(QObject *parent);
-	~SnippingAreaResizer() override = default;
-	void activate(const QRectF &rect, const QPointF &pos);
+	explicit SnippingAreaSelector(KsnipConfig *config, QObject *parent);
+	~SnippingAreaSelector() override;
+	void activate(const QRectF &snippingAreaGeometry, const QPointF &pos);
 	void deactivate();
 	void paint(QPainter *painter);
 	bool isActive() const;
 	void handleMousePress(QMouseEvent *event);
 	void handleMouseRelease(QMouseEvent *event);
 	void handleMouseMove(QMouseEvent *event);
+	void setBackgroundImage(const QPixmap *background);
 
 signals:
 	void rectChanged(const QRectF &rect);
@@ -48,15 +49,18 @@ signals:
 private:
 	QRectF mCurrentRect;
 	bool mIsActive;
-	QPointF mGrabOffset;
-	bool mIsGrabbed;
-	int mGrabbedHandleIndex;
-	QVector<QRectF> mHandles;
+	KsnipConfig *mConfig;
+	CursorFactory *mCursorFactory;
+	SnippingAreaAdorner mAdorner;
+	QPointF mMouseDownPos;
+	bool mIsMouseDown;
+	QRectF mSnippingAreaGeometry;
 
-	void updateHandlePositions();
-	void updateCurrentRect(const QPoint &point);
-	void updateCursor(const QPoint &pos);
+	void setupAdorner();
+	void setIsMouseDown(bool isMouseDown);
+	void updateCurrentRect(const QRectF &rect, const QPointF &pos);
+	void updateAdorner(const QPointF &pos);
 };
 
 
-#endif //KSNIP_SNIPPINGAREARESIZER_H
+#endif //KSNIP_SNIPPINGAREASELECTOR_H

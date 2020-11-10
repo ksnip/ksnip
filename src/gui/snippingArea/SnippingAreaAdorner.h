@@ -36,10 +36,10 @@ public:
 	void setRulersEnabled(bool enabled);
 	void setPositionAndSizeInfoEnabled(bool enabled);
 	void setMagnifyingGlassEnabled(bool enabled);
-	void setMouseDown(bool isDown);
+	void setIsMouseDown(bool isDown);
 	void setBackgroundImage(const QPixmap *background);
 	void update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect);
-	void draw(QPainter &painter);
+	void paint(QPainter *painter);
 
 private:
 	bool mRulerEnabled;

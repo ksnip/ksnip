@@ -42,11 +42,6 @@ void WinSnippingArea::setFullScreen()
     QWidget::show();
 }
 
-QPoint WinSnippingArea::getMousePosition() const
-{
-    return mapFromGlobal(QCursor::pos());
-}
-
 QRect WinSnippingArea::getSnippingAreaGeometry() const
 {
     auto snippingAreaGeometry = geometry();

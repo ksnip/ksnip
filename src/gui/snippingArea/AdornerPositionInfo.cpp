@@ -19,10 +19,10 @@
 
 #include "AdornerPositionInfo.h"
 
-AdornerPositionInfo::AdornerPositionInfo()
+AdornerPositionInfo::AdornerPositionInfo() :
+	mFontMetric(new QFontMetrics(mFont)),
+	mPen(new QPen(Qt::red, 1))
 {
-	mFontMetric = new QFontMetrics(mFont);
-	mPen = new QPen(Qt::red, 1);
 }
 
 AdornerPositionInfo::~AdornerPositionInfo()
@@ -34,7 +34,7 @@ AdornerPositionInfo::~AdornerPositionInfo()
 void AdornerPositionInfo::update(const QPoint &mousePosition)
 {
 	QPoint textOffset(10, 8);
-	mText = QString::number(mousePosition.x()) + QStringLiteral(", ") + QString::number(mousePosition.y());
+	mText = QString::number(mousePosition.x()) + QLatin1Literal(", ") + QString::number(mousePosition.y());
 	mBox = mFontMetric->boundingRect(mText);
 	mBox.moveTopLeft(mousePosition + textOffset);
 	mTextRect = mBox;
@@ -42,11 +42,11 @@ void AdornerPositionInfo::update(const QPoint &mousePosition)
 	mTextRect.adjust(-3, 0, 5, 0);
 }
 
-void AdornerPositionInfo::draw(QPainter &painter)
+void AdornerPositionInfo::paint(QPainter *painter)
 {
-	painter.setPen(*mPen);
-	painter.setBrush(QColor(0, 0, 0, 200));
+	painter->setPen(*mPen);
+	painter->setBrush(QColor(0, 0, 0, 200));
 
-	painter.drawRoundedRect(mTextRect, 2, 2);
-	painter.drawText(mBox, mText);
+	painter->drawRoundedRect(mTextRect, 2, 2);
+	painter->drawText(mBox, mText);
 }

@@ -19,13 +19,13 @@
 
 #include "CursorFactory.h"
 
-CursorFactory::CursorFactory()
+CursorFactory::CursorFactory() :
+	mConfig(KsnipConfigProvider::instance()),
+	mDefaultCursorSize(8)
 {
-    mConfig = KsnipConfigProvider::instance();
-    mDefaultCursorSize = 8;
 }
 
-QCursor* CursorFactory::createSnippingCursor()
+QCursor CursorFactory::createSnippingCursor()
 {
-    return new CustomCursor(mConfig->snippingCursorColor(), mConfig->snippingCursorSize());
+    return CustomCursor(mConfig->snippingCursorColor(), mConfig->snippingCursorSize());
 }

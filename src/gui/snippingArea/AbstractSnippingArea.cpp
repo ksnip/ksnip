@@ -20,27 +20,27 @@
 #include "AbstractSnippingArea.h"
 
 AbstractSnippingArea::AbstractSnippingArea() :
-	mCursorFactory(new CursorFactory()),
 	mConfig(KsnipConfigProvider::instance()),
 	mBackground(nullptr),
-	mIsMouseDown(false),
-	mResizer(new SnippingAreaResizer(this))
+	mResizer(new SnippingAreaResizer(this)),
+	mSelector(new SnippingAreaSelector(mConfig, this))
 {
     // Make the frame span across the screen and show above any other widget
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
 
-    QScopedPointer<QCursor> cursor(mCursorFactory->createSnippingCursor());
-    QWidget::setCursor(*cursor);
+	setMouseTracking(true);
 
     connect(mResizer, &SnippingAreaResizer::rectChanged, this, &AbstractSnippingArea::updateCapturedArea);
     connect(mResizer, &SnippingAreaResizer::cursorChanged, this, &AbstractSnippingArea::updateCursor);
+	connect(mSelector, &SnippingAreaSelector::rectChanged, this, &AbstractSnippingArea::updateCapturedArea);
+	connect(mSelector, &SnippingAreaSelector::cursorChanged, this, &AbstractSnippingArea::updateCursor);
 }
 
 AbstractSnippingArea::~AbstractSnippingArea()
 {
-    delete mCursorFactory;
     delete mBackground;
     delete mResizer;
+    delete mSelector;
 }
 
 void AbstractSnippingArea::showWithoutBackground()
@@ -59,10 +59,9 @@ void AbstractSnippingArea::showWithBackground(const QPixmap &background)
 
 void AbstractSnippingArea::showSnippingArea()
 {
-    init();
     setFullScreen();
     QApplication::setActiveWindow(this);
-    updateAdorner();
+	mSelector->activate(getSnippingAreaGeometry(), QCursor::pos());
 	setFocus();
     grabKeyboard(); // Issue #57
 }
@@ -71,27 +70,14 @@ void AbstractSnippingArea::setBackgroundImage(const QPixmap &background)
 {
     clearBackgroundImage();
     mBackground = new QPixmap(background);
-	mAdorner.setBackgroundImage(mBackground);
+	mSelector->setBackgroundImage(mBackground);
 }
 
 void AbstractSnippingArea::clearBackgroundImage()
 {
     delete mBackground;
 	mBackground = nullptr;
-	mAdorner.setBackgroundImage(nullptr);
-}
-
-void AbstractSnippingArea::init()
-{
-	auto rulersEnabled = mConfig->snippingAreaRulersEnabled();
-	auto positionAndSizeInfoEnabled = mConfig->snippingAreaPositionAndSizeInfoEnabled();
-	auto magnifyingGlassEnabled = mConfig->snippingAreaMagnifyingGlassEnabled();
-	auto freezeImageWhileSnippingEnabled = mConfig->freezeImageWhileSnippingEnabled();
-	mAdorner.setRulersEnabled(rulersEnabled);
-	mAdorner.setPositionAndSizeInfoEnabled(positionAndSizeInfoEnabled);
-	mAdorner.setMagnifyingGlassEnabled(magnifyingGlassEnabled && freezeImageWhileSnippingEnabled);
-	setMouseTracking(rulersEnabled || positionAndSizeInfoEnabled || magnifyingGlassEnabled);
-	setMouseIsDown(false);
+	mSelector->setBackgroundImage(nullptr);
 }
 
 void AbstractSnippingArea::mousePressEvent(QMouseEvent *event)
@@ -101,12 +87,7 @@ void AbstractSnippingArea::mousePressEvent(QMouseEvent *event)
     }
 
     mResizer->handleMousePress(event);
-
-    mMouseDownPosition = getMousePosition();
-	auto currentMousePosition = getMousePosition();
-	auto rect = QRect(mMouseDownPosition, currentMousePosition).normalized();
-	updateCapturedArea(rect);
-	setMouseIsDown(true);
+    mSelector->handleMousePress(event);
 }
 
 void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
@@ -115,15 +96,21 @@ void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
         return;
     }
 
-	setMouseIsDown(false);
-
     mResizer->handleMouseRelease(event);
+    mSelector->handleMouseRelease(event);
 
     if(false) {
 		finishSelection();
     } else if (!mResizer->isActive()){
-		mResizer->activate(mCaptureArea);
-    }
+		switchToResizer(event->pos());
+	}
+}
+
+void AbstractSnippingArea::switchToResizer(QPoint point)
+{
+	mSelector->deactivate();
+	mResizer->activate(mCaptureArea, point);
+	update();
 }
 
 QPixmap AbstractSnippingArea::background() const
@@ -134,19 +121,16 @@ QPixmap AbstractSnippingArea::background() const
 
 bool AbstractSnippingArea::closeSnippingArea()
 {
+	mSelector->deactivate();
+	mResizer->deactivate();
     releaseKeyboard(); // Issue #57
     return QWidget::close();
 }
 
 void AbstractSnippingArea::mouseMoveEvent(QMouseEvent *event)
 {
-    if (mIsMouseDown) {
-		auto currentMousePosition = getMousePosition();
-		auto rect = QRect(mMouseDownPosition, currentMousePosition).normalized();
-		updateCapturedArea(rect);
-    }
     mResizer->handleMouseMove(event);
-    updateAdorner();
+    mSelector->handleMouseMove(event);
     update();
     QWidget::mouseMoveEvent(event);
 }
@@ -160,27 +144,15 @@ void AbstractSnippingArea::paintEvent(QPaintEvent *event)
 		painter.drawPixmap(snippingAreaGeometry, *mBackground);
     }
 
-    if (mIsMouseDown || mResizer->isActive()) {
-	    painter.setClipRegion(mClippingRegion);
-    }
+	painter.setClipRegion(mClippingRegion);
 
     painter.setBrush(QColor(0, 0, 0, 150));
 	painter.drawRect(snippingAreaGeometry);
 
-	if (mResizer->isActive()) {
-		painter.setClipRect(snippingAreaGeometry);
-	}
+	painter.setClipRect(snippingAreaGeometry);
 
-	if(mResizer->isActive()) {
-		mResizer->paint(&painter);
-	} else {
-		mAdorner.draw(painter);
-	}
-
-    if (mIsMouseDown && !mResizer->isActive()) {
-        painter.setPen(QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
-        painter.drawRect(mCaptureArea);
-    }
+	mResizer->paint(&painter);
+	mSelector->paint(&painter);
 
     QWidget::paintEvent(event);
 }
@@ -207,19 +179,6 @@ void AbstractSnippingArea::updateCapturedArea(const QRectF &rect)
 {
     mCaptureArea = rect.toRect();
 	mClippingRegion = QRegion(getSnippingAreaGeometry()).subtracted(QRegion(mCaptureArea));
-}
-
-void AbstractSnippingArea::setMouseIsDown(bool isDown)
-{
-	mIsMouseDown = isDown;
-	mAdorner.setMouseDown(isDown);
-}
-
-void AbstractSnippingArea::updateAdorner()
-{
-    auto snippingAreaGeometry = getSnippingAreaGeometry();
-    auto currentMousePosition = getMousePosition();
-	mAdorner.update(currentMousePosition, snippingAreaGeometry, mCaptureArea);
 }
 
 void AbstractSnippingArea::finishSelection()

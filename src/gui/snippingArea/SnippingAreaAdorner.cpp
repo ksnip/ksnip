@@ -40,7 +40,7 @@ void SnippingAreaAdorner::setMagnifyingGlassEnabled(bool enabled)
 	mMagnifyingGlassEnabled = enabled;
 }
 
-void SnippingAreaAdorner::setMouseDown(bool isDown)
+void SnippingAreaAdorner::setIsMouseDown(bool isDown)
 {
 	mMouseIsDown = isDown;
 }
@@ -69,21 +69,21 @@ void SnippingAreaAdorner::update(const QPoint &mousePosition, const QRect &scree
 	}
 }
 
-void SnippingAreaAdorner::draw(QPainter &painter)
+void SnippingAreaAdorner::paint(QPainter *painter)
 {
 	if (mRulerEnabled && !mMouseIsDown) {
-		mRulers.draw(painter);
+		mRulers.paint(painter);
 	}
 
 	if (mPositionAndSizeInfoEnabled) {
 		if (mMouseIsDown) {
-			mSizeInfo.draw(painter);
+			mSizeInfo.paint(painter);
 		} else {
-			mPositionInfo.draw(painter);
+			mPositionInfo.paint(painter);
 		}
 	}
 
 	if (mMagnifyingGlassEnabled) {
-		mMagnifyingGlass.draw(painter);
+		mMagnifyingGlass.paint(painter);
 	}
 }

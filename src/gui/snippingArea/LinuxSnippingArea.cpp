@@ -39,11 +39,6 @@ void LinuxSnippingArea::setFullScreen()
     QWidget::showFullScreen();
 }
 
-QPoint LinuxSnippingArea::getMousePosition() const
-{
-    return QCursor::pos();
-}
-
 QRect LinuxSnippingArea::getSnippingAreaGeometry() const
 {
     return geometry();

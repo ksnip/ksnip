@@ -29,7 +29,7 @@ public:
 	explicit AdornerSizeInfo();
 	~AdornerSizeInfo();
 	void update(const QRect &captureRect);
-	void draw(QPainter &painter);
+	void paint(QPainter *painter);
 
 private:
 	QFont mFont;

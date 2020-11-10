@@ -19,9 +19,9 @@
 
 #include "AdornerRulers.h"
 
-AdornerRulers::AdornerRulers()
+AdornerRulers::AdornerRulers() :
+	mPen(new QPen(Qt::red, 1, Qt::DotLine, Qt::SquareCap, Qt::MiterJoin))
 {
-	mPen = new QPen(Qt::red, 1, Qt::DotLine, Qt::SquareCap, Qt::MiterJoin);
 }
 
 AdornerRulers::~AdornerRulers()
@@ -38,11 +38,11 @@ void AdornerRulers::update(const QPoint &mousePosition, const QRect &screenRect)
 	mLeftLine.setLine(mousePosition.x() - offset, mousePosition.y(), screenRect.left(), mousePosition.y());
 }
 
-void AdornerRulers::draw(QPainter &painter)
+void AdornerRulers::paint(QPainter *painter)
 {
-	painter.setPen(*mPen);
-	painter.drawLine(mTopLine);
-	painter.drawLine(mRightLine);
-	painter.drawLine(mBottomLine);
-	painter.drawLine(mLeftLine);
+	painter->setPen(*mPen);
+	painter->drawLine(mTopLine);
+	painter->drawLine(mRightLine);
+	painter->drawLine(mBottomLine);
+	painter->drawLine(mLeftLine);
 }

@@ -27,7 +27,7 @@
 
 #include "SnippingAreaAdorner.h"
 #include "SnippingAreaResizer.h"
-#include "src/widgets/CursorFactory.h"
+#include "SnippingAreaSelector.h"
 #include "src/common/helper/MathHelper.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
@@ -58,29 +58,23 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 	virtual bool isBackgroundTransparent() const;
     virtual void setFullScreen() = 0;
-	virtual QPoint getMousePosition() const = 0;
 	virtual QRect getSnippingAreaGeometry() const = 0;
 
 private:
-	QPoint mMouseDownPosition;
-	bool mIsMouseDown;
-    CursorFactory *mCursorFactory;
 	KsnipConfig *mConfig;
 	QPixmap *mBackground;
-	SnippingAreaAdorner mAdorner;
 	SnippingAreaResizer *mResizer;
+	SnippingAreaSelector *mSelector;
 
     void setBackgroundImage(const QPixmap &background);
     void clearBackgroundImage();
-    void init();
     virtual void showSnippingArea();
-	void setMouseIsDown(bool isDown);
-	void updateAdorner();
 	void finishSelection();
 
 private slots:
 	void updateCapturedArea(const QRectF &rect);
 	void updateCursor(const QCursor &cursor);
+	void switchToResizer(QPoint point);
 };
 
 #endif // KSNIP_ABSTRACTSNIPPINGAREA_H

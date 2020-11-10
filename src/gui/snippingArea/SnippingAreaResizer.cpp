@@ -20,10 +20,10 @@
 #include "SnippingAreaResizer.h"
 
 SnippingAreaResizer::SnippingAreaResizer(QObject *parent) :
-		QObject(parent),
-		mIsActive(false),
-		mIsGrabbed(false),
-		mGrabbedHandleIndex(-1)
+	QObject(parent),
+	mIsActive(false),
+	mIsGrabbed(false),
+	mGrabbedHandleIndex(-1)
 {
 
 	const auto width = 15;
@@ -37,12 +37,19 @@ SnippingAreaResizer::SnippingAreaResizer(QObject *parent) :
 	mHandles.append(QRectF(0, 0, width, width));
 }
 
-void SnippingAreaResizer::activate(const QRectF &rect)
+void SnippingAreaResizer::activate(const QRectF &rect, const QPointF &pos)
 {
 	mIsActive = true;
 	mCurrentRect = rect;
 	updateHandlePositions();
-	emit cursorChanged(Qt::ArrowCursor);
+	updateCursor(pos.toPoint());
+}
+
+void SnippingAreaResizer::deactivate()
+{
+	mIsActive = false;
+	mIsGrabbed = false;
+	mGrabbedHandleIndex = -1;
 }
 
 void SnippingAreaResizer::paint(QPainter *painter)

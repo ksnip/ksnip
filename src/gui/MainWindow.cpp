@@ -52,7 +52,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 		mTrayIcon(new TrayIcon(this)),
 		mSelectedWindowState(Qt::WindowActive),
-		mBeforeScreenshotWindowState(Qt::WindowActive),
 		mWindowStateChangeLock(false),
 		mDragAndDropHandler(new DragAndDropHandler),
 		mUploaderProvider(new UploaderProvider),
@@ -60,7 +59,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 		mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mServiceLocator, this)),
 		mPinWindowHandler(new PinWindowHandler(this)),
 		mWidgetHider(WidgetHiderFactory::create(this)),
-		mFileDialog(FileDialogAdapterFactory::create())
+		mFileDialog(FileDialogAdapterFactory::create()),
+		mWasMinimizedBeforeScreenshot(false)
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -175,7 +175,9 @@ void MainWindow::quit()
 void MainWindow::processCapture(const CaptureDto &capture)
 {
 	if (!capture.isValid()) {
-		NotifyOperation operation(mTrayIcon, tr("Unable to show image"), tr("No image provided but one was expected."), NotificationTypes::Critical);
+		auto title = tr("Unable to show image");
+		auto message = tr("No image provided but one was expected.");
+		NotifyOperation operation(mTrayIcon, title, message, NotificationTypes::Critical);
 		operation.execute();
 		showEmpty();
 		return;
@@ -222,8 +224,10 @@ void MainWindow::adjustSize()
 
 void MainWindow::showMainWindowIfRequired()
 {
-	if (mBeforeScreenshotWindowState != Qt::WindowMinimized || mConfig->showMainWindowAfterTakingScreenshotEnabled()) {
+	if (!mWasMinimizedBeforeScreenshot || mConfig->showMainWindowAfterTakingScreenshotEnabled()) {
 		showWindow();
+	} else if(mWasMinimizedBeforeScreenshot) {
+		mWidgetHider->unhideMinimized();
 	}
 }
 
@@ -289,8 +293,6 @@ void MainWindow::moveEvent(QMoveEvent* event)
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
-	mSelectedWindowState = Qt::WindowMinimized;
-
 	if(!mSessionManagerRequestedQuit) {
 		event->ignore();
 	}
@@ -301,9 +303,6 @@ void MainWindow::changeEvent(QEvent *event)
 {
 	if (event->type() == QEvent::WindowStateChange) {
 		if(isMinimized() && mTrayIcon->isVisible() && mConfig->minimizeToTray()) {
-			if (!mWindowStateChangeLock) {
-				mSelectedWindowState = Qt::WindowMinimized;
-			}
 			event->ignore();
 			hide();
 		} else if (!mWindowStateChangeLock)  {
@@ -369,15 +368,20 @@ void MainWindow::capture(CaptureModes captureMode)
 		return;
 	}
 
-	mBeforeScreenshotWindowState = mSelectedWindowState;
+	hideMainWindowIfRequired();
+
+	mConfig->setCaptureMode(captureMode);
+
+	captureScreenshot(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
+}
+
+void MainWindow::hideMainWindowIfRequired()
+{
+	mWasMinimizedBeforeScreenshot = isMinimized();
 
 	if (mConfig->hideMainWindowDuringScreenshot()) {
 		setInvisible(true);
 	}
-
-    mConfig->setCaptureMode(captureMode);
-
-	captureScreenshot(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
 }
 
 void MainWindow::initGui()

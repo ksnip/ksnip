@@ -79,7 +79,6 @@ private:
     bool mIsInvisible;
     bool mSessionManagerRequestedQuit;
     Qt::WindowState mSelectedWindowState;
-    Qt::WindowState mBeforeScreenshotWindowState;
     bool mWindowStateChangeLock;
     QAction *mSaveAsAction;
     QAction *mUploadAction;
@@ -114,6 +113,7 @@ private:
 	PinWindowHandler *mPinWindowHandler;
 	WidgetHider *mWidgetHider;
 	IFileDialogAdapter *mFileDialog;
+	bool mWasMinimizedBeforeScreenshot;
 
     void setEnablements(bool enabled);
     void loadSettings();
@@ -154,6 +154,7 @@ private slots:
 	void sessionFinished();
 	void captureCanceled();
 	void showPinWindow();
+	void hideMainWindowIfRequired();
 };
 
 #endif // KSNIP_MAINWINDOW_H

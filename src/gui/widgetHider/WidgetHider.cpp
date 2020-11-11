@@ -35,3 +35,9 @@ void WidgetHider::setHidden(bool isHidden)
 		mWidget->setWindowState(Qt::WindowActive);
 	}
 }
+
+void WidgetHider::unhideMinimized()
+{
+	mWidget->setWindowOpacity(1.0);
+	mWidget->setWindowState(Qt::WindowMinimized);
+}

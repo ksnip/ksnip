@@ -28,6 +28,7 @@ public:
 	explicit WidgetHider(QWidget *widget);
 	~WidgetHider() = default;
 	virtual void setHidden(bool isHidden);
+	virtual void unhideMinimized();
 
 protected:
 	QWidget *mWidget;

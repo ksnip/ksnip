@@ -111,8 +111,9 @@ void ImageGrabberSettings::initGui()
 	                                                        "the size of the select area is shown left\n"
 	                                                        "and above from the captured area."));
 
-	mShowMainWindowAfterTakingScreenshotCheckbox->setText(tr("Auto Show MainWindow after capturing screenshot"));
-	mShowMainWindowAfterTakingScreenshotCheckbox->setToolTip(tr("Show MainWindow after capturing a new screenshot."));
+	mShowMainWindowAfterTakingScreenshotCheckbox->setText(tr("Show MainWindow after capturing screenshot"));
+	mShowMainWindowAfterTakingScreenshotCheckbox->setToolTip(tr("Show MainWindow after capturing a new screenshot\n"
+															 	   "when the MainWindow was hidden or minimized."));
 
     mForceGenericWaylandCheckbox->setText(tr("Force Generic Wayland Screenshot"));
     mForceGenericWaylandCheckbox->setToolTip(tr("GNOME and KDE Plasma support their own Wayland\n"

@@ -488,14 +488,30 @@ void MainWindow::initGui()
     addToolBar(mToolBar);
 
     if(mConfig->useTrayIcon()) {
-	    connect(mTrayIcon, &TrayIcon::showEditorTriggered, this, &MainWindow::show);
-	    mTrayIcon->setCaptureActions(mToolBar->captureActions());
-	    mTrayIcon->setOpenAction(mOpenImageAction);
-	    mTrayIcon->setSaveAction(mToolBar->saveAction());
-	    mTrayIcon->setCopyAction(mToolBar->copyToClipboardAction());
-	    mTrayIcon->setUploadAction(mUploadAction);
-	    mTrayIcon->setQuitAction(mQuitAction);
-	    mTrayIcon->setEnabled(true);
+        connect(mTrayIcon, &TrayIcon::showEditorTriggered, this, &MainWindow::show);
+        auto toolbarActions = mToolBar->captureActions();
+
+        auto instantCapture = new QAction(this);
+        instantCapture->setIconText(tr("Instant Capture"));
+        instantCapture->setToolTip(tr("Capture screenshot without delay, using the last capture mehtod."));
+        instantCapture->setShortcut(QKeySequence(Qt::SHIFT + Qt::Key_I));
+
+        connect(instantCapture, &QAction::triggered, mToolBar, [this]() {
+            const auto prevCaptureDelay = mConfig->captureDelay();
+            mConfig->setCaptureDelay(0);
+            mToolBar->newCaptureTriggered();
+            mConfig->setCaptureDelay(prevCaptureDelay);
+        });
+
+        toolbarActions.push_back(instantCapture);
+
+        mTrayIcon->setCaptureActions(toolbarActions);
+        mTrayIcon->setOpenAction(mOpenImageAction);
+        mTrayIcon->setSaveAction(mToolBar->saveAction());
+        mTrayIcon->setCopyAction(mToolBar->copyToClipboardAction());
+        mTrayIcon->setUploadAction(mUploadAction);
+        mTrayIcon->setQuitAction(mQuitAction);
+        mTrayIcon->setEnabled(true);
     }
 
 	setCentralWidget(mImageAnnotator->widget());

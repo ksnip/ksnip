@@ -102,9 +102,6 @@ public:
 	virtual bool useSingleInstance() const;
 	virtual void setUseSingleInstance(bool enabled);
 
-	virtual bool hideMainWindowDuringScreenshot() const;
-	virtual void hideMainWindowDuringScreenshot(bool enabled);
-
 	virtual SaveQualityMode saveQualityMode() const;
 	virtual void setSaveQualityMode(SaveQualityMode mode);
 
@@ -190,6 +187,12 @@ public:
     virtual bool isScaleGenericWaylandScreenshotEnabledReadOnly() const;
     virtual bool scaleGenericWaylandScreenshotsEnabled() const;
     virtual void setScaleGenericWaylandScreenshots(bool enabled);
+
+	virtual bool hideMainWindowDuringScreenshot() const;
+	virtual void setHideMainWindowDuringScreenshot(bool enabled);
+
+	virtual bool allowResizingRectCapture() const;
+	virtual void setAllowResizingRectCapture(bool enabled);
 
 	// Uploader
 

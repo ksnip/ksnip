@@ -99,10 +99,12 @@ void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
     mResizer->handleMouseRelease(event);
     mSelector->handleMouseRelease(event);
 
-    if(false) {
+    if(mConfig->allowResizingRectCapture()) {
+		if (!mResizer->isActive()){
+			switchToResizer(event->pos());
+		}
+    } else {
 		finishSelection();
-    } else if (!mResizer->isActive()){
-		switchToResizer(event->pos());
 	}
 }
 

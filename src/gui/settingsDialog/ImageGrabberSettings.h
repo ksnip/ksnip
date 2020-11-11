@@ -47,6 +47,7 @@ private:
 	QCheckBox *mSnippingAreaMagnifyingGlassCheckbox;
 	QCheckBox *mForceGenericWaylandCheckbox;
 	QCheckBox *mScaleGenericWaylandScreenshotsCheckbox;
+	QCheckBox *mAllowResizingRectCaptureCheckbox;
 	QLabel *mSnippingCursorSizeLabel;
 	QLabel *mSnippingCursorColorLabel;
 	ColorButton *mSnippingCursorColorButton;

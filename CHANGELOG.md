@@ -27,6 +27,7 @@
 * Changed: Show all Screenshot options in System Tray. ([#404](https://github.com/ksnip/ksnip/issues/404))
 * Changed: Upload multiple stickers at once. ([#427](https://github.com/ksnip/ksnip/issues/427))
 * Changed: Follow pattern for monochromatic systray icon. ([#352](https://github.com/ksnip/ksnip/issues/352))
+* Changed: Pin window shows default cursor when mouse over it. ([#465](https://github.com/ksnip/ksnip/issues/465))
 * Changed kImageAnnotator: Draw point when clicking and releasing without moving cursor. ([#136](https://github.com/ksnip/kImageAnnotator/issues/136))
 * Changed kImageAnnotator: Zoom out less than 100%. ([#150](https://github.com/ksnip/kImageAnnotator/issues/150))
 * Fixed: Snap crashing when trying to take screenshot under Wayland. ([#389](https://github.com/ksnip/ksnip/issues/389))

@@ -35,7 +35,7 @@ PinWindow::PinWindow(const QPixmap &pixmap, const QString &title) :
 	setWindowTitle(title);
 	setAttribute(Qt::WA_DeleteOnClose);
 	setMouseTracking(true);
-	setCursor(Qt::DragMoveCursor);
+	setCursor(Qt::SizeAllCursor);
 
 	mCentralWidget->setPixmap(mImage);
 	mLayout->addWidget(mCentralWidget);

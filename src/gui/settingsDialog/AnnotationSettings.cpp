@@ -24,6 +24,7 @@ AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 	mItemShadowCheckbox(new QCheckBox(this)),
 	mRotateWatermarkCheckbox(new QCheckBox(this)),
 	mRememberToolSelectionCheckbox(new QCheckBox(this)),
+	mSwitchToSelectToolAfterDrawingItemCheckbox(new QCheckBox(this)),
 	mTextFontLabel(new QLabel(this)),
 	mNumberFontLabel(new QLabel(this)),
 	mSmoothFactorLabel(new QLabel(this)),
@@ -51,7 +52,8 @@ AnnotationSettings::~AnnotationSettings()
     delete mItemShadowCheckbox;
     delete mRotateWatermarkCheckbox;
     delete mRememberToolSelectionCheckbox;
-	delete mTextFontLabel;
+    delete mSwitchToSelectToolAfterDrawingItemCheckbox;
+    delete mTextFontLabel;
     delete mNumberFontLabel;
     delete mSmoothFactorLabel;
     delete mWatermarkImageLabel;
@@ -76,15 +78,17 @@ void AnnotationSettings::saveSettings()
     mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
     mConfig->setRotateWatermarkEnabled(mRotateWatermarkCheckbox->isChecked());
-	mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
+    mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
+    mConfig->setSwitchToSelectToolAfterDrawingItem(mSwitchToSelectToolAfterDrawingItemCheckbox->isChecked());
 }
 
 void AnnotationSettings::initGui()
 {
     auto const fixedButtonSize = 100;
 
-	mRememberToolSelectionCheckbox->setText(tr("Remember annotation tool selection and load on startup"));
-	mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
+    mRememberToolSelectionCheckbox->setText(tr("Remember annotation tool selection and load on startup"));
+    mSwitchToSelectToolAfterDrawingItemCheckbox->setText(tr("Switch to Select Tool after drawing Item"));
+    mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
     mItemShadowCheckbox->setToolTip(tr("When enabled, paint items cast shadows."));
 
     mSmoothPathCheckbox->setText(tr("Smooth Painter Paths"));
@@ -140,18 +144,19 @@ void AnnotationSettings::initGui()
     mLayout->addWidget(mSmoothPathCheckbox, 2, 0, 1, 6);
     mLayout->addWidget(mSmoothFactorLabel, 3, 1, 1, 3);
     mLayout->addWidget(mSmoothFactorCombobox, 3, 3, 1,3, Qt::AlignLeft);
-    mLayout->setRowMinimumHeight(4, 15);
-    mLayout->addWidget(mTextFontLabel, 5, 0, 1, 2);
-    mLayout->addWidget(mTextFontCombobox, 5, 3);
-    mLayout->addWidget(mTextBoldButton, 5, 4);
-    mLayout->addWidget(mTextItalicButton, 5, 5);
-    mLayout->addWidget(mTextUnderlineButton, 5, 6);
-    mLayout->addWidget(mNumberFontLabel, 6, 0, 1, 2);
-    mLayout->addWidget(mNumberFontCombobox, 6, 3);
-	mLayout->setRowMinimumHeight(7, 15);
-    mLayout->addWidget(mWatermarkImageLabel, 8, 0, 1, 3);
-    mLayout->addWidget(mUpdateWatermarkImageButton, 8, 3, Qt::AlignLeft);
-	mLayout->addWidget(mRotateWatermarkCheckbox, 9, 0, 1, 6);
+    mLayout->addWidget(mSwitchToSelectToolAfterDrawingItemCheckbox, 4, 0, 1, 6);
+    mLayout->setRowMinimumHeight(5, 15);
+    mLayout->addWidget(mTextFontLabel, 6, 0, 1, 2);
+    mLayout->addWidget(mTextFontCombobox, 6, 3);
+    mLayout->addWidget(mTextBoldButton, 6, 4);
+    mLayout->addWidget(mTextItalicButton, 6, 5);
+    mLayout->addWidget(mTextUnderlineButton, 6, 6);
+    mLayout->addWidget(mNumberFontLabel, 7, 0, 1, 2);
+    mLayout->addWidget(mNumberFontCombobox, 7, 3);
+    mLayout->setRowMinimumHeight(8, 15);
+    mLayout->addWidget(mWatermarkImageLabel, 9, 0, 1, 3);
+    mLayout->addWidget(mUpdateWatermarkImageButton, 9, 3, Qt::AlignLeft);
+    mLayout->addWidget(mRotateWatermarkCheckbox, 10, 0, 1, 6);
 
     setTitle(tr("Annotator Settings"));
     setLayout(mLayout);
@@ -168,8 +173,9 @@ void AnnotationSettings::loadConfig()
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
     mRotateWatermarkCheckbox->setChecked(mConfig->rotateWatermarkEnabled());
-	mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
-	smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
+    mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
+    mSwitchToSelectToolAfterDrawingItemCheckbox->setChecked(mConfig->switchToSelectToolAfterDrawingItem());
+    smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
 }
 
 void AnnotationSettings::smoothPathCheckboxClicked(bool checked)

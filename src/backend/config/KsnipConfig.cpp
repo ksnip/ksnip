@@ -370,6 +370,20 @@ void KsnipConfig::setRememberToolSelection(bool enabled)
 	saveValue(KsnipConfigOptions::rememberToolSelectionString(), enabled);
 }
 
+bool KsnipConfig::switchToSelectToolAfterDrawingItem() const
+{
+	return loadValue(KsnipConfigOptions::switchToSelectToolAfterDrawingItemString(), false).toBool();
+}
+
+void KsnipConfig::setSwitchToSelectToolAfterDrawingItem(bool enabled)
+{
+	if (switchToSelectToolAfterDrawingItem() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::switchToSelectToolAfterDrawingItemString(), enabled);
+	emit annotatorConfigChanged();
+}
+
 bool KsnipConfig::textBold() const
 {
     return textFont().bold();

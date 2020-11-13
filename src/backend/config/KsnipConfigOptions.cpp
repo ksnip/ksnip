@@ -44,6 +44,11 @@ QString KsnipConfigOptions::rememberToolSelectionString()
 	return annotatorSectionString() + QLatin1Literal("SaveToolsSelection");
 }
 
+QString KsnipConfigOptions::switchToSelectToolAfterDrawingItemString()
+{
+	return annotatorSectionString() + QLatin1Literal("SwitchToSelectToolAfterDrawingItem");
+}
+
 QString KsnipConfigOptions::useTabsString()
 {
 	return applicationSectionString() + QLatin1Literal("UseTabs");

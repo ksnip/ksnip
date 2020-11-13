@@ -546,6 +546,7 @@ void MainWindow::setupImageAnnotator()
 	mImageAnnotator->setTextFont(mConfig->textFont());
 	mImageAnnotator->setNumberFont(mConfig->numberFont());
 	mImageAnnotator->setItemShadowEnabled(mConfig->itemShadowEnabled());
+	mImageAnnotator->setSwitchToSelectToolAfterDrawingItem(mConfig->switchToSelectToolAfterDrawingItem());
 	mImageAnnotator->setStickers(mConfig->stickerPaths(), mConfig->useDefaultSticker());
 }
 

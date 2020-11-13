@@ -113,6 +113,9 @@ public:
 	virtual bool rememberToolSelection() const;
 	virtual void setRememberToolSelection(bool enabled);
 
+	virtual bool switchToSelectToolAfterDrawingItem() const;
+	virtual void setSwitchToSelectToolAfterDrawingItem(bool enabled);
+
 	virtual bool textBold() const;
 	virtual void setTextBold(bool bold);
 

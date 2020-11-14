@@ -87,7 +87,9 @@ void AnnotationSettings::initGui()
     auto const fixedButtonSize = 100;
 
     mRememberToolSelectionCheckbox->setText(tr("Remember annotation tool selection and load on startup"));
+
     mSwitchToSelectToolAfterDrawingItemCheckbox->setText(tr("Switch to Select Tool after drawing Item"));
+
     mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
     mItemShadowCheckbox->setToolTip(tr("When enabled, paint items cast shadows."));
 
@@ -96,31 +98,31 @@ void AnnotationSettings::initGui()
                                        "marker paths after finished drawing."));
     connect(mSmoothPathCheckbox, &QCheckBox::clicked, this, &AnnotationSettings::smoothPathCheckboxClicked);
 
-    mSmoothFactorLabel->setText(tr("Smooth Factor") + QStringLiteral(":"));
+    mSmoothFactorLabel->setText(tr("Smooth Factor") + QLatin1Literal(":"));
     mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"
                                       "precision for pen and marker but will\n"
                                       "make them more smooth."));
     mSmoothFactorCombobox->setMinimumWidth(fixedButtonSize);
     mSmoothFactorCombobox->setToolTip(mSmoothFactorLabel->toolTip());
 
-    mTextFontLabel->setText(tr("Text Font") + QStringLiteral(":"));
+    mTextFontLabel->setText(tr("Text Font") + QLatin1Literal(":"));
     mTextFontLabel->setToolTip(tr("Sets the font for the Text Paint Item."));
     mTextFontCombobox->setToolTip(mTextFontLabel->toolTip());
     mTextFontCombobox->setEditable(false);
 
-    mTextBoldButton->setIcon(IconLoader::loadForTheme(QStringLiteral("bold.svg")));
+    mTextBoldButton->setIcon(IconLoader::loadForTheme(QLatin1Literal("bold.svg")));
     mTextBoldButton->setToolTip(tr("Bold"));
     mTextBoldButton->setCheckable(true);
 
-    mTextItalicButton->setIcon(IconLoader::loadForTheme(QStringLiteral("italic.svg")));
+    mTextItalicButton->setIcon(IconLoader::loadForTheme(QLatin1Literal("italic.svg")));
     mTextItalicButton->setToolTip(tr("Italic"));
     mTextItalicButton->setCheckable(true);
 
-    mTextUnderlineButton->setIcon(IconLoader::loadForTheme(QStringLiteral("underline.svg")));
+    mTextUnderlineButton->setIcon(IconLoader::loadForTheme(QLatin1Literal("underline.svg")));
     mTextUnderlineButton->setToolTip(tr("Underline"));
     mTextUnderlineButton->setCheckable(true);
 
-    mNumberFontLabel->setText(tr("Numbering Font") + QStringLiteral(":"));
+    mNumberFontLabel->setText(tr("Numbering Font") + QLatin1Literal(":"));
     mNumberFontLabel->setToolTip(tr("Sets the font for the Numbering Paint Item."));
     mNumberFontCombobox->setToolTip(mNumberFontLabel->toolTip());
     mNumberFontCombobox->setEditable(false);
@@ -130,7 +132,7 @@ void AnnotationSettings::initGui()
     mWatermarkImageLabel->setAutoFillBackground(true);
     mWatermarkImageLabel->setFixedSize(QSize(100, 100));
     mWatermarkImageLabel->setScaledContents(true);
-    mWatermarkImageLabel->setStyleSheet(QStringLiteral("QLabel { background-color : white; }"));
+    mWatermarkImageLabel->setStyleSheet(QLatin1Literal("QLabel { background-color : white; }"));
     mUpdateWatermarkImageButton->setText(tr("Update"));
 	connect(mUpdateWatermarkImageButton, &QPushButton::clicked, this, &AnnotationSettings::updateWatermarkImageClicked);
 
@@ -141,10 +143,10 @@ void AnnotationSettings::initGui()
     mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mRememberToolSelectionCheckbox, 0, 0, 1, 6);
     mLayout->addWidget(mItemShadowCheckbox, 1, 0, 1, 6);
-    mLayout->addWidget(mSmoothPathCheckbox, 2, 0, 1, 6);
-    mLayout->addWidget(mSmoothFactorLabel, 3, 1, 1, 3);
-    mLayout->addWidget(mSmoothFactorCombobox, 3, 3, 1,3, Qt::AlignLeft);
-    mLayout->addWidget(mSwitchToSelectToolAfterDrawingItemCheckbox, 4, 0, 1, 6);
+	mLayout->addWidget(mSwitchToSelectToolAfterDrawingItemCheckbox, 2, 0, 1, 6);
+	mLayout->addWidget(mSmoothPathCheckbox, 3, 0, 1, 6);
+    mLayout->addWidget(mSmoothFactorLabel, 4, 1, 1, 3);
+    mLayout->addWidget(mSmoothFactorCombobox, 4, 3, 1,3, Qt::AlignLeft);
     mLayout->setRowMinimumHeight(5, 15);
     mLayout->addWidget(mTextFontLabel, 6, 0, 1, 2);
     mLayout->addWidget(mTextFontCombobox, 6, 3);

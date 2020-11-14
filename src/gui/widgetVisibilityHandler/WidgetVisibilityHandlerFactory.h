@@ -25,7 +25,7 @@
 #endif
 
 #if defined(__linux__)
-#include "GnomeWaylandWidgetHider.h"
+#include "GnomeWaylandWidgetVisibilityHandler.h"
 #include "src/common/platform/PlatformChecker.h"
 #endif
 

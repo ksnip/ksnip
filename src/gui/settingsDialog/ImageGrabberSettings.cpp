@@ -111,9 +111,9 @@ void ImageGrabberSettings::initGui()
 	                                                        "the size of the select area is shown left\n"
 	                                                        "and above from the captured area."));
 
-	mShowMainWindowAfterTakingScreenshotCheckbox->setText(tr("Show MainWindow after capturing screenshot"));
-	mShowMainWindowAfterTakingScreenshotCheckbox->setToolTip(tr("Show MainWindow after capturing a new screenshot\n"
-															 	   "when the MainWindow was hidden or minimized."));
+	mShowMainWindowAfterTakingScreenshotCheckbox->setText(tr("Show Main Window after capturing screenshot"));
+	mShowMainWindowAfterTakingScreenshotCheckbox->setToolTip(tr("Show Main Window after capturing a new screenshot\n"
+															 	   "when the Main Window was hidden or minimized."));
 
     mForceGenericWaylandCheckbox->setText(tr("Force Generic Wayland Screenshot"));
     mForceGenericWaylandCheckbox->setToolTip(tr("GNOME and KDE Plasma support their own Wayland\n"
@@ -135,8 +135,8 @@ void ImageGrabberSettings::initGui()
 														"done resizing the selection can be confirmed\n"
 			  											"by pressing return."));
 
-	mHideMainWindowDuringScreenshotCheckbox->setText(tr("Hide MainWindow during screenshot"));
-	mHideMainWindowDuringScreenshotCheckbox->setToolTip(tr("Hide MainWindow when capturing a new screenshot."));
+	mHideMainWindowDuringScreenshotCheckbox->setText(tr("Hide Main Window during screenshot"));
+	mHideMainWindowDuringScreenshotCheckbox->setToolTip(tr("Hide Main Window when capturing a new screenshot."));
 
 	mSnippingCursorColorLabel->setText(tr("Snipping Area cursor color") + QLatin1Literal(":"));
 	mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area cursor."));

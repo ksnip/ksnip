@@ -24,6 +24,7 @@ AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 	mItemShadowCheckbox(new QCheckBox(this)),
 	mRotateWatermarkCheckbox(new QCheckBox(this)),
 	mRememberToolSelectionCheckbox(new QCheckBox(this)),
+	mSwitchToSelectToolAfterDrawingItemCheckbox(new QCheckBox(this)),
 	mTextFontLabel(new QLabel(this)),
 	mNumberFontLabel(new QLabel(this)),
 	mSmoothFactorLabel(new QLabel(this)),
@@ -51,7 +52,8 @@ AnnotationSettings::~AnnotationSettings()
     delete mItemShadowCheckbox;
     delete mRotateWatermarkCheckbox;
     delete mRememberToolSelectionCheckbox;
-	delete mTextFontLabel;
+    delete mSwitchToSelectToolAfterDrawingItemCheckbox;
+    delete mTextFontLabel;
     delete mNumberFontLabel;
     delete mSmoothFactorLabel;
     delete mWatermarkImageLabel;
@@ -76,15 +78,19 @@ void AnnotationSettings::saveSettings()
     mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
     mConfig->setRotateWatermarkEnabled(mRotateWatermarkCheckbox->isChecked());
-	mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
+    mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
+    mConfig->setSwitchToSelectToolAfterDrawingItem(mSwitchToSelectToolAfterDrawingItemCheckbox->isChecked());
 }
 
 void AnnotationSettings::initGui()
 {
     auto const fixedButtonSize = 100;
 
-	mRememberToolSelectionCheckbox->setText(tr("Remember annotation tool selection and load on startup"));
-	mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
+    mRememberToolSelectionCheckbox->setText(tr("Remember annotation tool selection and load on startup"));
+
+    mSwitchToSelectToolAfterDrawingItemCheckbox->setText(tr("Switch to Select Tool after drawing Item"));
+
+    mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
     mItemShadowCheckbox->setToolTip(tr("When enabled, paint items cast shadows."));
 
     mSmoothPathCheckbox->setText(tr("Smooth Painter Paths"));
@@ -92,31 +98,31 @@ void AnnotationSettings::initGui()
                                        "marker paths after finished drawing."));
     connect(mSmoothPathCheckbox, &QCheckBox::clicked, this, &AnnotationSettings::smoothPathCheckboxClicked);
 
-    mSmoothFactorLabel->setText(tr("Smooth Factor") + QStringLiteral(":"));
+    mSmoothFactorLabel->setText(tr("Smooth Factor") + QLatin1Literal(":"));
     mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"
                                       "precision for pen and marker but will\n"
                                       "make them more smooth."));
     mSmoothFactorCombobox->setMinimumWidth(fixedButtonSize);
     mSmoothFactorCombobox->setToolTip(mSmoothFactorLabel->toolTip());
 
-    mTextFontLabel->setText(tr("Text Font") + QStringLiteral(":"));
+    mTextFontLabel->setText(tr("Text Font") + QLatin1Literal(":"));
     mTextFontLabel->setToolTip(tr("Sets the font for the Text Paint Item."));
     mTextFontCombobox->setToolTip(mTextFontLabel->toolTip());
     mTextFontCombobox->setEditable(false);
 
-    mTextBoldButton->setIcon(IconLoader::loadForTheme(QStringLiteral("bold.svg")));
+    mTextBoldButton->setIcon(IconLoader::loadForTheme(QLatin1Literal("bold.svg")));
     mTextBoldButton->setToolTip(tr("Bold"));
     mTextBoldButton->setCheckable(true);
 
-    mTextItalicButton->setIcon(IconLoader::loadForTheme(QStringLiteral("italic.svg")));
+    mTextItalicButton->setIcon(IconLoader::loadForTheme(QLatin1Literal("italic.svg")));
     mTextItalicButton->setToolTip(tr("Italic"));
     mTextItalicButton->setCheckable(true);
 
-    mTextUnderlineButton->setIcon(IconLoader::loadForTheme(QStringLiteral("underline.svg")));
+    mTextUnderlineButton->setIcon(IconLoader::loadForTheme(QLatin1Literal("underline.svg")));
     mTextUnderlineButton->setToolTip(tr("Underline"));
     mTextUnderlineButton->setCheckable(true);
 
-    mNumberFontLabel->setText(tr("Numbering Font") + QStringLiteral(":"));
+    mNumberFontLabel->setText(tr("Numbering Font") + QLatin1Literal(":"));
     mNumberFontLabel->setToolTip(tr("Sets the font for the Numbering Paint Item."));
     mNumberFontCombobox->setToolTip(mNumberFontLabel->toolTip());
     mNumberFontCombobox->setEditable(false);
@@ -126,7 +132,7 @@ void AnnotationSettings::initGui()
     mWatermarkImageLabel->setAutoFillBackground(true);
     mWatermarkImageLabel->setFixedSize(QSize(100, 100));
     mWatermarkImageLabel->setScaledContents(true);
-    mWatermarkImageLabel->setStyleSheet(QStringLiteral("QLabel { background-color : white; }"));
+    mWatermarkImageLabel->setStyleSheet(QLatin1Literal("QLabel { background-color : white; }"));
     mUpdateWatermarkImageButton->setText(tr("Update"));
 	connect(mUpdateWatermarkImageButton, &QPushButton::clicked, this, &AnnotationSettings::updateWatermarkImageClicked);
 
@@ -137,21 +143,22 @@ void AnnotationSettings::initGui()
     mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mRememberToolSelectionCheckbox, 0, 0, 1, 6);
     mLayout->addWidget(mItemShadowCheckbox, 1, 0, 1, 6);
-    mLayout->addWidget(mSmoothPathCheckbox, 2, 0, 1, 6);
-    mLayout->addWidget(mSmoothFactorLabel, 3, 1, 1, 3);
-    mLayout->addWidget(mSmoothFactorCombobox, 3, 3, 1,3, Qt::AlignLeft);
-    mLayout->setRowMinimumHeight(4, 15);
-    mLayout->addWidget(mTextFontLabel, 5, 0, 1, 2);
-    mLayout->addWidget(mTextFontCombobox, 5, 3);
-    mLayout->addWidget(mTextBoldButton, 5, 4);
-    mLayout->addWidget(mTextItalicButton, 5, 5);
-    mLayout->addWidget(mTextUnderlineButton, 5, 6);
-    mLayout->addWidget(mNumberFontLabel, 6, 0, 1, 2);
-    mLayout->addWidget(mNumberFontCombobox, 6, 3);
-	mLayout->setRowMinimumHeight(7, 15);
-    mLayout->addWidget(mWatermarkImageLabel, 8, 0, 1, 3);
-    mLayout->addWidget(mUpdateWatermarkImageButton, 8, 3, Qt::AlignLeft);
-	mLayout->addWidget(mRotateWatermarkCheckbox, 9, 0, 1, 6);
+	mLayout->addWidget(mSwitchToSelectToolAfterDrawingItemCheckbox, 2, 0, 1, 6);
+	mLayout->addWidget(mSmoothPathCheckbox, 3, 0, 1, 6);
+    mLayout->addWidget(mSmoothFactorLabel, 4, 1, 1, 3);
+    mLayout->addWidget(mSmoothFactorCombobox, 4, 3, 1,3, Qt::AlignLeft);
+    mLayout->setRowMinimumHeight(5, 15);
+    mLayout->addWidget(mTextFontLabel, 6, 0, 1, 2);
+    mLayout->addWidget(mTextFontCombobox, 6, 3);
+    mLayout->addWidget(mTextBoldButton, 6, 4);
+    mLayout->addWidget(mTextItalicButton, 6, 5);
+    mLayout->addWidget(mTextUnderlineButton, 6, 6);
+    mLayout->addWidget(mNumberFontLabel, 7, 0, 1, 2);
+    mLayout->addWidget(mNumberFontCombobox, 7, 3);
+    mLayout->setRowMinimumHeight(8, 15);
+    mLayout->addWidget(mWatermarkImageLabel, 9, 0, 1, 3);
+    mLayout->addWidget(mUpdateWatermarkImageButton, 9, 3, Qt::AlignLeft);
+    mLayout->addWidget(mRotateWatermarkCheckbox, 10, 0, 1, 6);
 
     setTitle(tr("Annotator Settings"));
     setLayout(mLayout);
@@ -168,8 +175,9 @@ void AnnotationSettings::loadConfig()
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
     mRotateWatermarkCheckbox->setChecked(mConfig->rotateWatermarkEnabled());
-	mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
-	smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
+    mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
+    mSwitchToSelectToolAfterDrawingItemCheckbox->setChecked(mConfig->switchToSelectToolAfterDrawingItem());
+    smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
 }
 
 void AnnotationSettings::smoothPathCheckboxClicked(bool checked)

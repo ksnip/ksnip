@@ -141,6 +141,10 @@ make them more smooth.</source>
         <source>Remember annotation tool selection and load on startup</source>
         <translation>注釈ツールの選択を記憶して起動時に読み込みます</translation>
     </message>
+    <message>
+        <source>Switch to Select Tool after drawing Item</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -206,10 +210,6 @@ Change requires ksnip restart to take effect.</source>
         <translation>トレイに最小化して起動する</translation>
     </message>
     <message>
-        <source>Remember position on move and load on startup</source>
-        <translation>移動位置を記憶して起動時に読み込む</translation>
-    </message>
-    <message>
         <source>Hide Tabbar when only one Tab is used.</source>
         <translation>タブが一つの時はタブバーを隠します。</translation>
     </message>
@@ -222,6 +222,10 @@ a new start of all instances.</source>
 は一つだけになり、他のインスタンスを起動すると起動済みのイン
 スタンスに引数を渡して終了するようになります。このオプション
 の変更には、すべてのインスタンスを終了する必要があります。</translation>
+    </message>
+    <message>
+        <source>Remember Main Window position on move and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -261,6 +265,10 @@ a new start of all instances.</source>
     <message>
         <source>Snap &amp; Flatpak Support</source>
         <translation>Snap と Flatpak のサポート</translation>
+    </message>
+    <message>
+        <source>Feature Implementation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -536,22 +544,8 @@ desktop edges to cursor on snipping area.</source>
         <translation>範囲選択カーソルの色</translation>
     </message>
     <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>範囲選択画面でのカーソルの色を設定します。
-この変更は ksnip を再起動すると有効になります。</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor thickness</source>
         <translation>範囲選択カーソルの太さ</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>範囲選択画面でのカーソルの太さを設定します。
-この変更は ksnip を再起動すると有効になります。</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -597,6 +591,42 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimized.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window during screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window when capturing a new screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -851,10 +881,6 @@ and capturing screenshot.</source>
         <translation>ヘルプ(&amp;H)</translation>
     </message>
     <message>
-        <source>Open Image</source>
-        <translation>画像を開く</translation>
-    </message>
-    <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>画像ファイル (*.png *.jpg *.bmp)</translation>
     </message>
@@ -902,6 +928,14 @@ and capturing screenshot.</source>
         <source>Delete</source>
         <translation>削除</translation>
     </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Images</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -928,6 +962,10 @@ and capturing screenshot.</source>
     <message>
         <source>Delete</source>
         <translation>削除</translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -957,6 +995,33 @@ and capturing screenshot.</source>
     <message>
         <source>Pin Window %1</source>
         <translation>ピン留めウィンドウ %1</translation>
+    </message>
+</context>
+<context>
+    <name>RenameOperation</name>
+    <message>
+        <source>Image Renamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully renamed image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image Rename Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New filename:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1174,10 +1239,6 @@ When omitted, everything is copied.</source>
         <translation>ステッカー設定</translation>
     </message>
     <message>
-        <source>Add Sticker</source>
-        <translation>ステッカーを追加</translation>
-    </message>
-    <message>
         <source>Vector Image Files (*.svg)</source>
         <translation>ベクター画像ファイル (*.svg)</translation>
     </message>
@@ -1188,6 +1249,10 @@ When omitted, everything is copied.</source>
     <message>
         <source>Remove</source>
         <translation>削除</translation>
+    </message>
+    <message>
+        <source>Add Stickers</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

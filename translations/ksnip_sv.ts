@@ -141,6 +141,10 @@ för penna och markör, men gör dem mjukare.</translation>
         <source>Remember annotation tool selection and load on startup</source>
         <translation>Kom ihåg val av anteckningsverktyg och läs in vid uppstart</translation>
     </message>
+    <message>
+        <source>Switch to Select Tool after drawing Item</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -205,10 +209,6 @@ Change requires restart.</source>
         <translation>Starta minimerad i systemfältet</translation>
     </message>
     <message>
-        <source>Remember position on move and load on startup</source>
-        <translation>Kom ihåg position vid förflyttning och läs in vid uppstart</translation>
-    </message>
-    <message>
         <source>Hide Tabbar when only one Tab is used.</source>
         <translation>Dölj flikfältet när endast en flik används.</translation>
     </message>
@@ -221,6 +221,10 @@ a new start of all instances.</source>
 alla instanser som startas efter den första, kommer att skicka
 sina argument vidare till den första och sedan avslutas.
 Om det här alternativet ändras måste alla öppna instanser startas om.</translation>
+    </message>
+    <message>
+        <source>Remember Main Window position on move and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -260,6 +264,10 @@ Om det här alternativet ändras måste alla öppna instanser startas om.</trans
     <message>
         <source>Snap &amp; Flatpak Support</source>
         <translation>Snap- &amp; Flatpak-stöd</translation>
+    </message>
+    <message>
+        <source>Feature Implementation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -535,22 +543,8 @@ skrivbordskanten till markören i klippområdet.</translation>
         <translation>Färg på klippområdesmarkören</translation>
     </message>
     <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Välj färg på klippområdesmarkören.
-Ändring tillämpas efter omstart av ksnip.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor thickness</source>
         <translation>Tjocklek på klippområdesmarkören</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Anger tjocklek på klippområdesmarkören.
-Ändring tillämpas efter omstart av ksnip.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -615,6 +609,42 @@ och inbyggda XDG-DESKTOP-PORTAL-skärmklipp.
 Om alternativet aktiveras kommer KDE Plasma och
 GNOME att använda XDG-DESKTOP-PORTAL-skärmklipp.
 Ändring i det här alternativet kräveratt ksnip startas om.</translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimized.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window during screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window when capturing a new screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -852,10 +882,6 @@ och själva skärmklippet.</translation>
         <translation>&amp;Hjälp</translation>
     </message>
     <message>
-        <source>Open Image</source>
-        <translation>Öppna bild</translation>
-    </message>
-    <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>Bildfiler (*.png *.jpg *.bmp)</translation>
     </message>
@@ -919,6 +945,14 @@ och själva skärmklippet.</translation>
         <source>Delete</source>
         <translation>Ta bort</translation>
     </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Images</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -945,6 +979,10 @@ och själva skärmklippet.</translation>
     <message>
         <source>Delete</source>
         <translation>Ta bort</translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -974,6 +1012,33 @@ och själva skärmklippet.</translation>
     <message>
         <source>Pin Window %1</source>
         <translation>Fäst fönster %1</translation>
+    </message>
+</context>
+<context>
+    <name>RenameOperation</name>
+    <message>
+        <source>Image Renamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully renamed image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image Rename Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New filename:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1191,10 +1256,6 @@ När detta utelämnas kopieras allt.</translation>
         <translation>Dekalinställningar</translation>
     </message>
     <message>
-        <source>Add Sticker</source>
-        <translation>Lägg till dekal</translation>
-    </message>
-    <message>
         <source>Vector Image Files (*.svg)</source>
         <translation>Vektorbilder (*.svg)</translation>
     </message>
@@ -1205,6 +1266,10 @@ När detta utelämnas kopieras allt.</translation>
     <message>
         <source>Remove</source>
         <translation>Ta bort</translation>
+    </message>
+    <message>
+        <source>Add Stickers</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

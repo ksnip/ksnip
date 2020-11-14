@@ -142,6 +142,10 @@ macht sie glatter.</translation>
         <source>Remember annotation tool selection and load on startup</source>
         <translation>Merke Auswahl des Beschriftungstool und stelle diese beim Starten wieder her</translation>
     </message>
+    <message>
+        <source>Switch to Select Tool after drawing Item</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -206,10 +210,6 @@ Diese Änderung erfordert einen Neustart.</translation>
         <translation>Im Tray minimiert starten</translation>
     </message>
     <message>
-        <source>Remember position on move and load on startup</source>
-        <translation>Merke Position beim Bewegen und stelle diese beim Starten wieder her</translation>
-    </message>
-    <message>
         <source>Hide Tabbar when only one Tab is used.</source>
         <translation>Tableiste verstecken wenn nur ein Tab offen ist.</translation>
     </message>
@@ -222,6 +222,10 @@ a new start of all instances.</source>
 alle weiteren Instanzen werden ihre Argumente an die zuerst gestartete
 Instanz übergeben und sich wieder schließen. Eine Änderung dieser
 Einstellung erfordert einen Neustartet aller Instanzen.</translation>
+    </message>
+    <message>
+        <source>Remember Main Window position on move and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -261,6 +265,10 @@ Einstellung erfordert einen Neustartet aller Instanzen.</translation>
     <message>
         <source>Snap &amp; Flatpak Support</source>
         <translation>Snap- und Flatpak-Support</translation>
+    </message>
+    <message>
+        <source>Feature Implementation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -536,24 +544,8 @@ Bildschirmrand zum Mauszeiger anzeigen.</translation>
         <translation>Ausschnittsbereich Mauszeigerfarbe</translation>
     </message>
     <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Legt die Farbe des Mauszeigers bei der Aufnahme eines
-rechteckigen Bereichs fest. Eine Änderung erfordert einen
-Neustart von ksnip, um wirksam zu werden.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor thickness</source>
         <translation>Ausschnittsbereich Mauszeigerstärke</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Legt die Stärke des Mauszeigers bei der Aufnahme eines
-rechteckigen Bereiches fest. Eine Änderung erfordert einen
-Neustart von ksnip, um wirksam zu werden.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -618,6 +610,42 @@ auch die standardmäßigen XDG-DESKTOP-PORTAL-Screenshots.
 Wird diese Option aktiviert, werden KDE Plasma und GNOME gezwungen,
 XDG-DESKTOP-PORTAL-Screenshots zu verwenden. Eine Änderung
 dieser Option erfordert einen Neustart von ksnip.</translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimized.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window during screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window when capturing a new screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -855,10 +883,6 @@ und der Aufnahme des Bildschirmfotos.</translation>
         <translation>&amp;Hilfe</translation>
     </message>
     <message>
-        <source>Open Image</source>
-        <translation>Bild öffnen</translation>
-    </message>
-    <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>Bilddateien (* .png * .jpg * .bmp)</translation>
     </message>
@@ -908,7 +932,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pfad kopieren</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -921,6 +945,14 @@ und der Aufnahme des Bildschirmfotos.</translation>
     <message>
         <source>Delete</source>
         <translation>Löschen</translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Images</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -948,6 +980,10 @@ und der Aufnahme des Bildschirmfotos.</translation>
     <message>
         <source>Delete</source>
         <translation>Löschen</translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -977,6 +1013,33 @@ und der Aufnahme des Bildschirmfotos.</translation>
     <message>
         <source>Pin Window %1</source>
         <translation>Hefte Fenster %1 an</translation>
+    </message>
+</context>
+<context>
+    <name>RenameOperation</name>
+    <message>
+        <source>Image Renamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully renamed image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image Rename Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New filename:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1194,10 +1257,6 @@ Alles wird kopiert wenn leer.</translation>
         <translation>Aufkleber-Einstellungen</translation>
     </message>
     <message>
-        <source>Add Sticker</source>
-        <translation>Aufkleber hinzufügen</translation>
-    </message>
-    <message>
         <source>Vector Image Files (*.svg)</source>
         <translation>Vektorgrafik-Dateien (*.svg)</translation>
     </message>
@@ -1208,6 +1267,10 @@ Alles wird kopiert wenn leer.</translation>
     <message>
         <source>Remove</source>
         <translation>Entfernen</translation>
+    </message>
+    <message>
+        <source>Add Stickers</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

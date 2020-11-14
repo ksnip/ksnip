@@ -142,6 +142,10 @@ haien leuntasuna areagotuz.</translation>
         <source>Remember annotation tool selection and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Switch to Select Tool after drawing Item</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -206,10 +210,6 @@ Ksnip berrabiarazi behar du aldaketek eragina izateko.</translation>
         <translation>Abiatu erretiluan minimizatua</translation>
     </message>
     <message>
-        <source>Remember position on move and load on startup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Hide Tabbar when only one Tab is used.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -218,6 +218,10 @@ Ksnip berrabiarazi behar du aldaketek eragina izateko.</translation>
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember Main Window position on move and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -258,6 +262,10 @@ a new start of all instances.</source>
     <message>
         <source>Snap &amp; Flatpak Support</source>
         <translation>Snap eta Flatpak euskarria</translation>
+    </message>
+    <message>
+        <source>Feature Implementation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -532,24 +540,8 @@ datozen lerro horizontalak eta bertikalak.</translation>
         <translation>Ebaketarako kurtsorearen kolorea</translation>
     </message>
     <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Ezartzen du ebaketa arearen kurtsorearen
-kolorea. Aldaketak eskatzen du Ksnip
-berrabiaraztea aplikatzeko.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor thickness</source>
         <translation>Ebaketa arearen kurtsorearen zabalera</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Ezartzen du ebaketa arearen kurtsorearen
-zabalera. Aldaketak eskatzen du Ksnip
-berrabiaraztea aplikatzeko.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -595,6 +587,42 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimized.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window during screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window when capturing a new screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -849,10 +877,6 @@ eta pantaila-argazkiaren artean.</translation>
         <translation>&amp;Laguntza</translation>
     </message>
     <message>
-        <source>Open Image</source>
-        <translation>Ireki irudia</translation>
-    </message>
-    <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>Irudi-fitxategiak (*.png *.jpg *.bmp)</translation>
     </message>
@@ -900,6 +924,14 @@ eta pantaila-argazkiaren artean.</translation>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Images</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -925,6 +957,10 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -955,6 +991,33 @@ eta pantaila-argazkiaren artean.</translation>
     <message>
         <source>Pin Window %1</source>
         <translation>Ainguratu %1 leihoa</translation>
+    </message>
+</context>
+<context>
+    <name>RenameOperation</name>
+    <message>
+        <source>Image Renamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully renamed image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image Rename Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New filename:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1169,10 +1232,6 @@ When omitted, everything is copied.</source>
         <translation>Eranskailuen ezarpenak</translation>
     </message>
     <message>
-        <source>Add Sticker</source>
-        <translation>Gehitu eranskailua</translation>
-    </message>
-    <message>
         <source>Vector Image Files (*.svg)</source>
         <translation>Irudi bektorialen fitxategiak (*.svg)</translation>
     </message>
@@ -1183,6 +1242,10 @@ When omitted, everything is copied.</source>
     <message>
         <source>Remove</source>
         <translation>Kendu</translation>
+    </message>
+    <message>
+        <source>Add Stickers</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

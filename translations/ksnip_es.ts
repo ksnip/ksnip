@@ -142,6 +142,10 @@ más suaves.</translation>
         <source>Remember annotation tool selection and load on startup</source>
         <translation>Recordar herramienta de selección y cargarla al iniciar</translation>
     </message>
+    <message>
+        <source>Switch to Select Tool after drawing Item</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -206,10 +210,6 @@ El cambio requiere que se reinicie.</translation>
         <translation>Iniciar minimizado en la bandeja</translation>
     </message>
     <message>
-        <source>Remember position on move and load on startup</source>
-        <translation>Recordar posición al mover y cargar al iniciar</translation>
-    </message>
-    <message>
         <source>Hide Tabbar when only one Tab is used.</source>
         <translation>Ocultar barra de pestañas solo cuando una pestaña está en uso.</translation>
     </message>
@@ -222,6 +222,10 @@ a new start of all instances.</source>
 el resto de las instancias iniciadas después pasarán  sus
 argumentos a la primera y se cerrarán. Cambiar esta opción requiere
 un nuevo inicio de todas las instancias.</translation>
+    </message>
+    <message>
+        <source>Remember Main Window position on move and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -261,6 +265,10 @@ un nuevo inicio de todas las instancias.</translation>
     <message>
         <source>Snap &amp; Flatpak Support</source>
         <translation>Compatibilidad con Snap y Flatpak</translation>
+    </message>
+    <message>
+        <source>Feature Implementation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -536,24 +544,8 @@ los bordes del escritorio al cursor en el área de corte.</translation>
         <translation>Color del área de corte del cursor</translation>
     </message>
     <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Establece el color del cursor del área de recorte.
-El cambio requiere reiniciar ksnip para 
-que surta efecto.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor thickness</source>
         <translation>Grosor del área de corte del cursor</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Establece el grosor del área de corte del
-cursor. El cambio requiere reiniciar ksnip para
-tomar efecto.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -599,6 +591,42 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimized.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window during screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window when capturing a new screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -837,10 +865,6 @@ y la captura de pantalla.</translation>
         <translation>Ay&amp;uda</translation>
     </message>
     <message>
-        <source>Open Image</source>
-        <translation>Abrir imagen</translation>
-    </message>
-    <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>Archivos de imagen (*.png *.jpg *.bmp)</translation>
     </message>
@@ -904,6 +928,14 @@ y la captura de pantalla.</translation>
         <source>Delete</source>
         <translation>Eliminar</translation>
     </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Images</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -930,6 +962,10 @@ y la captura de pantalla.</translation>
     <message>
         <source>Delete</source>
         <translation>Eliminar</translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -959,6 +995,33 @@ y la captura de pantalla.</translation>
     <message>
         <source>Pin Window %1</source>
         <translation>Anclar ventana %1</translation>
+    </message>
+</context>
+<context>
+    <name>RenameOperation</name>
+    <message>
+        <source>Image Renamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully renamed image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image Rename Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New filename:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1175,10 +1238,6 @@ When omitted, everything is copied.</source>
         <translation>Configuración de adhesivos</translation>
     </message>
     <message>
-        <source>Add Sticker</source>
-        <translation>Añadir adhesivo</translation>
-    </message>
-    <message>
         <source>Vector Image Files (*.svg)</source>
         <translation>Archivos de imagen vectorial (*.svg)</translation>
     </message>
@@ -1189,6 +1248,10 @@ When omitted, everything is copied.</source>
     <message>
         <source>Remove</source>
         <translation>Quitar</translation>
+    </message>
+    <message>
+        <source>Add Stickers</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1221,7 +1284,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Añada una secuencia de carga en Opciones ▸ Configuración ▸ Secuencia de carga</translation>
+        <translation>Añada una secuencia de carga en Opciones&#xa0;▸ Configuración&#xa0;▸ Secuencia de carga</translation>
     </message>
     <message>
         <source>Capture Upload</source>

@@ -142,6 +142,10 @@ de simábbá teszi.</translation>
         <source>Remember annotation tool selection and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Switch to Select Tool after drawing Item</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -206,10 +210,6 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Remember position on move and load on startup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Hide Tabbar when only one Tab is used.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -218,6 +218,10 @@ A változtatás érvenyesítéséhez újra kell indítani a programot.</translat
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember Main Window position on move and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -257,6 +261,10 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feature Implementation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -531,24 +539,8 @@ a rögzítési területen lévő kurzorig.</translation>
         <translation>Kurzor színe a rögzítés területén</translation>
     </message>
     <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Kurzor színének beállítása
-a rögzítés területe felett.
-Újraindítás szükséges.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor thickness</source>
         <translation>Kurzor vastagsága a rögzítési területen</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Kurzor vastagságának beállítása
-a rögzítés területe felett.
-Újraindítás szükséges.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -594,6 +586,42 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimized.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window during screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window when capturing a new screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -831,10 +859,6 @@ másodpercben megadva.</translation>
         <translation>Súgó</translation>
     </message>
     <message>
-        <source>Open Image</source>
-        <translation>Kép megnyitása</translation>
-    </message>
-    <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>Képfájlok (*.png *.jpg *.bmp)</translation>
     </message>
@@ -898,6 +922,14 @@ másodpercben megadva.</translation>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Images</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -923,6 +955,10 @@ másodpercben megadva.</translation>
     </message>
     <message>
         <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -952,6 +988,33 @@ másodpercben megadva.</translation>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RenameOperation</name>
+    <message>
+        <source>Image Renamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully renamed image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image Rename Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New filename:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1162,10 +1225,6 @@ When omitted, everything is copied.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Vector Image Files (*.svg)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1175,6 +1234,10 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Stickers</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

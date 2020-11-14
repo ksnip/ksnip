@@ -87,7 +87,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх 
+ліній, залишених пером чи маркером, але зробить їх&#x2028;
 плавнішими.</translation>
     </message>
     <message>
@@ -141,6 +141,10 @@ make them more smooth.</source>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
         <translation>Запам&apos;ятовувати вибраний засіб анотування і завантажувати його після запуску</translation>
+    </message>
+    <message>
+        <source>Switch to Select Tool after drawing Item</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -206,10 +210,6 @@ Change requires restart.</source>
         <translation>Запускати згорнутим до лотка</translation>
     </message>
     <message>
-        <source>Remember position on move and load on startup</source>
-        <translation>Запам&apos;ятовувати позицію при русі і завантажувати її після запуску</translation>
-    </message>
-    <message>
         <source>Hide Tabbar when only one Tab is used.</source>
         <translation>Ховати панель вкладок, якщо використано лише одну вкладку.</translation>
     </message>
@@ -222,6 +222,10 @@ a new start of all instances.</source>
 Усі інші запущені екземпляри просто передаватимуть свої аргументи
 першому екземпляру і завершуватимуть роботу. Зміна значення параметра
 для набуття чинності потребуватиме перезапуску усіх екземплярів.</translation>
+    </message>
+    <message>
+        <source>Remember Main Window position on move and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -261,6 +265,10 @@ a new start of all instances.</source>
     <message>
         <source>Snap &amp; Flatpak Support</source>
         <translation>Підтримка Snap &amp; Flatpak</translation>
+    </message>
+    <message>
+        <source>Feature Implementation</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -515,7 +523,7 @@ the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Показувати збільшувальне скло, яке дає змогу
 наблизити фонове зображення. Цей пункт
-працюватиме, лише якщо ввімкнено замороження зображення.</translation>
+працюватиме,&#x2028;лише якщо ввімкнено замороження зображення.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -537,24 +545,8 @@ desktop edges to cursor on snipping area.</source>
         <translation>Колір курсора під час позначення області знімка</translation>
     </message>
     <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Вибрати колір курсора при позначенні
-області знімка. Щоб колір змінився,
-треба перезапустити програму.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor thickness</source>
         <translation>Товщина курсора при позначенні області знімка</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Встановити товщину курсора при позначенні
-області знімка. Щоб товщина змінилася,
-треба перезапустити програму.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -619,6 +611,42 @@ Change in this option require a ksnip restart.</source>
 Якщо позначити цей пункт, програма примусово
 використовуватиме у Плазмі KDE і GNOME знімки XDG-DESKTOP-PORTAL.
 Для набуття чинності цим параметром ksnip слід перезапустити.</translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimized.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window during screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window when capturing a new screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -856,10 +884,6 @@ and capturing screenshot.</source>
         <translation>&amp;Довідка</translation>
     </message>
     <message>
-        <source>Open Image</source>
-        <translation>Відкрити зображення</translation>
-    </message>
-    <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>Файли зображень (*.png, *.jpg, *.bmp)</translation>
     </message>
@@ -923,6 +947,14 @@ and capturing screenshot.</source>
         <source>Delete</source>
         <translation>Вилучити</translation>
     </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Images</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -949,6 +981,10 @@ and capturing screenshot.</source>
     <message>
         <source>Delete</source>
         <translation>Вилучити</translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -978,6 +1014,33 @@ and capturing screenshot.</source>
     <message>
         <source>Pin Window %1</source>
         <translation>Пришпилити вікно %1</translation>
+    </message>
+</context>
+<context>
+    <name>RenameOperation</name>
+    <message>
+        <source>Image Renamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully renamed image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image Rename Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New filename:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1195,10 +1258,6 @@ When omitted, everything is copied.</source>
         <translation>Параметри стікерів</translation>
     </message>
     <message>
-        <source>Add Sticker</source>
-        <translation>Додати стікер</translation>
-    </message>
-    <message>
         <source>Vector Image Files (*.svg)</source>
         <translation>файли векторних зображень (*.svg)</translation>
     </message>
@@ -1209,6 +1268,10 @@ When omitted, everything is copied.</source>
     <message>
         <source>Remove</source>
         <translation>Вилучити</translation>
+    </message>
+    <message>
+        <source>Add Stickers</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

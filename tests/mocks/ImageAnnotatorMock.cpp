@@ -137,6 +137,11 @@ void ImageAnnotatorMock::setSmoothFactor(int factor)
 
 }
 
+void ImageAnnotatorMock::setSwitchToSelectToolAfterDrawingItem(bool enabled)
+{
+
+}
+
 void ImageAnnotatorMock::setTabBarAutoHide(bool enabled)
 {
 

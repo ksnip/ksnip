@@ -141,6 +141,10 @@ make them more smooth.</source>
         <source>Remember annotation tool selection and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Switch to Select Tool after drawing Item</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -205,10 +209,6 @@ Change requires restart.</source>
         <translation>启动时最小化到托盘</translation>
     </message>
     <message>
-        <source>Remember position on move and load on startup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Hide Tabbar when only one Tab is used.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -217,6 +217,10 @@ Change requires restart.</source>
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remember Main Window position on move and load on startup</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -256,6 +260,10 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feature Implementation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -530,24 +538,8 @@ desktop edges to cursor on snipping area.</source>
         <translation>截图区域的光标颜色</translation>
     </message>
     <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>设置截图区域的光标的颜色
-更改要求ksnip重新启动以
-生效。</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor thickness</source>
         <translation>截图区域的光标粗度</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>设置截图区域的光标粗度
-更改要求ksnip重新启动以
-生效。</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -593,6 +585,42 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimized.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window during screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window when capturing a new screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -830,10 +858,6 @@ and capturing screenshot.</source>
         <translation>帮助(&amp;H)</translation>
     </message>
     <message>
-        <source>Open Image</source>
-        <translation>打开图像</translation>
-    </message>
-    <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>图像文件 (* .png * .jpg * .bmp)</translation>
     </message>
@@ -897,6 +921,14 @@ and capturing screenshot.</source>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Images</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -922,6 +954,10 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -951,6 +987,33 @@ and capturing screenshot.</source>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RenameOperation</name>
+    <message>
+        <source>Image Renamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully renamed image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image Rename Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New filename:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1161,10 +1224,6 @@ When omitted, everything is copied.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Vector Image Files (*.svg)</source>
         <translation>矢量图像文件 (*.svg)</translation>
     </message>
@@ -1175,6 +1234,10 @@ When omitted, everything is copied.</source>
     <message>
         <source>Remove</source>
         <translation>移除</translation>
+    </message>
+    <message>
+        <source>Add Stickers</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -142,6 +142,10 @@ les rendra plus lisses.</translation>
         <source>Remember annotation tool selection and load on startup</source>
         <translation>Sauvegarder l&apos;outil d&apos;annotation sélectionné pour l&apos;enclencher au démarrage</translation>
     </message>
+    <message>
+        <source>Switch to Select Tool after drawing Item</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -206,10 +210,6 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
         <translation>Démarrer en miniature dans la barre des tâches</translation>
     </message>
     <message>
-        <source>Remember position on move and load on startup</source>
-        <translation>Sauvegarder la position lors du déplacement et la charger au démarrage</translation>
-    </message>
-    <message>
         <source>Hide Tabbar when only one Tab is used.</source>
         <translation>Masquer la barre d&apos;onglet lorsqu&apos;il y a en qu&apos;un d&apos;utilisé.</translation>
     </message>
@@ -222,6 +222,10 @@ a new start of all instances.</source>
 Si d&apos;autres instances sont lancés, elles passerons leurs
 arguments à la première avant de s&apos;arrêter. Il faut redémarrer
 toutes les instances pour activer ou désactiver cette option.</translation>
+    </message>
+    <message>
+        <source>Remember Main Window position on move and load on startup</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -262,6 +266,10 @@ toutes les instances pour activer ou désactiver cette option.</translation>
         <source>Snap &amp; Flatpak Support</source>
         <translation>Support Snap &amp; Flatpak</translation>
     </message>
+    <message>
+        <source>Feature Implementation</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
@@ -273,7 +281,7 @@ toutes les instances pour activer ou désactiver cette option.</translation>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
         <translation>La capture %1%2%3 a été modifiée.
-Voulez-vous l&apos;enregistrer ?</translation>
+Voulez-vous l&apos;enregistrer&#xa0;?</translation>
     </message>
 </context>
 <context>
@@ -514,8 +522,8 @@ dans les captures d&apos;écran.</translation>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Afficher une loupe qui grossit le fond d&apos;écran.
-Cette option ne marche que si « Geler l&apos;image
-avant capture » est activé.</translation>
+Cette option ne marche que si «&#xa0;Geler l&apos;image
+avant capture&#xa0;» est activé.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -536,24 +544,8 @@ depuis les bords de l&apos;écran pour aider au cadrage.</translation>
         <translation>Couleur du curseur de cadrage</translation>
     </message>
     <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Définit la couleur de la zone de découpage
-du curseur. La modification nécessite le
-redémarrage de ksnip pour prendre effet.</translation>
-    </message>
-    <message>
         <source>Snipping Area cursor thickness</source>
         <translation>Épaisseur du curseur de cadrage</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Définit l&apos;épaisseur de la zone de découpage
-du curseur. La modification nécessite le
-redémarrage de ksnip pour prendre effet.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -617,6 +609,42 @@ XDG-DESKTOP-PORTAL. Cette option force KDE
 Plasma et GNOME à utiliser les captures
  XDG-DESKTOP-PORTAL. Redémarrage requis.</translation>
     </message>
+    <message>
+        <source>Show Main Window after capturing screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimized.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window during screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window when capturing a new screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ImgurHistoryDialog</name>
@@ -645,7 +673,7 @@ Plasma et GNOME à utiliser les captures
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Téléversement sur imgur.com terminé !</translation>
+        <translation>Téléversement sur imgur.com terminé&#xa0;!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -728,7 +756,7 @@ Plasma et GNOME à utiliser les captures
     </message>
     <message>
         <source>Base Url:</source>
-        <translation>URL de base :</translation>
+        <translation>URL de base&#xa0;:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
@@ -853,10 +881,6 @@ et la capture de l&apos;écran.</translation>
         <translation>&amp;Aide</translation>
     </message>
     <message>
-        <source>Open Image</source>
-        <translation>Ouvrir une image</translation>
-    </message>
-    <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>Fichier d&apos;images (*.png *.jpg *.bmp)</translation>
     </message>
@@ -920,6 +944,14 @@ et la capture de l&apos;écran.</translation>
         <source>Delete</source>
         <translation>Supprimer</translation>
     </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Images</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -946,6 +978,10 @@ et la capture de l&apos;écran.</translation>
     <message>
         <source>Delete</source>
         <translation>Supprimer</translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -975,6 +1011,33 @@ et la capture de l&apos;écran.</translation>
     <message>
         <source>Pin Window %1</source>
         <translation>Épingler la fenêtre %1</translation>
+    </message>
+</context>
+<context>
+    <name>RenameOperation</name>
+    <message>
+        <source>Image Renamed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Successfully renamed image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Image Rename Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New filename:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1038,8 +1101,8 @@ Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
         <translation>Les formats supportés sont JPG, PNG et BMP. Si aucun format n’est spécifié, PNG sera utilisé par défaut.
-Le nom du fichier peut contenir les jokers suivants :
-- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format « hhmmss ».
+Le nom du fichier peut contenir les jokers suivants&#xa0;:
+- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format «&#xa0;hhmmss&#xa0;».
 - Plusieurs caractères # permettent de numéroter. Par exemple : #### donnera 0001 puis 0002 à la prochaine capture.</translation>
     </message>
     <message>
@@ -1193,10 +1256,6 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
         <translation>Paramètres des stickers</translation>
     </message>
     <message>
-        <source>Add Sticker</source>
-        <translation>Ajouter un sticker</translation>
-    </message>
-    <message>
         <source>Vector Image Files (*.svg)</source>
         <translation>Images vectorielles (*.svg)</translation>
     </message>
@@ -1207,6 +1266,10 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     <message>
         <source>Remove</source>
         <translation>Supprimer</translation>
+    </message>
+    <message>
+        <source>Add Stickers</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

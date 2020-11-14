@@ -606,6 +606,19 @@ void KsnipConfig::setSnippingAreaPositionAndSizeInfoEnabled(bool enabled)
 	saveValue(KsnipConfigOptions::snippingAreaPositionAndSizeInfoEnabledString(), enabled);
 }
 
+bool KsnipConfig::showMainWindowAfterTakingScreenshotEnabled() const
+{
+	return loadValue(KsnipConfigOptions::showMainWindowAfterTakingScreenshotEnabledString(), true).toBool();
+}
+
+void KsnipConfig::setShowMainWindowAfterTakingScreenshotEnabled(bool enabled)
+{
+	if (showMainWindowAfterTakingScreenshotEnabled() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::showMainWindowAfterTakingScreenshotEnabledString(), enabled);
+}
+
 bool KsnipConfig::isSnippingAreaMagnifyingGlassEnabledReadOnly() const
 {
 	return false;

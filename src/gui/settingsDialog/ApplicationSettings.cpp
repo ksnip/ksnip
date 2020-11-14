@@ -61,7 +61,7 @@ ApplicationSettings::~ApplicationSettings()
 void ApplicationSettings::initGui()
 {
 	mAutoCopyToClipboardNewCapturesCheckbox->setText(tr("Automatically copy new captures to clipboard"));
-	mRememberPositionCheckbox->setText(tr("Remember position on move and load on startup"));
+	mRememberPositionCheckbox->setText(tr("Remember Main Window position on move and load on startup"));
 	mCaptureOnStartupCheckbox->setText(tr("Capture screenshot at startup with default mode"));
 	mUseTrayIconCheckBox->setText(tr("Use Tray Icon"));
 	mUseTrayIconCheckBox->setToolTip(tr("When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.\n"
@@ -85,7 +85,7 @@ void ApplicationSettings::initGui()
 	connect(mUseTrayIconCheckBox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTrayIconChanged);
 	connect(mUseTabsCheckbox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTabsChanged);
 
-	mApplicationStyleLabel->setText(tr("Application Style") + QStringLiteral(":"));
+	mApplicationStyleLabel->setText(tr("Application Style") + QLatin1Literal(":"));
 	mApplicationStyleLabel->setToolTip(tr("Sets the application style which defines the look and feel of the GUI.\n"
 	                                      "Change requires ksnip restart to take effect."));
 	mApplicationStyleCombobox->addItems(QStyleFactory::keys());

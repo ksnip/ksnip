@@ -54,9 +54,9 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/imageAnnotator/IImageAnnotator.h
 	${CMAKE_SOURCE_DIR}/src/gui/desktopService/DesktopServiceAdapter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/fileService/FileService.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/WidgetHider.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/GnomeWaylandWidgetHider.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/widgetHider/WidgetHiderFactory.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/widgetVisibilityHandler/WidgetVisibilityHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/widgetVisibilityHandler/GnomeWaylandWidgetVisibilityHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/widgetVisibilityHandler/WidgetVisibilityHandlerFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AbstractSnippingArea.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/SnippingAreaAdorner.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AdornerMagnifyingGlass.cpp

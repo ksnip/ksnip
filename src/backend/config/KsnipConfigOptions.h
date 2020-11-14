@@ -63,6 +63,7 @@ public:
 	static QString snippingAreaRulersEnabledString();
 	static QString snippingAreaPositionAndSizeInfoEnabledString();
 	static QString snippingAreaMagnifyingGlassEnabledString();
+	static QString showMainWindowAfterTakingScreenshotEnabledString();
 	static QString captureDelayString();
 	static QString snippingCursorSizeString();
 	static QString snippingCursorColorString();

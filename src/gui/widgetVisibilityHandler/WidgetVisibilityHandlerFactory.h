@@ -17,17 +17,22 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_GNOMEWAYLANDWIDGETHIDER_H
-#define KSNIP_GNOMEWAYLANDWIDGETHIDER_H
+#ifndef KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
+#define KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
 
-#include "WidgetHider.h"
+#if defined(__APPLE__) || defined(_WIN32)
+#include "WidgetVisibilityHandler.h"
+#endif
 
-class GnomeWaylandWidgetHider : public WidgetHider
+#if defined(__linux__)
+#include "GnomeWaylandWidgetHider.h"
+#include "src/common/platform/PlatformChecker.h"
+#endif
+
+class WidgetVisibilityHandlerFactory
 {
 public:
-	explicit GnomeWaylandWidgetHider(QWidget *widget);
-	~GnomeWaylandWidgetHider() = default;
-	void setHidden(bool isHidden) override;
+	static WidgetVisibilityHandler* create(QWidget *widget, KsnipConfig *config);
 };
 
-#endif //KSNIP_GNOMEWAYLANDWIDGETHIDER_H
+#endif //KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H

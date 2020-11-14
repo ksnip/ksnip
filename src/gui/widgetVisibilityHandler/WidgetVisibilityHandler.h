@@ -17,15 +17,38 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "GnomeWaylandWidgetHider.h"
+#ifndef KSNIP_WIDGETVISIBILITYHANDLER_H
+#define KSNIP_WIDGETVISIBILITYHANDLER_H
 
-GnomeWaylandWidgetHider::GnomeWaylandWidgetHider(QWidget *widget) :
-	WidgetHider(widget)
+#include <QWidget>
+
+#include "src/backend/config/KsnipConfig.h"
+
+class WidgetVisibilityHandler
 {
+public:
+	explicit WidgetVisibilityHandler(QWidget *widget, KsnipConfig *config);
+	~WidgetVisibilityHandler() = default;
+	virtual void hide();
+	virtual void makeInvisible();
+	virtual void minimize();
+	virtual void restoreVisibility();
+	virtual void enforceVisible();
+	virtual bool isMaximized();
+	virtual void updateState();
 
-}
+protected:
+	QWidget *mWidget;
+	KsnipConfig *mConfig;
 
-void GnomeWaylandWidgetHider::setHidden(bool isHidden)
-{
-	mWidget->setVisible(!isHidden);
-}
+	virtual void setVisible(bool isVisible);
+
+private:
+	bool mWindowStateChangeLock;
+	bool mWasMinimized;
+	Qt::WindowState mSelectedWindowState;
+
+	void showWidget();
+};
+
+#endif //KSNIP_WIDGETVISIBILITYHANDLER_H

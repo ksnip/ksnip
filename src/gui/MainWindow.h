@@ -35,7 +35,7 @@
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
 #include "src/gui/captureHandler/CaptureHandlerFactory.h"
 #include "src/gui/captureHandler/ICaptureChangeListener.h"
-#include "src/gui/widgetHider/WidgetHiderFactory.h"
+#include "src/gui/widgetVisibilityHandler/WidgetVisibilityHandlerFactory.h"
 #include "src/gui/pinWindow/PinWindowHandler.h"
 #include "src/gui/serviceLocator/ServiceLocator.h"
 #include "src/widgets/MainToolBar.h"
@@ -58,8 +58,9 @@ public:
     ~MainWindow() override;
     void showEmpty();
 	void showHidden();
-    void show();
+    void showDefault();
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
+	void resizeToAnnotator();
 
 public slots:
     void processCapture(const CaptureDto &capture);
@@ -76,10 +77,7 @@ protected:
 private:
     AbstractImageGrabber *mImageGrabber;
     RunMode mMode;
-    bool mIsInvisible;
     bool mSessionManagerRequestedQuit;
-    Qt::WindowState mSelectedWindowState;
-    bool mWindowStateChangeLock;
     QAction *mSaveAsAction;
     QAction *mUploadAction;
     QAction *mPrintAction;
@@ -111,17 +109,15 @@ private:
 	UploaderProvider *mUploaderProvider;
 	ICaptureHandler *mCaptureHandler;
 	PinWindowHandler *mPinWindowHandler;
-	WidgetHider *mWidgetHider;
+	WidgetVisibilityHandler *mVisibilityHandler;
 	IFileDialogAdapter *mFileDialog;
 
     void setEnablements(bool enabled);
     void loadSettings();
-    void setInvisible(bool isInvisible);
     void capture(CaptureModes captureMode);
     void initGui();
 	void processInstantCapture(const CaptureDto &capture);
 	void showDialog(const std::function<void ()>& showDialogMethod);
-	void adjustSize();
 
 private slots:
 	void captureChanged() override;
@@ -146,11 +142,12 @@ private slots:
 	void saveAsClicked();
 	void updateApplicationTitle();
 	void capturePostProcessing();
-	void showImage(const CaptureDto &capture);
+	void loadImage(const CaptureDto &capture);
 	void loadImageFromFile(const QString &path);
 	void sessionFinished();
 	void captureCanceled();
 	void showPinWindow();
+	void hideMainWindowIfRequired();
 };
 
 #endif // KSNIP_MAINWINDOW_H

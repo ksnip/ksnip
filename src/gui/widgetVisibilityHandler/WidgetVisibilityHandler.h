@@ -17,27 +17,38 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "WidgetHider.h"
+#ifndef KSNIP_WIDGETVISIBILITYHANDLER_H
+#define KSNIP_WIDGETVISIBILITYHANDLER_H
 
-WidgetHider::WidgetHider(QWidget *widget) :
-	mWidget(widget)
+#include <QWidget>
+
+#include "src/backend/config/KsnipConfig.h"
+
+class WidgetVisibilityHandler
 {
+public:
+	explicit WidgetVisibilityHandler(QWidget *widget, KsnipConfig *config);
+	~WidgetVisibilityHandler() = default;
+	virtual void hide();
+	virtual void makeInvisible();
+	virtual void minimize();
+	virtual void restoreVisibility();
+	virtual void enforceVisible();
+	virtual bool isMaximized();
+	virtual void updateState();
 
-}
+protected:
+	QWidget *mWidget;
+	KsnipConfig *mConfig;
 
-void WidgetHider::setHidden(bool isHidden)
-{
-	if (isHidden) {
-		mWidget->setWindowOpacity(0.0);
-		mWidget->showMinimized();
-	} else {
-		mWidget->setWindowOpacity(1.0);
-		mWidget->setWindowState(Qt::WindowActive);
-	}
-}
+	virtual void setVisible(bool isVisible);
 
-void WidgetHider::unhideMinimized()
-{
-	mWidget->setWindowOpacity(1.0);
-	mWidget->setWindowState(Qt::WindowMinimized);
-}
+private:
+	bool mWindowStateChangeLock;
+	bool mWasMinimized;
+	Qt::WindowState mSelectedWindowState;
+
+	void showWidget();
+};
+
+#endif //KSNIP_WIDGETVISIBILITYHANDLER_H

@@ -17,21 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_WIDGETHIDER_H
-#define KSNIP_WIDGETHIDER_H
+#include "GnomeWaylandWidgetVisibilityHandler.h"
 
-#include <QWidget>
-
-class WidgetHider
+GnomeWaylandWidgetVisibilityHandler::GnomeWaylandWidgetVisibilityHandler(QWidget *widget, KsnipConfig *config) :
+	WidgetVisibilityHandler(widget, config)
 {
-public:
-	explicit WidgetHider(QWidget *widget);
-	~WidgetHider() = default;
-	virtual void setHidden(bool isHidden);
-	virtual void unhideMinimized();
 
-protected:
-	QWidget *mWidget;
-};
+}
 
-#endif //KSNIP_WIDGETHIDER_H
+void GnomeWaylandWidgetVisibilityHandler::setVisible(bool isVisible)
+{
+	mWidget->setVisible(isVisible);
+}

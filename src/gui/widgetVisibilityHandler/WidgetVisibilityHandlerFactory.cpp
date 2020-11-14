@@ -17,20 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "WidgetHiderFactory.h"
+#include "WidgetVisibilityHandlerFactory.h"
 
-WidgetHider *WidgetHiderFactory::create(QWidget *widget)
+WidgetVisibilityHandler *WidgetVisibilityHandlerFactory::create(QWidget *widget, KsnipConfig *config)
 {
 #if defined(__APPLE__) || defined(_WIN32)
-	return new WidgetHider(widget);
+	return new WidgetVisibilityHandler(widget, config);
 #endif
 
 #if defined(__linux__)
 	auto platformChecker = PlatformChecker::instance();
 	if (platformChecker->isWayland() && platformChecker->isGnome()) {
-		return new GnomeWaylandWidgetHider(widget);
+		return new GnomeWaylandWidgetHider(widget, config);
 	} else {
-		return new WidgetHider(widget);
+		return new WidgetHider(widget, config);
 	}
 #endif
 }

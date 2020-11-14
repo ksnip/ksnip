@@ -21,46 +21,42 @@
 #include "MainWindow.h"
 
 MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
-		QMainWindow(),
-		mIsInvisible(false),
-		mToolBar(nullptr),
-		mImageGrabber(imageGrabber),
-		mMode(mode),
-		mImageAnnotator(new KImageAnnotatorAdapter),
-		mSaveAsAction(new QAction(this)),
-		mUploadAction(new QAction(this)),
-		mPrintAction(new QAction(this)),
-		mPrintPreviewAction(new QAction(this)),
-		mQuitAction(new QAction(this)),
-		mCopyPathAction(new QAction(this)),
-		mRenameAction(new QAction(this)),
-		mOpenDirectoryAction(new QAction(this)),
-		mSettingsAction(new QAction(this)),
-		mAboutAction(new QAction(this)),
-		mOpenImageAction(new QAction(this)),
-		mScaleAction(new QAction(this)),
-		mAddWatermarkAction(new QAction(this)),
-		mPasteAction(new QAction(this)),
-		mPasteEmbeddedAction(new QAction(this)),
-		mPinAction(new QAction(this)),
-		mRemoveImageAction(new QAction(this)),
-		mMainLayout(layout()),
-		mConfig(KsnipConfigProvider::instance()),
-		mServiceLocator(new ServiceLocator),
-		mClipboard(mServiceLocator->clipboard()),
-		mCapturePrinter(new CapturePrinter(this)),
-		mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
-		mTrayIcon(new TrayIcon(this)),
-		mSelectedWindowState(Qt::WindowActive),
-		mWindowStateChangeLock(false),
-		mDragAndDropHandler(new DragAndDropHandler),
-		mUploaderProvider(new UploaderProvider),
-		mSessionManagerRequestedQuit(false),
-		mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mServiceLocator, this)),
-		mPinWindowHandler(new PinWindowHandler(this)),
-		mWidgetHider(WidgetHiderFactory::create(this)),
-		mFileDialog(FileDialogAdapterFactory::create()),
-		mWasMinimizedBeforeScreenshot(false)
+	QMainWindow(),
+	mToolBar(nullptr),
+	mImageGrabber(imageGrabber),
+	mMode(mode),
+	mImageAnnotator(new KImageAnnotatorAdapter),
+	mSaveAsAction(new QAction(this)),
+	mUploadAction(new QAction(this)),
+	mPrintAction(new QAction(this)),
+	mPrintPreviewAction(new QAction(this)),
+	mQuitAction(new QAction(this)),
+	mCopyPathAction(new QAction(this)),
+	mRenameAction(new QAction(this)),
+	mOpenDirectoryAction(new QAction(this)),
+	mSettingsAction(new QAction(this)),
+	mAboutAction(new QAction(this)),
+	mOpenImageAction(new QAction(this)),
+	mScaleAction(new QAction(this)),
+	mAddWatermarkAction(new QAction(this)),
+	mPasteAction(new QAction(this)),
+	mPasteEmbeddedAction(new QAction(this)),
+	mPinAction(new QAction(this)),
+	mRemoveImageAction(new QAction(this)),
+	mMainLayout(layout()),
+	mConfig(KsnipConfigProvider::instance()),
+	mServiceLocator(new ServiceLocator),
+	mClipboard(mServiceLocator->clipboard()),
+	mCapturePrinter(new CapturePrinter(this)),
+	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
+	mTrayIcon(new TrayIcon(this)),
+	mDragAndDropHandler(new DragAndDropHandler),
+	mUploaderProvider(new UploaderProvider),
+	mSessionManagerRequestedQuit(false),
+	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mServiceLocator, this)),
+	mPinWindowHandler(new PinWindowHandler(this)),
+	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this, mConfig)),
+	mFileDialog(FileDialogAdapterFactory::create())
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -145,7 +141,7 @@ MainWindow::~MainWindow()
     delete mDragAndDropHandler;
     delete mUploaderProvider;
     delete mCaptureHandler;
-    delete mWidgetHider;
+    delete mVisibilityHandler;
     delete mFileDialog;
 }
 
@@ -185,7 +181,7 @@ void MainWindow::processCapture(const CaptureDto &capture)
 
 	loadImage(capture);
 
-	showMainWindowIfRequired();
+	showDefault();
 
 	captureChanged();
 	capturePostProcessing();
@@ -194,7 +190,7 @@ void MainWindow::processCapture(const CaptureDto &capture)
 void MainWindow::processImage(const CaptureDto &capture)
 {
 	loadImage(capture);
-	showWindow();
+	showDefault();
 	captureChanged();
 }
 
@@ -203,32 +199,11 @@ void MainWindow::loadImage(const CaptureDto &capture)
 	mCaptureHandler->load(capture);
 }
 
-void MainWindow::showWindow()
-{
-	setInvisible(false);
-	setEnablements(true);
-
-	if(mSelectedWindowState != Qt::WindowMaximized) {
-		adjustSize();
-	}
-
-	show();
-}
-
-void MainWindow::adjustSize()
+void MainWindow::resizeToAnnotator()
 {
 	mMainLayout->setSizeConstraint(QLayout::SetFixedSize); // Workaround that allows us to return to toolbar only size
 	QMainWindow::adjustSize();
 	mMainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
-}
-
-void MainWindow::showMainWindowIfRequired()
-{
-	if (!mWasMinimizedBeforeScreenshot || mConfig->showMainWindowAfterTakingScreenshotEnabled()) {
-		showWindow();
-	} else if(mWasMinimizedBeforeScreenshot) {
-		mWidgetHider->unhideMinimized();
-	}
 }
 
 void MainWindow::capturePostProcessing()
@@ -244,27 +219,27 @@ void MainWindow::capturePostProcessing()
 
 void MainWindow::showEmpty()
 {
-	setInvisible(false);
+	mVisibilityHandler->minimize();
 	captureChanged();
     setEnablements(false);
-    QMainWindow::show();
 }
 
 void MainWindow::showHidden()
 {
 	captureChanged();
 	setEnablements(false);
-	hide();
+	mVisibilityHandler->hide();
 }
 
-void MainWindow::show()
+void MainWindow::showDefault()
 {
-	setInvisible(false);
+	mVisibilityHandler->restoreVisibility();
+
+	if(!mVisibilityHandler->isMaximized()) {
+		resizeToAnnotator();
+	}
+
 	setEnablements(true);
-	setWindowState(mSelectedWindowState);
-	activateWindow();
-	raise();
-	QMainWindow::show();
 }
 
 QMenu* MainWindow::createPopupMenu()
@@ -296,7 +271,13 @@ void MainWindow::closeEvent(QCloseEvent* event)
 	if(!mSessionManagerRequestedQuit) {
 		event->ignore();
 	}
-	mTrayIcon->isVisible() && mConfig->closeToTray() ? hide() : quit();
+
+	if(mTrayIcon->isVisible() && mConfig->closeToTray()) {
+		mVisibilityHandler->minimize();
+		mVisibilityHandler->hide();
+	} else {
+		quit();
+	}
 }
 
 void MainWindow::changeEvent(QEvent *event)
@@ -304,10 +285,9 @@ void MainWindow::changeEvent(QEvent *event)
 	if (event->type() == QEvent::WindowStateChange) {
 		if(isMinimized() && mTrayIcon->isVisible() && mConfig->minimizeToTray()) {
 			event->ignore();
-			hide();
-		} else if (!mWindowStateChangeLock)  {
-			mSelectedWindowState = isMaximized() ? Qt::WindowMaximized : Qt::WindowActive;
+			mVisibilityHandler->hide();
 		}
+		mVisibilityHandler->updateState();
 	}
 	QWidget::changeEvent(event);
 }
@@ -351,17 +331,6 @@ void MainWindow::loadSettings()
     mToolBar->setCaptureDelay(mConfig->captureDelay() / 1000);
 }
 
-void MainWindow::setInvisible(bool isInvisible)
-{
-    if (isInvisible == mIsInvisible) {
-        return;
-    }
-
-	mIsInvisible = isInvisible;
-	mWidgetHider->setHidden(isInvisible);
-	mWindowStateChangeLock = isInvisible;
-}
-
 void MainWindow::capture(CaptureModes captureMode)
 {
 	if(!mCaptureHandler->canTakeNew()){
@@ -377,10 +346,8 @@ void MainWindow::capture(CaptureModes captureMode)
 
 void MainWindow::hideMainWindowIfRequired()
 {
-	mWasMinimizedBeforeScreenshot = isMinimized();
-
 	if (mConfig->hideMainWindowDuringScreenshot()) {
-		setInvisible(true);
+		mVisibilityHandler->makeInvisible();
 	}
 }
 
@@ -516,7 +483,7 @@ void MainWindow::initGui()
     addToolBar(mToolBar);
 
     if(mConfig->useTrayIcon()) {
-	    connect(mTrayIcon, &TrayIcon::showEditorTriggered, this, &MainWindow::show);
+	    connect(mTrayIcon, &TrayIcon::showEditorTriggered, [this](){ mVisibilityHandler->enforceVisible(); });
 	    mTrayIcon->setCaptureActions(mToolBar->captureActions());
 	    mTrayIcon->setOpenAction(mOpenImageAction);
 	    mTrayIcon->setSaveAction(mToolBar->saveAction());
@@ -623,7 +590,6 @@ void MainWindow::pasteFromClipboard()
 	auto pixmap = mClipboard->pixmap();
 
 	if(!pixmap.isNull()) {
-		setInvisible(false);
 		if(mClipboard->url().isNull()) {
 			CaptureDto captureDto(pixmap);
 			processImage(captureDto);
@@ -654,7 +620,6 @@ void MainWindow::loadImageFromFile(const QString &path)
 {
 	auto pixmap = QPixmap(path);
 	if(!pixmap.isNull()) {
-		setInvisible(false);
 		CaptureFromFileDto captureDto(pixmap, path);
 		processImage(captureDto);
 	}
@@ -667,8 +632,7 @@ void MainWindow::sessionFinished()
 
 void MainWindow::captureCanceled()
 {
-	setInvisible(false);
-	show();
+	showDefault();
 }
 
 void MainWindow::uploadFinished(const UploadResult &result)
@@ -680,7 +644,7 @@ void MainWindow::uploadFinished(const UploadResult &result)
 void MainWindow::captureEmpty()
 {
 	setEnablements(false);
-	adjustSize();
+	resizeToAnnotator();
 }
 
 void MainWindow::showPinWindow()

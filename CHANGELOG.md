@@ -33,6 +33,7 @@
 * Changed kImageAnnotator: Draw point when clicking and releasing without moving cursor. ([#136](https://github.com/ksnip/kImageAnnotator/issues/136))
 * Changed kImageAnnotator: Zoom out less than 100%. ([#150](https://github.com/ksnip/kImageAnnotator/issues/150))
 * Changed kImageAnnotator: Change to select tool after adding new annotation item. ([#155](https://github.com/ksnip/kImageAnnotator/issues/155))
+* Changed kImageAnnotator: Move current zoom text to left side config panel. ([#157](https://github.com/ksnip/kImageAnnotator/issues/157))
 * Fixed: Snap crashing when trying to take screenshot under Wayland. ([#389](https://github.com/ksnip/ksnip/issues/389))
 * Fixed: zh_Hans translation won't load. ([#429](https://github.com/ksnip/ksnip/issues/429))
 * Fixed: Ksnip only saves the upper right part of the screenshot with HiDPI. ([#439](https://github.com/ksnip/ksnip/issues/439))

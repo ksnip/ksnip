@@ -134,7 +134,7 @@ void ImageGrabberSettings::initGui()
 												        "area, allow resizing the selection. When\n"
 														"done resizing the selection can be confirmed\n"
 			  											"by pressing return."));
-	
+
 	mHideMainWindowDuringScreenshotCheckbox->setText(tr("Hide Main Window during screenshot"));
 	mHideMainWindowDuringScreenshotCheckbox->setToolTip(tr("Hide Main Window when capturing a new screenshot."));
 

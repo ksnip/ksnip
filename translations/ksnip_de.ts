@@ -888,7 +888,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Eingebettet einfügen</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>

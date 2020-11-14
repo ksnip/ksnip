@@ -140,7 +140,7 @@ macht sie glatter.</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Merke Auswahl des Beschriftungstool und stelle diese beim Starten wieder her</translation>
     </message>
 </context>
 <context>
@@ -207,18 +207,21 @@ Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Remember position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Merke Position beim Bewegen und stelle diese beim Starten wieder her</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation>Tableiste verstecken wenn nur ein Tab offen ist</translation>
+        <translation>Tableiste verstecken wenn nur ein Tab offen ist.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mit dieser Option wird das Ausführen von nur einer ksnip-Instanz erlaubt,
+alle weiteren Instanzen werden ihre Argumente an die zuerst gestartete
+Instanz übergeben und sich wieder schließen. Eine Änderung dieser
+Einstellung erfordert einen Neustartet aller Instanzen.</translation>
     </message>
 </context>
 <context>
@@ -329,7 +332,7 @@ Speichern?</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation>Screenshot Portal</translation>
+        <translation>Screenshot-Portal</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
@@ -373,11 +376,11 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip ist ein unkommerzielles, freies und unter „Copyleft“ stehendes Softwareprojekt, &lt;br/&gt;für das jedoch Kosten anfallen, die es zu decken gilt,&lt;br/&gt; wie z.B. Kosten für die Internetdomäne oder Hardwarekosten für die plattformübergreifende Unterstützung.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Falls du helfen möchtest oder &lt;br/&gt;deine Wertschätzung für die Arbeit ausdrücken möchtest&lt;br/&gt;, indem du den Entwicklern ein Bier oder Kaffee ausgeben möchtest, kannst du das gerne tun</translation>
     </message>
 </context>
 <context>
@@ -412,15 +415,15 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>Der Prozess hat ein Timeout erreicht.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozesslesefehler.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prozessschreibfehler.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
@@ -428,7 +431,7 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation>Unbekannter Prozessfehler</translation>
+        <translation>Unbekannter Prozess-Fehler.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
@@ -436,7 +439,7 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Script hat in die Fehlerausgabe (StdErr) geschrieben.</translation>
     </message>
 </context>
 <context>
@@ -479,11 +482,11 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Leeren</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Aufnahme über Portal</translation>
     </message>
 </context>
 <context>
@@ -565,22 +568,32 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ist diese Option gesetzt, wird der Hintergrund
+eingefroren und eine rechteckige Auswahl kann
+getroffen werden. Sie wirkt sicht auch auf verzögerte
+Screenshots aus; aktiviert, passiert die Verzögerung
+bevor die Auswahl getroffen werden kann; deaktviert,
+geschieht die Verzögerung, nachdem die Auswahl
+getroffen wurde. Diese Option ist unter Wayland stets
+deaktiviert, unter macOS stets aktiviert.</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn der Mauszeiger nicht gedrückt wird, wird die
+Position angezeigt; wenn der Mauszeiger gedrückt wird,
+wird die größe des markierten Bereichs links und oberhalb
+des Ausschnittsbereichs angezeigt.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Erzwinge Screenshot über eine standardmäßige Wayland-Funktion</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Skaliere Screenshots über eine standardmäßige Wayland-Funktion</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -588,7 +601,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardmäßige Wayland-Implementationen, die
+XDG-DESKTOP-PORTAL verwenden, handhaben
+die Bildschirmskalierung unterschiedlich. Wird diese
+Option aktiviert, wird die aktuelle Bildschirmskalierung
+ermittelt und auf den Screenshot in ksnip angewendet.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -596,7 +613,11 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME und KDE Plasma unterstützen sowohl eigene Wayland- als
+auch die standardmäßigen XDG-DESKTOP-PORTAL-Screenshots.
+Wird diese Option aktiviert, werden KDE Plasma und GNOME gezwungen,
+XDG-DESKTOP-PORTAL-Screenshots zu verwenden. Eine Änderung
+dieser Option erfordert einen Neustart von ksnip.</translation>
     </message>
 </context>
 <context>
@@ -871,19 +892,19 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Lade die Aufnahme auf eine externe Quelle hoch</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Anheften</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Hefte Screenshot am Vordergrund in einem rahmenlosen Fenster an</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kein Bild geliefert, obwohl eines erwartet wurde.</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -891,15 +912,15 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzeichnis öffnen</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Anzeigen</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Löschen</translation>
     </message>
 </context>
 <context>
@@ -914,7 +935,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzeichnis öffnen</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -922,18 +943,18 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Pfad kopieren</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Löschen</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Aufnahme</translation>
     </message>
 </context>
 <context>
@@ -944,18 +965,18 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Andere schließen</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alles schließen</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Hefte Fenster %1 an</translation>
     </message>
 </context>
 <context>
@@ -1006,7 +1027,8 @@ und der Aufnahme des Bildschirmfotos.</translation>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ist diese Option gesetzt, wird das in den Einstellungen gesetzte Verzeichnis zum Abspeichern
+bei jedem Speichern ignoriert und durch das zuletzt benutzte Speicherverzeichnis ersetzt.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
@@ -1017,7 +1039,10 @@ with the latest save directory, for every save.</source>
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Unterstützte Formate sind JPG, PNG und BMP. Wenn kein Format angegeben wird, wird standardmäßig PNG benutzt.
+Dateinamen können die folgenden Platzhalter verwenden:
+-$Y, $M, $D für das Datum, $h, $m, $s für die Uhrzeit, oder $T für die Zeit im Format hhmmss.
+- mehrere aufeinanderfolgende # als Zähler. #### ergibt 0001, der darauffolgende Screenshot wäre 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1025,7 +1050,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichereinstellungen</translation>
     </message>
     <message>
         <source>Capture save location</source>
@@ -1033,20 +1058,21 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Faktor</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Speicherqualität</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>0 angeben, um kleine komprimierte Dateien zu erhalten, 100 für große unkomprimierte Dateien.
+Nicht alle Bildformate unterstützen die gesamte Bandbreite, JPEG schon.</translation>
     </message>
 </context>
 <context>
@@ -1057,12 +1083,13 @@ Not all image formats support the full range, JPEG does.</source>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Skript:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pfad zum Script, das zum Upload aufgerufen wird. Beim Upload wird der Pfad zur temporären
+png-Datei als einziges Argument an das Script übergeben.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1070,29 +1097,31 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Skriptbasierter Upload</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload-Skript auswählen</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Stopp das Skript, wenn es in die Standardfehlerausgabe (StdErr) schreibt</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Markiert den Upload als fehlgeschlagen, wenn das Skript in die Standardfehlerausgabe (StdErr) schreibt.
+Ohne diese Einstellung werden Fehler im Skript möglicherweise nicht bemerkt.</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Reguläre Ausdrücke. Nur das in die Zwischenablage kopieren, was dem regulären Ausdruck entspricht.
+Alles wird kopiert wenn leer.</translation>
     </message>
 </context>
 <context>
@@ -1115,7 +1144,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation></translation>
+        <translation>Imgur-Uploader</translation>
     </message>
     <message>
         <source>Application</source>
@@ -1131,54 +1160,54 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploader</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Skriptbasierter Upload</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Aufkleber</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoch</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Runter</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard-Aufkleber nutzen</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Aufkleber-Einstellungen</translation>
     </message>
     <message>
         <source>Add Sticker</source>
-        <translation type="unfinished"></translation>
+        <translation>Aufkleber hinzufügen</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Vektorgrafik-Dateien (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernen</translation>
     </message>
 </context>
 <context>
@@ -1207,19 +1236,19 @@ When omitted, everything is copied.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload-Skript erforderlich</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte füge ein Upload-Skript über Optionen &gt; Einstellungen &gt; Upload-Skript hinzu</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Aufnahme hochladen</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Du bist dabei das Bild zu einem externen Ziel hochzuladen, möchtest Du fortfahren?</translation>
     </message>
 </context>
 <context>
@@ -1230,19 +1259,19 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload-Typ:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Skript</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploader</translation>
     </message>
 </context>
 <context>

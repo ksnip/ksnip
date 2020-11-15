@@ -35,9 +35,10 @@ SettingsDialog::SettingsDialog(QWidget *parent, const QList<CaptureModes> &captu
 	mHotKeySettings(new HotKeySettings(mConfig, captureModes)),
 	mUploaderSettings(new UploaderSettings(mConfig)),
 	mSaverSettings(new SaverSettings(mConfig)),
-	mStickerSettings(new StickerSettings(mConfig))
+	mStickerSettings(new StickerSettings(mConfig)),
+	mSnippingAreaSettings(new SnippingAreaSettings(mConfig))
 {
-    setWindowTitle(QApplication::applicationName() + QStringLiteral(" - ") + tr("Settings"));
+    setWindowTitle(QApplication::applicationName() + QLatin1Literal(" - ") + tr("Settings"));
 
     initGui();
 
@@ -58,6 +59,7 @@ SettingsDialog::~SettingsDialog()
     delete mUploaderSettings;
     delete mSaverSettings;
     delete mStickerSettings;
+    delete mSnippingAreaSettings;
 }
 
 void SettingsDialog::saveSettings()
@@ -71,6 +73,7 @@ void SettingsDialog::saveSettings()
     mHotKeySettings->saveSettings();
     mSaverSettings->saveSettings();
     mStickerSettings->saveSettings();
+    mSnippingAreaSettings->saveSettings();
 }
 
 void SettingsDialog::initGui()
@@ -89,6 +92,7 @@ void SettingsDialog::initGui()
     mStackedLayout->addWidget(mApplicationSettings);
     mStackedLayout->addWidget(mSaverSettings);
     mStackedLayout->addWidget(mImageGrabberSettings);
+    mStackedLayout->addWidget(mSnippingAreaSettings);
     mStackedLayout->addWidget(mUploaderSettings);
     mStackedLayout->addWidget(mImgurUploaderSettings);
     mStackedLayout->addWidget(mScriptUploaderSettings);
@@ -99,6 +103,7 @@ void SettingsDialog::initGui()
 	auto application = new QTreeWidgetItem(mTreeWidget, { tr("Application") });
 	auto saver = new QTreeWidgetItem(application, { tr("Saver") });
 	auto imageGrabber = new QTreeWidgetItem(mTreeWidget, { tr("Image Grabber") });
+	auto snippingArea = new QTreeWidgetItem(imageGrabber, { tr("Snipping Area") });
 	auto uploader = new QTreeWidgetItem(mTreeWidget, { tr("Uploader") });
 	auto imgurUploader = new QTreeWidgetItem(uploader, { tr("Imgur Uploader") });
 	auto scriptUploader = new QTreeWidgetItem(uploader, { tr("Script Uploader") });
@@ -109,6 +114,7 @@ void SettingsDialog::initGui()
 	mNavigatorItems.append(application);
 	mNavigatorItems.append(saver);
 	mNavigatorItems.append(imageGrabber);
+	mNavigatorItems.append(snippingArea);
 	mNavigatorItems.append(uploader);
 	mNavigatorItems.append(imgurUploader);
 	mNavigatorItems.append(scriptUploader);

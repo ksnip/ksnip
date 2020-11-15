@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,34 +17,45 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IMAGEGRABBERSETTINGS_H
-#define KSNIP_IMAGEGRABBERSETTINGS_H
+#ifndef KSNIP_SNIPPINGAREASETTINGS_H
+#define KSNIP_SNIPPINGAREASETTINGS_H
 
 #include <QGroupBox>
 #include <QCheckBox>
+#include <QLabel>
 #include <QGridLayout>
 
 #include "src/backend/config/KsnipConfig.h"
+#include "src/widgets/ColorButton.h"
+#include "src/widgets/NumericComboBox.h"
 
-class ImageGrabberSettings : public QGroupBox
+class SnippingAreaSettings : public QGroupBox
 {
-	Q_OBJECT
+Q_OBJECT
 public:
-	explicit ImageGrabberSettings(KsnipConfig *config);
-	~ImageGrabberSettings() override;
+	explicit SnippingAreaSettings(KsnipConfig *config);
+	~SnippingAreaSettings() override;
 	void saveSettings();
 
 private:
-	QCheckBox *mCaptureCursorCheckbox;
-	QCheckBox *mHideMainWindowDuringScreenshotCheckbox;
-	QCheckBox *mShowMainWindowAfterTakingScreenshotCheckbox;
-	QCheckBox *mForceGenericWaylandCheckbox;
-	QCheckBox *mScaleGenericWaylandScreenshotsCheckbox;
+	QCheckBox *mFreezeImageWhileSnippingCheckbox;
+	QCheckBox *mSnippingAreaRulersCheckbox;
+	QCheckBox *mSnippingAreaPositionAndSizeInfoCheckbox;
+	QCheckBox *mSnippingAreaMagnifyingGlassCheckbox;
+	QCheckBox *mAllowResizingRectSelectionCheckbox;
+	QCheckBox *mShowSnippingAreaInfoTextCheckbox;
+	QLabel *mSnippingCursorSizeLabel;
+	QLabel *mSnippingCursorColorLabel;
+	ColorButton *mSnippingCursorColorButton;
+	NumericComboBox *mSnippingCursorSizeCombobox;
 	QGridLayout *mLayout;
 	KsnipConfig *mConfig;
-
 	void initGui();
 	void loadConfig();
+
+private slots:
+	void freezeImageWhileSnippingStateChanged();
 };
 
-#endif //KSNIP_IMAGEGRABBERSETTINGS_H
+
+#endif //KSNIP_SNIPPINGAREASETTINGS_H

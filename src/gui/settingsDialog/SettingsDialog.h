@@ -35,6 +35,7 @@
 #include "UploaderSettings.h"
 #include "SaverSettings.h"
 #include "StickerSettings.h"
+#include "SnippingAreaSettings.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
 class SettingsDialog : public QDialog
@@ -57,6 +58,7 @@ private:
     UploaderSettings *mUploaderSettings;
     SaverSettings *mSaverSettings;
     StickerSettings *mStickerSettings;
+    SnippingAreaSettings *mSnippingAreaSettings;
 	QTreeWidget *mTreeWidget;
     QStackedLayout *mStackedLayout;
     QList<QTreeWidgetItem*> mNavigatorItems;

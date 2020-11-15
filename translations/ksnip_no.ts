@@ -194,7 +194,7 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Bruk faner</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
@@ -260,7 +260,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Snap og Flatpak -støtte</translation>
     </message>
     <message>
         <source>Feature Implementation</source>
@@ -346,23 +346,24 @@ Do you want to save it?</source>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Slett bilde</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Elementet «%1» vil bli slettet.
+Ønsker du å fortsette?</translation>
     </message>
 </context>
 <context>
     <name>DonateTab</name>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Donasjon</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Bli en GitHub-sponsor</translation>
     </message>
     <message>
         <source>here</source>
@@ -378,11 +379,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip er et ikke-profitabelt ;) gemenhetslig fritt programvareprosjekt, som &lt;br/&gt;likevel har kostnader som må dekkes,&lt;br/&gt;som domene- eller maskinvarekostnader for multiplattformsstøtte.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Hvis du ønsker å hjelpe, eller bare&lt;br/&gt;vil verdsette arbeidet som gjøres&lt;br/&gt;ved å spandere øl eller kaffe på utviklerne, kan du gjøre dette</translation>
     </message>
 </context>
 <context>
@@ -393,7 +394,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>Last opp skript </translation>
     </message>
     <message>
         <source> finished successfully.</source>
@@ -409,7 +410,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunne ikke starte prosess, sjekk sti og tilganger.</translation>
     </message>
     <message>
         <source>Process crashed</source>
@@ -484,7 +485,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Tøm</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
@@ -875,15 +876,15 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation type="unfinished"></translation>
+        <translation>Klarte ikke å vise bilde</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lagre som …</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Lim inn</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
@@ -895,7 +896,7 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Fest</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
@@ -907,27 +908,27 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier sti</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne mappe</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vis</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Slett</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Gi nytt navn</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne bilder</translation>
     </message>
 </context>
 <context>
@@ -942,7 +943,7 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne mappe</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -950,15 +951,15 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier sti</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Slett</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Gi nytt navn</translation>
     </message>
 </context>
 <context>
@@ -1010,11 +1011,11 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Gi bilde nytt navn</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nytt filnavn:</translation>
     </message>
 </context>
 <context>
@@ -1037,15 +1038,15 @@ og avbildning av skjerm.</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kunne ikke lagre bilde</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagret i</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation type="unfinished"></translation>
+        <translation>Klarte ikke å lagre bilde i</translation>
     </message>
 </context>
 <context>
@@ -1092,7 +1093,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Forvalg</translation>
     </message>
     <message>
         <source>Factor</source>
@@ -1112,11 +1113,11 @@ Not all image formats support the full range, JPEG does.</source>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier skriptutdata til utklippstavle</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Skript:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
@@ -1146,7 +1147,7 @@ Without this setting errors in the script will be unnoticed.</source>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
@@ -1229,11 +1230,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Legg til</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Fjern</translation>
     </message>
     <message>
         <source>Add Stickers</source>

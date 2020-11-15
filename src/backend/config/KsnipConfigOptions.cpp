@@ -49,6 +49,11 @@ QString KsnipConfigOptions::switchToSelectToolAfterDrawingItemString()
 	return annotatorSectionString() + QLatin1Literal("SwitchToSelectToolAfterDrawingItem");
 }
 
+QString KsnipConfigOptions::startingNumberUpdatesExistingItemsString()
+{
+	return annotatorSectionString() + QLatin1Literal("StartingNumberUpdatesExistingItems");
+}
+
 QString KsnipConfigOptions::useTabsString()
 {
 	return applicationSectionString() + QLatin1Literal("UseTabs");

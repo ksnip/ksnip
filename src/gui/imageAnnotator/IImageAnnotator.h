@@ -55,6 +55,7 @@ public slots:
 	virtual void setSaveToolSelection(bool enabled) = 0;
 	virtual void setSmoothFactor(int factor) = 0;
 	virtual void setSwitchToSelectToolAfterDrawingItem(bool enabled) = 0;
+	virtual void setStartingNumberUpdatesExistingItems(bool enabled) = 0;
 	virtual void setTabBarAutoHide(bool enabled) = 0;
 	virtual void removeTab(int index) = 0;
 	virtual void setStickers(const QStringList &stickerPaths, bool keepDefault) = 0;

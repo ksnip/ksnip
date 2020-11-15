@@ -68,6 +68,7 @@ public slots:
 	void setSaveToolSelection(bool enabled) override;
 	void setSmoothFactor(int factor) override;
 	void setSwitchToSelectToolAfterDrawingItem(bool enabled) override;
+	void setStartingNumberUpdatesExistingItems(bool enabled) override;
 	void setTabBarAutoHide(bool enabled) override;
 	void removeTab(int index) override;
 	void setStickers(const QStringList &stickerPaths, bool keepDefault) override;

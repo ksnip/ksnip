@@ -28,6 +28,7 @@
 #include "SnippingAreaAdorner.h"
 #include "SnippingAreaResizer.h"
 #include "SnippingAreaSelector.h"
+#include "SnippingAreaInfoText.h"
 #include "src/common/helper/MathHelper.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
@@ -55,6 +56,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
+    void keyReleaseEvent(QKeyEvent *event) override;
     void paintEvent(QPaintEvent *event) override;
 	virtual bool isBackgroundTransparent() const;
     virtual void setFullScreen() = 0;
@@ -65,6 +67,8 @@ private:
 	QPixmap *mBackground;
 	SnippingAreaResizer *mResizer;
 	SnippingAreaSelector *mSelector;
+	SnippingAreaInfoText *mInfoText;
+	bool mIsSwitchPressed;
 
     void setBackgroundImage(const QPixmap &background);
     void clearBackgroundImage();
@@ -75,6 +79,8 @@ private slots:
 	void updateCapturedArea(const QRectF &rect);
 	void updateCursor(const QCursor &cursor);
 	void switchToResizer(QPoint point);
+	void cancelSelection();
+	bool isResizerSwitchRequired() const;
 };
 
 #endif // KSNIP_ABSTRACTSNIPPINGAREA_H

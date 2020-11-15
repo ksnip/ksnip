@@ -65,6 +65,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/AdornerSizeInfo.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/SnippingAreaResizer.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/SnippingAreaSelector.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/snippingArea/SnippingAreaInfoText.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/AnnotationSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/ApplicationSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/ImageGrabberSettings.cpp

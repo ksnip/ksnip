@@ -23,7 +23,9 @@ AbstractSnippingArea::AbstractSnippingArea() :
 	mConfig(KsnipConfigProvider::instance()),
 	mBackground(nullptr),
 	mResizer(new SnippingAreaResizer(this)),
-	mSelector(new SnippingAreaSelector(mConfig, this))
+	mSelector(new SnippingAreaSelector(mConfig, this)),
+	mInfoText(new SnippingAreaInfoText(this)),
+	mIsSwitchPressed(false)
 {
     // Make the frame span across the screen and show above any other widget
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
@@ -41,6 +43,7 @@ AbstractSnippingArea::~AbstractSnippingArea()
     delete mBackground;
     delete mResizer;
     delete mSelector;
+    delete mInfoText;
 }
 
 void AbstractSnippingArea::showWithoutBackground()
@@ -59,9 +62,13 @@ void AbstractSnippingArea::showWithBackground(const QPixmap &background)
 
 void AbstractSnippingArea::showSnippingArea()
 {
+	mIsSwitchPressed = false;
     setFullScreen();
     QApplication::setActiveWindow(this);
 	mSelector->activate(getSnippingAreaGeometry(), QCursor::pos());
+	if(mConfig->showSnippingAreaInfoText()) {
+		mInfoText->activate(getSnippingAreaGeometry(), mConfig->allowResizingRectSelection());
+	}
 	setFocus();
     grabKeyboard(); // Issue #57
 }
@@ -99,18 +106,23 @@ void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
     mResizer->handleMouseRelease(event);
     mSelector->handleMouseRelease(event);
 
-    if(mConfig->allowResizingRectCapture()) {
-		if (!mResizer->isActive()){
-			switchToResizer(event->pos());
-		}
-    } else {
+    if(isResizerSwitchRequired() && !mResizer->isActive()) {
+    	switchToResizer(event->pos());
+    } else if(mSelector->isActive()){
 		finishSelection();
 	}
+}
+
+bool AbstractSnippingArea::isResizerSwitchRequired() const
+{
+	bool allowResizingRectSelection = mConfig->allowResizingRectSelection();
+	return (allowResizingRectSelection && !mIsSwitchPressed) || (!allowResizingRectSelection && mIsSwitchPressed);
 }
 
 void AbstractSnippingArea::switchToResizer(QPoint point)
 {
 	mSelector->deactivate();
+	mInfoText->deactivate();
 	mResizer->activate(mCaptureArea, point);
 	update();
 }
@@ -125,6 +137,7 @@ bool AbstractSnippingArea::closeSnippingArea()
 {
 	mSelector->deactivate();
 	mResizer->deactivate();
+	mInfoText->deactivate();
     releaseKeyboard(); // Issue #57
     return QWidget::close();
 }
@@ -133,6 +146,7 @@ void AbstractSnippingArea::mouseMoveEvent(QMouseEvent *event)
 {
     mResizer->handleMouseMove(event);
     mSelector->handleMouseMove(event);
+    mInfoText->handleMouseMove(event->pos());
     update();
     QWidget::mouseMoveEvent(event);
 }
@@ -156,6 +170,10 @@ void AbstractSnippingArea::paintEvent(QPaintEvent *event)
 	mResizer->paint(&painter);
 	mSelector->paint(&painter);
 
+	painter.setClipRect(snippingAreaGeometry);
+
+	mInfoText->paint(&painter);
+
     QWidget::paintEvent(event);
 }
 
@@ -167,14 +185,29 @@ bool AbstractSnippingArea::isBackgroundTransparent() const
 void AbstractSnippingArea::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
-        emit canceled();
-        closeSnippingArea();
-    }
-
-	if (event->key() == Qt::Key_Return) {
+		cancelSelection();
+	} else if (event->key() == Qt::Key_Return) {
 		finishSelection();
+	} else if (event->key() == Qt::Key_Control){
+		mIsSwitchPressed = true;
 	}
+
     QWidget::keyPressEvent(event);
+}
+
+void AbstractSnippingArea::keyReleaseEvent(QKeyEvent *event)
+{
+	if (event->key() == Qt::Key_Control) {
+		mIsSwitchPressed = false;
+	}
+
+	QWidget::keyReleaseEvent(event);
+}
+
+void AbstractSnippingArea::cancelSelection()
+{
+	emit canceled();
+	closeSnippingArea();
 }
 
 void AbstractSnippingArea::updateCapturedArea(const QRectF &rect)

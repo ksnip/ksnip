@@ -314,17 +314,30 @@ void KsnipConfig::setHideMainWindowDuringScreenshot(bool enabled)
 	saveValue(KsnipConfigOptions::hideMainWindowDuringScreenshotString(), enabled);
 }
 
-bool KsnipConfig::allowResizingRectCapture() const
+bool KsnipConfig::allowResizingRectSelection() const
 {
-	return loadValue(KsnipConfigOptions::allowResizingRectCaptureString(), false).toBool();
+	return loadValue(KsnipConfigOptions::allowResizingRectSelectionString(), false).toBool();
 }
 
-void KsnipConfig::setAllowResizingRectCapture(bool enabled)
+void KsnipConfig::setAllowResizingRectSelection(bool enabled)
 {
-	if (allowResizingRectCapture() == enabled) {
+	if (allowResizingRectSelection() == enabled) {
 		return;
 	}
-	saveValue(KsnipConfigOptions::allowResizingRectCaptureString(), enabled);
+	saveValue(KsnipConfigOptions::allowResizingRectSelectionString(), enabled);
+}
+
+bool KsnipConfig::showSnippingAreaInfoText() const
+{
+	return loadValue(KsnipConfigOptions::showSnippingAreaInfoTextString(), true).toBool();
+}
+
+void KsnipConfig::setShowSnippingAreaInfoText(bool enabled)
+{
+	if (showSnippingAreaInfoText() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::showSnippingAreaInfoTextString(), enabled);
 }
 
 SaveQualityMode KsnipConfig::saveQualityMode() const

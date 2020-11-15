@@ -194,8 +194,11 @@ public:
 	virtual bool hideMainWindowDuringScreenshot() const;
 	virtual void setHideMainWindowDuringScreenshot(bool enabled);
 
-	virtual bool allowResizingRectCapture() const;
-	virtual void setAllowResizingRectCapture(bool enabled);
+	virtual bool allowResizingRectSelection() const;
+	virtual void setAllowResizingRectSelection(bool enabled);
+
+	virtual bool showSnippingAreaInfoText() const;
+	virtual void setShowSnippingAreaInfoText(bool enabled);
 
 	// Uploader
 

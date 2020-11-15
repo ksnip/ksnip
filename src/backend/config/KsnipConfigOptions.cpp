@@ -141,12 +141,17 @@ QString KsnipConfigOptions::useSingleInstanceString()
 
 QString KsnipConfigOptions::hideMainWindowDuringScreenshotString()
 {
-	return applicationSectionString() + QLatin1Literal("HideMainWindowDuringScreenshotString");
+	return applicationSectionString() + QLatin1Literal("HideMainWindowDuringScreenshot");
 }
 
-QString KsnipConfigOptions::allowResizingRectCaptureString()
+QString KsnipConfigOptions::allowResizingRectSelectionString()
 {
-	return applicationSectionString() + QLatin1Literal("AllowResizingRectCaptureString");
+	return applicationSectionString() + QLatin1Literal("AllowResizingRectSelection");
+}
+
+QString KsnipConfigOptions::showSnippingAreaInfoTextString()
+{
+	return applicationSectionString() + QLatin1Literal("ShowSnippingAreaInfoText");
 }
 
 QString KsnipConfigOptions::textFontString()

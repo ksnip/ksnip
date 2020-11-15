@@ -87,7 +87,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх&#x2028;
+ліній, залишених пером чи маркером, але зробить їх 
 плавнішими.</translation>
     </message>
     <message>
@@ -144,7 +144,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Після малювання об&apos;єкта перемкнутися на засіб позначення</translation>
     </message>
 </context>
 <context>
@@ -225,7 +225,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Запам&apos;ятати розташування головного вікна і відновлювати його після запуску</translation>
     </message>
 </context>
 <context>
@@ -268,7 +268,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Feature Implementation</source>
-        <translation type="unfinished"></translation>
+        <translation>Реалізація можливості</translation>
     </message>
 </context>
 <context>
@@ -523,7 +523,7 @@ the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Показувати збільшувальне скло, яке дає змогу
 наблизити фонове зображення. Цей пункт
-працюватиме,&#x2028;лише якщо ввімкнено замороження зображення.</translation>
+працюватиме, лише якщо ввімкнено замороження зображення.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -614,39 +614,43 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати головне вікно після створення знімка</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати головне вікно після створення знімка,
+якщо головне вікно приховано або згорнуто.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволити зміну розмірів прямокутного позначення</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо позначено, після вибору прямокутної
+ділянки буде уможливлено зміну її розмірів.
+Зміну розмірів може бути підтверджено
+натисканням клавіші Enter.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Ховати головне вікно під час створення знімка</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ховати головне вікно під час створення знімка.</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Встановлює колір вказівника області обрізання.</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Встановлює товщину вказівника області обрізання.</translation>
     </message>
 </context>
 <context>
@@ -949,11 +953,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Перейменувати</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити зображення</translation>
     </message>
 </context>
 <context>
@@ -984,7 +988,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Перейменувати</translation>
     </message>
 </context>
 <context>
@@ -1020,27 +1024,27 @@ and capturing screenshot.</source>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Зображення перейменовано</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Зображення успішно перейменовано на </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося перейменувати зображення</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося перейменувати зображення на </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Перейменувати зображення</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Нова назва файла:</translation>
     </message>
 </context>
 <context>
@@ -1271,7 +1275,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Додати наліпки</translation>
     </message>
 </context>
 <context>

@@ -143,7 +143,7 @@ för penna och markör, men gör dem mjukare.</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Växla för att välja verktyg efter att ett objekt ritats</translation>
     </message>
 </context>
 <context>
@@ -224,7 +224,7 @@ Om det här alternativet ändras måste alla öppna instanser startas om.</trans
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Kom ihåg huvudfönstrets position vid förflyttning och läs in vid programstart</translation>
     </message>
 </context>
 <context>
@@ -267,7 +267,7 @@ Om det här alternativet ändras måste alla öppna instanser startas om.</trans
     </message>
     <message>
         <source>Feature Implementation</source>
-        <translation type="unfinished"></translation>
+        <translation>Funktionsimplementering</translation>
     </message>
 </context>
 <context>
@@ -612,39 +612,43 @@ GNOME att använda XDG-DESKTOP-PORTAL-skärmklipp.
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa huvudfönstret efter utfört skärmklipp</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa huvudfönstret efter nytt skärmklipp, om
+huvudfönstret var dolt eller minimerat.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillåt storleksändring av rektangelmarkering</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vid aktivering kommer en rektangulär
+områdesmarkering att kunna storleksändras.
+När storleksändringen slutförts kan den
+tillämpas genom att trycka Retur.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj huvudfönstret under skärmklipp</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj huvudfönstret när du tar ett nytt skärmklipp.</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anger färgen på markören för klippområdet.</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anger tjockleken på klippområdets markör.</translation>
     </message>
 </context>
 <context>
@@ -947,11 +951,11 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Byt namn</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna bilder</translation>
     </message>
 </context>
 <context>
@@ -982,7 +986,7 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Byt namn</translation>
     </message>
 </context>
 <context>
@@ -1018,27 +1022,27 @@ och själva skärmklippet.</translation>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilden har bytt namn</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Bilden har bytt namn till </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte byta namn</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte byta namn till </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Byt namn på bilden</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nytt filnamn:</translation>
     </message>
 </context>
 <context>
@@ -1269,7 +1273,7 @@ När detta utelämnas kopieras allt.</translation>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till dekaler</translation>
     </message>
 </context>
 <context>

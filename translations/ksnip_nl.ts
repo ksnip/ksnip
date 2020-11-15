@@ -144,7 +144,7 @@ gladder.</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Overschakelen naar selectiegereedschap na tekenen</translation>
     </message>
 </context>
 <context>
@@ -225,7 +225,7 @@ wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch opstarten met vorige schermpositie van hoofdvenster</translation>
     </message>
 </context>
 <context>
@@ -268,7 +268,7 @@ wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Feature Implementation</source>
-        <translation type="unfinished"></translation>
+        <translation>Functietoevoeging</translation>
     </message>
 </context>
 <context>
@@ -611,39 +611,42 @@ maken van schermfoto&apos;s. Herstart ksnip om de wijziging toe te passen.</tran
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoofdvenster tonen na maken van schermfoto</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Toon het hoofdvenster na het maken van een schermfoto
+als het hoofdvenster geminimaliseerd of verborgen is.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Aanpassen van rechthoekige selectie toestaan</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel in om de afmetingen van het gebied van
+een rechthoekige selectie aan te passen. Druk na
+het aanpassen op Enter om op te slaan.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoofdvenster verbergen tijdens maken van schermfoto</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verberg het hoofdvenster tijdens het maken van een schermfoto.</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stel de kleur in van de cursor op het knipselgebied.</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stel de dikte in van de cursor op het knipselgebied.</translation>
     </message>
 </context>
 <context>
@@ -946,11 +949,11 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Naam wijzigen</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeeldingen openen</translation>
     </message>
 </context>
 <context>
@@ -981,7 +984,7 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Naam wijzigen</translation>
     </message>
 </context>
 <context>
@@ -1017,27 +1020,27 @@ van schermfoto, in seconden.</translation>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>De afbeeldingsnaam is gewijzigd</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>De nieuwe afbeeldingsnaam is </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Naamswijziging mislukt</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>De afbeeldingsnaam kan niet worden gewijzigd in </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeeldingsnaam wijzigen</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieuwe bestandsnaam:</translation>
     </message>
 </context>
 <context>
@@ -1268,7 +1271,7 @@ Sla over om álles te kopiëren.</translation>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Stickers toevoegen</translation>
     </message>
 </context>
 <context>

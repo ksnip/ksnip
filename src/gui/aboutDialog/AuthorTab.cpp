@@ -24,11 +24,11 @@ AuthorTab::AuthorTab()
 	mLayout = new QVBoxLayout();
 	mContent = new QLabel();
 	mContent->setText(
-		           QLatin1Literal("<b>") + tr("The Author:") + QLatin1Literal("</b><br>") +
-				   QLatin1Literal("Damir Porobic ") + createEmailEntry(QLatin1Literal("damir.porobic@gmx.com")) + QLatin1Literal("<br><br>") +
+		           QLatin1Literal("<b>") + tr("The Authors:") + QLatin1Literal("</b><br>") +
+				   QLatin1Literal("Damir Porobic ") + createEmailEntry(QLatin1Literal("damir.porobic@gmx.com")) + QLatin1Literal("<br>") +
+				   QLatin1Literal("Stefan Comanescu") + createEmailEntry(QLatin1Literal("fnkabit@gmail.com")) + QLatin1Literal("<br><br>") +
 				   QLatin1Literal("<b>") + tr("Contributors:") + QLatin1Literal("</b><br>") +
 				   createContributorEntry(QLatin1Literal("Galileo Sartor"), tr("Snap & Flatpak Support")) +
-				   createContributorEntry(QLatin1Literal("Stefan Comanescu"), tr("Feature Implementation"), QLatin1Literal("fnkabit@gmail.com")) +
 				   createContributorEntry(QStringLiteral("Luis Vásquez"), tr("Spanish Translation"), QLatin1Literal("lvaskz@protonmail.com")) +
 				   createContributorEntry(QLatin1Literal("Heimen Stoffels"), tr("Dutch Translation"), QLatin1Literal("vistausss@outlook.com")) +
 				   createContributorEntry(QLatin1Literal("Yury Martynov"), tr("Russian Translation"), QLatin1Literal("email@linxon.ru")) +

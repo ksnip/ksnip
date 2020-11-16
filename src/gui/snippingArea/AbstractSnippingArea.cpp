@@ -99,7 +99,6 @@ void AbstractSnippingArea::mousePressEvent(QMouseEvent *event)
 
     mResizer->handleMousePress(event);
     mSelector->handleMousePress(event);
-    update();
 }
 
 void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
@@ -116,7 +115,6 @@ void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
     } else if(mSelector->isActive()){
 		finishSelection();
 	}
-    update();
 }
 
 bool AbstractSnippingArea::isResizerSwitchRequired() const
@@ -170,8 +168,6 @@ void AbstractSnippingArea::paintEvent(QPaintEvent *event)
 
     painter.setBrush(QColor(0, 0, 0, 150));
 	painter.drawRect(snippingAreaGeometry);
-
-	painter.setClipRect(snippingAreaGeometry);
 
 	mResizer->paint(&painter);
 	mSelector->paint(&painter);

@@ -59,11 +59,9 @@ void SnippingAreaResizer::paint(QPainter *painter)
 		painter->setBrush(Qt::NoBrush);
 		painter->setPen(QPen(Qt::red, 2, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
 		painter->drawRect(mCurrentRect);
-		if(mGrabbedHandleIndex == -1) {
-			painter->setBrush(Qt::red);
-			for(const auto handle : mHandles) {
-				painter->drawEllipse(handle);
-			}
+		painter->setBrush(Qt::red);
+		for(const auto handle : mHandles) {
+			painter->drawEllipse(handle);
 		}
 	}
 }

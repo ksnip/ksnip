@@ -30,6 +30,7 @@
 * Changed: Upload multiple stickers at once. ([#427](https://github.com/ksnip/ksnip/issues/427))
 * Changed: Follow pattern for monochromatic systray icon. ([#352](https://github.com/ksnip/ksnip/issues/352))
 * Changed: Pin window shows default cursor when mouse over it. ([#465](https://github.com/ksnip/ksnip/issues/465))
+* Changed: Cancel snipping area if no selection made after 60 sec. ([#475](https://github.com/ksnip/ksnip/issues/475))
 * Changed kImageAnnotator: Draw point when clicking and releasing without moving cursor. ([#136](https://github.com/ksnip/kImageAnnotator/issues/136))
 * Changed kImageAnnotator: Zoom out less than 100%. ([#150](https://github.com/ksnip/kImageAnnotator/issues/150))
 * Changed kImageAnnotator: Change to select tool after adding new annotation item. ([#155](https://github.com/ksnip/kImageAnnotator/issues/155))

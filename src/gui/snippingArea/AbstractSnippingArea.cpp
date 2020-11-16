@@ -25,7 +25,8 @@ AbstractSnippingArea::AbstractSnippingArea() :
 	mResizer(new SnippingAreaResizer(this)),
 	mSelector(new SnippingAreaSelector(mConfig, this)),
 	mInfoText(new SnippingAreaInfoText(this)),
-	mIsSwitchPressed(false)
+	mIsSwitchPressed(false),
+	mTimer(new QTimer(this))
 {
     // Make the frame span across the screen and show above any other widget
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
@@ -36,6 +37,7 @@ AbstractSnippingArea::AbstractSnippingArea() :
     connect(mResizer, &SnippingAreaResizer::cursorChanged, this, &AbstractSnippingArea::updateCursor);
 	connect(mSelector, &SnippingAreaSelector::rectChanged, this, &AbstractSnippingArea::updateCapturedArea);
 	connect(mSelector, &SnippingAreaSelector::cursorChanged, this, &AbstractSnippingArea::updateCursor);
+	connect(mTimer, &QTimer::timeout, this, &AbstractSnippingArea::cancelSelection);
 }
 
 AbstractSnippingArea::~AbstractSnippingArea()
@@ -44,6 +46,7 @@ AbstractSnippingArea::~AbstractSnippingArea()
     delete mResizer;
     delete mSelector;
     delete mInfoText;
+    delete mTimer;
 }
 
 void AbstractSnippingArea::showWithoutBackground()
@@ -62,6 +65,7 @@ void AbstractSnippingArea::showWithBackground(const QPixmap &background)
 
 void AbstractSnippingArea::showSnippingArea()
 {
+	startTimeout();
 	mIsSwitchPressed = false;
     setFullScreen();
     QApplication::setActiveWindow(this);
@@ -208,6 +212,7 @@ void AbstractSnippingArea::keyReleaseEvent(QKeyEvent *event)
 
 void AbstractSnippingArea::cancelSelection()
 {
+	stopTimeout();
 	emit canceled();
 	closeSnippingArea();
 }
@@ -220,6 +225,7 @@ void AbstractSnippingArea::updateCapturedArea(const QRectF &rect)
 
 void AbstractSnippingArea::finishSelection()
 {
+	stopTimeout();
 	emit finished();
 	mConfig->setLastRectArea(selectedRectArea());
 	closeSnippingArea();
@@ -228,4 +234,14 @@ void AbstractSnippingArea::finishSelection()
 void AbstractSnippingArea::updateCursor(const QCursor &cursor)
 {
 	setCursor(cursor);
+}
+
+void AbstractSnippingArea::stopTimeout()
+{
+	mTimer->stop();
+}
+
+void AbstractSnippingArea::startTimeout()
+{
+	mTimer->start(60000);
 }

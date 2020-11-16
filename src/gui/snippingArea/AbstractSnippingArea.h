@@ -24,6 +24,7 @@
 #include <QMouseEvent>
 #include <QDesktopWidget>
 #include <QApplication>
+#include <QTimer>
 
 #include "SnippingAreaAdorner.h"
 #include "SnippingAreaResizer.h"
@@ -69,6 +70,7 @@ private:
 	SnippingAreaSelector *mSelector;
 	SnippingAreaInfoText *mInfoText;
 	bool mIsSwitchPressed;
+	QTimer *mTimer;
 
     void setBackgroundImage(const QPixmap &background);
     void clearBackgroundImage();
@@ -81,6 +83,8 @@ private slots:
 	void switchToResizer(QPoint point);
 	void cancelSelection();
 	bool isResizerSwitchRequired() const;
+	void startTimeout();
+	void stopTimeout();
 };
 
 #endif // KSNIP_ABSTRACTSNIPPINGAREA_H

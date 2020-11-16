@@ -39,15 +39,16 @@ SnippingAreaInfoText::~SnippingAreaInfoText()
 
 void SnippingAreaInfoText::updateInfoText()
 {
-	auto selectRect = tr("Click and Drag to select a rectangular area or press ESC to quit");
+	auto selectRect = tr("Click and Drag to select a rectangular area or press ESC to quit.");
 	auto resizeAfterSelection = tr("Hold CTRL pressed to resize selection after selecting.");
 	auto dontResizeAfterSelection = tr("Hold CTRL pressed to prevent resizing after selecting.");
+	auto cancelAfterTimeout = tr("Operation will be canceled after 60 sec when no selection made.");
 	auto infoTextCanBeDisabled = tr("This message can be disabled via settings.");
 	auto newLine = QLatin1Literal("\n");
 	if(mIsResizingDefault) {
-		mInfoText = selectRect + newLine + dontResizeAfterSelection + newLine + infoTextCanBeDisabled;
+		mInfoText = selectRect + newLine + dontResizeAfterSelection + newLine + cancelAfterTimeout + newLine + infoTextCanBeDisabled;
 	} else {
-		mInfoText = selectRect + newLine + resizeAfterSelection + newLine + infoTextCanBeDisabled;
+		mInfoText = selectRect + newLine + resizeAfterSelection + newLine + cancelAfterTimeout + newLine + infoTextCanBeDisabled;
 	}
 }
 

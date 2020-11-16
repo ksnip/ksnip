@@ -95,6 +95,7 @@ void AbstractSnippingArea::mousePressEvent(QMouseEvent *event)
 
     mResizer->handleMousePress(event);
     mSelector->handleMousePress(event);
+    update();
 }
 
 void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
@@ -111,6 +112,7 @@ void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
     } else if(mSelector->isActive()){
 		finishSelection();
 	}
+    update();
 }
 
 bool AbstractSnippingArea::isResizerSwitchRequired() const

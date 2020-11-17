@@ -51,6 +51,7 @@ private:
 	QLineEdit *mClientIdLineEdit;
 	QLineEdit *mClientSecretLineEdit;
 	QLineEdit *mPinLineEdit;
+	QLineEdit *mUsernameLineEdit;
 	CustomLineEdit *mBaseUrlLineEdit;
 	QLabel *mUsernameLabel;
 	QLabel *mBaseUrlLabel;
@@ -72,6 +73,7 @@ private slots:
 	void imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username);
 	void imgurTokenError(const QString &message);
 	void showImgurHistoryDialog();
+	void usernameChanged();
 };
 
 #endif //KSNIP_IMGURUPLOADERSETTINGS_H

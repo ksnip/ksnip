@@ -28,11 +28,13 @@ ImgurUploaderSettings::ImgurUploaderSettings(KsnipConfig *ksnipConfig) :
 	mClientIdLineEdit(new QLineEdit(this)),
 	mClientSecretLineEdit(new QLineEdit(this)),
 	mPinLineEdit(new QLineEdit(this)),
+	mUsernameLineEdit(new QLineEdit(this)),
 	mBaseUrlLineEdit(new CustomLineEdit(this)),
 	mUsernameLabel(new QLabel(this)),
 	mBaseUrlLabel(new QLabel(this)),
 	mGetPinButton(new QPushButton(this)),
 	mGetTokenButton(new QPushButton(this)),
+	mClearTokenButton(new QPushButton(this)),
 	mHistoryButton(new QPushButton(this)),
 	mImgurWrapper(new ImgurWrapper(mConfig->imgurBaseUrl(), this)),
 	mLayout(new QGridLayout(this))
@@ -52,11 +54,13 @@ ImgurUploaderSettings::~ImgurUploaderSettings()
 	delete mClientIdLineEdit;
 	delete mClientSecretLineEdit;
 	delete mPinLineEdit;
+	delete mUsernameLineEdit;
 	delete mBaseUrlLineEdit;
 	delete mUsernameLabel;
 	delete mBaseUrlLabel;
 	delete mGetPinButton;
 	delete mGetTokenButton;
+	delete mClearTokenButton;
 	delete mHistoryButton;
 	delete mImgurWrapper;
 	delete mLayout;
@@ -100,6 +104,12 @@ void ImgurUploaderSettings::initGui()
 	mBaseUrlLineEdit->setPlaceholderText(DefaultValues::ImgurBaseUrl);
 	mBaseUrlLineEdit->setToolTip(mBaseUrlLabel->toolTip());
 
+	mUsernameLabel->setText(tr("Username") + QLatin1Literal(":"));
+
+	mUsernameLineEdit->setReadOnly(true);
+
+	connect(mUsernameLineEdit, &QLineEdit::textChanged, this, &ImgurUploaderSettings::usernameChanged);
+
 	mGetPinButton->setText(tr("Get PIN"));
 	connect(mGetPinButton, &QPushButton::clicked, this, &ImgurUploaderSettings::requestImgurPin);
 	mGetPinButton->setEnabled(false);
@@ -107,6 +117,9 @@ void ImgurUploaderSettings::initGui()
 	mGetTokenButton->setText(tr("Get Token"));
 	connect(mGetTokenButton, &QPushButton::clicked, this, &ImgurUploaderSettings::getImgurToken);
 	mGetTokenButton->setEnabled(false);
+
+	mClearTokenButton->setText(tr("Clear Token"));
+	connect(mClearTokenButton, &QPushButton::clicked, this, &ImgurUploaderSettings::clearImgurToken);
 
 	mHistoryButton->setText(tr("Imgur History"));
 	connect(mHistoryButton, &QPushButton::clicked, this, &ImgurUploaderSettings::showImgurHistoryDialog);
@@ -121,13 +134,15 @@ void ImgurUploaderSettings::initGui()
 	mLayout->addWidget(mBaseUrlLabel, 5, 0, 1, 1);
 	mLayout->addWidget(mBaseUrlLineEdit, 5, 1, 1, 2);
 	mLayout->setRowMinimumHeight(6, 15);
-	mLayout->addWidget(mUsernameLabel, 7, 0, 1, 3);
-	mLayout->addWidget(mHistoryButton, 7, 3, 1, 1);
+	mLayout->addWidget(mUsernameLabel, 7, 0, 1, 1);
+	mLayout->addWidget(mUsernameLineEdit, 7, 1, 1, 2);
+	mLayout->addWidget(mClearTokenButton, 7, 3, 1, 1);
 	mLayout->addWidget(mClientIdLineEdit, 8, 0, 1, 3);
 	mLayout->addWidget(mClientSecretLineEdit, 9, 0, 1, 3);
 	mLayout->addWidget(mGetPinButton, 9, 3, 1, 1);
 	mLayout->addWidget(mPinLineEdit, 10, 0, 1, 3);
 	mLayout->addWidget(mGetTokenButton, 10, 3, 1, 1);
+	mLayout->addWidget(mHistoryButton, 11, 3, 1, 1);
 
 	setTitle(tr("Imgur Uploader"));
 	setLayout(mLayout);
@@ -139,12 +154,14 @@ void ImgurUploaderSettings::loadConfig()
 	mOpenLinkInBrowserCheckbox->setChecked(mConfig->imgurOpenLinkInBrowser());
 	mDirectLinkToImageCheckbox->setChecked(mConfig->imgurLinkDirectlyToImage());
 	mAlwaysCopyToClipboardCheckBox->setChecked(mConfig->imgurAlwaysCopyToClipboard());
+	mUsernameLineEdit->setText(mConfig->imgurUsername());
 	mBaseUrlLineEdit->setText(mConfig->imgurBaseUrl());
 
-	mUsernameLabel->setText(tr("Username") + ": " + mConfig->imgurUsername());
 	if(!mConfig->imgurClientId().isEmpty()) {
 		mClientIdLineEdit->setPlaceholderText(mConfig->imgurClientId());
 	}
+
+	usernameChanged();
 }
 
 /*
@@ -179,6 +196,15 @@ void ImgurUploaderSettings::getImgurToken()
 	qInfo("%s", qPrintable(tr("Waiting for imgur.com…")));
 }
 
+void ImgurUploaderSettings::clearImgurToken()
+{
+	mConfig->setImgurAccessToken({});
+	mConfig->setImgurRefreshToken({});
+	mConfig->setImgurUsername({});
+
+	mUsernameLineEdit->setText({});
+}
+
 void ImgurUploaderSettings::imgurClientEntered(const QString&)
 {
 	mGetPinButton->setEnabled(!mClientIdLineEdit->text().isEmpty() && !mClientSecretLineEdit->text().isEmpty());
@@ -194,7 +220,7 @@ void ImgurUploaderSettings::imgurTokenUpdated(const QString& accessToken, const 
 	mConfig->setImgurRefreshToken(refreshToken.toUtf8());
 	mConfig->setImgurUsername(username);
 
-	mUsernameLabel->setText(tr("Username:") + username);
+	mUsernameLineEdit->setText(username);
 	qInfo("%s", qPrintable(tr("Imgur.com token successfully updated.")));
 }
 
@@ -212,5 +238,10 @@ void ImgurUploaderSettings::showImgurHistoryDialog()
 {
 	ImgurHistoryDialog dialog;
 	dialog.exec();
+}
+
+void ImgurUploaderSettings::usernameChanged()
+{
+	mClearTokenButton->setEnabled(!mUsernameLineEdit->text().isEmpty());
 }
 

@@ -33,6 +33,7 @@ ImgurUploaderSettings::ImgurUploaderSettings(KsnipConfig *ksnipConfig) :
 	mBaseUrlLabel(new QLabel(this)),
 	mGetPinButton(new QPushButton(this)),
 	mGetTokenButton(new QPushButton(this)),
+	mClearTokenButton(new QPushButton(this)),
 	mHistoryButton(new QPushButton(this)),
 	mImgurWrapper(new ImgurWrapper(mConfig->imgurBaseUrl(), this)),
 	mLayout(new QGridLayout(this))
@@ -57,6 +58,7 @@ ImgurUploaderSettings::~ImgurUploaderSettings()
 	delete mBaseUrlLabel;
 	delete mGetPinButton;
 	delete mGetTokenButton;
+	delete mClearTokenButton;
 	delete mHistoryButton;
 	delete mImgurWrapper;
 	delete mLayout;
@@ -108,6 +110,10 @@ void ImgurUploaderSettings::initGui()
 	connect(mGetTokenButton, &QPushButton::clicked, this, &ImgurUploaderSettings::getImgurToken);
 	mGetTokenButton->setEnabled(false);
 
+	mClearTokenButton->setText(tr("Clear Token"));
+	connect(mClearTokenButton, &QPushButton::clicked, this, &ImgurUploaderSettings::clearImgurToken);
+	mClearTokenButton->setEnabled(!mConfig->imgurUsername().isEmpty());
+
 	mHistoryButton->setText(tr("Imgur History"));
 	connect(mHistoryButton, &QPushButton::clicked, this, &ImgurUploaderSettings::showImgurHistoryDialog);
 
@@ -128,6 +134,7 @@ void ImgurUploaderSettings::initGui()
 	mLayout->addWidget(mGetPinButton, 9, 3, 1, 1);
 	mLayout->addWidget(mPinLineEdit, 10, 0, 1, 3);
 	mLayout->addWidget(mGetTokenButton, 10, 3, 1, 1);
+	mLayout->addWidget(mClearTokenButton, 11, 3, 1, 1);
 
 	setTitle(tr("Imgur Uploader"));
 	setLayout(mLayout);
@@ -179,6 +186,16 @@ void ImgurUploaderSettings::getImgurToken()
 	qInfo("%s", qPrintable(tr("Waiting for imgur.com…")));
 }
 
+void ImgurUploaderSettings::clearImgurToken()
+{
+	mConfig->setImgurAccessToken("");
+	mConfig->setImgurRefreshToken("");
+	mConfig->setImgurUsername("");
+
+	mUsernameLabel->setText(tr("Username:"));
+	mClearTokenButton->setEnabled(false);
+}
+
 void ImgurUploaderSettings::imgurClientEntered(const QString&)
 {
 	mGetPinButton->setEnabled(!mClientIdLineEdit->text().isEmpty() && !mClientSecretLineEdit->text().isEmpty());
@@ -195,6 +212,7 @@ void ImgurUploaderSettings::imgurTokenUpdated(const QString& accessToken, const 
 	mConfig->setImgurUsername(username);
 
 	mUsernameLabel->setText(tr("Username:") + username);
+	mClearTokenButton->setEnabled(true);
 	qInfo("%s", qPrintable(tr("Imgur.com token successfully updated.")));
 }
 

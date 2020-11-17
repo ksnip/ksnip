@@ -56,6 +56,7 @@ private:
 	QLabel *mBaseUrlLabel;
 	QPushButton *mGetPinButton;
 	QPushButton *mGetTokenButton;
+	QPushButton *mClearTokenButton;
 	QPushButton *mHistoryButton;
 	ImgurWrapper *mImgurWrapper;
 	QGridLayout *mLayout;
@@ -66,6 +67,7 @@ private:
 private slots:
 	void requestImgurPin();
 	void getImgurToken();
+	void clearImgurToken();
 	void imgurClientEntered(const QString &text);
 	void imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username);
 	void imgurTokenError(const QString &message);

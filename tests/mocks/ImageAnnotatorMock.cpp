@@ -192,7 +192,7 @@ int ImageAnnotatorMock::hide_callCounter() const
 	return mHideCallCounter;
 }
 
-void ImageAnnotatorMock::setStartingNumberUpdatesExistingItems(bool enabled)
+void ImageAnnotatorMock::setNumberUpdateMode(NumberUpdateMode numberUpdateMode)
 {
 
 }

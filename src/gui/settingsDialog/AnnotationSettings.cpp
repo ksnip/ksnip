@@ -82,7 +82,7 @@ void AnnotationSettings::saveSettings()
     mConfig->setRotateWatermarkEnabled(mRotateWatermarkCheckbox->isChecked());
     mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
     mConfig->setSwitchToSelectToolAfterDrawingItem(mSwitchToSelectToolAfterDrawingItemCheckbox->isChecked());
-    mConfig->setStartingNumberUpdatesExistingItems(mStartingNumberUpdatesExistingItemsCheckbox->isChecked());
+    mConfig->setNumberUpdateMode((mStartingNumberUpdatesExistingItemsCheckbox->isChecked() ? kImageAnnotator::NumberUpdateMode::UseNextNumber : kImageAnnotator::NumberUpdateMode::UseStartingNumber));
 }
 
 void AnnotationSettings::initGui()
@@ -183,7 +183,7 @@ void AnnotationSettings::loadConfig()
     mRotateWatermarkCheckbox->setChecked(mConfig->rotateWatermarkEnabled());
     mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
     mSwitchToSelectToolAfterDrawingItemCheckbox->setChecked(mConfig->switchToSelectToolAfterDrawingItem());
-    mStartingNumberUpdatesExistingItemsCheckbox->setChecked(mConfig->startingNumberUpdatesExistingItems());
+    mStartingNumberUpdatesExistingItemsCheckbox->setChecked(mConfig->numberUpdateMode() == kImageAnnotator::NumberUpdateMode::UseNextNumber);
     smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
 }
 

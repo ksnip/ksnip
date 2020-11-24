@@ -31,7 +31,7 @@ public:
 	static QString autoSaveNewCapturesString();
 	static QString rememberToolSelectionString();
 	static QString switchToSelectToolAfterDrawingItemString();
-	static QString startingNumberUpdatesExistingItemsString();
+	static QString numberUpdateModeString();
 	static QString useTabsString();
 	static QString autoHideTabsString();
 	static QString captureOnStartupString();

@@ -184,8 +184,7 @@ target_link_libraries(ksnip
 					  Qt5::Xml
 					  Qt5::PrintSupport
 					  Qt5::DBus
-					  kImageAnnotator
-					  kColorPicker
+					  kImageAnnotator::kImageAnnotator
 					  Qt5::Svg
 					  )
 

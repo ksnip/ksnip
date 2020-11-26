@@ -26,6 +26,7 @@
 * New kImageAnnotator: Add text pointer annotation item. ([#154](https://github.com/ksnip/kImageAnnotator/issues/154))
 * New kImageAnnotator: Add text pointer with arrow annotation item. ([#153](https://github.com/ksnip/kImageAnnotator/issues/153))
 * New kImageAnnotator: Add option to automatically switching to select tool after drawing item. ([#161](https://github.com/ksnip/kImageAnnotator/issues/161))
+* New kImageAnnotator: Edit Text box with double click. ([#60](https://github.com/ksnip/kImageAnnotator/issues/60))
 * Changed: Show all Screenshot options in System Tray. ([#404](https://github.com/ksnip/ksnip/issues/404))
 * Changed: Upload multiple stickers at once. ([#427](https://github.com/ksnip/ksnip/issues/427))
 * Changed: Follow pattern for monochromatic systray icon. ([#352](https://github.com/ksnip/ksnip/issues/352))
@@ -44,6 +45,8 @@
 * Fixed kImageAnnotator: Text tool opens many unix sockets. ([#144](https://github.com/ksnip/kImageAnnotator/issues/144))
 * Fixed kImageAnnotator: Text No Border and No Fill shows shadow beneath text. ([#148](https://github.com/ksnip/kImageAnnotator/issues/148))
 * Fixed kImageAnnotator: Item properties remain displayed after item is removed or deselected. ([#168](https://github.com/ksnip/kImageAnnotator/issues/168))
+* Fixed kImageAnnotator: Changing text box through editing text doesn't update resize handles. ([#171](https://github.com/ksnip/kImageAnnotator/issues/171))
+* Fixed kColorPicker: Border around colors is not centered. ([#6](https://github.com/ksnip/kColorPicker/issues/6))
 
 ## Release 1.7.3
 * New: Provide ksnip flatpak. ([#127](https://github.com/ksnip/ksnip/issues/127))

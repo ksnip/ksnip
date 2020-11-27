@@ -75,7 +75,8 @@
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation>Όταν είναι ενεργοποιημένο, εξομαλύνει την χάραξη της γραφίδας και των σημαδευτών μετά το πέρας της ενέργειας.</translation>
+        <translation>Όταν είναι ενεργοποιημένο, εξομαλύνει την χάραξη
+της γραφίδας και των σημαδευτών μετά το πέρας της ενέργειας.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
@@ -85,7 +86,9 @@ marker paths after finished drawing.</source>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation>Η αύξηση της του συντελεστή εξομάλυνσης θα μειώσει την ακρίβεια της γραφίδας και των σημαδευτών αλλά η χάραξη θα φαίνεται πιο ομαλοποιημένη.</translation>
+        <translation>Η αύξηση της του συντελεστή εξομάλυνσης θα μειώσει
+την ακρίβεια της γραφίδας και των σημαδευτών αλλά
+η χάραξη θα φαίνεται πιο ομαλοποιημένη.</translation>
     </message>
     <message>
         <source>Text Font</source>
@@ -137,11 +140,11 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Απομνημόνευση της επιλογής του εργαλείου σημειώσεων και φόρτωση στην εκκίνηση</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Εναλλαγή στο εργαλείο επιλογής μετά τον σχεδιασμό του αντικειμένου</translation>
     </message>
 </context>
 <context>
@@ -157,7 +160,8 @@ make them more smooth.</source>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation>Ορίζει την τεχνοτροπία εμφάνισης της εφαρμογής. Για να ληφθούν υπόψιν οι αλλαγές, απαιτείται επανεκκίνηση του ksnip.</translation>
+        <translation>Ορίζει την τεχνοτροπία εμφάνισης της εφαρμογής.
+Για να ληφθούν υπόψιν οι αλλαγές, απαιτείται επανεκκίνηση του ksnip.</translation>
     </message>
     <message>
         <source>Application Settings</source>
@@ -170,7 +174,9 @@ Change requires ksnip restart to take effect.</source>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation>Όταν είναι ενεργοποιημένο προστίθεται ένα εικονίδιο στο πλαίσιο συστήματος αν υποστηρίζεται από τον διαχειριστή παραθύρων του λειτουργικού συστήματος. Για να ληφθούν υπόψιν οι αλλαγές, απαιτείται επανεκκίνηση.</translation>
+        <translation>Όταν είναι ενεργοποιημένο προστίθεται ένα εικονίδιο στο πλαίσιο συστήματος
+αν υποστηρίζεται από τον διαχειριστή παραθύρων του λειτουργικού συστήματος. 
+Για να ληφθούν υπόψιν οι αλλαγές, απαιτείται επανεκκίνηση.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
@@ -202,22 +208,24 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Εκκίνηση ελαχιστοποιημένο στο πλαίσιο συστήματος</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Απόκρυψη της γραμμής καρτελών κατά την χρήση μιας καρτέλας.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ενεργοποιώντας αυτήν την επιλογή θα επιτρέπεται μόνον μια εκτέλεση του ksnip.
+Όλες οι μετέπειτα εκτελέσεις θα περάσουν τα ορίσματά τους στην πρώτη υπόσταση και θα κλείσουν.
+Η αλλαγή της επιλογής αυτής απαιτεί επανεκκίνηση όλων των εκτελέσεων.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Απομνημόνευση της θέσης του κύριου παραθύρου κατά την μετακίνηση και φόρτωση στην εκκίνηση</translation>
     </message>
 </context>
 <context>
@@ -256,11 +264,11 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Υποστήριξη Snap &amp; Flatpak</translation>
     </message>
     <message>
         <source>Feature Implementation</source>
-        <translation type="unfinished"></translation>
+        <translation>Υλοποίηση χαρακτηριστικού</translation>
     </message>
 </context>
 <context>
@@ -272,7 +280,8 @@ a new start of all instances.</source>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Η σύλληψη %1%2%3 έχει τροποποιηθεί.
+Θέλετε να την αποθηκεύσετε;</translation>
     </message>
 </context>
 <context>
@@ -331,30 +340,31 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Πύλη στιγμιότυπου</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρησιμοποιήστε την πύλη στιγμιότυπου για την λήψη ενός στιγμιότυπου</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαγραφή της εικόνας</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Το αντικείμενο %1 δια διαγραφεί.
+Θέλετε να συνεχίσετε;</translation>
     </message>
 </context>
 <context>
     <name>DonateTab</name>
     <message>
         <source>here</source>
-        <translation>Εδώ</translation>
+        <translation>εδώ</translation>
     </message>
     <message>
         <source>Also possible, </source>
@@ -366,19 +376,19 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Δωρεά</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Γίνετε χορηγός στο GitHub</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το ksnip είναι ένα μη κερδοσκοπικό λογισμικό ελευθέρων πνευματικών δικαιωμάτων, και&lt;br/&gt;εντούτοις έχει κάποια έξοδα που πρέπει να καλυφθούν,&lt;br/&gt;όπως τα έξοδα τομέα ή τα έξοδα για την υποστήριξη σε ανεξαρτήτως πλατύβαθρου υλικό.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Αν θέλετε να βοηθήσετε ή απλώς &lt;br/&gt;να εκτιμήσετε την εργασία&lt;br/&gt; προσφέροντας στους δημιουργούς έναν ζύθο ή καφέ, μπορείτε να το κάνετε έστω κι&apos; έτσι</translation>
     </message>
 </context>
 <context>
@@ -437,7 +447,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Η μακροεντολή έγγραψε στο StdErr.</translation>
     </message>
 </context>
 <context>
@@ -484,7 +494,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Σύλληψη μέσω της πύλης</translation>
     </message>
 </context>
 <context>
@@ -496,7 +506,8 @@ Do you want to continue?</source>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation>Αν θα πρέπει να είναι ορατός ο δρομέας του ποντικιού στο στιγμιότυπο.</translation>
+        <translation>Αν θα πρέπει να είναι ορατός ο δρομέας
+του ποντικιού στο στιγμιότυπο.</translation>
     </message>
     <message>
         <source>Freeze Image while snipping</source>
@@ -510,7 +521,8 @@ screenshots.</source>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Εμφανίζει έναν μεγεθυντικό φακό ο οποίος εστιάζει στην εικόνα του παρασκηνίου. Αυτή η επιλογή λειτουργεί μόνο όταν το &quot;πάγωμα της οθόνης κατά την σύλληψη&quot; είναι ενεργοποιημένο.</translation>
+        <translation>Εμφανίζει έναν μεγεθυντικό φακό ο οποίος εστιάζει στην εικόνα του παρασκηνίου. 
+Αυτή η επιλογή λειτουργεί μόνο όταν το &quot;πάγωμα της οθόνης κατά την σύλληψη&quot; είναι ενεργοποιημένο.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -519,7 +531,8 @@ with &apos;Freeze Image while snipping&apos; enabled.</source>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation>Οριζόντιες και κάθετες γραμμές από τις άκρες της επιφάνειας εργασίας μέχρι τον δρομέα στην περιοχή της σύλληψης.</translation>
+        <translation>Οριζόντιες και κάθετες γραμμές από τις άκρες της επιφάνειας εργασίας
+μέχρι τον δρομέα στην περιοχή της σύλληψης.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
@@ -546,22 +559,31 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Όταν είναι ενεργοποιημένο, το παρασκήνιο θα είναι παγωμένο
+κατά την επιλογή της ορθογώνιας περιοχής. Επίσης αλλάζει την
+συμπεριφορά των στιγμιότυπων με καθυστέρηση: η καθυστέρηση
+λαμβάνει χώρα πριν την εμφάνιση της περιοχής σύλληψης ενώ
+όταν είναι απενεργοποιημένο η καθυστέρηση λαμβάνει χώρα μετά
+την εμφάνιση της περιοχής σύλληψης. Αυτό το χαρακτηριστικό είναι 
+απενεργοποιημένο για τον εξυπηρετητή Wayland και πάντα
+ενεργοποιημένο για το MacOs.</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Όταν το αριστερό κλικ του ποντικιού δεν είναι πιεσμένο, εμφανίζεται η θέση.
+Όταν το κλικ του ποντικιού είναι πατημένο, το μέγεθος της επιλεγμένης
+περιοχής εμφανίζεται στα αριστερά και κάτω από την περιοχή σύλληψης.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Εξαναγκασμός στιγμιότυπου με γενικό Wayland</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Κλιμάκωση στιγμιότυπων γενικού Wayland</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -569,7 +591,10 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Η ενσωμάτωση σε γενικό Wayland που χρησιμοποιεί XDG-DESKTOP-PORTAL
+διαχειρίζεται την κλιμάκωση της εικόνας διαφορετικά. 
+Η ενεργοποίηση αυτής της επιλογής θα προσδιορίσει την τρέχουσα
+κλιμάκωση της εικόνας και θα την εφαρμόσει στην στο στιγμιότυπο στο ksnip.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -577,43 +602,53 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το GNOME και το KDE Plasma υποστηρίζουν τα δικά τους
+Wayland και γενικού XDG-DESKTOP-PORTAL στιγμιότυπα.
+Ενεργοποιώντας αυτήν την επιλογή θα εξαναγκάσει
+το KDE Plasma και το GNOME να χρησιμοποιήσουν
+τα στιγμιότυπα XDG-DESKTOP-PORTAL.
+Η αλλαγή της επιλογής αυτής απαιτεί την επανεκκίνηση του ksnip.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση του κύριου παραθύρου μετά την σύλληψη του στιγμιότυπου</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση του κύριου παραθύρου μετά την σύλληψη ενός στιγμιότυπου
+όταν το κύριο παράθυρο είναι καταχωνιασμένο ή ελαχιστοποιημένο.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Να επιτρέπεται η αλλαγή μεγέθους της ορθογώνιας περιοχής επιλογής</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Όταν είναι ενεργοποιημένο και αφού έχει
+επιλεγεί μια ορθογώνια περιοχή, επιτρέπει
+την αλλαγή μεγέθους της επιλογής.
+Μετά το πέρας της ενέργειας επιβεβαιώστε
+πιέζοντας το πλήκτρο Enter.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Απόκρυψη του κύριου παραθύρου κατά την σύλληψη του στιγμιότυπου</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Απόκρυψη του κύριου παραθύρου κατά την σύλληψη ενός στιγμιότυπου.</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ορίζει το χρώμα του δρομέα της περιοχής σύλληψης.</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ορίζει το πάχος του δρομέα της περιοχής σύλληψης.</translation>
     </message>
 </context>
 <context>
@@ -886,70 +921,70 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Καρφίτσωμα</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Καρφίτσωμα του στιγμιότυπου στο προσκήνιο σε άνευ πλαισίου παράθυρα</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναμενόταν μια εικόνα αλλά δεν παρείχατε κάποια.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγραφή της διαδρομής</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα καταλόγου</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Προβολή</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαγραφή</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετονομασία</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα εικόνων</translation>
     </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Αποθήκευση</translation>
+        <translation>Αποθήκευση</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Αποθήκευση ως</translation>
+        <translation>Αποθήκευση ως</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα καταλόγου</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Αντιγραφή</translation>
+        <translation>Αντιγραφή</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγραφή της διαδρομής</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαγραφή</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετονομασία</translation>
     </message>
 </context>
 <context>
@@ -963,49 +998,49 @@ and capturing screenshot.</source>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Κλείσιμο</translation>
+        <translation>Κλείσιμο</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Κλείσιμο των άλλων</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Κλείσιμο όλων</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Καρφίτσωμα του παραθύρου %1</translation>
     </message>
 </context>
 <context>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Η εικόνα μετονομάστηκε</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Η εικόνα μετονομάστηκε επιτυχώς σε </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Η μετονομασία της εικόνας απέτυχε</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία μετονομασίας της εικόνας σε </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Μετονομασία της εικόνας</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Νέο όνομα αρχείου:</translation>
     </message>
 </context>
 <context>
@@ -1086,20 +1121,21 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Προκαθορισμένο</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Συντελεστής</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Ποιότητα αποθήκευσης</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ορίστε 0 για να αποκτήσετε μικρά συμπιεσμένα αρχεία, 100 για μεγάλα μη συμπιεσμένα αρχεία.
+Το πλήρες εύρος δεν υποστηρίζεται από όλους τους τύπους εικόνας· το JPEG το υποστηρίζει.</translation>
     </message>
 </context>
 <context>
@@ -1131,21 +1167,23 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Διακοπή όταν η μακροεντολή αποστολής γράφει στο StdErr</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Σημειώνει την αποστολή ως αποτυχημένη όταν η μακροεντολή γράφει στο StdErr.
+Χωρίς αυτήν την ρύθμιση τα τυχόν σφάλματα της μακροεντολής θα περάσουν απαρατήρητα.</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Φίλτρο:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Κανονική έκφραση. Αντιγραφή στο πρόχειρο μόνο ό,τι ταιριάζει στην κανονική έκφραση.
+Αν δεν οριστεί κάποιο φίλτρο θα αντιγραφούν όλες οι γραμμές.</translation>
     </message>
 </context>
 <context>
@@ -1196,42 +1234,42 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτοκόλλητα</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Πάνω</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Κάτω</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρήση των προκαθορισμένων αυτοκόλλητων</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρυθμίσεις αυτοκόλλητων</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Αρχεία διανυσματικών εικόνων (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Αφαίρεση</translation>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη αυτοκόλλητων</translation>
     </message>
 </context>
 <context>

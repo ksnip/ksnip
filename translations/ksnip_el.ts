@@ -174,9 +174,8 @@ Change requires ksnip restart to take effect.</source>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation>Όταν είναι ενεργοποιημένο προστίθεται ένα εικονίδιο στο πλαίσιο συστήματος
-αν υποστηρίζεται από τον διαχειριστή παραθύρων του λειτουργικού συστήματος. 
-Για να ληφθούν υπόψιν οι αλλαγές, απαιτείται επανεκκίνηση.</translation>
+        <translation>Όταν ενεργοποιηθεί προσθέτει εικονίδιο στη γραμμή εργασιών, εαν υποστηρίζεται. 
+Απαιτείται επανεκκίνηση.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
@@ -219,9 +218,10 @@ Change requires restart.</source>
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation>Ενεργοποιώντας αυτήν την επιλογή θα επιτρέπεται μόνον μια εκτέλεση του ksnip.
-Όλες οι μετέπειτα εκτελέσεις θα περάσουν τα ορίσματά τους στην πρώτη υπόσταση και θα κλείσουν.
-Η αλλαγή της επιλογής αυτής απαιτεί επανεκκίνηση όλων των εκτελέσεων.</translation>
+        <translation>Ενεργοποιώντας αυτήν την επιλογή θα επιτρέπεται μόνο μια υπηρεσία του ksnip,
+όλες οι υπόλοιπες θα εκτελεστούν όταν ολοκληρωθεί η πρώτη.
+Η αλλαγή αυτής της επιλογής απαιτεί
+επανεκκίνηση όλων των υπηρεσιών.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
@@ -521,8 +521,9 @@ screenshots.</source>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Εμφανίζει έναν μεγεθυντικό φακό ο οποίος εστιάζει στην εικόνα του παρασκηνίου. 
-Αυτή η επιλογή λειτουργεί μόνο όταν το &quot;πάγωμα της οθόνης κατά την σύλληψη&quot; είναι ενεργοποιημένο.</translation>
+        <translation>Εμφανίζει έναν μεγεθυντικό φακό ο οποίος εστιάζει
+στην εικόνα του παρασκηνίου. Αυτή η επιλογή λειτουργεί
+μόνο όταν το &quot;πάγωμα της οθόνης κατά την σύλληψη&quot; είναι ενεργό.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>

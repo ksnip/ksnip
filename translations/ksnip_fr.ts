@@ -120,7 +120,7 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Watermark Image</source>
-        <translation>Image de filigrane</translation>
+        <translation>Filigrane</translation>
     </message>
     <message>
         <source>Update</source>
@@ -128,7 +128,7 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation>Pivoter l&apos;image de filigrane</translation>
+        <translation>Pivoter le filigrane</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
@@ -136,22 +136,22 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation>Annotations</translation>
+        <translation>Paramètres d&apos;annotations</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation>Sauvegarder l&apos;outil d&apos;annotation sélectionné pour l&apos;enclencher au démarrage</translation>
+        <translation>Sauvegarder l&apos;outil d&apos;annotation sélectionné pour le charger au démarrage</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Passer à l&apos;outil de sélection après avoir dessiné l&apos;élément</translation>
     </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation>Capturer l&apos;écran au lancement avec le mode par défaut</translation>
+        <translation>Faire une capture d&apos;écran au lancement avec le mode par défaut</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -195,11 +195,11 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation>Activer les onglets</translation>
+        <translation>Utiliser les onglets</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation>Le changement requiert un redémarrage.</translation>
+        <translation>Les modifications nécessitent un redémarrage.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
@@ -211,7 +211,7 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation>Masquer la barre d&apos;onglet lorsqu&apos;il y a en qu&apos;un d&apos;utilisé.</translation>
+        <translation>Masquer la barre d&apos;onglet lorsqu&apos;un seul onglet est utilisé.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
@@ -225,7 +225,7 @@ toutes les instances pour activer ou désactiver cette option.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Mémoriser la position de la fenêtre principale lors du déplacement et la charger au démarrage</translation>
     </message>
 </context>
 <context>
@@ -268,7 +268,7 @@ toutes les instances pour activer ou désactiver cette option.</translation>
     </message>
     <message>
         <source>Feature Implementation</source>
-        <translation type="unfinished"></translation>
+        <translation>Implémentation de fonctionnalité</translation>
     </message>
 </context>
 <context>
@@ -281,7 +281,7 @@ toutes les instances pour activer ou désactiver cette option.</translation>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
         <translation>La capture %1%2%3 a été modifiée.
-Voulez-vous l&apos;enregistrer&#xa0;?</translation>
+Voulez-vous l&apos;enregistrer ?</translation>
     </message>
 </context>
 <context>
@@ -522,8 +522,8 @@ dans les captures d&apos;écran.</translation>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Afficher une loupe qui grossit le fond d&apos;écran.
-Cette option ne marche que si «&#xa0;Geler l&apos;image
-avant capture&#xa0;» est activé.</translation>
+Cette option ne marche que si « Geler l&apos;image
+avant capture » est activé.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -611,39 +611,43 @@ Plasma et GNOME à utiliser les captures
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher la fenêtre principale après la capture d&apos;écran</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher la fenêtre principale après une nouvelle capture d&apos;écran
+quand la fenêtre principale a été cachée ou minimisée.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Permettre le redimensionnement de la séléction rectangulaire</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsqu&apos;il est activé, après avoir sélectionné une
+sélection rectangulaire, elle peut être redimensionnée.
+Le redimensionnement de la sélection peut être confirmé
+en appuyant sur la touche retour.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Cacher la fenêtre principale pendant la capture</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cacher la fenêtre principale pendant une nouvelle capture.</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fixe la couleur du curseur de cadrage.</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fixe l&apos;épaisseur du curseur de cadrage .</translation>
     </message>
 </context>
 <context>
@@ -673,7 +677,7 @@ by pressing return.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Téléversement sur imgur.com terminé&#xa0;!</translation>
+        <translation>Téléversement sur imgur.com terminé !</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -756,7 +760,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation>URL de base&#xa0;:</translation>
+        <translation>URL de base :</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
@@ -946,11 +950,11 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Renommer</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir les images</translation>
     </message>
 </context>
 <context>
@@ -981,7 +985,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Renommer</translation>
     </message>
 </context>
 <context>
@@ -1017,27 +1021,27 @@ et la capture de l&apos;écran.</translation>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Image renommée</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Image renommée avec succès en </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec du renommage de l&apos;image</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Échec du renommage de l&apos;image en </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Renommer l&apos;image</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouveau nom de fichier :</translation>
     </message>
 </context>
 <context>
@@ -1101,8 +1105,8 @@ Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
         <translation>Les formats supportés sont JPG, PNG et BMP. Si aucun format n’est spécifié, PNG sera utilisé par défaut.
-Le nom du fichier peut contenir les jokers suivants&#xa0;:
-- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format «&#xa0;hhmmss&#xa0;».
+Le nom du fichier peut contenir les jokers suivants :
+- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format « hhmmss ».
 - Plusieurs caractères # permettent de numéroter. Par exemple : #### donnera 0001 puis 0002 à la prochaine capture.</translation>
     </message>
     <message>
@@ -1269,7 +1273,7 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter des Stickers</translation>
     </message>
 </context>
 <context>

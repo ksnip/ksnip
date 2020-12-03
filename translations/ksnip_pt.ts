@@ -140,11 +140,11 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Lembre-se da ferramenta selecionada e carregue na inicialização</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Mudar para ferramenta de seleção após desenhar o item</translation>
     </message>
 </context>
 <context>
@@ -211,7 +211,7 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar barra de abas quando apenas uma guia for usada.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
@@ -222,7 +222,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Lembre-se da posição da janela principal ao mover e carregar na inicialização</translation>
     </message>
 </context>
 <context>
@@ -265,7 +265,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Feature Implementation</source>
-        <translation type="unfinished"></translation>
+        <translation>Implementação de recursos</translation>
     </message>
 </context>
 <context>
@@ -337,23 +337,24 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Portal de captura de tela</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar o portal de captura de tela para fazer a captura de tela</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Excluir imagem</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>O item &apos;%1&apos; será excluído.
+Deseja continuar</translation>
     </message>
 </context>
 <context>
@@ -490,7 +491,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar utilizando Portal</translation>
     </message>
 </context>
 <context>
@@ -567,11 +568,11 @@ and above from the captured area.</source>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Forçar Captura de tela genérico para Wayland</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura com escala genérica para Wayland</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -591,16 +592,17 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir janela principal após capturar a tela</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar janela principal após capturar uma nova imagem
+quando a janela principal foi ocultada ou minimizada.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Permitir redimensionamento da área selecionada</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
@@ -611,19 +613,19 @@ by pressing return.</source>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar a janela principal durante a captura de tela</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar a janela principal ao capturar uma nova imagem.</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Definir a cor do cursor da área de recorte.</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Definir a espessura do cursor da área de recorte.</translation>
     </message>
 </context>
 <context>
@@ -906,62 +908,62 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenhuma imagem fornecida, mas uma era esperada.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar caminho</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir diretório</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Exibir</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Excluir</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Renomear</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir Imagens</translation>
     </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Salvar</translation>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Salvar como</translation>
+        <translation>Salvar como</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir Diretório</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Copiar</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar caminho</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Excluir</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Renomear</translation>
     </message>
 </context>
 <context>
@@ -997,27 +999,27 @@ e captura de ecrã.</translation>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagem Renomeada</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Imagem renomeada com sucesso </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Falhou ao renomear imagem</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Falhou ao renomear imagem para </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Renomear imagem</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Novo nome do arquivo:</translation>
     </message>
 </context>
 <context>
@@ -1099,15 +1101,15 @@ O nome do arquivo pode conter os seguintes curingas:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Padrão</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Fator</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Qualidade para salvar</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
@@ -1247,7 +1249,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar adesivos</translation>
     </message>
 </context>
 <context>

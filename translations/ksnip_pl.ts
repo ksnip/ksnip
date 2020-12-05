@@ -144,7 +144,7 @@ ale uczyni je bardziej gładkimi.</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Przejdź do opcji Wybierz narzędzie po narysowaniu elementu</translation>
     </message>
 </context>
 <context>
@@ -225,7 +225,7 @@ nowego uruchomienia wszystkich instancji.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamiętaj pozycję okna głównego podczas przenoszenia i ładowania przy starcie</translation>
     </message>
 </context>
 <context>
@@ -268,7 +268,7 @@ nowego uruchomienia wszystkich instancji.</translation>
     </message>
     <message>
         <source>Feature Implementation</source>
-        <translation type="unfinished"></translation>
+        <translation>Implementacja funkcji</translation>
     </message>
 </context>
 <context>
@@ -613,16 +613,17 @@ Zmiana tej opcji wymaga ponownego uruchomienia ksnip.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż okno główne po przechwyceniu zrzutu ekranu</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż Główne okno po zrobieniu nowego zrzutu ekranu
+kiedy główne okno było ukryte lub zminimalizowane.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Zezwalaj na zmianę rozmiaru zaznaczenia obszaru prostego</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
@@ -633,19 +634,19 @@ by pressing return.</source>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukryj okno główne podczas zrzutu ekranu</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukryj okno główne podczas przechwytywania nowego zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawia kolor kursora obszaru obcinania.</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawia grubość kursora obszaru wycinania.</translation>
     </message>
 </context>
 <context>
@@ -948,11 +949,11 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmień nazwę</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Otwórz obraz</translation>
     </message>
 </context>
 <context>
@@ -983,7 +984,7 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmień nazwę</translation>
     </message>
 </context>
 <context>
@@ -1019,27 +1020,27 @@ i wykonaniem zrzutu ekranu.</translation>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmieniono nazwę obrazu</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Pomyślnie zmieniono nazwę obrazu na </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmiana nazwy obrazu nie powiodła się</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się zmienić nazwy obrazu na </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmień nazwę obrazu</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nowa nazwa pliku:</translation>
     </message>
 </context>
 <context>
@@ -1270,7 +1271,7 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj naklejkę</translation>
     </message>
 </context>
 <context>

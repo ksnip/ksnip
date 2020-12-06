@@ -27,6 +27,7 @@
 * New kImageAnnotator: Add text pointer with arrow annotation item. ([#153](https://github.com/ksnip/kImageAnnotator/issues/153))
 * New kImageAnnotator: Add option to automatically switching to select tool after drawing item. ([#161](https://github.com/ksnip/kImageAnnotator/issues/161))
 * New kImageAnnotator: Edit Text box with double click. ([#60](https://github.com/ksnip/kImageAnnotator/issues/60))
+* New kImageAnnotator: Resize elements while keeping aspect ratio. ([#170](https://github.com/ksnip/kImageAnnotator/issues/170))
 * Changed: Show all Screenshot options in System Tray. ([#404](https://github.com/ksnip/ksnip/issues/404))
 * Changed: Upload multiple stickers at once. ([#427](https://github.com/ksnip/ksnip/issues/427))
 * Changed: Follow pattern for monochromatic systray icon. ([#352](https://github.com/ksnip/ksnip/issues/352))

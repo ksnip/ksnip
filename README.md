@@ -157,6 +157,9 @@ enforce Portal screenshots in settings. Issue [#424](https://github.com/ksnip/ks
 with native Wayland. A workaround is using XWayland by starting ksnip like this `QT_QPA_PLATFORM=xcb /usr/bin/ksnip` or
 switch to XWayland completely by exporting that variable `export QT_QPA_PLATFORM=xcb`. Issue [#416](https://github.com/ksnip/ksnip/issues/416)
 
+# Discussion
+If you have general questions, ideas or just want to talk about ksnip, please use [Discussion](https://github.com/ksnip/ksnip/discussions) for that. 
+
 # Bug report
 Please report any bugs or feature requests related to the annotation editor on the [kImageAnnotator](https://github.com/ksnip/kImageAnnotator/issues) GitHub page under the "Issue" section.
 All other bugs or feature requests can be reported on the [ksnip](https://github.com/ksnip/ksnip/issues) GitHub page under the "Issue" section.
@@ -168,7 +171,6 @@ Any contribution welcome, be it code, translations or other things. Currently th
 * Package ksnip for different operating systems and distros.
 
 # Donation 
-
 ksnip is a non-profitable copylefted libre software project, and still has some costs that need to be covered, like domain costs or hardware costs for cross-platform support.
 If you want to help or just want appreciate the work being done by treating developers to a beer or coffee,
 you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)

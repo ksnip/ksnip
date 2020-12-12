@@ -143,7 +143,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>アイテムを描画したら選択ツールに切り替える</translation>
     </message>
 </context>
 <context>
@@ -225,7 +225,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>メインウィンドウの位置を記憶して起動時に読み込む</translation>
     </message>
 </context>
 <context>
@@ -268,7 +268,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Feature Implementation</source>
-        <translation type="unfinished"></translation>
+        <translation>機能の実装</translation>
     </message>
 </context>
 <context>
@@ -567,7 +567,10 @@ enabled for MacOs.</source>
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>マウスの左ボタンを押していない場合は
+カーソルの位置情報が表示され、押して
+いる場合は選択範囲の長さが表示されま
+す。</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
@@ -595,39 +598,42 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンショット撮影後にメインウィンドウを表示する</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>メインウィンドウが非表示または最小化されている状態でスクリーン
+ショットを撮影した場合、撮影後にメインウィンドウを表示します。</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection</source>
-        <translation type="unfinished"></translation>
+        <translation>選択した範囲のサイズを変更できるようにする</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>有効にすると、範囲選択後にそのサイズを変更
+できるようになります。
+サイズ変更後に Return キーを押すと確定します。</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンショット撮影中はメインウィンドウを隠す</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいスクリーンショットを撮る時にメインウィンドウを非表示にします。</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>範囲選択カーソルの色を設定します。</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>範囲選択カーソルの太さを設定します。</translation>
     </message>
 </context>
 <context>
@@ -930,11 +936,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を変更</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>画像を開く</translation>
     </message>
 </context>
 <context>
@@ -965,7 +971,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を変更</translation>
     </message>
 </context>
 <context>
@@ -1001,27 +1007,27 @@ and capturing screenshot.</source>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の名前を変更しました</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>次の名前に変更しました: </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の名前を変更できませんでした</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>次の名前に変更できませんでした: </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の名前を変更</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいファイル名:</translation>
     </message>
 </context>
 <context>
@@ -1252,7 +1258,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>ステッカーを追加</translation>
     </message>
 </context>
 <context>

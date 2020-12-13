@@ -12,7 +12,7 @@
 ​        </p>
         <p>Features:</p>
         <ul>
-            <li>Supports Linux (X11, Plasma Wayland and Gnome Wayland), Windows and macOS.</li>
+            <li>Supports Linux (X11, Plasma Wayland, GNOME Wayland and xdg-desktop-portal Wayland), Windows and macOS.</li>
             <li>Taking screenshot of a custom rectangular area that can be drawn with mouse cursor.</li>
             <li>Taking screenshot of last selected rectangular area without selecting again.</li>
             <li>Taking screenshot of the screen/monitor where the mouse cursor is currently located.</li>
@@ -43,7 +43,7 @@
     <screenshots>
         <screenshot type="default">
             <caption>Main Window</caption>
-            <image>https://i.imgur.com/IXCsNl1.png</image>
+            <image>https://i.imgur.com/4nMcbnF.png</image>
         </screenshot>
         <screenshot>
             <caption>Crop Window</caption>
@@ -56,6 +56,10 @@
         <screenshot>
             <caption>Snipping Window 2</caption>
             <image>https://i.imgur.com/ATGeYvI.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Snipping Window 3</caption>
+            <image>https://i.imgur.com/dMrqJpq.png</image>
         </screenshot>
         <screenshot>
             <caption>Settings Dialog</caption>
@@ -77,6 +81,60 @@
     <update_contact>damir.porobic@gmx.com</update_contact>
     <content_rating type="oars-1.0" />
     <releases>
+        <release type="stable" version="1.8.0" date="2020-12-13T00:00:00Z">
+            <description>
+                <ul>
+                    <li>New: Pin screenshots in frameless windows that stay in foreground.</li>
+                    <li>New: Support for unit tests.</li>
+                    <li>New: Add brew cask package for ksnip.</li>
+                    <li>New: Allow setting image quality when saving images.</li>
+                    <li>New: Add support for cross-platform wayland screenshots using xdg-desktop-portal.</li>
+                    <li>New: Add save and save as tab contextMenu items.</li>
+                    <li>New: Add open directory context menu item on capture tabs.</li>
+                    <li>New: Add copy path to clipboard context menu item on capture tabs.</li>
+                    <li>New: Add option to delete saved images.</li>
+                    <li>New: Add support for loading image from stdin.</li>
+                    <li>New: Add screenshot options as application actions to desktop file.</li>
+                    <li>New: Allow renaming existing images.</li>
+                    <li>New: Make hiding main window during screenshot optional.</li>
+                    <li>New: Open several files at once in tabs.</li>
+                    <li>New: Allow modifying selected rectangle before making screenshot.</li>
+                    <li>New: Option to keep main window hidden after a taking screenshot.</li>
+                    <li>New kImageAnnotator: Add Pixelate image area tool.</li>
+                    <li>New kImageAnnotator: Zoom in and out.</li>
+                    <li>New kImageAnnotator: Add interface for adding custom tab context menu actions.</li>
+                    <li>New kImageAnnotator: Add drop shadow to captured images.</li>
+                    <li>New kImageAnnotator: Add grayscale image effect.</li>
+                    <li>New kImageAnnotator: Add numeric pointer with arrow annotation item.</li>
+                    <li>New kImageAnnotator: Add text pointer annotation item.</li>
+                    <li>New kImageAnnotator: Add text pointer with arrow annotation item.</li>
+                    <li>New kImageAnnotator: Add option to automatically switching to select tool after drawing item.</li>
+                    <li>New kImageAnnotator: Edit Text box with double click.</li>
+                    <li>New kImageAnnotator: Resize elements while keeping aspect ratio.</li>
+                    <li>Changed: Show all Screenshot options in System Tray.</li>
+                    <li>Changed: Upload multiple stickers at once.</li>
+                    <li>Changed: Follow pattern for monochromatic systray icon.</li>
+                    <li>Changed: Pin window shows default cursor when mouse over it.</li>
+                    <li>Changed: Cancel snipping area if no selection made after 60 sec.</li>
+                    <li>Changed: Allow removing imgur account.</li>
+                    <li>Changed kImageAnnotator: Draw point when clicking and releasing without moving cursor.</li>
+                    <li>Changed kImageAnnotator: Zoom out less than 100%.</li>
+                    <li>Changed kImageAnnotator: Change to select tool after adding new annotation item.</li>
+                    <li>Changed kImageAnnotator: Move current zoom text to left side config panel.</li>
+                    <li>Fixed: Snap crashing when trying to take screenshot under Wayland.</li>
+                    <li>Fixed: zh_Hans translation won't load.</li>
+                    <li>Fixed: Ksnip only saves the upper right part of the screenshot with HiDPI.</li>
+                    <li>Fixed: Main window not resized with new captures.</li>
+                    <li>Fixed: Brazilian Portuguese translation not loaded.</li>
+                    <li>Fixed kImageAnnotator: Blur radius not updated when changing current items settings.</li>
+                    <li>Fixed kImageAnnotator: Text tool opens many unix sockets.</li>
+                    <li>Fixed kImageAnnotator: Text No Border and No Fill shows shadow beneath text.</li>
+                    <li>Fixed kImageAnnotator: Item properties remain displayed after item is removed or deselected.</li>
+                    <li>Fixed kImageAnnotator: Changing text box through editing text doesn't update resize handles.</li>
+                    <li>Fixed kColorPicker: Border around colors is not centered.</li>
+                </ul>
+            </description>
+        </release>
         <release type="stable" version="1.7.3" date="2020-07-30T00:00:00Z">
             <description>
                 <ul>

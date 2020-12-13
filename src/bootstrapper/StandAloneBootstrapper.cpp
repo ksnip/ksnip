@@ -173,7 +173,7 @@ int StandAloneBootstrapper::startKsnip(const QApplication &app)
 	return app.exec();
 }
 
-int StandAloneBootstrapper::showVersion() const
+int StandAloneBootstrapper::showVersion()
 {
 	qInfo("Version: %s", qPrintable(KSNIP_VERSION));
 	qInfo("Build: %s", qPrintable(KSNIP_BUILD_NUMBER));
@@ -197,8 +197,7 @@ void StandAloneBootstrapper::createImageGrabber()
 	mImageGrabber = ImageGrabberFactory::createImageGrabber();
 }
 
-void StandAloneBootstrapper::loadTranslations(const QApplication &app) const
+void StandAloneBootstrapper::loadTranslations(const QApplication &app)
 {
-	TranslationLoader translationLoader;
-	translationLoader.load(app);
+	TranslationLoader::load(app);
 }

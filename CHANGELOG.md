@@ -42,6 +42,7 @@
 * Fixed: zh_Hans translation won't load. ([#429](https://github.com/ksnip/ksnip/issues/429))
 * Fixed: Ksnip only saves the upper right part of the screenshot with HiDPI. ([#439](https://github.com/ksnip/ksnip/issues/439))
 * Fixed: Main window not resized with new captures. ([#446](https://github.com/ksnip/ksnip/issues/446))
+* Fixed: Brazilian Portuguese translation not loaded. ([#493](https://github.com/ksnip/ksnip/issues/493))
 * Fixed kImageAnnotator: Blur radius not updated when changing current items settings. ([#142](https://github.com/ksnip/kImageAnnotator/issues/142))
 * Fixed kImageAnnotator: Text tool opens many unix sockets. ([#144](https://github.com/ksnip/kImageAnnotator/issues/144))
 * Fixed kImageAnnotator: Text No Border and No Fill shows shadow beneath text. ([#148](https://github.com/ksnip/kImageAnnotator/issues/148))

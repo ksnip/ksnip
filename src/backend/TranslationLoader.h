@@ -30,15 +30,15 @@ class TranslationLoader
 public:
     TranslationLoader() = default;
     ~TranslationLoader() = default;
-    void load(const QApplication &app) const;
+    static void load(const QApplication &app);
 
 private:
 
-	bool loadTranslationFromAbsolutePath(QTranslator *translator, const QString &path, const QString &applicationName) const;
-	bool loadTranslationFromRelativePath(QTranslator *translator, const QString &path, const QString &applicationName) const;
-	bool loadTranslationForAppImage(QTranslator *translator, const QString &path, const QString &applicationName) const;
-    bool loadTranslation(QTranslator *translator, const QString &path, const QString &applicationName) const;
-	void loadTranslations(const QApplication &app, QTranslator *translator, QString &path, const QString &applicationName) const;
+	static bool loadTranslationFromAbsolutePath(QTranslator *translator, const QString &path, const QString &applicationName);
+	static bool loadTranslationFromRelativePath(QTranslator *translator, const QString &path, const QString &applicationName);
+	static bool loadTranslationForAppImage(QTranslator *translator, const QString &path, const QString &applicationName);
+    static bool loadTranslation(QTranslator *translator, const QString &path, const QString &applicationName);
+	static void loadTranslations(const QApplication &app, QTranslator *translator, QString &path, const QString &applicationName);
 };
 
 #endif //KSNIP_TRANSLATIONLOADER_H

@@ -45,7 +45,7 @@ protected:
 
 	void createCommandLineParser(const QApplication &app);
 	void createImageGrabber();
-	int showVersion() const;
+	static int showVersion() ;
 	bool isStartedWithoutArguments() const;
 	bool isVersionRequested() const;
 	bool isEditRequested() const;
@@ -60,7 +60,7 @@ private:
     AbstractImageGrabber *mImageGrabber;
 	KsnipCommandLine *mCommandLine;
 
-	void loadTranslations(const QApplication &app) const;
+	static void loadTranslations(const QApplication &app) ;
 	virtual void createMainWindow(RunMode mode);
 	int startKsnip(const QApplication &app);
 	int startKsnipAndEditImage(const QApplication &app);

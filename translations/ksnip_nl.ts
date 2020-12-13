@@ -231,10 +231,6 @@ wijziging toe te passen.</translation>
 <context>
     <name>AuthorTab</name>
     <message>
-        <source>The Author:</source>
-        <translation>Maker:</translation>
-    </message>
-    <message>
         <source>Contributors:</source>
         <translation>Bijdragers:</translation>
     </message>
@@ -267,8 +263,8 @@ wijziging toe te passen.</translation>
         <translation>Snap- en Flatpak-ondersteuning</translation>
     </message>
     <message>
-        <source>Feature Implementation</source>
-        <translation>Functietoevoeging</translation>
+        <source>The Authors:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -510,72 +506,8 @@ screenshots.</source>
 schermfoto&apos;s.</translation>
     </message>
     <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Afbeelding bevriezen tijdens vastleggen</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Vergrootglas tonen op vastleggebied</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Toont een vergrootglas om in te zoomen op de
-achtergrondafbeelding. Deze optie werkt alleen als
-&apos;Afbeelding bevriezen tijdens vastleggen&apos; is ingeschakeld.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Linialen tonen op vastleggebied</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Horizontale en verticale lijnen die lopen vanaf
-de schermranden naar de cursor op het vastleggebied.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Positie- en grootte-informatie tonen op vastleggebied</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Cursorkleur binnen vastleggebied</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Cursordikte binnen vastleggebied</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Vastleggen</translation>
-    </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is shown and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation>Schakel in om de achtergrond te bevriezen tijdens het
-selecteren van een rechthoekig gebied. Dit verandert
-tevens het gedrag van vertraagde schermfoto&apos;s: de
-vertraging vindt plaats vóórdat het selectiegebied wordt
-getoond. Deze optie is altijd uitgeschakeld op Wayland en
-altijd ingeschakeld op macOS.</translation>
-    </message>
-    <message>
-        <source>When left mouse button is not pressed the position
-is shown, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Als de linkermuisknop niet wordt ingedrukt, wordt de
-positie getoond. Als de knop wél wordt ingedrukt,
-wordt de grootte van het selectiegebied links en
-bovenaan getoond.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
@@ -620,33 +552,12 @@ when the Main Window was hidden or minimized.</source>
 als het hoofdvenster geminimaliseerd of verborgen is.</translation>
     </message>
     <message>
-        <source>Allow resizing rect area selection</source>
-        <translation>Aanpassen van rechthoekige selectie toestaan</translation>
-    </message>
-    <message>
-        <source>When enabled will, after selecting a rect
-area, allow resizing the selection. When
-done resizing the selection can be confirmed
-by pressing return.</source>
-        <translation>Schakel in om de afmetingen van het gebied van
-een rechthoekige selectie aan te passen. Druk na
-het aanpassen op Enter om op te slaan.</translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Hoofdvenster verbergen tijdens maken van schermfoto</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Verberg het hoofdvenster tijdens het maken van een schermfoto.</translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area cursor.</source>
-        <translation>Stel de kleur in van de cursor op het knipselgebied.</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area cursor.</source>
-        <translation>Stel de dikte in van de cursor op het knipselgebied.</translation>
     </message>
 </context>
 <context>
@@ -738,10 +649,6 @@ het aanpassen op Enter om op te slaan.</translation>
         <translation>Bezig met wachten op imgur.com…</translation>
     </message>
     <message>
-        <source>Username:</source>
-        <translation>Gebruikersnaam:</translation>
-    </message>
-    <message>
         <source>Imgur.com token successfully updated.</source>
         <translation>De imgur.com-toegangssleutel is bijgewerkt.</translation>
     </message>
@@ -766,6 +673,10 @@ het aanpassen op Enter om op te slaan.</translation>
 Changing requires restart.</source>
         <translation>De basis-url voor communicatie met Imgur.
 Herstart om de wijzigingen toe te passen.</translation>
+    </message>
+    <message>
+        <source>Clear Token</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1237,6 +1148,129 @@ Sla over om álles te kopiëren.</translation>
     <message>
         <source>Stickers</source>
         <translation>Stickers</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaInfoText</name>
+    <message>
+        <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to resize selection after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to prevent resizing after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operation will be canceled after 60 sec when no selection made.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaSettings</name>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished">Afbeelding bevriezen tijdens vastleggen</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished">Schakel in om de achtergrond te bevriezen tijdens het
+selecteren van een rechthoekig gebied. Dit verandert
+tevens het gedrag van vertraagde schermfoto&apos;s: de
+vertraging vindt plaats vóórdat het selectiegebied wordt
+getoond. Deze optie is altijd uitgeschakeld op Wayland en
+altijd ingeschakeld op macOS.</translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished">Vergrootglas tonen op vastleggebied</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished">Toont een vergrootglas om in te zoomen op de
+achtergrondafbeelding. Deze optie werkt alleen als
+&apos;Afbeelding bevriezen tijdens vastleggen&apos; is ingeschakeld.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished">Linialen tonen op vastleggebied</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished">Horizontale en verticale lijnen die lopen vanaf
+de schermranden naar de cursor op het vastleggebied.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished">Positie- en grootte-informatie tonen op vastleggebied</translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished">Als de linkermuisknop niet wordt ingedrukt, wordt de
+positie getoond. Als de knop wél wordt ingedrukt,
+wordt de grootte van het selectiegebied links en
+bovenaan getoond.</translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection by default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished">Schakel in om de afmetingen van het gebied van
+een rechthoekige selectie aan te passen. Druk na
+het aanpassen op Enter om op te slaan.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area info text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished">Cursorkleur binnen vastleggebied</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished">Stel de kleur in van de cursor op het knipselgebied.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished">Cursordikte binnen vastleggebied</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation type="unfinished">Stel de dikte in van de cursor op het knipselgebied.</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

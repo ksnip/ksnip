@@ -231,10 +231,6 @@ a new start of all instances.</source>
 <context>
     <name>AuthorTab</name>
     <message>
-        <source>The Author:</source>
-        <translation>Ο δημιουργός:</translation>
-    </message>
-    <message>
         <source>Contributors:</source>
         <translation>Οι συνεισφέροντες:</translation>
     </message>
@@ -267,8 +263,8 @@ a new start of all instances.</source>
         <translation>Υποστήριξη Snap &amp; Flatpak</translation>
     </message>
     <message>
-        <source>Feature Implementation</source>
-        <translation>Υλοποίηση χαρακτηριστικού</translation>
+        <source>The Authors:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -510,73 +506,8 @@ screenshots.</source>
 του ποντικιού στο στιγμιότυπο.</translation>
     </message>
     <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Πάγωμα της οθόνης κατά την σύλληψη</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Εμφάνιση του μεγεθυντικού φακού στην περιοχή σύλληψης</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Εμφανίζει έναν μεγεθυντικό φακό ο οποίος εστιάζει
-στην εικόνα του παρασκηνίου. Αυτή η επιλογή λειτουργεί
-μόνο όταν το &quot;πάγωμα της οθόνης κατά την σύλληψη&quot; είναι ενεργό.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Εμφάνιση των χαράκων στην περιοχή σύλληψης</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Οριζόντιες και κάθετες γραμμές από τις άκρες της επιφάνειας εργασίας
-μέχρι τον δρομέα στην περιοχή της σύλληψης.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Εμφάνιση των πληροφοριών θέσης και μεγέθους στην περιοχή σύλληψης</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Χρώμα του δρομέα της περιοχής σύλληψης</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Πάχος του δρομέα της περιοχής σύλληψης</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Σύλληψη εικόνας</translation>
-    </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is shown and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation>Όταν είναι ενεργοποιημένο, το παρασκήνιο θα είναι παγωμένο
-κατά την επιλογή της ορθογώνιας περιοχής. Επίσης αλλάζει την
-συμπεριφορά των στιγμιότυπων με καθυστέρηση: η καθυστέρηση
-λαμβάνει χώρα πριν την εμφάνιση της περιοχής σύλληψης ενώ
-όταν είναι απενεργοποιημένο η καθυστέρηση λαμβάνει χώρα μετά
-την εμφάνιση της περιοχής σύλληψης. Αυτό το χαρακτηριστικό είναι 
-απενεργοποιημένο για τον εξυπηρετητή Wayland και πάντα
-ενεργοποιημένο για το MacOs.</translation>
-    </message>
-    <message>
-        <source>When left mouse button is not pressed the position
-is shown, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Όταν το αριστερό κλικ του ποντικιού δεν είναι πιεσμένο, εμφανίζεται η θέση.
-Όταν το κλικ του ποντικιού είναι πατημένο, το μέγεθος της επιλεγμένης
-περιοχής εμφανίζεται στα αριστερά και κάτω από την περιοχή σύλληψης.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
@@ -621,35 +552,12 @@ when the Main Window was hidden or minimized.</source>
 όταν το κύριο παράθυρο είναι καταχωνιασμένο ή ελαχιστοποιημένο.</translation>
     </message>
     <message>
-        <source>Allow resizing rect area selection</source>
-        <translation>Να επιτρέπεται η αλλαγή μεγέθους της ορθογώνιας περιοχής επιλογής</translation>
-    </message>
-    <message>
-        <source>When enabled will, after selecting a rect
-area, allow resizing the selection. When
-done resizing the selection can be confirmed
-by pressing return.</source>
-        <translation>Όταν είναι ενεργοποιημένο και αφού έχει
-επιλεγεί μια ορθογώνια περιοχή, επιτρέπει
-την αλλαγή μεγέθους της επιλογής.
-Μετά το πέρας της ενέργειας επιβεβαιώστε
-πιέζοντας το πλήκτρο Enter.</translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Απόκρυψη του κύριου παραθύρου κατά την σύλληψη του στιγμιότυπου</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Απόκρυψη του κύριου παραθύρου κατά την σύλληψη ενός στιγμιότυπου.</translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area cursor.</source>
-        <translation>Ορίζει το χρώμα του δρομέα της περιοχής σύλληψης.</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area cursor.</source>
-        <translation>Ορίζει το πάχος του δρομέα της περιοχής σύλληψης.</translation>
     </message>
 </context>
 <context>
@@ -741,10 +649,6 @@ by pressing return.</source>
         <translation>Αναμονή του imgur.com…</translation>
     </message>
     <message>
-        <source>Username:</source>
-        <translation>Όνομα χρήστη:</translation>
-    </message>
-    <message>
         <source>Imgur.com token successfully updated.</source>
         <translation>Το αδειοδοτικό του imgur.com ενημερώθηκε επιτυχώς.</translation>
     </message>
@@ -768,6 +672,10 @@ by pressing return.</source>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
         <translation>Το βασικό url που θα χρησιμοποιηθεί για την επικοινωνία με το Imgur. Για να ληφθεί υπόψιν η αλλαγή απαιτείται επανεκκίνηση.</translation>
+    </message>
+    <message>
+        <source>Clear Token</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1236,6 +1144,132 @@ When omitted, everything is copied.</source>
     <message>
         <source>Stickers</source>
         <translation>Αυτοκόλλητα</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaInfoText</name>
+    <message>
+        <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to resize selection after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to prevent resizing after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operation will be canceled after 60 sec when no selection made.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaSettings</name>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished">Πάγωμα της οθόνης κατά την σύλληψη</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished">Όταν είναι ενεργοποιημένο, το παρασκήνιο θα είναι παγωμένο
+κατά την επιλογή της ορθογώνιας περιοχής. Επίσης αλλάζει την
+συμπεριφορά των στιγμιότυπων με καθυστέρηση: η καθυστέρηση
+λαμβάνει χώρα πριν την εμφάνιση της περιοχής σύλληψης ενώ
+όταν είναι απενεργοποιημένο η καθυστέρηση λαμβάνει χώρα μετά
+την εμφάνιση της περιοχής σύλληψης. Αυτό το χαρακτηριστικό είναι 
+απενεργοποιημένο για τον εξυπηρετητή Wayland και πάντα
+ενεργοποιημένο για το MacOs.</translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished">Εμφάνιση του μεγεθυντικού φακού στην περιοχή σύλληψης</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished">Εμφανίζει έναν μεγεθυντικό φακό ο οποίος εστιάζει
+στην εικόνα του παρασκηνίου. Αυτή η επιλογή λειτουργεί
+μόνο όταν το &quot;πάγωμα της οθόνης κατά την σύλληψη&quot; είναι ενεργό.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished">Εμφάνιση των χαράκων στην περιοχή σύλληψης</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished">Οριζόντιες και κάθετες γραμμές από τις άκρες της επιφάνειας εργασίας
+μέχρι τον δρομέα στην περιοχή της σύλληψης.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished">Εμφάνιση των πληροφοριών θέσης και μεγέθους στην περιοχή σύλληψης</translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished">Όταν το αριστερό κλικ του ποντικιού δεν είναι πιεσμένο, εμφανίζεται η θέση.
+Όταν το κλικ του ποντικιού είναι πατημένο, το μέγεθος της επιλεγμένης
+περιοχής εμφανίζεται στα αριστερά και κάτω από την περιοχή σύλληψης.</translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection by default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished">Όταν είναι ενεργοποιημένο και αφού έχει
+επιλεγεί μια ορθογώνια περιοχή, επιτρέπει
+την αλλαγή μεγέθους της επιλογής.
+Μετά το πέρας της ενέργειας επιβεβαιώστε
+πιέζοντας το πλήκτρο Enter.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area info text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished">Χρώμα του δρομέα της περιοχής σύλληψης</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished">Ορίζει το χρώμα του δρομέα της περιοχής σύλληψης.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished">Πάχος του δρομέα της περιοχής σύλληψης</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation type="unfinished">Ορίζει το πάχος του δρομέα της περιοχής σύλληψης.</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

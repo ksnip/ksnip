@@ -228,10 +228,6 @@ a new start of all instances.</source>
 <context>
     <name>AuthorTab</name>
     <message>
-        <source>The Author:</source>
-        <translation>Autor:</translation>
-    </message>
-    <message>
         <source>Contributors:</source>
         <translation>Contribuidores:</translation>
     </message>
@@ -264,8 +260,8 @@ a new start of all instances.</source>
         <translation>Suporte a Snap e Flatpak</translation>
     </message>
     <message>
-        <source>Feature Implementation</source>
-        <translation>Implementação de recursos</translation>
+        <source>The Authors:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -507,64 +503,8 @@ screenshots.</source>
 capturas de ecrã.</translation>
     </message>
     <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Congelar imagem ao capturar área retangular</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Exibir lupa ao capturar área retangular</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Exibir uma lupa que mostra zoom
-na imagem de fundo. Esta opção só funciona
-com &apos;Congelar imagem ao capturar área retangular&apos; habilitada.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Exibir réguas ao capturar área retangular</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Uma linha horizontal e vertical será exibida
-antes de iniciar a captura de uma área retangular.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Exibir posição e tamanho ao capturar área retangular</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Cor do cursor ao capturar área retangular</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Espessura do cursor ao capturar área retangular</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Captura de Imagem</translation>
-    </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is shown and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When left mouse button is not pressed the position
-is shown, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
@@ -601,31 +541,12 @@ when the Main Window was hidden or minimized.</source>
 quando a janela principal foi ocultada ou minimizada.</translation>
     </message>
     <message>
-        <source>Allow resizing rect area selection</source>
-        <translation type="unfinished">Permitir redimensionamento da área selecionada</translation>
-    </message>
-    <message>
-        <source>When enabled will, after selecting a rect
-area, allow resizing the selection. When
-done resizing the selection can be confirmed
-by pressing return.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Ocultar a janela principal durante a captura de tela</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Ocultar a janela principal ao capturar uma nova imagem.</translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area cursor.</source>
-        <translation>Definir a cor do cursor da área de recorte.</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area cursor.</source>
-        <translation>Definir a espessura do cursor da área de recorte.</translation>
     </message>
 </context>
 <context>
@@ -713,10 +634,6 @@ by pressing return.</source>
         <translation>Nome de utilizador</translation>
     </message>
     <message>
-        <source>Username:</source>
-        <translation>Nome de utilizador:</translation>
-    </message>
-    <message>
         <source>Imgur.com token successfully updated.</source>
         <translation>Token Imgur.com atualizado com sucesso.</translation>
     </message>
@@ -745,6 +662,10 @@ by pressing return.</source>
 Changing requires restart.</source>
         <translation>Url base que será usado para comunicação com Imgur.
 Mudança requer reinicialização.</translation>
+    </message>
+    <message>
+        <source>Clear Token</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1215,6 +1136,119 @@ Quando omitido, tudo é copiado.</translation>
     <message>
         <source>Stickers</source>
         <translation>Adesivos</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaInfoText</name>
+    <message>
+        <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to resize selection after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to prevent resizing after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operation will be canceled after 60 sec when no selection made.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaSettings</name>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished">Congelar imagem ao capturar área retangular</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished">Exibir lupa ao capturar área retangular</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished">Exibir uma lupa que mostra zoom
+na imagem de fundo. Esta opção só funciona
+com &apos;Congelar imagem ao capturar área retangular&apos; habilitada.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished">Exibir réguas ao capturar área retangular</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished">Uma linha horizontal e vertical será exibida
+antes de iniciar a captura de uma área retangular.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished">Exibir posição e tamanho ao capturar área retangular</translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection by default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Snipping Area info text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished">Cor do cursor ao capturar área retangular</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished">Definir a cor do cursor da área de recorte.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished">Espessura do cursor ao capturar área retangular</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation type="unfinished">Definir a espessura do cursor da área de recorte.</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

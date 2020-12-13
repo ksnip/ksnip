@@ -228,10 +228,6 @@ a new start of all instances.</source>
 <context>
     <name>AuthorTab</name>
     <message>
-        <source>The Author:</source>
-        <translation>Egilea:</translation>
-    </message>
-    <message>
         <source>Contributors:</source>
         <translation>Laguntzaileak:</translation>
     </message>
@@ -264,7 +260,7 @@ a new start of all instances.</source>
         <translation>Snap eta Flatpak euskarria</translation>
     </message>
     <message>
-        <source>Feature Implementation</source>
+        <source>The Authors:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -506,64 +502,8 @@ screenshots.</source>
 ikusiko da.</translation>
     </message>
     <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Izoztu irudia ebaki bitartean</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Erakutsi lupa ebakitze arean</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Erakutsi atzeko irudira urbiltzen den
-lupa. Aukera honek bakarrik funtzionatzen du
-&quot;Izoztu irudia ebaki bitartean&quot; aktibatuta badago.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Erakutsi ebaketa arearen erregelak</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Mahaigaineko ertzetatik ebakitze-areako kurtsorera
-datozen lerro horizontalak eta bertikalak.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Erakutsi ebaketa arearen kokapena eta tamainaren informazioa</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Ebaketarako kurtsorearen kolorea</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Ebaketa arearen kurtsorearen zabalera</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Irudien kapturatzailea</translation>
-    </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is shown and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When left mouse button is not pressed the position
-is shown, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
@@ -599,30 +539,11 @@ when the Main Window was hidden or minimized.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Allow resizing rect area selection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When enabled will, after selecting a rect
-area, allow resizing the selection. When
-done resizing the selection can be confirmed
-by pressing return.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area cursor.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -723,10 +644,6 @@ by pressing return.</source>
         <translation>imgur.com-en zain…</translation>
     </message>
     <message>
-        <source>Username:</source>
-        <translation>Erabiltzaile-izena:</translation>
-    </message>
-    <message>
         <source>Imgur.com token successfully updated.</source>
         <translation>Imgur.com-en tokena behar bezala eguneratu da.</translation>
     </message>
@@ -743,6 +660,10 @@ by pressing return.</source>
 Changing requires restart.</source>
         <translation>Imgur-ekin komunikatzeko erabiliko den url oinarria.
 Aldatzeak berrabiaraztea eskatzen du.</translation>
+    </message>
+    <message>
+        <source>Clear Token</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1211,6 +1132,119 @@ When omitted, everything is copied.</source>
     <message>
         <source>Stickers</source>
         <translation>Eranskailuak</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaInfoText</name>
+    <message>
+        <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to resize selection after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to prevent resizing after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operation will be canceled after 60 sec when no selection made.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaSettings</name>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished">Izoztu irudia ebaki bitartean</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished">Erakutsi lupa ebakitze arean</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished">Erakutsi atzeko irudira urbiltzen den
+lupa. Aukera honek bakarrik funtzionatzen du
+&quot;Izoztu irudia ebaki bitartean&quot; aktibatuta badago.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished">Erakutsi ebaketa arearen erregelak</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished">Mahaigaineko ertzetatik ebakitze-areako kurtsorera
+datozen lerro horizontalak eta bertikalak.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished">Erakutsi ebaketa arearen kokapena eta tamainaren informazioa</translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection by default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Snipping Area info text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished">Ebaketarako kurtsorearen kolorea</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished">Ebaketa arearen kurtsorearen zabalera</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

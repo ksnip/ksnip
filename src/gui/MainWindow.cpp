@@ -528,6 +528,11 @@ void MainWindow::showOpenImageDialog()
 	auto directory = mSavePathProvider.saveDirectory();
 	auto filter = tr("Image Files (*.png *.jpg *.bmp)");
 	auto pathList = mFileDialog->getOpenFileNames(this, title, directory, filter);
+	if (pathList.empty() && this->isHidden()) {
+		mVisibilityHandler->restoreVisibility();
+		mVisibilityHandler->hide();
+	}
+
 	for (const auto &path : pathList) {
 		loadImageFromFile(path);
 	}

@@ -87,7 +87,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх&#x2028;
+ліній, залишених пером чи маркером, але зробить їх 
 плавнішими.</translation>
     </message>
     <message>
@@ -264,7 +264,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Автори:</translation>
     </message>
 </context>
 <context>
@@ -676,7 +676,7 @@ Changing requires restart.</source>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Вилучити жетон</translation>
     </message>
 </context>
 <context>
@@ -1151,37 +1151,37 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Обрізання області</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Натисніть кнопку миші і перетягніть, щоб позначити прямокутну ділянку, або натисніть Esc, щоб вийти.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Утримуйте натиснутою клавішу Ctrl, щоб змінити розміри ділянки після позначення.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Утримйте натиснутою клавішу Ctrl, щоб запобігти зміні розмірів після позначення.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>Дію буде скасовано, якщо протягом 60 секунд нічного не буде позначено.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Це повідомлення можна вимкнути у параметрах програми.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Заморозити зображення у момент створення знімка</translation>
+        <translation>Заморозити зображення на час обрізання</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1192,7 +1192,7 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished">Якщо увімкнено, програма заморозить тло при
+        <translation>Якщо увімкнено, програма заморозить тло при
 позначенні прямокутної ділянки. Параметр також
 змінює поведінку при створенні відкладених знімків —
 якщо увімкнено цей параметр, програма робитиме
@@ -1203,78 +1203,78 @@ enabled for MacOs.</source>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Показувати лупу під час позначення області знімка</translation>
+        <translation>Показувати лупу під час вирізання ділянки</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Показувати збільшувальне скло, яке дає змогу
+        <translation>Показувати збільшувальне скло, яке дає змогу
 наблизити фонове зображення. Цей пункт
-працюватиме,&#x2028;лише якщо ввімкнено замороження зображення.</translation>
+працюватиме, лише якщо ввімкнено замороження зображення.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Показувати лінії-лінійки області вирізання</translation>
+        <translation>Показувати лінійки області вирізання</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Показувати горизонтальну та вертикальну лінії,
+        <translation>Показувати горизонтальну та вертикальну лінії,
 які відходять від краю екрана до вказівника миші
 під час позначення області знімка.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Показувати інформацію щодо позиції і розміру позначеної області</translation>
+        <translation>Показувати інформацію щодо позиції і розміру вирізаної області</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished">Якщо ліву кнопку миші не натиснуто, буде
+        <translation>Якщо ліву кнопку миші не натиснуто, буде
 показано позицію. Якщо ліву кнопку миші
 натиснуто, ліворуч вгорі захопленої області
 буде показано її розміри.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Типово дозволити зміну розмірів прямокутної позначеної ділянки</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished">Якщо позначено, після вибору прямокутної
+        <translation>Якщо позначено, після вибору прямокутної
 ділянки буде уможливлено зміну її розмірів.
 Зміну розмірів може бути підтверджено
 натисканням клавіші Enter.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати інформаційний текст області вирізання</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Колір курсора під час позначення області знімка</translation>
+        <translation>Колір вказівника під час вирізання області</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished">Встановлює колір вказівника області обрізання.</translation>
+        <translation>Встановлює колір вказівника при вирізанні ділянки.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Товщина курсора при позначенні області знімка</translation>
+        <translation>Товщина вказівника при вирізанні ділянки</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished">Встановлює товщину вказівника області обрізання.</translation>
+        <translation>Встановлює товщину вказівника області обрізання.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Обрізання області</translation>
     </message>
 </context>
 <context>

@@ -264,7 +264,7 @@ wijziging toe te passen.</translation>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>De makers:</translation>
     </message>
 </context>
 <context>
@@ -676,7 +676,7 @@ Herstart om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Toegangssleutel wissen</translation>
     </message>
 </context>
 <context>
@@ -1151,37 +1151,37 @@ Sla over om álles te kopiëren.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Vastleggebied</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klik en sleep om een rechthoekig gebied te selecteren of druk op Esc om af te breken.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Houd na het selecteren Ctrl ingedrukt om het gebied te verkleinen/vergroten.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Houd na het selecteren Ctrl ingedrukt om vergroten/verkleinen te voorkomen.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>De handeling wordt na 60 sec. inactiviteit afgebroken.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dit bericht kan in de instellingen worden uitgeschakeld.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Afbeelding bevriezen tijdens vastleggen</translation>
+        <translation>Afbeelding bevriezen tijdens vastleggen</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1192,7 +1192,7 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished">Schakel in om de achtergrond te bevriezen tijdens het
+        <translation>Schakel in om de achtergrond te bevriezen tijdens het
 selecteren van een rechthoekig gebied. Dit verandert
 tevens het gedrag van vertraagde schermfoto&apos;s: de
 vertraging vindt plaats vóórdat het selectiegebied wordt
@@ -1201,76 +1201,76 @@ altijd ingeschakeld op macOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Vergrootglas tonen op vastleggebied</translation>
+        <translation>Vergrootglas tonen op vastleggebied</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Toont een vergrootglas om in te zoomen op de
+        <translation>Toont een vergrootglas om in te zoomen op de
 achtergrondafbeelding. Deze optie werkt alleen als
 &apos;Afbeelding bevriezen tijdens vastleggen&apos; is ingeschakeld.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Linialen tonen op vastleggebied</translation>
+        <translation>Linialen tonen op vastleggebied</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Horizontale en verticale lijnen die lopen vanaf
+        <translation>Horizontale en verticale lijnen die lopen vanaf
 de schermranden naar de cursor op het vastleggebied.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Positie- en grootte-informatie tonen op vastleggebied</translation>
+        <translation>Positie- en afmetingsinformatie tonen op vastleggebied</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished">Als de linkermuisknop niet wordt ingedrukt, wordt de
+        <translation>Als de linkermuisknop niet wordt ingedrukt, wordt de
 positie getoond. Als de knop wél wordt ingedrukt,
 wordt de grootte van het selectiegebied links en
 bovenaan getoond.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Vergroten/Verkleinen van selectiegebied toestaan</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished">Schakel in om de afmetingen van het gebied van
+        <translation>Schakel in om de afmetingen van het gebied van
 een rechthoekige selectie aan te passen. Druk na
 het aanpassen op Enter om op te slaan.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Informatietekst tonen op vastleggebied</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Cursorkleur binnen vastleggebied</translation>
+        <translation>Cursorkleur binnen vastleggebied</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished">Stel de kleur in van de cursor op het knipselgebied.</translation>
+        <translation>Stel de kleur in van de cursor op het vastleggebied.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Cursordikte binnen vastleggebied</translation>
+        <translation>Cursordikte binnen vastleggebied</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished">Stel de dikte in van de cursor op het knipselgebied.</translation>
+        <translation>Stel de dikte in van de cursor op het vastleggebied.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Vastleggebied</translation>
     </message>
 </context>
 <context>

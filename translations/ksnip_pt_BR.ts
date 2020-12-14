@@ -140,11 +140,11 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Lembrar da ferramenta de anotação selecionada e carregue na inicialização</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Mudar para ferramenta de seleção após desenhar o item</translation>
     </message>
 </context>
 <context>
@@ -211,18 +211,21 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Lembrar da posição da janela principal ao mover e carregar na inicialização</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar a barra de abas quando apenas uma aba for usada.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ativar esta opção permitirá que apenas uma instância do ksnip funcione,
+todas as outras instâncias iniciadas após a primeira passarão seus
+argumentos para a primeira e fechar. Alterar esta opção requer
+um novo início de todas as instâncias.</translation>
     </message>
 </context>
 <context>
@@ -257,11 +260,11 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Autores:</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Suporte para Snap e Flatpak</translation>
     </message>
 </context>
 <context>
@@ -333,23 +336,24 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Portal de captura de tela</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Usa o portal de captura de tela para obter a imagem</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Excluir imagem</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>O item &apos;%1&apos; será excluído.
+Deseja continuar?</translation>
     </message>
 </context>
 <context>
@@ -368,19 +372,19 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Doação</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ksnip é um projeto de software livre sem fins lucrativos com copyleft, e &lt;br/&gt;ainda tem alguns custos que precisam ser cobertos,&lt;br/&gt;como custos de domínio ou custos de hardware para suporte multiplataforma.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Se quiser ajudar ou apenas&lt;br/&gt;apreciar o trabalho que está sendo feito&lt;br/&gt;oferecendo uma cerveja ou café aos desenvolvedores, você pode fazer isso</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Seja um patrocinador do GitHub</translation>
     </message>
 </context>
 <context>
@@ -439,7 +443,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Script escrito para StdErr.</translation>
     </message>
 </context>
 <context>
@@ -486,7 +490,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar usando o Portal</translation>
     </message>
 </context>
 <context>
@@ -507,16 +511,17 @@ capturas de tela.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar janela principal após a captura da tela</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar a janela principal após capturar uma nova imagem
+quando a janela principal foi ocultada ou minimizada.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Forçar captura de tela genérico para Wayland</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -524,11 +529,15 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME e KDE Plasma suportam suas próprias capturas
+de tela do Wayland e Generic XDG-DESKTOP-PORTAL.
+Ativar esta opção irá forçar o KDE Plasma e o GNOME a 
+usar as capturas do XDG-DESKTOP-PORTAL. A alteração 
+desta opção exige que o ksnip seja reiniciado.</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura de tela com escala genérica para Wayland</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -536,15 +545,19 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Implementações genéricas  do Wayland que utilizam o
+XDG-DESKTOP-PORTAL lidam com o dimensionamento
+de tela de forma diferente. Ativar esta opção irá 
+determinar a escala atual da tela e aplicar isso à captura 
+de tela no ksnip.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar a janela principal durante a captura da imagem</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar a janela principal ao capturar uma nova imagem.</translation>
     </message>
 </context>
 <context>
@@ -823,19 +836,19 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar caminho</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Renomear</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir pasta</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Fixar</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
@@ -843,46 +856,46 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Excluir</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Exibir</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir imagens</translation>
     </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Salvar</translation>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Salvar como</translation>
+        <translation>Salvar como</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Renomear</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir pasta</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Copiar</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar caminho</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Excluir</translation>
     </message>
 </context>
 <context>
@@ -896,49 +909,49 @@ e captura de tela.</translation>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Fechar</translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar outro</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar tudo</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fixar janela %1</translation>
     </message>
 </context>
 <context>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagem renomeada</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Imagem renomeada com sucesso para </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocorreu um erro ao renomear a imagem</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Ocorreu um erro ao renomear a imagem para </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Renomear imagem</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Novo nome do arquivo:</translation>
     </message>
 </context>
 <context>
@@ -1020,20 +1033,21 @@ O nome do arquivo pode conter os seguintes curingas:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Padrão</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Fator</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Indique 0 para obter pequenos arquivos compactados, 100 para grandes arquivos não compactados.
+Nem todos os formatos de imagem têm suporte a todos os intervalos, o JPEG suporta.</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar qualidade</translation>
     </message>
 </context>
 <context>
@@ -1066,7 +1080,7 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Parar quando o script de upload é gravado no StdErr</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
@@ -1076,7 +1090,7 @@ Sem essa configuração, os erros no script passarão despercebidos.</translatio
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtro:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.

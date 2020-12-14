@@ -5,11 +5,11 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>О&#xa0;приложении </translation>
+        <translation>О приложении </translation>
     </message>
     <message>
         <source>About</source>
-        <translation>О&#xa0;приложении</translation>
+        <translation>О приложении</translation>
     </message>
     <message>
         <source>Version</source>
@@ -140,11 +140,11 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Запомнить выбор инструмента и применять его при загрузке</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Переключаться на инструмент выбора после рисования элемента</translation>
     </message>
 </context>
 <context>
@@ -211,18 +211,21 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрывать панель вкладок при одой вкладке.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Включение этой опции позволит запускать только один
+экземпляр ksnip, все остальные запускаемые экземпляры
+передадут аргументы первому. Для применения необходим
+новый запуск всех экземпляров.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Запоминать позицию главного окна при перемещении и применять при старте</translation>
     </message>
 </context>
 <context>
@@ -261,7 +264,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Авторы:</translation>
     </message>
 </context>
 <context>
@@ -333,23 +336,24 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Портал скриншота</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать портал скриншота для снимков</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить изображение</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Элемент &apos;%1&apos; будет удалён.
+Подтверждаете это действие?</translation>
     </message>
 </context>
 <context>
@@ -376,11 +380,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip - это некоммерческий проект с открытым исходным кодом, но&lt;br/&gt;проект требует расходов, которые необходимо покрывать,&lt;br/&gt; такие как затраты на домен или инструменты для кросс-платформенной поддержки.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Если вы хотите помочь или просто&lt;br/&gt;отблагодарить за проделанную работу,&lt;br/&gt;угостив разработчиков пивом или кофе, вы можете это сделать</translation>
     </message>
 </context>
 <context>
@@ -486,7 +490,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Захват при помощи портала</translation>
     </message>
 </context>
 <context>
@@ -507,11 +511,11 @@ screenshots.</source>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Форсировать общие скриншоты Wayland</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Масштабировать общие скриншоты Wayland</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -519,7 +523,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Общие реализации Wayland, использующие
+XDG-DESKTOP-PORTAL, реализуют масштабирование
+по-разному. Включение этой опции приведет к
+определению масштаба текущего экрана и
+применению его к скриншоту в ksnip.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -527,24 +535,29 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME и KDE Plasma поддерживают собственные 
+методы скриншотов Wayland через XDG-DESKTOP-PORTAL.
+Включение этой опции заставит KDE Plasma и GNOME
+использовать метод XDG-DESKTOP-PORTAL.
+Изменение этого параметра требует перезапуска ksnip.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать главное окно после снятия скриншота</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать главное окно после создания нового 
+снимка экрана, если оно скрыто или свернуто.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрывать главное окно во время скриншота</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрывать главное окно при создании нового скриншота.</translation>
     </message>
 </context>
 <context>
@@ -663,7 +676,7 @@ Changing requires restart.</source>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить токен</translation>
     </message>
 </context>
 <context>
@@ -727,7 +740,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload</source>
-        <translation>Загрузить</translation>
+        <translation>Выгрузить</translation>
     </message>
     <message>
         <source>Print</source>
@@ -827,62 +840,62 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не выбрано ни одно изображение.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать путь</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть расположение</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Просмотр</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Переименовать</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть изображения</translation>
     </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Сохранить</translation>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Сохранить как</translation>
+        <translation>Сохранить как</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть расположение</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Копировать</translation>
+        <translation>Копировать</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать путь</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Переименовать</translation>
     </message>
 </context>
 <context>
@@ -918,27 +931,27 @@ and capturing screenshot.</source>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Изображение переименовано</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Изображение успешно переименовано в </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось переименовать изображение</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось переименовать изображение в </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Переименовать изображение</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Новое имя файла:</translation>
     </message>
 </context>
 <context>
@@ -1020,20 +1033,21 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>По умолчанию</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Фактор</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Качество сохранения</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Укажите 0 для наибольшего сжатия, 100 для больших файлов с наилучшим качеством.
+Не все форматы изображений поддерживают полный диапазон, но JPEG поддерживает.</translation>
     </message>
 </context>
 <context>
@@ -1137,37 +1151,37 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Зона снимка</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Нажмите и перемещайте для выбора прямоугольной области, или нажмите ESC для выхода.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Зажмите CTRL для изменения размера после выбора зоны.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Оставляйте CTRL нажатым для отключения режима редактирования зоны после выбора.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>Операция будет отменена через 60 секунд, если не будет сделано выбора.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Это сообщение может быть отключено через настройки.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Заморозить выделенную область (эта функция не работает в Wayland)</translation>
+        <translation>Заблокировать выделенную область при снимке</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1178,75 +1192,88 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>При включении - блокирует фон от изменений
+в течении выделение прямоугольной области. 
+Также меняет поведение отложенных снимков 
+экрана, при включенной опции - задержка 
+включается перед отображением зоны 
+выбора, при выключенной - после.
+Эта опция всегда отключена для Wayland
+и всегда включена для MacOs.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Использовать лупу во время выделения</translation>
+        <translation>Показывать лупу во время выделения</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Показывает лупу во время выделения области.
-Эта опция работает только, если включена 
-опция «Заморозить выделенную область».</translation>
+        <translation>Показывает лупу во время выделения области.
+Эта опция работает только при включенной
+опции «Заморозить выделенную область».</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Показывать горизонтальную/вертикальную линию от курсора выделения</translation>
+        <translation>Показывать линии для зоны выделения</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Показывает горизонтальные и вертикальные пунктирные линии
-от края рабочего стола к курсору.</translation>
+        <translation>Показывает горизонтальные и вертикальные пунктирные
+линии от краёв экрана к зоне выделения.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Выводить информацию о положении и размере зоны обрезки (линейка)</translation>
+        <translation>Показывать координаты и размер зоны</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если левая кнопка мыши не нажата - положение
+отображается, при нажатии кнопки мыши
+размер выбранной области отображается в 
+левом верхнему углу захватываемой зоны.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Разрешить изменение размера выделения по умолчанию</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Позволяет изменить вручную размеры зоны
+после выделения. Для подтверждения 
+изменённых размеров необходимо нажать
+кнопку Enter.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать подсказки в зоне скриншота</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Цвет курсора</translation>
+        <translation>Цвет курсора зоны скриншота</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Задаёт цвет курсора для выбора области обрезки.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Размер курсора выделения</translation>
+        <translation>Толщина курсора области обрезки</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Задаёт толщину курсора области обрезки.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Зона обрезки</translation>
     </message>
 </context>
 <context>
@@ -1281,7 +1308,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить стикеры</translation>
     </message>
 </context>
 <context>
@@ -1322,7 +1349,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation>Вы собираетесь загрузить изображение на внешний ресурс, хотите продолжить?</translation>
+        <translation>Вы собираетесь выгрузить изображение на внешний ресурс, хотите продолжить?</translation>
     </message>
 </context>
 <context>

@@ -663,7 +663,7 @@ Mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpar Token</translation>
     </message>
 </context>
 <context>
@@ -819,7 +819,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenhuma imagem fornecida, mas uma era esperada.</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -839,7 +839,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Fixar a captura de tela no primeiro plano de uma janela sem moldura</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1071,7 +1071,8 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Marca o upload como falha quando o script escreve em StdErr.
+Sem essa configuração, os erros no script passarão despercebidos.</translation>
     </message>
     <message>
         <source>Filter:</source>
@@ -1080,7 +1081,8 @@ Without this setting errors in the script will be unnoticed.</source>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Expressão Regulares. Copie para a área de transferência apenas o que corresponde à expressão RegEx.
+Quando omitido, tudo é copiado.</translation>
     </message>
 </context>
 <context>
@@ -1135,30 +1137,30 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Área Retangular</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Clique e arraste para selecionar uma área retangular ou pressione ESC para sair.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantenha CTRL pressionado para redimensionar a seleção após selecionar.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantenha CTRL pressionado para evitar o redimensionamento após selecionar.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>A operação será cancelada após 60 segundos quando nenhuma seleção for feita.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta mensagem pode ser desativada nas configurações.</translation>
     </message>
 </context>
 <context>
@@ -1176,11 +1178,18 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado irá congelar o fundo enquanto
+selecionando uma área retangular. Também muda
+o comportamento de capturas de tela atrasadas, com este
+opção habilitada o atraso acontece antes da
+área retangular ser exibida e com a opção desativada
+o atraso acontece depois que a área retangular é exibida.
+Este recurso está sempre desabilitado para Wayland e sempre
+habilitado para MacOs.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Exibir lupa ao capturar área retangular</translation>
+        <translation>Exibir lupa ao capturar área retangular</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
@@ -1192,59 +1201,65 @@ com &apos;Congelar imagem ao capturar área retangular&apos; habilitada.</transl
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Exibir réguas ao capturar área retangular</translation>
+        <translation>Exibir réguas ao capturar área retangular</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Uma linha horizontal e vertical será exibida
+        <translation>Uma linha horizontal e vertical será exibida
 antes de iniciar a captura de uma área retangular.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Exibir posição e tamanho ao capturar área retangular</translation>
+        <translation>Exibir posição e tamanho ao capturar área retangular</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando o botão esquerdo do mouse não é pressionado a posição
+é exibida, quando o botão do mouse é pressionado,
+o tamanho da área selecionada é exibido à esquerda
+e acima da área capturada.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir redimensionamento da seleção da área retangular por padrão</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado, após selecionar uma área
+retangular, permite redimensionar a seleção. Quando
+realizado o redimensionamento a seleção pode ser confirmada
+pressionando voltar.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mostrar texto de informação para área retangular</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Cor do cursor ao capturar área retangular</translation>
+        <translation>Cor do cursor ao capturar área retangular</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Define a cor do cursor da área retangular.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Espessura do cursor ao capturar área retangular</translation>
+        <translation>Espessura do cursor ao capturar área retangular</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Define a espessura do cursor da área retangular.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Área Retangular</translation>
     </message>
 </context>
 <context>
@@ -1279,7 +1294,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar Figurinhas</translation>
     </message>
 </context>
 <context>

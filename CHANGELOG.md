@@ -1,6 +1,7 @@
 # Change log
 
 ## Release 1.8.1
+* Fixed: If file selection is cancelled during ksnip's file open dialog via tray icon, ksnip closes. ([#503](https://github.com/ksnip/kImageAnnotator/issues/503))
 * Fixed kImageAnnotator: Brazilian Portuguese translation not loaded. ([#176](https://github.com/ksnip/kImageAnnotator/issues/176))
 
 ## Release 1.8.0

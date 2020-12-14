@@ -263,7 +263,7 @@ Om det här alternativet ändras måste alla öppna instanser startas om.</trans
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Upphovsmän:</translation>
     </message>
 </context>
 <context>
@@ -675,7 +675,7 @@ Changing requires restart.</source>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Rensa token</translation>
     </message>
 </context>
 <context>
@@ -1150,37 +1150,37 @@ När detta utelämnas kopieras allt.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Klippområde</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klicka och dra för att markera ett rektangulärt område eller tryck ESC för att avsluta.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Håll CTRL nedtryckt för att ändra storlek på markeringen.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Håll CTRL nedtryckt för att förhindra storlekändring efter markering.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>Åtgärden avbryts efter 60 sekunder, om ingen markering gjorts.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Detta meddelande kan inaktiveras i inställningarna.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Frys bilden under områdesklipp</translation>
+        <translation>Frys bilden under klipp</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1191,7 +1191,7 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished">Vid aktivering fryses bilden medan ett rektangulärt
+        <translation>Vid aktivering fryses bakgrunden medan ett rektangulärt
 område markeras. Det ändrar också beteendet för
 fördröjt skärmklipp. Med detta alternativ aktiverat,
 sker fördröjningen innan klippområdet visas och med
@@ -1202,77 +1202,77 @@ alltid aktiverad för MacOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Visa förstoringsglas på klippområdet</translation>
+        <translation>Visa förstoringsglas på klippområde</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Visa en förstoring som zoomar in i bakgrundsbilden.
+        <translation>Visa ett förstoringsglas som zoomar in i bakgrundsbilden.
 Detta alternativ fungerar endast när
-&quot;Frys bilden under områdesklipp&quot; är aktiverat.</translation>
+&quot;Frys bilden under klipp&quot; är aktiverat.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Visa stödlinjer för klippområdet</translation>
+        <translation>Visa linjaler på klippområdet</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Horisontella och vertikala linjer går från
+        <translation>Horisontella och vertikala linjer går från
 skrivbordskanten till markören i klippområdet.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Visa klippområdesplacering och storleksinformation</translation>
+        <translation>Visa klippområdesplacering och storleksinformation</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished">När vänster musknapp inte hålls ner, visas
+        <translation>När vänster musknapp inte hålls ner, visas
 positionen. När musknappen hålls ner, visas
 storleken på markerat område till vänster
 och över klippområdet.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillåt storleksändring av rektangelområde som standard</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished">Vid aktivering kommer en rektangulär
+        <translation>Vid aktivering kommer en rektangulär
 områdesmarkering att kunna storleksändras.
 När storleksändringen slutförts kan den
 tillämpas genom att trycka Retur.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa informationstext för klippområde</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Färg på klippområdesmarkören</translation>
+        <translation>Färg på klippområdesmarkören</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished">Anger färgen på markören för klippområdet.</translation>
+        <translation>Anger färgen på markören för klippområdet.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Tjocklek på klippområdesmarkören</translation>
+        <translation>Tjocklek på klippområdesmarkören</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished">Anger tjockleken på klippområdets markör.</translation>
+        <translation>Anger tjockleken på klippområdets markör.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Klippområde</translation>
     </message>
 </context>
 <context>

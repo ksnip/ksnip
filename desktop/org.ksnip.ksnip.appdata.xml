@@ -84,8 +84,9 @@
         <release type="stable" version="1.8.1" date="2020-07-30T00:00:00Z">
             <description>
                 <ul>
-                    <li>PFixed: If file selection is cancelled during ksnip's file open dialog via tray icon, ksnip closes.</li>
+                    <li>Fixed: If file selection is cancelled during ksnip's file open dialog via tray icon, ksnip closes.</li>
                     <li>Fixed kImageAnnotator: Brazilian Portuguese translation not loaded.</li>
+                    <li>Fixed: error: control reaches end of non-void function.</li>
                 </ul>
             </description>
         </release>

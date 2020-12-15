@@ -3,6 +3,7 @@
 ## Release 1.8.1
 * Fixed: If file selection is cancelled during ksnip's file open dialog via tray icon, ksnip closes. ([#503](https://github.com/ksnip/kImageAnnotator/issues/503))
 * Fixed kImageAnnotator: Brazilian Portuguese translation not loaded. ([#176](https://github.com/ksnip/kImageAnnotator/issues/176))
+* Fixed kImageAnnotator: error: control reaches end of non-void function. ([#177](https://github.com/ksnip/kImageAnnotator/issues/177))
 
 ## Release 1.8.0
 * New: Pin screenshots in frameless windows that stay in foreground. ([#365](https://github.com/ksnip/ksnip/issues/365))

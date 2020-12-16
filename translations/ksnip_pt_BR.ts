@@ -1047,7 +1047,7 @@ Nem todos os formatos de imagem têm suporte a todos os intervalos, o JPEG supor
     </message>
     <message>
         <source>Save Quality</source>
-        <translation>Salvar qualidade</translation>
+        <translation>Qualidade para salvar</translation>
     </message>
 </context>
 <context>

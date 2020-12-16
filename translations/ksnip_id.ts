@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Donasi</translation>
     </message>
 </context>
 <context>
@@ -51,11 +51,11 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Gambar Watermark Diperlukan</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Mohon tambahkan sebuah Gambar Watermark melalui Pilihan &gt; Pengaturan &gt; Annotator &gt; Perbarui</translation>
     </message>
 </context>
 <context>

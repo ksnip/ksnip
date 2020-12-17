@@ -395,7 +395,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload script </source>
-        <translation>Скрипт закачивания </translation>
+        <translation>Скрипт выгрузки </translation>
     </message>
     <message>
         <source> finished successfully.</source>
@@ -407,7 +407,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation>Не удалось сохранить временное изображение для закачивания.</translation>
+        <translation>Не удалось сохранить временное изображение для выгрузки.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
@@ -439,7 +439,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation>Закачивание не удалось</translation>
+        <translation>Выгрузка не удалась</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
@@ -543,7 +543,7 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation>Показать главное окно после снятия скриншота</translation>
+        <translation>Показывать главное окно после снятия скриншота</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
@@ -587,11 +587,11 @@ when the Main Window was hidden or minimized.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Закачивание на imgur.com завершено!</translation>
+        <translation>Выгрузка на imgur.com завершена!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation>Получен новый токен, повторная попытка закачивания…</translation>
+        <translation>Получен новый токен, повторная попытка выгрузки…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
@@ -602,7 +602,7 @@ when the Main Window was hidden or minimized.</source>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation>Закачать анонимно</translation>
+        <translation>Форсировать анонимную выгрузку</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
@@ -638,7 +638,7 @@ when the Main Window was hidden or minimized.</source>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation>Загрузчик в Imgur</translation>
+        <translation>Выгрузка на Imgur</translation>
     </message>
     <message>
         <source>Username</source>
@@ -658,7 +658,7 @@ when the Main Window was hidden or minimized.</source>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation>После закачивания открыть ссылку Imgur в браузере по умолчанию</translation>
+        <translation>После выгрузки открыть ссылку Imgur в браузере по умолчанию</translation>
     </message>
     <message>
         <source>Link directly to image</source>
@@ -828,7 +828,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation>Закачать снимок на внешний источник</translation>
+        <translation>Выгрузить снимок на внешний источник</translation>
     </message>
     <message>
         <source>Pin</source>
@@ -1037,7 +1037,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Factor</source>
-        <translation>Фактор</translation>
+        <translation>Уровень</translation>
     </message>
     <message>
         <source>Save Quality</source>
@@ -1072,7 +1072,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Скриптовый загрузчик</translation>
+        <translation>Выгрузка через скрипт</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
@@ -1119,7 +1119,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation>Загрузчик в Imgur</translation>
+        <translation>Выгрузка на Imgur</translation>
     </message>
     <message>
         <source>Application</source>
@@ -1135,11 +1135,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Загрузчик</translation>
+        <translation>Выгрузка</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Скриптовый загрузчик</translation>
+        <translation>Выгрузка через скрипт</translation>
     </message>
     <message>
         <source>Saver</source>
@@ -1151,7 +1151,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation>Зона снимка</translation>
+        <translation>Зона обрезки</translation>
     </message>
 </context>
 <context>
@@ -1360,7 +1360,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation>Тип загрузчика:</translation>
+        <translation>Тип выгрузки:</translation>
     </message>
     <message>
         <source>Imgur</source>
@@ -1372,7 +1372,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Загрузчик</translation>
+        <translation>Выгрузка</translation>
     </message>
 </context>
 <context>

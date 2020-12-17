@@ -223,6 +223,20 @@ void KsnipConfig::setApplicationStyle(const QString &style)
 	saveValue(KsnipConfigOptions::applicationStyleString(), style);
 }
 
+int KsnipConfig::trayLeftClickAction() const
+{
+	auto defaultTrayLeftClickAction = -1;
+	return loadValue(KsnipConfigOptions::trayLeftClickActionString(), defaultTrayLeftClickAction).toInt();
+}
+
+void KsnipConfig::setTrayLeftClickAction(const int action)
+{
+	if (trayLeftClickAction() == action) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::trayLeftClickActionString(), action);
+}
+
 bool KsnipConfig::useTrayIcon() const
 {
 	return loadValue(KsnipConfigOptions::useTrayIconString(), true).toBool();

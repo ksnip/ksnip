@@ -19,7 +19,7 @@
 
 #include "ApplicationSettings.h"
 
-ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
+ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig, const QList<CaptureModes> &captureModes) :
 	mConfig(ksnipConfig),
 	mAutoCopyToClipboardNewCapturesCheckbox(new QCheckBox(this)),
 	mRememberPositionCheckbox(new QCheckBox(this)),
@@ -27,6 +27,8 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	mUseTrayIconCheckBox(new QCheckBox(this)),
 	mMinimizeToTrayCheckBox(new QCheckBox(this)),
 	mCloseToTrayCheckBox(new QCheckBox(this)),
+	mDefaultTrayLeftClickActionLabel(new QLabel(this)),
+	mDefaultTrayLeftClickActionCombobox(new QComboBox(this)),
 	mStartMinimizedToTrayCheckBox(new QCheckBox(this)),
 	mUseTabsCheckbox(new QCheckBox(this)),
 	mAutoHideTabsCheckbox(new QCheckBox(this)),
@@ -38,6 +40,8 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	Q_ASSERT(mConfig != nullptr);
 
 	initGui();
+	populateTrayLeftClickActionCombobox(captureModes);
+
 	loadConfig();
 }
 
@@ -51,6 +55,8 @@ ApplicationSettings::~ApplicationSettings()
 	delete mAutoHideTabsCheckbox;
 	delete mMinimizeToTrayCheckBox;
 	delete mCloseToTrayCheckBox;
+	delete mDefaultTrayLeftClickActionLabel;
+	delete mDefaultTrayLeftClickActionCombobox;
 	delete mStartMinimizedToTrayCheckBox;
 	delete mUseSingleInstanceCheckBox;
 	delete mApplicationStyleLabel;
@@ -69,6 +75,8 @@ void ApplicationSettings::initGui()
 	mMinimizeToTrayCheckBox->setText(tr("Minimize to Tray"));
 	mStartMinimizedToTrayCheckBox->setText(tr("Start Minimized to Tray"));
 	mCloseToTrayCheckBox->setText(tr("Close to Tray"));
+	mDefaultTrayLeftClickActionLabel->setText(tr("Default left-click on Tray Icon action"));
+	mDefaultTrayLeftClickActionCombobox->setToolTip(tr("Default action performed when left-clicking Tray Icon"));
 
 	mUseTabsCheckbox->setText(tr("Use Tabs"));
 	mUseTabsCheckbox->setToolTip(tr("Change requires restart."));
@@ -101,12 +109,14 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 4, 1, 1, 3);
 	mLayout->addWidget(mMinimizeToTrayCheckBox, 5, 1, 1, 3);
 	mLayout->addWidget(mCloseToTrayCheckBox, 6, 1, 1, 3);
-	mLayout->addWidget(mUseTabsCheckbox, 7, 0, 1, 4);
-	mLayout->addWidget(mAutoHideTabsCheckbox, 8, 1, 1, 3);
-	mLayout->addWidget(mUseSingleInstanceCheckBox, 9, 0, 1, 4);
-	mLayout->setRowMinimumHeight(10, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 11, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 11, 2, Qt::AlignLeft);
+	mLayout->addWidget(mDefaultTrayLeftClickActionLabel, 7, 1, 1, 1);
+	mLayout->addWidget(mDefaultTrayLeftClickActionCombobox, 7, 2, 1, 1);
+	mLayout->addWidget(mUseTabsCheckbox, 8, 0, 1, 4);
+	mLayout->addWidget(mAutoHideTabsCheckbox, 9, 1, 1, 3);
+	mLayout->addWidget(mUseSingleInstanceCheckBox, 10, 0, 1, 4);
+	mLayout->setRowMinimumHeight(11, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 12, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 12, 2, Qt::AlignLeft);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -125,9 +135,30 @@ void ApplicationSettings::loadConfig()
 	mAutoHideTabsCheckbox->setChecked(mConfig->autoHideTabs());
 	mUseSingleInstanceCheckBox->setChecked(mConfig->useSingleInstance());
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
+	setTrayLeftClickActionComboboxValue(mConfig->trayLeftClickAction());
 
 	useTrayIconChanged();
 	useTabsChanged();
+}
+
+void ApplicationSettings::populateTrayLeftClickActionCombobox(const QList<CaptureModes> &captureModes)
+{
+	mDefaultTrayLeftClickActionCombobox->addItem(tr("Show Editor"), -1);
+	for(CaptureModes captureMode: captureModes) {
+		const QString label = captureModeString(captureMode);
+		mDefaultTrayLeftClickActionCombobox->addItem(label, static_cast<int>(captureMode));
+	}
+}
+
+void ApplicationSettings::setTrayLeftClickActionComboboxValue(int action)
+{
+	for (int i = 0; i < mDefaultTrayLeftClickActionCombobox->count(); ++i) {
+		const auto itemAction = mDefaultTrayLeftClickActionCombobox->itemData(i).toInt();
+		if (itemAction == action) {
+			mDefaultTrayLeftClickActionCombobox->setCurrentIndex(i);
+			return;
+		}
+	}
 }
 
 void ApplicationSettings::saveSettings()
@@ -143,6 +174,7 @@ void ApplicationSettings::saveSettings()
 	mConfig->setUseTabs(mUseTabsCheckbox->isChecked());
 	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
+	mConfig->setTrayLeftClickAction(mDefaultTrayLeftClickActionCombobox->currentData().toInt());
 }
 
 void ApplicationSettings::useTrayIconChanged()
@@ -150,6 +182,7 @@ void ApplicationSettings::useTrayIconChanged()
 	mMinimizeToTrayCheckBox->setEnabled(mUseTrayIconCheckBox->isChecked());
 	mCloseToTrayCheckBox->setEnabled(mUseTrayIconCheckBox->isChecked());
 	mStartMinimizedToTrayCheckBox->setEnabled(mUseTrayIconCheckBox->isChecked());
+	mDefaultTrayLeftClickActionCombobox->setEnabled(mUseTrayIconCheckBox->isChecked());
 }
 
 void ApplicationSettings::useTabsChanged()

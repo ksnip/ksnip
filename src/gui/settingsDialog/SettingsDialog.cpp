@@ -27,7 +27,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const QList<CaptureModes> &captu
 	mTreeWidget(new QTreeWidget),
 	mStackedLayout(new QStackedLayout),
 	mConfig(KsnipConfigProvider::instance()),
-	mApplicationSettings(new ApplicationSettings(mConfig)),
+	mApplicationSettings(new ApplicationSettings(mConfig, captureModes)),
 	mImageGrabberSettings(new ImageGrabberSettings(mConfig)),
 	mImgurUploaderSettings(new ImgurUploaderSettings(mConfig)),
 	mScriptUploaderSettings(new ScriptUploaderSettings(mConfig)),

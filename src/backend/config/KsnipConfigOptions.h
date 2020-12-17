@@ -43,6 +43,7 @@ public:
 	static QString saveFilenameString();
 	static QString saveFormatString();
 	static QString applicationStyleString();
+	static QString trayLeftClickActionString();
 	static QString useTrayIconString();
 	static QString minimizeToTrayString();
 	static QString closeToTrayString();

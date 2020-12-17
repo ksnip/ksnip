@@ -34,7 +34,7 @@ TrayIcon::TrayIcon(QObject *parent) :
 	mShowEditorAction = new QAction(tr("Show Editor"), this);
 	mShowEditorAction->setIcon(icon);
 	connect(mShowEditorAction, &QAction::triggered, this, &TrayIcon::showEditorTriggered);
-	connect(this, &QSystemTrayIcon::activated, this, &TrayIcon::activated);
+	connect(this, &QSystemTrayIcon::activated, this, &TrayIcon::leftClickActionTriggered);
 	connect(this, &QSystemTrayIcon::messageClicked, this, &TrayIcon::openContentUrl);
 }
 
@@ -124,7 +124,7 @@ void TrayIcon::showMessage(const QString &title, const QString &message, const Q
 void TrayIcon::activated(ActivationReason reason) const
 {
 	if(reason != ActivationReason::Context) {
-		emit showEditorTriggered();
+		emit leftClickActionTriggered();
 	}
 }
 void TrayIcon::openContentUrl()

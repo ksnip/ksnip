@@ -109,6 +109,11 @@ QString KsnipConfigOptions::applicationStyleString()
 	return applicationSectionString() + QLatin1Literal("ApplicationStyle");
 }
 
+QString KsnipConfigOptions::trayLeftClickActionString()
+{
+	return applicationSectionString() + QLatin1Literal("TrayLeftClickAction");
+}
+
 QString KsnipConfigOptions::useTrayIconString()
 {
 	return applicationSectionString() + QLatin1Literal("UseTrayIcon");

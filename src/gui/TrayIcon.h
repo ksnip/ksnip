@@ -48,6 +48,7 @@ public:
 
 signals:
 	void showEditorTriggered() const;
+	void leftClickActionTriggered() const;
 
 private:
 	QMenu mMenu;

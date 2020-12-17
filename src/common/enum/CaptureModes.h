@@ -21,6 +21,8 @@
 #define KSNIP_CAPTUREMODES_H
 
 #include <QMetaType>
+#include <QHash>
+#include <QObject>
 
 enum class CaptureModes
 {
@@ -32,6 +34,26 @@ enum class CaptureModes
     WindowUnderCursor,
     Portal
 };
+
+static QString captureModeString(CaptureModes captureMode)
+{
+	static QHash<CaptureModes, QString> modeStringMap = {
+		{CaptureModes::RectArea, QObject::tr("Rectangular Area")},
+		{CaptureModes::LastRectArea,  QObject::tr("Last Rectangular Area")},
+		{CaptureModes::FullScreen, QObject::tr("Full Screen (All Monitors)")},
+		{CaptureModes::CurrentScreen, QObject::tr("Current Screen")},
+		{CaptureModes::ActiveWindow, QObject::tr("Active Window")},
+		{CaptureModes::WindowUnderCursor, QObject::tr("Window Under Cursor")},
+		{CaptureModes::Portal, QObject::tr("Screenshot Portal")}
+	};
+
+	Q_ASSERT(modeStringMap.contains(captureMode));
+	return modeStringMap.value(captureMode);
+}
+
+inline uint qHash(const CaptureModes captureMode, uint seed) {
+	return qHash(static_cast<int>(captureMode), seed);
+}
 
 Q_DECLARE_METATYPE(CaptureModes)
 

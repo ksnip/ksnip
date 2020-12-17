@@ -36,7 +36,6 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     ./ci/scripts/app/add-osx-cert.sh;
 
     echo "--> Package MacOS"
-
     mkdir packageDir
     mv build/src/ksnip*.app packageDir/ksnip.app
     macdeployqt packageDir/ksnip.app -sign-for-notarization="Developer ID Application: ${APPLE_DEV_IDENTITY}"
@@ -44,5 +43,6 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     cp build/translations/kImageAnnotator_*.qm ./packageDir/ksnip.app/Contents/Resources/
     sudo hdiutil create ksnip-${VERSION}.dmg -volname "Ksnip" -fs HFS+ -srcfolder packageDir/
 
-    xcrun altool -t osx -f ksnip-${VERSION}.dmg –primary-bundle-id org.ksnip.ksnip –notarize-app –username ${APPLE_DEV_USER} -paasword ${APPLE_DEV_PASS}
+
+    xcrun altool -t osx -f ksnip-${VERSION}.dmg –primary-bundle-id org.ksnip.ksnip –notarize-app –username ${APPLE_DEV_USER} -password ${APPLE_DEV_PASS}
 fi

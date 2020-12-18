@@ -27,7 +27,7 @@
 class WidgetVisibilityHandler
 {
 public:
-	explicit WidgetVisibilityHandler(QWidget *widget, KsnipConfig *config);
+	explicit WidgetVisibilityHandler(QWidget *widget);
 	~WidgetVisibilityHandler() = default;
 	virtual void hide();
 	virtual void makeInvisible();
@@ -39,7 +39,6 @@ public:
 
 protected:
 	QWidget *mWidget;
-	KsnipConfig *mConfig;
 
 	virtual void setVisible(bool isVisible);
 

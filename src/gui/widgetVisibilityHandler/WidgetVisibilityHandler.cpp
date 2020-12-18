@@ -19,9 +19,8 @@
 
 #include "WidgetVisibilityHandler.h"
 
-WidgetVisibilityHandler::WidgetVisibilityHandler(QWidget *widget, KsnipConfig *config) :
+WidgetVisibilityHandler::WidgetVisibilityHandler(QWidget *widget) :
 	mWidget(widget),
-	mConfig(config),
 	mSelectedWindowState(Qt::WindowActive),
 	mWindowStateChangeLock(false),
 	mWasMinimized(false)
@@ -49,11 +48,14 @@ void WidgetVisibilityHandler::minimize()
 void WidgetVisibilityHandler::restoreVisibility()
 {
 	setVisible(true);
-	if(!mWasMinimized || mConfig->showMainWindowAfterTakingScreenshotEnabled()) {
-		showWidget();
-	}
-	mWindowStateChangeLock = false;
 
+	if(!mWasMinimized) {
+		showWidget();
+	} else {
+		mWidget->showMinimized();
+	}
+
+	mWindowStateChangeLock = false;
 }
 
 void WidgetVisibilityHandler::enforceVisible()

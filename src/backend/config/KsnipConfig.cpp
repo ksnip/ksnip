@@ -704,6 +704,19 @@ void KsnipConfig::setSnippingCursorColor(const QColor& color)
 	saveValue(KsnipConfigOptions::snippingCursorColorString(), color);
 }
 
+QColor KsnipConfig::snippingAdornerColor() const
+{
+	return loadValue(KsnipConfigOptions::snippingAdornerColorString(), QColor(Qt::red)).value<QColor>();
+}
+
+void KsnipConfig::setSnippingAdornerColor(const QColor& color)
+{
+	if (snippingAdornerColor() == color) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::snippingAdornerColorString(), color);
+}
+
 QRect KsnipConfig::lastRectArea() const
 {
 	return loadValue(KsnipConfigOptions::lastRectAreaString(), QRect()).value<QRect>();

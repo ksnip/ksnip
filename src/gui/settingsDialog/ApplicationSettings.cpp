@@ -145,7 +145,7 @@ void ApplicationSettings::populateTrayLeftClickActionCombobox(const QList<Captur
 {
 	mDefaultTrayLeftClickActionCombobox->addItem(tr("Show Editor"), -1);
 	for (auto captureMode: captureModes) {
-		const auto label = captureModeString(captureMode);
+		const auto label = EnumTranslator::instance()->toString(captureMode);
 		mDefaultTrayLeftClickActionCombobox->addItem(label, static_cast<int>(captureMode));
 	}
 }

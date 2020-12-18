@@ -31,6 +31,7 @@
 #include <QFileDialog>
 
 #include "src/backend/config/KsnipConfig.h"
+#include "src/common/helper/EnumTranslator.h"
 
 class ApplicationSettings : public QGroupBox
 {

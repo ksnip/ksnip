@@ -49,7 +49,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 
     if (isCaptureModeSupported(captureModes, CaptureModes::RectArea)) {
 	    auto action = createAction(
-				captureModeString(CaptureModes::RectArea),
+				EnumTranslator::instance()->toString(CaptureModes::RectArea),
 				tr("Draw a rectangular area with your mouse"),
 				QStringLiteral("drawRect.svg"),
 				CaptureModes::RectArea,
@@ -59,7 +59,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 
 	if (isCaptureModeSupported(captureModes, CaptureModes::LastRectArea)) {
 		auto action = createAction(
-			captureModeString(CaptureModes::LastRectArea),
+			EnumTranslator::instance()->toString(CaptureModes::LastRectArea),
 			tr("Capture a screenshot of the last selected rectangular area"),
 			QStringLiteral("lastRect.svg"),
 			CaptureModes::LastRectArea,
@@ -69,7 +69,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 
     if (isCaptureModeSupported(captureModes, CaptureModes::FullScreen)) {
         auto action = createAction(
-				captureModeString(CaptureModes::FullScreen),
+				EnumTranslator::instance()->toString(CaptureModes::FullScreen),
 				tr("Capture full screen including all monitors"),
 				QStringLiteral("fullScreen.svg"),
 				CaptureModes::FullScreen,
@@ -79,7 +79,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 
     if (isCaptureModeSupported(captureModes, CaptureModes::CurrentScreen)) {
 	    auto action = createAction(
-				captureModeString(CaptureModes::CurrentScreen),
+				EnumTranslator::instance()->toString(CaptureModes::CurrentScreen),
 	    		tr("Capture screen where the mouse is located"),
 	    		QStringLiteral("currentScreen.svg"),
 	    		CaptureModes::CurrentScreen,
@@ -89,7 +89,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 
     if (isCaptureModeSupported(captureModes, CaptureModes::ActiveWindow)) {
 	    auto action = createAction(
-				captureModeString(CaptureModes::ActiveWindow),
+				EnumTranslator::instance()->toString(CaptureModes::ActiveWindow),
 	    		tr("Capture window that currently has focus"),
 	    		QStringLiteral("activeWindow.svg"),
 	    		CaptureModes::ActiveWindow,
@@ -99,7 +99,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 
     if (isCaptureModeSupported(captureModes, CaptureModes::WindowUnderCursor)) {
         auto action = createAction(
-				captureModeString(CaptureModes::WindowUnderCursor),
+				EnumTranslator::instance()->toString(CaptureModes::WindowUnderCursor),
 				tr("Capture that is currently under the mouse cursor"),
 				QStringLiteral("windowUnderCursor.svg"),
 				CaptureModes::WindowUnderCursor,
@@ -109,7 +109,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 
     if (isCaptureModeSupported(captureModes, CaptureModes::Portal)) {
         auto action = createAction(
-				captureModeString(CaptureModes::Portal),
+				EnumTranslator::instance()->toString(CaptureModes::Portal),
                 tr("Uses the screenshot Portal for taking screenshot"),
                 QStringLiteral("wayland.svg"),
                 CaptureModes::Portal,

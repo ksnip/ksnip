@@ -188,7 +188,7 @@ void AbstractSnippingArea::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
 		cancelSelection();
-	} else if (event->key() == Qt::Key_Return) {
+	} else if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
 		finishSelection();
 	} else if (event->key() == Qt::Key_Control){
 		mIsSwitchPressed = true;

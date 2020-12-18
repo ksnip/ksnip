@@ -69,6 +69,7 @@ public:
 	static QString captureDelayString();
 	static QString snippingCursorSizeString();
 	static QString snippingCursorColorString();
+	static QString snippingAdornerColorString();
 	static QString lastRectAreaString();
 	static QString forceGenericWaylandEnabledString();
 	static QString scaleWaylandScreenshotsEnabledString();

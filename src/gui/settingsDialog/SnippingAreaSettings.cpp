@@ -29,8 +29,10 @@ SnippingAreaSettings::SnippingAreaSettings(KsnipConfig *config) :
 	mShowSnippingAreaInfoTextCheckbox(new QCheckBox(this)),
 	mSnippingCursorSizeLabel(new QLabel(this)),
 	mSnippingCursorColorLabel(new QLabel(this)),
+	mSnippingAdornerColorLabel(new QLabel(this)),
 	mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
 	mSnippingCursorColorButton(new ColorButton(this)),
+	mSnippingAdornerColorButton(new ColorButton(this)),
 	mLayout(new QGridLayout(this))
 {
 	Q_ASSERT(mConfig != nullptr);
@@ -49,7 +51,9 @@ SnippingAreaSettings::~SnippingAreaSettings()
 	delete mShowSnippingAreaInfoTextCheckbox;
 	delete mSnippingCursorSizeLabel;
 	delete mSnippingCursorColorLabel;
+	delete mSnippingAdornerColorLabel;
 	delete mSnippingCursorColorButton;
+	delete mSnippingAdornerColorButton;
 	delete mSnippingCursorSizeCombobox;
 }
 
@@ -62,6 +66,7 @@ void SnippingAreaSettings::saveSettings()
 	mConfig->setAllowResizingRectSelection(mAllowResizingRectSelectionCheckbox->isChecked());
 	mConfig->setShowSnippingAreaInfoText(mShowSnippingAreaInfoTextCheckbox->isChecked());
 	mConfig->setSnippingCursorColor(mSnippingCursorColorButton->color());
+	mConfig->setSnippingAdornerColor(mSnippingAdornerColorButton->color());
 	mConfig->setSnippingCursorSize(mSnippingCursorSizeCombobox->value());
 }
 
@@ -107,6 +112,13 @@ void SnippingAreaSettings::initGui()
 	mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area cursor."));
 	mSnippingCursorColorButton->setMinimumWidth(fixedButtonSize);
 	mSnippingCursorColorButton->setToolTip(mSnippingCursorColorLabel->toolTip());
+
+	mSnippingAdornerColorLabel->setText(tr("Snipping Area adorner color") + QLatin1Literal(":"));
+	mSnippingAdornerColorLabel->setToolTip(tr("Sets the color of all adorner elements\n"
+										        "on the snipping area."));
+	mSnippingAdornerColorButton->setMinimumWidth(fixedButtonSize);
+	mSnippingAdornerColorButton->setToolTip(mSnippingAdornerColorLabel->toolTip());
+
 	mSnippingCursorSizeLabel->setText(tr("Snipping Area cursor thickness") + QLatin1Literal(":"));
 	mSnippingCursorSizeLabel->setToolTip(tr("Sets the thickness of the snipping area cursor."));
 	mSnippingCursorSizeCombobox->setMinimumWidth(fixedButtonSize);
@@ -121,10 +133,12 @@ void SnippingAreaSettings::initGui()
 	mLayout->addWidget(mAllowResizingRectSelectionCheckbox, 4, 0, 1, 3);
 	mLayout->addWidget(mShowSnippingAreaInfoTextCheckbox, 5, 0, 1, 3);
 	mLayout->setRowMinimumHeight(6, 15);
-	mLayout->addWidget(mSnippingCursorSizeLabel, 7, 0, 1, 2);
-	mLayout->addWidget(mSnippingCursorColorButton, 7, 2, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingAdornerColorLabel, 7, 0, 1, 2);
+	mLayout->addWidget(mSnippingAdornerColorButton, 7, 2, Qt::AlignLeft);
 	mLayout->addWidget(mSnippingCursorColorLabel, 8, 0, 1, 2);
-	mLayout->addWidget(mSnippingCursorSizeCombobox, 8, 2, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingCursorColorButton, 8, 2, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingCursorSizeLabel, 9, 0, 1, 2);
+	mLayout->addWidget(mSnippingCursorSizeCombobox, 9, 2, Qt::AlignLeft);
 
 	setTitle(tr("Snipping Area"));
 	setLayout(mLayout);
@@ -146,6 +160,7 @@ void SnippingAreaSettings::loadConfig()
 	mAllowResizingRectSelectionCheckbox->setChecked(mConfig->allowResizingRectSelection());
 	mShowSnippingAreaInfoTextCheckbox->setChecked(mConfig->showSnippingAreaInfoText());
 	mSnippingCursorColorButton->setColor(mConfig->snippingCursorColor());
+	mSnippingAdornerColorButton->setColor(mConfig->snippingAdornerColor());
 	mSnippingCursorSizeCombobox->setValue(mConfig->snippingCursorSize());
 
 	freezeImageWhileSnippingStateChanged();

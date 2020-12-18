@@ -46,7 +46,9 @@ private:
 	QCheckBox *mShowSnippingAreaInfoTextCheckbox;
 	QLabel *mSnippingCursorSizeLabel;
 	QLabel *mSnippingCursorColorLabel;
+	QLabel *mSnippingAdornerColorLabel;
 	ColorButton *mSnippingCursorColorButton;
+	ColorButton *mSnippingAdornerColorButton;
 	NumericComboBox *mSnippingCursorSizeCombobox;
 	QGridLayout *mLayout;
 	KsnipConfig *mConfig;

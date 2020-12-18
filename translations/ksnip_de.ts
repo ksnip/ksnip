@@ -144,7 +144,7 @@ macht sie glatter.</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach dem Zeichnen des Elements zum Auswahlwerkzeug wechseln</translation>
     </message>
 </context>
 <context>
@@ -225,7 +225,7 @@ Einstellung erfordert einen Neustartet aller Instanzen.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Position des Hauptfensters beim Verschieben merken und beim Starten wiederherstellen</translation>
     </message>
 </context>
 <context>
@@ -264,7 +264,7 @@ Einstellung erfordert einen Neustartet aller Instanzen.</translation>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Authoren:</translation>
     </message>
 </context>
 <context>
@@ -543,20 +543,21 @@ dieser Option erfordert einen Neustart von ksnip.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauptfenster nach Aufnahme des Screenshots anzeigen</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauptfenster anzeigen, nachdem ein neuer Screenshot aufgenommen wurde
+wenn das Hauptfenster ausgeblendet oder minimiert war</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauptfenster während Screenshot ausblenden</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauptfenster ausblenden, wenn ein neues Bildschirmfoto aufgenommen wird.</translation>
     </message>
 </context>
 <context>
@@ -675,7 +676,7 @@ Changing requires restart.</source>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Token löschen</translation>
     </message>
 </context>
 <context>
@@ -859,11 +860,11 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Umbenennen</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilder öffnen</translation>
     </message>
 </context>
 <context>
@@ -894,7 +895,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Umbenennen</translation>
     </message>
 </context>
 <context>
@@ -930,27 +931,27 @@ und der Aufnahme des Bildschirmfotos.</translation>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild umbenennen</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Bild erfolgreich umbenannt zu </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild Umbenennung fehlgeschlagen</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler bei Umbennenung des Bildes zu </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild umbenennen</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Neuer Dateiname:</translation>
     </message>
 </context>
 <context>
@@ -1150,30 +1151,30 @@ Alles wird kopiert wenn leer.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Bereich zum Ausschneiden</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klicken und ziehen Sie, um einen rechteckigen Bereich auszuwählen, oder drücken Sie ESC, um zu beenden.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Halten Sie die STRG-Taste gedrückt, um die Größe des Bereichs nach der Auswahl zu ändern</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Halten Sie die STRG-Taste gedrückt, um eine Größenänderung nach der Auswahl zu verhindern.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Aktion wird nach 60 Sekunden abgebrochen, wenn keine Auswahl getroffen wurde.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Diese Nachricht kann in den Einstellungen deaktiviert werden.</translation>
     </message>
 </context>
 <context>

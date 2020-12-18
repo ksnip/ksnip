@@ -43,6 +43,6 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     cp build/translations/kImageAnnotator_*.qm ./packageDir/ksnip.app/Contents/Resources/
     sudo hdiutil create ksnip-${VERSION}.dmg -volname "Ksnip" -fs HFS+ -srcfolder packageDir/
 
-
+    echo "--> Start Notatization process"
     xcrun altool -t osx -f ksnip-${VERSION}.dmg –primary-bundle-id org.ksnip.ksnip –notarize-app –username ${APPLE_DEV_USER} -password ${APPLE_DEV_PASS}
 fi

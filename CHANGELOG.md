@@ -1,9 +1,10 @@
 # Change log
 
 ## Release 1.8.1
-* Fixed: If file selection is cancelled during ksnip's file open dialog via tray icon, ksnip closes. ([#503](https://github.com/ksnip/kImageAnnotator/issues/503))
-* Fixed: Cancel on Quit not work when editor is hidden. ([#342](https://github.com/ksnip/kImageAnnotator/issues/342))
-* Fixed: Canceling rect area selection activates main window. ([#521](https://github.com/ksnip/kImageAnnotator/issues/521))
+* Changed: Allow changing adorner color for rect area selection. ([#519](https://github.com/ksnip/ksnip/issues/519))
+* Fixed: If file selection is cancelled during ksnip's file open dialog via tray icon, ksnip closes. ([#503](https://github.com/ksnip/ksnip/issues/503))
+* Fixed: Cancel on Quit not work when editor is hidden. ([#342](https://github.com/ksnip/ksnip/issues/342))
+* Fixed: Canceling rect area selection activates main window. ([#521](https://github.com/ksnip/ksnip/issues/521))
 * Fixed kImageAnnotator: Brazilian Portuguese translation not loaded. ([#176](https://github.com/ksnip/kImageAnnotator/issues/176))
 * Fixed kImageAnnotator: error: control reaches end of non-void function. ([#177](https://github.com/ksnip/kImageAnnotator/issues/177))
 

@@ -38,7 +38,7 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     echo "--> Package MacOS"
     mkdir packageDir
     mv build/src/ksnip*.app packageDir/ksnip.app
-    macdeployqt packageDir/ksnip.app -sign-for-notarization="Developer ID Application: ${APPLE_DEV_IDENTITY}"
+    macdeployqt packageDir/ksnip.app -sign-for-notarization="${APPLE_DEV_IDENTITY}"
     cp build/translations/ksnip_*.qm ./packageDir/ksnip.app/Contents/Resources/
     cp build/translations/kImageAnnotator_*.qm ./packageDir/ksnip.app/Contents/Resources/
     sudo hdiutil create ksnip-${VERSION}.dmg -volname "Ksnip" -fs HFS+ -srcfolder packageDir/

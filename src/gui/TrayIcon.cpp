@@ -34,7 +34,7 @@ TrayIcon::TrayIcon(QObject *parent) :
 	mShowEditorAction = new QAction(tr("Show Editor"), this);
 	mShowEditorAction->setIcon(icon);
 	connect(mShowEditorAction, &QAction::triggered, this, &TrayIcon::showEditorTriggered);
-	connect(this, &QSystemTrayIcon::activated, this, &TrayIcon::leftClickActionTriggered);
+	connect(this, &QSystemTrayIcon::activated, this, &TrayIcon::activated);
 	connect(this, &QSystemTrayIcon::messageClicked, this, &TrayIcon::openContentUrl);
 }
 
@@ -124,9 +124,24 @@ void TrayIcon::showMessage(const QString &title, const QString &message, const Q
 void TrayIcon::activated(ActivationReason reason) const
 {
 	if(reason != ActivationReason::Context) {
-		emit leftClickActionTriggered();
+		auto conf = KsnipConfigProvider::instance();
+		Q_ASSERT(conf != nullptr);
+
+		const auto defaultTrayIconAction = conf->defaultTrayIconAction();
+
+		if (defaultTrayIconAction < 0) {
+			mShowEditorAction->trigger();
+		} else {
+			for(auto action : mCaptureActions) {
+				if (action->data().value<CaptureModes>() == static_cast<CaptureModes>(defaultTrayIconAction)) {
+					action->trigger();
+					return;
+				}
+			}
+		}
 	}
 }
+
 void TrayIcon::openContentUrl()
 {
 	if(!mToastContentUrl.isEmpty() && !mToastContentUrl.isNull()) {

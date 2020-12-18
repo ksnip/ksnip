@@ -26,6 +26,7 @@
 #include <QUrl>
 
 #include "IToastService.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/loader/IconLoader.h"
 
@@ -48,7 +49,6 @@ public:
 
 signals:
 	void showEditorTriggered() const;
-	void leftClickActionTriggered() const;
 
 private:
 	QMenu mMenu;

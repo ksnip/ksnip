@@ -26,12 +26,13 @@
 #include <QVector>
 
 #include "src/common/helper/RectHelper.h"
+#include "src/backend/config/KsnipConfig.h"
 
 class SnippingAreaResizer : public QObject
 {
 Q_OBJECT
 public:
-	explicit SnippingAreaResizer(QObject *parent);
+	explicit SnippingAreaResizer(KsnipConfig *config, QObject *parent);
 	~SnippingAreaResizer() override = default;
 	void activate(const QRectF &rect, const QPointF &pos);
 	void deactivate();
@@ -52,6 +53,8 @@ private:
 	bool mIsGrabbed;
 	int mGrabbedHandleIndex;
 	QVector<QRectF> mHandles;
+	KsnipConfig *mConfig;
+	QColor mColor;
 
 	void updateHandlePositions();
 	void updateCurrentRect(const QPoint &point);

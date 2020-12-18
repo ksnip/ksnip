@@ -19,8 +19,9 @@
 
 #include "SnippingAreaResizer.h"
 
-SnippingAreaResizer::SnippingAreaResizer(QObject *parent) :
+SnippingAreaResizer::SnippingAreaResizer(KsnipConfig *config, QObject *parent) :
 	QObject(parent),
+	mConfig(config),
 	mIsActive(false),
 	mIsGrabbed(false),
 	mGrabbedHandleIndex(-1)
@@ -41,6 +42,7 @@ void SnippingAreaResizer::activate(const QRectF &rect, const QPointF &pos)
 {
 	mIsActive = true;
 	mCurrentRect = rect;
+	mColor = mConfig->snippingAdornerColor();
 	updateHandlePositions();
 	updateCursor(pos.toPoint());
 }
@@ -57,9 +59,9 @@ void SnippingAreaResizer::paint(QPainter *painter)
 	if(mIsActive) {
 		painter->setRenderHint(QPainter::Antialiasing);
 		painter->setBrush(Qt::NoBrush);
-		painter->setPen(QPen(Qt::red, 2, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+		painter->setPen(QPen(mColor, 2, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
 		painter->drawRect(mCurrentRect);
-		painter->setBrush(Qt::red);
+		painter->setBrush(mColor);
 		for(const auto handle : mHandles) {
 			painter->drawEllipse(handle);
 		}

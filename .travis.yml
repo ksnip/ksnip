@@ -55,6 +55,7 @@ jobs:
       after_success: source ci/scripts/upload.sh
     - stage: build
       os: osx
+      osx_image: "xcode11.3"
       env: BINARY_TYPE=app
       before_install: source ci/scripts/bootstrap.sh
       install: source ci/scripts/setup.sh

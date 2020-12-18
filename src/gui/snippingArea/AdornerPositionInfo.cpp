@@ -42,8 +42,9 @@ void AdornerPositionInfo::update(const QPoint &mousePosition)
 	mTextRect.adjust(-3, 0, 5, 0);
 }
 
-void AdornerPositionInfo::paint(QPainter *painter)
+void AdornerPositionInfo::paint(QPainter *painter, const QColor &color)
 {
+	mPen->setColor(color);
 	painter->setPen(*mPen);
 	painter->setBrush(QColor(0, 0, 0, 200));
 

@@ -69,21 +69,21 @@ void SnippingAreaAdorner::update(const QPoint &mousePosition, const QRect &scree
 	}
 }
 
-void SnippingAreaAdorner::paint(QPainter *painter)
+void SnippingAreaAdorner::paint(QPainter *painter, const QColor &adornerColor, const QColor &cursorColor)
 {
 	if (mRulerEnabled && !mMouseIsDown) {
-		mRulers.paint(painter);
+		mRulers.paint(painter, adornerColor);
 	}
 
 	if (mPositionAndSizeInfoEnabled) {
 		if (mMouseIsDown) {
-			mSizeInfo.paint(painter);
+			mSizeInfo.paint(painter, adornerColor);
 		} else {
-			mPositionInfo.paint(painter);
+			mPositionInfo.paint(painter, adornerColor);
 		}
 	}
 
 	if (mMagnifyingGlassEnabled) {
-		mMagnifyingGlass.paint(painter);
+		mMagnifyingGlass.paint(painter, cursorColor);
 	}
 }

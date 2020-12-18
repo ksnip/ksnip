@@ -22,7 +22,7 @@
 AbstractSnippingArea::AbstractSnippingArea() :
 	mConfig(KsnipConfigProvider::instance()),
 	mBackground(nullptr),
-	mResizer(new SnippingAreaResizer(this)),
+	mResizer(new SnippingAreaResizer(mConfig, this)),
 	mSelector(new SnippingAreaSelector(mConfig, this)),
 	mInfoText(new SnippingAreaInfoText(this)),
 	mIsSwitchPressed(false),

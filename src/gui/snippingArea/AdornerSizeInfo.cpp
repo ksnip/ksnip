@@ -38,8 +38,9 @@ void AdornerSizeInfo::update(const QRect &captureRect)
 	updateSizeInfoText(captureRect);
 }
 
-void AdornerSizeInfo::paint(QPainter *painter)
+void AdornerSizeInfo::paint(QPainter *painter, const QColor &color)
 {
+	mSizeInfoPen->setColor(color);
 	painter->setBrush(Qt::NoBrush);
 	painter->setPen(*mSizeInfoPen);
 	painter->drawPath(mWidthInfo);

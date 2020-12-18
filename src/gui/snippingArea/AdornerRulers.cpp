@@ -38,8 +38,9 @@ void AdornerRulers::update(const QPoint &mousePosition, const QRect &screenRect)
 	mLeftLine.setLine(mousePosition.x() - offset, mousePosition.y(), screenRect.left(), mousePosition.y());
 }
 
-void AdornerRulers::paint(QPainter *painter)
+void AdornerRulers::paint(QPainter *painter, const QColor &color)
 {
+	mPen->setColor(color);
 	painter->setPen(*mPen);
 	painter->drawLine(mTopLine);
 	painter->drawLine(mRightLine);

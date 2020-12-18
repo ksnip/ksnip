@@ -84,8 +84,8 @@ public:
 	virtual QString applicationStyle() const;
 	virtual void setApplicationStyle(const QString &style);
 
-	virtual int trayLeftClickAction() const;
-	virtual void setTrayLeftClickAction(const int action);
+	virtual int defaultTrayIconAction() const;
+	virtual void setDefaultTrayIconAction(const int action);
 
 	virtual bool useTrayIcon() const;
 	virtual void setUseTrayIcon(bool enabled);

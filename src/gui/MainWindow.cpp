@@ -485,7 +485,7 @@ void MainWindow::initGui()
     if(mConfig->useTrayIcon()) {
 	    connect(mTrayIcon, &TrayIcon::showEditorTriggered, [this](){ mVisibilityHandler->enforceVisible(); });
 		connect(mTrayIcon, &TrayIcon::leftClickActionTriggered, [this](){
-			const int trayLeftClickAction = mConfig->trayLeftClickAction();
+			const int trayLeftClickAction = mConfig->defaultTrayIconAction();
 			if (trayLeftClickAction == -1) {
 				mVisibilityHandler->enforceVisible();
 			} else {

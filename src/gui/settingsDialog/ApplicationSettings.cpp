@@ -135,7 +135,7 @@ void ApplicationSettings::loadConfig()
 	mAutoHideTabsCheckbox->setChecked(mConfig->autoHideTabs());
 	mUseSingleInstanceCheckBox->setChecked(mConfig->useSingleInstance());
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
-	setTrayLeftClickActionComboboxValue(mConfig->trayLeftClickAction());
+	setTrayLeftClickActionComboboxValue(mConfig->defaultTrayIconAction());
 
 	useTrayIconChanged();
 	useTabsChanged();
@@ -144,20 +144,17 @@ void ApplicationSettings::loadConfig()
 void ApplicationSettings::populateTrayLeftClickActionCombobox(const QList<CaptureModes> &captureModes)
 {
 	mDefaultTrayLeftClickActionCombobox->addItem(tr("Show Editor"), -1);
-	for(CaptureModes captureMode: captureModes) {
-		const QString label = captureModeString(captureMode);
+	for (auto captureMode: captureModes) {
+		const auto label = captureModeString(captureMode);
 		mDefaultTrayLeftClickActionCombobox->addItem(label, static_cast<int>(captureMode));
 	}
 }
 
 void ApplicationSettings::setTrayLeftClickActionComboboxValue(int action)
 {
-	for (int i = 0; i < mDefaultTrayLeftClickActionCombobox->count(); ++i) {
-		const auto itemAction = mDefaultTrayLeftClickActionCombobox->itemData(i).toInt();
-		if (itemAction == action) {
-			mDefaultTrayLeftClickActionCombobox->setCurrentIndex(i);
-			return;
-		}
+	const auto index = mDefaultTrayLeftClickActionCombobox->findData(action);
+	if (index >= 0) {
+		mDefaultTrayLeftClickActionCombobox->setCurrentIndex(index);
 	}
 }
 
@@ -174,7 +171,7 @@ void ApplicationSettings::saveSettings()
 	mConfig->setUseTabs(mUseTabsCheckbox->isChecked());
 	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
-	mConfig->setTrayLeftClickAction(mDefaultTrayLeftClickActionCombobox->currentData().toInt());
+	mConfig->setDefaultTrayIconAction(mDefaultTrayLeftClickActionCombobox->currentData().toInt());
 }
 
 void ApplicationSettings::useTrayIconChanged()

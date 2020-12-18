@@ -264,7 +264,7 @@ nowego uruchomienia wszystkich instancji.</translation>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Autorzy:</translation>
     </message>
 </context>
 <context>
@@ -676,7 +676,7 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyczyść token</translation>
     </message>
 </context>
 <context>
@@ -1151,30 +1151,30 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Obszar wycinania</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kliknij i przeciągnij, aby wybrać prostokątny obszar, lub naciśnij klawisz ESC, aby zakończyć pracę.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Przytrzymaj wciśnięty klawisz CTRL, aby zmienić rozmiar zaznaczenia po wybraniu.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Przytrzymaj wciśnięty klawisz CTRL, aby zapobiec zmianie rozmiaru po wybraniu.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>Operacja zostanie anulowana po 60 sekundach, gdy żaden wybór nie zostanie dokonany.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ten komunikat można wyłączyć w ustawieniach.</translation>
     </message>
 </context>
 <context>
@@ -1220,12 +1220,12 @@ z włączoną funkcją &quot;Zamrażaj obraz podczas przycinania&quot;.</transla
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Linie poziome i pionowe przechodzące od
+        <translation>Linie poziome i pionowe przechodzące od
 krawędzi pulpitu do kursora w obszarze wycinania.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Pokaż położenie i rozmiar obszaru wycinania</translation>
+        <translation>Pokaż położenie i rozmiar obszaru wycinania</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
@@ -1239,7 +1239,7 @@ i powyżej przechwyconego obszaru.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Zezwalaj na zmianę rozmiaru zaznaczenia obszaru prostego</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
@@ -1250,27 +1250,27 @@ by pressing return.</source>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż tekst informacji o wycinaniu obszaru</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Kolor kursora obszaru wycinania</translation>
+        <translation>Kolor kursora obszaru wycinania</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished">Ustawia kolor kursora obszaru obcinania.</translation>
+        <translation>Ustawia kolor kursora obszaru obcinania.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Grubość kursora obszaru wycinania</translation>
+        <translation>Grubość kursora obszaru wycinania</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished">Ustawia grubość kursora obszaru wycinania.</translation>
+        <translation>Ustawia grubość kursora obszaru wycinania.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Obszar wycinania</translation>
     </message>
 </context>
 <context>

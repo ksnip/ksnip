@@ -20,7 +20,7 @@
 #include "GnomeWaylandWidgetVisibilityHandler.h"
 
 GnomeWaylandWidgetVisibilityHandler::GnomeWaylandWidgetVisibilityHandler(QWidget *widget) :
-		WidgetVisibilityHandler(widget)
+	WidgetVisibilityHandler(widget)
 {
 
 }

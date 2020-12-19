@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,28 +17,26 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CAPTUREMODES_H
-#define KSNIP_CAPTUREMODES_H
+#ifndef KSNIP_ENUMTRANSLATOR_H
+#define KSNIP_ENUMTRANSLATOR_H
 
-#include <QMetaType>
-#include <QHash>
 #include <QObject>
+#include <QHash>
 
-enum class CaptureModes
+#include "src/common/enum/CaptureModes.h"
+
+class EnumTranslator : public QObject
 {
-    RectArea,
-    LastRectArea,
-    FullScreen,
-    CurrentScreen,
-    ActiveWindow,
-    WindowUnderCursor,
-    Portal
+Q_OBJECT
+public:
+	static EnumTranslator *instance();
+
+	QString toString(CaptureModes captureMode) const;
+
+private:
+	QHash<CaptureModes, QString> mCaptureModeMap;
+
+	EnumTranslator();
 };
 
-inline uint qHash(const CaptureModes captureMode, uint seed) {
-	return qHash(static_cast<int>(captureMode), seed);
-}
-
-Q_DECLARE_METATYPE(CaptureModes)
-
-#endif // KSNIP_CAPTUREMODES_H
+#endif //KSNIP_ENUMTRANSLATOR_H

@@ -29,6 +29,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/helper/PathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/FileUrlHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/RectHelper.cpp
+	${CMAKE_SOURCE_DIR}/src/common/helper/EnumTranslator.cpp
 	${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DragAndDropHandler.cpp
@@ -75,6 +76,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/UploaderSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/SaverSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/StickerSettings.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/TrayIconSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/SnippingAreaSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/SettingsDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AboutDialog.cpp

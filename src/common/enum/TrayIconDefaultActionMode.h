@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,28 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CAPTUREMODES_H
-#define KSNIP_CAPTUREMODES_H
+#ifndef KSNIP_TRAYICONDEFAULTACTIONMODE_H
+#define KSNIP_TRAYICONDEFAULTACTIONMODE_H
 
-#include <QMetaType>
-#include <QHash>
-#include <QObject>
-
-enum class CaptureModes
+enum class TrayIconDefaultActionMode
 {
-    RectArea,
-    LastRectArea,
-    FullScreen,
-    CurrentScreen,
-    ActiveWindow,
-    WindowUnderCursor,
-    Portal
+	ShowEditor,
+	Capture
 };
 
-inline uint qHash(const CaptureModes captureMode, uint seed) {
-	return qHash(static_cast<int>(captureMode), seed);
-}
+Q_DECLARE_METATYPE(TrayIconDefaultActionMode)
 
-Q_DECLARE_METATYPE(CaptureModes)
-
-#endif // KSNIP_CAPTUREMODES_H
+#endif //KSNIP_TRAYICONDEFAULTACTIONMODE_H

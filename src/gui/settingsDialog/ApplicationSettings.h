@@ -31,6 +31,7 @@
 #include <QFileDialog>
 
 #include "src/backend/config/KsnipConfig.h"
+#include "src/common/helper/EnumTranslator.h"
 
 class ApplicationSettings : public QGroupBox
 {
@@ -44,10 +45,6 @@ private:
 	QCheckBox *mAutoCopyToClipboardNewCapturesCheckbox;
 	QCheckBox *mRememberPositionCheckbox;
 	QCheckBox *mCaptureOnStartupCheckbox;
-	QCheckBox *mUseTrayIconCheckBox;
-	QCheckBox *mMinimizeToTrayCheckBox;
-	QCheckBox *mCloseToTrayCheckBox;
-	QCheckBox *mStartMinimizedToTrayCheckBox;
 	QCheckBox *mUseTabsCheckbox;
 	QCheckBox *mAutoHideTabsCheckbox;
 	QCheckBox *mUseSingleInstanceCheckBox;
@@ -60,7 +57,6 @@ private:
 	void loadConfig();
 
 private slots:
-	void useTrayIconChanged();
 	void useTabsChanged();
 };
 

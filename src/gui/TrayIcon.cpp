@@ -21,6 +21,7 @@
 
 TrayIcon::TrayIcon(QObject *parent) :
 	QSystemTrayIcon(parent),
+	mConfig(KsnipConfigProvider::instance()),
 	mOpenAction(nullptr),
 	mSaveAction(nullptr),
 	mCopyAction(nullptr),
@@ -28,13 +29,13 @@ TrayIcon::TrayIcon(QObject *parent) :
 	mShowEditorAction(nullptr),
 	mQuitAction(nullptr)
 {
-	auto icon = IconLoader::loadForTheme(QLatin1Literal("ksnip"));
+	auto icon = IconLoader::loadForTheme(QLatin1String("ksnip"));
 	setIcon(icon);
 
 	mShowEditorAction = new QAction(tr("Show Editor"), this);
 	mShowEditorAction->setIcon(icon);
 	connect(mShowEditorAction, &QAction::triggered, this, &TrayIcon::showEditorTriggered);
-	connect(this, &QSystemTrayIcon::activated, this, &TrayIcon::activated);
+	connect(this, &QSystemTrayIcon::activated, this, &TrayIcon::activatedDefaultAction);
 	connect(this, &QSystemTrayIcon::messageClicked, this, &TrayIcon::openContentUrl);
 }
 
@@ -121,12 +122,28 @@ void TrayIcon::showMessage(const QString &title, const QString &message, const Q
 	QSystemTrayIcon::showMessage(title, message, messageIcon);
 }
 
-void TrayIcon::activated(ActivationReason reason) const
+void TrayIcon::activatedDefaultAction(ActivationReason reason) const
 {
 	if(reason != ActivationReason::Context) {
-		emit showEditorTriggered();
+		if (mConfig->defaultTrayIconActionMode() == TrayIconDefaultActionMode::ShowEditor) {
+			mShowEditorAction->trigger();
+		} else {
+			triggerDefaultCaptureMode();
+		}
 	}
 }
+
+void TrayIcon::triggerDefaultCaptureMode() const
+{
+	auto captureMode = mConfig->defaultTrayIconCaptureMode();
+	for(auto action : mCaptureActions) {
+		if (action->data().value<CaptureModes>() == captureMode) {
+			action->trigger();
+			return;
+		}
+	}
+}
+
 void TrayIcon::openContentUrl()
 {
 	if(!mToastContentUrl.isEmpty() && !mToastContentUrl.isNull()) {

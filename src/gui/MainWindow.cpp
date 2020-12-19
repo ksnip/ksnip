@@ -529,6 +529,7 @@ void MainWindow::showOpenImageDialog()
 	auto directory = mSavePathProvider.saveDirectory();
 	auto filter = tr("Image Files (*.png *.jpg *.bmp)");
 	auto pathList = mFileDialog->getOpenFileNames(this, title, directory, filter);
+
 	for (const auto &path : pathList) {
 		loadImageFromFile(path);
 	}

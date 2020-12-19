@@ -32,8 +32,9 @@
 #include "KsnipConfigOptions.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/enum/SaveQualityMode.h"
-#include "src/common/helper/PathHelper.h"
 #include "src/common/enum/UploaderType.h"
+#include "src/common/enum/TrayIconDefaultActionMode.h"
+#include "src/common/helper/PathHelper.h"
 #include "src/common/constants/DefaultValues.h"
 
 
@@ -83,6 +84,12 @@ public:
 
 	virtual QString applicationStyle() const;
 	virtual void setApplicationStyle(const QString &style);
+
+	virtual TrayIconDefaultActionMode defaultTrayIconActionMode() const;
+	virtual void setDefaultTrayIconActionMode(TrayIconDefaultActionMode mode);
+
+	virtual CaptureModes defaultTrayIconCaptureMode() const;
+	virtual void setDefaultTrayIconCaptureMode(CaptureModes mode);
 
 	virtual bool useTrayIcon() const;
 	virtual void setUseTrayIcon(bool enabled);

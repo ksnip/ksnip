@@ -25,6 +25,7 @@
 #include "src/widgets/CustomToolButton.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/CaptureModes.h"
+#include "src/common/helper/EnumTranslator.h"
 
 class CaptureModePicker : public CustomToolButton
 {

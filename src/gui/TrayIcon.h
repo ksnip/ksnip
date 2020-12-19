@@ -26,6 +26,7 @@
 #include <QUrl>
 
 #include "IToastService.h"
+#include "src/backend/config/KsnipConfigProvider.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/loader/IconLoader.h"
 
@@ -50,6 +51,7 @@ signals:
 	void showEditorTriggered() const;
 
 private:
+	KsnipConfig *mConfig;
 	QMenu mMenu;
 	QList<QAction*> mCaptureActions;
 	QAction *mOpenAction;
@@ -61,9 +63,10 @@ private:
 	QString mToastContentUrl;
 
 	void setupMenu();
+	void triggerDefaultCaptureMode() const;
 
 private slots:
-	void activated(ActivationReason reason) const;
+	void activatedDefaultAction(ActivationReason reason) const;
 	void openContentUrl();
 	void showMessage(const QString &title, const QString &message, const QString &contentUrl, QSystemTrayIcon::MessageIcon messageIcon);
 };

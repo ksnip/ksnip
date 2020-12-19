@@ -27,7 +27,7 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     7z a ksnip-${VERSION}-windows.zip ./packageDir/*
 elif [[ "${BINARY_TYPE}" == "app" ]]; then
     mkdir build && cd build
-    cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
+    cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
     make
     cd ..
 

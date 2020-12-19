@@ -1,5 +1,14 @@
 # Change log
 
+## Release 1.8.1
+* Changed: Allow changing adorner color for rect area selection. ([#519](https://github.com/ksnip/ksnip/issues/519))
+* Fixed: If file selection is cancelled during ksnip's file open dialog via tray icon, ksnip closes. ([#503](https://github.com/ksnip/ksnip/issues/503))
+* Fixed: Cancel on Quit not work when editor is hidden. ([#342](https://github.com/ksnip/ksnip/issues/342))
+* Fixed: Canceling rect area selection activates main window. ([#521](https://github.com/ksnip/ksnip/issues/521))
+* Fixed: Enter key doesn't finishes resizing. ([#523](https://github.com/ksnip/ksnip/issues/523))
+* Fixed kImageAnnotator: Brazilian Portuguese translation not loaded. ([#176](https://github.com/ksnip/kImageAnnotator/issues/176))
+* Fixed kImageAnnotator: error: control reaches end of non-void function. ([#177](https://github.com/ksnip/kImageAnnotator/issues/177))
+
 ## Release 1.8.0
 * New: Pin screenshots in frameless windows that stay in foreground. ([#365](https://github.com/ksnip/ksnip/issues/365))
 * New: Support for unit tests. ([#80](https://github.com/ksnip/ksnip/issues/80))

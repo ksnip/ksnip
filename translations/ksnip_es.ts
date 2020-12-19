@@ -231,10 +231,6 @@ un nuevo inicio de todas las instancias.</translation>
 <context>
     <name>AuthorTab</name>
     <message>
-        <source>The Author:</source>
-        <translation>El autor:</translation>
-    </message>
-    <message>
         <source>Contributors:</source>
         <translation>Colaboradores:</translation>
     </message>
@@ -267,7 +263,7 @@ un nuevo inicio de todas las instancias.</translation>
         <translation>Compatibilidad con Snap y Flatpak</translation>
     </message>
     <message>
-        <source>Feature Implementation</source>
+        <source>The Authors:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -510,64 +506,8 @@ screenshots.</source>
 las capturas de pantalla.</translation>
     </message>
     <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Congele la imagen mientras corta</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Mostrar lupa en el área de corte</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Muestra una lupa que se acerca a
-la imagen de fondo. Esta opción solo funciona
-con la opción &quot;Congelar la imagen mientras se corta&quot; activada.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Mostrar reglas del área de recorte</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Líneas horizontales y verticales que van desde
-los bordes del escritorio al cursor en el área de corte.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Mostrar la posición del área de corte y la información del tamaño</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Color del área de corte del cursor</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Grosor del área de corte del cursor</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Capturador de imágenes</translation>
-    </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is shown and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When left mouse button is not pressed the position
-is shown, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
@@ -603,30 +543,11 @@ when the Main Window was hidden or minimized.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Allow resizing rect area selection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When enabled will, after selecting a rect
-area, allow resizing the selection. When
-done resizing the selection can be confirmed
-by pressing return.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area cursor.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -719,10 +640,6 @@ by pressing return.</source>
         <translation>Esperando a imgur.com…</translation>
     </message>
     <message>
-        <source>Username:</source>
-        <translation>Nombre de usuario:</translation>
-    </message>
-    <message>
         <source>Imgur.com token successfully updated.</source>
         <translation>Se actualizó la ficha de Imgur.com correctamente.</translation>
     </message>
@@ -747,6 +664,10 @@ by pressing return.</source>
 Changing requires restart.</source>
         <translation>El URL de base que se utilizará para la comunicación con Imgur.
 Cambiarlo requiere reiniciar.</translation>
+    </message>
+    <message>
+        <source>Clear Token</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1217,6 +1138,119 @@ When omitted, everything is copied.</source>
     <message>
         <source>Stickers</source>
         <translation>Adhesivos</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaInfoText</name>
+    <message>
+        <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to resize selection after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to prevent resizing after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operation will be canceled after 60 sec when no selection made.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaSettings</name>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished">Congele la imagen mientras corta</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished">Mostrar lupa en el área de corte</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished">Muestra una lupa que se acerca a
+la imagen de fondo. Esta opción solo funciona
+con la opción &quot;Congelar la imagen mientras se corta&quot; activada.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished">Mostrar reglas del área de recorte</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished">Líneas horizontales y verticales que van desde
+los bordes del escritorio al cursor en el área de corte.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished">Mostrar la posición del área de corte y la información del tamaño</translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection by default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Snipping Area info text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished">Color del área de corte del cursor</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished">Grosor del área de corte del cursor</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

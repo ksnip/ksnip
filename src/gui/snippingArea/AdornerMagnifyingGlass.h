@@ -28,7 +28,7 @@ public:
 	explicit AdornerMagnifyingGlass();
 	~AdornerMagnifyingGlass();
 	void update(const QPoint &mousePosition, const QRect &screenRect);
-	void paint(QPainter *painter);
+	void paint(QPainter *painter, const QColor &color);
 	void setBackgroundImage(const QPixmap *background);
 
 private:

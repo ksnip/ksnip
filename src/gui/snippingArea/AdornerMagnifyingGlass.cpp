@@ -46,7 +46,7 @@ void AdornerMagnifyingGlass::update(const QPoint &mousePosition, const QRect &sc
 	updateCrossHair();
 }
 
-void AdornerMagnifyingGlass::paint(QPainter *painter)
+void AdornerMagnifyingGlass::paint(QPainter *painter, const QColor &color)
 {
 	if (mBackgroundWithMargine.isNull()) {
 		return;
@@ -57,6 +57,7 @@ void AdornerMagnifyingGlass::paint(QPainter *painter)
 	painter->setClipRegion(QRegion(mVisibleRect, QRegion::Ellipse));
 	painter->drawPixmap(mVisibleRect, mImage);
 
+	mCrossHairPen->setColor(color);
 	painter->setPen(*mCrossHairPen);
 	painter->drawLine(mCrossHairTop);
 	painter->drawLine(mCrossHairBottom);

@@ -138,6 +138,14 @@ torná-los mais suaves.</translation>
         <source>Annotator Settings</source>
         <translation>Configurações do Editor</translation>
     </message>
+    <message>
+        <source>Remember annotation tool selection and load on startup</source>
+        <translation>Lembrar da ferramenta de anotação selecionada e carregue na inicialização</translation>
+    </message>
+    <message>
+        <source>Switch to Select Tool after drawing Item</source>
+        <translation>Mudar para ferramenta de seleção após desenhar o item</translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -186,18 +194,6 @@ A mudança requer reinicialização.</translation>
         <translation>Automaticamente Ocultar Abas</translation>
     </message>
     <message>
-        <source>Hide Tabbar when only on Tab is used.</source>
-        <translation>Ocultar a barra de abas quando apenas uma aba é usada.</translation>
-    </message>
-    <message>
-        <source>Remember ksnip position on move and load on startup</source>
-        <translation>Lembrar posição do ksnip ao mover a janela e carregar essa posição na inicialização</translation>
-    </message>
-    <message>
-        <source>Remember ksnip tool selection and load on startup</source>
-        <translation>Lembrar última ferramenta selecionada e carregar na inicialização</translation>
-    </message>
-    <message>
         <source>Use Tabs</source>
         <translation>Usar Abas</translation>
     </message>
@@ -210,26 +206,30 @@ A mudança requer reinicialização.</translation>
         <translation>Executar o ksnip como instância única</translation>
     </message>
     <message>
-        <source>Enabling this option will allow only one ksnip instance to run,
-all other instances started after the first will pass it&apos;s
-arguments to the first and close. Changing this option requires
-a new start of all instances.</source>
-        <translation>A ativação dessa opção permitirá que apenas uma instância do ksnip seja executada,
-todas as outras instâncias iniciadas após a primeira passarão
-argumentos para a primeira. Alterar esta opção requer
-um novo início de todas as instâncias.</translation>
-    </message>
-    <message>
         <source>Start Minimized to Tray</source>
         <translation>Iniciar Minimizado na Bandeja</translation>
+    </message>
+    <message>
+        <source>Remember Main Window position on move and load on startup</source>
+        <translation>Lembrar da posição da janela principal ao mover e carregar na inicialização</translation>
+    </message>
+    <message>
+        <source>Hide Tabbar when only one Tab is used.</source>
+        <translation>Ocultar a barra de abas quando apenas uma aba for usada.</translation>
+    </message>
+    <message>
+        <source>Enabling this option will allow only one ksnip instance to run,
+all other instances started after the first will pass its
+arguments to the first and close. Changing this option requires
+a new start of all instances.</source>
+        <translation>Ativar esta opção permitirá que apenas uma instância do ksnip funcione,
+todas as outras instâncias iniciadas após a primeira passarão seus
+argumentos para a primeira e fechar. Alterar esta opção requer
+um novo início de todas as instâncias.</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
-    <message>
-        <source>The Author:</source>
-        <translation>Autor:</translation>
-    </message>
     <message>
         <source>Contributors:</source>
         <translation>Contribuidores:</translation>
@@ -257,6 +257,14 @@ um novo início de todas as instâncias.</translation>
     <message>
         <source>Polish Translation</source>
         <translation>Tradução para Polonês</translation>
+    </message>
+    <message>
+        <source>The Authors:</source>
+        <translation>Autores:</translation>
+    </message>
+    <message>
+        <source>Snap &amp; Flatpak Support</source>
+        <translation>Suporte para Snap e Flatpak</translation>
     </message>
 </context>
 <context>
@@ -326,24 +334,33 @@ Deseja salvá-la?</translation>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Realizar uma captura de tela da última área retangular selecionada</translation>
     </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation>Portal de captura de tela</translation>
+    </message>
+    <message>
+        <source>Uses the screenshot Portal for taking screenshot</source>
+        <translation>Usa o portal de captura de tela para obter a imagem</translation>
+    </message>
+</context>
+<context>
+    <name>DeleteImageOperation</name>
+    <message>
+        <source>Delete Image</source>
+        <translation>Excluir imagem</translation>
+    </message>
+    <message>
+        <source>The item &apos;%1&apos; will be deleted.
+Do you want to continue?</source>
+        <translation>O item &apos;%1&apos; será excluído.
+Deseja continuar?</translation>
+    </message>
 </context>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>Donate a Beer?</source>
-        <translation>Doe uma cerveja?</translation>
-    </message>
-    <message>
-        <source>Sure, you can do that</source>
-        <translation>Claro, você pode fazer isso</translation>
-    </message>
-    <message>
         <source>here</source>
         <translation>aqui</translation>
-    </message>
-    <message>
-        <source>Become a Sponsor</source>
-        <translation>Seja um patrocinador</translation>
     </message>
     <message>
         <source>Also possible, </source>
@@ -352,6 +369,22 @@ Deseja salvá-la?</translation>
     <message>
         <source>Donations are always welcome</source>
         <translation>Doações são sempre bem-vindas</translation>
+    </message>
+    <message>
+        <source>Donation</source>
+        <translation>Doação</translation>
+    </message>
+    <message>
+        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation>Ksnip é um projeto de software livre sem fins lucrativos com copyleft, e &lt;br/&gt;ainda tem alguns custos que precisam ser cobertos,&lt;br/&gt;como custos de domínio ou custos de hardware para suporte multiplataforma.</translation>
+    </message>
+    <message>
+        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation>Se quiser ajudar ou apenas&lt;br/&gt;apreciar o trabalho que está sendo feito&lt;br/&gt;oferecendo uma cerveja ou café aos desenvolvedores, você pode fazer isso</translation>
+    </message>
+    <message>
+        <source>Become a GitHub Sponsor</source>
+        <translation>Seja um patrocinador do GitHub</translation>
     </message>
 </context>
 <context>
@@ -408,6 +441,10 @@ Deseja salvá-la?</translation>
         <source>Upload Failed</source>
         <translation>Falha no envio</translation>
     </message>
+    <message>
+        <source>Script wrote to StdErr.</source>
+        <translation>Script escrito para StdErr.</translation>
+    </message>
 </context>
 <context>
     <name>HotKeySettings</name>
@@ -451,6 +488,10 @@ Deseja salvá-la?</translation>
         <source>Clear</source>
         <translation>Apagar</translation>
     </message>
+    <message>
+        <source>Capture using Portal</source>
+        <translation>Capturar usando o Portal</translation>
+    </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
@@ -465,90 +506,58 @@ screenshots.</source>
 capturas de tela.</translation>
     </message>
     <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Congelar imagem ao capturar área retangular</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Exibir lupa ao capturar área retangular</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Exibir uma lupa que mostra zoom
-na imagem de fundo. Esta opção só funciona
-com &apos;Congelar imagem ao capturar área retangular&apos; habilitada.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Exibir réguas ao capturar área retangular</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Uma linha horizontal e vertical será exibida
-antes de iniciar a captura de uma área retangular.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Exibir posição e tamanho ao capturar área retangular</translation>
-    </message>
-    <message>
-        <source>When left mouse is not pressed the position
-is show, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Enquanto o botão do mouse não for pressionado, a posição
-vertical e horizontal será exibida, quando o botão do mouse for
-pressionado, a altura será exibida à esquerda e o comprimento
-acima da área selecionada.</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Cor do cursor ao capturar área retangular</translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Define a cor do cursor ao capturar área retangular.
-A alteração requer que o ksnip reinicie para
-surtir efeito.</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Espessura do cursor ao capturar área retangular</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area
-cursor. Change requires ksnip restart to
-take effect.</source>
-        <translation>Define a espessura do cursor ao capturar área retangular.
-A alteração requer que o ksnip reinicie para
-surtir efeito.</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Captura de Imagem</translation>
     </message>
     <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is show and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation>Quando ativado, congelará o plano de fundo ao
-selecionar uma região retangular. Também altera
-o comportamento de capturas de tela atrasadas,
-com esta opção ativada, o atraso ocorre antes da
-área de corte ser exibida e com a opção desativada,
-o atraso ocorre após a exibição da área de corte.
-Esse recurso está sempre desativado para Wayland
-e sempre ativado para MacOs.</translation>
+        <source>Show Main Window after capturing screenshot</source>
+        <translation>Mostrar janela principal após a captura da tela</translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimized.</source>
+        <translation>Mostrar a janela principal após capturar uma nova imagem
+quando a janela principal foi ocultada ou minimizada.</translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland Screenshot</source>
+        <translation>Forçar captura de tela genérico para Wayland</translation>
+    </message>
+    <message>
+        <source>GNOME and KDE Plasma support their own Wayland
+and the Generic XDG-DESKTOP-PORTAL screenshots.
+Enabling this option will force KDE Plasma and
+GNOME to use the XDG-DESKTOP-PORTAL screenshots.
+Change in this option require a ksnip restart.</source>
+        <translation>GNOME e KDE Plasma suportam suas próprias capturas
+de tela do Wayland e Generic XDG-DESKTOP-PORTAL.
+Ativar esta opção irá forçar o KDE Plasma e o GNOME a 
+usar as capturas do XDG-DESKTOP-PORTAL. A alteração 
+desta opção exige que o ksnip seja reiniciado.</translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland Screenshots</source>
+        <translation>Captura de tela com escala genérica para Wayland</translation>
+    </message>
+    <message>
+        <source>Generic Wayland implementations that use
+XDG-DESKTOP-PORTAL handle screen scaling
+differently. Enabling this option will
+determine the current screen scaling and
+apply that to the screenshot in ksnip.</source>
+        <translation>Implementações genéricas  do Wayland que utilizam o
+XDG-DESKTOP-PORTAL lidam com o dimensionamento
+de tela de forma diferente. Ativar esta opção irá 
+determinar a escala atual da tela e aplicar isso à captura 
+de tela no ksnip.</translation>
+    </message>
+    <message>
+        <source>Hide Main Window during screenshot</source>
+        <translation>Ocultar a janela principal durante a captura da imagem</translation>
+    </message>
+    <message>
+        <source>Hide Main Window when capturing a new screenshot.</source>
+        <translation>Ocultar a janela principal ao capturar uma nova imagem.</translation>
     </message>
 </context>
 <context>
@@ -640,10 +649,6 @@ e sempre ativado para MacOs.</translation>
         <translation>Aguardando imgur.com…</translation>
     </message>
     <message>
-        <source>Username:</source>
-        <translation>Nome de usuário:</translation>
-    </message>
-    <message>
         <source>Imgur.com token successfully updated.</source>
         <translation>Token Imgur.com atualizado com sucesso.</translation>
     </message>
@@ -668,6 +673,10 @@ e sempre ativado para MacOs.</translation>
 Changing requires restart.</source>
         <translation>Url base que será usado para comunicação com Imgur.
 Mudança requer reinicialização.</translation>
+    </message>
+    <message>
+        <source>Clear Token</source>
+        <translation>Limpar Token</translation>
     </message>
 </context>
 <context>
@@ -786,10 +795,6 @@ e captura de tela.</translation>
         <translation>Aj&amp;uda</translation>
     </message>
     <message>
-        <source>Open Image</source>
-        <translation>Abrir Imagem</translation>
-    </message>
-    <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
         <translation>Arquivos de imagem (*.png *.jpg *.bmp)</translation>
     </message>
@@ -810,10 +815,6 @@ e captura de tela.</translation>
         <translation>Não foi possível exibir a imagem</translation>
     </message>
     <message>
-        <source>No image provided to but one was expected.</source>
-        <translation>Nenhuma imagem fornecida, mas uma era esperada.</translation>
-    </message>
-    <message>
         <source>Save As...</source>
         <translation>Salvar como...</translation>
     </message>
@@ -829,12 +830,128 @@ e captura de tela.</translation>
         <source>Upload capture to external source</source>
         <translation>Enviar captura para fonte externa</translation>
     </message>
+    <message>
+        <source>No image provided but one was expected.</source>
+        <translation>Nenhuma imagem fornecida, mas uma era esperada.</translation>
+    </message>
+    <message>
+        <source>Copy Path</source>
+        <translation>Copiar caminho</translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation>Renomear</translation>
+    </message>
+    <message>
+        <source>Open Directory</source>
+        <translation>Abrir pasta</translation>
+    </message>
+    <message>
+        <source>Pin</source>
+        <translation>Fixar</translation>
+    </message>
+    <message>
+        <source>Pin screenshot to foreground in frameless window</source>
+        <translation type="unfinished">Fixar a captura de tela no primeiro plano de uma janela sem moldura</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Excluir</translation>
+    </message>
+    <message>
+        <source>&amp;View</source>
+        <translation>&amp;Exibir</translation>
+    </message>
+    <message>
+        <source>Open Images</source>
+        <translation>Abrir imagens</translation>
+    </message>
+</context>
+<context>
+    <name>MultiCaptureHandler</name>
+    <message>
+        <source>Save</source>
+        <translation>Salvar</translation>
+    </message>
+    <message>
+        <source>Save As</source>
+        <translation>Salvar como</translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation>Renomear</translation>
+    </message>
+    <message>
+        <source>Open Directory</source>
+        <translation>Abrir pasta</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>Copiar</translation>
+    </message>
+    <message>
+        <source>Copy Path</source>
+        <translation>Copiar caminho</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Excluir</translation>
+    </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
         <translation>Imagem</translation>
+    </message>
+</context>
+<context>
+    <name>PinWindow</name>
+    <message>
+        <source>Close</source>
+        <translation>Fechar</translation>
+    </message>
+    <message>
+        <source>Close Other</source>
+        <translation>Fechar outro</translation>
+    </message>
+    <message>
+        <source>Close All</source>
+        <translation>Fechar tudo</translation>
+    </message>
+</context>
+<context>
+    <name>PinWindowHandler</name>
+    <message>
+        <source>Pin Window %1</source>
+        <translation>Fixar janela %1</translation>
+    </message>
+</context>
+<context>
+    <name>RenameOperation</name>
+    <message>
+        <source>Image Renamed</source>
+        <translation>Imagem renomeada</translation>
+    </message>
+    <message>
+        <source>Successfully renamed image to </source>
+        <translation>Imagem renomeada com sucesso para </translation>
+    </message>
+    <message>
+        <source>Image Rename Failed</source>
+        <translation>Ocorreu um erro ao renomear a imagem</translation>
+    </message>
+    <message>
+        <source>Failed to rename image to </source>
+        <translation>Ocorreu um erro ao renomear a imagem para </translation>
+    </message>
+    <message>
+        <source>Rename image</source>
+        <translation>Renomear imagem</translation>
+    </message>
+    <message>
+        <source>New filename:</source>
+        <translation>Novo nome do arquivo:</translation>
     </message>
 </context>
 <context>
@@ -914,32 +1031,30 @@ O nome do arquivo pode conter os seguintes curingas:
         <source>Capture save location</source>
         <translation>Local para salvar a captura</translation>
     </message>
+    <message>
+        <source>Default</source>
+        <translation>Padrão</translation>
+    </message>
+    <message>
+        <source>Factor</source>
+        <translation>Fator</translation>
+    </message>
+    <message>
+        <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
+Not all image formats support the full range, JPEG does.</source>
+        <translation>Indique 0 para obter pequenos arquivos compactados, 100 para grandes arquivos não compactados.
+Nem todos os formatos de imagem têm suporte a todos os intervalos, o JPEG suporta.</translation>
+    </message>
+    <message>
+        <source>Save Quality</source>
+        <translation>Qualidade para salvar</translation>
+    </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
         <translation>Copiar saída do script para a área de transferência</translation>
-    </message>
-    <message>
-        <source>After:</source>
-        <translation>Depois:</translation>
-    </message>
-    <message>
-        <source>Only output following this string will be copied to clipboard, excluding that string.
-If omitted, everything from start will be copied.</source>
-        <translation>Somente a saída após esta sequência será copiada para a área de transferência, exluíndo essa sequência.
-Se omitido, tudo desde o início será copiado.</translation>
-    </message>
-    <message>
-        <source>Before:</source>
-        <translation>Antes:</translation>
-    </message>
-    <message>
-        <source>Only output before this string will be copied to clipboard, excluding that string.
-If omitted, everything up to the end will be copied.</source>
-        <translation>Somente a saída antes dessa sequência será copiada para a área de transferência, exluíndo essa sequência.
-Se omitido, tudo até o fim será copiado.</translation>
     </message>
     <message>
         <source>Script:</source>
@@ -962,6 +1077,26 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     <message>
         <source>Select Upload Script</source>
         <translation>Selecione o Script para Envio</translation>
+    </message>
+    <message>
+        <source>Stop when upload script writes to StdErr</source>
+        <translation>Parar quando o script de upload é gravado no StdErr</translation>
+    </message>
+    <message>
+        <source>Marks the upload as failed when script writes to StdErr.
+Without this setting errors in the script will be unnoticed.</source>
+        <translation type="unfinished">Marca o upload como falha quando o script escreve em StdErr.
+Sem essa configuração, os erros no script passarão despercebidos.</translation>
+    </message>
+    <message>
+        <source>Filter:</source>
+        <translation>Filtro:</translation>
+    </message>
+    <message>
+        <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
+When omitted, everything is copied.</source>
+        <translation>Expressão Regulares. Copie para a área de transferência apenas o que corresponde à expressão RegEx.
+Quando omitido, tudo é copiado.</translation>
     </message>
 </context>
 <context>
@@ -1014,6 +1149,132 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
         <source>Stickers</source>
         <translation>Figurinhas</translation>
     </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation>Área Retangular</translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaInfoText</name>
+    <message>
+        <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
+        <translation>Clique e arraste para selecionar uma área retangular ou pressione ESC para sair.</translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to resize selection after selecting.</source>
+        <translation>Mantenha CTRL pressionado para redimensionar a seleção após selecionar.</translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to prevent resizing after selecting.</source>
+        <translation>Mantenha CTRL pressionado para evitar o redimensionamento após selecionar.</translation>
+    </message>
+    <message>
+        <source>Operation will be canceled after 60 sec when no selection made.</source>
+        <translation>A operação será cancelada após 60 segundos quando nenhuma seleção for feita.</translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation>Esta mensagem pode ser desativada nas configurações.</translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaSettings</name>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished">Congelar imagem ao capturar área retangular</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation>Quando ativado irá congelar o fundo enquanto
+selecionando uma área retangular. Também muda
+o comportamento de capturas de tela atrasadas, com este
+opção habilitada o atraso acontece antes da
+área retangular ser exibida e com a opção desativada
+o atraso acontece depois que a área retangular é exibida.
+Este recurso está sempre desabilitado para Wayland e sempre
+habilitado para MacOs.</translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation>Exibir lupa ao capturar área retangular</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished">Exibir uma lupa que mostra zoom
+na imagem de fundo. Esta opção só funciona
+com &apos;Congelar imagem ao capturar área retangular&apos; habilitada.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation>Exibir réguas ao capturar área retangular</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation>Uma linha horizontal e vertical será exibida
+antes de iniciar a captura de uma área retangular.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation>Exibir posição e tamanho ao capturar área retangular</translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation>Quando o botão esquerdo do mouse não é pressionado a posição
+é exibida, quando o botão do mouse é pressionado,
+o tamanho da área selecionada é exibido à esquerda
+e acima da área capturada.</translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection by default</source>
+        <translation>Permitir redimensionamento da seleção da área retangular por padrão</translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation>Quando ativado, após selecionar uma área
+retangular, permite redimensionar a seleção. Quando
+realizado o redimensionamento a seleção pode ser confirmada
+pressionando voltar.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area info text</source>
+        <translation type="unfinished">Mostrar texto de informação para área retangular</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation>Cor do cursor ao capturar área retangular</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation>Define a cor do cursor da área retangular.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation>Espessura do cursor ao capturar área retangular</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation>Define a espessura do cursor da área retangular.</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation>Área Retangular</translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1034,10 +1295,6 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
         <translation>Configurações de Figurinhas</translation>
     </message>
     <message>
-        <source>Add Sticker</source>
-        <translation>Adicionar Figurinha</translation>
-    </message>
-    <message>
         <source>Vector Image Files (*.svg)</source>
         <translation>Arquivos de Imagem Vetorial (*.svg)</translation>
     </message>
@@ -1048,6 +1305,10 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     <message>
         <source>Remove</source>
         <translation>Remover</translation>
+    </message>
+    <message>
+        <source>Add Stickers</source>
+        <translation>Adicionar Figurinhas</translation>
     </message>
 </context>
 <context>

@@ -140,11 +140,11 @@ haien leuntasuna areagotuz.</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Gogoratu ohargilearen hautaketa eta kargatu abiatzean</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Aldatu Hautatu tresnara elementua marraztu ondoren</translation>
     </message>
 </context>
 <context>
@@ -211,26 +211,25 @@ Ksnip berrabiarazi behar du aldaketek eragina izateko.</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezkutatu fitxen barra fitxa bakarra dagoenean.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aukera hau gaituz gero ksnip instantzia bakarra exekutatu ahal izango da,
+haren ondoren abiatutako beste instantziek lehenegoari pasatuko diote euren
+argumentuak eta itxiko dira. Aukera hau aldatzeak instantzia guztiak berrabiaraztea
+eskatzen du.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Gogoratu leiho nagusiaren kokapena mugitzean eta kargatu abioan</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
-    <message>
-        <source>The Author:</source>
-        <translation>Egilea:</translation>
-    </message>
     <message>
         <source>Contributors:</source>
         <translation>Laguntzaileak:</translation>
@@ -264,8 +263,8 @@ a new start of all instances.</source>
         <translation>Snap eta Flatpak euskarria</translation>
     </message>
     <message>
-        <source>Feature Implementation</source>
-        <translation type="unfinished"></translation>
+        <source>The Authors:</source>
+        <translation>Egileak:</translation>
     </message>
 </context>
 <context>
@@ -337,23 +336,24 @@ Nahi duzu gordetzea?</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Pantaila argazkien ataria</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Pantaila-argazkien ataria erabiltzen du pantaila-argazkia egiteko</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezabatu irudia</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;%1&apos; elementua ezabatuko da.
+Jarraitu nahi duzu?</translation>
     </message>
 </context>
 <context>
@@ -380,11 +380,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ksnip irabazi asmorik gabeko software libreko proektua da, eta &lt;br/&gt;oraindik estali gabeko kostu batzuk ditu&lt;br/&gt;, hala nola plataforma anitzen sustengua emateko behar diren domeinuaren eta hardwarearen kostuak.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagundu nahi bagaituzu edo &lt;br/&gt;egindako lana saritu nahi baduzu&lt;br/&gt; garatzaileak garagardo bat edo kafe batera gonbidatuz, egin dezakezu</translation>
     </message>
 </context>
 <context>
@@ -443,7 +443,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>StdErr-ra bidalitako scripta.</translation>
     </message>
 </context>
 <context>
@@ -490,7 +490,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Egin argazkia atariaren bidez</translation>
     </message>
 </context>
 <context>
@@ -506,72 +506,16 @@ screenshots.</source>
 ikusiko da.</translation>
     </message>
     <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Izoztu irudia ebaki bitartean</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Erakutsi lupa ebakitze arean</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Erakutsi atzeko irudira urbiltzen den
-lupa. Aukera honek bakarrik funtzionatzen du
-&quot;Izoztu irudia ebaki bitartean&quot; aktibatuta badago.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Erakutsi ebaketa arearen erregelak</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Mahaigaineko ertzetatik ebakitze-areako kurtsorera
-datozen lerro horizontalak eta bertikalak.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Erakutsi ebaketa arearen kokapena eta tamainaren informazioa</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Ebaketarako kurtsorearen kolorea</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Ebaketa arearen kurtsorearen zabalera</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Irudien kapturatzailea</translation>
     </message>
     <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is shown and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When left mouse button is not pressed the position
-is shown, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Behartu Wayland-en pantaila generikoa</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Eskalatu Wayland-en pantaila-argazki generikoak</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -579,7 +523,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>XDG-DESKTOP-PORTAL erabiltzen duten Wayland
+inplementazio generikoak pantailaren eskalatzea
+desberdin egiten du. Aukera hau gaituz gero
+zehaztu uneko pantailaren eskala eta aplikatu
+hori ksnip-eko pantailan.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -587,43 +535,29 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOMEk eta KDE Plasma-k onartzen ditu beren Wayland 
+eta XDG-DESKTOP-PORTAL generikoaren pantaila-argazkiak.
+Aukera hau gaitzeak behartzen ditu KDE Plasma eta
+GNOME pantaila-argazkiak XDG-DESKTOP-PORTALaren bidez egiten.
+Aukera hau aldatzeak ksnip berrabiaraztea eskatzen du.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Erakutsi leiho nagusia pantaila-argazkia egin ondoren</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Allow resizing rect area selection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When enabled will, after selecting a rect
-area, allow resizing the selection. When
-done resizing the selection can be confirmed
-by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erakutsi leiho nagusia pantaila-argazkia egin ondoren
+baldin eta leiho nagusia ezkutuan edo minimizatuta badago.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezkutatu leiho nagusia pantaila-argazkiak egitean</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezkutatu leiho nagusia pantaila-argazki berria egitean.</translation>
     </message>
 </context>
 <context>
@@ -723,10 +657,6 @@ by pressing return.</source>
         <translation>imgur.com-en zain…</translation>
     </message>
     <message>
-        <source>Username:</source>
-        <translation>Erabiltzaile-izena:</translation>
-    </message>
-    <message>
         <source>Imgur.com token successfully updated.</source>
         <translation>Imgur.com-en tokena behar bezala eguneratu da.</translation>
     </message>
@@ -743,6 +673,10 @@ by pressing return.</source>
 Changing requires restart.</source>
         <translation>Imgur-ekin komunikatzeko erabiliko den url oinarria.
 Aldatzeak berrabiaraztea eskatzen du.</translation>
+    </message>
+    <message>
+        <source>Clear Token</source>
+        <translation>Garbitu Tokena</translation>
     </message>
 </context>
 <context>
@@ -902,35 +836,35 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Finkatu pantaila-argazkia markorik gabeko lehen plano batean</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Espero bazen arren, ez da irudirik jaso.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiatu bidea</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Ireki direktorioa</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ikusi</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezabatu</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Aldatu izena</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Ireki irudiak</translation>
     </message>
 </context>
 <context>
@@ -945,7 +879,7 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Ireki direktorioa</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -953,15 +887,15 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiatu bidea</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezabatu</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Aldatu izena</translation>
     </message>
 </context>
 <context>
@@ -979,7 +913,7 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Itxi besteak</translation>
     </message>
     <message>
         <source>Close All</source>
@@ -997,27 +931,27 @@ eta pantaila-argazkiaren artean.</translation>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Irudia berrizendatua</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Irudia behar bezala berrizendatu da horrela </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Irudiaren berrizendatzeak huts egin du</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Huts egin du horrela berrizendatzen </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Berrizendatu irudia</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fitxategi-izen berria:</translation>
     </message>
 </context>
 <context>
@@ -1099,20 +1033,21 @@ Fitxategiaren izenak honako komodinak eduki ditzake:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Lehenetsia</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Faktorea</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Gordetze kalitatea</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jarri 0 konprimitutako fitxategi txikiak sortzeko, 100 konpresiorik gabeko fitxategiak sortzeko.
+Irudi formatu guztiek ez dute gama osoa onartzen, JPEG-ek bai.</translation>
     </message>
 </context>
 <context>
@@ -1145,12 +1080,13 @@ png fitxategi baten bidea argumentu sinplea duela.</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Gelditu kargako scripta StdErr-ra gehitzean</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Scriptak StdErr-ra gehitzeak huts egin duela markatzen du.
+Ezarpen hau gabe scripteko akatsak oharkabean geratuko dira.</translation>
     </message>
     <message>
         <source>Filter:</source>
@@ -1159,7 +1095,8 @@ Without this setting errors in the script will be unnoticed.</source>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>RegEx adierazpena. Kopiatu arbelera bakarrik RegEx adierazpenarekin bat datorrenarekin.
+Ez badago, dena kopiatzen da.</translation>
     </message>
 </context>
 <context>
@@ -1212,6 +1149,132 @@ When omitted, everything is copied.</source>
         <source>Stickers</source>
         <translation>Eranskailuak</translation>
     </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation>Argazkirako area</translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaInfoText</name>
+    <message>
+        <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
+        <translation>Egin klik eta arrastatu area rektangularra hautatzeko edo ESC ateratzeko.</translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to resize selection after selecting.</source>
+        <translation>Mantendu CTRL sakatuta hautaketaren tamaina aldatzeko.</translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to prevent resizing after selecting.</source>
+        <translation>Mantendu CTRL sakatuta hautatu ondoren tamaina aldatzea ekiditeko.</translation>
+    </message>
+    <message>
+        <source>Operation will be canceled after 60 sec when no selection made.</source>
+        <translation>Eragiketa bertan behera geratuko da 60 segundoren buruan hautaketa egin ez denean.</translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation>Mezu hau ezarpenen bidez desgaitu daiteke.</translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaSettings</name>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished">Izoztu irudia ebaki bitartean</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation>Gaituta dagoenean atzeko planoa izoztuko da
+area rektangularra hautatu bitartean. Atzeratutako
+pantailen portaera ere aldatzen du, aukera hau
+aktibatuta atzerapena ebakigunea erakutsi aurretik 
+gertatzen da eta aukera desgaituta dagonean
+atzerapena ebakitzeko eremua erakutsi ondoren gertatzen da.
+Ezaugarri hau beti desgaituta dago Wayland-entzat eta beti
+gaituta MacOs-entzat.</translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished">Erakutsi lupa ebakitze arean</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished">Erakutsi atzeko irudira urbiltzen den
+lupa. Aukera honek bakarrik funtzionatzen du
+&quot;Izoztu irudia ebaki bitartean&quot; aktibatuta badago.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished">Erakutsi ebaketa arearen erregelak</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished">Mahaigaineko ertzetatik ebakitze-areako kurtsorera
+datozen lerro horizontalak eta bertikalak.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished">Erakutsi ebaketa arearen kokapena eta tamainaren informazioa</translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation>Saguaren ezkerreko botoia sakatu gabe kokapena
+ikusten da, sakatuta dagoenean, hautatutako 
+arearen tamaina ikusten da haren goiko ezker
+aldean.</translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection by default</source>
+        <translation>Onartu berez hautatutako area rektangularraren tamaina aldatzea</translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation>Gaituta badago onartzen da hautatutako 
+arearen tamaina aldatzea. Tamaian aldatu
+ondoren hautaketa berretzi behar da Sartu
+sakatuta.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area info text</source>
+        <translation>Erakutsi ebaketa arearen informazioa</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished">Ebaketarako kurtsorearen kolorea</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation>Ebaketa-arearen kurtsorearen kolorea ezartzen du.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished">Ebaketa arearen kurtsorearen zabalera</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation>Ebaketa-arearen kurtsorearen lodiera ezartzen du.</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation>Ebaketa-area</translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1245,7 +1308,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehitu eranskailuak</translation>
     </message>
 </context>
 <context>

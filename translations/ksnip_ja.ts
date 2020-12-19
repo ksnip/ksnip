@@ -143,7 +143,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>アイテムを描画したら選択ツールに切り替える</translation>
     </message>
 </context>
 <context>
@@ -225,15 +225,11 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>メインウィンドウの位置を記憶して起動時に読み込む</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
-    <message>
-        <source>The Author:</source>
-        <translation>作者:</translation>
-    </message>
     <message>
         <source>Contributors:</source>
         <translation>貢献者:</translation>
@@ -267,7 +263,7 @@ a new start of all instances.</source>
         <translation>Snap と Flatpak のサポート</translation>
     </message>
     <message>
-        <source>Feature Implementation</source>
+        <source>The Authors:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -510,64 +506,8 @@ screenshots.</source>
 表示させたい場合は有効にしてください。</translation>
     </message>
     <message>
-        <source>Freeze Image while snipping</source>
-        <translation>範囲選択画面で画像を固定する</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>範囲選択画面で拡大鏡を表示する</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>背景画像を拡大する拡大鏡を表示します。
-このオプションは「範囲選択画面で画像を
-固定する」が有効な場合のみ動作します。</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>範囲選択画面でルーラーを表示する</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>マウスカーソルから画面端まで
-横線と縦線を表示します。</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>範囲選択画面でカーソル位置情報や選択サイズ情報を表示する</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>範囲選択カーソルの色</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>範囲選択カーソルの太さ</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>画像取得</translation>
-    </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is shown and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When left mouse button is not pressed the position
-is shown, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
@@ -595,39 +535,21 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンショット撮影後にメインウィンドウを表示する</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Allow resizing rect area selection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When enabled will, after selecting a rect
-area, allow resizing the selection. When
-done resizing the selection can be confirmed
-by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>メインウィンドウが非表示または最小化されている状態でスクリーン
+ショットを撮影した場合、撮影後にメインウィンドウを表示します。</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>スクリーンショット撮影中はメインウィンドウを隠す</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいスクリーンショットを撮る時にメインウィンドウを非表示にします。</translation>
     </message>
 </context>
 <context>
@@ -723,10 +645,6 @@ by pressing return.</source>
         <translation>imgur.com を待っています…</translation>
     </message>
     <message>
-        <source>Username:</source>
-        <translation>ユーザー名:</translation>
-    </message>
-    <message>
         <source>Imgur.com token successfully updated.</source>
         <translation>Imgur.com トークンの更新に成功しました。</translation>
     </message>
@@ -747,6 +665,10 @@ by pressing return.</source>
 Changing requires restart.</source>
         <translation>Imgur との通信時に使用するベース URL です。
 変更には再起動が必要です。</translation>
+    </message>
+    <message>
+        <source>Clear Token</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -930,11 +852,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を変更</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>画像を開く</translation>
     </message>
 </context>
 <context>
@@ -965,7 +887,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を変更</translation>
     </message>
 </context>
 <context>
@@ -1001,27 +923,27 @@ and capturing screenshot.</source>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の名前を変更しました</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>次の名前に変更しました: </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の名前を変更できませんでした</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>次の名前に変更できませんでした: </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の名前を変更</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>新しいファイル名:</translation>
     </message>
 </context>
 <context>
@@ -1219,6 +1141,124 @@ When omitted, everything is copied.</source>
         <source>Stickers</source>
         <translation>ステッカー</translation>
     </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaInfoText</name>
+    <message>
+        <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to resize selection after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to prevent resizing after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operation will be canceled after 60 sec when no selection made.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaSettings</name>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished">範囲選択画面で画像を固定する</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished">範囲選択画面で拡大鏡を表示する</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished">背景画像を拡大する拡大鏡を表示します。
+このオプションは「範囲選択画面で画像を
+固定する」が有効な場合のみ動作します。</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished">範囲選択画面でルーラーを表示する</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished">マウスカーソルから画面端まで
+横線と縦線を表示します。</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished">範囲選択画面でカーソル位置情報や選択サイズ情報を表示する</translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished">マウスの左ボタンを押していない場合は
+カーソルの位置情報が表示され、押して
+いる場合は選択範囲の長さが表示されま
+す。</translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection by default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished">有効にすると、範囲選択後にそのサイズを変更
+できるようになります。
+サイズ変更後に Return キーを押すと確定します。</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area info text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished">範囲選択カーソルの色</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished">範囲選択カーソルの色を設定します。</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished">範囲選択カーソルの太さ</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation type="unfinished">範囲選択カーソルの太さを設定します。</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1252,7 +1292,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>ステッカーを追加</translation>
     </message>
 </context>
 <context>

@@ -34,6 +34,8 @@ StandAloneBootstrapper::~StandAloneBootstrapper()
 
 int StandAloneBootstrapper::start(const QApplication &app)
 {
+	app.setQuitOnLastWindowClosed(false);
+
 	createImageGrabber();
 	createCommandLineParser(app);
 	loadTranslations(app);

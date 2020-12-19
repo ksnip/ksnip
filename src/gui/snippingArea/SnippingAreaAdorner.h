@@ -39,7 +39,7 @@ public:
 	void setIsMouseDown(bool isDown);
 	void setBackgroundImage(const QPixmap *background);
 	void update(const QPoint &mousePosition, const QRect &screenRect, const QRect &captureRect);
-	void paint(QPainter *painter);
+	void paint(QPainter *painter, const QColor &adornerColor, const QColor &cursorColor);
 
 private:
 	bool mRulerEnabled;

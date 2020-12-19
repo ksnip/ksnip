@@ -230,10 +230,6 @@ Om det här alternativet ändras måste alla öppna instanser startas om.</trans
 <context>
     <name>AuthorTab</name>
     <message>
-        <source>The Author:</source>
-        <translation>Utvecklare:</translation>
-    </message>
-    <message>
         <source>Contributors:</source>
         <translation>Medverkande:</translation>
     </message>
@@ -266,8 +262,8 @@ Om det här alternativet ändras måste alla öppna instanser startas om.</trans
         <translation>Snap- &amp; Flatpak-stöd</translation>
     </message>
     <message>
-        <source>Feature Implementation</source>
-        <translation>Funktionsimplementering</translation>
+        <source>The Authors:</source>
+        <translation>Upphovsmän:</translation>
     </message>
 </context>
 <context>
@@ -509,74 +505,8 @@ screenshots.</source>
 skärmklipp.</translation>
     </message>
     <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Frys bilden under områdesklipp</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Visa förstoringsglas på klippområdet</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Visa en förstoring som zoomar in i bakgrundsbilden.
-Detta alternativ fungerar endast när
-&quot;Frys bilden under områdesklipp&quot; är aktiverat.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Visa stödlinjer för klippområdet</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Horisontella och vertikala linjer går från
-skrivbordskanten till markören i klippområdet.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Visa klippområdesplacering och storleksinformation</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Färg på klippområdesmarkören</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Tjocklek på klippområdesmarkören</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Områdesklipp</translation>
-    </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is shown and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation>Vid aktivering fryses bilden medan ett rektangulärt
-område markeras. Det ändrar också beteendet för
-fördröjt skärmklipp. Med detta alternativ aktiverat,
-sker fördröjningen innan klippområdet visas och med
-alternativet avaktiverat, sker fördröjningen efter
-klippområdet visas.
-Denna funktion är alltid inaktiverad för Wayland och
-alltid aktiverad för MacOS.</translation>
-    </message>
-    <message>
-        <source>When left mouse button is not pressed the position
-is shown, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>När vänster musknapp inte hålls ner, visas
-positionen. När musknappen hålls ner, visas
-storleken på markerat område till vänster
-och över klippområdet.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
@@ -621,34 +551,12 @@ when the Main Window was hidden or minimized.</source>
 huvudfönstret var dolt eller minimerat.</translation>
     </message>
     <message>
-        <source>Allow resizing rect area selection</source>
-        <translation>Tillåt storleksändring av rektangelmarkering</translation>
-    </message>
-    <message>
-        <source>When enabled will, after selecting a rect
-area, allow resizing the selection. When
-done resizing the selection can be confirmed
-by pressing return.</source>
-        <translation>Vid aktivering kommer en rektangulär
-områdesmarkering att kunna storleksändras.
-När storleksändringen slutförts kan den
-tillämpas genom att trycka Retur.</translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Dölj huvudfönstret under skärmklipp</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Dölj huvudfönstret när du tar ett nytt skärmklipp.</translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area cursor.</source>
-        <translation>Anger färgen på markören för klippområdet.</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area cursor.</source>
-        <translation>Anger tjockleken på klippområdets markör.</translation>
     </message>
 </context>
 <context>
@@ -740,10 +648,6 @@ tillämpas genom att trycka Retur.</translation>
         <translation>Väntar på imgur.com…</translation>
     </message>
     <message>
-        <source>Username:</source>
-        <translation>Användarnamn:</translation>
-    </message>
-    <message>
         <source>Imgur.com token successfully updated.</source>
         <translation>Imgur.com-token uppdaterades.</translation>
     </message>
@@ -768,6 +672,10 @@ tillämpas genom att trycka Retur.</translation>
 Changing requires restart.</source>
         <translation>Grundläggande URL som används för kommunikation med Imgur.
 Ändring kräver omstart.</translation>
+    </message>
+    <message>
+        <source>Clear Token</source>
+        <translation>Rensa token</translation>
     </message>
 </context>
 <context>
@@ -1239,6 +1147,132 @@ När detta utelämnas kopieras allt.</translation>
     <message>
         <source>Stickers</source>
         <translation>Dekaler</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation>Klippområde</translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaInfoText</name>
+    <message>
+        <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
+        <translation>Klicka och dra för att markera ett rektangulärt område eller tryck ESC för att avsluta.</translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to resize selection after selecting.</source>
+        <translation>Håll CTRL nedtryckt för att ändra storlek på markeringen.</translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to prevent resizing after selecting.</source>
+        <translation>Håll CTRL nedtryckt för att förhindra storlekändring efter markering.</translation>
+    </message>
+    <message>
+        <source>Operation will be canceled after 60 sec when no selection made.</source>
+        <translation>Åtgärden avbryts efter 60 sekunder, om ingen markering gjorts.</translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation>Detta meddelande kan inaktiveras i inställningarna.</translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaSettings</name>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation>Frys bilden under klipp</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation>Vid aktivering fryses bakgrunden medan ett rektangulärt
+område markeras. Det ändrar också beteendet för
+fördröjt skärmklipp. Med detta alternativ aktiverat,
+sker fördröjningen innan klippområdet visas och med
+alternativet avaktiverat, sker fördröjningen efter
+klippområdet visas.
+Denna funktion är alltid inaktiverad för Wayland och
+alltid aktiverad för MacOS.</translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation>Visa förstoringsglas på klippområde</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation>Visa ett förstoringsglas som zoomar in i bakgrundsbilden.
+Detta alternativ fungerar endast när
+&quot;Frys bilden under klipp&quot; är aktiverat.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation>Visa linjaler på klippområdet</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation>Horisontella och vertikala linjer går från
+skrivbordskanten till markören i klippområdet.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation>Visa klippområdesplacering och storleksinformation</translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation>När vänster musknapp inte hålls ner, visas
+positionen. När musknappen hålls ner, visas
+storleken på markerat område till vänster
+och över klippområdet.</translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection by default</source>
+        <translation>Tillåt storleksändring av rektangelområde som standard</translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation>Vid aktivering kommer en rektangulär
+områdesmarkering att kunna storleksändras.
+När storleksändringen slutförts kan den
+tillämpas genom att trycka Retur.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area info text</source>
+        <translation>Visa informationstext för klippområde</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation>Färg på klippområdesmarkören</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation>Anger färgen på markören för klippområdet.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation>Tjocklek på klippområdesmarkören</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation>Anger tjockleken på klippområdets markör.</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation>Klippområde</translation>
     </message>
 </context>
 <context>

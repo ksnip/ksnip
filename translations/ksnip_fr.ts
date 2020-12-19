@@ -231,10 +231,6 @@ toutes les instances pour activer ou désactiver cette option.</translation>
 <context>
     <name>AuthorTab</name>
     <message>
-        <source>The Author:</source>
-        <translation>L&apos;auteur :</translation>
-    </message>
-    <message>
         <source>Contributors:</source>
         <translation>Contributeurs :</translation>
     </message>
@@ -267,8 +263,8 @@ toutes les instances pour activer ou désactiver cette option.</translation>
         <translation>Support Snap &amp; Flatpak</translation>
     </message>
     <message>
-        <source>Feature Implementation</source>
-        <translation>Implémentation de fonctionnalité</translation>
+        <source>The Authors:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -281,7 +277,7 @@ toutes les instances pour activer ou désactiver cette option.</translation>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
         <translation>La capture %1%2%3 a été modifiée.
-Voulez-vous l&apos;enregistrer ?</translation>
+Voulez-vous l&apos;enregistrer&#xa0;?</translation>
     </message>
 </context>
 <context>
@@ -510,72 +506,8 @@ screenshots.</source>
 dans les captures d&apos;écran.</translation>
     </message>
     <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Geler l&apos;image avant capture</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Montrer la loupe sur la zone à capturer</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Afficher une loupe qui grossit le fond d&apos;écran.
-Cette option ne marche que si « Geler l&apos;image
-avant capture » est activé.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Affiche les guides de capture</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Afficher des lignes horizontales et verticales
-depuis les bords de l&apos;écran pour aider au cadrage.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Montrer la taille et position du cadrage</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Couleur du curseur de cadrage</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Épaisseur du curseur de cadrage</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Captureur d&apos;image</translation>
-    </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is shown and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation>Pour figer l&apos;arrière-plan lors de la sélection
-rectangulaire. Cela affecte aussi le comportement
-des captures avec délai. Activé, la durée est avant
-l&apos;affichage de la zone de sélection. Désactivé, la
-durée est après. Cette fonctionnalité n&apos;est jamais
-active sur Wayland mais toujours sur MacOS.</translation>
-    </message>
-    <message>
-        <source>When left mouse button is not pressed the position
-is shown, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Lorsque le bouton gauche de la souris n&apos;est pas enfoncé,
-la position s&apos;affiche, lorsque le bouton de la souris est
-enfoncé, la taille de la zone sélectionnée est indiquée à
-gauche et au-dessus de la zone capturée.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
@@ -620,34 +552,12 @@ when the Main Window was hidden or minimized.</source>
 quand la fenêtre principale a été cachée ou minimisée.</translation>
     </message>
     <message>
-        <source>Allow resizing rect area selection</source>
-        <translation>Permettre le redimensionnement de la séléction rectangulaire</translation>
-    </message>
-    <message>
-        <source>When enabled will, after selecting a rect
-area, allow resizing the selection. When
-done resizing the selection can be confirmed
-by pressing return.</source>
-        <translation>Lorsqu&apos;il est activé, après avoir sélectionné une
-sélection rectangulaire, elle peut être redimensionnée.
-Le redimensionnement de la sélection peut être confirmé
-en appuyant sur la touche retour.</translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Cacher la fenêtre principale pendant la capture</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Cacher la fenêtre principale pendant une nouvelle capture.</translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area cursor.</source>
-        <translation>Fixe la couleur du curseur de cadrage.</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area cursor.</source>
-        <translation>Fixe l&apos;épaisseur du curseur de cadrage .</translation>
     </message>
 </context>
 <context>
@@ -677,7 +587,7 @@ en appuyant sur la touche retour.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Téléversement sur imgur.com terminé !</translation>
+        <translation>Téléversement sur imgur.com terminé&#xa0;!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -739,10 +649,6 @@ en appuyant sur la touche retour.</translation>
         <translation>En attente d&apos;imgur.com…</translation>
     </message>
     <message>
-        <source>Username:</source>
-        <translation>Nom d&apos;utilisateur :</translation>
-    </message>
-    <message>
         <source>Imgur.com token successfully updated.</source>
         <translation>Jeton imgur.com mis à jour avec succès.</translation>
     </message>
@@ -760,13 +666,17 @@ en appuyant sur la touche retour.</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation>URL de base :</translation>
+        <translation>URL de base&#xa0;:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
         <translation>L’URL de base sera utilisée pour communiquer avec Imgur.
 La modifier nécessite un redémarrage.</translation>
+    </message>
+    <message>
+        <source>Clear Token</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1105,8 +1015,8 @@ Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
         <translation>Les formats supportés sont JPG, PNG et BMP. Si aucun format n’est spécifié, PNG sera utilisé par défaut.
-Le nom du fichier peut contenir les jokers suivants :
-- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format « hhmmss ».
+Le nom du fichier peut contenir les jokers suivants&#xa0;:
+- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format «&#xa0;hhmmss&#xa0;».
 - Plusieurs caractères # permettent de numéroter. Par exemple : #### donnera 0001 puis 0002 à la prochaine capture.</translation>
     </message>
     <message>
@@ -1239,6 +1149,130 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     <message>
         <source>Stickers</source>
         <translation>Stickers</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaInfoText</name>
+    <message>
+        <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to resize selection after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to prevent resizing after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operation will be canceled after 60 sec when no selection made.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaSettings</name>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished">Geler l&apos;image avant capture</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished">Pour figer l&apos;arrière-plan lors de la sélection
+rectangulaire. Cela affecte aussi le comportement
+des captures avec délai. Activé, la durée est avant
+l&apos;affichage de la zone de sélection. Désactivé, la
+durée est après. Cette fonctionnalité n&apos;est jamais
+active sur Wayland mais toujours sur MacOS.</translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished">Montrer la loupe sur la zone à capturer</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished">Afficher une loupe qui grossit le fond d&apos;écran.
+Cette option ne marche que si «&#xa0;Geler l&apos;image
+avant capture&#xa0;» est activé.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished">Affiche les guides de capture</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished">Afficher des lignes horizontales et verticales
+depuis les bords de l&apos;écran pour aider au cadrage.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished">Montrer la taille et position du cadrage</translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished">Lorsque le bouton gauche de la souris n&apos;est pas enfoncé,
+la position s&apos;affiche, lorsque le bouton de la souris est
+enfoncé, la taille de la zone sélectionnée est indiquée à
+gauche et au-dessus de la zone capturée.</translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection by default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished">Lorsqu&apos;il est activé, après avoir sélectionné une
+sélection rectangulaire, elle peut être redimensionnée.
+Le redimensionnement de la sélection peut être confirmé
+en appuyant sur la touche retour.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area info text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished">Couleur du curseur de cadrage</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished">Fixe la couleur du curseur de cadrage.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished">Épaisseur du curseur de cadrage</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation type="unfinished">Fixe l&apos;épaisseur du curseur de cadrage .</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

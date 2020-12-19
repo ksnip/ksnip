@@ -231,10 +231,6 @@ nowego uruchomienia wszystkich instancji.</translation>
 <context>
     <name>AuthorTab</name>
     <message>
-        <source>The Author:</source>
-        <translation>Autor:</translation>
-    </message>
-    <message>
         <source>Contributors:</source>
         <translation>Współtwórcy:</translation>
     </message>
@@ -267,8 +263,8 @@ nowego uruchomienia wszystkich instancji.</translation>
         <translation>Obsługa Snap &amp; Flatpak</translation>
     </message>
     <message>
-        <source>Feature Implementation</source>
-        <translation>Implementacja funkcji</translation>
+        <source>The Authors:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -510,74 +506,8 @@ screenshots.</source>
 na zrzutach ekranu.</translation>
     </message>
     <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Zamrażanie obrazu podczas przycinania</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Pokaż lupę w obszarze wycinania</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Pokaż lupę, która powiększa
-obraz tła. Ta opcja działa tylko
-z włączoną funkcją &quot;Zamrażaj obraz podczas przycinania&quot;.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Pokaż linijki obszaru wycinania</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Linie poziome i pionowe przechodzące od
-krawędzi pulpitu do kursora w obszarze wycinania.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Pokaż położenie i rozmiar obszaru wycinania</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Kolor kursora obszaru wycinania</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Grubość kursora obszaru wycinania</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Przechwyć obraz</translation>
-    </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is shown and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation>Po włączeniu tej opcji zamrozi tło, podczas
-wybierania prostokątnego obszaru. Zmienia to również
-zachowanie się opóźnionych zrzutów ekranu, z tym że
-opcja włączona opóźnienie następuje przed
-obszarem snippingu jest pokazana i z wyłączoną opcją
-opóźnienie następuje po ukazaniu się obszaru obcinania.
-Ta funkcja jest zawsze wyłączona dla Wayland i zawsze
-włączone dla MacO.</translation>
-    </message>
-    <message>
-        <source>When left mouse button is not pressed the position
-is shown, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Gdy lewy przycisk myszy nie jest wciśnięty wyświetlana 
-jest pozycja, po naciśnięciu przycisku myszy 
-rozmiar zaznaczonego obszaru jest pokazywany po lewej stronie 
-i powyżej przechwyconego obszaru.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
@@ -622,31 +552,12 @@ when the Main Window was hidden or minimized.</source>
 kiedy główne okno było ukryte lub zminimalizowane.</translation>
     </message>
     <message>
-        <source>Allow resizing rect area selection</source>
-        <translation>Zezwalaj na zmianę rozmiaru zaznaczenia obszaru prostego</translation>
-    </message>
-    <message>
-        <source>When enabled will, after selecting a rect
-area, allow resizing the selection. When
-done resizing the selection can be confirmed
-by pressing return.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Ukryj okno główne podczas zrzutu ekranu</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Ukryj okno główne podczas przechwytywania nowego zrzutu ekranu.</translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area cursor.</source>
-        <translation>Ustawia kolor kursora obszaru obcinania.</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area cursor.</source>
-        <translation>Ustawia grubość kursora obszaru wycinania.</translation>
     </message>
 </context>
 <context>
@@ -738,10 +649,6 @@ by pressing return.</source>
         <translation>Czekam na imgur.com…</translation>
     </message>
     <message>
-        <source>Username:</source>
-        <translation>Nazwa Użytkownika:</translation>
-    </message>
-    <message>
         <source>Imgur.com token successfully updated.</source>
         <translation>Token Imgur.com został pomyślnie zaktualizowany.</translation>
     </message>
@@ -766,6 +673,10 @@ by pressing return.</source>
 Changing requires restart.</source>
         <translation>Podstawowy adres URL, który będzie używany do komunikacji z Imgur.
 Zmiana wymaga ponownego uruchomienia.</translation>
+    </message>
+    <message>
+        <source>Clear Token</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1237,6 +1148,129 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     <message>
         <source>Stickers</source>
         <translation>Naklejki</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaInfoText</name>
+    <message>
+        <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to resize selection after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to prevent resizing after selecting.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operation will be canceled after 60 sec when no selection made.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaSettings</name>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation type="unfinished">Zamrażanie obrazu podczas przycinania</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation type="unfinished">Po włączeniu tej opcji zamrozi tło, podczas
+wybierania prostokątnego obszaru. Zmienia to również
+zachowanie się opóźnionych zrzutów ekranu, z tym że
+opcja włączona opóźnienie następuje przed
+obszarem snippingu jest pokazana i z wyłączoną opcją
+opóźnienie następuje po ukazaniu się obszaru obcinania.
+Ta funkcja jest zawsze wyłączona dla Wayland i zawsze
+włączone dla MacO.</translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation type="unfinished">Pokaż lupę w obszarze wycinania</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation type="unfinished">Pokaż lupę, która powiększa
+obraz tła. Ta opcja działa tylko
+z włączoną funkcją &quot;Zamrażaj obraz podczas przycinania&quot;.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation type="unfinished">Pokaż linijki obszaru wycinania</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation type="unfinished">Linie poziome i pionowe przechodzące od
+krawędzi pulpitu do kursora w obszarze wycinania.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation type="unfinished">Pokaż położenie i rozmiar obszaru wycinania</translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation type="unfinished">Gdy lewy przycisk myszy nie jest wciśnięty wyświetlana 
+jest pozycja, po naciśnięciu przycisku myszy 
+rozmiar zaznaczonego obszaru jest pokazywany po lewej stronie 
+i powyżej przechwyconego obszaru.</translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection by default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Snipping Area info text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation type="unfinished">Kolor kursora obszaru wycinania</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation type="unfinished">Ustawia kolor kursora obszaru obcinania.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation type="unfinished">Grubość kursora obszaru wycinania</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation type="unfinished">Ustawia grubość kursora obszaru wycinania.</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

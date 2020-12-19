@@ -21,8 +21,8 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     windeployqt.exe packageDir/ksnip.exe
     cp build/translations/ksnip_*.qm ./packageDir/translations/
     cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./packageDir/translations/
-	cp /c/openssl/libeay32.dll ./packageDir/
-	cp /c/openssl/ssleay32.dll ./packageDir/
+    cp /c/openssl/libeay32.dll ./packageDir/
+    cp /c/openssl/ssleay32.dll ./packageDir/
 	
     7z a ksnip-${VERSION}-windows.zip ./packageDir/*
 elif [[ "${BINARY_TYPE}" == "app" ]]; then
@@ -31,11 +31,18 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     make
     cd ..
 
+    echo "--> Setup Certificates"
+    chmod +x ci/scripts/app/add-osx-cert.sh;
+    ./ci/scripts/app/add-osx-cert.sh;
+
     echo "--> Package MacOS"
     mkdir packageDir
     mv build/src/ksnip*.app packageDir/ksnip.app
-    macdeployqt packageDir/ksnip.app
+    macdeployqt packageDir/ksnip.app -hardened-runtime -timestamp -codesign="${APPLE_DEV_IDENTITY}"
     cp build/translations/ksnip_*.qm ./packageDir/ksnip.app/Contents/Resources/
     cp build/translations/kImageAnnotator_*.qm ./packageDir/ksnip.app/Contents/Resources/
     sudo hdiutil create ksnip-${VERSION}.dmg -volname "Ksnip" -fs HFS+ -srcfolder packageDir/
+
+    echo "--> Start Notatization process"
+    xcrun altool -t osx -f ksnip-${VERSION}.dmg –primary-bundle-id org.ksnip.ksnip –notarize-app –username ${APPLE_DEV_USER} -password ${APPLE_DEV_PASS}
 fi

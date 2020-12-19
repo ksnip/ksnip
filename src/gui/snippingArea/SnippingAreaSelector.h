@@ -55,6 +55,8 @@ private:
 	QPointF mMouseDownPos;
 	bool mIsMouseDown;
 	QRectF mSnippingAreaGeometry;
+	QColor mAdornerColor;
+	QColor mCursorColor;
 
 	void setupAdorner();
 	void setIsMouseDown(bool isMouseDown);

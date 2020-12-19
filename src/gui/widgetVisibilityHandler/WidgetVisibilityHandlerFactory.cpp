@@ -30,7 +30,7 @@ WidgetVisibilityHandler *WidgetVisibilityHandlerFactory::create(QWidget *widget,
 	if (platformChecker->isWayland() && platformChecker->isGnome()) {
 		return new GnomeWaylandWidgetVisibilityHandler(widget, config);
 	} else {
-		return new WidgetVisibilityHandler(widget, config);
+		return new WidgetVisibilityHandler(widget);
 	}
 #endif
 }

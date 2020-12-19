@@ -180,6 +180,9 @@ public:
 	virtual QColor snippingCursorColor() const;
 	virtual void setSnippingCursorColor(const QColor &color);
 
+	virtual QColor snippingAdornerColor() const;
+	virtual void setSnippingAdornerColor(const QColor &color);
+
 	virtual QRect lastRectArea() const;
 	virtual void setLastRectArea(const QRect &rectArea);
 

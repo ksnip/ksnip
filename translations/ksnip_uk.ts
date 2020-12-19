@@ -231,10 +231,6 @@ a new start of all instances.</source>
 <context>
     <name>AuthorTab</name>
     <message>
-        <source>The Author:</source>
-        <translation>Автор:</translation>
-    </message>
-    <message>
         <source>Contributors:</source>
         <translation>Учасники розробки:</translation>
     </message>
@@ -267,8 +263,8 @@ a new start of all instances.</source>
         <translation>Підтримка Snap &amp; Flatpak</translation>
     </message>
     <message>
-        <source>Feature Implementation</source>
-        <translation>Реалізація можливості</translation>
+        <source>The Authors:</source>
+        <translation>Автори:</translation>
     </message>
 </context>
 <context>
@@ -510,75 +506,8 @@ screenshots.</source>
 на знімках.</translation>
     </message>
     <message>
-        <source>Freeze Image while snipping</source>
-        <translation>Заморозити зображення у момент створення знімка</translation>
-    </message>
-    <message>
-        <source>Show magnifying glass on snipping area</source>
-        <translation>Показувати лупу під час позначення області знімка</translation>
-    </message>
-    <message>
-        <source>Show a magnifying glass which zooms into
-the background image. This option only works
-with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation>Показувати збільшувальне скло, яке дає змогу
-наблизити фонове зображення. Цей пункт
-працюватиме, лише якщо ввімкнено замороження зображення.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area rulers</source>
-        <translation>Показувати лінії-лінійки області вирізання</translation>
-    </message>
-    <message>
-        <source>Horizontal and vertical lines going from
-desktop edges to cursor on snipping area.</source>
-        <translation>Показувати горизонтальну та вертикальну лінії,
-які відходять від краю екрана до вказівника миші
-під час позначення області знімка.</translation>
-    </message>
-    <message>
-        <source>Show Snipping Area position and size info</source>
-        <translation>Показувати інформацію щодо позиції і розміру позначеної області</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor color</source>
-        <translation>Колір курсора під час позначення області знімка</translation>
-    </message>
-    <message>
-        <source>Snipping Area cursor thickness</source>
-        <translation>Товщина курсора при позначенні області знімка</translation>
-    </message>
-    <message>
         <source>Image Grabber</source>
         <translation>Захоплення знімків</translation>
-    </message>
-    <message>
-        <source>When enabled will freeze the background while
-selecting a rectangular region. It also changes
-the behavior of delayed screenshots, with this
-option enabled the delay happens before the
-snipping area is shown and with the option disabled
-the delay happens after the snipping area is shown.
-This feature is always disabled for Wayland and always
-enabled for MacOs.</source>
-        <translation>Якщо увімкнено, програма заморозить тло при
-позначенні прямокутної ділянки. Параметр також
-змінює поведінку при створенні відкладених знімків —
-якщо увімкнено цей параметр, програма робитиме
-паузу перед тим, як показувати вирізану область, а
-якщо параметр вимкнено — після показу вирізаної
-області. Цю можливість завжди вимкнено у Wayland
-і завжди увімкнено у MacOs.</translation>
-    </message>
-    <message>
-        <source>When left mouse button is not pressed the position
-is shown, when the mouse button is pressed,
-the size of the select area is shown left
-and above from the captured area.</source>
-        <translation>Якщо ліву кнопку миші не натиснуто, буде
-показано позицію. Якщо ліву кнопку миші
-натиснуто, ліворуч вгорі захопленої області
-буде показано її розміри.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
@@ -623,34 +552,12 @@ when the Main Window was hidden or minimized.</source>
 якщо головне вікно приховано або згорнуто.</translation>
     </message>
     <message>
-        <source>Allow resizing rect area selection</source>
-        <translation>Дозволити зміну розмірів прямокутного позначення</translation>
-    </message>
-    <message>
-        <source>When enabled will, after selecting a rect
-area, allow resizing the selection. When
-done resizing the selection can be confirmed
-by pressing return.</source>
-        <translation>Якщо позначено, після вибору прямокутної
-ділянки буде уможливлено зміну її розмірів.
-Зміну розмірів може бути підтверджено
-натисканням клавіші Enter.</translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Ховати головне вікно під час створення знімка</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Ховати головне вікно під час створення знімка.</translation>
-    </message>
-    <message>
-        <source>Sets the color of the snipping area cursor.</source>
-        <translation>Встановлює колір вказівника області обрізання.</translation>
-    </message>
-    <message>
-        <source>Sets the thickness of the snipping area cursor.</source>
-        <translation>Встановлює товщину вказівника області обрізання.</translation>
     </message>
 </context>
 <context>
@@ -742,10 +649,6 @@ by pressing return.</source>
         <translation>Очікування на imgur.com…</translation>
     </message>
     <message>
-        <source>Username:</source>
-        <translation>Користувач:</translation>
-    </message>
-    <message>
         <source>Imgur.com token successfully updated.</source>
         <translation>Жетор Imgur.com успішно оновлено.</translation>
     </message>
@@ -770,6 +673,10 @@ by pressing return.</source>
 Changing requires restart.</source>
         <translation>Базова адреса, яку буде використано для обміну даними з Imgur.
 Для набуття змінами чинності слід перезапустити програму.</translation>
+    </message>
+    <message>
+        <source>Clear Token</source>
+        <translation>Вилучити жетон</translation>
     </message>
 </context>
 <context>
@@ -1241,6 +1148,133 @@ When omitted, everything is copied.</source>
     <message>
         <source>Stickers</source>
         <translation>Стікери</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation>Обрізання області</translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaInfoText</name>
+    <message>
+        <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
+        <translation>Натисніть кнопку миші і перетягніть, щоб позначити прямокутну ділянку, або натисніть Esc, щоб вийти.</translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to resize selection after selecting.</source>
+        <translation>Утримуйте натиснутою клавішу Ctrl, щоб змінити розміри ділянки після позначення.</translation>
+    </message>
+    <message>
+        <source>Hold CTRL pressed to prevent resizing after selecting.</source>
+        <translation>Утримйте натиснутою клавішу Ctrl, щоб запобігти зміні розмірів після позначення.</translation>
+    </message>
+    <message>
+        <source>Operation will be canceled after 60 sec when no selection made.</source>
+        <translation>Дію буде скасовано, якщо протягом 60 секунд нічного не буде позначено.</translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation>Це повідомлення можна вимкнути у параметрах програми.</translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaSettings</name>
+    <message>
+        <source>Freeze Image while snipping</source>
+        <translation>Заморозити зображення на час обрізання</translation>
+    </message>
+    <message>
+        <source>When enabled will freeze the background while
+selecting a rectangular region. It also changes
+the behavior of delayed screenshots, with this
+option enabled the delay happens before the
+snipping area is shown and with the option disabled
+the delay happens after the snipping area is shown.
+This feature is always disabled for Wayland and always
+enabled for MacOs.</source>
+        <translation>Якщо увімкнено, програма заморозить тло при
+позначенні прямокутної ділянки. Параметр також
+змінює поведінку при створенні відкладених знімків —
+якщо увімкнено цей параметр, програма робитиме
+паузу перед тим, як показувати вирізану область, а
+якщо параметр вимкнено — після показу вирізаної
+області. Цю можливість завжди вимкнено у Wayland
+і завжди увімкнено у MacOs.</translation>
+    </message>
+    <message>
+        <source>Show magnifying glass on snipping area</source>
+        <translation>Показувати лупу під час вирізання ділянки</translation>
+    </message>
+    <message>
+        <source>Show a magnifying glass which zooms into
+the background image. This option only works
+with &apos;Freeze Image while snipping&apos; enabled.</source>
+        <translation>Показувати збільшувальне скло, яке дає змогу
+наблизити фонове зображення. Цей пункт
+працюватиме, лише якщо ввімкнено замороження зображення.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area rulers</source>
+        <translation>Показувати лінійки області вирізання</translation>
+    </message>
+    <message>
+        <source>Horizontal and vertical lines going from
+desktop edges to cursor on snipping area.</source>
+        <translation>Показувати горизонтальну та вертикальну лінії,
+які відходять від краю екрана до вказівника миші
+під час позначення області знімка.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area position and size info</source>
+        <translation>Показувати інформацію щодо позиції і розміру вирізаної області</translation>
+    </message>
+    <message>
+        <source>When left mouse button is not pressed the position
+is shown, when the mouse button is pressed,
+the size of the select area is shown left
+and above from the captured area.</source>
+        <translation>Якщо ліву кнопку миші не натиснуто, буде
+показано позицію. Якщо ліву кнопку миші
+натиснуто, ліворуч вгорі захопленої області
+буде показано її розміри.</translation>
+    </message>
+    <message>
+        <source>Allow resizing rect area selection by default</source>
+        <translation>Типово дозволити зміну розмірів прямокутної позначеної ділянки</translation>
+    </message>
+    <message>
+        <source>When enabled will, after selecting a rect
+area, allow resizing the selection. When
+done resizing the selection can be confirmed
+by pressing return.</source>
+        <translation>Якщо позначено, після вибору прямокутної
+ділянки буде уможливлено зміну її розмірів.
+Зміну розмірів може бути підтверджено
+натисканням клавіші Enter.</translation>
+    </message>
+    <message>
+        <source>Show Snipping Area info text</source>
+        <translation>Показати інформаційний текст області вирізання</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor color</source>
+        <translation>Колір вказівника під час вирізання області</translation>
+    </message>
+    <message>
+        <source>Sets the color of the snipping area cursor.</source>
+        <translation>Встановлює колір вказівника при вирізанні ділянки.</translation>
+    </message>
+    <message>
+        <source>Snipping Area cursor thickness</source>
+        <translation>Товщина вказівника при вирізанні ділянки</translation>
+    </message>
+    <message>
+        <source>Sets the thickness of the snipping area cursor.</source>
+        <translation>Встановлює товщину вказівника області обрізання.</translation>
+    </message>
+    <message>
+        <source>Snipping Area</source>
+        <translation>Обрізання області</translation>
     </message>
 </context>
 <context>

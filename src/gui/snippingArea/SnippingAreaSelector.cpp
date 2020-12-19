@@ -39,6 +39,8 @@ void SnippingAreaSelector::activate(const QRectF &snippingAreaGeometry, const QP
 	setupAdorner();
 	mIsActive = true;
 	mSnippingAreaGeometry = snippingAreaGeometry;
+	mAdornerColor = mConfig->snippingAdornerColor();
+	mCursorColor = mConfig->snippingCursorColor();
 	updateCurrentRect({}, pos);
 	updateAdorner(pos);
 	emit cursorChanged(mCursorFactory->createSnippingCursor());
@@ -54,8 +56,8 @@ void SnippingAreaSelector::deactivate()
 void SnippingAreaSelector::paint(QPainter *painter)
 {
 	if(mIsActive) {
-		mAdorner.paint(painter);
-		painter->setPen(QPen(Qt::red, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+		mAdorner.paint(painter, mAdornerColor, mCursorColor);
+		painter->setPen(QPen(mAdornerColor, 1, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
 		painter->drawRect(mCurrentRect);
 	}
 }

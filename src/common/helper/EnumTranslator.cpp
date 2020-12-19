@@ -27,16 +27,17 @@ EnumTranslator *EnumTranslator::instance()
 
 QString EnumTranslator::toString(CaptureModes captureMode) const
 {
-	static QHash<CaptureModes, QString> modeStringMap = {
-		{CaptureModes::RectArea, QObject::tr("Rectangular Area")},
-		{CaptureModes::LastRectArea,  QObject::tr("Last Rectangular Area")},
-		{CaptureModes::FullScreen, QObject::tr("Full Screen (All Monitors)")},
-		{CaptureModes::CurrentScreen, QObject::tr("Current Screen")},
-		{CaptureModes::ActiveWindow, QObject::tr("Active Window")},
-		{CaptureModes::WindowUnderCursor, QObject::tr("Window Under Cursor")},
-		{CaptureModes::Portal, QObject::tr("Screenshot Portal")}
-	};
+	Q_ASSERT(mCaptureModeMap.contains(captureMode));
+	return mCaptureModeMap.value(captureMode);
+}
 
-	Q_ASSERT(modeStringMap.contains(captureMode));
-	return modeStringMap.value(captureMode);
+EnumTranslator::EnumTranslator()
+{
+	mCaptureModeMap[CaptureModes::RectArea] = tr("Rectangular Area");
+	mCaptureModeMap[CaptureModes::LastRectArea] = tr("Last Rectangular Area");
+	mCaptureModeMap[CaptureModes::FullScreen] = tr("Full Screen (All Monitors)");
+	mCaptureModeMap[CaptureModes::CurrentScreen] = tr("Current Screen");
+	mCaptureModeMap[CaptureModes::ActiveWindow] = tr("Active Window");
+	mCaptureModeMap[CaptureModes::WindowUnderCursor] = tr("Window Under Cursor");
+	mCaptureModeMap[CaptureModes::Portal] = tr("Screenshot Portal");
 }

@@ -17,26 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ENUMTRANSLATOR_H
-#define KSNIP_ENUMTRANSLATOR_H
+#ifndef KSNIP_TRAYICONDEFAULTACTIONMODE_H
+#define KSNIP_TRAYICONDEFAULTACTIONMODE_H
 
-#include <QObject>
-#include <QHash>
-
-#include "src/common/enum/CaptureModes.h"
-
-class EnumTranslator : public QObject
+enum class TrayIconDefaultActionMode
 {
-Q_OBJECT
-public:
-	static EnumTranslator *instance();
-
-	QString toString(CaptureModes captureMode) const;
-
-private:
-	QHash<CaptureModes, QString> mCaptureModeMap;
-
-	EnumTranslator();
+	ShowEditor,
+	Capture
 };
 
-#endif //KSNIP_ENUMTRANSLATOR_H
+Q_DECLARE_METATYPE(TrayIconDefaultActionMode)
+
+#endif //KSNIP_TRAYICONDEFAULTACTIONMODE_H

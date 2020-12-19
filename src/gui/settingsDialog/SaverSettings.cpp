@@ -73,7 +73,7 @@ void SaverSettings::initGui()
 	mRememberSaveDirectoryCheckbox->setToolTip(tr("When enabled will overwrite the save directory stored in settings\n"
 												  "with the latest save directory, for every save."));
 
-	mSaveLocationLabel->setText(tr("Capture save location and filename") + QStringLiteral(":"));
+	mSaveLocationLabel->setText(tr("Capture save location and filename") + QLatin1String(":"));
 
 	mSaveLocationLineEdit->setToolTip(tr("Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.\n"
 									         "Filename can contain following wildcards:\n"
@@ -113,7 +113,7 @@ void SaverSettings::loadConfig()
 	mSaveQualityFactorSpinBox->setValue(mConfig->saveQualityFactor());
 	mSaveQualityDefaultRadioButton->setChecked(mConfig->saveQualityMode() == SaveQualityMode::Default);
 	mSaveQualityFactorRadioButton->setChecked(mConfig->saveQualityMode() == SaveQualityMode::Factor);
-	mSaveLocationLineEdit->setText(mConfig->saveDirectory() + mConfig->saveFilename() + QStringLiteral(".") + mConfig->saveFormat());
+	mSaveLocationLineEdit->setText(mConfig->saveDirectory() + mConfig->saveFilename() + QLatin1String(".") + mConfig->saveFormat());
 }
 
 void SaverSettings::saveSettings()

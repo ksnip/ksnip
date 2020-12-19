@@ -136,7 +136,7 @@
 * Fixed: Logout canceled by 'ksnip' under KDE. ([#281](https://github.com/ksnip/kImageAnnotator/issues/281))
 * Fixed: Ksnip not displayed on the monitor (off screen). ([#307](https://github.com/ksnip/kImageAnnotator/issues/307))
 * Fixed: CTRL+Q to quit Ksnip not working. ([#308](https://github.com/ksnip/kImageAnnotator/issues/308))
-* Fixed: Global Hotkeys not working with activated Num and Caps Lock under X11. ([#310](https://github.com/ksnip/kImageAnnotator/issues/310))
+* Fixed: Global Hotkeys not working with activatedDefaultAction Num and Caps Lock under X11. ([#310](https://github.com/ksnip/kImageAnnotator/issues/310))
 * Fixed: Meta Global Hotkey under X11 not working. ([#311](https://github.com/ksnip/kImageAnnotator/issues/311))
 
 ## Release 1.6.1

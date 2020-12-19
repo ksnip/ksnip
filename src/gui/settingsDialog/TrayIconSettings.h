@@ -25,6 +25,7 @@
 #include <QGridLayout>
 #include <QCheckBox>
 #include <QComboBox>
+#include <QRadioButton>
 
 #include "src/backend/config/KsnipConfig.h"
 #include "src/common/helper/EnumTranslator.h"
@@ -41,16 +42,20 @@ private:
 	QCheckBox *mUseTrayIconCheckBox;
 	QCheckBox *mMinimizeToTrayCheckBox;
 	QCheckBox *mCloseToTrayCheckBox;
-	QLabel *mDefaultTrayLeftClickActionLabel;
-	QComboBox *mDefaultTrayLeftClickActionCombobox;
+	QComboBox *mDefaultActionCaptureModeCombobox;
 	QCheckBox *mStartMinimizedToTrayCheckBox;
+	QRadioButton *mDefaultActionShowEditorRadioButton;
+	QRadioButton *mDefaultActionCaptureRadioButton;
 	QGridLayout *mLayout;
+	QGridLayout *mDefaultActionLayout;
+	QGroupBox *mDefaultActionGroupBox;
 	KsnipConfig *mConfig;
 
 	void initGui();
 	void loadConfig();
-	void populateTrayLeftClickActionCombobox(const QList<CaptureModes> &captureModes);
-	void setTrayLeftClickActionComboboxValue(int action);
+	void populateDefaultActionCaptureModeCombobox(const QList<CaptureModes> &captureModes);
+	TrayIconDefaultActionMode selectedTrayIconDefaultActionMode() const;
+	int indexOfSelectedCaptureMode() const;
 
 private slots:
 	void useTrayIconChanged();

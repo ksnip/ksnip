@@ -81,12 +81,21 @@
     <update_contact>damir.porobic@gmx.com</update_contact>
     <content_rating type="oars-1.0" />
     <releases>
-        <release type="stable" version="1.8.1" date="2020-07-30T00:00:00Z">
+        <release type="stable" version="1.9.0" date="2021-03-01T00:00:00Z">
             <description>
                 <ul>
-                    <li>Fixed: If file selection is cancelled during ksnip's file open dialog via tray icon, ksnip closes.</li>
+                </ul>
+            </description>
+        </release>
+        <release type="stable" version="1.8.1" date="2020-12-30T00:00:00Z">
+            <description>
+                <ul>
+                    <li>Changed: Allow changing adorner color for rect area selection.</li>
+                    <li>Fixed: Cancel on Quit not work when editor is hidden.</li>
+                    <li>Fixed: Canceling rect area selection activates main window.</li>
+                    <li>Fixed: Enter key doesn't finishes resizing.</li>
                     <li>Fixed kImageAnnotator: Brazilian Portuguese translation not loaded.</li>
-                    <li>Fixed: error: control reaches end of non-void function.</li>
+                    <li>Fixed kImageAnnotator: error: control reaches end of non-void function.</li>
                 </ul>
             </description>
         </release>

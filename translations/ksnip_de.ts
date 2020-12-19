@@ -169,7 +169,7 @@ Eine Änderung benötigt einen Neustart von ksnip, um wirksam zu werden.</transl
     </message>
     <message>
         <source>Use Tray Icon</source>
-        <translation>Tray Icon verwenden</translation>
+        <translation>Benutze Tray Icon</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
@@ -179,11 +179,11 @@ Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation>Zum Tray minimieren</translation>
+        <translation>In Tray minimieren</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation>Zum Tray schließen</translation>
+        <translation>In Tray schließen</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
@@ -548,8 +548,9 @@ dieser Option erfordert einen Neustart von ksnip.</translation>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation>Hauptfenster anzeigen, nachdem ein neuer Screenshot aufgenommen wurde
-wenn das Hauptfenster ausgeblendet oder minimiert war</translation>
+        <translation>Hauptfenster anzeigen, nachdem ein neuer Screenshot
+aufgenommen wurde, wenn das Hauptfenster
+ausgeblendet oder minimiert war.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
@@ -1014,10 +1015,10 @@ bei jedem Speichern ignoriert und durch das zuletzt benutzte Speicherverzeichnis
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation>Unterstützte Formate sind JPG, PNG und BMP. Wenn kein Format angegeben wird, wird standardmäßig PNG benutzt.
+        <translation>Unterstützte Formate sind JPG, PNG und BMP. Wenn kein Format angegeben ist, wird standardmäßig PNG benutzt.
 Dateinamen können die folgenden Platzhalter verwenden:
--$Y, $M, $D für das Datum, $h, $m, $s für die Uhrzeit, oder $T für die Zeit im Format hhmmss.
-- mehrere aufeinanderfolgende # als Zähler. #### ergibt 0001, der darauffolgende Screenshot wäre 0002.</translation>
+- $Y, $M, $D für das Datum, $h, $m, $s für die Uhrzeit, oder $T für die Zeit im Format hhmmss.
+- Mehrere aufeinanderfolgende # als Zähler. #### ergibt 0001, der darauffolgende Screenshot wäre 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1162,7 +1163,7 @@ Alles wird kopiert wenn leer.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished">Halten Sie die STRG-Taste gedrückt, um die Größe des Bereichs nach der Auswahl zu ändern</translation>
+        <translation>Halten Sie die STRG-Taste gedrückt, um die Größe des Bereichs nach der Auswahl zu ändern.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
@@ -1181,7 +1182,7 @@ Alles wird kopiert wenn leer.</translation>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Bild während der Aufnahme einfrieren</translation>
+        <translation>Bild während der Aufnahme einfrieren</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1192,85 +1193,88 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished">Ist diese Option gesetzt, wird der Hintergrund
+        <translation>Ist diese Option gesetzt, wird der Hintergrund
 eingefroren und eine rechteckige Auswahl kann
 getroffen werden. Sie wirkt sicht auch auf verzögerte
-Screenshots aus; aktiviert, passiert die Verzögerung
-bevor die Auswahl getroffen werden kann; deaktviert,
+Screenshots aus; wenn aktiviert, geschieht die Verzögerung,
+bevor die Auswahl getroffen werden kann; wenn deaktviert,
 geschieht die Verzögerung, nachdem die Auswahl
 getroffen wurde. Diese Option ist unter Wayland stets
 deaktiviert, unter macOS stets aktiviert.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Lupe im Ausschnittsbereich anzeigen</translation>
+        <translation>Lupe im Ausschnittsbereich anzeigen</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Zeigt eine Lupe an, welche in das Hintergrundbild
+        <translation>Zeigt eine Lupe an, welche in das Hintergrundbild
 hineinzoomt. Diese Option funktioniert nur, wenn
 „Bild während der Aufnahme einfrieren“ aktiviert wurde.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Lineale bei der Auswahl des rechteckigen Bereichs anzeigen</translation>
+        <translation>Lineale bei der Auswahl des rechteckigen Bereichs anzeigen</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Horizontale und vertikale Linien vom
+        <translation>Horizontale und vertikale Linien vom
 Bildschirmrand zum Mauszeiger anzeigen.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Position und Größe des Ausschnittsbereichs anzeigen</translation>
+        <translation>Position und Größe des Ausschnittsbereichs anzeigen</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished">Wenn der Mauszeiger nicht gedrückt wird, wird die
-Position angezeigt; wenn der Mauszeiger gedrückt wird,
-wird die größe des markierten Bereichs links und oberhalb
-des Ausschnittsbereichs angezeigt.</translation>
+        <translation>Wenn der Mauszeiger nicht gedrückt ist, wird die
+Position angezeigt; wenn der Mauszeiger gedrückt ist,
+wird die Größe des markierten Bereichs linksseitig und
+oberhalb des Ausschnittsbereichs angezeigt.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardmäßig das Ändern der rechteckigen Auswahl erlauben</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wenn dies aktiviert ist, kann nach einer
+rechteckigen Auswahl jene skaliert werden.
+Nach Fertigstellung kann die Auswahl mittels
+ENTER bestätigt werden.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Informationen zum Auswahlbereich anzeigen</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Ausschnittsbereich Mauszeigerfarbe</translation>
+        <translation>Mauszeigerfarbe für Auswahlbereich</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Setzt die Farbe des Mauszeigers für den Auswahlbereich.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Ausschnittsbereich Mauszeigerstärke</translation>
+        <translation>Mauszeigerstärke für Auswahlbereich</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Setzt die Stärke des Mauszeigers für den Auswahlbereich.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Auswahlbereich</translation>
     </message>
 </context>
 <context>
@@ -1305,7 +1309,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Sticker hinzufügen</translation>
     </message>
 </context>
 <context>
@@ -1353,7 +1357,7 @@ by pressing return.</source>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Vor dem Hochladen nach Bestätigung fragen</translation>
+        <translation>Vor dem Hochladen nach Bestätigung fragen</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
@@ -1384,7 +1388,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished">Verwendet:</translation>
+        <translation>Verwendet:</translation>
     </message>
 </context>
 </TS>

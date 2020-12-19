@@ -1,6 +1,7 @@
 # Change log
 
 ## Release 1.9.0
+* New: Add option to select the default action for tray icon left click. ([#502](https://github.com/ksnip/ksnip/issues/502))
 
 ## Release 1.8.1
 * Changed: Allow changing adorner color for rect area selection. ([#519](https://github.com/ksnip/ksnip/issues/519))

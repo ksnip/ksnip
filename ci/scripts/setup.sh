@@ -66,9 +66,5 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
 
     export PATH="/usr/local/opt/qt/bin:$PATH"
 
-#    export DYLD_LIBRARY_PATH="/usr/local/include:$DYLD_LIBRARY_PATH"
-    export DYLD_LIBRARY_PATH="/usr/local/include/kImageAnnotator:$DYLD_LIBRARY_PATH"
-#    export DYLD_LIBRARY_PATH="/usr/local/lib:$DYLD_LIBRARY_PATH"
-
     source ci/scripts/common/setup_dependencies_linux_noSudo.sh
 fi

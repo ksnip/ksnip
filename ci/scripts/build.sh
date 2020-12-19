@@ -26,21 +26,10 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
 	
     7z a ksnip-${VERSION}-windows.zip ./packageDir/*
 elif [[ "${BINARY_TYPE}" == "app" ]]; then
-
-    echo "--> ls /usr/local/lib/"
-    ls /usr/local/lib/ -l
-
-    echo "--> ls /usr/local/include/"
-    ls /usr/local/include/ -l
-
-    echo "--> ls /usr/local/include/kImageAnnotator"
-    ls /usr/local/include/kImageAnnotator -l
-
-    echo "--> ls /usr/local/lib/cmake/kImageAnnotator/"
-    ls /usr/local/lib/cmake/kImageAnnotator/ -l
-
     mkdir build && cd build
-    cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
+    echo "--> cmake"
+    cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=/usr/local/include/kImageAnnotator
+    echo "--> make"
     make
     cd ..
 

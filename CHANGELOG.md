@@ -1,5 +1,7 @@
 # Change log
 
+## Release 1.9.0
+
 ## Release 1.8.1
 * Changed: Allow changing adorner color for rect area selection. ([#519](https://github.com/ksnip/ksnip/issues/519))
 * Fixed: If file selection is cancelled during ksnip's file open dialog via tray icon, ksnip closes. ([#503](https://github.com/ksnip/ksnip/issues/503))

@@ -27,7 +27,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const QList<CaptureModes> &captu
 	mTreeWidget(new QTreeWidget),
 	mStackedLayout(new QStackedLayout),
 	mConfig(KsnipConfigProvider::instance()),
-	mApplicationSettings(new ApplicationSettings(mConfig, captureModes)),
+	mApplicationSettings(new ApplicationSettings(mConfig)),
 	mImageGrabberSettings(new ImageGrabberSettings(mConfig)),
 	mImgurUploaderSettings(new ImgurUploaderSettings(mConfig)),
 	mScriptUploaderSettings(new ScriptUploaderSettings(mConfig)),
@@ -36,6 +36,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const QList<CaptureModes> &captu
 	mUploaderSettings(new UploaderSettings(mConfig)),
 	mSaverSettings(new SaverSettings(mConfig)),
 	mStickerSettings(new StickerSettings(mConfig)),
+	mTrayIconSettings(new TrayIconSettings(mConfig, captureModes)),
 	mSnippingAreaSettings(new SnippingAreaSettings(mConfig))
 {
     setWindowTitle(QApplication::applicationName() + QLatin1Literal(" - ") + tr("Settings"));
@@ -59,6 +60,7 @@ SettingsDialog::~SettingsDialog()
     delete mUploaderSettings;
     delete mSaverSettings;
     delete mStickerSettings;
+    delete mTrayIconSettings;
     delete mSnippingAreaSettings;
 }
 
@@ -73,6 +75,7 @@ void SettingsDialog::saveSettings()
     mHotKeySettings->saveSettings();
     mSaverSettings->saveSettings();
     mStickerSettings->saveSettings();
+    mTrayIconSettings->saveSettings();
     mSnippingAreaSettings->saveSettings();
 }
 
@@ -91,6 +94,7 @@ void SettingsDialog::initGui()
 
     mStackedLayout->addWidget(mApplicationSettings);
     mStackedLayout->addWidget(mSaverSettings);
+    mStackedLayout->addWidget(mTrayIconSettings);
     mStackedLayout->addWidget(mImageGrabberSettings);
     mStackedLayout->addWidget(mSnippingAreaSettings);
     mStackedLayout->addWidget(mUploaderSettings);
@@ -102,6 +106,7 @@ void SettingsDialog::initGui()
 
 	auto application = new QTreeWidgetItem(mTreeWidget, { tr("Application") });
 	auto saver = new QTreeWidgetItem(application, { tr("Saver") });
+	auto trayIcon = new QTreeWidgetItem(application, { tr("Tray Icon") });
 	auto imageGrabber = new QTreeWidgetItem(mTreeWidget, { tr("Image Grabber") });
 	auto snippingArea = new QTreeWidgetItem(imageGrabber, { tr("Snipping Area") });
 	auto uploader = new QTreeWidgetItem(mTreeWidget, { tr("Uploader") });
@@ -113,6 +118,7 @@ void SettingsDialog::initGui()
 
 	mNavigatorItems.append(application);
 	mNavigatorItems.append(saver);
+	mNavigatorItems.append(trayIcon);
 	mNavigatorItems.append(imageGrabber);
 	mNavigatorItems.append(snippingArea);
 	mNavigatorItems.append(uploader);

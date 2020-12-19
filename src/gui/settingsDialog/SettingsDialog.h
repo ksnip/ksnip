@@ -35,6 +35,7 @@
 #include "UploaderSettings.h"
 #include "SaverSettings.h"
 #include "StickerSettings.h"
+#include "TrayIconSettings.h"
 #include "SnippingAreaSettings.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
@@ -58,6 +59,7 @@ private:
     UploaderSettings *mUploaderSettings;
     SaverSettings *mSaverSettings;
     StickerSettings *mStickerSettings;
+	TrayIconSettings *mTrayIconSettings;
     SnippingAreaSettings *mSnippingAreaSettings;
 	QTreeWidget *mTreeWidget;
     QStackedLayout *mStackedLayout;

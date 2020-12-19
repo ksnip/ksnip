@@ -37,7 +37,7 @@ class ApplicationSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit ApplicationSettings(KsnipConfig *ksnipConfig, const QList<CaptureModes> &captureModes);
+	explicit ApplicationSettings(KsnipConfig *ksnipConfig);
 	~ApplicationSettings() override;
 	void saveSettings();
 
@@ -45,12 +45,6 @@ private:
 	QCheckBox *mAutoCopyToClipboardNewCapturesCheckbox;
 	QCheckBox *mRememberPositionCheckbox;
 	QCheckBox *mCaptureOnStartupCheckbox;
-	QCheckBox *mUseTrayIconCheckBox;
-	QCheckBox *mMinimizeToTrayCheckBox;
-	QCheckBox *mCloseToTrayCheckBox;
-	QLabel *mDefaultTrayLeftClickActionLabel;
-	QComboBox *mDefaultTrayLeftClickActionCombobox;
-	QCheckBox *mStartMinimizedToTrayCheckBox;
 	QCheckBox *mUseTabsCheckbox;
 	QCheckBox *mAutoHideTabsCheckbox;
 	QCheckBox *mUseSingleInstanceCheckBox;
@@ -61,11 +55,8 @@ private:
 
 	void initGui();
 	void loadConfig();
-	void populateTrayLeftClickActionCombobox(const QList<CaptureModes> &captureModes);
-	void setTrayLeftClickActionComboboxValue(int action);
 
 private slots:
-	void useTrayIconChanged();
 	void useTabsChanged();
 };
 

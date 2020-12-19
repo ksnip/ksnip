@@ -32,7 +32,7 @@
 class WidgetVisibilityHandlerFactory
 {
 public:
-	static WidgetVisibilityHandler* create(QWidget *widget, KsnipConfig *config);
+	static WidgetVisibilityHandler *create(QWidget *widget);
 };
 
 #endif //KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H

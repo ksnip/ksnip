@@ -403,7 +403,7 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished">Hochgeladen zu</translation>
+        <translation>Hochgeladen zu</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
@@ -507,7 +507,7 @@ Screenshots sichtbar sein soll.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished">Bildgrabber</translation>
+        <translation>Bildgrabber</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
@@ -843,7 +843,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished">Pfad kopieren</translation>
+        <translation>Pfad kopieren</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -870,11 +870,11 @@ und der Aufnahme des Bildschirmfotos.</translation>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Speichern</translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Speichern als</translation>
+        <translation>Speichern als</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -882,7 +882,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Kopieren</translation>
+        <translation>Kopieren</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -908,7 +908,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Schließen</translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <source>Close Other</source>
@@ -992,7 +992,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Aufforderung zum Speichern, bevor nicht gespeicherte Änderungen verworfen werden</translation>
+        <translation>Aufforderung zum Speichern, bevor nicht gespeicherte Änderungen verworfen werden</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
@@ -1006,7 +1006,7 @@ bei jedem Speichern ignoriert und durch das zuletzt benutzte Speicherverzeichnis
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Speicherort und Dateiname für Aufnahmen</translation>
+        <translation>Speicherort und Dateiname für Aufnahmen</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
@@ -1020,7 +1020,7 @@ Dateinamen können die folgenden Platzhalter verwenden:
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Durchsuchen</translation>
+        <translation>Durchsuchen</translation>
     </message>
     <message>
         <source>Saver Settings</source>
@@ -1028,7 +1028,7 @@ Dateinamen können die folgenden Platzhalter verwenden:
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Speicherort für Aufnahmen</translation>
+        <translation>Speicherort für Aufnahmen</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1067,7 +1067,7 @@ png-Datei als einziges Argument an das Script übergeben.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Durchsuchen</translation>
+        <translation>Durchsuchen</translation>
     </message>
     <message>
         <source>Script Uploader</source>

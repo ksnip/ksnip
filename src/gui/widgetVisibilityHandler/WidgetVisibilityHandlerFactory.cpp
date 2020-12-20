@@ -22,7 +22,7 @@
 WidgetVisibilityHandler *WidgetVisibilityHandlerFactory::create(QWidget *widget)
 {
 #if defined(__APPLE__) || defined(_WIN32)
-	return new WidgetVisibilityHandler(widget, config);
+	return new WidgetVisibilityHandler(widget);
 #endif
 
 #if defined(__linux__)

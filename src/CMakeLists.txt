@@ -178,25 +178,28 @@ else()
 	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc)
 endif ()
 
-target_link_libraries(ksnip
-		Qt5::Widgets
-		Qt5::Network
-		Qt5::Xml
-		Qt5::PrintSupport
-		Qt5::DBus
-		Qt5::Svg
-		)
-
 
 if (APPLE)
 	target_link_libraries(ksnip
+			Qt5::Widgets
+			Qt5::Network
+			Qt5::Xml
+			Qt5::PrintSupport
+			Qt5::DBus
 			kImageAnnotator::kImageAnnotator
 			kColorPicker::kColorPicker
+			Qt5::Svg
 			)
 else ()
 	target_link_libraries(ksnip
+			Qt5::Widgets
+			Qt5::Network
+			Qt5::Xml
+			Qt5::PrintSupport
+			Qt5::DBus
 			kImageAnnotator
 			kColorPicker
+			Qt5::Svg
 			)
 endif ()
 

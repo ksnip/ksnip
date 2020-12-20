@@ -19,7 +19,7 @@
 
 #include "WidgetVisibilityHandlerFactory.h"
 
-WidgetVisibilityHandler *WidgetVisibilityHandlerFactory::create(QWidget *widget, KsnipConfig *config)
+WidgetVisibilityHandler *WidgetVisibilityHandlerFactory::create(QWidget *widget)
 {
 #if defined(__APPLE__) || defined(_WIN32)
 	return new WidgetVisibilityHandler(widget, config);
@@ -28,7 +28,7 @@ WidgetVisibilityHandler *WidgetVisibilityHandlerFactory::create(QWidget *widget,
 #if defined(__linux__)
 	auto platformChecker = PlatformChecker::instance();
 	if (platformChecker->isWayland() && platformChecker->isGnome()) {
-		return new GnomeWaylandWidgetVisibilityHandler(widget, config);
+		return new GnomeWaylandWidgetVisibilityHandler(widget);
 	} else {
 		return new WidgetVisibilityHandler(widget);
 	}

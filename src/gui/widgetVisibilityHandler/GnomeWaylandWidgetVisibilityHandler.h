@@ -25,9 +25,9 @@
 class GnomeWaylandWidgetVisibilityHandler : public WidgetVisibilityHandler
 {
 public:
-	explicit GnomeWaylandWidgetVisibilityHandler(QWidget *widget, KsnipConfig *config);
+	explicit GnomeWaylandWidgetVisibilityHandler(QWidget *widget);
 	~GnomeWaylandWidgetVisibilityHandler() = default;
-	virtual void setVisible(bool isVisible);
+	void setVisible(bool isVisible) override;
 };
 
 #endif //KSNIP_GNOMEWAYLANDWIDGETVISIBILITYHANDLER_H

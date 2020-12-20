@@ -55,7 +55,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mSessionManagerRequestedQuit(false),
 	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mServiceLocator, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
-	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this, mConfig)),
+	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this)),
 	mFileDialog(FileDialogAdapterFactory::create())
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need

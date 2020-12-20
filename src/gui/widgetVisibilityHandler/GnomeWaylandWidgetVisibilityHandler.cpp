@@ -19,7 +19,7 @@
 
 #include "GnomeWaylandWidgetVisibilityHandler.h"
 
-GnomeWaylandWidgetVisibilityHandler::GnomeWaylandWidgetVisibilityHandler(QWidget *widget, KsnipConfig *config) :
+GnomeWaylandWidgetVisibilityHandler::GnomeWaylandWidgetVisibilityHandler(QWidget *widget) :
 		WidgetVisibilityHandler(widget)
 {
 

@@ -179,15 +179,27 @@ else()
 endif ()
 
 target_link_libraries(ksnip
-					  Qt5::Widgets
-					  Qt5::Network
-					  Qt5::Xml
-					  Qt5::PrintSupport
-					  Qt5::DBus
-					  kImageAnnotator::kImageAnnotator
-					  kColorPicker::kColorPicker
-					  Qt5::Svg
-					  )
+		Qt5::Widgets
+		Qt5::Network
+		Qt5::Xml
+		Qt5::PrintSupport
+		Qt5::DBus
+		Qt5::Svg
+		)
+
+
+if (APPLE)
+	target_link_libraries(ksnip
+			kImageAnnotator::kImageAnnotator
+			kColorPicker::kColorPicker
+			)
+else ()
+	target_link_libraries(ksnip
+			kImageAnnotator
+			kColorPicker
+			)
+endif ()
+
 
 if (APPLE)
 	target_link_libraries(ksnip "-framework CoreGraphics -framework AppKit")

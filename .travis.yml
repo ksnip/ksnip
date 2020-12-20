@@ -9,19 +9,19 @@ git:
 
 jobs:
   include:
-    - stage: test
-      os: linux
-      before_install:
-        - source ci/scripts/common/bootstrap_ubuntu_repos.sh
-      install:
-        - git clone git://github.com/DamirPorobic/kColorPicker
-        - git clone git://github.com/DamirPorobic/kImageAnnotator
-        - source ci/scripts/common/setup_ubuntu_qt.sh
-        - source ci/scripts/common/setup_dependencies_ubuntu.sh
-      script:
-        - mkdir build ; cd build
-        - cmake .. -DBUILD_TESTS=ON ; make
-        - xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" make test CTEST_OUTPUT_ON_FAILURE=1
+#    - stage: test
+#      os: linux
+#      before_install:
+#        - source ci/scripts/common/bootstrap_ubuntu_repos.sh
+#      install:
+#        - git clone git://github.com/DamirPorobic/kColorPicker
+#        - git clone git://github.com/DamirPorobic/kImageAnnotator
+#        - source ci/scripts/common/setup_ubuntu_qt.sh
+#        - source ci/scripts/common/setup_dependencies_ubuntu.sh
+#      script:
+#        - mkdir build ; cd build
+#        - cmake .. -DBUILD_TESTS=ON ; make
+#        - xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" make test CTEST_OUTPUT_ON_FAILURE=1
 
     - stage: build
       os: linux

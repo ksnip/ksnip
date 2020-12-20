@@ -47,5 +47,5 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
 
     echo "--> Start Notatization process"
     sudo xcode-select -r
-    xcrun altool -t osx -f ksnip-${VERSION}.dmg –primary-bundle-id org.ksnip.ksnip –notarize-app –username ${APPLE_DEV_USER} -password ${APPLE_DEV_PASS}
+    xcrun altool -t osx -f ksnip-${VERSION}.dmg -primary-bundle-id org.ksnip.ksnip -notarize-app -username ${APPLE_DEV_USER} -password ${APPLE_DEV_PASS}
 fi

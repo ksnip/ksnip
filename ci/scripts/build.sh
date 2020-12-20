@@ -46,6 +46,12 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     sudo hdiutil create ksnip-${VERSION}.dmg -volname "Ksnip" -fs HFS+ -srcfolder packageDir/
 
     echo "--> Start Notatization process"
+    which altool
+    export PATH="/usr/local/bin:$PATH"
+    which altool
+    echo "--> Setup xcode"
     sudo xcode-select -r
+    sudo xcode-select -s /Applications/Xcode.app
+    ln -s /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/altool /usr/local/bin/altool
     xcrun altool -t osx -f ksnip-${VERSION}.dmg -primary-bundle-id org.ksnip.ksnip -notarize-app -username ${APPLE_DEV_USER} -password ${APPLE_DEV_PASS}
 fi

@@ -48,5 +48,12 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     echo "--> Start Notatization process"
 
     ln -s /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/altool /usr/local/bin/altool
-    xcrun altool -t osx -f ksnip-${VERSION}.dmg --primary-bundle-id org.ksnip.ksnip --notarize-app --username ${APPLE_DEV_USER} --password ${APPLE_DEV_PASS}
+    response=$(xcrun altool -t osx -f ksnip-${VERSION}.dmg --primary-bundle-id org.ksnip.ksnip --notarize-app -u ${APPLE_DEV_USER} -p ${APPLE_DEV_PASS})
+    echo "Response was: $response"
+    echo "--> Get Request UUID"
+    requestUUID=$(echo $response | tr ' ' '\n' | tail -1)
+    echo "RequestUUID is: $requestUUID"
+    echo "--> Send it to apple"
+    xcrun altool –notarization-info $requestUUID -u ${APPLE_DEV_USER} -p ${APPLE_DEV_PASS})
+    
 fi

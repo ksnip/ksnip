@@ -38,16 +38,23 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     ./ci/scripts/app/add-osx-cert.sh;
 
     echo "--> Package MacOS"
-    mkdir packageDir
-    mv build/src/ksnip*.app packageDir/ksnip.app
-    macdeployqt packageDir/ksnip.app -sign-for-notarization="${APPLE_DEV_IDENTITY}"
-    cp build/translations/ksnip_*.qm ./packageDir/ksnip.app/Contents/Resources/
-    cp build/translations/kImageAnnotator_*.qm ./packageDir/ksnip.app/Contents/Resources/
-    sudo hdiutil create ksnip-${VERSION}.dmg -volname "Ksnip" -fs HFS+ -srcfolder packageDir/
+    # mkdir packageDir
+    # mv build/src/ksnip*.app packageDir/ksnip.app
+    # macdeployqt packageDir/ksnip.app -sign-for-notarization="${APPLE_DEV_IDENTITY}"
+    # cp build/translations/ksnip_*.qm ./packageDir/ksnip.app/Contents/Resources/
+    # cp build/translations/kImageAnnotator_*.qm ./packageDir/ksnip.app/Contents/Resources/
+    # sudo hdiutil create ksnip-${VERSION}.dmg -volname "Ksnip" -fs HFS+ -srcfolder packageDir/
+    
+    mv build/src/ksnip*.app ksnip.app
+    macdeployqt ksnip.app -dmg -sign-for-notarization="${APPLE_DEV_IDENTITY}"
+    
+    echo "--> Check content"
+    ls .
+    
+    mv ksnip.dmg ksnip-${VERSION}.dmg
 
     echo "--> Start Notatization process"
 
-    ln -s /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/altool /usr/local/bin/altool
     response=$(xcrun altool -t osx -f ksnip-${VERSION}.dmg --primary-bundle-id org.ksnip.ksnip --notarize-app -u ${APPLE_DEV_USER} -p ${APPLE_DEV_PASS})
     echo "Response was: $response"
     echo "--> Get Request UUID"

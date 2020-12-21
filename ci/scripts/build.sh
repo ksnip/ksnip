@@ -61,5 +61,5 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     requestUUID=$(echo $response | tr ' ' '\n' | tail -1)
     echo "RequestUUID is: $requestUUID"
     echo "--> Send it to apple"
-    xcrun altool --notarization-info $requestUUID -u ${APPLE_DEV_USER} -p ${APPLE_DEV_PASS}
+    xcrun altool --verbose --notarization-info $requestUUID -u ${APPLE_DEV_USER} -p ${APPLE_DEV_PASS}
 fi

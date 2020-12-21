@@ -14,7 +14,7 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     cmake .. -G"NMake Makefiles" -DCMAKE_CXX_COMPILER=cl -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
     nmake
     cd ..
-	
+
     echo "--> Package Windows"
     mkdir packageDir
     mv build/src/ksnip*.exe packageDir/ksnip.exe
@@ -23,43 +23,27 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./packageDir/translations/
     cp /c/openssl/libeay32.dll ./packageDir/
     cp /c/openssl/ssleay32.dll ./packageDir/
-	
+
     7z a ksnip-${VERSION}-windows.zip ./packageDir/*
 elif [[ "${BINARY_TYPE}" == "app" ]]; then
     mkdir build && cd build
-    echo "--> cmake"
     cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=/usr/local/include/kImageAnnotator
-    echo "--> make"
     make
     cd ..
 
-    echo "--> Setup Certificates"
-    chmod +x ci/scripts/app/add-osx-cert.sh;
-    ./ci/scripts/app/add-osx-cert.sh;
-
     echo "--> Package MacOS"
-    # mkdir packageDir
-    # mv build/src/ksnip*.app packageDir/ksnip.app
-    # macdeployqt packageDir/ksnip.app -sign-for-notarization="${APPLE_DEV_IDENTITY}"
-    # cp build/translations/ksnip_*.qm ./packageDir/ksnip.app/Contents/Resources/
-    # cp build/translations/kImageAnnotator_*.qm ./packageDir/ksnip.app/Contents/Resources/
-    # sudo hdiutil create ksnip-${VERSION}.dmg -volname "Ksnip" -fs HFS+ -srcfolder packageDir/
-    
     mv build/src/ksnip*.app ksnip.app
+    cp build/translations/ksnip_*.qm ./ksnip.app/Contents/Resources/
+    cp build/translations/kImageAnnotator_*.qm ./ksnip.app/Contents/Resources/
     macdeployqt ksnip.app -dmg -sign-for-notarization="${APPLE_DEV_IDENTITY}"
-    
-    echo "--> Check content"
-    ls .
-    
     mv ksnip.dmg ksnip-${VERSION}.dmg
 
-    echo "--> Start Notatization process"
-
+    echo "--> Start Notarization process"
     response=$(xcrun altool -t osx -f ksnip-${VERSION}.dmg --primary-bundle-id org.ksnip.ksnip --notarize-app -u ${APPLE_DEV_USER} -p ${APPLE_DEV_PASS})
-    echo "Response was: $response"
-    echo "--> Get Request UUID"
-    requestUUID=$(echo $response | tr ' ' '\n' | tail -1)
-    echo "RequestUUID is: $requestUUID"
-    echo "--> Send it to apple"
-    xcrun altool --verbose --notarization-info $requestUUID -u ${APPLE_DEV_USER} -p ${APPLE_DEV_PASS}
+    requestUUID=$(echo ${response} | tr ' ' '\n' | tail -1)
+    echo "--> Request Notarization"
+    xcrun altool --notarization-info ${requestUUID} -u ${APPLE_DEV_USER} -p ${APPLE_DEV_PASS}
+
+    echo "--> Stable the notarization result to the dmg file"
+    xcrun stapler staple -v ksnip-${VERSION}.dmg
 fi

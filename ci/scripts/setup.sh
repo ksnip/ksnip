@@ -67,4 +67,8 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     export PATH="/usr/local/opt/qt/bin:$PATH"
 
     source ci/scripts/common/setup_dependencies_linux_noSudo.sh
+
+    echo "--> Setup Certificates"
+    chmod +x ci/scripts/app/add-osx-cert.sh;
+    ./ci/scripts/app/add-osx-cert.sh;
 fi

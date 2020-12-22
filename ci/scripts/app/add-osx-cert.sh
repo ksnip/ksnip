@@ -1,9 +1,9 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 KEY_CHAIN=build.keychain
 CERTIFICATE_P12=certificate.p12
 
-# Recreate the certificate from the secure environment variable"
+# Recreate the certificate from the secure environment variable
 echo ${APPLE_CERT_P12} | base64 --decode > $CERTIFICATE_P12
 
 # Create a keychain

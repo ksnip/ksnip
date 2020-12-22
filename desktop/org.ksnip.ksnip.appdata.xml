@@ -84,9 +84,15 @@
         <release type="stable" version="1.8.1" date="2020-07-30T00:00:00Z">
             <description>
                 <ul>
+                    <li>Changed: Allow changing adorner color for rect area selection.</li>
+                    <li>Changed: Notarize ksnip for macOS.</li>
                     <li>Fixed: If file selection is cancelled during ksnip's file open dialog via tray icon, ksnip closes.</li>
+                    <li>Fixed: Cancel on Quit not work when editor is hidden.</li>
+                    <li>Fixed: Canceling rect area selection activates main window.</li>
+                    <li>Fixed: Enter key doesn't finishes resizing.</li>
+                    <li>Fixed: Missing version number in mac binaries.</li>
                     <li>Fixed kImageAnnotator: Brazilian Portuguese translation not loaded.</li>
-                    <li>Fixed: error: control reaches end of non-void function.</li>
+                    <li>Fixed kImageAnnotator: error: control reaches end of non-void function.</li>
                 </ul>
             </description>
         </release>

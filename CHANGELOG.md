@@ -6,6 +6,7 @@
 * Fixed: Cancel on Quit not work when editor is hidden. ([#342](https://github.com/ksnip/ksnip/issues/342))
 * Fixed: Canceling rect area selection activates main window. ([#521](https://github.com/ksnip/ksnip/issues/521))
 * Fixed: Enter key doesn't finishes resizing. ([#523](https://github.com/ksnip/ksnip/issues/523))
+* Fixed: Missing version number in mac binaries. ([#401](https://github.com/ksnip/ksnip/issues/401))
 * Fixed kImageAnnotator: Brazilian Portuguese translation not loaded. ([#176](https://github.com/ksnip/kImageAnnotator/issues/176))
 * Fixed kImageAnnotator: error: control reaches end of non-void function. ([#177](https://github.com/ksnip/kImageAnnotator/issues/177))
 

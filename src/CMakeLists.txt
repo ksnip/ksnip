@@ -167,9 +167,9 @@ elseif (APPLE)
 	set(MACOSX_BUNDLE_GUI_IDENTIFIER "org.ksnip.ksnip")
 	set(MACOSX_BUNDLE_ICON_FILE "ksnip.icns")
 	set(MACOSX_BUNDLE_INFO_STRING "Cross-Platform Screenshot and Annotation Tool")
-	set(MACOSX_BUNDLE_SHORT_VERSION_STRING "1.8.1a")
-	set(MACOSX_BUNDLE_LONG_VERSION_STRING "1.8.1b")
-	set(MACOSX_BUNDLE_BUNDLE_VERSION "1.8.1c")
+	set(MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION})
+	set(MACOSX_BUNDLE_LONG_VERSION_STRING ${KSNIP_VERSION})
+	set(MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION})
 
 	set(MACOSX_ICON ${CMAKE_SOURCE_DIR}/icons/ksnip.icns backend/imageGrabber/AbstractImageGrabber.cpp backend/imageGrabber/AbstractImageGrabber.h)
 	set_source_files_properties(${MACOSX_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
@@ -179,46 +179,40 @@ else()
 	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc)
 endif ()
 
+set(DEPENDENCY_LIBRARIES
+		Qt5::Widgets
+		Qt5::Network
+		Qt5::Xml
+		Qt5::PrintSupport
+		Qt5::DBus)
 
 if (APPLE)
-	target_link_libraries(ksnip
-			Qt5::Widgets
-			Qt5::Network
-			Qt5::Xml
-			Qt5::PrintSupport
-			Qt5::DBus
+	list(APPEND DEPENDENCY_LIBRARIES
 			kImageAnnotator::kImageAnnotator
-			kColorPicker::kColorPicker
-			Qt5::Svg
-			)
+			kColorPicker::kColorPicker)
 else ()
-	target_link_libraries(ksnip
-			Qt5::Widgets
-			Qt5::Network
-			Qt5::Xml
-			Qt5::PrintSupport
-			Qt5::DBus
+	list(APPEND DEPENDENCY_LIBRARIES
 			kImageAnnotator
-			kColorPicker
-			Qt5::Svg
-			)
+			kColorPicker)
 endif ()
 
+list(APPEND DEPENDENCY_LIBRARIES Qt5::Svg)
 
 if (APPLE)
-	target_link_libraries(ksnip "-framework CoreGraphics -framework AppKit")
+	list(APPEND DEPENDENCY_LIBRARIES
+			"-framework CoreGraphics -framework AppKit")
 elseif (UNIX)
-	target_link_libraries(ksnip
-            Qt5::X11Extras
+	list(APPEND DEPENDENCY_LIBRARIES
+			Qt5::X11Extras
 			XCB::XFIXES
-            X11
-            )
+			X11)
 elseif(WIN32)
-	target_link_libraries(ksnip
-            Qt5::WinExtras
-            Dwmapi
-			)
+	list(APPEND DEPENDENCY_LIBRARIES
+			Qt5::WinExtras
+			Dwmapi)
 endif ()
+
+target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})
 
 if (UNIX AND NOT APPLE)
 	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

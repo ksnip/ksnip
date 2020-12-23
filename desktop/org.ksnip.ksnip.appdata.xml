@@ -100,6 +100,7 @@
                     <li>Fixed: Missing version number in mac binaries.</li>
                     <li>Fixed kImageAnnotator: Brazilian Portuguese translation not loaded.</li>
                     <li>Fixed kImageAnnotator: error: control reaches end of non-void function.</li>
+                    <li>Fixed kImageAnnotator: Cursor in Text tool have too bad visibility.</li>
                 </ul>
             </description>
         </release>

@@ -85,6 +85,7 @@
             <description>
                 <ul>
                     <li>New: Add option to select the default action for tray icon left click.</li>
+                    <li>New kImageAnnotator: Add function for loading translations.</li>
                 </ul>
             </description>
         </release>

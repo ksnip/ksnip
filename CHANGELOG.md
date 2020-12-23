@@ -2,6 +2,7 @@
 
 ## Release 1.9.0
 * New: Add option to select the default action for tray icon left click. ([#502](https://github.com/ksnip/ksnip/issues/502))
+* New kImageAnnotator: Add function for loading translations. ([#173](https://github.com/ksnip/kImageAnnotator/issues/173))
 
 ## Release 1.8.1
 * Changed: Allow changing adorner color for rect area selection. ([#519](https://github.com/ksnip/ksnip/issues/519))

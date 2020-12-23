@@ -34,6 +34,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mCopyPathAction(new QAction(this)),
 	mRenameAction(new QAction(this)),
 	mOpenDirectoryAction(new QAction(this)),
+	mToggleDocksAction(new QAction(this)),
 	mSettingsAction(new QAction(this)),
 	mAboutAction(new QAction(this)),
 	mOpenImageAction(new QAction(this)),
@@ -56,7 +57,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mServiceLocator, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
 	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this)),
-	mFileDialog(FileDialogAdapterFactory::create())
+	mFileDialog(FileDialogAdapterFactory::create()),
+	mHideDocksRequired(false)
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -130,6 +132,7 @@ MainWindow::~MainWindow()
     delete mCopyPathAction;
     delete mRenameAction;
     delete mOpenDirectoryAction;
+    delete mToggleDocksAction;
     delete mSettingsAction;
     delete mAboutAction;
     delete mOpenImageAction;
@@ -295,7 +298,12 @@ void MainWindow::changeEvent(QEvent *event)
 
 void MainWindow::captureChanged()
 {
-    mToolBar->setSaveActionEnabled(!mCaptureHandler->isSaved());
+	if (mHideDocksRequired) {
+		mHideDocksRequired = false;
+		mToolBar->setVisible(false);
+	}
+
+	mToolBar->setSaveActionEnabled(!mCaptureHandler->isSaved());
 	mCopyPathAction->setEnabled(mCaptureHandler->isPathValid());
 	mRenameAction->setEnabled(mCaptureHandler->isPathValid());
 	mOpenDirectoryAction->setEnabled(mCaptureHandler->isPathValid());
@@ -324,6 +332,7 @@ void MainWindow::setEnablements(bool enabled)
 	mPinAction->setEnabled(enabled);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
 	mRenameAction->setEnabled(enabled);
+	mToggleDocksAction->setEnabled(enabled);
 }
 
 void MainWindow::loadSettings()
@@ -350,6 +359,16 @@ void MainWindow::hideMainWindowIfRequired()
 	if (mConfig->hideMainWindowDuringScreenshot()) {
 		mVisibilityHandler->makeInvisible();
 	}
+}
+
+void MainWindow::toggleDocks()
+{
+	const bool docksVisible = mToolBar->isVisible();
+
+	mToolBar->setVisible(!docksVisible);
+	mImageAnnotator->setSettingsVisible(!docksVisible);
+
+	mToggleDocksAction->setText(docksVisible ? tr("Show Docks") : tr("Hide Docks"));
 }
 
 void MainWindow::initGui()
@@ -408,6 +427,10 @@ void MainWindow::initGui()
 
 	mOpenDirectoryAction->setText(tr("Open Directory"));
 	connect(mOpenDirectoryAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::openDirectory);
+
+	mToggleDocksAction->setText(tr("Hide Docks"));
+	mToggleDocksAction->setShortcut(Qt::Key_Tab);
+	connect(mToggleDocksAction, &QAction::triggered, this, &MainWindow::toggleDocks);
 
     mSettingsAction->setText(tr("Settings"));
     mSettingsAction->setIcon(QIcon::fromTheme(QLatin1Literal("emblem-system")));
@@ -475,6 +498,7 @@ void MainWindow::initGui()
 	menu->addAction(mRemoveImageAction);
 	menu = menuBar()->addMenu(tr("&View"));
 	menu->addAction(mOpenDirectoryAction);
+	menu->addAction(mToggleDocksAction);
     menu = menuBar()->addMenu(tr("&Options"));
     menu->addAction(mPinAction);
     menu->addAction(mSettingsAction);
@@ -648,6 +672,11 @@ void MainWindow::captureEmpty()
 {
 	setEnablements(false);
 	resizeToAnnotator();
+	if (!mToolBar->isVisible()) {
+		// Show temporarily; will hide again when capture changes
+		mToolBar->setVisible(true);
+		mHideDocksRequired = true;
+	}
 }
 
 void MainWindow::showPinWindow()

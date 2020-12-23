@@ -38,6 +38,7 @@ public:
 	virtual void showAnnotator() = 0;
 	virtual void showCropper() = 0;
 	virtual void showScaler() = 0;
+	virtual void setSettingsVisible(bool isVisible) = 0;
 	virtual void hide() = 0;
 	virtual void close() = 0;
 	virtual bool isVisible() const = 0;

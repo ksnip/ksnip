@@ -86,6 +86,7 @@ private:
     QAction *mCopyPathAction;
     QAction *mRenameAction;
     QAction *mOpenDirectoryAction;
+    QAction *mToggleDocksAction;
     QAction *mSettingsAction;
     QAction *mAboutAction;
     QAction *mOpenImageAction;
@@ -111,6 +112,7 @@ private:
 	PinWindowHandler *mPinWindowHandler;
 	WidgetVisibilityHandler *mVisibilityHandler;
 	IFileDialogAdapter *mFileDialog;
+	bool mHideDocksRequired;
 
     void setEnablements(bool enabled);
     void loadSettings();
@@ -148,6 +150,7 @@ private slots:
 	void captureCanceled();
 	void showPinWindow();
 	void hideMainWindowIfRequired();
+	void toggleDocks();
 };
 
 #endif // KSNIP_MAINWINDOW_H

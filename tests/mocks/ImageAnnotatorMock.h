@@ -42,6 +42,7 @@ public:
 	QSize sizeHint() const override;
 	void showAnnotator() override;
 	void showCropper() override;
+	void setSettingsVisible(bool isVisible);
 	void showScaler() override;
 	void hide() override;
 	void close() override;

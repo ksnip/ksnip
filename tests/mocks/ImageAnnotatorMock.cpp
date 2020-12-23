@@ -191,3 +191,8 @@ int ImageAnnotatorMock::hide_callCounter() const
 {
 	return mHideCallCounter;
 }
+
+void ImageAnnotatorMock::setSettingsVisible(bool isVisible)
+{
+
+}

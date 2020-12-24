@@ -488,6 +488,7 @@ void MainWindow::initGui()
 	    mTrayIcon->setCaptureActions(mToolBar->captureActions());
 	    mTrayIcon->setOpenAction(mOpenImageAction);
 	    mTrayIcon->setSaveAction(mToolBar->saveAction());
+	    mTrayIcon->setPasteAction(mPasteAction);
 	    mTrayIcon->setCopyAction(mToolBar->copyToClipboardAction());
 	    mTrayIcon->setUploadAction(mUploadAction);
 	    mTrayIcon->setQuitAction(mQuitAction);

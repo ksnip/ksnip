@@ -86,6 +86,7 @@
                 <ul>
                     <li>New: Add option to select the default action for tray icon left click.</li>
                     <li>New kImageAnnotator: Add function for loading translations.</li>
+                    <li>New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions.</li>
                 </ul>
             </description>
         </release>

@@ -24,6 +24,7 @@ TrayIcon::TrayIcon(QObject *parent) :
 	mConfig(KsnipConfigProvider::instance()),
 	mOpenAction(nullptr),
 	mSaveAction(nullptr),
+	mPasteAction(nullptr),
 	mCopyAction(nullptr),
 	mUploadAction(nullptr),
 	mShowEditorAction(nullptr),
@@ -49,6 +50,7 @@ void TrayIcon::setupMenu()
 	mMenu.addSeparator();
 	mMenu.addAction(mOpenAction);
 	mMenu.addAction(mSaveAction);
+	mMenu.addAction(mPasteAction);
 	mMenu.addAction(mCopyAction);
 	mMenu.addAction(mUploadAction);
 	mMenu.addSeparator();
@@ -74,6 +76,11 @@ void TrayIcon::setOpenAction(QAction *action)
 void TrayIcon::setSaveAction(QAction *action)
 {
 	mSaveAction = action;
+}
+
+void TrayIcon::setPasteAction(QAction *action)
+{
+	mPasteAction = action;
 }
 
 void TrayIcon::setCopyAction(QAction *action)

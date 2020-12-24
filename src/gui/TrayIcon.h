@@ -39,6 +39,7 @@ public:
 	void setCaptureActions(const QList<QAction*> &captureActions);
 	void setOpenAction(QAction *action);
 	void setSaveAction(QAction *action);
+	void setPasteAction(QAction *action);
 	void setCopyAction(QAction *action);
 	void setUploadAction(QAction *action);
 	void setQuitAction(QAction *action);
@@ -56,6 +57,7 @@ private:
 	QList<QAction*> mCaptureActions;
 	QAction *mOpenAction;
 	QAction *mSaveAction;
+	QAction *mPasteAction;
 	QAction *mCopyAction;
 	QAction *mUploadAction;
 	QAction *mShowEditorAction;

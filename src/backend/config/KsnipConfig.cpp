@@ -74,6 +74,19 @@ void KsnipConfig::setAutoSaveNewCaptures(bool  enabled)
 	saveValue(KsnipConfigOptions::autoSaveNewCapturesString(), enabled);
 }
 
+bool KsnipConfig::autoHideDocks() const
+{
+	return loadValue(KsnipConfigOptions::autoHideDocksString(), false).toBool();
+}
+
+void KsnipConfig::setAutoHideDocks(bool enabled)
+{
+	if (autoHideDocks() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::autoHideDocksString(), enabled);
+}
+
 bool KsnipConfig::useTabs() const
 {
 	return loadValue(KsnipConfigOptions::useTabsString(), true).toBool();

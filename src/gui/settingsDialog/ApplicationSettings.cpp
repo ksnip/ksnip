@@ -27,6 +27,7 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	mUseTabsCheckbox(new QCheckBox(this)),
 	mAutoHideTabsCheckbox(new QCheckBox(this)),
 	mUseSingleInstanceCheckBox(new QCheckBox(this)),
+	mAutoHideDocksCheckBox(new QCheckBox(this)),
 	mApplicationStyleLabel(new QLabel(this)),
 	mApplicationStyleCombobox(new QComboBox(this)),
 	mLayout(new QGridLayout)
@@ -46,6 +47,7 @@ ApplicationSettings::~ApplicationSettings()
 	delete mUseTabsCheckbox;
 	delete mAutoHideTabsCheckbox;
 	delete mUseSingleInstanceCheckBox;
+	delete mAutoHideDocksCheckBox;
 	delete mApplicationStyleLabel;
 	delete mApplicationStyleCombobox;
 	delete mLayout;
@@ -60,7 +62,7 @@ void ApplicationSettings::initGui()
 	mUseTabsCheckbox->setText(tr("Use Tabs"));
 	mUseTabsCheckbox->setToolTip(tr("Change requires restart."));
 
-	mAutoHideTabsCheckbox->setText(tr("Auto Hide Tabs"));
+	mAutoHideTabsCheckbox->setText(tr("Auto hide Tabs"));
 	mAutoHideTabsCheckbox->setToolTip(tr("Hide Tabbar when only one Tab is used."));
 
 	mUseSingleInstanceCheckBox->setText(tr("Run ksnip as single instance"));
@@ -69,11 +71,16 @@ void ApplicationSettings::initGui()
 				                                 "arguments to the first and close. Changing this option requires\n"
 									             "a new start of all instances."));
 
+	mAutoHideDocksCheckBox->setText(tr("Auto hide Docks"));
+	mAutoHideDocksCheckBox->setToolTip(tr("On startup hide Toolbar and Annotation Settings.\n"
+									   		"Docks visibility can be toggled with the Tab Key"));
+
 	connect(mUseTabsCheckbox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTabsChanged);
 
 	mApplicationStyleLabel->setText(tr("Application Style") + QLatin1Literal(":"));
 	mApplicationStyleLabel->setToolTip(tr("Sets the application style which defines the look and feel of the GUI.\n"
 	                                      "Change requires ksnip restart to take effect."));
+
 	mApplicationStyleCombobox->addItems(QStyleFactory::keys());
 	mApplicationStyleCombobox->setToolTip(mApplicationStyleLabel->toolTip());
 	mApplicationStyleCombobox->setFixedWidth(100);
@@ -86,9 +93,10 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mUseTabsCheckbox, 3, 0, 1, 4);
 	mLayout->addWidget(mAutoHideTabsCheckbox, 4, 1, 1, 3);
 	mLayout->addWidget(mUseSingleInstanceCheckBox, 5, 0, 1, 4);
-	mLayout->setRowMinimumHeight(6, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 7, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 7, 2, Qt::AlignLeft);
+	mLayout->addWidget(mAutoHideDocksCheckBox, 6, 0, 1, 4);
+	mLayout->setRowMinimumHeight(7, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 8, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 8, 2, Qt::AlignLeft);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -102,6 +110,7 @@ void ApplicationSettings::loadConfig()
 	mUseTabsCheckbox->setChecked(mConfig->useTabs());
 	mAutoHideTabsCheckbox->setChecked(mConfig->autoHideTabs());
 	mUseSingleInstanceCheckBox->setChecked(mConfig->useSingleInstance());
+	mAutoHideDocksCheckBox->setChecked(mConfig->autoHideDocks());
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
 
 	useTabsChanged();
@@ -115,6 +124,7 @@ void ApplicationSettings::saveSettings()
 	mConfig->setUseSingleInstance(mUseSingleInstanceCheckBox->isChecked());
 	mConfig->setUseTabs(mUseTabsCheckbox->isChecked());
 	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
+	mConfig->setAutoHideDocks(mAutoHideDocksCheckBox->isChecked());
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 }
 

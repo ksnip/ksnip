@@ -36,6 +36,7 @@ public:
 	static QString captureOnStartupString();
 	static QString freezeImageWhileSnippingEnabledString();
 	static QString positionString();
+	static QString autoHideDocksString();
 	static QString captureModeString();
 	static QString saveQualityModeString();
 	static QString saveQualityFactorString();

@@ -58,6 +58,9 @@ public:
 	virtual bool autoSaveNewCaptures() const;
 	virtual void setAutoSaveNewCaptures(bool enabled);
 
+	virtual bool autoHideDocks() const;
+	virtual void setAutoHideDocks(bool enabled);
+
 	virtual bool useTabs() const;
 	virtual void setUseTabs(bool enabled);
 

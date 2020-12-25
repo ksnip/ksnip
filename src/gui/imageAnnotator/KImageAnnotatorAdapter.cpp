@@ -74,9 +74,9 @@ void KImageAnnotatorAdapter::showScaler()
 	mKImageAnnotator->showScaler();
 }
 
-void KImageAnnotatorAdapter::setSettingsVisible(bool isVisible)
+void KImageAnnotatorAdapter::setSettingsCollapsed(bool isCollapsed)
 {
-	mKImageAnnotator->setSettingsVisible(isVisible);
+	mKImageAnnotator->setSettingsCollapsed(isCollapsed);
 }
 
 void KImageAnnotatorAdapter::hide()

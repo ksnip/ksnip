@@ -3,8 +3,10 @@
 ## Release 1.9.0
 * New: Add option to select the default action for tray icon left click. ([#502](https://github.com/ksnip/ksnip/issues/502))
 * New: Open/Paste from clipboard via tray icon. ([#520](https://github.com/ksnip/ksnip/issues/520))
+* New: Show/hide toolbar and annotation settings with TAB. ([#476](https://github.com/ksnip/ksnip/issues/476))
 * New kImageAnnotator: Add function for loading translations. ([#173](https://github.com/ksnip/kImageAnnotator/issues/173))
 * New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions. ([#131](https://github.com/ksnip/kImageAnnotator/issues/131))
+* New kImageAnnotator: Add support for hiding annotation settings panel. ([#182](https://github.com/ksnip/kImageAnnotator/issues/182))
 
 ## Release 1.8.1
 * Changed: Allow changing adorner color for rect area selection. ([#519](https://github.com/ksnip/ksnip/issues/519))

@@ -46,6 +46,8 @@ public:
     QAction* undoAction() const;
     QAction* redoAction() const;
     QList<QAction*> captureActions() const;
+    void setCollapsed(bool isCollapsed);
+    bool isCollapsed() const;
 
 signals:
     void captureModeSelected(CaptureModes mode) const;
@@ -72,8 +74,6 @@ private:
     QAction *mCropAction;
     QAction *mUndoAction;
     QAction *mRedoAction;
-
 };
-
 
 #endif //KSNIP_MAINTOOLBAR_H

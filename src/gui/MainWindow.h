@@ -60,7 +60,7 @@ public:
 	void showHidden();
     void showDefault();
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
-	void resizeToAnnotator();
+	void resizeToContent();
 
 public slots:
     void processCapture(const CaptureDto &capture);
@@ -112,7 +112,6 @@ private:
 	PinWindowHandler *mPinWindowHandler;
 	WidgetVisibilityHandler *mVisibilityHandler;
 	IFileDialogAdapter *mFileDialog;
-	bool mHideDocksRequired;
 
     void setEnablements(bool enabled);
     void loadSettings();

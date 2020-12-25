@@ -57,8 +57,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mServiceLocator, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
 	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this)),
-	mFileDialog(FileDialogAdapterFactory::create()),
-	mHideDocksRequired(false)
+	mFileDialog(FileDialogAdapterFactory::create())
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -202,11 +201,16 @@ void MainWindow::loadImage(const CaptureDto &capture)
 	mCaptureHandler->load(capture);
 }
 
-void MainWindow::resizeToAnnotator()
+void MainWindow::resizeToContent()
 {
-	mMainLayout->setSizeConstraint(QLayout::SetFixedSize); // Workaround that allows us to return to toolbar only size
-	QMainWindow::adjustSize();
+	if(!mToolBar->isCollapsed() || mImageAnnotator->isVisible()) {
+		mMainLayout->setSizeConstraint(QLayout::SetFixedSize); // Workaround that allows us to return to toolbar only size
+		QMainWindow::adjustSize();
+	} else {
+		setFixedSize(menuBar()->sizeHint());
+	}
 	mMainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+
 }
 
 void MainWindow::capturePostProcessing()
@@ -240,7 +244,7 @@ void MainWindow::showDefault()
 	enforceShow ? mVisibilityHandler->enforceVisible() : mVisibilityHandler->restoreVisibility();
 
 	if(!mVisibilityHandler->isMaximized()) {
-		resizeToAnnotator();
+		resizeToContent();
 	}
 
 	setEnablements(true);
@@ -298,11 +302,6 @@ void MainWindow::changeEvent(QEvent *event)
 
 void MainWindow::captureChanged()
 {
-	if (mHideDocksRequired) {
-		mHideDocksRequired = false;
-		mToolBar->setVisible(false);
-	}
-
 	mToolBar->setSaveActionEnabled(!mCaptureHandler->isSaved());
 	mCopyPathAction->setEnabled(mCaptureHandler->isPathValid());
 	mRenameAction->setEnabled(mCaptureHandler->isPathValid());
@@ -332,7 +331,6 @@ void MainWindow::setEnablements(bool enabled)
 	mPinAction->setEnabled(enabled);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
 	mRenameAction->setEnabled(enabled);
-	mToggleDocksAction->setEnabled(enabled);
 }
 
 void MainWindow::loadSettings()
@@ -363,12 +361,15 @@ void MainWindow::hideMainWindowIfRequired()
 
 void MainWindow::toggleDocks()
 {
-	const bool docksVisible = mToolBar->isVisible();
+	auto newIsCollapsedState = !mToolBar->isCollapsed();
 
-	mToolBar->setVisible(!docksVisible);
-	mImageAnnotator->setSettingsVisible(!docksVisible);
+	mToolBar->setCollapsed(newIsCollapsedState);
+	mImageAnnotator->setSettingsCollapsed(newIsCollapsedState);
 
-	mToggleDocksAction->setText(docksVisible ? tr("Show Docks") : tr("Hide Docks"));
+	auto collapsedToggleText = newIsCollapsedState ? tr("Show Docks") : tr("Hide Docks");
+	mToggleDocksAction->setText(collapsedToggleText);
+
+	resizeToContent();
 }
 
 void MainWindow::initGui()
@@ -672,12 +673,7 @@ void MainWindow::uploadFinished(const UploadResult &result)
 void MainWindow::captureEmpty()
 {
 	setEnablements(false);
-	resizeToAnnotator();
-	if (!mToolBar->isVisible()) {
-		// Show temporarily; will hide again when capture changes
-		mToolBar->setVisible(true);
-		mHideDocksRequired = true;
-	}
+	resizeToContent();
 }
 
 void MainWindow::showPinWindow()

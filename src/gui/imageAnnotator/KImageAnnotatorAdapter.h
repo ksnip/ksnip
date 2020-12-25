@@ -40,7 +40,7 @@ public:
 	void showAnnotator() override;
 	void showCropper() override;
 	void showScaler() override;
-	void setSettingsVisible(bool isVisible) override;
+	void setSettingsCollapsed(bool isCollapsed) override;
 	void hide() override;
 	void close() override;
 	bool isVisible() const override;

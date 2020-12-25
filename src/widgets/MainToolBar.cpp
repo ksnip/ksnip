@@ -201,3 +201,13 @@ QList<QAction *> MainToolBar::captureActions() const
 {
 	return mCaptureModePicker->captureActions();
 }
+
+void MainToolBar::setCollapsed(bool isCollapsed)
+{
+	isCollapsed ? setFixedSize(0, 0) : setFixedSize(sizeHint());
+}
+
+bool MainToolBar::isCollapsed() const
+{
+	return size() != sizeHint();
+}

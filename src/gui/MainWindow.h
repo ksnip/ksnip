@@ -60,7 +60,7 @@ public:
 	void showHidden();
     void showDefault();
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
-	void resizeToAnnotator();
+	void resizeToContent();
 
 public slots:
     void processCapture(const CaptureDto &capture);
@@ -86,6 +86,7 @@ private:
     QAction *mCopyPathAction;
     QAction *mRenameAction;
     QAction *mOpenDirectoryAction;
+    QAction *mToggleDocksAction;
     QAction *mSettingsAction;
     QAction *mAboutAction;
     QAction *mOpenImageAction;
@@ -148,6 +149,7 @@ private slots:
 	void captureCanceled();
 	void showPinWindow();
 	void hideMainWindowIfRequired();
+	void toggleDocks();
 };
 
 #endif // KSNIP_MAINWINDOW_H

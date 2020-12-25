@@ -34,6 +34,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mCopyPathAction(new QAction(this)),
 	mRenameAction(new QAction(this)),
 	mOpenDirectoryAction(new QAction(this)),
+	mToggleDocksAction(new QAction(this)),
 	mSettingsAction(new QAction(this)),
 	mAboutAction(new QAction(this)),
 	mOpenImageAction(new QAction(this)),
@@ -130,6 +131,7 @@ MainWindow::~MainWindow()
     delete mCopyPathAction;
     delete mRenameAction;
     delete mOpenDirectoryAction;
+    delete mToggleDocksAction;
     delete mSettingsAction;
     delete mAboutAction;
     delete mOpenImageAction;
@@ -199,11 +201,16 @@ void MainWindow::loadImage(const CaptureDto &capture)
 	mCaptureHandler->load(capture);
 }
 
-void MainWindow::resizeToAnnotator()
+void MainWindow::resizeToContent()
 {
-	mMainLayout->setSizeConstraint(QLayout::SetFixedSize); // Workaround that allows us to return to toolbar only size
-	QMainWindow::adjustSize();
+	if(!mToolBar->isCollapsed() || mImageAnnotator->isVisible()) {
+		mMainLayout->setSizeConstraint(QLayout::SetFixedSize); // Workaround that allows us to return to toolbar only size
+		QMainWindow::adjustSize();
+	} else {
+		setFixedSize(menuBar()->sizeHint());
+	}
 	mMainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+
 }
 
 void MainWindow::capturePostProcessing()
@@ -237,7 +244,7 @@ void MainWindow::showDefault()
 	enforceShow ? mVisibilityHandler->enforceVisible() : mVisibilityHandler->restoreVisibility();
 
 	if(!mVisibilityHandler->isMaximized()) {
-		resizeToAnnotator();
+		resizeToContent();
 	}
 
 	setEnablements(true);
@@ -295,7 +302,7 @@ void MainWindow::changeEvent(QEvent *event)
 
 void MainWindow::captureChanged()
 {
-    mToolBar->setSaveActionEnabled(!mCaptureHandler->isSaved());
+	mToolBar->setSaveActionEnabled(!mCaptureHandler->isSaved());
 	mCopyPathAction->setEnabled(mCaptureHandler->isPathValid());
 	mRenameAction->setEnabled(mCaptureHandler->isPathValid());
 	mOpenDirectoryAction->setEnabled(mCaptureHandler->isPathValid());
@@ -350,6 +357,19 @@ void MainWindow::hideMainWindowIfRequired()
 	if (mConfig->hideMainWindowDuringScreenshot()) {
 		mVisibilityHandler->makeInvisible();
 	}
+}
+
+void MainWindow::toggleDocks()
+{
+	auto newIsCollapsedState = !mToolBar->isCollapsed();
+
+	mToolBar->setCollapsed(newIsCollapsedState);
+	mImageAnnotator->setSettingsCollapsed(newIsCollapsedState);
+
+	auto collapsedToggleText = newIsCollapsedState ? tr("Show Docks") : tr("Hide Docks");
+	mToggleDocksAction->setText(collapsedToggleText);
+
+	resizeToContent();
 }
 
 void MainWindow::initGui()
@@ -408,6 +428,10 @@ void MainWindow::initGui()
 
 	mOpenDirectoryAction->setText(tr("Open Directory"));
 	connect(mOpenDirectoryAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::openDirectory);
+
+	mToggleDocksAction->setText(tr("Hide Docks"));
+	mToggleDocksAction->setShortcut(Qt::Key_Tab);
+	connect(mToggleDocksAction, &QAction::triggered, this, &MainWindow::toggleDocks);
 
     mSettingsAction->setText(tr("Settings"));
     mSettingsAction->setIcon(QIcon::fromTheme(QLatin1Literal("emblem-system")));
@@ -475,6 +499,7 @@ void MainWindow::initGui()
 	menu->addAction(mRemoveImageAction);
 	menu = menuBar()->addMenu(tr("&View"));
 	menu->addAction(mOpenDirectoryAction);
+	menu->addAction(mToggleDocksAction);
     menu = menuBar()->addMenu(tr("&Options"));
     menu->addAction(mPinAction);
     menu->addAction(mSettingsAction);
@@ -648,7 +673,7 @@ void MainWindow::uploadFinished(const UploadResult &result)
 void MainWindow::captureEmpty()
 {
 	setEnablements(false);
-	resizeToAnnotator();
+	resizeToContent();
 }
 
 void MainWindow::showPinWindow()

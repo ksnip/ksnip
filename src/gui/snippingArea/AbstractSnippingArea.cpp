@@ -68,8 +68,9 @@ void AbstractSnippingArea::showSnippingArea()
 	startTimeout();
 	mIsSwitchPressed = false;
     setFullScreen();
-    QApplication::setActiveWindow(this);
+	QApplication::setActiveWindow(this);
 	mSelector->activate(getSnippingAreaGeometry(), QCursor::pos());
+	mUnselectedRegionAlpha = mConfig->snippingAreaTransparency();
 	if(mConfig->showSnippingAreaInfoText()) {
 		mInfoText->activate(getSnippingAreaGeometry(), mConfig->allowResizingRectSelection());
 	}
@@ -166,7 +167,7 @@ void AbstractSnippingArea::paintEvent(QPaintEvent *event)
 
 	painter.setClipRegion(mClippingRegion);
 
-    painter.setBrush(QColor(0, 0, 0, 150));
+    painter.setBrush(QColor(0, 0, 0, mUnselectedRegionAlpha));
 	painter.drawRect(snippingAreaGeometry);
 
 	mResizer->paint(&painter);

@@ -254,6 +254,11 @@ QString KsnipConfigOptions::snippingAdornerColorString()
 	return imageGrabberSectionString() + QLatin1String("SnippingAdornerColor");
 }
 
+QString KsnipConfigOptions::snippingAreaTransparencyString()
+{
+	return imageGrabberSectionString() + QLatin1String("SnippingAreaTransparency");
+}
+
 QString KsnipConfigOptions::lastRectAreaString()
 {
 	return imageGrabberSectionString() + QLatin1String("LastRectArea");

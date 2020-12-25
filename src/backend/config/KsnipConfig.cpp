@@ -756,6 +756,19 @@ void KsnipConfig::setSnippingAdornerColor(const QColor& color)
 	saveValue(KsnipConfigOptions::snippingAdornerColorString(), color);
 }
 
+int KsnipConfig::snippingAreaTransparency() const
+{
+	return loadValue(KsnipConfigOptions::snippingAreaTransparencyString(), 150).value<int>();
+}
+
+void KsnipConfig::setSnippingAreaTransparency(int transparency)
+{
+	if (snippingAreaTransparency() == transparency) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::snippingAreaTransparencyString(), transparency);
+}
+
 QRect KsnipConfig::lastRectArea() const
 {
 	return loadValue(KsnipConfigOptions::lastRectAreaString(), QRect()).value<QRect>();

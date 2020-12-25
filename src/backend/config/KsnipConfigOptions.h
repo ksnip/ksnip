@@ -72,6 +72,7 @@ public:
 	static QString snippingCursorSizeString();
 	static QString snippingCursorColorString();
 	static QString snippingAdornerColorString();
+	static QString snippingAreaTransparencyString();
 	static QString lastRectAreaString();
 	static QString forceGenericWaylandEnabledString();
 	static QString scaleWaylandScreenshotsEnabledString();
@@ -98,8 +99,8 @@ public:
 	static QString activeWindowHotKeyString();
 	static QString windowUnderCursorHotKeyString();
 	static QString portalHotKeyString();
-
 	static QString uploaderTypeString();
+
 private:
 	static QString applicationSectionString();
 	static QString imageGrabberSectionString();

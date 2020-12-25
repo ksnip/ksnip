@@ -57,7 +57,11 @@ void SnippingAreaSelector::paint(QPainter *painter)
 {
 	if(mIsActive) {
 		mAdorner.paint(painter, mAdornerColor, mCursorColor);
-		painter->setPen(QPen(mAdornerColor, 1, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
+
+		painter->setClipping(false);
+		painter->setRenderHint(QPainter::Antialiasing, false);
+
+		painter->setPen(mAdornerColor);
 		painter->drawRect(mCurrentRect);
 	}
 }

@@ -73,7 +73,7 @@ void ApplicationSettings::initGui()
 
 	mAutoHideDocksCheckBox->setText(tr("Auto hide Docks"));
 	mAutoHideDocksCheckBox->setToolTip(tr("On startup hide Toolbar and Annotation Settings.\n"
-									   		"Docks visibility can be toggled with the Tab Key"));
+									   		"Docks visibility can be toggled with the Tab Key."));
 
 	connect(mUseTabsCheckbox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTabsChanged);
 

@@ -5,6 +5,7 @@
 * New: Open/Paste from clipboard via tray icon. ([#520](https://github.com/ksnip/ksnip/issues/520))
 * New: Show/hide toolbar and annotation settings with TAB. ([#476](https://github.com/ksnip/ksnip/issues/476))
 * New: Add setting for auto hiding toolbar and annotator settings. ([#527](https://github.com/ksnip/ksnip/issues/527))
+* New: Allow setting transparency of not selected snipping area region. ([#517](https://github.com/ksnip/ksnip/issues/517))
 * New kImageAnnotator: Add function for loading translations. ([#173](https://github.com/ksnip/kImageAnnotator/issues/173))
 * New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions. ([#131](https://github.com/ksnip/kImageAnnotator/issues/131))
 * New kImageAnnotator: Add support for hiding annotation settings panel. ([#182](https://github.com/ksnip/kImageAnnotator/issues/182))

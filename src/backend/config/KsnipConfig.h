@@ -193,6 +193,9 @@ public:
 	virtual QColor snippingAdornerColor() const;
 	virtual void setSnippingAdornerColor(const QColor &color);
 
+	virtual int snippingAreaTransparency() const;
+	virtual void setSnippingAreaTransparency(int transparency);
+
 	virtual QRect lastRectArea() const;
 	virtual void setLastRectArea(const QRect &rectArea);
 

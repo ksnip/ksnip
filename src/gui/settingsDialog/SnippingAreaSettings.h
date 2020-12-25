@@ -24,6 +24,7 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QGridLayout>
+#include <QSpinBox>
 
 #include "src/backend/config/KsnipConfig.h"
 #include "src/widgets/ColorButton.h"
@@ -47,9 +48,11 @@ private:
 	QLabel *mSnippingCursorSizeLabel;
 	QLabel *mSnippingCursorColorLabel;
 	QLabel *mSnippingAdornerColorLabel;
+	QLabel *mSnippingAreaTransparencyLabel;
 	ColorButton *mSnippingCursorColorButton;
 	ColorButton *mSnippingAdornerColorButton;
 	NumericComboBox *mSnippingCursorSizeCombobox;
+	QSpinBox *mSnippingAreaTransparencySpinBox;
 	QGridLayout *mLayout;
 	KsnipConfig *mConfig;
 	void initGui();

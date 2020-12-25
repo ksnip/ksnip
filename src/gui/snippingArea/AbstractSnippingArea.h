@@ -71,6 +71,7 @@ private:
 	SnippingAreaInfoText *mInfoText;
 	bool mIsSwitchPressed;
 	QTimer *mTimer;
+	int mUnselectedRegionAlpha;
 
     void setBackgroundImage(const QPixmap &background);
     void clearBackgroundImage();

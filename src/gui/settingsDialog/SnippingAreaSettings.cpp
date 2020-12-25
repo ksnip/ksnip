@@ -30,9 +30,11 @@ SnippingAreaSettings::SnippingAreaSettings(KsnipConfig *config) :
 	mSnippingCursorSizeLabel(new QLabel(this)),
 	mSnippingCursorColorLabel(new QLabel(this)),
 	mSnippingAdornerColorLabel(new QLabel(this)),
+	mSnippingAreaTransparencyLabel(new QLabel(this)),
 	mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
 	mSnippingCursorColorButton(new ColorButton(this)),
 	mSnippingAdornerColorButton(new ColorButton(this)),
+	mSnippingAreaTransparencySpinBox(new QSpinBox(this)),
 	mLayout(new QGridLayout(this))
 {
 	Q_ASSERT(mConfig != nullptr);
@@ -52,9 +54,11 @@ SnippingAreaSettings::~SnippingAreaSettings()
 	delete mSnippingCursorSizeLabel;
 	delete mSnippingCursorColorLabel;
 	delete mSnippingAdornerColorLabel;
+	delete mSnippingAreaTransparencyLabel;
 	delete mSnippingCursorColorButton;
 	delete mSnippingAdornerColorButton;
 	delete mSnippingCursorSizeCombobox;
+	delete mSnippingAreaTransparencySpinBox;
 }
 
 void SnippingAreaSettings::saveSettings()
@@ -68,11 +72,12 @@ void SnippingAreaSettings::saveSettings()
 	mConfig->setSnippingCursorColor(mSnippingCursorColorButton->color());
 	mConfig->setSnippingAdornerColor(mSnippingAdornerColorButton->color());
 	mConfig->setSnippingCursorSize(mSnippingCursorSizeCombobox->value());
+	mConfig->setSnippingAreaTransparency(mSnippingAreaTransparencySpinBox->value());
 }
 
 void SnippingAreaSettings::initGui()
 {
-	auto const fixedButtonSize = 70;
+	auto const fixedButtonWidth = 70;
 
 	mFreezeImageWhileSnippingCheckbox->setText(tr("Freeze Image while snipping"));
 	mFreezeImageWhileSnippingCheckbox->setToolTip(tr("When enabled will freeze the background while\n"
@@ -110,19 +115,27 @@ void SnippingAreaSettings::initGui()
 
 	mSnippingCursorColorLabel->setText(tr("Snipping Area cursor color") + QLatin1Literal(":"));
 	mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area cursor."));
-	mSnippingCursorColorButton->setMinimumWidth(fixedButtonSize);
+	mSnippingCursorColorButton->setMinimumWidth(fixedButtonWidth);
 	mSnippingCursorColorButton->setToolTip(mSnippingCursorColorLabel->toolTip());
 
 	mSnippingAdornerColorLabel->setText(tr("Snipping Area adorner color") + QLatin1Literal(":"));
 	mSnippingAdornerColorLabel->setToolTip(tr("Sets the color of all adorner elements\n"
 										        "on the snipping area."));
-	mSnippingAdornerColorButton->setMinimumWidth(fixedButtonSize);
+	mSnippingAdornerColorButton->setMinimumWidth(fixedButtonWidth);
 	mSnippingAdornerColorButton->setToolTip(mSnippingAdornerColorLabel->toolTip());
 
 	mSnippingCursorSizeLabel->setText(tr("Snipping Area cursor thickness") + QLatin1Literal(":"));
 	mSnippingCursorSizeLabel->setToolTip(tr("Sets the thickness of the snipping area cursor."));
-	mSnippingCursorSizeCombobox->setMinimumWidth(fixedButtonSize);
+	mSnippingCursorSizeCombobox->setMinimumWidth(fixedButtonWidth);
 	mSnippingCursorSizeCombobox->setToolTip(mSnippingCursorSizeLabel->toolTip());
+
+	mSnippingAreaTransparencyLabel->setText(tr("Snipping Area Transparency"));
+	mSnippingAreaTransparencyLabel->setToolTip(tr("Alpha for not selected region on snipping area.\n"
+											   "Smaller number is more transparent."));
+	mSnippingAreaTransparencySpinBox->setMinimum(0);
+	mSnippingAreaTransparencySpinBox->setMaximum(200);
+	mSnippingAreaTransparencySpinBox->setToolTip(mSnippingAreaTransparencyLabel->toolTip());
+	mSnippingAreaTransparencySpinBox->setMinimumWidth(fixedButtonWidth);
 
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnMinimumWidth(0, 10);
@@ -139,6 +152,8 @@ void SnippingAreaSettings::initGui()
 	mLayout->addWidget(mSnippingCursorColorButton, 8, 2, Qt::AlignLeft);
 	mLayout->addWidget(mSnippingCursorSizeLabel, 9, 0, 1, 2);
 	mLayout->addWidget(mSnippingCursorSizeCombobox, 9, 2, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingAreaTransparencyLabel, 10, 0, 1, 2);
+	mLayout->addWidget(mSnippingAreaTransparencySpinBox, 10, 2, Qt::AlignLeft);
 
 	setTitle(tr("Snipping Area"));
 	setLayout(mLayout);
@@ -162,6 +177,7 @@ void SnippingAreaSettings::loadConfig()
 	mSnippingCursorColorButton->setColor(mConfig->snippingCursorColor());
 	mSnippingAdornerColorButton->setColor(mConfig->snippingAdornerColor());
 	mSnippingCursorSizeCombobox->setValue(mConfig->snippingCursorSize());
+	mSnippingAreaTransparencySpinBox->setValue(mConfig->snippingAreaTransparency());
 
 	freezeImageWhileSnippingStateChanged();
 }

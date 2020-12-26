@@ -25,7 +25,7 @@ AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 	mRotateWatermarkCheckbox(new QCheckBox(this)),
 	mRememberToolSelectionCheckbox(new QCheckBox(this)),
 	mSwitchToSelectToolAfterDrawingItemCheckbox(new QCheckBox(this)),
-	mStartingNumberUpdatesExistingItemsCheckbox(new QCheckBox(this)),
+	mNumberToolSeedChangeUpdatesAllItemsCheckbox(new QCheckBox(this)),
 	mTextFontLabel(new QLabel(this)),
 	mNumberFontLabel(new QLabel(this)),
 	mSmoothFactorLabel(new QLabel(this)),
@@ -54,7 +54,7 @@ AnnotationSettings::~AnnotationSettings()
     delete mRotateWatermarkCheckbox;
     delete mRememberToolSelectionCheckbox;
     delete mSwitchToSelectToolAfterDrawingItemCheckbox;
-    delete mStartingNumberUpdatesExistingItemsCheckbox;
+    delete mNumberToolSeedChangeUpdatesAllItemsCheckbox;
     delete mTextFontLabel;
     delete mNumberFontLabel;
     delete mSmoothFactorLabel;
@@ -82,7 +82,7 @@ void AnnotationSettings::saveSettings()
     mConfig->setRotateWatermarkEnabled(mRotateWatermarkCheckbox->isChecked());
     mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
     mConfig->setSwitchToSelectToolAfterDrawingItem(mSwitchToSelectToolAfterDrawingItemCheckbox->isChecked());
-    mConfig->setNumberUpdateMode((mStartingNumberUpdatesExistingItemsCheckbox->isChecked() ? kImageAnnotator::NumberUpdateMode::UseNextNumber : kImageAnnotator::NumberUpdateMode::UseStartingNumber));
+	mConfig->setNumberToolSeedChangeUpdatesAllItems(mNumberToolSeedChangeUpdatesAllItemsCheckbox->isChecked());
 }
 
 void AnnotationSettings::initGui()
@@ -93,7 +93,10 @@ void AnnotationSettings::initGui()
 
     mSwitchToSelectToolAfterDrawingItemCheckbox->setText(tr("Switch to Select Tool after drawing Item"));
 
-    mStartingNumberUpdatesExistingItemsCheckbox->setText(tr("Starting number updates existing items"));
+    mNumberToolSeedChangeUpdatesAllItemsCheckbox->setText(tr("Number Tool Seed change updates all Number Items"));
+    mNumberToolSeedChangeUpdatesAllItemsCheckbox->setToolTip(tr("Disabling this option causes changes of the number tool\n"
+																"seed to affect only new items but not existing items.\n"
+																"Disabling this option allows having duplicate numbers."));
 
     mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
     mItemShadowCheckbox->setToolTip(tr("When enabled, paint items cast shadows."));
@@ -149,7 +152,7 @@ void AnnotationSettings::initGui()
     mLayout->addWidget(mRememberToolSelectionCheckbox, 0, 0, 1, 6);
     mLayout->addWidget(mItemShadowCheckbox, 1, 0, 1, 6);
     mLayout->addWidget(mSwitchToSelectToolAfterDrawingItemCheckbox, 2, 0, 1, 6);
-    mLayout->addWidget(mStartingNumberUpdatesExistingItemsCheckbox, 3, 0, 1, 6);
+    mLayout->addWidget(mNumberToolSeedChangeUpdatesAllItemsCheckbox, 3, 0, 1, 6);
     mLayout->addWidget(mSmoothPathCheckbox, 4, 0, 1, 6);
     mLayout->addWidget(mSmoothFactorLabel, 5, 1, 1, 3);
     mLayout->addWidget(mSmoothFactorCombobox, 5, 3, 1,3, Qt::AlignLeft);
@@ -183,7 +186,7 @@ void AnnotationSettings::loadConfig()
     mRotateWatermarkCheckbox->setChecked(mConfig->rotateWatermarkEnabled());
     mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
     mSwitchToSelectToolAfterDrawingItemCheckbox->setChecked(mConfig->switchToSelectToolAfterDrawingItem());
-    mStartingNumberUpdatesExistingItemsCheckbox->setChecked(mConfig->numberUpdateMode() == kImageAnnotator::NumberUpdateMode::UseNextNumber);
+    mNumberToolSeedChangeUpdatesAllItemsCheckbox->setChecked(mConfig->numberToolSeedChangeUpdatesAllItems());
     smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
 }
 

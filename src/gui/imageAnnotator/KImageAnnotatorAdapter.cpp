@@ -154,9 +154,9 @@ void KImageAnnotatorAdapter::setSwitchToSelectToolAfterDrawingItem(bool enabled)
 	mKImageAnnotator->setSwitchToSelectToolAfterDrawingItem(enabled);
 }
 
-void KImageAnnotatorAdapter::setNumberUpdateMode(kImageAnnotator::NumberUpdateMode numberUpdateMode)
+void KImageAnnotatorAdapter::setNumberToolSeedChangeUpdatesAllItems(bool enabled)
 {
-	mKImageAnnotator->setNumberUpdateMode(numberUpdateMode);
+	mKImageAnnotator->setNumberToolSeedChangeUpdatesAllItems(enabled);
 }
 
 void KImageAnnotatorAdapter::setTabBarAutoHide(bool enabled)

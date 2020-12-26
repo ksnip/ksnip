@@ -574,7 +574,7 @@ void MainWindow::setupImageAnnotator()
 	mImageAnnotator->setNumberFont(mConfig->numberFont());
 	mImageAnnotator->setItemShadowEnabled(mConfig->itemShadowEnabled());
 	mImageAnnotator->setSwitchToSelectToolAfterDrawingItem(mConfig->switchToSelectToolAfterDrawingItem());
-	mImageAnnotator->setNumberUpdateMode(mConfig->numberUpdateMode());
+	mImageAnnotator->setNumberToolSeedChangeUpdatesAllItems(mConfig->numberToolSeedChangeUpdatesAllItems());
 	mImageAnnotator->setStickers(mConfig->stickerPaths(), mConfig->useDefaultSticker());
 }
 

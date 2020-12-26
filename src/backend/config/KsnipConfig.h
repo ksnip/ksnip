@@ -128,8 +128,8 @@ public:
 	virtual bool switchToSelectToolAfterDrawingItem() const;
 	virtual void setSwitchToSelectToolAfterDrawingItem(bool enabled);
 
-	virtual kImageAnnotator::NumberUpdateMode numberUpdateMode() const;
-	virtual void setNumberUpdateMode(kImageAnnotator::NumberUpdateMode mode);
+	virtual bool numberToolSeedChangeUpdatesAllItems() const;
+	virtual void setNumberToolSeedChangeUpdatesAllItems(bool enabled);
 
 	virtual bool textBold() const;
 	virtual void setTextBold(bool bold);

@@ -21,18 +21,18 @@
 
 QIcon IconLoader::load(const QString &name)
 {
-	return QIcon(QLatin1Literal(":/icons/") + name);
+	return QIcon(QLatin1String(":/icons/") + name);
 }
 
 QIcon IconLoader::loadForTheme(const QString& name)
 {
     auto type = getThemePrefix();
-    return QIcon(QLatin1Literal(":/icons/") + type + name);
+    return QIcon(QLatin1String(":/icons/") + type + name);
 }
 
 QString IconLoader::getThemePrefix()
 {
-    return isDarkTheme() ? QLatin1Literal("dark/") : QLatin1Literal("light/");
+    return isDarkTheme() ? QLatin1String("dark/") : QLatin1String("light/");
 }
 
 double IconLoader::getThemeLuma()

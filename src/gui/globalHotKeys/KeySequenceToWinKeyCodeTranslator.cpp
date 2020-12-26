@@ -27,8 +27,8 @@ KeySequenceToWinKeyCodeTranslator::KeySequenceToWinKeyCodeTranslator()
 KeyCodeCombo KeySequenceToWinKeyCodeTranslator::map(const QKeySequence &keySequence) const
 {
 	auto sequenceString = keySequence.toString().toUpper();
-	auto modifierString = sequenceString.section(QStringLiteral("+"), 0, -2);
-	auto keyString = sequenceString.section(QStringLiteral("+"), -1, -1);
+	auto modifierString = sequenceString.section(QLatin1String("+"), 0, -2);
+	auto keyString = sequenceString.section(QLatin1String("+"), -1, -1);
 
 	auto modifier = getModifier(modifierString);
 	auto key = getKey(keyString);
@@ -39,13 +39,13 @@ KeyCodeCombo KeySequenceToWinKeyCodeTranslator::map(const QKeySequence &keySeque
 unsigned int KeySequenceToWinKeyCodeTranslator::getModifier(const QString &modifierString) const
 {
 	unsigned int modifier = MOD_NOREPEAT;
-	if (modifierString.contains(QStringLiteral("SHIFT"))) {
+	if (modifierString.contains(QLatin1String("SHIFT"))) {
 		modifier |= MOD_SHIFT;
 	}
-	if (modifierString.contains(QStringLiteral("ALT"))) {
+	if (modifierString.contains(QLatin1String("ALT"))) {
 		modifier |= MOD_ALT;
 	}
-	if (modifierString.contains(QStringLiteral("CTRL"))) {
+	if (modifierString.contains(QLatin1String("CTRL"))) {
 		modifier |= MOD_CONTROL;
 	}
 

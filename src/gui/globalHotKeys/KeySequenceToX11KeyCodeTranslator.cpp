@@ -29,8 +29,8 @@ KeySequenceToX11KeyCodeTranslator::KeySequenceToX11KeyCodeTranslator()
 KeyCodeCombo KeySequenceToX11KeyCodeTranslator::map(const QKeySequence &keySequence) const
 {
 	auto sequenceString = keySequence.toString().toUpper();
-	auto modifierString = sequenceString.section(QStringLiteral("+"), 0, -2);
-	auto keyString = sequenceString.section(QStringLiteral("+"), -1, -1);
+	auto modifierString = sequenceString.section(QLatin1String("+"), 0, -2);
+	auto keyString = sequenceString.section(QLatin1String("+"), -1, -1);
 
 	auto modifier = getModifier(modifierString);
 	auto key = getKey(keyString);
@@ -41,16 +41,16 @@ KeyCodeCombo KeySequenceToX11KeyCodeTranslator::map(const QKeySequence &keySeque
 unsigned int KeySequenceToX11KeyCodeTranslator::getModifier(const QString &modifierString) const
 {
 	unsigned int modifier = 0;
-	if (modifierString.contains(QStringLiteral("SHIFT"))) {
+	if (modifierString.contains(QLatin1String("SHIFT"))) {
 		modifier |= ShiftMask;
 	}
-	if (modifierString.contains(QStringLiteral("ALT"))) {
+	if (modifierString.contains(QLatin1String("ALT"))) {
 		modifier |= Mod1Mask;
 	}
-	if (modifierString.contains(QStringLiteral("CTRL"))) {
+	if (modifierString.contains(QLatin1String("CTRL"))) {
 		modifier |= ControlMask;
 	}
-	if (modifierString.contains(QStringLiteral("META"))) {
+	if (modifierString.contains(QLatin1String("META"))) {
 		modifier |= Mod4Mask;
 	}
 

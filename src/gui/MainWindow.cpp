@@ -71,7 +71,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	connect(qApp, &QGuiApplication::commitDataRequest, this, &MainWindow::sessionFinished);
 
-	setWindowIcon(IconLoader::load(QLatin1Literal("ksnip")));
+	setWindowIcon(IconLoader::load(QLatin1String("ksnip")));
 	setPosition();
 
 	setAcceptDrops(true);
@@ -364,7 +364,7 @@ void MainWindow::initGui()
 
 	mSaveAsAction->setText(tr("Save As..."));
 	mSaveAsAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_S);
-	mSaveAsAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("saveAs")));
+	mSaveAsAction->setIcon(IconLoader::loadForTheme(QLatin1String("saveAs")));
 	connect(mSaveAsAction, &QAction::triggered, this, &MainWindow::saveAsClicked);
 
     mUploadAction->setText(tr("Upload"));
@@ -375,13 +375,13 @@ void MainWindow::initGui()
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
     mPrintAction->setShortcut(Qt::CTRL + Qt::Key_P);
-    mPrintAction->setIcon(QIcon::fromTheme(QLatin1Literal("document-print")));
+    mPrintAction->setIcon(QIcon::fromTheme(QLatin1String("document-print")));
     connect(mPrintAction, &QAction::triggered, this, &MainWindow::printClicked);
 
     mPrintPreviewAction->setText(tr("Print Preview"));
     mPrintPreviewAction->setToolTip(tr("Opens Print Preview dialog where the image "
                                        "orientation can be changed"));
-    mPrintPreviewAction->setIcon(QIcon::fromTheme(QLatin1Literal("document-print-preview")));
+    mPrintPreviewAction->setIcon(QIcon::fromTheme(QLatin1String("document-print-preview")));
     connect(mPrintPreviewAction, &QAction::triggered, this, &MainWindow::printPreviewClicked);
 
     mScaleAction->setText(tr("Scale"));
@@ -396,7 +396,7 @@ void MainWindow::initGui()
 
     mQuitAction->setText(tr("Quit"));
     mQuitAction->setShortcut(Qt::CTRL + Qt::Key_Q);
-    mQuitAction->setIcon(QIcon::fromTheme(QLatin1Literal("application-exit")));
+    mQuitAction->setIcon(QIcon::fromTheme(QLatin1String("application-exit")));
     connect(mQuitAction, &QAction::triggered, this, &MainWindow::quit);
 
 	mCopyPathAction->setText(tr("Copy Path"));
@@ -410,28 +410,28 @@ void MainWindow::initGui()
 	connect(mOpenDirectoryAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::openDirectory);
 
     mSettingsAction->setText(tr("Settings"));
-    mSettingsAction->setIcon(QIcon::fromTheme(QLatin1Literal("emblem-system")));
+    mSettingsAction->setIcon(QIcon::fromTheme(QLatin1String("emblem-system")));
 	mSettingsAction->setShortcut(Qt::ALT + Qt::Key_F7);
 	connect(mSettingsAction, &QAction::triggered, this, &MainWindow::showSettingsDialog);
 
     mAboutAction->setText(tr("&About"));
-	mAboutAction->setIcon(IconLoader::load(QLatin1Literal("ksnip")));
+	mAboutAction->setIcon(IconLoader::load(QLatin1String("ksnip")));
 	connect(mAboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
 
     mOpenImageAction->setText(tr("Open"));
-    mOpenImageAction->setIcon(QIcon::fromTheme(QLatin1Literal("document-open")));
+    mOpenImageAction->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
     mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
     connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::showOpenImageDialog);
 
 	mPasteAction->setText(tr("Paste"));
-	mPasteAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("paste")));
+	mPasteAction->setIcon(IconLoader::loadForTheme(QLatin1String("paste")));
 	mPasteAction->setShortcut(Qt::CTRL + Qt::Key_V);
 	mPasteAction->setEnabled(mClipboard->isPixmap());
 	connect(mPasteAction, &QAction::triggered, this, &MainWindow::pasteFromClipboard);
 	connect(mClipboard, &ClipboardAdapter::changed, mPasteAction, &QAction::setEnabled);
 
 	mPasteEmbeddedAction->setText(tr("Paste Embedded"));
-	mPasteEmbeddedAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("pasteEmbedded")));
+	mPasteEmbeddedAction->setIcon(IconLoader::loadForTheme(QLatin1String("pasteEmbedded")));
 	mPasteEmbeddedAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_V);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
 	connect(mPasteEmbeddedAction, &QAction::triggered, this, &MainWindow::pasteEmbeddedFromClipboard);
@@ -440,11 +440,11 @@ void MainWindow::initGui()
 	mPinAction->setText(tr("Pin"));
 	mPinAction->setToolTip(tr("Pin screenshot to foreground in frameless window"));
 	mPinAction->setShortcut(Qt::SHIFT + Qt::Key_P);
-	mPinAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("pin")));
+	mPinAction->setIcon(IconLoader::loadForTheme(QLatin1String("pin")));
 	connect(mPinAction, &QAction::triggered, this, &MainWindow::showPinWindow);
 
 	mRemoveImageAction->setText(tr("Delete"));
-	mRemoveImageAction->setIcon(IconLoader::loadForTheme(QLatin1Literal("delete")));
+	mRemoveImageAction->setIcon(IconLoader::loadForTheme(QLatin1String("delete")));
 	connect(mRemoveImageAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::removeImage);
 
 	auto menu = menuBar()->addMenu(tr("&File"));
@@ -511,14 +511,14 @@ void MainWindow::upload()
 
 void MainWindow::printClicked()
 {
-	auto savePath = mSavePathProvider.savePathWithFormat(QLatin1Literal("pdf"));
+	auto savePath = mSavePathProvider.savePathWithFormat(QLatin1String("pdf"));
 	auto image = mCaptureHandler->image();
 	mCapturePrinter->print(image, savePath);
 }
 
 void MainWindow::printPreviewClicked()
 {
-	auto savePath = mSavePathProvider.savePathWithFormat(QLatin1Literal("pdf"));
+	auto savePath = mSavePathProvider.savePathWithFormat(QLatin1String("pdf"));
 	auto image = mCaptureHandler->image();
 	mCapturePrinter->printPreview(image, savePath);
 }

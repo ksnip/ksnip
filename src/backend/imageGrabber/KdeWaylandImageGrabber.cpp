@@ -70,15 +70,15 @@ KdeWaylandImageGrabber::KdeWaylandImageGrabber() : AbstractImageGrabber()
 void KdeWaylandImageGrabber::grab()
 {
     if (captureMode() == CaptureModes::FullScreen) {
-        prepareDBus(QLatin1Literal("screenshotFullscreen"), isCaptureCursorEnabled());
+        prepareDBus(QLatin1String("screenshotFullscreen"), isCaptureCursorEnabled());
     } else if (captureMode() == CaptureModes::CurrentScreen) {
-        prepareDBus(QLatin1Literal("screenshotScreen"), isCaptureCursorEnabled());
+        prepareDBus(QLatin1String("screenshotScreen"), isCaptureCursorEnabled());
     } else {
         int mask = 1;
         if (isCaptureCursorEnabled()) {
             mask |= 1 << 1;
         }
-        prepareDBus(QLatin1Literal("interactive"), mask);
+        prepareDBus(QLatin1String("interactive"), mask);
     }
 }
 
@@ -100,7 +100,7 @@ void KdeWaylandImageGrabber::prepareDBus(const QString& mode, T mask)
 template<typename T>
 void KdeWaylandImageGrabber::callDBus(int writeFd, const QString& mode, T mask)
 {
-    QDBusInterface interface(QLatin1Literal("org.kde.KWin"), QLatin1Literal("/Screenshot"), QLatin1Literal("org.kde.kwin.Screenshot"));
+    QDBusInterface interface(QLatin1String("org.kde.KWin"), QLatin1String("/Screenshot"), QLatin1String("org.kde.kwin.Screenshot"));
     interface.asyncCall(mode, QVariant::fromValue(QDBusUnixFileDescriptor(writeFd)), mask);
 }
 

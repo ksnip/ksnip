@@ -66,7 +66,7 @@ void ImgurUploader::imgurUploadFinished(const ImgurResponse &response)
 QString ImgurUploader::formatResponseUrl(const ImgurResponse &response) const
 {
 	if (!mConfig->imgurLinkDirectlyToImage()) {
-		return response.link().remove(QStringLiteral(".png"));
+		return response.link().remove(QLatin1String(".png"));
 	}
 	return response.link();
 }

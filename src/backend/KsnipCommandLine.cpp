@@ -21,7 +21,7 @@
 
 KsnipCommandLine::KsnipCommandLine(const QCoreApplication &app, const QList<CaptureModes> &captureModes)
 {
-    setApplicationDescription(translateText(QLatin1Literal("Ksnip Screenshot Tool")));
+    setApplicationDescription(translateText(QLatin1String("Ksnip Screenshot Tool")));
     addHelpOption();
     addVersionOptions();
     addImageGrabberOptions(captureModes);
@@ -49,39 +49,39 @@ KsnipCommandLine::~KsnipCommandLine()
 void KsnipCommandLine::addImageGrabberOptions(const QList<CaptureModes> &captureModes)
 {
     if (captureModes.contains(CaptureModes::RectArea)) {
-        mRectAreaOption = addOption(QLatin1Literal("r"), QLatin1Literal("rectarea"), QLatin1Literal("Select a rectangular area from where to take a screenshot."));
+        mRectAreaOption = addOption(QLatin1String("r"), QLatin1String("rectarea"), QLatin1String("Select a rectangular area from where to take a screenshot."));
     }
 	if (captureModes.contains(CaptureModes::LastRectArea)) {
-		mLastRectAreaOption = addOption(QLatin1Literal("l"), QLatin1Literal("lastrectarea"), QLatin1Literal("Take a screenshot using last selected rectangular area."));
+		mLastRectAreaOption = addOption(QLatin1String("l"), QLatin1String("lastrectarea"), QLatin1String("Take a screenshot using last selected rectangular area."));
 	}
     if (captureModes.contains(CaptureModes::FullScreen)) {
-        mFullScreenOption = addOption(QLatin1Literal("f"), QLatin1Literal("fullscreen"), QLatin1Literal("Capture the fullscreen including all monitors."));
+        mFullScreenOption = addOption(QLatin1String("f"), QLatin1String("fullscreen"), QLatin1String("Capture the fullscreen including all monitors."));
     }
     if (captureModes.contains(CaptureModes::CurrentScreen)) {
-        mCurrentScreenOption = addOption(QLatin1Literal("m"), QLatin1Literal("current"), QLatin1Literal("Capture the screen (monitor) where the mouse cursor is currently located."));
+        mCurrentScreenOption = addOption(QLatin1String("m"), QLatin1String("current"), QLatin1String("Capture the screen (monitor) where the mouse cursor is currently located."));
     }
     if (captureModes.contains(CaptureModes::ActiveWindow)) {
-        mActiveWindowOption = addOption(QLatin1Literal("a"), QLatin1Literal("active"), QLatin1Literal("Capture the window that currently has input focus."));
+        mActiveWindowOption = addOption(QLatin1String("a"), QLatin1String("active"), QLatin1String("Capture the window that currently has input focus."));
     }
     if (captureModes.contains(CaptureModes::WindowUnderCursor)) {
-        mWindowUnderCursorOption = addOption(QLatin1Literal("u"), QLatin1Literal("windowundercursor"), QLatin1Literal("Capture the window that is currently under the mouse cursor."));
+        mWindowUnderCursorOption = addOption(QLatin1String("u"), QLatin1String("windowundercursor"), QLatin1String("Capture the window that is currently under the mouse cursor."));
     }
     if (captureModes.contains(CaptureModes::Portal)) {
-        mWindowUnderCursorOption = addOption(QLatin1Literal("t"), QLatin1Literal("portal"), QLatin1Literal("Uses the screenshot Portal for taking screenshot."));
+        mWindowUnderCursorOption = addOption(QLatin1String("t"), QLatin1String("portal"), QLatin1String("Uses the screenshot Portal for taking screenshot."));
     }
 }
 
 void KsnipCommandLine::addDefaultOptions()
 {
-    mDelayOption = addParameterOption(QLatin1Literal("d"), QLatin1Literal("delay"), QLatin1Literal("Delay before taking the screenshot."), QLatin1Literal("seconds"));
-    mCursorOption = addOption(QLatin1Literal("c"), QLatin1Literal("cursor"), QLatin1Literal("Capture mouse cursor on screenshot."));
-    mEditOption = addParameterOption(QLatin1Literal("e"), QLatin1Literal("edit"), QLatin1Literal("Edit existing image in ksnip"), QLatin1Literal("image"));
-    mSaveOption = addOption(QLatin1Literal("s"), QLatin1Literal("save"), QLatin1Literal("Save screenshot to default location without opening in editor."));
+    mDelayOption = addParameterOption(QLatin1String("d"), QLatin1String("delay"), QLatin1String("Delay before taking the screenshot."), QLatin1String("seconds"));
+    mCursorOption = addOption(QLatin1String("c"), QLatin1String("cursor"), QLatin1String("Capture mouse cursor on screenshot."));
+    mEditOption = addParameterOption(QLatin1String("e"), QLatin1String("edit"), QLatin1String("Edit existing image in ksnip"), QLatin1String("image"));
+    mSaveOption = addOption(QLatin1String("s"), QLatin1String("save"), QLatin1String("Save screenshot to default location without opening in editor."));
 }
 
 void KsnipCommandLine::addVersionOptions()
 {
-    mVersionOption = addOption(QLatin1Literal("v"), QLatin1Literal("version"), QLatin1Literal("Displays version information."));
+    mVersionOption = addOption(QLatin1String("v"), QLatin1String("version"), QLatin1String("Displays version information."));
 }
 
 QString KsnipCommandLine::translateText(const QString &text)
@@ -201,5 +201,5 @@ CaptureModes KsnipCommandLine::captureMode() const
 
 void KsnipCommandLine::addPositionalArguments()
 {
-	addPositionalArgument(QLatin1Literal("image"), QLatin1Literal("Edit existing image in ksnip"), QLatin1Literal("[image]"));
+	addPositionalArgument(QLatin1String("image"), QLatin1String("Edit existing image in ksnip"), QLatin1String("[image]"));
 }

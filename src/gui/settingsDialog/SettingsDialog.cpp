@@ -38,7 +38,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, const QList<CaptureModes> &captu
 	mStickerSettings(new StickerSettings(mConfig)),
 	mSnippingAreaSettings(new SnippingAreaSettings(mConfig))
 {
-    setWindowTitle(QApplication::applicationName() + QLatin1Literal(" - ") + tr("Settings"));
+    setWindowTitle(QApplication::applicationName() + QLatin1String(" - ") + tr("Settings"));
 
     initGui();
 

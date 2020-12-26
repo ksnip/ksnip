@@ -157,7 +157,7 @@ QString KsnipConfig::saveDirectory() const
 {
 	auto saveDirectoryString = loadValue(KsnipConfigOptions::saveDirectoryString(), QDir::homePath()).toString();
 	if (!saveDirectoryString.isEmpty()) {
-		return saveDirectoryString + QStringLiteral("/");
+		return saveDirectoryString + QLatin1String("/");
     } else {
 		return {};
     }
@@ -173,7 +173,7 @@ void KsnipConfig::setSaveDirectory(const QString& path)
 
 QString KsnipConfig::saveFilename() const
 {
-	auto defaultFilename = QStringLiteral("ksnip_$Y$M$D-$T");
+	auto defaultFilename = QLatin1String("ksnip_$Y$M$D-$T");
 	auto filename = loadValue(KsnipConfigOptions::saveFilenameString(), defaultFilename).toString();
 	if (filename.isEmpty() || filename.isNull()) {
 		filename = defaultFilename;
@@ -192,7 +192,7 @@ void KsnipConfig::setSaveFilename(const QString& filename)
 
 QString KsnipConfig::saveFormat() const
 {
-	auto defaultFormat = QStringLiteral("png");
+	auto defaultFormat = QLatin1String("png");
 	auto format = loadValue(KsnipConfigOptions::saveFormatString(), defaultFormat).toString();
 	if (format.isEmpty() || format.isNull()) {
 		format = defaultFormat;
@@ -211,7 +211,7 @@ void KsnipConfig::setSaveFormat(const QString& format)
 
 QString KsnipConfig::applicationStyle() const
 {
-	auto defaultStyle = QStringLiteral("Fusion");
+	auto defaultStyle = QLatin1String("Fusion");
 	return loadValue(KsnipConfigOptions::applicationStyleString(), defaultStyle).toString();
 }
 
@@ -450,7 +450,7 @@ void KsnipConfig::setTextUnderline(bool  underline)
 
 QFont KsnipConfig::textFont() const
 {
-	auto defaultFont = QFont(QStringLiteral("Arial"), 12);
+	auto defaultFont = QFont(QLatin1String("Arial"), 12);
 	return loadValue(KsnipConfigOptions::textFontString(), defaultFont).value<QFont>();
 }
 
@@ -468,7 +468,7 @@ void KsnipConfig::setTextFont(const QFont& font)
 
 QFont KsnipConfig::numberFont() const
 {
-	auto defaultFont = QFont(QStringLiteral("Comic Sans MS"), 30, QFont::Bold);
+	auto defaultFont = QFont(QLatin1String("Comic Sans MS"), 30, QFont::Bold);
 	return loadValue(KsnipConfigOptions::numberFontString(), defaultFont).value<QFont>();
 }
 
@@ -798,7 +798,7 @@ void KsnipConfig::setUploaderType(UploaderType type)
 
 QString KsnipConfig::imgurUsername() const
 {
-	auto defaultUsername = QStringLiteral("");
+	auto defaultUsername = QLatin1String("");
 	return loadValue(KsnipConfigOptions::imgurUsernameString(), defaultUsername).toString();
 }
 
@@ -812,7 +812,7 @@ void KsnipConfig::setImgurUsername(const QString& username)
 
 QByteArray KsnipConfig::imgurClientId() const
 {
-	auto defaultClientId = QStringLiteral("");
+	auto defaultClientId = QLatin1String("");
 	return loadValue(KsnipConfigOptions::imgurClientIdString(), defaultClientId).toByteArray();
 }
 
@@ -826,7 +826,7 @@ void KsnipConfig::setImgurClientId(const QString& clientId)
 
 QByteArray KsnipConfig::imgurClientSecret() const
 {
-	auto defaultClientSecret = QStringLiteral("");
+	auto defaultClientSecret = QLatin1String("");
 	return loadValue(KsnipConfigOptions::imgurClientSecretString(), defaultClientSecret).toByteArray();
 }
 
@@ -840,7 +840,7 @@ void KsnipConfig::setImgurClientSecret(const QString& clientSecret)
 
 QByteArray KsnipConfig::imgurAccessToken() const
 {
-	auto defaultAccessToken = QStringLiteral("");
+	auto defaultAccessToken = QLatin1String("");
 	return loadValue(KsnipConfigOptions::imgurAccessTokenString(), defaultAccessToken).toByteArray();
 }
 
@@ -854,7 +854,7 @@ void KsnipConfig::setImgurAccessToken(const QString& accessToken)
 
 QByteArray KsnipConfig::imgurRefreshToken() const
 {
-	auto defaultRefreshToken = QStringLiteral("");
+	auto defaultRefreshToken = QLatin1String("");
 	return loadValue(KsnipConfigOptions::imgurRefreshTokenString(), defaultRefreshToken).toByteArray();
 }
 

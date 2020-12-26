@@ -85,7 +85,7 @@ void ApplicationSettings::initGui()
 	connect(mUseTrayIconCheckBox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTrayIconChanged);
 	connect(mUseTabsCheckbox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTabsChanged);
 
-	mApplicationStyleLabel->setText(tr("Application Style") + QLatin1Literal(":"));
+	mApplicationStyleLabel->setText(tr("Application Style") + QLatin1String(":"));
 	mApplicationStyleLabel->setToolTip(tr("Sets the application style which defines the look and feel of the GUI.\n"
 	                                      "Change requires ksnip restart to take effect."));
 	mApplicationStyleCombobox->addItems(QStyleFactory::keys());

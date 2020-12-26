@@ -64,14 +64,14 @@ AboutDialog::~AboutDialog()
 
 void AboutDialog::createHeader()
 {
-	auto pixmap = QPixmap(QLatin1Literal(":/icons/ksnip"));
+	auto pixmap = QPixmap(QLatin1String(":/icons/ksnip"));
 	auto scaledPixmap = pixmap.scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     auto label = new QLabel();
     mHeaderLayout = new QHBoxLayout();
 	label->setPixmap(scaledPixmap);
     label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     mHeaderLayout->addWidget(label);
-    label = new QLabel(QLatin1Literal("<h2>") + QApplication::applicationName() + QLatin1Literal("</h2>"));
+    label = new QLabel(QLatin1String("<h2>") + QApplication::applicationName() + QLatin1String("</h2>"));
     label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     mHeaderLayout->addWidget(label);
     mHeaderLayout->setAlignment(Qt::AlignLeft);

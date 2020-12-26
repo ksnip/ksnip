@@ -22,13 +22,13 @@
 QString WildcardResolver::replaceDateTimeWildcards(const QString &filename)
 {
 	auto filenameWithoutWildcards = filename;
-	filenameWithoutWildcards.replace(QStringLiteral("$Y"), QDateTime::currentDateTime().toString(QStringLiteral("yyyy")));
-	filenameWithoutWildcards.replace(QStringLiteral("$M"), QDateTime::currentDateTime().toString(QStringLiteral("MM")));
-	filenameWithoutWildcards.replace(QStringLiteral("$D"), QDateTime::currentDateTime().toString(QStringLiteral("dd")));
-	filenameWithoutWildcards.replace(QStringLiteral("$T"), QDateTime::currentDateTime().toString(QStringLiteral("hhmmss")));
-	filenameWithoutWildcards.replace(QStringLiteral("$h"), QDateTime::currentDateTime().toString(QStringLiteral("hh")));
-	filenameWithoutWildcards.replace(QStringLiteral("$m"), QDateTime::currentDateTime().toString(QStringLiteral("mm")));
-	filenameWithoutWildcards.replace(QStringLiteral("$s"), QDateTime::currentDateTime().toString(QStringLiteral("ss")));
+	filenameWithoutWildcards.replace(QLatin1String("$Y"), QDateTime::currentDateTime().toString(QLatin1String("yyyy")));
+	filenameWithoutWildcards.replace(QLatin1String("$M"), QDateTime::currentDateTime().toString(QLatin1String("MM")));
+	filenameWithoutWildcards.replace(QLatin1String("$D"), QDateTime::currentDateTime().toString(QLatin1String("dd")));
+	filenameWithoutWildcards.replace(QLatin1String("$T"), QDateTime::currentDateTime().toString(QLatin1String("hhmmss")));
+	filenameWithoutWildcards.replace(QLatin1String("$h"), QDateTime::currentDateTime().toString(QLatin1String("hh")));
+	filenameWithoutWildcards.replace(QLatin1String("$m"), QDateTime::currentDateTime().toString(QLatin1String("mm")));
+	filenameWithoutWildcards.replace(QLatin1String("$s"), QDateTime::currentDateTime().toString(QLatin1String("ss")));
 	return filenameWithoutWildcards;
 }
 
@@ -55,7 +55,7 @@ int WildcardResolver::getHighestWildcardNumber(const QString &directory, const Q
 	auto rightPartWithFormat = rightPart + format;
 	QDir parentDirectory(directory);
 	auto number = 0;
-	auto allFiles = parentDirectory.entryList({ QStringLiteral("*") + format }, QDir::Files);
+	auto allFiles = parentDirectory.entryList({ QLatin1String("*") + format }, QDir::Files);
 	for(auto file : allFiles) {
 		if(file.startsWith(leftPart) && file.endsWith(rightPartWithFormat)) {
 			file.remove(leftPart);

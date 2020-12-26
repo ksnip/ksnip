@@ -27,8 +27,8 @@ KeySequenceToMacKeyCodeTranslator::KeySequenceToMacKeyCodeTranslator()
 KeyCodeCombo KeySequenceToMacKeyCodeTranslator::map(const QKeySequence &keySequence) const
 {
 	auto sequenceString = keySequence.toString().toUpper();
-	auto modifierString = sequenceString.section(QStringLiteral("+"), 0, -2);
-	auto keyString = sequenceString.section(QStringLiteral("+"), -1, -1);
+	auto modifierString = sequenceString.section(QLatin1String("+"), 0, -2);
+	auto keyString = sequenceString.section(QLatin1String("+"), -1, -1);
 
 	auto modifier = getModifier(modifierString);
 	auto key = getKey(keyString);

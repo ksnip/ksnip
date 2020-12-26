@@ -24,7 +24,7 @@ void DesktopServiceAdapter::openFile(const QString &path)
 	// Workaround for issue #432, Qt unable to open file path in snap
 #if defined(__linux__)
 	if(PlatformChecker::instance()->isSnap()) {
-		mXdgOpenProcess.start(QLatin1Literal("xdg-open"), QStringList{ path });
+		mXdgOpenProcess.start(QLatin1String("xdg-open"), QStringList{ path });
 		return;
 	}
 #endif

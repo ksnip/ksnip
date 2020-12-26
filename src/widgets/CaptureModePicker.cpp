@@ -51,7 +51,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 	    auto action = createAction(
 				tr("Rectangular Area"),
 				tr("Draw a rectangular area with your mouse"),
-				QStringLiteral("drawRect.svg"),
+				QLatin1String("drawRect.svg"),
 				CaptureModes::RectArea,
 				QKeySequence(Qt::SHIFT + Qt::Key_R));
         menu->addAction(action);
@@ -61,7 +61,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 		auto action = createAction(
 			tr("Last Rectangular Area"),
 			tr("Capture a screenshot of the last selected rectangular area"),
-			QStringLiteral("lastRect.svg"),
+			QLatin1String("lastRect.svg"),
 			CaptureModes::LastRectArea,
 			QKeySequence(Qt::SHIFT + Qt::Key_L));
 		menu->addAction(action);
@@ -71,7 +71,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         auto action = createAction(
 				tr("Full Screen (All Monitors)"),
 				tr("Capture full screen including all monitors"),
-				QStringLiteral("fullScreen.svg"),
+				QLatin1String("fullScreen.svg"),
 				CaptureModes::FullScreen,
 				QKeySequence(Qt::SHIFT + Qt::Key_F));
         menu->addAction(action);
@@ -81,7 +81,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 	    auto action = createAction(
 	    		tr("Current Screen"),
 	    		tr("Capture screen where the mouse is located"),
-	    		QStringLiteral("currentScreen.svg"),
+	    		QLatin1String("currentScreen.svg"),
 	    		CaptureModes::CurrentScreen,
 				QKeySequence(Qt::SHIFT + Qt::Key_M));
         menu->addAction(action);
@@ -91,7 +91,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 	    auto action = createAction(
 	    		tr("Active Window"),
 	    		tr("Capture window that currently has focus"),
-	    		QStringLiteral("activeWindow.svg"),
+	    		QLatin1String("activeWindow.svg"),
 	    		CaptureModes::ActiveWindow,
 				QKeySequence(Qt::SHIFT + Qt::Key_A));
         menu->addAction(action);
@@ -101,7 +101,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         auto action = createAction(
         		tr("Window Under Cursor"),
 				tr("Capture that is currently under the mouse cursor"),
-				QStringLiteral("windowUnderCursor.svg"),
+				QLatin1String("windowUnderCursor.svg"),
 				CaptureModes::WindowUnderCursor,
 				QKeySequence(Qt::SHIFT + Qt::Key_U));
         menu->addAction(action);
@@ -111,7 +111,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         auto action = createAction(
                 tr("Screenshot Portal"),
                 tr("Uses the screenshot Portal for taking screenshot"),
-                QStringLiteral("wayland.svg"),
+                QLatin1String("wayland.svg"),
                 CaptureModes::Portal,
                 QKeySequence(Qt::SHIFT + Qt::Key_T));
         menu->addAction(action);

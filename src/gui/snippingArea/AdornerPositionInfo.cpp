@@ -34,7 +34,7 @@ AdornerPositionInfo::~AdornerPositionInfo()
 void AdornerPositionInfo::update(const QPoint &mousePosition)
 {
 	QPoint textOffset(10, 8);
-	mText = QString::number(mousePosition.x()) + QLatin1Literal(", ") + QString::number(mousePosition.y());
+	mText = QString::number(mousePosition.x()) + QLatin1String(", ") + QString::number(mousePosition.y());
 	mBox = mFontMetric->boundingRect(mText);
 	mBox.moveTopLeft(mousePosition + textOffset);
 	mTextRect = mBox;

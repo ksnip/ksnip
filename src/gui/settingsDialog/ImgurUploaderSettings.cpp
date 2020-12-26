@@ -104,7 +104,7 @@ void ImgurUploaderSettings::initGui()
 	mBaseUrlLineEdit->setPlaceholderText(DefaultValues::ImgurBaseUrl);
 	mBaseUrlLineEdit->setToolTip(mBaseUrlLabel->toolTip());
 
-	mUsernameLabel->setText(tr("Username") + QLatin1Literal(":"));
+	mUsernameLabel->setText(tr("Username") + QLatin1String(":"));
 
 	mUsernameLineEdit->setReadOnly(true);
 

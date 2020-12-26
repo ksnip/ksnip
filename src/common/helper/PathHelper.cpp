@@ -27,7 +27,7 @@ bool PathHelper::isPathValid(const QString &path)
 
 bool PathHelper::isPipePath(const QString &path)
 {
-	return path == QLatin1Literal("-");
+	return path == QLatin1String("-");
 }
 
 QString PathHelper::extractParentDirectory(const QString& path)

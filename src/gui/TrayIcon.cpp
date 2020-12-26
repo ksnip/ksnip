@@ -28,7 +28,7 @@ TrayIcon::TrayIcon(QObject *parent) :
 	mShowEditorAction(nullptr),
 	mQuitAction(nullptr)
 {
-	auto icon = IconLoader::loadForTheme(QLatin1Literal("ksnip"));
+	auto icon = IconLoader::loadForTheme(QLatin1String("ksnip"));
 	setIcon(icon);
 
 	mShowEditorAction = new QAction(tr("Show Editor"), this);

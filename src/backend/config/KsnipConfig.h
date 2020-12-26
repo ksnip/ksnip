@@ -29,6 +29,8 @@
 #include <QKeySequence>
 #include <QSettings>
 
+#include <kImageAnnotator/include/NumberUpdateMode.h>
+
 #include "KsnipConfigOptions.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/enum/SaveQualityMode.h"
@@ -125,6 +127,9 @@ public:
 
 	virtual bool switchToSelectToolAfterDrawingItem() const;
 	virtual void setSwitchToSelectToolAfterDrawingItem(bool enabled);
+
+	virtual kImageAnnotator::NumberUpdateMode numberUpdateMode() const;
+	virtual void setNumberUpdateMode(kImageAnnotator::NumberUpdateMode mode);
 
 	virtual bool textBold() const;
 	virtual void setTextBold(bool bold);

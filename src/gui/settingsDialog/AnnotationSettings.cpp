@@ -25,6 +25,7 @@ AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 	mRotateWatermarkCheckbox(new QCheckBox(this)),
 	mRememberToolSelectionCheckbox(new QCheckBox(this)),
 	mSwitchToSelectToolAfterDrawingItemCheckbox(new QCheckBox(this)),
+	mStartingNumberUpdatesExistingItemsCheckbox(new QCheckBox(this)),
 	mTextFontLabel(new QLabel(this)),
 	mNumberFontLabel(new QLabel(this)),
 	mSmoothFactorLabel(new QLabel(this)),
@@ -53,6 +54,7 @@ AnnotationSettings::~AnnotationSettings()
     delete mRotateWatermarkCheckbox;
     delete mRememberToolSelectionCheckbox;
     delete mSwitchToSelectToolAfterDrawingItemCheckbox;
+    delete mStartingNumberUpdatesExistingItemsCheckbox;
     delete mTextFontLabel;
     delete mNumberFontLabel;
     delete mSmoothFactorLabel;
@@ -80,6 +82,7 @@ void AnnotationSettings::saveSettings()
     mConfig->setRotateWatermarkEnabled(mRotateWatermarkCheckbox->isChecked());
     mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
     mConfig->setSwitchToSelectToolAfterDrawingItem(mSwitchToSelectToolAfterDrawingItemCheckbox->isChecked());
+    mConfig->setNumberUpdateMode((mStartingNumberUpdatesExistingItemsCheckbox->isChecked() ? kImageAnnotator::NumberUpdateMode::UseNextNumber : kImageAnnotator::NumberUpdateMode::UseStartingNumber));
 }
 
 void AnnotationSettings::initGui()
@@ -89,6 +92,8 @@ void AnnotationSettings::initGui()
     mRememberToolSelectionCheckbox->setText(tr("Remember annotation tool selection and load on startup"));
 
     mSwitchToSelectToolAfterDrawingItemCheckbox->setText(tr("Switch to Select Tool after drawing Item"));
+
+    mStartingNumberUpdatesExistingItemsCheckbox->setText(tr("Starting number updates existing items"));
 
     mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
     mItemShadowCheckbox->setToolTip(tr("When enabled, paint items cast shadows."));
@@ -134,31 +139,32 @@ void AnnotationSettings::initGui()
     mWatermarkImageLabel->setScaledContents(true);
     mWatermarkImageLabel->setStyleSheet(QLatin1Literal("QLabel { background-color : white; }"));
     mUpdateWatermarkImageButton->setText(tr("Update"));
-	connect(mUpdateWatermarkImageButton, &QPushButton::clicked, this, &AnnotationSettings::updateWatermarkImageClicked);
+    connect(mUpdateWatermarkImageButton, &QPushButton::clicked, this, &AnnotationSettings::updateWatermarkImageClicked);
 
-	mRotateWatermarkCheckbox->setText(tr("Rotate Watermark"));
-	mRotateWatermarkCheckbox->setToolTip(tr("When enabled, Watermark will be added with a rotation of 45°"));
+    mRotateWatermarkCheckbox->setText(tr("Rotate Watermark"));
+    mRotateWatermarkCheckbox->setToolTip(tr("When enabled, Watermark will be added with a rotation of 45°"));
 
     mLayout->setAlignment(Qt::AlignTop);
     mLayout->setColumnMinimumWidth(0, 10);
-	mLayout->addWidget(mRememberToolSelectionCheckbox, 0, 0, 1, 6);
+    mLayout->addWidget(mRememberToolSelectionCheckbox, 0, 0, 1, 6);
     mLayout->addWidget(mItemShadowCheckbox, 1, 0, 1, 6);
-	mLayout->addWidget(mSwitchToSelectToolAfterDrawingItemCheckbox, 2, 0, 1, 6);
-	mLayout->addWidget(mSmoothPathCheckbox, 3, 0, 1, 6);
-    mLayout->addWidget(mSmoothFactorLabel, 4, 1, 1, 3);
-    mLayout->addWidget(mSmoothFactorCombobox, 4, 3, 1,3, Qt::AlignLeft);
-    mLayout->setRowMinimumHeight(5, 15);
-    mLayout->addWidget(mTextFontLabel, 6, 0, 1, 2);
-    mLayout->addWidget(mTextFontCombobox, 6, 3);
-    mLayout->addWidget(mTextBoldButton, 6, 4);
-    mLayout->addWidget(mTextItalicButton, 6, 5);
-    mLayout->addWidget(mTextUnderlineButton, 6, 6);
-    mLayout->addWidget(mNumberFontLabel, 7, 0, 1, 2);
-    mLayout->addWidget(mNumberFontCombobox, 7, 3);
-    mLayout->setRowMinimumHeight(8, 15);
-    mLayout->addWidget(mWatermarkImageLabel, 9, 0, 1, 3);
-    mLayout->addWidget(mUpdateWatermarkImageButton, 9, 3, Qt::AlignLeft);
-    mLayout->addWidget(mRotateWatermarkCheckbox, 10, 0, 1, 6);
+    mLayout->addWidget(mSwitchToSelectToolAfterDrawingItemCheckbox, 2, 0, 1, 6);
+    mLayout->addWidget(mStartingNumberUpdatesExistingItemsCheckbox, 3, 0, 1, 6);
+    mLayout->addWidget(mSmoothPathCheckbox, 4, 0, 1, 6);
+    mLayout->addWidget(mSmoothFactorLabel, 5, 1, 1, 3);
+    mLayout->addWidget(mSmoothFactorCombobox, 5, 3, 1,3, Qt::AlignLeft);
+    mLayout->setRowMinimumHeight(6, 15);
+    mLayout->addWidget(mTextFontLabel, 7, 0, 1, 2);
+    mLayout->addWidget(mTextFontCombobox, 7, 3);
+    mLayout->addWidget(mTextBoldButton, 7, 4);
+    mLayout->addWidget(mTextItalicButton, 7, 5);
+    mLayout->addWidget(mTextUnderlineButton, 7, 6);
+    mLayout->addWidget(mNumberFontLabel, 8, 0, 1, 2);
+    mLayout->addWidget(mNumberFontCombobox, 8, 3);
+    mLayout->setRowMinimumHeight(9, 15);
+    mLayout->addWidget(mWatermarkImageLabel, 10, 0, 1, 3);
+    mLayout->addWidget(mUpdateWatermarkImageButton, 10, 3, Qt::AlignLeft);
+    mLayout->addWidget(mRotateWatermarkCheckbox, 11, 0, 1, 6);
 
     setTitle(tr("Annotator Settings"));
     setLayout(mLayout);
@@ -177,6 +183,7 @@ void AnnotationSettings::loadConfig()
     mRotateWatermarkCheckbox->setChecked(mConfig->rotateWatermarkEnabled());
     mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
     mSwitchToSelectToolAfterDrawingItemCheckbox->setChecked(mConfig->switchToSelectToolAfterDrawingItem());
+    mStartingNumberUpdatesExistingItemsCheckbox->setChecked(mConfig->numberUpdateMode() == kImageAnnotator::NumberUpdateMode::UseNextNumber);
     smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
 }
 

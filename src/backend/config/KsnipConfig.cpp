@@ -436,6 +436,21 @@ void KsnipConfig::setSwitchToSelectToolAfterDrawingItem(bool enabled)
 	emit annotatorConfigChanged();
 }
 
+kImageAnnotator::NumberUpdateMode KsnipConfig::numberUpdateMode() const
+{
+	const int mode = loadValue(KsnipConfigOptions::numberUpdateModeString(), true).toInt();
+	return static_cast<kImageAnnotator::NumberUpdateMode>(mode);
+}
+
+void KsnipConfig::setNumberUpdateMode(kImageAnnotator::NumberUpdateMode mode)
+{
+	if (numberUpdateMode() == mode) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::numberUpdateModeString(), static_cast<int>(mode));
+	emit annotatorConfigChanged();
+}
+
 bool KsnipConfig::textBold() const
 {
     return textFont().bold();

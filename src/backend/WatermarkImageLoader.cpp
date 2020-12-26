@@ -21,9 +21,9 @@
 
 WatermarkImageLoader::WatermarkImageLoader()
 {
-	mImageName = QStringLiteral("watermark_image.png");
+	mImageName = QLatin1String("watermark_image.png");
 	mPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-	mImagePath = mPath + QStringLiteral("/") + mImageName;
+	mImagePath = mPath + QLatin1String("/") + mImageName;
 }
 
 QPixmap WatermarkImageLoader::load() const

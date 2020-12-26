@@ -44,7 +44,7 @@ void SnippingAreaInfoText::updateInfoText()
 	auto dontResizeAfterSelection = tr("Hold CTRL pressed to prevent resizing after selecting.");
 	auto cancelAfterTimeout = tr("Operation will be canceled after 60 sec when no selection made.");
 	auto infoTextCanBeDisabled = tr("This message can be disabled via settings.");
-	auto newLine = QLatin1Literal("\n");
+	auto newLine = QLatin1String("\n");
 	if(mIsResizingDefault) {
 		mInfoText = selectRect + newLine + dontResizeAfterSelection + newLine + cancelAfterTimeout + newLine + infoTextCanBeDisabled;
 	} else {

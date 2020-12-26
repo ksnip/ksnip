@@ -23,11 +23,11 @@ VersionTab::VersionTab()
 {
 	mLayout = new QVBoxLayout();
 	mContent = new QLabel();
-	mContent->setText(QStringLiteral("<b>") + tr("Version") + QStringLiteral(": ") + QApplication::applicationVersion() + QStringLiteral("</b>") +
-				   QStringLiteral("<br/><b>") + tr("Build") + QStringLiteral(": ") + QStringLiteral(KSNIP_BUILD_NUMBER) + QStringLiteral("</b>") +
-				   QStringLiteral("</b><br/><br/>") +
+	mContent->setText(QLatin1String("<b>") + tr("Version") + QLatin1String(": ") + QApplication::applicationVersion() + QLatin1String("</b>") +
+				   QLatin1String("<br/><b>") + tr("Build") + QLatin1String(": ") + QLatin1String(KSNIP_BUILD_NUMBER) + QLatin1String("</b>") +
+				   QLatin1String("</b><br/><br/>") +
 				   tr("Using:") +
-				   QStringLiteral("<ul>"
+				   QLatin1String("<ul>"
 								  "<li>Qt5</li>"
 								  "<li>X11</li>"
 								  "<li>KDE Wayland</li>"

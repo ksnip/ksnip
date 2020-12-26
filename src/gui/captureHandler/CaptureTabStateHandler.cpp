@@ -119,7 +119,7 @@ void CaptureTabStateHandler::refreshTabInfo(int index)
 {
 	auto tabState = getTabState(index);
 	if (!tabState.isNull()) {
-		auto title = tabState->isSaved ? tabState->filename : tabState->filename + QLatin1Literal("*");
+		auto title = tabState->isSaved ? tabState->filename : tabState->filename + QLatin1String("*");
 		emit updateTabInfo(tabState->index, title, tabState->path);
 	}
 }

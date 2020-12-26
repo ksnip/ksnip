@@ -31,5 +31,5 @@ QString NewCaptureNameProvider::nextName(const QString &path)
 
 QString NewCaptureNameProvider::getNewName()
 {
-	return tr("Capture") + QStringLiteral(" ") + QString::number(mCaptureNumber++);
+	return tr("Capture") + QLatin1String(" ") + QString::number(mCaptureNumber++);
 }

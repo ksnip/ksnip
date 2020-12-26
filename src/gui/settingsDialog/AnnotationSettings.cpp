@@ -106,31 +106,31 @@ void AnnotationSettings::initGui()
                                        "marker paths after finished drawing."));
     connect(mSmoothPathCheckbox, &QCheckBox::clicked, this, &AnnotationSettings::smoothPathCheckboxClicked);
 
-    mSmoothFactorLabel->setText(tr("Smooth Factor") + QLatin1Literal(":"));
+    mSmoothFactorLabel->setText(tr("Smooth Factor") + QLatin1String(":"));
     mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"
                                       "precision for pen and marker but will\n"
                                       "make them more smooth."));
     mSmoothFactorCombobox->setMinimumWidth(fixedButtonSize);
     mSmoothFactorCombobox->setToolTip(mSmoothFactorLabel->toolTip());
 
-    mTextFontLabel->setText(tr("Text Font") + QLatin1Literal(":"));
+    mTextFontLabel->setText(tr("Text Font") + QLatin1String(":"));
     mTextFontLabel->setToolTip(tr("Sets the font for the Text Paint Item."));
     mTextFontCombobox->setToolTip(mTextFontLabel->toolTip());
     mTextFontCombobox->setEditable(false);
 
-    mTextBoldButton->setIcon(IconLoader::loadForTheme(QLatin1Literal("bold.svg")));
+    mTextBoldButton->setIcon(IconLoader::loadForTheme(QLatin1String("bold.svg")));
     mTextBoldButton->setToolTip(tr("Bold"));
     mTextBoldButton->setCheckable(true);
 
-    mTextItalicButton->setIcon(IconLoader::loadForTheme(QLatin1Literal("italic.svg")));
+    mTextItalicButton->setIcon(IconLoader::loadForTheme(QLatin1String("italic.svg")));
     mTextItalicButton->setToolTip(tr("Italic"));
     mTextItalicButton->setCheckable(true);
 
-    mTextUnderlineButton->setIcon(IconLoader::loadForTheme(QLatin1Literal("underline.svg")));
+    mTextUnderlineButton->setIcon(IconLoader::loadForTheme(QLatin1String("underline.svg")));
     mTextUnderlineButton->setToolTip(tr("Underline"));
     mTextUnderlineButton->setCheckable(true);
 
-    mNumberFontLabel->setText(tr("Numbering Font") + QLatin1Literal(":"));
+    mNumberFontLabel->setText(tr("Numbering Font") + QLatin1String(":"));
     mNumberFontLabel->setToolTip(tr("Sets the font for the Numbering Paint Item."));
     mNumberFontCombobox->setToolTip(mNumberFontLabel->toolTip());
     mNumberFontCombobox->setEditable(false);
@@ -140,7 +140,7 @@ void AnnotationSettings::initGui()
     mWatermarkImageLabel->setAutoFillBackground(true);
     mWatermarkImageLabel->setFixedSize(QSize(100, 100));
     mWatermarkImageLabel->setScaledContents(true);
-    mWatermarkImageLabel->setStyleSheet(QLatin1Literal("QLabel { background-color : white; }"));
+    mWatermarkImageLabel->setStyleSheet(QLatin1String("QLabel { background-color : white; }"));
     mUpdateWatermarkImageButton->setText(tr("Update"));
     connect(mUpdateWatermarkImageButton, &QPushButton::clicked, this, &AnnotationSettings::updateWatermarkImageClicked);
 

@@ -42,12 +42,12 @@ CursorDto GnomeWaylandImageGrabber::getCursorWithPosition() const
 
 void GnomeWaylandImageGrabber::grab()
 {
-    QDBusInterface interface(QLatin1Literal("org.gnome.Shell.Screenshot"), QLatin1Literal("/org/gnome/Shell/Screenshot"), QLatin1Literal("org.gnome.Shell.Screenshot"));
+    QDBusInterface interface(QLatin1String("org.gnome.Shell.Screenshot"), QLatin1String("/org/gnome/Shell/Screenshot"), QLatin1String("org.gnome.Shell.Screenshot"));
     QDBusPendingReply<bool, QString> reply;
     if (captureMode() == CaptureModes::ActiveWindow) {
-        reply = interface.asyncCall(QLatin1Literal("ScreenshotWindow"), true, isCaptureCursorEnabled(), false, tmpScreenshotFilename());
+        reply = interface.asyncCall(QLatin1String("ScreenshotWindow"), true, isCaptureCursorEnabled(), false, tmpScreenshotFilename());
     } else {
-        reply = interface.asyncCall(QLatin1Literal("Screenshot"), isCaptureCursorEnabled(), false, tmpScreenshotFilename());
+        reply = interface.asyncCall(QLatin1String("Screenshot"), isCaptureCursorEnabled(), false, tmpScreenshotFilename());
     }
 
     reply.waitForFinished();
@@ -73,9 +73,9 @@ void GnomeWaylandImageGrabber::postProcessing(const QPixmap& pixmap)
 
 QString GnomeWaylandImageGrabber::tmpScreenshotFilename() const
 {
-    auto path = QLatin1Literal("/tmp/");
-    auto filename = QLatin1Literal("ksnip-") + QString::number(MathHelper::randomInt());
-    auto extension = QLatin1Literal(".png");
+    auto path = QLatin1String("/tmp/");
+    auto filename = QLatin1String("ksnip-") + QString::number(MathHelper::randomInt());
+    auto extension = QLatin1String(".png");
     return path + filename + extension;
 }
 

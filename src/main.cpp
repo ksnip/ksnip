@@ -32,11 +32,11 @@ int main(int argc, char** argv)
     QApplication app(argc, argv);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
 
-    app.setOrganizationName(QStringLiteral("ksnip"));
-    app.setOrganizationDomain(QStringLiteral("ksnip.ksnip.org"));
-    app.setApplicationName(QStringLiteral("ksnip"));
-    app.setApplicationVersion(QStringLiteral(KSNIP_VERSION));
-    app.setDesktopFileName(QStringLiteral("org.ksnip.ksnip.desktop"));
+    app.setOrganizationName(QLatin1String("ksnip"));
+    app.setOrganizationDomain(QLatin1String("ksnip.ksnip.org"));
+    app.setApplicationName(QLatin1String("ksnip"));
+    app.setApplicationVersion(QLatin1String(KSNIP_VERSION));
+    app.setDesktopFileName(QLatin1String("org.ksnip.ksnip.desktop"));
 
     app.setStyle(KsnipConfigProvider::instance()->applicationStyle());
 

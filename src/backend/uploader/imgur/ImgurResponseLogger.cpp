@@ -23,9 +23,9 @@
 
 ImgurResponseLogger::ImgurResponseLogger()
 {
-    mLogFilename = QStringLiteral("imgur_history.txt");
+    mLogFilename = QLatin1String("imgur_history.txt");
     mLogPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    mLogFilePath = mLogPath + QStringLiteral("/") + mLogFilename;
+    mLogFilePath = mLogPath + QLatin1String("/") + mLogFilename;
 }
 
 void ImgurResponseLogger::log(const ImgurResponse &response)
@@ -54,9 +54,9 @@ void ImgurResponseLogger::createPathIfRequired() const
 
 QString ImgurResponseLogger::getLogEntry(const ImgurResponse &response) const
 {
-    auto separator = QStringLiteral(",");
-    auto deleteLink = QStringLiteral("https://imgur.com/delete/") + response.deleteHash();
-    auto timestamp = response.timeStamp().toString(QStringLiteral("dd.MM.yyyy hh:mm:ss"));
+    auto separator = QLatin1String(",");
+    auto deleteLink = QLatin1String("https://imgur.com/delete/") + response.deleteHash();
+    auto timestamp = response.timeStamp().toString(QLatin1String("dd.MM.yyyy hh:mm:ss"));
     return timestamp + separator + response.link() + separator + deleteLink;
 }
 

@@ -41,7 +41,7 @@ void ImageSaver::ensurePathExists(const QString &path)
 	auto directory = PathHelper::extractParentDirectory(path);
 	QDir dir(directory);
 	if(!dir.exists()) {
-		dir.mkpath(QStringLiteral("."));
+		dir.mkpath(QLatin1String("."));
 	}
 }
 
@@ -49,7 +49,7 @@ QString ImageSaver::ensureFilenameHasFormat(const QString &path)
 {
     auto format = PathHelper::extractFormat(path);
     if(format.isEmpty()) {
-        return path + QStringLiteral(".") + mConfig->saveFormat();
+        return path + QLatin1String(".") + mConfig->saveFormat();
     }
     return path;
 }

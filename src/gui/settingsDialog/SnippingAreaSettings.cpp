@@ -113,18 +113,18 @@ void SnippingAreaSettings::initGui()
 
 	mShowSnippingAreaInfoTextCheckbox->setText(tr("Show Snipping Area info text"));
 
-	mSnippingCursorColorLabel->setText(tr("Snipping Area cursor color") + QLatin1Literal(":"));
+	mSnippingCursorColorLabel->setText(tr("Snipping Area cursor color") + QLatin1String(":"));
 	mSnippingCursorColorLabel->setToolTip(tr("Sets the color of the snipping area cursor."));
 	mSnippingCursorColorButton->setMinimumWidth(fixedButtonWidth);
 	mSnippingCursorColorButton->setToolTip(mSnippingCursorColorLabel->toolTip());
 
-	mSnippingAdornerColorLabel->setText(tr("Snipping Area adorner color") + QLatin1Literal(":"));
+	mSnippingAdornerColorLabel->setText(tr("Snipping Area adorner color") + QLatin1String(":"));
 	mSnippingAdornerColorLabel->setToolTip(tr("Sets the color of all adorner elements\n"
 										        "on the snipping area."));
 	mSnippingAdornerColorButton->setMinimumWidth(fixedButtonWidth);
 	mSnippingAdornerColorButton->setToolTip(mSnippingAdornerColorLabel->toolTip());
 
-	mSnippingCursorSizeLabel->setText(tr("Snipping Area cursor thickness") + QLatin1Literal(":"));
+	mSnippingCursorSizeLabel->setText(tr("Snipping Area cursor thickness") + QLatin1String(":"));
 	mSnippingCursorSizeLabel->setToolTip(tr("Sets the thickness of the snipping area cursor."));
 	mSnippingCursorSizeCombobox->setMinimumWidth(fixedButtonWidth);
 	mSnippingCursorSizeCombobox->setToolTip(mSnippingCursorSizeLabel->toolTip());

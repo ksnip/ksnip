@@ -27,8 +27,8 @@ void TranslationLoader::load(const QApplication &app)
 	auto pathToKsnipTranslations = QString(KSNIP_LANG_INSTALL_DIR);
 	auto pathToKImageAnnotatorTranslations = QString(KIMAGEANNOTATOR_LANG_INSTALL_DIR);
 
-	loadTranslations(app, ksnipTranslator, pathToKsnipTranslations, QLatin1Literal("ksnip"));
-	loadTranslations(app, kImageAnnotatorTranslator, pathToKImageAnnotatorTranslations, QLatin1Literal("kImageAnnotator"));
+	loadTranslations(app, ksnipTranslator, pathToKsnipTranslations, QLatin1String("ksnip"));
+	loadTranslations(app, kImageAnnotatorTranslator, pathToKImageAnnotatorTranslations, QLatin1String("kImageAnnotator"));
 }
 
 void TranslationLoader::loadTranslations(const QApplication &app, QTranslator *translator, QString &path, const QString &applicationName)
@@ -58,18 +58,18 @@ bool TranslationLoader::loadTranslationFromAbsolutePath(QTranslator *translator,
 
 bool TranslationLoader::loadTranslationFromRelativePath(QTranslator *translator, const QString &path, const QString &applicationName)
 {
-	auto relativePathToAppDir = QCoreApplication::applicationDirPath() + QLatin1Literal("/");
+	auto relativePathToAppDir = QCoreApplication::applicationDirPath() + QLatin1String("/");
 	return loadTranslation(translator, relativePathToAppDir + path, applicationName);
 }
 
 bool TranslationLoader::loadTranslationForAppImage(QTranslator *translator, const QString &path, const QString &applicationName)
 {
-    auto relativePathToAppDir = QCoreApplication::applicationDirPath() + QLatin1Literal("/../..");
+    auto relativePathToAppDir = QCoreApplication::applicationDirPath() + QLatin1String("/../..");
     return loadTranslation(translator, relativePathToAppDir + path, applicationName);
 }
 
 bool TranslationLoader::loadTranslation(QTranslator *translator, const QString &path, const QString &applicationName)
 {
-	auto separator = QLatin1Literal("_");
+	auto separator = QLatin1String("_");
     return translator->load(QLocale(), applicationName, separator, path);
 }

@@ -69,7 +69,7 @@ QStringList StickerSettings::processSticker() const
 		} else {
 			auto directory = stickerDirectory();
 			auto filename = PathHelper::extractFilenameWithFormat(path);
-			auto newPath = directory + QStringLiteral("/") + filename;
+			auto newPath = directory + QLatin1String("/") + filename;
 			QFile::copy(path, newPath);
 			paths.append(newPath);
 		}

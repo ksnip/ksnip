@@ -24,11 +24,11 @@ QString ApplicationTitleProvider::getApplicationTitle(const QString &application
 	auto applicationTitle = applicationName;
 
 	if(!pathToImage.isEmpty()) {
-		applicationTitle = applicationTitle + QStringLiteral(" [") + pathToImage + QStringLiteral("]");
+		applicationTitle = applicationTitle + QLatin1String(" [") + pathToImage + QLatin1String("]");
 	}
 
 	if (isUnsaved) {
-		applicationTitle = QStringLiteral("*") + applicationTitle + " - " + unsavedString;
+		applicationTitle = QLatin1String("*") + applicationTitle + " - " + unsavedString;
 	}
 
 	return applicationTitle;

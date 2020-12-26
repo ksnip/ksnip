@@ -99,13 +99,13 @@ void HotKeySettings::initGui()
 	mEnableGlobalHotKeysCheckBox->setToolTip(tr("HotKeys are currently supported only for Windows and X11"));
 	connect(mEnableGlobalHotKeysCheckBox, &QCheckBox::stateChanged, this, &HotKeySettings::globalHotKeysStateChanged);
 
-	mRectAreaLabel->setText(tr("Capture Rect Area") + QLatin1Literal(":"));
-	mLastRectAreaLabel->setText(tr("Capture Last Rect Area") + QLatin1Literal(":"));
-	mFullScreenLabel->setText(tr("Capture Full Screen") + QLatin1Literal(":"));
-	mCurrentScreenLabel->setText(tr("Capture current Screen") + QLatin1Literal(":"));
-	mActiveWindowLabel->setText(tr("Capture active Window") + QLatin1Literal(":"));
-	mWindowUnderCursorLabel->setText(tr("Capture Window under Cursor") + QLatin1Literal(":"));
-	mPortalLabel->setText(tr("Capture using Portal") + QLatin1Literal(":"));
+	mRectAreaLabel->setText(tr("Capture Rect Area") + QLatin1String(":"));
+	mLastRectAreaLabel->setText(tr("Capture Last Rect Area") + QLatin1String(":"));
+	mFullScreenLabel->setText(tr("Capture Full Screen") + QLatin1String(":"));
+	mCurrentScreenLabel->setText(tr("Capture current Screen") + QLatin1String(":"));
+	mActiveWindowLabel->setText(tr("Capture active Window") + QLatin1String(":"));
+	mWindowUnderCursorLabel->setText(tr("Capture Window under Cursor") + QLatin1String(":"));
+	mPortalLabel->setText(tr("Capture using Portal") + QLatin1String(":"));
 
 	auto clearText = tr("Clear");
 	mRectAreaClearPushButton->setText(clearText);

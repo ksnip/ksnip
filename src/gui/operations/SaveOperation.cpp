@@ -42,7 +42,7 @@ SaveResultDto SaveOperation::execute()
 
     if(!mIsInstantSave){
 	    auto title = tr("Save As");
-	    auto filter = tr("Images") + QLatin1Literal(" (*.png *.gif *.jpg);;") + tr("All Files") + QLatin1Literal("(*)");
+	    auto filter = tr("Images") + QLatin1String(" (*.png *.gif *.jpg);;") + tr("All Files") + QLatin1String("(*)");
 	    QFileDialog saveDialog(mParent, title, path, filter);
 	    saveDialog.setAcceptMode(QFileDialog::AcceptSave);
 
@@ -86,6 +86,6 @@ SaveResultDto SaveOperation::save(const QString &path)
 void SaveOperation::notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const
 {
 	auto parentDirectory = PathHelper::extractParentDirectory(path);
-	NotifyOperation operation(mToastService, title, message + QLatin1Literal(" ") + path, parentDirectory, notificationType);
+	NotifyOperation operation(mToastService, title, message + QLatin1String(" ") + path, parentDirectory, notificationType);
 	operation.execute();
 }

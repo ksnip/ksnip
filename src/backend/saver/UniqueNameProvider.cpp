@@ -24,8 +24,8 @@ QString UniqueNameProvider::makeUniqueFilename(const QString& path, const QStrin
 	auto uniqueFilename = path + filename + format;
 	if (QFile::exists(uniqueFilename)) {
 		auto i = 1;
-		auto openingParentheses = QStringLiteral("(");
-		auto closingParentheses = QStringLiteral(")") ;
+		auto openingParentheses = QLatin1String("(");
+		auto closingParentheses = QLatin1String(")") ;
 		while (QFile::exists(uniqueFilename)) {
 			i++;
 			uniqueFilename = path + filename + openingParentheses + QString::number(i) + closingParentheses + format;

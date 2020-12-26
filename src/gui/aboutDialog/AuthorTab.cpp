@@ -24,17 +24,17 @@ AuthorTab::AuthorTab()
 	mLayout = new QVBoxLayout();
 	mContent = new QLabel();
 	mContent->setText(
-		           QLatin1Literal("<b>") + tr("The Authors:") + QLatin1Literal("</b><br>") +
-				   QLatin1Literal("Damir Porobic ") + createEmailEntry(QLatin1Literal("damir.porobic@gmx.com")) + QLatin1Literal("<br>") +
-				   QLatin1Literal("Stefan Comanescu") + createEmailEntry(QLatin1Literal("fnkabit@gmail.com")) + QLatin1Literal("<br><br>") +
-				   QLatin1Literal("<b>") + tr("Contributors:") + QLatin1Literal("</b><br>") +
-				   createContributorEntry(QLatin1Literal("Galileo Sartor"), tr("Snap & Flatpak Support")) +
-				   createContributorEntry(QStringLiteral("Luis Vásquez"), tr("Spanish Translation"), QLatin1Literal("lvaskz@protonmail.com")) +
-				   createContributorEntry(QLatin1Literal("Heimen Stoffels"), tr("Dutch Translation"), QLatin1Literal("vistausss@outlook.com")) +
-				   createContributorEntry(QLatin1Literal("Yury Martynov"), tr("Russian Translation"), QLatin1Literal("email@linxon.ru")) +
-				   createContributorEntry(QStringLiteral("Allan Nordhøy"), tr("Norwegian Bokmål Translation"), QLatin1Literal("epost@anotheragency.no")) +
-				   createContributorEntry(QLatin1Literal("4goodapp"), tr("French Translation")) +
-				   createContributorEntry(QLatin1Literal("epsiloneridani"), tr("Polish Translation"))
+		           QLatin1String("<b>") + tr("The Authors:") + QLatin1String("</b><br>") +
+				   QLatin1String("Damir Porobic ") + createEmailEntry(QLatin1String("damir.porobic@gmx.com")) + QLatin1String("<br>") +
+				   QLatin1String("Stefan Comanescu") + createEmailEntry(QLatin1String("fnkabit@gmail.com")) + QLatin1String("<br><br>") +
+				   QLatin1String("<b>") + tr("Contributors:") + QLatin1String("</b><br>") +
+				   createContributorEntry(QLatin1String("Galileo Sartor"), tr("Snap & Flatpak Support")) +
+				   createContributorEntry(QLatin1String("Luis Vásquez"), tr("Spanish Translation"), QLatin1String("lvaskz@protonmail.com")) +
+				   createContributorEntry(QLatin1String("Heimen Stoffels"), tr("Dutch Translation"), QLatin1String("vistausss@outlook.com")) +
+				   createContributorEntry(QLatin1String("Yury Martynov"), tr("Russian Translation"), QLatin1String("email@linxon.ru")) +
+				   createContributorEntry(QLatin1String("Allan Nordhøy"), tr("Norwegian Bokmål Translation"), QLatin1String("epost@anotheragency.no")) +
+				   createContributorEntry(QLatin1String("4goodapp"), tr("French Translation")) +
+				   createContributorEntry(QLatin1String("epsiloneridani"), tr("Polish Translation"))
 	);
 	mContent->setTextFormat(Qt::RichText);
 	mContent->setTextInteractionFlags(Qt::TextBrowserInteraction);
@@ -53,14 +53,14 @@ AuthorTab::~AuthorTab()
 
 QString AuthorTab::createContributorEntry(const QString &name, const QString &role, const QString &email) const
 {
-	auto baseEntry = name + QLatin1Literal(" - ") + role;
+	auto baseEntry = name + QLatin1String(" - ") + role;
 	if(!email.isEmpty()) {
-		baseEntry +=  QLatin1Literal(" ") + createEmailEntry(email);
+		baseEntry +=  QLatin1String(" ") + createEmailEntry(email);
 	}
-	return baseEntry + QLatin1Literal("<br>");
+	return baseEntry + QLatin1String("<br>");
 }
 
 QString AuthorTab::createEmailEntry(const QString &email)
 {
-	return QLatin1Literal("(<a href=\"mailto:") + email + QLatin1Literal(R"(" target="_top">Email</a>))");
+	return QLatin1String("(<a href=\"mailto:") + email + QLatin1String(R"(" target="_top">Email</a>))");
 }

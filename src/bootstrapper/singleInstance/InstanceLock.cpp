@@ -21,7 +21,7 @@
 
 InstanceLock::InstanceLock()
 {
-	mSingular = new QSharedMemory(QStringLiteral("KsnipInstanceLock"), this);
+	mSingular = new QSharedMemory(QLatin1String("KsnipInstanceLock"), this);
 }
 
 InstanceLock::~InstanceLock()

@@ -79,7 +79,7 @@ void HandleUploadResultOperation::notifyScriptSuccessfulUpload() const
 
 void HandleUploadResultOperation::notifyImgurSuccessfulUpload(const QString &url) const
 {
-	NotifyOperation operation(mTrayIcon, tr("Upload Successful"), tr("Uploaded to") + QLatin1Literal(" ") + url, url, NotificationTypes::Information);
+	NotifyOperation operation(mTrayIcon, tr("Upload Successful"), tr("Uploaded to") + QLatin1String(" ") + url, url, NotificationTypes::Information);
 	operation.execute();
 }
 

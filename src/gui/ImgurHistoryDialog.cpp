@@ -21,7 +21,7 @@
 
 ImgurHistoryDialog::ImgurHistoryDialog()
 {
-	setWindowTitle(QApplication::applicationName() + QStringLiteral(" - ") + tr("Imgur History"));
+	setWindowTitle(QApplication::applicationName() + QLatin1String(" - ") + tr("Imgur History"));
 	setMinimumWidth(650);
 	setMinimumHeight(400);
 
@@ -70,7 +70,7 @@ void ImgurHistoryDialog::populateTable(const QStringList &logEntries)
 
 void ImgurHistoryDialog::addEntryToTable(const QString &entry, int row) const
 {
-	auto cells = entry.split(QStringLiteral(","));
+	auto cells = entry.split(QLatin1String(","));
 	auto dateCell = new QTableWidgetItem(cells[0]);
 	auto linkCell = new QTableWidgetItem(cells[1]);
 	auto deleteLinkCell = new QTableWidgetItem(cells[2]);

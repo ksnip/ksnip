@@ -23,11 +23,11 @@ AboutTab::AboutTab()
 {
 	mLayout = new QVBoxLayout();
 	mContent = new QLabel();
-	mContent->setText(QStringLiteral("<b>") + QApplication::applicationName() + QStringLiteral(" ") + tr("Screenshot Tool") + QStringLiteral("</b><br/><br/>") +
-				   QStringLiteral("(C) 2020 Damir Porobic") + QStringLiteral("<br/><br/>") +
-				   tr("License: ") + QStringLiteral("<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU General Public License Version 2</a>")
-				   + QStringLiteral("<br/><br/>") +
-				   tr("Please use ") + QStringLiteral("<a href=\"https://github.com/ksnip/ksnip/issues/\">GitHub</a>") + tr(" to report bugs."));
+	mContent->setText(QLatin1String("<b>") + QApplication::applicationName() + QLatin1String(" ") + tr("Screenshot Tool") + QLatin1String("</b><br/><br/>") +
+				   QLatin1String("(C) 2020 Damir Porobic") + QLatin1String("<br/><br/>") +
+				   tr("License: ") + QLatin1String("<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU General Public License Version 2</a>")
+				   + QLatin1String("<br/><br/>") +
+				   tr("Please use ") + QLatin1String("<a href=\"https://github.com/ksnip/ksnip/issues/\">GitHub</a>") + tr(" to report bugs."));
 	mContent->setTextFormat(Qt::RichText);
 	mContent->setTextInteractionFlags(Qt::TextBrowserInteraction);
 	mContent->setOpenExternalLinks(true);

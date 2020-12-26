@@ -23,16 +23,16 @@ DonateTab::DonateTab()
 {
 	mLayout = new QVBoxLayout();
 	mContent = new QLabel();
-	mContent->setText(QStringLiteral("<b>") + tr("Donation") + QStringLiteral("</b>") + QStringLiteral("<br/>") +
+	mContent->setText(QLatin1String("<b>") + tr("Donation") + QLatin1String("</b>") + QLatin1String("<br/>") +
 					  tr("ksnip is a non-profitable copylefted libre software project, and<br/>"
 		                    "still has some costs that need to be covered,<br/>"
-		                    "like domain costs or hardware costs for cross-platform support.") + QStringLiteral("<br/>") +
+		                    "like domain costs or hardware costs for cross-platform support.") + QLatin1String("<br/>") +
 		              tr("If you want to help or just<br/>"
 			                 "want to appreciate the work being done<br/>"
-					         "by treating developers to a beer or coffee, you can do that") + QStringLiteral(" <a href=\"https://www.paypal.me/damirporobic\">") + tr("here") + QStringLiteral("</a>.<br/><br/>") +
-					  tr("Donations are always welcome") + QStringLiteral(" :)") + QStringLiteral("<br/><br/>") +
-		              QStringLiteral("<b>") + tr("Become a GitHub Sponsor") + QStringLiteral("?</b>") + QStringLiteral("<br/>") +
-		              tr("Also possible, ") + QStringLiteral(" <a href=\"https://github.com/sponsors/DamirPorobic\">") + tr("here") + QStringLiteral("</a>."));
+					         "by treating developers to a beer or coffee, you can do that") + QLatin1String(" <a href=\"https://www.paypal.me/damirporobic\">") + tr("here") + QLatin1String("</a>.<br/><br/>") +
+					  tr("Donations are always welcome") + QLatin1String(" :)") + QLatin1String("<br/><br/>") +
+		              QLatin1String("<b>") + tr("Become a GitHub Sponsor") + QLatin1String("?</b>") + QLatin1String("<br/>") +
+		              tr("Also possible, ") + QLatin1String(" <a href=\"https://github.com/sponsors/DamirPorobic\">") + tr("here") + QLatin1String("</a>."));
 
 	mContent->setTextFormat(Qt::RichText);
 	mContent->setTextInteractionFlags(Qt::TextBrowserInteraction);

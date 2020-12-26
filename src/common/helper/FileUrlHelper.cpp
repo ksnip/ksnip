@@ -23,14 +23,14 @@ QString FileUrlHelper::parse(const QString &text)
 {
 	auto url = text;
 #if defined(__APPLE__)
-	return url.remove(QStringLiteral("file://"));
+	return url.remove(QLatin1String("file://"));
 #endif
 
 #if defined(__linux__)
-	return url.remove(QStringLiteral("file://"));
+	return url.remove(QLatin1String("file://"));
 #endif
 
 #if  defined(_WIN32)
-	return url.remove(QStringLiteral("file:///"));
+	return url.remove(QLatin1String("file:///"));
 #endif
 }

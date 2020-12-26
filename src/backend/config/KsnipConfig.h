@@ -29,8 +29,6 @@
 #include <QKeySequence>
 #include <QSettings>
 
-#include <kImageAnnotator/include/NumberUpdateMode.h>
-
 #include "KsnipConfigOptions.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/enum/SaveQualityMode.h"

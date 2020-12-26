@@ -22,8 +22,6 @@
 
 #include <QObject>
 
-#include <kImageAnnotator/include/NumberUpdateMode.h>
-
 class QAction;
 
 class IImageAnnotator : public QObject

@@ -436,6 +436,20 @@ void KsnipConfig::setSwitchToSelectToolAfterDrawingItem(bool enabled)
 	emit annotatorConfigChanged();
 }
 
+bool KsnipConfig::numberToolSeedChangeUpdatesAllItems() const
+{
+	return loadValue(KsnipConfigOptions::numberToolSeedChangeUpdatesAllItemsString(), true).toBool();
+}
+
+void KsnipConfig::setNumberToolSeedChangeUpdatesAllItems(bool enabled)
+{
+	if (numberToolSeedChangeUpdatesAllItems() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::numberToolSeedChangeUpdatesAllItemsString(), enabled);
+	emit annotatorConfigChanged();
+}
+
 bool KsnipConfig::textBold() const
 {
     return textFont().bold();

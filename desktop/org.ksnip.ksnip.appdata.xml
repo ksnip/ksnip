@@ -92,6 +92,7 @@
                     <li>New kImageAnnotator: Add function for loading translations.</li>
                     <li>New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions.</li>
                     <li>New kImageAnnotator: Add support for hiding annotation settings panel.</li>
+                    <li>New kImageAnnotator: Add config option for numbering tool to only set next number.</li>
                 </ul>
             </description>
         </release>

@@ -196,3 +196,8 @@ void ImageAnnotatorMock::setSettingsCollapsed(bool isCollapsed)
 {
 
 }
+
+void ImageAnnotatorMock::setNumberToolSeedChangeUpdatesAllItems(bool enabled)
+{
+
+}

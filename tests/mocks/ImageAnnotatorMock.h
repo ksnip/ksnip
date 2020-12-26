@@ -42,7 +42,7 @@ public:
 	QSize sizeHint() const override;
 	void showAnnotator() override;
 	void showCropper() override;
-	void setSettingsCollapsed(bool isCollapsed);
+	void setSettingsCollapsed(bool isCollapsed) override;
 	void showScaler() override;
 	void hide() override;
 	void close() override;
@@ -69,6 +69,7 @@ public slots:
 	void setSaveToolSelection(bool enabled) override;
 	void setSmoothFactor(int factor) override;
 	void setSwitchToSelectToolAfterDrawingItem(bool enabled) override;
+	void setNumberToolSeedChangeUpdatesAllItems(bool enabled) override;
 	void setTabBarAutoHide(bool enabled) override;
 	void removeTab(int index) override;
 	void setStickers(const QStringList &stickerPaths, bool keepDefault) override;

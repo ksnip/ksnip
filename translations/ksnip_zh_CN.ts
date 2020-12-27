@@ -253,11 +253,11 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Snap 和 Flatpak 支持</translation>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>作者：</translation>
     </message>
 </context>
 <context>
@@ -311,7 +311,7 @@ Do you want to save it?</source>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>删除图像</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
@@ -335,11 +335,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>捐赠</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>成为一名 GitHub 赞助者</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
@@ -354,27 +354,27 @@ Do you want to continue?</source>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">矩形区域</translation>
+        <translation>矩形区域</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">上一个矩形区域</translation>
+        <translation>上一个矩形区域</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">全屏（所有监视器）</translation>
+        <translation>全屏（所有监视器）</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">当前屏幕</translation>
+        <translation>当前屏幕</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">活动的窗口</translation>
+        <translation>活动的窗口</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">光标下的窗口</translation>
+        <translation>光标下的窗口</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
@@ -437,7 +437,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>脚本在标准错误上有输出。</translation>
     </message>
 </context>
 <context>
@@ -480,7 +480,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>清除</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
@@ -538,11 +538,11 @@ when the Main Window was hidden or minimized.</source>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>截图时隐藏主窗口</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>捕获一个新截图时隐藏主窗口。</translation>
     </message>
 </context>
 <context>
@@ -572,15 +572,15 @@ when the Main Window was hidden or minimized.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">上传到imgur.com完成！</translation>
+        <translation>上传到 imgur.com 完成！</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">收到新令牌，正在尝试再次上传…</translation>
+        <translation>收到新令牌，正在尝试再次上传…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">Imgur令牌已过期，正在请求新令牌…</translation>
+        <translation>Imgur令牌已过期，正在请求新令牌…</translation>
     </message>
 </context>
 <context>
@@ -828,27 +828,27 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>复制路径</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>打开目录</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>查看(&amp;V)</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>重命名</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>打开图像</translation>
     </message>
     <message>
         <source>Show Docks</source>
@@ -863,31 +863,31 @@ and capturing screenshot.</source>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">保存</translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">另存为</translation>
+        <translation>另存为</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>打开目录</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">复制</translation>
+        <translation>复制</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>复制路径</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>重命名</translation>
     </message>
 </context>
 <context>
@@ -923,7 +923,7 @@ and capturing screenshot.</source>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>图像已重命名</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
@@ -931,7 +931,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>图像重命名失败</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
@@ -939,11 +939,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>重命名图像</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>新文件名：</translation>
     </message>
 </context>
 <context>
@@ -981,11 +981,11 @@ and capturing screenshot.</source>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished">自动将新的捕获保存到默认位置</translation>
+        <translation>自动将新的捕获保存到默认位置</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">在放弃未保存的更改之前提示保存</translation>
+        <translation>在放弃未保存的更改之前提示保存</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
@@ -1009,19 +1009,19 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">浏览</translation>
+        <translation>浏览</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>保存设置</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">捕获保存位置</translation>
+        <translation>捕获保存位置</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>默认</translation>
     </message>
     <message>
         <source>Factor</source>
@@ -1029,7 +1029,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>保存质量</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
@@ -1041,7 +1041,7 @@ Not all image formats support the full range, JPEG does.</source>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>将脚本输出复制到剪切板</translation>
     </message>
     <message>
         <source>Script:</source>
@@ -1075,7 +1075,7 @@ Without this setting errors in the script will be unnoticed.</source>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>过滤器：</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
@@ -1139,7 +1139,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>托盘图标</translation>
     </message>
 </context>
 <context>
@@ -1342,7 +1342,7 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">使用任务栏图标</translation>
+        <translation>使用托盘图标</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
@@ -1352,35 +1352,35 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">最小化到托盘</translation>
+        <translation>最小化到托盘</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">启动时最小化到托盘</translation>
+        <translation>启动时最小化到托盘</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">最小化到托盘</translation>
+        <translation>关闭到托盘</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">显示编辑器</translation>
+        <translation>显示编辑器</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">捕获</translation>
+        <translation>捕获</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>默认托盘图标行为</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>左键单击托盘图标时的默认触发行为。</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>托盘图标设置</translation>
     </message>
 </context>
 <context>
@@ -1425,7 +1425,7 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>上传类型：</translation>
     </message>
     <message>
         <source>Imgur</source>

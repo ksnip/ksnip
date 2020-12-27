@@ -87,7 +87,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх&#x2028;
+ліній, залишених пером чи маркером, але зробить їх 
 плавнішими.</translation>
     </message>
     <message>
@@ -148,13 +148,16 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Зміна у засобі перенумерування оновлює усі записи номерів</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо цей пункт не буде позначено, зміни у засобі
+нумерування стосуватимуться лише нових записів,
+і не стосуватимуться наявних. Якщо пункт не буде
+позначено, також можлива поява дублікатів номерів.</translation>
     </message>
 </context>
 <context>
@@ -213,16 +216,17 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматично ховати вкладки</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматично ховати панелі</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Після запуску приховати панель інструментів і параметри анотацій.
+Видимістю бічних панелей можна керувати за допомогою клавіші Tab.</translation>
     </message>
 </context>
 <context>
@@ -360,31 +364,31 @@ Do you want to continue?</source>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Прямокутна область</translation>
+        <translation>Прямокутна ділянка</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Остання прямокутна область</translation>
+        <translation>Остання прямокутна ділянка</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Повноекранний режим (усі монітори)</translation>
+        <translation>Повноекранний режим (усі монітори)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Поточний екран</translation>
+        <translation>Поточний екран</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Активне вікно</translation>
+        <translation>Активне вікно</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Вікно під курсором миші</translation>
+        <translation>Вікно під вказівником</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Портал знімків вікон</translation>
+        <translation>Портал знімків вікон</translation>
     </message>
 </context>
 <context>
@@ -868,11 +872,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати бічні панелі</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Приховати бічні панелі</translation>
     </message>
 </context>
 <context>
@@ -1163,34 +1167,34 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Піктограма у лотку</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Змініть розміри позначеного прямокутника за допомогою елементів керування або пересуньте його перетягуванням ділянки.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Скористайтеся клавішами зі стрілками для пересування позначеного.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Скористайтеся клавішами зі стрілками разом із Ctrl для пересуванян верхнього лівого кута.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Скористайтеся клавішами зі стрілками разом із Alt для пересування нижнього правого кута.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтвердьте позначення натисканням Enter/Return або скасуйте дію натисканням Esc.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished">Це повідомлення можна вимкнути у параметрах програми.</translation>
+        <translation>Це повідомлення можна вимкнути у параметрах програми.</translation>
     </message>
 </context>
 <context>
@@ -1317,21 +1321,23 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Орнаментальний колір області обрізання</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Встановлює колір усіх елементів орнаменту
+області обрізання.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Прозорість області обрізання</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Рівень прозорості для непозначеної ділянки області обрізання.
+Менше значення — прозоріша ділянка.</translation>
     </message>
 </context>
 <context>
@@ -1380,45 +1386,45 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Показувати іконку в треї</translation>
+        <translation>Піктограма у лотку</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">При ввімкненні іконка трея буде додана до панелі задач, якщо віконний менеджер системи це підтримує.
-Зміна потребує перезапуску.</translation>
+        <translation>Якщо позначено, програма додасть піктограму лотка на панель задач, якщо у засобі керування вікнами операційної системи передбачено її підтримку.
+Зміна потребує перезапуску програми.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Згорнути до трею</translation>
+        <translation>Згорнути до лотка</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Запускати згорнутим до лотка</translation>
+        <translation>Запускати згорнутою до лотка</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Закрити до трею</translation>
+        <translation>Закривати до лотка</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Показати редактор</translation>
+        <translation>Показати редактор</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Захопити</translation>
+        <translation>Захопити</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Типова дія для піктограми лотка</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Типова дія, яку буде виконано у відповідь на клацання лівою кнопкою миші на піктограмі у лотку.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри піктограми лотка</translation>
     </message>
 </context>
 <context>

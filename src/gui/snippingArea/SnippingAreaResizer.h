@@ -22,6 +22,7 @@
 
 #include <QPainter>
 #include <QMouseEvent>
+#include <QKeyEvent>
 #include <QCursor>
 #include <QVector>
 
@@ -41,6 +42,8 @@ public:
 	void handleMousePress(QMouseEvent *event);
 	void handleMouseRelease(QMouseEvent *event);
 	void handleMouseMove(QMouseEvent *event);
+	void handleKeyPress(QKeyEvent *event);
+	void handleKeyRelease(QKeyEvent *event);
 
 signals:
 	void rectChanged(const QRectF &rect);
@@ -55,10 +58,18 @@ private:
 	QVector<QRectF> mHandles;
 	KsnipConfig *mConfig;
 	QColor mColor;
+	bool mControlPressed;
+	bool mAltPressed;
 
 	void updateHandlePositions();
 	void updateCurrentRect(const QPoint &point);
 	void updateCursor(const QPoint &pos);
+	void notifyRectChanged();
+	void arrowUpPressed();
+	void arrowDownPressed();
+	void arrowLeftPressed();
+	void arrowRightPressed();
+	void arrowKeyPressed(const QKeyEvent *event);
 };
 
 

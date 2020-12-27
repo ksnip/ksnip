@@ -29,7 +29,8 @@
 #include "SnippingAreaAdorner.h"
 #include "SnippingAreaResizer.h"
 #include "SnippingAreaSelector.h"
-#include "SnippingAreaInfoText.h"
+#include "SnippingAreaSelectorInfoText.h"
+#include "SnippingAreaResizerInfoText.h"
 #include "src/common/helper/MathHelper.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
@@ -68,7 +69,8 @@ private:
 	QPixmap *mBackground;
 	SnippingAreaResizer *mResizer;
 	SnippingAreaSelector *mSelector;
-	SnippingAreaInfoText *mInfoText;
+	SnippingAreaSelectorInfoText *mSelectorInfoText;
+	SnippingAreaResizerInfoText *mResizerInfoText;
 	bool mIsSwitchPressed;
 	QTimer *mTimer;
 	int mUnselectedRegionAlpha;

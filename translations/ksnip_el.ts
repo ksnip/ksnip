@@ -1151,7 +1151,7 @@ When omitted, everything is copied.</source>
     </message>
 </context>
 <context>
-    <name>SnippingAreaInfoText</name>
+    <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
         <translation type="unfinished"></translation>

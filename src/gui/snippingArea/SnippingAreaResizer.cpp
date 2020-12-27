@@ -24,7 +24,9 @@ SnippingAreaResizer::SnippingAreaResizer(KsnipConfig *config, QObject *parent) :
 	mConfig(config),
 	mIsActive(false),
 	mIsGrabbed(false),
-	mGrabbedHandleIndex(-1)
+	mGrabbedHandleIndex(-1),
+	mControlPressed(false),
+	mAltPressed(false)
 {
 
 	const auto width = 15;
@@ -115,6 +117,42 @@ void SnippingAreaResizer::handleMouseMove(QMouseEvent *event)
 	}
 }
 
+void SnippingAreaResizer::handleKeyPress(QKeyEvent *event)
+{
+	if (event->key() == Qt::Key_Control) {
+		mControlPressed = true;
+	} else if (event->key() == Qt::Key_Alt) {
+		mAltPressed = true;
+	}
+
+	if (mIsActive) {
+		arrowKeyPressed(event);
+		notifyRectChanged();
+	}
+}
+
+void SnippingAreaResizer::arrowKeyPressed(const QKeyEvent *event)
+{
+	if (event->key() == Qt::Key_Up) {
+		arrowUpPressed();
+	} else if (event->key() == Qt::Key_Down) {
+		arrowDownPressed();
+	} else if (event->key() == Qt::Key_Left) {
+		arrowLeftPressed();
+	} else if (event->key() == Qt::Key_Right) {
+		arrowRightPressed();
+	}
+}
+
+void SnippingAreaResizer::handleKeyRelease(QKeyEvent *event)
+{
+	if(event->key() == Qt::Key_Control) {
+		mControlPressed = false;
+	} else if(event->key() == Qt::Key_Alt) {
+		mAltPressed = false;
+	}
+}
+
 void SnippingAreaResizer::updateCursor(const QPoint &pos)
 {
 	if (mHandles[1].contains(pos) || mHandles[5].contains(pos)) {
@@ -150,6 +188,11 @@ void SnippingAreaResizer::updateCurrentRect(const QPoint &point)
 		mCurrentRect.setLeft((point - mGrabOffset).x());
 	}
 
+	notifyRectChanged();
+}
+
+void SnippingAreaResizer::notifyRectChanged()
+{
 	updateHandlePositions();
 	emit rectChanged(mCurrentRect.normalized());
 }
@@ -164,4 +207,48 @@ void SnippingAreaResizer::updateHandlePositions()
 	mHandles[5].moveCenter(RectHelper::bottom(mCurrentRect));
 	mHandles[6].moveCenter(RectHelper::bottomLeft(mCurrentRect));
 	mHandles[7].moveCenter(RectHelper::left(mCurrentRect));
+}
+
+void SnippingAreaResizer::arrowRightPressed()
+{
+	if (mControlPressed) {
+		mCurrentRect.setLeft(mCurrentRect.left() + 1);
+	} else if (mAltPressed) {
+		mCurrentRect.setRight(mCurrentRect.right() + 1);
+	} else {
+		mCurrentRect.moveRight(mCurrentRect.right() + 1);
+	}
+}
+
+void SnippingAreaResizer::arrowLeftPressed()
+{
+	if (mControlPressed) {
+		mCurrentRect.setLeft(mCurrentRect.left() - 1);
+	} else if (mAltPressed) {
+		mCurrentRect.setRight(mCurrentRect.right() - 1);
+	} else {
+		mCurrentRect.moveLeft(mCurrentRect.left() - 1);
+	}
+}
+
+void SnippingAreaResizer::arrowDownPressed()
+{
+	if (mControlPressed) {
+		mCurrentRect.setTop(mCurrentRect.top() + 1);
+	} else if (mAltPressed) {
+		mCurrentRect.setBottom(mCurrentRect.bottom() + 1);
+	} else {
+		mCurrentRect.moveBottom(mCurrentRect.bottom() + 1);
+	}
+}
+
+void SnippingAreaResizer::arrowUpPressed()
+{
+	if (mControlPressed) {
+		mCurrentRect.setTop(mCurrentRect.top() - 1);
+	} else if (mAltPressed) {
+		mCurrentRect.setBottom(mCurrentRect.bottom() - 1);
+	} else {
+		mCurrentRect.moveTop(mCurrentRect.top() - 1);
+	}
 }

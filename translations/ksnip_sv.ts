@@ -1154,7 +1154,7 @@ När detta utelämnas kopieras allt.</translation>
     </message>
 </context>
 <context>
-    <name>SnippingAreaInfoText</name>
+    <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
         <translation>Klicka och dra för att markera ett rektangulärt område eller tryck ESC för att avsluta.</translation>

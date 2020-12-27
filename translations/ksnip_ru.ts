@@ -1155,7 +1155,7 @@ When omitted, everything is copied.</source>
     </message>
 </context>
 <context>
-    <name>SnippingAreaInfoText</name>
+    <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
         <translation>Нажмите и перемещайте для выбора прямоугольной области, или нажмите ESC для выхода.</translation>

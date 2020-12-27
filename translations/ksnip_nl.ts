@@ -1155,7 +1155,7 @@ Sla over om álles te kopiëren.</translation>
     </message>
 </context>
 <context>
-    <name>SnippingAreaInfoText</name>
+    <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
         <translation>Klik en sleep om een rechthoekig gebied te selecteren of druk op Esc om af te breken.</translation>

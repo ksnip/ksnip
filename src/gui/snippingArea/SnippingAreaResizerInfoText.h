@@ -17,38 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_SNIPPINGAREAINFOTEXT_H
-#define KSNIP_SNIPPINGAREAINFOTEXT_H
+#ifndef KSNIP_SNIPPINGAREARESIZERINFOTEXT_H
+#define KSNIP_SNIPPINGAREARESIZERINFOTEXT_H
 
-#include <QFontMetricsF>
-#include <QColor>
-#include <QBrush>
-#include <QPen>
-#include <QPainter>
+#include "AbstractSnippingAreaInfoText.h"
 
-class SnippingAreaInfoText : public QObject
+class SnippingAreaResizerInfoText : public AbstractSnippingAreaInfoText
 {
 Q_OBJECT
 public:
-	explicit SnippingAreaInfoText(QObject *parent);
-	~SnippingAreaInfoText() override;
-	void paint(QPainter *painter);
-	void handleMouseMove(const QPoint &pos);
-	void activate(const QRectF &snippingAreaGeometry, bool isResizingDefault);
-	void deactivate();
+	explicit SnippingAreaResizerInfoText(QObject *parent);
+	~SnippingAreaResizerInfoText() override = default;
 
-private:
-	QPen *mRectPen;
-	QBrush *mRectBrush;
-	QString mInfoText;
-	QRect *mBaseInfoTextRect;
-	QPoint mCurrentMousePos;
-	bool mIsActive;
-	bool mIsResizingDefault;
-	QRectF mSnippingAreaGeometry;
-
-	void updateInfoText();
+protected:
+	void updateInfoText() override;
 };
 
-
-#endif //KSNIP_SNIPPINGAREAINFOTEXT_H
+#endif //KSNIP_SNIPPINGAREARESIZERINFOTEXT_H

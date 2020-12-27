@@ -1155,7 +1155,7 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
 </context>
 <context>
-    <name>SnippingAreaInfoText</name>
+    <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
         <translation>Kliknij i przeciągnij, aby wybrać prostokątny obszar, lub naciśnij klawisz ESC, aby zakończyć pracę.</translation>

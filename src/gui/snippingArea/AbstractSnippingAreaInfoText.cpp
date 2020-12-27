@@ -17,42 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "SnippingAreaInfoText.h"
+#include "AbstractSnippingAreaInfoText.h"
 
-SnippingAreaInfoText::SnippingAreaInfoText(QObject *parent) :
+AbstractSnippingAreaInfoText::AbstractSnippingAreaInfoText(QObject *parent):
 	QObject(parent),
 	mRectPen(new QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin)),
 	mRectBrush(new QBrush(QColor(255, 255, 255, 160))),
 	mBaseInfoTextRect(new QRect(30, 30, 500, 100)),
-	mIsActive(false),
-	mIsResizingDefault(false)
+	mIsActive(false)
 {
-	updateInfoText();
 }
 
-SnippingAreaInfoText::~SnippingAreaInfoText()
+AbstractSnippingAreaInfoText::~AbstractSnippingAreaInfoText()
 {
 	delete mRectPen;
 	delete mRectBrush;
 	delete mBaseInfoTextRect;
 }
 
-void SnippingAreaInfoText::updateInfoText()
-{
-	auto selectRect = tr("Click and Drag to select a rectangular area or press ESC to quit.");
-	auto resizeAfterSelection = tr("Hold CTRL pressed to resize selection after selecting.");
-	auto dontResizeAfterSelection = tr("Hold CTRL pressed to prevent resizing after selecting.");
-	auto cancelAfterTimeout = tr("Operation will be canceled after 60 sec when no selection made.");
-	auto infoTextCanBeDisabled = tr("This message can be disabled via settings.");
-	auto newLine = QLatin1String("\n");
-	if(mIsResizingDefault) {
-		mInfoText = selectRect + newLine + dontResizeAfterSelection + newLine + cancelAfterTimeout + newLine + infoTextCanBeDisabled;
-	} else {
-		mInfoText = selectRect + newLine + resizeAfterSelection + newLine + cancelAfterTimeout + newLine + infoTextCanBeDisabled;
-	}
-}
-
-void SnippingAreaInfoText::paint(QPainter *painter)
+void AbstractSnippingAreaInfoText::paint(QPainter *painter)
 {
 	if(mIsActive) {
 		auto fontMetric = painter->fontMetrics();
@@ -72,20 +55,31 @@ void SnippingAreaInfoText::paint(QPainter *painter)
 	}
 }
 
-void SnippingAreaInfoText::handleMouseMove(const QPoint &pos)
+void AbstractSnippingAreaInfoText::handleMouseMove(const QPoint &pos)
 {
 	mCurrentMousePos = pos;
 }
 
-void SnippingAreaInfoText::activate(const QRectF &snippingAreaGeometry, bool isResizingDefault)
+void AbstractSnippingAreaInfoText::activate(const QRectF &snippingAreaGeometry)
 {
 	mIsActive = true;
-	mIsResizingDefault = isResizingDefault;
 	mSnippingAreaGeometry = snippingAreaGeometry;
 	updateInfoText();
 }
 
-void SnippingAreaInfoText::deactivate()
+void AbstractSnippingAreaInfoText::deactivate()
 {
 	mIsActive = false;
+}
+
+void AbstractSnippingAreaInfoText::setInfoText(const QStringList &infoTextLines)
+{
+	auto newLine = QLatin1String("\n");
+	mInfoText = QString();
+	for (int i = 0; i < infoTextLines.length(); ++i) {
+		mInfoText += infoTextLines[i];
+		if(i < infoTextLines.length() - 1){
+			mInfoText += newLine;
+		}
+	}
 }

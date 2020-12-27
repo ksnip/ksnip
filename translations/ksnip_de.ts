@@ -1156,7 +1156,7 @@ Alles wird kopiert wenn leer.</translation>
     </message>
 </context>
 <context>
-    <name>SnippingAreaInfoText</name>
+    <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
         <translation>Klicken und ziehen Sie, um einen rechteckigen Bereich auszuwählen, oder drücken Sie ESC, um zu beenden.</translation>

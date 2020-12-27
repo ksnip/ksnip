@@ -109,7 +109,7 @@ and dropped into the "Application" folder. After that the application can be sta
 
 ### Homebrew Cask (macOS)
 Just install via Homebrew and start using from your "Applications" folder.
-`$ brew cask install ksnip`
+`$ brew install --cask ksnip`
 
 # Dependencies
 ksnip depends on [kImageAnnotator](https://github.com/ksnip/kImageAnnotator) and [kColorPicker](https://github.com/DamirPorobic/kColorPicker) which needs

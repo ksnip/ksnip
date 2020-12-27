@@ -146,6 +146,16 @@ vil gjøre dem mykere.</translation>
         <source>Switch to Select Tool after drawing Item</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Number Tool Seed change updates all Number Items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disabling this option causes changes of the number tool
+seed to affect only new items but not existing items.
+Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -168,29 +178,8 @@ grensesnittet. Endringer krever omstart av ksnip.</translation>
         <translation type="unfinished">Programinnstillinger</translation>
     </message>
     <message>
-        <source>Use Tray Icon</source>
-        <translation>Bruk systemkurvsikon</translation>
-    </message>
-    <message>
-        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
-Change requires restart.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Minimize to Tray</source>
-        <translation>Minimer til systemkurven</translation>
-    </message>
-    <message>
-        <source>Close to Tray</source>
-        <translation>Lukk til systemkurven</translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation>Kopier nye avbildninger til utklippstavle automatisk</translation>
-    </message>
-    <message>
-        <source>Auto Hide Tabs</source>
-        <translation>Skjul faner automatisk</translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -202,10 +191,6 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Start Minimized to Tray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -221,6 +206,19 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On startup hide Toolbar and Annotation Settings.
+Docks visibility can be toggled with the Tab Key.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -282,55 +280,27 @@ Do you want to save it?</source>
         <translation>Ny</translation>
     </message>
     <message>
-        <source>Rectangular Area</source>
-        <translation>Rektangulært område</translation>
-    </message>
-    <message>
         <source>Draw a rectangular area with your mouse</source>
         <translation>Tegn et rektangulært område med musen din</translation>
-    </message>
-    <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation>Fullskjermsvisning (alle skjermer)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
         <translation>Avbild hele skjermen på tvers av alle monitorer</translation>
     </message>
     <message>
-        <source>Current Screen</source>
-        <translation>Nåværende skjerm</translation>
-    </message>
-    <message>
         <source>Capture screen where the mouse is located</source>
         <translation type="unfinished">Avbild skjerm der pekeren befinner seg</translation>
-    </message>
-    <message>
-        <source>Active Window</source>
-        <translation>Aktivt vindu</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
         <translation>Avbild vindu som er i fokus</translation>
     </message>
     <message>
-        <source>Window Under Cursor</source>
-        <translation>Vindu under peker</translation>
-    </message>
-    <message>
         <source>Capture that is currently under the mouse cursor</source>
         <translation type="unfinished">Avbild det som er under musepekeren</translation>
     </message>
     <message>
-        <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Screenshot Portal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -380,6 +350,37 @@ Do you want to continue?</source>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation>Hvis du ønsker å hjelpe, eller bare&lt;br/&gt;vil verdsette arbeidet som gjøres&lt;br/&gt;ved å spandere øl eller kaffe på utviklerne, kan du gjøre dette</translation>
+    </message>
+</context>
+<context>
+    <name>EnumTranslator</name>
+    <message>
+        <source>Rectangular Area</source>
+        <translation type="unfinished">Rektangulært område</translation>
+    </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Full Screen (All Monitors)</source>
+        <translation type="unfinished">Fullskjermsvisning (alle skjermer)</translation>
+    </message>
+    <message>
+        <source>Current Screen</source>
+        <translation type="unfinished">Nåværende skjerm</translation>
+    </message>
+    <message>
+        <source>Active Window</source>
+        <translation type="unfinished">Aktivt vindu</translation>
+    </message>
+    <message>
+        <source>Window Under Cursor</source>
+        <translation type="unfinished">Vindu under peker</translation>
+    </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -851,6 +852,14 @@ og avbildning av skjerm.</translation>
         <source>Open Images</source>
         <translation>Åpne bilder</translation>
     </message>
+    <message>
+        <source>Show Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1130,6 +1139,37 @@ When omitted, everything is copied.</source>
         <source>Snipping Area</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Tray Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaResizerInfoText</name>
+    <message>
+        <source>Resize selected rect using the handles or move it by dragging the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys to move the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing CTRL to move top left handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
@@ -1239,6 +1279,24 @@ by pressing return.</source>
         <source>Snipping Area</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Snipping Area adorner color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of all adorner elements
+on the snipping area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha for not selected region on snipping area.
+Smaller number is more transparent.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1279,6 +1337,50 @@ by pressing return.</source>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TrayIconSettings</name>
+    <message>
+        <source>Use Tray Icon</source>
+        <translation type="unfinished">Bruk systemkurvsikon</translation>
+    </message>
+    <message>
+        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
+Change requires restart.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimize to Tray</source>
+        <translation type="unfinished">Minimer til systemkurven</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close to Tray</source>
+        <translation type="unfinished">Lukk til systemkurven</translation>
+    </message>
+    <message>
+        <source>Show Editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Tray Icon action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Action that is triggered by left clicking the tray icon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tray Icon Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

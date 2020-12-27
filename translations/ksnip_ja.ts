@@ -145,31 +145,22 @@ make them more smooth.</source>
         <source>Switch to Select Tool after drawing Item</source>
         <translation>アイテムを描画したら選択ツールに切り替える</translation>
     </message>
+    <message>
+        <source>Number Tool Seed change updates all Number Items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disabling this option causes changes of the number tool
+seed to affect only new items but not existing items.
+Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>起動時に既定のモードでスクリーンショットを撮る</translation>
-    </message>
-    <message>
-        <source>Use Tray Icon</source>
-        <translation>トレイアイコンを使用する</translation>
-    </message>
-    <message>
-        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
-Change requires restart.</source>
-        <translation>有効にすると、タスクバーにトレイアイコンを追加します 
-(OS のウィンドウマネージャーがサポートしている場合)。
-変更には再起動が必要です。</translation>
-    </message>
-    <message>
-        <source>Minimize to Tray</source>
-        <translation>最小化したらトレイに格納する</translation>
-    </message>
-    <message>
-        <source>Close to Tray</source>
-        <translation>ウィンドウを閉じたらトレイに格納する</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -190,10 +181,6 @@ Change requires ksnip restart to take effect.</source>
         <translation>自動的に新しいキャプチャーをクリップボードにコピーする</translation>
     </message>
     <message>
-        <source>Auto Hide Tabs</source>
-        <translation>タブを自動で隠す</translation>
-    </message>
-    <message>
         <source>Use Tabs</source>
         <translation>タブを使用する</translation>
     </message>
@@ -204,10 +191,6 @@ Change requires ksnip restart to take effect.</source>
     <message>
         <source>Run ksnip as single instance</source>
         <translation>ksnip をシングルインスタンスとして実行する</translation>
-    </message>
-    <message>
-        <source>Start Minimized to Tray</source>
-        <translation>トレイに最小化して起動する</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
@@ -226,6 +209,19 @@ a new start of all instances.</source>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
         <translation>メインウィンドウの位置を記憶して起動時に読み込む</translation>
+    </message>
+    <message>
+        <source>Auto hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On startup hide Toolbar and Annotation Settings.
+Docks visibility can be toggled with the Tab Key.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -287,56 +283,28 @@ Do you want to save it?</source>
         <translation>新規</translation>
     </message>
     <message>
-        <source>Rectangular Area</source>
-        <translation>選択範囲</translation>
-    </message>
-    <message>
         <source>Draw a rectangular area with your mouse</source>
         <translation>マウスで四角く選択します</translation>
-    </message>
-    <message>
-        <source>Last Rectangular Area</source>
-        <translation>最近の選択範囲</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>最近選択した範囲のスクリーンショットをキャプチャーします</translation>
     </message>
     <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation>全画面 (すべてのモニター)</translation>
-    </message>
-    <message>
         <source>Capture full screen including all monitors</source>
         <translation>すべてのモニターの全画面をキャプチャーします</translation>
-    </message>
-    <message>
-        <source>Current Screen</source>
-        <translation>現在の画面</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
         <translation>マウスカーソルがある画面をキャプチャーします</translation>
     </message>
     <message>
-        <source>Active Window</source>
-        <translation>アクティブウィンドウ</translation>
-    </message>
-    <message>
         <source>Capture window that currently has focus</source>
         <translation>現在フォーカスがあるウィンドウをキャプチャーします</translation>
     </message>
     <message>
-        <source>Window Under Cursor</source>
-        <translation>カーソルがあるウィンドウ</translation>
-    </message>
-    <message>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>現在マウスカーソルがあるウィンドウをキャプチャーします</translation>
-    </message>
-    <message>
-        <source>Screenshot Portal</source>
-        <translation>Screenshot Portal</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
@@ -385,6 +353,37 @@ Do you want to continue?</source>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation>開発者をビールやコーヒーで支援していただける場合は</translation>
+    </message>
+</context>
+<context>
+    <name>EnumTranslator</name>
+    <message>
+        <source>Rectangular Area</source>
+        <translation type="unfinished">選択範囲</translation>
+    </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished">最近の選択範囲</translation>
+    </message>
+    <message>
+        <source>Full Screen (All Monitors)</source>
+        <translation type="unfinished">全画面 (すべてのモニター)</translation>
+    </message>
+    <message>
+        <source>Current Screen</source>
+        <translation type="unfinished">現在の画面</translation>
+    </message>
+    <message>
+        <source>Active Window</source>
+        <translation type="unfinished">アクティブウィンドウ</translation>
+    </message>
+    <message>
+        <source>Window Under Cursor</source>
+        <translation type="unfinished">カーソルがあるウィンドウ</translation>
+    </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished">Screenshot Portal</translation>
     </message>
 </context>
 <context>
@@ -858,6 +857,14 @@ and capturing screenshot.</source>
         <source>Open Images</source>
         <translation>画像を開く</translation>
     </message>
+    <message>
+        <source>Show Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1145,6 +1152,37 @@ When omitted, everything is copied.</source>
         <source>Snipping Area</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Tray Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaResizerInfoText</name>
+    <message>
+        <source>Resize selected rect using the handles or move it by dragging the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys to move the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing CTRL to move top left handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
@@ -1259,6 +1297,24 @@ by pressing return.</source>
         <source>Snipping Area</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Snipping Area adorner color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of all adorner elements
+on the snipping area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha for not selected region on snipping area.
+Smaller number is more transparent.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1300,6 +1356,52 @@ by pressing return.</source>
     <message>
         <source>Show Editor</source>
         <translation>エディターを表示</translation>
+    </message>
+</context>
+<context>
+    <name>TrayIconSettings</name>
+    <message>
+        <source>Use Tray Icon</source>
+        <translation type="unfinished">トレイアイコンを使用する</translation>
+    </message>
+    <message>
+        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
+Change requires restart.</source>
+        <translation type="unfinished">有効にすると、タスクバーにトレイアイコンを追加します 
+(OS のウィンドウマネージャーがサポートしている場合)。
+変更には再起動が必要です。</translation>
+    </message>
+    <message>
+        <source>Minimize to Tray</source>
+        <translation type="unfinished">最小化したらトレイに格納する</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished">トレイに最小化して起動する</translation>
+    </message>
+    <message>
+        <source>Close to Tray</source>
+        <translation type="unfinished">ウィンドウを閉じたらトレイに格納する</translation>
+    </message>
+    <message>
+        <source>Show Editor</source>
+        <translation type="unfinished">エディターを表示</translation>
+    </message>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished">キャプチャー</translation>
+    </message>
+    <message>
+        <source>Default Tray Icon action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Action that is triggered by left clicking the tray icon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tray Icon Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

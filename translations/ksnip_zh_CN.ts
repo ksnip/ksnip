@@ -145,6 +145,16 @@ make them more smooth.</source>
         <source>Switch to Select Tool after drawing Item</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Number Tool Seed change updates all Number Items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disabling this option causes changes of the number tool
+seed to affect only new items but not existing items.
+Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -167,30 +177,8 @@ Change requires ksnip restart to take effect.</source>
         <translation>应用程序设置</translation>
     </message>
     <message>
-        <source>Use Tray Icon</source>
-        <translation>使用任务栏图标</translation>
-    </message>
-    <message>
-        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
-Change requires restart.</source>
-        <translation>如果启用，则会在操作系统窗口的任务栏上添加图标（如果支持）。
-更改需要重新启动。</translation>
-    </message>
-    <message>
-        <source>Minimize to Tray</source>
-        <translation>最小化到托盘</translation>
-    </message>
-    <message>
-        <source>Close to Tray</source>
-        <translation>最小化到托盘</translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation>自动将新的捕获复制到剪贴板</translation>
-    </message>
-    <message>
-        <source>Auto Hide Tabs</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -205,10 +193,6 @@ Change requires restart.</source>
         <translation>以单实例模式运行 ksnip</translation>
     </message>
     <message>
-        <source>Start Minimized to Tray</source>
-        <translation>启动时最小化到托盘</translation>
-    </message>
-    <message>
         <source>Hide Tabbar when only one Tab is used.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -221,6 +205,19 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On startup hide Toolbar and Annotation Settings.
+Docks visibility can be toggled with the Tab Key.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -282,56 +279,28 @@ Do you want to save it?</source>
         <translation>新建</translation>
     </message>
     <message>
-        <source>Rectangular Area</source>
-        <translation>矩形区域</translation>
-    </message>
-    <message>
         <source>Draw a rectangular area with your mouse</source>
         <translation>用鼠标绘制一个矩形区域</translation>
-    </message>
-    <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation>全屏（所有监视器）</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
         <translation>捕获全屏，包括所有监视器</translation>
     </message>
     <message>
-        <source>Current Screen</source>
-        <translation>当前屏幕</translation>
-    </message>
-    <message>
         <source>Capture screen where the mouse is located</source>
         <translation>捕获鼠标所在的屏幕</translation>
-    </message>
-    <message>
-        <source>Active Window</source>
-        <translation>活动的窗口</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
         <translation>捕获目前焦点所在的窗口</translation>
     </message>
     <message>
-        <source>Window Under Cursor</source>
-        <translation>光标下的窗口</translation>
-    </message>
-    <message>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>捕获当前在鼠标光标下的内容</translation>
     </message>
     <message>
-        <source>Last Rectangular Area</source>
-        <translation>上一个矩形区域</translation>
-    </message>
-    <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>捕获上一次选择的矩形区域的屏幕截图</translation>
-    </message>
-    <message>
-        <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
@@ -378,6 +347,37 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EnumTranslator</name>
+    <message>
+        <source>Rectangular Area</source>
+        <translation type="unfinished">矩形区域</translation>
+    </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished">上一个矩形区域</translation>
+    </message>
+    <message>
+        <source>Full Screen (All Monitors)</source>
+        <translation type="unfinished">全屏（所有监视器）</translation>
+    </message>
+    <message>
+        <source>Current Screen</source>
+        <translation type="unfinished">当前屏幕</translation>
+    </message>
+    <message>
+        <source>Active Window</source>
+        <translation type="unfinished">活动的窗口</translation>
+    </message>
+    <message>
+        <source>Window Under Cursor</source>
+        <translation type="unfinished">光标下的窗口</translation>
+    </message>
+    <message>
+        <source>Screenshot Portal</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -850,6 +850,14 @@ and capturing screenshot.</source>
         <source>Open Images</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Show Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1129,6 +1137,37 @@ When omitted, everything is copied.</source>
         <source>Snipping Area</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Tray Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaResizerInfoText</name>
+    <message>
+        <source>Resize selected rect using the handles or move it by dragging the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys to move the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing CTRL to move top left handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
@@ -1238,6 +1277,24 @@ by pressing return.</source>
         <source>Snipping Area</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Snipping Area adorner color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of all adorner elements
+on the snipping area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha for not selected region on snipping area.
+Smaller number is more transparent.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1279,6 +1336,51 @@ by pressing return.</source>
     <message>
         <source>Show Editor</source>
         <translation>显示编辑器</translation>
+    </message>
+</context>
+<context>
+    <name>TrayIconSettings</name>
+    <message>
+        <source>Use Tray Icon</source>
+        <translation type="unfinished">使用任务栏图标</translation>
+    </message>
+    <message>
+        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
+Change requires restart.</source>
+        <translation type="unfinished">如果启用，则会在操作系统窗口的任务栏上添加图标（如果支持）。
+更改需要重新启动。</translation>
+    </message>
+    <message>
+        <source>Minimize to Tray</source>
+        <translation type="unfinished">最小化到托盘</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished">启动时最小化到托盘</translation>
+    </message>
+    <message>
+        <source>Close to Tray</source>
+        <translation type="unfinished">最小化到托盘</translation>
+    </message>
+    <message>
+        <source>Show Editor</source>
+        <translation type="unfinished">显示编辑器</translation>
+    </message>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished">捕获</translation>
+    </message>
+    <message>
+        <source>Default Tray Icon action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Action that is triggered by left clicking the tray icon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tray Icon Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

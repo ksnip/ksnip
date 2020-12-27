@@ -145,6 +145,16 @@ för penna och markör, men gör dem mjukare.</translation>
         <source>Switch to Select Tool after drawing Item</source>
         <translation>Växla för att välja verktyg efter att ett objekt ritats</translation>
     </message>
+    <message>
+        <source>Number Tool Seed change updates all Number Items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disabling this option causes changes of the number tool
+seed to affect only new items but not existing items.
+Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -167,30 +177,8 @@ Change requires ksnip restart to take effect.</source>
         <translation>Programinställningar</translation>
     </message>
     <message>
-        <source>Use Tray Icon</source>
-        <translation>Använd systemfältsikon</translation>
-    </message>
-    <message>
-        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
-Change requires restart.</source>
-        <translation>Vid aktivering läggs en ikon till i systemfältet, om operativsystemet stödjer det.
-Ändring kräver omstart.</translation>
-    </message>
-    <message>
-        <source>Minimize to Tray</source>
-        <translation>Minimera till systemfältet</translation>
-    </message>
-    <message>
-        <source>Close to Tray</source>
-        <translation>Stäng till systemfältet</translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation>Kopiera automatiskt nya skärmklipp till urklipp</translation>
-    </message>
-    <message>
-        <source>Auto Hide Tabs</source>
-        <translation>Dölj flikar automatiskt</translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -203,10 +191,6 @@ Change requires restart.</source>
     <message>
         <source>Run ksnip as single instance</source>
         <translation>Kör ksnip som enskild instans</translation>
-    </message>
-    <message>
-        <source>Start Minimized to Tray</source>
-        <translation>Starta minimerad i systemfältet</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
@@ -225,6 +209,19 @@ Om det här alternativet ändras måste alla öppna instanser startas om.</trans
     <message>
         <source>Remember Main Window position on move and load on startup</source>
         <translation>Kom ihåg huvudfönstrets position vid förflyttning och läs in vid programstart</translation>
+    </message>
+    <message>
+        <source>Auto hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On startup hide Toolbar and Annotation Settings.
+Docks visibility can be toggled with the Tab Key.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -286,56 +283,28 @@ Vill du spara det?</translation>
         <translation>Nytt</translation>
     </message>
     <message>
-        <source>Rectangular Area</source>
-        <translation>Rektangulärt område</translation>
-    </message>
-    <message>
         <source>Draw a rectangular area with your mouse</source>
         <translation>Dra upp ett rektangulärt område med musen</translation>
-    </message>
-    <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation>Helskärm (Alla skärmar)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
         <translation>Avbildar hela skärmen, samtliga skärmar inkluderade</translation>
     </message>
     <message>
-        <source>Current Screen</source>
-        <translation>Aktuell skärm</translation>
-    </message>
-    <message>
         <source>Capture screen where the mouse is located</source>
         <translation>Avbildar skärmen där muspekaren befinner sig</translation>
-    </message>
-    <message>
-        <source>Active Window</source>
-        <translation>Aktivt fönster</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
         <translation>Avbildar det fönster som har fokus</translation>
     </message>
     <message>
-        <source>Window Under Cursor</source>
-        <translation>Fönster under muspekaren</translation>
-    </message>
-    <message>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Avbildar fönstret under muspekaren</translation>
     </message>
     <message>
-        <source>Last Rectangular Area</source>
-        <translation>Tidigare rektangulära område</translation>
-    </message>
-    <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Tar ett skärmklipp av senast markerade rektangulära område</translation>
-    </message>
-    <message>
-        <source>Screenshot Portal</source>
-        <translation>Skärmklippsportal</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
@@ -384,6 +353,37 @@ Vill du fortsätta?</translation>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation>Om du vill hjälpa till eller bara&lt;br/&gt;uppskattar det arbete som görs&lt;br/&gt;genom att bjuda utvecklaren på en öl eller kaffe, kan du göra det</translation>
+    </message>
+</context>
+<context>
+    <name>EnumTranslator</name>
+    <message>
+        <source>Rectangular Area</source>
+        <translation type="unfinished">Rektangulärt område</translation>
+    </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished">Tidigare rektangulära område</translation>
+    </message>
+    <message>
+        <source>Full Screen (All Monitors)</source>
+        <translation type="unfinished">Helskärm (Alla skärmar)</translation>
+    </message>
+    <message>
+        <source>Current Screen</source>
+        <translation type="unfinished">Aktuell skärm</translation>
+    </message>
+    <message>
+        <source>Active Window</source>
+        <translation type="unfinished">Aktivt fönster</translation>
+    </message>
+    <message>
+        <source>Window Under Cursor</source>
+        <translation type="unfinished">Fönster under muspekaren</translation>
+    </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished">Skärmklippsportal</translation>
     </message>
 </context>
 <context>
@@ -865,6 +865,14 @@ och själva skärmklippet.</translation>
         <source>Open Images</source>
         <translation>Öppna bilder</translation>
     </message>
+    <message>
+        <source>Show Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1152,6 +1160,37 @@ När detta utelämnas kopieras allt.</translation>
         <source>Snipping Area</source>
         <translation>Klippområde</translation>
     </message>
+    <message>
+        <source>Tray Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaResizerInfoText</name>
+    <message>
+        <source>Resize selected rect using the handles or move it by dragging the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys to move the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing CTRL to move top left handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished">Detta meddelande kan inaktiveras i inställningarna.</translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
@@ -1274,6 +1313,24 @@ tillämpas genom att trycka Retur.</translation>
         <source>Snipping Area</source>
         <translation>Klippområde</translation>
     </message>
+    <message>
+        <source>Snipping Area adorner color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of all adorner elements
+on the snipping area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha for not selected region on snipping area.
+Smaller number is more transparent.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1315,6 +1372,51 @@ tillämpas genom att trycka Retur.</translation>
     <message>
         <source>Show Editor</source>
         <translation>Visa redigerare</translation>
+    </message>
+</context>
+<context>
+    <name>TrayIconSettings</name>
+    <message>
+        <source>Use Tray Icon</source>
+        <translation type="unfinished">Använd systemfältsikon</translation>
+    </message>
+    <message>
+        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
+Change requires restart.</source>
+        <translation type="unfinished">Vid aktivering läggs en ikon till i systemfältet, om operativsystemet stödjer det.
+Ändring kräver omstart.</translation>
+    </message>
+    <message>
+        <source>Minimize to Tray</source>
+        <translation type="unfinished">Minimera till systemfältet</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished">Starta minimerad i systemfältet</translation>
+    </message>
+    <message>
+        <source>Close to Tray</source>
+        <translation type="unfinished">Stäng till systemfältet</translation>
+    </message>
+    <message>
+        <source>Show Editor</source>
+        <translation type="unfinished">Visa redigerare</translation>
+    </message>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished">Klipp</translation>
+    </message>
+    <message>
+        <source>Default Tray Icon action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Action that is triggered by left clicking the tray icon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tray Icon Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

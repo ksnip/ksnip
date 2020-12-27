@@ -146,6 +146,16 @@ les rendra plus lisses.</translation>
         <source>Switch to Select Tool after drawing Item</source>
         <translation>Passer à l&apos;outil de sélection après avoir dessiné l&apos;élément</translation>
     </message>
+    <message>
+        <source>Number Tool Seed change updates all Number Items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disabling this option causes changes of the number tool
+seed to affect only new items but not existing items.
+Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -168,30 +178,8 @@ Vous devrez redémarrer knsip pour le prendre en compte.</translation>
         <translation>Paramètres de l&apos;application</translation>
     </message>
     <message>
-        <source>Use Tray Icon</source>
-        <translation>Utiliser l&apos;icône de la barre des tâches</translation>
-    </message>
-    <message>
-        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
-Change requires restart.</source>
-        <translation>Si activé, ajoute une icône dans la barre des tâches si le système d&apos;exploitation le permet.
-Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translation>
-    </message>
-    <message>
-        <source>Minimize to Tray</source>
-        <translation>Réduire vers la barre des tâches</translation>
-    </message>
-    <message>
-        <source>Close to Tray</source>
-        <translation>Fermer vers la barre des tâches</translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation>Copier automatiquement les nouvelles captures dans le presse-papier</translation>
-    </message>
-    <message>
-        <source>Auto Hide Tabs</source>
-        <translation>Cacher automatiquement les onglets</translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -204,10 +192,6 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     <message>
         <source>Run ksnip as single instance</source>
         <translation>Exécuter Ksnip en tant qu&apos;instance unique</translation>
-    </message>
-    <message>
-        <source>Start Minimized to Tray</source>
-        <translation>Démarrer en miniature dans la barre des tâches</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
@@ -226,6 +210,19 @@ toutes les instances pour activer ou désactiver cette option.</translation>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
         <translation>Mémoriser la position de la fenêtre principale lors du déplacement et la charger au démarrage</translation>
+    </message>
+    <message>
+        <source>Auto hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On startup hide Toolbar and Annotation Settings.
+Docks visibility can be toggled with the Tab Key.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -287,56 +284,28 @@ Voulez-vous l&apos;enregistrer&#xa0;?</translation>
         <translation>Nouveau</translation>
     </message>
     <message>
-        <source>Rectangular Area</source>
-        <translation>Zone Rectangulaire</translation>
-    </message>
-    <message>
         <source>Draw a rectangular area with your mouse</source>
         <translation>Tracer un rectangle avec la souris</translation>
-    </message>
-    <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation>Plein Écran (tous les moniteurs)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
         <translation>Capture en plein écran, incluant tous les moniteurs</translation>
     </message>
     <message>
-        <source>Current Screen</source>
-        <translation>Écran actuel</translation>
-    </message>
-    <message>
         <source>Capture screen where the mouse is located</source>
         <translation>Capture de l&apos;écran où se trouve la souris</translation>
-    </message>
-    <message>
-        <source>Active Window</source>
-        <translation>Fenêtre active</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
         <translation>Capturer la fenêtre active</translation>
     </message>
     <message>
-        <source>Window Under Cursor</source>
-        <translation>Fenêtre sous le curseur</translation>
-    </message>
-    <message>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Capturer ce qui est actuellement sous le curseur de la souris</translation>
     </message>
     <message>
-        <source>Last Rectangular Area</source>
-        <translation>Dernière zone rectangulaire</translation>
-    </message>
-    <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Fait une capture d&apos;écran de la dernière zone sélectionnée</translation>
-    </message>
-    <message>
-        <source>Screenshot Portal</source>
-        <translation>Portail de capture d&apos;écran</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
@@ -385,6 +354,37 @@ Voulez-vous continuer ?</translation>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation>Si vous voulez aider, ou simplement &lt;br/&gt;être reconnaissant de ce travail&lt;br/&gt;, en payant aux développeurs une bière ou un café : c&apos;est possible</translation>
+    </message>
+</context>
+<context>
+    <name>EnumTranslator</name>
+    <message>
+        <source>Rectangular Area</source>
+        <translation type="unfinished">Zone Rectangulaire</translation>
+    </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished">Dernière zone rectangulaire</translation>
+    </message>
+    <message>
+        <source>Full Screen (All Monitors)</source>
+        <translation type="unfinished">Plein Écran (tous les moniteurs)</translation>
+    </message>
+    <message>
+        <source>Current Screen</source>
+        <translation type="unfinished">Écran actuel</translation>
+    </message>
+    <message>
+        <source>Active Window</source>
+        <translation type="unfinished">Fenêtre active</translation>
+    </message>
+    <message>
+        <source>Window Under Cursor</source>
+        <translation type="unfinished">Fenêtre sous le curseur</translation>
+    </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished">Portail de capture d&apos;écran</translation>
     </message>
 </context>
 <context>
@@ -866,6 +866,14 @@ et la capture de l&apos;écran.</translation>
         <source>Open Images</source>
         <translation>Ouvrir les images</translation>
     </message>
+    <message>
+        <source>Show Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1154,6 +1162,37 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
         <source>Snipping Area</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Tray Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaResizerInfoText</name>
+    <message>
+        <source>Resize selected rect using the handles or move it by dragging the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys to move the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing CTRL to move top left handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
@@ -1274,6 +1313,24 @@ en appuyant sur la touche retour.</translation>
         <source>Snipping Area</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Snipping Area adorner color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of all adorner elements
+on the snipping area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha for not selected region on snipping area.
+Smaller number is more transparent.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1315,6 +1372,51 @@ en appuyant sur la touche retour.</translation>
     <message>
         <source>Show Editor</source>
         <translation>Montrer l&apos;éditeur</translation>
+    </message>
+</context>
+<context>
+    <name>TrayIconSettings</name>
+    <message>
+        <source>Use Tray Icon</source>
+        <translation type="unfinished">Utiliser l&apos;icône de la barre des tâches</translation>
+    </message>
+    <message>
+        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
+Change requires restart.</source>
+        <translation type="unfinished">Si activé, ajoute une icône dans la barre des tâches si le système d&apos;exploitation le permet.
+Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translation>
+    </message>
+    <message>
+        <source>Minimize to Tray</source>
+        <translation type="unfinished">Réduire vers la barre des tâches</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished">Démarrer en miniature dans la barre des tâches</translation>
+    </message>
+    <message>
+        <source>Close to Tray</source>
+        <translation type="unfinished">Fermer vers la barre des tâches</translation>
+    </message>
+    <message>
+        <source>Show Editor</source>
+        <translation type="unfinished">Montrer l&apos;éditeur</translation>
+    </message>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished">Capture</translation>
+    </message>
+    <message>
+        <source>Default Tray Icon action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Action that is triggered by left clicking the tray icon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tray Icon Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

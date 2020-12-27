@@ -146,6 +146,16 @@ ale uczyni je bardziej gładkimi.</translation>
         <source>Switch to Select Tool after drawing Item</source>
         <translation>Przejdź do opcji Wybierz narzędzie po narysowaniu elementu</translation>
     </message>
+    <message>
+        <source>Number Tool Seed change updates all Number Items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disabling this option causes changes of the number tool
+seed to affect only new items but not existing items.
+Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -168,30 +178,8 @@ Zmiana wymaga ponownego uruchomienia ksnip, aby odniosła skutek.</translation>
         <translation>Ustawienia aplikacji</translation>
     </message>
     <message>
-        <source>Use Tray Icon</source>
-        <translation>Użycie ikony w zasobnika</translation>
-    </message>
-    <message>
-        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
-Change requires restart.</source>
-        <translation>Po włączeniu doda ikonę do paska zadań, jeśli obsługuje go Menedżer okien systemu operacyjnego.
-Zmiana wymaga ponownego uruchomienia.</translation>
-    </message>
-    <message>
-        <source>Minimize to Tray</source>
-        <translation>Minimalizuj do zasobnika</translation>
-    </message>
-    <message>
-        <source>Close to Tray</source>
-        <translation>Zamykaj do zasobnika</translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation>Automatycznie kopiuj nowe zrzuty do schowka</translation>
-    </message>
-    <message>
-        <source>Auto Hide Tabs</source>
-        <translation>Automatycznie ukrywaj zakładki</translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -204,10 +192,6 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     <message>
         <source>Run ksnip as single instance</source>
         <translation>Uruchom ksnip jako pojedynczą instancję</translation>
-    </message>
-    <message>
-        <source>Start Minimized to Tray</source>
-        <translation>Uruchom zminimalizowany do zasobnika</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
@@ -226,6 +210,19 @@ nowego uruchomienia wszystkich instancji.</translation>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
         <translation>Zapamiętaj pozycję okna głównego podczas przenoszenia i ładowania przy starcie</translation>
+    </message>
+    <message>
+        <source>Auto hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On startup hide Toolbar and Annotation Settings.
+Docks visibility can be toggled with the Tab Key.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -287,56 +284,28 @@ Chcesz go zapisać?</translation>
         <translation>Nowy</translation>
     </message>
     <message>
-        <source>Rectangular Area</source>
-        <translation>Obszar prostokątny</translation>
-    </message>
-    <message>
         <source>Draw a rectangular area with your mouse</source>
         <translation>Narysuj myszką prostokątny obszar</translation>
-    </message>
-    <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation>Pełny ekran (wszystkie monitory)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
         <translation>Przechwyć pełny ekran, w tym wszystkie monitory</translation>
     </message>
     <message>
-        <source>Current Screen</source>
-        <translation>Bieżący ekran</translation>
-    </message>
-    <message>
         <source>Capture screen where the mouse is located</source>
         <translation>Przechwyć ekran, na którym znajduje się myszka</translation>
-    </message>
-    <message>
-        <source>Active Window</source>
-        <translation>Aktywne okno</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
         <translation>Przechwyć okno, które aktualnie jest aktywne</translation>
     </message>
     <message>
-        <source>Window Under Cursor</source>
-        <translation>Okno pod kursorem</translation>
-    </message>
-    <message>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Przechwyć okno, które jest aktualnie pod kursorem myszy</translation>
     </message>
     <message>
-        <source>Last Rectangular Area</source>
-        <translation>Ostatni obszar prostokątny</translation>
-    </message>
-    <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Wykonaj zrzut ekranu z ostatnio wybranym prostokątnym obszarem</translation>
-    </message>
-    <message>
-        <source>Screenshot Portal</source>
-        <translation>Portal zrzutu ekranu</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
@@ -385,6 +354,37 @@ Czy chcesz kontynuować?</translation>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation>Jeśli chcesz pomóc lub &lt;br/&gt;chcesz docenić wykonywaną pracę&lt;br/&gt; polegającą na poczęstowaniu programistów piwem lub kawą, możesz to zrobić</translation>
+    </message>
+</context>
+<context>
+    <name>EnumTranslator</name>
+    <message>
+        <source>Rectangular Area</source>
+        <translation type="unfinished">Obszar prostokątny</translation>
+    </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished">Ostatni obszar prostokątny</translation>
+    </message>
+    <message>
+        <source>Full Screen (All Monitors)</source>
+        <translation type="unfinished">Pełny ekran (wszystkie monitory)</translation>
+    </message>
+    <message>
+        <source>Current Screen</source>
+        <translation type="unfinished">Bieżący ekran</translation>
+    </message>
+    <message>
+        <source>Active Window</source>
+        <translation type="unfinished">Aktywne okno</translation>
+    </message>
+    <message>
+        <source>Window Under Cursor</source>
+        <translation type="unfinished">Okno pod kursorem</translation>
+    </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished">Portal zrzutu ekranu</translation>
     </message>
 </context>
 <context>
@@ -866,6 +866,14 @@ i wykonaniem zrzutu ekranu.</translation>
         <source>Open Images</source>
         <translation>Otwórz obraz</translation>
     </message>
+    <message>
+        <source>Show Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1153,6 +1161,37 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
         <source>Snipping Area</source>
         <translation>Obszar wycinania</translation>
     </message>
+    <message>
+        <source>Tray Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaResizerInfoText</name>
+    <message>
+        <source>Resize selected rect using the handles or move it by dragging the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys to move the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing CTRL to move top left handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished">Ten komunikat można wyłączyć w ustawieniach.</translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
@@ -1272,6 +1311,24 @@ by pressing return.</source>
         <source>Snipping Area</source>
         <translation>Obszar wycinania</translation>
     </message>
+    <message>
+        <source>Snipping Area adorner color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of all adorner elements
+on the snipping area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha for not selected region on snipping area.
+Smaller number is more transparent.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1313,6 +1370,51 @@ by pressing return.</source>
     <message>
         <source>Show Editor</source>
         <translation>Pokaż edytor</translation>
+    </message>
+</context>
+<context>
+    <name>TrayIconSettings</name>
+    <message>
+        <source>Use Tray Icon</source>
+        <translation type="unfinished">Użycie ikony w zasobnika</translation>
+    </message>
+    <message>
+        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
+Change requires restart.</source>
+        <translation type="unfinished">Po włączeniu doda ikonę do paska zadań, jeśli obsługuje go Menedżer okien systemu operacyjnego.
+Zmiana wymaga ponownego uruchomienia.</translation>
+    </message>
+    <message>
+        <source>Minimize to Tray</source>
+        <translation type="unfinished">Minimalizuj do zasobnika</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished">Uruchom zminimalizowany do zasobnika</translation>
+    </message>
+    <message>
+        <source>Close to Tray</source>
+        <translation type="unfinished">Zamykaj do zasobnika</translation>
+    </message>
+    <message>
+        <source>Show Editor</source>
+        <translation type="unfinished">Pokaż edytor</translation>
+    </message>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished">Zrzut z ekranu</translation>
+    </message>
+    <message>
+        <source>Default Tray Icon action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Action that is triggered by left clicking the tray icon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tray Icon Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

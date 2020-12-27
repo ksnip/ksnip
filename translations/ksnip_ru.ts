@@ -5,11 +5,11 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>О приложении </translation>
+        <translation>О&#xa0;приложении </translation>
     </message>
     <message>
         <source>About</source>
-        <translation>О приложении</translation>
+        <translation>О&#xa0;приложении</translation>
     </message>
     <message>
         <source>Version</source>
@@ -146,6 +146,16 @@ make them more smooth.</source>
         <source>Switch to Select Tool after drawing Item</source>
         <translation>Переключаться на инструмент выбора после рисования элемента</translation>
     </message>
+    <message>
+        <source>Number Tool Seed change updates all Number Items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disabling this option causes changes of the number tool
+seed to affect only new items but not existing items.
+Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -168,30 +178,8 @@ Change requires ksnip restart to take effect.</source>
         <translation>Основные настройки</translation>
     </message>
     <message>
-        <source>Use Tray Icon</source>
-        <translation>Показывать иконку в трее</translation>
-    </message>
-    <message>
-        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
-Change requires restart.</source>
-        <translation>При включении добавит значок в системный лоток панели задач, если оконный менеджер ОС поддерживает это.
-Изменение требует перезапуска приложения.</translation>
-    </message>
-    <message>
-        <source>Minimize to Tray</source>
-        <translation>Сворачивать в трей</translation>
-    </message>
-    <message>
-        <source>Close to Tray</source>
-        <translation>Сворачивать в трей при закрытии</translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation>Автоматически копировать новые скриншоты в буфер обмена</translation>
-    </message>
-    <message>
-        <source>Auto Hide Tabs</source>
-        <translation>Авто скрытие вкладок</translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -204,10 +192,6 @@ Change requires restart.</source>
     <message>
         <source>Run ksnip as single instance</source>
         <translation>Запускать только один экземпляр ksnip</translation>
-    </message>
-    <message>
-        <source>Start Minimized to Tray</source>
-        <translation>Запускать свёрнутым в трей</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
@@ -226,6 +210,19 @@ a new start of all instances.</source>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
         <translation>Запоминать позицию главного окна при перемещении и применять при старте</translation>
+    </message>
+    <message>
+        <source>Auto hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On startup hide Toolbar and Annotation Settings.
+Docks visibility can be toggled with the Tab Key.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -287,56 +284,28 @@ Do you want to save it?</source>
         <translation>Создать</translation>
     </message>
     <message>
-        <source>Rectangular Area</source>
-        <translation>Прямоугольная область</translation>
-    </message>
-    <message>
         <source>Draw a rectangular area with your mouse</source>
         <translation>Выделите мышкой прямоугольную область</translation>
-    </message>
-    <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation>Полноэкранный режим (все мониторы)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
         <translation>Сделать скриншот всего экрана со всех мониторов</translation>
     </message>
     <message>
-        <source>Current Screen</source>
-        <translation>Текущий экран</translation>
-    </message>
-    <message>
         <source>Capture screen where the mouse is located</source>
         <translation>Сделать скриншот экрана, на котором расположен курсор мыши</translation>
-    </message>
-    <message>
-        <source>Active Window</source>
-        <translation>Активное окно</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
         <translation>Сделать снимок текущего окна</translation>
     </message>
     <message>
-        <source>Window Under Cursor</source>
-        <translation>Окно под курсором мыши</translation>
-    </message>
-    <message>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Сделать скриншот окна, на котором расположен курсор мыши</translation>
     </message>
     <message>
-        <source>Last Rectangular Area</source>
-        <translation>Последняя выделенная область</translation>
-    </message>
-    <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Сделать скриншот последней выделенной области</translation>
-    </message>
-    <message>
-        <source>Screenshot Portal</source>
-        <translation>Портал скриншота</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
@@ -385,6 +354,37 @@ Do you want to continue?</source>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation>Если вы хотите помочь или просто&lt;br/&gt;отблагодарить за проделанную работу,&lt;br/&gt;угостив разработчиков пивом или кофе, вы можете это сделать</translation>
+    </message>
+</context>
+<context>
+    <name>EnumTranslator</name>
+    <message>
+        <source>Rectangular Area</source>
+        <translation type="unfinished">Прямоугольная область</translation>
+    </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished">Последняя выделенная область</translation>
+    </message>
+    <message>
+        <source>Full Screen (All Monitors)</source>
+        <translation type="unfinished">Полноэкранный режим (все мониторы)</translation>
+    </message>
+    <message>
+        <source>Current Screen</source>
+        <translation type="unfinished">Текущий экран</translation>
+    </message>
+    <message>
+        <source>Active Window</source>
+        <translation type="unfinished">Активное окно</translation>
+    </message>
+    <message>
+        <source>Window Under Cursor</source>
+        <translation type="unfinished">Окно под курсором мыши</translation>
+    </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished">Портал скриншота</translation>
     </message>
 </context>
 <context>
@@ -866,6 +866,14 @@ and capturing screenshot.</source>
         <source>Open Images</source>
         <translation>Открыть изображения</translation>
     </message>
+    <message>
+        <source>Show Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1153,6 +1161,37 @@ When omitted, everything is copied.</source>
         <source>Snipping Area</source>
         <translation>Зона обрезки</translation>
     </message>
+    <message>
+        <source>Tray Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaResizerInfoText</name>
+    <message>
+        <source>Resize selected rect using the handles or move it by dragging the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys to move the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing CTRL to move top left handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished">Это сообщение может быть отключено через настройки.</translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
@@ -1275,6 +1314,24 @@ by pressing return.</source>
         <source>Snipping Area</source>
         <translation>Зона обрезки</translation>
     </message>
+    <message>
+        <source>Snipping Area adorner color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of all adorner elements
+on the snipping area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha for not selected region on snipping area.
+Smaller number is more transparent.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1316,6 +1373,51 @@ by pressing return.</source>
     <message>
         <source>Show Editor</source>
         <translation>Показать редактор</translation>
+    </message>
+</context>
+<context>
+    <name>TrayIconSettings</name>
+    <message>
+        <source>Use Tray Icon</source>
+        <translation type="unfinished">Показывать иконку в трее</translation>
+    </message>
+    <message>
+        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
+Change requires restart.</source>
+        <translation type="unfinished">При включении добавит значок в системный лоток панели задач, если оконный менеджер ОС поддерживает это.
+Изменение требует перезапуска приложения.</translation>
+    </message>
+    <message>
+        <source>Minimize to Tray</source>
+        <translation type="unfinished">Сворачивать в трей</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished">Запускать свёрнутым в трей</translation>
+    </message>
+    <message>
+        <source>Close to Tray</source>
+        <translation type="unfinished">Сворачивать в трей при закрытии</translation>
+    </message>
+    <message>
+        <source>Show Editor</source>
+        <translation type="unfinished">Показать редактор</translation>
+    </message>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished">Снимок</translation>
+    </message>
+    <message>
+        <source>Default Tray Icon action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Action that is triggered by left clicking the tray icon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tray Icon Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

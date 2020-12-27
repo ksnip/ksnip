@@ -146,30 +146,22 @@ haien leuntasuna areagotuz.</translation>
         <source>Switch to Select Tool after drawing Item</source>
         <translation>Aldatu Hautatu tresnara elementua marraztu ondoren</translation>
     </message>
+    <message>
+        <source>Number Tool Seed change updates all Number Items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disabling this option causes changes of the number tool
+seed to affect only new items but not existing items.
+Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
         <source>Capture screenshot at startup with default mode</source>
         <translation>Kapturatu pantaila-argazkia abiaraztean modu lehenetsian</translation>
-    </message>
-    <message>
-        <source>Use Tray Icon</source>
-        <translation>Erabili erretiluko ikonoa</translation>
-    </message>
-    <message>
-        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
-Change requires restart.</source>
-        <translation>Aktibatuta dagoenean, sistemaren erretiluan ikonoa gehituko du, sistemak onartzen badu.
-Aldaketak berrabiaraztea eskatzen du.</translation>
-    </message>
-    <message>
-        <source>Minimize to Tray</source>
-        <translation>Minimizatu erretilura</translation>
-    </message>
-    <message>
-        <source>Close to Tray</source>
-        <translation>Itxi erretilura</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -190,10 +182,6 @@ Ksnip berrabiarazi behar du aldaketek eragina izateko.</translation>
         <translation>Kopiatu kaptura berriak arbelera automatikoki</translation>
     </message>
     <message>
-        <source>Auto Hide Tabs</source>
-        <translation>Fitxak automatikoki ezkutatu</translation>
-    </message>
-    <message>
         <source>Use Tabs</source>
         <translation>Erabili fitxak</translation>
     </message>
@@ -204,10 +192,6 @@ Ksnip berrabiarazi behar du aldaketek eragina izateko.</translation>
     <message>
         <source>Run ksnip as single instance</source>
         <translation>Erabili ksnip instantzia bakarrean</translation>
-    </message>
-    <message>
-        <source>Start Minimized to Tray</source>
-        <translation>Abiatu erretiluan minimizatua</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
@@ -226,6 +210,19 @@ eskatzen du.</translation>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
         <translation>Gogoratu leiho nagusiaren kokapena mugitzean eta kargatu abioan</translation>
+    </message>
+    <message>
+        <source>Auto hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On startup hide Toolbar and Annotation Settings.
+Docks visibility can be toggled with the Tab Key.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -287,56 +284,28 @@ Nahi duzu gordetzea?</translation>
         <translation>Berria</translation>
     </message>
     <message>
-        <source>Rectangular Area</source>
-        <translation>Area laukizuzena</translation>
-    </message>
-    <message>
         <source>Draw a rectangular area with your mouse</source>
         <translation>Marraztu area laukizuzena saguaren bidez</translation>
-    </message>
-    <message>
-        <source>Last Rectangular Area</source>
-        <translation>Azken area laukizuzena</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Egin pantailan hautatutako azken area laukizuzenaren argazkia</translation>
     </message>
     <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation>Pantaila osoa (monitore guztiak)</translation>
-    </message>
-    <message>
         <source>Capture full screen including all monitors</source>
         <translation>Egin monitore guztiak barne hartzen dituen pantaila-argazkia</translation>
-    </message>
-    <message>
-        <source>Current Screen</source>
-        <translation>Uneko pantaila</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
         <translation>Egin sagua kokatuta dagoen pantailaren argazkia</translation>
     </message>
     <message>
-        <source>Active Window</source>
-        <translation>Leiho aktiboa</translation>
-    </message>
-    <message>
         <source>Capture window that currently has focus</source>
         <translation>Egin fokuratuta dagoen leihoaren argazkia</translation>
     </message>
     <message>
-        <source>Window Under Cursor</source>
-        <translation>Kurtsorearen azpiko leihoa</translation>
-    </message>
-    <message>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Egin kurtsorearen azpian dagoenaren argazkia</translation>
-    </message>
-    <message>
-        <source>Screenshot Portal</source>
-        <translation>Pantaila argazkien ataria</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
@@ -385,6 +354,37 @@ Jarraitu nahi duzu?</translation>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation>Lagundu nahi bagaituzu edo &lt;br/&gt;egindako lana saritu nahi baduzu&lt;br/&gt; garatzaileak garagardo bat edo kafe batera gonbidatuz, egin dezakezu</translation>
+    </message>
+</context>
+<context>
+    <name>EnumTranslator</name>
+    <message>
+        <source>Rectangular Area</source>
+        <translation type="unfinished">Area laukizuzena</translation>
+    </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished">Azken area laukizuzena</translation>
+    </message>
+    <message>
+        <source>Full Screen (All Monitors)</source>
+        <translation type="unfinished">Pantaila osoa (monitore guztiak)</translation>
+    </message>
+    <message>
+        <source>Current Screen</source>
+        <translation type="unfinished">Uneko pantaila</translation>
+    </message>
+    <message>
+        <source>Active Window</source>
+        <translation type="unfinished">Leiho aktiboa</translation>
+    </message>
+    <message>
+        <source>Window Under Cursor</source>
+        <translation type="unfinished">Kurtsorearen azpiko leihoa</translation>
+    </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished">Pantaila argazkien ataria</translation>
     </message>
 </context>
 <context>
@@ -866,6 +866,14 @@ eta pantaila-argazkiaren artean.</translation>
         <source>Open Images</source>
         <translation>Ireki irudiak</translation>
     </message>
+    <message>
+        <source>Show Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1153,6 +1161,37 @@ Ez badago, dena kopiatzen da.</translation>
         <source>Snipping Area</source>
         <translation>Argazkirako area</translation>
     </message>
+    <message>
+        <source>Tray Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaResizerInfoText</name>
+    <message>
+        <source>Resize selected rect using the handles or move it by dragging the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys to move the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing CTRL to move top left handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished">Mezu hau ezarpenen bidez desgaitu daiteke.</translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
@@ -1275,6 +1314,24 @@ sakatuta.</translation>
         <source>Snipping Area</source>
         <translation>Ebaketa-area</translation>
     </message>
+    <message>
+        <source>Snipping Area adorner color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of all adorner elements
+on the snipping area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha for not selected region on snipping area.
+Smaller number is more transparent.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1316,6 +1373,51 @@ sakatuta.</translation>
     <message>
         <source>Show Editor</source>
         <translation>Erakutsi editorea</translation>
+    </message>
+</context>
+<context>
+    <name>TrayIconSettings</name>
+    <message>
+        <source>Use Tray Icon</source>
+        <translation type="unfinished">Erabili erretiluko ikonoa</translation>
+    </message>
+    <message>
+        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
+Change requires restart.</source>
+        <translation type="unfinished">Aktibatuta dagoenean, sistemaren erretiluan ikonoa gehituko du, sistemak onartzen badu.
+Aldaketak berrabiaraztea eskatzen du.</translation>
+    </message>
+    <message>
+        <source>Minimize to Tray</source>
+        <translation type="unfinished">Minimizatu erretilura</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished">Abiatu erretiluan minimizatua</translation>
+    </message>
+    <message>
+        <source>Close to Tray</source>
+        <translation type="unfinished">Itxi erretilura</translation>
+    </message>
+    <message>
+        <source>Show Editor</source>
+        <translation type="unfinished">Erakutsi editorea</translation>
+    </message>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished">Argazkia</translation>
+    </message>
+    <message>
+        <source>Default Tray Icon action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Action that is triggered by left clicking the tray icon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tray Icon Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

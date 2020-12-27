@@ -146,6 +146,16 @@ gladder.</translation>
         <source>Switch to Select Tool after drawing Item</source>
         <translation>Overschakelen naar selectiegereedschap na tekenen</translation>
     </message>
+    <message>
+        <source>Number Tool Seed change updates all Number Items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disabling this option causes changes of the number tool
+seed to affect only new items but not existing items.
+Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -168,30 +178,8 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
         <translation>Programma-instellingen</translation>
     </message>
     <message>
-        <source>Use Tray Icon</source>
-        <translation>Systeemvakpictogram gebruiken</translation>
-    </message>
-    <message>
-        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
-Change requires restart.</source>
-        <translation>Schakel dit in om, als je vensterbeheerder dit ondersteunt, een systeemvakpictogram te gebruiken.
-Herstart om de wijziging toe te passen.</translation>
-    </message>
-    <message>
-        <source>Minimize to Tray</source>
-        <translation>Minimaliseren naar systeemvak</translation>
-    </message>
-    <message>
-        <source>Close to Tray</source>
-        <translation>Sluiten naar systeemvak</translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation>Nieuwe schermfoto&apos;s automatisch kopiëren naar klembord</translation>
-    </message>
-    <message>
-        <source>Auto Hide Tabs</source>
-        <translation>Tabbladen automatisch verbergen</translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -204,10 +192,6 @@ Herstart om de wijziging toe te passen.</translation>
     <message>
         <source>Run ksnip as single instance</source>
         <translation>Slechts één ksnip-proces toestaan</translation>
-    </message>
-    <message>
-        <source>Start Minimized to Tray</source>
-        <translation>Geminimaliseerd in systeemvak opstarten</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
@@ -226,6 +210,19 @@ wijziging toe te passen.</translation>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
         <translation>Automatisch opstarten met vorige schermpositie van hoofdvenster</translation>
+    </message>
+    <message>
+        <source>Auto hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On startup hide Toolbar and Annotation Settings.
+Docks visibility can be toggled with the Tab Key.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -287,56 +284,28 @@ Wil je deze opslaan?</translation>
         <translation>Nieuw</translation>
     </message>
     <message>
-        <source>Rectangular Area</source>
-        <translation>Rechthoekig gebied</translation>
-    </message>
-    <message>
         <source>Draw a rectangular area with your mouse</source>
         <translation>Teken een rechthoekig gebied met je cursor</translation>
-    </message>
-    <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation>Volledig scherm (alle beeldschermen)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
         <translation>Leg het volledige scherm vast op alle beeldschermen</translation>
     </message>
     <message>
-        <source>Current Screen</source>
-        <translation>Huidig scherm</translation>
-    </message>
-    <message>
         <source>Capture screen where the mouse is located</source>
         <translation>Maak een schermfoto van het scherm waarop de cursor is</translation>
-    </message>
-    <message>
-        <source>Active Window</source>
-        <translation>Actief venster</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
         <translation>Maak een schermfoto van het momenteel gefocuste venster</translation>
     </message>
     <message>
-        <source>Window Under Cursor</source>
-        <translation>Venster onder cursor</translation>
-    </message>
-    <message>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Maak een schermfoto van het venster onder de cursor</translation>
     </message>
     <message>
-        <source>Last Rectangular Area</source>
-        <translation>Vorig rechthoekig gebied</translation>
-    </message>
-    <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Maak een schermfoto van het laatst geselecteerde rechthoekige gebied</translation>
-    </message>
-    <message>
-        <source>Screenshot Portal</source>
-        <translation>Schermfotoportaal</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
@@ -385,6 +354,37 @@ Weet je zeker dat je wilt doorgaan?</translation>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation>Als je wilt helpen of gewoon&lt;br/&gt;je waardering voor ons harde werk wilt tonen,&lt;br/&gt;dan kun je ons trakteren op een biertje of kopje koffie</translation>
+    </message>
+</context>
+<context>
+    <name>EnumTranslator</name>
+    <message>
+        <source>Rectangular Area</source>
+        <translation type="unfinished">Rechthoekig gebied</translation>
+    </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished">Vorig rechthoekig gebied</translation>
+    </message>
+    <message>
+        <source>Full Screen (All Monitors)</source>
+        <translation type="unfinished">Volledig scherm (alle beeldschermen)</translation>
+    </message>
+    <message>
+        <source>Current Screen</source>
+        <translation type="unfinished">Huidig scherm</translation>
+    </message>
+    <message>
+        <source>Active Window</source>
+        <translation type="unfinished">Actief venster</translation>
+    </message>
+    <message>
+        <source>Window Under Cursor</source>
+        <translation type="unfinished">Venster onder cursor</translation>
+    </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished">Schermfotoportaal</translation>
     </message>
 </context>
 <context>
@@ -866,6 +866,14 @@ van schermfoto, in seconden.</translation>
         <source>Open Images</source>
         <translation>Afbeeldingen openen</translation>
     </message>
+    <message>
+        <source>Show Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1153,6 +1161,37 @@ Sla over om álles te kopiëren.</translation>
         <source>Snipping Area</source>
         <translation>Vastleggebied</translation>
     </message>
+    <message>
+        <source>Tray Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaResizerInfoText</name>
+    <message>
+        <source>Resize selected rect using the handles or move it by dragging the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys to move the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing CTRL to move top left handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished">Dit bericht kan in de instellingen worden uitgeschakeld.</translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
@@ -1272,6 +1311,24 @@ het aanpassen op Enter om op te slaan.</translation>
         <source>Snipping Area</source>
         <translation>Vastleggebied</translation>
     </message>
+    <message>
+        <source>Snipping Area adorner color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of all adorner elements
+on the snipping area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha for not selected region on snipping area.
+Smaller number is more transparent.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1313,6 +1370,51 @@ het aanpassen op Enter om op te slaan.</translation>
     <message>
         <source>Show Editor</source>
         <translation>Bewerker tonen</translation>
+    </message>
+</context>
+<context>
+    <name>TrayIconSettings</name>
+    <message>
+        <source>Use Tray Icon</source>
+        <translation type="unfinished">Systeemvakpictogram gebruiken</translation>
+    </message>
+    <message>
+        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
+Change requires restart.</source>
+        <translation type="unfinished">Schakel dit in om, als je vensterbeheerder dit ondersteunt, een systeemvakpictogram te gebruiken.
+Herstart om de wijziging toe te passen.</translation>
+    </message>
+    <message>
+        <source>Minimize to Tray</source>
+        <translation type="unfinished">Minimaliseren naar systeemvak</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished">Geminimaliseerd in systeemvak opstarten</translation>
+    </message>
+    <message>
+        <source>Close to Tray</source>
+        <translation type="unfinished">Sluiten naar systeemvak</translation>
+    </message>
+    <message>
+        <source>Show Editor</source>
+        <translation type="unfinished">Bewerker tonen</translation>
+    </message>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished">Vastleggen</translation>
+    </message>
+    <message>
+        <source>Default Tray Icon action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Action that is triggered by left clicking the tray icon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tray Icon Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -146,6 +146,16 @@ make them more smooth.</source>
         <source>Switch to Select Tool after drawing Item</source>
         <translation>Εναλλαγή στο εργαλείο επιλογής μετά τον σχεδιασμό του αντικειμένου</translation>
     </message>
+    <message>
+        <source>Number Tool Seed change updates all Number Items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disabling this option causes changes of the number tool
+seed to affect only new items but not existing items.
+Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
@@ -168,30 +178,8 @@ Change requires ksnip restart to take effect.</source>
         <translation>Ρυθμίσεις της εφαρμογής</translation>
     </message>
     <message>
-        <source>Use Tray Icon</source>
-        <translation>Εικονίδιο στο πλαίσιο συστήματος</translation>
-    </message>
-    <message>
-        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
-Change requires restart.</source>
-        <translation>Όταν ενεργοποιηθεί προσθέτει εικονίδιο στη γραμμή εργασιών, εαν υποστηρίζεται. 
-Απαιτείται επανεκκίνηση.</translation>
-    </message>
-    <message>
-        <source>Minimize to Tray</source>
-        <translation>Ελαχιστοποίηση στο πλαίσιο συστήματος</translation>
-    </message>
-    <message>
-        <source>Close to Tray</source>
-        <translation>Κλείσιμο στο πλαίσιο συστήματος</translation>
-    </message>
-    <message>
         <source>Automatically copy new captures to clipboard</source>
         <translation>Αυτόματη αντιγραφή των νέων συλλήψεων στο πρόχειρο</translation>
-    </message>
-    <message>
-        <source>Auto Hide Tabs</source>
-        <translation>Αυτόματη απόκρυψη των καρτελών</translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -204,10 +192,6 @@ Change requires restart.</source>
     <message>
         <source>Run ksnip as single instance</source>
         <translation>Μοναδική εκτέλεση του ksnip</translation>
-    </message>
-    <message>
-        <source>Start Minimized to Tray</source>
-        <translation>Εκκίνηση ελαχιστοποιημένο στο πλαίσιο συστήματος</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
@@ -226,6 +210,19 @@ a new start of all instances.</source>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
         <translation>Απομνημόνευση της θέσης του κύριου παραθύρου κατά την μετακίνηση και φόρτωση στην εκκίνηση</translation>
+    </message>
+    <message>
+        <source>Auto hide Tabs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On startup hide Toolbar and Annotation Settings.
+Docks visibility can be toggled with the Tab Key.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -287,56 +284,28 @@ Do you want to save it?</source>
         <translation>Νέα</translation>
     </message>
     <message>
-        <source>Rectangular Area</source>
-        <translation>Ορθογώνια περιοχή</translation>
-    </message>
-    <message>
         <source>Draw a rectangular area with your mouse</source>
         <translation>Σχεδιασμός μιας ορθογώνιας περιοχής με το ποντίκι</translation>
-    </message>
-    <message>
-        <source>Full Screen (All Monitors)</source>
-        <translation>Πλήρης οθόνη (Όλες οι οθόνες)</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
         <translation>Σύλληψη ολόκληρης της οθόνης συμπεριλαμβανομένου όλων των οθονών</translation>
     </message>
     <message>
-        <source>Current Screen</source>
-        <translation>Τρέχουσα οθόνη</translation>
-    </message>
-    <message>
         <source>Capture screen where the mouse is located</source>
         <translation>Σύλληψη της οθόνης που βρίσκεται ο δρομέας του ποντικιού</translation>
-    </message>
-    <message>
-        <source>Active Window</source>
-        <translation>Ενεργό παράθυρο</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
         <translation>Σύλληψη του παραθύρου που έχει την εστίαση</translation>
     </message>
     <message>
-        <source>Window Under Cursor</source>
-        <translation>Παράθυρο κάτω από τον δρομέα</translation>
-    </message>
-    <message>
         <source>Capture that is currently under the mouse cursor</source>
         <translation>Σύλληψη του παραθύρου κάτω από τον δρομέα του ποντικιού</translation>
     </message>
     <message>
-        <source>Last Rectangular Area</source>
-        <translation>Τελευταία ορθογώνια περιοχή</translation>
-    </message>
-    <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
         <translation>Σύλληψη στιγμιότυπου της τελευταίας επιλεγμένης ορθογώνιας περιοχής</translation>
-    </message>
-    <message>
-        <source>Screenshot Portal</source>
-        <translation>Πύλη στιγμιότυπου</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
@@ -385,6 +354,37 @@ Do you want to continue?</source>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation>Αν θέλετε να βοηθήσετε ή απλώς &lt;br/&gt;να εκτιμήσετε την εργασία&lt;br/&gt; προσφέροντας στους δημιουργούς έναν ζύθο ή καφέ, μπορείτε να το κάνετε έστω κι&apos; έτσι</translation>
+    </message>
+</context>
+<context>
+    <name>EnumTranslator</name>
+    <message>
+        <source>Rectangular Area</source>
+        <translation type="unfinished">Ορθογώνια περιοχή</translation>
+    </message>
+    <message>
+        <source>Last Rectangular Area</source>
+        <translation type="unfinished">Τελευταία ορθογώνια περιοχή</translation>
+    </message>
+    <message>
+        <source>Full Screen (All Monitors)</source>
+        <translation type="unfinished">Πλήρης οθόνη (Όλες οι οθόνες)</translation>
+    </message>
+    <message>
+        <source>Current Screen</source>
+        <translation type="unfinished">Τρέχουσα οθόνη</translation>
+    </message>
+    <message>
+        <source>Active Window</source>
+        <translation type="unfinished">Ενεργό παράθυρο</translation>
+    </message>
+    <message>
+        <source>Window Under Cursor</source>
+        <translation type="unfinished">Παράθυρο κάτω από τον δρομέα</translation>
+    </message>
+    <message>
+        <source>Screenshot Portal</source>
+        <translation type="unfinished">Πύλη στιγμιότυπου</translation>
     </message>
 </context>
 <context>
@@ -864,6 +864,14 @@ and capturing screenshot.</source>
         <source>Open Images</source>
         <translation>Άνοιγμα εικόνων</translation>
     </message>
+    <message>
+        <source>Show Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1149,6 +1157,37 @@ When omitted, everything is copied.</source>
         <source>Snipping Area</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Tray Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SnippingAreaResizerInfoText</name>
+    <message>
+        <source>Resize selected rect using the handles or move it by dragging the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys to move the selection.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing CTRL to move top left handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This message can be disabled via settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
@@ -1271,6 +1310,24 @@ by pressing return.</source>
         <source>Snipping Area</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Snipping Area adorner color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sets the color of all adorner elements
+on the snipping area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Snipping Area Transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alpha for not selected region on snipping area.
+Smaller number is more transparent.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StickerSettings</name>
@@ -1312,6 +1369,51 @@ by pressing return.</source>
     <message>
         <source>Show Editor</source>
         <translation>Εμφάνιση επεξεργαστή</translation>
+    </message>
+</context>
+<context>
+    <name>TrayIconSettings</name>
+    <message>
+        <source>Use Tray Icon</source>
+        <translation type="unfinished">Εικονίδιο στο πλαίσιο συστήματος</translation>
+    </message>
+    <message>
+        <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
+Change requires restart.</source>
+        <translation type="unfinished">Όταν ενεργοποιηθεί προσθέτει εικονίδιο στη γραμμή εργασιών, εαν υποστηρίζεται. 
+Απαιτείται επανεκκίνηση.</translation>
+    </message>
+    <message>
+        <source>Minimize to Tray</source>
+        <translation type="unfinished">Ελαχιστοποίηση στο πλαίσιο συστήματος</translation>
+    </message>
+    <message>
+        <source>Start Minimized to Tray</source>
+        <translation type="unfinished">Εκκίνηση ελαχιστοποιημένο στο πλαίσιο συστήματος</translation>
+    </message>
+    <message>
+        <source>Close to Tray</source>
+        <translation type="unfinished">Κλείσιμο στο πλαίσιο συστήματος</translation>
+    </message>
+    <message>
+        <source>Show Editor</source>
+        <translation type="unfinished">Εμφάνιση επεξεργαστή</translation>
+    </message>
+    <message>
+        <source>Capture</source>
+        <translation type="unfinished">Σύλληψη</translation>
+    </message>
+    <message>
+        <source>Default Tray Icon action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Action that is triggered by left clicking the tray icon.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tray Icon Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

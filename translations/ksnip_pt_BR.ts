@@ -148,13 +148,15 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Mudança na Ferramenta atualiza todos os itens número</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Desativar esta opção causa mudanças na ferramenta número
+para afetar apenas novos itens, mas não os itens existentes.
+Desativar esta opção permite ter números duplicados.</translation>
     </message>
 </context>
 <context>
@@ -213,16 +215,17 @@ um novo início de todas as instâncias.</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar abas automaticamente</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto ocultar Docks</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Na inicialização, oculte as configurações de barra de ferramentas e anotações.
+A visibilidade das Docks pode ser alternada com a tecla Tab.</translation>
     </message>
 </context>
 <context>
@@ -360,31 +363,31 @@ Deseja continuar?</translation>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Área retangular</translation>
+        <translation>Área retangular</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Última Área Retangular</translation>
+        <translation>Última Área Retangular</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Tela cheia (Todos os monitores)</translation>
+        <translation>Tela cheia (Todos os monitores)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Tela atual</translation>
+        <translation>Tela atual</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Janela Ativa</translation>
+        <translation>Janela Ativa</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Janela Sob o Cursor</translation>
+        <translation>Janela Sob o Cursor</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Portal de captura de tela</translation>
+        <translation>Portal de captura de tela</translation>
     </message>
 </context>
 <context>
@@ -852,7 +855,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished">Fixar a captura de tela no primeiro plano de uma janela sem moldura</translation>
+        <translation>Fixar a captura de tela no primeiro plano de uma janela sem moldura</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -868,11 +871,11 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir Docks</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar Docks</translation>
     </message>
 </context>
 <context>
@@ -1093,7 +1096,7 @@ com o caminho para um arquivo png temporário como um único argumento.</transla
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished">Marca o upload como falha quando o script escreve em StdErr.
+        <translation>Marca o upload como falha quando o script escreve em StdErr.
 Sem essa configuração, os erros no script passarão despercebidos.</translation>
     </message>
     <message>
@@ -1163,34 +1166,34 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Ícone da bandeja</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Redimensione o retângulo selecionado usando as alças ou mova-o arrastando a seleção.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Use as setas para mover a seleção.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Use as seta enquanto pressiona CTRL para mover a alça superior esquerda.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Use as teclas de seta enquanto pressiona ALT para mover a alça inferior direita.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirme a seleção pressionando ENTER/RETURN ou aborte pressionando ESC.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished">Esta mensagem pode ser desativada nas configurações.</translation>
+        <translation>Esta mensagem pode ser desativada nas configurações.</translation>
     </message>
 </context>
 <context>
@@ -1220,7 +1223,7 @@ Quando omitido, tudo é copiado.</translation>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Congelar imagem ao capturar área retangular</translation>
+        <translation>Congelar imagem ao capturar área retangular</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1248,7 +1251,7 @@ habilitado para MacOs.</translation>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Exibir uma lupa que mostra zoom
+        <translation>Exibir uma lupa que mostra zoom
 na imagem de fundo. Esta opção só funciona
 com &apos;Congelar imagem ao capturar área retangular&apos; habilitada.</translation>
     </message>
@@ -1292,7 +1295,7 @@ pressionando voltar.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished">Mostrar texto de informação para área retangular</translation>
+        <translation>Mostrar texto de informação para área retangular</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
@@ -1316,21 +1319,23 @@ pressionando voltar.</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor das bordas da área de recorte</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Define a cor de todos as bordas
+na área de retangular.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Transparência da área retangular</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alfa para região não selecionada na área retangular.
+O número menor é mais transparente.</translation>
     </message>
 </context>
 <context>
@@ -1379,45 +1384,45 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Usar ícone da bandeja</translation>
+        <translation>Usar ícone da bandeja</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Quando ativado, adiciona um ícone de bandeja na barra de tarefas, se o gerenciador de janelas do SO oferecer suporte.
+        <translation>Quando ativado, adiciona um ícone de bandeja na barra de tarefas, se o gerenciador de janelas do SO oferecer suporte.
 A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Minimizar para a Bandeja</translation>
+        <translation>Minimizar para a Bandeja</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Iniciar Minimizado na Bandeja</translation>
+        <translation>Iniciar Minimizado na Bandeja</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Fechar para a Bandeja</translation>
+        <translation>Fechar para a Bandeja</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Exibir Editor</translation>
+        <translation>Exibir Editor</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Imagem</translation>
+        <translation>Capturar</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Ação padrão do ícone da bandeja</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ação padrão que é disparada clicando com o botão esquerdo do mouse no ícone da bandeja.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurações do ícone da bandeja</translation>
     </message>
 </context>
 <context>

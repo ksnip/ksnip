@@ -147,13 +147,15 @@ för penna och markör, men gör dem mjukare.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändring i numreringsverktyget uppdaterar alla nummerposter</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Inaktivering av det här alternativet innebär att numreringsverktyget
+påverkar endast nya objekt men inte befintliga.
+Inaktivering låter dig använda dubblettnummer.</translation>
     </message>
 </context>
 <context>
@@ -212,16 +214,17 @@ Om det här alternativet ändras måste alla öppna instanser startas om.</trans
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj flikar automatiskt</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj dockor automatiskt</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj verktygsfält och noteringsinställningar vid uppstart.
+Dockors synlighet kan växlas med Tab-tangenten.</translation>
     </message>
 </context>
 <context>
@@ -359,31 +362,31 @@ Vill du fortsätta?</translation>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Rektangulärt område</translation>
+        <translation>Rektangulärt område</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Tidigare rektangulära område</translation>
+        <translation>Senaste rektangulära område</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Helskärm (Alla skärmar)</translation>
+        <translation>Helskärm (Alla skärmar)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Aktuell skärm</translation>
+        <translation>Aktuell skärm</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Aktivt fönster</translation>
+        <translation>Aktivt fönster</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Fönster under muspekaren</translation>
+        <translation>Fönster under muspekaren</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Skärmklippsportal</translation>
+        <translation>Skärmklippsportal</translation>
     </message>
 </context>
 <context>
@@ -867,11 +870,11 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa dockor</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Dölj dockor</translation>
     </message>
 </context>
 <context>
@@ -1048,7 +1051,7 @@ Filnamn kan innehålla följande jokertecken:
     </message>
     <message>
         <source>Save Quality</source>
-        <translation>Spara kvalitet</translation>
+        <translation>Lagringskvalitet</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
@@ -1162,34 +1165,34 @@ När detta utelämnas kopieras allt.</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemfältsikon</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändra storlek på markerad rektangel med hjälp av handtagen eller flytta den genom att dra markeringen.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd piltangenter för att flytta markeringen.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd CTRL+piltangenter för att flytta handtaget i vänster överkant.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd ALT+piltangenter för att flytta handtaget i höger underkant.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bekräfta markering genom att trycka RETUR/ENTER eller avbryt med ESC.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished">Detta meddelande kan inaktiveras i inställningarna.</translation>
+        <translation>Detta meddelande kan inaktiveras i inställningarna.</translation>
     </message>
 </context>
 <context>
@@ -1315,21 +1318,23 @@ tillämpas genom att trycka Retur.</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Klippområdets prydnadsfärg</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ställer in färgen på alla prydnadselement
+i klippområdet.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Klippområdets transparens</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alfa för icke markerad region på klippområdet.
+Lägre siffra är mer transparens.</translation>
     </message>
 </context>
 <context>
@@ -1378,45 +1383,45 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Använd systemfältsikon</translation>
+        <translation>Använd systemfältsikon</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Vid aktivering läggs en ikon till i systemfältet, om operativsystemet stödjer det.
+        <translation>Vid aktivering läggs en ikon till i systemfältet, om operativsystemet stödjer det.
 Ändring kräver omstart.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Minimera till systemfältet</translation>
+        <translation>Minimera till systemfältet</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Starta minimerad i systemfältet</translation>
+        <translation>Starta minimerad i systemfältet</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Stäng till systemfältet</translation>
+        <translation>Stäng till systemfältet</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Visa redigerare</translation>
+        <translation>Visa redigerare</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Klipp</translation>
+        <translation>Klipp</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardåtgärd för systemfältsikon</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardåtgärd som utlöses genom att vänsterklicka på systemfältsikonen.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar för systemfältsikon</translation>
     </message>
 </context>
 <context>

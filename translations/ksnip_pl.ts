@@ -213,11 +213,11 @@ nowego uruchomienia wszystkich instancji.</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatyczne ukrywanie Zakładki</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatyczne ukrywanie Doków</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
@@ -360,27 +360,27 @@ Czy chcesz kontynuować?</translation>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Obszar prostokątny</translation>
+        <translation>Obszar prostokątny</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Ostatni obszar prostokątny</translation>
+        <translation>Ostatni obszar prostokątny</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Pełny ekran (wszystkie monitory)</translation>
+        <translation>Pełny ekran (wszystkie monitory)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Bieżący ekran</translation>
+        <translation>Bieżący ekran</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Aktywne okno</translation>
+        <translation>Aktywne okno</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Okno pod kursorem</translation>
+        <translation>Okno pod kursorem</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
@@ -868,11 +868,11 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż Doki</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukryj Doki</translation>
     </message>
 </context>
 <context>
@@ -1163,34 +1163,34 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikona w zasobniku</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ponownie wybierz rozmiar wybranego prostokąta za pomocą uchwytów lub przesuń go, przeciągając zaznaczenie.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Użyj klawiszy strzałek, aby przesunąć zaznaczenie.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Użyj klawiszy strzałek, naciskając klawisz CTRL, aby przesunąć lewy górny uchwyt.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Użyj klawiszy strzałek, jednocześnie naciskając ALT, aby przesunąć prawy dolny uchwyt.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Potwierdź wybór naciskając ENTER/RETURN lub przerwij naciskając ESC.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished">Ten komunikat można wyłączyć w ustawieniach.</translation>
+        <translation>Ten komunikat można wyłączyć w ustawieniach.</translation>
     </message>
 </context>
 <context>
@@ -1242,7 +1242,7 @@ włączone dla MacO.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Pokaż lupę w obszarze wycinania</translation>
+        <translation>Pokaż lupę w obszarze wycinania</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
@@ -1254,7 +1254,7 @@ z włączoną funkcją &quot;Zamrażaj obraz podczas przycinania&quot;.</transla
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Pokaż linijki obszaru wycinania</translation>
+        <translation>Pokaż linijki obszaru wycinania</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
@@ -1322,7 +1322,7 @@ on the snipping area.</source>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Przezroczystość obszaru wycinania</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
@@ -1376,7 +1376,7 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Użycie ikony w zasobnika</translation>
+        <translation>Użyj ikony z zasobnika</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
@@ -1386,35 +1386,35 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Minimalizuj do zasobnika</translation>
+        <translation>Minimalizuj do zasobnika</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Uruchom zminimalizowany do zasobnika</translation>
+        <translation>Uruchom zminimalizowany do zasobnika</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Zamykaj do zasobnika</translation>
+        <translation>Zamknij do zasobnika</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Pokaż edytor</translation>
+        <translation>Pokaż Edytor</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Zrzut z ekranu</translation>
+        <translation>Przechwytywanie</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Domyślna akcja ikony zasobnika</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Domyślna Akcja, która jest uruchamiana przez kliknięcie lewym przyciskiem myszy ikony zasobnika.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia ikony zasobnika</translation>
     </message>
 </context>
 <context>

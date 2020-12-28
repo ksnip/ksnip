@@ -144,7 +144,7 @@ más suaves.</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar a la herramienta de selección después de dibujar un elemento</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
@@ -202,27 +202,28 @@ El cambio requiere el reinicio de ksnip para que tenga efecto.</translation>
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation>Habilitando esta opción  permitirá que solo una instancia de ksnip inicie,
-el resto de las instancias iniciadas después pasarán  sus
+        <translation>Habilitando esta opción permitirá que solo una instancia de ksnip inicie,
+el resto de las instancias iniciadas después pasarán sus
 argumentos a la primera y se cerrarán. Cambiar esta opción requiere
 un nuevo inicio de todas las instancias.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Al mover la ventana principal recordar la posición y restaurarla al iniciar</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar automáticamente las pestañas</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ocultar automáticamente los Docks</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Al inicio ocultar la barra de herramientar y las opciones de comentarios.
+La visibilidad del Dock puede ser alternada con el tabulador.</translation>
     </message>
 </context>
 <context>
@@ -261,7 +262,7 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Autores:</translation>
     </message>
 </context>
 <context>
@@ -322,7 +323,7 @@ Do you want to save it?</source>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
         <translation>Se eliminará el elemento «%1».
-¿Quiere proseguir?</translation>
+¿Quiere continuar?</translation>
     </message>
 </context>
 <context>
@@ -535,20 +536,21 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar ventana principal después de una captura de pantalla</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar ventana principal después de una nueva captura de pantalla
+cuando la ventana principal fué ocultada o minimizada.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar la ventana principal durante una captura de pantalla</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar la ventana principal al realizar una nueva captura de pantalla.</translation>
     </message>
 </context>
 <context>
@@ -851,11 +853,11 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Renombrar</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir imagenes</translation>
     </message>
     <message>
         <source>Show Docks</source>
@@ -894,7 +896,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Renombrar</translation>
     </message>
 </context>
 <context>
@@ -930,27 +932,27 @@ y la captura de pantalla.</translation>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagen renombrada</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Imagen renombrada exitosamente a </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Fallo al renombrar la imagen</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Falli al renombrar la imagen a </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Renombrar imagen</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuevo nombre de archivo:</translation>
     </message>
 </context>
 <context>
@@ -1342,7 +1344,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar pegatina</translation>
     </message>
 </context>
 <context>
@@ -1420,7 +1422,7 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Añada una secuencia de carga en Opciones&#xa0;▸ Configuración&#xa0;▸ Secuencia de carga</translation>
+        <translation>Añada una secuencia de carga en Opciones ▸ Configuración ▸ Secuencia de carga</translation>
     </message>
     <message>
         <source>Capture Upload</source>

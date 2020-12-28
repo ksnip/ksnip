@@ -139,7 +139,7 @@ för penna och markör, men gör dem mjukare.</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation>Kom ihåg val av anteckningsverktyg och läs in vid uppstart</translation>
+        <translation>Kom ihåg val av ritverktyg och läs in vid uppstart</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
@@ -484,7 +484,7 @@ Vill du fortsätta?</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation>Avbilda tidigare rektangulära område</translation>
+        <translation>Avbilda senaste rektangulära område</translation>
     </message>
     <message>
         <source>Clear</source>

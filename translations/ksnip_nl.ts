@@ -148,13 +148,14 @@ gladder.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Getalwijziging werkt alle items met getallen bij</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel deze optie uit om alleen nieuwe items en niet ook
+bestaande items te wijzigen. Hierdoor zijn duplicaten mogelijk.</translation>
     </message>
 </context>
 <context>
@@ -213,16 +214,17 @@ wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabbladen automatisch verbergen</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Panelen automatisch verbergen</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verberg bij het opstarten de werkbalk- en aantekeningsinstellingen.
+Ze kunnen dan worden getoond/verborgen met de Tab-toets.</translation>
     </message>
 </context>
 <context>
@@ -360,31 +362,31 @@ Weet je zeker dat je wilt doorgaan?</translation>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Rechthoekig gebied</translation>
+        <translation>Rechthoekig gebied</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Vorig rechthoekig gebied</translation>
+        <translation>Vorig rechthoekig gebied</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Volledig scherm (alle beeldschermen)</translation>
+        <translation>Volledig scherm (alle beeldschermen)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Huidig scherm</translation>
+        <translation>Huidig scherm</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Actief venster</translation>
+        <translation>Actief venster</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Venster onder cursor</translation>
+        <translation>Venster onder cursor</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Schermfotoportaal</translation>
+        <translation>Schermfotoportaal</translation>
     </message>
 </context>
 <context>
@@ -868,11 +870,11 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Panelen tonen</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Panelen verbergen</translation>
     </message>
 </context>
 <context>
@@ -1163,34 +1165,34 @@ Sla over om álles te kopiëren.</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Systeemvakpictogram</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas de grootte van het selectiegebied aan door de handgrepen te verschuiven of de selectie te verplaatsen.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruik de pijltjestoetsen om de selectie te verplaatsen.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Houd de Ctrl-toets ingedrukt en druk op de pijltjestoetsen om het bovenste linkerhandvat te verplaatsen.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Houd de Alt-toets ingedrukt en druk op de pijltjestoetsen om het onderste rechterhandvat te verplaatsen.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevestig de selectie door op Enter te drukken of breek af door op Esc te drukken.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished">Dit bericht kan in de instellingen worden uitgeschakeld.</translation>
+        <translation>Dit bericht kan in de instellingen worden uitgeschakeld.</translation>
     </message>
 </context>
 <context>
@@ -1313,21 +1315,23 @@ het aanpassen op Enter om op te slaan.</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Versierkleur van vastleggebied</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stelt de kleur in van versierde elementen
+in het vastleggebied.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Doorzichtigheid van vastleggebied</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>De alfawaarde van niet-geselecteerde gebieden in het selectiegebied.
+Lager = doorzichtiger.</translation>
     </message>
 </context>
 <context>
@@ -1376,45 +1380,45 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Systeemvakpictogram gebruiken</translation>
+        <translation>Systeemvakpictogram gebruiken</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Schakel dit in om, als je vensterbeheerder dit ondersteunt, een systeemvakpictogram te gebruiken.
+        <translation>Schakel dit in om, als je vensterbeheerder dit ondersteunt, een systeemvakpictogram te gebruiken.
 Herstart om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Minimaliseren naar systeemvak</translation>
+        <translation>Minimaliseren naar systeemvak</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Geminimaliseerd in systeemvak opstarten</translation>
+        <translation>Geminimaliseerd in systeemvak opstarten</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Sluiten naar systeemvak</translation>
+        <translation>Sluiten naar systeemvak</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Bewerker tonen</translation>
+        <translation>Bewerker tonen</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Vastleggen</translation>
+        <translation>Vastleggen</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Standaard systeemvakpictogramactie</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>De standaardactie na het klikken op het systeemvakpictogram.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Systeemvakinstellingen</translation>
     </message>
 </context>
 <context>

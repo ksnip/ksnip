@@ -155,6 +155,8 @@ elseif (WIN32)
         )
 endif ()
 
+# Set the sources variable in the top-level as well, since the tests/
+# directory wants to (re)build as well.
 set(KSNIP_SRCS ${KSNIP_SRCS} PARENT_SCOPE)
 
 if (WIN32)

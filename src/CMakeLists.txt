@@ -164,61 +164,62 @@ endif ()
 set(KSNIP_SRCS ${KSNIP_SRCS} PARENT_SCOPE)
 
 if (WIN32)
-	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${CMAKE_SOURCE_DIR}/icons/ksnip_windows_icon.rc)
+    add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${CMAKE_SOURCE_DIR}/icons/ksnip_windows_icon.rc)
 elseif (APPLE)
-	set(MACOSX_BUNDLE_EXECUTABLE_NAME "ksnip")
-	set(MACOSX_BUNDLE_GUI_IDENTIFIER "org.ksnip.ksnip")
-	set(MACOSX_BUNDLE_ICON_FILE "ksnip.icns")
-	set(MACOSX_BUNDLE_INFO_STRING "Cross-Platform Screenshot and Annotation Tool")
-	set(MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION})
-	set(MACOSX_BUNDLE_LONG_VERSION_STRING ${KSNIP_VERSION})
-	set(MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION})
+    set(MACOSX_BUNDLE_EXECUTABLE_NAME "ksnip")
+    set(MACOSX_BUNDLE_GUI_IDENTIFIER "org.ksnip.ksnip")
+    set(MACOSX_BUNDLE_ICON_FILE "ksnip.icns")
+    set(MACOSX_BUNDLE_INFO_STRING "Cross-Platform Screenshot and Annotation Tool")
+    set(MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION})
+    set(MACOSX_BUNDLE_LONG_VERSION_STRING ${KSNIP_VERSION})
+    set(MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION})
 
-	set(MACOSX_ICON ${CMAKE_SOURCE_DIR}/icons/ksnip.icns backend/imageGrabber/AbstractImageGrabber.cpp backend/imageGrabber/AbstractImageGrabber.h)
-	set_source_files_properties(${MACOSX_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+    set(MACOSX_ICON ${CMAKE_SOURCE_DIR}/icons/ksnip.icns backend/imageGrabber/AbstractImageGrabber.cpp backend/imageGrabber/AbstractImageGrabber.h)
+    set_source_files_properties(${MACOSX_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
 
-	add_executable(ksnip MACOSX_BUNDLE ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${MACOSX_ICON})
+    add_executable(ksnip MACOSX_BUNDLE ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${MACOSX_ICON})
 else()
-	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc)
+    add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc)
 endif ()
 
 set(DEPENDENCY_LIBRARIES
-		Qt5::Widgets
-		Qt5::Network
-		Qt5::Xml
-		Qt5::PrintSupport
-		Qt5::DBus)
+    Qt5::Widgets
+    Qt5::Network
+    Qt5::Xml
+    Qt5::PrintSupport
+    Qt5::DBus
+    )
 
 if (APPLE)
-	list(APPEND DEPENDENCY_LIBRARIES
-			kImageAnnotator::kImageAnnotator
-			kColorPicker::kColorPicker)
+    list(APPEND DEPENDENCY_LIBRARIES
+            kImageAnnotator::kImageAnnotator
+            kColorPicker::kColorPicker)
 else ()
-	list(APPEND DEPENDENCY_LIBRARIES
-			kImageAnnotator
-			kColorPicker)
+    list(APPEND DEPENDENCY_LIBRARIES
+            kImageAnnotator
+            kColorPicker)
 endif ()
 
 list(APPEND DEPENDENCY_LIBRARIES Qt5::Svg)
 
 if (APPLE)
-	list(APPEND DEPENDENCY_LIBRARIES
-			"-framework CoreGraphics -framework AppKit")
+    list(APPEND DEPENDENCY_LIBRARIES
+            "-framework CoreGraphics -framework AppKit")
 elseif (UNIX)
-	list(APPEND DEPENDENCY_LIBRARIES
-			Qt5::X11Extras
-			XCB::XFIXES
-			X11)
+    list(APPEND DEPENDENCY_LIBRARIES
+            Qt5::X11Extras
+            XCB::XFIXES
+            X11)
 elseif(WIN32)
-	list(APPEND DEPENDENCY_LIBRARIES
-			Qt5::WinExtras
-			Dwmapi)
+    list(APPEND DEPENDENCY_LIBRARIES
+            Qt5::WinExtras
+            Dwmapi)
 endif ()
 
 target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})
 
 if (UNIX AND NOT APPLE)
-	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+    install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
     # uninstall target
     if(NOT TARGET uninstall)

@@ -44,6 +44,11 @@ endif ()
 set(QT_COMPONENTS Core Widgets Network Xml PrintSupport DBus Svg)
 set(QT_MIN_VERSION 5.9.4)
 
+if (UNIX AND NOT APPLE)
+    # The KDE Wayland backend uses QtConcurrent (see src/CMakeLists.txt
+    # and src/backend/imageGrabber/KdeWaylandImageGrabber.cpp)
+    list(APPEND QT_COMPONENTS Concurrent)
+endif()
 if (X11_FOUND)
   list(APPEND QT_COMPONENTS X11Extras)
 elseif (WIN32)

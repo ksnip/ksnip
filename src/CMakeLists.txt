@@ -184,32 +184,30 @@ set(DEPENDENCY_LIBRARIES
     Qt5::Xml
     Qt5::PrintSupport
     Qt5::DBus
+    Qt5::Svg
     )
 
 if (APPLE)
     list(APPEND DEPENDENCY_LIBRARIES
             kImageAnnotator::kImageAnnotator
-            kColorPicker::kColorPicker)
-else ()
-    list(APPEND DEPENDENCY_LIBRARIES
-            kImageAnnotator
-            kColorPicker)
-endif ()
-
-list(APPEND DEPENDENCY_LIBRARIES Qt5::Svg)
-
-if (APPLE)
-    list(APPEND DEPENDENCY_LIBRARIES
-            "-framework CoreGraphics -framework AppKit")
+            kColorPicker::kColorPicker
+            "-framework CoreGraphics -framework AppKit"
+            )
 elseif (UNIX)
     list(APPEND DEPENDENCY_LIBRARIES
             Qt5::X11Extras
+            kImageAnnotator
+            kColorPicker
             XCB::XFIXES
-            X11)
+            X11
+            )
 elseif(WIN32)
     list(APPEND DEPENDENCY_LIBRARIES
             Qt5::WinExtras
-            Dwmapi)
+            kImageAnnotator
+            kColorPicker
+            Dwmapi
+            )
 endif ()
 
 target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})

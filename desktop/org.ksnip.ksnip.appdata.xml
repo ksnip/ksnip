@@ -94,6 +94,7 @@
                     <li>New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions.</li>
                     <li>New kImageAnnotator: Add support for hiding annotation settings panel.</li>
                     <li>New kImageAnnotator: Add config option for numbering tool to only set next number.</li>
+                    <li>New kImageAnnotator: Allow manually changing canvas size.</li>
                 </ul>
             </description>
         </release>

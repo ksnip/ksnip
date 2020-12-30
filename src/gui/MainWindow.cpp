@@ -44,6 +44,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mPasteEmbeddedAction(new QAction(this)),
 	mPinAction(new QAction(this)),
 	mRemoveImageAction(new QAction(this)),
+	mModifyCanvasAction(new QAction(this)),
 	mMainLayout(layout()),
 	mConfig(KsnipConfigProvider::instance()),
 	mServiceLocator(new ServiceLocator),
@@ -138,6 +139,7 @@ MainWindow::~MainWindow()
     delete mScaleAction;
     delete mAddWatermarkAction;
     delete mSaveAsAction;
+    delete mModifyCanvasAction;
     delete mCapturePrinter;
     delete mTrayIcon;
     delete mDragAndDropHandler;
@@ -331,6 +333,7 @@ void MainWindow::setEnablements(bool enabled)
 	mPinAction->setEnabled(enabled);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
 	mRenameAction->setEnabled(enabled);
+	mModifyCanvasAction->setEnabled(enabled);
 }
 
 void MainWindow::loadSettings()
@@ -475,6 +478,9 @@ void MainWindow::initGui()
 	mRemoveImageAction->setIcon(IconLoader::loadForTheme(QLatin1String("delete")));
 	connect(mRemoveImageAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::removeImage);
 
+	mModifyCanvasAction->setText(tr("Modify Canvas"));
+	connect(mModifyCanvasAction, &QAction::triggered, mImageAnnotator, &IImageAnnotator::showCanvasModifier);
+
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
     menu->addAction(mOpenImageAction);
@@ -504,6 +510,7 @@ void MainWindow::initGui()
 	menu = menuBar()->addMenu(tr("&View"));
 	menu->addAction(mOpenDirectoryAction);
 	menu->addAction(mToggleDocksAction);
+	menu->addAction(mModifyCanvasAction);
     menu = menuBar()->addMenu(tr("&Options"));
     menu->addAction(mPinAction);
     menu->addAction(mSettingsAction);

@@ -38,6 +38,7 @@ public:
 	virtual void showAnnotator() = 0;
 	virtual void showCropper() = 0;
 	virtual void showScaler() = 0;
+	virtual void showCanvasModifier() = 0;
 	virtual void setSettingsCollapsed(bool isCollapsed) = 0;
 	virtual void hide() = 0;
 	virtual void close() = 0;

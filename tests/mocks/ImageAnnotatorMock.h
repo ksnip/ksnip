@@ -44,6 +44,7 @@ public:
 	void showCropper() override;
 	void setSettingsCollapsed(bool isCollapsed) override;
 	void showScaler() override;
+	void showCanvasModifier() override;
 	void hide() override;
 	void close() override;
 	bool isVisible() const override;

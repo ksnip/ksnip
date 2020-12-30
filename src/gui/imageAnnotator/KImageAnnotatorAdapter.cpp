@@ -178,3 +178,8 @@ void KImageAnnotatorAdapter::addTabContextMenuActions(const QList<QAction *> &ac
 {
 	mKImageAnnotator->addTabContextMenuActions(actions);
 }
+
+void KImageAnnotatorAdapter::showCanvasModifier()
+{
+	mKImageAnnotator->showCanvasModifier();
+}

@@ -96,6 +96,7 @@ private:
     QAction *mPasteEmbeddedAction;
     QAction *mPinAction;
     QAction *mRemoveImageAction;
+    QAction *mModifyCanvasAction;
     MainToolBar *mToolBar;
     QLayout *mMainLayout;
     KsnipConfig *mConfig;

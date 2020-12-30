@@ -67,6 +67,11 @@ void ImageAnnotatorMock::showScaler()
 
 }
 
+void ImageAnnotatorMock::showCanvasModifier()
+{
+
+}
+
 void ImageAnnotatorMock::hide()
 {
 	mHideCallCounter++;
@@ -201,3 +206,4 @@ void ImageAnnotatorMock::setNumberToolSeedChangeUpdatesAllItems(bool enabled)
 {
 
 }
+

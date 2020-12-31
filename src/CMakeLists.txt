@@ -203,8 +203,14 @@ elseif (UNIX)
             kImageAnnotator::kImageAnnotator
             kColorPicker::kColorPicker
             XCB::XFIXES
-            X11
             )
+    # X11::X11 imported target only available with sufficiently new CMake
+    if (CMAKE_VERSION VERSION_GREATER_EQUAL 3.14.0)
+        list(APPEND DEPENDENCY_LIBRARIES X11::X11)
+    else()
+        list(APPEND DEPENDENCY_LIBRARIES X11)
+    endif()
+
     # This is the "UNIX AND NOT APPLE" case, which is the Free Desktop
     # world: Linux and the BSDs and Illumos. To simplify #ifdefs in
     # the source, add a UNIX_X11 defined to be used instead of __linux__ etc.

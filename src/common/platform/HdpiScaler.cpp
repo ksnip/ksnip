@@ -44,15 +44,15 @@ QRect HdpiScaler::scale(const QRect &rect) const
 qreal HdpiScaler::scaleFactor() const
 {
 	auto desktopWidget = QApplication::desktop();
-	
+
 #if defined(__APPLE__)
     auto myWindow = QGuiApplication::topLevelWindows().first();
     qDebug("QWindow devicePixelRatio: %s", qPrintable(QString::number(myWindow->devicePixelRatio())));
 
 	return myWindow->devicePixelRatio();
 #endif
-	
-#if defined(__linux__) || defined(_WIN32)
+
+#if defined(UNIX_X11) || defined(_WIN32)
     return desktopWidget->devicePixelRatioF();
 #endif
 }

@@ -205,6 +205,12 @@ elseif (UNIX)
             XCB::XFIXES
             X11
             )
+    # This is the "UNIX AND NOT APPLE" case, which is the Free Desktop
+    # world: Linux and the BSDs and Illumos. To simplify #ifdefs in
+    # the source, add a UNIX_X11 defined to be used instead of __linux__ etc.
+    # While the "X11" part of the define isn't necessarily accurate,
+    # it is easy to spot.
+    target_compile_definitions(ksnip PRIVATE UNIX_X11)
 elseif(WIN32)
     list(APPEND DEPENDENCY_LIBRARIES
             Qt5::WinExtras

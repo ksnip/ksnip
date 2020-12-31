@@ -25,7 +25,7 @@ WidgetVisibilityHandler *WidgetVisibilityHandlerFactory::create(QWidget *widget)
 	return new WidgetVisibilityHandler(widget);
 #endif
 
-#if defined(__linux__)
+#if defined(UNIX_X11)
 	auto platformChecker = PlatformChecker::instance();
 	if (platformChecker->isWayland() && platformChecker->isGnome()) {
 		return new GnomeWaylandWidgetVisibilityHandler(widget);

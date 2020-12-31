@@ -25,7 +25,7 @@ AbstractKeyHandler* KeyHandlerFactory::create()
     return new DummyKeyHandler;
 #endif
 
-#if defined(__linux__)
+#if defined(UNIX_X11)
     if(PlatformChecker::instance()->isWayland()) {
 	    return new DummyKeyHandler;
     } else {

@@ -1236,7 +1236,7 @@ This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
         <translation>Quando ativado irá congelar o fundo enquanto
 selecionando uma área retangular. Também muda
-o comportamento de capturas de tela atrasadas, com este
+o comportamento de capturas de tela atrasadas, com esta
 opção habilitada o atraso acontece antes da
 área retangular ser exibida e com a opção desativada
 o atraso acontece depois que a área retangular é exibida.
@@ -1291,7 +1291,7 @@ by pressing return.</source>
         <translation>Quando ativado, após selecionar uma área
 retangular, permite redimensionar a seleção. Quando
 realizado o redimensionamento a seleção pode ser confirmada
-pressionando voltar.</translation>
+pressionando Enter.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>

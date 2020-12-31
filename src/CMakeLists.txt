@@ -200,8 +200,8 @@ if (APPLE)
 elseif (UNIX)
     list(APPEND DEPENDENCY_LIBRARIES
             Qt5::X11Extras
-            kImageAnnotator
-            kColorPicker
+            kImageAnnotator::kImageAnnotator
+            kColorPicker::kColorPicker
             XCB::XFIXES
             X11
             )

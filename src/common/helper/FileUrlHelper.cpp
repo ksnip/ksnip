@@ -26,7 +26,7 @@ QString FileUrlHelper::parse(const QString &text)
 	return url.remove(QLatin1String("file://"));
 #endif
 
-#if defined(__linux__)
+#if defined(UNIX_X11)
 	return url.remove(QLatin1String("file://"));
 #endif
 

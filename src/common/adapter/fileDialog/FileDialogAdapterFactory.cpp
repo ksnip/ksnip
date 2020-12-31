@@ -21,7 +21,7 @@
 
 IFileDialogAdapter *FileDialogAdapterFactory::create()
 {
-#if defined(__linux__)
+#if defined(UNIX_X11)
 	if (PlatformChecker::instance()->isSnap()) {
 		return new SnapFileDialogAdapter;
 	} else {

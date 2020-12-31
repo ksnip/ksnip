@@ -23,7 +23,7 @@
 #include "FileDialogAdapter.h"
 #include "SnapFileDialogAdapter.h"
 
-#if defined(__linux__)
+#if defined(UNIX_X11)
 #include "src/common/platform/PlatformChecker.h"
 #endif
 

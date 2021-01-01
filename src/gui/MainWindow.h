@@ -80,6 +80,7 @@ private:
     bool mSessionManagerRequestedQuit;
     QAction *mSaveAsAction;
     QAction *mUploadAction;
+    QAction *mCopyToClipboardAction;
     QAction *mPrintAction;
     QAction *mPrintPreviewAction;
     QAction *mQuitAction;
@@ -127,6 +128,7 @@ private slots:
     void copyCaptureToClipboard();
     void upload();
     void uploadFinished(const UploadResult &result);
+    void copyToClipboard();
     void printClicked();
     void printPreviewClicked();
     void showOpenImageDialog();

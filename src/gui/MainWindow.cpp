@@ -28,6 +28,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
 	mUploadAction(new QAction(this)),
+	mCopyToClipboardAction(new QAction(this)),
 	mPrintAction(new QAction(this)),
 	mPrintPreviewAction(new QAction(this)),
 	mQuitAction(new QAction(this)),
@@ -126,6 +127,7 @@ MainWindow::~MainWindow()
 {
     delete mImageAnnotator;
     delete mUploadAction;
+    delete mCopyToClipboardAction;
     delete mPrintAction;
     delete mPrintPreviewAction;
     delete mQuitAction;
@@ -325,15 +327,16 @@ void MainWindow::setEnablements(bool enabled)
     mPrintAction->setEnabled(enabled);
     mPrintPreviewAction->setEnabled(enabled);
     mUploadAction->setEnabled(enabled);
-	mScaleAction->setEnabled(enabled);
-	mAddWatermarkAction->setEnabled(enabled);
+    mCopyToClipboardAction->setEnabled(enabled);
+    mScaleAction->setEnabled(enabled);
+    mAddWatermarkAction->setEnabled(enabled);
     mToolBar->setCopyActionEnabled(enabled);
     mToolBar->setCropEnabled(enabled);
-	mSaveAsAction->setEnabled(enabled);
-	mPinAction->setEnabled(enabled);
-	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
-	mRenameAction->setEnabled(enabled);
-	mModifyCanvasAction->setEnabled(enabled);
+    mSaveAsAction->setEnabled(enabled);
+    mPinAction->setEnabled(enabled);
+    mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
+    mRenameAction->setEnabled(enabled);
+    mModifyCanvasAction->setEnabled(enabled);
 }
 
 void MainWindow::loadSettings()
@@ -398,6 +401,10 @@ void MainWindow::initGui()
     mUploadAction->setToolTip(tr("Upload capture to external source"));
     mUploadAction->setShortcut(Qt::SHIFT + Qt::Key_U);
     connect(mUploadAction, &QAction::triggered, this, &MainWindow::upload);
+
+    mCopyToClipboardAction->setText(tr("Copy to clipboard"));
+    mCopyToClipboardAction->setToolTip(tr("Copy capture to system clipboard"));
+    connect(mCopyToClipboardAction, &QAction::triggered, this, &MainWindow::copyToClipboard);
 
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
@@ -487,6 +494,7 @@ void MainWindow::initGui()
     menu->addAction(mToolBar->saveAction());
     menu->addAction(mSaveAsAction);
     menu->addAction(mUploadAction);
+    menu->addAction(mCopyToClipboardAction);
     menu->addSeparator();
     menu->addAction(mPrintAction);
     menu->addAction(mPrintPreviewAction);
@@ -543,6 +551,27 @@ void MainWindow::upload()
 {
 	auto image = mCaptureHandler->image();
 	UploadOperation operation(image, mUploaderProvider->get());
+	operation.execute();
+}
+
+void MainWindow::copyToClipboard()
+{
+	QByteArray ba;
+	auto image = mCaptureHandler->image();
+
+	QBuffer buffer(&ba);
+	buffer.open(QIODevice::WriteOnly);
+	image.save(&buffer, "PNG");
+	buffer.close();
+
+	QByteArray output = "data:image/png;base64,";
+	output.append(ba.toBase64());
+
+	mClipboard->setText(output);
+
+	auto title = tr("Copied to clipboard");
+	auto message = tr("Copied to clipboard as base64 encoded image.");
+	NotifyOperation operation(mTrayIcon, title, message, NotificationTypes::Information);
 	operation.execute();
 }
 

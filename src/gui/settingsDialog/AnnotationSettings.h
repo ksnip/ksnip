@@ -32,7 +32,6 @@
 #include "src/backend/WatermarkImageLoader.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/common/loader/IconLoader.h"
-#include "src/gui/operations/UpdateWatermarkOperation.h"
 #include "src/widgets/ColorButton.h"
 
 class AnnotationSettings : public QGroupBox
@@ -46,14 +45,12 @@ public:
 private:
     QCheckBox *mSmoothPathCheckbox;
     QCheckBox *mItemShadowCheckbox;
-    QCheckBox *mRotateWatermarkCheckbox;
     QCheckBox *mRememberToolSelectionCheckbox;
     QCheckBox *mSwitchToSelectToolAfterDrawingItemCheckbox;
     QCheckBox *mNumberToolSeedChangeUpdatesAllItemsCheckbox;
     QLabel *mTextFontLabel;
     QLabel *mNumberFontLabel;
     QLabel *mSmoothFactorLabel;
-    QLabel *mWatermarkImageLabel;
     QLabel *mCanvasColorLabel;
     NumericComboBox *mSmoothFactorCombobox;
     QFontComboBox *mTextFontCombobox;
@@ -62,17 +59,14 @@ private:
     QToolButton *mTextItalicButton;
     QToolButton *mTextUnderlineButton;
     ColorButton *mCanvasColorButton;
-    QPushButton *mUpdateWatermarkImageButton;
     QGridLayout *mLayout;
     KsnipConfig *mConfig;
-    WatermarkImageLoader mWatermarkImageLoader;
 
     void initGui();
     void loadConfig();
 
 private slots:
     void smoothPathCheckboxClicked(bool checked);
-	void updateWatermarkImageClicked();
 };
 
 #endif //KSNIP_ANNOTATIONSETTINGS_H

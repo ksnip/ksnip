@@ -37,7 +37,8 @@ SettingsDialog::SettingsDialog(QWidget *parent, const QList<CaptureModes> &captu
 	mSaverSettings(new SaverSettings(mConfig)),
 	mStickerSettings(new StickerSettings(mConfig)),
 	mTrayIconSettings(new TrayIconSettings(mConfig, captureModes)),
-	mSnippingAreaSettings(new SnippingAreaSettings(mConfig))
+	mSnippingAreaSettings(new SnippingAreaSettings(mConfig)),
+	mWatermarkSettings(new WatermarkSettings(mConfig))
 {
     setWindowTitle(QApplication::applicationName() + QLatin1String(" - ") + tr("Settings"));
 
@@ -62,6 +63,7 @@ SettingsDialog::~SettingsDialog()
     delete mStickerSettings;
     delete mTrayIconSettings;
     delete mSnippingAreaSettings;
+    delete mWatermarkSettings;
 }
 
 void SettingsDialog::saveSettings()
@@ -77,6 +79,7 @@ void SettingsDialog::saveSettings()
     mStickerSettings->saveSettings();
     mTrayIconSettings->saveSettings();
     mSnippingAreaSettings->saveSettings();
+    mWatermarkSettings->saveSettings();
 }
 
 void SettingsDialog::initGui()
@@ -102,6 +105,7 @@ void SettingsDialog::initGui()
     mStackedLayout->addWidget(mScriptUploaderSettings);
 	mStackedLayout->addWidget(mAnnotationSettings);
 	mStackedLayout->addWidget(mStickerSettings);
+	mStackedLayout->addWidget(mWatermarkSettings);
 	mStackedLayout->addWidget(mHotKeySettings);
 
 	auto application = new QTreeWidgetItem(mTreeWidget, { tr("Application") });
@@ -114,6 +118,7 @@ void SettingsDialog::initGui()
 	auto scriptUploader = new QTreeWidgetItem(uploader, { tr("Script Uploader") });
 	auto annotator = new QTreeWidgetItem(mTreeWidget, { tr("Annotator") });
 	auto stickers = new QTreeWidgetItem(annotator, { tr("Stickers") });
+	auto watermark = new QTreeWidgetItem(annotator, { tr("Watermark") });
 	auto hotkeys = new QTreeWidgetItem(mTreeWidget, { tr("HotKeys") });
 
 	mNavigatorItems.append(application);
@@ -126,6 +131,7 @@ void SettingsDialog::initGui()
 	mNavigatorItems.append(scriptUploader);
 	mNavigatorItems.append(annotator);
 	mNavigatorItems.append(stickers);
+	mNavigatorItems.append(watermark);
 	mNavigatorItems.append(hotkeys);
 
 	mTreeWidget->addTopLevelItem(application);

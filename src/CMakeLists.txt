@@ -80,6 +80,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/StickerSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/TrayIconSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/SnippingAreaSettings.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/WatermarkSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/SettingsDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AboutDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AboutTab.cpp

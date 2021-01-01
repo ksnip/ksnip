@@ -22,14 +22,12 @@
 AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 	mSmoothPathCheckbox(new QCheckBox(this)),
 	mItemShadowCheckbox(new QCheckBox(this)),
-	mRotateWatermarkCheckbox(new QCheckBox(this)),
 	mRememberToolSelectionCheckbox(new QCheckBox(this)),
 	mSwitchToSelectToolAfterDrawingItemCheckbox(new QCheckBox(this)),
 	mNumberToolSeedChangeUpdatesAllItemsCheckbox(new QCheckBox(this)),
 	mTextFontLabel(new QLabel(this)),
 	mNumberFontLabel(new QLabel(this)),
 	mSmoothFactorLabel(new QLabel(this)),
-	mWatermarkImageLabel(new QLabel(this)),
 	mCanvasColorLabel(new QLabel(this)),
 	mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
 	mTextFontCombobox(new QFontComboBox(this)),
@@ -37,11 +35,11 @@ AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 	mTextBoldButton(new QToolButton(this)),
 	mTextItalicButton(new QToolButton(this)),
 	mTextUnderlineButton(new QToolButton(this)),
-	mUpdateWatermarkImageButton(new QPushButton(this)),
 	mCanvasColorButton(new ColorButton(this)),
-	mLayout(new QGridLayout(this))
+	mLayout(new QGridLayout(this)),
+	mConfig(config)
 {
-    Q_ASSERT(config != nullptr);
+    Q_ASSERT(mConfig != nullptr);
 
     mConfig = config;
 
@@ -53,14 +51,12 @@ AnnotationSettings::~AnnotationSettings()
 {
     delete mSmoothPathCheckbox;
     delete mItemShadowCheckbox;
-    delete mRotateWatermarkCheckbox;
     delete mRememberToolSelectionCheckbox;
     delete mSwitchToSelectToolAfterDrawingItemCheckbox;
     delete mNumberToolSeedChangeUpdatesAllItemsCheckbox;
     delete mTextFontLabel;
     delete mNumberFontLabel;
     delete mSmoothFactorLabel;
-    delete mWatermarkImageLabel;
     delete mCanvasColorLabel;
     delete mSmoothFactorCombobox;
     delete mTextFontCombobox;
@@ -68,7 +64,6 @@ AnnotationSettings::~AnnotationSettings()
     delete mTextBoldButton;
     delete mTextItalicButton;
     delete mTextUnderlineButton;
-    delete mUpdateWatermarkImageButton;
     delete mCanvasColorButton;
     delete mLayout;
 }
@@ -83,7 +78,6 @@ void AnnotationSettings::saveSettings()
     mConfig->setItemShadowEnabled(mItemShadowCheckbox->isChecked());
     mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
-    mConfig->setRotateWatermarkEnabled(mRotateWatermarkCheckbox->isChecked());
     mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
     mConfig->setSwitchToSelectToolAfterDrawingItem(mSwitchToSelectToolAfterDrawingItemCheckbox->isChecked());
 	mConfig->setNumberToolSeedChangeUpdatesAllItems(mNumberToolSeedChangeUpdatesAllItemsCheckbox->isChecked());
@@ -146,18 +140,6 @@ void AnnotationSettings::initGui()
 	mCanvasColorButton->setMinimumWidth(fixedButtonWidth);
 	mCanvasColorButton->setShowAlphaChannel(true);
 
-    mWatermarkImageLabel->setPixmap(mWatermarkImageLoader.load());
-    mWatermarkImageLabel->setToolTip(tr("Watermark Image"));
-    mWatermarkImageLabel->setAutoFillBackground(true);
-    mWatermarkImageLabel->setFixedSize(QSize(100, 100));
-    mWatermarkImageLabel->setScaledContents(true);
-    mWatermarkImageLabel->setStyleSheet(QLatin1String("QLabel { background-color : white; }"));
-    mUpdateWatermarkImageButton->setText(tr("Update"));
-    connect(mUpdateWatermarkImageButton, &QPushButton::clicked, this, &AnnotationSettings::updateWatermarkImageClicked);
-
-    mRotateWatermarkCheckbox->setText(tr("Rotate Watermark"));
-    mRotateWatermarkCheckbox->setToolTip(tr("When enabled, Watermark will be added with a rotation of 45°"));
-
     mLayout->setAlignment(Qt::AlignTop);
     mLayout->setColumnMinimumWidth(0, 10);
     mLayout->addWidget(mRememberToolSelectionCheckbox, 0, 0, 1, 6);
@@ -179,9 +161,6 @@ void AnnotationSettings::initGui()
     mLayout->addWidget(mCanvasColorLabel, 10, 0, 1, 2);
     mLayout->addWidget(mCanvasColorButton, 10, 3, 1,3, Qt::AlignLeft);
     mLayout->setRowMinimumHeight(11, 15);
-    mLayout->addWidget(mWatermarkImageLabel, 12, 0, 1, 3);
-    mLayout->addWidget(mUpdateWatermarkImageButton, 12, 3, Qt::AlignLeft);
-    mLayout->addWidget(mRotateWatermarkCheckbox, 13, 0, 1, 6);
 
     setTitle(tr("Annotator Settings"));
     setLayout(mLayout);
@@ -197,7 +176,6 @@ void AnnotationSettings::loadConfig()
     mItemShadowCheckbox->setChecked(mConfig->itemShadowEnabled());
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
-    mRotateWatermarkCheckbox->setChecked(mConfig->rotateWatermarkEnabled());
     mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
     mSwitchToSelectToolAfterDrawingItemCheckbox->setChecked(mConfig->switchToSelectToolAfterDrawingItem());
     mNumberToolSeedChangeUpdatesAllItemsCheckbox->setChecked(mConfig->numberToolSeedChangeUpdatesAllItems());
@@ -209,14 +187,4 @@ void AnnotationSettings::smoothPathCheckboxClicked(bool checked)
 {
     mSmoothFactorLabel->setEnabled(checked);
     mSmoothFactorCombobox->setEnabled(checked);
-}
-
-void AnnotationSettings::updateWatermarkImageClicked()
-{
-	UpdateWatermarkOperation operation(this);
-	auto successful = operation.execute();
-
-	if(successful) {
-		mWatermarkImageLabel->setPixmap(mWatermarkImageLoader.load());
-	}
 }

@@ -37,6 +37,7 @@
 #include "StickerSettings.h"
 #include "TrayIconSettings.h"
 #include "SnippingAreaSettings.h"
+#include "WatermarkSettings.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
 class SettingsDialog : public QDialog
@@ -61,6 +62,7 @@ private:
     StickerSettings *mStickerSettings;
 	TrayIconSettings *mTrayIconSettings;
     SnippingAreaSettings *mSnippingAreaSettings;
+	WatermarkSettings *mWatermarkSettings;
 	QTreeWidget *mTreeWidget;
     QStackedLayout *mStackedLayout;
     QList<QTreeWidgetItem*> mNavigatorItems;

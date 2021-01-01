@@ -344,6 +344,11 @@ QString KsnipConfigOptions::uploaderTypeString()
 	return uploaderSectionString() + QLatin1String("UploaderType");
 }
 
+QString KsnipConfigOptions::canvasColorString()
+{
+	return annotatorSectionString() + QLatin1String("CanvasColor");
+}
+
 QString KsnipConfigOptions::uploadScriptCopyOutputToClipboardString()
 {
 	return uploadScriptSectionString() + QLatin1String("CopyOutputToClipboard");

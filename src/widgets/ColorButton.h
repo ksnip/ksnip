@@ -17,22 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef COLORBUTTON_H
-#define COLORBUTTON_H
+#ifndef KSNIP_COLORBUTTON_H
+#define KSNIP_COLORBUTTON_H
 
 #include <QPushButton>
 #include <QColorDialog>
+#include <QPainter>
 
 class ColorButton : public QPushButton
 {
-    Q_OBJECT
+Q_OBJECT
 public:
-    explicit ColorButton(QWidget *parent = 0);
+    explicit ColorButton(QWidget *parent);
     void setColor(const QColor &color);
     QColor color() const;
+    void setShowAlphaChannel(bool enabled);
 
 private:
     QColor mColor;
+    bool mShowAlphaChannel;
 
     QPixmap createPixmapFromColor(const QColor &color);
 
@@ -40,4 +43,4 @@ private slots:
     void openDialog();
 };
 
-#endif // COLORBUTTON_H
+#endif // KSNIP_COLORBUTTON_H

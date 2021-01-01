@@ -75,6 +75,7 @@ public slots:
 	void removeTab(int index) override;
 	void setStickers(const QStringList &stickerPaths, bool keepDefault) override;
 	void addTabContextMenuActions(const QList<QAction*> & actions) override;
+	void setCanvasColor(const QColor &color) override;
 
 private:
 	QMap<int,QImage> mImageAtMap;

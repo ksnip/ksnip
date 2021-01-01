@@ -33,6 +33,7 @@
 #include "src/widgets/NumericComboBox.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/gui/operations/UpdateWatermarkOperation.h"
+#include "src/widgets/ColorButton.h"
 
 class AnnotationSettings : public QGroupBox
 {
@@ -53,12 +54,14 @@ private:
     QLabel *mNumberFontLabel;
     QLabel *mSmoothFactorLabel;
     QLabel *mWatermarkImageLabel;
+    QLabel *mCanvasColorLabel;
     NumericComboBox *mSmoothFactorCombobox;
     QFontComboBox *mTextFontCombobox;
     QFontComboBox *mNumberFontCombobox;
     QToolButton *mTextBoldButton;
     QToolButton *mTextItalicButton;
     QToolButton *mTextUnderlineButton;
+    ColorButton *mCanvasColorButton;
     QPushButton *mUpdateWatermarkImageButton;
     QGridLayout *mLayout;
     KsnipConfig *mConfig;

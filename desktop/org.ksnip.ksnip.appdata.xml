@@ -95,6 +95,7 @@
                     <li>New kImageAnnotator: Add support for hiding annotation settings panel.</li>
                     <li>New kImageAnnotator: Add config option for numbering tool to only set next number.</li>
                     <li>New kImageAnnotator: Allow manually changing canvas size.</li>
+                    <li>New kImageAnnotator: Canvas background color configurable.</li>
                 </ul>
             </description>
         </release>

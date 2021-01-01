@@ -62,6 +62,7 @@ public slots:
 	virtual void removeTab(int index) = 0;
 	virtual void setStickers(const QStringList &stickerPaths, bool keepDefault) = 0;
 	virtual void addTabContextMenuActions(const QList<QAction*> & actions) = 0;
+	virtual void setCanvasColor(const QColor &color) = 0;
 
 signals:
 	void imageChanged() const;

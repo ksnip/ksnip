@@ -583,6 +583,7 @@ void MainWindow::setupImageAnnotator()
 	mImageAnnotator->setSwitchToSelectToolAfterDrawingItem(mConfig->switchToSelectToolAfterDrawingItem());
 	mImageAnnotator->setNumberToolSeedChangeUpdatesAllItems(mConfig->numberToolSeedChangeUpdatesAllItems());
 	mImageAnnotator->setStickers(mConfig->stickerPaths(), mConfig->useDefaultSticker());
+	mImageAnnotator->setCanvasColor(mConfig->canvasColor());
 }
 
 void MainWindow::captureDelayChanged(int delay)

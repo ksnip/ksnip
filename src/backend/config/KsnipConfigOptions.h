@@ -101,6 +101,7 @@ public:
 	static QString windowUnderCursorHotKeyString();
 	static QString portalHotKeyString();
 	static QString uploaderTypeString();
+	static QString canvasColorString();
 
 private:
 	static QString applicationSectionString();

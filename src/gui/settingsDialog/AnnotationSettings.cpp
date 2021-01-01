@@ -30,6 +30,7 @@ AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 	mNumberFontLabel(new QLabel(this)),
 	mSmoothFactorLabel(new QLabel(this)),
 	mWatermarkImageLabel(new QLabel(this)),
+	mCanvasColorLabel(new QLabel(this)),
 	mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
 	mTextFontCombobox(new QFontComboBox(this)),
 	mNumberFontCombobox(new QFontComboBox(this)),
@@ -37,6 +38,7 @@ AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 	mTextItalicButton(new QToolButton(this)),
 	mTextUnderlineButton(new QToolButton(this)),
 	mUpdateWatermarkImageButton(new QPushButton(this)),
+	mCanvasColorButton(new ColorButton(this)),
 	mLayout(new QGridLayout(this))
 {
     Q_ASSERT(config != nullptr);
@@ -59,6 +61,7 @@ AnnotationSettings::~AnnotationSettings()
     delete mNumberFontLabel;
     delete mSmoothFactorLabel;
     delete mWatermarkImageLabel;
+    delete mCanvasColorLabel;
     delete mSmoothFactorCombobox;
     delete mTextFontCombobox;
     delete mNumberFontCombobox;
@@ -66,6 +69,7 @@ AnnotationSettings::~AnnotationSettings()
     delete mTextItalicButton;
     delete mTextUnderlineButton;
     delete mUpdateWatermarkImageButton;
+    delete mCanvasColorButton;
     delete mLayout;
 }
 
@@ -83,11 +87,12 @@ void AnnotationSettings::saveSettings()
     mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
     mConfig->setSwitchToSelectToolAfterDrawingItem(mSwitchToSelectToolAfterDrawingItemCheckbox->isChecked());
 	mConfig->setNumberToolSeedChangeUpdatesAllItems(mNumberToolSeedChangeUpdatesAllItemsCheckbox->isChecked());
+	mConfig->setCanvasColor(mCanvasColorButton->color());
 }
 
 void AnnotationSettings::initGui()
 {
-    auto const fixedButtonSize = 100;
+    auto const fixedButtonWidth = 100;
 
     mRememberToolSelectionCheckbox->setText(tr("Remember annotation tool selection and load on startup"));
 
@@ -110,7 +115,7 @@ void AnnotationSettings::initGui()
     mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"
                                       "precision for pen and marker but will\n"
                                       "make them more smooth."));
-    mSmoothFactorCombobox->setMinimumWidth(fixedButtonSize);
+    mSmoothFactorCombobox->setMinimumWidth(fixedButtonWidth);
     mSmoothFactorCombobox->setToolTip(mSmoothFactorLabel->toolTip());
 
     mTextFontLabel->setText(tr("Text Font") + QLatin1String(":"));
@@ -134,6 +139,12 @@ void AnnotationSettings::initGui()
     mNumberFontLabel->setToolTip(tr("Sets the font for the Numbering Paint Item."));
     mNumberFontCombobox->setToolTip(mNumberFontLabel->toolTip());
     mNumberFontCombobox->setEditable(false);
+
+	mCanvasColorLabel->setText(tr("Canvas Color") + QLatin1String(":"));
+	mCanvasColorLabel->setToolTip(tr("Default Canvas background color for annotation area.\n"
+								  	 	"Changing color affects only new annotation areas."));
+	mCanvasColorButton->setMinimumWidth(fixedButtonWidth);
+	mCanvasColorButton->setShowAlphaChannel(true);
 
     mWatermarkImageLabel->setPixmap(mWatermarkImageLoader.load());
     mWatermarkImageLabel->setToolTip(tr("Watermark Image"));
@@ -164,10 +175,13 @@ void AnnotationSettings::initGui()
     mLayout->addWidget(mTextUnderlineButton, 7, 6);
     mLayout->addWidget(mNumberFontLabel, 8, 0, 1, 2);
     mLayout->addWidget(mNumberFontCombobox, 8, 3);
-    mLayout->setRowMinimumHeight(9, 15);
-    mLayout->addWidget(mWatermarkImageLabel, 10, 0, 1, 3);
-    mLayout->addWidget(mUpdateWatermarkImageButton, 10, 3, Qt::AlignLeft);
-    mLayout->addWidget(mRotateWatermarkCheckbox, 11, 0, 1, 6);
+	mLayout->setRowMinimumHeight(9, 15);
+    mLayout->addWidget(mCanvasColorLabel, 10, 0, 1, 2);
+    mLayout->addWidget(mCanvasColorButton, 10, 3, 1,3, Qt::AlignLeft);
+    mLayout->setRowMinimumHeight(11, 15);
+    mLayout->addWidget(mWatermarkImageLabel, 12, 0, 1, 3);
+    mLayout->addWidget(mUpdateWatermarkImageButton, 12, 3, Qt::AlignLeft);
+    mLayout->addWidget(mRotateWatermarkCheckbox, 13, 0, 1, 6);
 
     setTitle(tr("Annotator Settings"));
     setLayout(mLayout);
@@ -187,6 +201,7 @@ void AnnotationSettings::loadConfig()
     mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
     mSwitchToSelectToolAfterDrawingItemCheckbox->setChecked(mConfig->switchToSelectToolAfterDrawingItem());
     mNumberToolSeedChangeUpdatesAllItemsCheckbox->setChecked(mConfig->numberToolSeedChangeUpdatesAllItems());
+    mCanvasColorButton->setColor(mConfig->canvasColor());
     smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
 }
 

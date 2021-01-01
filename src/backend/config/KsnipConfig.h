@@ -162,6 +162,9 @@ public:
 	virtual bool useDefaultSticker() const;
 	virtual void setUseDefaultSticker(bool enabled);
 
+	virtual QColor canvasColor() const;
+	virtual void setCanvasColor(const QColor &color);
+
     // Image Grabber
 
     virtual bool isFreezeImageWhileSnippingEnabledReadOnly() const;

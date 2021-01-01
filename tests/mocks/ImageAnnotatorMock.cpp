@@ -207,3 +207,8 @@ void ImageAnnotatorMock::setNumberToolSeedChangeUpdatesAllItems(bool enabled)
 
 }
 
+void ImageAnnotatorMock::setCanvasColor(const QColor &color)
+{
+
+}
+

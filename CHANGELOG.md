@@ -12,6 +12,7 @@
 * New kImageAnnotator: Add support for hiding annotation settings panel. ([#182](https://github.com/ksnip/kImageAnnotator/issues/182))
 * New kImageAnnotator: Add config option for numbering tool to only set next number. ([#42](https://github.com/ksnip/kImageAnnotator/issues/42))
 * New kImageAnnotator: Allow manually changing canvas size. ([#92](https://github.com/ksnip/kImageAnnotator/issues/92))
+* New kImageAnnotator: Canvas background color configurable. ([#91](https://github.com/ksnip/kImageAnnotator/issues/91))
 
 ## Release 1.8.1
 * Changed: Allow changing adorner color for rect area selection. ([#519](https://github.com/ksnip/ksnip/issues/519))

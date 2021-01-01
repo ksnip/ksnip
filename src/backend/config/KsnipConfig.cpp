@@ -627,6 +627,21 @@ void KsnipConfig::setUseDefaultSticker(bool enabled)
 	emit annotatorConfigChanged();
 }
 
+QColor KsnipConfig::canvasColor() const
+{
+	return loadValue(KsnipConfigOptions::canvasColorString(), QColor(Qt::white)).value<QColor>();
+}
+
+void KsnipConfig::setCanvasColor(const QColor &color)
+{
+	if (canvasColor() == color) {
+		return;
+	}
+
+	saveValue(KsnipConfigOptions::canvasColorString(), color);
+	emit annotatorConfigChanged();
+}
+
 // Image Grabber
 
 bool KsnipConfig::isFreezeImageWhileSnippingEnabledReadOnly() const

@@ -113,6 +113,7 @@
                     <li>Fixed kImageAnnotator: error: control reaches end of non-void function.</li>
                     <li>Fixed kImageAnnotator: Cursor in Text tool have too bad visibility.</li>
                     <li>Fixed kImageAnnotator: bumped SONAME without name change.</li>
+                    <li>Fixed kImageAnnotator: Entering multiple characters at once moves the text cursor only for one character.</li>
                 </ul>
             </description>
         </release>

@@ -404,7 +404,7 @@ void MainWindow::initGui()
 
     mCopyAsDataUriAction->setText(tr("Copy as data URI"));
     mCopyAsDataUriAction->setToolTip(tr("Copy capture to system clipboard"));
-    connect(mCopyAsDataUriAction, &QAction::triggered, this, &MainWindow::copyToClipboard);
+    connect(mCopyAsDataUriAction, &QAction::triggered, this, &MainWindow::copyAsDataUri);
 
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
@@ -554,25 +554,21 @@ void MainWindow::upload()
 	operation.execute();
 }
 
-void MainWindow::copyToClipboard()
+void MainWindow::copyAsDataUri()
 {
-	QByteArray ba;
 	auto image = mCaptureHandler->image();
-
-	QBuffer buffer(&ba);
-	buffer.open(QIODevice::WriteOnly);
-	image.save(&buffer, "PNG");
-	buffer.close();
-
-	QByteArray output = "data:image/png;base64,";
-	output.append(ba.toBase64());
-
-	mClipboard->setText(output);
-
-	auto title = tr("Copied to clipboard");
-	auto message = tr("Copied to clipboard as base64 encoded image.");
-	NotifyOperation operation(mTrayIcon, title, message, NotificationTypes::Information);
-	operation.execute();
+	CopyAsDataUriOperation operation(image, mClipboard);
+	if (operation.execute()) {
+		auto title = tr("Copied to clipboard");
+		auto message = tr("Copied to clipboard as base64 encoded image.");
+		NotifyOperation operation(mTrayIcon, title, message, NotificationTypes::Information);
+		operation.execute();
+	} else {
+		auto title = tr("Failed to copy to clipboard");
+		auto message = tr("Failed to copy to clipboard as base64 encoded image.");
+		NotifyOperation operation(mTrayIcon, title, message, NotificationTypes::Warning);
+		operation.execute();
+	}
 }
 
 void MainWindow::printClicked()

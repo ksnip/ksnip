@@ -80,7 +80,7 @@ private:
     bool mSessionManagerRequestedQuit;
     QAction *mSaveAsAction;
     QAction *mUploadAction;
-    QAction *mCopyToClipboardAction;
+    QAction *mCopyAsDataUriAction;
     QAction *mPrintAction;
     QAction *mPrintPreviewAction;
     QAction *mQuitAction;

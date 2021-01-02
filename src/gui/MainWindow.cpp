@@ -28,7 +28,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
 	mUploadAction(new QAction(this)),
-	mCopyToClipboardAction(new QAction(this)),
+	mCopyAsDataUriAction(new QAction(this)),
 	mPrintAction(new QAction(this)),
 	mPrintPreviewAction(new QAction(this)),
 	mQuitAction(new QAction(this)),
@@ -127,7 +127,7 @@ MainWindow::~MainWindow()
 {
     delete mImageAnnotator;
     delete mUploadAction;
-    delete mCopyToClipboardAction;
+    delete mCopyAsDataUriAction;
     delete mPrintAction;
     delete mPrintPreviewAction;
     delete mQuitAction;
@@ -327,7 +327,7 @@ void MainWindow::setEnablements(bool enabled)
     mPrintAction->setEnabled(enabled);
     mPrintPreviewAction->setEnabled(enabled);
     mUploadAction->setEnabled(enabled);
-    mCopyToClipboardAction->setEnabled(enabled);
+    mCopyAsDataUriAction->setEnabled(enabled);
     mScaleAction->setEnabled(enabled);
     mAddWatermarkAction->setEnabled(enabled);
     mToolBar->setCopyActionEnabled(enabled);
@@ -402,9 +402,9 @@ void MainWindow::initGui()
     mUploadAction->setShortcut(Qt::SHIFT + Qt::Key_U);
     connect(mUploadAction, &QAction::triggered, this, &MainWindow::upload);
 
-    mCopyToClipboardAction->setText(tr("Copy to clipboard"));
-    mCopyToClipboardAction->setToolTip(tr("Copy capture to system clipboard"));
-    connect(mCopyToClipboardAction, &QAction::triggered, this, &MainWindow::copyToClipboard);
+    mCopyAsDataUriAction->setText(tr("Copy as data URI"));
+    mCopyAsDataUriAction->setToolTip(tr("Copy capture to system clipboard"));
+    connect(mCopyAsDataUriAction, &QAction::triggered, this, &MainWindow::copyToClipboard);
 
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
@@ -494,7 +494,6 @@ void MainWindow::initGui()
     menu->addAction(mToolBar->saveAction());
     menu->addAction(mSaveAsAction);
     menu->addAction(mUploadAction);
-    menu->addAction(mCopyToClipboardAction);
     menu->addSeparator();
     menu->addAction(mPrintAction);
     menu->addAction(mPrintPreviewAction);
@@ -505,6 +504,7 @@ void MainWindow::initGui()
     menu->addAction(mToolBar->redoAction());
     menu->addSeparator();
     menu->addAction(mToolBar->copyToClipboardAction());
+    menu->addAction(mCopyAsDataUriAction);
     menu->addAction(mCopyPathAction);
     menu->addAction(mRenameAction);
     menu->addAction(mPasteAction);

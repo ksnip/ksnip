@@ -557,18 +557,8 @@ void MainWindow::upload()
 void MainWindow::copyAsDataUri()
 {
 	auto image = mCaptureHandler->image();
-	CopyAsDataUriOperation operation(image, mClipboard);
-	if (operation.execute()) {
-		auto title = tr("Copied to clipboard");
-		auto message = tr("Copied to clipboard as base64 encoded image.");
-		NotifyOperation operation(mTrayIcon, title, message, NotificationTypes::Information);
-		operation.execute();
-	} else {
-		auto title = tr("Failed to copy to clipboard");
-		auto message = tr("Failed to copy to clipboard as base64 encoded image.");
-		NotifyOperation operation(mTrayIcon, title, message, NotificationTypes::Warning);
-		operation.execute();
-	}
+	CopyAsDataUriOperation operation(image, mClipboard, mTrayIcon);
+	operation.execute();
 }
 
 void MainWindow::printClicked()

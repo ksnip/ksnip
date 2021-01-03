@@ -19,9 +19,10 @@
 
 #include "CopyAsDataUriOperation.h"
 
-CopyAsDataUriOperation::CopyAsDataUriOperation(QImage image, IClipboard *clipboard) :
+CopyAsDataUriOperation::CopyAsDataUriOperation(QImage image, IClipboard *clipboard, IToastService *toastService) :
 	mImage(std::move(image)),
-	mClipboard(clipboard)
+	mClipboard(clipboard),
+	mToastService(toastService)
 {
 }
 
@@ -31,15 +32,37 @@ bool CopyAsDataUriOperation::execute()
 
 	QBuffer buffer(&byteArray);
 	buffer.open(QIODevice::WriteOnly);
-	const bool saved = mImage.save(&buffer, "PNG");
+	auto saved = mImage.save(&buffer, "PNG");
 	buffer.close();
 
 	if (saved) {
 		QByteArray output = "data:image/png;base64,";
 		output.append(byteArray.toBase64());
-
 		mClipboard->setText(output);
+		notifySuccess();
+	} else {
+		notifyFailure();
 	}
 
 	return saved;
+}
+
+void CopyAsDataUriOperation::notifyFailure() const
+{
+	auto title = tr("Failed to copy to clipboard");
+	auto message = tr("Failed to copy to clipboard as base64 encoded image.");
+	notify(title, message, NotificationTypes::Warning);
+}
+
+void CopyAsDataUriOperation::notifySuccess() const
+{
+	auto title = tr("Copied to clipboard");
+	auto message = tr("Copied to clipboard as base64 encoded image.");
+	notify(title, message, NotificationTypes::Information);
+}
+
+void CopyAsDataUriOperation::notify(const QString &title, const QString &message, NotificationTypes type) const
+{
+	NotifyOperation operation(mToastService, title, message, type);
+	operation.execute();
 }

@@ -24,18 +24,25 @@
 #include <QImage>
 
 #include "src/gui/clipboard/IClipboard.h"
+#include "src/gui/IToastService.h"
+#include "src/gui/operations/NotifyOperation.h"
 
 class CopyAsDataUriOperation : public QObject
 {
 	Q_OBJECT
 public:
-	CopyAsDataUriOperation(QImage image, IClipboard *clipboard);
-	~CopyAsDataUriOperation() = default;
+	CopyAsDataUriOperation(QImage image, IClipboard *clipboard, IToastService *toastService);
+	~CopyAsDataUriOperation() override = default;
 	bool execute();
 
 private:
 	QImage mImage;
 	IClipboard *mClipboard;
+	IToastService *mToastService;
+
+	void notifySuccess() const;
+	void notifyFailure() const;
+	void notify(const QString &title, const QString &message, NotificationTypes type) const;
 };
 
 #endif //KSNIP_COPYASDATAURIOPERATION_H

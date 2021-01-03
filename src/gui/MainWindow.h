@@ -30,6 +30,7 @@
 #include "src/gui/aboutDialog/AboutDialog.h"
 #include "src/gui/settingsDialog/SettingsDialog.h"
 #include "src/gui/operations/AddWatermarkOperation.h"
+#include "src/gui/operations/CopyAsDataUriOperation.h"
 #include "src/gui/operations/UploadOperation.h"
 #include "src/gui/operations/HandleUploadResultOperation.h"
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
@@ -80,6 +81,7 @@ private:
     bool mSessionManagerRequestedQuit;
     QAction *mSaveAsAction;
     QAction *mUploadAction;
+    QAction *mCopyAsDataUriAction;
     QAction *mPrintAction;
     QAction *mPrintPreviewAction;
     QAction *mQuitAction;
@@ -127,6 +129,7 @@ private slots:
     void copyCaptureToClipboard();
     void upload();
     void uploadFinished(const UploadResult &result);
+    void copyAsDataUri();
     void printClicked();
     void printPreviewClicked();
     void showOpenImageDialog();

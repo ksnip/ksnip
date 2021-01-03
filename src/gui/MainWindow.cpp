@@ -28,6 +28,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
 	mUploadAction(new QAction(this)),
+	mCopyAsDataUriAction(new QAction(this)),
 	mPrintAction(new QAction(this)),
 	mPrintPreviewAction(new QAction(this)),
 	mQuitAction(new QAction(this)),
@@ -126,6 +127,7 @@ MainWindow::~MainWindow()
 {
     delete mImageAnnotator;
     delete mUploadAction;
+    delete mCopyAsDataUriAction;
     delete mPrintAction;
     delete mPrintPreviewAction;
     delete mQuitAction;
@@ -325,15 +327,16 @@ void MainWindow::setEnablements(bool enabled)
     mPrintAction->setEnabled(enabled);
     mPrintPreviewAction->setEnabled(enabled);
     mUploadAction->setEnabled(enabled);
-	mScaleAction->setEnabled(enabled);
-	mAddWatermarkAction->setEnabled(enabled);
+    mCopyAsDataUriAction->setEnabled(enabled);
+    mScaleAction->setEnabled(enabled);
+    mAddWatermarkAction->setEnabled(enabled);
     mToolBar->setCopyActionEnabled(enabled);
     mToolBar->setCropEnabled(enabled);
-	mSaveAsAction->setEnabled(enabled);
-	mPinAction->setEnabled(enabled);
-	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
-	mRenameAction->setEnabled(enabled);
-	mModifyCanvasAction->setEnabled(enabled);
+    mSaveAsAction->setEnabled(enabled);
+    mPinAction->setEnabled(enabled);
+    mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
+    mRenameAction->setEnabled(enabled);
+    mModifyCanvasAction->setEnabled(enabled);
 }
 
 void MainWindow::loadSettings()
@@ -398,6 +401,10 @@ void MainWindow::initGui()
     mUploadAction->setToolTip(tr("Upload capture to external source"));
     mUploadAction->setShortcut(Qt::SHIFT + Qt::Key_U);
     connect(mUploadAction, &QAction::triggered, this, &MainWindow::upload);
+
+    mCopyAsDataUriAction->setText(tr("Copy as data URI"));
+    mCopyAsDataUriAction->setToolTip(tr("Copy capture to system clipboard"));
+    connect(mCopyAsDataUriAction, &QAction::triggered, this, &MainWindow::copyAsDataUri);
 
     mPrintAction->setText(tr("Print"));
     mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
@@ -497,6 +504,7 @@ void MainWindow::initGui()
     menu->addAction(mToolBar->redoAction());
     menu->addSeparator();
     menu->addAction(mToolBar->copyToClipboardAction());
+    menu->addAction(mCopyAsDataUriAction);
     menu->addAction(mCopyPathAction);
     menu->addAction(mRenameAction);
     menu->addAction(mPasteAction);
@@ -543,6 +551,13 @@ void MainWindow::upload()
 {
 	auto image = mCaptureHandler->image();
 	UploadOperation operation(image, mUploaderProvider->get());
+	operation.execute();
+}
+
+void MainWindow::copyAsDataUri()
+{
+	auto image = mCaptureHandler->image();
+	CopyAsDataUriOperation operation(image, mClipboard, mTrayIcon);
 	operation.execute();
 }
 

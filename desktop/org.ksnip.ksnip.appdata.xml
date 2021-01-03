@@ -97,6 +97,7 @@
                     <li>New kImageAnnotator: Add config option for numbering tool to only set next number.</li>
                     <li>New kImageAnnotator: Allow manually changing canvas size.</li>
                     <li>New kImageAnnotator: Canvas background color configurable.</li>
+                    <li>Fixed kImageAnnotator: Deleting item outside image doesn't decrease canvas size.</li>
                 </ul>
             </description>
         </release>

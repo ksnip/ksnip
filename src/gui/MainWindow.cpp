@@ -46,6 +46,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mPinAction(new QAction(this)),
 	mRemoveImageAction(new QAction(this)),
 	mModifyCanvasAction(new QAction(this)),
+	mZoomInAction(new QAction(this)),
+	mZoomOutAction(new QAction(this)),
 	mMainLayout(layout()),
 	mConfig(KsnipConfigProvider::instance()),
 	mServiceLocator(new ServiceLocator),
@@ -142,6 +144,8 @@ MainWindow::~MainWindow()
     delete mAddWatermarkAction;
     delete mSaveAsAction;
     delete mModifyCanvasAction;
+    delete mZoomInAction;
+    delete mZoomOutAction;
     delete mCapturePrinter;
     delete mTrayIcon;
     delete mDragAndDropHandler;
@@ -337,6 +341,8 @@ void MainWindow::setEnablements(bool enabled)
     mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
     mRenameAction->setEnabled(enabled);
     mModifyCanvasAction->setEnabled(enabled);
+    mZoomInAction->setEnabled(enabled);
+    mZoomOutAction->setEnabled(enabled);
 }
 
 void MainWindow::loadSettings()
@@ -488,6 +494,14 @@ void MainWindow::initGui()
 	mModifyCanvasAction->setText(tr("Modify Canvas"));
 	connect(mModifyCanvasAction, &QAction::triggered, mImageAnnotator, &IImageAnnotator::showCanvasModifier);
 
+	mZoomInAction->setText(tr("Zoom In"));
+	mZoomInAction->setShortcut(Qt::CTRL + Qt::Key_Plus);
+	connect(mZoomInAction, &QAction::triggered, mImageAnnotator, &IImageAnnotator::zoomIn);
+
+	mZoomOutAction->setText(tr("Zoom Out"));
+	mZoomOutAction->setShortcut(Qt::CTRL + Qt::Key_Minus);
+	connect(mZoomOutAction, &QAction::triggered, mImageAnnotator, &IImageAnnotator::zoomOut);
+
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
     menu->addAction(mOpenImageAction);
@@ -519,6 +533,9 @@ void MainWindow::initGui()
 	menu->addAction(mOpenDirectoryAction);
 	menu->addAction(mToggleDocksAction);
 	menu->addAction(mModifyCanvasAction);
+	menu->addSeparator();
+	menu->addAction(mZoomInAction);
+	menu->addAction(mZoomOutAction);
     menu = menuBar()->addMenu(tr("&Options"));
     menu->addAction(mPinAction);
     menu->addAction(mSettingsAction);

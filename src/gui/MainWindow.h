@@ -99,6 +99,8 @@ private:
     QAction *mPinAction;
     QAction *mRemoveImageAction;
     QAction *mModifyCanvasAction;
+    QAction *mZoomInAction;
+    QAction *mZoomOutAction;
     MainToolBar *mToolBar;
     QLayout *mMainLayout;
     KsnipConfig *mConfig;

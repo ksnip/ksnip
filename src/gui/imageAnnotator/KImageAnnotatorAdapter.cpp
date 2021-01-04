@@ -79,6 +79,16 @@ void KImageAnnotatorAdapter::setSettingsCollapsed(bool isCollapsed)
 	mKImageAnnotator->setSettingsCollapsed(isCollapsed);
 }
 
+void KImageAnnotatorAdapter::zoomIn()
+{
+	mKImageAnnotator->zoomIn();
+}
+
+void KImageAnnotatorAdapter::zoomOut()
+{
+	mKImageAnnotator->zoomOut();
+}
+
 void KImageAnnotatorAdapter::hide()
 {
 	mKImageAnnotator->hide();

@@ -202,6 +202,14 @@ void ImageAnnotatorMock::setSettingsCollapsed(bool isCollapsed)
 
 }
 
+void ImageAnnotatorMock::zoomIn()
+{
+}
+
+void ImageAnnotatorMock::zoomOut()
+{
+}
+
 void ImageAnnotatorMock::setNumberToolSeedChangeUpdatesAllItems(bool enabled)
 {
 

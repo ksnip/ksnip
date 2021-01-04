@@ -43,6 +43,8 @@ public:
 	void showAnnotator() override;
 	void showCropper() override;
 	void setSettingsCollapsed(bool isCollapsed) override;
+	void zoomIn() override;
+	void zoomOut() override;
 	void showScaler() override;
 	void showCanvasModifier() override;
 	void hide() override;

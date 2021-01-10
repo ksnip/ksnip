@@ -14,6 +14,8 @@
 * New kImageAnnotator: Add config option for numbering tool to only set next number. ([#42](https://github.com/ksnip/kImageAnnotator/issues/42))
 * New kImageAnnotator: Allow manually changing canvas size. ([#92](https://github.com/ksnip/kImageAnnotator/issues/92))
 * New kImageAnnotator: Canvas background color configurable. ([#91](https://github.com/ksnip/kImageAnnotator/issues/91))
+* New kImageAnnotator: Zoom in and out with keyboard shortcuts. ([#192](https://github.com/ksnip/kImageAnnotator/issues/192))
+* New kImageAnnotator: Zoom in and out via buttons from UI. ([#197](https://github.com/ksnip/kImageAnnotator/issues/197))
 * Fixed kImageAnnotator: Deleting item outside image doesn't decrease canvas size. ([#164](https://github.com/ksnip/kImageAnnotator/issues/164))
 
 ## Release 1.8.1

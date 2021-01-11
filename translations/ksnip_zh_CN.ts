@@ -1080,7 +1080,8 @@ Without this setting errors in the script will be unnoticed.</source>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>正则表达式。仅在匹配上正则表达式时复制到剪贴板。
+若省略此项，将复制所有内容。</translation>
     </message>
 </context>
 <context>
@@ -1150,7 +1151,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>使用方向键移动选中区域。</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
@@ -1429,7 +1430,7 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>

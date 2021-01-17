@@ -13,6 +13,7 @@
 * Fixed kImageAnnotator: Cursor in Text tool have too bad visibility. ([#184](https://github.com/ksnip/kImageAnnotator/issues/184))
 * Fixed kImageAnnotator: bumped SONAME without name change. ([#185](https://github.com/ksnip/kImageAnnotator/issues/185))
 * Fixed kImageAnnotator: Entering multiple characters at once moves the text cursor only for one character. ([#186](https://github.com/ksnip/kImageAnnotator/issues/186))
+* Fixed kImageAnnotator: Activating context menu while drawing item leaves item in error state. ([#196](https://github.com/ksnip/kImageAnnotator/issues/196))
 
 ## Release 1.8.0
 * New: Pin screenshots in frameless windows that stay in foreground. ([#365](https://github.com/ksnip/ksnip/issues/365))

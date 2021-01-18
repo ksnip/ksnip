@@ -21,7 +21,7 @@
 
 void PathHelperTests::TestIsPathValid_Should_ReturnFalse_When_StringEmpty()
 {
-	auto input = QLatin1Literal("");
+	auto input = QStringLiteral("");
 	auto result = PathHelper::isPathValid(input);
 
 	QCOMPARE(result, false);
@@ -37,7 +37,7 @@ void PathHelperTests::TestIsPathValid_Should_ReturnFalse_When_StringNull()
 
 void PathHelperTests::TestIsPathValid_Should_ReturnTrue_When_StringHasContent()
 {
-	auto input = QLatin1Literal("lala");
+	auto input = QStringLiteral("lala");
 	auto result = PathHelper::isPathValid(input);
 
 	QCOMPARE(result, true);
@@ -45,7 +45,7 @@ void PathHelperTests::TestIsPathValid_Should_ReturnTrue_When_StringHasContent()
 
 void PathHelperTests::TestIsPipePath_Should_ReturnTrue_When_PathIsDash()
 {
-	auto input = QLatin1Literal("-");
+	auto input = QStringLiteral("-");
 	auto result = PathHelper::isPipePath(input);
 
 	QCOMPARE(result, true);
@@ -69,57 +69,57 @@ void PathHelperTests::TestIsPipePath_Should_ReturnFalse_When_PathIsEmpty()
 
 void PathHelperTests::TestExtractParentDirectory_Should_ReturnStringWithParentDirectoryPath()
 {
-	auto expected = QLatin1Literal("/theRoot/theHome/myHome");
-	auto result = PathHelper::extractParentDirectory(expected + QLatin1Literal("/theFile.me"));
+	auto expected = QStringLiteral("/theRoot/theHome/myHome");
+	auto result = PathHelper::extractParentDirectory(expected + QStringLiteral("/theFile.me"));
 
 	QCOMPARE(result, expected);
 }
 
 void PathHelperTests::TestExtractFilename_Should_ReturnStringWithFilenameWithoutFormat_When_FormatExists()
 {
-	auto expected = QLatin1Literal("theFile");
-	auto result = PathHelper::extractFilename(QLatin1Literal("/theRoot/theHome/myHome/") + expected + QLatin1Literal(".me"));
+	auto expected = QStringLiteral("theFile");
+	auto result = PathHelper::extractFilename(QStringLiteral("/theRoot/theHome/myHome/") + expected + QStringLiteral(".me"));
 
 	QCOMPARE(result, expected);
 }
 
 void PathHelperTests::TestExtractFilename_Should_ReturnStringWithFilenameWithoutFormat_When_NoFormatExists()
 {
-	auto expected = QLatin1Literal("theFile");
-	auto result = PathHelper::extractFilename(QLatin1Literal("/theRoot/theHome/myHome/") + expected);
+	auto expected = QStringLiteral("theFile");
+	auto result = PathHelper::extractFilename(QStringLiteral("/theRoot/theHome/myHome/") + expected);
 
 	QCOMPARE(result, expected);
 }
 
 void PathHelperTests::TestExtractFilenameWithFormat_Should_ReturnStringWithFilenameWithFormat_When_FormatExists()
 {
-	auto expected = QLatin1Literal("theFile.me");
-	auto result = PathHelper::extractFilenameWithFormat(QLatin1Literal("/theRoot/theHome/myHome/") + expected);
+	auto expected = QStringLiteral("theFile.me");
+	auto result = PathHelper::extractFilenameWithFormat(QStringLiteral("/theRoot/theHome/myHome/") + expected);
 
 	QCOMPARE(result, expected);
 }
 
 void PathHelperTests::TestExtractFilenameWithFormat_Should_ReturnStringWithFilenameWithFormat_When_NoFormatExists()
 {
-	auto expected = QLatin1Literal("theFile");
-	auto result = PathHelper::extractFilenameWithFormat(QLatin1Literal("/theRoot/theHome/myHome/") + expected);
+	auto expected = QStringLiteral("theFile");
+	auto result = PathHelper::extractFilenameWithFormat(QStringLiteral("/theRoot/theHome/myHome/") + expected);
 
 	QCOMPARE(result, expected);
 }
 
 void PathHelperTests::TestExtractFormat_Should_ReturnWithFormat_When_FormatExists()
 {
-	auto expected = QLatin1Literal("me");
-	auto result = PathHelper::extractFormat(QLatin1Literal("/theRoot/theHome/myHome/theFile.") + expected);
+	auto expected = QStringLiteral("me");
+	auto result = PathHelper::extractFormat(QStringLiteral("/theRoot/theHome/myHome/theFile.") + expected);
 
 	QCOMPARE(result, expected);
 }
 
 void PathHelperTests::TestExtractFormat_Should_ReturnEmptyString_When_NoFormatExists()
 {
-	auto result = PathHelper::extractFormat(QLatin1Literal("/theRoot/theHome/myHome/theFile"));
+	auto result = PathHelper::extractFormat(QStringLiteral("/theRoot/theHome/myHome/theFile"));
 
-	QCOMPARE(result, QLatin1Literal(""));
+	QCOMPARE(result, QStringLiteral(""));
 }
 
 QTEST_MAIN(PathHelperTests)

@@ -24,7 +24,7 @@
 #include "WidgetVisibilityHandler.h"
 #endif
 
-#if defined(__linux__)
+#if defined(UNIX_X11)
 #include "GnomeWaylandWidgetVisibilityHandler.h"
 #include "src/common/platform/PlatformChecker.h"
 #endif

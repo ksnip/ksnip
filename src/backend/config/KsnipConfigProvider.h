@@ -26,7 +26,7 @@
 #include "KsnipMacConfig.h"
 #endif
 
-#if defined(__linux__)
+#if defined(UNIX_X11)
 #include "KsnipWaylandConfig.h"
 #include "src/common/platform/PlatformChecker.h"
 #endif

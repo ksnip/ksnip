@@ -26,7 +26,7 @@ KsnipConfig* KsnipConfigProvider::instance()
 	return &instance;
 #endif
 
-#if defined(__linux__)
+#if defined(UNIX_X11)
 	if (PlatformChecker::instance()->isWayland()) {
 		static KsnipWaylandConfig instance;
 		return &instance;

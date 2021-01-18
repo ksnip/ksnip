@@ -24,7 +24,7 @@
 #include "MacImageGrabber.h"
 #endif
 
-#if defined(__linux__)
+#if defined(UNIX_X11)
 #include "X11ImageGrabber.h"
 #include "KdeWaylandImageGrabber.h"
 #include "GnomeWaylandImageGrabber.h"

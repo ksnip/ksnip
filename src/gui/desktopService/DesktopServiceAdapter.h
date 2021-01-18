@@ -23,7 +23,7 @@
 #include <QDesktopServices>
 #include <QUrl>
 
-#if defined(__linux__)
+#if defined(UNIX_X11)
 #include <QProcess>
 
 #include "src/common/platform/PlatformChecker.h"
@@ -38,7 +38,7 @@ public:
 	~DesktopServiceAdapter() override = default;
 	void openFile(const QString &path) override;
 
-#if defined(__linux__)
+#if defined(UNIX_X11)
 private:
 	QProcess mXdgOpenProcess;
 #endif

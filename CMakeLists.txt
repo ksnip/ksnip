@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 project(ksnip LANGUAGES CXX VERSION 1.9.0)
 
 if (DEFINED VERSION_SUFIX AND NOT "${VERSION_SUFIX}" STREQUAL "")
-    set(KSNIP_VERSION_SUFIX "-${VERSION_SUFIX}")
+	set(KSNIP_VERSION_SUFIX "-${VERSION_SUFIX}")
 endif()
 
 set(KSNIP_VERSION "${PROJECT_VERSION}${KSNIP_VERSION_SUFIX}")
@@ -33,25 +33,30 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 option(BUILD_TESTS "Build Unit Tests" OFF)
 
 if (UNIX AND NOT APPLE)
-    # Without ECM we're unable to load XCB
-    find_package(ECM REQUIRED NO_MODULE)
-    set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+	# Without ECM we're unable to load XCB
+	find_package(ECM REQUIRED NO_MODULE)
+	set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
-    find_package(X11 REQUIRED)
-    find_package(XCB COMPONENTS XFIXES)
+	find_package(X11 REQUIRED)
+	find_package(XCB COMPONENTS XFIXES)
 endif ()
 
 set(QT_COMPONENTS Core Widgets Network Xml PrintSupport DBus Svg)
 set(QT_MIN_VERSION 5.9.4)
 
+if (UNIX AND NOT APPLE)
+	# The KDE Wayland backend uses QtConcurrent (see src/CMakeLists.txt
+	# and src/backend/imageGrabber/KdeWaylandImageGrabber.cpp)
+	list(APPEND QT_COMPONENTS Concurrent)
+endif()
 if (X11_FOUND)
-  list(APPEND QT_COMPONENTS X11Extras)
+	list(APPEND QT_COMPONENTS X11Extras)
 elseif (WIN32)
-  list(APPEND QT_COMPONENTS WinExtras)
+	list(APPEND QT_COMPONENTS WinExtras)
 endif()
 
 if (BUILD_TESTS)
-  list(APPEND QT_COMPONENTS Test)
+	list(APPEND QT_COMPONENTS Test)
 endif()
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED ${QT_COMPONENTS})
@@ -74,5 +79,4 @@ if (BUILD_TESTS)
 
 	enable_testing()
 	add_subdirectory(tests)
-
 endif (BUILD_TESTS)

@@ -24,7 +24,7 @@
 #include "DummyKeyHandler.h"
 #endif
 
-#if defined(__linux__)
+#if defined(UNIX_X11)
 #include "X11KeyHandler.h"
 #include "DummyKeyHandler.h"
 #include "src/common/platform/PlatformChecker.h"

@@ -213,7 +213,7 @@ toutes les instances pour activer ou désactiver cette option.</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Cacher automatiquement les onglets</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
@@ -261,7 +261,7 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Les auteurs :</translation>
     </message>
 </context>
 <context>
@@ -274,7 +274,7 @@ Docks visibility can be toggled with the Tab Key.</source>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
         <translation>La capture %1%2%3 a été modifiée.
-Voulez-vous l&apos;enregistrer&#xa0;?</translation>
+Voulez-vous l&apos;enregistrer ?</translation>
     </message>
 </context>
 <context>
@@ -360,31 +360,31 @@ Voulez-vous continuer ?</translation>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Zone Rectangulaire</translation>
+        <translation>Zone Rectangulaire</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Dernière zone rectangulaire</translation>
+        <translation>Dernière zone rectangulaire</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Plein Écran (tous les moniteurs)</translation>
+        <translation>Plein Écran (tous les moniteurs)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Écran actuel</translation>
+        <translation>Écran actuel</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Fenêtre active</translation>
+        <translation>Fenêtre active</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Fenêtre sous le curseur</translation>
+        <translation>Fenêtre sous le curseur</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Portail de capture d&apos;écran</translation>
+        <translation>Portail de capture d&apos;écran</translation>
     </message>
 </context>
 <context>
@@ -587,7 +587,7 @@ quand la fenêtre principale a été cachée ou minimisée.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Téléversement sur imgur.com terminé&#xa0;!</translation>
+        <translation>Téléversement sur imgur.com terminé !</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -666,7 +666,7 @@ quand la fenêtre principale a été cachée ou minimisée.</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation>URL de base&#xa0;:</translation>
+        <translation>URL de base :</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
@@ -676,7 +676,7 @@ La modifier nécessite un redémarrage.</translation>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Effacer les jetons</translation>
     </message>
 </context>
 <context>
@@ -943,7 +943,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished">Image renommée avec succès en </translation>
+        <translation>Image renommée avec succès en </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
@@ -951,7 +951,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished">Échec du renommage de l&apos;image en </translation>
+        <translation>Échec du renommage de l&apos;image en </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1023,8 +1023,8 @@ Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
         <translation>Les formats supportés sont JPG, PNG et BMP. Si aucun format n’est spécifié, PNG sera utilisé par défaut.
-Le nom du fichier peut contenir les jokers suivants&#xa0;:
-- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format «&#xa0;hhmmss&#xa0;».
+Le nom du fichier peut contenir les jokers suivants :
+- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format « hhmmss ».
 - Plusieurs caractères # permettent de numéroter. Par exemple : #### donnera 0001 puis 0002 à la prochaine capture.</translation>
     </message>
     <message>
@@ -1160,22 +1160,22 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Zone de capture</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Icône de la barre d&apos;état</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajuster la taille du rectangle sélectionné en utilisant les poignées ou déplacez-le en glissant la sélection.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisez les touches fléchées pour déplacer la sélection.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
@@ -1248,8 +1248,8 @@ active sur Wayland mais toujours sur MacOS.</translation>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation type="unfinished">Afficher une loupe qui grossit le fond d&apos;écran.
-Cette option ne marche que si «&#xa0;Geler l&apos;image
-avant capture&#xa0;» est activé.</translation>
+Cette option ne marche que si « Geler l&apos;image
+avant capture » est activé.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>

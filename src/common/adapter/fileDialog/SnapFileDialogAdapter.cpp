@@ -19,17 +19,7 @@
 
 #include "SnapFileDialogAdapter.h"
 
-QString SnapFileDialogAdapter::getExistingDirectory(QWidget *parent, const QString &title, const QString &directory)
+SnapFileDialogAdapter::SnapFileDialogAdapter()
 {
-	return QFileDialog::getExistingDirectory(parent, title, directory, QFileDialog::DontUseNativeDialog);
-}
-
-QString SnapFileDialogAdapter::getOpenFileName(QWidget *parent, const QString &title, const QString &directory)
-{
-	return QFileDialog::getOpenFileName(parent, title, directory, nullptr, nullptr, QFileDialog::DontUseNativeDialog);
-}
-
-QStringList SnapFileDialogAdapter::getOpenFileNames(QWidget *parent, const QString &title, const QString &directory, const QString &filter)
-{
-	return QFileDialog::getOpenFileNames(parent, title, directory, filter, nullptr, QFileDialog::DontUseNativeDialog);
+	addOption(QFileDialog::DontUseNativeDialog);
 }

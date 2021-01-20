@@ -32,6 +32,13 @@ public:
 	QString	getExistingDirectory(QWidget *parent, const QString &title, const QString &directory) override;
 	QString	getOpenFileName(QWidget *parent, const QString &title, const QString &directory) override;
 	QStringList	getOpenFileNames(QWidget *parent, const QString &title, const QString &directory, const QString &filter) override;
+	QString	getSavePath(QWidget *parent, const QString &title, const QString &path, const QString &filter) override;
+
+protected:
+	void addOption(QFileDialog::Option option);
+
+private:
+	QFileDialog::Options mOptions;
 };
 
 #endif //KSNIP_FILEDIALOGADAPTER_H

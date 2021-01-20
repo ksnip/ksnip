@@ -27,6 +27,7 @@ public:
 	virtual QString	getExistingDirectory(QWidget *parent, const QString &title, const QString &directory) = 0;
 	virtual QString	getOpenFileName(QWidget *parent, const QString &title, const QString &directory) = 0;
 	virtual QStringList	getOpenFileNames(QWidget *parent, const QString &title, const QString &directory, const QString &filter) = 0;
+	virtual QString	getSavePath(QWidget *parent, const QString &title, const QString &path, const QString &filter) = 0;
 };
 
 #endif //KSNIP_IFILEDIALOGADAPTER_H

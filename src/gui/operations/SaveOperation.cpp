@@ -43,14 +43,14 @@ SaveResultDto SaveOperation::execute()
     if(!mIsInstantSave){
 	    auto title = tr("Save As");
 	    auto filter = tr("Images") + QLatin1String(" (*.png *.gif *.jpg);;") + tr("All Files") + QLatin1String("(*)");
-	    QFileDialog saveDialog(mParent, title, path, filter);
-	    saveDialog.setAcceptMode(QFileDialog::AcceptSave);
+		auto fileDialogAdapter = FileDialogAdapterFactory::create();
+		auto selectedSavePath = fileDialogAdapter->getSavePath(mParent, title, path, filter);
 
-	    if (saveDialog.exec() != QDialog::Accepted) {
+	    if (selectedSavePath.isNull()) {
 		    return SaveResultDto(false, path);
 	    }
 
-	    path = saveDialog.selectedFiles().first();
+	    path = selectedSavePath;
     }
 
 	auto saveResult = save(path);

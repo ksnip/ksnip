@@ -360,31 +360,31 @@ Wollen Sie Fortfahren?</translation>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Rechteckiger Bereich</translation>
+        <translation>Rechteckiger Bereich</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Letzter Rechteckiger Bereich</translation>
+        <translation>Letzter rechteckiger Bereich</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Vollbild (alle Monitore)</translation>
+        <translation>Vollbild (alle Monitore)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Aktueller Bildschirm</translation>
+        <translation>Aktueller Bildschirm</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Aktives Fenster</translation>
+        <translation>Aktives Fenster</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Fenster unter der Maus</translation>
+        <translation>Fenster unter der Maus</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Screenshot-Portal</translation>
+        <translation>Screenshot-Portal</translation>
     </message>
 </context>
 <context>
@@ -1191,7 +1191,7 @@ Alles wird kopiert wenn leer.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished">Diese Nachricht kann in den Einstellungen deaktiviert werden.</translation>
+        <translation>Diese Nachricht kann in den Einstellungen deaktiviert werden.</translation>
     </message>
 </context>
 <context>
@@ -1402,11 +1402,11 @@ Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Editor Anzeigen</translation>
+        <translation>Editor anzeigen</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Aufnahme</translation>
+        <translation>Aufnahme</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>

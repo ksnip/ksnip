@@ -59,9 +59,12 @@ void CaptureTabStateHandler::setSaveState(int index, const SaveResultDto &saveRe
 	auto tabState = getTabState(index);
 	if (!tabState.isNull()) {
 		tabState->isSaved = saveResult.isSuccessful;
-		tabState->path = saveResult.path;
-		tabState->filename = PathHelper::extractFilename(saveResult.path);
-		refreshTabInfo(index);
+
+		if (saveResult.isSuccessful) {
+			tabState->path = saveResult.path;
+			tabState->filename = PathHelper::extractFilename(saveResult.path);
+			refreshTabInfo(index);
+		}
 	}
 }
 

@@ -117,9 +117,11 @@ void SingleCaptureHandler::innerSave(bool isInstant)
 	auto image = mImageAnnotator->image();
 	SaveOperation operation(mParent, image, isInstant, mPath, mToastService);
 	auto saveResult = operation.execute();
-	mPath =  saveResult.path;
 	mIsSaved = saveResult.isSuccessful;
-	captureChanged();
+	if (mIsSaved) {
+		mPath =  saveResult.path;
+		captureChanged();
+	}
 }
 
 void SingleCaptureHandler::load(const CaptureDto &capture)

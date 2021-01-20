@@ -113,6 +113,7 @@
                     <li>Fixed: Canceling rect area selection activates main window.</li>
                     <li>Fixed: Enter key doesn't finishes resizing.</li>
                     <li>Fixed: Missing version number in mac binaries.</li>
+                    <li>Fixed: Canceling save dialog show the option save path in the header.</li>
                     <li>Fixed kImageAnnotator: Brazilian Portuguese translation not loaded.</li>
                     <li>Fixed kImageAnnotator: error: control reaches end of non-void function.</li>
                     <li>Fixed kImageAnnotator: Cursor in Text tool have too bad visibility.</li>

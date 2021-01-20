@@ -21,15 +21,33 @@
 
 QString FileDialogAdapter::getExistingDirectory(QWidget *parent, const QString &title, const QString &directory)
 {
-	return QFileDialog::getExistingDirectory(parent, title, directory);
+	return QFileDialog::getExistingDirectory(parent, title, directory, mOptions);
 }
 
 QString FileDialogAdapter::getOpenFileName(QWidget *parent, const QString &title, const QString &directory)
 {
-	return QFileDialog::getOpenFileName(parent, title, directory);
+	return QFileDialog::getOpenFileName(parent, title, directory, nullptr, nullptr, mOptions);
 }
 
 QStringList FileDialogAdapter::getOpenFileNames(QWidget *parent, const QString &title, const QString &directory, const QString &filter)
 {
-	return QFileDialog::getOpenFileNames(parent, title, directory, filter);
+	return QFileDialog::getOpenFileNames(parent, title, directory, filter, nullptr, mOptions);
+}
+
+QString FileDialogAdapter::getSavePath(QWidget *parent, const QString &title, const QString &path, const QString &filter)
+{
+	QFileDialog saveDialog(parent, title, path, filter);
+	saveDialog.setAcceptMode(QFileDialog::AcceptSave);
+	saveDialog.setOptions(mOptions);
+
+	if (saveDialog.exec() == QDialog::Accepted) {
+		return saveDialog.selectedFiles().first();
+	}
+
+	return {};
+}
+
+void FileDialogAdapter::addOption(QFileDialog::Option option)
+{
+	mOptions |= option;
 }

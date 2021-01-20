@@ -20,18 +20,13 @@
 #ifndef KSNIP_SNAPFILEDIALOGADAPTER_H
 #define KSNIP_SNAPFILEDIALOGADAPTER_H
 
-#include <QFileDialog>
+#include "FileDialogAdapter.h"
 
-#include "IFileDialogAdapter.h"
-
-class SnapFileDialogAdapter : public IFileDialogAdapter
+class SnapFileDialogAdapter : public FileDialogAdapter
 {
 public:
-	explicit SnapFileDialogAdapter() = default;
+	explicit SnapFileDialogAdapter();
 	~SnapFileDialogAdapter() override = default;
-	QString	getExistingDirectory(QWidget *parent, const QString &title, const QString &directory) override;
-	QString	getOpenFileName(QWidget *parent, const QString &title, const QString &directory) override;
-	QStringList	getOpenFileNames(QWidget *parent, const QString &title, const QString &directory, const QString &filter) override;
 };
 
 #endif //KSNIP_SNAPFILEDIALOGADAPTER_H

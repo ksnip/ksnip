@@ -468,7 +468,7 @@ void KsnipConfig::setTextFont(const QFont& font)
 
 QFont KsnipConfig::numberFont() const
 {
-	auto defaultFont = QFont(QLatin1String("Comic Sans MS"), 30, QFont::Bold);
+	auto defaultFont = QFont(QLatin1String("Arial"), 30, QFont::Bold);
 	return loadValue(KsnipConfigOptions::numberFontString(), defaultFont).value<QFont>();
 }
 

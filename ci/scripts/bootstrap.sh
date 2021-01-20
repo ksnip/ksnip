@@ -17,13 +17,14 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
 
     echo "--> Download Dependencies"
 
+    # !!! Change back to download.qt.io when t becomes avilable and remove the --no-check-certificate
     QT_BASE_URL="https://ftp.fau.de/qtproject/online/qtsdkrepository/windows_x86/desktop/qt5_599/qt.qt5.599.win32_msvc2015/5.9.9-0-201912101223"
-    wget -O qtbase.7z "${QT_BASE_URL}qtbase-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
-    wget --quiet -O qtwinextras.7z "${QT_BASE_URL}qtwinextras-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
-    wget --quiet -O qttools.7z "${QT_BASE_URL}qttools-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
-    wget --quiet -O qttranslations.7z "${QT_BASE_URL}qttranslations-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
-    wget --quiet -O qtsvg.7z "${QT_BASE_URL}qtsvg-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
-	  wget --quiet -O openssl.zip "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip"
+    wget -O --no-check-certificate qtbase.7z "${QT_BASE_URL}qtbase-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
+    wget --quiet -O --no-check-certificate qtwinextras.7z "${QT_BASE_URL}qtwinextras-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
+    wget --quiet -O --no-check-certificate qttools.7z "${QT_BASE_URL}qttools-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
+    wget --quiet -O --no-check-certificate qttranslations.7z "${QT_BASE_URL}qttranslations-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
+    wget --quiet -O --no-check-certificate qtsvg.7z "${QT_BASE_URL}qtsvg-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
+	  wget --quiet -O --no-check-certificate openssl.zip "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip"
 
     7z x qtbase.7z -o/c/qt
     7z x qtwinextras.7z -o/c/qt

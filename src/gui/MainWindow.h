@@ -44,6 +44,7 @@
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/backend/uploader/UploaderProvider.h"
 #include "src/backend/CapturePrinter.h"
+#include "src/backend/RecentImagesStore.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
@@ -77,6 +78,8 @@ protected:
 
 private:
     AbstractImageGrabber *mImageGrabber;
+    RecentImagesStore *mRecentImagesStore;
+    QSignalMapper *mRecentImageSelectedMapper;
     RunMode mMode;
     bool mSessionManagerRequestedQuit;
     QAction *mSaveAsAction;
@@ -92,6 +95,7 @@ private:
     QAction *mSettingsAction;
     QAction *mAboutAction;
     QAction *mOpenImageAction;
+    QMenu *mOpenRecentMenu;
     QAction *mScaleAction;
     QAction *mAddWatermarkAction;
     QAction *mPasteAction;
@@ -154,6 +158,7 @@ private slots:
 	void showPinWindow();
 	void hideMainWindowIfRequired();
 	void toggleDocks();
+	void populateOpenRecentMenu();
 };
 
 #endif // KSNIP_MAINWINDOW_H

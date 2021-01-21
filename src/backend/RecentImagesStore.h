@@ -39,6 +39,9 @@ private:
 
 	QQueue<QString> mRecentImages;
 	QSettings mSettings;
+	const QString mSettingsGroupPrefix;
+	const QString mSettingsGroupKey;
+	const int mMaxRecentItems;
 };
 
 #endif //KSNIP_RECENTIMAGESSTORE_H

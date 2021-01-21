@@ -21,16 +21,19 @@
 
 
 RecentImagesStore::RecentImagesStore()
+	: mSettingsGroupPrefix("recentImages"),
+	  mSettingsGroupKey("imagePath"),
+	  mMaxRecentItems(10)
 {
 	loadRecentImages();
 }
 
 void RecentImagesStore::loadRecentImages()
 {
-	const auto numRecentImages = mSettings.beginReadArray("recentImages");
+	const auto numRecentImages = mSettings.beginReadArray(mSettingsGroupPrefix);
 	for (int i=0; i<numRecentImages; ++i) {
 		mSettings.setArrayIndex(i);
-		const auto recentImagePath = mSettings.value("imagePath").toString();
+		const auto recentImagePath = mSettings.value(mSettingsGroupKey).toString();
 		mRecentImages.enqueue(recentImagePath);
 	}
 	mSettings.endArray();
@@ -38,13 +41,11 @@ void RecentImagesStore::loadRecentImages()
 
 void RecentImagesStore::storeImage(const QString &image)
 {
-	static const uint maxRecentImages = 10;
-
 	if (mRecentImages.contains(image)) {
 		return;
 	}
 
-	if (mRecentImages.size() == maxRecentImages) {
+	if (mRecentImages.size() == mMaxRecentItems) {
 		mRecentImages.dequeue();
 	}
 
@@ -54,10 +55,10 @@ void RecentImagesStore::storeImage(const QString &image)
 
 void RecentImagesStore::saveRecentImages()
 {
-	mSettings.beginWriteArray("recentImages");
+	mSettings.beginWriteArray(mSettingsGroupPrefix);
 	for (int i=0 ; i<mRecentImages.size(); ++i) {
 		mSettings.setArrayIndex(i);
-		mSettings.setValue("imagePath", mRecentImages.at(i));
+		mSettings.setValue(mSettingsGroupKey, mRecentImages.at(i));
 	}
 	mSettings.endArray();
 	mSettings.sync();

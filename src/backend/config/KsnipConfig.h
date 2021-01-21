@@ -22,7 +22,6 @@
 #define KSNIP_KSNIPCONFIG_H
 
 #include <QObject>
-#include <QDirModel>
 #include <QPoint>
 #include <QPen>
 #include <QFont>
@@ -36,6 +35,7 @@
 #include "src/common/enum/TrayIconDefaultActionMode.h"
 #include "src/common/helper/PathHelper.h"
 #include "src/common/constants/DefaultValues.h"
+#include "src/common/provider/DirectoryPathProvider.h"
 
 
 class KsnipConfig : public QObject

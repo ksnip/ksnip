@@ -131,7 +131,7 @@ void StickerSettings::addTriggered()
 {
 	auto title = tr("Add Stickers");
 	auto filter = tr("Vector Image Files (*.svg)");
-	auto paths = QFileDialog::getOpenFileNames(this, title, QDir::homePath(), filter);
+	auto paths = QFileDialog::getOpenFileNames(this, title, DirectoryPathProvider::home(), filter);
 
 	for(const auto& path : paths) {
 		addSticker(path, false);

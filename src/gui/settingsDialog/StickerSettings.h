@@ -32,6 +32,7 @@
 
 #include "src/backend/config/KsnipConfig.h"
 #include "src/common/helper/PathHelper.h"
+#include "src/common/provider/DirectoryPathProvider.h"
 
 class StickerSettings : public QGroupBox
 {

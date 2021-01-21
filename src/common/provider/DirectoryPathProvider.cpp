@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,22 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_FILEDIALOGADAPTERFACTORY_H
-#define KSNIP_FILEDIALOGADAPTERFACTORY_H
+#include "DirectoryPathProvider.h"
 
-#include "FileDialogAdapter.h"
-
+QString DirectoryPathProvider::home()
+{
 #if defined(UNIX_X11)
-#include "src/common/platform/PlatformChecker.h"
-#include "SnapFileDialogAdapter.h"
+	if (PlatformChecker::instance()->isSnap()) {
+		return qgetenv("SNAP_REAL_HOME");
+	} else {
+		return QDir::homePath();
+	}
 #endif
 
-class FileDialogAdapterFactory
-{
-public:
-	FileDialogAdapterFactory() = default;
-	~FileDialogAdapterFactory() = default;
-	static IFileDialogAdapter* create();
-};
-
-#endif //KSNIP_FILEDIALOGADAPTERFACTORY_H
+#if  defined(_WIN32) || defined(__APPLE__)
+	return QDir::homePath();
+#endif
+}

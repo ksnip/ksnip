@@ -155,7 +155,7 @@ void KsnipConfig::setCaptureMode(CaptureModes mode)
 
 QString KsnipConfig::saveDirectory() const
 {
-	auto saveDirectoryString = loadValue(KsnipConfigOptions::saveDirectoryString(), QDir::homePath()).toString();
+	auto saveDirectoryString = loadValue(KsnipConfigOptions::saveDirectoryString(), DirectoryPathProvider::home()).toString();
 	if (!saveDirectoryString.isEmpty()) {
 		return saveDirectoryString + QLatin1String("/");
     } else {

@@ -10,6 +10,7 @@
 * Fixed: Enter key doesn't finishes resizing. ([#523](https://github.com/ksnip/ksnip/issues/523))
 * Fixed: Missing version number in mac binaries. ([#401](https://github.com/ksnip/ksnip/issues/401))
 * Fixed: Canceling save dialog show the option save path in the header. ([#545](https://github.com/ksnip/ksnip/issues/545))
+* Fixed: Save-as Window does not get focus when using snap. ([#543](https://github.com/ksnip/ksnip/issues/543))
 * Fixed kImageAnnotator: Brazilian Portuguese translation not loaded. ([#176](https://github.com/ksnip/kImageAnnotator/issues/176))
 * Fixed kImageAnnotator: error: control reaches end of non-void function. ([#177](https://github.com/ksnip/kImageAnnotator/issues/177))
 * Fixed kImageAnnotator: Cursor in Text tool have too bad visibility. ([#184](https://github.com/ksnip/kImageAnnotator/issues/184))

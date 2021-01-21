@@ -22,7 +22,6 @@
 #define KSNIP_KSNIPCONFIG_H
 
 #include <QObject>
-#include <QDirModel>
 #include <QPoint>
 #include <QPen>
 #include <QFont>
@@ -32,9 +31,10 @@
 #include "KsnipConfigOptions.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/enum/SaveQualityMode.h"
-#include "src/common/helper/PathHelper.h"
 #include "src/common/enum/UploaderType.h"
+#include "src/common/helper/PathHelper.h"
 #include "src/common/constants/DefaultValues.h"
+#include "src/common/provider/DirectoryPathProvider.h"
 
 
 class KsnipConfig : public QObject

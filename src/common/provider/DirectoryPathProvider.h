@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,22 +17,24 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_FILEDIALOGADAPTERFACTORY_H
-#define KSNIP_FILEDIALOGADAPTERFACTORY_H
+#ifndef KSNIP_DIRECTORYPATHPROVIDER_H
+#define KSNIP_DIRECTORYPATHPROVIDER_H
 
-#include "FileDialogAdapter.h"
+#include <QDir>
 
 #if defined(UNIX_X11)
 #include "src/common/platform/PlatformChecker.h"
-#include "SnapFileDialogAdapter.h"
 #endif
 
-class FileDialogAdapterFactory
+class DirectoryPathProvider
 {
 public:
-	FileDialogAdapterFactory() = default;
-	~FileDialogAdapterFactory() = default;
-	static IFileDialogAdapter* create();
+	static QString home();
+
+private:
+	DirectoryPathProvider() = default;
+	~DirectoryPathProvider() = default;
 };
 
-#endif //KSNIP_FILEDIALOGADAPTERFACTORY_H
+
+#endif //KSNIP_DIRECTORYPATHPROVIDER_H

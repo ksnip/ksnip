@@ -360,7 +360,7 @@ Voulez-vous continuer ?</translation>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation>Zone Rectangulaire</translation>
+        <translation>Zone rectangulaire</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
@@ -1191,37 +1191,37 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ce message peut être désactivé via les préférences.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cliquez et faites glisser pour sélectionner une zone rectangulaire ou appuyez sur ÉCHAP pour quitter.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Maintenez la touche CTRL enfoncée pour redimensionner la sélection après avoir fait une sélection.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Maintenez la touche CTRL enfoncée pour empêcher le redimensionnement après avoir effectué une sélection.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>L’opération sera annulée après 60 secondes si aucune sélection n’est effectuée.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ce message peut être désactivé via les préférences.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Geler l&apos;image avant capture</translation>
+        <translation>Figer l’image lors de la capture</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1241,19 +1241,19 @@ active sur Wayland mais toujours sur MacOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Montrer la loupe sur la zone à capturer</translation>
+        <translation>Afficher la loupe sur la zone de capture</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Afficher une loupe qui grossit le fond d&apos;écran.
-Cette option ne marche que si « Geler l&apos;image
+        <translation>Afficher une loupe qui grossit le fond d’écran.
+Cette option ne fonctionne que si « Figer l’image
 avant capture » est activé.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Affiche les guides de capture</translation>
+        <translation>Afficher les règles de la zone de capture</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
@@ -1263,7 +1263,7 @@ depuis les bords de l&apos;écran pour aider au cadrage.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Montrer la taille et position du cadrage</translation>
+        <translation>Afficher les informations sur la position et la taille de la zone de capture</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
@@ -1277,7 +1277,7 @@ gauche et au-dessus de la zone capturée.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Autoriser le redimensionnement de la sélection de la zone rectangulaire par défaut</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
@@ -1291,27 +1291,27 @@ en appuyant sur la touche retour.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher le texte d’informations sur la zone de capture</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Couleur du curseur de cadrage</translation>
+        <translation>Couleur du curseur de la zone de capture</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished">Fixe la couleur du curseur de cadrage.</translation>
+        <translation>Définit la couleur du curseur de la zone de capture.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Épaisseur du curseur de cadrage</translation>
+        <translation>Épaisseur du curseur de la zone de capture</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished">Fixe l&apos;épaisseur du curseur de cadrage .</translation>
+        <translation>Règle l’épaisseur du curseur de la zone de capture.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Zone de capture</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
@@ -1320,11 +1320,12 @@ en appuyant sur la touche retour.</translation>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Définit la couleur de tous les éléments
+d’ornement sur la zone de capture.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Transparence de la zone de capture</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
@@ -1408,7 +1409,7 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Action par défaut de l’icône de la barre d’état</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
@@ -1416,7 +1417,7 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres de l’icône de la barre d’état</translation>
     </message>
 </context>
 <context>

@@ -349,7 +349,7 @@ Voulez-vous continuer ?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip est un projet de logiciel libre, copyleft, sans but lucratif, et &lt;br/&gt;a qu&apos;en même certains coûts&lt;br/&gt;, par exemple les coûts de domaine ou les coûts de matériel pour la prise en charge multiplateforme.</translation>
+        <translation>ksnip est un projet de logiciel libre, copyleft, sans but lucratif, &lt;br/&gt;et a quand même certains coûts, par exemple les coûts de domaine &lt;br/&gt;ou les coûts de matériel pour la prise en charge multiplateforme.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>

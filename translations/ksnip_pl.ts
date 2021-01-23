@@ -154,7 +154,9 @@ ale uczyni je bardziej gładkimi.</translation>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyłączenie tej opcji powoduje zmiany narzędzia liczbowego
+seed, aby wpływać tylko na nowe elementy, ale nie na istniejące.
+Wyłączenie tej opcji umożliwia posiadanie zduplikowanych numerów.</translation>
     </message>
 </context>
 <context>
@@ -222,7 +224,8 @@ nowego uruchomienia wszystkich instancji.</translation>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Po uruchomieniu ukryj pasek narzędzi i ustawienia adnotacji.
+Widoczność doków można przełączać za pomocą klawisza Tab.</translation>
     </message>
 </context>
 <context>
@@ -384,7 +387,7 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Portal zrzutu ekranu</translation>
+        <translation>Portal zrzutu ekranu</translation>
     </message>
 </context>
 <context>
@@ -1220,7 +1223,7 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Zamrażanie obrazu podczas przycinania</translation>
+        <translation>Zablokuj obraz podczas wycinania</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while

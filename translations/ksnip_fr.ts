@@ -397,7 +397,7 @@ Voulez-vous continuer ?</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation>Script d&apos;envoi vers le serveur </translation>
+        <translation>Téléverser un script </translation>
     </message>
     <message>
         <source> finished successfully.</source>

@@ -274,7 +274,6 @@ void MainWindow::closeEvent(QCloseEvent* event)
 	}
 
 	if(mTrayIcon->isVisible() && mConfig->closeToTray()) {
-		mVisibilityHandler->minimize();
 		mVisibilityHandler->hide();
 	} else {
 		quit();

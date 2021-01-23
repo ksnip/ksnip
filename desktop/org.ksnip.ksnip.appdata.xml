@@ -93,7 +93,8 @@
                     <li>Fixed: Enter key doesn't finishes resizing.</li>
                     <li>Fixed: Missing version number in mac binaries.</li>
                     <li>Fixed: Canceling save dialog show the option save path in the header.</li>
-                    <li>Save-as Window does not get focus when using snap.</li>
+                    <li>Fixed: Save-as Window does not get focus when using snap.</li>
+                    <li>Fixed: Editor can not be shown again after click close icon.</li>
                     <li>Fixed kImageAnnotator: Brazilian Portuguese translation not loaded.</li>
                     <li>Fixed kImageAnnotator: error: control reaches end of non-void function.</li>
                     <li>Fixed kImageAnnotator: Cursor in Text tool have too bad visibility.</li>

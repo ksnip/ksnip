@@ -117,12 +117,14 @@
                     <li>Fixed: Canceling save dialog show the option save path in the header.</li>
                     <li>Fixed: Save-as Window does not get focus when using snap.</li>
                     <li>Fixed: Editor can not be shown again after click close icon.</li>
+                    <li>Fixed: Icons and text boxes not correctly scaled under gnome with hdpi.</li>
                     <li>Fixed kImageAnnotator: Brazilian Portuguese translation not loaded.</li>
                     <li>Fixed kImageAnnotator: error: control reaches end of non-void function.</li>
                     <li>Fixed kImageAnnotator: Cursor in Text tool have too bad visibility.</li>
                     <li>Fixed kImageAnnotator: bumped SONAME without name change.</li>
                     <li>Fixed kImageAnnotator: Entering multiple characters at once moves the text cursor only for one character.</li>
                     <li>Fixed kImageAnnotator: Activating context menu while drawing item leaves item in error state.</li>
+                    <li>Fixed kImageAnnotator: Icons not scaled on gnome with hdpi enabled.</li>
                 </ul>
             </description>
         </release>

@@ -51,7 +51,7 @@ void WatermarkSettings::initGui()
 	mWatermarkImageLabel->setPixmap(mWatermarkImageLoader.load());
 	mWatermarkImageLabel->setToolTip(tr("Watermark Image"));
 	mWatermarkImageLabel->setAutoFillBackground(true);
-	mWatermarkImageLabel->setFixedSize(QSize(100, 100));
+	mWatermarkImageLabel->setFixedSize(ScaledSizeProvider::scaledSize(QSize(100, 100)));
 	mWatermarkImageLabel->setScaledContents(true);
 	mWatermarkImageLabel->setStyleSheet(QLatin1String("QLabel { background-color : white; }"));
 	mUpdateWatermarkImageButton->setText(tr("Update"));

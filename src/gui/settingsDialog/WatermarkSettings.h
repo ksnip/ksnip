@@ -28,6 +28,7 @@
 
 #include "src/backend/config/KsnipConfig.h"
 #include "src/gui/operations/UpdateWatermarkOperation.h"
+#include "src/common/provider/ScaledSizeProvider.h"
 
 class WatermarkSettings : public QGroupBox
 {

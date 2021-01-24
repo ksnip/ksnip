@@ -39,6 +39,7 @@
 #include "SnippingAreaSettings.h"
 #include "WatermarkSettings.h"
 #include "src/backend/config/KsnipConfigProvider.h"
+#include "src/common/provider/ScaledSizeProvider.h"
 
 class SettingsDialog : public QDialog
 {

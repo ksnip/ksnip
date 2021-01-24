@@ -77,7 +77,7 @@ void SnippingAreaSettings::saveSettings()
 
 void SnippingAreaSettings::initGui()
 {
-	auto const fixedButtonWidth = 70;
+	auto const fixedButtonWidth = ScaledSizeProvider::scaledWidth(70);
 
 	mFreezeImageWhileSnippingCheckbox->setText(tr("Freeze Image while snipping"));
 	mFreezeImageWhileSnippingCheckbox->setToolTip(tr("When enabled will freeze the background while\n"

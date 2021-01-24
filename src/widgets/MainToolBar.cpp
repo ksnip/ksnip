@@ -65,13 +65,14 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoA
     mCropButton->addAction(mCropAction);
     mCropButton->setDefaultAction(mCropAction);
 
-	auto clockPixmap = IconLoader::loadForTheme(QLatin1String("clock.svg")).pixmap(QSize(24, 24));
+	auto clockIcon = IconLoader::loadForTheme(QLatin1String("clock.svg"));
+	auto clockPixmap = clockIcon.pixmap(ScaledSizeProvider::scaledSize(QSize(24, 24)));
 	mDelayLabel->setPixmap(clockPixmap);
 	mDelayLabel->setContentsMargins(0, 0, 2, 0);
 	mDelayLabel->setToolTip(tr("Delay in seconds between triggering\n"
 	                           "and capturing screenshot."));
     mDelayPicker->setSuffix(tr("s"));
-	mDelayPicker->setFixedWidth(55);
+	mDelayPicker->setFixedWidth(ScaledSizeProvider::scaledWidth(55));
 	mDelayPicker->setToolTip(mDelayLabel->toolTip());
     connect(mDelayPicker, &CustomSpinBox::valueChanged, this, &MainToolBar::captureDelayChanged);
 

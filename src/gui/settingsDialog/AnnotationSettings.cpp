@@ -86,7 +86,7 @@ void AnnotationSettings::saveSettings()
 
 void AnnotationSettings::initGui()
 {
-    auto const fixedButtonWidth = 100;
+    auto const fixedButtonWidth = ScaledSizeProvider::scaledWidth(100);
 
     mRememberToolSelectionCheckbox->setText(tr("Remember annotation tool selection and load on startup"));
 

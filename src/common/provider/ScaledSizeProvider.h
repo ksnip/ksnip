@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,14 +17,28 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "CommandRunner.h"
+#ifndef KSNIP_SCALEDSIZEPROVIDER_H
+#define KSNIP_SCALEDSIZEPROVIDER_H
 
-QString CommandRunner::getEnvironmentVariable(const QString& variable) const
-{
-	return qgetenv(variable.toLatin1());
-}
+#include <QSize>
 
-bool CommandRunner::isEnvironmentVariableSet(const QString &variable) const
+#if defined(__linux__)
+#include <QApplication>
+#include <QScreen>
+#endif
+
+#include "src/common/platform/PlatformChecker.h"
+
+class ScaledSizeProvider
 {
-	return QProcessEnvironment::systemEnvironment().contains(variable);
-}
+public:
+	static QSize scaledSize(const QSize &size);
+	static int scaledWidth(int width);
+
+private:
+	static qreal scaleFactor();
+	static qreal getScaleFactor();
+};
+
+
+#endif //KSNIP_SCALEDSIZEPROVIDER_H

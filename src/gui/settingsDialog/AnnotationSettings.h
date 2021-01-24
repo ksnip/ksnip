@@ -31,8 +31,9 @@
 #include "src/backend/config/KsnipConfig.h"
 #include "src/backend/WatermarkImageLoader.h"
 #include "src/widgets/NumericComboBox.h"
-#include "src/common/loader/IconLoader.h"
 #include "src/gui/operations/UpdateWatermarkOperation.h"
+#include "src/common/loader/IconLoader.h"
+#include "src/common/provider/ScaledSizeProvider.h"
 
 class AnnotationSettings : public QGroupBox
 {

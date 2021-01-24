@@ -12,12 +12,14 @@
 * Fixed: Canceling save dialog show the option save path in the header. ([#545](https://github.com/ksnip/ksnip/issues/545))
 * Fixed: Save-as Window does not get focus when using snap. ([#543](https://github.com/ksnip/ksnip/issues/543))
 * Fixed: Editor can not be shown again after click close icon. ([#400](https://github.com/ksnip/ksnip/issues/400))
+* Fixed: Icons and text boxes not correctly scaled under gnome with hdpi. ([#549](https://github.com/ksnip/ksnip/issues/549))
 * Fixed kImageAnnotator: Brazilian Portuguese translation not loaded. ([#176](https://github.com/ksnip/kImageAnnotator/issues/176))
 * Fixed kImageAnnotator: error: control reaches end of non-void function. ([#177](https://github.com/ksnip/kImageAnnotator/issues/177))
 * Fixed kImageAnnotator: Cursor in Text tool have too bad visibility. ([#184](https://github.com/ksnip/kImageAnnotator/issues/184))
 * Fixed kImageAnnotator: bumped SONAME without name change. ([#185](https://github.com/ksnip/kImageAnnotator/issues/185))
 * Fixed kImageAnnotator: Entering multiple characters at once moves the text cursor only for one character. ([#186](https://github.com/ksnip/kImageAnnotator/issues/186))
 * Fixed kImageAnnotator: Activating context menu while drawing item leaves item in error state. ([#196](https://github.com/ksnip/kImageAnnotator/issues/196))
+* Fixed kImageAnnotator: Icons not scaled on gnome with hdpi enabled. ([#201](https://github.com/ksnip/kImageAnnotator/issues/201))
 
 ## Release 1.8.0
 * New: Pin screenshots in frameless windows that stay in foreground. ([#365](https://github.com/ksnip/ksnip/issues/365))

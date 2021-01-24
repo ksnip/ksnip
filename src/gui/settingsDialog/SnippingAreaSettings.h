@@ -28,6 +28,7 @@
 #include "src/backend/config/KsnipConfig.h"
 #include "src/widgets/ColorButton.h"
 #include "src/widgets/NumericComboBox.h"
+#include "src/common/provider/ScaledSizeProvider.h"
 
 class SnippingAreaSettings : public QGroupBox
 {

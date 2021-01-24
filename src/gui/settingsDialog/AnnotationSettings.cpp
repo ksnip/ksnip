@@ -84,7 +84,7 @@ void AnnotationSettings::saveSettings()
 
 void AnnotationSettings::initGui()
 {
-    auto const fixedButtonSize = 100;
+    auto const fixedButtonSize = ScaledSizeProvider::scaledWidth(100);
 
     mRememberToolSelectionCheckbox->setText(tr("Remember annotation tool selection and load on startup"));
 
@@ -130,7 +130,7 @@ void AnnotationSettings::initGui()
     mWatermarkImageLabel->setPixmap(mWatermarkImageLoader.load());
     mWatermarkImageLabel->setToolTip(tr("Watermark Image"));
     mWatermarkImageLabel->setAutoFillBackground(true);
-    mWatermarkImageLabel->setFixedSize(QSize(100, 100));
+    mWatermarkImageLabel->setFixedSize(ScaledSizeProvider::scaledSize(QSize(100, 100)));
     mWatermarkImageLabel->setScaledContents(true);
     mWatermarkImageLabel->setStyleSheet(QLatin1String("QLabel { background-color : white; }"));
     mUpdateWatermarkImageButton->setText(tr("Update"));

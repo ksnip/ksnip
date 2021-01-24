@@ -148,13 +148,15 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Un changement du numéro de début met à jour tous les items numérotés</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsqu&apos;on désactive cette option, les changements du numéro
+de début n&apos;affectent que les nouveaux items et pas les items existants.
+La désactivation de cette option permet des numéros dupliqués.</translation>
     </message>
 </context>
 <context>
@@ -187,7 +189,7 @@ Vous devrez redémarrer knsip pour le prendre en compte.</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation>Les modifications nécessitent un redémarrage.</translation>
+        <translation>La modification de cette option nécessite un redémarrage.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
@@ -203,7 +205,7 @@ all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
         <translation>Cette option n&apos;autorise à lancer qu&apos;une seule instance ksnip.
-Si d&apos;autres instances sont lancés, elles passerons leurs
+Si d&apos;autres instances sont lancées, elles passeront leurs
 arguments à la première avant de s&apos;arrêter. Il faut redémarrer
 toutes les instances pour activer ou désactiver cette option.</translation>
     </message>
@@ -395,7 +397,7 @@ Voulez-vous continuer ?</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation>Script d&apos;envoi vers le serveur </translation>
+        <translation>Téléverser un script </translation>
     </message>
     <message>
         <source> finished successfully.</source>
@@ -454,7 +456,7 @@ Voulez-vous continuer ?</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation>Capturer zone rect</translation>
+        <translation>Capturer zone rectangulaire</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
@@ -462,15 +464,15 @@ Voulez-vous continuer ?</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation>Capture l&apos;écran actif</translation>
+        <translation>Capturer l&apos;écran actif</translation>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation>Capture la fenêtre active</translation>
+        <translation>Capturer la fenêtre active</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation>Capture la fenêtre sous le curseur</translation>
+        <translation>Capturer la fenêtre sous le curseur</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
@@ -490,7 +492,7 @@ Voulez-vous continuer ?</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation>Capture par le portail</translation>
+        <translation>Capturer par le portail</translation>
     </message>
 </context>
 <context>
@@ -502,8 +504,7 @@ Voulez-vous continuer ?</translation>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation>Montrer le curseur de la souris
-dans les captures d&apos;écran.</translation>
+        <translation>Le curseur de la souris doit-il être visible dans la capture d&apos;écran.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -868,11 +869,11 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher le panneau d&apos;outils</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Cacher le panneau d&apos;outils</translation>
     </message>
 </context>
 <context>
@@ -1005,7 +1006,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation>Se souvenir du dernier dossier d’enregistrement</translation>
+        <translation>Se souvenir du dernier emplacement de sauvegarde</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
@@ -1094,8 +1095,8 @@ avec le chemin vers une image temporaire au format PNG comme unique argument.</t
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation>L&apos;envoie sera noté comme échoué si le script a écrit sur StdErr.
-Si cette case n&apos;est pas cochée, les erreurs du script passerons inaperçues.</translation>
+        <translation>L&apos;envoi sera noté comme échoué si le script a écrit sur StdErr.
+Si cette case n&apos;est pas cochée, les erreurs du script passeront inaperçues.</translation>
     </message>
     <message>
         <source>Filter:</source>
@@ -1156,7 +1157,7 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>Stickers</source>
-        <translation>Stickers</translation>
+        <translation>Autocollants</translation>
     </message>
     <message>
         <source>Snipping Area</source>
@@ -1179,15 +1180,15 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser les touches flèches en pressant CTRL pour déplacer la poignée en haut à gauche.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser les touches flèches en pressant ALT pour déplacer la poignée en bas à droite.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirmer la sélection en pressant ENTRÉE/RETOUR ou avorter en pressant ESC.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
@@ -1232,11 +1233,12 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished">Pour figer l&apos;arrière-plan lors de la sélection
+        <translation>Pour figer l&apos;arrière-plan lors de la sélection
 rectangulaire. Cela affecte aussi le comportement
-des captures avec délai. Activé, la durée est avant
-l&apos;affichage de la zone de sélection. Désactivé, la
-durée est après. Cette fonctionnalité n&apos;est jamais
+des captures avec délai. 
+Activé, la durée est avant l&apos;affichage de la zone
+de sélection. Désactivé, la durée est après.
+Cette fonctionnalité n&apos;est jamais
 active sur Wayland mais toujours sur MacOS.</translation>
     </message>
     <message>
@@ -1258,8 +1260,8 @@ avant capture » est activé.</translation>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Afficher des lignes horizontales et verticales
-depuis les bords de l&apos;écran pour aider au cadrage.</translation>
+        <translation>Afficher des lignes horizontales et verticales
+depuis les bords de l&apos;écran jusqu&apos;au pointeur pour aider au cadrage.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
@@ -1270,7 +1272,7 @@ depuis les bords de l&apos;écran pour aider au cadrage.</translation>
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished">Lorsque le bouton gauche de la souris n&apos;est pas enfoncé,
+        <translation>Lorsque le bouton gauche de la souris n&apos;est pas enfoncé,
 la position s&apos;affiche, lorsque le bouton de la souris est
 enfoncé, la taille de la zone sélectionnée est indiquée à
 gauche et au-dessus de la zone capturée.</translation>
@@ -1284,8 +1286,8 @@ gauche et au-dessus de la zone capturée.</translation>
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished">Lorsqu&apos;il est activé, après avoir sélectionné une
-sélection rectangulaire, elle peut être redimensionnée.
+        <translation>Lorsque l&apos;option est activée, après avoir sélectionné une
+zone rectangulaire, celle-ci peut être redimensionnée.
 Le redimensionnement de la sélection peut être confirmé
 en appuyant sur la touche retour.</translation>
     </message>
@@ -1315,7 +1317,7 @@ en appuyant sur la touche retour.</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur d&apos;ornement de la zone de capture</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
@@ -1405,7 +1407,7 @@ Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translat
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Capture</translation>
+        <translation>Capture</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>

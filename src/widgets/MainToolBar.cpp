@@ -72,7 +72,7 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoA
 	mDelayLabel->setToolTip(tr("Delay in seconds between triggering\n"
 	                           "and capturing screenshot."));
     mDelayPicker->setSuffix(tr("s"));
-	mDelayPicker->setFixedWidth(55);
+	mDelayPicker->setFixedWidth(ScaledSizeProvider::scaledWidth(55));
 	mDelayPicker->setToolTip(mDelayLabel->toolTip());
     connect(mDelayPicker, &CustomSpinBox::valueChanged, this, &MainToolBar::captureDelayChanged);
 

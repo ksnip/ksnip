@@ -38,23 +38,27 @@ SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstan
 
 SaveResultDto SaveOperation::execute()
 {
-    auto path = getSavePath();
+	auto path = getSavePath();
 
-    if(!mIsInstantSave){
-	    auto title = tr("Save As");
-	    auto filter = tr("Images") + QLatin1String(" (*.png *.gif *.jpg);;") + tr("All Files") + QLatin1String("(*)");
+	if(!mIsInstantSave){
+		auto title = tr("Save As");
+		auto filter = tr("Images") + QLatin1String(" (*.png *.gif *.jpg);;") + tr("All Files") + QLatin1String("(*)");
 		auto fileDialogAdapter = FileDialogAdapterFactory::create();
 		auto selectedSavePath = fileDialogAdapter->getSavePath(mParent, title, path, filter);
 
-	    if (selectedSavePath.isNull()) {
-		    return SaveResultDto(false, path);
-	    }
+		if (selectedSavePath.isNull()) {
+			return SaveResultDto(false, path);
+		}
 
-	    path = selectedSavePath;
-    }
+		path = selectedSavePath;
+	}
 
 	auto saveResult = save(path);
 	updateSaveDirectoryIfRequired(path, saveResult);
+
+	if (saveResult.isSuccessful) {
+		RecentImagesPathStore::instance().storeImagePath(path);
+	}
 
 	return saveResult;
 }

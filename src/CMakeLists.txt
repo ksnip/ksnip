@@ -49,6 +49,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/widgets/KeySequenceLineEdit.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomLineEdit.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/MainWindow.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/OpenRecentMenu.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/TrayIcon.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/clipboard/ClipboardAdapter.cpp

@@ -20,8 +20,15 @@
 #include "RecentImagesPathStore.h"
 
 
-RecentImagesPathStore::RecentImagesPathStore()
-	: mSettingsGroupPrefix("recentImagesPath"),
+RecentImagesPathStore &RecentImagesPathStore::instance()
+{
+	static RecentImagesPathStore _instance;
+	return _instance;
+}
+
+RecentImagesPathStore::RecentImagesPathStore(QObject *parent)
+	: QObject(parent),
+	  mSettingsGroupPrefix("recentImagesPath"),
 	  mSettingsGroupKey("imagePath"),
 	  mMaxRecentItems(10)
 {
@@ -51,6 +58,8 @@ void RecentImagesPathStore::storeImagePath(const QString &imagePath)
 
 	mRecentImagesPath.enqueue(imagePath);
 	saveRecentImagesPath();
+
+	Q_EMIT recentImagesPathChanged();
 }
 
 void RecentImagesPathStore::saveRecentImagesPath()

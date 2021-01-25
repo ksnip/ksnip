@@ -25,6 +25,7 @@
 #include "NotifyOperation.h"
 #include "src/common/dtos/SaveResultDto.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
+#include "src/backend/RecentImagesPathStore.h"
 #include "src/backend/config/KsnipConfig.h"
 #include "src/backend/saver/SavePathProvider.h"
 #include "src/backend/saver/ImageSaver.h"

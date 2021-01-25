@@ -24,7 +24,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	QMainWindow(),
 	mToolBar(nullptr),
 	mImageGrabber(imageGrabber),
-	mRecentImagesPathStore(new RecentImagesPathStore),
 	mRecentImageSelectedMapper(new QSignalMapper),
 	mMode(mode),
 	mImageAnnotator(new KImageAnnotatorAdapter),
@@ -41,7 +40,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mSettingsAction(new QAction(this)),
 	mAboutAction(new QAction(this)),
 	mOpenImageAction(new QAction(this)),
-	mOpenRecentMenu(new QMenu(this)),
+	mOpenRecentMenu(new OpenRecentMenu(this)),
 	mScaleAction(new QAction(this)),
 	mAddWatermarkAction(new QAction(this)),
 	mPasteAction(new QAction(this)),
@@ -93,6 +92,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	connect(mUploaderProvider, &UploaderProvider::finished, this, &MainWindow::uploadFinished);
 
+	connect(mOpenRecentMenu, &OpenRecentMenu::openRecentSelected, this, &MainWindow::loadImageFromFile);
+
 	mCaptureHandler->addListener(this);
 
 	handleGuiStartup();
@@ -128,7 +129,6 @@ void MainWindow::setPosition()
 
 MainWindow::~MainWindow()
 {
-    delete mRecentImagesPathStore;
     delete mRecentImageSelectedMapper;
     delete mImageAnnotator;
     delete mUploadAction;
@@ -310,11 +310,6 @@ void MainWindow::changeEvent(QEvent *event)
 
 void MainWindow::captureChanged()
 {
-	if (mCaptureHandler->isSaved() && mCaptureHandler->isPathValid()) {
-        mRecentImagesPathStore->storeImagePath(mCaptureHandler->path());
-	populateOpenRecentMenu();
-	}
-
 	mToolBar->setSaveActionEnabled(!mCaptureHandler->isSaved());
 	mCopyPathAction->setEnabled(mCaptureHandler->isPathValid());
 	mRenameAction->setEnabled(mCaptureHandler->isPathValid());
@@ -389,34 +384,6 @@ void MainWindow::toggleDocks()
 	mToggleDocksAction->setText(collapsedToggleText);
 
 	resizeToContent();
-}
-
-void MainWindow::populateOpenRecentMenu()
-{
-	mOpenRecentMenu->clear();
-
-	delete mRecentImageSelectedMapper;
-	mRecentImageSelectedMapper = new QSignalMapper();
-
-	const auto recentImages = mRecentImagesPathStore->getRecentImagesPath();
-
-	int imageIdx = 0;
-	for (; imageIdx<recentImages.size(); ++imageIdx) {
-		const auto path = recentImages.at(recentImages.size() - 1 - imageIdx);
-
-		QAction *action = new QAction(mRecentImageSelectedMapper);
-		action->setText(path);
-		action->setShortcut(Qt::CTRL + Qt::Key_0 + imageIdx);
-		mOpenRecentMenu->addAction(action);
-
-		mRecentImageSelectedMapper->setMapping(action, path);
-		connect(action, SIGNAL(triggered()),
-				mRecentImageSelectedMapper, SLOT(map()));
-	}
-
-	mOpenRecentMenu->setEnabled(imageIdx != 0);
-	connect(mRecentImageSelectedMapper, &QSignalMapper::mappedString,
-			this, &MainWindow::loadImageFromFile);
 }
 
 void MainWindow::initGui()
@@ -500,7 +467,6 @@ void MainWindow::initGui()
 
 	mOpenRecentMenu->setTitle(tr("Open &Recent"));
 	mOpenRecentMenu->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
-	populateOpenRecentMenu();
 
 	mPasteAction->setText(tr("Paste"));
 	mPasteAction->setIcon(IconLoader::loadForTheme(QLatin1String("paste")));

@@ -39,6 +39,7 @@
 #include "src/gui/widgetVisibilityHandler/WidgetVisibilityHandlerFactory.h"
 #include "src/gui/pinWindow/PinWindowHandler.h"
 #include "src/gui/serviceLocator/ServiceLocator.h"
+#include "src/gui/OpenRecentMenu.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/config/KsnipConfigProvider.h"
@@ -78,7 +79,6 @@ protected:
 
 private:
     AbstractImageGrabber *mImageGrabber;
-    RecentImagesPathStore *mRecentImagesPathStore;
     QSignalMapper *mRecentImageSelectedMapper;
     RunMode mMode;
     bool mSessionManagerRequestedQuit;
@@ -95,7 +95,7 @@ private:
     QAction *mSettingsAction;
     QAction *mAboutAction;
     QAction *mOpenImageAction;
-    QMenu *mOpenRecentMenu;
+    OpenRecentMenu *mOpenRecentMenu;
     QAction *mScaleAction;
     QAction *mAddWatermarkAction;
     QAction *mPasteAction;
@@ -158,7 +158,6 @@ private slots:
 	void showPinWindow();
 	void hideMainWindowIfRequired();
 	void toggleDocks();
-	void populateOpenRecentMenu();
 };
 
 #endif // KSNIP_MAINWINDOW_H

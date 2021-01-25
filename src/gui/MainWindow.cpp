@@ -24,7 +24,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	QMainWindow(),
 	mToolBar(nullptr),
 	mImageGrabber(imageGrabber),
-	mRecentImagesStore(new RecentImagesStore),
+	mRecentImagesPathStore(new RecentImagesPathStore),
 	mRecentImageSelectedMapper(new QSignalMapper),
 	mMode(mode),
 	mImageAnnotator(new KImageAnnotatorAdapter),
@@ -128,7 +128,7 @@ void MainWindow::setPosition()
 
 MainWindow::~MainWindow()
 {
-    delete mRecentImagesStore;
+    delete mRecentImagesPathStore;
     delete mRecentImageSelectedMapper;
     delete mImageAnnotator;
     delete mUploadAction;
@@ -311,8 +311,8 @@ void MainWindow::changeEvent(QEvent *event)
 void MainWindow::captureChanged()
 {
 	if (mCaptureHandler->isSaved() && mCaptureHandler->isPathValid()) {
-		mRecentImagesStore->storeImage(mCaptureHandler->path());
-		populateOpenRecentMenu();
+        mRecentImagesPathStore->storeImagePath(mCaptureHandler->path());
+	populateOpenRecentMenu();
 	}
 
 	mToolBar->setSaveActionEnabled(!mCaptureHandler->isSaved());
@@ -398,7 +398,7 @@ void MainWindow::populateOpenRecentMenu()
 	delete mRecentImageSelectedMapper;
 	mRecentImageSelectedMapper = new QSignalMapper();
 
-	const auto recentImages = mRecentImagesStore->getRecentImages();
+	const auto recentImages = mRecentImagesPathStore->getRecentImagesPath();
 
 	int imageIdx = 0;
 	for (; imageIdx<recentImages.size(); ++imageIdx) {

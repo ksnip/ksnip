@@ -44,7 +44,7 @@
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/backend/uploader/UploaderProvider.h"
 #include "src/backend/CapturePrinter.h"
-#include "src/backend/RecentImagesStore.h"
+#include "src/backend/RecentImagesPathStore.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
@@ -78,7 +78,7 @@ protected:
 
 private:
     AbstractImageGrabber *mImageGrabber;
-    RecentImagesStore *mRecentImagesStore;
+    RecentImagesPathStore *mRecentImagesPathStore;
     QSignalMapper *mRecentImageSelectedMapper;
     RunMode mMode;
     bool mSessionManagerRequestedQuit;

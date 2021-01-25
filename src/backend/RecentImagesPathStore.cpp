@@ -17,54 +17,54 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "RecentImagesStore.h"
+#include "RecentImagesPathStore.h"
 
 
-RecentImagesStore::RecentImagesStore()
-	: mSettingsGroupPrefix("recentImages"),
+RecentImagesPathStore::RecentImagesPathStore()
+	: mSettingsGroupPrefix("recentImagesPath"),
 	  mSettingsGroupKey("imagePath"),
 	  mMaxRecentItems(10)
 {
-	loadRecentImages();
+	loadRecentImagesPath();
 }
 
-void RecentImagesStore::loadRecentImages()
+void RecentImagesPathStore::loadRecentImagesPath()
 {
-	const auto numRecentImages = mSettings.beginReadArray(mSettingsGroupPrefix);
-	for (int i=0; i<numRecentImages; ++i) {
+	const auto numRecentImagesPath = mSettings.beginReadArray(mSettingsGroupPrefix);
+	for (int i=0; i<numRecentImagesPath; ++i) {
 		mSettings.setArrayIndex(i);
 		const auto recentImagePath = mSettings.value(mSettingsGroupKey).toString();
-		mRecentImages.enqueue(recentImagePath);
+		mRecentImagesPath.enqueue(recentImagePath);
 	}
 	mSettings.endArray();
 }
 
-void RecentImagesStore::storeImage(const QString &image)
+void RecentImagesPathStore::storeImagePath(const QString &imagePath)
 {
-	if (mRecentImages.contains(image)) {
+	if (mRecentImagesPath.contains(imagePath)) {
 		return;
 	}
 
-	if (mRecentImages.size() == mMaxRecentItems) {
-		mRecentImages.dequeue();
+	if (mRecentImagesPath.size() == mMaxRecentItems) {
+		mRecentImagesPath.dequeue();
 	}
 
-	mRecentImages.enqueue(image);
-	saveRecentImages();
+	mRecentImagesPath.enqueue(imagePath);
+	saveRecentImagesPath();
 }
 
-void RecentImagesStore::saveRecentImages()
+void RecentImagesPathStore::saveRecentImagesPath()
 {
 	mSettings.beginWriteArray(mSettingsGroupPrefix);
-	for (int i=0 ; i<mRecentImages.size(); ++i) {
+	for (int i=0 ; i<mRecentImagesPath.size(); ++i) {
 		mSettings.setArrayIndex(i);
-		mSettings.setValue(mSettingsGroupKey, mRecentImages.at(i));
+		mSettings.setValue(mSettingsGroupKey, mRecentImagesPath.at(i));
 	}
 	mSettings.endArray();
 	mSettings.sync();
 }
 
-QStringList RecentImagesStore::getRecentImages() const
+QStringList RecentImagesPathStore::getRecentImagesPath() const
 {
-	return mRecentImages;
+	return mRecentImagesPath;
 }

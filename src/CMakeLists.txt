@@ -20,7 +20,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/TranslationLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/KsnipCommandLine.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/WatermarkImageLoader.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/RecentImagesStore.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/RecentImagesPathStore.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ipc/IpcServer.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ipc/IpcClient.cpp
 	${CMAKE_SOURCE_DIR}/src/common/adapter/fileDialog/FileDialogAdapter.cpp

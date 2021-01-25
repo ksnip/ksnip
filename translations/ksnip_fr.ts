@@ -219,12 +219,13 @@ toutes les instances pour activer ou désactiver cette option.</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Masquer les panneaux automatiquement</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Au démarrage, masquer la barre d’outils et les paramètres d’annotation.
+La visibilité des panneaux peut être basculée avec la touche Tab.</translation>
     </message>
 </context>
 <context>
@@ -504,7 +505,8 @@ Voulez-vous continuer ?</translation>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation>Le curseur de la souris doit-il être visible dans la capture d&apos;écran.</translation>
+        <translation>Le curseur de la souris doit-il être visible
+les captures d’écran.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -1332,7 +1334,8 @@ d’ornement sur la zone de capture.</translation>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Transparence Alpha pour la région non sélectionnée sur la zone de capture.
+Un plus petit nombre signifie plus de transparence.</translation>
     </message>
 </context>
 <context>
@@ -1381,13 +1384,13 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Utiliser l&apos;icône de la barre des tâches</translation>
+        <translation type="unfinished">Utiliser l’icône dans la barre des tâches</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Si activé, ajoute une icône dans la barre des tâches si le système d&apos;exploitation le permet.
-Vous devrez redémarrer l&apos;application pour que cela prenne effet.</translation>
+        <translation type="unfinished">Si activé, ajoute une icône dans la barre des tâches si le système d’exploitation le permet.
+Vous devrez redémarrer l’application pour que cela prenne effet.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>

@@ -35,6 +35,7 @@ public:
 private:
 	static QByteArray getXpropOutput(xcb_window_t windowId) ;
 	static QRegularExpressionMatch getGtkFrameExtentsLine(const QByteArray &xpropOutput) ;
+	static QRect getCroppedRect(const QRect &windowRect, const QRegularExpressionMatch &gtkFrameExtentsLine) ;
 };
 
 

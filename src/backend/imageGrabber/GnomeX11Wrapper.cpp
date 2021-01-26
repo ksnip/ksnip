@@ -23,24 +23,26 @@ QRect GnomeX11Wrapper::getActiveWindowRect() const
 {
 	auto windowId = X11Wrapper::getActiveWindowId();
 	auto windowRect = X11Wrapper::getWindowRect(windowId);
-	qDebug("Window ID: %s", qPrintable(QString::number(windowId)));
 
 	auto xpropOutput = getXpropOutput(windowId);
 
 	auto gtkFrameExtentsLine = getGtkFrameExtentsLine(xpropOutput);
 	if (gtkFrameExtentsLine.hasMatch()) {
-		qDebug("Output: %s", qPrintable(gtkFrameExtentsLine.captured(1)));
-		auto frameExtents = gtkFrameExtentsLine.captured(1).split(QLatin1String(","));
-		auto left = frameExtents[0].toInt();
-		auto right = frameExtents[1].toInt();
-		auto top = frameExtents[2].toInt();
-		auto bottom = frameExtents[3].toInt();
-
-		return windowRect.adjusted(left, top, -right, -bottom);
-	} else {
-		qDebug("No Match");
-		return windowRect;
+		return getCroppedRect(windowRect, gtkFrameExtentsLine);
 	}
+
+	return windowRect;
+}
+
+QRect GnomeX11Wrapper::getCroppedRect(const QRect &windowRect, const QRegularExpressionMatch &gtkFrameExtentsLine)
+{
+	auto frameExtents = gtkFrameExtentsLine.captured(1).split(QLatin1String(","));
+	auto left = frameExtents[0].toInt();
+	auto right = frameExtents[1].toInt();
+	auto top = frameExtents[2].toInt();
+	auto bottom = frameExtents[3].toInt();
+
+	return windowRect.adjusted(left, top, -right, -bottom);
 }
 
 QRegularExpressionMatch GnomeX11Wrapper::getGtkFrameExtentsLine(const QByteArray &xpropOutput)

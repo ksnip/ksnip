@@ -54,6 +54,8 @@ void OpenRecentMenu::populateMenu()
 	}
 
 	setEnabled(imageIdx != 0);
-	connect(mRecentImageSelectedMapper, &QSignalMapper::mappedString,
-			this, &OpenRecentMenu::openRecentSelected);
+	connect(mRecentImageSelectedMapper, QOverload<const QString &>::of(&QSignalMapper::mapped),
+		[=](const QString &text){
+		emit openRecentSelected(text);
+	});
 }

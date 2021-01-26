@@ -28,12 +28,14 @@
 class X11Wrapper
 {
 public:
-    bool isCompositorActive() const;
-    QRect getFullScreenRect() const;
-    QRect getActiveWindowRect() const;
-	CursorDto getCursorWithPosition() const;
+	X11Wrapper() = default;
+	~X11Wrapper() = default;
+    virtual bool isCompositorActive() const;
+    virtual QRect getFullScreenRect() const;
+    virtual QRect getActiveWindowRect() const;
+	virtual CursorDto getCursorWithPosition() const;
 
-private:
+protected:
 	QPoint getNativeCursorPosition() const;
     QRect getWindowRect(xcb_window_t window) const;
     xcb_window_t getActiveWindowId() const;

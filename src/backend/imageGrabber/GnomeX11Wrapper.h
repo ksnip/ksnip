@@ -17,10 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "X11ImageGrabber.h"
+#ifndef KSNIP_GNOMEX11WRAPPER_H
+#define KSNIP_GNOMEX11WRAPPER_H
 
-X11ImageGrabber::X11ImageGrabber() :
-	BaseX11ImageGrabber(new X11Wrapper)
+#include <QProcess>
+#include <QRegularExpression>
+
+#include "X11Wrapper.h"
+
+class GnomeX11Wrapper : public X11Wrapper
 {
+public:
+	GnomeX11Wrapper() = default;
+	~GnomeX11Wrapper() = default;
+	QRect getActiveWindowRect() const override;
 
-}
+private:
+	static QByteArray getXpropOutput(xcb_window_t windowId) ;
+	static QRegularExpressionMatch getGtkFrameExtentsLine(const QByteArray &xpropOutput) ;
+};
+
+
+#endif //KSNIP_GNOMEX11WRAPPER_H

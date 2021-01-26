@@ -13,6 +13,7 @@
 * Fixed: Save-as Window does not get focus when using snap. ([#543](https://github.com/ksnip/ksnip/issues/543))
 * Fixed: Editor can not be shown again after click close icon. ([#400](https://github.com/ksnip/ksnip/issues/400))
 * Fixed: Icons and text boxes not correctly scaled under gnome with hdpi. ([#549](https://github.com/ksnip/ksnip/issues/549))
+* Fixed: Window captures include non-transparent border of background on Gnome. ([#460](https://github.com/ksnip/ksnip/issues/460))
 * Fixed kImageAnnotator: Brazilian Portuguese translation not loaded. ([#176](https://github.com/ksnip/kImageAnnotator/issues/176))
 * Fixed kImageAnnotator: error: control reaches end of non-void function. ([#177](https://github.com/ksnip/kImageAnnotator/issues/177))
 * Fixed kImageAnnotator: Cursor in Text tool have too bad visibility. ([#184](https://github.com/ksnip/kImageAnnotator/issues/184))

@@ -131,9 +131,12 @@ if (APPLE)
 		)
 elseif (UNIX)
 	list(APPEND KSNIP_SRCS
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/BaseX11ImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/X11ImageGrabber.cpp
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeX11ImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/KdeWaylandImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/X11Wrapper.cpp
+		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeX11Wrapper.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeWaylandImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WaylandImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/config/KsnipWaylandConfig.cpp

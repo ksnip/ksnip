@@ -17,10 +17,10 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "X11ImageGrabber.h"
+#include "GnomeX11ImageGrabber.h"
 
-X11ImageGrabber::X11ImageGrabber() :
-	BaseX11ImageGrabber(new X11Wrapper)
+GnomeX11ImageGrabber::GnomeX11ImageGrabber() :
+	BaseX11ImageGrabber(new GnomeX11Wrapper)
 {
 
 }

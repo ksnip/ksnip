@@ -17,10 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "X11ImageGrabber.h"
+#ifndef KSNIP_GNOMEX11IMAGEGRABBER_H
+#define KSNIP_GNOMEX11IMAGEGRABBER_H
 
-X11ImageGrabber::X11ImageGrabber() :
-	BaseX11ImageGrabber(new X11Wrapper)
+#include "BaseX11ImageGrabber.h"
+#include "GnomeX11Wrapper.h"
+
+class GnomeX11ImageGrabber : public BaseX11ImageGrabber
 {
+public:
+	GnomeX11ImageGrabber();
+	~GnomeX11ImageGrabber() override = default;
+};
 
-}
+
+#endif //KSNIP_GNOMEX11IMAGEGRABBER_H

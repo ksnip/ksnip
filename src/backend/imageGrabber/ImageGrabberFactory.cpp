@@ -27,7 +27,11 @@ AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
 
 #if defined(UNIX_X11)
     if (PlatformChecker::instance()->isX11()) {
-        return new X11ImageGrabber();
+    	if(PlatformChecker::instance()->isGnome()) {
+			return new GnomeX11ImageGrabber();
+		} else {
+			return new X11ImageGrabber();
+		}
     } else if (PlatformChecker::instance()->isWayland()) {
         auto config = KsnipConfigProvider::instance();
     	if (config->forceGenericWaylandEnabled() || PlatformChecker::instance()->isSnap()) {

@@ -26,6 +26,7 @@
 
 #if defined(UNIX_X11)
 #include "X11ImageGrabber.h"
+#include "GnomeX11ImageGrabber.h"
 #include "KdeWaylandImageGrabber.h"
 #include "GnomeWaylandImageGrabber.h"
 #include "WaylandImageGrabber.h"

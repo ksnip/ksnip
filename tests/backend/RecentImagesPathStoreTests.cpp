@@ -48,15 +48,15 @@ void RecentImagesPathStoreTests::TestStoreAddingImagePath_Paths_Added_And_Retrie
 	auto recentImagesPath =	recentImagesPathStore.getRecentImagesPath();
 
 	QCOMPARE(recentImagesPath.size(), 1);
-	QCOMPARE(recentImagesPath.at(0), "/path/image.png");
+	QCOMPARE(recentImagesPath.at(0), QStringLiteral("/path/image.png"));
 
 	recentImagesPathStore.storeImagePath("/path/image2.png");
 
 	recentImagesPath = recentImagesPathStore.getRecentImagesPath();
 
 	QCOMPARE(recentImagesPath.size(), 2);
-	QCOMPARE(recentImagesPath.at(0), "/path/image.png");
-	QCOMPARE(recentImagesPath.at(1), "/path/image2.png");
+	QCOMPARE(recentImagesPath.at(0), QStringLiteral("/path/image.png"));
+	QCOMPARE(recentImagesPath.at(1), QStringLiteral("/path/image2.png"));
 }
 
 void RecentImagesPathStoreTests::TestStoreAddingImagePath_Should_Emit_Signal()

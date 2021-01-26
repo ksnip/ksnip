@@ -17,39 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_RECENTIMAGESPATHSTORE_H
-#define KSNIP_RECENTIMAGESPATHSTORE_H
+#ifndef KSNIP_RECENTIMAGESPATHSTORETESTS_H
+#define KSNIP_RECENTIMAGESPATHSTORETESTS_H
 
-#include <QQueue>
-#include <QSettings>
+#include <QtTest>
+
+#include "tests/mocks/RecentImagesPathStoreMock.h"
 
 
-class RecentImagesPathStore : public QObject
+class RecentImagesPathStoreTests : public QObject
 {
 	Q_OBJECT
+private slots:
+	void initTestCase();
+	void cleanup();
 
-public:
-	static RecentImagesPathStore &instance();
-	~RecentImagesPathStore() = default;
-
-	void storeImagePath(const QString &imagePath);
-	QStringList getRecentImagesPath() const;
-
-signals:
-	void recentImagesPathChanged();
-
-protected:
-	explicit RecentImagesPathStore(QObject *parent = nullptr);
-
-private:	
-	void loadRecentImagesPath();
-	void saveRecentImagesPath();
-
-	QQueue<QString> mRecentImagesPath;
-	QSettings mSettings;
-	const QString mSettingsGroupPrefix;
-	const QString mSettingsGroupKey;
-	const int mMaxRecentItems;
+	void TestStoreInitialisation_Empty_When_Initialised();
+	void TestStoreAddingImagePath_Paths_Added_And_Retrieved_Successfully();
+	void TestStoreAddingImagePath_Should_Emit_Signal();
 };
 
-#endif //KSNIP_RECENTIMAGESPATHSTORE_H
+#endif //KSNIP_RECENTIMAGESPATHSTORETESTS_H
+

@@ -28,10 +28,16 @@ QRect GnomeX11Wrapper::getActiveWindowRect() const
 
 	xcb_get_property_cookie_t cookie;
 	xcb_get_property_reply_t *reply;
+	xcb_intern_atom_cookie_t atom_cookie;
+	xcb_intern_atom_reply_t *atom_reply;
 
-	xcb_intern_atom_cookie_t atomCookie = xcb_intern_atom(connection, 0, strlen("_GTK_FRAME_EXTENTS"), "_GTK_FRAME_EXTENTS");
+	atom_cookie = xcb_intern_atom(connection, 0, strlen("_GTK_FRAME_EXTENTS"), "_GTK_FRAME_EXTENTS");
 
-	cookie = xcb_get_property(connection, 0, windowId, atomCookie.sequence, XCB_ATOM_CARDINAL, 0, 4);
+	if ((atom_reply = xcb_intern_atom_reply(connection, atom_cookie, nullptr))) {
+		printf("The _NET_WM_NAME atom has ID %u\n", atom_reply->atom);
+	}
+
+	cookie = xcb_get_property(connection, 0, windowId, atom_reply->atom, XCB_ATOM_CARDINAL, 0, 4);
 
 	qDebug("Checking reply");
 	if ((reply = xcb_get_property_reply(connection, cookie, nullptr))) {
@@ -43,6 +49,7 @@ QRect GnomeX11Wrapper::getActiveWindowRect() const
 		}
 	}
 	free(reply);
+	free(atom_reply);
 
 	auto xpropOutput = getXpropOutput(windowId);
 

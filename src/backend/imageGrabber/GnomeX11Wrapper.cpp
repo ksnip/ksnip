@@ -24,6 +24,26 @@ QRect GnomeX11Wrapper::getActiveWindowRect() const
 	auto windowId = X11Wrapper::getActiveWindowId();
 	auto windowRect = X11Wrapper::getWindowRect(windowId);
 
+	auto connection = QX11Info::connection();
+
+	xcb_get_property_cookie_t cookie;
+	xcb_get_property_reply_t *reply;
+
+	xcb_intern_atom_cookie_t atomCookie = xcb_intern_atom(connection, 0, strlen("_GTK_FRAME_EXTENTS"), "_GTK_FRAME_EXTENTS");
+
+	cookie = xcb_get_property(connection, 0, windowId, atomCookie.sequence, XCB_ATOM_CARDINAL, 0, 4);
+
+	qDebug("Checking reply");
+	if ((reply = xcb_get_property_reply(connection, cookie, nullptr))) {
+		int len = xcb_get_property_value_length(reply);
+		if (len == 0) {
+			printf("Length zero\n");
+		} else {
+			printf("_GTK_FRAME_EXTENTS is %.*s\n", len, (char*)xcb_get_property_value(reply));
+		}
+	}
+	free(reply);
+
 	auto xpropOutput = getXpropOutput(windowId);
 
 	auto gtkFrameExtentsLine = getGtkFrameExtentsLine(xpropOutput);

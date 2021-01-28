@@ -37,6 +37,7 @@ private:
 	QString mMessage;
 	QString mContentUrl;
 	NotificationTypes mNotificationType;
+	KsnipConfig *mConfig;
 };
 
 #endif //KSNIP_NOTIFYOPERATION_H

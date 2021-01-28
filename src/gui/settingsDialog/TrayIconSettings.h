@@ -42,6 +42,7 @@ private:
 	QCheckBox *mUseTrayIconCheckBox;
 	QCheckBox *mMinimizeToTrayCheckBox;
 	QCheckBox *mCloseToTrayCheckBox;
+	QCheckBox *mTrayIconNotificationsCheckBox;
 	QComboBox *mDefaultActionCaptureModeCombobox;
 	QCheckBox *mStartMinimizedToTrayCheckBox;
 	QRadioButton *mDefaultActionShowEditorRadioButton;

@@ -29,7 +29,8 @@ NotifyOperation::NotifyOperation(IToastService *toastService, const QString &tit
 	mToastService(toastService),
 	mTitle(title),
 	mMessage(message),
-	mNotificationType(notificationType)
+	mNotificationType(notificationType),
+	mConfig(KsnipConfigProvider::instance())
 {
 	Q_ASSERT(mToastService != nullptr);
 }
@@ -38,15 +39,21 @@ bool NotifyOperation::execute()
 {
 	switch (mNotificationType) {
 		case NotificationTypes::Information:
-			mToastService->showInfoToast(mTitle, mMessage, mContentUrl);
+			if (mConfig->trayIconNotificationsEnabled()) {
+				mToastService->showInfoToast(mTitle, mMessage, mContentUrl);
+			}
 			qInfo("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 		case NotificationTypes::Warning:
-			mToastService->showWarningToast(mTitle, mMessage, mContentUrl);
+			if (mConfig->trayIconNotificationsEnabled()) {
+				mToastService->showWarningToast(mTitle, mMessage, mContentUrl);
+			}
 			qWarning("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 		case NotificationTypes::Critical:
-			mToastService->showCriticalToast(mTitle, mMessage, mContentUrl);
+			if (mConfig->trayIconNotificationsEnabled()) {
+				mToastService->showCriticalToast(mTitle, mMessage, mContentUrl);
+			}
 			qCritical("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 	}

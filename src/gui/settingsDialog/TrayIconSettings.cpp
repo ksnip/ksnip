@@ -24,6 +24,7 @@ TrayIconSettings::TrayIconSettings(KsnipConfig *config, const QList<CaptureModes
 	mUseTrayIconCheckBox(new QCheckBox(this)),
 	mMinimizeToTrayCheckBox(new QCheckBox(this)),
 	mCloseToTrayCheckBox(new QCheckBox(this)),
+	mTrayIconNotificationsCheckBox(new QCheckBox(this)),
 	mDefaultActionCaptureModeCombobox(new QComboBox(this)),
 	mStartMinimizedToTrayCheckBox(new QCheckBox(this)),
 	mDefaultActionShowEditorRadioButton(new QRadioButton(this)),
@@ -45,6 +46,7 @@ TrayIconSettings::~TrayIconSettings()
 	delete mUseTrayIconCheckBox;
 	delete mMinimizeToTrayCheckBox;
 	delete mCloseToTrayCheckBox;
+	delete mTrayIconNotificationsCheckBox;
 	delete mDefaultActionCaptureModeCombobox;
 	delete mStartMinimizedToTrayCheckBox;
 	delete mDefaultActionShowEditorRadioButton;
@@ -58,6 +60,7 @@ void TrayIconSettings::saveSettings()
 	mConfig->setMinimizeToTray(mMinimizeToTrayCheckBox->isChecked());
 	mConfig->setStartMinimizedToTray(mStartMinimizedToTrayCheckBox->isChecked());
 	mConfig->setCloseToTray(mCloseToTrayCheckBox->isChecked());
+	mConfig->setTrayIconNotificationsEnabled(mTrayIconNotificationsCheckBox->isChecked());
 	mConfig->setDefaultTrayIconActionMode(selectedTrayIconDefaultActionMode());
 	mConfig->setDefaultTrayIconCaptureMode(mDefaultActionCaptureModeCombobox->currentData().value<CaptureModes>());
 }
@@ -70,6 +73,7 @@ void TrayIconSettings::initGui()
 	mMinimizeToTrayCheckBox->setText(tr("Minimize to Tray"));
 	mStartMinimizedToTrayCheckBox->setText(tr("Start Minimized to Tray"));
 	mCloseToTrayCheckBox->setText(tr("Close to Tray"));
+	mTrayIconNotificationsCheckBox->setText(tr("Display Tray icon notifications"));
 
 	connect(mUseTrayIconCheckBox, &QCheckBox::stateChanged, this, &TrayIconSettings::useTrayIconChanged);
 
@@ -92,7 +96,8 @@ void TrayIconSettings::initGui()
 	mLayout->addWidget(mStartMinimizedToTrayCheckBox, 2, 0, 1, 4);
 	mLayout->addWidget(mMinimizeToTrayCheckBox, 3, 0, 1, 4);
 	mLayout->addWidget(mCloseToTrayCheckBox, 4, 0, 1, 4);
-	mLayout->addWidget(mDefaultActionGroupBox, 5, 0, 1, 4);
+	mLayout->addWidget(mTrayIconNotificationsCheckBox, 5, 0, 1, 4);
+	mLayout->addWidget(mDefaultActionGroupBox, 6, 0, 1, 4);
 
 	setTitle(tr("Tray Icon Settings"));
 	setLayout(mLayout);
@@ -104,6 +109,7 @@ void TrayIconSettings::loadConfig()
 	mMinimizeToTrayCheckBox->setChecked(mConfig->minimizeToTray());
 	mStartMinimizedToTrayCheckBox->setChecked(mConfig->startMinimizedToTray());
 	mCloseToTrayCheckBox->setChecked(mConfig->closeToTray());
+	mTrayIconNotificationsCheckBox->setChecked(mConfig->trayIconNotificationsEnabled());
 	mDefaultActionShowEditorRadioButton->setChecked(mConfig->defaultTrayIconActionMode() == TrayIconDefaultActionMode::ShowEditor);
 	mDefaultActionCaptureRadioButton->setChecked(mConfig->defaultTrayIconActionMode() == TrayIconDefaultActionMode::Capture);
 	mDefaultActionCaptureModeCombobox->setCurrentIndex(indexOfSelectedCaptureMode());
@@ -131,11 +137,12 @@ void TrayIconSettings::populateDefaultActionCaptureModeCombobox(const QList<Capt
 
 void TrayIconSettings::useTrayIconChanged()
 {
-	const auto tryIconEnabled = mUseTrayIconCheckBox->isChecked();
-	mMinimizeToTrayCheckBox->setEnabled(tryIconEnabled);
-	mCloseToTrayCheckBox->setEnabled(tryIconEnabled);
-	mStartMinimizedToTrayCheckBox->setEnabled(tryIconEnabled);
-	mDefaultActionCaptureModeCombobox->setEnabled(tryIconEnabled);
-	mDefaultActionShowEditorRadioButton->setEnabled(tryIconEnabled);
-	mDefaultActionCaptureRadioButton->setEnabled(tryIconEnabled);
+	const auto trayIconEnabled = mUseTrayIconCheckBox->isChecked();
+	mMinimizeToTrayCheckBox->setEnabled(trayIconEnabled);
+	mCloseToTrayCheckBox->setEnabled(trayIconEnabled);
+	mTrayIconNotificationsCheckBox->setEnabled(trayIconEnabled);
+	mStartMinimizedToTrayCheckBox->setEnabled(trayIconEnabled);
+	mDefaultActionCaptureModeCombobox->setEnabled(trayIconEnabled);
+	mDefaultActionShowEditorRadioButton->setEnabled(trayIconEnabled);
+	mDefaultActionCaptureRadioButton->setEnabled(trayIconEnabled);
 }

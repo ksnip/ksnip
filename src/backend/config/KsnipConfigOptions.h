@@ -50,6 +50,7 @@ public:
 	static QString useTrayIconString();
 	static QString minimizeToTrayString();
 	static QString closeToTrayString();
+	static QString trayIconNotificationsString();
 	static QString startMinimizedToTrayString();
 	static QString rememberLastSaveDirectoryString();
 	static QString useSingleInstanceString();

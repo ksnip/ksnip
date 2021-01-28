@@ -29,13 +29,18 @@ NotifyOperation::NotifyOperation(IToastService *toastService, const QString &tit
 	mToastService(toastService),
 	mTitle(title),
 	mMessage(message),
-	mNotificationType(notificationType)
+	mNotificationType(notificationType),
+	mConfig(KsnipConfigProvider::instance())
 {
 	Q_ASSERT(mToastService != nullptr);
 }
 
 bool NotifyOperation::execute()
 {
+	if (!mConfig->trayIconNotifications()) {
+		return false;
+	}
+
 	switch (mNotificationType) {
 		case NotificationTypes::Information:
 			mToastService->showInfoToast(mTitle, mMessage, mContentUrl);

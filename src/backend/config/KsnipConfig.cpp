@@ -301,6 +301,19 @@ void KsnipConfig::setCloseToTray(bool enabled)
 	saveValue(KsnipConfigOptions::closeToTrayString(), enabled);
 }
 
+bool KsnipConfig::trayIconNotifications() const
+{
+	return loadValue(KsnipConfigOptions::trayIconNotificationsString(), true).toBool();
+}
+
+void KsnipConfig::setTrayIconNotifications(bool enabled)
+{
+	if (trayIconNotifications() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::trayIconNotificationsString(), enabled);
+}
+
 bool KsnipConfig::startMinimizedToTray() const
 {
 	return loadValue(KsnipConfigOptions::startMinimizedToTrayString(), false).toBool();

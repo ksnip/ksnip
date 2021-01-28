@@ -60,7 +60,7 @@ void TrayIconSettings::saveSettings()
 	mConfig->setMinimizeToTray(mMinimizeToTrayCheckBox->isChecked());
 	mConfig->setStartMinimizedToTray(mStartMinimizedToTrayCheckBox->isChecked());
 	mConfig->setCloseToTray(mCloseToTrayCheckBox->isChecked());
-	mConfig->setTrayIconNotifications(mTrayIconNotificationsCheckBox->isChecked());
+	mConfig->setTrayIconNotificationsEnabled(mTrayIconNotificationsCheckBox->isChecked());
 	mConfig->setDefaultTrayIconActionMode(selectedTrayIconDefaultActionMode());
 	mConfig->setDefaultTrayIconCaptureMode(mDefaultActionCaptureModeCombobox->currentData().value<CaptureModes>());
 }
@@ -109,7 +109,7 @@ void TrayIconSettings::loadConfig()
 	mMinimizeToTrayCheckBox->setChecked(mConfig->minimizeToTray());
 	mStartMinimizedToTrayCheckBox->setChecked(mConfig->startMinimizedToTray());
 	mCloseToTrayCheckBox->setChecked(mConfig->closeToTray());
-	mTrayIconNotificationsCheckBox->setChecked(mConfig->trayIconNotifications());
+	mTrayIconNotificationsCheckBox->setChecked(mConfig->trayIconNotificationsEnabled());
 	mDefaultActionShowEditorRadioButton->setChecked(mConfig->defaultTrayIconActionMode() == TrayIconDefaultActionMode::ShowEditor);
 	mDefaultActionCaptureRadioButton->setChecked(mConfig->defaultTrayIconActionMode() == TrayIconDefaultActionMode::Capture);
 	mDefaultActionCaptureModeCombobox->setCurrentIndex(indexOfSelectedCaptureMode());

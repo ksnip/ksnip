@@ -37,7 +37,7 @@ NotifyOperation::NotifyOperation(IToastService *toastService, const QString &tit
 
 bool NotifyOperation::execute()
 {
-	if (!mConfig->trayIconNotifications()) {
+	if (!mConfig->trayIconNotificationsEnabled()) {
 		return false;
 	}
 

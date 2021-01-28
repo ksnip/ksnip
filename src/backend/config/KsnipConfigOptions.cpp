@@ -144,9 +144,9 @@ QString KsnipConfigOptions::closeToTrayString()
 	return applicationSectionString() + QLatin1String("CloseToTray");
 }
 
-QString KsnipConfigOptions::trayIconNotificationsString()
+QString KsnipConfigOptions::trayIconNotificationsEnabledString()
 {
-	return applicationSectionString() + QLatin1String("TrayIconNotifications");
+	return applicationSectionString() + QLatin1String("TrayIconNotificationsEnabled");
 }
 
 QString KsnipConfigOptions::startMinimizedToTrayString()

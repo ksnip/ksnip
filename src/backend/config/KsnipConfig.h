@@ -103,8 +103,8 @@ public:
 	virtual bool closeToTray() const;
 	virtual void setCloseToTray(bool enabled);
 
-	virtual bool trayIconNotifications() const;
-	virtual void setTrayIconNotifications(bool enabled);
+	virtual bool trayIconNotificationsEnabled() const;
+	virtual void setTrayIconNotificationsEnabled(bool enabled);
 
 	virtual bool startMinimizedToTray() const;
 	virtual void setStartMinimizedToTray(bool enabled);

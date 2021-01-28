@@ -301,17 +301,17 @@ void KsnipConfig::setCloseToTray(bool enabled)
 	saveValue(KsnipConfigOptions::closeToTrayString(), enabled);
 }
 
-bool KsnipConfig::trayIconNotifications() const
+bool KsnipConfig::trayIconNotificationsEnabled() const
 {
-	return loadValue(KsnipConfigOptions::trayIconNotificationsString(), true).toBool();
+	return loadValue(KsnipConfigOptions::trayIconNotificationsEnabledString(), true).toBool();
 }
 
-void KsnipConfig::setTrayIconNotifications(bool enabled)
+void KsnipConfig::setTrayIconNotificationsEnabled(bool enabled)
 {
-	if (trayIconNotifications() == enabled) {
+	if (trayIconNotificationsEnabled() == enabled) {
 		return;
 	}
-	saveValue(KsnipConfigOptions::trayIconNotificationsString(), enabled);
+	saveValue(KsnipConfigOptions::trayIconNotificationsEnabledString(), enabled);
 }
 
 bool KsnipConfig::startMinimizedToTray() const

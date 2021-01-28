@@ -8,6 +8,7 @@
 * New: Allow setting transparency of not selected snipping area region. ([#517](https://github.com/ksnip/ksnip/issues/517))
 * New: Resize selected rect area with arrow keys. ([#515](https://github.com/ksnip/ksnip/issues/515))
 * New: Copy a screenshot to clipboard as data URI. ([#474](https://github.com/ksnip/ksnip/issues/474))
+* New: Allow disabling tray icon notifications. ([#561](https://github.com/ksnip/ksnip/issues/561))
 * New kImageAnnotator: Add function for loading translations. ([#173](https://github.com/ksnip/kImageAnnotator/issues/173))
 * New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions. ([#131](https://github.com/ksnip/kImageAnnotator/issues/131))
 * New kImageAnnotator: Add support for hiding annotation settings panel. ([#182](https://github.com/ksnip/kImageAnnotator/issues/182))

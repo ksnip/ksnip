@@ -37,26 +37,42 @@ NotifyOperation::NotifyOperation(IToastService *toastService, const QString &tit
 
 bool NotifyOperation::execute()
 {
+	if(mConfig->trayIconNotificationsEnabled()) {
+		notifyViaToastMessage();
+	}
+
+	notifyViaConsoleMessage();
+
+	return true;
+}
+
+void NotifyOperation::notifyViaToastMessage() const
+{
 	switch (mNotificationType) {
 		case NotificationTypes::Information:
-			if (mConfig->trayIconNotificationsEnabled()) {
-				mToastService->showInfoToast(mTitle, mMessage, mContentUrl);
-			}
+			mToastService->showInfoToast(mTitle, mMessage, mContentUrl);
+			break;
+		case NotificationTypes::Warning:
+			mToastService->showWarningToast(mTitle, mMessage, mContentUrl);
+			break;
+		case NotificationTypes::Critical:
+			mToastService->showCriticalToast(mTitle, mMessage, mContentUrl);
+			break;
+	}
+}
+
+void NotifyOperation::notifyViaConsoleMessage() const
+{
+	switch (mNotificationType) {
+		case NotificationTypes::Information:
 			qInfo("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 		case NotificationTypes::Warning:
-			if (mConfig->trayIconNotificationsEnabled()) {
-				mToastService->showWarningToast(mTitle, mMessage, mContentUrl);
-			}
 			qWarning("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 		case NotificationTypes::Critical:
-			if (mConfig->trayIconNotificationsEnabled()) {
-				mToastService->showCriticalToast(mTitle, mMessage, mContentUrl);
-			}
 			qCritical("%s: %s", qPrintable(mTitle), qPrintable(mMessage));
 			break;
 	}
-	return true;
 }
 

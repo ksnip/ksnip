@@ -38,6 +38,9 @@ private:
 	QString mContentUrl;
 	NotificationTypes mNotificationType;
 	KsnipConfig *mConfig;
+
+	void notifyViaToastMessage() const;
+	void notifyViaConsoleMessage() const;
 };
 
 #endif //KSNIP_NOTIFYOPERATION_H

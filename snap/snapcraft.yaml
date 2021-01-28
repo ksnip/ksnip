@@ -42,7 +42,6 @@ parts:
     stage-packages:
       - curl
       - ftp
-      - xprop
     configflags:
       - -DCMAKE_FIND_ROOT_PATH=/snap/kde-frameworks-5-core18-sdk/current;/snap/kimageannotator/current
     override-pull: |

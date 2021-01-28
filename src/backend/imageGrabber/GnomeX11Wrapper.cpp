@@ -24,38 +24,33 @@ QRect GnomeX11Wrapper::getActiveWindowRect() const
 	auto windowId = X11Wrapper::getActiveWindowId();
 	auto windowRect = X11Wrapper::getWindowRect(windowId);
 
-	auto xpropOutput = getXpropOutput(windowId);
+	auto frameExtents = getGtkFrameExtents(windowId);
 
-	auto gtkFrameExtentsLine = getGtkFrameExtentsLine(xpropOutput);
-	if (gtkFrameExtentsLine.hasMatch()) {
-		return getCroppedRect(windowRect, gtkFrameExtentsLine);
+	return windowRect.adjusted(frameExtents.left, frameExtents.top, -frameExtents.right, -frameExtents.bottom);
+}
+
+GnomeX11Wrapper::FrameExtents GnomeX11Wrapper::getGtkFrameExtents(unsigned int windowId)
+{
+	FrameExtents values{};
+	auto connection = QX11Info::connection();
+	auto atom_cookie = xcb_intern_atom(connection, 0, strlen("_GTK_FRAME_EXTENTS"), "_GTK_FRAME_EXTENTS");
+	ScopedCPointer<xcb_intern_atom_reply_t> atom_reply(xcb_intern_atom_reply(connection, atom_cookie, nullptr));
+
+	if (!atom_reply.isNull()) {
+		auto cookie = xcb_get_property(connection, 0, windowId, atom_reply->atom, XCB_ATOM_CARDINAL, 0, 4);
+		ScopedCPointer<xcb_get_property_reply_t> reply(xcb_get_property_reply(connection, cookie, nullptr));
+
+		if (!reply.isNull()) {
+			int length = xcb_get_property_value_length(reply.data());
+			if (length != 0) {
+				auto gtkFrameExtents = static_cast<uint32_t*>(xcb_get_property_value(reply.data()));
+				values.left = (int)gtkFrameExtents[0];
+				values.right = (int)gtkFrameExtents[1];
+				values.top = (int)gtkFrameExtents[2];
+				values.bottom = (int)gtkFrameExtents[3];
+			}
+		}
 	}
 
-	return windowRect;
-}
-
-QRect GnomeX11Wrapper::getCroppedRect(const QRect &windowRect, const QRegularExpressionMatch &gtkFrameExtentsLine)
-{
-	auto frameExtents = gtkFrameExtentsLine.captured(1).split(QLatin1String(","));
-	auto left = frameExtents[0].toInt();
-	auto right = frameExtents[1].toInt();
-	auto top = frameExtents[2].toInt();
-	auto bottom = frameExtents[3].toInt();
-
-	return windowRect.adjusted(left, top, -right, -bottom);
-}
-
-QRegularExpressionMatch GnomeX11Wrapper::getGtkFrameExtentsLine(const QByteArray &xpropOutput)
-{
-	QRegularExpression regEx(QLatin1Literal("_GTK_FRAME_EXTENTS\\(CARDINAL\\) = (.*)"));
-	return regEx.match(xpropOutput);
-}
-
-QByteArray GnomeX11Wrapper::getXpropOutput(xcb_window_t windowId)
-{
-	QStringList xpropArguments = {QLatin1String("-id"), QString::number(windowId) };
-	QProcess xprop;
-	xprop.start(QLatin1String("xprop"), xpropArguments);
-	xprop.waitForFinished();
-	return xprop.readAll();
+	return values;
 }

@@ -33,10 +33,15 @@ public:
 	QRect getActiveWindowRect() const override;
 
 private:
-	static QByteArray getXpropOutput(xcb_window_t windowId) ;
-	static QRegularExpressionMatch getGtkFrameExtentsLine(const QByteArray &xpropOutput) ;
-	static QRect getCroppedRect(const QRect &windowRect, const QRegularExpressionMatch &gtkFrameExtentsLine) ;
-};
+	struct FrameExtents
+	{
+		int left;
+		int right;
+		int top;
+		int bottom;
+	};
 
+	static FrameExtents getGtkFrameExtents(unsigned int windowId);
+};
 
 #endif //KSNIP_GNOMEX11WRAPPER_H

@@ -9,54 +9,9 @@ git:
 
 jobs:
   include:
-    - stage: test
-      os: linux
-      before_install:
-        - source ci/scripts/common/bootstrap_ubuntu_repos.sh
-      install:
-        - git clone git://github.com/DamirPorobic/kColorPicker
-        - git clone git://github.com/DamirPorobic/kImageAnnotator
-        - source ci/scripts/common/setup_ubuntu_qt.sh
-        - source ci/scripts/common/setup_dependencies_ubuntu.sh
-      script:
-        - mkdir build ; cd build
-        - cmake .. -DBUILD_TESTS=ON ; make
-        - xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" make test CTEST_OUTPUT_ON_FAILURE=1
-
-    - stage: build
-      os: linux
-      env: BINARY_TYPE=AppImage
-      before_install: source ci/scripts/bootstrap.sh
-      install: source ci/scripts/setup.sh
-      script: source ci/scripts/build.sh
-      after_success: source ci/scripts/upload.sh
-    - stage: build
-      os: linux
-      env: BINARY_TYPE=deb
-      services: docker
-      before_install: source ci/scripts/bootstrap.sh
-      install: source ci/scripts/setup.sh
-      script: source ci/scripts/build.sh
-      after_success: source ci/scripts/upload.sh
-    - stage: build
-      os: linux
-      env: BINARY_TYPE=rpm
-      services: docker
-      before_install: source ci/scripts/bootstrap.sh
-      install: source ci/scripts/setup.sh
-      script: source ci/scripts/build.sh
-      after_success: source ci/scripts/upload.sh
     - stage: build
       os: windows
       env: BINARY_TYPE=exe
-      before_install: source ci/scripts/bootstrap.sh
-      install: source ci/scripts/setup.sh
-      script: source ci/scripts/build.sh
-      after_success: source ci/scripts/upload.sh
-    - stage: build
-      os: osx
-      osx_image: "xcode11.3"
-      env: BINARY_TYPE=app
       before_install: source ci/scripts/bootstrap.sh
       install: source ci/scripts/setup.sh
       script: source ci/scripts/build.sh

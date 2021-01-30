@@ -12,6 +12,20 @@ include(GNUInstallDirs)
 if (WIN32)
 	set(KSNIP_LANG_INSTALL_DIR "translations")
 	set(KIMAGEANNOTATOR_LANG_INSTALL_DIR "translations")
+
+	set(CPACK_GENERATOR WIX)
+ set(CPACK_PACKAGE_NAME "ksnip")
+ set(CPACK_PACKAGE_VENDOR "ksnip")
+ set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Ksnip is a Qt-based cross-platform screenshot tool that provides many annotation features for your screenshots.")
+ set(CPACK_PACKAGE_VERSION "0.1.0")
+ set(CPACK_PACKAGE_VERSION_MAJOR "0")
+ set(CPACK_PACKAGE_VERSION_MINOR "1")
+ set(CPACK_PACKAGE_VERSION_PATCH "0")
+ set(CPACK_PACKAGE_INSTALL_DIRECTORY "ksnip")
+
+ INCLUDE(CPack)
+
+
 elseif (APPLE)
 	set(KSNIP_LANG_INSTALL_DIR "../Resources")
 	set(KIMAGEANNOTATOR_LANG_INSTALL_DIR "../Resources")

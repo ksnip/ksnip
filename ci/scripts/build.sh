@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
     source ci/scripts/appImage/build_appImage.sh

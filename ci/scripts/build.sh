@@ -13,7 +13,11 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     mkdir build && cd build
     cmake .. -G"NMake Makefiles" -DCMAKE_CXX_COMPILER=cl -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
     nmake
-    cpack .. -G WIX -C Release
+
+    echo "--> Package MSI"
+    cpack -G WIX -C Release
+    ls -alh
+
     cd ..
 
     echo "--> Package Windows"
@@ -25,6 +29,7 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     cp /c/openssl/libeay32.dll ./packageDir/
     cp /c/openssl/ssleay32.dll ./packageDir/
 
+    echo "--> Create archive"
     7z a ksnip-${VERSION}-windows.zip ./packageDir/*
 elif [[ "${BINARY_TYPE}" == "app" ]]; then
     mkdir build && cd build

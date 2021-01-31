@@ -15,6 +15,9 @@ elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
 elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/bootstrap_envvars.sh
 
+    echo "--> Move Chocolatey cpack out of the way"   
+    mv /c/ProgramData/chocolatey/bin/cpack /c/ProgramData/chocolatey/bin/choco_cpack
+
     echo "--> Download Dependencies"
 
     QT_BASE_URL="https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_599/qt.qt5.599.win32_msvc2015/5.9.9-0-201912101223"

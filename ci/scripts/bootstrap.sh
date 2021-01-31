@@ -16,6 +16,7 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/bootstrap_envvars.sh
 
     echo "--> Install Software via Choco"
+    powershell Install-WindowsFeature Net-Framework-Core # DotNet 3.5 is broken on chocolatey
     choco install -y wixtoolset
 
     echo "--> Download Dependencies"

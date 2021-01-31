@@ -15,7 +15,10 @@ elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
 elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/bootstrap_envvars.sh
 
-    echo "--> Install Software via Choco"
+    echo "--> Move Chocolatey cpack out of the way"   
+    mv /c/ProgramData/chocolatey/bin/cpack /c/ProgramData/chocolatey/bin/choco_cpack
+    
+    echo "--> Install DotNet 3.5 / wixtoolset"
     powershell Install-WindowsFeature Net-Framework-Core # DotNet 3.5 is broken on chocolatey
     choco install -y wixtoolset
 

@@ -13,6 +13,10 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     mkdir build && cd build
     cmake .. -G"NMake Makefiles" -DCMAKE_CXX_COMPILER=cl -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
     nmake
+
+    echo "--> Package with CPack (MSI)"
+    cpack
+
     cd ..
 
     echo "--> Package Windows"

@@ -247,6 +247,10 @@ install(
     "
     DESTINATION .
     COMPONENT Runtime)
+
+    set_property(INSTALL "bin/ksnip.exe"
+	    PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
+    )
 endif()
 # uninstall target
 if(NOT TARGET uninstall)

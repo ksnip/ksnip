@@ -17,6 +17,7 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     echo "--> Debug"
     which cmake
     which cpack
+    export
     
     echo "--> Package MSI"
     cpack -G WIX -C Release

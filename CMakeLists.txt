@@ -14,7 +14,7 @@ if (WIN32)
 	set(KIMAGEANNOTATOR_LANG_INSTALL_DIR "translations")
 
 	set(CPACK_GENERATOR WIX)
-	set(CPACK_PACKAGE_NAME "ksnip Screenshot Tool")
+	set(CPACK_PACKAGE_NAME "ksnip")
 	set(CPACK_PACKAGE_VENDOR "ksnip")
 	set(CPACK_WIX_UPGRADE_GUID "4c7ed545-c0dd-4d45-bf69-c29c7998f668")
 	set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Ksnip is a Qt-based cross-platform screenshot tool that provides many annotation features for your screenshots.")

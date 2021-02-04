@@ -36,7 +36,7 @@
     </message>
     <message>
         <source>License: </source>
-        <translation>Άδεια χρήσης: </translation>
+        <translation>Άδεια: </translation>
     </message>
     <message>
         <source>Please use </source>

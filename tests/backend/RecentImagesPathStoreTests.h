@@ -32,9 +32,9 @@ private slots:
 	void initTestCase();
 	void cleanup();
 
-	void TestStoreInitialisation_Empty_When_Initialised();
-	void TestStoreAddingImagePath_Paths_Added_And_Retrieved_Successfully();
-	void TestStoreAddingImagePath_Should_Emit_Signal();
+	void TestGetRecentImagesPath_Should_ReturnEmptyStringList_When_Initialized();
+	void TestGetRecentImagesPath_Should_ReturnNonEmptyStringList_When_ImagesAreStored();
+	void TestStoreImagesPath_Should_EmitSignal_When_ImagesAreStored();
 };
 
 #endif //KSNIP_RECENTIMAGESPATHSTORETESTS_H

@@ -32,39 +32,32 @@ void RecentImagesPathStoreTests::cleanup()
 	settings.clear();
 }
 
-void RecentImagesPathStoreTests::TestStoreInitialisation_Empty_When_Initialised()
+void RecentImagesPathStoreTests::TestGetRecentImagesPath_Should_ReturnEmptyStringList_When_Initialized()
 {
 	RecentImagesPathStoreMock recentImagesPathStore;
+
 	const auto recentImagesPath = recentImagesPathStore.getRecentImagesPath();
+
 	QCOMPARE(recentImagesPath.size(), 0);
 }
 
-void RecentImagesPathStoreTests::TestStoreAddingImagePath_Paths_Added_And_Retrieved_Successfully()
+void RecentImagesPathStoreTests::TestGetRecentImagesPath_Should_ReturnNonEmptyStringList_When_ImagesAreStored()
 {
 	RecentImagesPathStoreMock recentImagesPathStore;
-
 	recentImagesPathStore.storeImagePath("/path/image.png");
-
-	auto recentImagesPath =	recentImagesPathStore.getRecentImagesPath();
-
-	QCOMPARE(recentImagesPath.size(), 1);
-	QCOMPARE(recentImagesPath.at(0), QStringLiteral("/path/image.png"));
-
 	recentImagesPathStore.storeImagePath("/path/image2.png");
 
-	recentImagesPath = recentImagesPathStore.getRecentImagesPath();
+	auto recentImagesPath =	recentImagesPathStore.getRecentImagesPath();
 
 	QCOMPARE(recentImagesPath.size(), 2);
 	QCOMPARE(recentImagesPath.at(0), QStringLiteral("/path/image.png"));
 	QCOMPARE(recentImagesPath.at(1), QStringLiteral("/path/image2.png"));
 }
 
-void RecentImagesPathStoreTests::TestStoreAddingImagePath_Should_Emit_Signal()
+void RecentImagesPathStoreTests::TestStoreImagesPath_Should_EmitSignal_When_ImagesAreStored()
 {
 	RecentImagesPathStoreMock recentImagesPathStore;
-
 	bool signalEmitted(false);
-
 	connect(&recentImagesPathStore,
 			&RecentImagesPathStore::recentImagesPathChanged,
 			[&signalEmitted]() {
@@ -72,6 +65,7 @@ void RecentImagesPathStoreTests::TestStoreAddingImagePath_Should_Emit_Signal()
 	});
 
 	recentImagesPathStore.storeImagePath("/path/image.png");
+
 	QVERIFY(signalEmitted);
 }
 

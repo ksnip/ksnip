@@ -24,6 +24,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	QMainWindow(),
 	mToolBar(nullptr),
 	mImageGrabber(imageGrabber),
+	mRecentImageSelectedMapper(new QSignalMapper),
 	mMode(mode),
 	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
@@ -39,6 +40,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mSettingsAction(new QAction(this)),
 	mAboutAction(new QAction(this)),
 	mOpenImageAction(new QAction(this)),
+	mOpenRecentMenu(new OpenRecentMenu(this)),
 	mScaleAction(new QAction(this)),
 	mAddWatermarkAction(new QAction(this)),
 	mPasteAction(new QAction(this)),
@@ -90,6 +92,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	connect(mUploaderProvider, &UploaderProvider::finished, this, &MainWindow::uploadFinished);
 
+	connect(mOpenRecentMenu, &OpenRecentMenu::openRecentSelected, this, &MainWindow::loadImageFromFile);
+
 	mCaptureHandler->addListener(this);
 
 	handleGuiStartup();
@@ -125,6 +129,7 @@ void MainWindow::setPosition()
 
 MainWindow::~MainWindow()
 {
+    delete mRecentImageSelectedMapper;
     delete mImageAnnotator;
     delete mUploadAction;
     delete mCopyAsDataUriAction;
@@ -460,6 +465,9 @@ void MainWindow::initGui()
     mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
     connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::showOpenImageDialog);
 
+	mOpenRecentMenu->setTitle(tr("Open &Recent"));
+	mOpenRecentMenu->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
+
 	mPasteAction->setText(tr("Paste"));
 	mPasteAction->setIcon(IconLoader::loadForTheme(QLatin1String("paste")));
 	mPasteAction->setShortcut(Qt::CTRL + Qt::Key_V);
@@ -490,6 +498,7 @@ void MainWindow::initGui()
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
     menu->addAction(mOpenImageAction);
+    menu->addMenu(mOpenRecentMenu);
     menu->addAction(mToolBar->saveAction());
     menu->addAction(mSaveAsAction);
     menu->addAction(mUploadAction);

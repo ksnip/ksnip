@@ -39,11 +39,13 @@
 #include "src/gui/widgetVisibilityHandler/WidgetVisibilityHandlerFactory.h"
 #include "src/gui/pinWindow/PinWindowHandler.h"
 #include "src/gui/serviceLocator/ServiceLocator.h"
+#include "src/gui/OpenRecentMenu.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/backend/uploader/UploaderProvider.h"
 #include "src/backend/CapturePrinter.h"
+#include "src/backend/RecentImagesPathStore.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
@@ -77,6 +79,7 @@ protected:
 
 private:
     AbstractImageGrabber *mImageGrabber;
+    QSignalMapper *mRecentImageSelectedMapper;
     RunMode mMode;
     bool mSessionManagerRequestedQuit;
     QAction *mSaveAsAction;
@@ -92,6 +95,7 @@ private:
     QAction *mSettingsAction;
     QAction *mAboutAction;
     QAction *mOpenImageAction;
+    OpenRecentMenu *mOpenRecentMenu;
     QAction *mScaleAction;
     QAction *mAddWatermarkAction;
     QAction *mPasteAction;

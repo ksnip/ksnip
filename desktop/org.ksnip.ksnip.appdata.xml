@@ -91,6 +91,7 @@
                     <li>New: Allow setting transparency of not selected snipping area region.</li>
                     <li>New: Resize selected rect area with arrow keys.</li>
                     <li>New: Copy a screenshot to clipboard as data URI.</li>
+                    <li>New: Provide option to open recent files.</li>
                     <li>New kImageAnnotator: Add function for loading translations.</li>
                     <li>New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions.</li>
                     <li>New kImageAnnotator: Add support for hiding annotation settings panel.</li>

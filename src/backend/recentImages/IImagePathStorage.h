@@ -17,17 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_RECENTIMAGESPATHSTOREMOCK_H
-#define KSNIP_RECENTIMAGESPATHSTOREMOCK_H
+#ifndef KSNIP_IIMAGEPATHSTORAGE_H
+#define KSNIP_IIMAGEPATHSTORAGE_H
 
-#include "src/backend/RecentImagesPathStore.h"
+#include <QString>
 
-class RecentImagesPathStoreMock : public RecentImagesPathStore
+class IImagePathStorage
 {
 public:
-        RecentImagesPathStoreMock() = default;
-        ~RecentImagesPathStoreMock() override = default;
+	virtual ~IImagePathStorage() = default;
+	virtual void store(const QString &value, int index) = 0;
+	virtual QString load(int index) = 0;
+	virtual int count() = 0;
 };
 
-
-#endif //KSNIP_RECENTIMAGESPATHSTOREMOCK_H
+#endif //KSNIP_IIMAGEPATHSTORAGE_H

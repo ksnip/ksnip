@@ -25,6 +25,8 @@
 #include "src/gui/messageBoxService/MessageBoxService.h"
 #include "src/gui/clipboard/ClipboardAdapter.h"
 #include "src/gui/desktopService/DesktopServiceAdapter.h"
+#include "src/backend/recentImages/RecentImagesPathStore.h"
+#include "src/backend/recentImages/ImagePathStorage.h"
 
 class ServiceLocator : public IServiceLocator
 {
@@ -36,12 +38,14 @@ public:
 	IFileService* fileService() const override;
 	IClipboard* clipboard() const override;
 	IDesktopService* desktopService() const override;
+	IRecentImageService* recentImageService() const override;
 
 private:
 	IFileService *mFileService;
 	IMessageBoxService *mMessageBoxService;
 	IClipboard *mClipboard;
 	IDesktopService *mDesktopService;
+	IRecentImageService *mRecentImageService;
 };
 
 #endif //KSNIP_SERVICELOCATOR_H

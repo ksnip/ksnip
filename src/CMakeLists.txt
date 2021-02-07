@@ -20,7 +20,8 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/TranslationLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/KsnipCommandLine.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/WatermarkImageLoader.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/RecentImagesPathStore.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/recentImages/RecentImagesPathStore.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/recentImages/ImagePathStorage.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ipc/IpcServer.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ipc/IpcClient.cpp
 	${CMAKE_SOURCE_DIR}/src/common/adapter/fileDialog/FileDialogAdapter.cpp
@@ -49,7 +50,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/widgets/KeySequenceLineEdit.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomLineEdit.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/MainWindow.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/OpenRecentMenu.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/RecentImagesMenu.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/TrayIcon.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/clipboard/ClipboardAdapter.cpp
@@ -108,6 +109,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/operations/NotifyOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/DeleteImageOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/CopyAsDataUriOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/operations/LoadImageFromFileOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/CaptureTabStateHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/ICaptureTabStateHandler.h
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/CaptureHandlerFactory.cpp

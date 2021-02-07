@@ -17,39 +17,17 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_RECENTIMAGESPATHSTORE_H
-#define KSNIP_RECENTIMAGESPATHSTORE_H
+#ifndef KSNIP_IIMAGEPROCESSOR_H
+#define KSNIP_IIMAGEPROCESSOR_H
 
-#include <QQueue>
-#include <QSettings>
+#include "src/common/dtos/CaptureDto.h"
 
-
-class RecentImagesPathStore : public QObject
+class IImageProcessor
 {
-	Q_OBJECT
-
 public:
-	static RecentImagesPathStore &instance();
-	~RecentImagesPathStore() = default;
-
-	void storeImagePath(const QString &imagePath);
-	QStringList getRecentImagesPath() const;
-
-signals:
-	void recentImagesPathChanged();
-
-protected:
-	explicit RecentImagesPathStore(QObject *parent = nullptr);
-
-private:	
-	void loadRecentImagesPath();
-	void saveRecentImagesPath();
-
-	QQueue<QString> mRecentImagesPath;
-	QSettings mSettings;
-	const QString mSettingsGroupPrefix;
-	const QString mSettingsGroupKey;
-	const int mMaxRecentItems;
+	IImageProcessor() = default;
+	~IImageProcessor() = default;
+	virtual void processImage(const CaptureDto &capture) = 0;
 };
 
-#endif //KSNIP_RECENTIMAGESPATHSTORE_H
+#endif //KSNIP_IIMAGEPROCESSOR_H

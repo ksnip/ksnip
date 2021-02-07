@@ -25,7 +25,7 @@
 #include "NotifyOperation.h"
 #include "src/common/dtos/SaveResultDto.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
-#include "src/backend/RecentImagesPathStore.h"
+#include "src/backend/recentImages/IRecentImageService.h"
 #include "src/backend/config/KsnipConfig.h"
 #include "src/backend/saver/SavePathProvider.h"
 #include "src/backend/saver/ImageSaver.h"
@@ -35,8 +35,8 @@ class SaveOperation : public QObject
 {
 	Q_OBJECT
 public:
-    SaveOperation(QWidget *parent, QImage image, bool isInstantSave, IToastService *toastService);
-	SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, IToastService *toastService);
+    SaveOperation(QWidget *parent, QImage image, bool isInstantSave, IToastService *toastService, IRecentImageService *recentImageService);
+	SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, IToastService *toastService, IRecentImageService *recentImageService);
     ~SaveOperation() override = default;
 	SaveResultDto execute();
 
@@ -48,6 +48,7 @@ private:
     QString mPathToImageSource;
     bool mIsInstantSave;
 	IToastService *mToastService;
+	IRecentImageService *mRecentImageService;
 	KsnipConfig *mConfig;
 
 	void notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const;

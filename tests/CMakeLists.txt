@@ -1,5 +1,5 @@
 set(UNITTEST_SRC
-	${CMAKE_CURRENT_SOURCE_DIR}/backend/RecentImagesPathStoreTests.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/backend/recentImages/RecentImagesPathStoreTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/common/helper/PathHelperTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/MultiCaptureHandlerTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/SingleCaptureHandlerTests.cpp
@@ -15,7 +15,7 @@ set(TESTUTILS_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/MessageBoxServiceMock.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/FileServiceMock.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ServiceLocatorMock.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/RecentImagesPathStoreMock.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ImagePathStorageMock.cpp
 	)
 
 add_library(KSNIP_STATIC STATIC ${KSNIP_SRCS})

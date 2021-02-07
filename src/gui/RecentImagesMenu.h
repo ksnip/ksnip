@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,25 +17,28 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ISERVICELOCATOR_H
-#define KSNIP_ISERVICELOCATOR_H
+#ifndef KSNIP_RECENTIMAGESMENU_H
+#define KSNIP_RECENTIMAGESMENU_H
 
-#include "src/gui/fileService/IFileService.h"
-#include "src/gui/messageBoxService/IMessageBoxService.h"
-#include "src/gui/clipboard/IClipboard.h"
-#include "src/gui/desktopService/IDesktopService.h"
+#include <QMenu>
+
 #include "src/backend/recentImages/IRecentImageService.h"
 
-class IServiceLocator
+class RecentImagesMenu : public QMenu
 {
+    Q_OBJECT
 public:
-	explicit IServiceLocator() = default;
-	virtual ~IServiceLocator() = default;
-	virtual IMessageBoxService* messageBoxService() const = 0;
-	virtual IFileService* fileService() const = 0;
-	virtual IClipboard* clipboard() const = 0;
-	virtual IDesktopService* desktopService() const = 0;
-	virtual IRecentImageService* recentImageService() const = 0;
+    explicit RecentImagesMenu(IRecentImageService *recentImagesPathStore, QWidget *parent = nullptr);
+    ~RecentImagesMenu() override = default;
+
+signals:
+    void openRecentSelected(const QString &path);
+
+private:
+    void populateMenu();
+
+	IRecentImageService *mRecentImageService;
+	QAction *createAction(const QString &path, int index);
 };
 
-#endif //KSNIP_ISERVICELOCATOR_H
+#endif //KSNIP_RECENTIMAGESMENU_H

@@ -92,7 +92,7 @@ bool MultiCaptureHandler::discardChanges(int index)
 	auto isUnsaved = !mTabStateHandler->isSaved(index);
 	auto pathToSource = mTabStateHandler->path(index);
 	auto filename = mTabStateHandler->filename(index);
-	CanDiscardOperation operation(mParent, image, isUnsaved, pathToSource, filename, mToastService);
+	CanDiscardOperation operation(mParent, image, isUnsaved, pathToSource, filename, mToastService, mServiceLocator->recentImageService());
 	return operation.execute();
 }
 
@@ -161,7 +161,7 @@ void MultiCaptureHandler::removeImage()
 void MultiCaptureHandler::saveAt(int index, bool isInstant)
 {
 	auto image = mImageAnnotator->imageAt(index);
-	SaveOperation operation(mParent, image, isInstant, mTabStateHandler->path(index), mToastService);
+	SaveOperation operation(mParent, image, isInstant, mTabStateHandler->path(index), mToastService, mServiceLocator->recentImageService());
 	auto saveResult = operation.execute();
 	mTabStateHandler->setSaveState(index, saveResult);
 	captureChanged();

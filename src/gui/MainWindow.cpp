@@ -24,7 +24,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	QMainWindow(),
 	mToolBar(nullptr),
 	mImageGrabber(imageGrabber),
-	mRecentImageSelectedMapper(new QSignalMapper),
+	mServiceLocator(new ServiceLocator),
 	mMode(mode),
 	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
@@ -40,7 +40,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mSettingsAction(new QAction(this)),
 	mAboutAction(new QAction(this)),
 	mOpenImageAction(new QAction(this)),
-	mOpenRecentMenu(new OpenRecentMenu(this)),
+	mRecentImagesMenu(new RecentImagesMenu(mServiceLocator->recentImageService(), this)),
 	mScaleAction(new QAction(this)),
 	mAddWatermarkAction(new QAction(this)),
 	mPasteAction(new QAction(this)),
@@ -50,7 +50,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mModifyCanvasAction(new QAction(this)),
 	mMainLayout(layout()),
 	mConfig(KsnipConfigProvider::instance()),
-	mServiceLocator(new ServiceLocator),
 	mClipboard(mServiceLocator->clipboard()),
 	mCapturePrinter(new CapturePrinter(this)),
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
@@ -92,7 +91,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	connect(mUploaderProvider, &UploaderProvider::finished, this, &MainWindow::uploadFinished);
 
-	connect(mOpenRecentMenu, &OpenRecentMenu::openRecentSelected, this, &MainWindow::loadImageFromFile);
+	connect(mRecentImagesMenu, &RecentImagesMenu::openRecentSelected, this, &MainWindow::loadImageFromFile);
 
 	mCaptureHandler->addListener(this);
 
@@ -129,7 +128,6 @@ void MainWindow::setPosition()
 
 MainWindow::~MainWindow()
 {
-    delete mRecentImageSelectedMapper;
     delete mImageAnnotator;
     delete mUploadAction;
     delete mCopyAsDataUriAction;
@@ -190,11 +188,7 @@ void MainWindow::processCapture(const CaptureDto &capture)
 		return;
 	}
 
-	loadImage(capture);
-
-	showDefault();
-
-	captureChanged();
+	processImage(capture);
 	capturePostProcessing();
 }
 
@@ -465,8 +459,8 @@ void MainWindow::initGui()
     mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
     connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::showOpenImageDialog);
 
-	mOpenRecentMenu->setTitle(tr("Open &Recent"));
-	mOpenRecentMenu->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
+	mRecentImagesMenu->setTitle(tr("Open &Recent"));
+	mRecentImagesMenu->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
 
 	mPasteAction->setText(tr("Paste"));
 	mPasteAction->setIcon(IconLoader::loadForTheme(QLatin1String("paste")));
@@ -498,7 +492,7 @@ void MainWindow::initGui()
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
     menu->addAction(mOpenImageAction);
-    menu->addMenu(mOpenRecentMenu);
+    menu->addMenu(mRecentImagesMenu);
     menu->addAction(mToolBar->saveAction());
     menu->addAction(mSaveAsAction);
     menu->addAction(mUploadAction);
@@ -683,11 +677,8 @@ void MainWindow::saveAsClicked()
 
 void MainWindow::loadImageFromFile(const QString &path)
 {
-	auto pixmap = QPixmap(path);
-	if(!pixmap.isNull()) {
-		CaptureFromFileDto captureDto(pixmap, path);
-		processImage(captureDto);
-	}
+	LoadImageFromFileOperation operation(this, path, mTrayIcon, mServiceLocator->recentImageService());
+	operation.execute();
 }
 
 void MainWindow::sessionFinished()

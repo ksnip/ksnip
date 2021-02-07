@@ -17,4 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "RecentImagesPathStoreMock.h"
+#include "ImagePathStorageMock.h"
+
+void ImagePathStorageMock::store(const QString &value, int index)
+{
+	mStoreCallCounter.increment(index);
+	mPathMap[index] = value;
+}
+
+QString ImagePathStorageMock::load(int index)
+{
+	return mPathMap[index];
+}
+
+int ImagePathStorageMock::count()
+{
+	return mPathMap.count();
+}
+
+int ImagePathStorageMock::store_callCounter(int index) const
+{
+	return mStoreCallCounter.count(index);
+}

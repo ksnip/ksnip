@@ -19,7 +19,7 @@
 
 #include "CanDiscardOperation.h"
 
-CanDiscardOperation::CanDiscardOperation(QWidget *parent, QImage image, bool isUnsaved, QString pathToImageSource, QString filename, IToastService *toastService) :
+CanDiscardOperation::CanDiscardOperation(QWidget *parent, QImage image, bool isUnsaved, QString pathToImageSource, QString filename, IToastService *toastService, IRecentImageService *recentImageService) :
 	mParent(parent),
 	mImage(std::move(image)),
 	mIsUnsaved(isUnsaved),
@@ -27,7 +27,8 @@ CanDiscardOperation::CanDiscardOperation(QWidget *parent, QImage image, bool isU
 	mFilename(std::move(filename)),
 	mConfig(KsnipConfigProvider::instance()),
 	mToastService(toastService),
-	mMessageBoxService(new MessageBoxService)
+	mMessageBoxService(new MessageBoxService),
+	mRecentImageService(recentImageService)
 {
 
 }
@@ -54,7 +55,7 @@ bool CanDiscardOperation::execute()
 
 bool CanDiscardOperation::saveImage() const
 {
-	SaveOperation operation(mParent, mImage, true, mPathToImageSource, mToastService);
+	SaveOperation operation(mParent, mImage, true, mPathToImageSource, mToastService, mRecentImageService);
 	return operation.execute().isSuccessful;
 }
 

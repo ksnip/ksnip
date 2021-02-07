@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,40 +17,33 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CANDISCARDOPERATION_H
-#define KSNIP_CANDISCARDOPERATION_H
+#ifndef KSNIP_LOADIMAGEFROMFILEOPERATION_H
+#define KSNIP_LOADIMAGEFROMFILEOPERATION_H
 
-#include <QApplication>
+#include <QObject>
 
-#include <utility>
-
-#include "SaveOperation.h"
-#include "NotifyOperation.h"
-#include "src/backend/config/KsnipConfigProvider.h"
 #include "src/backend/recentImages/IRecentImageService.h"
-#include "src/gui/messageBoxService/MessageBoxService.h"
+#include "src/gui/IToastService.h"
+#include "src/gui/IImageProcessor.h"
+#include "src/gui/operations/NotifyOperation.h"
+#include "src/common/dtos/CaptureFromFileDto.h"
 
-class CanDiscardOperation : public QObject
+class LoadImageFromFileOperation : public QObject
 {
-	Q_OBJECT
+Q_OBJECT
 public:
-	CanDiscardOperation(QWidget *parent, QImage image, bool isUnsaved, QString pathToImageSource, QString filename, IToastService *toastService, IRecentImageService *recentImageService);
-	~CanDiscardOperation() override;
+	LoadImageFromFileOperation(IImageProcessor *imageProcessor, const QString &path, IToastService *toastService, IRecentImageService *recentImageService);
+	~LoadImageFromFileOperation() override = default;
 	bool execute();
 
 private:
-	KsnipConfig *mConfig;
-	bool mIsUnsaved;
-	QWidget *mParent;
-	QImage mImage;
-	QString mPathToImageSource;
-	QString mFilename;
+	IImageProcessor *mImageProcessor;
+	QString mPath;
 	IToastService *mToastService;
-	IMessageBoxService *mMessageBoxService;
 	IRecentImageService *mRecentImageService;
 
-	MessageBoxResponse getSaveBeforeDiscard() const;
-	bool saveImage() const;
+	void notifyAboutInvalidPath() const;
 };
 
-#endif //KSNIP_CANDISCARDOPERATION_H
+
+#endif //KSNIP_LOADIMAGEFROMFILEOPERATION_H

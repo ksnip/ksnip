@@ -21,17 +21,19 @@
 
 #include <utility>
 
-SaveOperation::SaveOperation(QWidget *parent, QImage image, bool isInstantSave, IToastService *toastService) :
+SaveOperation::SaveOperation(QWidget *parent, QImage image, bool isInstantSave, IToastService *toastService, IRecentImageService *recentImageService) :
 	mParent(parent),
 	mImage(std::move(image)),
 	mIsInstantSave(isInstantSave),
 	mToastService(toastService),
+	mRecentImageService(recentImageService),
 	mConfig(KsnipConfigProvider::instance())
 {
     Q_ASSERT(mParent != nullptr);
 }
 
-SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, IToastService *toastService) : SaveOperation(parent, image, isInstantSave, toastService)
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, IToastService *toastService, IRecentImageService *recentImageService) :
+	SaveOperation(parent, image, isInstantSave, toastService, recentImageService)
 {
 	mPathToImageSource = pathToImageSource;
 }
@@ -57,7 +59,7 @@ SaveResultDto SaveOperation::execute()
 	updateSaveDirectoryIfRequired(path, saveResult);
 
 	if (saveResult.isSuccessful) {
-		RecentImagesPathStore::instance().storeImagePath(path);
+		mRecentImageService->storeImagePath(path);
 	}
 
 	return saveResult;

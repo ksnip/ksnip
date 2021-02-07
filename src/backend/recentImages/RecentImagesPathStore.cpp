@@ -19,61 +19,53 @@
 
 #include "RecentImagesPathStore.h"
 
-
-RecentImagesPathStore &RecentImagesPathStore::instance()
+RecentImagesPathStore::RecentImagesPathStore(IImagePathStorage *imagePathStorage) :
+	mImagePathStorage(imagePathStorage),
+	mMaxRecentItems(10)
 {
-	static RecentImagesPathStore _instance;
-	return _instance;
+	Q_ASSERT(mImagePathStorage != nullptr);
+
+	loadRecentImagesPath();
 }
 
-RecentImagesPathStore::RecentImagesPathStore(QObject *parent)
-	: QObject(parent),
-	  mSettingsGroupPrefix("recentImagesPath"),
-	  mSettingsGroupKey("imagePath"),
-	  mMaxRecentItems(10)
+RecentImagesPathStore::~RecentImagesPathStore()
 {
-	loadRecentImagesPath();
+	delete mImagePathStorage;
 }
 
 void RecentImagesPathStore::loadRecentImagesPath()
 {
-	const auto numRecentImagesPath = mSettings.beginReadArray(mSettingsGroupPrefix);
-	for (int i=0; i<numRecentImagesPath; ++i) {
-		mSettings.setArrayIndex(i);
-		const auto recentImagePath = mSettings.value(mSettingsGroupKey).toString();
-		mRecentImagesPath.enqueue(recentImagePath);
+	const auto storedImageCount = mImagePathStorage->count();
+	for (auto i = 0; i < storedImageCount; ++i) {
+		mRecentImagesPathCache.enqueue(mImagePathStorage->load(i));
 	}
-	mSettings.endArray();
 }
 
 void RecentImagesPathStore::storeImagePath(const QString &imagePath)
 {
-	if (mRecentImagesPath.contains(imagePath)) {
+	if (mRecentImagesPathCache.contains(imagePath)) {
 		return;
 	}
 
-	if (mRecentImagesPath.size() == mMaxRecentItems) {
-		mRecentImagesPath.dequeue();
+	if (mRecentImagesPathCache.size() == mMaxRecentItems) {
+		mRecentImagesPathCache.dequeue();
 	}
 
-	mRecentImagesPath.enqueue(imagePath);
+	mRecentImagesPathCache.enqueue(imagePath);
 	saveRecentImagesPath();
-
-	Q_EMIT recentImagesPathChanged();
 }
 
 void RecentImagesPathStore::saveRecentImagesPath()
 {
-	mSettings.beginWriteArray(mSettingsGroupPrefix);
-	for (int i=0 ; i<mRecentImagesPath.size(); ++i) {
-		mSettings.setArrayIndex(i);
-		mSettings.setValue(mSettingsGroupKey, mRecentImagesPath.at(i));
+	for (auto i = 0 ; i < mRecentImagesPathCache.size(); ++i) {
+		mImagePathStorage->store(mRecentImagesPathCache.at(i), i);
 	}
-	mSettings.endArray();
-	mSettings.sync();
 }
 
 QStringList RecentImagesPathStore::getRecentImagesPath() const
 {
-	return mRecentImagesPath;
+	QStringList reversedList = mRecentImagesPathCache;
+	std::reverse(reversedList.begin(), reversedList.end());
+
+	return reversedList;
 }

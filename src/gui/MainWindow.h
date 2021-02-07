@@ -26,6 +26,7 @@
 #include <functional>
 
 #include "src/gui/TrayIcon.h"
+#include "src/gui/IImageProcessor.h"
 #include "src/gui/imageAnnotator/KImageAnnotatorAdapter.h"
 #include "src/gui/aboutDialog/AboutDialog.h"
 #include "src/gui/settingsDialog/SettingsDialog.h"
@@ -33,19 +34,19 @@
 #include "src/gui/operations/CopyAsDataUriOperation.h"
 #include "src/gui/operations/UploadOperation.h"
 #include "src/gui/operations/HandleUploadResultOperation.h"
+#include "src/gui/operations/LoadImageFromFileOperation.h"
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
 #include "src/gui/captureHandler/CaptureHandlerFactory.h"
 #include "src/gui/captureHandler/ICaptureChangeListener.h"
 #include "src/gui/widgetVisibilityHandler/WidgetVisibilityHandlerFactory.h"
 #include "src/gui/pinWindow/PinWindowHandler.h"
 #include "src/gui/serviceLocator/ServiceLocator.h"
-#include "src/gui/OpenRecentMenu.h"
+#include "src/gui/RecentImagesMenu.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/backend/uploader/UploaderProvider.h"
 #include "src/backend/CapturePrinter.h"
-#include "src/backend/RecentImagesPathStore.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/enum/RunMode.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
@@ -53,7 +54,7 @@
 #include "src/common/handler/DragAndDropHandler.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
 
-class MainWindow : public QMainWindow, public ICaptureChangeListener
+class MainWindow : public QMainWindow, public ICaptureChangeListener, public IImageProcessor
 {
     Q_OBJECT
 public:
@@ -64,10 +65,10 @@ public:
     void showDefault();
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
 	void resizeToContent();
+	void processImage(const CaptureDto &capture) override;
 
 public slots:
     void processCapture(const CaptureDto &capture);
-	void processImage(const CaptureDto &capture);
 	void quit();
 
 protected:
@@ -79,7 +80,7 @@ protected:
 
 private:
     AbstractImageGrabber *mImageGrabber;
-    QSignalMapper *mRecentImageSelectedMapper;
+	IServiceLocator *mServiceLocator;
     RunMode mMode;
     bool mSessionManagerRequestedQuit;
     QAction *mSaveAsAction;
@@ -95,7 +96,7 @@ private:
     QAction *mSettingsAction;
     QAction *mAboutAction;
     QAction *mOpenImageAction;
-    OpenRecentMenu *mOpenRecentMenu;
+    RecentImagesMenu *mRecentImagesMenu;
     QAction *mScaleAction;
     QAction *mAddWatermarkAction;
     QAction *mPasteAction;
@@ -106,7 +107,6 @@ private:
     MainToolBar *mToolBar;
     QLayout *mMainLayout;
     KsnipConfig *mConfig;
-	IServiceLocator *mServiceLocator;
 	IClipboard *mClipboard;
 	CapturePrinter *mCapturePrinter;
     IImageAnnotator *mImageAnnotator;

@@ -17,31 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_OPENRECENTMENU_H
-#define KSNIP_OPENRECENTMENU_H
+#ifndef KSNIP_IMAGEPATHSTORAGE_H
+#define KSNIP_IMAGEPATHSTORAGE_H
 
-#include <QMenu>
-#include <QSignalMapper>
+#include <QSettings>
 
-#include "src/backend/RecentImagesPathStore.h"
+#include "IImagePathStorage.h"
 
-
-class OpenRecentMenu : public QMenu
+class ImagePathStorage : public IImagePathStorage
 {
-    Q_OBJECT
-
 public:
-    explicit OpenRecentMenu(QWidget *parent = nullptr);
-    ~OpenRecentMenu() = default;
-
-signals:
-    void openRecentSelected(QString filePath);
+	ImagePathStorage();
+	~ImagePathStorage() override = default;
+	void store(const QString &value, int index) override;
+	QString load(int index) override;
+	int count() override;
 
 private:
-    void populateMenu();
-
-    RecentImagesPathStore &mRecentImagesPathStore;
-    QSignalMapper *mRecentImageSelectedMapper;
+	QSettings mSettings;
+	const QString mSettingsGroupPrefix;
+	const QString mSettingsGroupKey;
 };
 
-#endif //KSNIP_OPENRECENTMENU_H
+
+#endif //KSNIP_IMAGEPATHSTORAGE_H

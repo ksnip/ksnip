@@ -20,14 +20,14 @@
 #include "SingleCaptureHandler.h"
 
 SingleCaptureHandler::SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IServiceLocator *serviceLocator, QWidget *parent) :
-		mImageAnnotator(imageAnnotator),
-		mToastService(toastService),
-		mParent(parent),
-		mCaptureChangeListener(nullptr),
-		mIsSaved(true),
-		mServiceLocator(serviceLocator),
-		mClipboard(serviceLocator->clipboard()),
-		mDesktopService(serviceLocator->desktopService())
+	mImageAnnotator(imageAnnotator),
+	mToastService(toastService),
+	mParent(parent),
+	mCaptureChangeListener(nullptr),
+	mIsSaved(true),
+	mServiceLocator(serviceLocator),
+	mClipboard(serviceLocator->clipboard()),
+	mDesktopService(serviceLocator->desktopService())
 {
 	mImageAnnotator->setTabBarAutoHide(true);
 
@@ -115,7 +115,7 @@ void SingleCaptureHandler::reset()
 void SingleCaptureHandler::innerSave(bool isInstant)
 {
 	auto image = mImageAnnotator->image();
-	SaveOperation operation(mParent, image, isInstant, mPath, mToastService);
+	SaveOperation operation(mParent, image, isInstant, mPath, mToastService, mServiceLocator->recentImageService());
 	auto saveResult = operation.execute();
 	mIsSaved = saveResult.isSuccessful;
 	if (mIsSaved) {
@@ -153,7 +153,7 @@ bool SingleCaptureHandler::discardChanges()
 {
 	auto image = mImageAnnotator->image();
 	auto filename = PathHelper::extractFilename(mPath);
-	CanDiscardOperation operation(mParent, image, !mIsSaved, mPath, filename, mToastService);
+	CanDiscardOperation operation(mParent, image, !mIsSaved, mPath, filename, mToastService, mServiceLocator->recentImageService());
 	return operation.execute();
 }
 

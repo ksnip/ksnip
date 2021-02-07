@@ -17,25 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_RECENTIMAGESPATHSTORETESTS_H
-#define KSNIP_RECENTIMAGESPATHSTORETESTS_H
+#ifndef KSNIP_IRECENTIMAGESERVICE_H
+#define KSNIP_IRECENTIMAGESERVICE_H
 
-#include <QtTest>
-
-#include "tests/mocks/RecentImagesPathStoreMock.h"
-
-
-class RecentImagesPathStoreTests : public QObject
+class IRecentImageService
 {
-	Q_OBJECT
-private slots:
-	void initTestCase();
-	void cleanup();
-
-	void TestGetRecentImagesPath_Should_ReturnEmptyStringList_When_Initialized();
-	void TestGetRecentImagesPath_Should_ReturnNonEmptyStringList_When_ImagesAreStored();
-	void TestStoreImagesPath_Should_EmitSignal_When_ImagesAreStored();
+public:
+	virtual ~IRecentImageService() = default;
+	virtual void storeImagePath(const QString &imagePath) = 0;
+	virtual QStringList getRecentImagesPath() const = 0;
 };
 
-#endif //KSNIP_RECENTIMAGESPATHSTORETESTS_H
-
+#endif //KSNIP_IRECENTIMAGESERVICE_H

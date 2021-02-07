@@ -35,6 +35,7 @@ public:
 	IFileService* fileService() const override;
 	IClipboard* clipboard() const override;
 	IDesktopService* desktopService() const override;
+	IRecentImageService* recentImageService() const override;
 
 	// Mock Methods
 	MessageBoxServiceMock* messageBoxService_mock() const;

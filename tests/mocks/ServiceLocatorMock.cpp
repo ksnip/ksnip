@@ -56,6 +56,11 @@ IDesktopService *ServiceLocatorMock::desktopService() const
 	return mDesktopServiceMock;
 }
 
+IRecentImageService *ServiceLocatorMock::recentImageService() const
+{
+	return nullptr;
+}
+
 MessageBoxServiceMock *ServiceLocatorMock::messageBoxService_mock() const
 {
 	return mMessageBoxServiceMock;

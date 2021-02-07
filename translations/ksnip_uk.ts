@@ -87,7 +87,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх&#x2028;
+ліній, залишених пером чи маркером, але зробить їх 
 плавнішими.</translation>
     </message>
     <message>
@@ -145,12 +145,13 @@ Disabling this option allows having duplicate numbers.</source>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Колір полотна</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Типовий колір тла полотна для області анотацій.
+Зміна кольору стосуватиметься лише нових областей анотацій.</translation>
     </message>
 </context>
 <context>
@@ -313,19 +314,19 @@ Do you want to save it?</source>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося скопіювати до буфера</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося скопіювати до буфера дані зображення у кодуванні base64.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопійовано до буфера</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопійовано до буфера як зображення у кодуванні base64.</translation>
     </message>
 </context>
 <context>
@@ -699,11 +700,11 @@ Changing requires restart.</source>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося відкрити зображення</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося відкрити зображення зі шляхом %1</translation>
     </message>
 </context>
 <context>
@@ -903,19 +904,19 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати як адресу даних</translation>
     </message>
     <message>
         <source>Copy capture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати захоплене до буфера системи</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити &amp;нещодавні</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Змінити полотно</translation>
     </message>
 </context>
 <context>
@@ -1210,7 +1211,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Водяний знак</translation>
     </message>
 </context>
 <context>
@@ -1471,7 +1472,7 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати сповіщення піктограми лотка</translation>
     </message>
 </context>
 <context>
@@ -1550,23 +1551,23 @@ Change requires restart.</source>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Водяний знак</translation>
+        <translation>Зображення водяного знаку</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Оновити</translation>
+        <translation>Оновити</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Повернути водяний знак</translation>
+        <translation>Повернути водяний знак</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">При ввімкненні водяний знак буде повернено на 45°</translation>
+        <translation>Якщо позначено, водяний знак буде додано із обертанням на 45°</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри водяного знаку</translation>
     </message>
 </context>
 </TS>

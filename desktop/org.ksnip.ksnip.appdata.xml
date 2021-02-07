@@ -105,6 +105,7 @@
                     <li>Fixed kImageAnnotator: Entering multiple characters at once moves the text cursor only for one character.</li>
                     <li>Fixed kImageAnnotator: Activating context menu while drawing item leaves item in error state.</li>
                     <li>Fixed kImageAnnotator: Icons not scaled on gnome with hdpi enabled.</li>
+                    <li>Fixed kImageAnnotator: Text/Number Pointer and Text/Number Arrow don't inherit Text/Number Font in Settings.</li>
                 </ul>
             </description>
         </release>

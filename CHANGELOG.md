@@ -42,6 +42,7 @@
 * Fixed kImageAnnotator: Entering multiple characters at once moves the text cursor only for one character. ([#186](https://github.com/ksnip/kImageAnnotator/issues/186))
 * Fixed kImageAnnotator: Activating context menu while drawing item leaves item in error state. ([#196](https://github.com/ksnip/kImageAnnotator/issues/196))
 * Fixed kImageAnnotator: Icons not scaled on gnome with hdpi enabled. ([#201](https://github.com/ksnip/kImageAnnotator/issues/201))
+* Fixed kImageAnnotator: Text/Number Pointer and Text/Number Arrow don't inherit Text/Number Font in Settings. ([#208](https://github.com/ksnip/kImageAnnotator/issues/208))
 
 ## Release 1.8.0
 * New: Pin screenshots in frameless windows that stay in foreground. ([#365](https://github.com/ksnip/ksnip/issues/365))

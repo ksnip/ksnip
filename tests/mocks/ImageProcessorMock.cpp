@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,19 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IFILESERVICE_H
-#define KSNIP_IFILESERVICE_H
+#include "ImageProcessorMock.h"
 
-#include <QString>
-#include <QPixmap>
-
-class IFileService
+void ImageProcessorMock::processImage(const CaptureDto &capture)
 {
-public:
-	explicit IFileService() = default;
-	virtual ~IFileService() = default;
-	virtual bool remove(const QString &path) = 0;
-	virtual QPixmap openPixmap(const QString &path) = 0;
-};
+	mLastProcessImageParameter = capture;
+	mProcessImageCallCounter.increment(0);
+}
 
-#endif //KSNIP_IFILESERVICE_H
+CaptureDto ImageProcessorMock::processImage_get() const
+{
+	return mLastProcessImageParameter;
+}
+
+int ImageProcessorMock::processImage_callCounter() const
+{
+	return mProcessImageCallCounter.count(0);
+}

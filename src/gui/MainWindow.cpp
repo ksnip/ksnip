@@ -677,7 +677,7 @@ void MainWindow::saveAsClicked()
 
 void MainWindow::loadImageFromFile(const QString &path)
 {
-	LoadImageFromFileOperation operation(this, path, mTrayIcon, mServiceLocator->recentImageService());
+	LoadImageFromFileOperation operation(this, path, mTrayIcon, mServiceLocator);
 	operation.execute();
 }
 

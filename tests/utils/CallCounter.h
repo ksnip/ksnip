@@ -31,6 +31,7 @@ public:
 	~CallCounter() = default;
 	void increment(K key);
 	int count(K key) const;
+	int count() const;
 
 private:
 	QList<QPair<K,int>> mInnerCounter;
@@ -59,5 +60,14 @@ int CallCounter<K>::count(K key) const
 	return 0;
 }
 
+template<typename K>
+int CallCounter<K>::count() const
+{
+	int counter = 0;
+	for(auto entry : mInnerCounter) {
+		counter += entry.second;
+	}
+	return counter;
+}
 
 #endif //KSNIP_CALLCOUNTER_H

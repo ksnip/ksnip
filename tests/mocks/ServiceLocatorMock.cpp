@@ -23,7 +23,8 @@ ServiceLocatorMock::ServiceLocatorMock() :
 	mMessageBoxServiceMock(new MessageBoxServiceMock),
 	mFileServiceMock(new FileServiceMock),
 	mClipboardMock(new ClipboardMock),
-	mDesktopServiceMock(new DesktopServiceMock)
+	mDesktopServiceMock(new DesktopServiceMock),
+	mRecentImageServiceMock(new RecentImageServiceMock)
 {
 
 }
@@ -34,6 +35,7 @@ ServiceLocatorMock::~ServiceLocatorMock()
 	delete mFileServiceMock;
 	delete mClipboardMock;
 	delete mDesktopServiceMock;
+	delete mRecentImageServiceMock;
 }
 
 IMessageBoxService *ServiceLocatorMock::messageBoxService() const
@@ -58,7 +60,7 @@ IDesktopService *ServiceLocatorMock::desktopService() const
 
 IRecentImageService *ServiceLocatorMock::recentImageService() const
 {
-	return nullptr;
+	return mRecentImageServiceMock;
 }
 
 MessageBoxServiceMock *ServiceLocatorMock::messageBoxService_mock() const
@@ -79,4 +81,9 @@ ClipboardMock *ServiceLocatorMock::clipboard_mock() const
 DesktopServiceMock *ServiceLocatorMock::desktopService_mock() const
 {
 	return mDesktopServiceMock;
+}
+
+RecentImageServiceMock *ServiceLocatorMock::recentImageService_mock() const
+{
+	return mRecentImageServiceMock;
 }

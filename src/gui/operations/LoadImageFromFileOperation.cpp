@@ -19,18 +19,19 @@
 
 #include "LoadImageFromFileOperation.h"
 
-LoadImageFromFileOperation::LoadImageFromFileOperation(IImageProcessor *imageProcessor, const QString &path, IToastService *toastService, IRecentImageService *recentImageService) :
+LoadImageFromFileOperation::LoadImageFromFileOperation(IImageProcessor *imageProcessor, const QString &path, IToastService *toastService, IServiceLocator *serviceLocator) :
 	mImageProcessor(imageProcessor),
 	mPath(path),
 	mToastService(toastService),
-	mRecentImageService(recentImageService)
+	mRecentImageService(serviceLocator->recentImageService()),
+	mFileService(serviceLocator->fileService())
 {
 
 }
 
 bool LoadImageFromFileOperation::execute()
 {
-	auto pixmap = QPixmap(mPath);
+	auto pixmap = mFileService->openPixmap(mPath);
 	if(pixmap.isNull()) {
 		notifyAboutInvalidPath();
 		return false;

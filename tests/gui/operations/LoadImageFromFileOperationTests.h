@@ -17,19 +17,23 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IFILESERVICE_H
-#define KSNIP_IFILESERVICE_H
+#ifndef KSNIP_LOADIMAGEFROMFILEOPERATIONTESTS_H
+#define KSNIP_LOADIMAGEFROMFILEOPERATIONTESTS_H
 
-#include <QString>
-#include <QPixmap>
+#include <QtTest>
 
-class IFileService
+#include "src/gui/operations/LoadImageFromFileOperation.h"
+#include "tests/mocks/ToastServiceMock.h"
+#include "tests/mocks/ImageProcessorMock.h"
+#include "tests/mocks/ServiceLocatorMock.h"
+
+class LoadImageFromFileOperationTests : public QObject
 {
-public:
-	explicit IFileService() = default;
-	virtual ~IFileService() = default;
-	virtual bool remove(const QString &path) = 0;
-	virtual QPixmap openPixmap(const QString &path) = 0;
+Q_OBJECT
+private slots:
+	void Execute_Should_ShowNotificationAndNotOpenImage_When_PathToImageCannotBeOpened();
+	void Execute_Should_OpenImageAndNotShowNotification_When_PathToImageCanBeOpened();
 };
 
-#endif //KSNIP_IFILESERVICE_H
+
+#endif //KSNIP_LOADIMAGEFROMFILEOPERATIONTESTS_H

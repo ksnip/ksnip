@@ -24,3 +24,8 @@ bool FileService::remove(const QString &path)
 	QFile file(path);
 	return file.remove();
 }
+
+QPixmap FileService::openPixmap(const QString &path)
+{
+	return QPixmap(path);
+}

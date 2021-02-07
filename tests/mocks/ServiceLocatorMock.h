@@ -25,6 +25,7 @@
 #include "tests/mocks/FileServiceMock.h"
 #include "tests/mocks/ClipboardMock.h"
 #include "tests/mocks/DesktopServiceMock.h"
+#include "tests/mocks/RecentImageServiceMock.h"
 
 class ServiceLocatorMock : public IServiceLocator
 {
@@ -42,12 +43,14 @@ public:
 	FileServiceMock* fileService_mock() const;
 	ClipboardMock* clipboard_mock() const;
 	DesktopServiceMock* desktopService_mock() const;
+	RecentImageServiceMock* recentImageService_mock() const;
 
 private:
 	MessageBoxServiceMock *mMessageBoxServiceMock;
 	FileServiceMock *mFileServiceMock;
 	ClipboardMock *mClipboardMock;
 	DesktopServiceMock *mDesktopServiceMock;
+	RecentImageServiceMock *mRecentImageServiceMock;
 };
 
 #endif //KSNIP_SERVICELOCATORMOCK_H

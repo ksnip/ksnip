@@ -27,6 +27,8 @@ struct CaptureDto
 	QPixmap screenshot;
 	CursorDto cursor;
 
+	explicit CaptureDto() = default;
+
 	explicit CaptureDto(const QPixmap &screenshot) {
 		this->screenshot = screenshot.copy();
 	}

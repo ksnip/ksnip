@@ -22,7 +22,7 @@
 
 #include <QObject>
 
-#include "src/backend/recentImages/IRecentImageService.h"
+#include "src/gui/serviceLocator/IServiceLocator.h"
 #include "src/gui/IToastService.h"
 #include "src/gui/IImageProcessor.h"
 #include "src/gui/operations/NotifyOperation.h"
@@ -32,7 +32,7 @@ class LoadImageFromFileOperation : public QObject
 {
 Q_OBJECT
 public:
-	LoadImageFromFileOperation(IImageProcessor *imageProcessor, const QString &path, IToastService *toastService, IRecentImageService *recentImageService);
+	LoadImageFromFileOperation(IImageProcessor *imageProcessor, const QString &path, IToastService *toastService, IServiceLocator *serviceLocator);
 	~LoadImageFromFileOperation() override = default;
 	bool execute();
 
@@ -41,6 +41,7 @@ private:
 	QString mPath;
 	IToastService *mToastService;
 	IRecentImageService *mRecentImageService;
+	IFileService *mFileService;
 
 	void notifyAboutInvalidPath() const;
 };

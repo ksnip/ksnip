@@ -4,6 +4,7 @@ set(UNITTEST_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/MultiCaptureHandlerTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/SingleCaptureHandlerTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/DeleteImageOperationTests.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/LoadImageFromFileOperationTests.cpp
 	)
 
 set(TESTUTILS_SRC
@@ -16,6 +17,9 @@ set(TESTUTILS_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/FileServiceMock.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ServiceLocatorMock.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ImagePathStorageMock.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ToastServiceMock.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/RecentImageServiceMock.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ImageProcessorMock.cpp
 	)
 
 add_library(KSNIP_STATIC STATIC ${KSNIP_SRCS})

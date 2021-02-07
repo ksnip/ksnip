@@ -27,14 +27,21 @@ FileServiceMock::FileServiceMock() :
 
 bool FileServiceMock::remove(const QString &path)
 {
-	mRemovePath = path;
+	mLastRemovePathParameter = path;
 	mRemoveCallCounter.increment(path);
 	return mRemoveResult;
 }
 
+QPixmap FileServiceMock::openPixmap(const QString &path)
+{
+	mLastOpenPixmapParameter = path;
+	mOpenPixmapCallCounter.increment(path);
+	return mOpenPixmapResult;
+}
+
 QString FileServiceMock::remove_get() const
 {
-	return mRemovePath;
+	return mLastRemovePathParameter;
 }
 
 void FileServiceMock::remove_set(bool result)
@@ -45,4 +52,19 @@ void FileServiceMock::remove_set(bool result)
 int FileServiceMock::remove_callCounter(const QString &path) const
 {
 	return mRemoveCallCounter.count(path);
+}
+
+QString FileServiceMock::openPixmap_get() const
+{
+	return mLastOpenPixmapParameter;
+}
+
+void FileServiceMock::openPixmap_set(const QPixmap &pixmap)
+{
+	mOpenPixmapResult = pixmap;
+}
+
+int FileServiceMock::openPixmap_callCounter(const QString &path) const
+{
+	return mOpenPixmapCallCounter.count(path);
 }

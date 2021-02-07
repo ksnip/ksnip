@@ -119,22 +119,6 @@ gladder.</translation>
         <translation>Stelt het lettertype in van de getallen.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Watermerkafbeelding</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Bijwerken</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Watermerk draaien</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Gebruik deze optie om een watermerk toe te voegen dat 45° gedraaid is</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Aantekeningsinstellingen</translation>
     </message>
@@ -156,6 +140,15 @@ seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
         <translation>Schakel deze optie uit om alleen nieuwe items en niet ook
 bestaande items te wijzigen. Hierdoor zijn duplicaten mogelijk.</translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -312,6 +305,25 @@ Wil je deze opslaan?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Gebruik het schermfotoportaal om een schermfoto te maken</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -682,6 +694,17 @@ Herstart om de wijzigingen toe te passen.</translation>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -875,6 +898,22 @@ van schermfoto, in seconden.</translation>
     <message>
         <source>Hide Docks</source>
         <translation>Panelen verbergen</translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1167,6 +1206,10 @@ Sla over om álles te kopiëren.</translation>
         <source>Tray Icon</source>
         <translation>Systeemvakpictogram</translation>
     </message>
+    <message>
+        <source>Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1420,6 +1463,10 @@ Herstart om de wijziging toe te passen.</translation>
         <source>Tray Icon Settings</source>
         <translation>Systeemvakinstellingen</translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1491,6 +1538,29 @@ Herstart om de wijziging toe te passen.</translation>
     <message>
         <source>Using:</source>
         <translation>Gebruikmakend van:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished">Watermerkafbeelding</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Bijwerken</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished">Watermerk draaien</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished">Gebruik deze optie om een watermerk toe te voegen dat 45° gedraaid is</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

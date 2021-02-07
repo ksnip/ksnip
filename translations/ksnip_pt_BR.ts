@@ -119,22 +119,6 @@ torná-los mais suaves.</translation>
         <translation>Define a fonte para a etiqueta de números.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Marca d&apos;água</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Atualizar</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Girar marca d&apos;água</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Quando ativado, a marca d&apos;água será adicionada com rotação de 45º</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Configurações do Editor</translation>
     </message>
@@ -157,6 +141,15 @@ Disabling this option allows having duplicate numbers.</source>
         <translation>Desativar esta opção causa mudanças na ferramenta número
 para afetar apenas novos itens, mas não os itens existentes.
 Desativar esta opção permite ter números duplicados.</translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -313,6 +306,25 @@ Deseja salvá-la?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Usa o portal de captura de tela para obter a imagem</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -683,6 +695,17 @@ Mudança requer reinicialização.</translation>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -876,6 +899,22 @@ e captura de tela.</translation>
     <message>
         <source>Hide Docks</source>
         <translation>Ocultar Docks</translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1168,6 +1207,10 @@ Quando omitido, tudo é copiado.</translation>
         <source>Tray Icon</source>
         <translation>Ícone da bandeja</translation>
     </message>
+    <message>
+        <source>Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1424,6 +1467,10 @@ A mudança requer reinicialização.</translation>
         <source>Tray Icon Settings</source>
         <translation>Configurações do ícone da bandeja</translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1495,6 +1542,29 @@ A mudança requer reinicialização.</translation>
     <message>
         <source>Using:</source>
         <translation>Utilizando:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished">Marca d&apos;água</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Atualizar</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished">Girar marca d&apos;água</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished">Quando ativado, a marca d&apos;água será adicionada com rotação de 45º</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

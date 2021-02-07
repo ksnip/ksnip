@@ -119,22 +119,6 @@ je více vyhlazovat.</translation>
         <translation>Nastaví písmo pro kreslení číslování.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Obrázek vodoznaku</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Aktualizovat</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Otočit vodoznak</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Pokud je povoleno, bude vodoznak přidán s rotací 45 °</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Nastavení značkovače</translation>
     </message>
@@ -154,6 +138,15 @@ je více vyhlazovat.</translation>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -305,6 +298,25 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -665,6 +677,17 @@ Changing requires restart.</source>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -857,6 +880,22 @@ a zachycením obrazovky.</translation>
     </message>
     <message>
         <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1142,6 +1181,10 @@ When omitted, everything is copied.</source>
         <source>Tray Icon</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1383,6 +1426,10 @@ pokud ji správce oken sytému podporuje. Změna vyžaduje restart.</translation
         <source>Tray Icon Settings</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1454,6 +1501,29 @@ pokud ji správce oken sytému podporuje. Změna vyžaduje restart.</translation
     <message>
         <source>Using:</source>
         <translation type="unfinished">Používá:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished">Obrázek vodoznaku</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Aktualizovat</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished">Otočit vodoznak</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished">Pokud je povoleno, bude vodoznak přidán s rotací 45 °</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

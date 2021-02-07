@@ -119,22 +119,6 @@ haien leuntasuna areagotuz.</translation>
         <translation>Zenbakitzeko tresnaren letra mota ezartzen du.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Ur-markaren irudia</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Eguneratu</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Biratu ur-marka</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Aktibatuta dagoenean, ur-marka 45ªko biraketarekin gehituko da</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Nabarmentzearen ezarpenak</translation>
     </message>
@@ -154,6 +138,15 @@ haien leuntasuna areagotuz.</translation>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -310,6 +303,25 @@ Nahi duzu gordetzea?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Pantaila-argazkien ataria erabiltzen du pantaila-argazkia egiteko</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -680,6 +692,17 @@ Aldatzeak berrabiaraztea eskatzen du.</translation>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -872,6 +895,22 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1165,6 +1204,10 @@ Ez badago, dena kopiatzen da.</translation>
         <source>Tray Icon</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1419,6 +1462,10 @@ Aldaketak berrabiaraztea eskatzen du.</translation>
         <source>Tray Icon Settings</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1490,6 +1537,29 @@ Aldaketak berrabiaraztea eskatzen du.</translation>
     <message>
         <source>Using:</source>
         <translation>Erabiltzen:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished">Ur-markaren irudia</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Eguneratu</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished">Biratu ur-marka</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished">Aktibatuta dagoenean, ur-marka 45ªko biraketarekin gehituko da</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -118,22 +118,6 @@ för penna och markör, men gör dem mjukare.</translation>
         <translation>Anger teckensnitt för numrering av ritade objekt.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Vattenstämpel</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Uppdatera</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Rotera vattenstämpel</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Vid aktivering, roteras vattenstämpeln 45°</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Anteckningsinställningar</translation>
     </message>
@@ -156,6 +140,15 @@ Disabling this option allows having duplicate numbers.</source>
         <translation>Inaktivering av det här alternativet innebär att numreringsverktyget
 påverkar endast nya objekt men inte befintliga.
 Inaktivering låter dig använda dubblettnummer.</translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -312,6 +305,25 @@ Vill du spara det?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Använder skärmklippsportalen för att ta skärmdump</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -682,6 +694,17 @@ Changing requires restart.</source>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -875,6 +898,22 @@ och själva skärmklippet.</translation>
     <message>
         <source>Hide Docks</source>
         <translation>Dölj dockor</translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1167,6 +1206,10 @@ När detta utelämnas kopieras allt.</translation>
         <source>Tray Icon</source>
         <translation>Systemfältsikon</translation>
     </message>
+    <message>
+        <source>Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1423,6 +1466,10 @@ Change requires restart.</source>
         <source>Tray Icon Settings</source>
         <translation>Inställningar för systemfältsikon</translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1494,6 +1541,29 @@ Change requires restart.</source>
     <message>
         <source>Using:</source>
         <translation>Använder:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished">Vattenstämpel</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Uppdatera</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished">Rotera vattenstämpel</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished">Vid aktivering, roteras vattenstämpeln 45°</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

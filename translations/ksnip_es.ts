@@ -119,22 +119,6 @@ más suaves.</translation>
         <translation>Establece la fuente para el elemento de dibujo de numeración.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Imagen de marca de agua</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Actualización</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Rotar la marca de agua</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Cuando esté activada, la marca de agua se añadirá con una rotación de 45°</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Ajustes del anotador</translation>
     </message>
@@ -154,6 +138,15 @@ más suaves.</translation>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -311,6 +304,25 @@ Do you want to save it?</source>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Usa el portal de capturas para tomar capturas</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -673,6 +685,17 @@ Cambiarlo requiere reiniciar.</translation>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -865,6 +888,22 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1157,6 +1196,10 @@ When omitted, everything is copied.</source>
         <source>Tray Icon</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1398,6 +1441,10 @@ El cambio requiere que se reinicie.</translation>
         <source>Tray Icon Settings</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1422,7 +1469,7 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Añada una secuencia de carga en Opciones ▸ Configuración ▸ Secuencia de carga</translation>
+        <translation>Añada una secuencia de carga en Opciones&#xa0;▸ Configuración&#xa0;▸ Secuencia de carga</translation>
     </message>
     <message>
         <source>Capture Upload</source>
@@ -1469,6 +1516,29 @@ El cambio requiere que se reinicie.</translation>
     <message>
         <source>Using:</source>
         <translation>Usando:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished">Imagen de marca de agua</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Actualización</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished">Rotar la marca de agua</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished">Cuando esté activada, la marca de agua se añadirá con una rotación de 45°</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -119,22 +119,6 @@ ale uczyni je bardziej gładkimi.</translation>
         <translation>Ustawia czcionkę numeracji.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Obraz znaku wodnego</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Aktualizuj</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Obróć znak wodny</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Po włączeniu znak wodny zostanie dodany z obróceniem o 45 °</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Ustawienia komentarza</translation>
     </message>
@@ -157,6 +141,15 @@ Disabling this option allows having duplicate numbers.</source>
         <translation>Wyłączenie tej opcji powoduje zmiany narzędzia liczbowego
 seed, aby wpływać tylko na nowe elementy, ale nie na istniejące.
 Wyłączenie tej opcji umożliwia posiadanie zduplikowanych numerów.</translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -313,6 +306,25 @@ Chcesz go zapisać?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Wykorzystuje portal do robienia zrzutów ekranu</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -683,6 +695,17 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -876,6 +899,22 @@ i wykonaniem zrzutu ekranu.</translation>
     <message>
         <source>Hide Docks</source>
         <translation>Ukryj Doki</translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1168,6 +1207,10 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
         <source>Tray Icon</source>
         <translation>Ikona w zasobniku</translation>
     </message>
+    <message>
+        <source>Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1419,6 +1462,10 @@ Zmiana wymaga ponownego uruchomienia.</translation>
         <source>Tray Icon Settings</source>
         <translation>Ustawienia ikony zasobnika</translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1490,6 +1537,29 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     <message>
         <source>Using:</source>
         <translation>Z użyciem:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished">Obraz znaku wodnego</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Aktualizuj</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished">Obróć znak wodny</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished">Po włączeniu znak wodny zostanie dodany z obróceniem o 45 °</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

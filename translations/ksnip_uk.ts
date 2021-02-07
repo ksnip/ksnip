@@ -87,7 +87,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх 
+ліній, залишених пером чи маркером, але зробить їх&#x2028;
 плавнішими.</translation>
     </message>
     <message>
@@ -119,22 +119,6 @@ make them more smooth.</source>
         <translation>Встановлює шрифт для інструмента малювання «Нумерація».</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Водяний знак</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Оновити</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Повернути водяний знак</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>При ввімкненні водяний знак буде повернено на 45°</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Налаштування анотатора</translation>
     </message>
@@ -158,6 +142,15 @@ Disabling this option allows having duplicate numbers.</source>
 нумерування стосуватимуться лише нових записів,
 і не стосуватимуться наявних. Якщо пункт не буде
 позначено, також можлива поява дублікатів номерів.</translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -314,6 +307,25 @@ Do you want to save it?</source>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Використовує портал знімків вікон для створення знімка</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -684,6 +696,17 @@ Changing requires restart.</source>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -877,6 +900,22 @@ and capturing screenshot.</source>
     <message>
         <source>Hide Docks</source>
         <translation>Приховати бічні панелі</translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1169,6 +1208,10 @@ When omitted, everything is copied.</source>
         <source>Tray Icon</source>
         <translation>Піктограма у лотку</translation>
     </message>
+    <message>
+        <source>Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1426,6 +1469,10 @@ Change requires restart.</source>
         <source>Tray Icon Settings</source>
         <translation>Параметри піктограми лотка</translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1497,6 +1544,29 @@ Change requires restart.</source>
     <message>
         <source>Using:</source>
         <translation>Використовуємо:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished">Водяний знак</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Оновити</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished">Повернути водяний знак</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished">При ввімкненні водяний знак буде повернено на 45°</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

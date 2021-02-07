@@ -119,22 +119,6 @@ les rendra plus lisses.</translation>
         <translation>Définit la police de l&apos;outil de numérotation.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Filigrane</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Actualiser</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Pivoter le filigrane</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Si activé, le filigrane sera ajouté avec une rotation de 45°</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Paramètres d&apos;annotations</translation>
     </message>
@@ -157,6 +141,15 @@ Disabling this option allows having duplicate numbers.</source>
         <translation>Lorsqu&apos;on désactive cette option, les changements du numéro
 de début n&apos;affectent que les nouveaux items et pas les items existants.
 La désactivation de cette option permet des numéros dupliqués.</translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -277,7 +270,7 @@ La visibilité des panneaux peut être basculée avec la touche Tab.</translatio
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
         <translation>La capture %1%2%3 a été modifiée.
-Voulez-vous l&apos;enregistrer ?</translation>
+Voulez-vous l&apos;enregistrer&#xa0;?</translation>
     </message>
 </context>
 <context>
@@ -313,6 +306,25 @@ Voulez-vous l&apos;enregistrer ?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Utilise le portail de capture d&apos;écran pour les captures</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -590,7 +602,7 @@ quand la fenêtre principale a été cachée ou minimisée.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Téléversement sur imgur.com terminé !</translation>
+        <translation>Téléversement sur imgur.com terminé&#xa0;!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -669,7 +681,7 @@ quand la fenêtre principale a été cachée ou minimisée.</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation>URL de base :</translation>
+        <translation>URL de base&#xa0;:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
@@ -680,6 +692,17 @@ La modifier nécessite un redémarrage.</translation>
     <message>
         <source>Clear Token</source>
         <translation>Effacer les jetons</translation>
+    </message>
+</context>
+<context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -877,6 +900,22 @@ et la capture de l&apos;écran.</translation>
         <source>Hide Docks</source>
         <translation>Cacher le panneau d&apos;outils</translation>
     </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1026,8 +1065,8 @@ Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
         <translation>Les formats supportés sont JPG, PNG et BMP. Si aucun format n’est spécifié, PNG sera utilisé par défaut.
-Le nom du fichier peut contenir les jokers suivants :
-- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format « hhmmss ».
+Le nom du fichier peut contenir les jokers suivants&#xa0;:
+- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format «&#xa0;hhmmss&#xa0;».
 - Plusieurs caractères # permettent de numéroter. Par exemple : #### donnera 0001 puis 0002 à la prochaine capture.</translation>
     </message>
     <message>
@@ -1169,6 +1208,10 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
         <source>Tray Icon</source>
         <translation>Icône de la barre d&apos;état</translation>
     </message>
+    <message>
+        <source>Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1252,8 +1295,8 @@ active sur Wayland mais toujours sur MacOS.</translation>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Afficher une loupe qui grossit le fond d’écran.
-Cette option ne fonctionne que si « Figer l’image
-avant capture » est activé.</translation>
+Cette option ne fonctionne que si «&#xa0;Figer l’image
+avant capture&#xa0;» est activé.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -1424,6 +1467,10 @@ Vous devrez redémarrer l’application pour que cela prenne effet.</translation
         <source>Tray Icon Settings</source>
         <translation>Paramètres de l’icône de la barre d’état</translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1495,6 +1542,29 @@ Vous devrez redémarrer l’application pour que cela prenne effet.</translation
     <message>
         <source>Using:</source>
         <translation>Dépendances :</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished">Filigrane</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Actualiser</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished">Pivoter le filigrane</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished">Si activé, le filigrane sera ajouté avec une rotation de 45°</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

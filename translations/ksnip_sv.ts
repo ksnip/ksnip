@@ -143,12 +143,13 @@ Inaktivering låter dig använda dubblettnummer.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Färg på arbetsytan</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardfärg på arbetsytan i anteckningsområdet.
+Ändring av färgen påverkar bara nya anteckningsområden.</translation>
     </message>
 </context>
 <context>
@@ -311,19 +312,19 @@ Vill du spara det?</translation>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte kopiera till urklipp</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte kopiera till urklipp som base64-kodad bild.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopierat till urklipp</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopierat till urklipp som base64-kodad bild.</translation>
     </message>
 </context>
 <context>
@@ -697,11 +698,11 @@ Changing requires restart.</source>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan inte öppna bilden</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan inte öppna bild från sökvägen %1</translation>
     </message>
 </context>
 <context>
@@ -901,19 +902,19 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera som data-URI</translation>
     </message>
     <message>
         <source>Copy capture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera skärmklipp till systemets urklipp</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna &amp;tidigare</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Ändra arbetsyta</translation>
     </message>
 </context>
 <context>
@@ -1208,7 +1209,7 @@ När detta utelämnas kopieras allt.</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Vattenstämpel</translation>
     </message>
 </context>
 <context>
@@ -1468,7 +1469,7 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa systemfältsaviseringar</translation>
     </message>
 </context>
 <context>
@@ -1547,23 +1548,23 @@ Change requires restart.</source>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Vattenstämpel</translation>
+        <translation>Vattenstämpel</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Uppdatera</translation>
+        <translation>Uppdatera</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Rotera vattenstämpel</translation>
+        <translation>Rotera vattenstämpel</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">Vid aktivering, roteras vattenstämpeln 45°</translation>
+        <translation>Vid aktivering, roteras vattenstämpeln 45°</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Vatenstämpelinställningar</translation>
     </message>
 </context>
 </TS>

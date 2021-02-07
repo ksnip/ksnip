@@ -19,7 +19,7 @@
 
 #include "SingleCaptureHandlerTests.h"
 
-void SingleCaptureHandlerTests::TestRemoveImage_Should_CleanupAnnotationData_When_ImageDeleted()
+void SingleCaptureHandlerTests::RemoveImage_Should_CleanupAnnotationData_When_ImageDeleted()
 {
 	ImageAnnotatorMock imageAnnotatorMock;
 	ServiceLocatorMock serviceLocatorMock;
@@ -36,7 +36,7 @@ void SingleCaptureHandlerTests::TestRemoveImage_Should_CleanupAnnotationData_Whe
 	QCOMPARE(captureHandler.isSaved(), true);
 }
 
-void SingleCaptureHandlerTests::TestRemoveImage_Should_NotCleanupAnnotationData_When_ImageWasNotDeleted()
+void SingleCaptureHandlerTests::RemoveImage_Should_NotCleanupAnnotationData_When_ImageWasNotDeleted()
 {
 	ImageAnnotatorMock imageAnnotatorMock;
 	ServiceLocatorMock serviceLocatorMock;
@@ -52,7 +52,7 @@ void SingleCaptureHandlerTests::TestRemoveImage_Should_NotCleanupAnnotationData_
 	QCOMPARE(captureHandler.isSaved(), true);
 }
 
-void SingleCaptureHandlerTests::TestLoad_Should_SetPathAndIsSavedToValuesFromCaptureDto_When_CaptureLoadedFromFile()
+void SingleCaptureHandlerTests::Load_Should_SetPathAndIsSavedToValuesFromCaptureDto_When_CaptureLoadedFromFile()
 {
 	ImageAnnotatorMock imageAnnotatorMock;
 	ServiceLocatorMock serviceLocatorMock;
@@ -65,7 +65,7 @@ void SingleCaptureHandlerTests::TestLoad_Should_SetPathAndIsSavedToValuesFromCap
 	QCOMPARE(captureHandler.isSaved(), true);
 }
 
-void SingleCaptureHandlerTests::TestLoad_Should_SetPathToEmptyAndIsSavedToFalse_When_CaptureNotLoadedFromFile()
+void SingleCaptureHandlerTests::Load_Should_SetPathToEmptyAndIsSavedToFalse_When_CaptureNotLoadedFromFile()
 {
 	ImageAnnotatorMock imageAnnotatorMock;
 	ServiceLocatorMock serviceLocatorMock;

@@ -1077,7 +1077,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Default</source>
-        <translation>Προκαθορισμένο</translation>
+        <translation>Προεπιλογή</translation>
     </message>
     <message>
         <source>Factor</source>
@@ -1154,7 +1154,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Ακύρωση</translation>
+        <translation>Άκυρο</translation>
     </message>
     <message>
         <source>Image Grabber</source>

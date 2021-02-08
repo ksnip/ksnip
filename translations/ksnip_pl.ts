@@ -144,12 +144,13 @@ Wyłączenie tej opcji umożliwia posiadanie zduplikowanych numerów.</translati
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolor płótna</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Domyślny kolor tła obszaru roboczego dla obszaru adnotacji.
+Zmiana koloru wpływa tylko na nowe obszary adnotacji.</translation>
     </message>
 </context>
 <context>
@@ -312,19 +313,19 @@ Chcesz go zapisać?</translation>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieudane kopiowanie do schowka</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieudane kopiowanie do schowka jako obrazu zakodowanego w base64.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Skopiowano do schowka</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skopiowano do schowka jako obraz zakodowany base64.</translation>
     </message>
 </context>
 <context>
@@ -698,11 +699,11 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie można otworzyć obrazu</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie można otworzyć obrazu ze ścieżki %1</translation>
     </message>
 </context>
 <context>
@@ -902,11 +903,11 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kopiowanie jako URI danych</translation>
     </message>
     <message>
         <source>Copy capture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Skopiuj przechwycenie do schowka systemowego</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
@@ -914,7 +915,7 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Modyfikacja płótna</translation>
     </message>
 </context>
 <context>
@@ -1209,7 +1210,7 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Znak wodny</translation>
     </message>
 </context>
 <context>
@@ -1331,7 +1332,10 @@ i powyżej przechwyconego obszaru.</translation>
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Po włączeniu tej opcji, po zaznaczeniu prostokątnego
+pozwoli na zmianę rozmiaru zaznaczenia. Kiedy
+zakończeniu zmiany rozmiaru można potwierdzić wybór
+naciskając klawisz return.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
@@ -1359,21 +1363,23 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kolor ozdobnika obszaru wycinania</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawia kolor wszystkich elementów ozdobnych
+na obszarze wycinania.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished">Przezroczystość obszaru wycinania</translation>
+        <translation>Przezroczystość obszaru wycinania</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Alfa dla nie zaznaczonego regionu na obszarze wycinania.
+Mniejsza liczba jest bardziej przezroczysta.</translation>
     </message>
 </context>
 <context>
@@ -1464,7 +1470,7 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyświetlaj powiadomienia o ikonach na pasku zadań</translation>
     </message>
 </context>
 <context>
@@ -1543,23 +1549,23 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Obraz znaku wodnego</translation>
+        <translation>Obraz znaku wodnego</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Aktualizuj</translation>
+        <translation>Aktualizuj</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Obróć znak wodny</translation>
+        <translation>Obróć znak wodny</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">Po włączeniu znak wodny zostanie dodany z obróceniem o 45 °</translation>
+        <translation>Po włączeniu tej funkcji znak wodny zostanie dodany z obróceniem o 45 °</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia znaku wodnego</translation>
     </message>
 </context>
 </TS>

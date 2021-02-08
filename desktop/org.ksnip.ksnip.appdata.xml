@@ -121,6 +121,7 @@
                     <li>Fixed: Editor can not be shown again after click close icon.</li>
                     <li>Fixed: Icons and text boxes not correctly scaled under gnome with hdpi.</li>
                     <li>Fixed: Window captures include non-transparent border of background on Gnome.</li>
+                    <li>Fixed: Annotating hidpi image downscales the result after being saved.</li>
                     <li>Fixed kImageAnnotator: Brazilian Portuguese translation not loaded.</li>
                     <li>Fixed kImageAnnotator: error: control reaches end of non-void function.</li>
                     <li>Fixed kImageAnnotator: Cursor in Text tool have too bad visibility.</li>

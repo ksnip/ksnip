@@ -1278,7 +1278,14 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud je tato možnost povolena, zamrzne pozadí
+při výběru obdélníkové oblasti. Mění také chování
+zpožděných snímků obrazovky, s touto možností
+povolenou se zpoždění objeví před zobrazením oblasti a
+s vypnutou možností se zpoždění provede 
+až po zobrazení oblasti. 
+Tato funkce nefunguje pro Wayland a je vždy
+používána pro MacO.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
@@ -1311,22 +1318,28 @@ okraje plochy ke kurzoru snímané oblasti.</translation>
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud není stisknuto levé tlačítko myši,
+je zobrazena pozice, při stisknutí tlačítka myši
+je zobrazna velikost vybrané oblasti vlevo a nad 
+zachycenou oblastí.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Ve výchozím nastavení povolit změnu velikosti obdélníkové oblasti</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je-li povoleno, po výběru obdélníkové
+oblasti, je možno změnit velikosti tohot výběru.
+Ukončení změny velikosti lze potvrdit
+klávesou return.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit text informací o oblasti výstřižku</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
@@ -1334,7 +1347,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaví barvu kurzoru oblasti výstřižku.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
@@ -1342,64 +1355,66 @@ by pressing return.</source>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaví tloušťku kurzoru oblasti výstřižku.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Výstřižková oblast</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Barva doplňků Výstřižkové oblasti</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaví barvu všech doplňkových prvků
+v odstřižené oblasti.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Průhlednost výstřižkové oblasti</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Průhlednost pro nevybranou oblast v oblasti výstřižku.
+Menší číslo je průhlednější.</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahoru</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Dolů</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Použití výchozích nálepek</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení nálepky</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubory vektorových obrázků (* .svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat samolepky</translation>
     </message>
 </context>
 <context>
@@ -1427,7 +1442,7 @@ pokud ji správce oken sytému podporuje. Změna vyžaduje restart.</translation
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Spustit minimalizované do oznamovací oblasti</translation>
     </message>
     <message>
         <source>Close to Tray</source>
@@ -1439,23 +1454,23 @@ pokud ji správce oken sytému podporuje. Změna vyžaduje restart.</translation
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachytit</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Výchozí akce pro ikonu v oznamovací oblasti</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Výchozí akce, která se spustí klepnutím levým tlačítkem myši na ikonu v oznamovací oblasti.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení ikony v oznamovací oblasti</translation>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit oznámení ikony v oznamovací oblasti</translation>
     </message>
 </context>
 <context>
@@ -1477,19 +1492,19 @@ pokud ji správce oken sytému podporuje. Změna vyžaduje restart.</translation
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Je vyžadován skript pro nahrávání</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidejte prosím skript pro nahrávání pomocí Možnosti&gt; Nastavení&gt; Nahrát skript</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachytit nahraní</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Chystáte se nahrát obrázek do externího umístění, chcete pokračovat?</translation>
     </message>
 </context>
 <context>
@@ -1500,19 +1515,19 @@ pokud ji správce oken sytému podporuje. Změna vyžaduje restart.</translation
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Typ uploaderu:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Skript</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploader</translation>
     </message>
 </context>
 <context>
@@ -1550,7 +1565,7 @@ pokud ji správce oken sytému podporuje. Změna vyžaduje restart.</translation
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení vodoznaku</translation>
     </message>
 </context>
 </TS>

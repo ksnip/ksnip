@@ -88,6 +88,7 @@
                     <li>Changed: Notarize ksnip for macOS.</li>
                     <li>Changed: Default font for numbering tool change to Arial.</li>
                     <li>Changed kImageAnnotator: Horizontally align text inside spin box.</li>
+                    <li>Changed kImageAnnotator: Change zoom with mouse wheel to CTRL+Wheel.</li>
                     <li>Fixed: If file selection is cancelled during ksnip's file open dialog via tray icon, ksnip closes.</li>
                     <li>Fixed: Cancel on Quit not work when editor is hidden.</li>
                     <li>Fixed: Canceling rect area selection activates main window.</li>

@@ -1,9 +1,10 @@
 #!/bin/bash
 
+VERSION_REGEX="([0-9]{1,}\.)+[0-9]{1,}"
 export BUILD_TIME=$(date +"%a, %d %b %Y %T %z")
 export BUILD_DATE=$(date  +"%a %b %d %Y")
 export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
-export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "([0-9]{1,}\.)+[0-9]{1,}")
+export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
 export INSTALL_PREFIX="/usr"
 export BUILD_TYPE="Release"
 
@@ -16,8 +17,28 @@ else
     export VERSION=${VERSION_NUMBER}
 fi
 
-git clone git://github.com/DamirPorobic/kColorPicker
-git clone git://github.com/DamirPorobic/kImageAnnotator
+
+if [[ -z "${TRAVIS_TAG}" ]]; then
+    echo "Build is not tagged fetching master version of dependencies"
+    git clone --depth 1 git://github.com/ksnip/kColorPicker
+    git clone --depth 1 git://github.com/ksnip/kImageAnnotator
+else
+    echo "Build is tagged fetching specific version of dependencies"
+    KCOLORPICKER_VERSION=$(grep "set.*KCOLORPICKER_MIN_VERSION" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
+    git clone --depth 1 --branch "v${KCOLORPICKER_VERSION}" git://github.com/ksnip/kColorPicker
+
+    KIMAGEANNOTATOR_VERSION=$(grep "set.*KIMAGEANNOTATOR_MIN_VERSION" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
+    git clone --depth 1 --branch "v${KIMAGEANNOTATOR_VERSION}" git://github.com/ksnip/kImageAnnotator
+fi
+
+
+# for testing only
+KCOLORPICKER_VERSION=$(grep "set.*KCOLORPICKER_MIN_VERSION" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
+KIMAGEANNOTATOR_VERSION=$(grep "set.*KIMAGEANNOTATOR_MIN_VERSION" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
+
+echo "kcolorpicker version: ${KCOLORPICKER_VERSION}"
+echo "kimageannotator version: ${KIMAGEANNOTATOR_VERSION}"
+
 
 if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
     source ci/scripts/common/setup_ubuntu_qt.sh

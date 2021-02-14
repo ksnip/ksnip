@@ -13,31 +13,28 @@ if [[ -z "${TRAVIS_TAG}" ]]; then
     export VERSION_SUFFIX=continuous
     export VERSION=${VERSION_NUMBER}-${VERSION_SUFFIX}
 else
-    echo "Build is tagged this is not a continues build"
+    echo "--> Build is tagged this is not a continues build"
+    echo "--> Building ksnip version ${VERSION_NUMBER}"
     export VERSION=${VERSION_NUMBER}
 fi
 
 
 if [[ -z "${TRAVIS_TAG}" ]]; then
-    echo "Build is not tagged fetching master version of dependencies"
+    echo "--> Building ksnip with latest version of kColorPicker"
+    echo "--> Building ksnip with latest version of kImageAnnotator"
+
     git clone --depth 1 git://github.com/ksnip/kColorPicker
     git clone --depth 1 git://github.com/ksnip/kImageAnnotator
 else
-    echo "Build is tagged fetching specific version of dependencies"
     KCOLORPICKER_VERSION=$(grep "set.*KCOLORPICKER_MIN_VERSION" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
-    git clone --depth 1 --branch "v${KCOLORPICKER_VERSION}" git://github.com/ksnip/kColorPicker
-
     KIMAGEANNOTATOR_VERSION=$(grep "set.*KIMAGEANNOTATOR_MIN_VERSION" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
+
+    echo "--> Building ksnip with kColorPicker version ${KCOLORPICKER_VERSION}"
+    echo "--> Building ksnip with kImageAnnotator version ${KIMAGEANNOTATOR_VERSION}"
+
+    git clone --depth 1 --branch "v${KCOLORPICKER_VERSION}" git://github.com/ksnip/kColorPicker
     git clone --depth 1 --branch "v${KIMAGEANNOTATOR_VERSION}" git://github.com/ksnip/kImageAnnotator
 fi
-
-
-# for testing only
-KCOLORPICKER_VERSION=$(grep "set.*KCOLORPICKER_MIN_VERSION" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
-KIMAGEANNOTATOR_VERSION=$(grep "set.*KIMAGEANNOTATOR_MIN_VERSION" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
-
-echo "kcolorpicker version: ${KCOLORPICKER_VERSION}"
-echo "kimageannotator version: ${KIMAGEANNOTATOR_VERSION}"
 
 
 if [[ "${BINARY_TYPE}" == "AppImage" ]]; then

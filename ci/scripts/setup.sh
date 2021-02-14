@@ -1,9 +1,10 @@
 #!/bin/bash
 
+VERSION_REGEX="([0-9]{1,}\.)+[0-9]{1,}"
 export BUILD_TIME=$(date +"%a, %d %b %Y %T %z")
 export BUILD_DATE=$(date  +"%a %b %d %Y")
 export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
-export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "([0-9]{1,}\.)+[0-9]{1,}")
+export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
 export INSTALL_PREFIX="/usr"
 export BUILD_TYPE="Release"
 
@@ -12,12 +13,29 @@ if [[ -z "${TRAVIS_TAG}" ]]; then
     export VERSION_SUFFIX=continuous
     export VERSION=${VERSION_NUMBER}-${VERSION_SUFFIX}
 else
-    echo "Build is tagged this is not a continues build"
+    echo "--> Build is tagged this is not a continues build"
+    echo "--> Building ksnip version ${VERSION_NUMBER}"
     export VERSION=${VERSION_NUMBER}
 fi
 
-git clone git://github.com/DamirPorobic/kColorPicker
-git clone git://github.com/DamirPorobic/kImageAnnotator
+
+if [[ -z "${TRAVIS_TAG}" ]]; then
+    echo "--> Building ksnip with latest version of kColorPicker"
+    echo "--> Building ksnip with latest version of kImageAnnotator"
+
+    git clone --depth 1 git://github.com/ksnip/kColorPicker
+    git clone --depth 1 git://github.com/ksnip/kImageAnnotator
+else
+    KCOLORPICKER_VERSION=$(grep "set.*KCOLORPICKER_MIN_VERSION" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
+    KIMAGEANNOTATOR_VERSION=$(grep "set.*KIMAGEANNOTATOR_MIN_VERSION" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
+
+    echo "--> Building ksnip with kColorPicker version ${KCOLORPICKER_VERSION}"
+    echo "--> Building ksnip with kImageAnnotator version ${KIMAGEANNOTATOR_VERSION}"
+
+    git clone --depth 1 --branch "v${KCOLORPICKER_VERSION}" git://github.com/ksnip/kColorPicker
+    git clone --depth 1 --branch "v${KIMAGEANNOTATOR_VERSION}" git://github.com/ksnip/kImageAnnotator
+fi
+
 
 if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
     source ci/scripts/common/setup_ubuntu_qt.sh

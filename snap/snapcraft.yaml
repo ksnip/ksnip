@@ -50,6 +50,7 @@ parts:
       snapcraftctl set-version $(cat CMakeLists.txt | grep project\(ksnip | cut -d" " -f5 | cut -d")" -f1)
   kimageannotator:
     source: https://github.com/ksnip/kImageAnnotator.git
+    source-tag: v0.4.1
     plugin: cmake
     after:
       - kcolorpicker
@@ -57,6 +58,7 @@ parts:
       - -DCMAKE_FIND_ROOT_PATH=/snap/kde-frameworks-5-core18-sdk/current;/snap/kcolorpicker/current
   kcolorpicker:
     source: https://github.com/ksnip/kColorPicker.git
+    source-tag: v0.1.5
     plugin: cmake
     configflags:
       - -DCMAKE_FIND_ROOT_PATH=/snap/kde-frameworks-5-core18-sdk/current

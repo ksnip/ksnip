@@ -132,7 +132,7 @@ más suaves.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Al seleccionar un modo diferente en la herramienta numérica se actualizan todos los elementos numéricos</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
@@ -1469,7 +1469,7 @@ El cambio requiere que se reinicie.</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Añada una secuencia de carga en Opciones&#xa0;▸ Configuración&#xa0;▸ Secuencia de carga</translation>
+        <translation>Añada una secuencia de carga en Opciones ▸ Configuración ▸ Secuencia de carga</translation>
     </message>
     <message>
         <source>Capture Upload</source>

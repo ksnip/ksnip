@@ -81,7 +81,14 @@
     <update_contact>damir.porobic@gmx.com</update_contact>
     <content_rating type="oars-1.0" />
     <releases>
-        <release type="stable" version="1.8.1" date="2020-07-30T00:00:00Z">
+        <release type="stable" version="1.8.2" date="2021-02-15T00:00:00Z">
+            <description>
+                <ul>
+                    <li>Changed: Allow changing adorner color for rect area selection.</li>
+                </ul>
+            </description>
+        </release>
+        <release type="stable" version="1.8.1" date="2021-02-14T00:00:00Z">
             <description>
                 <ul>
                     <li>Changed: Allow changing adorner color for rect area selection.</li>

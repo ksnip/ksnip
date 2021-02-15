@@ -21,6 +21,9 @@
 * New kImageAnnotator: Add reset zoom keyboard shortcut with tooltip. ([#209](https://github.com/ksnip/kImageAnnotator/issues/209))
 * Fixed kImageAnnotator: Deleting item outside image doesn't decrease canvas size. ([#164](https://github.com/ksnip/kImageAnnotator/issues/164))
 
+## Release 1.8.2
+* Fixed: Add missing includes to build on UNIX. ([#581](https://github.com/ksnip/ksnip/issues/581))
+
 ## Release 1.8.1
 * Changed: Allow changing adorner color for rect area selection. ([#519](https://github.com/ksnip/ksnip/issues/519))
 * Changed: Notarize ksnip for macOS. ([#402](https://github.com/ksnip/ksnip/issues/402))

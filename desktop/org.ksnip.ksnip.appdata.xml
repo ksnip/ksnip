@@ -84,7 +84,7 @@
         <release type="stable" version="1.8.2" date="2021-02-15T00:00:00Z">
             <description>
                 <ul>
-                    <li>Changed: Allow changing adorner color for rect area selection.</li>
+                    <li>Fixed: Add missing includes to build on UNIX.</li>
                 </ul>
             </description>
         </release>

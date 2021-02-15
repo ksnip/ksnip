@@ -1,7 +1,7 @@
 # Change log
 
 ## Release 1.8.2
-* Fixed: Add missing includes to build on UNIX #581. ([#581](https://github.com/ksnip/ksnip/issues/581))
+* Fixed: Add missing includes to build on UNIX. ([#581](https://github.com/ksnip/ksnip/issues/581))
 
 ## Release 1.8.1
 * Changed: Allow changing adorner color for rect area selection. ([#519](https://github.com/ksnip/ksnip/issues/519))

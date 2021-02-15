@@ -22,11 +22,6 @@
 
 #include <QSize>
 
-#if defined(__linux__)
-#include <QApplication>
-#include <QScreen>
-#endif
-
 #include "src/common/platform/PlatformChecker.h"
 
 class ScaledSizeProvider

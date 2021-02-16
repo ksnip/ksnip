@@ -28,6 +28,7 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	mAutoHideTabsCheckbox(new QCheckBox(this)),
 	mUseSingleInstanceCheckBox(new QCheckBox(this)),
 	mAutoHideDocksCheckBox(new QCheckBox(this)),
+	mAutoResizeToContentCheckBox(new QCheckBox(this)),
 	mApplicationStyleLabel(new QLabel(this)),
 	mApplicationStyleCombobox(new QComboBox(this)),
 	mLayout(new QGridLayout)
@@ -48,6 +49,7 @@ ApplicationSettings::~ApplicationSettings()
 	delete mAutoHideTabsCheckbox;
 	delete mUseSingleInstanceCheckBox;
 	delete mAutoHideDocksCheckBox;
+	delete mAutoResizeToContentCheckBox;
 	delete mApplicationStyleLabel;
 	delete mApplicationStyleCombobox;
 	delete mLayout;
@@ -75,6 +77,9 @@ void ApplicationSettings::initGui()
 	mAutoHideDocksCheckBox->setToolTip(tr("On startup hide Toolbar and Annotation Settings.\n"
 									   		"Docks visibility can be toggled with the Tab Key."));
 
+	mAutoResizeToContentCheckBox->setText(tr("Auto resize to content"));
+	mAutoResizeToContentCheckBox->setToolTip(tr("Automatically resize Main Window to fit content image."));
+
 	connect(mUseTabsCheckbox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTabsChanged);
 
 	mApplicationStyleLabel->setText(tr("Application Style") + QLatin1String(":"));
@@ -94,9 +99,10 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mAutoHideTabsCheckbox, 4, 1, 1, 3);
 	mLayout->addWidget(mUseSingleInstanceCheckBox, 5, 0, 1, 4);
 	mLayout->addWidget(mAutoHideDocksCheckBox, 6, 0, 1, 4);
-	mLayout->setRowMinimumHeight(7, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 8, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 8, 2, Qt::AlignLeft);
+	mLayout->addWidget(mAutoResizeToContentCheckBox, 7, 0, 1, 4);
+	mLayout->setRowMinimumHeight(8, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 9, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 9, 2, Qt::AlignLeft);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -111,6 +117,7 @@ void ApplicationSettings::loadConfig()
 	mAutoHideTabsCheckbox->setChecked(mConfig->autoHideTabs());
 	mUseSingleInstanceCheckBox->setChecked(mConfig->useSingleInstance());
 	mAutoHideDocksCheckBox->setChecked(mConfig->autoHideDocks());
+	mAutoResizeToContentCheckBox->setChecked(mConfig->autoResizeToContent());
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
 
 	useTabsChanged();
@@ -125,6 +132,7 @@ void ApplicationSettings::saveSettings()
 	mConfig->setUseTabs(mUseTabsCheckbox->isChecked());
 	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
 	mConfig->setAutoHideDocks(mAutoHideDocksCheckBox->isChecked());
+	mConfig->setAutoResizeToContent(mAutoResizeToContentCheckBox->isChecked());
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 }
 

@@ -53,8 +53,10 @@
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/handler/DragAndDropHandler.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
+#include "src/gui/windowResizer/IResizableWindow.h"
+#include "src/gui/windowResizer/WindowResizer.h"
 
-class MainWindow : public QMainWindow, public ICaptureChangeListener, public IImageProcessor
+class MainWindow : public QMainWindow, public ICaptureChangeListener, public IImageProcessor, public IResizableWindow
 {
     Q_OBJECT
 public:
@@ -64,7 +66,7 @@ public:
 	void showHidden();
     void showDefault();
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
-	void resizeToContent();
+	void resizeToContent() override;
 	void processImage(const CaptureDto &capture) override;
 
 public slots:
@@ -119,6 +121,7 @@ private:
 	PinWindowHandler *mPinWindowHandler;
 	WidgetVisibilityHandler *mVisibilityHandler;
 	IFileDialogAdapter *mFileDialog;
+	WindowResizer *mWindowResizer;
 
     void setEnablements(bool enabled);
     void loadSettings();

@@ -74,6 +74,11 @@ QString KsnipConfigOptions::autoHideDocksString()
 	return applicationSectionString() + QLatin1String("AutoHideDocks");
 }
 
+QString KsnipConfigOptions::autoResizeToContentString()
+{
+	return applicationSectionString() + QLatin1String("AutoResizeToContent");
+}
+
 QString KsnipConfigOptions::freezeImageWhileSnippingEnabledString()
 {
 	return imageGrabberSectionString() + QLatin1String("FreezeImageWhileSnippingEnabled");

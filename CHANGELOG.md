@@ -10,6 +10,7 @@
 * New: Copy a screenshot to clipboard as data URI. ([#474](https://github.com/ksnip/ksnip/issues/474))
 * New: Allow disabling tray icon notifications. ([#561](https://github.com/ksnip/ksnip/issues/561))
 * New: Provide option to open recent files. ([#272](https://github.com/ksnip/ksnip/issues/272))
+* New: Allow disabling auto resizing after first capture. ([#551](https://github.com/ksnip/ksnip/issues/551))
 * New kImageAnnotator: Add function for loading translations. ([#173](https://github.com/ksnip/kImageAnnotator/issues/173))
 * New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions. ([#131](https://github.com/ksnip/kImageAnnotator/issues/131))
 * New kImageAnnotator: Add support for hiding annotation settings panel. ([#182](https://github.com/ksnip/kImageAnnotator/issues/182))

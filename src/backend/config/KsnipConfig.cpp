@@ -87,6 +87,19 @@ void KsnipConfig::setAutoHideDocks(bool enabled)
 	saveValue(KsnipConfigOptions::autoHideDocksString(), enabled);
 }
 
+bool KsnipConfig::autoResizeToContent() const
+{
+	return loadValue(KsnipConfigOptions::autoResizeToContentString(), true).toBool();
+}
+
+void KsnipConfig::setAutoResizeToContent(bool enabled)
+{
+	if (autoResizeToContent() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::autoResizeToContentString(), enabled);
+}
+
 bool KsnipConfig::useTabs() const
 {
 	return loadValue(KsnipConfigOptions::useTabsString(), true).toBool();

@@ -38,6 +38,7 @@ public:
 	static QString freezeImageWhileSnippingEnabledString();
 	static QString positionString();
 	static QString autoHideDocksString();
+	static QString autoResizeToContentString();
 	static QString captureModeString();
 	static QString saveQualityModeString();
 	static QString saveQualityFactorString();

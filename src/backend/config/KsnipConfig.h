@@ -61,6 +61,9 @@ public:
 	virtual bool autoHideDocks() const;
 	virtual void setAutoHideDocks(bool enabled);
 
+	virtual bool autoResizeToContent() const;
+	virtual void setAutoResizeToContent(bool enabled);
+
 	virtual bool useTabs() const;
 	virtual void setUseTabs(bool enabled);
 

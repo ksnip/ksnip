@@ -119,6 +119,7 @@ private:
 	PinWindowHandler *mPinWindowHandler;
 	WidgetVisibilityHandler *mVisibilityHandler;
 	IFileDialogAdapter *mFileDialog;
+	bool mPerformedAutoResize;
 
     void setEnablements(bool enabled);
     void loadSettings();

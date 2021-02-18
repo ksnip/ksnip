@@ -231,7 +231,7 @@ void MainWindow::showEmpty()
 {
 	mVisibilityHandler->minimize();
 	captureChanged();
-    setEnablements(false);
+	setEnablements(false);
 }
 
 void MainWindow::showHidden()
@@ -247,7 +247,11 @@ void MainWindow::showDefault()
 	enforceShow ? mVisibilityHandler->enforceVisible() : mVisibilityHandler->restoreVisibility();
 
 	if(!mVisibilityHandler->isMaximized()) {
-		resizeToContent();
+		auto enforceAutoResize = (mConfig->autoResizeToContent() || !mPerformedAutoResize);
+		if (enforceAutoResize) {
+			mPerformedAutoResize = true;
+			resizeToContent();
+		}
 	}
 
 	setEnablements(true);
@@ -699,6 +703,7 @@ void MainWindow::uploadFinished(const UploadResult &result)
 
 void MainWindow::captureEmpty()
 {
+	mPerformedAutoResize = false;
 	setEnablements(false);
 	resizeToContent();
 }

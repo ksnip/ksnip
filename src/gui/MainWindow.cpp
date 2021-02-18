@@ -60,7 +60,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mServiceLocator, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
 	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this)),
-	mFileDialog(FileDialogAdapterFactory::create())
+	mFileDialog(FileDialogAdapterFactory::create()),
+	mWindowResizer(new WindowResizer(this, mConfig))
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -152,6 +153,7 @@ MainWindow::~MainWindow()
     delete mCaptureHandler;
     delete mVisibilityHandler;
     delete mFileDialog;
+    delete mWindowResizer;
 }
 
 void MainWindow::processInstantCapture(const CaptureDto &capture)
@@ -247,11 +249,7 @@ void MainWindow::showDefault()
 	enforceShow ? mVisibilityHandler->enforceVisible() : mVisibilityHandler->restoreVisibility();
 
 	if(!mVisibilityHandler->isMaximized()) {
-		auto enforceAutoResize = (mConfig->autoResizeToContent() || !mPerformedAutoResize);
-		if (enforceAutoResize) {
-			mPerformedAutoResize = true;
-			resizeToContent();
-		}
+		mWindowResizer->resize();
 	}
 
 	setEnablements(true);
@@ -381,7 +379,7 @@ void MainWindow::toggleDocks()
 	auto collapsedToggleText = newIsCollapsedState ? tr("Show Docks") : tr("Hide Docks");
 	mToggleDocksAction->setText(collapsedToggleText);
 
-	resizeToContent();
+	mWindowResizer->resize();
 }
 
 void MainWindow::initGui()
@@ -703,9 +701,8 @@ void MainWindow::uploadFinished(const UploadResult &result)
 
 void MainWindow::captureEmpty()
 {
-	mPerformedAutoResize = false;
 	setEnablements(false);
-	resizeToContent();
+	mWindowResizer->resetAndResize();
 }
 
 void MainWindow::showPinWindow()

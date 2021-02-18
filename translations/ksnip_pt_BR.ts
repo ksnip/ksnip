@@ -144,12 +144,13 @@ Desativar esta opção permite ter números duplicados.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor de fundo da Tela</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor de fundo padrão da tela para a área de anotação.
+Alterar a cor afeta apenas novas áreas de anotação.</translation>
     </message>
 </context>
 <context>
@@ -312,19 +313,19 @@ Deseja salvá-la?</translation>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao copiar para a área de transferência</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao copiar para a área de transferência como imagem codificada em base64.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiado para a área de transferência</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiado para a área de transferência como imagem codificada em base64.</translation>
     </message>
 </context>
 <context>
@@ -560,10 +561,10 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation>Implementações genéricas  do Wayland que utilizam o
+        <translation>Implementações genéricas do Wayland que utilizam o
 XDG-DESKTOP-PORTAL lidam com o dimensionamento
-de tela de forma diferente. Ativar esta opção irá 
-determinar a escala atual da tela e aplicar isso à captura 
+de tela de forma diferente. Ativar esta opção irá
+determinar a escala atual da tela e aplicar isso à captura
 de tela no ksnip.</translation>
     </message>
     <message>
@@ -698,11 +699,11 @@ Mudança requer reinicialização.</translation>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Incapaz de abrir a imagem</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Incapaz de abrir a imagem do caminho %1</translation>
     </message>
 </context>
 <context>
@@ -902,19 +903,19 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar como URI de dados</translation>
     </message>
     <message>
         <source>Copy capture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar captura para área de transferência do sistema</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Aberto &amp;Recente</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Modificar fundo de tela</translation>
     </message>
 </context>
 <context>
@@ -1209,7 +1210,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Marca d&apos;água</translation>
     </message>
 </context>
 <context>
@@ -1469,7 +1470,7 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir ícone da bandeja</translation>
     </message>
 </context>
 <context>
@@ -1548,23 +1549,23 @@ A mudança requer reinicialização.</translation>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Marca d&apos;água</translation>
+        <translation>Imagem de marca d&apos;água</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Atualizar</translation>
+        <translation>Atualizar</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Girar marca d&apos;água</translation>
+        <translation>Girar marca d&apos;água</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">Quando ativado, a marca d&apos;água será adicionada com rotação de 45º</translation>
+        <translation>Quando ativado, a marca d&apos;água será adicionada com rotação de 45º</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurações de Marca d&apos;água</translation>
     </message>
 </context>
 </TS>

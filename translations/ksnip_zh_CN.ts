@@ -127,7 +127,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>绘制后切换到选择工具</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>

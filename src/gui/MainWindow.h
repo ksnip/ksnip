@@ -42,6 +42,10 @@
 #include "src/gui/pinWindow/PinWindowHandler.h"
 #include "src/gui/serviceLocator/ServiceLocator.h"
 #include "src/gui/RecentImagesMenu.h"
+#include "src/gui/dragAndDrop/DragAndDropProcessor.h"
+#include "src/gui/dragAndDrop/IDragContentProvider.h"
+#include "src/gui/windowResizer/IResizableWindow.h"
+#include "src/gui/windowResizer/WindowResizer.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/config/KsnipConfigProvider.h"
@@ -51,11 +55,7 @@
 #include "src/common/enum/RunMode.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
-#include "gui/dragAndDrop/DragAndDropProcessor.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
-#include "src/gui/windowResizer/IResizableWindow.h"
-#include "src/gui/windowResizer/WindowResizer.h"
-#include "gui/dragAndDrop/IDragContentProvider.h"
 
 class MainWindow : public QMainWindow, public ICaptureChangeListener, public IImageProcessor, public IResizableWindow, public IDragContentProvider
 {

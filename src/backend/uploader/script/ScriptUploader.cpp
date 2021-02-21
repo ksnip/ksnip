@@ -42,10 +42,7 @@ UploaderType ScriptUploader::type() const
 
 bool ScriptUploader::saveImageLocally(const QImage &image)
 {
-	auto timestamp = QDateTime::currentDateTime().toString(QLatin1String("yyyyMMddhhmmssz"));
-	auto filename = QLatin1String("ksnip-tmp-") + timestamp + QLatin1String(".png");
-
-	mPathToTmpImage = mConfig->saveDirectory() + QLatin1String("/") + filename;
+	mPathToTmpImage = TempFileProvider::tempFile();
 	return image.save(mPathToTmpImage);
 }
 

@@ -33,12 +33,12 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/helper/EnumTranslator.cpp
 	${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp
-	${CMAKE_SOURCE_DIR}/src/common/handler/DragAndDropHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/ApplicationTitleProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/NewCaptureNameProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/PathFromCaptureProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/DirectoryPathProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/ScaledSizeProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/common/provider/TempFileProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomToolButton.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomCursor.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CursorFactory.cpp
@@ -121,6 +121,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/messageBoxService/MessageBoxService.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/serviceLocator/ServiceLocator.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/windowResizer/WindowResizer.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/dragAndDrop/DragAndDropProcessor.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/BootstrapperFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/StandAloneBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/InstanceLock.cpp

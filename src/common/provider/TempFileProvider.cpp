@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,30 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "FileUrlHelper.h"
+#include "TempFileProvider.h"
 
-QString FileUrlHelper::toPath(const QString &url)
+QString TempFileProvider::tempFile()
 {
-	auto path = url;
-	return path.remove(filePrefix());
-}
+	QTemporaryFile file(QDir::tempPath() + QDir::separator() + QLatin1String("ksnip_tmp_XXXXXX.png"));
+	file.setAutoRemove(false);
+	if (!file.open()) {
+		qWarning("Failed to created temporary file %s", qPrintable(file.fileName()));
+	}
 
-QString FileUrlHelper::toFileUrl(const QString &path)
-{
-	return filePrefix() + path;
-}
-
-QString FileUrlHelper::filePrefix()
-{
-#if defined(__APPLE__)
-	return QLatin1String("file://");
-#endif
-
-#if defined(UNIX_X11)
-	return QLatin1String("file://");
-#endif
-
-#if  defined(_WIN32)
-	return QLatin1String("file:///");
-#endif
+	return file.fileName();
 }

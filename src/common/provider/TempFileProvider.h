@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,31 +17,21 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_DRAGANDDROPHANDLER_H
-#define KSNIP_DRAGANDDROPHANDLER_H
+#ifndef KSNIP_TEMPFILEPROVIDER_H
+#define KSNIP_TEMPFILEPROVIDER_H
 
-#include <QObject>
-#include <QDragEnterEvent>
-#include <QMimeData>
-#include <QGraphicsSceneDragDropEvent>
+#include <QTemporaryFile>
+#include <QDir>
 
-#include "src/common/helper/FileUrlHelper.h"
-
-class DragAndDropHandler : public QObject
+class TempFileProvider
 {
-	Q_OBJECT
 public:
-	bool eventFilter(QObject *obj, QEvent *event) override;
-
-signals:
-	void imageDropped(const QString &path);
+	static QString tempFile();
 
 private:
-	bool handleDragEnter(QDragEnterEvent *event);
-	bool handleDragEnter(QGraphicsSceneDragDropEvent *event);
-	bool handleDrop(QDropEvent *event);
-	bool handleDrop(QGraphicsSceneDragDropEvent *event);
-	QStringList getUrlsFromMimeData(const QMimeData *mimeData) const;
+	TempFileProvider() = default;
+	~TempFileProvider() = default;
 };
 
-#endif //KSNIP_DRAGANDDROPHANDLER_H
+
+#endif //KSNIP_TEMPFILEPROVIDER_H

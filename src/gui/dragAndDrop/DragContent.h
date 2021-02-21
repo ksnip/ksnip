@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,30 +17,32 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "FileUrlHelper.h"
+#ifndef KSNIP_DRAGCONTENT_H
+#define KSNIP_DRAGCONTENT_H
 
-QString FileUrlHelper::toPath(const QString &url)
+#include <QImage>
+
+struct DragContent
 {
-	auto path = url;
-	return path.remove(filePrefix());
-}
+	QImage image;
+	QString path;
+	bool isSaved;
 
-QString FileUrlHelper::toFileUrl(const QString &path)
-{
-	return filePrefix() + path;
-}
+	explicit DragContent() {
+		image = QImage();
+		path = QString();
+		isSaved = false;
+	}
 
-QString FileUrlHelper::filePrefix()
-{
-#if defined(__APPLE__)
-	return QLatin1String("file://");
-#endif
+	explicit DragContent(const QImage &image, const QString &path, bool isSaved) {
+		this->image = image.copy();
+		this->path = path;
+		this->isSaved = isSaved;
+	}
 
-#if defined(UNIX_X11)
-	return QLatin1String("file://");
-#endif
+	virtual bool isValid() const {
+		return !image.isNull();
+	}
+};
 
-#if  defined(_WIN32)
-	return QLatin1String("file:///");
-#endif
-}
+#endif //KSNIP_DRAGCONTENT_H

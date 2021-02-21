@@ -37,7 +37,7 @@ QPixmap ClipboardAdapter::pixmap() const
 
 QString ClipboardAdapter::url() const
 {
-	return FileUrlHelper::parse(mClipboard->text());
+	return FileUrlHelper::toPath(mClipboard->text());
 }
 
 bool ClipboardAdapter::isPixmap() const

@@ -51,12 +51,13 @@
 #include "src/common/enum/RunMode.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
-#include "src/common/handler/DragAndDropHandler.h"
+#include "gui/dragAndDrop/DragAndDropProcessor.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
 #include "src/gui/windowResizer/IResizableWindow.h"
 #include "src/gui/windowResizer/WindowResizer.h"
+#include "gui/dragAndDrop/IDragContentProvider.h"
 
-class MainWindow : public QMainWindow, public ICaptureChangeListener, public IImageProcessor, public IResizableWindow
+class MainWindow : public QMainWindow, public ICaptureChangeListener, public IImageProcessor, public IResizableWindow, public IDragContentProvider
 {
     Q_OBJECT
 public:
@@ -68,6 +69,7 @@ public:
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
 	void resizeToContent() override;
 	void processImage(const CaptureDto &capture) override;
+	DragContent dragContent() const override;
 
 public slots:
     void processCapture(const CaptureDto &capture);
@@ -115,7 +117,7 @@ private:
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
     TrayIcon *mTrayIcon;
-	DragAndDropHandler *mDragAndDropHandler;
+	DragAndDropProcessor *mDragAndDropProcessor;
 	UploaderProvider *mUploaderProvider;
 	ICaptureHandler *mCaptureHandler;
 	PinWindowHandler *mPinWindowHandler;

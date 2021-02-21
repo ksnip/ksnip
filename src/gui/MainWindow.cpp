@@ -54,7 +54,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mCapturePrinter(new CapturePrinter(this)),
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 	mTrayIcon(new TrayIcon(this)),
-	mDragAndDropHandler(new DragAndDropHandler),
+	mDragAndDropProcessor(new DragAndDropProcessor(this)),
 	mUploaderProvider(new UploaderProvider),
 	mSessionManagerRequestedQuit(false),
 	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mServiceLocator, this)),
@@ -80,8 +80,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	setPosition();
 
 	setAcceptDrops(true);
-	qApp->installEventFilter(mDragAndDropHandler);
-	connect(mDragAndDropHandler, &DragAndDropHandler::imageDropped, this, &MainWindow::loadImageFromFile);
+	qApp->installEventFilter(mDragAndDropProcessor);
+	connect(mDragAndDropProcessor, &DragAndDropProcessor::imageDropped, this, &MainWindow::loadImageFromFile);
 
 	connect(mConfig, &KsnipConfig::annotatorConfigChanged, this, &MainWindow::setupImageAnnotator);
 
@@ -148,7 +148,7 @@ MainWindow::~MainWindow()
     delete mModifyCanvasAction;
     delete mCapturePrinter;
     delete mTrayIcon;
-    delete mDragAndDropHandler;
+    delete mDragAndDropProcessor;
     delete mUploaderProvider;
     delete mCaptureHandler;
     delete mVisibilityHandler;
@@ -199,6 +199,11 @@ void MainWindow::processImage(const CaptureDto &capture)
 	loadImage(capture);
 	showDefault();
 	captureChanged();
+}
+
+DragContent MainWindow::dragContent() const
+{
+	return DragContent(mCaptureHandler->image(), mCaptureHandler->path(), mCaptureHandler->isSaved());
 }
 
 void MainWindow::loadImage(const CaptureDto &capture)
@@ -275,8 +280,8 @@ QSize MainWindow::sizeHint() const
 
 void MainWindow::moveEvent(QMoveEvent* event)
 {
-    mConfig->setWindowPosition(pos());
-    QWidget::moveEvent(event);
+	mConfig->setWindowPosition(pos());
+	QWidget::moveEvent(event);
 }
 
 void MainWindow::closeEvent(QCloseEvent* event)

@@ -192,4 +192,4 @@ you can do that [here](https://www.paypal.me/damirporobic), donations are always
 [gh-comm-since-url]:   https://github.com/ksnip/ksnip/releases/tag/continuous
 
 [discord-badge]:       https://img.shields.io/discord/812295724837371955.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2
-[discord-badge-url]:   https://discord.gg/k67qK4Vn
+[discord-badge-url]:   https://discord.gg/P6MHKKQfS9

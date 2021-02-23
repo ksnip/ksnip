@@ -101,8 +101,10 @@ void MainWindow::handleGuiStartup()
 		if (mConfig->captureOnStartup()) {
 			capture(mConfig->captureMode());
 		} else if (mConfig->startMinimizedToTray() && mConfig->useTrayIcon()) {
+			qDebug("handleGuiStartup: minimized to tray");
 			showHidden();
 		} else {
+			qDebug("handleGuiStartup: show empty");
 			showEmpty();
 		}
 	}
@@ -219,7 +221,7 @@ void MainWindow::capturePostProcessing()
 
 void MainWindow::showEmpty()
 {
-	mVisibilityHandler->minimize();
+	mVisibilityHandler->show();
 	captureChanged();
     setEnablements(false);
 }

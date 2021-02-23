@@ -85,6 +85,7 @@
             <description>
                 <ul>
                     <li>Fixed: Add missing includes to build on UNIX.</li>
+                    <li>Fixed: Ksnip starts minimized.</li>
                 </ul>
             </description>
         </release>

@@ -31,7 +31,7 @@ public:
 	~WidgetVisibilityHandler() = default;
 	virtual void hide();
 	virtual void makeInvisible();
-	virtual void minimize();
+	virtual void show();
 	virtual void restoreVisibility();
 	virtual void enforceVisible();
 	virtual bool isMaximized();

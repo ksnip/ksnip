@@ -40,9 +40,9 @@ void WidgetVisibilityHandler::makeInvisible()
 	mWidget->showMinimized();
 }
 
-void WidgetVisibilityHandler::minimize()
+void WidgetVisibilityHandler::show()
 {
-	mWidget->showMinimized();
+	showWidget();
 }
 
 void WidgetVisibilityHandler::restoreVisibility()

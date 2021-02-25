@@ -154,6 +154,11 @@ QString KsnipConfigOptions::trayIconNotificationsEnabledString()
 	return applicationSectionString() + QLatin1String("TrayIconNotificationsEnabled");
 }
 
+QString KsnipConfigOptions::platformSpecificNotificationServiceEnabledString()
+{
+	return applicationSectionString() + QLatin1String("PlatformSpecificNotificationServiceEnabled");
+}
+
 QString KsnipConfigOptions::startMinimizedToTrayString()
 {
 	return applicationSectionString() + QLatin1String("StartMinimizedToTray");

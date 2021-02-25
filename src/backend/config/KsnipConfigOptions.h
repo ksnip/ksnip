@@ -52,6 +52,7 @@ public:
 	static QString minimizeToTrayString();
 	static QString closeToTrayString();
 	static QString trayIconNotificationsEnabledString();
+	static QString platformSpecificNotificationServiceEnabledString();
 	static QString startMinimizedToTrayString();
 	static QString rememberLastSaveDirectoryString();
 	static QString useSingleInstanceString();

@@ -26,12 +26,13 @@
 
 IToastService *NotificationServiceFactory::create(IToastService *defaultNotificationService)
 {
-	if (!KsnipConfigProvider::instance()->platformSpecificNotificationServiceEnabled()) {
-		return defaultNotificationService;
-	} else {
 #if defined(UNIX_X11)
+	if (KsnipConfigProvider::instance()->platformSpecificNotificationServiceEnabled()) {
 		return new FreeDesktopNotificationService();
-#endif
+	} else {
 		return defaultNotificationService;
 	}
+#else
+	return defaultNotificationService;
+#endif
 }

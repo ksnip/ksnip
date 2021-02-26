@@ -22,12 +22,10 @@
 #include <QVariant>
 
 #include "FreeDesktopNotificationService.h"
-
-static const char * const FREEDESKTOP_STANDARD_INFO_ICON	= "dialog-information";
-static const char * const FREEDESKTOP_STANDARD_WARN_ICON	= "dialog-warning";
-static const char * const FREEDESKTOP_STANDARD_ERR_ICON		= "dialog-error";
+#include "src/common/helper/FileUrlHelper.h"
 
 FreeDesktopNotificationService::FreeDesktopNotificationService()
+	: mNotificationTimeout(7000)
 {
 	mDBusInterface = new QDBusInterface(QStringLiteral("org.freedesktop.Notifications"),
 					   QStringLiteral("/org/freedesktop/Notifications"),
@@ -38,17 +36,17 @@ FreeDesktopNotificationService::FreeDesktopNotificationService()
 
 void FreeDesktopNotificationService::showInfoToast(const QString &title, const QString &message, const QString &contentUrl)
 {
-	showToast(title, message, contentUrl, FREEDESKTOP_STANDARD_INFO_ICON);
+	showToast(title, message, contentUrl, "dialog-information");
 }
 
 void FreeDesktopNotificationService::showWarningToast(const QString &title, const QString &message, const QString &contentUrl)
 {
-	showToast(title, message, contentUrl, FREEDESKTOP_STANDARD_WARN_ICON);
+	showToast(title, message, contentUrl, "dialog-warning");
 }
 
 void FreeDesktopNotificationService::showCriticalToast(const QString &title, const QString &message, const QString &contentUrl)
 {
-	showToast(title, message, contentUrl, FREEDESKTOP_STANDARD_ERR_ICON);
+	showToast(title, message, contentUrl, "dialog-error");
 }
 
 void FreeDesktopNotificationService::showToast(const QString &title, const QString &message, const QString &contentUrl, const QString &appIcon)
@@ -58,9 +56,9 @@ void FreeDesktopNotificationService::showToast(const QString &title, const QStri
 
 	if (!contentUrl.isEmpty()) {
 		if (PlatformChecker::instance()->isKde()) {
-			hintsMap["x-kde-urls"] = QStringList(contentUrl);
+			hintsMap[QLatin1String("x-kde-urls")] = QStringList(contentUrl);
 		} else {
-			hintsMap["image-path"] = "file://" + contentUrl;
+			hintsMap[QLatin1String("image-path")] = FileUrlHelper::toFileUrl(contentUrl);
 		}
 	}
 
@@ -71,9 +69,7 @@ void FreeDesktopNotificationService::showToast(const QString &title, const QStri
 		 << message							// body
 		 << QStringList()					// actions
 		 << hintsMap						// hints
-		 << NOTIFICATION_TIMEOUT;			// expire_timeout
+		 << mNotificationTimeout;			// expire_timeout
 
-	mDBusInterface->callWithArgumentList(QDBus::NoBlock,
-										 QStringLiteral("Notify"),
-										 args);
+	mDBusInterface->callWithArgumentList(QDBus::NoBlock, QStringLiteral("Notify"), args);
 }

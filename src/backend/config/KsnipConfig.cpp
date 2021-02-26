@@ -329,7 +329,7 @@ void KsnipConfig::setTrayIconNotificationsEnabled(bool enabled)
 
 bool KsnipConfig::platformSpecificNotificationServiceEnabled() const
 {
-	return loadValue(KsnipConfigOptions::platformSpecificNotificationServiceEnabledString(), false).toBool();
+	return loadValue(KsnipConfigOptions::platformSpecificNotificationServiceEnabledString(), true).toBool();
 }
 
 void KsnipConfig::setPlatformSpecificNotificationServiceEnabled(bool enabled)

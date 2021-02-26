@@ -45,8 +45,7 @@ protected:
 
 private:
 	QDBusInterface *mDBusInterface;
-
-	const int NOTIFICATION_TIMEOUT = 7000;
+	const int mNotificationTimeout;
 };
 
 #endif //KSNIP_FREEDESKTOPNOTIFICATIONSERVICE_H

@@ -217,8 +217,8 @@ toutes les instances pour activer ou désactiver cette option.</translation>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished">Au démarrage, masquer la barre d’outils et les paramètres d’annotation.
-La visibilité des panneaux peut être basculée avec la touche Tab.</translation>
+        <translation>Cacher au démarrage la barre d&apos;outils et les outils d&apos;annotation.
+La visibilité du panneau d&apos;outils peut être basculée avec la touche TAB.</translation>
     </message>
 </context>
 <context>
@@ -270,7 +270,7 @@ La visibilité des panneaux peut être basculée avec la touche Tab.</translatio
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
         <translation>La capture %1%2%3 a été modifiée.
-Voulez-vous l&apos;enregistrer&#xa0;?</translation>
+Voulez-vous l&apos;enregistrer ?</translation>
     </message>
 </context>
 <context>
@@ -602,7 +602,7 @@ quand la fenêtre principale a été cachée ou minimisée.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Téléversement sur imgur.com terminé&#xa0;!</translation>
+        <translation>Téléversement sur imgur.com terminé !</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -681,7 +681,7 @@ quand la fenêtre principale a été cachée ou minimisée.</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation>URL de base&#xa0;:</translation>
+        <translation>URL de base :</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
@@ -1065,8 +1065,8 @@ Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
         <translation>Les formats supportés sont JPG, PNG et BMP. Si aucun format n’est spécifié, PNG sera utilisé par défaut.
-Le nom du fichier peut contenir les jokers suivants&#xa0;:
-- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format «&#xa0;hhmmss&#xa0;».
+Le nom du fichier peut contenir les jokers suivants :
+- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format « hhmmss ».
 - Plusieurs caractères # permettent de numéroter. Par exemple : #### donnera 0001 puis 0002 à la prochaine capture.</translation>
     </message>
     <message>
@@ -1295,8 +1295,8 @@ active sur Wayland mais toujours sur MacOS.</translation>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Afficher une loupe qui grossit le fond d’écran.
-Cette option ne fonctionne que si «&#xa0;Figer l’image
-avant capture&#xa0;» est activé.</translation>
+Cette option ne fonctionne que si « Figer l’image
+avant capture » est activé.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>

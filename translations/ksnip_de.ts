@@ -396,7 +396,7 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation>Screenshot-Portal</translation>
+        <translation>Bildschirmfoto-Portal</translation>
     </message>
 </context>
 <context>

@@ -218,8 +218,8 @@ toutes les instances pour activer ou désactiver cette option.</translation>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation>Cacher au démarrage la barre d&apos;outils et les outils d&apos;annotation.
-La visibilité du panneau d&apos;outils peut être basculée avec la touche TAB.</translation>
+        <translation>Masquer au démarrage la barre d’outils et les outils d’annotation.
+La visibilité du panneau d’outils peut être basculée avec la touche TAB.</translation>
     </message>
 </context>
 <context>
@@ -313,19 +313,19 @@ Voulez-vous l&apos;enregistrer ?</translation>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de copier dans le presse-papier</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de la copie dans le presse-papier en tant qu’image encodée en base64.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copié dans le presse-papier</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Copié dans le presse-papier en tant qu’image encodée en base64.</translation>
     </message>
 </context>
 <context>
@@ -699,11 +699,11 @@ La modifier nécessite un redémarrage.</translation>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d’ouvrir l’image</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d’ouvrir l’image à partir du chemin %1</translation>
     </message>
 </context>
 <context>
@@ -903,7 +903,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Copie en tant qu’URI de données</translation>
     </message>
     <message>
         <source>Copy capture to system clipboard</source>
@@ -1029,11 +1029,11 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation>Sauvée sous</translation>
+        <translation>Enregistré sous</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation>Impossible de sauver sous</translation>
+        <translation>Impossible de d’enregistrer l’image sous</translation>
     </message>
 </context>
 <context>
@@ -1211,7 +1211,7 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Filigrane</translation>
     </message>
 </context>
 <context>
@@ -1549,23 +1549,23 @@ Vous devrez redémarrer l’application pour que cela prenne effet.</translation
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Filigrane</translation>
+        <translation>Image en filigrane</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Actualiser</translation>
+        <translation>Mettre à jour</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Pivoter le filigrane</translation>
+        <translation>Pivoter le filigrane</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">Si activé, le filigrane sera ajouté avec une rotation de 45°</translation>
+        <translation>Si activé, le filigrane sera ajouté avec une rotation de 45°</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres des filigranes</translation>
     </message>
 </context>
 </TS>

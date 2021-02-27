@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation>Dons</translation>
+        <translation>Faire un don</translation>
     </message>
 </context>
 <context>

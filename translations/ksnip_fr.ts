@@ -144,12 +144,13 @@ La désactivation de cette option permet des numéros dupliqués.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur du canevas</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur d&apos;arrière-plan du canevas par défaut pour la zone d&apos;annotation.
+Le changement de couleur n&apos;affecte que les nouvelles zones d&apos;annotation.</translation>
     </message>
 </context>
 <context>
@@ -914,7 +915,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier le canevas</translation>
     </message>
 </context>
 <context>

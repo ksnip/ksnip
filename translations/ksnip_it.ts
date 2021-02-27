@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation>Contributo económico</translation>
+        <translation>Dona</translation>
     </message>
 </context>
 <context>
@@ -51,7 +51,7 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation>Immagine filigrana Necessaria</translation>
+        <translation>Immagine filigrana necessaria</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
@@ -170,7 +170,7 @@ Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation>Copia automaticamente le nuove acquisizioni negli appunti</translation>
+        <translation>Copia automaticamente le nuove catture negli appunti</translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -347,7 +347,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Donazione</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
@@ -366,7 +366,7 @@ Do you want to continue?</source>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Area rettangolare</translation>
+        <translation>Area rettangolare</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
@@ -390,7 +390,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Portale schermate</translation>
     </message>
 </context>
 <context>

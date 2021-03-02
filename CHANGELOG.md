@@ -22,6 +22,7 @@
 * New kImageAnnotator: Zoom in and out via buttons from UI. ([#197](https://github.com/ksnip/kImageAnnotator/issues/197))
 * New kImageAnnotator: Add reset zoom keyboard shortcut with tooltip. ([#209](https://github.com/ksnip/kImageAnnotator/issues/209))
 * Changed kImageAnnotator: Change drop shadow to cover all sites. ([#202](https://github.com/ksnip/kImageAnnotator/issues/202))
+* Fixed: Not possible to change adorner color. ([#601](https://github.com/ksnip/ksnip/issues/601))
 * Fixed kImageAnnotator: Deleting item outside image doesn't decrease canvas size. ([#164](https://github.com/ksnip/kImageAnnotator/issues/164))
 
 ## Release 1.8.2
@@ -148,7 +149,7 @@
 * New: Allow to change upload imgur URI. ([#159](https://github.com/ksnip/ksnip/issues/159))
 * New: Support for adding custom stickers. ([#246](https://github.com/ksnip/ksnip/issues/246))
 * New kImageAnnotator: Add option to translate UI. ([#54](https://github.com/ksnip/kImageAnnotator/issues/54))
-* New kImageAnnotator: Saved image expand to include annotations out of border. ([#90](https://github.com/ksnip/kImageAnnotator/issues/90))  
+* New kImageAnnotator: Saved image expand to include annotations out of border. ([#90](https://github.com/ksnip/kImageAnnotator/issues/90))
 * New kImageAnnotator: Add support for stickers. ([#74](https://github.com/ksnip/kImageAnnotator/issues/74))
 * New kImageAnnotator: Add tab context menu for close all tabs and close other tabs. ([#93](https://github.com/ksnip/kImageAnnotator/issues/93))
 * New kImageAnnotator: Add Number with Arrow/pointer tool. ([#79](https://github.com/ksnip/kImageAnnotator/issues/79))

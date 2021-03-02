@@ -74,8 +74,7 @@ void ColorButton::openDialog()
 	}
 
 	auto color = QColorDialog::getColor(mColor, parentWidget(), QString(), options);
-	
-	if (mShowAlphaChannel) 
+
 	if (color.isValid() && color != mColor) {
 		setColor(color);
 	}

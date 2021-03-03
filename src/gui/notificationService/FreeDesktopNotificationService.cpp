@@ -36,17 +36,17 @@ FreeDesktopNotificationService::FreeDesktopNotificationService()
 
 void FreeDesktopNotificationService::showInfoToast(const QString &title, const QString &message, const QString &contentUrl)
 {
-	showToast(title, message, contentUrl, "dialog-information");
+	showToast(title, message, contentUrl, QStringLiteral("dialog-information"));
 }
 
 void FreeDesktopNotificationService::showWarningToast(const QString &title, const QString &message, const QString &contentUrl)
 {
-	showToast(title, message, contentUrl, "dialog-warning");
+	showToast(title, message, contentUrl, QStringLiteral("dialog-warning"));
 }
 
 void FreeDesktopNotificationService::showCriticalToast(const QString &title, const QString &message, const QString &contentUrl)
 {
-	showToast(title, message, contentUrl, "dialog-error");
+	showToast(title, message, contentUrl, QStringLiteral("dialog-error"));
 }
 
 void FreeDesktopNotificationService::showToast(const QString &title, const QString &message, const QString &contentUrl, const QString &appIcon)

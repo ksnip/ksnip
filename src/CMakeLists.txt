@@ -98,6 +98,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/GlobalHotKeyHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/HotKeyMap.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/DummyKeyHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/notificationService/NotificationServiceFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/SaveOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/RenameOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/AddWatermarkOperation.cpp
@@ -159,6 +160,7 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11KeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToX11KeyCodeTranslator.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11ErrorLogger.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/notificationService/FreeDesktopNotificationService.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
 		)
 elseif (WIN32)

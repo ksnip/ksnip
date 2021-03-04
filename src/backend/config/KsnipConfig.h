@@ -109,6 +109,9 @@ public:
 	virtual bool trayIconNotificationsEnabled() const;
 	virtual void setTrayIconNotificationsEnabled(bool enabled);
 
+	virtual bool platformSpecificNotificationServiceEnabled() const;
+	virtual void setPlatformSpecificNotificationServiceEnabled(bool enabled);
+
 	virtual bool startMinimizedToTray() const;
 	virtual void setStartMinimizedToTray(bool enabled);
 

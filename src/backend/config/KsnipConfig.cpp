@@ -327,6 +327,19 @@ void KsnipConfig::setTrayIconNotificationsEnabled(bool enabled)
 	saveValue(KsnipConfigOptions::trayIconNotificationsEnabledString(), enabled);
 }
 
+bool KsnipConfig::platformSpecificNotificationServiceEnabled() const
+{
+	return loadValue(KsnipConfigOptions::platformSpecificNotificationServiceEnabledString(), true).toBool();
+}
+
+void KsnipConfig::setPlatformSpecificNotificationServiceEnabled(bool enabled)
+{
+	if (platformSpecificNotificationServiceEnabled() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::platformSpecificNotificationServiceEnabledString(), enabled);
+}
+
 bool KsnipConfig::startMinimizedToTray() const
 {
 	return loadValue(KsnipConfigOptions::startMinimizedToTrayString(), false).toBool();

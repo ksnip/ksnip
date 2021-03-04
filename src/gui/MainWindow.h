@@ -30,6 +30,7 @@
 #include "src/gui/imageAnnotator/KImageAnnotatorAdapter.h"
 #include "src/gui/aboutDialog/AboutDialog.h"
 #include "src/gui/settingsDialog/SettingsDialog.h"
+#include "src/gui/notificationService/NotificationServiceFactory.h"
 #include "src/gui/operations/AddWatermarkOperation.h"
 #include "src/gui/operations/CopyAsDataUriOperation.h"
 #include "src/gui/operations/UploadOperation.h"

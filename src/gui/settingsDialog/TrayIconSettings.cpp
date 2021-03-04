@@ -78,8 +78,8 @@ void TrayIconSettings::initGui()
 	mCloseToTrayCheckBox->setText(tr("Close to Tray"));
 	mTrayIconNotificationsCheckBox->setText(tr("Display Tray icon notifications"));
 	mUsePlatformSpecificNotificationServiceCheckBox->setText(tr("Use platform specific notification service"));
-	mUsePlatformSpecificNotificationServiceCheckBox->setToolTip(tr("When enabled will use the platform specific notification service.\n"
-																   "Change requires restart."));
+	mUsePlatformSpecificNotificationServiceCheckBox->setToolTip(tr("When enabled will use try to use platform specific notification\n"
+																   "service when such exists. Change requires restart to take effect."));
 
 	connect(mUseTrayIconCheckBox, &QCheckBox::stateChanged, this, &TrayIconSettings::useTrayIconChanged);
 

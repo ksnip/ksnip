@@ -80,7 +80,7 @@ elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
 elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/setup_dependencies_windows.sh
 elif [[ "${BINARY_TYPE}" == "app" ]]; then
-    brew upgrade qt
+    # brew upgrade qt    # qt is currently being updated to version qt6 which we don't support yet 
 
     export PATH="/usr/local/opt/qt/bin:$PATH"
 

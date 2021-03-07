@@ -81,7 +81,8 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/setup_dependencies_windows.sh
 elif [[ "${BINARY_TYPE}" == "app" ]]; then
     # brew upgrade qt    # qt is currently being updated to version qt6 which we don't support yet 
-    brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/8f78866695de996a3f7d5d6e193c47ca2fa48503/Formula/qt.rb # install qt5 version
+    # brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/8f78866695de996a3f7d5d6e193c47ca2fa48503/Formula/qt.rb # install qt5 version
+    brew install qt@5.15.2
 
     export PATH="/usr/local/opt/qt/bin:$PATH"
 

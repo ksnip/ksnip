@@ -80,13 +80,10 @@ elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
 elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/setup_dependencies_windows.sh
 elif [[ "${BINARY_TYPE}" == "app" ]]; then
-    # brew upgrade qt    # qt is currently being updated to version qt6 which we don't support yet 
-    # brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/8f78866695de996a3f7d5d6e193c47ca2fa48503/Formula/qt.rb # install qt5 version
+    # brew upgrade qt    # qt is currently being updated to version qt6 which we don't support yet, trying to install qt5 below
     echo "--> Try install qt5"
     brew install qt5
-    echo "--> Try install qt from rb file"
-    curl -O https://raw.githubusercontent.com/Homebrew/homebrew-core/8f78866695de996a3f7d5d6e193c47ca2fa48503/Formula/qt.rb
-    brew install ./qt.rb
+    echo 'export PATH="/usr/local/opt/qt@5/bin:$PATH"' >> /Users/travis/.bash_profile
 
     export PATH="/usr/local/opt/qt/bin:$PATH"
 

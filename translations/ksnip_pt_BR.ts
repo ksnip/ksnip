@@ -1470,7 +1470,7 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
-        <translation>Exibir ícone da bandeja</translation>
+        <translation>Exibir notificações na bandeja</translation>
     </message>
 </context>
 <context>

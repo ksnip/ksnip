@@ -80,14 +80,6 @@ elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
 elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/setup_dependencies_windows.sh
 elif [[ "${BINARY_TYPE}" == "app" ]]; then
-    # brew upgrade qt    # qt is currently being updated to version qt6 which we don't support yet, trying to install qt5 below
-    echo "--> Try install qt5"
-    brew install qt5
-    echo 'export PATH="/usr/local/opt/qt@5/bin:$PATH"' >> /Users/travis/.bash_profile
-    
-    export LDFLAGS="-L/usr/local/opt/qt@5/lib"
-    export CPPFLAGS="-I/usr/local/opt/qt@5/include"
-
     export PATH="/usr/local/opt/qt/bin:$PATH"
 
     source ci/scripts/common/setup_dependencies_linux_noSudo.sh

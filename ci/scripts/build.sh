@@ -35,7 +35,7 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     mv build/src/ksnip*.app ksnip.app
     cp build/translations/ksnip_*.qm ./ksnip.app/Contents/Resources/
     cp build/translations/kImageAnnotator_*.qm ./ksnip.app/Contents/Resources/
-    /usr/local/opt/qt@5/bin/macdeployqt ksnip.app -dmg -sign-for-notarization="${APPLE_DEV_IDENTITY}"
+    macdeployqt ksnip.app -dmg -sign-for-notarization="${APPLE_DEV_IDENTITY}"
     mv ksnip.dmg ksnip-${VERSION}.dmg
 
     echo "--> Notarize MacOS package"

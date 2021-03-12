@@ -74,6 +74,11 @@ QString KsnipConfigOptions::autoHideDocksString()
 	return applicationSectionString() + QLatin1String("AutoHideDocks");
 }
 
+QString KsnipConfigOptions::autoResizeToContentString()
+{
+	return applicationSectionString() + QLatin1String("AutoResizeToContent");
+}
+
 QString KsnipConfigOptions::freezeImageWhileSnippingEnabledString()
 {
 	return imageGrabberSectionString() + QLatin1String("FreezeImageWhileSnippingEnabled");
@@ -147,6 +152,11 @@ QString KsnipConfigOptions::closeToTrayString()
 QString KsnipConfigOptions::trayIconNotificationsEnabledString()
 {
 	return applicationSectionString() + QLatin1String("TrayIconNotificationsEnabled");
+}
+
+QString KsnipConfigOptions::platformSpecificNotificationServiceEnabledString()
+{
+	return applicationSectionString() + QLatin1String("PlatformSpecificNotificationServiceEnabled");
 }
 
 QString KsnipConfigOptions::startMinimizedToTrayString()

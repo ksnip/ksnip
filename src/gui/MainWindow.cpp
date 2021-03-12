@@ -24,6 +24,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	QMainWindow(),
 	mToolBar(nullptr),
 	mImageGrabber(imageGrabber),
+	mServiceLocator(new ServiceLocator),
 	mMode(mode),
 	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
@@ -39,6 +40,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mSettingsAction(new QAction(this)),
 	mAboutAction(new QAction(this)),
 	mOpenImageAction(new QAction(this)),
+	mRecentImagesMenu(new RecentImagesMenu(mServiceLocator->recentImageService(), this)),
 	mScaleAction(new QAction(this)),
 	mAddWatermarkAction(new QAction(this)),
 	mPasteAction(new QAction(this)),
@@ -48,18 +50,18 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mModifyCanvasAction(new QAction(this)),
 	mMainLayout(layout()),
 	mConfig(KsnipConfigProvider::instance()),
-	mServiceLocator(new ServiceLocator),
 	mClipboard(mServiceLocator->clipboard()),
 	mCapturePrinter(new CapturePrinter(this)),
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 	mTrayIcon(new TrayIcon(this)),
-	mDragAndDropHandler(new DragAndDropHandler),
+	mDragAndDropProcessor(new DragAndDropProcessor(this)),
 	mUploaderProvider(new UploaderProvider),
 	mSessionManagerRequestedQuit(false),
-	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mTrayIcon, mServiceLocator, this)),
+	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, NotificationServiceFactory::create(mTrayIcon), mServiceLocator, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
 	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this)),
-	mFileDialog(FileDialogAdapterFactory::create())
+	mFileDialog(FileDialogAdapterFactory::create()),
+	mWindowResizer(new WindowResizer(this, mConfig))
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -78,8 +80,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	setPosition();
 
 	setAcceptDrops(true);
-	qApp->installEventFilter(mDragAndDropHandler);
-	connect(mDragAndDropHandler, &DragAndDropHandler::imageDropped, this, &MainWindow::loadImageFromFile);
+	qApp->installEventFilter(mDragAndDropProcessor);
+	connect(mDragAndDropProcessor, &DragAndDropProcessor::imageDropped, this, &MainWindow::loadImageFromFile);
 
 	connect(mConfig, &KsnipConfig::annotatorConfigChanged, this, &MainWindow::setupImageAnnotator);
 
@@ -89,6 +91,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::capture);
 
 	connect(mUploaderProvider, &UploaderProvider::finished, this, &MainWindow::uploadFinished);
+
+	connect(mRecentImagesMenu, &RecentImagesMenu::openRecentSelected, this, &MainWindow::loadImageFromFile);
 
 	mCaptureHandler->addListener(this);
 
@@ -144,11 +148,12 @@ MainWindow::~MainWindow()
     delete mModifyCanvasAction;
     delete mCapturePrinter;
     delete mTrayIcon;
-    delete mDragAndDropHandler;
+    delete mDragAndDropProcessor;
     delete mUploaderProvider;
     delete mCaptureHandler;
     delete mVisibilityHandler;
     delete mFileDialog;
+    delete mWindowResizer;
 }
 
 void MainWindow::processInstantCapture(const CaptureDto &capture)
@@ -185,11 +190,7 @@ void MainWindow::processCapture(const CaptureDto &capture)
 		return;
 	}
 
-	loadImage(capture);
-
-	showDefault();
-
-	captureChanged();
+	processImage(capture);
 	capturePostProcessing();
 }
 
@@ -198,6 +199,11 @@ void MainWindow::processImage(const CaptureDto &capture)
 	loadImage(capture);
 	showDefault();
 	captureChanged();
+}
+
+DragContent MainWindow::dragContent() const
+{
+	return DragContent(mCaptureHandler->image(), mCaptureHandler->path(), mCaptureHandler->isSaved());
 }
 
 void MainWindow::loadImage(const CaptureDto &capture)
@@ -230,9 +236,9 @@ void MainWindow::capturePostProcessing()
 
 void MainWindow::showEmpty()
 {
-	mVisibilityHandler->minimize();
+	mVisibilityHandler->show();
 	captureChanged();
-    setEnablements(false);
+	setEnablements(false);
 }
 
 void MainWindow::showHidden()
@@ -248,7 +254,7 @@ void MainWindow::showDefault()
 	enforceShow ? mVisibilityHandler->enforceVisible() : mVisibilityHandler->restoreVisibility();
 
 	if(!mVisibilityHandler->isMaximized()) {
-		resizeToContent();
+		mWindowResizer->resize();
 	}
 
 	setEnablements(true);
@@ -274,8 +280,8 @@ QSize MainWindow::sizeHint() const
 
 void MainWindow::moveEvent(QMoveEvent* event)
 {
-    mConfig->setWindowPosition(pos());
-    QWidget::moveEvent(event);
+	mConfig->setWindowPosition(pos());
+	QWidget::moveEvent(event);
 }
 
 void MainWindow::closeEvent(QCloseEvent* event)
@@ -378,7 +384,7 @@ void MainWindow::toggleDocks()
 	auto collapsedToggleText = newIsCollapsedState ? tr("Show Docks") : tr("Hide Docks");
 	mToggleDocksAction->setText(collapsedToggleText);
 
-	resizeToContent();
+	mWindowResizer->resize();
 }
 
 void MainWindow::initGui()
@@ -460,6 +466,9 @@ void MainWindow::initGui()
     mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
     connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::showOpenImageDialog);
 
+	mRecentImagesMenu->setTitle(tr("Open &Recent"));
+	mRecentImagesMenu->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
+
 	mPasteAction->setText(tr("Paste"));
 	mPasteAction->setIcon(IconLoader::loadForTheme(QLatin1String("paste")));
 	mPasteAction->setShortcut(Qt::CTRL + Qt::Key_V);
@@ -490,6 +499,7 @@ void MainWindow::initGui()
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
     menu->addAction(mOpenImageAction);
+    menu->addMenu(mRecentImagesMenu);
     menu->addAction(mToolBar->saveAction());
     menu->addAction(mSaveAsAction);
     menu->addAction(mUploadAction);
@@ -674,11 +684,8 @@ void MainWindow::saveAsClicked()
 
 void MainWindow::loadImageFromFile(const QString &path)
 {
-	auto pixmap = QPixmap(path);
-	if(!pixmap.isNull()) {
-		CaptureFromFileDto captureDto(pixmap, path);
-		processImage(captureDto);
-	}
+	LoadImageFromFileOperation operation(this, path, mTrayIcon, mServiceLocator);
+	operation.execute();
 }
 
 void MainWindow::sessionFinished()
@@ -700,7 +707,7 @@ void MainWindow::uploadFinished(const UploadResult &result)
 void MainWindow::captureEmpty()
 {
 	setEnablements(false);
-	resizeToContent();
+	mWindowResizer->resetAndResize();
 }
 
 void MainWindow::showPinWindow()

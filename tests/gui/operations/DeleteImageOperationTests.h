@@ -30,9 +30,9 @@ class DeleteImageOperationTests : public QObject
 {
 	Q_OBJECT
 private slots:
-	void TestExecute_Should_ReturnFalse_When_MessageBoxResponseWasCancel();
-	void TestExecute_Should_ReturnTrue_When_MessageBoxResponseWasTrue_And_FileServiceSaveSuccessfully();
-	void TestExecute_Should_ReturnFalse_When_MessageBoxResponseWasTrue_And_FileServiceSaveFailed();
+	void Execute_Should_ReturnFalse_When_MessageBoxResponseWasCancel();
+	void Execute_Should_ReturnTrue_When_MessageBoxResponseWasTrue_And_FileServiceSaveSuccessfully();
+	void Execute_Should_ReturnFalse_When_MessageBoxResponseWasTrue_And_FileServiceSaveFailed();
 };
 
 #endif //KSNIP_DELETEIMAGEOPERATIONTESTS_H

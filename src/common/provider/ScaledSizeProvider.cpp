@@ -19,6 +19,11 @@
 
 #include "ScaledSizeProvider.h"
 
+#if defined(UNIX_X11)
+#include <QApplication>
+#include <QScreen>
+#endif
+
 QSize ScaledSizeProvider::scaledSize(const QSize &size)
 {
 	return size * scaleFactor();

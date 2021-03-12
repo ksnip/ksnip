@@ -26,6 +26,7 @@
 #include "src/backend/uploader/IUploader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/common/enum/UploadStatus.h"
+#include "src/common/provider/TempFileProvider.h"
 
 class ScriptUploader : public QObject, public IUploader
 {

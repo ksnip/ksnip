@@ -28,19 +28,19 @@ class PathHelperTests : public QObject
 {
 	Q_OBJECT
 private slots:
-	void TestIsPathValid_Should_ReturnFalse_When_StringEmpty();
-	void TestIsPathValid_Should_ReturnFalse_When_StringNull();
-	void TestIsPipePath_Should_ReturnTrue_When_PathIsDash();
-	void TestIsPipePath_Should_ReturnFalse_When_PathIsNull();
-	void TestIsPipePath_Should_ReturnFalse_When_PathIsEmpty();
-	void TestIsPathValid_Should_ReturnTrue_When_StringHasContent();
-	void TestExtractParentDirectory_Should_ReturnStringWithParentDirectoryPath();
-	void TestExtractFilename_Should_ReturnStringWithFilenameWithoutFormat_When_FormatExists();
-	void TestExtractFilename_Should_ReturnStringWithFilenameWithoutFormat_When_NoFormatExists();
-	void TestExtractFilenameWithFormat_Should_ReturnStringWithFilenameWithFormat_When_FormatExists();
-	void TestExtractFilenameWithFormat_Should_ReturnStringWithFilenameWithFormat_When_NoFormatExists();
-	void TestExtractFormat_Should_ReturnWithFormat_When_FormatExists();
-	void TestExtractFormat_Should_ReturnEmptyString_When_NoFormatExists();
+	void IsPathValid_Should_ReturnFalse_When_StringEmpty();
+	void IsPathValid_Should_ReturnFalse_When_StringNull();
+	void IsPipePath_Should_ReturnTrue_When_PathIsDash();
+	void IsPipePath_Should_ReturnFalse_When_PathIsNull();
+	void IsPipePath_Should_ReturnFalse_When_PathIsEmpty();
+	void IsPathValid_Should_ReturnTrue_When_StringHasContent();
+	void ExtractParentDirectory_Should_ReturnStringWithParentDirectoryPath();
+	void ExtractFilename_Should_ReturnStringWithFilenameWithoutFormat_When_FormatExists();
+	void ExtractFilename_Should_ReturnStringWithFilenameWithoutFormat_When_NoFormatExists();
+	void ExtractFilenameWithFormat_Should_ReturnStringWithFilenameWithFormat_When_FormatExists();
+	void ExtractFilenameWithFormat_Should_ReturnStringWithFilenameWithFormat_When_NoFormatExists();
+	void ExtractFormat_Should_ReturnWithFormat_When_FormatExists();
+	void ExtractFormat_Should_ReturnEmptyString_When_NoFormatExists();
 };
 
 #endif //KSNIP_PATHHELPERTESTS_H

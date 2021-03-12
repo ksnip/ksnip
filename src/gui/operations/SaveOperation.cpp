@@ -21,40 +21,46 @@
 
 #include <utility>
 
-SaveOperation::SaveOperation(QWidget *parent, QImage image, bool isInstantSave, IToastService *toastService) :
+SaveOperation::SaveOperation(QWidget *parent, QImage image, bool isInstantSave, IToastService *toastService, IRecentImageService *recentImageService) :
 	mParent(parent),
 	mImage(std::move(image)),
 	mIsInstantSave(isInstantSave),
 	mToastService(toastService),
+	mRecentImageService(recentImageService),
 	mConfig(KsnipConfigProvider::instance())
 {
     Q_ASSERT(mParent != nullptr);
 }
 
-SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, IToastService *toastService) : SaveOperation(parent, image, isInstantSave, toastService)
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, IToastService *toastService, IRecentImageService *recentImageService) :
+	SaveOperation(parent, image, isInstantSave, toastService, recentImageService)
 {
 	mPathToImageSource = pathToImageSource;
 }
 
 SaveResultDto SaveOperation::execute()
 {
-    auto path = getSavePath();
+	auto path = getSavePath();
 
-    if(!mIsInstantSave){
-	    auto title = tr("Save As");
-	    auto filter = tr("Images") + QLatin1String(" (*.png *.gif *.jpg);;") + tr("All Files") + QLatin1String("(*)");
+	if(!mIsInstantSave){
+		auto title = tr("Save As");
+		auto filter = tr("Images") + QLatin1String(" (*.png *.gif *.jpg);;") + tr("All Files") + QLatin1String("(*)");
 		auto fileDialogAdapter = FileDialogAdapterFactory::create();
 		auto selectedSavePath = fileDialogAdapter->getSavePath(mParent, title, path, filter);
 
-	    if (selectedSavePath.isNull()) {
-		    return SaveResultDto(false, path);
-	    }
+		if (selectedSavePath.isNull()) {
+			return SaveResultDto(false, path);
+		}
 
-	    path = selectedSavePath;
-    }
+		path = selectedSavePath;
+	}
 
 	auto saveResult = save(path);
 	updateSaveDirectoryIfRequired(path, saveResult);
+
+	if (saveResult.isSuccessful) {
+		mRecentImageService->storeImagePath(path);
+	}
 
 	return saveResult;
 }
@@ -85,7 +91,6 @@ SaveResultDto SaveOperation::save(const QString &path)
 
 void SaveOperation::notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const
 {
-	auto parentDirectory = PathHelper::extractParentDirectory(path);
-	NotifyOperation operation(mToastService, title, message + QLatin1String(" ") + path, parentDirectory, notificationType);
+	NotifyOperation operation(mToastService, title, message + QLatin1String(" ") + path, path, notificationType);
 	operation.execute();
 }

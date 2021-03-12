@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,31 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_DRAGANDDROPHANDLER_H
-#define KSNIP_DRAGANDDROPHANDLER_H
+#ifndef KSNIP_IMAGEPROCESSORMOCK_H
+#define KSNIP_IMAGEPROCESSORMOCK_H
 
-#include <QObject>
-#include <QDragEnterEvent>
-#include <QMimeData>
-#include <QGraphicsSceneDragDropEvent>
+#include "src/gui/IImageProcessor.h"
+#include "tests/utils/CallCounter.h"
 
-#include "src/common/helper/FileUrlHelper.h"
-
-class DragAndDropHandler : public QObject
+class ImageProcessorMock : public IImageProcessor
 {
-	Q_OBJECT
 public:
-	bool eventFilter(QObject *obj, QEvent *event) override;
+	ImageProcessorMock() = default;
+	~ImageProcessorMock() = default;
+	void processImage(const CaptureDto &capture) override;
 
-signals:
-	void imageDropped(const QString &path);
+	// Mock Methods
+	CaptureDto processImage_get() const;
+	int processImage_callCounter() const;
 
 private:
-	bool handleDragEnter(QDragEnterEvent *event);
-	bool handleDragEnter(QGraphicsSceneDragDropEvent *event);
-	bool handleDrop(QDropEvent *event);
-	bool handleDrop(QGraphicsSceneDragDropEvent *event);
-	QStringList getUrlsFromMimeData(const QMimeData *mimeData) const;
+	CaptureDto mLastProcessImageParameter;
+	CallCounter<int> mProcessImageCallCounter;
 };
 
-#endif //KSNIP_DRAGANDDROPHANDLER_H
+
+#endif //KSNIP_IMAGEPROCESSORMOCK_H

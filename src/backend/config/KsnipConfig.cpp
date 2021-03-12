@@ -87,6 +87,19 @@ void KsnipConfig::setAutoHideDocks(bool enabled)
 	saveValue(KsnipConfigOptions::autoHideDocksString(), enabled);
 }
 
+bool KsnipConfig::autoResizeToContent() const
+{
+	return loadValue(KsnipConfigOptions::autoResizeToContentString(), true).toBool();
+}
+
+void KsnipConfig::setAutoResizeToContent(bool enabled)
+{
+	if (autoResizeToContent() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::autoResizeToContentString(), enabled);
+}
+
 bool KsnipConfig::useTabs() const
 {
 	return loadValue(KsnipConfigOptions::useTabsString(), true).toBool();
@@ -312,6 +325,19 @@ void KsnipConfig::setTrayIconNotificationsEnabled(bool enabled)
 		return;
 	}
 	saveValue(KsnipConfigOptions::trayIconNotificationsEnabledString(), enabled);
+}
+
+bool KsnipConfig::platformSpecificNotificationServiceEnabled() const
+{
+	return loadValue(KsnipConfigOptions::platformSpecificNotificationServiceEnabledString(), true).toBool();
+}
+
+void KsnipConfig::setPlatformSpecificNotificationServiceEnabled(bool enabled)
+{
+	if (platformSpecificNotificationServiceEnabled() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::platformSpecificNotificationServiceEnabledString(), enabled);
 }
 
 bool KsnipConfig::startMinimizedToTray() const

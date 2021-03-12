@@ -119,22 +119,6 @@ haien leuntasuna areagotuz.</translation>
         <translation>Zenbakitzeko tresnaren letra mota ezartzen du.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Ur-markaren irudia</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Eguneratu</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Biratu ur-marka</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Aktibatuta dagoenean, ur-marka 45ªko biraketarekin gehituko da</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Nabarmentzearen ezarpenak</translation>
     </message>
@@ -148,13 +132,25 @@ haien leuntasuna areagotuz.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Zenbakien tresna aldatzean zenbaki elementu guztiak eguneratzen dira</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aukera hau desgaitzeak zenbakien tresnan aldaketak eragiten ditu
+soilik elementu berrietan, baina ez dauden elementuak.
+Aukera hau desgaitzeak zenbaki bikoiztuak edukitzea ahalbidetzen du.</translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation>Oihalaren kolorea</translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation>Oharpen-eremurako oihalaren atzeko planoaren kolore lehenetsia.
+Koloreak aldatzeak oharpen gune berriei eragiten die.</translation>
     </message>
 </context>
 <context>
@@ -213,16 +209,17 @@ eskatzen du.</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezkutatu fitxak automatikoki</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto ezkutatu kaiak</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezkutatu tresna barra eta oharpen ezarpenak abiatzean.
+Kaien ikusgarritasuna Tab teklarekin txandakatu daiteke.</translation>
     </message>
 </context>
 <context>
@@ -310,6 +307,25 @@ Nahi duzu gordetzea?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Pantaila-argazkien ataria erabiltzen du pantaila-argazkia egiteko</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation>Arbelera kopiatzeak huts egin du</translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation>Arbelera base54 kodetutako irudi gisa kopiatzeak huts egin du.</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation>Arbelera kopiatu da</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation>Arbelera base64 kodetutako irudi gisa kopiatu da.</translation>
     </message>
 </context>
 <context>
@@ -680,6 +696,17 @@ Aldatzeak berrabiaraztea eskatzen du.</translation>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation>Ezin izan da irudia ireki</translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation>Ezin izan da irudia path %1-tik ireki</translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -868,11 +895,27 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Erakutsi kaiak</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezkutatu kaiak</translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation>URl data gisa kopiatu da</translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation>Kopiatu pantaila-argazkia arbelera</translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation>Ireki duela gutxikoa</translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation>Aldatu oihala</translation>
     </message>
 </context>
 <context>
@@ -1159,34 +1202,38 @@ Ez badago, dena kopiatzen da.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation>Argazkirako area</translation>
+        <translation>Argazki-area</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Erretiluko ikonoa</translation>
+    </message>
+    <message>
+        <source>Watermark</source>
+        <translation>Ur-marka</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hautatutako zuzenaren tamaina aldatu heldulekuak erabiliz edo mugitu hautapena arrastatuz.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erabili gezi-teklak hautaketa mugitzeko</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erabili gezi-teklak CTRL sakatzen duzun bitartean goiko ezkerreko heldulekua mugitzeko.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erabili gezi-teklak ALT sakatzen duzun bitartean beheko eskuineko heldulekua mugitzeko.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Berretsi hautamena SARTU sakatuta edo utzi ESC sakatuta.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
@@ -1197,7 +1244,7 @@ Ez badago, dena kopiatzen da.</translation>
     <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation>Egin klik eta arrastatu area rektangularra hautatzeko edo ESC ateratzeko.</translation>
+        <translation>Egin klik eta arrastatu area laukizuzena hautatzeko edo ESC ateratzeko.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
@@ -1220,7 +1267,7 @@ Ez badago, dena kopiatzen da.</translation>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Izoztu irudia ebaki bitartean</translation>
+        <translation>Izoztu irudia argazkia egin bitartean</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1232,39 +1279,39 @@ the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
         <translation>Gaituta dagoenean atzeko planoa izoztuko da
-area rektangularra hautatu bitartean. Atzeratutako
+area laukizuzena hautatu bitartean. Atzeratutako
 pantailen portaera ere aldatzen du, aukera hau
-aktibatuta atzerapena ebakigunea erakutsi aurretik 
+aktibatuta atzerapena argazki-area erakutsi aurretik 
 gertatzen da eta aukera desgaituta dagonean
-atzerapena ebakitzeko eremua erakutsi ondoren gertatzen da.
+atzerapena argazki-area erakutsi ondoren gertatzen da.
 Ezaugarri hau beti desgaituta dago Wayland-entzat eta beti
 gaituta MacOs-entzat.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Erakutsi lupa ebakitze arean</translation>
+        <translation>Erakutsi lupa argazki-arean</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Erakutsi atzeko irudira urbiltzen den
+        <translation>Erakutsi atzeko planoko irudia handitzen duen
 lupa. Aukera honek bakarrik funtzionatzen du
-&quot;Izoztu irudia ebaki bitartean&quot; aktibatuta badago.</translation>
+&quot;Izoztu irudia argazkia egin bitartean&quot; aktibatuta badago.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Erakutsi ebaketa arearen erregelak</translation>
+        <translation>Erakutsi argazki-arearen erregelak</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Mahaigaineko ertzetatik ebakitze-areako kurtsorera
-datozen lerro horizontalak eta bertikalak.</translation>
+        <translation>Lerro horizontal eta bertikalak zabaltzen dira
+mahaigainaren izkinetatik kurtsorera argazki-zonan.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Erakutsi ebaketa arearen kokapena eta tamainaren informazioa</translation>
+        <translation>Erakutsi argaki-arearen kokapena eta tamainaren informazioa</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
@@ -1278,7 +1325,7 @@ aldean.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation>Onartu berez hautatutako area rektangularraren tamaina aldatzea</translation>
+        <translation>Onartu berez hautatutako area laukizuzenaren tamaina aldatzea</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
@@ -1286,51 +1333,53 @@ area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
         <translation>Gaituta badago onartzen da hautatutako 
-arearen tamaina aldatzea. Tamaian aldatu
-ondoren hautaketa berretzi behar da Sartu
+arearen tamaina aldatzea. Tamaina aldatu
+ondoren hautaketa berretsi behar da Sartu
 sakatuta.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation>Erakutsi ebaketa arearen informazioa</translation>
+        <translation>Erakutsi argazki-arearen informazioa</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Ebaketarako kurtsorearen kolorea</translation>
+        <translation>Argazki-arearen kurtsorearen kolorea</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation>Ebaketa-arearen kurtsorearen kolorea ezartzen du.</translation>
+        <translation>Argazki-arearen kurtsorearen kolorea ezartzen du.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Ebaketa arearen kurtsorearen zabalera</translation>
+        <translation>Argazki-arearen kurtsorearen zabalera</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation>Ebaketa-arearen kurtsorearen lodiera ezartzen du.</translation>
+        <translation>Argazki-arearen kurtsorearen lodiera ezartzen du.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation>Ebaketa-area</translation>
+        <translation>Argazki-area</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Argazki-arearen dekorazioaren kolorea</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Argazki-arearen dekorazio elementuen
+kolorea ezartzen du.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Argazki-arearen gardentasuna</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Argazki-areako hautatu gabeko zonaren Alpha.
+Zenbaki txikiagoak gardenagoa adierazten du.</translation>
     </message>
 </context>
 <context>
@@ -1409,15 +1458,19 @@ Aldaketak berrabiaraztea eskatzen du.</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Erretiluko ikonoaren eragiketa lehenetsia</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erretiluaren ikonoan ezkerreko klik egitean aktibatzen den eragiketa lehenetsia.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Erretiluko ikonoaren ezarpenak</translation>
+    </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation>Erakutsi erretiluko ikonoaren jakinarazpenak</translation>
     </message>
 </context>
 <context>
@@ -1490,6 +1543,29 @@ Aldaketak berrabiaraztea eskatzen du.</translation>
     <message>
         <source>Using:</source>
         <translation>Erabiltzen:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished">Ur-markaren irudia</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Eguneratu</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished">Biratu ur-marka</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished">Aktibatuta dagoenean, ur-marka 45ªko biraketarekin gehituko da</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation>Ur-markaren ezarpenak</translation>
     </message>
 </context>
 </TS>

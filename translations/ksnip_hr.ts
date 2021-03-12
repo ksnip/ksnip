@@ -55,7 +55,7 @@
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Dodaj sliku vodenog žiaga putem Opcije &gt; Postavke &gt; Komentator &gt; Aktualiziraj</translation>
+        <translation>Dodaj sliku vodenog žiga putem Opcije &gt; Postavke &gt; Komentari &gt; Aktualiziraj</translation>
     </message>
 </context>
 <context>
@@ -119,32 +119,16 @@ zaglađivanje.</translation>
         <translation>Postavlja font za brojevne elemente.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Slika vodenog žiga</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Aktualiziraj</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Okreni vodeni žig</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Kad je aktivirano, dodat će se vodeni žig okrenut za 45 stupnjeva</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
-        <translation>Komentator postavke</translation>
+        <translation>Postavke komentara</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation>Zapamti odabir alata za komentiranje i učitaj tijekom pokretanja programa</translation>
+        <translation>Zapamti odabir alata za komentare i učitaj ga tijekom pokretanja programa</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation>Prebaci na alat za odabir nakon crtanja elementa</translation>
+        <translation>Prebaci na alat za biranje elemenata nakon crtanja elementa</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
@@ -157,6 +141,16 @@ Disabling this option allows having duplicate numbers.</source>
         <translation>Deaktiviranjem ove opcije brojač utječe samo na nove
 elemente, ne i na postojeće. Na taj je način moguće
 koristiti iste brojeve višestruko.</translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation>Boja platna</translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation>Standardna boja pozadine platna za područje komentara.
+Promjena boje utječe samo na nova područja komentara.</translation>
     </message>
 </context>
 <context>
@@ -224,7 +218,7 @@ Mijenjanje ove opcije zahtijeva ponovno pokretanje svih primjeraka.</translation
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation>Prilikom pokretanja sakrij postavke alatne trake i komentiranja.
+        <translation>Prilikom pokretanja sakrij alatnu traku i postavke komentara.
 Vidljivost ploča može se promijeniti pomoću tipke tabulatora.</translation>
     </message>
 </context>
@@ -313,6 +307,25 @@ Do you want to save it?</source>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Koristi portal slika ekrana za snimanje slike ekrana</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation>Neuspjelo kopiranje u međuspremnik</translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation>Neuspjelo kopiranje u međuspremnik kao base64-kodiranu sliku.</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation>Kopirano u međuspremnik</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation>Kopirano u međuspremnik kao base64-kodirana slika.</translation>
     </message>
 </context>
 <context>
@@ -683,6 +696,17 @@ Promjena zahtijeva ponovno pokretanje programa.</translation>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation>Neuspjelo otvaranje slike</translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation>Neuspjelo otvaranje slike iz %1</translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -876,6 +900,22 @@ okidanja i snimanja slike ekrana.</translation>
     <message>
         <source>Hide Docks</source>
         <translation>Sakrij ploče</translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation>Kopiraj kao URI podatke</translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation>Kopiraj snimku u međuspremnik sustava</translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation>Otvori &amp;nedavne</translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation>Promijeni platno</translation>
     </message>
 </context>
 <context>
@@ -1139,7 +1179,7 @@ RegEx izrazom. Ako se izostavi, kopira se sve.</translation>
     </message>
     <message>
         <source>Annotator</source>
-        <translation>Komentator</translation>
+        <translation>Komentari</translation>
     </message>
     <message>
         <source>HotKeys</source>
@@ -1168,6 +1208,10 @@ RegEx izrazom. Ako se izostavi, kopira se sve.</translation>
     <message>
         <source>Tray Icon</source>
         <translation>Ikona u programskoj traci</translation>
+    </message>
+    <message>
+        <source>Watermark</source>
+        <translation>Vodeni žig</translation>
     </message>
 </context>
 <context>
@@ -1423,6 +1467,10 @@ Promjena zahtijeva ponovno pokretanje programa.</translation>
         <source>Tray Icon Settings</source>
         <translation>Postavke ikone u programskoj traci</translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation>Prikaži obavijesti u programskoj traci</translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1494,6 +1542,29 @@ Promjena zahtijeva ponovno pokretanje programa.</translation>
     <message>
         <source>Using:</source>
         <translation>Koristi:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation>Slika vodenog žiga</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Aktualiziraj</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation>Okreni vodeni žig</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation>Kad je aktivirano, dodat će se vodeni žig okrenut za 45 stupnjeva</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation>Postavke vodenog žiga</translation>
     </message>
 </context>
 </TS>

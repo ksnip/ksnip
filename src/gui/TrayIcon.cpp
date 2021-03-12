@@ -125,7 +125,7 @@ void TrayIcon::showCriticalToast(const QString &title, const QString &message, c
 
 void TrayIcon::showMessage(const QString &title, const QString &message, const QString &contentUrl, QSystemTrayIcon::MessageIcon messageIcon)
 {
-	mToastContentUrl = contentUrl;
+	mToastContentUrl = PathHelper::extractParentDirectory(contentUrl);
 	QSystemTrayIcon::showMessage(title, message, messageIcon);
 }
 

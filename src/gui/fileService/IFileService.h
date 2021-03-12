@@ -21,6 +21,7 @@
 #define KSNIP_IFILESERVICE_H
 
 #include <QString>
+#include <QPixmap>
 
 class IFileService
 {
@@ -28,6 +29,7 @@ public:
 	explicit IFileService() = default;
 	virtual ~IFileService() = default;
 	virtual bool remove(const QString &path) = 0;
+	virtual QPixmap openPixmap(const QString &path) = 0;
 };
 
 #endif //KSNIP_IFILESERVICE_H

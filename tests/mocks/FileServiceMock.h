@@ -31,16 +31,23 @@ public:
 	explicit FileServiceMock();
 	~FileServiceMock() override = default;
 	bool remove(const QString &path) override;
+	QPixmap openPixmap(const QString &path) override;
 
 	// Mock Methods
 	QString remove_get() const;
 	void remove_set(bool result);
 	int remove_callCounter(const QString &path) const;
+	QString openPixmap_get() const;
+	void openPixmap_set(const QPixmap &pixmap);
+	int openPixmap_callCounter(const QString &path) const;
 
 public:
-	QString mRemovePath;
+	QString mLastRemovePathParameter;
 	bool mRemoveResult;
 	CallCounter<QString> mRemoveCallCounter;
+	QString mLastOpenPixmapParameter;
+	QPixmap mOpenPixmapResult;
+	CallCounter<QString> mOpenPixmapCallCounter;
 };
 
 

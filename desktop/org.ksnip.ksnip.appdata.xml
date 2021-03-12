@@ -91,6 +91,10 @@
                     <li>New: Allow setting transparency of not selected snipping area region.</li>
                     <li>New: Resize selected rect area with arrow keys.</li>
                     <li>New: Copy a screenshot to clipboard as data URI.</li>
+                    <li>New: Provide option to open recent files.</li>
+                    <li>New: Allow disabling auto resizing after first capture .</li>
+                    <li>New: Drag and Drop from ksnip to other applications.</li>
+                    <li>New: Add support for KDE Plasma notification service.</li>
                     <li>New kImageAnnotator: Add function for loading translations.</li>
                     <li>New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions.</li>
                     <li>New kImageAnnotator: Add support for hiding annotation settings panel.</li>
@@ -99,17 +103,31 @@
                     <li>New kImageAnnotator: Canvas background color configurable.</li>
                     <li>New kImageAnnotator: Zoom in and out with keyboard shortcuts.</li>
                     <li>New kImageAnnotator: Zoom in and out via buttons from UI.</li>
+                    <li>New kImageAnnotator: Add reset zoom keyboard shortcut with tooltip.</li>
+                    <li>New kImageAnnotator: Add keyboard shortcut support for text tool.</li>
+                    <li>Changed kImageAnnotator: Change drop shadow to cover all sites.</li>
+                    <li>Fixed: Not possible to change adorner color.</li>
                     <li>Fixed kImageAnnotator: Deleting item outside image doesn't decrease canvas size.</li>
+                    <li>Fixed kImageAnnotator: Duplicate region of grayscale image has color.</li>
                 </ul>
             </description>
         </release>
-        <release type="stable" version="1.8.1" date="2020-12-30T00:00:00Z">
+        <release type="stable" version="1.8.2" date="2021-02-15T00:00:00Z">
+            <description>
+                <ul>
+                    <li>Fixed: Add missing includes to build on UNIX.</li>
+                    <li>Fixed: Ksnip starts minimized.</li>
+                </ul>
+            </description>
+        </release>
+        <release type="stable" version="1.8.1" date="2021-02-14T00:00:00Z">
             <description>
                 <ul>
                     <li>Changed: Allow changing adorner color for rect area selection.</li>
                     <li>Changed: Notarize ksnip for macOS.</li>
                     <li>Changed: Default font for numbering tool change to Arial.</li>
                     <li>Changed kImageAnnotator: Horizontally align text inside spin box.</li>
+                    <li>Changed kImageAnnotator: Change zoom with mouse wheel to CTRL+Wheel.</li>
                     <li>Fixed: If file selection is cancelled during ksnip's file open dialog via tray icon, ksnip closes.</li>
                     <li>Fixed: Cancel on Quit not work when editor is hidden.</li>
                     <li>Fixed: Canceling rect area selection activates main window.</li>
@@ -120,6 +138,7 @@
                     <li>Fixed: Editor can not be shown again after click close icon.</li>
                     <li>Fixed: Icons and text boxes not correctly scaled under gnome with hdpi.</li>
                     <li>Fixed: Window captures include non-transparent border of background on Gnome.</li>
+                    <li>Fixed: Annotating hidpi image downscales the result after being saved.</li>
                     <li>Fixed kImageAnnotator: Brazilian Portuguese translation not loaded.</li>
                     <li>Fixed kImageAnnotator: error: control reaches end of non-void function.</li>
                     <li>Fixed kImageAnnotator: Cursor in Text tool have too bad visibility.</li>
@@ -127,6 +146,7 @@
                     <li>Fixed kImageAnnotator: Entering multiple characters at once moves the text cursor only for one character.</li>
                     <li>Fixed kImageAnnotator: Activating context menu while drawing item leaves item in error state.</li>
                     <li>Fixed kImageAnnotator: Icons not scaled on gnome with hdpi enabled.</li>
+                    <li>Fixed kImageAnnotator: Text/Number Pointer and Text/Number Arrow don't inherit Text/Number Font in Settings.</li>
                 </ul>
             </description>
         </release>

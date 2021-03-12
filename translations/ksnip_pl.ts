@@ -119,22 +119,6 @@ ale uczyni je bardziej gładkimi.</translation>
         <translation>Ustawia czcionkę numeracji.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Obraz znaku wodnego</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Aktualizuj</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Obróć znak wodny</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Po włączeniu znak wodny zostanie dodany z obróceniem o 45 °</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Ustawienia komentarza</translation>
     </message>
@@ -157,6 +141,16 @@ Disabling this option allows having duplicate numbers.</source>
         <translation>Wyłączenie tej opcji powoduje zmiany narzędzia liczbowego
 seed, aby wpływać tylko na nowe elementy, ale nie na istniejące.
 Wyłączenie tej opcji umożliwia posiadanie zduplikowanych numerów.</translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation>Kolor płótna</translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation>Domyślny kolor tła obszaru roboczego dla obszaru adnotacji.
+Zmiana koloru wpływa tylko na nowe obszary adnotacji.</translation>
     </message>
 </context>
 <context>
@@ -313,6 +307,25 @@ Chcesz go zapisać?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Wykorzystuje portal do robienia zrzutów ekranu</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation>Nieudane kopiowanie do schowka</translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation>Nieudane kopiowanie do schowka jako obrazu zakodowanego w base64.</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation>Skopiowano do schowka</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation>Skopiowano do schowka jako obraz zakodowany base64.</translation>
     </message>
 </context>
 <context>
@@ -683,6 +696,17 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation>Nie można otworzyć obrazu</translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation>Nie można otworzyć obrazu ze ścieżki %1</translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -876,6 +900,22 @@ i wykonaniem zrzutu ekranu.</translation>
     <message>
         <source>Hide Docks</source>
         <translation>Ukryj Doki</translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation type="unfinished">Kopiowanie jako URI danych</translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation>Skopiuj przechwycenie do schowka systemowego</translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation>Modyfikacja płótna</translation>
     </message>
 </context>
 <context>
@@ -1168,6 +1208,10 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
         <source>Tray Icon</source>
         <translation>Ikona w zasobniku</translation>
     </message>
+    <message>
+        <source>Watermark</source>
+        <translation>Znak wodny</translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1288,7 +1332,10 @@ i powyżej przechwyconego obszaru.</translation>
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Po włączeniu tej opcji, po zaznaczeniu prostokątnego
+pozwoli na zmianę rozmiaru zaznaczenia. Kiedy
+zakończeniu zmiany rozmiaru można potwierdzić wybór
+naciskając klawisz return.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
@@ -1316,21 +1363,23 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kolor ozdobnika obszaru wycinania</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawia kolor wszystkich elementów ozdobnych
+na obszarze wycinania.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished">Przezroczystość obszaru wycinania</translation>
+        <translation>Przezroczystość obszaru wycinania</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Alfa dla nie zaznaczonego regionu na obszarze wycinania.
+Mniejsza liczba jest bardziej przezroczysta.</translation>
     </message>
 </context>
 <context>
@@ -1419,6 +1468,10 @@ Zmiana wymaga ponownego uruchomienia.</translation>
         <source>Tray Icon Settings</source>
         <translation>Ustawienia ikony zasobnika</translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation>Wyświetlaj powiadomienia o ikonach na pasku zadań</translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1490,6 +1543,29 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     <message>
         <source>Using:</source>
         <translation>Z użyciem:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation>Obraz znaku wodnego</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Aktualizuj</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation>Obróć znak wodny</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation>Po włączeniu tej funkcji znak wodny zostanie dodany z obróceniem o 45 °</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation>Ustawienia znaku wodnego</translation>
     </message>
 </context>
 </TS>

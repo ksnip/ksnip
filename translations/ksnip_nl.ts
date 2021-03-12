@@ -92,7 +92,7 @@ gladder.</translation>
     </message>
     <message>
         <source>Text Font</source>
-        <translation>Tekstlettertype</translation>
+        <translation>Tekstvaklettertype</translation>
     </message>
     <message>
         <source>Sets the font for the Text Paint Item.</source>
@@ -119,22 +119,6 @@ gladder.</translation>
         <translation>Stelt het lettertype in van de getallen.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Watermerkafbeelding</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Bijwerken</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Watermerk draaien</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Gebruik deze optie om een watermerk toe te voegen dat 45° gedraaid is</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Aantekeningsinstellingen</translation>
     </message>
@@ -154,8 +138,19 @@ gladder.</translation>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation>Schakel deze optie uit om alleen nieuwe items en niet ook
-bestaande items te wijzigen. Hierdoor zijn duplicaten mogelijk.</translation>
+        <translation>Schakel deze optie uit om alleen nieuwe items
+en niet ook bestaande items te wijzigen.
+Hierdoor zijn duplicaten mogelijk.</translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation>Canvaskleur</translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation>De standaard achtergrondkleur van het aantekeningsgebied.
+Dit is alleen van toepassing op nieuwe aantekeningsgebieden.</translation>
     </message>
 </context>
 <context>
@@ -196,7 +191,7 @@ Herstart ksnip om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation>Tabbladbalk verbergen als er één tabblad geopend is</translation>
+        <translation>Verberg de tabbladbalk als er één tabblad geopend is.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
@@ -312,6 +307,25 @@ Wil je deze opslaan?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Gebruik het schermfotoportaal om een schermfoto te maken</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation>Kopiëren naar klembord mislukt</translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation>Het kopiëren naar het klembord als base64-versleutelde afbeelding is mislukt.</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation>Gekopieerd naar klembord</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation>Gekopieerd naar het klembord als base64-versleutelde afbeelding.</translation>
     </message>
 </context>
 <context>
@@ -682,6 +696,17 @@ Herstart om de wijzigingen toe te passen.</translation>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation>Kan afbeelding niet openen</translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation>De afbeelding uit het pad &apos;%1&apos; kan niet worden geopend</translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -875,6 +900,22 @@ van schermfoto, in seconden.</translation>
     <message>
         <source>Hide Docks</source>
         <translation>Panelen verbergen</translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation>Kopiëren als gegevensuri</translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation>Schermfoto kopiëren naar klembord</translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation>&amp;Recent bestand openen</translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation>Canvas aanpassen</translation>
     </message>
 </context>
 <context>
@@ -1167,6 +1208,10 @@ Sla over om álles te kopiëren.</translation>
         <source>Tray Icon</source>
         <translation>Systeemvakpictogram</translation>
     </message>
+    <message>
+        <source>Watermark</source>
+        <translation>Watermerk</translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1233,12 +1278,14 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation>Schakel in om de achtergrond te bevriezen tijdens het
-selecteren van een rechthoekig gebied. Dit verandert
-tevens het gedrag van vertraagde schermfoto&apos;s: de
-vertraging vindt plaats vóórdat het selectiegebied wordt
-getoond. Deze optie is altijd uitgeschakeld op Wayland en
-altijd ingeschakeld op macOS.</translation>
+        <translation>Schakel in om de achtergrond te bevriezen
+tijdens het selecteren van een rechthoekig
+gebied. Dit verandert tevens het gedrag
+van vertraagde schermfoto&apos;s: de vertraging
+vindt plaats vóórdat het selectiegebied
+wordt getoond. Deze optie is altijd
+uitgeschakeld op Wayland en altijd ingeschakeld
+op macOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
@@ -1285,9 +1332,10 @@ bovenaan getoond.</translation>
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation>Schakel in om de afmetingen van het gebied van
-een rechthoekige selectie aan te passen. Druk na
-het aanpassen op Enter om op te slaan.</translation>
+        <translation>Schakel in om de afmetingen van het
+gebied van een rechthoekige selectie aan te
+passen. Druk na het aanpassen op Enter om
+op te slaan.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
@@ -1420,6 +1468,10 @@ Herstart om de wijziging toe te passen.</translation>
         <source>Tray Icon Settings</source>
         <translation>Systeemvakinstellingen</translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation>Systeemvakmeldingen tonen</translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1491,6 +1543,29 @@ Herstart om de wijziging toe te passen.</translation>
     <message>
         <source>Using:</source>
         <translation>Gebruikmakend van:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation>Watermerkafbeelding</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Bijwerken</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation>Watermerk draaien</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation>Gebruik deze optie om een watermerk toe te voegen dat 45° gedraaid is</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation>Watermerkinstellingen</translation>
     </message>
 </context>
 </TS>

@@ -19,18 +19,28 @@
 
 #include "FileUrlHelper.h"
 
-QString FileUrlHelper::parse(const QString &text)
+QString FileUrlHelper::toPath(const QString &url)
 {
-	auto url = text;
+	auto path = url;
+	return path.remove(filePrefix());
+}
+
+QString FileUrlHelper::toFileUrl(const QString &path)
+{
+	return filePrefix() + path;
+}
+
+QString FileUrlHelper::filePrefix()
+{
 #if defined(__APPLE__)
-	return url.remove(QLatin1String("file://"));
+	return QLatin1String("file://");
 #endif
 
 #if defined(UNIX_X11)
-	return url.remove(QLatin1String("file://"));
+	return QLatin1String("file://");
 #endif
 
 #if  defined(_WIN32)
-	return url.remove(QLatin1String("file:///"));
+	return QLatin1String("file:///");
 #endif
 }

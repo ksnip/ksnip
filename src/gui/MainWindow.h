@@ -26,19 +26,27 @@
 #include <functional>
 
 #include "src/gui/TrayIcon.h"
+#include "src/gui/IImageProcessor.h"
 #include "src/gui/imageAnnotator/KImageAnnotatorAdapter.h"
 #include "src/gui/aboutDialog/AboutDialog.h"
 #include "src/gui/settingsDialog/SettingsDialog.h"
+#include "src/gui/notificationService/NotificationServiceFactory.h"
 #include "src/gui/operations/AddWatermarkOperation.h"
 #include "src/gui/operations/CopyAsDataUriOperation.h"
 #include "src/gui/operations/UploadOperation.h"
 #include "src/gui/operations/HandleUploadResultOperation.h"
+#include "src/gui/operations/LoadImageFromFileOperation.h"
 #include "src/gui/globalHotKeys/GlobalHotKeyHandler.h"
 #include "src/gui/captureHandler/CaptureHandlerFactory.h"
 #include "src/gui/captureHandler/ICaptureChangeListener.h"
 #include "src/gui/widgetVisibilityHandler/WidgetVisibilityHandlerFactory.h"
 #include "src/gui/pinWindow/PinWindowHandler.h"
 #include "src/gui/serviceLocator/ServiceLocator.h"
+#include "src/gui/RecentImagesMenu.h"
+#include "src/gui/dragAndDrop/DragAndDropProcessor.h"
+#include "src/gui/dragAndDrop/IDragContentProvider.h"
+#include "src/gui/windowResizer/IResizableWindow.h"
+#include "src/gui/windowResizer/WindowResizer.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/config/KsnipConfigProvider.h"
@@ -48,10 +56,9 @@
 #include "src/common/enum/RunMode.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
-#include "src/common/handler/DragAndDropHandler.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
 
-class MainWindow : public QMainWindow, public ICaptureChangeListener
+class MainWindow : public QMainWindow, public ICaptureChangeListener, public IImageProcessor, public IResizableWindow, public IDragContentProvider
 {
     Q_OBJECT
 public:
@@ -61,11 +68,12 @@ public:
 	void showHidden();
     void showDefault();
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
-	void resizeToContent();
+	void resizeToContent() override;
+	void processImage(const CaptureDto &capture) override;
+	DragContent dragContent() const override;
 
 public slots:
     void processCapture(const CaptureDto &capture);
-	void processImage(const CaptureDto &capture);
 	void quit();
 
 protected:
@@ -77,6 +85,7 @@ protected:
 
 private:
     AbstractImageGrabber *mImageGrabber;
+	IServiceLocator *mServiceLocator;
     RunMode mMode;
     bool mSessionManagerRequestedQuit;
     QAction *mSaveAsAction;
@@ -92,6 +101,7 @@ private:
     QAction *mSettingsAction;
     QAction *mAboutAction;
     QAction *mOpenImageAction;
+    RecentImagesMenu *mRecentImagesMenu;
     QAction *mScaleAction;
     QAction *mAddWatermarkAction;
     QAction *mPasteAction;
@@ -102,19 +112,19 @@ private:
     MainToolBar *mToolBar;
     QLayout *mMainLayout;
     KsnipConfig *mConfig;
-	IServiceLocator *mServiceLocator;
 	IClipboard *mClipboard;
 	CapturePrinter *mCapturePrinter;
     IImageAnnotator *mImageAnnotator;
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
     TrayIcon *mTrayIcon;
-	DragAndDropHandler *mDragAndDropHandler;
+	DragAndDropProcessor *mDragAndDropProcessor;
 	UploaderProvider *mUploaderProvider;
 	ICaptureHandler *mCaptureHandler;
 	PinWindowHandler *mPinWindowHandler;
 	WidgetVisibilityHandler *mVisibilityHandler;
 	IFileDialogAdapter *mFileDialog;
+	WindowResizer *mWindowResizer;
 
     void setEnablements(bool enabled);
     void loadSettings();

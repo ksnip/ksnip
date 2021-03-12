@@ -61,6 +61,9 @@ public:
 	virtual bool autoHideDocks() const;
 	virtual void setAutoHideDocks(bool enabled);
 
+	virtual bool autoResizeToContent() const;
+	virtual void setAutoResizeToContent(bool enabled);
+
 	virtual bool useTabs() const;
 	virtual void setUseTabs(bool enabled);
 
@@ -105,6 +108,9 @@ public:
 
 	virtual bool trayIconNotificationsEnabled() const;
 	virtual void setTrayIconNotificationsEnabled(bool enabled);
+
+	virtual bool platformSpecificNotificationServiceEnabled() const;
+	virtual void setPlatformSpecificNotificationServiceEnabled(bool enabled);
 
 	virtual bool startMinimizedToTray() const;
 	virtual void setStartMinimizedToTray(bool enabled);

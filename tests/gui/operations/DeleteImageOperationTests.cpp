@@ -19,7 +19,7 @@
 
 #include "DeleteImageOperationTests.h"
 
-void DeleteImageOperationTests::TestExecute_Should_ReturnFalse_When_MessageBoxResponseWasCancel()
+void DeleteImageOperationTests::Execute_Should_ReturnFalse_When_MessageBoxResponseWasCancel()
 {
 	auto path = QLatin1Literal("/la/la");
 	auto messageBoxServiceMock = new MessageBoxServiceMock;
@@ -33,7 +33,7 @@ void DeleteImageOperationTests::TestExecute_Should_ReturnFalse_When_MessageBoxRe
 	QCOMPARE(fileServiceMock->remove_callCounter(path), 0);
 }
 
-void DeleteImageOperationTests::TestExecute_Should_ReturnTrue_When_MessageBoxResponseWasTrue_And_FileServiceSaveSuccessfully()
+void DeleteImageOperationTests::Execute_Should_ReturnTrue_When_MessageBoxResponseWasTrue_And_FileServiceSaveSuccessfully()
 {
 	auto path = QLatin1Literal("/la/la");
 	auto messageBoxServiceMock = new MessageBoxServiceMock;
@@ -48,7 +48,7 @@ void DeleteImageOperationTests::TestExecute_Should_ReturnTrue_When_MessageBoxRes
 	QCOMPARE(fileServiceMock->remove_callCounter(path), 1);
 }
 
-void DeleteImageOperationTests::TestExecute_Should_ReturnFalse_When_MessageBoxResponseWasTrue_And_FileServiceSaveFailed()
+void DeleteImageOperationTests::Execute_Should_ReturnFalse_When_MessageBoxResponseWasTrue_And_FileServiceSaveFailed()
 {
 	auto path = QLatin1Literal("/la/la");
 	auto messageBoxServiceMock = new MessageBoxServiceMock;

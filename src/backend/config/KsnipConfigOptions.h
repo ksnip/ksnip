@@ -38,6 +38,7 @@ public:
 	static QString freezeImageWhileSnippingEnabledString();
 	static QString positionString();
 	static QString autoHideDocksString();
+	static QString autoResizeToContentString();
 	static QString captureModeString();
 	static QString saveQualityModeString();
 	static QString saveQualityFactorString();
@@ -51,6 +52,7 @@ public:
 	static QString minimizeToTrayString();
 	static QString closeToTrayString();
 	static QString trayIconNotificationsEnabledString();
+	static QString platformSpecificNotificationServiceEnabledString();
 	static QString startMinimizedToTrayString();
 	static QString rememberLastSaveDirectoryString();
 	static QString useSingleInstanceString();

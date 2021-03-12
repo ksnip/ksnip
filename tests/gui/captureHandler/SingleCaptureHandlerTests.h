@@ -31,10 +31,10 @@ class SingleCaptureHandlerTests : public QObject
 {
 	Q_OBJECT
 private slots:
-	void TestRemoveImage_Should_CleanupAnnotationData_When_ImageDeleted();
-	void TestRemoveImage_Should_NotCleanupAnnotationData_When_ImageWasNotDeleted();
-	void TestLoad_Should_SetPathAndIsSavedToValuesFromCaptureDto_When_CaptureLoadedFromFile();
-	void TestLoad_Should_SetPathToEmptyAndIsSavedToFalse_When_CaptureNotLoadedFromFile();
+	void RemoveImage_Should_CleanupAnnotationData_When_ImageDeleted();
+	void RemoveImage_Should_NotCleanupAnnotationData_When_ImageWasNotDeleted();
+	void Load_Should_SetPathAndIsSavedToValuesFromCaptureDto_When_CaptureLoadedFromFile();
+	void Load_Should_SetPathToEmptyAndIsSavedToFalse_When_CaptureNotLoadedFromFile();
 };
 
 

@@ -24,6 +24,7 @@
 #include "src/gui/messageBoxService/IMessageBoxService.h"
 #include "src/gui/clipboard/IClipboard.h"
 #include "src/gui/desktopService/IDesktopService.h"
+#include "src/backend/recentImages/IRecentImageService.h"
 
 class IServiceLocator
 {
@@ -34,6 +35,7 @@ public:
 	virtual IFileService* fileService() const = 0;
 	virtual IClipboard* clipboard() const = 0;
 	virtual IDesktopService* desktopService() const = 0;
+	virtual IRecentImageService* recentImageService() const = 0;
 };
 
 #endif //KSNIP_ISERVICELOCATOR_H

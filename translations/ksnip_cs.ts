@@ -25,26 +25,26 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation type="unfinished"></translation>
+        <translation>Podpořit vývoj darem</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation type="unfinished">Nástroj snímku obrazovky</translation>
+        <translation>Nástroj snímku obrazovky</translation>
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Licence: </translation>
+        <translation>Licence: </translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Použijte prosím </translation>
+        <translation>Použijte prosím </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> pro hlášení chyb.</translation>
+        <translation> pro hlášení chyb.</translation>
     </message>
 </context>
 <context>
@@ -119,42 +119,38 @@ je více vyhlazovat.</translation>
         <translation>Nastaví písmo pro kreslení číslování.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Obrázek vodoznaku</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Aktualizovat</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Otočit vodoznak</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Pokud je povoleno, bude vodoznak přidán s rotací 45 °</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Nastavení značkovače</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamatovat výběr anotačního nástroje a nahrát jej při startu</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Přepnout do Nástroje pro výběr po nakreslení položky</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Změna nástroje pro číslování aktualizuje všechny číselné položky</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zakázání této možnosti způsobí, že změny nástroje pro číslování
+ ovlivní pouze nové položky, ne však ty existující.
+ Zakázání této možniosti povolí duplicitní číslování.</translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation>Barva plátna</translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation>Výchozí barva pozadí plátna pro oblast poznámek.
+Změna barvy ovlivní pouze nové oblasti anotací.</translation>
     </message>
 </context>
 <context>
@@ -179,86 +175,90 @@ Změna vyžaduje restartování aplikace.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky kopírovat nové snímky do schránky</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Použít karty</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Změna vyžaduje restart.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Spustit ksnip v jedné instanci</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrýt panel karet, pokud je použita pouze jedna karta.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolení této možnosti umožní spuštění pouze jedné instance ksnip,
+všechny ostatní instance spuštěné poté předají svoje argumenty první instanci.
+ Změna této možnosti vyžaduje
+restart všech instancí.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamatovat pozici hlavního okna a načíst ji při startu aplikace</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky skrývat karty</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky skrýt doky</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Při spuštění skrýt panel nástrojů a Nastavení poznámek.
+Viditelnost doků lze přepínat pomocí klávesy Tabulátor.</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Přispěvatelé:</translation>
+        <translation>Přispěvatelé:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">Španělský překlad</translation>
+        <translation>Španělský překlad</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">Holandský překlad</translation>
+        <translation>Holandský překlad</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">Ruský překlad</translation>
+        <translation>Ruský překlad</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">Norský Bokmål překlad</translation>
+        <translation>Překlad do norštiny v bokmålu</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">Francouzský překlad</translation>
+        <translation>Francouzský překlad</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">Polský překlad</translation>
+        <translation>Polský překlad</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Podpora distribuce pomocí Snap &amp; Flatpak</translation>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Autoři:</translation>
     </message>
 </context>
 <context>
@@ -270,7 +270,8 @@ Docks visibility can be toggled with the Tab Key.</source>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachycen í% 1% 2% 3 bylo upraveno.
+Chcete změny uložit?</translation>
     </message>
 </context>
 <context>
@@ -305,140 +306,160 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Používá Portál snímků obrazovky pro pořizování snímků obrazovky</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation>Kopírování do schránky se nezdařilo</translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation>Nezdařilo se kopírování base64 kodováného obrázku do schránky.</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation>zkopírovat do schránky</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation>Zkopírováno do schránky jako base64 kódovaný obrázek.</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Smazat obrázek</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Položka %1 bude odstraněna.
+Chcete pokračovat?</translation>
     </message>
 </context>
 <context>
     <name>DonateTab</name>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>tady</translation>
     </message>
     <message>
         <source>Also possible, </source>
-        <translation type="unfinished"></translation>
+        <translation>Je také možné, </translation>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Dary jsou vždy vítány</translation>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Sponzorský dar</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Staňte se sponzorem GitHub</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip je neziskový softwarový projekt copylefted libre a &lt;br/&gt; má však stále určité náklady, které je třeba pokrýt, &lt;br/&gt; jedná se o náklady na doménu nebo náklady na hardware pro podporu mezi platformami.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud chcete pomoci nebo jen &lt;br/&gt; ocenit práci &lt;br/&gt; vývojářů kávou či pivem, můžete to udělat</translation>
     </message>
 </context>
 <context>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Obdélníková oblast</translation>
+        <translation>Obdélníková oblast</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Poslední obdélníková oblast</translation>
+        <translation>Poslední obdélníková oblast</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Celá obrazovka (všechny monitory)</translation>
+        <translation>Celá obrazovka (všechny monitory)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Aktuální obrazovka</translation>
+        <translation>Aktuální obrazovka</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Aktivní okno</translation>
+        <translation>Aktivní okno</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Okno pod kurzorem</translation>
+        <translation>Okno pod kurzorem</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Portál snímků obrazovky</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">Odeslání proběhlo úspěšně</translation>
+        <translation>Odeslání proběhlo úspěšně</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrávací skript </translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation> úspěšně dokončen.</translation>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished">Odesláno do</translation>
+        <translation>Odesláno do</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nelze uložit dočasný obrázek pro nahrání.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nelze spustit proces, zkontrolujte cestu a oprávnění.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>Proces selhal</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>Proces vypršel.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba čtení procesu.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba zápisu procesu.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba webu, zkontrolujte výstup konzoly.</translation>
     </message>
     <message>
         <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Neznámá chyba procesu.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrání se nezdařilo</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skript zapisoval do StdErr.</translation>
     </message>
 </context>
 <context>
@@ -481,11 +502,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazat</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachycení pomocí portálu</translation>
     </message>
 </context>
 <context>
@@ -506,11 +527,11 @@ na snímku obrazovky.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Vynutit obecný snímek obrazovky Wayland</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Škálování obecných snímků obrazovky Wayland</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -518,7 +539,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Generické implementace Wayland, které používají
+XDG-DESKTOP-PORTAL ošetřují měřítko obrazovky
+rozdílným způsobem. Povolení této možnosti bude
+určeno aktuální měřítko obrazovky a
+aplikováno na snímek obrazovky v ksnip.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -526,24 +551,29 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME and KDE Plasma podporují pro Wayland
+a Generic XDG-DESKTOP-PORTAL jejich vlastní snímkování obrazovky.
+Zapnutí této možnosti přinutí KDE Plasma a
+GNOME použít XDG-DESKTOP-PORTAL snímkování obrazovky.
+Změna tohoto nastavení se projeví po restartu ksnip.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit hlavní okno po pořízení snímku obrazovky</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit hlavní okno po pořízení nového snímku obrazovky
+potom co bylo hlavní okno skryto nebo minimalizováno.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrýt hlavní okno během snímku obrazovky</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrýt hlavní okno při pořizování nového snímku obrazovky.</translation>
     </message>
 </context>
 <context>
@@ -573,15 +603,15 @@ when the Main Window was hidden or minimized.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">Nahrávání do imgur.com dokončeno!</translation>
+        <translation>Nahrávání na imgur.com dokončeno!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished">Byl přijat nový token, zkuste znovu odeslat …</translation>
+        <translation>Byl přijat nový token, zkouším znovu odeslat …</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished">Platnost tokenu imgur vypršela, žádání o nový token…</translation>
+        <translation>Platnost tokenu imgur vypršela, žádání o nový token…</translation>
     </message>
 </context>
 <context>
@@ -648,20 +678,32 @@ when the Main Window was hidden or minimized.</source>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Odkaz přímo na obrázek</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Základní adresa URL:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Základní adresa URL, která bude použita pro komunikaci s Imgurem.
+Změna vyžaduje restart.</translation>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazat token</translation>
+    </message>
+</context>
+<context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation>Obrázek nelze otevřít</translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation>Nelze otevřít obrázek z místa %1</translation>
     </message>
 </context>
 <context>
@@ -801,150 +843,166 @@ a zachycením obrazovky.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit jako...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Vložit</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Vložit do aktvní karty</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Odeslat zachycené do externího zdroje</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>PIN</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Připnout snímek obrazovky k popředí v bezrámovém okně</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nebyl poskytnut žádný obrázek, ale jeden se očekával.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovat cestu</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít adresář</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pohled</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazat</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Přejmenovat</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít obrázky</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit doky</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrýt doky</translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation>Kopírovat jako data URI</translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation>Zkopírovat záznam do schránky systému</translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation>Otevřít nedávné</translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation>Upravit plátno</translation>
     </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Uložit</translation>
+        <translation>Uložit</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Uložit jako</translation>
+        <translation>Uložit jako</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít adresář</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Kopírovat</translation>
+        <translation>Kopírovat</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovat cestu</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Smazat</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Přejmenovat</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachytit</translation>
     </message>
 </context>
 <context>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Zavřít</translation>
+        <translation>Zavřít</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Zavřít ostatní</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Zavřít vše</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Připnout okno %1</translation>
     </message>
 </context>
 <context>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázek byl přejmenován</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázek byl úspěšně přejmenován na </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Přejmenování obrázku se nezdařilo</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Nepodařilo se přejmenovat obrázek na </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Přejmenovat obrázek</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nový název souboru:</translation>
     </message>
 </context>
 <context>
@@ -982,106 +1040,114 @@ a zachycením obrazovky.</translation>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky ukládat nové snímky do výchozího umístění</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Zobrazit výzvu k uložení před zahozením neuložených změn</translation>
+        <translation>Zobrazit výzvu k uložení před zahozením neuložených změn</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapamatovat si poslední adresář uložení</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je-li povoleno, je přepsán adresář pro ukládání v Nastavení
+cestou posledního uloženého obrázku pro každé následující uložení.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Umístění a název souboru pro uložení zachycení</translation>
+        <translation>Umístění a název souboru pro uložení zachycení</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Podporované formáty jsou JPG, PNG a BMP. Pokud není k dispozici žádný formát, použije se jako výchozí PNG.
+Název souboru může obsahovat následující zástupné znaky:
+- $Y, $M, $D pro datum, $h, $m, $s pro čas nebo $T pro čas ve formátu hhmmss.
+- Více po sobě jdoucích # pro počítadlo. #### generuje první položku 0001, další snímek bude 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Procházet</translation>
+        <translation>Procházet</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení Ukládače</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Umístění pro uložení zachycení</translation>
+        <translation>Umístění pro uložení zachycení</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Výchozí</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Faktor</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Kvalita uložení</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zadejte 0 pro získání malých komprimovaných souborů, 100 pro velké nekomprimované soubory.
+Ne všechny formáty obrázků podporují celý rozsah, JPEG ano.</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírování výstupu skriptu do schránky</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Skript:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cesta ke skriptu, který bude použit pro nahrávání. Během nahrávání bude skript volán
+s jedním argumentem a to cestou k dočasnému souboru png.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Procházet</translation>
+        <translation>Procházet</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrávací skript</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrat nahrávací skript</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastavit, když nahrávací skript zapíše do StdErr</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Označí nahrávání jako neúspěšné, když skript zapíše do StdErr.
+Bez tohoto nastavení budou chyby ve skriptu ignorovány.</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>RegEx výraz. Zkopírujte do schránky pouze to, co odpovídá výrazu RegEx.
+Když je vynechán, zkopíruje se vše.</translation>
     </message>
 </context>
 <context>
@@ -1120,84 +1186,88 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploader</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrávací skript</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukládač</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Samolepky</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Výstřižková oblast</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikona v systémové oblasti</translation>
+    </message>
+    <message>
+        <source>Watermark</source>
+        <translation>Vodoznak</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Změňte velikost vybraného tvaru pomocí úchytů nebo jej přesuňte přetažením výběru.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>K přesunutí výběru použijte klávesy se šipkami.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pomocí kláves se šipkami současně se stisknutou klávesou CTRL pohybujte levým horním úchytem.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pomocí kláves se šipkami současně se stisknutou klávesou ALT posuňte pravý dolní úchyt.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Potvrďte výběr stisknutím ENTER / RETURN nebo zrušte stisknutím ESC.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuto zprávu lze deaktivovat pomocí nastavení.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kliknutím a tažením vyberte obdélníkovou oblast nebo ji ukončete stisknutím klávesy ESC.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Po výběru podržte stisknutou klávesu CTRL a změňte tak velikost výběru.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Podržte stisknutou klávesu CTRL, abyste po výběru zabránili změně velikosti.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud nebude proveden žádný výběr, operace bude zrušena po 60 sekundách.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuto zprávu lze deaktivovat pomocí nastavení.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Zmrazení obrazu při snímání</translation>
+        <translation>Zmrazení obrazu při snímání</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1208,128 +1278,143 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud je tato možnost povolena, zamrzne pozadí
+při výběru obdélníkové oblasti. Mění také chování
+zpožděných snímků obrazovky, s touto možností
+povolenou se zpoždění objeví před zobrazením oblasti a
+s vypnutou možností se zpoždění provede 
+až po zobrazení oblasti. 
+Tato funkce nefunguje pro Wayland a je vždy
+používána pro MacO.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Zobrazit lupu v oblasti výstřižku</translation>
+        <translation>Zobrazit lupu v oblasti výstřižku</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Zobrazit lupu, která přiblíží obrázek na pozadí.
+        <translation>Zobrazit lupu, která přiblíží obrázek na pozadí.
 Tato možnost funguje pouze se zapnutou
 funkcí &apos;Zmrazení obrazu při snímání&apos;.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Zobrazit pravítko oblasti výstřižku</translation>
+        <translation>Zobrazit pravítko oblasti výstřižku</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Vodorovné a svislé čáry vedoucí z
+        <translation>Vodorovné a svislé čáry vedoucí z
 okraje plochy ke kurzoru snímané oblasti.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Zobrazit informace o poloze a velikosti oblasti snímku</translation>
+        <translation>Zobrazit informace o poloze a velikosti oblasti snímku</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud není stisknuto levé tlačítko myši,
+je zobrazena pozice, při stisknutí tlačítka myši
+je zobrazna velikost vybrané oblasti vlevo a nad 
+zachycenou oblastí.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Ve výchozím nastavení povolit změnu velikosti obdélníkové oblasti</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je-li povoleno, po výběru obdélníkové
+oblasti, je možno změnit velikosti tohot výběru.
+Ukončení změny velikosti lze potvrdit
+klávesou return.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobrazit text informací o oblasti výstřižku</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Barva kurzoru v oblasti výstřižku</translation>
+        <translation>Barva kurzoru v oblasti výstřižku</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaví barvu kurzoru oblasti výstřižku.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Tloušťka kurzoru v oblasti výstřižku</translation>
+        <translation>Tloušťka kurzoru v oblasti výstřižku</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaví tloušťku kurzoru oblasti výstřižku.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Výstřižková oblast</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Barva doplňků Výstřižkové oblasti</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaví barvu všech doplňkových prvků
+v odstřižené oblasti.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Průhlednost výstřižkové oblasti</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Průhlednost pro nevybranou oblast v oblasti výstřižku.
+Menší číslo je průhlednější.</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahoru</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Dolů</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Použití výchozích nálepek</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení nálepky</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Soubory vektorových obrázků (* .svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidat samolepky</translation>
     </message>
 </context>
 <context>
@@ -1343,45 +1428,49 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Použít ikonu v oznamovací oblasti</translation>
+        <translation>Použít ikonu v oznamovací oblasti</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Pokud je tato možnost povolena, přidá se ikona do oznamovací oblasti,
+        <translation>Pokud je tato možnost povolena, přidá se ikona do oznamovací oblasti,
 pokud ji správce oken sytému podporuje. Změna vyžaduje restart.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Minimalizovat do oznamovací oblasti</translation>
+        <translation>Minimalizovat do oznamovací oblasti</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Spustit minimalizované do oznamovací oblasti</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Zavřít do oznamovací oblasti</translation>
+        <translation>Zavřít do oznamovací oblasti</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Zobrazit editor</translation>
+        <translation>Zobrazit editor</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachytit</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Výchozí akce pro ikonu v oznamovací oblasti</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Výchozí akce, která se spustí klepnutím levým tlačítkem myši na ikonu v oznamovací oblasti.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení ikony v oznamovací oblasti</translation>
+    </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation>Zobrazit oznámení ikony v oznamovací oblasti</translation>
     </message>
 </context>
 <context>
@@ -1403,57 +1492,80 @@ pokud ji správce oken sytému podporuje. Změna vyžaduje restart.</translation
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Je vyžadován skript pro nahrávání</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Přidejte prosím skript pro nahrávání pomocí Možnosti&gt; Nastavení&gt; Nahrát skript</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachytit nahraní</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Chystáte se nahrát obrázek do externího umístění, chcete pokračovat?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Před odesláním požádat o potvrzení</translation>
+        <translation>Před odesláním požádat o potvrzení</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Typ uploaderu:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Skript</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploader</translation>
     </message>
 </context>
 <context>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Verze</translation>
+        <translation>Verze</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">Sestavení</translation>
+        <translation>Sestavení</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished">Používá:</translation>
+        <translation>Používá:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation>Obrázek vodoznaku</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Aktualizovat</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation>Otočit vodoznak</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation>Pokud je povoleno, bude vodoznak přidán s rotací 45 °</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation>Nastavení vodoznaku</translation>
     </message>
 </context>
 </TS>

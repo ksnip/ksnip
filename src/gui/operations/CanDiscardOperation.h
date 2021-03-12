@@ -27,13 +27,14 @@
 #include "SaveOperation.h"
 #include "NotifyOperation.h"
 #include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/recentImages/IRecentImageService.h"
 #include "src/gui/messageBoxService/MessageBoxService.h"
 
 class CanDiscardOperation : public QObject
 {
 	Q_OBJECT
 public:
-	CanDiscardOperation(QWidget *parent, QImage image, bool isUnsaved, QString pathToImageSource, QString filename, IToastService *toastService);
+	CanDiscardOperation(QWidget *parent, QImage image, bool isUnsaved, QString pathToImageSource, QString filename, IToastService *toastService, IRecentImageService *recentImageService);
 	~CanDiscardOperation() override;
 	bool execute();
 
@@ -46,6 +47,7 @@ private:
 	QString mFilename;
 	IToastService *mToastService;
 	IMessageBoxService *mMessageBoxService;
+	IRecentImageService *mRecentImageService;
 
 	MessageBoxResponse getSaveBeforeDiscard() const;
 	bool saveImage() const;

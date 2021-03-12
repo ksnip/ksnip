@@ -30,6 +30,7 @@ public:
 	explicit FileService() = default;
 	~FileService() override = default;
 	bool remove(const QString &path) override;
+	QPixmap openPixmap(const QString &path) override;
 };
 
 

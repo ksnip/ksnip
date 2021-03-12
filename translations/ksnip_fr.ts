@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation>Dons</translation>
+        <translation>Faire un don</translation>
     </message>
 </context>
 <context>
@@ -119,22 +119,6 @@ les rendra plus lisses.</translation>
         <translation>Définit la police de l&apos;outil de numérotation.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Filigrane</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Actualiser</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Pivoter le filigrane</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Si activé, le filigrane sera ajouté avec une rotation de 45°</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Paramètres d&apos;annotations</translation>
     </message>
@@ -157,6 +141,16 @@ Disabling this option allows having duplicate numbers.</source>
         <translation>Lorsqu&apos;on désactive cette option, les changements du numéro
 de début n&apos;affectent que les nouveaux items et pas les items existants.
 La désactivation de cette option permet des numéros dupliqués.</translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation>Couleur du canevas</translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation>Couleur d&apos;arrière-plan du canevas par défaut pour la zone d&apos;annotation.
+Le changement de couleur n&apos;affecte que les nouvelles zones d&apos;annotation.</translation>
     </message>
 </context>
 <context>
@@ -224,8 +218,8 @@ toutes les instances pour activer ou désactiver cette option.</translation>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished">Au démarrage, masquer la barre d’outils et les paramètres d’annotation.
-La visibilité des panneaux peut être basculée avec la touche Tab.</translation>
+        <translation>Masquer au démarrage la barre d’outils et les outils d’annotation.
+La visibilité du panneau d’outils peut être basculée avec la touche TAB.</translation>
     </message>
 </context>
 <context>
@@ -313,6 +307,25 @@ Voulez-vous l&apos;enregistrer ?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Utilise le portail de capture d&apos;écran pour les captures</translation>
+    </message>
+</context>
+<context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation>Impossible de copier dans le presse-papier</translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation>Échec de la copie dans le presse-papier en tant qu’image encodée en base64.</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation>Copié dans le presse-papier</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation>Copié dans le presse-papier en tant qu’image encodée en base64.</translation>
     </message>
 </context>
 <context>
@@ -683,6 +696,17 @@ La modifier nécessite un redémarrage.</translation>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation>Impossible d’ouvrir l’image</translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation>Impossible d’ouvrir l’image à partir du chemin %1</translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -877,6 +901,22 @@ et la capture de l&apos;écran.</translation>
         <source>Hide Docks</source>
         <translation>Cacher le panneau d&apos;outils</translation>
     </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation>Copie en tant qu’URI de données</translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation>Modifier le canevas</translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -989,11 +1029,11 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation>Sauvée sous</translation>
+        <translation>Enregistré sous</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation>Impossible de sauver sous</translation>
+        <translation>Impossible de d’enregistrer l’image sous</translation>
     </message>
 </context>
 <context>
@@ -1168,6 +1208,10 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     <message>
         <source>Tray Icon</source>
         <translation>Icône de la barre d&apos;état</translation>
+    </message>
+    <message>
+        <source>Watermark</source>
+        <translation>Filigrane</translation>
     </message>
 </context>
 <context>
@@ -1424,6 +1468,10 @@ Vous devrez redémarrer l’application pour que cela prenne effet.</translation
         <source>Tray Icon Settings</source>
         <translation>Paramètres de l’icône de la barre d’état</translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1495,6 +1543,29 @@ Vous devrez redémarrer l’application pour que cela prenne effet.</translation
     <message>
         <source>Using:</source>
         <translation>Dépendances :</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation>Image en filigrane</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Mettre à jour</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation>Pivoter le filigrane</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation>Si activé, le filigrane sera ajouté avec une rotation de 45°</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation>Paramètres des filigranes</translation>
     </message>
 </context>
 </TS>

@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Donate</source>
-        <translation>Contributo económico</translation>
+        <translation>Dona</translation>
     </message>
 </context>
 <context>
@@ -51,7 +51,7 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation>Immagine filigrana Necessaria</translation>
+        <translation>Immagine filigrana necessaria</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
@@ -117,22 +117,6 @@ make them more smooth.</source>
         <translation>Imposta il font per lo strumento di numerazione.</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>Immagine di filigrana</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Aggiorna</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>Ruota immagine</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Se abilitato, l&apos;immagine verrà aggiunta con una rotazione di 45°</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>Impostazioni Annotatore</translation>
     </message>
@@ -152,6 +136,15 @@ make them more smooth.</source>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -177,7 +170,7 @@ Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation>Copia automaticamente le nuove acquisizioni negli appunti</translation>
+        <translation>Copia automaticamente le nuove catture negli appunti</translation>
     </message>
     <message>
         <source>Use Tabs</source>
@@ -308,6 +301,25 @@ Vuoi salvarla?</translation>
     </message>
 </context>
 <context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
@@ -335,7 +347,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Donazione</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
@@ -354,7 +366,7 @@ Do you want to continue?</source>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Area rettangolare</translation>
+        <translation>Area rettangolare</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
@@ -378,7 +390,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Portale schermate</translation>
     </message>
 </context>
 <context>
@@ -664,6 +676,17 @@ Changing requires restart.</source>
     </message>
 </context>
 <context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
@@ -856,6 +879,22 @@ e cattura screenshot.</translation>
     </message>
     <message>
         <source>Hide Docks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1142,6 +1181,10 @@ When omitted, everything is copied.</source>
         <source>Tray Icon</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Watermark</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1381,6 +1424,10 @@ Questa impostazione richiede il riavvio.</translation>
         <source>Tray Icon Settings</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1452,6 +1499,29 @@ Questa impostazione richiede il riavvio.</translation>
     <message>
         <source>Using:</source>
         <translation type="unfinished">Utilizza:</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished">Immagine di filigrana</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Aggiorna</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished">Ruota immagine</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished">Se abilitato, l&apos;immagine verrà aggiunta con una rotazione di 45°</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

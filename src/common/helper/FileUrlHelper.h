@@ -25,7 +25,11 @@
 class FileUrlHelper
 {
 public:
-	static QString parse(const QString &text);
+	static QString toPath(const QString &url);
+	static QString toFileUrl(const QString &path);
+
+private:
+	static QString filePrefix();
 };
 
 #endif //KSNIP_FILEURLHELPER_H

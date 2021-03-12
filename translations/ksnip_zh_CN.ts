@@ -118,32 +118,16 @@ make them more smooth.</source>
         <translation>设置编号绘制项的字体。</translation>
     </message>
     <message>
-        <source>Watermark Image</source>
-        <translation>水印图像</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>更新</translation>
-    </message>
-    <message>
-        <source>Rotate Watermark</source>
-        <translation>旋转水印</translation>
-    </message>
-    <message>
-        <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>启用后，水印将旋转45度</translation>
-    </message>
-    <message>
         <source>Annotator Settings</source>
         <translation>注释器设置</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>记住注释器选择并在启动时加载</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>绘制后切换到选择工具</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
@@ -154,6 +138,16 @@ make them more smooth.</source>
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Canvas Color</source>
+        <translation>画布颜色</translation>
+    </message>
+    <message>
+        <source>Default Canvas background color for annotation area.
+Changing color affects only new annotation areas.</source>
+        <translation>注释区域画布的默认背景颜色
+改变颜色只会影响新的注释区域。</translation>
     </message>
 </context>
 <context>
@@ -182,7 +176,7 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>使用标签</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
@@ -194,14 +188,17 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>当只有一个标签时隐藏标签栏。</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>启用这个选项将会只允许一个ksnip实例运行，
+所有其它实例启动时会将参数传给第一个实例
+然后退出。改变这个选项需要在关闭所有实例
+后启动新的实例。</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
@@ -209,7 +206,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>自动隐藏标签</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
@@ -269,7 +266,8 @@ Docks visibility can be toggled with the Tab Key.</source>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>捕获 %1%2%3 已经被修改。
+是否需要保存？</translation>
     </message>
 </context>
 <context>
@@ -308,6 +306,25 @@ Do you want to save it?</source>
     </message>
 </context>
 <context>
+    <name>CopyAsDataUriOperation</name>
+    <message>
+        <source>Failed to copy to clipboard</source>
+        <translation>复制到剪切板失败</translation>
+    </message>
+    <message>
+        <source>Failed to copy to clipboard as base64 encoded image.</source>
+        <translation>以 base64 图片编码形式复制到剪切板失败。</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copied to clipboard as base64 encoded image.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
@@ -316,7 +333,8 @@ Do you want to save it?</source>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>项目 &apos;%1&apos; 将被删除。
+你想继续吗？</translation>
     </message>
 </context>
 <context>
@@ -397,7 +415,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Uploaded to</source>
-        <translation type="unfinished">上传到</translation>
+        <translation>上传到</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
@@ -529,12 +547,13 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>捕捉屏幕截图后显示主窗口</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
+        <translation>当主窗口被隐藏或最小化时，
+捕捉新截图后会显示主窗口。</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
@@ -656,11 +675,23 @@ when the Main Window was hidden or minimized.</source>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Base url 用来与 Imgur 通信。
+更改需要重启应用。</translation>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>清空 Token</translation>
+    </message>
+</context>
+<context>
+    <name>LoadImageFromFileOperation</name>
+    <message>
+        <source>Unable to open image</source>
+        <translation>无法打开图片</translation>
+    </message>
+    <message>
+        <source>Unable to open image from path %1</source>
+        <translation>无法从路径 %1 中打开图片</translation>
     </message>
 </context>
 <context>
@@ -808,11 +839,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>嵌入粘贴</translation>
     </message>
     <message>
         <source>Upload capture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>将捕获上传到外部源</translation>
     </message>
     <message>
         <source>Pin</source>
@@ -820,11 +851,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>将截图固定在无边框的前台窗口上</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>需要提供一个图像。</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -857,6 +888,22 @@ and capturing screenshot.</source>
     <message>
         <source>Hide Docks</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy as data URI</source>
+        <translation type="unfinished">复制为数据 URI</translation>
+    </message>
+    <message>
+        <source>Copy capture to system clipboard</source>
+        <translation>将捕获复制到系统剪贴板</translation>
+    </message>
+    <message>
+        <source>Open &amp;Recent</source>
+        <translation>打开 &amp; 最近</translation>
+    </message>
+    <message>
+        <source>Modify Canvas</source>
+        <translation type="unfinished">修改画布</translation>
     </message>
 </context>
 <context>
@@ -916,7 +963,7 @@ and capturing screenshot.</source>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>固定窗口 %1</translation>
     </message>
 </context>
 <context>
@@ -927,7 +974,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>成功重命名图像为 </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
@@ -935,7 +982,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>无法将图像重命名为 </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -994,7 +1041,8 @@ and capturing screenshot.</source>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>启用后每次保存都会将设置中的保存目录
+覆盖为上次的保存目录。</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
@@ -1005,7 +1053,10 @@ with the latest save directory, for every save.</source>
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>支持 JPG、PNG 和 BMP 格式。如果没有提供格式，将使用PNG作为默认格式。
+文件名可以包含以下通配符。
+- $Y, $M, $D 代表日期，$h, $m, $s 代表时间，或 $T 代表 hhmmss 格式的时间。
+- 多个连续的 # 代表计数器。若 #### 代表 0001，下一次捕获则会是0002。</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1034,7 +1085,8 @@ Filename can contain following wildcards:
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>指定 0 可以获得小的压缩文件，100 会获得大的未压缩文件。
+并非所有图像格式都像 JPEG 一样支持全部范围。</translation>
     </message>
 </context>
 <context>
@@ -1050,7 +1102,8 @@ Not all image formats support the full range, JPEG does.</source>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>上传时调用的脚本的路径。在上传过程中，脚本将被以
+临时 png 文件的路径作为单一参数调用。</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1058,7 +1111,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>上传脚本</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
@@ -1071,7 +1124,8 @@ with the path to a temporary png file as a single argument.</source>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>当脚本输出至标准错误时，将上传标记为失败。
+没有此设置，脚本中的错误将不会被注意到。</translation>
     </message>
     <message>
         <source>Filter:</source>
@@ -1120,34 +1174,38 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">上传</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>上传脚本</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>贴纸</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">剪切区域</translation>
     </message>
     <message>
         <source>Tray Icon</source>
         <translation>托盘图标</translation>
+    </message>
+    <message>
+        <source>Watermark</source>
+        <translation>水印</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>使用控制柄调整所选矩形的大小，或通过拖动选区来移动它。</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
@@ -1155,42 +1213,42 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>按 CTRL 键的同时使用方向键移动左上角的控制柄。</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>按 ALT 键的同时使用方向键移动右下角的控制柄。</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>按 ENTER/RETURN 确认选择，或按 ESC 中止选择。</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>可以通过设置禁用此消息。</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>点击并拖动选择一个矩形区域或按 ESC 键退出。</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>选择后按住 CTRL 键调整选区大小。</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>选择后，按住CTRL键防止调整大小。</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>如果未进行选择，则60秒后将取消操作。</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">可以通过设置禁用此消息。</translation>
     </message>
 </context>
 <context>
@@ -1383,6 +1441,10 @@ Change requires restart.</source>
         <source>Tray Icon Settings</source>
         <translation>托盘图标设置</translation>
     </message>
+    <message>
+        <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1454,6 +1516,29 @@ Change requires restart.</source>
     <message>
         <source>Using:</source>
         <translation>使用：</translation>
+    </message>
+</context>
+<context>
+    <name>WatermarkSettings</name>
+    <message>
+        <source>Watermark Image</source>
+        <translation type="unfinished">水印图像</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">更新</translation>
+    </message>
+    <message>
+        <source>Rotate Watermark</source>
+        <translation type="unfinished">旋转水印</translation>
+    </message>
+    <message>
+        <source>When enabled, Watermark will be added with a rotation of 45°</source>
+        <translation type="unfinished">启用后，水印将旋转45度</translation>
+    </message>
+    <message>
+        <source>Watermark Settings</source>
+        <translation>水印设置</translation>
     </message>
 </context>
 </TS>

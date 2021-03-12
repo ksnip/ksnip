@@ -20,6 +20,8 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/TranslationLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/KsnipCommandLine.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/WatermarkImageLoader.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/recentImages/RecentImagesPathStore.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/recentImages/ImagePathStorage.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ipc/IpcServer.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ipc/IpcClient.cpp
 	${CMAKE_SOURCE_DIR}/src/common/adapter/fileDialog/FileDialogAdapter.cpp
@@ -31,12 +33,12 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/helper/EnumTranslator.cpp
 	${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp
-	${CMAKE_SOURCE_DIR}/src/common/handler/DragAndDropHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/ApplicationTitleProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/NewCaptureNameProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/PathFromCaptureProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/DirectoryPathProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/ScaledSizeProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/common/provider/TempFileProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomToolButton.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomCursor.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CursorFactory.cpp
@@ -48,6 +50,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/widgets/KeySequenceLineEdit.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomLineEdit.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/MainWindow.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/RecentImagesMenu.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/TrayIcon.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/clipboard/ClipboardAdapter.cpp
@@ -95,6 +98,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/GlobalHotKeyHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/HotKeyMap.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/DummyKeyHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/notificationService/NotificationServiceFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/SaveOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/RenameOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/AddWatermarkOperation.cpp
@@ -106,6 +110,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/operations/NotifyOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/DeleteImageOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/CopyAsDataUriOperation.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/operations/LoadImageFromFileOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/CaptureTabStateHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/ICaptureTabStateHandler.h
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/CaptureHandlerFactory.cpp
@@ -116,6 +121,8 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindowHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/messageBoxService/MessageBoxService.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/serviceLocator/ServiceLocator.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/windowResizer/WindowResizer.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/dragAndDrop/DragAndDropProcessor.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/BootstrapperFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/StandAloneBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/InstanceLock.cpp
@@ -153,6 +160,7 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11KeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToX11KeyCodeTranslator.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11ErrorLogger.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/notificationService/FreeDesktopNotificationService.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
 		)
 elseif (WIN32)

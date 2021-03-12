@@ -19,8 +19,7 @@ elif [[ "${BINARY_TYPE}" == "deb" ]]; then
 elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
     bash upload.sh ksnip-*.rpm
 elif [[ "${BINARY_TYPE}" == "exe" ]]; then
-    bash upload.sh ksnip-*.zip
-    bash upload.sh build/ksnip*.msi
+    bash upload.sh ksnip-*.zip build/ksnip*.msi
 elif [[ "${BINARY_TYPE}" == "app" ]]; then
     bash upload.sh ksnip-*.dmg
 fi

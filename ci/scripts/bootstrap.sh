@@ -15,7 +15,7 @@ elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
 elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/bootstrap_envvars.sh
 
-    echo "--> Move Chocolatey cpack out of the way"   
+    echo "--> Rename Chocolatey cpack to prevent colision with cmake cpack"
     mv /c/ProgramData/chocolatey/bin/cpack /c/ProgramData/chocolatey/bin/choco_cpack
     
     echo "--> Install DotNet 3.5 / wixtoolset"

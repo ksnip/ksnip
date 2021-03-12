@@ -179,6 +179,18 @@ endif ()
 set(KSNIP_SRCS ${KSNIP_SRCS} PARENT_SCOPE)
 
 if (WIN32)
+	INCLUDE(CPack)
+
+	set(CPACK_GENERATOR WIX)
+	set(CPACK_PACKAGE_NAME "ksnip")
+	set(CPACK_PACKAGE_VENDOR "ksnip")
+	set(CPACK_WIX_UPGRADE_GUID "4c7ed545-c0dd-4d45-bf69-c29c7998f668")
+	set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Ksnip is a Qt-based cross-platform screenshot tool that provides many annotation features for your screenshots.")
+	set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
+	set(CPACK_PACKAGE_INSTALL_DIRECTORY "ksnip")
+	set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE.md")
+	set(CPACK_WIX_PRODUCT_ICON "${CMAKE_SOURCE_DIR}/icons/ksnip.ico")
+
 	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${CMAKE_SOURCE_DIR}/icons/ksnip_windows_icon.rc)
 elseif (APPLE)
 	set(MACOSX_BUNDLE_EXECUTABLE_NAME "ksnip")
@@ -245,13 +257,14 @@ endif ()
 target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})
 
 install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+
 if(WIN32)
 install(
     CODE
     "
         include(InstallRequiredSystemLibraries)
         include(BundleUtilities)
-	fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\"  \"\" \"\")
+		fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\"  \"\" \"\")
     "
     DESTINATION .
     COMPONENT Runtime)
@@ -260,6 +273,7 @@ install(
 	    PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
     )
 endif()
+
 # uninstall target
 if(NOT TARGET uninstall)
 	configure_file(

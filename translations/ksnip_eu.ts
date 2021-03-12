@@ -376,31 +376,31 @@ Jarraitu nahi duzu?</translation>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Area laukizuzena</translation>
+        <translation>Area laukizuzena</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Azken area laukizuzena</translation>
+        <translation>Azken area laukizuzena</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Pantaila osoa (monitore guztiak)</translation>
+        <translation>Pantaila osoa (monitore guztiak)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Uneko pantaila</translation>
+        <translation>Uneko pantaila</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Leiho aktiboa</translation>
+        <translation>Leiho aktiboa</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Kurtsorearen azpiko leihoa</translation>
+        <translation>Kurtsorearen azpiko leihoa</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Pantaila argazkien ataria</translation>
+        <translation>Pantaila argazkien ataria</translation>
     </message>
 </context>
 <context>
@@ -513,7 +513,7 @@ Jarraitu nahi duzu?</translation>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation>Kurtsorea hartu pantailaren argazkian</translation>
+        <translation>Kurtsorea sartu pantailaren argazkian</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
@@ -922,11 +922,11 @@ eta pantaila-argazkiaren artean.</translation>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Gorde</translation>
+        <translation>Gorde</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Gorde honela</translation>
+        <translation>Gorde honela</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -934,7 +934,7 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Kopiatu</translation>
+        <translation>Kopiatu</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -960,7 +960,7 @@ eta pantaila-argazkiaren artean.</translation>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Itxi</translation>
+        <translation>Itxi</translation>
     </message>
     <message>
         <source>Close Other</source>
@@ -1080,7 +1080,7 @@ Fitxategiaren izenak honako komodinak eduki ditzake:
     </message>
     <message>
         <source>Capture save location</source>
-        <translation>Atzitu gordetzeko kokapena</translation>
+        <translation>Gordetzeko kokapena</translation>
     </message>
     <message>
         <source>Default</source>
@@ -1114,7 +1114,7 @@ Irudi formatu guztiek ez dute gama osoa onartzen, JPEG-ek bai.</translation>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation>Kargan eskatuko den scriptaren bidea. Kargan scripta erabiliko da behinbehineko
+        <translation>Kargan eskatuko den scriptaren bidea. Kargan scripta erabiliko da behin behineko
 png fitxategi baten bidea argumentu sinplea duela.</translation>
     </message>
     <message>
@@ -1190,11 +1190,11 @@ Ez badago, dena kopiatzen da.</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Scriptaren kargagailua</translation>
+        <translation>Kargako scripta</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation>Gordegailua</translation>
+        <translation>Gordetzea</translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -1221,7 +1221,7 @@ Ez badago, dena kopiatzen da.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation>Erabili gezi-teklak hautaketa mugitzeko</translation>
+        <translation>Erabili gezi-teklak hautaketa mugitzeko.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
@@ -1237,7 +1237,7 @@ Ez badago, dena kopiatzen da.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished">Mezu hau ezarpenen bidez desgaitu daiteke.</translation>
+        <translation>Mezu hau ezarpenen bidez desgaitu daiteke.</translation>
     </message>
 </context>
 <context>
@@ -1267,7 +1267,7 @@ Ez badago, dena kopiatzen da.</translation>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation>Izoztu irudia argazkia egin bitartean</translation>
+        <translation>Izoztu irudia markatu bitartean</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1278,14 +1278,14 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation>Gaituta dagoenean atzeko planoa izoztuko da
+        <translation>Aktibatuta dagoenean atzeko planoa izoztuko da
 area laukizuzena hautatu bitartean. Atzeratutako
 pantailen portaera ere aldatzen du, aukera hau
 aktibatuta atzerapena argazki-area erakutsi aurretik 
 gertatzen da eta aukera desgaituta dagonean
 atzerapena argazki-area erakutsi ondoren gertatzen da.
 Ezaugarri hau beti desgaituta dago Wayland-entzat eta beti
-gaituta MacOs-entzat.</translation>
+aktibatuta MacOs-entzat.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
@@ -1297,7 +1297,7 @@ the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Erakutsi atzeko planoko irudia handitzen duen
 lupa. Aukera honek bakarrik funtzionatzen du
-&quot;Izoztu irudia argazkia egin bitartean&quot; aktibatuta badago.</translation>
+&quot;Izoztu irudia markatu bitartean&quot; aktibatuta badago.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -1428,33 +1428,33 @@ Zenbaki txikiagoak gardenagoa adierazten du.</translation>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Erabili erretiluko ikonoa</translation>
+        <translation>Erabili erretiluko ikonoa</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Aktibatuta dagoenean, sistemaren erretiluan ikonoa gehituko du, sistemak onartzen badu.
+        <translation>Aktibatuta dagoenean, sistemaren erretiluan ikonoa gehituko du, sistemaren leiho kudeatzaileak onartzen badu.
 Aldaketak berrabiaraztea eskatzen du.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Minimizatu erretilura</translation>
+        <translation>Minimizatu erretilura</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Abiatu erretiluan minimizatua</translation>
+        <translation>Abiatu erretiluan minimizatua</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Itxi erretilura</translation>
+        <translation>Itxi erretilura</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Erakutsi editorea</translation>
+        <translation>Erakutsi editorea</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Argazkia</translation>
+        <translation>Argazkia</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
@@ -1549,19 +1549,19 @@ Aldaketak berrabiaraztea eskatzen du.</translation>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Ur-markaren irudia</translation>
+        <translation>Ur-markaren irudia</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Eguneratu</translation>
+        <translation>Eguneratu</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Biratu ur-marka</translation>
+        <translation>Biratu ur-marka</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">Aktibatuta dagoenean, ur-marka 45ªko biraketarekin gehituko da</translation>
+        <translation>Aktibatuta dagoenean, ur-marka 45ªko biraketarekin gehituko da</translation>
     </message>
     <message>
         <source>Watermark Settings</source>

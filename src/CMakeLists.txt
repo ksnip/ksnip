@@ -187,6 +187,7 @@ if (WIN32)
 	set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
 	set(CPACK_PACKAGE_INSTALL_DIRECTORY "ksnip")
 	set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE.txt")
+	set(CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool")
 	set(CPACK_WIX_PRODUCT_ICON "${CMAKE_SOURCE_DIR}/icons/ksnip.ico")
 
 	INCLUDE(CPack)
@@ -260,18 +261,8 @@ target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})
 if (WIN32)
 	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
-	set(QT_INSTALL_DIR $ENV{QTDIR})
-	if(QT_INSTALL_DIR)
-		find_program(WINDEPLOYQT windeployqt HINTS ${QT_INSTALL_DIR} PATH_SUFFIXES bin)
-		if(WINDEPLOYQT)
-			message("windeployqt found!")
-			install(CODE "execute_process(COMMAND ${WINDEPLOYQT} bin WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
-		else()
-			message("Can't find windeployqt")
-		endif()
-	else()
-		message("QT_INSTALL_DIR not defined")
-	endif()
+	find_program(WINDEPLOYQT windeployqt HINTS $ENV{QTDIR} PATH_SUFFIXES bin)
+	install(CODE "execute_process(COMMAND ${WINDEPLOYQT} bin WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
 
 	install(
 		CODE
@@ -283,9 +274,9 @@ if (WIN32)
 		DESTINATION .
 		COMPONENT Runtime)
 
-		set_property(INSTALL "bin/ksnip.exe"
-			PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
-		)
+#		set_property(INSTALL "bin/ksnip.exe"
+#			PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
+#		)
 elseif (UNIX AND NOT APPLE)
 	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif ()

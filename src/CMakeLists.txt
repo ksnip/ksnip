@@ -258,17 +258,20 @@ target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})
 
 # install target
 if (WIN32)
+	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+
 	message("-- DEBUG --")
 	message("CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
 	message("CMAKE_INSTALL_BINDIR: ${CMAKE_INSTALL_BINDIR}")
 	message("Checking for bundle here: ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/")
+
 	message("-- DEBUG --")
 	install(
 		CODE
 		"
 			include(InstallRequiredSystemLibraries)
 			include(BundleUtilities)
-			fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/src/ksnip.exe\"  \"\" \"\")
+			fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\"  \"\" \"\")
 		"
 		DESTINATION .
 		COMPONENT Runtime)
@@ -276,6 +279,11 @@ if (WIN32)
 		set_property(INSTALL "bin/ksnip.exe"
 			PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
 		)
+
+	message("-- ls CMAKE_INSTALL_PREFIX --")
+	execute_process(COMMAND ls ${CMAKE_INSTALL_PREFIX})
+	message("-- ls CMAKE_INSTALL_BINDIR --")
+	execute_process(COMMAND ls ${CMAKE_INSTALL_BINDIR})
 elseif (UNIX AND NOT APPLE)
 	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif ()

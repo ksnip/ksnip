@@ -258,12 +258,17 @@ target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})
 
 # install target
 if (WIN32)
+	message("-- DEBUG --")
+	message("CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
+	message("CMAKE_INSTALL_BINDIR: ${CMAKE_INSTALL_BINDIR}")
+	message("Checking for bundle here: ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/")
+	message("-- DEBUG --")
 	install(
 		CODE
 		"
 			include(InstallRequiredSystemLibraries)
 			include(BundleUtilities)
-			fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\"  \"\" \"\")
+			fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/src/ksnip.exe\"  \"\" \"\")
 		"
 		DESTINATION .
 		COMPONENT Runtime)

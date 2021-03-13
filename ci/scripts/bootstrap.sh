@@ -15,6 +15,13 @@ elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
 elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/bootstrap_envvars.sh
 
+    echo "--> Rename Chocolatey cpack to prevent colision with cmake cpack"
+    mv /c/ProgramData/chocolatey/bin/cpack /c/ProgramData/chocolatey/bin/choco_cpack
+    
+    echo "--> Install DotNet 3.5 / wixtoolset"
+    powershell Install-WindowsFeature Net-Framework-Core # DotNet 3.5 is broken on chocolatey
+    choco install -y wixtoolset
+
     echo "--> Download Dependencies"
 
     QT_BASE_URL="https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_599/qt.qt5.599.win32_msvc2015/5.9.9-0-201912101223"

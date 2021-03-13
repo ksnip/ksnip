@@ -19,6 +19,8 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
 
     cd ..
 
+    mv build/ksnip*.msi ./ksnip-${VERSION}.msi
+
     echo "--> Package Windows"
     mkdir packageDir
     mv build/src/ksnip*.exe packageDir/ksnip.exe

@@ -187,7 +187,6 @@ if (WIN32)
 	set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
 	set(CPACK_PACKAGE_INSTALL_DIRECTORY "ksnip")
 	set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE.txt")
-	set(CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool")
 	set(CPACK_WIX_PRODUCT_ICON "${CMAKE_SOURCE_DIR}/icons/ksnip.ico")
 
 	INCLUDE(CPack)
@@ -274,9 +273,9 @@ if (WIN32)
 		DESTINATION .
 		COMPONENT Runtime)
 
-#		set_property(INSTALL "bin/ksnip.exe"
-#			PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
-#		)
+		set_property(INSTALL "bin/ksnip.exe"
+			PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
+		)
 elseif (UNIX AND NOT APPLE)
 	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif ()

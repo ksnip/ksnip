@@ -263,9 +263,17 @@ if (WIN32)
 	install(
 		CODE
 		"
+			message(\"-- ls CMAKE_INSTALL_PREFIX --\")
+			execute_process(COMMAND ls \"${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}\")
+
 			include(InstallRequiredSystemLibraries)
 			include(BundleUtilities)
+			include(Windeployqt)
+    		windeployqt(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\" \"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}\")
 			fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\"  \"\" \"\")
+
+			message(\"-- ls CMAKE_INSTALL_PREFIX --\")
+			execute_process(COMMAND ls \"${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}\")
 		"
 		DESTINATION .
 		COMPONENT Runtime)

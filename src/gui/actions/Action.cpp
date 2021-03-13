@@ -33,7 +33,7 @@ Action::Action() :
 
 }
 
-QString Action::Name() const
+QString Action::name() const
 {
 	return mName;
 }
@@ -78,7 +78,7 @@ CaptureModes Action::captureMode() const
 	return mCaptureMode;
 }
 
-void Action::setCaptureModel(CaptureModes mode)
+void Action::setCaptureMode(CaptureModes mode)
 {
 	mCaptureMode = mode;
 }

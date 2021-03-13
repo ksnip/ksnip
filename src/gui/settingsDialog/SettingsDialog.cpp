@@ -38,7 +38,8 @@ SettingsDialog::SettingsDialog(QWidget *parent, const QList<CaptureModes> &captu
 	mStickerSettings(new StickerSettings(mConfig)),
 	mTrayIconSettings(new TrayIconSettings(mConfig, captureModes)),
 	mSnippingAreaSettings(new SnippingAreaSettings(mConfig)),
-	mWatermarkSettings(new WatermarkSettings(mConfig))
+	mWatermarkSettings(new WatermarkSettings(mConfig)),
+	mActionsSettings(new ActionsSettings(mConfig, captureModes))
 {
     setWindowTitle(QApplication::applicationName() + QLatin1String(" - ") + tr("Settings"));
 
@@ -64,6 +65,7 @@ SettingsDialog::~SettingsDialog()
     delete mTrayIconSettings;
     delete mSnippingAreaSettings;
     delete mWatermarkSettings;
+    delete mActionsSettings;
 }
 
 void SettingsDialog::saveSettings()
@@ -80,6 +82,7 @@ void SettingsDialog::saveSettings()
     mTrayIconSettings->saveSettings();
     mSnippingAreaSettings->saveSettings();
     mWatermarkSettings->saveSettings();
+	mActionsSettings->saveSettings();
 }
 
 void SettingsDialog::initGui()
@@ -107,6 +110,7 @@ void SettingsDialog::initGui()
 	mStackedLayout->addWidget(mStickerSettings);
 	mStackedLayout->addWidget(mWatermarkSettings);
 	mStackedLayout->addWidget(mHotKeySettings);
+	mStackedLayout->addWidget(mActionsSettings);
 
 	auto application = new QTreeWidgetItem(mTreeWidget, { tr("Application") });
 	auto saver = new QTreeWidgetItem(application, { tr("Saver") });
@@ -120,6 +124,7 @@ void SettingsDialog::initGui()
 	auto stickers = new QTreeWidgetItem(annotator, { tr("Stickers") });
 	auto watermark = new QTreeWidgetItem(annotator, { tr("Watermark") });
 	auto hotkeys = new QTreeWidgetItem(mTreeWidget, { tr("HotKeys") });
+	auto actions = new QTreeWidgetItem(mTreeWidget, { tr("Actions") });
 
 	mNavigatorItems.append(application);
 	mNavigatorItems.append(saver);
@@ -133,12 +138,14 @@ void SettingsDialog::initGui()
 	mNavigatorItems.append(stickers);
 	mNavigatorItems.append(watermark);
 	mNavigatorItems.append(hotkeys);
+	mNavigatorItems.append(actions);
 
 	mTreeWidget->addTopLevelItem(application);
 	mTreeWidget->addTopLevelItem(imageGrabber);
 	mTreeWidget->addTopLevelItem(uploader);
 	mTreeWidget->addTopLevelItem(annotator);
     mTreeWidget->addTopLevelItem(hotkeys);
+    mTreeWidget->addTopLevelItem(actions);
 	mTreeWidget->setHeaderHidden(true);
     mTreeWidget->setItemSelected(mNavigatorItems[0], true);
     mTreeWidget->setFixedWidth(mTreeWidget->minimumSizeHint().width() + ScaledSizeProvider::scaledWidth(100));

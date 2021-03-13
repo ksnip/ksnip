@@ -41,8 +41,6 @@ AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 {
     Q_ASSERT(mConfig != nullptr);
 
-    mConfig = config;
-
     initGui();
     loadConfig();
 }

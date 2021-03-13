@@ -415,6 +415,7 @@ void MainWindow::initGui()
     connect(mToolBar, &MainToolBar::captureDelayChanged, this, &MainWindow::captureDelayChanged);
     connect(mToolBar, &MainToolBar::cropActionTriggered, mImageAnnotator, &IImageAnnotator::showCropper);
 
+	mCaptureAction->setEnabled(false);
 	mCaptureAction->setText(tr("Capture Action"));
 	mCaptureAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_T);
 	connect(mCaptureAction, &QAction::triggered, this, &MainWindow::captureActionClicked);

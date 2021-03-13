@@ -30,7 +30,7 @@ public:
 	Action();
 	~Action() = default;
 
-	QString Name() const;
+	QString name() const;
 	void setName(const QString &name);
 
 	bool isCaptureEnabled() const;
@@ -43,7 +43,7 @@ public:
 	void setIsPinScreenshotEnabled(bool enabled);
 
 	CaptureModes captureMode() const;
-	void setCaptureModel(CaptureModes mode);
+	void setCaptureMode(CaptureModes mode);
 
 	bool includeCursor() const;
 	void setIncludeCursor(bool enabled);

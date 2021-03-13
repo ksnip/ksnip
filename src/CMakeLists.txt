@@ -186,7 +186,7 @@ if (WIN32)
 	set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Ksnip is a Qt-based cross-platform screenshot tool that provides many annotation features for your screenshots.")
 	set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
 	set(CPACK_PACKAGE_INSTALL_DIRECTORY "ksnip")
-	set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE.md")
+	set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE.txt")
 	set(CPACK_WIX_PRODUCT_ICON "${CMAKE_SOURCE_DIR}/icons/ksnip.ico")
 
 	INCLUDE(CPack)
@@ -260,12 +260,6 @@ target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})
 if (WIN32)
 	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
-	message("-- DEBUG --")
-	message("CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX}")
-	message("CMAKE_INSTALL_BINDIR: ${CMAKE_INSTALL_BINDIR}")
-	message("Checking for bundle here: ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/")
-
-	message("-- DEBUG --")
 	install(
 		CODE
 		"
@@ -279,11 +273,6 @@ if (WIN32)
 		set_property(INSTALL "bin/ksnip.exe"
 			PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
 		)
-
-	message("-- ls CMAKE_INSTALL_PREFIX --")
-	execute_process(COMMAND ls ${CMAKE_INSTALL_PREFIX})
-	message("-- ls CMAKE_INSTALL_BINDIR --")
-	execute_process(COMMAND ls ${CMAKE_INSTALL_BINDIR})
 elseif (UNIX AND NOT APPLE)
 	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif ()

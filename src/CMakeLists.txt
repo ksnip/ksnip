@@ -179,8 +179,6 @@ endif ()
 set(KSNIP_SRCS ${KSNIP_SRCS} PARENT_SCOPE)
 
 if (WIN32)
-	INCLUDE(CPack)
-
 	set(CPACK_GENERATOR WIX)
 	set(CPACK_PACKAGE_NAME "ksnip")
 	set(CPACK_PACKAGE_VENDOR "ksnip")
@@ -190,6 +188,8 @@ if (WIN32)
 	set(CPACK_PACKAGE_INSTALL_DIRECTORY "ksnip")
 	set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE.md")
 	set(CPACK_WIX_PRODUCT_ICON "${CMAKE_SOURCE_DIR}/icons/ksnip.ico")
+
+	INCLUDE(CPack)
 
 	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${CMAKE_SOURCE_DIR}/icons/ksnip_windows_icon.rc)
 elseif (APPLE)
@@ -205,7 +205,7 @@ elseif (APPLE)
 	set_source_files_properties(${MACOSX_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
 
 	add_executable(ksnip MACOSX_BUNDLE ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc ${MACOSX_ICON})
-else()
+else ()
 	add_executable(ksnip ${KSNIP_SRCS} ${CMAKE_SOURCE_DIR}/icons/ksnip_icons.qrc)
 endif ()
 
@@ -245,7 +245,7 @@ elseif (UNIX)
 	# While the "X11" part of the define isn't necessarily accurate,
 	# it is easy to spot.
 	target_compile_definitions(ksnip PRIVATE UNIX_X11)
-elseif(WIN32)
+elseif (WIN32)
 	list(APPEND DEPENDENCY_LIBRARIES
 		Qt5::WinExtras
 		kImageAnnotator
@@ -256,31 +256,33 @@ endif ()
 
 target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})
 
-install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+# install target
+if (WIN32)
+	install(
+		CODE
+		"
+			include(InstallRequiredSystemLibraries)
+			include(BundleUtilities)
+			fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\"  \"\" \"\")
+		"
+		DESTINATION .
+		COMPONENT Runtime)
 
-if(WIN32)
-install(
-    CODE
-    "
-        include(InstallRequiredSystemLibraries)
-        include(BundleUtilities)
-		fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\"  \"\" \"\")
-    "
-    DESTINATION .
-    COMPONENT Runtime)
-
-    set_property(INSTALL "bin/ksnip.exe"
-	    PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
-    )
-endif()
-
-# uninstall target
-if(NOT TARGET uninstall)
-	configure_file(
-		"${CMAKE_CURRENT_SOURCE_DIR}/../cmake/cmake_uninstall.cmake.in"
-		"${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
-		IMMEDIATE @ONLY)
-
-	add_custom_target(uninstall COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
+		set_property(INSTALL "bin/ksnip.exe"
+			PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
+		)
+elseif (UNIX AND NOT APPLE)
+	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif ()
 
+# uninstall target
+if (UNIX AND NOT APPLE)
+	if(NOT TARGET uninstall)
+		configure_file(
+				"${CMAKE_CURRENT_SOURCE_DIR}/../cmake/cmake_uninstall.cmake.in"
+				"${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+				IMMEDIATE @ONLY)
+
+		add_custom_target(uninstall COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
+	endif ()
+endif ()

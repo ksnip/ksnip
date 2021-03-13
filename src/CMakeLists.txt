@@ -260,20 +260,24 @@ target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})
 if (WIN32)
 	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
+	if(QT_INSTALL_DIR)
+		find_program(WINDEPLOYQT windeployqt HINTS ${QT_INSTALL_DIR} PATH_SUFFIXES bin)
+		if(WINDEPLOYQT)
+			message("windeployqt found!")
+			install(CODE "execute_process(COMMAND ${WINDEPLOYQT} bin WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
+		else()
+			message("Can't find windeployqt")
+		endif()
+	else()
+		message("QT_INSTALL_DIR not defined")
+	endif()
+
 	install(
 		CODE
 		"
-			message(\"-- ls CMAKE_INSTALL_PREFIX --\")
-			execute_process(COMMAND ls \"${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}\")
-
 			include(InstallRequiredSystemLibraries)
 			include(BundleUtilities)
-			include(Windeployqt)
-    		windeployqt(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\" \"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}\")
 			fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\"  \"\" \"\")
-
-			message(\"-- ls CMAKE_INSTALL_PREFIX --\")
-			execute_process(COMMAND ls \"${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}\")
 		"
 		DESTINATION .
 		COMPONENT Runtime)

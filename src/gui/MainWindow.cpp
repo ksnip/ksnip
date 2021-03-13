@@ -48,6 +48,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mPinAction(new QAction(this)),
 	mRemoveImageAction(new QAction(this)),
 	mModifyCanvasAction(new QAction(this)),
+	mCaptureAction(new QAction(this)),
 	mMainLayout(layout()),
 	mConfig(KsnipConfigProvider::instance()),
 	mClipboard(mServiceLocator->clipboard()),
@@ -61,7 +62,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mPinWindowHandler(new PinWindowHandler(this)),
 	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this)),
 	mFileDialog(FileDialogAdapterFactory::create()),
-	mWindowResizer(new WindowResizer(this, mConfig))
+	mWindowResizer(new WindowResizer(this, mConfig)),
+	mActionProcessor(new ActionProcessor)
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need
 	// to connect imagegrabber signals to mainwindow slots to handle the
@@ -88,11 +90,20 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processCapture);
 	connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::captureCanceled);
 
-	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::capture);
+	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::triggerCapture);
 
 	connect(mUploaderProvider, &UploaderProvider::finished, this, &MainWindow::uploadFinished);
 
 	connect(mRecentImagesMenu, &RecentImagesMenu::openRecentSelected, this, &MainWindow::loadImageFromFile);
+
+	connect(this, &MainWindow::imageLoaded, mActionProcessor, &ActionProcessor::captureFinished);
+	connect(mImageGrabber, &AbstractImageGrabber::canceled, mActionProcessor, &ActionProcessor::captureCanceled);
+	connect(mActionProcessor, &ActionProcessor::triggerCapture, this, &MainWindow::capture);
+	connect(mActionProcessor, &ActionProcessor::triggerPinImage, mPinAction, &QAction::trigger);
+	connect(mActionProcessor, &ActionProcessor::triggerUpload, mUploadAction, &QAction::trigger);
+	connect(mActionProcessor, &ActionProcessor::triggerOpenDirectory, mCaptureHandler, &ICaptureHandler::openDirectory);
+	connect(mActionProcessor, &ActionProcessor::triggerCopyToClipboard, mToolBar->copyToClipboardAction(), &QAction::trigger);
+	connect(mActionProcessor, &ActionProcessor::triggerSave, mToolBar->saveAction(), &QAction::trigger);
 
 	mCaptureHandler->addListener(this);
 
@@ -100,31 +111,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	setupImageAnnotator();
 	resize(minimumSize());
 	loadSettings();
-}
-
-void MainWindow::handleGuiStartup()
-{
-	if (mMode == RunMode::GUI) {
-		if (mConfig->captureOnStartup()) {
-			capture(mConfig->captureMode());
-		} else if (mConfig->startMinimizedToTray() && mConfig->useTrayIcon()) {
-			showHidden();
-		} else {
-			showEmpty();
-		}
-	}
-}
-
-void MainWindow::setPosition()
-{
-	auto position = mConfig->windowPosition();
-	auto screenGeometry = QApplication::desktop()->screenGeometry();
-	if(!screenGeometry.contains(position)) {
-		auto screenCenter = screenGeometry.center();
-		auto mainWindowSize = size();
-		position = QPoint(screenCenter.x() - mainWindowSize.width() / 2, screenCenter.y() - mainWindowSize.height() / 2);
-	}
-	move(position);
 }
 
 MainWindow::~MainWindow()
@@ -146,6 +132,7 @@ MainWindow::~MainWindow()
     delete mAddWatermarkAction;
     delete mSaveAsAction;
     delete mModifyCanvasAction;
+    delete mCaptureAction;
     delete mCapturePrinter;
     delete mTrayIcon;
     delete mDragAndDropProcessor;
@@ -154,6 +141,32 @@ MainWindow::~MainWindow()
     delete mVisibilityHandler;
     delete mFileDialog;
     delete mWindowResizer;
+    delete mActionProcessor;
+}
+
+void MainWindow::handleGuiStartup()
+{
+	if (mMode == RunMode::GUI) {
+		if (mConfig->captureOnStartup()) {
+			triggerCapture(mConfig->captureMode());
+		} else if (mConfig->startMinimizedToTray() && mConfig->useTrayIcon()) {
+			showHidden();
+		} else {
+			showEmpty();
+		}
+	}
+}
+
+void MainWindow::setPosition()
+{
+	auto position = mConfig->windowPosition();
+	auto screenGeometry = QApplication::desktop()->screenGeometry();
+	if(!screenGeometry.contains(position)) {
+		auto screenCenter = screenGeometry.center();
+		auto mainWindowSize = size();
+		position = QPoint(screenCenter.x() - mainWindowSize.width() / 2, screenCenter.y() - mainWindowSize.height() / 2);
+	}
+	move(position);
 }
 
 void MainWindow::processInstantCapture(const CaptureDto &capture)
@@ -209,6 +222,7 @@ DragContent MainWindow::dragContent() const
 void MainWindow::loadImage(const CaptureDto &capture)
 {
 	mCaptureHandler->load(capture);
+	emit imageLoaded();
 }
 
 void MainWindow::resizeToContent()
@@ -354,17 +368,21 @@ void MainWindow::loadSettings()
 	}
 }
 
-void MainWindow::capture(CaptureModes captureMode)
+void MainWindow::triggerCapture(CaptureModes captureMode)
 {
 	if(!mCaptureHandler->canTakeNew()){
 		return;
 	}
 
-	hideMainWindowIfRequired();
-
 	mConfig->setCaptureMode(captureMode);
 
-	captureScreenshot(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
+	capture(captureMode, mConfig->captureCursor(), mConfig->captureDelay());
+}
+
+void MainWindow::capture(CaptureModes captureMode, bool captureCursor, int delay)
+{
+	hideMainWindowIfRequired();
+	captureScreenshot(captureMode, captureCursor, delay);
 }
 
 void MainWindow::hideMainWindowIfRequired()
@@ -391,11 +409,15 @@ void MainWindow::initGui()
 {
     mToolBar = new MainToolBar(mImageGrabber->supportedCaptureModes(), mImageAnnotator->undoAction(), mImageAnnotator->redoAction());
 
-    connect(mToolBar, &MainToolBar::captureModeSelected, this, &MainWindow::capture);
+    connect(mToolBar, &MainToolBar::captureModeSelected, this, &MainWindow::triggerCapture);
     connect(mToolBar, &MainToolBar::saveActionTriggered, this, &MainWindow::saveClicked);
     connect(mToolBar, &MainToolBar::copyActionTriggered, this, &MainWindow::copyCaptureToClipboard);
     connect(mToolBar, &MainToolBar::captureDelayChanged, this, &MainWindow::captureDelayChanged);
     connect(mToolBar, &MainToolBar::cropActionTriggered, mImageAnnotator, &IImageAnnotator::showCropper);
+
+	mCaptureAction->setText(tr("Capture Action"));
+	mCaptureAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_T);
+	connect(mCaptureAction, &QAction::triggered, this, &MainWindow::captureActionClicked);
 
 	mSaveAsAction->setText(tr("Save As..."));
 	mSaveAsAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_S);
@@ -403,12 +425,12 @@ void MainWindow::initGui()
 	connect(mSaveAsAction, &QAction::triggered, this, &MainWindow::saveAsClicked);
 
     mUploadAction->setText(tr("Upload"));
-    mUploadAction->setToolTip(tr("Upload capture to external source"));
+    mUploadAction->setToolTip(tr("Upload triggerCapture to external source"));
     mUploadAction->setShortcut(Qt::SHIFT + Qt::Key_U);
     connect(mUploadAction, &QAction::triggered, this, &MainWindow::upload);
 
     mCopyAsDataUriAction->setText(tr("Copy as data URI"));
-    mCopyAsDataUriAction->setToolTip(tr("Copy capture to system clipboard"));
+    mCopyAsDataUriAction->setToolTip(tr("Copy triggerCapture to system clipboard"));
     connect(mCopyAsDataUriAction, &QAction::triggered, this, &MainWindow::copyAsDataUri);
 
     mPrintAction->setText(tr("Print"));
@@ -498,6 +520,8 @@ void MainWindow::initGui()
 
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
+    menu->addAction(mCaptureAction);
+    menu->addSeparator();
     menu->addAction(mOpenImageAction);
     menu->addMenu(mRecentImagesMenu);
     menu->addAction(mToolBar->saveAction());
@@ -713,4 +737,23 @@ void MainWindow::captureEmpty()
 void MainWindow::showPinWindow()
 {
 	mPinWindowHandler->add(QPixmap::fromImage(mCaptureHandler->image()));
+}
+
+void MainWindow::captureActionClicked()
+{
+	qDebug("Capture action triggered");
+
+	auto action = new Action;
+	action->setCaptureDelay(2000);
+	action->setIsCaptureEnabled(true);
+	action->setIsPinScreenshotEnabled(true);
+	action->setIsUploadEnabled(true);
+	action->setIsOpenDirectoryEnabled(true);
+	action->setIsSaveEnabled(true);
+
+	if(action->isCaptureEnabled() && !mCaptureHandler->canTakeNew()){
+		return;
+	}
+
+	mActionProcessor->process(action);
 }

@@ -224,8 +224,8 @@ void AbstractSnippingArea::keyReleaseEvent(QKeyEvent *event)
 void AbstractSnippingArea::cancelSelection()
 {
 	stopTimeout();
-	emit canceled();
 	closeSnippingArea();
+	emit canceled();
 }
 
 void AbstractSnippingArea::updateCapturedArea(const QRectF &rect)
@@ -237,9 +237,9 @@ void AbstractSnippingArea::updateCapturedArea(const QRectF &rect)
 void AbstractSnippingArea::finishSelection()
 {
 	stopTimeout();
-	emit finished();
-	mConfig->setLastRectArea(selectedRectArea());
 	closeSnippingArea();
+	mConfig->setLastRectArea(selectedRectArea());
+	emit finished();
 }
 
 void AbstractSnippingArea::updateCursor(const QCursor &cursor)

@@ -263,19 +263,19 @@ if (WIN32)
 	find_program(WINDEPLOYQT windeployqt HINTS $ENV{QTDIR} PATH_SUFFIXES bin)
 	install(CODE "execute_process(COMMAND ${WINDEPLOYQT} bin WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
 
-	install(
-		CODE
-		"
-			include(InstallRequiredSystemLibraries)
-			include(BundleUtilities)
-			fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\"  \"\" \"\")
-		"
-		DESTINATION .
-		COMPONENT Runtime)
+#	install(
+#		CODE
+#		"
+#			include(InstallRequiredSystemLibraries)
+#			include(BundleUtilities)
+#			fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\"  \"\" \"\")
+#		"
+#		DESTINATION .
+#		COMPONENT Runtime)
 
-		set_property(INSTALL "bin/ksnip.exe"
-			PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
-		)
+	set_property(INSTALL "bin/ksnip.exe"
+		PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
+	)
 elseif (UNIX AND NOT APPLE)
 	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif ()

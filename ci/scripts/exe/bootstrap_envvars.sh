@@ -25,6 +25,7 @@ MSVCRTD_INCLUDE="$BUILD_TOOLS/include"
 KCOLORPICKER_INCLUDE="$PROGRAMFILES/kColorPicker/include"
 KIMAGEANNOTATOR_INCLUDE="$PROGRAMFILES/kImageAnnotator/include"
 WIXTOOLKIT_DIR="$PROGRAMFILES/WiX Toolset v3.11/bin"
+CMAKE_BIN="/c/Program Files/CMake/bin"
 
 export QTDIR=$QT_DIR
 export PATH=$PATH:$QT_BIN
@@ -32,6 +33,7 @@ export PATH=$PATH:$QT_PLUGIN
 export PATH=$PATH:$CL_BIN
 export PATH=$PATH:$RC_BIN
 export PATH=$PATH:$WIXTOOLKIT_DIR
+export PATH=$CMAKE_BIN:$PATH       # Move cmake before chocolaty due to cpack name collision
 export LIB=$UM_LIB:$LIB
 export LIB=$UCRT_LIB:$LIB
 export LIB=$MSVCRTD_LIB:$LIB

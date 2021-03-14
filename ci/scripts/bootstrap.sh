@@ -15,12 +15,8 @@ elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
 elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/bootstrap_envvars.sh
 
-    echo "--> Rename Chocolatey cpack to prevent colision with cmake cpack"
-    mv /c/ProgramData/chocolatey/bin/cpack /c/ProgramData/chocolatey/bin/choco_cpack
-
-    echo "--> Find cmake start"
-    where cmake
-    echo "--> Find cmake end"
+#    echo "--> Rename Chocolatey cpack to prevent colision with cmake cpack"
+#    mv /c/ProgramData/chocolatey/bin/cpack /c/ProgramData/chocolatey/bin/choco_cpack
 
     echo "--> Install DotNet 3.5 / wixtoolset"
     powershell Install-WindowsFeature Net-Framework-Core # DotNet 3.5 is broken on chocolatey

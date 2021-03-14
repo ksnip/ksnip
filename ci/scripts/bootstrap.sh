@@ -15,12 +15,13 @@ elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
 elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/bootstrap_envvars.sh
 
-    echo "--> Install DotNet 3.5 / wixtoolset"
-#    powershell Install-WindowsFeature Net-Framework-Core # DotNet 3.5 is broken on chocolatey
+    echo "--> Install DotNet 3.5"
+    powershell Install-WindowsFeature Net-Framework-Core
+
+    echo "--> Install wixtoolset"
     choco install -y wixtoolset
 
     echo "--> Download Dependencies"
-
     QT_BASE_URL="https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_599/qt.qt5.599.win32_msvc2015/5.9.9-0-201912101223"
     wget --quiet -O qtbase.7z "${QT_BASE_URL}qtbase-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"
     wget --quiet -O qtwinextras.7z "${QT_BASE_URL}qtwinextras-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"

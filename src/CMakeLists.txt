@@ -183,8 +183,8 @@ if (WIN32)
 	set(CPACK_PACKAGE_NAME "ksnip")
 	set(CPACK_PACKAGE_VENDOR "ksnip")
 	set(CPACK_WIX_UPGRADE_GUID "4c7ed545-c0dd-4d45-bf69-c29c7998f668")
-	set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Ksnip is a Qt-based cross-platform screenshot tool that provides many annotation features for your screenshots.")
-	set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
+	set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Cross-platform screenshot tool that provides many annotation features for your screenshots.")
+	set(CPACK_PACKAGE_VERSION "${KSNIP_VERSION}")
 	set(CPACK_PACKAGE_INSTALL_DIRECTORY "ksnip")
 	set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE.txt")
 	set(CPACK_WIX_PRODUCT_ICON "${CMAKE_SOURCE_DIR}/icons/ksnip.ico")
@@ -262,16 +262,6 @@ if (WIN32)
 
 	find_program(WINDEPLOYQT windeployqt HINTS $ENV{QTDIR} PATH_SUFFIXES bin)
 	install(CODE "execute_process(COMMAND ${WINDEPLOYQT} bin WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
-
-#	install(
-#		CODE
-#		"
-#			include(InstallRequiredSystemLibraries)
-#			include(BundleUtilities)
-#			fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}/ksnip.exe\"  \"\" \"\")
-#		"
-#		DESTINATION .
-#		COMPONENT Runtime)
 
 	set_property(INSTALL "bin/ksnip.exe"
 		PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"

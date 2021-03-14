@@ -17,7 +17,13 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
 
     echo "--> Rename Chocolatey cpack to prevent colision with cmake cpack"
     mv /c/ProgramData/chocolatey/bin/cpack /c/ProgramData/chocolatey/bin/choco_cpack
-    
+
+    echo "--> Find cmake start"
+    ls /c/ProgramData/
+    echo "--> "
+    ls /c/ProgramData/cmake
+    echo "--> Find cmake end"
+
     echo "--> Install DotNet 3.5 / wixtoolset"
     powershell Install-WindowsFeature Net-Framework-Core # DotNet 3.5 is broken on chocolatey
     choco install -y wixtoolset

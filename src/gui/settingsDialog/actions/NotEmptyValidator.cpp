@@ -17,40 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ACTIONSSETTINGS_H
-#define KSNIP_ACTIONSSETTINGS_H
+#include "NotEmptyValidator.h"
 
-#include <QGroupBox>
-#include <QVBoxLayout>
-#include <QTabWidget>
-#include <QPushButton>
-
-#include "ActionSettingTab.h"
-#include "EmptyActionSettingTab.h"
-#include "src/backend/config/KsnipConfig.h"
-
-class ActionsSettings : public QGroupBox
+QValidator::State NotEmptyValidator::validate(QString &input, int &pos) const
 {
-Q_OBJECT
-public:
-	explicit ActionsSettings(KsnipConfig *config, const QList<CaptureModes> &captureModes);
-	~ActionsSettings() override;
-	void saveSettings();
-
-private:
-	QVBoxLayout *mLayout;
-	KsnipConfig *mConfig;
-	QTabWidget *mTabWidget;
-	QList<CaptureModes> mCaptureModes;
-
-	void initGui();
-	void loadConfig();
-	void insertTab(ActionSettingTab *tabContent, const QString &name);
-
-private slots:
-	void addEmptyTab();
-	void closeTab(int index);
-};
-
-
-#endif //KSNIP_ACTIONSSETTINGS_H
+	if (input.isEmpty()) {
+		qDebug("invalid");
+		return QValidator::Invalid;
+	} else {
+		qDebug("valid");
+		return QValidator::Acceptable;
+	}
+}

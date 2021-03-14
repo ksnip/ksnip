@@ -1225,6 +1225,54 @@ void KsnipConfig::setPortalHotKey(const QKeySequence &keySequence)
     emit hotKeysChanged();
 }
 
+// Actions
+
+QList<Action> KsnipConfig::actions()
+{
+	QList<Action> actions;
+	auto count = mConfig.beginReadArray(KsnipConfigOptions::actionsString());
+	for (auto index = 0; index < count; index++) {
+		mConfig.setArrayIndex(index);
+		Action action;
+		action.setName(mConfig.value(KsnipConfigOptions::actionNameString()).toString());
+		action.setIsCaptureEnabled(mConfig.value(KsnipConfigOptions::actionIsCaptureEnabledString()).toBool());
+		action.setIncludeCursor(mConfig.value(KsnipConfigOptions::actionIncludeCursorString()).toBool());
+		action.setCaptureDelay(mConfig.value(KsnipConfigOptions::actionCaptureDelayString()).toInt());
+		action.setCaptureMode(mConfig.value(KsnipConfigOptions::actionIsPinImageEnabledString()).value<CaptureModes>());
+		action.setIsPinScreenshotEnabled(mConfig.value(KsnipConfigOptions::actionIsPinImageEnabledString()).toBool());
+		action.setIsUploadEnabled(mConfig.value(KsnipConfigOptions::actionIsUploadEnabledString()).toBool());
+		action.setIsOpenDirectoryEnabled(mConfig.value(KsnipConfigOptions::actionIsOpenDirectoryEnabledString()).toBool());
+		action.setIsCopyToClipboardEnabled(mConfig.value(KsnipConfigOptions::actionIsCopyToClipboardEnabledString()).toBool());
+		action.setIsSaveEnabled(mConfig.value(KsnipConfigOptions::actionIsSaveEnabledString()).toBool());
+		actions.append(action);
+	}
+	mConfig.endArray();
+	return actions;
+}
+
+void KsnipConfig::setActions(const QList<Action> &actions)
+{
+	mConfig.remove(KsnipConfigOptions::actionsString());
+
+	auto count = actions.count();
+	mConfig.beginWriteArray(KsnipConfigOptions::actionsString());
+	for (auto index = 0; index < count; ++index) {
+		const auto& action = actions.at(index);
+		mConfig.setArrayIndex(index);
+		mConfig.setValue(KsnipConfigOptions::actionNameString(), action.name());
+		mConfig.setValue(KsnipConfigOptions::actionIsCaptureEnabledString(), action.isCaptureEnabled());
+		mConfig.setValue(KsnipConfigOptions::actionIncludeCursorString(), action.includeCursor());
+		mConfig.setValue(KsnipConfigOptions::actionCaptureDelayString(), action.captureDelay());
+		mConfig.setValue(KsnipConfigOptions::actionCaptureModeString(), static_cast<int>(action.captureMode()));
+		mConfig.setValue(KsnipConfigOptions::actionIsPinImageEnabledString(), action.isPinImageEnabled());
+		mConfig.setValue(KsnipConfigOptions::actionIsUploadEnabledString(), action.isUploadEnabled());
+		mConfig.setValue(KsnipConfigOptions::actionIsOpenDirectoryEnabledString(), action.isOpenDirectoryEnabled());
+		mConfig.setValue(KsnipConfigOptions::actionIsCopyToClipboardEnabledString(), action.isCopyToClipboardEnabled());
+		mConfig.setValue(KsnipConfigOptions::actionIsSaveEnabledString(), action.isSaveEnabled());
+	}
+	mConfig.endArray();
+}
+
 // Misc
 
 void KsnipConfig::saveValue(const QString &key, const QVariant &value)

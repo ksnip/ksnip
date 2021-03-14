@@ -19,24 +19,14 @@
 
 #include "ActionSettingTab.h"
 
-ActionSettingTab::ActionSettingTab(const QList<CaptureModes> &captureModes) :
-	mCaptureModeComboBox(new QComboBox(nullptr)),
-	mCaptureEnabledCheckBox(new QCheckBox(this)),
-	mIncludeCursorCheckBox(new QCheckBox(this)),
-	mShowPinWindowCheckBox(new QCheckBox(this)),
-	mCopyToClipboardCheckBox(new QCheckBox(this)),
-	mUploadCheckBox(new QCheckBox(this)),
-	mOpenDirectoryCheckBox(new QCheckBox(this)),
-	mSaveCheckBox(new QCheckBox(this)),
-	mCaptureModeLabel(new QLabel(this)),
-	mDelayLabel(new QLabel(this)),
-	mNameLabel(new QLabel(this)),
-	mDelaySpinBox(new CustomSpinBox(0, 100)),
-	mNameLineEdit(new QLineEdit(this)),
-	mLayout(new QGridLayout(this))
+ActionSettingTab::ActionSettingTab(const QString &name, const QList<CaptureModes> &captureModes) : ActionSettingTab(captureModes)
 {
-	initGui(captureModes);
-	loadConfig();
+	mNameLineEdit->setTextAndPlaceholderText(name);
+}
+
+ActionSettingTab::ActionSettingTab(const Action &action, const QList<CaptureModes> &captureModes) : ActionSettingTab(captureModes)
+{
+	setAction(action);
 }
 
 ActionSettingTab::~ActionSettingTab()
@@ -67,6 +57,7 @@ void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 	mIncludeCursorCheckBox->setText(tr("Include Cursor"));
 
 	mDelayLabel->setText(tr("Delay") + QLatin1String(":"));
+	mDelaySpinBox->setSuffix(tr("s"));
 
 	mCaptureModeLabel->setText(tr("Capture Mode") + QLatin1String(":"));
 	populateCaptureModeCombobox(captureModes);
@@ -102,11 +93,6 @@ void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 	setLayout(mLayout);
 }
 
-void ActionSettingTab::loadConfig()
-{
-	captureEnabledChanged();
-}
-
 void ActionSettingTab::populateCaptureModeCombobox(const QList<CaptureModes> &captureModes)
 {
 	for (auto captureMode: captureModes) {
@@ -128,7 +114,7 @@ void ActionSettingTab::captureEnabledChanged()
 Action ActionSettingTab::action() const
 {
 	Action action;
-	action.setName(mNameLineEdit->text());
+	action.setName(mNameLineEdit->textOrPlaceholderText());
 	action.setIsCaptureEnabled(mCaptureEnabledCheckBox->isChecked());
 	action.setCaptureDelay(mDelaySpinBox->value());
 	action.setIncludeCursor(mIncludeCursorCheckBox->isChecked());
@@ -141,9 +127,29 @@ Action ActionSettingTab::action() const
 	return action;
 }
 
+ActionSettingTab::ActionSettingTab(const QList<CaptureModes> &captureModes) :
+	mCaptureModeComboBox(new QComboBox(nullptr)),
+	mCaptureEnabledCheckBox(new QCheckBox(this)),
+	mIncludeCursorCheckBox(new QCheckBox(this)),
+	mShowPinWindowCheckBox(new QCheckBox(this)),
+	mCopyToClipboardCheckBox(new QCheckBox(this)),
+	mUploadCheckBox(new QCheckBox(this)),
+	mOpenDirectoryCheckBox(new QCheckBox(this)),
+	mSaveCheckBox(new QCheckBox(this)),
+	mCaptureModeLabel(new QLabel(this)),
+	mDelayLabel(new QLabel(this)),
+	mNameLabel(new QLabel(this)),
+	mDelaySpinBox(new CustomSpinBox(0, 100)),
+	mNameLineEdit(new CustomLineEdit(this)),
+	mLayout(new QGridLayout(this))
+{
+	initGui(captureModes);
+	captureEnabledChanged();
+}
+
 void ActionSettingTab::setAction(const Action &action) const
 {
-	mNameLineEdit->setText(action.name());
+	mNameLineEdit->setTextAndPlaceholderText(action.name());
 	mCaptureEnabledCheckBox->setChecked(action.isCaptureEnabled());
 	mDelaySpinBox->setValue(action.captureDelay());
 	mIncludeCursorCheckBox->setChecked(action.includeCursor());

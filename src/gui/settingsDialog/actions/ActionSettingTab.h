@@ -29,15 +29,20 @@
 
 #include "src/common/helper/EnumTranslator.h"
 #include "src/widgets/CustomSpinBox.h"
+#include "src/widgets/CustomLineEdit.h"
 #include "src/gui/actions/Action.h"
 
 class ActionSettingTab : public QWidget
 {
 	Q_OBJECT
 public:
-	explicit ActionSettingTab(const QList<CaptureModes> &captureModes);
+	explicit ActionSettingTab(const QString &name, const QList<CaptureModes> &captureModes);
+	explicit ActionSettingTab(const Action &action, const QList<CaptureModes> &captureModes);
 	~ActionSettingTab() override;
 	Action action() const;
+
+protected:
+	explicit ActionSettingTab(const QList<CaptureModes> &captureModes);
 	void setAction(const Action &action) const;
 
 private:
@@ -53,11 +58,10 @@ private:
 	QLabel *mDelayLabel;
 	QLabel *mNameLabel;
 	CustomSpinBox *mDelaySpinBox;
-	QLineEdit *mNameLineEdit;
+	CustomLineEdit *mNameLineEdit;
 	QGridLayout *mLayout;
 
 	void initGui(const QList<CaptureModes> &captureModes);
-	void loadConfig();
 	void populateCaptureModeCombobox(const QList<CaptureModes> &captureModes);
 	int indexOfSelectedCaptureMode(CaptureModes modes) const;
 

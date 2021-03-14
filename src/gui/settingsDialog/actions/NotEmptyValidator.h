@@ -17,40 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ACTIONSSETTINGS_H
-#define KSNIP_ACTIONSSETTINGS_H
+#ifndef KSNIP_NOTEMPTYVALIDATOR_H
+#define KSNIP_NOTEMPTYVALIDATOR_H
 
-#include <QGroupBox>
-#include <QVBoxLayout>
-#include <QTabWidget>
-#include <QPushButton>
+#include <QValidator>
 
-#include "ActionSettingTab.h"
-#include "EmptyActionSettingTab.h"
-#include "src/backend/config/KsnipConfig.h"
-
-class ActionsSettings : public QGroupBox
+class NotEmptyValidator : public QValidator
 {
-Q_OBJECT
+	Q_OBJECT
 public:
-	explicit ActionsSettings(KsnipConfig *config, const QList<CaptureModes> &captureModes);
-	~ActionsSettings() override;
-	void saveSettings();
+	NotEmptyValidator() = default;
+	~NotEmptyValidator() override = default;
 
-private:
-	QVBoxLayout *mLayout;
-	KsnipConfig *mConfig;
-	QTabWidget *mTabWidget;
-	QList<CaptureModes> mCaptureModes;
-
-	void initGui();
-	void loadConfig();
-	void insertTab(ActionSettingTab *tabContent, const QString &name);
-
-private slots:
-	void addEmptyTab();
-	void closeTab(int index);
+	QValidator::State validate(QString &input, int &pos) const override;
 };
 
 
-#endif //KSNIP_ACTIONSSETTINGS_H
+#endif //KSNIP_NOTEMPTYVALIDATOR_H

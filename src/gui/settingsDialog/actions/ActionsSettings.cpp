@@ -22,12 +22,15 @@
 ActionsSettings::ActionsSettings(KsnipConfig *config, const QList<CaptureModes> &captureModes) :
 	mConfig(config),
 	mLayout(new QVBoxLayout(this)),
-	mTabWidget(new QTabWidget(this))
+	mTabWidget(new QTabWidget(this)),
+	mCaptureModes(captureModes)
 {
 	Q_ASSERT(mConfig != nullptr);
 
-	initGui(captureModes);
+	initGui();
 	loadConfig();
+
+	mTabWidget->setCurrentIndex(0);
 }
 
 ActionsSettings::~ActionsSettings()
@@ -38,16 +41,30 @@ ActionsSettings::~ActionsSettings()
 
 void ActionsSettings::saveSettings()
 {
-
+	QList<Action> actions;
+	auto count = mTabWidget->count();
+	for (int index = 0; index < count; ++index) {
+		auto tabContent = dynamic_cast<ActionSettingTab *>(mTabWidget->widget(index));
+		if(tabContent != nullptr) {
+			actions.append(tabContent->action());
+		}
+	}
+	mConfig->setActions(actions);
 }
 
-void ActionsSettings::initGui(const QList<CaptureModes> &captureModes)
+void ActionsSettings::initGui()
 {
+	auto addButton = new QPushButton();
+	addButton->setText(tr("Add"));
+	connect(addButton, &QPushButton::clicked, this, &ActionsSettings::addEmptyTab);
 
-	mTabWidget->addTab(new ActionSettingTab(captureModes), "Action 1");
-	mTabWidget->addTab(new ActionSettingTab(captureModes), "Action 2");
-	mTabWidget->addTab(new ActionSettingTab(captureModes), "Action 3");
-	
+	auto addTabIndex = mTabWidget->addTab(new EmptyActionSettingTab, QString());
+	mTabWidget->setTabEnabled(addTabIndex, false);
+	mTabWidget->tabBar()->setTabButton(addTabIndex, QTabBar::RightSide, addButton);
+
+	mTabWidget->setTabsClosable(true);
+	connect(mTabWidget, &QTabWidget::tabCloseRequested, this, &ActionsSettings::closeTab);
+
 	mLayout->addWidget(mTabWidget);
 
 	setTitle(tr("Actions Settings"));
@@ -56,5 +73,27 @@ void ActionsSettings::initGui(const QList<CaptureModes> &captureModes)
 
 void ActionsSettings::loadConfig()
 {
+	auto actions = mConfig->actions();
+	for(const auto& action : actions) {
+		auto tabContent = new ActionSettingTab(action, mCaptureModes);
+		insertTab(tabContent, action.name());
+	}
+}
 
+void ActionsSettings::insertTab(ActionSettingTab *tabContent, const QString &name)
+{
+	auto index = mTabWidget->insertTab(mTabWidget->count() - 1, tabContent, name);
+	mTabWidget->setCurrentIndex(index);
+}
+
+void ActionsSettings::addEmptyTab()
+{
+	auto name = tr("Action") + QLatin1String(" ") + QString::number(mTabWidget->count());
+	auto tabContent = new ActionSettingTab(name, mCaptureModes);
+	insertTab(tabContent, name);
+}
+
+void ActionsSettings::closeTab(int index)
+{
+	mTabWidget->removeTab(index);
 }

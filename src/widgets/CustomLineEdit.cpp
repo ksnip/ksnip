@@ -36,3 +36,9 @@ void CustomLineEdit::setText(const QString &text)
 		QLineEdit::setText(text);
 	}
 }
+
+void CustomLineEdit::setTextAndPlaceholderText(const QString &text)
+{
+	setText(text);
+	setPlaceholderText(text);
+}

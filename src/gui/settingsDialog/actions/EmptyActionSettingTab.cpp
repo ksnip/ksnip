@@ -17,40 +17,21 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ACTIONSSETTINGS_H
-#define KSNIP_ACTIONSSETTINGS_H
-
-#include <QGroupBox>
-#include <QVBoxLayout>
-#include <QTabWidget>
-#include <QPushButton>
-
-#include "ActionSettingTab.h"
 #include "EmptyActionSettingTab.h"
-#include "src/backend/config/KsnipConfig.h"
 
-class ActionsSettings : public QGroupBox
+EmptyActionSettingTab::EmptyActionSettingTab() :
+	mContent(new QLabel(this)),
+	mLayout(new QVBoxLayout(this))
 {
-Q_OBJECT
-public:
-	explicit ActionsSettings(KsnipConfig *config, const QList<CaptureModes> &captureModes);
-	~ActionsSettings() override;
-	void saveSettings();
+	mContent->setText(tr("Add new actions by pressing the 'Add' tab button."));
+	mLayout->addWidget(mContent);
+	mLayout->setAlignment(Qt::AlignCenter);
 
-private:
-	QVBoxLayout *mLayout;
-	KsnipConfig *mConfig;
-	QTabWidget *mTabWidget;
-	QList<CaptureModes> mCaptureModes;
+	setLayout(mLayout);
+}
 
-	void initGui();
-	void loadConfig();
-	void insertTab(ActionSettingTab *tabContent, const QString &name);
-
-private slots:
-	void addEmptyTab();
-	void closeTab(int index);
-};
-
-
-#endif //KSNIP_ACTIONSSETTINGS_H
+EmptyActionSettingTab::~EmptyActionSettingTab()
+{
+	delete mContent;
+	delete mLayout;
+}

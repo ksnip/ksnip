@@ -31,6 +31,7 @@ public:
 
 	QString textOrPlaceholderText() const;
 	void setText(const QString &text);
+	void setTextAndPlaceholderText(const QString &text);
 };
 
 

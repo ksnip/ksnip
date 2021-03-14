@@ -364,6 +364,61 @@ QString KsnipConfigOptions::canvasColorString()
 	return annotatorSectionString() + QLatin1String("CanvasColor");
 }
 
+QString KsnipConfigOptions::actionsString()
+{
+	return QLatin1String("Actions");
+}
+
+QString KsnipConfigOptions::actionNameString()
+{
+	return QLatin1String("Name");
+}
+
+QString KsnipConfigOptions::actionIsCaptureEnabledString()
+{
+	return QLatin1String("IsCaptureEnabled");
+}
+
+QString KsnipConfigOptions::actionIncludeCursorString()
+{
+	return QLatin1String("IncludeCursor");
+}
+
+QString KsnipConfigOptions::actionCaptureDelayString()
+{
+	return QLatin1String("CaptureDelay");
+}
+
+QString KsnipConfigOptions::actionCaptureModeString()
+{
+	return QLatin1String("CaptureMode");
+}
+
+QString KsnipConfigOptions::actionIsPinImageEnabledString()
+{
+	return QLatin1String("IsPinImageEnabled");
+}
+
+QString KsnipConfigOptions::actionIsUploadEnabledString()
+{
+	return QLatin1String("IsUploadEnabled");
+}
+
+QString KsnipConfigOptions::actionIsOpenDirectoryEnabledString()
+{
+	return QLatin1String("IsOpenDirectoryEnabled");
+}
+
+QString KsnipConfigOptions::actionIsCopyToClipboardEnabledString()
+{
+	return QLatin1String("IsCopyToClipboardEnabled");
+}
+
+QString KsnipConfigOptions::actionIsSaveEnabledString()
+{
+	return QLatin1String("IsSaveEnabled");
+}
+
 QString KsnipConfigOptions::uploadScriptCopyOutputToClipboardString()
 {
 	return uploadScriptSectionString() + QLatin1String("CopyOutputToClipboard");

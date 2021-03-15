@@ -1271,6 +1271,8 @@ void KsnipConfig::setActions(const QList<Action> &actions)
 		mConfig.setValue(KsnipConfigOptions::actionIsSaveEnabledString(), action.isSaveEnabled());
 	}
 	mConfig.endArray();
+
+	emit actionsChanged();
 }
 
 // Misc

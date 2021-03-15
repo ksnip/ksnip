@@ -43,6 +43,7 @@ public:
 	void setCopyAction(QAction *action);
 	void setUploadAction(QAction *action);
 	void setQuitAction(QAction *action);
+	void setActionsMenu(QMenu *actionsMenu);
 	void setEnabled(bool enabled);
 	void showInfoToast(const QString &title, const QString &message, const QString &contentUrl) override;
 	void showWarningToast(const QString &title, const QString &message, const QString &contentUrl) override;
@@ -62,6 +63,7 @@ private:
 	QAction *mUploadAction;
 	QAction *mShowEditorAction;
 	QAction *mQuitAction;
+	QMenu *mActionsMenu;
 	QString mToastContentUrl;
 
 	void setupMenu();

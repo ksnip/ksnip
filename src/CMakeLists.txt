@@ -55,6 +55,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/TrayIcon.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/actions/Action.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/actions/ActionProcessor.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/actions/ActionsMenu.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/clipboard/ClipboardAdapter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/clipboard/IClipboard.h
 	${CMAKE_SOURCE_DIR}/src/gui/imageAnnotator/KImageAnnotatorAdapter.cpp

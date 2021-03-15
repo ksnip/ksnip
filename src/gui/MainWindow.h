@@ -26,6 +26,7 @@
 #include <functional>
 
 #include "src/gui/actions/ActionProcessor.h"
+#include "src/gui/actions/ActionsMenu.h"
 #include "src/gui/TrayIcon.h"
 #include "src/gui/IImageProcessor.h"
 #include "src/gui/imageAnnotator/KImageAnnotatorAdapter.h"
@@ -105,18 +106,18 @@ private:
     QAction *mSettingsAction;
     QAction *mAboutAction;
     QAction *mOpenImageAction;
-    RecentImagesMenu *mRecentImagesMenu;
     QAction *mScaleAction;
-    QAction *mAddWatermarkAction;
-    QAction *mPasteAction;
-    QAction *mPasteEmbeddedAction;
-    QAction *mPinAction;
-    QAction *mRemoveImageAction;
-    QAction *mModifyCanvasAction;
-    QAction *mCaptureAction;
-    MainToolBar *mToolBar;
-    QLayout *mMainLayout;
-    KsnipConfig *mConfig;
+	QAction *mAddWatermarkAction;
+	QAction *mPasteAction;
+	QAction *mPasteEmbeddedAction;
+	QAction *mPinAction;
+	QAction *mRemoveImageAction;
+	QAction *mModifyCanvasAction;
+	MainToolBar *mToolBar;
+	QLayout *mMainLayout;
+	KsnipConfig *mConfig;
+	ActionsMenu *mActionsMenu;
+	RecentImagesMenu *mRecentImagesMenu;
 	IClipboard *mClipboard;
 	CapturePrinter *mCapturePrinter;
     IImageAnnotator *mImageAnnotator;
@@ -171,7 +172,7 @@ private slots:
 	void showPinWindow();
 	void hideMainWindowIfRequired();
 	void toggleDocks();
-	void captureActionClicked();
+	void actionTriggered(const Action &action);
 };
 
 #endif // KSNIP_MAINWINDOW_H

@@ -17,15 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "NotEmptyValidator.h"
+#include "ActionsMenu.h"
 
-QValidator::State NotEmptyValidator::validate(QString &input, int &pos) const
+ActionsMenu::ActionsMenu(KsnipConfig *config) :
+	mConfig(config)
 {
-	if (input.isEmpty()) {
-		qDebug("invalid");
-		return QValidator::Invalid;
-	} else {
-		qDebug("valid");
-		return QValidator::Acceptable;
+	Q_ASSERT(mConfig != nullptr);
+
+	connect(mConfig, &KsnipConfig::actionsChanged, this, &ActionsMenu::actionsChanged);
+
+	actionsChanged();
+}
+
+void ActionsMenu::actionsChanged()
+{
+	clear();
+
+	auto actions = mConfig->actions();
+	for (const auto& action : actions) {
+		auto item = addAction(action.name());
+		connect(item, &QAction::triggered, [this, action]() { emit triggered(action); });
 	}
+
+	setEnabled(!actions.isEmpty());
 }

@@ -64,6 +64,8 @@ private:
 	void initGui(const QList<CaptureModes> &captureModes);
 	void populateCaptureModeCombobox(const QList<CaptureModes> &captureModes);
 	int indexOfSelectedCaptureMode(CaptureModes modes) const;
+	static QString getTextWithEscapedAmpersand(const QString &text);
+	static QString getTextWithoutEscapedAmpersand(const QString &text);
 
 private slots:
 	void captureEnabledChanged();

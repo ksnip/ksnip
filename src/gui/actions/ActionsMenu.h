@@ -17,20 +17,30 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_NOTEMPTYVALIDATOR_H
-#define KSNIP_NOTEMPTYVALIDATOR_H
+#ifndef KSNIP_ACTIONSMENU_H
+#define KSNIP_ACTIONSMENU_H
 
-#include <QValidator>
+#include <QMenu>
 
-class NotEmptyValidator : public QValidator
+#include "src/backend/config/KsnipConfig.h"
+
+class ActionsMenu : public QMenu
 {
 	Q_OBJECT
 public:
-	NotEmptyValidator() = default;
-	~NotEmptyValidator() override = default;
+	explicit ActionsMenu(KsnipConfig *config);
+	~ActionsMenu() override = default;
 
-	QValidator::State validate(QString &input, int &pos) const override;
+signals:
+	void triggered(const Action &action);
+
+private:
+	KsnipConfig *mConfig;
+	QList<Action> mActions;
+
+private slots:
+	void actionsChanged();
 };
 
 
-#endif //KSNIP_NOTEMPTYVALIDATOR_H
+#endif //KSNIP_ACTIONSMENU_H

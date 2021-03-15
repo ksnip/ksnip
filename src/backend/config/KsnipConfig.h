@@ -320,6 +320,7 @@ public:
 signals:
 	void annotatorConfigChanged() const;
 	void hotKeysChanged() const;
+	void actionsChanged() const;
 
 private:
     QSettings mConfig;

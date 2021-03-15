@@ -18,8 +18,8 @@
  */
 
 #include "CustomLineEdit.h"
-CustomLineEdit::CustomLineEdit(QWidget *parent)
-	: QLineEdit(parent)
+CustomLineEdit::CustomLineEdit(QWidget *parent) :
+	QLineEdit(parent)
 {
 
 }
@@ -32,6 +32,7 @@ QString CustomLineEdit::textOrPlaceholderText() const
 
 void CustomLineEdit::setText(const QString &text)
 {
+
 	if(text != placeholderText()) {
 		QLineEdit::setText(text);
 	}

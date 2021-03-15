@@ -40,7 +40,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mSettingsAction(new QAction(this)),
 	mAboutAction(new QAction(this)),
 	mOpenImageAction(new QAction(this)),
-	mRecentImagesMenu(new RecentImagesMenu(mServiceLocator->recentImageService(), this)),
 	mScaleAction(new QAction(this)),
 	mAddWatermarkAction(new QAction(this)),
 	mPasteAction(new QAction(this)),
@@ -48,9 +47,10 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mPinAction(new QAction(this)),
 	mRemoveImageAction(new QAction(this)),
 	mModifyCanvasAction(new QAction(this)),
-	mCaptureAction(new QAction(this)),
 	mMainLayout(layout()),
 	mConfig(KsnipConfigProvider::instance()),
+	mActionsMenu(new ActionsMenu(mConfig)),
+	mRecentImagesMenu(new RecentImagesMenu(mServiceLocator->recentImageService(), this)),
 	mClipboard(mServiceLocator->clipboard()),
 	mCapturePrinter(new CapturePrinter(this)),
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
@@ -132,7 +132,6 @@ MainWindow::~MainWindow()
     delete mAddWatermarkAction;
     delete mSaveAsAction;
     delete mModifyCanvasAction;
-    delete mCaptureAction;
     delete mCapturePrinter;
     delete mTrayIcon;
     delete mDragAndDropProcessor;
@@ -142,6 +141,7 @@ MainWindow::~MainWindow()
     delete mFileDialog;
     delete mWindowResizer;
     delete mActionProcessor;
+    delete mActionsMenu;
 }
 
 void MainWindow::handleGuiStartup()
@@ -356,6 +356,7 @@ void MainWindow::setEnablements(bool enabled)
     mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
     mRenameAction->setEnabled(enabled);
     mModifyCanvasAction->setEnabled(enabled);
+    mActionProcessor->setPostProcessingEnabled(enabled);
 }
 
 void MainWindow::loadSettings()
@@ -414,11 +415,6 @@ void MainWindow::initGui()
     connect(mToolBar, &MainToolBar::copyActionTriggered, this, &MainWindow::copyCaptureToClipboard);
     connect(mToolBar, &MainToolBar::captureDelayChanged, this, &MainWindow::captureDelayChanged);
     connect(mToolBar, &MainToolBar::cropActionTriggered, mImageAnnotator, &IImageAnnotator::showCropper);
-
-	mCaptureAction->setEnabled(false);
-	mCaptureAction->setText(tr("Capture Action"));
-	mCaptureAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_T);
-	connect(mCaptureAction, &QAction::triggered, this, &MainWindow::captureActionClicked);
 
 	mSaveAsAction->setText(tr("Save As..."));
 	mSaveAsAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_S);
@@ -519,9 +515,14 @@ void MainWindow::initGui()
 	mModifyCanvasAction->setText(tr("Modify Canvas"));
 	connect(mModifyCanvasAction, &QAction::triggered, mImageAnnotator, &IImageAnnotator::showCanvasModifier);
 
+	mActionsMenu->setTitle("Actions");
+	mActionsMenu->setIcon(IconLoader::loadForTheme(QLatin1String("action")));
+	connect(mActionsMenu, &ActionsMenu::triggered, this, &MainWindow::actionTriggered);
+
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
-    menu->addAction(mCaptureAction);
+	menu->addSeparator();
+    menu->addMenu(mActionsMenu);
     menu->addSeparator();
     menu->addAction(mOpenImageAction);
     menu->addMenu(mRecentImagesMenu);
@@ -570,6 +571,7 @@ void MainWindow::initGui()
 	    mTrayIcon->setCopyAction(mToolBar->copyToClipboardAction());
 	    mTrayIcon->setUploadAction(mUploadAction);
 	    mTrayIcon->setQuitAction(mQuitAction);
+	    mTrayIcon->setActionsMenu(mActionsMenu);
 	    mTrayIcon->setEnabled(true);
     }
 
@@ -740,19 +742,9 @@ void MainWindow::showPinWindow()
 	mPinWindowHandler->add(QPixmap::fromImage(mCaptureHandler->image()));
 }
 
-void MainWindow::captureActionClicked()
+void MainWindow::actionTriggered(const Action &action)
 {
-	qDebug("Capture action triggered");
-
-	auto action = new Action;
-	action->setCaptureDelay(2000);
-	action->setIsCaptureEnabled(true);
-	action->setIsPinScreenshotEnabled(true);
-	action->setIsUploadEnabled(true);
-	action->setIsOpenDirectoryEnabled(true);
-	action->setIsSaveEnabled(true);
-
-	if(action->isCaptureEnabled() && !mCaptureHandler->canTakeNew()){
+	if(action.isCaptureEnabled() && !mCaptureHandler->canTakeNew()){
 		return;
 	}
 

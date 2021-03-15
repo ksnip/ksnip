@@ -20,22 +20,25 @@
 #include "ActionProcessor.h"
 
 ActionProcessor::ActionProcessor() :
-	mCurrentAction(nullptr),
-	mCaptureInProgress(false)
+	mCaptureInProgress(false),
+	mPostProcessingEnabled(false)
 {
 
 }
 
-void ActionProcessor::process(const Action *action)
+void ActionProcessor::process(const Action &action)
 {
-	Q_ASSERT(action != nullptr);
-
 	mCurrentAction = action;
-	if (mCurrentAction->isCaptureEnabled()) {
+	if (mCurrentAction.isCaptureEnabled()) {
 		preCaptureProcessing();
 	} else {
 		postCaptureProcessing();
 	}
+}
+
+void ActionProcessor::setPostProcessingEnabled(bool enabled)
+{
+	mPostProcessingEnabled = enabled;
 }
 
 void ActionProcessor::captureFinished()
@@ -53,42 +56,34 @@ void ActionProcessor::captureCanceled()
 
 void ActionProcessor::preCaptureProcessing()
 {
-	Q_ASSERT(mCurrentAction != nullptr);
-
-	qDebug("Preprocess");
-
 	mCaptureInProgress = true;
-	emit triggerCapture(mCurrentAction->captureMode(), mCurrentAction->includeCursor(), mCurrentAction->captureDelay());
+	emit triggerCapture(mCurrentAction.captureMode(), mCurrentAction.includeCursor(), mCurrentAction.captureDelay());
 }
 
 void ActionProcessor::postCaptureProcessing()
 {
-	Q_ASSERT(mCurrentAction != nullptr);
+	if (!mPostProcessingEnabled && !mCurrentAction.isCaptureEnabled()) {
+		qInfo("Action is post processing only but no capture loaded.");
+		return;
+	}
 
-	qDebug("Postprocess");
-
-	if (mCurrentAction->isSaveEnabled()) {
-		qDebug("Save");
+	if (mCurrentAction.isSaveEnabled()) {
 		emit triggerSave();
 	}
 
-	if (mCurrentAction->isCopyToClipboardEnabled()) {
-		qDebug("Copy");
+	if (mCurrentAction.isCopyToClipboardEnabled()) {
 		emit triggerCopyToClipboard();
 	}
 
-	if (mCurrentAction->isOpenDirectoryEnabled()) {
-		qDebug("Open");
+	if (mCurrentAction.isOpenDirectoryEnabled()) {
 		emit triggerOpenDirectory();
 	}
 
-	if (mCurrentAction->isPinImageEnabled()) {
-		qDebug("Pin");
+	if (mCurrentAction.isPinImageEnabled()) {
 		emit triggerPinImage();
 	}
 
-	if (mCurrentAction->isUploadEnabled()) {
-		qDebug("Upload");
+	if (mCurrentAction.isUploadEnabled()) {
 		emit triggerUpload();
 	}
 }

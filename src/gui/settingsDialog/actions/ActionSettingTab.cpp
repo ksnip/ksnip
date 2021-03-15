@@ -51,6 +51,8 @@ void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 {
 	mNameLabel->setText(tr("Name") + QLatin1String(":"));
 
+	mNameLineEdit->setMaxLength(50);
+
 	mCaptureEnabledCheckBox->setText(tr("Take Capture"));
 	connect(mCaptureEnabledCheckBox, &QCheckBox::toggled, this, &ActionSettingTab::captureEnabledChanged);
 
@@ -87,8 +89,8 @@ void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 	mLayout->addWidget(mShowPinWindowCheckBox, 7, 0, 1, 5);
 	mLayout->addWidget(mCopyToClipboardCheckBox, 8, 0, 1, 5);
 	mLayout->addWidget(mUploadCheckBox, 9, 0, 1, 5);
-	mLayout->addWidget(mOpenDirectoryCheckBox, 10, 0, 1, 5);
-	mLayout->addWidget(mSaveCheckBox, 11, 0, 1, 5);
+	mLayout->addWidget(mSaveCheckBox, 10, 0, 1, 5);
+	mLayout->addWidget(mOpenDirectoryCheckBox, 11, 0, 1, 5);
 
 	setLayout(mLayout);
 }
@@ -114,9 +116,9 @@ void ActionSettingTab::captureEnabledChanged()
 Action ActionSettingTab::action() const
 {
 	Action action;
-	action.setName(mNameLineEdit->textOrPlaceholderText());
+	action.setName(getTextWithEscapedAmpersand(mNameLineEdit->textOrPlaceholderText()));
 	action.setIsCaptureEnabled(mCaptureEnabledCheckBox->isChecked());
-	action.setCaptureDelay(mDelaySpinBox->value());
+	action.setCaptureDelay(mDelaySpinBox->value() * 1000);
 	action.setIncludeCursor(mIncludeCursorCheckBox->isChecked());
 	action.setCaptureMode(mCaptureModeComboBox->currentData().value<CaptureModes>());
 	action.setIsPinScreenshotEnabled(mShowPinWindowCheckBox->isChecked());
@@ -149,9 +151,9 @@ ActionSettingTab::ActionSettingTab(const QList<CaptureModes> &captureModes) :
 
 void ActionSettingTab::setAction(const Action &action) const
 {
-	mNameLineEdit->setTextAndPlaceholderText(action.name());
+	mNameLineEdit->setTextAndPlaceholderText(getTextWithoutEscapedAmpersand(action.name()));
 	mCaptureEnabledCheckBox->setChecked(action.isCaptureEnabled());
-	mDelaySpinBox->setValue(action.captureDelay());
+	mDelaySpinBox->setValue(action.captureDelay() / 1000);
 	mIncludeCursorCheckBox->setChecked(action.includeCursor());
 	mCaptureModeComboBox->setCurrentIndex(indexOfSelectedCaptureMode(action.captureMode()));
 	mShowPinWindowCheckBox->setChecked(action.isPinImageEnabled());
@@ -164,4 +166,16 @@ void ActionSettingTab::setAction(const Action &action) const
 int ActionSettingTab::indexOfSelectedCaptureMode(CaptureModes modes) const
 {
 	return mCaptureModeComboBox->findData(QVariant::fromValue(modes));
+}
+
+QString ActionSettingTab::getTextWithEscapedAmpersand(const QString &text)
+{
+	auto copiedText = text;
+	return copiedText.replace(QLatin1String("&"), QLatin1String("&&"));
+}
+
+QString ActionSettingTab::getTextWithoutEscapedAmpersand(const QString &text)
+{
+	auto copiedText = text;
+	return copiedText.replace(QLatin1String("&&"), QLatin1String("&"));
 }

@@ -96,6 +96,7 @@
                     <li>New: Drag and Drop from ksnip to other applications.</li>
                     <li>New: Add support for KDE Plasma notification service.</li>
                     <li>New: ksnip as MSI Package for window.</li>
+                    <li>New: User-defined actions for taking screenshot and post-processing.</li>
                     <li>New kImageAnnotator: Add function for loading translations.</li>
                     <li>New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions.</li>
                     <li>New kImageAnnotator: Add support for hiding annotation settings panel.</li>

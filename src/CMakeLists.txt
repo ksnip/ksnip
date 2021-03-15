@@ -53,6 +53,9 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/RecentImagesMenu.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/TrayIcon.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/actions/Action.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/actions/ActionProcessor.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/actions/ActionsMenu.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/clipboard/ClipboardAdapter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/clipboard/IClipboard.h
 	${CMAKE_SOURCE_DIR}/src/gui/imageAnnotator/KImageAnnotatorAdapter.cpp
@@ -86,6 +89,9 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/SettingsDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/TrayIconSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/WatermarkSettings.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/actions/ActionsSettings.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/actions/ActionSettingTab.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/actions/EmptyActionSettingTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AboutDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AboutTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/VersionTab.cpp

@@ -24,6 +24,7 @@
     <file>light/pin.svg</file>
     <file>light/wayland.svg</file>
     <file>light/delete.svg</file>
+    <file>light/action.svg</file>
 
     <file>dark/ksnip.svg</file>
     <file>dark/bold.svg</file>
@@ -47,5 +48,6 @@
     <file>dark/pin.svg</file>
     <file>dark/wayland.svg</file>
     <file>dark/delete.svg</file>
+    <file>dark/action.svg</file>
 </qresource>
 </RCC>

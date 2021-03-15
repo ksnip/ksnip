@@ -35,6 +35,7 @@ Latest ksnip version contains following features:
 * Open existing images via dialog, drag-and-drop or paste from clipboard.
 * Run as single instance application (secondary instances send cli parameter to primary instance).
 * Pin screenshots in frameless windows that stay atop other windows.
+* User-defined actions for taking screenshot and post-processing.
 * Many configuration options.
 
 # Supported Screenshot Types

@@ -36,7 +36,7 @@
 #include "src/common/helper/PathHelper.h"
 #include "src/common/constants/DefaultValues.h"
 #include "src/common/provider/DirectoryPathProvider.h"
-
+#include "src/gui/actions/Action.h"
 
 class KsnipConfig : public QObject
 {
@@ -312,9 +312,15 @@ public:
     virtual QKeySequence portalHotKey() const;
     virtual void setPortalHotKey(const QKeySequence &keySequence);
 
+    // Actions
+
+	virtual QList<Action> actions();
+	virtual void setActions(const QList<Action> &actions);
+
 signals:
 	void annotatorConfigChanged() const;
 	void hotKeysChanged() const;
+	void actionsChanged() const;
 
 private:
     QSettings mConfig;

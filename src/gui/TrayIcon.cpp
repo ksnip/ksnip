@@ -28,7 +28,8 @@ TrayIcon::TrayIcon(QObject *parent) :
 	mCopyAction(nullptr),
 	mUploadAction(nullptr),
 	mShowEditorAction(nullptr),
-	mQuitAction(nullptr)
+	mQuitAction(nullptr),
+	mActionsMenu(nullptr)
 {
 	auto icon = IconLoader::loadForTheme(QLatin1String("ksnip"));
 	setIcon(icon);
@@ -47,6 +48,8 @@ void TrayIcon::setupMenu()
 	for(auto captureAction : mCaptureActions) {
 		mMenu.addAction(captureAction);
 	}
+	mMenu.addSeparator();
+	mMenu.addMenu(mActionsMenu);
 	mMenu.addSeparator();
 	mMenu.addAction(mOpenAction);
 	mMenu.addAction(mSaveAction);
@@ -96,6 +99,11 @@ void TrayIcon::setUploadAction(QAction *action)
 void TrayIcon::setQuitAction(QAction *action)
 {
 	mQuitAction = action;
+}
+
+void TrayIcon::setActionsMenu(QMenu *actionsMenu)
+{
+	mActionsMenu = actionsMenu;
 }
 
 void TrayIcon::setEnabled(bool enabled)

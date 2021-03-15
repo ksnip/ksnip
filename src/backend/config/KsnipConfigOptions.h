@@ -105,6 +105,17 @@ public:
 	static QString portalHotKeyString();
 	static QString uploaderTypeString();
 	static QString canvasColorString();
+	static QString actionsString();
+	static QString actionNameString();
+	static QString actionIsCaptureEnabledString();
+	static QString actionIncludeCursorString();
+	static QString actionCaptureDelayString();
+	static QString actionCaptureModeString();
+	static QString actionIsPinImageEnabledString();
+	static QString actionIsUploadEnabledString();
+	static QString actionIsOpenDirectoryEnabledString();
+	static QString actionIsCopyToClipboardEnabledString();
+	static QString actionIsSaveEnabledString();
 
 private:
 	static QString applicationSectionString();

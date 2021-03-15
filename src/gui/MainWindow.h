@@ -25,6 +25,8 @@
 
 #include <functional>
 
+#include "src/gui/actions/ActionProcessor.h"
+#include "src/gui/actions/ActionsMenu.h"
 #include "src/gui/TrayIcon.h"
 #include "src/gui/IImageProcessor.h"
 #include "src/gui/imageAnnotator/KImageAnnotatorAdapter.h"
@@ -76,6 +78,9 @@ public slots:
     void processCapture(const CaptureDto &capture);
 	void quit();
 
+signals:
+	void imageLoaded() const;
+
 protected:
     void moveEvent(QMoveEvent *event) override;
     void closeEvent(QCloseEvent *event) override;
@@ -101,17 +106,18 @@ private:
     QAction *mSettingsAction;
     QAction *mAboutAction;
     QAction *mOpenImageAction;
-    RecentImagesMenu *mRecentImagesMenu;
     QAction *mScaleAction;
-    QAction *mAddWatermarkAction;
-    QAction *mPasteAction;
-    QAction *mPasteEmbeddedAction;
-    QAction *mPinAction;
-    QAction *mRemoveImageAction;
-    QAction *mModifyCanvasAction;
-    MainToolBar *mToolBar;
-    QLayout *mMainLayout;
-    KsnipConfig *mConfig;
+	QAction *mAddWatermarkAction;
+	QAction *mPasteAction;
+	QAction *mPasteEmbeddedAction;
+	QAction *mPinAction;
+	QAction *mRemoveImageAction;
+	QAction *mModifyCanvasAction;
+	MainToolBar *mToolBar;
+	QLayout *mMainLayout;
+	KsnipConfig *mConfig;
+	ActionsMenu *mActionsMenu;
+	RecentImagesMenu *mRecentImagesMenu;
 	IClipboard *mClipboard;
 	CapturePrinter *mCapturePrinter;
     IImageAnnotator *mImageAnnotator;
@@ -125,10 +131,12 @@ private:
 	WidgetVisibilityHandler *mVisibilityHandler;
 	IFileDialogAdapter *mFileDialog;
 	WindowResizer *mWindowResizer;
+	ActionProcessor *mActionProcessor;
 
     void setEnablements(bool enabled);
     void loadSettings();
-    void capture(CaptureModes captureMode);
+    void triggerCapture(CaptureModes captureMode);
+    void capture(CaptureModes captureMode, bool captureCursor, int delay);
     void initGui();
 	void processInstantCapture(const CaptureDto &capture);
 	void showDialog(const std::function<void ()>& showDialogMethod);
@@ -164,6 +172,7 @@ private slots:
 	void showPinWindow();
 	void hideMainWindowIfRequired();
 	void toggleDocks();
+	void actionTriggered(const Action &action);
 };
 
 #endif // KSNIP_MAINWINDOW_H

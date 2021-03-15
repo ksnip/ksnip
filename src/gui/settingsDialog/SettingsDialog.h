@@ -38,6 +38,7 @@
 #include "TrayIconSettings.h"
 #include "SnippingAreaSettings.h"
 #include "WatermarkSettings.h"
+#include "actions/ActionsSettings.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/common/provider/ScaledSizeProvider.h"
 
@@ -64,6 +65,7 @@ private:
 	TrayIconSettings *mTrayIconSettings;
     SnippingAreaSettings *mSnippingAreaSettings;
 	WatermarkSettings *mWatermarkSettings;
+	ActionsSettings *mActionsSettings;
 	QTreeWidget *mTreeWidget;
     QStackedLayout *mStackedLayout;
     QList<QTreeWidgetItem*> mNavigatorItems;

@@ -43,6 +43,16 @@ void Action::setName(const QString &name)
 	mName = name;
 }
 
+QKeySequence Action::shortcut() const
+{
+	return mShortcut;
+}
+
+void Action::setShortcut(const QKeySequence &keySequence)
+{
+	mShortcut = keySequence;
+}
+
 bool Action::isCaptureEnabled() const
 {
 	return mIsCaptureEnabled;

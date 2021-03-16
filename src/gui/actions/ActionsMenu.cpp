@@ -35,8 +35,7 @@ void ActionsMenu::actionsChanged()
 
 	auto actions = mConfig->actions();
 	for (const auto& action : actions) {
-		auto item = addAction(action.name());
-		connect(item, &QAction::triggered, [this, action]() { emit triggered(action); });
+		addAction(action.name(), [this, action]() { emit triggered(action); }, action.shortcut());
 	}
 
 	setEnabled(!actions.isEmpty());

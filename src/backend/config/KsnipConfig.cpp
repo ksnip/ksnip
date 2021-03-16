@@ -1235,6 +1235,7 @@ QList<Action> KsnipConfig::actions()
 		mConfig.setArrayIndex(index);
 		Action action;
 		action.setName(mConfig.value(KsnipConfigOptions::actionNameString()).toString());
+		action.setShortcut(mConfig.value(KsnipConfigOptions::actionShortcutString()).value<QKeySequence>());
 		action.setIsCaptureEnabled(mConfig.value(KsnipConfigOptions::actionIsCaptureEnabledString()).toBool());
 		action.setIncludeCursor(mConfig.value(KsnipConfigOptions::actionIncludeCursorString()).toBool());
 		action.setCaptureDelay(mConfig.value(KsnipConfigOptions::actionCaptureDelayString()).toInt());
@@ -1260,6 +1261,7 @@ void KsnipConfig::setActions(const QList<Action> &actions)
 		const auto& action = actions.at(index);
 		mConfig.setArrayIndex(index);
 		mConfig.setValue(KsnipConfigOptions::actionNameString(), action.name());
+		mConfig.setValue(KsnipConfigOptions::actionShortcutString(), action.shortcut());
 		mConfig.setValue(KsnipConfigOptions::actionIsCaptureEnabledString(), action.isCaptureEnabled());
 		mConfig.setValue(KsnipConfigOptions::actionIncludeCursorString(), action.includeCursor());
 		mConfig.setValue(KsnipConfigOptions::actionCaptureDelayString(), action.captureDelay());

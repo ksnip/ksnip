@@ -374,6 +374,11 @@ QString KsnipConfigOptions::actionNameString()
 	return QLatin1String("Name");
 }
 
+QString KsnipConfigOptions::actionShortcutString()
+{
+	return QLatin1String("Shortcut");
+}
+
 QString KsnipConfigOptions::actionIsCaptureEnabledString()
 {
 	return QLatin1String("IsCaptureEnabled");

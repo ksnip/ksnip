@@ -42,16 +42,26 @@ ActionSettingTab::~ActionSettingTab()
 	delete mCaptureModeLabel;
 	delete mDelayLabel;
 	delete mNameLabel;
+	delete mShortcutLabel;
 	delete mDelaySpinBox;
 	delete mNameLineEdit;
+	delete mShortcutLineEdit;
 	delete mLayout;
 }
 
 void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 {
 	mNameLabel->setText(tr("Name") + QLatin1String(":"));
-
 	mNameLineEdit->setMaxLength(50);
+
+	mShortcutLabel->setText(tr("Shortcut") + QLatin1String(":"));
+	mShortcutLabel->setToolTip("When global hotkeys are enabled and supported then\n"
+							   "this shortcut will also work as a global hotkey.");
+
+	mShortcutLineEdit->setToolTip(mShortcutLabel->toolTip());
+
+	mShortcutClearButton->setText(tr("Clear"));
+	connect(mShortcutClearButton, &QPushButton::clicked, mShortcutLineEdit, &KeySequenceLineEdit::clear);
 
 	mCaptureEnabledCheckBox->setText(tr("Take Capture"));
 	connect(mCaptureEnabledCheckBox, &QCheckBox::toggled, this, &ActionSettingTab::captureEnabledChanged);
@@ -78,19 +88,22 @@ void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 	mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mNameLabel, 0, 0, 1, 2);
 	mLayout->addWidget(mNameLineEdit, 0, 2, 1, 3);
-	mLayout->setRowMinimumHeight(1, 10);
-	mLayout->addWidget(mCaptureEnabledCheckBox, 2, 0, 1, 5);
-	mLayout->addWidget(mIncludeCursorCheckBox, 3, 1, 1, 4);
-	mLayout->addWidget(mDelayLabel, 4, 1, 1, 2);
-	mLayout->addWidget(mDelaySpinBox, 4, 3, 1, 2);
-	mLayout->addWidget(mCaptureModeLabel, 5, 1, 1, 2);
-	mLayout->addWidget(mCaptureModeComboBox, 5, 3, 1, 2);
-	mLayout->setRowMinimumHeight(6, 10);
-	mLayout->addWidget(mShowPinWindowCheckBox, 7, 0, 1, 5);
-	mLayout->addWidget(mCopyToClipboardCheckBox, 8, 0, 1, 5);
-	mLayout->addWidget(mUploadCheckBox, 9, 0, 1, 5);
-	mLayout->addWidget(mSaveCheckBox, 10, 0, 1, 5);
-	mLayout->addWidget(mOpenDirectoryCheckBox, 11, 0, 1, 5);
+	mLayout->addWidget(mShortcutLabel, 1, 0, 1, 2);
+	mLayout->addWidget(mShortcutLineEdit, 1, 2, 1, 3);
+	mLayout->addWidget(mShortcutClearButton, 1, 6, 1, 1);
+	mLayout->setRowMinimumHeight(2, 10);
+	mLayout->addWidget(mCaptureEnabledCheckBox, 3, 0, 1, 5);
+	mLayout->addWidget(mIncludeCursorCheckBox, 4, 1, 1, 4);
+	mLayout->addWidget(mDelayLabel, 5, 1, 1, 2);
+	mLayout->addWidget(mDelaySpinBox, 5, 3, 1, 2);
+	mLayout->addWidget(mCaptureModeLabel, 6, 1, 1, 2);
+	mLayout->addWidget(mCaptureModeComboBox, 6, 3, 1, 2);
+	mLayout->setRowMinimumHeight(7, 10);
+	mLayout->addWidget(mShowPinWindowCheckBox, 8, 0, 1, 5);
+	mLayout->addWidget(mCopyToClipboardCheckBox, 9, 0, 1, 5);
+	mLayout->addWidget(mUploadCheckBox, 10, 0, 1, 5);
+	mLayout->addWidget(mSaveCheckBox, 11, 0, 1, 5);
+	mLayout->addWidget(mOpenDirectoryCheckBox, 12, 0, 1, 5);
 
 	setLayout(mLayout);
 }
@@ -117,6 +130,7 @@ Action ActionSettingTab::action() const
 {
 	Action action;
 	action.setName(getTextWithEscapedAmpersand(mNameLineEdit->textOrPlaceholderText()));
+	action.setShortcut(mShortcutLineEdit->value());
 	action.setIsCaptureEnabled(mCaptureEnabledCheckBox->isChecked());
 	action.setCaptureDelay(mDelaySpinBox->value() * 1000);
 	action.setIncludeCursor(mIncludeCursorCheckBox->isChecked());
@@ -141,8 +155,11 @@ ActionSettingTab::ActionSettingTab(const QList<CaptureModes> &captureModes) :
 	mCaptureModeLabel(new QLabel(this)),
 	mDelayLabel(new QLabel(this)),
 	mNameLabel(new QLabel(this)),
+	mShortcutLabel(new QLabel(this)),
 	mDelaySpinBox(new CustomSpinBox(0, 100)),
 	mNameLineEdit(new CustomLineEdit(this)),
+	mShortcutLineEdit(new KeySequenceLineEdit(this, HotKeyMap::instance()->getAllKeys())),
+	mShortcutClearButton(new QPushButton(this)),
 	mLayout(new QGridLayout(this))
 {
 	initGui(captureModes);
@@ -152,6 +169,7 @@ ActionSettingTab::ActionSettingTab(const QList<CaptureModes> &captureModes) :
 void ActionSettingTab::setAction(const Action &action) const
 {
 	mNameLineEdit->setTextAndPlaceholderText(getTextWithoutEscapedAmpersand(action.name()));
+	mShortcutLineEdit->setValue(action.shortcut());
 	mCaptureEnabledCheckBox->setChecked(action.isCaptureEnabled());
 	mDelaySpinBox->setValue(action.captureDelay() / 1000);
 	mIncludeCursorCheckBox->setChecked(action.includeCursor());

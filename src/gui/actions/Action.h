@@ -21,6 +21,7 @@
 #define KSNIP_ACTION_H
 
 #include <QString>
+#include <QKeySequence>
 
 #include "src/common/enum/CaptureModes.h"
 
@@ -32,6 +33,9 @@ public:
 
 	QString name() const;
 	void setName(const QString &name);
+
+	QKeySequence shortcut() const;
+	void setShortcut(const QKeySequence &keySequence);
 
 	bool isCaptureEnabled() const;
 	void setIsCaptureEnabled(bool enabled);
@@ -71,6 +75,7 @@ private:
 	bool mIsSaveEnabled;
 	bool mIsCopyToClipboardEnabled;
 	bool mIsOpenDirectoryEnabled;
+	QKeySequence mShortcut;
 };
 
 

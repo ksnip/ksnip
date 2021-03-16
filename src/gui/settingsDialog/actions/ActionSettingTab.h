@@ -26,10 +26,12 @@
 #include <QComboBox>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPushButton>
 
 #include "src/common/helper/EnumTranslator.h"
 #include "src/widgets/CustomSpinBox.h"
 #include "src/widgets/CustomLineEdit.h"
+#include "src/widgets/KeySequenceLineEdit.h"
 #include "src/gui/actions/Action.h"
 
 class ActionSettingTab : public QWidget
@@ -57,8 +59,11 @@ private:
 	QLabel *mCaptureModeLabel;
 	QLabel *mDelayLabel;
 	QLabel *mNameLabel;
+	QLabel *mShortcutLabel;
 	CustomSpinBox *mDelaySpinBox;
 	CustomLineEdit *mNameLineEdit;
+	KeySequenceLineEdit *mShortcutLineEdit;
+	QPushButton *mShortcutClearButton;
 	QGridLayout *mLayout;
 
 	void initGui(const QList<CaptureModes> &captureModes);

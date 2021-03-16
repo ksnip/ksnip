@@ -48,6 +48,76 @@
     </message>
 </context>
 <context>
+    <name>ActionSettingTab</name>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished">Wyczyść</translation>
+    </message>
+    <message>
+        <source>Take Capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Include Cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>s</source>
+        <translation type="unfinished">s</translation>
+    </message>
+    <message>
+        <source>Capture Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show image in Pin Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy image to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open image parent directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ActionsSettings</name>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Dodaj</translation>
+    </message>
+    <message>
+        <source>Actions Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Action</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
@@ -221,6 +291,14 @@ Docks visibility can be toggled with the Tab Key.</source>
         <translation>Po uruchomieniu ukryj pasek narzędzi i ustawienia adnotacji.
 Widoczność doków można przełączać za pomocą klawisza Tab.</translation>
     </message>
+    <message>
+        <source>Auto resize to content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically resize Main Window to fit content image.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -373,6 +451,13 @@ Czy chcesz kontynuować?</translation>
     </message>
 </context>
 <context>
+    <name>EmptyActionSettingTab</name>
+    <message>
+        <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
@@ -493,10 +578,6 @@ Czy chcesz kontynuować?</translation>
         <translation>Globalne skróty klawiszowe</translation>
     </message>
     <message>
-        <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation>Klawisze skrótów są obecnie obsługiwane tylko dla systemów Windows i X11</translation>
-    </message>
-    <message>
         <source>Capture Last Rect Area</source>
         <translation>Ostatnie proste przechwytywanie obszaru</translation>
     </message>
@@ -507,6 +588,11 @@ Czy chcesz kontynuować?</translation>
     <message>
         <source>Capture using Portal</source>
         <translation>Przechwytywanie za pomocą Portalu</translation>
+    </message>
+    <message>
+        <source>HotKeys are currently supported only for Windows and X11.
+Disabling this option makes also the action shortcuts ksnip only.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -854,10 +940,6 @@ i wykonaniem zrzutu ekranu.</translation>
         <translation>Wklej Osadź</translation>
     </message>
     <message>
-        <source>Upload capture to external source</source>
-        <translation>Prześlij przechwytywanie do źródła zewnętrznego</translation>
-    </message>
-    <message>
         <source>Pin</source>
         <translation>Pin</translation>
     </message>
@@ -906,16 +988,20 @@ i wykonaniem zrzutu ekranu.</translation>
         <translation type="unfinished">Kopiowanie jako URI danych</translation>
     </message>
     <message>
-        <source>Copy capture to system clipboard</source>
-        <translation>Skopiuj przechwycenie do schowka systemowego</translation>
-    </message>
-    <message>
         <source>Open &amp;Recent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Modify Canvas</source>
         <translation>Modyfikacja płótna</translation>
+    </message>
+    <message>
+        <source>Upload triggerCapture to external source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy triggerCapture to system clipboard</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1212,6 +1298,10 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
         <source>Watermark</source>
         <translation>Znak wodny</translation>
     </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1471,6 +1561,15 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     <message>
         <source>Display Tray icon notifications</source>
         <translation>Wyświetlaj powiadomienia o ikonach na pasku zadań</translation>
+    </message>
+    <message>
+        <source>Use platform specific notification service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will use try to use platform specific notification
+service when such exists. Change requires restart to take effect.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

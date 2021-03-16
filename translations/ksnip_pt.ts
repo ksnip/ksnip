@@ -48,6 +48,76 @@
     </message>
 </context>
 <context>
+    <name>ActionSettingTab</name>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished">Apagar</translation>
+    </message>
+    <message>
+        <source>Take Capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Include Cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>s</source>
+        <translation type="unfinished">s</translation>
+    </message>
+    <message>
+        <source>Capture Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show image in Pin Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy image to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open image parent directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ActionsSettings</name>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Adicionar</translation>
+    </message>
+    <message>
+        <source>Actions Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Action</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
@@ -214,6 +284,14 @@ a new start of all instances.</source>
 Docks visibility can be toggled with the Tab Key.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Auto resize to content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically resize Main Window to fit content image.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -366,6 +444,13 @@ Deseja continuar</translation>
     </message>
 </context>
 <context>
+    <name>EmptyActionSettingTab</name>
+    <message>
+        <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
@@ -486,10 +571,6 @@ Deseja continuar</translation>
         <translation>Teclas de Atalho Globais</translation>
     </message>
     <message>
-        <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation>Atualmente, as teclas de atalho são suportadas apenas para Windows e X11 (Xorg)</translation>
-    </message>
-    <message>
         <source>Capture Last Rect Area</source>
         <translation>Captura da Última área retangular</translation>
     </message>
@@ -500,6 +581,11 @@ Deseja continuar</translation>
     <message>
         <source>Capture using Portal</source>
         <translation>Capturar utilizando Portal</translation>
+    </message>
+    <message>
+        <source>HotKeys are currently supported only for Windows and X11.
+Disabling this option makes also the action shortcuts ksnip only.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -839,10 +925,6 @@ e captura de ecrã.</translation>
         <translation>Colar incorporado</translation>
     </message>
     <message>
-        <source>Upload capture to external source</source>
-        <translation>Enviar captura para fonte externa</translation>
-    </message>
-    <message>
         <source>Pin</source>
         <translation>Fixar</translation>
     </message>
@@ -891,15 +973,19 @@ e captura de ecrã.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copy capture to system clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Open &amp;Recent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Modify Canvas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload triggerCapture to external source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy triggerCapture to system clipboard</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1196,6 +1282,10 @@ Quando omitido, tudo é copiado.</translation>
         <source>Watermark</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1439,6 +1529,15 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use platform specific notification service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will use try to use platform specific notification
+service when such exists. Change requires restart to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

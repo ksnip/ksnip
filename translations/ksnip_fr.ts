@@ -48,6 +48,76 @@
     </message>
 </context>
 <context>
+    <name>ActionSettingTab</name>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation type="unfinished">Effacer</translation>
+    </message>
+    <message>
+        <source>Take Capture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Include Cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>s</source>
+        <translation type="unfinished">s</translation>
+    </message>
+    <message>
+        <source>Capture Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show image in Pin Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy image to Clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open image parent directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ActionsSettings</name>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Ajouter</translation>
+    </message>
+    <message>
+        <source>Actions Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Action</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
@@ -221,6 +291,14 @@ Docks visibility can be toggled with the Tab Key.</source>
         <translation>Masquer au démarrage la barre d’outils et les outils d’annotation.
 La visibilité du panneau d’outils peut être basculée avec la touche TAB.</translation>
     </message>
+    <message>
+        <source>Auto resize to content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically resize Main Window to fit content image.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -271,7 +349,7 @@ La visibilité du panneau d’outils peut être basculée avec la touche TAB.</t
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
         <translation>La capture %1%2%3 a été modifiée.
-Voulez-vous l&apos;enregistrer ?</translation>
+Voulez-vous l&apos;enregistrer&#xa0;?</translation>
     </message>
 </context>
 <context>
@@ -370,6 +448,13 @@ Voulez-vous continuer ?</translation>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation>Si vous voulez aider, ou simplement &lt;br/&gt;être reconnaissant de ce travail&lt;br/&gt;, en payant aux développeurs une bière ou un café : c&apos;est possible</translation>
+    </message>
+</context>
+<context>
+    <name>EmptyActionSettingTab</name>
+    <message>
+        <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -493,10 +578,6 @@ Voulez-vous continuer ?</translation>
         <translation>Raccourcis globaux</translation>
     </message>
     <message>
-        <source>HotKeys are currently supported only for Windows and X11</source>
-        <translation>Les raccoucis ne sont actuellement supportés que sous Windows et X11</translation>
-    </message>
-    <message>
         <source>Capture Last Rect Area</source>
         <translation>Capturer la dernière zone rectangulaire</translation>
     </message>
@@ -507,6 +588,11 @@ Voulez-vous continuer ?</translation>
     <message>
         <source>Capture using Portal</source>
         <translation>Capturer par le portail</translation>
+    </message>
+    <message>
+        <source>HotKeys are currently supported only for Windows and X11.
+Disabling this option makes also the action shortcuts ksnip only.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -603,7 +689,7 @@ quand la fenêtre principale a été cachée ou minimisée.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Téléversement sur imgur.com terminé !</translation>
+        <translation>Téléversement sur imgur.com terminé&#xa0;!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -682,7 +768,7 @@ quand la fenêtre principale a été cachée ou minimisée.</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation>URL de base :</translation>
+        <translation>URL de base&#xa0;:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
@@ -854,10 +940,6 @@ et la capture de l&apos;écran.</translation>
         <translation>Coller l&apos;intégration</translation>
     </message>
     <message>
-        <source>Upload capture to external source</source>
-        <translation>Envoyer la capture vers une source externe</translation>
-    </message>
-    <message>
         <source>Pin</source>
         <translation>Épingler</translation>
     </message>
@@ -906,16 +988,20 @@ et la capture de l&apos;écran.</translation>
         <translation>Copie en tant qu’URI de données</translation>
     </message>
     <message>
-        <source>Copy capture to system clipboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Open &amp;Recent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Modify Canvas</source>
         <translation>Modifier le canevas</translation>
+    </message>
+    <message>
+        <source>Upload triggerCapture to external source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy triggerCapture to system clipboard</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1066,8 +1152,8 @@ Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
         <translation>Les formats supportés sont JPG, PNG et BMP. Si aucun format n’est spécifié, PNG sera utilisé par défaut.
-Le nom du fichier peut contenir les jokers suivants :
-- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format « hhmmss ».
+Le nom du fichier peut contenir les jokers suivants&#xa0;:
+- $Y : année, $M : mois, $D : jour, $h : heure, $m : minutes, $s : secondes, $T : temps au format «&#xa0;hhmmss&#xa0;».
 - Plusieurs caractères # permettent de numéroter. Par exemple : #### donnera 0001 puis 0002 à la prochaine capture.</translation>
     </message>
     <message>
@@ -1213,6 +1299,10 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
         <source>Watermark</source>
         <translation>Filigrane</translation>
     </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
@@ -1296,8 +1386,8 @@ active sur Wayland mais toujours sur MacOS.</translation>
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Afficher une loupe qui grossit le fond d’écran.
-Cette option ne fonctionne que si « Figer l’image
-avant capture » est activé.</translation>
+Cette option ne fonctionne que si «&#xa0;Figer l’image
+avant capture&#xa0;» est activé.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -1470,6 +1560,15 @@ Vous devrez redémarrer l’application pour que cela prenne effet.</translation
     </message>
     <message>
         <source>Display Tray icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use platform specific notification service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When enabled will use try to use platform specific notification
+service when such exists. Change requires restart to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

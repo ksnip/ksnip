@@ -1239,7 +1239,7 @@ QList<Action> KsnipConfig::actions()
 		action.setIsCaptureEnabled(mConfig.value(KsnipConfigOptions::actionIsCaptureEnabledString()).toBool());
 		action.setIncludeCursor(mConfig.value(KsnipConfigOptions::actionIncludeCursorString()).toBool());
 		action.setCaptureDelay(mConfig.value(KsnipConfigOptions::actionCaptureDelayString()).toInt());
-		action.setCaptureMode(mConfig.value(KsnipConfigOptions::actionIsPinImageEnabledString()).value<CaptureModes>());
+		action.setCaptureMode(mConfig.value(KsnipConfigOptions::actionCaptureModeString()).value<CaptureModes>());
 		action.setIsPinScreenshotEnabled(mConfig.value(KsnipConfigOptions::actionIsPinImageEnabledString()).toBool());
 		action.setIsUploadEnabled(mConfig.value(KsnipConfigOptions::actionIsUploadEnabledString()).toBool());
 		action.setIsOpenDirectoryEnabled(mConfig.value(KsnipConfigOptions::actionIsOpenDirectoryEnabledString()).toBool());
@@ -1275,6 +1275,7 @@ void KsnipConfig::setActions(const QList<Action> &actions)
 	mConfig.endArray();
 
 	emit actionsChanged();
+	emit hotKeysChanged();
 }
 
 // Misc

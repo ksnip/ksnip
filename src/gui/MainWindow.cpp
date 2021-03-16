@@ -90,7 +90,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processCapture);
 	connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::captureCanceled);
 
-	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::newCaptureTriggered, this, &MainWindow::triggerCapture);
+	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::captureTriggered, this, &MainWindow::triggerCapture);
+	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::actionTriggered, this, &MainWindow::actionTriggered);
 
 	connect(mUploaderProvider, &UploaderProvider::finished, this, &MainWindow::uploadFinished);
 

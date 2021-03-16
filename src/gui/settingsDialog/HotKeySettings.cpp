@@ -96,7 +96,8 @@ void HotKeySettings::initGui()
 	mPortalKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
 
 	mEnableGlobalHotKeysCheckBox->setText(tr("Enable Global HotKeys"));
-	mEnableGlobalHotKeysCheckBox->setToolTip(tr("HotKeys are currently supported only for Windows and X11"));
+	mEnableGlobalHotKeysCheckBox->setToolTip(tr("HotKeys are currently supported only for Windows and X11.\n"
+											       "Disabling this option makes also the action shortcuts ksnip only."));
 	connect(mEnableGlobalHotKeysCheckBox, &QCheckBox::stateChanged, this, &HotKeySettings::globalHotKeysStateChanged);
 
 	mRectAreaLabel->setText(tr("Capture Rect Area") + QLatin1String(":"));

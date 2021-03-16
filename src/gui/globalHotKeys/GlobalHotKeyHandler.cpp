@@ -50,6 +50,11 @@ void GlobalHotKeyHandler::setupHotKeys()
 		createHotKey(mConfig->activeWindowHotKey(), CaptureModes::ActiveWindow);
 		createHotKey(mConfig->windowUnderCursorHotKey(), CaptureModes::WindowUnderCursor);
         createHotKey(mConfig->windowUnderCursorHotKey(), CaptureModes::Portal);
+
+		auto actions = mConfig->actions();
+		for (const auto& action : actions) {
+			createHotKey(action);
+		}
 	}
 }
 
@@ -57,7 +62,19 @@ void GlobalHotKeyHandler::createHotKey(const QKeySequence &keySequence, CaptureM
 {
 	if(mSupportedCaptureModes.contains(captureMode) && !keySequence.isEmpty()) {
 		auto hotKey = QSharedPointer<GlobalHotKey>(new GlobalHotKey(QApplication::instance(), keySequence));
-		connect(hotKey.data(), &GlobalHotKey::pressed, [this, captureMode](){ emit newCaptureTriggered(captureMode); });
+		connect(hotKey.data(), &GlobalHotKey::pressed, [this, captureMode](){ emit captureTriggered(captureMode); });
+		mGlobalHotKeys.append(hotKey);
+	}
+}
+
+void GlobalHotKeyHandler::createHotKey(const Action &action)
+{
+	auto isShortcutSet = !action.shortcut().isEmpty();
+	auto isPostProcessingOnlyAction = !action.isCaptureEnabled();
+	auto isRequestedCaptureSupported = action.isCaptureEnabled() && mSupportedCaptureModes.contains(action.captureMode());
+	if(isShortcutSet && (isPostProcessingOnlyAction || isRequestedCaptureSupported)) {
+		auto hotKey = QSharedPointer<GlobalHotKey>(new GlobalHotKey(QApplication::instance(), action.shortcut()));
+		connect(hotKey.data(), &GlobalHotKey::pressed, [this, action](){ emit actionTriggered(action); });
 		mGlobalHotKeys.append(hotKey);
 	}
 }

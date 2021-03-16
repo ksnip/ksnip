@@ -37,7 +37,8 @@ public:
 	void setEnabled(bool enabled);
 
 signals:
-	void newCaptureTriggered(CaptureModes captureMode) const;
+	void captureTriggered(CaptureModes captureMode) const;
+	void actionTriggered(const Action &action) const;
 
 private:
 	KsnipConfig *mConfig;
@@ -46,6 +47,7 @@ private:
 
 	void removeHotKeys();
 	void createHotKey(const QKeySequence &keySequence, CaptureModes captureMode);
+	void createHotKey(const Action &action);
 
 private slots:
 	void setupHotKeys();

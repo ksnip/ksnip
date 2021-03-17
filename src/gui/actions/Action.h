@@ -60,9 +60,10 @@ public:
 
 	bool isCopyToClipboardEnabled() const;
 	void setIsCopyToClipboardEnabled(bool enabled);
-
 	bool isOpenDirectoryEnabled() const;
 	void setIsOpenDirectoryEnabled(bool enabled);
+
+	friend bool operator==(const Action& a, const Action& b);
 
 private:
 	QString mName;
@@ -78,5 +79,6 @@ private:
 	QKeySequence mShortcut;
 };
 
+bool operator==(const Action& left, const Action& right);
 
 #endif //KSNIP_ACTION_H

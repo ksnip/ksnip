@@ -142,3 +142,18 @@ void Action::setIsOpenDirectoryEnabled(bool enabled)
 {
 	mIsOpenDirectoryEnabled = enabled;
 }
+
+bool operator==(const Action &left, const Action &right)
+{
+	return left.name() == right.name()
+		   && left.shortcut() == right.shortcut()
+		   && left.isCaptureEnabled() == right.isCaptureEnabled()
+		   && left.includeCursor() == right.includeCursor()
+		   && left.captureDelay() == right.captureDelay()
+		   && left.captureMode() == right.captureMode()
+		   && left.isSaveEnabled() == right.isSaveEnabled()
+		   && left.isCopyToClipboardEnabled() == right.isCopyToClipboardEnabled()
+		   && left.isPinImageEnabled() == right.isPinImageEnabled()
+		   && left.isOpenDirectoryEnabled() == right.isOpenDirectoryEnabled()
+		   && left.isUploadEnabled() == right.isUploadEnabled();
+}

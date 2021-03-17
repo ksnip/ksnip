@@ -1,6 +1,7 @@
 set(UNITTEST_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/backend/recentImages/RecentImagesPathStoreTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/common/helper/PathHelperTests.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionTest.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionProcessorTest.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/MultiCaptureHandlerTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/SingleCaptureHandlerTests.cpp

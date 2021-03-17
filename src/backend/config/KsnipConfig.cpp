@@ -1253,6 +1253,12 @@ QList<Action> KsnipConfig::actions()
 
 void KsnipConfig::setActions(const QList<Action> &actions)
 {
+	auto savedActions = this->actions();
+
+	if(savedActions == actions) {
+		return;
+	}
+
 	mConfig.remove(KsnipConfigOptions::actionsString());
 
 	auto count = actions.count();

@@ -63,7 +63,6 @@ void ActionProcessor::preCaptureProcessing()
 void ActionProcessor::postCaptureProcessing()
 {
 	if (!mPostProcessingEnabled && !mCurrentAction.isCaptureEnabled()) {
-		qInfo("Action is post processing only but no capture loaded.");
 		return;
 	}
 

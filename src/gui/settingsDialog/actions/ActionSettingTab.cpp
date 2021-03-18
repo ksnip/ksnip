@@ -53,6 +53,7 @@ void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 {
 	mNameLabel->setText(tr("Name") + QLatin1String(":"));
 	mNameLineEdit->setMaxLength(50);
+	connect(mNameLineEdit, &QLineEdit::editingFinished, this, &ActionSettingTab::nameEditingFinished);
 
 	mShortcutLabel->setText(tr("Shortcut") + QLatin1String(":"));
 	mShortcutLabel->setToolTip("When global hotkeys are enabled and supported then\n"
@@ -196,4 +197,9 @@ QString ActionSettingTab::getTextWithoutEscapedAmpersand(const QString &text)
 {
 	auto copiedText = text;
 	return copiedText.replace(QLatin1String("&&"), QLatin1String("&"));
+}
+
+void ActionSettingTab::nameEditingFinished()
+{
+	emit nameChanged(getTextWithEscapedAmpersand(mNameLineEdit->textOrPlaceholderText()));
 }

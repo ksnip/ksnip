@@ -45,7 +45,7 @@ private:
 
 	void initGui();
 	void loadConfig();
-	void insertTab(ActionSettingTab *tabContent, const QString &name);
+	void insertActionTab(ActionSettingTab *tabContent, const QString &name);
 
 private slots:
 	void addEmptyTab();

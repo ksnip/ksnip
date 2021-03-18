@@ -76,13 +76,18 @@ void ActionsSettings::loadConfig()
 	auto actions = mConfig->actions();
 	for(const auto& action : actions) {
 		auto tabContent = new ActionSettingTab(action, mCaptureModes);
-		insertTab(tabContent, action.name());
+		insertActionTab(tabContent, action.name());
 	}
 }
 
-void ActionsSettings::insertTab(ActionSettingTab *tabContent, const QString &name)
+void ActionsSettings::insertActionTab(ActionSettingTab *tabContent, const QString &name)
 {
 	auto index = mTabWidget->insertTab(mTabWidget->count() - 1, tabContent, name);
+	connect(tabContent, &ActionSettingTab::nameChanged, [this, index](const QString &name)
+	{
+		mTabWidget->setTabText(index, name);
+	});
+
 	mTabWidget->setCurrentIndex(index);
 }
 
@@ -90,7 +95,7 @@ void ActionsSettings::addEmptyTab()
 {
 	auto name = tr("Action") + QLatin1String(" ") + QString::number(mTabWidget->count());
 	auto tabContent = new ActionSettingTab(name, mCaptureModes);
-	insertTab(tabContent, name);
+	insertActionTab(tabContent, name);
 }
 
 void ActionsSettings::closeTab(int index)

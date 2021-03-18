@@ -43,6 +43,9 @@ public:
 	~ActionSettingTab() override;
 	Action action() const;
 
+signals:
+	void nameChanged(const QString &name);
+
 protected:
 	explicit ActionSettingTab(const QList<CaptureModes> &captureModes);
 	void setAction(const Action &action) const;
@@ -74,6 +77,7 @@ private:
 
 private slots:
 	void captureEnabledChanged();
+	void nameEditingFinished();
 };
 
 #endif //KSNIP_ACTIONSETTINGTAB_H

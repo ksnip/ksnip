@@ -33,6 +33,8 @@
 ## Release 1.8.2
 * Fixed: Add missing includes to build on UNIX. ([#581](https://github.com/ksnip/ksnip/issues/581))
 * Fixed: Ksnip starts minimized. ([#593](https://github.com/ksnip/ksnip/issues/593))
+* Fixed: Main window still show after screenshot when corresponding option disabled. ([#596](https://github.com/ksnip/ksnip/issues/596))
+* Fixed: Cancel screenshot shows main window when window was hidden. ([#607](https://github.com/ksnip/ksnip/issues/607))
 
 ## Release 1.8.1
 * Changed: Allow changing adorner color for rect area selection. ([#519](https://github.com/ksnip/ksnip/issues/519))

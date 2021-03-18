@@ -52,7 +52,8 @@ void WidgetVisibilityHandler::restoreVisibility()
 	if(!mWasMinimized) {
 		showWidget();
 	} else {
-		mWidget->showMinimized();
+		// using showMinimized() seems to be not working for newer Qt version 
+		mWidget->setWindowState(Qt::WindowMinimized);
 	}
 
 	mWindowStateChangeLock = false;

@@ -23,7 +23,8 @@ WidgetVisibilityHandler::WidgetVisibilityHandler(QWidget *widget) :
 	mWidget(widget),
 	mSelectedWindowState(Qt::WindowActive),
 	mWindowStateChangeLock(false),
-	mWasMinimized(false)
+	mIsMinimized(false),
+	mIsHidden(false)
 {
 
 }
@@ -31,6 +32,10 @@ WidgetVisibilityHandler::WidgetVisibilityHandler(QWidget *widget) :
 void WidgetVisibilityHandler::hide()
 {
 	mWidget->hide();
+
+	if(!mWindowStateChangeLock) {
+		mIsHidden = true;
+	}
 }
 
 void WidgetVisibilityHandler::makeInvisible()
@@ -45,15 +50,18 @@ void WidgetVisibilityHandler::show()
 	showWidget();
 }
 
-void WidgetVisibilityHandler::restoreVisibility()
+void WidgetVisibilityHandler::restoreState()
 {
 	setVisible(true);
 
-	if(!mWasMinimized) {
+	if(!mIsMinimized && !mIsHidden) {
 		showWidget();
+		mIsHidden = false;
+	} else if(!mIsMinimized && mIsHidden){
+		hide();
 	} else {
-		// using showMinimized() seems to be not working for newer Qt version 
 		mWidget->setWindowState(Qt::WindowMinimized);
+		mIsHidden = false;
 	}
 
 	mWindowStateChangeLock = false;
@@ -63,6 +71,7 @@ void WidgetVisibilityHandler::enforceVisible()
 {
 	setVisible(true);
 	showWidget();
+	mIsHidden = false;
 	mWindowStateChangeLock = false;
 }
 
@@ -80,7 +89,7 @@ void WidgetVisibilityHandler::updateState()
 			mSelectedWindowState = Qt::WindowActive;
 		}
 
-		mWasMinimized = mWidget->isMinimized();
+		mIsMinimized = mWidget->isMinimized();
 	}
 }
 

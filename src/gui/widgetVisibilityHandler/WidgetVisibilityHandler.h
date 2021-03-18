@@ -32,7 +32,7 @@ public:
 	virtual void hide();
 	virtual void makeInvisible();
 	virtual void show();
-	virtual void restoreVisibility();
+	virtual void restoreState();
 	virtual void enforceVisible();
 	virtual bool isMaximized();
 	virtual void updateState();
@@ -44,7 +44,8 @@ protected:
 
 private:
 	bool mWindowStateChangeLock;
-	bool mWasMinimized;
+	bool mIsMinimized;
+	bool mIsHidden;
 	Qt::WindowState mSelectedWindowState;
 
 	void showWidget();

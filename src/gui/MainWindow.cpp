@@ -234,7 +234,7 @@ void MainWindow::showHidden()
 void MainWindow::showDefault()
 {
 	auto enforceShow = mConfig->showMainWindowAfterTakingScreenshotEnabled();
-	enforceShow ? mVisibilityHandler->enforceVisible() : mVisibilityHandler->restoreVisibility();
+	enforceShow ? mVisibilityHandler->enforceVisible() : mVisibilityHandler->restoreState();
 
 	if(!mVisibilityHandler->isMaximized()) {
 		resizeToAnnotator();
@@ -633,7 +633,7 @@ void MainWindow::sessionFinished()
 
 void MainWindow::captureCanceled()
 {
-	mVisibilityHandler->restoreVisibility();
+	mVisibilityHandler->restoreState();
 }
 
 void MainWindow::uploadFinished(const UploadResult &result)

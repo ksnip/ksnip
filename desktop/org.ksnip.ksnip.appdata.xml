@@ -121,6 +121,7 @@
                     <li>Fixed: Ksnip starts minimized.</li>
                     <li>Fixed: Main window still show after screenshot when corresponding option disabled.</li>
                     <li>Fixed: Cancel screenshot shows main window when window was hidden.</li>
+                    <li>Fixed: Close button hidden after taking screenshot under kwin.</li>
                 </ul>
             </description>
         </release>

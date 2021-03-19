@@ -235,7 +235,7 @@ void MainWindow::resizeToContent()
 		setFixedSize(menuBar()->sizeHint());
 	}
 	mMainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
-
+	setMinimumSize(minimumSizeHint()); // Workaround for issue #588
 }
 
 void MainWindow::capturePostProcessing()

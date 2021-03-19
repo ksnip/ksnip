@@ -204,6 +204,7 @@ void MainWindow::resizeToAnnotator()
 	mMainLayout->setSizeConstraint(QLayout::SetFixedSize); // Workaround that allows us to return to toolbar only size
 	QMainWindow::adjustSize();
 	mMainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+	setMinimumSize(minimumSizeHint()); // Workaround for issue #588
 }
 
 void MainWindow::capturePostProcessing()

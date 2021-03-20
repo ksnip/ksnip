@@ -31,7 +31,7 @@ QRect WinSnippingArea::selectedRectArea() const
         auto bottomRight = mapToGlobal(mCaptureArea.bottomRight());
         return {topLeft, bottomRight};
     } else {
-        return mCaptureArea;
+        return mHdpiScaler.scale(mCaptureArea);
     }
 }
 

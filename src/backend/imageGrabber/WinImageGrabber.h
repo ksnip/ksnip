@@ -23,6 +23,7 @@
 #include "AbstractRectAreaImageGrabber.h"
 #include "WinWrapper.h"
 #include "gui/snippingArea/WinSnippingArea.h"
+#include "src/common/platform/HdpiScaler.h"
 
 class WinImageGrabber : public AbstractRectAreaImageGrabber
 {
@@ -38,7 +39,7 @@ protected:
 
 private:
     WinWrapper *mWinWrapper;
+    HdpiScaler mHdpiScaler;
 };
-
 
 #endif //KSNIP_WINIMAGEGRABBER_H

@@ -264,16 +264,16 @@ target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})
 
 # install target
 if (WIN32)
-	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 	find_program(WINDEPLOYQT windeployqt HINTS $ENV{QTDIR} PATH_SUFFIXES bin)
-	install(CODE "execute_process(COMMAND ${WINDEPLOYQT} bin WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
+	install(CODE "execute_process(COMMAND ${WINDEPLOYQT} ksnip.exe WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
 
-	set_property(INSTALL "bin/ksnip.exe"
+	set_property(INSTALL "ksnip.exe"
 		PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
 	)
 elseif (UNIX AND NOT APPLE)
-	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX})
 endif ()
 
 # uninstall target

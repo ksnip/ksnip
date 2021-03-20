@@ -21,6 +21,7 @@
 #define KSNIP_WINSNIPPINGAREA_H
 
 #include "AbstractSnippingArea.h"
+#include "src/common/platform/HdpiScaler.h"
 
 class WinSnippingArea : public AbstractSnippingArea
 {
@@ -35,6 +36,7 @@ protected:
 
 private:
     QRect getFullScreenRect() const;
+    HdpiScaler mHdpiScaler;
 };
 
 #endif //KSNIP_WINSNIPPINGAREA_H

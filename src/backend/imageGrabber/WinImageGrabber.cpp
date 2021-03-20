@@ -32,12 +32,14 @@ WinImageGrabber::WinImageGrabber() :
 
 QRect WinImageGrabber::activeWindowRect() const
 {
-	return mWinWrapper->getActiveWindowRect();
+    auto rect = mWinWrapper->getActiveWindowRect();
+    return mHdpiScaler.unscale(rect);
 }
 
 QRect WinImageGrabber::fullScreenRect() const
 {
-	return mWinWrapper->getFullScreenRect();
+    auto rect = mWinWrapper->getFullScreenRect();
+    return mHdpiScaler.unscale(rect);
 }
 
 CursorDto WinImageGrabber::getCursorWithPosition() const

@@ -20,8 +20,9 @@
 #include "MacImageGrabber.h"
 
 
-MacImageGrabber::MacImageGrabber() : AbstractRectAreaImageGrabber(new MacSnippingArea),
-                                     mMacWrapper(new MacWrapper)
+MacImageGrabber::MacImageGrabber() :
+    AbstractRectAreaImageGrabber(new MacSnippingArea),
+    mMacWrapper(new MacWrapper)
 {
     addSupportedCaptureMode(CaptureModes::RectArea);
 	addSupportedCaptureMode(CaptureModes::LastRectArea);

@@ -123,6 +123,7 @@
                     <li>Fixed: Cancel screenshot shows main window when window was hidden.</li>
                     <li>Fixed: HiDPI scaling not handled correctly under windows.</li>
                     <li>Fixed: Close button hidden after taking screenshot under kwin.</li>
+                    <li>Fixed kImageAnnotator: Fetching image from annotator with HiDPI enabled pixelates image.</li>
                 </ul>
             </description>
         </release>

@@ -7,6 +7,7 @@
 * Fixed: Cancel screenshot shows main window when window was hidden. ([#607](https://github.com/ksnip/ksnip/issues/607))
 * Fixed: HiDPI scaling not handled correctly under windows. ([#590](https://github.com/ksnip/ksnip/issues/590))
 * Fixed: Close button hidden after taking screenshot under kwin. ([#588](https://github.com/ksnip/ksnip/issues/588))
+* Fixed kImageAnnotator: Fetching image from annotator with HiDPI enabled pixelates image. ([#218](https://github.com/ksnip/kImageAnnotator/issues/218))
 
 ## Release 1.8.1
 * Changed: Allow changing adorner color for rect area selection. ([#519](https://github.com/ksnip/ksnip/issues/519))

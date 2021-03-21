@@ -266,11 +266,22 @@ target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})
 if (WIN32)
 	install(TARGETS ksnip RUNTIME DESTINATION .)
 
-	find_program(WINDEPLOYQT windeployqt HINTS $ENV{QTDIR} PATH_SUFFIXES bin)
-	install(CODE "execute_process(COMMAND ${WINDEPLOYQT} . WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
+	if (DEFINED $ENV{QTDIR})
+		find_program(WINDEPLOYQT windeployqt HINTS $ENV{QTDIR} PATH_SUFFIXES bin)
+		install(CODE "execute_process(COMMAND ${WINDEPLOYQT} . WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
+	else ()
+		message("QTDIR not set, not able to install qt dependencies.")
+	endif()
 
 	find_program(COPY cp)
-	install(CODE "execute_process(COMMAND ${COPY} $ENV{OPENSSL_DIR}/libeay32.dll $ENV{OPENSSL_DIR}/ssleay32.dll \${CMAKE_INSTALL_PREFIX})")
+
+	if (DEFINED $ENV{OPENSSL_DIR})
+		install(CODE "execute_process(COMMAND ${COPY} $ENV{OPENSSL_DIR}/libeay32.dll $ENV{OPENSSL_DIR}/ssleay32.dll \${CMAKE_INSTALL_PREFIX})")
+	else ()
+		message("OPENSSL_DIR not set, not able to install openssl dependencies.")
+	endif()
+
+	install(CODE "execute_process(COMMAND ${COPY} ${KIMAGEANNOTATOR_LANG_INSTALL_DIR}/* \${CMAKE_INSTALL_PREFIX})/translations")
 
 	set_property(INSTALL "ksnip.exe"
 		PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"

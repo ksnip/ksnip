@@ -36,10 +36,10 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     7z x qttranslations.7z -o/c/qt
     7z x qtsvg.7z -o/c/qt
 
-    7z x openssl.zip -o/c/openssl
+    7z x openssl.zip -o"${OPENSSL_DIR}"
 
     # windeployqt fails to find the binaries so we link the binaries where its looking for it
     WINDEPLOYQT_QT_DIR="/c/Users/qt/work"
     mkdir -p $WINDEPLOYQT_QT_DIR
-    ln -s $QTDIR $WINDEPLOYQT_QT_DIR/install
+    ln -s "${QTDIR}" ${WINDEPLOYQT_QT_DIR}/install
 fi

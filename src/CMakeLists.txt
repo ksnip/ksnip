@@ -269,6 +269,9 @@ if (WIN32)
 	find_program(WINDEPLOYQT windeployqt HINTS $ENV{QTDIR} PATH_SUFFIXES bin)
 	install(CODE "execute_process(COMMAND ${WINDEPLOYQT} . WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
 
+	find_program(COPY cp)
+	install(CODE "execute_process(COMMAND ${COPY} $ENV{OPENSSL_DIR}/libeay32.dll $ENV{OPENSSL_DIR}/ssleay32.dll \${CMAKE_INSTALL_PREFIX})")
+
 	set_property(INSTALL "ksnip.exe"
 		PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"
 	)

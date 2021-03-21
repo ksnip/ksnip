@@ -281,7 +281,7 @@ if (WIN32)
 		message("OPENSSL_DIR not set, not able to install openssl dependencies.")
 	endif()
 
-	install(CODE "execute_process(COMMAND ${COPY} ${KIMAGEANNOTATOR_LANG_INSTALL_DIR} \${CMAKE_INSTALL_PREFIX})")
+	install(CODE "execute_process(COMMAND ${COPY} -r ${KIMAGEANNOTATOR_LANG_INSTALL_DIR} \${CMAKE_INSTALL_PREFIX})")
 
 	set_property(INSTALL "ksnip.exe"
 		PROPERTY CPACK_START_MENU_SHORTCUTS "ksnip Screenshot Tool"

@@ -81,7 +81,7 @@
     <update_contact>damir.porobic@gmx.com</update_contact>
     <content_rating type="oars-1.0" />
     <releases>
-        <release type="stable" version="1.8.2" date="2021-02-15T00:00:00Z">
+        <release type="stable" version="1.8.2" date="2021-03-22T00:00:00Z">
             <description>
                 <ul>
                     <li>Fixed: Add missing includes to build on UNIX.</li>
@@ -91,6 +91,7 @@
                     <li>Fixed: HiDPI scaling not handled correctly under windows.</li>
                     <li>Fixed: Close button hidden after taking screenshot under kwin.</li>
                     <li>Fixed kImageAnnotator: Fetching image from annotator with HiDPI enabled pixelates image.</li>
+                    <li>Fixed kImageAnnotator: Keep aspect ratio only work when pressing CTRL before moving resize handle.</li>
                 </ul>
             </description>
         </release>

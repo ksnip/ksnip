@@ -282,7 +282,7 @@ if (WIN32)
 	endif()
 
 	if (DEFINED ENV{KIMAGEANNOTATOR})
-		install(CODE "execute_process(COMMAND ${COPY} -r $ENV{KIMAGEANNOTATOR}/${KIMAGEANNOTATOR_LANG_INSTALL_DIR} \${CMAKE_INSTALL_PREFIX})")
+		install(CODE "execute_process(COMMAND ${COPY} -r \"$ENV{KIMAGEANNOTATOR}/${KIMAGEANNOTATOR_LANG_INSTALL_DIR}\" \${CMAKE_INSTALL_PREFIX})")
 	else ()
 		message("KIMAGEANNOTATOR not set, not able to install kImageAnnotator translations.")
 	endif()

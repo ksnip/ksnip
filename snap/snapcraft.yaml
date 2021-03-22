@@ -50,7 +50,7 @@ parts:
       snapcraftctl set-version $(cat CMakeLists.txt | grep project\(ksnip | cut -d" " -f5 | cut -d")" -f1)
   kimageannotator:
     source: https://github.com/ksnip/kImageAnnotator.git
-    source-tag: v0.4.1
+    source-tag: v0.4.2
     plugin: cmake
     after:
       - kcolorpicker

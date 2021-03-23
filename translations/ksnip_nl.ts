@@ -51,70 +51,70 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Naam</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Sneltoets</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Wissen</translation>
+        <translation>Wissen</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermfoto maken</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Cursor tonen op schermfoto</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Wachttijd</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Modus</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermfoto tonen op overzichtsvenster</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermfoto kopiëren naar klembord</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermfoto uploaden</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Bijbehorende map openen</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermfoto opslaan</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Toevoegen</translation>
+        <translation>Toevoegen</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Actie-instellingen</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Actie</translation>
     </message>
 </context>
 <context>
@@ -293,11 +293,11 @@ Ze kunnen dan worden getoond/verborgen met de Tab-toets.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatisch aanpassen aan inhoud</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas de afmetingen van het hoofdvenster automatisch aan aan de schermfoto.</translation>
     </message>
 </context>
 <context>
@@ -395,7 +395,7 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation>Het kopiëren naar het klembord als base64-versleutelde afbeelding is mislukt.</translation>
+        <translation>Het kopiëren naar het klembord als base64-versleutelde schermfoto is mislukt.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
@@ -403,14 +403,14 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation>Gekopieerd naar het klembord als base64-versleutelde afbeelding.</translation>
+        <translation>Gekopieerd naar het klembord als base64-versleutelde schermfoto.</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation>Afbeelding verwijderen</translation>
+        <translation>Schermfoto verwijderen</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
@@ -454,7 +454,7 @@ Weet je zeker dat je wilt doorgaan?</translation>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Voeg nieuwe acties toe door de knop &apos;Toevoegen&apos; aan te klikken.</translation>
     </message>
 </context>
 <context>
@@ -492,7 +492,7 @@ Weet je zeker dat je wilt doorgaan?</translation>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation>Afbeelding geüpload</translation>
+        <translation>Schermfoto geüpload</translation>
     </message>
     <message>
         <source>Upload script </source>
@@ -508,7 +508,7 @@ Weet je zeker dat je wilt doorgaan?</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation>De tijdelijke afbeelding, nodig voor het uploaden, kan niet worden opgeslagen.</translation>
+        <translation>De tijdelijke schermfoto, nodig voor het uploaden, kan niet worden opgeslagen.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
@@ -592,7 +592,8 @@ Weet je zeker dat je wilt doorgaan?</translation>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sneltoetsen worden momenteel alleen ondersteund op Windows en X11.
+Schakel deze optie uit om de actiesneltoetsen alleen te gebruiken binnen KSnip.</translation>
     </message>
 </context>
 <context>
@@ -689,7 +690,7 @@ als het hoofdvenster geminimaliseerd of verborgen is.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation>Afbeelding geüpload naar imgur.com!</translation>
+        <translation>De schermfoto is geüpload naar imgur.com!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -764,7 +765,7 @@ als het hoofdvenster geminimaliseerd of verborgen is.</translation>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation>Directe link naar afbeelding</translation>
+        <translation>Directe link naar foto</translation>
     </message>
     <message>
         <source>Base Url:</source>
@@ -785,11 +786,11 @@ Herstart om de wijzigingen toe te passen.</translation>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation>Kan afbeelding niet openen</translation>
+        <translation>Kan schermfoto niet openen</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation>De afbeelding uit het pad &apos;%1&apos; kan niet worden geopend</translation>
+        <translation>De schermfoto uit het pad &apos;%1&apos; kan niet worden geopend</translation>
     </message>
 </context>
 <context>
@@ -801,8 +802,8 @@ Herstart om de wijzigingen toe te passen.</translation>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation>Vertraging tussen triggeren en vastleggen
-van schermfoto, in seconden.</translation>
+        <translation>De wachttijd tussen het aanroepen en vastleggen
+van een schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>s</source>
@@ -861,7 +862,7 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation>Afdrukvenster openen om de afbeelding af te drukken</translation>
+        <translation>Afdrukvenster openen om de schermfoto af te drukken</translation>
     </message>
     <message>
         <source>Print Preview</source>
@@ -925,7 +926,7 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation>Kan afbeelding niet tonen</translation>
+        <translation>Kan schermfoto niet tonen</translation>
     </message>
     <message>
         <source>Save As...</source>
@@ -973,7 +974,7 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation>Afbeeldingen openen</translation>
+        <translation>Schermfoto&apos;s openen</translation>
     </message>
     <message>
         <source>Show Docks</source>
@@ -997,11 +998,11 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermfoto uploaden naar externe dienst</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermfoto kopiëren naar klembord</translation>
     </message>
 </context>
 <context>
@@ -1068,11 +1069,11 @@ van schermfoto, in seconden.</translation>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation>De afbeeldingsnaam is gewijzigd</translation>
+        <translation>De fotonaam is gewijzigd</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation>De nieuwe afbeeldingsnaam is </translation>
+        <translation>De nieuwe fotonaam is </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
@@ -1080,11 +1081,11 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation>De afbeeldingsnaam kan niet worden gewijzigd in </translation>
+        <translation>De fotonaam kan niet worden gewijzigd in </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation>Afbeeldingsnaam wijzigen</translation>
+        <translation>Fotonaam wijzigen</translation>
     </message>
     <message>
         <source>New filename:</source>
@@ -1099,7 +1100,7 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation>Afbeeldingen</translation>
+        <translation>Schermfoto&apos;s</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1107,11 +1108,11 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation>Afbeelding opgeslagen</translation>
+        <translation>De schermfoto is opgeslagen</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation>Kan afbeelding niet opslaan</translation>
+        <translation>Kan schermfoto niet opslaan</translation>
     </message>
     <message>
         <source>Saved to</source>
@@ -1119,7 +1120,7 @@ van schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation>Kan afbeelding niet opslaan in</translation>
+        <translation>Kan schermfoto niet opslaan in</translation>
     </message>
 </context>
 <context>
@@ -1300,7 +1301,7 @@ Sla over om álles te kopiëren.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Acties</translation>
     </message>
 </context>
 <context>
@@ -1357,7 +1358,7 @@ Sla over om álles te kopiëren.</translation>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation>Afbeelding bevriezen tijdens vastleggen</translation>
+        <translation>Schermfoto bevriezen tijdens vastleggen</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1371,7 +1372,7 @@ enabled for MacOs.</source>
         <translation>Schakel in om de achtergrond te bevriezen
 tijdens het selecteren van een rechthoekig
 gebied. Dit verandert tevens het gedrag
-van vertraagde schermfoto&apos;s: de vertraging
+van vertraagde schermfoto&apos;s: de wachttijd
 vindt plaats vóórdat het selectiegebied
 wordt getoond. Deze optie is altijd
 uitgeschakeld op Wayland en altijd ingeschakeld
@@ -1387,7 +1388,7 @@ the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Toont een vergrootglas om in te zoomen op de
 achtergrondafbeelding. Deze optie werkt alleen als
-&apos;Afbeelding bevriezen tijdens vastleggen&apos; is ingeschakeld.</translation>
+&apos;Schermfoto bevriezen tijdens vastleggen&apos; is ingeschakeld.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -1564,19 +1565,20 @@ Herstart om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Systeemmeldingen tonen</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel in om, indien mogelijk, systeemmeldingen te tonen.
+Herstart KSnip om de wijziging toe te passen.</translation>
     </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation>Afbeelding kiezen</translation>
+        <translation>Foto kiezen</translation>
     </message>
     <message>
         <source>Images</source>
@@ -1603,7 +1605,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation>Je staat op het punt om een afbeelding te uploaden. Wil je doorgaan?</translation>
+        <translation>Je staat op het punt om een schermfoto te uploaden. Wil je doorgaan?</translation>
     </message>
 </context>
 <context>

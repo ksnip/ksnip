@@ -592,7 +592,7 @@ Vill du fortsätta?</translation>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
         <translation>Snabbtangenter stöds för närvarande endast av Windows och X11.
-Inaktivering av detta alternativ gör också åtgärdsgenvägar  till endast ksnip.</translation>
+Inaktivering av detta alternativ gör också åtgärdsgenvägar till endast ksnip.</translation>
     </message>
 </context>
 <context>

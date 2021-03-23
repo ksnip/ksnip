@@ -51,70 +51,70 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Назва</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорочення</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Очистити</translation>
+        <translation>Очистити</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Зробити знімок</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Разом із вказівником</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Затримка</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">с</translation>
+        <translation>с</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим знімання</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати зображення у пришпиленому вікні</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Копіювати зображення до буфера обміну даними</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Вивантажити зображення</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкрити зображення у батьківському каталозі</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Зберегти зображення</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Додати</translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Параметри дій</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Дія</translation>
     </message>
 </context>
 <context>
@@ -157,7 +157,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх&#x2028;
+ліній, залишених пером чи маркером, але зробить їх 
 плавнішими.</translation>
     </message>
     <message>
@@ -294,11 +294,11 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматичний розмір за вмістом</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматично змінювати розміри головного вікна за зображенням-вмістом.</translation>
     </message>
 </context>
 <context>
@@ -455,7 +455,7 @@ Do you want to continue?</source>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Нові дії можна додати натисканням кнопки «Додати».</translation>
     </message>
 </context>
 <context>
@@ -593,7 +593,8 @@ Do you want to continue?</source>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтримку клавіатурних скорочень у поточній версії передбачено лише для Windows і X11.
+Зняття позначення з цього пункту обмежує клавіатурні скорочення лише ksnip.</translation>
     </message>
 </context>
 <context>
@@ -998,11 +999,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Вивантажити triggerCapture на зовнішнє джерело</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопіювати triggerCapture до буфера обміну даними системи</translation>
     </message>
 </context>
 <context>
@@ -1301,7 +1302,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Дії</translation>
     </message>
 </context>
 <context>
@@ -1566,12 +1567,13 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Скористатися специфічною для платформи службою сповіщень</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо увімкнено, програма спробує скористатися специфічною для платформи
+службою сповіщень, якщо така існує. Для набуття чинності змінами програму слід буде перезапустити.</translation>
     </message>
 </context>
 <context>

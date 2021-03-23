@@ -51,11 +51,11 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Atalho</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -63,58 +63,58 @@
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Fazer Captura</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Incluir Cursor</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Atraso</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Modo de Captura</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar imagem na janela de pinada</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar imagem para a área de transferência</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar Imagem</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir o diretório da imagem</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar imagem</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Adicionar</translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurações de Ações</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Ação</translation>
     </message>
 </context>
 <context>
@@ -293,11 +293,11 @@ A visibilidade das Docks pode ser alternada com a tecla Tab.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Redimensionar automaticamente para o conteúdo</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Redimensionar automaticamente a janela principal para se ajustar a imagem.</translation>
     </message>
 </context>
 <context>
@@ -454,7 +454,7 @@ Deseja continuar?</translation>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar novas ações pressionando o botão da guia &apos;Adicionar&apos;.</translation>
     </message>
 </context>
 <context>
@@ -957,11 +957,11 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation>Fixar</translation>
+        <translation>Pinar</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation>Fixar a captura de tela no primeiro plano de uma janela sem moldura</translation>
+        <translation>Pinar a captura de tela no primeiro plano de uma janela sem moldura</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -997,11 +997,11 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Carregar triggerCapture para fonte externa</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Copiar triggerCapture para a área de transferência do sistema</translation>
     </message>
 </context>
 <context>
@@ -1061,7 +1061,7 @@ e captura de tela.</translation>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation>Fixar janela %1</translation>
+        <translation>Pinar janela %1</translation>
     </message>
 </context>
 <context>
@@ -1300,7 +1300,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Ações</translation>
     </message>
 </context>
 <context>
@@ -1323,7 +1323,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation>Confirme a seleção pressionando ENTER/RETURN ou aborte pressionando ESC.</translation>
+        <translation>Confirmar a seleção pressionando ENTER/RETURN ou aborte pressionando ESC.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
@@ -1564,12 +1564,13 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar o serviço de notificação específico da plataforma</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado, tentará usar o serviço de notificação específico da plataforma,
+quando tal existir. A mudança requer reinicialização para ter efeito.</translation>
     </message>
 </context>
 <context>

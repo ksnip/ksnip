@@ -51,11 +51,11 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Atajo</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -63,15 +63,15 @@
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Tomar captura</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Incluir cursor</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Retrasar</translation>
     </message>
     <message>
         <source>s</source>
@@ -79,27 +79,27 @@
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Modo de captura</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar imagen en la ventana de alfiler</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar imagen al portapapeles</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargar imagen</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir directorio principal de imágenes</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar imagen</translation>
     </message>
 </context>
 <context>
@@ -110,11 +110,11 @@
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración de acciones</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Acción</translation>
     </message>
 </context>
 <context>
@@ -208,16 +208,19 @@ más suaves.</translation>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>La desactivación de esta opción provoca cambios en la simiente de la herramienta numérica
+para afectar solo a los elementos nuevos, pero no a los existentes.
+Desactivar esta opción permite tener números duplicados.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Color del lienzo</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Color de fondo del lienzo predeterminado para el área de anotaciones.
+El cambio de color afecta solo a las áreas de anotación nuevas.</translation>
     </message>
 </context>
 <context>
@@ -290,11 +293,11 @@ La visibilidad del Dock puede ser alternada con el tabulador.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambio de tamaño automático al contenido</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambie automáticamente el tamaño de la ventana principal para que se ajuste a la imagen del contenido.</translation>
     </message>
 </context>
 <context>
@@ -388,19 +391,19 @@ Do you want to save it?</source>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>No se pudo copiar al portapapeles</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>No se pudo copiar al portapapeles como imagen codificada en base64.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiado al portapapeles</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiado al portapapeles como imagen codificada en base64.</translation>
     </message>
 </context>
 <context>
@@ -451,7 +454,7 @@ Do you want to continue?</source>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Agregue nuevas acciones presionando el botón de la pestaña &apos;Agregar&apos;.</translation>
     </message>
 </context>
 <context>
@@ -589,7 +592,8 @@ Do you want to continue?</source>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualmente, las teclas de acceso rápido solo son compatibles con Windows y X11.
+La desactivación de esta opción también hace que los atajos de acción sean solo en ksnip.</translation>
     </message>
 </context>
 <context>
@@ -622,7 +626,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Implementaciones genéricas de Wayland que utilizan
+Escalado de pantalla de control XDG-DESKTOP-PORTAL
+diferentemente. Habilitar esta opción
+determinar la escala de pantalla actual y
+aplicar eso a la captura de pantalla en ksnip.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -630,7 +638,11 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME y KDE Plasma admiten su propio Wayland
+y las capturas de pantalla genéricas de XDG-DESKTOP-PORTAL.
+Habilitar esta opción forzará KDE Plasma y
+GNOME para usar las capturas de pantalla de XDG-DESKTOP-PORTAL.
+El cambio en esta opción requiere un reinicio de ksnip.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
@@ -767,18 +779,18 @@ Cambiarlo requiere reiniciar.</translation>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpiar Token</translation>
     </message>
 </context>
 <context>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>No se puede abrir la imagen</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>No se puede abrir la imagen de la ruta% 1</translation>
     </message>
 </context>
 <context>
@@ -966,31 +978,31 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar muelles</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Esconder Docks</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar como URI de datos</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Abierto &amp; reciente</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Modificar lienzo</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargar captura de disparo a una fuente externa</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar captura de disparador al portapapeles del sistema</translation>
     </message>
 </context>
 <context>
@@ -1212,7 +1224,8 @@ invocará con la ruta a un archivo PNG temporal como único argumento.</translat
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Marca la carga como fallida cuando el script escribe en StdErr.
+Sin esta configuración, los errores en el script pasarán desapercibidos.</translation>
     </message>
     <message>
         <source>Filter:</source>
@@ -1221,7 +1234,8 @@ Without this setting errors in the script will be unnoticed.</source>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Expresión RegEx. Solo copie al portapapeles lo que coincida con la expresión RegEx.
+Cuando se omite, se copia todo.</translation>
     </message>
 </context>
 <context>
@@ -1276,69 +1290,69 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Área de recorte</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Icono de bandeja</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Marca de Agua</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Acciones</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambie el tamaño del rectángulo seleccionado usando las manijas o muévalo arrastrando la selección.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilice las teclas de flecha para mover la selección.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Use las teclas de flecha mientras presiona CTRL para mover la manija superior izquierda.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Use las teclas de flecha mientras presiona ALT para mover la manija inferior derecha.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirme la selección presionando ENTER / RETURN o cancele presionando ESC.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Este mensaje se puede desactivar a través de la configuración.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Haga clic y arrastre para seleccionar un área rectangular o presione ESC para salir.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantenga presionada la tecla CTRL para cambiar el tamaño de la selección después de seleccionarla.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantenga presionada la tecla CTRL para evitar cambiar el tamaño después de seleccionar.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>La operación se cancelará después de 60 segundos cuando no se realice ninguna selección.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Este mensaje se puede desactivar a través de la configuración.</translation>
     </message>
 </context>
 <context>
@@ -1356,7 +1370,14 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cuando está habilitado, congelará el fondo mientras
+seleccionando una región rectangular. También cambia
+el comportamiento de las capturas de pantalla retrasadas, con esto
+opción habilitada, el retraso ocurre antes de que
+se muestra el área de recorte y con la opción desactivada
+el retraso ocurre después de que se muestra el área de recorte.
+Esta función siempre está desactivada para Wayland y siempre
+habilitado para MacOs.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
@@ -1568,7 +1589,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Añada una secuencia de carga en Opciones&#xa0;▸ Configuración&#xa0;▸ Secuencia de carga</translation>
+        <translation>Añada una secuencia de carga en Opciones ▸ Configuración ▸ Secuencia de carga</translation>
     </message>
     <message>
         <source>Capture Upload</source>

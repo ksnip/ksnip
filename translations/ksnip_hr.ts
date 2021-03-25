@@ -51,70 +51,70 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Ime</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Prečac</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Isprazni</translation>
+        <translation>Isprazni</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Snimi sliku</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Uključi kursor</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Odgodi</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Način snimanja</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Prikaži sliku u prikvačenom prozoru</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiraj sliku u međuspremnik</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Prenesi sliku</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Otvori nadređenu mapu slike</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Spremi sliku</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Dodaj</translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Postavke radnje</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Radnja</translation>
     </message>
 </context>
 <context>
@@ -293,11 +293,11 @@ Vidljivost ploča može se promijeniti pomoću tipke tabulatora.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatski prilagodi veličinu sadržaju</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatski prilagodi veličinu glavnog prozora veličini slike sadržaja.</translation>
     </message>
 </context>
 <context>
@@ -454,7 +454,7 @@ Do you want to continue?</source>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj nove radnje pritiskom gumba „Dodaj”.</translation>
     </message>
 </context>
 <context>
@@ -592,7 +592,8 @@ Do you want to continue?</source>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipkovnički prečaci su trenutačno dostupni samo za Windows i X11.
+Deaktiviranjem ove opcije također omogućuje prečace radnji samo za ksnip.</translation>
     </message>
 </context>
 <context>
@@ -997,11 +998,11 @@ okidanja i snimanja slike ekrana.</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Prenesi snimku ekrana u vanjski izvor</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiraj snimku ekrana u međuspremnik sustava</translation>
     </message>
 </context>
 <context>
@@ -1301,7 +1302,7 @@ RegEx izrazom. Ako se izostavi, kopira se sve.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Radnje</translation>
     </message>
 </context>
 <context>
@@ -1563,12 +1564,13 @@ Promjena zahtijeva ponovno pokretanje programa.</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Koristi uslugu obavještavanja platforme</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kad je aktivirano, pokušat će koristiti uslugu obavještavanja platforme
+kad postoji. Zahtijeva ponovno pokretanje kako bi se promjena primijenila.</translation>
     </message>
 </context>
 <context>

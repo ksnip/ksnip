@@ -27,6 +27,9 @@ apps:
       - network-observe
       - opengl
 
+architectures:
+  - build-on: amd64
+
 parts:
   ksnip:
     source: .

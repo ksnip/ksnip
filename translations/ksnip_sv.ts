@@ -876,10 +876,6 @@ och själva skärmklippet.</translation>
         <translation>Skala</translation>
     </message>
     <message>
-        <source>Scale Screen Capture</source>
-        <translation>Skala skärmklippet</translation>
-    </message>
-    <message>
         <source>Quit</source>
         <translation>Avsluta</translation>
     </message>
@@ -1002,6 +998,18 @@ och själva skärmklippet.</translation>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
         <translation>Kopiera skärmklipp till systemets urklipp</translation>
+    </message>
+    <message>
+        <source>Scale Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

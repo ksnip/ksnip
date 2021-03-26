@@ -877,10 +877,6 @@ okidanja i snimanja slike ekrana.</translation>
         <translation>Skaliraj</translation>
     </message>
     <message>
-        <source>Scale Screen Capture</source>
-        <translation>Skaliraj snimku ekrana</translation>
-    </message>
-    <message>
         <source>Quit</source>
         <translation>Zatvori program</translation>
     </message>
@@ -1003,6 +999,18 @@ okidanja i snimanja slike ekrana.</translation>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
         <translation>Kopiraj snimku ekrana u međuspremnik sustava</translation>
+    </message>
+    <message>
+        <source>Scale Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

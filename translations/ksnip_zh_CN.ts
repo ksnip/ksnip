@@ -864,10 +864,6 @@ and capturing screenshot.</source>
         <translation>缩放</translation>
     </message>
     <message>
-        <source>Scale Screen Capture</source>
-        <translation>缩放捕获的图像</translation>
-    </message>
-    <message>
         <source>Quit</source>
         <translation>退出</translation>
     </message>
@@ -989,6 +985,18 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Image</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

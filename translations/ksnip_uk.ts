@@ -157,7 +157,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх 
+ліній, залишених пером чи маркером, але зробить їх&#x2028;
 плавнішими.</translation>
     </message>
     <message>
@@ -878,10 +878,6 @@ and capturing screenshot.</source>
         <translation>Розмір</translation>
     </message>
     <message>
-        <source>Scale Screen Capture</source>
-        <translation>Змінити розмір знімка</translation>
-    </message>
-    <message>
         <source>Quit</source>
         <translation>Закрити</translation>
     </message>
@@ -1004,6 +1000,18 @@ and capturing screenshot.</source>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
         <translation>Скопіювати triggerCapture до буфера обміну даними системи</translation>
+    </message>
+    <message>
+        <source>Scale Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

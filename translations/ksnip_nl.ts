@@ -877,10 +877,6 @@ van een schermfoto, in seconden.</translation>
         <translation>Grootte aanpassen</translation>
     </message>
     <message>
-        <source>Scale Screen Capture</source>
-        <translation>Grootte van schermfoto aanpassen</translation>
-    </message>
-    <message>
         <source>Quit</source>
         <translation>Afsluiten</translation>
     </message>
@@ -1003,6 +999,18 @@ van een schermfoto, in seconden.</translation>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
         <translation>Schermfoto kopiëren naar klembord</translation>
+    </message>
+    <message>
+        <source>Scale Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

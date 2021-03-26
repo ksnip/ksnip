@@ -876,10 +876,6 @@ e captura de tela.</translation>
         <translation>Redimensionar</translation>
     </message>
     <message>
-        <source>Scale Screen Capture</source>
-        <translation>Redimensionar captura de tela</translation>
-    </message>
-    <message>
         <source>Quit</source>
         <translation>Sair</translation>
     </message>
@@ -1002,6 +998,18 @@ e captura de tela.</translation>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
         <translation type="unfinished">Copiar triggerCapture para a área de transferência do sistema</translation>
+    </message>
+    <message>
+        <source>Scale Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

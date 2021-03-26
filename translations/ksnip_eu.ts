@@ -880,10 +880,6 @@ eta pantaila-argazkiaren artean.</translation>
         <translation>Eskalatu</translation>
     </message>
     <message>
-        <source>Scale Screen Capture</source>
-        <translation>Eskalatu pantaila-argazkia</translation>
-    </message>
-    <message>
         <source>Add Watermark</source>
         <translation>Gehitu ur-marka</translation>
     </message>
@@ -1001,6 +997,18 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Image</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -876,10 +876,6 @@ i wykonaniem zrzutu ekranu.</translation>
         <translation>Skaluj</translation>
     </message>
     <message>
-        <source>Scale Screen Capture</source>
-        <translation>Skaluj zrzut ekranu</translation>
-    </message>
-    <message>
         <source>Quit</source>
         <translation>Zakończ</translation>
     </message>
@@ -1001,6 +997,18 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Image</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

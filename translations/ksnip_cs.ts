@@ -880,10 +880,6 @@ a zachycením obrazovky.</translation>
         <translation>Změnit velikost</translation>
     </message>
     <message>
-        <source>Scale Screen Capture</source>
-        <translation>Změnit velikost snímku</translation>
-    </message>
-    <message>
         <source>Add Watermark</source>
         <translation>Přidat vodoznak</translation>
     </message>
@@ -1001,6 +997,18 @@ a zachycením obrazovky.</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Image</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

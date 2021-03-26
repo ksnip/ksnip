@@ -877,10 +877,6 @@ y la captura de pantalla.</translation>
         <translation>Escalar</translation>
     </message>
     <message>
-        <source>Scale Screen Capture</source>
-        <translation>Escalar captura de pantalla</translation>
-    </message>
-    <message>
         <source>Quit</source>
         <translation>Salir</translation>
     </message>
@@ -1003,6 +999,18 @@ y la captura de pantalla.</translation>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
         <translation>Copiar captura de disparador al portapapeles del sistema</translation>
+    </message>
+    <message>
+        <source>Scale Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotate Image</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1445,7 +1453,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Área de recorte</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
@@ -1589,7 +1597,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Añada una secuencia de carga en Opciones ▸ Configuración ▸ Secuencia de carga</translation>
+        <translation>Añada una secuencia de carga en Opciones&#xa0;▸ Configuración&#xa0;▸ Secuencia de carga</translation>
     </message>
     <message>
         <source>Capture Upload</source>

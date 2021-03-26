@@ -157,7 +157,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх&#x2028;
+ліній, залишених пером чи маркером, але зробить їх 
 плавнішими.</translation>
     </message>
     <message>
@@ -1003,15 +1003,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Масштабувати зображення</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Обертати</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Обертати зображення</translation>
     </message>
 </context>
 <context>

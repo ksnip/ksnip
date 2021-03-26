@@ -107,6 +107,7 @@ private:
     QAction *mAboutAction;
     QAction *mOpenImageAction;
     QAction *mScaleAction;
+    QAction *mRotateAction;
 	QAction *mAddWatermarkAction;
 	QAction *mPasteAction;
 	QAction *mPasteEmbeddedAction;
@@ -159,6 +160,7 @@ private slots:
     void showSettingsDialog();
     void showAboutDialog();
     void showScaleDialog();
+    void showRotateDialog();
 	void setPosition();
 	void handleGuiStartup();
 	void saveClicked();

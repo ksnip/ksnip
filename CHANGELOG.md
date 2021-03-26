@@ -25,6 +25,8 @@
 * New kImageAnnotator: Zoom in and out via buttons from UI. ([#197](https://github.com/ksnip/kImageAnnotator/issues/197))
 * New kImageAnnotator: Add reset zoom keyboard shortcut with tooltip. ([#209](https://github.com/ksnip/kImageAnnotator/issues/209))
 * New kImageAnnotator: Add keyboard shortcut support for text tool. ([#183](https://github.com/ksnip/kImageAnnotator/issues/183))
+* New kImageAnnotator: Allow rotating background image. ([#199](https://github.com/ksnip/kImageAnnotator/issues/199))
+* New kImageAnnotator: Allow flipping background image horizontally and vertically. ([#221](https://github.com/ksnip/kImageAnnotator/issues/221))
 * Changed kImageAnnotator: Change drop shadow to cover all sites. ([#202](https://github.com/ksnip/kImageAnnotator/issues/202))
 * Fixed: Not possible to change adorner color. ([#601](https://github.com/ksnip/ksnip/issues/601))
 * Fixed kImageAnnotator: Deleting item outside image doesn't decrease canvas size. ([#164](https://github.com/ksnip/kImageAnnotator/issues/164))

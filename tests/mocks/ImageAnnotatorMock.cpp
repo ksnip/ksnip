@@ -72,6 +72,11 @@ void ImageAnnotatorMock::showCanvasModifier()
 
 }
 
+void ImageAnnotatorMock::showRotator()
+{
+
+}
+
 void ImageAnnotatorMock::hide()
 {
 	mHideCallCounter++;

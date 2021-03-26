@@ -184,6 +184,11 @@ void KImageAnnotatorAdapter::showCanvasModifier()
 	mKImageAnnotator->showCanvasModifier();
 }
 
+void KImageAnnotatorAdapter::showRotator()
+{
+	mKImageAnnotator->showRotator();
+}
+
 void KImageAnnotatorAdapter::setCanvasColor(const QColor &color)
 {
 	mKImageAnnotator->setCanvasColor(color);

@@ -41,6 +41,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mAboutAction(new QAction(this)),
 	mOpenImageAction(new QAction(this)),
 	mScaleAction(new QAction(this)),
+	mRotateAction(new QAction(this)),
 	mAddWatermarkAction(new QAction(this)),
 	mPasteAction(new QAction(this)),
 	mPasteEmbeddedAction(new QAction(this)),
@@ -130,6 +131,7 @@ MainWindow::~MainWindow()
     delete mAboutAction;
     delete mOpenImageAction;
     delete mScaleAction;
+    delete mRotateAction;
     delete mAddWatermarkAction;
     delete mSaveAsAction;
     delete mModifyCanvasAction;
@@ -349,6 +351,7 @@ void MainWindow::setEnablements(bool enabled)
     mUploadAction->setEnabled(enabled);
     mCopyAsDataUriAction->setEnabled(enabled);
     mScaleAction->setEnabled(enabled);
+	mRotateAction->setEnabled(enabled);
     mAddWatermarkAction->setEnabled(enabled);
     mToolBar->setCopyActionEnabled(enabled);
     mToolBar->setCropEnabled(enabled);
@@ -444,9 +447,14 @@ void MainWindow::initGui()
     connect(mPrintPreviewAction, &QAction::triggered, this, &MainWindow::printPreviewClicked);
 
     mScaleAction->setText(tr("Scale"));
-    mScaleAction->setToolTip(tr("Scale Screen Capture"));
+    mScaleAction->setToolTip(tr("Scale Image"));
     mScaleAction->setShortcut(Qt::SHIFT + Qt::Key_S);
 	connect(mScaleAction, &QAction::triggered, this, &MainWindow::showScaleDialog);
+
+	mRotateAction->setText(tr("Rotate"));
+	mRotateAction->setToolTip(tr("Rotate Image"));
+	mRotateAction->setShortcut(Qt::SHIFT + Qt::Key_O);
+	connect(mRotateAction, &QAction::triggered, this, &MainWindow::showRotateDialog);
 
 	mAddWatermarkAction->setText(tr("Add Watermark"));
 	mAddWatermarkAction->setToolTip(tr("Add Watermark to captured image. Multiple watermarks can be added."));
@@ -548,6 +556,7 @@ void MainWindow::initGui()
 	menu->addSeparator();
     menu->addAction(mToolBar->cropAction());
     menu->addAction(mScaleAction);
+    menu->addAction(mRotateAction);
     menu->addAction(mAddWatermarkAction);
 	menu->addSeparator();
 	menu->addAction(mRemoveImageAction);
@@ -676,6 +685,13 @@ void MainWindow::showScaleDialog()
 {
 	showDialog([&](){
 		mImageAnnotator->showScaler();
+	});
+}
+
+void MainWindow::showRotateDialog()
+{
+	showDialog([&](){
+		mImageAnnotator->showRotator();
 	});
 }
 

@@ -41,6 +41,7 @@ public:
 	void showCropper() override;
 	void showScaler() override;
 	void showCanvasModifier() override;
+	void showRotator() override;
 	void setSettingsCollapsed(bool isCollapsed) override;
 	void hide() override;
 	void close() override;

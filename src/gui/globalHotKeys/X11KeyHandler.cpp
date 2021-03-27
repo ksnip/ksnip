@@ -68,7 +68,9 @@ bool X11KeyHandler::isKeyPressed(void *message)
 }
 
 bool X11KeyHandler::isMatching(const xcb_key_press_event_t *keyEvent, unsigned int fixedModifier) const
-{ return keyEvent->detail == mKeyCodeCombo.key && keyEvent->state == (mKeyCodeCombo.modifier | fixedModifier); }
+{
+	return keyEvent->detail == mKeyCodeCombo.key && keyEvent->state == (mKeyCodeCombo.modifier | fixedModifier);
+}
 
 void X11KeyHandler::unregisterKey() const
 {

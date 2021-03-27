@@ -26,9 +26,12 @@
 
 #include "BuildConfig.h"
 #include "src/bootstrapper/BootstrapperFactory.h"
+#include "src/logging/LogOutputHandler.h"
 
 int main(int argc, char** argv)
 {
+	qInstallMessageHandler(LogOutputHandler::handleOutput);
+
 	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication app(argc, argv);
@@ -45,3 +48,5 @@ int main(int argc, char** argv)
 	BootstrapperFactory bootstrapperFactory;
 	return bootstrapperFactory.create()->start(app);
 }
+
+

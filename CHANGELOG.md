@@ -29,6 +29,7 @@
 * New kImageAnnotator: Allow flipping background image horizontally and vertically. ([#221](https://github.com/ksnip/kImageAnnotator/issues/221))
 * Changed kImageAnnotator: Change drop shadow to cover all sites. ([#202](https://github.com/ksnip/kImageAnnotator/issues/202))
 * Fixed: Not possible to change adorner color. ([#601](https://github.com/ksnip/ksnip/issues/601))
+* Fixed: ksnip --version output printed to stderr. ([#617](https://github.com/ksnip/ksnip/issues/617))
 * Fixed kImageAnnotator: Deleting item outside image doesn't decrease canvas size. ([#164](https://github.com/ksnip/kImageAnnotator/issues/164))
 * Fixed kImageAnnotator: Duplicate region of grayscale image has color. ([#214](https://github.com/ksnip/kImageAnnotator/issues/214))
 

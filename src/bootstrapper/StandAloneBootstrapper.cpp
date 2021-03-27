@@ -38,7 +38,6 @@ int StandAloneBootstrapper::start(const QApplication &app)
 
 	createImageGrabber();
 	createCommandLineParser(app);
-	loadTranslations(app);
 
 	if (isVersionRequested()) {
 		return showVersion();
@@ -77,6 +76,10 @@ int StandAloneBootstrapper::startKsnipAndTakeCapture(const QApplication &app)
 	auto runMode = getRunMode();
 	auto captureCursor = getCaptureCursor();
 	auto delay = getDelay();
+
+	if(runMode != RunMode::CLI) {
+		loadTranslations(app);
+	}
 
 	createMainWindow(runMode);
 	mMainWindow->captureScreenshot(captureMode, captureCursor, delay);
@@ -123,6 +126,7 @@ CaptureModes StandAloneBootstrapper::getCaptureMode() const
 
 int StandAloneBootstrapper::startKsnipAndEditImage(const QApplication &app)
 {
+	loadTranslations(app);
 	auto pathToImage = getImagePath();
 	auto pixmap = getPixmapFromCorrectSource(pathToImage);
 
@@ -171,14 +175,16 @@ QString StandAloneBootstrapper::getImagePath() const
 
 int StandAloneBootstrapper::startKsnip(const QApplication &app)
 {
+	loadTranslations(app);
 	createMainWindow(RunMode::GUI);
 	return app.exec();
 }
 
 int StandAloneBootstrapper::showVersion()
 {
-	qInfo("Version: %s", qPrintable(KSNIP_VERSION));
-	qInfo("Build: %s", qPrintable(KSNIP_BUILD_NUMBER));
+	QTextStream stream(stdout);
+	stream << QLatin1String("Version: ") + qPrintable(KSNIP_VERSION) + QLatin1String("\n");
+	stream << QLatin1String("Build: ") + qPrintable(KSNIP_BUILD_NUMBER) + QLatin1String("\n");
 	return 0;
 }
 

@@ -114,6 +114,7 @@
                     <li>Fixed: ksnip --version output printed to stderr.</li>
                     <li>Fixed kImageAnnotator: Deleting item outside image doesn't decrease canvas size.</li>
                     <li>Fixed kImageAnnotator: Duplicate region of grayscale image has color.</li>
+                    <li>Fixed kImageAnnotator: Marker shows fill and width config when modifying existing item.</li>
                 </ul>
             </description>
         </release>

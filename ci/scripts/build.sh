@@ -25,11 +25,10 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     CERTIFICATE_PFX=certificate.pfx
 
     # Recreate the certificate from the secure environment variable
-    echo "${MICROSOFT_CERT_PFX}" | base64 --decode > ${CERTIFICATE_PFX}
+    echo "${MICROSOFT_CERT_PFX}" | sed -e 's/\\//g' |  base64 --decode > ${CERTIFICATE_PFX}
+    MICROSOFT_CERT_PFX_PASS_UNESCAPED = $(echo "${MICROSOFT_CERT_PFX_PASS}" | sed -e 's/\\//g')
 
-    ls -al
-
-    signtool.exe sign /debug /f ./${CERTIFICATE_PFX} /p "$MICROSOFT_CERT_PFX_PASS" /v ./ksnip-${VERSION}.msi
+    signtool.exe sign /debug /f ./${CERTIFICATE_PFX} /p "${MICROSOFT_CERT_PFX_PASS_UNESCAPED}" /v ./ksnip-${VERSION}.msi
 
     echo "--> Package Windows"
     mkdir packageDir

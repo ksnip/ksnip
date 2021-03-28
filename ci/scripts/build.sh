@@ -21,6 +21,16 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
 
     mv build/ksnip*.msi ./ksnip-${VERSION}.msi
 
+    echo "--> Signing msi"
+    CERTIFICATE_PFX=certificate.pfx
+
+    # Recreate the certificate from the secure environment variable
+    echo $MICROSOFT_CERT_PFX | base64 --decode > $CERTIFICATE_PFX
+
+    powershell Get-PfxCertificate -FilePath .\$CERTIFICATE_PFX
+
+    signtool.exe sign /f $CERTIFICATE_PFX /d "ksnip screenshot tool" /p $MICROSOFT_CERT_PFX_PASS /v /t "http://timestamp.comodoca.com/authenticode" ./ksnip-${VERSION}.msi
+
     echo "--> Package Windows"
     mkdir packageDir
     mv build/src/ksnip*.exe packageDir/ksnip.exe

@@ -28,6 +28,12 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     echo "${MICROSOFT_CERT_PFX}" | sed -e 's/\\//g' |  base64 --decode > ${CERTIFICATE_PFX}
     MICROSOFT_CERT_PFX_PASS_UNESCAPED=$(echo "${MICROSOFT_CERT_PFX_PASS}" | sed -e 's/\\//g')
 
+    echo "certutil"
+    certutil -user -p "${MICROSOFT_CERT_PFX_PASS_UNESCAPED}" -importpfx ./${CERTIFICATE_PFX}
+
+    echo "Import-PfxCertificate"
+    Import-PfxCertificate -FilePath ./${CERTIFICATE_PFX} -CertStoreLocation 'Cert:\CurrentUser\My' -Password "${MICROSOFT_CERT_PFX_PASS_UNESCAPED}"
+
     echo "Get-PfxCertificate"
     powershell Get-PfxCertificate -FilePath ./${CERTIFICATE_PFX} -NoPromptForPassword
 

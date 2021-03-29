@@ -28,7 +28,12 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     echo "${MICROSOFT_CERT_PFX}" | sed -e 's/\\//g' |  base64 --decode > ${CERTIFICATE_PFX}
     MICROSOFT_CERT_PFX_PASS_UNESCAPED=$(echo "${MICROSOFT_CERT_PFX_PASS}" | sed -e 's/\\//g')
 
+    Get-PfxCertificate -FilePath ./${CERTIFICATE_PFX}
+
     signtool.exe sign /debug /f ./${CERTIFICATE_PFX} /p "${MICROSOFT_CERT_PFX_PASS_UNESCAPED}" /v ./ksnip-${VERSION}.msi
+
+    # Remove cert file
+    rm -fr ${CERTIFICATE_PFX}
 
     echo "--> Package Windows"
     mkdir packageDir

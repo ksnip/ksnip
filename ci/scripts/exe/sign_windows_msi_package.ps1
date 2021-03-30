@@ -9,6 +9,13 @@ set-content -Path $CERTIFICATE_PFX -Value $CERTIFICATE_PFX_DECODE -Encoding Byte
 
 $MICROSOFT_CERT_PFX_PASS_SECURED = ConvertTo-SecureString -String $MICROSOFT_CERT_PFX_PASS -AsPlainText -Force
 
+Write-Host "--> Import Certificate"
+
 Import-PfxCertificate -FilePath $CERTIFICATE_PFX -CertStoreLocation Cert:\LocalMachine\My -Password $MICROSOFT_CERT_PFX_PASS_SECURED
 
-Start-Process -PassThru -Wait "C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe" -ArgumentList "sign -v -debug -sm -s My -n `"Ksnip`" -d `"Screenshot Tool`" ksnip*.msi"
+Write-Host "--> Start sign process"
+
+$KSNIP_MSI = ksnip-$Env:VERSION.msi
+Start-Process -PassThru -Wait "C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe" -ArgumentList "sign -v -debug -sm -s My -n `"Ksnip`" -d `"Screenshot Tool`" $KSNIP_MSI"
+
+Write-Host "--> Finished signing"

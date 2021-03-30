@@ -21,6 +21,12 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     echo "--> Install wixtoolset"
     choco install -y wixtoolset
 
+    echo "--> Install windows-sdk-10.0"
+    choco install -y windows-sdk-10.0
+
+    echo "--> Enable running unsinged powershell scripts"
+    powershell Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine
+
     echo "--> Download Dependencies"
     QT_BASE_URL="https://download.qt.io/online/qtsdkrepository/windows_x86/desktop/qt5_599/qt.qt5.599.win32_msvc2015/5.9.9-0-201912101223"
     wget --quiet -O qtbase.7z "${QT_BASE_URL}qtbase-Windows-Windows_10-MSVC2015-Windows-Windows_10-X86.7z"

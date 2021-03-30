@@ -22,26 +22,7 @@ elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     mv build/ksnip*.msi ./ksnip-${VERSION}.msi
 
     echo "--> Signing msi"
-    CERTIFICATE_PFX=certificate.pfx
-
-    # Recreate the certificate from the secure environment variable
-    echo "${MICROSOFT_CERT_PFX}" | sed -e 's/\\//g' |  base64 --decode > ${CERTIFICATE_PFX}
-    MICROSOFT_CERT_PFX_PASS_UNESCAPED=$(echo "${MICROSOFT_CERT_PFX_PASS}" | sed -e 's/\\//g')
-
-    echo "certutil"
-    certutil -user -p "${MICROSOFT_CERT_PFX_PASS_UNESCAPED}" -importpfx ./${CERTIFICATE_PFX}
-
-    echo "Import-PfxCertificate"
-    Import-PfxCertificate -FilePath ./${CERTIFICATE_PFX} -CertStoreLocation 'Cert:\CurrentUser\My' -Password "${MICROSOFT_CERT_PFX_PASS_UNESCAPED}"
-
-    echo "Get-PfxCertificate"
-    powershell Get-PfxCertificate -FilePath ./${CERTIFICATE_PFX} -NoPromptForPassword
-
-    echo "signtool"
-    signtool.exe sign /debug /f ./${CERTIFICATE_PFX} /p "${MICROSOFT_CERT_PFX_PASS_UNESCAPED}" /v ./ksnip-${VERSION}.msi
-
-    # Remove cert file
-    rm -fr ${CERTIFICATE_PFX}
+    powershell -File ./ci/scripts/exe/sign_windows_msi_package.ps1
 
     echo "--> Package Windows"
     mkdir packageDir

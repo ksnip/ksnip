@@ -4,7 +4,7 @@ $MICROSOFT_CERT_PFX_PASS = $Env:MICROSOFT_CERT_PFX_PASS -replace "\\", ""
 $CERTIFICATE_PFX = "certificate.pfx"
 $CERTIFICATE_PFX_DECODE = [system.convert]::frombase64string($CERTIFICATE_PFX_ENCODED) -replace "\\", ""
 
-set-content -Path $CERTIFICATE_PFX -Value $CERTIFICATE_PFX_DECODE
+set-content -Path $CERTIFICATE_PFX -Value $CERTIFICATE_PFX_DECODE -AsByteStream
 
 
 $MICROSOFT_CERT_PFX_PASS_SECURED = ConvertTo-SecureString -String $MICROSOFT_CERT_PFX_PASS -AsPlainText -Force

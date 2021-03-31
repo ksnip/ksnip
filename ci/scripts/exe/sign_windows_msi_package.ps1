@@ -15,7 +15,8 @@ Import-PfxCertificate -FilePath $CERTIFICATE_PFX -CertStoreLocation Cert:\LocalM
 
 Write-Host "--> Start sign process"
 
-$KSNIP_MSI = ksnip-$Env:VERSION.msi
+$KSNIP_VERSION = $Env:VERSION
+$KSNIP_MSI = "ksnip-$KSNIP_VERSION.msi"
 Start-Process -PassThru -Wait "C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe" -ArgumentList "sign -v -debug -sm -s My -n `"Ksnip`" -d `"Screenshot Tool`" $KSNIP_MSI"
 
 Write-Host "--> Finished signing"

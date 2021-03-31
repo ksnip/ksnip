@@ -1002,15 +1002,15 @@ okidanja i snimanja slike ekrana.</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Promijeni veličinu slike</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Okreni</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Okreni sliku</translation>
     </message>
 </context>
 <context>

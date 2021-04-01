@@ -36,7 +36,7 @@
     </message>
     <message>
         <source>License: </source>
-        <translation type="unfinished"></translation>
+        <translation>බලපත්‍රය: </translation>
     </message>
     <message>
         <source>Please use </source>
@@ -51,7 +51,7 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>නම</translation>
     </message>
     <message>
         <source>Shortcut</source>
@@ -344,7 +344,7 @@ Do you want to save it?</source>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>නව</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>

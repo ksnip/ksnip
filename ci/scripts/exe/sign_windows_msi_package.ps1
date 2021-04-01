@@ -17,6 +17,7 @@ Write-Host "--> Start sign process"
 
 $KSNIP_VERSION = $Env:VERSION
 $KSNIP_MSI = "ksnip-$KSNIP_VERSION.msi"
-Start-Process -PassThru -Wait "C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe" -ArgumentList "sign -v -debug -sm -s My -n `"Ksnip`" -d `"Screenshot Tool`" $KSNIP_MSI"
+
+& 'C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe' sign /v /debug /sm /s My /n 'ksnip' /d 'Screenshot Tool' $KSNIP_MSI
 
 Write-Host "--> Finished signing"

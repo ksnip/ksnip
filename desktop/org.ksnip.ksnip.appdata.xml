@@ -35,6 +35,7 @@
             <li>Open existing images via dialog, drag-and-drop or paste from clipboard.</li>
             <li>Run as single instance application (secondary instances send cli parameter to primary instance).</li>
             <li>Pin Screenshots in Frameless windows that stay on top of other windows.</li>
+            <li>User-defined actions for taking screenshot and post-processing.</li>
             <li>Many configuration options.</li>
         </ul>
     </description>
@@ -116,6 +117,7 @@
                     <li>Fixed kImageAnnotator: Deleting item outside image doesn't decrease canvas size.</li>
                     <li>Fixed kImageAnnotator: Duplicate region of grayscale image has color.</li>
                     <li>Fixed kImageAnnotator: Marker shows fill and width config when modifying existing item.</li>
+                    <li>Fixed kImageAnnotator: Highlighter/Marker washed out color and overlapping.</li>
                 </ul>
             </description>
         </release>

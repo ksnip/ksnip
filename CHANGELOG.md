@@ -34,6 +34,7 @@
 * Fixed kImageAnnotator: Deleting item outside image doesn't decrease canvas size. ([#164](https://github.com/ksnip/kImageAnnotator/issues/164))
 * Fixed kImageAnnotator: Duplicate region of grayscale image has color. ([#214](https://github.com/ksnip/kImageAnnotator/issues/214))
 * Fixed kImageAnnotator: Marker shows fill and width config when modifying existing item. ([#225](https://github.com/ksnip/kImageAnnotator/issues/225))
+* Fixed kImageAnnotator: Highlighter/Marker washed out color and overlapping. ([#227](https://github.com/ksnip/kImageAnnotator/issues/227))
 
 ## Release 1.8.2
 * Fixed: Add missing includes to build on UNIX. ([#581](https://github.com/ksnip/ksnip/issues/581))

@@ -28,7 +28,7 @@ Latest ksnip version contains following features:
 * Annotate screenshots with pen, marker, rectangles, ellipses, texts and other tools.
 * Annotate screenshots with stickers and add custom stickers.
 * Obfuscate image regions with blur and pixelate.
-* Add effects to image (Drop Shadow, Grayscale or Border).
+* Add effects to image (Drop Shadow, Grayscale, invert color or Border).
 * Add watermarks to captured images.
 * Global hotkeys for capturing screenshots (currently only for Windows and X11).
 * Tabs for screenshots and images.

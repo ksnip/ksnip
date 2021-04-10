@@ -51,70 +51,70 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Név</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Parancsikon</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Töröl</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép készítése</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Kurzort is</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Késleltetés</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">mp</translation>
+        <translation>mp</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Képkészítési mód</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép mutatása a rögzített ablakban</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>kép másolása vágólapra</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép feltöltése</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép megnyitása szülőkönyvtárban</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kép mentése</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Hozzáad</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Műveletek beállításai</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Művelet</translation>
     </message>
 </context>
 <context>
@@ -1630,7 +1630,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Vízjel beállítások</translation>
     </message>
 </context>
 </TS>

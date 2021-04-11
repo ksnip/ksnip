@@ -127,11 +127,6 @@ void ImageAnnotatorMock::setNumberFont(const QFont &font)
 
 }
 
-void ImageAnnotatorMock::setItemShadowEnabled(bool enabled)
-{
-
-}
-
 void ImageAnnotatorMock::setSmoothPathEnabled(bool enabled)
 {
 

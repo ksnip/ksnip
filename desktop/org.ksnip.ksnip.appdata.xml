@@ -121,6 +121,7 @@
                     <li>Fixed kImageAnnotator: Duplicate region of grayscale image has color.</li>
                     <li>Fixed kImageAnnotator: Marker shows fill and width config when modifying existing item.</li>
                     <li>Fixed kImageAnnotator: Highlighter/Marker washed out color and overlapping.</li>
+                    <li>Fixed kImageAnnotator: Popup menus shown outside screen.</li>
                 </ul>
             </description>
         </release>

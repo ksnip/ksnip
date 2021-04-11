@@ -45,7 +45,6 @@ public:
 
 private:
     QCheckBox *mSmoothPathCheckbox;
-    QCheckBox *mItemShadowCheckbox;
     QCheckBox *mRememberToolSelectionCheckbox;
     QCheckBox *mSwitchToSelectToolAfterDrawingItemCheckbox;
     QCheckBox *mNumberToolSeedChangeUpdatesAllItemsCheckbox;

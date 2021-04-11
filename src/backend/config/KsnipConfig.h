@@ -153,9 +153,6 @@ public:
 	virtual QFont numberFont() const;
 	virtual void setNumberFont(const QFont &font);
 
-	virtual bool itemShadowEnabled() const;
-	virtual void setItemShadowEnabled(bool enabled);
-
 	virtual bool smoothPathEnabled() const;
 	virtual void setSmoothPathEnabled(bool enabled);
 

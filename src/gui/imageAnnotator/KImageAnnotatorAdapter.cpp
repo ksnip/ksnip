@@ -129,11 +129,6 @@ void KImageAnnotatorAdapter::setNumberFont(const QFont &font)
 	mKImageAnnotator->setNumberFont(font);
 }
 
-void KImageAnnotatorAdapter::setItemShadowEnabled(bool enabled)
-{
-	mKImageAnnotator->setItemShadowEnabled(enabled);
-}
-
 void KImageAnnotatorAdapter::setSmoothPathEnabled(bool enabled)
 {
 	mKImageAnnotator->setSmoothPathEnabled(enabled);

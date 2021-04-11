@@ -53,7 +53,6 @@ public slots:
 	virtual void insertImageItem(const QPointF &position, const QPixmap &pixmap) = 0;
 	virtual void setTextFont(const QFont &font) = 0;
 	virtual void setNumberFont(const QFont &font) = 0;
-	virtual void setItemShadowEnabled(bool enabled) = 0;
 	virtual void setSmoothPathEnabled(bool enabled) = 0;
 	virtual void setSaveToolSelection(bool enabled) = 0;
 	virtual void setSmoothFactor(int factor) = 0;

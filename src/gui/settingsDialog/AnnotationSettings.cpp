@@ -21,7 +21,6 @@
 
 AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 	mSmoothPathCheckbox(new QCheckBox(this)),
-	mItemShadowCheckbox(new QCheckBox(this)),
 	mRememberToolSelectionCheckbox(new QCheckBox(this)),
 	mSwitchToSelectToolAfterDrawingItemCheckbox(new QCheckBox(this)),
 	mNumberToolSeedChangeUpdatesAllItemsCheckbox(new QCheckBox(this)),
@@ -48,7 +47,6 @@ AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 AnnotationSettings::~AnnotationSettings()
 {
     delete mSmoothPathCheckbox;
-    delete mItemShadowCheckbox;
     delete mRememberToolSelectionCheckbox;
     delete mSwitchToSelectToolAfterDrawingItemCheckbox;
     delete mNumberToolSeedChangeUpdatesAllItemsCheckbox;
@@ -73,7 +71,6 @@ void AnnotationSettings::saveSettings()
     mConfig->setTextItalic(mTextItalicButton->isChecked());
     mConfig->setTextUnderline(mTextUnderlineButton->isChecked());
     mConfig->setNumberFont(mNumberFontCombobox->currentFont());
-    mConfig->setItemShadowEnabled(mItemShadowCheckbox->isChecked());
     mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
     mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
@@ -94,9 +91,6 @@ void AnnotationSettings::initGui()
     mNumberToolSeedChangeUpdatesAllItemsCheckbox->setToolTip(tr("Disabling this option causes changes of the number tool\n"
 																"seed to affect only new items but not existing items.\n"
 																"Disabling this option allows having duplicate numbers."));
-
-    mItemShadowCheckbox->setText(tr("Paint Item Shadows"));
-    mItemShadowCheckbox->setToolTip(tr("When enabled, paint items cast shadows."));
 
     mSmoothPathCheckbox->setText(tr("Smooth Painter Paths"));
     mSmoothPathCheckbox->setToolTip(tr("When enabled smooths out pen and\n"
@@ -141,24 +135,23 @@ void AnnotationSettings::initGui()
     mLayout->setAlignment(Qt::AlignTop);
     mLayout->setColumnMinimumWidth(0, 10);
     mLayout->addWidget(mRememberToolSelectionCheckbox, 0, 0, 1, 6);
-    mLayout->addWidget(mItemShadowCheckbox, 1, 0, 1, 6);
-    mLayout->addWidget(mSwitchToSelectToolAfterDrawingItemCheckbox, 2, 0, 1, 6);
-    mLayout->addWidget(mNumberToolSeedChangeUpdatesAllItemsCheckbox, 3, 0, 1, 6);
-    mLayout->addWidget(mSmoothPathCheckbox, 4, 0, 1, 6);
-    mLayout->addWidget(mSmoothFactorLabel, 5, 1, 1, 3);
-    mLayout->addWidget(mSmoothFactorCombobox, 5, 3, 1,3, Qt::AlignLeft);
-    mLayout->setRowMinimumHeight(6, 15);
-    mLayout->addWidget(mTextFontLabel, 7, 0, 1, 2);
-    mLayout->addWidget(mTextFontCombobox, 7, 3);
-    mLayout->addWidget(mTextBoldButton, 7, 4);
-    mLayout->addWidget(mTextItalicButton, 7, 5);
-    mLayout->addWidget(mTextUnderlineButton, 7, 6);
-    mLayout->addWidget(mNumberFontLabel, 8, 0, 1, 2);
-    mLayout->addWidget(mNumberFontCombobox, 8, 3);
-	mLayout->setRowMinimumHeight(9, 15);
-    mLayout->addWidget(mCanvasColorLabel, 10, 0, 1, 2);
-    mLayout->addWidget(mCanvasColorButton, 10, 3, 1,3, Qt::AlignLeft);
-    mLayout->setRowMinimumHeight(11, 15);
+    mLayout->addWidget(mSwitchToSelectToolAfterDrawingItemCheckbox, 1, 0, 1, 6);
+    mLayout->addWidget(mNumberToolSeedChangeUpdatesAllItemsCheckbox, 2, 0, 1, 6);
+    mLayout->addWidget(mSmoothPathCheckbox, 3, 0, 1, 6);
+    mLayout->addWidget(mSmoothFactorLabel, 4, 1, 1, 3);
+    mLayout->addWidget(mSmoothFactorCombobox, 4, 3, 1,3, Qt::AlignLeft);
+    mLayout->setRowMinimumHeight(5, 15);
+    mLayout->addWidget(mTextFontLabel, 6, 0, 1, 2);
+    mLayout->addWidget(mTextFontCombobox, 6, 3);
+    mLayout->addWidget(mTextBoldButton, 6, 4);
+    mLayout->addWidget(mTextItalicButton, 6, 5);
+    mLayout->addWidget(mTextUnderlineButton, 6, 6);
+    mLayout->addWidget(mNumberFontLabel, 7, 0, 1, 2);
+    mLayout->addWidget(mNumberFontCombobox, 7, 3);
+	mLayout->setRowMinimumHeight(8, 15);
+    mLayout->addWidget(mCanvasColorLabel, 9, 0, 1, 2);
+    mLayout->addWidget(mCanvasColorButton, 9, 3, 1,3, Qt::AlignLeft);
+    mLayout->setRowMinimumHeight(10, 15);
 
     setTitle(tr("Annotator Settings"));
     setLayout(mLayout);
@@ -171,7 +164,6 @@ void AnnotationSettings::loadConfig()
     mTextItalicButton->setChecked(mConfig->textItalic());
     mTextUnderlineButton->setChecked(mConfig->textUnderline());
     mNumberFontCombobox->setCurrentFont(mConfig->numberFont());
-    mItemShadowCheckbox->setChecked(mConfig->itemShadowEnabled());
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
     mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());

@@ -577,21 +577,6 @@ void KsnipConfig::setNumberFont(const QFont& font)
 	emit annotatorConfigChanged();
 }
 
-bool KsnipConfig::itemShadowEnabled() const
-{
-	return loadValue(KsnipConfigOptions::itemShadowEnabledString(), true).toBool();
-}
-
-void KsnipConfig::setItemShadowEnabled(bool enabled)
-{
-    if (itemShadowEnabled() == enabled) {
-        return;
-    }
-
-	saveValue(KsnipConfigOptions::itemShadowEnabledString(), enabled);
-	emit annotatorConfigChanged();
-}
-
 bool KsnipConfig::smoothPathEnabled() const
 {
 	return loadValue(KsnipConfigOptions::smoothPathEnabledString(), true).toBool();

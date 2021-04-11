@@ -61,7 +61,6 @@ public:
 	static QString showSnippingAreaInfoTextString();
 	static QString textFontString();
 	static QString numberFontString();
-	static QString itemShadowEnabledString();
 	static QString smoothPathEnabledString();
 	static QString smoothPathFactorString();
 	static QString rotateWatermarkEnabledString();

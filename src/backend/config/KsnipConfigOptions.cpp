@@ -199,11 +199,6 @@ QString KsnipConfigOptions::numberFontString()
 	return annotatorSectionString() + QLatin1String("NumberFont");
 }
 
-QString KsnipConfigOptions::itemShadowEnabledString()
-{
-	return annotatorSectionString() + QLatin1String("ItemShadowEnabled");
-}
-
 QString KsnipConfigOptions::smoothPathEnabledString()
 {
 	return annotatorSectionString() + QLatin1String("SmoothPathEnabled");

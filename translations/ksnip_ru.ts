@@ -5,11 +5,11 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>О&#xa0;приложении </translation>
+        <translation>О приложении </translation>
     </message>
     <message>
         <source>About</source>
-        <translation>О&#xa0;приложении</translation>
+        <translation>О приложении</translation>
     </message>
     <message>
         <source>Version</source>
@@ -51,11 +51,11 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Ярлык</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -71,7 +71,7 @@
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Задержка</translation>
     </message>
     <message>
         <source>s</source>

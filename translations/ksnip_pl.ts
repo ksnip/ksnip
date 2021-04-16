@@ -51,70 +51,70 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrót</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Wyczyść</translation>
+        <translation>Wyczyść</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Przechwyć</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Uwzględnij kursor</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Opóźnij</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Tryb przechwytywania</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż obraz w oknie Pin</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiuj obraz do schowka</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Prześlij obraz</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Otwórz nadrzędny katalog obrazu</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapisz obraz</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Dodaj</translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ustawienia działań</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Działania</translation>
     </message>
 </context>
 <context>
@@ -293,11 +293,11 @@ Widoczność doków można przełączać za pomocą klawisza Tab.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatyczna zmiana rozmiaru do zawartości</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatyczna zmiana rozmiaru okna głównego w celu dopasowania do zawartości obrazu.</translation>
     </message>
 </context>
 <context>
@@ -454,7 +454,7 @@ Czy chcesz kontynuować?</translation>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj nowe akcje, naciskając przycisk &quot;Dodaj&quot;.</translation>
     </message>
 </context>
 <context>
@@ -592,7 +592,8 @@ Czy chcesz kontynuować?</translation>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skróty klawiszowe są obecnie obsługiwane tylko dla systemów Windows i X11.
+Wyłączenie tej opcji powoduje, że skróty akcji są również dostępne tylko dla ksnip.</translation>
     </message>
 </context>
 <context>
@@ -981,11 +982,11 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished">Kopiowanie jako URI danych</translation>
+        <translation>Kopiowanie jako dane URI</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Ostatnio &amp;Otwierane</translation>
     </message>
     <message>
         <source>Modify Canvas</source>

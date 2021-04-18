@@ -88,10 +88,10 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     ls /usr/local/opt/
     echo "--> List whats in int opt - done"
 
-    export LDFLAGS="-L/usr/local/opt/qt@5/lib"
-    export CPPFLAGS="-I/usr/local/opt/qt@5/include"
+    export LDFLAGS="-L/usr/local/opt/qt5/lib"
+    export CPPFLAGS="-I/usr/local/opt/qt5/include"
 
-    export PATH="/usr/local/opt/qt@5/bin:$PATH"
+    export PATH="/usr/local/opt/qt5/bin:$PATH"
 
     source ci/scripts/common/setup_dependencies_linux_noSudo.sh
 

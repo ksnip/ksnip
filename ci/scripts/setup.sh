@@ -85,7 +85,7 @@ elif [[ "${BINARY_TYPE}" == "app" ]]; then
     echo "--> Install qt5 - done"
 
     echo "--> List whats in int opt"
-    ls usr/local/opt/
+    ls /usr/local/opt/
     echo "--> List whats in int opt - done"
 
     export LDFLAGS="-L/usr/local/opt/qt@5/lib"

@@ -51,27 +51,27 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Název</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Zkratka</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Vymazat</translation>
+        <translation>Vymazat</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachytit</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Včetně kurzoru</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zpoždění</translation>
     </message>
     <message>
         <source>s</source>
@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Režim Zachycení</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
@@ -87,34 +87,34 @@
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Zkopírovat obrázek do schránky</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrát obrázek</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Otevřít nadřazený adresář obrázku</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Uložit obrázek</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Přidat</translation>
+        <translation>Přidat</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení akcí</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Akce</translation>
     </message>
 </context>
 <context>
@@ -293,11 +293,11 @@ Viditelnost doků lze přepínat pomocí klávesy Tabulátor.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky změnit velikost podle obsahu</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky změnit velikost hlavního okna podle velikosti obrázku.</translation>
     </message>
 </context>
 <context>
@@ -454,7 +454,7 @@ Chcete pokračovat?</translation>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nové akce přidáte stisknutím tlačítka na kartě &quot;Přidat&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1001,15 +1001,15 @@ a zachycením obrazovky.</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Změnit Velikost</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Otočit</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Otočit Obrázek</translation>
     </message>
 </context>
 <context>
@@ -1308,7 +1308,7 @@ Když je vynechán, zkopíruje se vše.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Akce</translation>
     </message>
 </context>
 <context>
@@ -1572,12 +1572,13 @@ pokud ji správce oken sytému podporuje. Změna vyžaduje restart.</translation
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Používat službu oznámení dané platformy</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud je možnost povolená, ksnip se pokusí používat službu oznámení dané platformy, pokud existuje.
+Změna vyžaduje restart pro projevení.</translation>
     </message>
 </context>
 <context>

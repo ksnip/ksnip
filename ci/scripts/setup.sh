@@ -80,7 +80,7 @@ elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
 elif [[ "${BINARY_TYPE}" == "exe" ]]; then
     source ci/scripts/exe/setup_dependencies_windows.sh
 elif [[ "${BINARY_TYPE}" == "app" ]]; then
-    brew install qt5
+    brew install qt@5
     
     export LDFLAGS="-L/usr/local/opt/qt@5/lib"
     export CPPFLAGS="-I/usr/local/opt/qt@5/include"

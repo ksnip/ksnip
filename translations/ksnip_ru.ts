@@ -194,11 +194,11 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation>Запомнить выбор инструмента и применять его при загрузке</translation>
+        <translation>Запомните выбор инструмента аннотации и запустить при загрузке</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation>Переключаться на инструмент выбора после рисования элемента</translation>
+        <translation>Переключитесь на выбор инструмента после рисования элемента</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
@@ -258,7 +258,7 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation>Скрывать панель вкладок при одой вкладке.</translation>
+        <translation>Скрыть панель вкладок, если используется только одна вкладка.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
@@ -272,7 +272,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation>Запоминать позицию главного окна при перемещении и применять при старте</translation>
+        <translation>Запомните положение главного окна при перемещении и восстановить при загрузке</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
@@ -411,8 +411,8 @@ Do you want to save it?</source>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation>Элемент &apos;%1&apos; будет удалён.
-Подтверждаете это действие?</translation>
+        <translation>Элемент &quot;%1&quot; будет удален.
+Согласны продолжить?</translation>
     </message>
 </context>
 <context>
@@ -583,7 +583,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation>Захват при помощи портала</translation>
+        <translation>Захват с помощью портала</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
@@ -641,21 +641,21 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation>Показывать главное окно после снятия скриншота</translation>
+        <translation>Показать главное окно после захвата скриншота</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimized.</source>
-        <translation>Показывать главное окно после создания нового 
-снимка экрана, если оно скрыто или свернуто.</translation>
+        <translation>Показать главное окно после захвата нового снимка
+экрана, когда главное окно было скрыто или свернуто.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation>Скрывать главное окно во время скриншота</translation>
+        <translation>Скрыть главное окно во время снимка экрана</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation>Скрывать главное окно при создании нового скриншота.</translation>
+        <translation>Скрыть главное окно при захвате нового снимка экрана.</translation>
     </message>
 </context>
 <context>
@@ -941,11 +941,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation>Не выбрано ни одно изображение.</translation>
+        <translation>Никакого изображения не было, но его ожидали увидеть.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation>Копировать путь</translation>
+        <translation>Скопировать путь</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -953,7 +953,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>&amp;Просмотр</translation>
+        <translation>Просмотр</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -965,7 +965,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open Images</source>
-        <translation>Открыть изображения</translation>
+        <translation>Открытое изображение</translation>
     </message>
     <message>
         <source>Show Docks</source>
@@ -1028,7 +1028,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation>Копировать путь</translation>
+        <translation>Скопировать путь</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1076,7 +1076,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation>Изображение успешно переименовано в </translation>
+        <translation>Успешно переименованное изображение на </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
@@ -1506,7 +1506,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation>Добавить стикеры</translation>
+        <translation>Добавить наклейки</translation>
     </message>
 </context>
 <context>

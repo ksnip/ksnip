@@ -59,15 +59,15 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Очистить</translation>
+        <translation>Очистить</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Сделать снимок</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить курсор</translation>
     </message>
     <message>
         <source>Delay</source>
@@ -75,46 +75,46 @@
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">с</translation>
+        <translation>с</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим снимка</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать изображение в закреплённом окне</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопировать изображение в буфер обмена</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузить изображение</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть содержащую изображение директорию</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранить изображение</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Добавить</translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки действий</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Действие</translation>
     </message>
 </context>
 <context>
@@ -202,22 +202,25 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменение нумератора обновит все номерные элементы</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Отключение данной опции приведёт к распространению изменений
+нумератора только на новые элементы, но не на уже существующие.
+Отключение опции разрешит дублирование номеров.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет фона</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет фона по умолчанию для области аннотаций.
+Изменение цвета повлияет только на новые аннотации.</translation>
     </message>
 </context>
 <context>
@@ -276,24 +279,25 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматически скрывать вкладки</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматически скрывать панели</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрывать панель инструментов и настройки аннтирования при запуске.
+Видимость панелей можно переключать клавишей Tab.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматически масштабировать под содержимое</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоматически масштабировать главное окно под размер изображения в нём.</translation>
     </message>
 </context>
 <context>
@@ -387,19 +391,19 @@ Do you want to save it?</source>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось скопировать в буфер обмена</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось скопировать изображение в буфер обмена в виде base64-кода.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопировано в буфер обмена</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Изображение скопировано в буфер обмена в виде base64-кода.</translation>
     </message>
 </context>
 <context>
@@ -450,38 +454,38 @@ Do you want to continue?</source>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавьте новые действия нажатием на вкладке кнопки «Добавить».</translation>
     </message>
 </context>
 <context>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Прямоугольная область</translation>
+        <translation>Прямоугольная область</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Последняя выделенная область</translation>
+        <translation>Последняя прямоугольная область</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Полноэкранный режим (все мониторы)</translation>
+        <translation>Полноэкранный режим (все мониторы)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Текущий экран</translation>
+        <translation>Текущий экран</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Активное окно</translation>
+        <translation>Активное окно</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Окно под курсором мыши</translation>
+        <translation>Окно под курсором мыши</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Портал скриншота</translation>
+        <translation>Портал скриншота</translation>
     </message>
 </context>
 <context>
@@ -588,7 +592,8 @@ Do you want to continue?</source>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Горячие клавиши поддерживаются только в Windows и X11.
+При отключении данной опции сочетания клавиш будут работать только в ksnip.</translation>
     </message>
 </context>
 <context>
@@ -781,11 +786,11 @@ Changing requires restart.</source>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно открыть изображение</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Невозможно открыть изображение %1</translation>
     </message>
 </context>
 <context>
@@ -969,43 +974,43 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать панели</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрыть панели</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопировать в виде «data: URI»</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Открыть последний файл</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить фон</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузить снимок во внешней сервис</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопировать снимок в системный буфер обмена</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Масштабировать изображение</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Повернуть</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Повернуть изображение</translation>
     </message>
 </context>
 <context>
@@ -1296,42 +1301,42 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Значок в трее</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Водяной знак</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Действия</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Масштабируйте прямоугольник выделения, используя маркеры, или двигайте его, перетаскивая выделенную обрасть.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Используйте клавиши-стрелки для перемещения выделенной области.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Удерживая Ctrl, используйте клавиши-стрелки для перемещения левого верхнего маркера.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Удерживая Alt, используйте клавиши-стрелки для перемещения правого нижнего маркера.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Подтвердите выделение нажатием клавиши Enter или отмените действие нажатием Escape.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished">Это сообщение может быть отключено через настройки.</translation>
+        <translation>Это сообщение может быть отключено через настройки.</translation>
     </message>
 </context>
 <context>
@@ -1457,21 +1462,23 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет декорирования зоны обрезки</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Задаёт цвет всех декоративных
+элементов зоны обрезки.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Прозрачность зоны обрезки</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Прозрачность невыделенной области в зоне обрезки
+Меньше значение — больше прозрачность.</translation>
     </message>
 </context>
 <context>
@@ -1520,58 +1527,59 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Показывать иконку в трее</translation>
+        <translation>Показывать значок в трее</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">При включении добавит значок в системный лоток панели задач, если оконный менеджер ОС поддерживает это.
+        <translation>При включении добавит значок в трей (системный лоток панели задач), если оконный менеджер ОС поддерживает это.
 Изменение требует перезапуска приложения.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Сворачивать в трей</translation>
+        <translation>Сворачивать в трей</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Запускать свёрнутым в трей</translation>
+        <translation>Запускать свёрнутым в трей</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Сворачивать в трей при закрытии</translation>
+        <translation>Сворачивать в трей при закрытии</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Показать редактор</translation>
+        <translation>Показать редактор</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Снимок</translation>
+        <translation>Снимок</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Действие по умолчанию для значка в трее</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Действие по умолчанию, вызываемое нажатием левой кнопкой мыши на значок в трее.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки значка в трее</translation>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Отображать уведомления значка в трее</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать системную службу уведомлений</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>При включении будет использоваться системная служба уведомлений,
+если таковая существует. Для изменения необходим перезапуск.</translation>
     </message>
 </context>
 <context>
@@ -1650,23 +1658,23 @@ service when such exists. Change requires restart to take effect.</source>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Водянной знак/логотип</translation>
+        <translation>Водяной знак</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Установить водянной знак/логотип</translation>
+        <translation>Обновить</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Повернуть на 45°</translation>
+        <translation>Повернуть водяной знак</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">При включении, водянной знак/логотип будет повёрнут на 45°</translation>
+        <translation>При включении водяной знак будет добавлен повёрнутым на 45°</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки водяного знака</translation>
     </message>
 </context>
 </TS>

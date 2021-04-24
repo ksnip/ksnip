@@ -30,6 +30,7 @@
 * New kImageAnnotator: Configurable UI with dockable settings widgets. ([#102](https://github.com/ksnip/kImageAnnotator/issues/102))
 * New kImageAnnotator: Add invert color image effect. ([#228](https://github.com/ksnip/kImageAnnotator/issues/228))
 * New kImageAnnotator: Allow disabling item shadow per item from UI. ([#223](https://github.com/ksnip/kImageAnnotator/issues/223))
+* New kImageAnnotator: Add a font selection to UI. ([#130](https://github.com/ksnip/kImageAnnotator/issues/130))
 * Changed kImageAnnotator: Change drop shadow to cover all sites. ([#202](https://github.com/ksnip/kImageAnnotator/issues/202))
 * Fixed: Not possible to change adorner color. ([#601](https://github.com/ksnip/ksnip/issues/601))
 * Fixed: ksnip --version output printed to stderr. ([#617](https://github.com/ksnip/ksnip/issues/617))

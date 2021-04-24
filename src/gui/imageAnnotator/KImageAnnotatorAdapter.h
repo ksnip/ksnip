@@ -53,8 +53,6 @@ public slots:
 	int addTab(const QPixmap &pixmap, const QString &title, const QString &toolTip) override;
 	void updateTabInfo(int index, const QString &title, const QString &toolTip) override;
 	void insertImageItem(const QPointF &position, const QPixmap &pixmap) override;
-	void setTextFont(const QFont &font) override;
-	void setNumberFont(const QFont &font) override;
 	void setSmoothPathEnabled(bool enabled) override;
 	void setSaveToolSelection(bool enabled) override;
 	void setSmoothFactor(int factor) override;

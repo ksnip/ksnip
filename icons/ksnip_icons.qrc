@@ -3,9 +3,6 @@
     <file>ksnip.svg</file>
 
     <file>light/ksnip.svg</file>
-    <file>light/bold.svg</file>
-    <file>light/italic.svg</file>
-    <file>light/underline.svg</file>
     <file>light/clock.svg</file>
     <file>light/crop.svg</file>
     <file>light/save.svg</file>
@@ -27,9 +24,6 @@
     <file>light/action.svg</file>
 
     <file>dark/ksnip.svg</file>
-    <file>dark/bold.svg</file>
-    <file>dark/italic.svg</file>
-    <file>dark/underline.svg</file>
     <file>dark/clock.svg</file>
     <file>dark/crop.svg</file>
     <file>dark/save.svg</file>

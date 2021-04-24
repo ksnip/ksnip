@@ -117,16 +117,6 @@ void ImageAnnotatorMock::insertImageItem(const QPointF &position, const QPixmap 
 
 }
 
-void ImageAnnotatorMock::setTextFont(const QFont &font)
-{
-
-}
-
-void ImageAnnotatorMock::setNumberFont(const QFont &font)
-{
-
-}
-
 void ImageAnnotatorMock::setSmoothPathEnabled(bool enabled)
 {
 

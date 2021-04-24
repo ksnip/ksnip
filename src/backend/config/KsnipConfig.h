@@ -138,21 +138,6 @@ public:
 	virtual bool numberToolSeedChangeUpdatesAllItems() const;
 	virtual void setNumberToolSeedChangeUpdatesAllItems(bool enabled);
 
-	virtual bool textBold() const;
-	virtual void setTextBold(bool bold);
-
-	virtual bool textItalic() const;
-	virtual void setTextItalic(bool italic);
-
-	virtual bool textUnderline() const;
-	virtual void setTextUnderline(bool underline);
-
-	virtual QFont textFont() const;
-	virtual void setTextFont(const QFont &font);
-
-	virtual QFont numberFont() const;
-	virtual void setNumberFont(const QFont &font);
-
 	virtual bool smoothPathEnabled() const;
 	virtual void setSmoothPathEnabled(bool enabled);
 

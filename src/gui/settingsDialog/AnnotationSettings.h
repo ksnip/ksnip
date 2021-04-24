@@ -24,8 +24,6 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QGridLayout>
-#include <QFontComboBox>
-#include <QToolButton>
 #include <QPushButton>
 
 #include "src/backend/config/KsnipConfig.h"
@@ -48,16 +46,9 @@ private:
     QCheckBox *mRememberToolSelectionCheckbox;
     QCheckBox *mSwitchToSelectToolAfterDrawingItemCheckbox;
     QCheckBox *mNumberToolSeedChangeUpdatesAllItemsCheckbox;
-    QLabel *mTextFontLabel;
-    QLabel *mNumberFontLabel;
     QLabel *mSmoothFactorLabel;
     QLabel *mCanvasColorLabel;
     NumericComboBox *mSmoothFactorCombobox;
-    QFontComboBox *mTextFontCombobox;
-    QFontComboBox *mNumberFontCombobox;
-    QToolButton *mTextBoldButton;
-    QToolButton *mTextItalicButton;
-    QToolButton *mTextUnderlineButton;
     ColorButton *mCanvasColorButton;
     QGridLayout *mLayout;
     KsnipConfig *mConfig;

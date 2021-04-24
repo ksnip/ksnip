@@ -638,8 +638,6 @@ void MainWindow::setupImageAnnotator()
 	mImageAnnotator->setSaveToolSelection(mConfig->rememberToolSelection());
 	mImageAnnotator->setSmoothFactor(mConfig->smoothFactor());
 	mImageAnnotator->setSmoothPathEnabled(mConfig->smoothPathEnabled());
-	mImageAnnotator->setTextFont(mConfig->textFont());
-	mImageAnnotator->setNumberFont(mConfig->numberFont());
 	mImageAnnotator->setSwitchToSelectToolAfterDrawingItem(mConfig->switchToSelectToolAfterDrawingItem());
 	mImageAnnotator->setNumberToolSeedChangeUpdatesAllItems(mConfig->numberToolSeedChangeUpdatesAllItems());
 	mImageAnnotator->setStickers(mConfig->stickerPaths(), mConfig->useDefaultSticker());

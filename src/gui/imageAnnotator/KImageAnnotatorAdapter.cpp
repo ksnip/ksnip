@@ -119,16 +119,6 @@ void KImageAnnotatorAdapter::insertImageItem(const QPointF &position, const QPix
 	mKImageAnnotator->insertImageItem(position, pixmap);
 }
 
-void KImageAnnotatorAdapter::setTextFont(const QFont &font)
-{
-	mKImageAnnotator->setTextFont(font);
-}
-
-void KImageAnnotatorAdapter::setNumberFont(const QFont &font)
-{
-	mKImageAnnotator->setNumberFont(font);
-}
-
 void KImageAnnotatorAdapter::setSmoothPathEnabled(bool enabled)
 {
 	mKImageAnnotator->setSmoothPathEnabled(enabled);

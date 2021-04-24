@@ -24,16 +24,9 @@ AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 	mRememberToolSelectionCheckbox(new QCheckBox(this)),
 	mSwitchToSelectToolAfterDrawingItemCheckbox(new QCheckBox(this)),
 	mNumberToolSeedChangeUpdatesAllItemsCheckbox(new QCheckBox(this)),
-	mTextFontLabel(new QLabel(this)),
-	mNumberFontLabel(new QLabel(this)),
 	mSmoothFactorLabel(new QLabel(this)),
 	mCanvasColorLabel(new QLabel(this)),
 	mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
-	mTextFontCombobox(new QFontComboBox(this)),
-	mNumberFontCombobox(new QFontComboBox(this)),
-	mTextBoldButton(new QToolButton(this)),
-	mTextItalicButton(new QToolButton(this)),
-	mTextUnderlineButton(new QToolButton(this)),
 	mCanvasColorButton(new ColorButton(this)),
 	mLayout(new QGridLayout(this)),
 	mConfig(config)
@@ -50,27 +43,15 @@ AnnotationSettings::~AnnotationSettings()
     delete mRememberToolSelectionCheckbox;
     delete mSwitchToSelectToolAfterDrawingItemCheckbox;
     delete mNumberToolSeedChangeUpdatesAllItemsCheckbox;
-    delete mTextFontLabel;
-    delete mNumberFontLabel;
     delete mSmoothFactorLabel;
     delete mCanvasColorLabel;
     delete mSmoothFactorCombobox;
-    delete mTextFontCombobox;
-    delete mNumberFontCombobox;
-    delete mTextBoldButton;
-    delete mTextItalicButton;
-    delete mTextUnderlineButton;
     delete mCanvasColorButton;
     delete mLayout;
 }
 
 void AnnotationSettings::saveSettings()
 {
-    mConfig->setTextFont(mTextFontCombobox->currentFont());
-    mConfig->setTextBold(mTextBoldButton->isChecked());
-    mConfig->setTextItalic(mTextItalicButton->isChecked());
-    mConfig->setTextUnderline(mTextUnderlineButton->isChecked());
-    mConfig->setNumberFont(mNumberFontCombobox->currentFont());
     mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
     mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
@@ -104,28 +85,6 @@ void AnnotationSettings::initGui()
     mSmoothFactorCombobox->setMinimumWidth(fixedButtonWidth);
     mSmoothFactorCombobox->setToolTip(mSmoothFactorLabel->toolTip());
 
-    mTextFontLabel->setText(tr("Text Font") + QLatin1String(":"));
-    mTextFontLabel->setToolTip(tr("Sets the font for the Text Paint Item."));
-    mTextFontCombobox->setToolTip(mTextFontLabel->toolTip());
-    mTextFontCombobox->setEditable(false);
-
-    mTextBoldButton->setIcon(IconLoader::loadForTheme(QLatin1String("bold.svg")));
-    mTextBoldButton->setToolTip(tr("Bold"));
-    mTextBoldButton->setCheckable(true);
-
-    mTextItalicButton->setIcon(IconLoader::loadForTheme(QLatin1String("italic.svg")));
-    mTextItalicButton->setToolTip(tr("Italic"));
-    mTextItalicButton->setCheckable(true);
-
-    mTextUnderlineButton->setIcon(IconLoader::loadForTheme(QLatin1String("underline.svg")));
-    mTextUnderlineButton->setToolTip(tr("Underline"));
-    mTextUnderlineButton->setCheckable(true);
-
-    mNumberFontLabel->setText(tr("Numbering Font") + QLatin1String(":"));
-    mNumberFontLabel->setToolTip(tr("Sets the font for the Numbering Paint Item."));
-    mNumberFontCombobox->setToolTip(mNumberFontLabel->toolTip());
-    mNumberFontCombobox->setEditable(false);
-
 	mCanvasColorLabel->setText(tr("Canvas Color") + QLatin1String(":"));
 	mCanvasColorLabel->setToolTip(tr("Default Canvas background color for annotation area.\n"
 								  	 	"Changing color affects only new annotation areas."));
@@ -141,17 +100,8 @@ void AnnotationSettings::initGui()
     mLayout->addWidget(mSmoothFactorLabel, 4, 1, 1, 3);
     mLayout->addWidget(mSmoothFactorCombobox, 4, 3, 1,3, Qt::AlignLeft);
     mLayout->setRowMinimumHeight(5, 15);
-    mLayout->addWidget(mTextFontLabel, 6, 0, 1, 2);
-    mLayout->addWidget(mTextFontCombobox, 6, 3);
-    mLayout->addWidget(mTextBoldButton, 6, 4);
-    mLayout->addWidget(mTextItalicButton, 6, 5);
-    mLayout->addWidget(mTextUnderlineButton, 6, 6);
-    mLayout->addWidget(mNumberFontLabel, 7, 0, 1, 2);
-    mLayout->addWidget(mNumberFontCombobox, 7, 3);
-	mLayout->setRowMinimumHeight(8, 15);
-    mLayout->addWidget(mCanvasColorLabel, 9, 0, 1, 2);
-    mLayout->addWidget(mCanvasColorButton, 9, 3, 1,3, Qt::AlignLeft);
-    mLayout->setRowMinimumHeight(10, 15);
+    mLayout->addWidget(mCanvasColorLabel, 6, 0, 1, 2);
+    mLayout->addWidget(mCanvasColorButton, 6, 3, 1,3, Qt::AlignLeft);
 
     setTitle(tr("Annotator Settings"));
     setLayout(mLayout);
@@ -159,11 +109,6 @@ void AnnotationSettings::initGui()
 
 void AnnotationSettings::loadConfig()
 {
-    mTextFontCombobox->setCurrentFont(mConfig->textFont());
-    mTextBoldButton->setChecked(mConfig->textBold());
-    mTextItalicButton->setChecked(mConfig->textItalic());
-    mTextUnderlineButton->setChecked(mConfig->textUnderline());
-    mNumberFontCombobox->setCurrentFont(mConfig->numberFont());
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
     mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());

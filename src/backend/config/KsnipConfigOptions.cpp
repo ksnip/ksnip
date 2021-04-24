@@ -189,16 +189,6 @@ QString KsnipConfigOptions::showSnippingAreaInfoTextString()
 	return applicationSectionString() + QLatin1String("ShowSnippingAreaInfoText");
 }
 
-QString KsnipConfigOptions::textFontString()
-{
-	return annotatorSectionString() + QLatin1String("TextFont");
-}
-
-QString KsnipConfigOptions::numberFontString()
-{
-	return annotatorSectionString() + QLatin1String("NumberFont");
-}
-
 QString KsnipConfigOptions::smoothPathEnabledString()
 {
 	return annotatorSectionString() + QLatin1String("SmoothPathEnabled");

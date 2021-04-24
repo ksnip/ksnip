@@ -51,8 +51,6 @@ public slots:
 	virtual int addTab(const QPixmap &pixmap, const QString &title, const QString &toolTip) = 0;
 	virtual void updateTabInfo(int index, const QString &title, const QString &toolTip) = 0;
 	virtual void insertImageItem(const QPointF &position, const QPixmap &pixmap) = 0;
-	virtual void setTextFont(const QFont &font) = 0;
-	virtual void setNumberFont(const QFont &font) = 0;
 	virtual void setSmoothPathEnabled(bool enabled) = 0;
 	virtual void setSaveToolSelection(bool enabled) = 0;
 	virtual void setSmoothFactor(int factor) = 0;

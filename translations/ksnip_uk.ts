@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Малювати тіні</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Якщо позначено, навколо намальованих об&apos;єктів буде показано тіні.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Згладжувати намальовані контури</translation>
     </message>
@@ -157,36 +149,8 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх 
+ліній, залишених пером чи маркером, але зробить їх&#x2028;
 плавнішими.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Шрифт тексту</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Встановлює шрифт для інструмента малювання «Текст».</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Жирний</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Курсив</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Підкреслення</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Шрифт для нумерації</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Встановлює шрифт для інструмента малювання «Нумерація».</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

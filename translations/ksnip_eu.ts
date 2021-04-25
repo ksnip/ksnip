@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Gehitu itzala elementuei</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Aktibatuta badago, marrazketa elementuek itzala dute.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Leundu marrazkien lineak</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation>Leuntze faktorean handitzeak arkatza
 eta markatzailearen zehaztasun galera dakar,
 haien leuntasuna areagotuz.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Letra mota</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Testua tresnaren letra mota ezartzen du.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Lodia</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Etzana</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Azpimarra</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Zenbakien letra mota</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Zenbakitzeko tresnaren letra mota ezartzen du.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

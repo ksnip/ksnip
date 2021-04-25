@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>アイテムの影を描画する</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>有効にすると各アイテムに影が付きます。</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>パスの描画を滑らかにする</translation>
     </message>
@@ -158,34 +150,6 @@ precision for pen and marker but will
 make them more smooth.</source>
         <translation>滑らか係数を大きくするとペンツールやマーカー
 ツールの精度が落ち、より一層滑らかになります。</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>テキストのフォント</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>テキスト描画ツール用のフォントを設定します。</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>太字</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>斜体</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>下線</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>番号のフォント</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>番号描画ツール用のフォントを設定します。</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

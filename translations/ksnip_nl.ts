@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Schaduwen intekenen</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Schakel dit in om zichtbare items te voorzien van schaduwen.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Gladvegen</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation>Het verhogen van de factor vermindert de
 precisie, maar maakt pen- en markeerstrepen
 gladder.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Tekstvaklettertype</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Stelt het lettertype in van tekst in het tekstvak.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Vetgedrukt</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Cursief</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Onderstrepen</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Getallettertype</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Stelt het lettertype in van de getallen.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

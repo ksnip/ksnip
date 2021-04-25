@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation type="unfinished">Tegn elementskygger</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished">Tegner kastskygger fra elementer når påslått.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation type="unfinished">Myk ut tegningsstrøk</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation type="unfinished">Økning av utmykingsfaktoren vil senke
 nøyaktigheten for penn og markør, men
 vil gjøre dem mykere.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation type="unfinished">Tekstskrift</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished">Setter skrift for teksttegningselementet.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation type="unfinished">Fet</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation type="unfinished">Kursiv</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation type="unfinished">Understrek</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation type="unfinished">Skriftart for nummer</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished">Setter skriftarten for nummertegningselementet.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

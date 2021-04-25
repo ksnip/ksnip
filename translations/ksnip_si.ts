@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation type="unfinished"></translation>
     </message>
@@ -155,34 +147,6 @@ marker paths after finished drawing.</source>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -772,7 +736,7 @@ Changing requires restart.</source>
     <name>MainToolBar</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">නව</translation>
     </message>
     <message>
         <source>Delay in seconds between triggering

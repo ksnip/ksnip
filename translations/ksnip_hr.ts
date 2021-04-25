@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Sjene crtanih elemenata</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Kad je aktivirano, crtani elementi bacaju sjenu.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Zaglađivanje crtanih staza</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation>Povećanjem faktora zaglađivanja smanjit će se
 točnost olovke i markera, ali će povećati
 zaglađivanje.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Font teksta</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Postavlja font za tekstualne elemente.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Podebljano</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Kurziv</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Podcratno</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Font brojača</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Postavlja font za brojevne elemente.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

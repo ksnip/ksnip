@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation type="unfinished"></translation>
     </message>
@@ -155,34 +147,6 @@ marker paths after finished drawing.</source>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -647,7 +611,7 @@ when the Main Window was hidden or minimized.</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">닫기</translation>
     </message>
     <message>
         <source>Time Stamp</source>
@@ -1029,7 +993,7 @@ and capturing screenshot.</source>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">닫기</translation>
     </message>
     <message>
         <source>Close Other</source>
@@ -1453,7 +1417,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">추가</translation>
     </message>
     <message>
         <source>Remove</source>

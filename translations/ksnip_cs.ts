@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Kreslit stíny položek</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Je-li povoleno, položky vrhají stíny.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Vyhlazovat cesty kreslení</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation>Zvýšením síly vyhlazení se sníží
 přesnost pera a značkovače, ale bude
 je více vyhlazovat.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Písmo textu</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Nastaví písmo pro kreslení textu.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Tučné</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Kurzíva</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Podtržení</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Písmo číslování</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Nastaví písmo pro kreslení číslování.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

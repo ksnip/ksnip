@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Festék árnyék</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Ha engedélyezve van, a festék elemek árnyat vetnek.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Sima festő útvonal</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation>A simasági tényező növekedésével
 csökken a toll és a jelölő pontossága,
 de simábbá teszi.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Szöveg betűtipus</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Állítsd be a betűtipust a szöveghez.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Félkövér</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Dőlt</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Aláhúzott</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Sorszámozó betűtipus</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Állítsd be a betűtipust a számozáshoz.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
@@ -574,7 +538,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Töröl</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
@@ -1462,7 +1426,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hozzáad</translation>
     </message>
     <message>
         <source>Remove</source>

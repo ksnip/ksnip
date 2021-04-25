@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Aggiungere ombre all&apos;oggetto</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Se abilitato, gli elementi aggiunti avranno delle ombre.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Smussa i tratti di pennello</translation>
     </message>
@@ -157,34 +149,6 @@ dopo che sono stati tracciati.</translation>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>All&apos;aumentare del fattore di smussamento diminuirà la precisione, ma aumenterà la levigazione del tratto di penna/pennarello.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Font di testo</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Imposta il font per lo strumento di testo.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Grassetto</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Corsivo</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Sottolineato</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Font di numerazione</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Imposta il font per lo strumento di numerazione.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

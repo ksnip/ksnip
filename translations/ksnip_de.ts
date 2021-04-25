@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Schatten unter gezeichneten Elementen anzeigen</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Wenn aktiviert, wird ein Schatten unter gezeichneten Elementen angezeigt.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Glatte Malpfade</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation>Das Erhöhen des Glättungsfaktors wird die
 Präzision für Stift und Marker verringern, aber
 macht sie glatter.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Schriftart</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Legt die Schriftart für das Textelement fest.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Fett</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Kursiv</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Unterstrichen</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Schriftart für Nummern</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Legt die Schriftart für die Nummerierung fest.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

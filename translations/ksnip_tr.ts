@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation type="unfinished">Boya Öğesi Gölgeleri</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished">Etkinleştirildiğinde, boya öğeleri gölgelidir.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation type="unfinished">Boyama Yollarını Yumuşat</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation type="unfinished">Yumuşatma faktörü artırmak, kalem ve
 işaretleyici için hassasiyeti azaltır ancak
 daha düzgün hale getirir.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation type="unfinished">Metin Yazıtipi</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished">Metin Boyama Öğesi için yazıtipini ayarlar.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation type="unfinished">Kalın</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation type="unfinished">Eğik</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation type="unfinished">Altı çizili</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation type="unfinished">Numaralandırma Yazıtipi</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished">Numaralandırma Boyama Öğesi için yazıtipini ayarlar.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

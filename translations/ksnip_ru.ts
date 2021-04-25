@@ -5,11 +5,11 @@
     <name>AboutDialog</name>
     <message>
         <source>About </source>
-        <translation>О приложении </translation>
+        <translation>О&#xa0;приложении </translation>
     </message>
     <message>
         <source>About</source>
-        <translation>О приложении</translation>
+        <translation>О&#xa0;приложении</translation>
     </message>
     <message>
         <source>Version</source>
@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Использовать тени</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>При включении, позволяет рисовать тени вокруг обведенного контура.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Сглаживание</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation>Увеличение коэффициента сглаживания
 уменьшит точность ручки и маркера,
 но сделает их более плавными.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Шрифт</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Установить шрифт для инструмента Текст.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Жирный</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Курсив</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Подчёркивание</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Семейство</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Устанавливает шрифт для инструмента Текст.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

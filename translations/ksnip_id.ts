@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation type="unfinished">Buat Bayangan</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation type="unfinished">Jika diaktifkan, akan membuat bayangan pada item paint.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation type="unfinished">Haluskan Path Pinter</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation type="unfinished">Menambah faktor penghalusan akan mengurangi
 akurasi untuk pena dan penanda, tetapi akan
 membuatnya lebih halus.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation type="unfinished">Fonta Teks</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation type="unfinished">Menentukan jenis huruf untuk item Paint Teks.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation type="unfinished">Tebal</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation type="unfinished">Miring</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation type="unfinished">Garis bawah</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation type="unfinished">Fonta Daftar Angka</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation type="unfinished">Menentukan jenis huruf untuk item Paint Daftar Angka.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

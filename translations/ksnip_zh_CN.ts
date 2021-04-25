@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>绘制项目阴影</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>启用后，绘制项将投射阴影。</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>平滑绘制的路径</translation>
     </message>
@@ -158,34 +150,6 @@ make them more smooth.</source>
         <translation>增加平滑因子将减少
 笔和记号笔的精度，但会
 使它们更平滑。</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>文本字体</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>设置文本绘制项目的字体。</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>加粗</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>斜体</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>下划线</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>编号字体</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>设置编号绘制项的字体。</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

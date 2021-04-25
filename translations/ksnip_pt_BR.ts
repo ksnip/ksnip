@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Projetar Sombras</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Quando ativado, os itens projetam sombras.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Suavizar Traços</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation>Incrementar o fator de suavização diminuirá
 a precisão da caneta e do marcador, mas irá
 torná-los mais suaves.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Fonte do Texto</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Define a fonte da etiqueta de texto.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Negrito</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Itálico</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Sublinhado</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Fonte dos Números</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Define a fonte para a etiqueta de números.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

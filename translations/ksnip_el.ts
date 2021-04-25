@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Σχεδιασμός σκίασης του αντικειμένου</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Όταν είναι ενεργοποιημένο, σχεδιάζει τις προσπίπτουσες σκιές στο αντικείμενο.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Εξομάλυνση των γραμμών σχεδίασης</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation>Η αύξηση της του συντελεστή εξομάλυνσης θα μειώσει
 την ακρίβεια της γραφίδας και των σημαδευτών αλλά
 η χάραξη θα φαίνεται πιο ομαλοποιημένη.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Γραμματοσειρά κειμένου</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Ορίζει την γραμματοσειρά για το αντικείμενο σχεδιασμού κειμένου.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Έντονα</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Πλάγια</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Υπογράμμιση</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Γραμματοσειρά αρίθμησης</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Ορίζει την γραμματοσειρά για το αντικείμενο σχεδιασμού αρίθμησης.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

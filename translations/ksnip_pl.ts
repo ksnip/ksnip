@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Dodaj cienie do obiektu</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Po włączeniu tej opcji, malowane elementy rzucają cienie.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Wygładzanie linii rysunkowych</translation>
     </message>
@@ -159,34 +151,6 @@ make them more smooth.</source>
         <translation>Zwiększenie współczynnika wygładzania spowoduje
 zmniejszenie dokładności pióra i markera
 ale uczyni je bardziej gładkimi.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Czcionka tekstu</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Ustawia czcionkę tekstu w polu tekstowym.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Pogrubienie</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Kursywa</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Podkreślenie</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Czcionka numeracji</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Ustawia czcionkę numeracji.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

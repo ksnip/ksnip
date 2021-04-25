@@ -131,14 +131,6 @@
 <context>
     <name>AnnotationSettings</name>
     <message>
-        <source>Paint Item Shadows</source>
-        <translation>Skugga ritade objekt</translation>
-    </message>
-    <message>
-        <source>When enabled, paint items cast shadows.</source>
-        <translation>Vid aktivering kastar ritade objekt skuggor.</translation>
-    </message>
-    <message>
         <source>Smooth Painter Paths</source>
         <translation>Utjämna ritade objekt</translation>
     </message>
@@ -158,34 +150,6 @@ precision for pen and marker but will
 make them more smooth.</source>
         <translation>Ökad utjämningsfaktor minskar precisionen
 för penna och markör, men gör dem mjukare.</translation>
-    </message>
-    <message>
-        <source>Text Font</source>
-        <translation>Teckensnitt för text</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Text Paint Item.</source>
-        <translation>Anger teckensnitt för textobjekt.</translation>
-    </message>
-    <message>
-        <source>Bold</source>
-        <translation>Fet</translation>
-    </message>
-    <message>
-        <source>Italic</source>
-        <translation>Kursiv</translation>
-    </message>
-    <message>
-        <source>Underline</source>
-        <translation>Understruken</translation>
-    </message>
-    <message>
-        <source>Numbering Font</source>
-        <translation>Teckensnitt för numrering</translation>
-    </message>
-    <message>
-        <source>Sets the font for the Numbering Paint Item.</source>
-        <translation>Anger teckensnitt för numrering av ritade objekt.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>

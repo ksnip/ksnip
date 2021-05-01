@@ -57,6 +57,7 @@ public slots:
 	void setSaveToolSelection(bool enabled) override;
 	void setSmoothFactor(int factor) override;
 	void setSwitchToSelectToolAfterDrawingItem(bool enabled) override;
+	void setSelectItemAfterDrawing(bool enabled) override;
 	void setNumberToolSeedChangeUpdatesAllItems(bool enabled) override;
 	void setTabBarAutoHide(bool enabled) override;
 	void removeTab(int index) override;

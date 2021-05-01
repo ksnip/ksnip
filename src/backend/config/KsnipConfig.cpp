@@ -463,7 +463,7 @@ void KsnipConfig::setRememberToolSelection(bool enabled)
 
 bool KsnipConfig::switchToSelectToolAfterDrawingItem() const
 {
-	return loadValue(KsnipConfigOptions::switchToSelectToolAfterDrawingItemString(), false).toBool();
+	return loadValue(KsnipConfigOptions::switchToSelectToolAfterDrawingItemString(), true).toBool();
 }
 
 void KsnipConfig::setSwitchToSelectToolAfterDrawingItem(bool enabled)
@@ -472,6 +472,20 @@ void KsnipConfig::setSwitchToSelectToolAfterDrawingItem(bool enabled)
 		return;
 	}
 	saveValue(KsnipConfigOptions::switchToSelectToolAfterDrawingItemString(), enabled);
+	emit annotatorConfigChanged();
+}
+
+bool KsnipConfig::selectItemAfterDrawing() const
+{
+	return loadValue(KsnipConfigOptions::selectItemAfterDrawingString(), true).toBool();
+}
+
+void KsnipConfig::setSelectItemAfterDrawing(bool enabled)
+{
+	if (selectItemAfterDrawing() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::selectItemAfterDrawingString(), enabled);
 	emit annotatorConfigChanged();
 }
 

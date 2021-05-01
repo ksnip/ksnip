@@ -21,9 +21,10 @@
 
 AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 	mSmoothPathCheckbox(new QCheckBox(this)),
-	mRememberToolSelectionCheckbox(new QCheckBox(this)),
-	mSwitchToSelectToolAfterDrawingItemCheckbox(new QCheckBox(this)),
-	mNumberToolSeedChangeUpdatesAllItemsCheckbox(new QCheckBox(this)),
+	mRememberToolSelectionCheckBox(new QCheckBox(this)),
+	mSwitchToSelectToolAfterDrawingItemCheckBox(new QCheckBox(this)),
+	mNumberToolSeedChangeUpdatesAllItemsCheckBox(new QCheckBox(this)),
+	mSelectItemAfterDrawingCheckBox(new QCheckBox(this)),
 	mSmoothFactorLabel(new QLabel(this)),
 	mCanvasColorLabel(new QLabel(this)),
 	mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
@@ -40,9 +41,10 @@ AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
 AnnotationSettings::~AnnotationSettings()
 {
     delete mSmoothPathCheckbox;
-    delete mRememberToolSelectionCheckbox;
-    delete mSwitchToSelectToolAfterDrawingItemCheckbox;
-    delete mNumberToolSeedChangeUpdatesAllItemsCheckbox;
+    delete mRememberToolSelectionCheckBox;
+    delete mSwitchToSelectToolAfterDrawingItemCheckBox;
+    delete mNumberToolSeedChangeUpdatesAllItemsCheckBox;
+    delete mSelectItemAfterDrawingCheckBox;
     delete mSmoothFactorLabel;
     delete mCanvasColorLabel;
     delete mSmoothFactorCombobox;
@@ -54,9 +56,10 @@ void AnnotationSettings::saveSettings()
 {
     mConfig->setSmoothPathEnabled(mSmoothPathCheckbox->isChecked());
     mConfig->setSmoothFactor(mSmoothFactorCombobox->value());
-    mConfig->setRememberToolSelection(mRememberToolSelectionCheckbox->isChecked());
-    mConfig->setSwitchToSelectToolAfterDrawingItem(mSwitchToSelectToolAfterDrawingItemCheckbox->isChecked());
-	mConfig->setNumberToolSeedChangeUpdatesAllItems(mNumberToolSeedChangeUpdatesAllItemsCheckbox->isChecked());
+    mConfig->setRememberToolSelection(mRememberToolSelectionCheckBox->isChecked());
+    mConfig->setSwitchToSelectToolAfterDrawingItem(mSwitchToSelectToolAfterDrawingItemCheckBox->isChecked());
+	mConfig->setNumberToolSeedChangeUpdatesAllItems(mNumberToolSeedChangeUpdatesAllItemsCheckBox->isChecked());
+	mConfig->setSelectItemAfterDrawing(mSelectItemAfterDrawingCheckBox->isChecked());
 	mConfig->setCanvasColor(mCanvasColorButton->color());
 }
 
@@ -64,19 +67,24 @@ void AnnotationSettings::initGui()
 {
     auto const fixedButtonWidth = ScaledSizeProvider::scaledWidth(100);
 
-    mRememberToolSelectionCheckbox->setText(tr("Remember annotation tool selection and load on startup"));
+    mRememberToolSelectionCheckBox->setText(tr("Remember annotation tool selection and load on startup"));
 
-    mSwitchToSelectToolAfterDrawingItemCheckbox->setText(tr("Switch to Select Tool after drawing Item"));
+    mSwitchToSelectToolAfterDrawingItemCheckBox->setText(tr("Switch to Select Tool after drawing Item"));
+	connect(mSwitchToSelectToolAfterDrawingItemCheckBox, &QCheckBox::clicked, this, &AnnotationSettings::switchToSelectToolAfterDrawingItemCheckBoxClicked);
 
-    mNumberToolSeedChangeUpdatesAllItemsCheckbox->setText(tr("Number Tool Seed change updates all Number Items"));
-    mNumberToolSeedChangeUpdatesAllItemsCheckbox->setToolTip(tr("Disabling this option causes changes of the number tool\n"
+	mSelectItemAfterDrawingCheckBox->setText(tr("Select Item after drawing"));
+	mSelectItemAfterDrawingCheckBox->setToolTip(tr("With this option enabled the item gets selected after\n"
+												      "being created, allowing changing settings."));
+
+    mNumberToolSeedChangeUpdatesAllItemsCheckBox->setText(tr("Number Tool Seed change updates all Number Items"));
+    mNumberToolSeedChangeUpdatesAllItemsCheckBox->setToolTip(tr("Disabling this option causes changes of the number tool\n"
 																"seed to affect only new items but not existing items.\n"
 																"Disabling this option allows having duplicate numbers."));
 
     mSmoothPathCheckbox->setText(tr("Smooth Painter Paths"));
     mSmoothPathCheckbox->setToolTip(tr("When enabled smooths out pen and\n"
                                        "marker paths after finished drawing."));
-    connect(mSmoothPathCheckbox, &QCheckBox::clicked, this, &AnnotationSettings::smoothPathCheckboxClicked);
+    connect(mSmoothPathCheckbox, &QCheckBox::clicked, this, &AnnotationSettings::smoothPathCheckBoxClicked);
 
     mSmoothFactorLabel->setText(tr("Smooth Factor") + QLatin1String(":"));
     mSmoothFactorLabel->setToolTip(tr("Increasing the smooth factor will decrease\n"
@@ -93,15 +101,16 @@ void AnnotationSettings::initGui()
 
     mLayout->setAlignment(Qt::AlignTop);
     mLayout->setColumnMinimumWidth(0, 10);
-    mLayout->addWidget(mRememberToolSelectionCheckbox, 0, 0, 1, 6);
-    mLayout->addWidget(mSwitchToSelectToolAfterDrawingItemCheckbox, 1, 0, 1, 6);
-    mLayout->addWidget(mNumberToolSeedChangeUpdatesAllItemsCheckbox, 2, 0, 1, 6);
-    mLayout->addWidget(mSmoothPathCheckbox, 3, 0, 1, 6);
-    mLayout->addWidget(mSmoothFactorLabel, 4, 1, 1, 3);
-    mLayout->addWidget(mSmoothFactorCombobox, 4, 3, 1,3, Qt::AlignLeft);
-    mLayout->setRowMinimumHeight(5, 15);
-    mLayout->addWidget(mCanvasColorLabel, 6, 0, 1, 2);
-    mLayout->addWidget(mCanvasColorButton, 6, 3, 1,3, Qt::AlignLeft);
+    mLayout->addWidget(mRememberToolSelectionCheckBox, 0, 0, 1, 6);
+    mLayout->addWidget(mSwitchToSelectToolAfterDrawingItemCheckBox, 1, 0, 1, 6);
+    mLayout->addWidget(mSelectItemAfterDrawingCheckBox, 2, 1, 1, 5);
+    mLayout->addWidget(mNumberToolSeedChangeUpdatesAllItemsCheckBox, 3, 0, 1, 6);
+    mLayout->addWidget(mSmoothPathCheckbox, 4, 0, 1, 6);
+    mLayout->addWidget(mSmoothFactorLabel, 5, 1, 1, 3);
+    mLayout->addWidget(mSmoothFactorCombobox, 5, 3, 1,3, Qt::AlignLeft);
+    mLayout->setRowMinimumHeight(6, 15);
+    mLayout->addWidget(mCanvasColorLabel, 7, 0, 1, 2);
+    mLayout->addWidget(mCanvasColorButton, 7, 3, 1,3, Qt::AlignLeft);
 
     setTitle(tr("Annotator Settings"));
     setLayout(mLayout);
@@ -111,15 +120,22 @@ void AnnotationSettings::loadConfig()
 {
     mSmoothPathCheckbox->setChecked(mConfig->smoothPathEnabled());
     mSmoothFactorCombobox->setValue(mConfig->smoothFactor());
-    mRememberToolSelectionCheckbox->setChecked(mConfig->rememberToolSelection());
-    mSwitchToSelectToolAfterDrawingItemCheckbox->setChecked(mConfig->switchToSelectToolAfterDrawingItem());
-    mNumberToolSeedChangeUpdatesAllItemsCheckbox->setChecked(mConfig->numberToolSeedChangeUpdatesAllItems());
+    mRememberToolSelectionCheckBox->setChecked(mConfig->rememberToolSelection());
+    mSwitchToSelectToolAfterDrawingItemCheckBox->setChecked(mConfig->switchToSelectToolAfterDrawingItem());
+    mNumberToolSeedChangeUpdatesAllItemsCheckBox->setChecked(mConfig->numberToolSeedChangeUpdatesAllItems());
+	mSelectItemAfterDrawingCheckBox->setChecked(mConfig->selectItemAfterDrawing());
     mCanvasColorButton->setColor(mConfig->canvasColor());
-    smoothPathCheckboxClicked(mConfig->smoothPathEnabled());
+	smoothPathCheckBoxClicked(mConfig->smoothPathEnabled());
+	switchToSelectToolAfterDrawingItemCheckBoxClicked(mConfig->switchToSelectToolAfterDrawingItem());
 }
 
-void AnnotationSettings::smoothPathCheckboxClicked(bool checked)
+void AnnotationSettings::smoothPathCheckBoxClicked(bool checked)
 {
     mSmoothFactorLabel->setEnabled(checked);
     mSmoothFactorCombobox->setEnabled(checked);
+}
+
+void AnnotationSettings::switchToSelectToolAfterDrawingItemCheckBoxClicked(bool checked)
+{
+	mSelectItemAfterDrawingCheckBox->setEnabled(checked);
 }

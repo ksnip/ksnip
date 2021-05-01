@@ -31,6 +31,7 @@ public:
 	static QString autoSaveNewCapturesString();
 	static QString rememberToolSelectionString();
 	static QString switchToSelectToolAfterDrawingItemString();
+	static QString selectItemAfterDrawingString();
 	static QString numberToolSeedChangeUpdatesAllItemsString();
 	static QString useTabsString();
 	static QString autoHideTabsString();
@@ -59,8 +60,6 @@ public:
 	static QString hideMainWindowDuringScreenshotString();
 	static QString allowResizingRectSelectionString();
 	static QString showSnippingAreaInfoTextString();
-	static QString textFontString();
-	static QString numberFontString();
 	static QString smoothPathEnabledString();
 	static QString smoothPathFactorString();
 	static QString rotateWatermarkEnabledString();

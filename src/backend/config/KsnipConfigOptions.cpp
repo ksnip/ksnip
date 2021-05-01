@@ -49,6 +49,11 @@ QString KsnipConfigOptions::switchToSelectToolAfterDrawingItemString()
 	return annotatorSectionString() + QLatin1String("SwitchToSelectToolAfterDrawingItem");
 }
 
+QString KsnipConfigOptions::selectItemAfterDrawingString()
+{
+	return annotatorSectionString() + QLatin1String("SelectItemAfterDrawing");
+}
+
 QString KsnipConfigOptions::numberToolSeedChangeUpdatesAllItemsString()
 {
 	return annotatorSectionString() + QLatin1String("NumberToolSeedChangeUpdatesAllItems");
@@ -466,7 +471,7 @@ QString KsnipConfigOptions::portalHotKeyString()
 
 QString KsnipConfigOptions::applicationSectionString()
 {
-	return QLatin1String("Application/");;
+	return QLatin1String("Application/");
 }
 
 QString KsnipConfigOptions::imageGrabberSectionString()

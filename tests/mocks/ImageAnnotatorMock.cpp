@@ -137,6 +137,11 @@ void ImageAnnotatorMock::setSwitchToSelectToolAfterDrawingItem(bool enabled)
 
 }
 
+void ImageAnnotatorMock::setSelectItemAfterDrawing(bool enabled)
+{
+
+}
+
 void ImageAnnotatorMock::setTabBarAutoHide(bool enabled)
 {
 
@@ -201,4 +206,3 @@ void ImageAnnotatorMock::setCanvasColor(const QColor &color)
 {
 
 }
-

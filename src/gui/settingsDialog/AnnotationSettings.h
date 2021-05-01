@@ -43,9 +43,10 @@ public:
 
 private:
     QCheckBox *mSmoothPathCheckbox;
-    QCheckBox *mRememberToolSelectionCheckbox;
-    QCheckBox *mSwitchToSelectToolAfterDrawingItemCheckbox;
-    QCheckBox *mNumberToolSeedChangeUpdatesAllItemsCheckbox;
+    QCheckBox *mRememberToolSelectionCheckBox;
+    QCheckBox *mSwitchToSelectToolAfterDrawingItemCheckBox;
+    QCheckBox *mNumberToolSeedChangeUpdatesAllItemsCheckBox;
+    QCheckBox *mSelectItemAfterDrawingCheckBox;
     QLabel *mSmoothFactorLabel;
     QLabel *mCanvasColorLabel;
     NumericComboBox *mSmoothFactorCombobox;
@@ -57,7 +58,8 @@ private:
     void loadConfig();
 
 private slots:
-    void smoothPathCheckboxClicked(bool checked);
+    void smoothPathCheckBoxClicked(bool checked);
+    void switchToSelectToolAfterDrawingItemCheckBoxClicked(bool checked);
 };
 
 #endif //KSNIP_ANNOTATIONSETTINGS_H

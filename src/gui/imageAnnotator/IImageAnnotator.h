@@ -55,6 +55,7 @@ public slots:
 	virtual void setSaveToolSelection(bool enabled) = 0;
 	virtual void setSmoothFactor(int factor) = 0;
 	virtual void setSwitchToSelectToolAfterDrawingItem(bool enabled) = 0;
+	virtual void setSelectItemAfterDrawing(bool enabled) = 0;
 	virtual void setNumberToolSeedChangeUpdatesAllItems(bool enabled) = 0;
 	virtual void setTabBarAutoHide(bool enabled) = 0;
 	virtual void removeTab(int index) = 0;

@@ -77,13 +77,14 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	initGui();
 
-	connect(qApp, &QGuiApplication::commitDataRequest, this, &MainWindow::sessionFinished);
-
 	setWindowIcon(IconLoader::load(QLatin1String("ksnip")));
 	setPosition();
 
+	auto coreApplication = dynamic_cast<QApplication *>(QCoreApplication::instance());
+	connect(coreApplication, &QGuiApplication::commitDataRequest, this, &MainWindow::sessionFinished);
+
 	setAcceptDrops(true);
-	qApp->installEventFilter(mDragAndDropProcessor);
+	coreApplication->installEventFilter(mDragAndDropProcessor);
 	connect(mDragAndDropProcessor, &DragAndDropProcessor::imageDropped, this, &MainWindow::loadImageFromFile);
 
 	connect(mConfig, &KsnipConfig::annotatorConfigChanged, this, &MainWindow::setupImageAnnotator);
@@ -639,6 +640,7 @@ void MainWindow::setupImageAnnotator()
 	mImageAnnotator->setSmoothFactor(mConfig->smoothFactor());
 	mImageAnnotator->setSmoothPathEnabled(mConfig->smoothPathEnabled());
 	mImageAnnotator->setSwitchToSelectToolAfterDrawingItem(mConfig->switchToSelectToolAfterDrawingItem());
+	mImageAnnotator->setSelectItemAfterDrawing(mConfig->selectItemAfterDrawing());
 	mImageAnnotator->setNumberToolSeedChangeUpdatesAllItems(mConfig->numberToolSeedChangeUpdatesAllItems());
 	mImageAnnotator->setStickers(mConfig->stickerPaths(), mConfig->useDefaultSticker());
 	mImageAnnotator->setCanvasColor(mConfig->canvasColor());

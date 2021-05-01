@@ -139,6 +139,11 @@ void KImageAnnotatorAdapter::setSwitchToSelectToolAfterDrawingItem(bool enabled)
 	mKImageAnnotator->setSwitchToSelectToolAfterDrawingItem(enabled);
 }
 
+void KImageAnnotatorAdapter::setSelectItemAfterDrawing(bool enabled)
+{
+	mKImageAnnotator->setSelectItemAfterDrawing(enabled);
+}
+
 void KImageAnnotatorAdapter::setNumberToolSeedChangeUpdatesAllItems(bool enabled)
 {
 	mKImageAnnotator->setNumberToolSeedChangeUpdatesAllItems(enabled);

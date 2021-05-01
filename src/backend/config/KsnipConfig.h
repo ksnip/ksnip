@@ -135,6 +135,9 @@ public:
 	virtual bool switchToSelectToolAfterDrawingItem() const;
 	virtual void setSwitchToSelectToolAfterDrawingItem(bool enabled);
 
+	virtual bool selectItemAfterDrawing() const;
+	virtual void setSelectItemAfterDrawing(bool enabled);
+
 	virtual bool numberToolSeedChangeUpdatesAllItems() const;
 	virtual void setNumberToolSeedChangeUpdatesAllItems(bool enabled);
 

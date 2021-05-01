@@ -51,70 +51,70 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Atalho</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Apagar</translation>
+        <translation>Apagar</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Fazer Captura</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Incluir Cursor</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Atraso</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Modo de Captura</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar imagem na janela de pinada</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar imagem para a área de transferência</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar Imagem</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir o diretório da imagem</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvar imagem</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Adicionar</translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurações de Ações</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Ação</translation>
     </message>
 </context>
 <context>
@@ -166,22 +166,25 @@ torná-los mais suaves.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Mudança na Ferramenta atualiza todos os itens número</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Desativar esta opção causa mudanças na ferramenta número
+para afetar apenas novos itens, mas não os itens existentes.
+Desativar esta opção permite ter números duplicados.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor de fundo do ecrã</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor de fundo padrão do ecrã para a área de anotação.
+Alterar a cor afeta apenas novas áreas de anotação.</translation>
     </message>
 </context>
 <context>
@@ -229,7 +232,10 @@ Requer reiniciar o ksnip para aplicar as mudanças.</translation>
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ativar esta opção permitirá que apenas uma instância do ksnip funcione,
+todas as outras instâncias iniciadas após a primeira passarão os
+argumentos dele para a primeira e fechar. Alterar esta opção requer
+um novo início de todas as instâncias.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
@@ -237,24 +243,25 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar abas automaticamente</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto ocultar Docks</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Na inicialização, oculte as configurações de barra de ferramentas e anotações.
+A visibilidade das Docks pode ser alternada com a tecla Tab.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Redimensionar automaticamente para o conteúdo</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Redimensionar automaticamente a janela principal para se ajustar a imagem.</translation>
     </message>
 </context>
 <context>
@@ -293,7 +300,7 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Autores:</translation>
     </message>
 </context>
 <context>
@@ -348,19 +355,19 @@ Deseja salvá-la?</translation>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao copiar para a área de transferência</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao copiar para a área de transferência como imagem codificada em base64.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiado para a área de transferência</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiado para a área de transferência como imagem codificada em base64.</translation>
     </message>
 </context>
 <context>
@@ -372,8 +379,8 @@ Deseja salvá-la?</translation>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation>O item &apos;%1&apos; será excluído.
-Deseja continuar</translation>
+        <translation>O item &apos;%1&apos; será apagado.
+Deseja continuar?</translation>
     </message>
 </context>
 <context>
@@ -400,49 +407,49 @@ Deseja continuar</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ksnip é um projeto de software livre sem fins lucrativos com copyleft e &lt;br/&gt;ainda tem alguns custos que precisam ser cobertos,&lt;br/&gt;como custos de domínio ou custos de hardware para suporte multiplataforma.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Se quiser ajudar ou apenas&lt;br/&gt;apreciar o trabalho que está a ser feito&lt;br/&gt;a oferecer uma cerveja ou café aos programadores, pode fazê-lo</translation>
     </message>
 </context>
 <context>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar novas ações a pressionar o botão da guia &apos;Adicionar&apos;.</translation>
     </message>
 </context>
 <context>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Área retangular</translation>
+        <translation>Área retangular</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Última área retangular</translation>
+        <translation>Última Área Retangular</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Ecrã cheio (Todos os monitores)</translation>
+        <translation>Ecrã cheio (Todos os monitores)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Ecrã atual</translation>
+        <translation>Ecrã atual</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Janela ativa</translation>
+        <translation>Janela Ativa</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Janela sob o cursor</translation>
+        <translation>Janela Sob o Cursor</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Portal de captura de tela</translation>
+        <translation>Portal de captura do ecrã</translation>
     </message>
 </context>
 <context>
@@ -549,7 +556,8 @@ Deseja continuar</translation>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>As HotKeys são atualmente suportadas apenas em Windows e X11.
+Desativar esta opção também faz com que os atalhos de ação sejam apenas ksnip.</translation>
     </message>
 </context>
 <context>
@@ -582,7 +590,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Implementações genéricas do Wayland que utilizam o
+XDG-DESKTOP-PORTAL lidam com o dimensionamento
+do ecrã de forma diferente. Ativar esta opção irá
+determinar a escala atual do ecrã e aplicar isso à captura
+do ecrã no ksnip.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -590,7 +602,11 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME e KDE Plasma suportam as próprias capturas
+do ecrã do Wayland e Generic XDG-DESKTOP-PORTAL.
+Ativar esta opção irá forçar o KDE Plasma e o GNOME a 
+usar as capturas do XDG-DESKTOP-PORTAL. A alteração 
+desta opção exige que o ksnip seja reiniciado.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
@@ -665,7 +681,7 @@ quando a janela principal foi ocultada ou minimizada.</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation>Client Secret</translation>
+        <translation>Segredo do cliente</translation>
     </message>
     <message>
         <source>PIN</source>
@@ -727,18 +743,18 @@ Mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpar Token</translation>
     </message>
 </context>
 <context>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Incapaz de abrir a imagem</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Incapaz de abrir a imagem do caminho %1</translation>
     </message>
 </context>
 <context>
@@ -922,43 +938,43 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir Docks</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar Docks</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar como URI de dados</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Aberto &amp;Recente</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Modificar fundo do ecrã</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Carregar triggerCapture para fonte externa</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar o triggerCaptura para a área de transferência do sistema</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Escala de Imagem</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotacionar</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotacionar Imagem</translation>
     </message>
 </context>
 <context>
@@ -1140,7 +1156,8 @@ O nome do arquivo pode conter os seguintes curingas:
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Indique 0 para obter pequenos ficheiros compactados, 100 para grandes ficheiros não compactados.
+Nem todos os formatos de imagem têm suporte a todos os intervalos, o JPEG suporta.</translation>
     </message>
 </context>
 <context>
@@ -1228,7 +1245,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Uploader</translation>
+        <translation>Enviador</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1244,76 +1261,76 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Área Retangular</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Ícone da bandeja</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Marca d&apos;água</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Ações</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Redimensione o retângulo selecionado a usar as alças ou mova-o a arrastar a seleção.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Use as setas para mover a seleção.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Use as seta enquanto pressiona CTRL para mover a alça superior esquerda.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Use as teclas de seta enquanto pressiona ALT para mover a alça inferior direita.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirmar a seleção a pressionar ENTER/RETURN ou aborte a pressionar ESC.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta mensagem pode ser desativada nas configurações.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Clique e arraste para selecionar uma área retangular ou pressione ESC para sair.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantenha CTRL pressionado para redimensionar a seleção após selecionar.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantenha CTRL pressionado para evitar o redimensionamento após selecionar.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>A operação será cancelada após 60 segundos quando nenhuma seleção for feita.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta mensagem pode ser desativada nas configurações.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Congelar imagem ao capturar área retangular</translation>
+        <translation>Congelar imagem ao capturar área retangular</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1324,93 +1341,108 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado irá congelar o fundo enquanto
+a selecionar uma área retangular. Também muda
+o comportamento de capturas do ecrã atrasadas, com esta
+opção ativada o atraso acontece antes da
+área retangular ser exibida e com a opção desativada
+o atraso acontece depois que a área retangular é exibida.
+Este recurso está sempre desativado para Wayland e sempre
+ativado para MacOs.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Exibir lupa ao capturar área retangular</translation>
+        <translation>Exibir lupa ao capturar área retangular</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Exibir uma lupa que mostra zoom
+        <translation>Exibir uma lupa que mostra zoom
 na imagem de fundo. Esta opção só funciona
-com &apos;Congelar imagem ao capturar área retangular&apos; habilitada.</translation>
+com &apos;Congelar imagem ao capturar área retangular&apos; ativada.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Exibir réguas ao capturar área retangular</translation>
+        <translation>Exibir réguas ao capturar área retangular</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Uma linha horizontal e vertical será exibida
+        <translation>Uma linha horizontal e vertical será exibida
 antes de iniciar a captura de uma área retangular.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Exibir posição e tamanho ao capturar área retangular</translation>
+        <translation>Exibir posição e tamanho ao capturar área retangular</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando o botão esquerdo do mouse não é pressionado a posição
+é exibida, quando o botão do mouse é pressionado,
+o tamanho da área selecionada é exibido à esquerda
+e acima da área capturada.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir redimensionamento da seleção da área retangular por padrão</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado, após selecionar uma área
+retangular, permite redimensionar a seleção. Quando
+realizado o redimensionamento a seleção pode ser confirmada
+a pressionar Enter.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar texto de informação para área retangular</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Cor do cursor ao capturar área retangular</translation>
+        <translation>Cor do cursor ao capturar área retangular</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished">Definir a cor do cursor da área de recorte.</translation>
+        <translation>Define a cor do cursor da área retangular.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Espessura do cursor ao capturar área retangular</translation>
+        <translation>Espessura do cursor ao capturar área retangular</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished">Definir a espessura do cursor da área de recorte.</translation>
+        <translation>Define a espessura do cursor da área retangular.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Área Retangular</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor das bordas da área de recorte</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Define a cor de todos as bordas
+na área de retangular.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Transparência da área retangular</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alfa para região não selecionada na área retangular.
+O número menor é mais transparente.</translation>
     </message>
 </context>
 <context>
@@ -1459,58 +1491,59 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Usar ícone da bandeja</translation>
+        <translation>Usar ícone da bandeja</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Quando ativado adiciona um ícone de bandeja na barra de tarefas, se o gestor de janelas do SO oferecer suporte.
+        <translation>Quando ativado, adiciona um ícone de bandeja na barra de tarefas, se o gestor de janelas do SO oferecer suporte.
 A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Minimizar para a bandeja</translation>
+        <translation>Minimizar para a Bandeja</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Iniciar minimizado na bandeja</translation>
+        <translation>Iniciar Minimizado na Bandeja</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Fechar para a bandeja</translation>
+        <translation>Fechar para a Bandeja</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Exibir Editor</translation>
+        <translation>Exibir Editor</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Imagem</translation>
+        <translation>Capturar</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Ação padrão do ícone da bandeja</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ação padrão que é disparada a clicar com o botão esquerdo do mouse no ícone da bandeja.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurações do ícone da bandeja</translation>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir notificações na bandeja</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar o serviço de notificação específico da plataforma</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando ativado, tentará usar o serviço de notificação específico da plataforma,
+quando tal existir. A mudança requer reinicialização para ter efeito.</translation>
     </message>
 </context>
 <context>
@@ -1567,7 +1600,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Uploader</translation>
+        <translation>Enviador</translation>
     </message>
 </context>
 <context>
@@ -1589,23 +1622,23 @@ service when such exists. Change requires restart to take effect.</source>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Imagem de marca d&apos;água</translation>
+        <translation>Imagem de marca d&apos;água</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Selecionar</translation>
+        <translation>Atualizar</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Rotacionar marca d&apos;água</translation>
+        <translation>Girar marca d&apos;água</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">Quando ativado, a marca d&apos;água será adicionada com rotação de 45º</translation>
+        <translation>Quando ativado, a marca d&apos;água será adicionada com rotação de 45º</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurações de Marca d&apos;água</translation>
     </message>
 </context>
 </TS>

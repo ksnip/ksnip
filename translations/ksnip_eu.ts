@@ -51,70 +51,70 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Izena</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Lasterbidea</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Garbitu</translation>
+        <translation>Garbitu</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Argazkia egin</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Kurtsorea hartu</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Atzerapena</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Argazki modua</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Erakutsi irudia finkatutako leihoan</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiatu irudia arbelera</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Kargatu irudia</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Ireki irudien direktorio nagusia</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Gorde irudia</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Gehitu</translation>
+        <translation>Gehitu</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekintzen ezarpenak</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekintza</translation>
     </message>
 </context>
 <context>
@@ -257,11 +257,11 @@ Kaien ikusgarritasuna Tab teklarekin txandakatu daiteke.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Aldatu automatikoki tamainara egokituz</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aldatu automatikoki leiho nagusiaren tamaina edukiaren irudira doitzeko.</translation>
     </message>
 </context>
 <context>
@@ -418,7 +418,7 @@ Jarraitu nahi duzu?</translation>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehitu ekintza berriak &apos;Gehitu&apos; fitxaren botoia sakatuta.</translation>
     </message>
 </context>
 <context>
@@ -556,7 +556,8 @@ Jarraitu nahi duzu?</translation>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Laster-teklak une honetan bakarrik onartzen dira Windows eta X11n.
+Aukera hau desgaituz gero, ekintza lasterbideak ksnip-en soilik izango dira.</translation>
     </message>
 </context>
 <context>
@@ -957,23 +958,23 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Kargatu egindako argazkia kanpoko iturri batera</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiatu egindako argazkia sistemaren arbelera</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Eskalako irudia</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Biratu</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Biratu irudia</translation>
     </message>
 </context>
 <context>
@@ -1272,7 +1273,7 @@ Ez badago, dena kopiatzen da.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekintzak</translation>
     </message>
 </context>
 <context>
@@ -1536,12 +1537,13 @@ Aldaketak berrabiaraztea eskatzen du.</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Erabili plataformaren berariazko jakinarazpen zerbitzua</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktibatuta dagoenean saiatuko da plataformaren berariazko jakinarazpen
+zerbitzua erabiltzen baldin badago. Aldaketak berrabiaraztea eskatzen du eragina izateko.</translation>
     </message>
 </context>
 <context>

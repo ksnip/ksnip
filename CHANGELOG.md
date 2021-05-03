@@ -42,6 +42,8 @@
 * Fixed kImageAnnotator: Marker shows fill and width config when modifying existing item. ([#225](https://github.com/ksnip/kImageAnnotator/issues/225))
 * Fixed kImageAnnotator: Highlighter/Marker washed out color and overlapping. ([#227](https://github.com/ksnip/kImageAnnotator/issues/227))
 * Fixed kImageAnnotator: Popup menus shown outside screen. ([#226](https://github.com/ksnip/kImageAnnotator/issues/226))
+* Fixed kImageAnnotator: Not possible to enter value in the width tool. ([#233](https://github.com/ksnip/kImageAnnotator/issues/233))
+* Fixed:kImageAnnotator Obfuscation tool shows fonts settings when switching from tool with font. ([#231](https://github.com/ksnip/kImageAnnotator/issues/231))
 
 ## Release 1.8.2
 * Fixed: Add missing includes to build on UNIX. ([#581](https://github.com/ksnip/ksnip/issues/581))

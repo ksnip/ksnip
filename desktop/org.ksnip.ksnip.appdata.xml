@@ -127,6 +127,8 @@
                     <li>Fixed kImageAnnotator: Marker shows fill and width config when modifying existing item.</li>
                     <li>Fixed kImageAnnotator: Highlighter/Marker washed out color and overlapping.</li>
                     <li>Fixed kImageAnnotator: Popup menus shown outside screen.</li>
+                    <li>Fixed kImageAnnotator: Not possible to enter value in the width tool.</li>
+                    <li>Fixed:kImageAnnotator Obfuscation tool shows fonts settings when switching from tool with font.</li>
                 </ul>
             </description>
         </release>

@@ -1440,8 +1440,8 @@ d’ornement sur la zone de capture.</translation>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished">Transparence Alpha pour la région non sélectionnée sur la zone de capture.
-Un plus petit nombre signifie plus de transparence.</translation>
+        <translation>Alpha pour la région en dehors de la zone de capture.
+Une petite valeur est plus transparente.</translation>
     </message>
 </context>
 <context>

@@ -51,15 +51,15 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Name</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Verknüpfung</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Leeren</translation>
+        <translation>Leeren</translation>
     </message>
     <message>
         <source>Take Capture</source>
@@ -87,34 +87,34 @@
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild in die Zwischenablage kopieren</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild hochladen</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Übergeordnetes Bildverzeichnis öffnen</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild speichern</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Hinzufügen</translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktionen-Einstellungen</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktion</translation>
     </message>
 </context>
 <context>
@@ -210,7 +210,7 @@ Eine Änderung benötigt einen Neustart von ksnip, um wirksam zu werden.</transl
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation>Tabs verwenden</translation>
+        <translation>Registerkarten verwenden</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
@@ -222,7 +222,7 @@ Eine Änderung benötigt einen Neustart von ksnip, um wirksam zu werden.</transl
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation>Tableiste verstecken wenn nur ein Tab offen ist.</translation>
+        <translation>Registerkartenleiste verstecken wenn nur eine Registerkarte offen ist.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
@@ -1169,7 +1169,7 @@ Nicht alle Bildformate unterstützen die gesamte Bandbreite, JPEG schon.</transl
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation>Pfad zum Script, das zum Upload aufgerufen wird. Beim Upload wird der Pfad zur temporären
+        <translation>Pfad zum Skript, das zum Hochladen aufgerufen wird. Beim Hochladen wird der Pfad zur temporären
 png-Datei als einziges Argument an das Script übergeben.</translation>
     </message>
     <message>
@@ -1178,7 +1178,7 @@ png-Datei als einziges Argument an das Script übergeben.</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation>Skriptbasierter Upload</translation>
+        <translation>Skriptbasiertes Hochladen</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
@@ -1531,7 +1531,7 @@ Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Plattformspezifischen Benachrichtigungsdienst verwenden</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
@@ -1581,7 +1581,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation>Upload-Typ:</translation>
+        <translation>Hochladen-Typ:</translation>
     </message>
     <message>
         <source>Imgur</source>
@@ -1593,7 +1593,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Uploader</translation>
+        <translation>Hochladen-Programm</translation>
     </message>
 </context>
 <context>

@@ -51,70 +51,70 @@
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Raccourci</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Effacer</translation>
+        <translation>Effacer</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Capture d&apos;écran</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Inclure le curseur</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Retarder</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode de capture</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher l&apos;image dans la fenêtre d&apos;épinglage</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier l&apos;image dans le presse-papier</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléverser l&apos;image</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir le répertoire parent de l&apos;image</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistrer l&apos;image</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Ajouter</translation>
+        <translation>Ajouter</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres des actions</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Action</translation>
     </message>
 </context>
 <context>
@@ -257,11 +257,11 @@ La visibilité du panneau d’outils peut être basculée avec la touche TAB.</t
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Redimensionnement automatique en fonction du contenu</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Redimensionner automatiquement la fenêtre principale pour l&apos;adapter à l&apos;image du contenu.</translation>
     </message>
 </context>
 <context>
@@ -418,7 +418,7 @@ Voulez-vous continuer ?</translation>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter de nouvelles actions en cliquant sur le bouton de l&apos;onglet «&#xa0;Ajouter&#xa0;».</translation>
     </message>
 </context>
 <context>
@@ -556,7 +556,8 @@ Voulez-vous continuer ?</translation>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Les HotKeys ne sont actuellement prises en charge que pour Windows et X11.
+La désactivation de cette option rend également les raccourcis d&apos;action ksnip uniquement.</translation>
     </message>
 </context>
 <context>
@@ -949,7 +950,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir &amp;Récent</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
@@ -957,23 +958,23 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléverser la capture du déclencheur vers une source externe</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier la capture du déclencheur dans le presse-papier du système</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Image à l&apos;échelle</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Pivoter</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Pivoter l&apos;image</translation>
     </message>
 </context>
 <context>
@@ -1273,7 +1274,7 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Actions</translation>
     </message>
 </context>
 <context>

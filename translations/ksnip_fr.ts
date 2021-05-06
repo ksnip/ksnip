@@ -32,7 +32,7 @@
     <name>AboutTab</name>
     <message>
         <source>Screenshot Tool</source>
-        <translation>Outil de capture d&apos;écran</translation>
+        <translation>Outil de capture d’écran</translation>
     </message>
     <message>
         <source>License: </source>
@@ -44,7 +44,7 @@
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation> pour signaler des bugs.</translation>
+        <translation> pour signaler des erreurs.</translation>
     </message>
 </context>
 <context>
@@ -63,7 +63,7 @@
     </message>
     <message>
         <source>Take Capture</source>
-        <translation>Capture d&apos;écran</translation>
+        <translation>Capture d’écran</translation>
     </message>
     <message>
         <source>Include Cursor</source>
@@ -83,23 +83,23 @@
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation>Afficher l&apos;image dans la fenêtre d&apos;épinglage</translation>
+        <translation>Afficher l’image dans la fenêtre d’épinglage</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation>Copier l&apos;image dans le presse-papier</translation>
+        <translation>Copier l’image dans le presse-papier</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation>Téléverser l&apos;image</translation>
+        <translation>Téléverser l’image</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation>Ouvrir le répertoire parent de l&apos;image</translation>
+        <translation>Ouvrir le répertoire parent de l’image</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation>Enregistrer l&apos;image</translation>
+        <translation>Enregistrer l’image</translation>
     </message>
 </context>
 <context>
@@ -154,15 +154,15 @@ les rendra plus lisses.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation>Paramètres d&apos;annotations</translation>
+        <translation>Paramètres d’annotation</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation>Sauvegarder l&apos;outil d&apos;annotation sélectionné pour le charger au démarrage</translation>
+        <translation>Se souvenir de la sélection de l’outil d’annotation et le charger au démarrage</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation>Passer à l&apos;outil de sélection après avoir dessiné l&apos;élément</translation>
+        <translation>Passer à l’outil de sélection après avoir dessiné l’élément</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
@@ -200,12 +200,12 @@ Le changement de couleur n&apos;affecte que les nouvelles zones d&apos;annotatio
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation>Définit le style d&apos;interface et d&apos;interactivité de l&apos;application.
+        <translation>Définit le style d&apos;interface et d’interactivité de l’application.
 Vous devrez redémarrer knsip pour le prendre en compte.</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation>Paramètres de l&apos;application</translation>
+        <translation>Paramètres de l’application</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
@@ -1174,7 +1174,7 @@ entier comme c&apos;est le cas pour le JPEG.</translation>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation>Chemin vers le script qui sera utilisé pour l&apos;envoi vers le serveur. Le script sera appelé
+        <translation>Chemin vers le script qui sera utilisé pour le téléversement. Le script sera appelé
 avec le chemin vers une image temporaire au format PNG comme unique argument.</translation>
     </message>
     <message>
@@ -1266,7 +1266,7 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation>Icône de la barre d&apos;état</translation>
+        <translation>Icône de la barre des tâches</translation>
     </message>
     <message>
         <source>Watermark</source>
@@ -1491,29 +1491,29 @@ Une petite valeur est plus transparente.</translation>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Utiliser l’icône dans la barre des tâches</translation>
+        <translation>Utiliser l&apos;icône de la barre de tâches</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Si activé, ajoute une icône dans la barre des tâches si le système d’exploitation le permet.
-Vous devrez redémarrer l’application pour que cela prenne effet.</translation>
+        <translation>Si activé, ajoute une icône dans la barre des tâches si le système d’exploitation le permet.
+Le changement nécessite un redémarrage.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Réduire vers la barre des tâches</translation>
+        <translation>Réduire vers la barre des tâches</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Démarrer en miniature dans la barre des tâches</translation>
+        <translation>Démarrer en miniature dans la barre des tâches</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Fermer vers la barre des tâches</translation>
+        <translation>Fermer vers la barre des tâches</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Montrer l&apos;éditeur</translation>
+        <translation>Afficher l’éditeur</translation>
     </message>
     <message>
         <source>Capture</source>
@@ -1521,28 +1521,29 @@ Vous devrez redémarrer l’application pour que cela prenne effet.</translation
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation>Action par défaut de l’icône de la barre d’état</translation>
+        <translation>Action par défaut de l’icône de la barre des tâches</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Action par défaut déclenchée par un clic gauche sur l’icône dans la barre des tâches.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation>Paramètres de l’icône de la barre d’état</translation>
+        <translation>Paramètres de l’icône de la barre des tâches</translation>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher les notifications de l’icône de la barre d’outils</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser un service de notification spécifique à la plateforme</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lorsque cette option est activée, elle essaiera d&apos;utiliser un service de notification spécifique à la plateforme lorsqu&apos;il existe.
+spécifique à la plateforme lorsqu&apos;il existe. Le changement nécessite un redémarrage pour prendre effet.</translation>
     </message>
 </context>
 <context>
@@ -1583,7 +1584,7 @@ service when such exists. Change requires restart to take effect.</source>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation>Demander une confirmation avant d&apos;envoyer une image sur un serveur</translation>
+        <translation>Demander une confirmation avant de téléverser</translation>
     </message>
     <message>
         <source>Uploader Type:</source>

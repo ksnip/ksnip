@@ -217,7 +217,7 @@ Vous devrez redémarrer knsip pour le prendre en compte.</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation>La modification de cette option nécessite un redémarrage.</translation>
+        <translation>Le changement nécessite un redémarrage.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
@@ -1157,7 +1157,7 @@ Le nom du fichier peut contenir les jokers suivants&#xa0;:
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
         <translation>Préciser 0 pour des fichiers compressés légers, 100 pour des fichiers lourds
-non-compressés. Certains format ne prennent pas en charge l&apos;intervalle en
+non compressés. Certains format ne prennent pas en charge l&apos;intervalle en
 entier comme c&apos;est le cas pour le JPEG.</translation>
     </message>
 </context>
@@ -1577,7 +1577,7 @@ spécifique à la plateforme lorsqu&apos;il existe. Le changement nécessite un 
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation>La capture va être envoyée sur un serveur externe. Souhaitez-vous continuer ?</translation>
+        <translation>La capture va être téléversée sur un serveur externe. Souhaitez-vous continuer&#xa0;?</translation>
     </message>
 </context>
 <context>

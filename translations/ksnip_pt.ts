@@ -348,7 +348,7 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation>Usar o portal de captura de tela para fazer a captura de tela</translation>
+        <translation>Usar o portal de captura de ecrã para fazer a captura do ecrã</translation>
     </message>
 </context>
 <context>
@@ -374,7 +374,7 @@ Deseja salvá-la?</translation>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation>Excluir imagem</translation>
+        <translation>Apagar imagem</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
@@ -578,7 +578,7 @@ capturas de ecrã.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation>Forçar Captura de tela genérico para Wayland</translation>
+        <translation>Forçar captura do ecrã genérico para Wayland</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
@@ -610,7 +610,7 @@ desta opção exige que o ksnip seja reiniciado.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation>Exibir janela principal após capturar a tela</translation>
+        <translation>Exibir janela principal após capturar o ecrã</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
@@ -620,7 +620,7 @@ quando a janela principal foi ocultada ou minimizada.</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation>Ocultar a janela principal durante a captura de tela</translation>
+        <translation>Ocultar a janela principal durante a captura do ecrã</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
@@ -926,7 +926,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Excluir</translation>
+        <translation>Apagar</translation>
     </message>
     <message>
         <source>Rename</source>
@@ -1001,7 +1001,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation>Excluir</translation>
+        <translation>Apagar</translation>
     </message>
     <message>
         <source>Rename</source>
@@ -1061,7 +1061,7 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation>Novo nome do arquivo:</translation>
+        <translation>Novo nome do ficheiro:</translation>
     </message>
 </context>
 <context>
@@ -1381,8 +1381,8 @@ antes de iniciar a captura de uma área retangular.</translation>
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation>Quando o botão esquerdo do mouse não é pressionado a posição
-é exibida, quando o botão do mouse é pressionado,
+        <translation>Quando o botão esquerdo do rato não é pressionado a posição
+é exibida, quando o botão do rato é pressionado,
 o tamanho da área selecionada é exibido à esquerda
 e acima da área capturada.</translation>
     </message>
@@ -1525,7 +1525,7 @@ A mudança requer reinicialização.</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation>Ação padrão que é disparada a clicar com o botão esquerdo do mouse no ícone da bandeja.</translation>
+        <translation>Ação padrão que é disparada a clicar com o botão esquerdo do rato no ícone da bandeja.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>

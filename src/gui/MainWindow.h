@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
+ *  Copyright (C) 2016 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -71,6 +71,7 @@ public:
     void showDefault();
     void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
 	void resizeToContent() override;
+	bool isWindowMaximized() override;
 	void processImage(const CaptureDto &capture) override;
 	DragContent dragContent() const override;
 
@@ -167,7 +168,6 @@ private slots:
 	void saveAsClicked();
 	void updateApplicationTitle();
 	void capturePostProcessing();
-	void loadImage(const CaptureDto &capture);
 	void loadImageFromFile(const QString &path);
 	void sessionFinished();
 	void captureCanceled();
@@ -175,6 +175,7 @@ private slots:
 	void hideMainWindowIfRequired();
 	void toggleDocks();
 	void actionTriggered(const Action &action);
+	void showAfterAction(bool minimized);
 };
 
 #endif // KSNIP_MAINWINDOW_H

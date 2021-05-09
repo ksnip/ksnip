@@ -35,6 +35,7 @@ void ActionTest::EqualsOperator_Should_ReturnTrue_When_AllValuesMatch()
 	QFETCH(bool, upload);
 	QFETCH(bool, openDirectory);
 	QFETCH(bool, pin);
+	QFETCH(bool, hide);
 	QFETCH(bool, expected);
 
 	Action action1;
@@ -49,6 +50,7 @@ void ActionTest::EqualsOperator_Should_ReturnTrue_When_AllValuesMatch()
 	action1.setIsUploadEnabled(true);
 	action1.setIsOpenDirectoryEnabled(true);
 	action1.setIsPinScreenshotEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
 
 	Action action2;
 	action2.setName(name);
@@ -62,6 +64,7 @@ void ActionTest::EqualsOperator_Should_ReturnTrue_When_AllValuesMatch()
 	action2.setIsUploadEnabled(upload);
 	action2.setIsOpenDirectoryEnabled(openDirectory);
 	action2.setIsPinScreenshotEnabled(pin);
+	action2.setIsHideMainWindowEnabled(hide);
 
 	// act
 	auto result = action1 == action2;
@@ -83,18 +86,20 @@ void ActionTest::EqualsOperator_Should_ReturnTrue_When_AllValuesMatch_data()
 	QTest::addColumn<bool>("upload");
 	QTest::addColumn<bool>("openDirectory");
 	QTest::addColumn<bool>("pin");
+	QTest::addColumn<bool>("hide");
 	QTest::addColumn<bool>("expected");
 
-	QTest::newRow("01. All set") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << true;
-	QTest::newRow("02. Name differ") << "Other" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << false;
-	QTest::newRow("03. Shortcut differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_B) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << false;
-	QTest::newRow("04. Capture enabled differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << false << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << false;
-	QTest::newRow("05. cursor included differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << false << 2000 << CaptureModes::FullScreen << true << true << true << true << true << false;
-	QTest::newRow("06. delay differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 3000 << CaptureModes::FullScreen << true << true << true << true << true << false;
-	QTest::newRow("06. capture mode differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::RectArea << true << true << true << true << true << false;
-	QTest::newRow("07. save differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << false << true << true << true << true << false;
-	QTest::newRow("08. copy differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << false << true << true << true << false;
-	QTest::newRow("09. upload differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << false << true << true << false;
-	QTest::newRow("10. open directory differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << false << false << false;
-	QTest::newRow("11. pin differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << false << false;
+	QTest::newRow("01. All set") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << true << true;
+	QTest::newRow("02. Name differ") << "Other" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << true << false;
+	QTest::newRow("03. Shortcut differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_B) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << true << false;
+	QTest::newRow("04. Capture enabled differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << false << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << true << false;
+	QTest::newRow("05. Cursor included differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << false << 2000 << CaptureModes::FullScreen << true << true << true << true << true << true << false;
+	QTest::newRow("06. Delay differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 3000 << CaptureModes::FullScreen << true << true << true << true << true << true << false;
+	QTest::newRow("06. Capture mode differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::RectArea << true << true << true << true << true << true << false;
+	QTest::newRow("07. Save differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << false << true << true << true << true << true << false;
+	QTest::newRow("08. Copy differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << false << true << true << true << true << false;
+	QTest::newRow("09. Upload differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << false << true << true << true << false;
+	QTest::newRow("10. Open directory differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << false << false << true << false;
+	QTest::newRow("11. Pin differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << false << true << false;
+	QTest::newRow("12. Hide differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << false << false;
 }

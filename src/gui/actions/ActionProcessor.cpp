@@ -20,8 +20,9 @@
 #include "ActionProcessor.h"
 
 ActionProcessor::ActionProcessor() :
-	mCaptureInProgress(false),
-	mPostProcessingEnabled(false)
+	mIsCaptureInProgress(false),
+	mIsPostProcessingEnabled(false),
+	mIsActionInProgress(false)
 {
 
 }
@@ -29,6 +30,8 @@ ActionProcessor::ActionProcessor() :
 void ActionProcessor::process(const Action &action)
 {
 	mCurrentAction = action;
+	mIsActionInProgress = true;
+
 	if (mCurrentAction.isCaptureEnabled()) {
 		preCaptureProcessing();
 	} else {
@@ -38,31 +41,38 @@ void ActionProcessor::process(const Action &action)
 
 void ActionProcessor::setPostProcessingEnabled(bool enabled)
 {
-	mPostProcessingEnabled = enabled;
+	mIsPostProcessingEnabled = enabled;
+}
+
+bool ActionProcessor::isActionInProgress() const
+{
+	return mIsActionInProgress;
 }
 
 void ActionProcessor::captureFinished()
 {
-	if(mCaptureInProgress) {
-		mCaptureInProgress = false;
+	if(mIsCaptureInProgress) {
+		mIsCaptureInProgress = false;
 		postCaptureProcessing();
 	}
 }
 
 void ActionProcessor::captureCanceled()
 {
-	mCaptureInProgress = false;
+	mIsCaptureInProgress = false;
+	mIsActionInProgress = false;
 }
 
 void ActionProcessor::preCaptureProcessing()
 {
-	mCaptureInProgress = true;
+	mIsCaptureInProgress = true;
 	emit triggerCapture(mCurrentAction.captureMode(), mCurrentAction.includeCursor(), mCurrentAction.captureDelay());
 }
 
 void ActionProcessor::postCaptureProcessing()
 {
-	if (!mPostProcessingEnabled && !mCurrentAction.isCaptureEnabled()) {
+	if (!mIsPostProcessingEnabled && !mCurrentAction.isCaptureEnabled()) {
+		mIsActionInProgress = false;
 		return;
 	}
 
@@ -85,4 +95,14 @@ void ActionProcessor::postCaptureProcessing()
 	if (mCurrentAction.isUploadEnabled()) {
 		emit triggerUpload();
 	}
+
+	if (mCurrentAction.isHideMainWindowEnabled()) {
+		emit triggerShow(true);
+	}
+
+	if (!mCurrentAction.isHideMainWindowEnabled() && mCurrentAction.isCaptureEnabled()) {
+		emit triggerShow(false);
+	}
+
+	mIsActionInProgress = false;
 }

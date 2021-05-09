@@ -1156,6 +1156,7 @@ QList<Action> KsnipConfig::actions()
 		action.setIsOpenDirectoryEnabled(mConfig.value(KsnipConfigOptions::actionIsOpenDirectoryEnabledString()).toBool());
 		action.setIsCopyToClipboardEnabled(mConfig.value(KsnipConfigOptions::actionIsCopyToClipboardEnabledString()).toBool());
 		action.setIsSaveEnabled(mConfig.value(KsnipConfigOptions::actionIsSaveEnabledString()).toBool());
+		action.setIsHideMainWindowEnabled(mConfig.value(KsnipConfigOptions::actionIsHideMainWindowEnabledString()).toBool());
 		actions.append(action);
 	}
 	mConfig.endArray();
@@ -1188,6 +1189,7 @@ void KsnipConfig::setActions(const QList<Action> &actions)
 		mConfig.setValue(KsnipConfigOptions::actionIsOpenDirectoryEnabledString(), action.isOpenDirectoryEnabled());
 		mConfig.setValue(KsnipConfigOptions::actionIsCopyToClipboardEnabledString(), action.isCopyToClipboardEnabled());
 		mConfig.setValue(KsnipConfigOptions::actionIsSaveEnabledString(), action.isSaveEnabled());
+		mConfig.setValue(KsnipConfigOptions::actionIsHideMainWindowEnabledString(), action.isHideMainWindowEnabled());
 	}
 	mConfig.endArray();
 

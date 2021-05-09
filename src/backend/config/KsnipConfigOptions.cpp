@@ -414,6 +414,11 @@ QString KsnipConfigOptions::actionIsSaveEnabledString()
 	return QLatin1String("IsSaveEnabled");
 }
 
+QString KsnipConfigOptions::actionIsHideMainWindowEnabledString()
+{
+	return QLatin1String("IsHideMainWindowEnabled");
+}
+
 QString KsnipConfigOptions::uploadScriptCopyOutputToClipboardString()
 {
 	return uploadScriptSectionString() + QLatin1String("CopyOutputToClipboard");

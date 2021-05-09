@@ -38,6 +38,7 @@ ActionSettingTab::~ActionSettingTab()
 	delete mCopyToClipboardCheckBox;
 	delete mUploadCheckBox;
 	delete mOpenDirectoryCheckBox;
+	delete mHideMainWindowCheckBox;
 	delete mSaveCheckBox;
 	delete mCaptureModeLabel;
 	delete mDelayLabel;
@@ -85,6 +86,8 @@ void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 
 	mSaveCheckBox->setText(tr("Save image"));
 
+	mHideMainWindowCheckBox->setText(tr("Hide Main Window"));
+
 	mLayout->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 	mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mNameLabel, 0, 0, 1, 2);
@@ -105,6 +108,7 @@ void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 	mLayout->addWidget(mUploadCheckBox, 10, 0, 1, 5);
 	mLayout->addWidget(mSaveCheckBox, 11, 0, 1, 5);
 	mLayout->addWidget(mOpenDirectoryCheckBox, 12, 0, 1, 5);
+	mLayout->addWidget(mHideMainWindowCheckBox, 13, 0, 1, 5);
 
 	setLayout(mLayout);
 }
@@ -141,6 +145,7 @@ Action ActionSettingTab::action() const
 	action.setIsCopyToClipboardEnabled(mCopyToClipboardCheckBox->isChecked());
 	action.setIsOpenDirectoryEnabled(mOpenDirectoryCheckBox->isChecked());
 	action.setIsUploadEnabled(mUploadCheckBox->isChecked());
+	action.setIsHideMainWindowEnabled(mHideMainWindowCheckBox->isChecked());
 	return action;
 }
 
@@ -152,6 +157,7 @@ ActionSettingTab::ActionSettingTab(const QList<CaptureModes> &captureModes) :
 	mCopyToClipboardCheckBox(new QCheckBox(this)),
 	mUploadCheckBox(new QCheckBox(this)),
 	mOpenDirectoryCheckBox(new QCheckBox(this)),
+	mHideMainWindowCheckBox(new QCheckBox(this)),
 	mSaveCheckBox(new QCheckBox(this)),
 	mCaptureModeLabel(new QLabel(this)),
 	mDelayLabel(new QLabel(this)),
@@ -180,6 +186,7 @@ void ActionSettingTab::setAction(const Action &action) const
 	mCopyToClipboardCheckBox->setChecked(action.isCopyToClipboardEnabled());
 	mOpenDirectoryCheckBox->setChecked(action.isOpenDirectoryEnabled());
 	mUploadCheckBox->setChecked(action.isUploadEnabled());
+	mHideMainWindowCheckBox->setChecked(action.isHideMainWindowEnabled());
 }
 
 int ActionSettingTab::indexOfSelectedCaptureMode(CaptureModes modes) const

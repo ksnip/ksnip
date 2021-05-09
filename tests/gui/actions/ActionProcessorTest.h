@@ -38,6 +38,12 @@ private slots:
 	void CaptureFinished_Should_StartPostProcessing_When_CaptureEnabledAndPostProcessingDisabled();
 	void CaptureFinished_Should_SendSignalsForAllSelectedActions();
 	void CaptureFinished_Should_NotSendSignalsForNotSelectedActions();
+	void Process_Should_MarkActionAsInProgress_When_CaptureEnabled();
+	void CaptureFinished_Should_MarkActionAsNotInProgress_When_CaptureEnabled();
+	void CaptureFinished_Should_SendShowSignalWithMinimizedSetToTrue_When_HideSelected();
+	void CaptureFinished_Should_SendShowSignalWithMinimizedSetToFalse_When_HideNotSelected();
+	void Process_Should_NotSendShowSignal_When_HideNotSelectedAndCaptureNotSelected();
+	void Process_Should_SendShowSignalWithMinimizedSetToTrue_When_HideSelectedAndCaptureNotSelected();
 };
 
 #endif //KSNIP_ACTIONPROCESSORTEST_H

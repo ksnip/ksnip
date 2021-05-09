@@ -26,6 +26,7 @@ public:
 	IResizableWindow() = default;
 	~IResizableWindow() = default;
 	virtual void resizeToContent() = 0;
+	virtual bool isWindowMaximized() = 0;
 };
 
 #endif //KSNIP_IRESIZABLEWINDOW_H

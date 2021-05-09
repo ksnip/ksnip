@@ -84,7 +84,7 @@
     <update_contact>damir.porobic@gmx.com</update_contact>
     <content_rating type="oars-1.0" />
     <releases>
-        <release type="stable" version="1.9.0" date="2021-05-02T00:00:00Z">
+        <release type="stable" version="1.9.0" date="2021-05-20T00:00:00Z">
             <description>
                 <ul>
                     <li>New: Add option to select the default action for tray icon left click.</li>
@@ -100,6 +100,7 @@
                     <li>New: Add support for KDE Plasma notification service.</li>
                     <li>New: ksnip as MSI Package for window.</li>
                     <li>New: User-defined actions for taking screenshot and post-processing.</li>
+                    <li>New: Add 'hide main window' option to actions.</li>
                     <li>New kImageAnnotator: Add function for loading translations.</li>
                     <li>New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions.</li>
                     <li>New kImageAnnotator: Add support for hiding annotation settings panel.</li>

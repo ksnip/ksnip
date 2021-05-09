@@ -15,6 +15,7 @@
 * New: Add support for KDE Plasma notification service. ([#592](https://github.com/ksnip/ksnip/issues/592))
 * New: ksnip as MSI Package for window. ([#546](https://github.com/ksnip/ksnip/issues/546))
 * New: User-defined actions for taking screenshot and post-processing. ([#369](https://github.com/ksnip/ksnip/issues/369))
+* New: Add 'hide main window' option to actions. ([#636](https://github.com/ksnip/ksnip/issues/636))
 * New kImageAnnotator: Add function for loading translations. ([#173](https://github.com/ksnip/kImageAnnotator/issues/173))
 * New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions. ([#131](https://github.com/ksnip/kImageAnnotator/issues/131))
 * New kImageAnnotator: Add support for hiding annotation settings panel. ([#182](https://github.com/ksnip/kImageAnnotator/issues/182))

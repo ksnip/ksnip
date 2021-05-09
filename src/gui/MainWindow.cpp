@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
+ *  Copyright (C) 2016 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -107,6 +107,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	connect(mActionProcessor, &ActionProcessor::triggerOpenDirectory, mCaptureHandler, &ICaptureHandler::openDirectory);
 	connect(mActionProcessor, &ActionProcessor::triggerCopyToClipboard, mToolBar->copyToClipboardAction(), &QAction::trigger);
 	connect(mActionProcessor, &ActionProcessor::triggerSave, mToolBar->saveAction(), &QAction::trigger);
+	connect(mActionProcessor, &ActionProcessor::triggerShow, this, &MainWindow::showAfterAction);
 
 	mCaptureHandler->addListener(this);
 
@@ -153,7 +154,7 @@ void MainWindow::handleGuiStartup()
 	if (mMode == RunMode::GUI) {
 		if (mConfig->captureOnStartup()) {
 			triggerCapture(mConfig->captureMode());
-		} else if (mConfig->startMinimizedToTray() && mConfig->useTrayIcon()) {
+		} else if (mTrayIcon->isVisible() && mConfig->startMinimizedToTray()) {
 			showHidden();
 		} else {
 			showEmpty();
@@ -213,20 +214,18 @@ void MainWindow::processCapture(const CaptureDto &capture)
 
 void MainWindow::processImage(const CaptureDto &capture)
 {
-	loadImage(capture);
-	showDefault();
+	mCaptureHandler->load(capture);
+	if (!mActionProcessor->isActionInProgress()) { 	// The action processor handles the showing of the main window
+		showDefault();
+	}
 	captureChanged();
+	setEnablements(true);
+	emit imageLoaded();
 }
 
 DragContent MainWindow::dragContent() const
 {
 	return DragContent(mCaptureHandler->image(), mCaptureHandler->path(), mCaptureHandler->isSaved());
-}
-
-void MainWindow::loadImage(const CaptureDto &capture)
-{
-	mCaptureHandler->load(capture);
-	emit imageLoaded();
 }
 
 void MainWindow::resizeToContent()
@@ -239,6 +238,11 @@ void MainWindow::resizeToContent()
 	}
 	mMainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
 	setMinimumSize(minimumSizeHint()); // Workaround for issue #588
+}
+
+bool MainWindow::isWindowMaximized()
+{
+	return mVisibilityHandler->isMaximized();
 }
 
 void MainWindow::capturePostProcessing()
@@ -268,14 +272,10 @@ void MainWindow::showHidden()
 
 void MainWindow::showDefault()
 {
-	auto enforceShow = mConfig->showMainWindowAfterTakingScreenshotEnabled();
-	enforceShow ? mVisibilityHandler->enforceVisible() : mVisibilityHandler->restoreState();
+	auto enforceVisible = mConfig->showMainWindowAfterTakingScreenshotEnabled();
+	enforceVisible ? mVisibilityHandler->enforceVisible() : mVisibilityHandler->restoreState();
 
-	if(!mVisibilityHandler->isMaximized()) {
-		mWindowResizer->resize();
-	}
-
-	setEnablements(true);
+	mWindowResizer->resize();
 }
 
 QMenu* MainWindow::createPopupMenu()
@@ -765,4 +765,18 @@ void MainWindow::actionTriggered(const Action &action)
 	}
 
 	mActionProcessor->process(action);
+}
+
+void MainWindow::showAfterAction(bool minimized)
+{
+	if (minimized && mTrayIcon->isVisible()) {
+		mVisibilityHandler->hide();
+	} else if (minimized) {
+		mVisibilityHandler->minimize();
+		mVisibilityHandler->restoreState();
+	} else {
+		mVisibilityHandler->restoreState();
+	}
+
+	mWindowResizer->resize();
 }

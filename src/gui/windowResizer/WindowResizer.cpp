@@ -30,6 +30,10 @@ WindowResizer::WindowResizer(IResizableWindow *resizableWindow, KsnipConfig *con
 
 void WindowResizer::resize()
 {
+	if(mResizableWindow->isWindowMaximized()) {
+		return;
+	}
+
 	auto enforceAutoResize = mConfig->autoResizeToContent() || !mPerformedAutoResize;
 	if (enforceAutoResize) {
 		mPerformedAutoResize = true;

@@ -222,4 +222,106 @@ void ActionProcessorTest::CaptureFinished_Should_NotSendSignalsForNotSelectedAct
 	QCOMPARE(pinSignalSpy.count(), 0);
 }
 
+void ActionProcessorTest::Process_Should_MarkActionAsInProgress_When_CaptureEnabled()
+{
+	// arrange
+	Action action;
+	action.setIsCaptureEnabled(true);
+	ActionProcessor processor;
+
+	// act
+	processor.process(action);
+
+	// assert
+	QCOMPARE(processor.isActionInProgress(), true);
+}
+
+void ActionProcessorTest::CaptureFinished_Should_MarkActionAsNotInProgress_When_CaptureEnabled()
+{
+	// arrange
+	Action action;
+	action.setIsCaptureEnabled(true);
+	ActionProcessor processor;
+	processor.process(action);
+
+	// act
+	processor.captureFinished();
+
+	// assert
+	QCOMPARE(processor.isActionInProgress(), false);
+}
+
+void ActionProcessorTest::CaptureFinished_Should_SendShowSignalWithMinimizedSetToTrue_When_HideSelected()
+{
+	// arrange
+	Action action;
+	action.setIsCaptureEnabled(true);
+	action.setIsHideMainWindowEnabled(true);
+	ActionProcessor processor;
+	processor.setPostProcessingEnabled(true);
+	QSignalSpy spy(&processor, &ActionProcessor::triggerShow);
+	processor.process(action);
+
+	// act
+	processor.captureFinished();
+
+	// assert
+	QCOMPARE(spy.count(), 1);
+	QCOMPARE(qvariant_cast<bool>(spy.at(0).at(0)), true);
+}
+
+void ActionProcessorTest::CaptureFinished_Should_SendShowSignalWithMinimizedSetToFalse_When_HideNotSelected()
+{
+	// arrange
+	Action action;
+	action.setIsCaptureEnabled(true);
+	action.setIsHideMainWindowEnabled(false);
+	ActionProcessor processor;
+	processor.setPostProcessingEnabled(true);
+	QSignalSpy spy(&processor, &ActionProcessor::triggerShow);
+	processor.process(action);
+
+	// act
+	processor.captureFinished();
+
+	// assert
+	QCOMPARE(spy.count(), 1);
+	QCOMPARE(qvariant_cast<bool>(spy.at(0).at(0)), false);
+}
+
+void ActionProcessorTest::Process_Should_NotSendShowSignal_When_HideNotSelectedAndCaptureNotSelected()
+{
+	// arrange
+	Action action;
+	action.setIsCaptureEnabled(false);
+	action.setIsHideMainWindowEnabled(false);
+	ActionProcessor processor;
+	processor.setPostProcessingEnabled(true);
+	QSignalSpy spy(&processor, &ActionProcessor::triggerShow);
+
+	// act
+	processor.process(action);
+
+	// assert
+	QCOMPARE(spy.count(), 0);
+}
+
+void ActionProcessorTest::Process_Should_SendShowSignalWithMinimizedSetToTrue_When_HideSelectedAndCaptureNotSelected()
+{
+	// arrange
+	Action action;
+	action.setIsCaptureEnabled(false);
+	action.setIsHideMainWindowEnabled(true);
+	ActionProcessor processor;
+	processor.setPostProcessingEnabled(true);
+	QSignalSpy spy(&processor, &ActionProcessor::triggerShow);
+
+	// act
+	processor.process(action);
+
+	// assert
+	QCOMPARE(spy.count(), 1);
+	QCOMPARE(qvariant_cast<bool>(spy.at(0).at(0)), true);
+}
+
 QTEST_MAIN(ActionProcessorTest)

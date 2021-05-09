@@ -60,10 +60,14 @@ public:
 
 	bool isCopyToClipboardEnabled() const;
 	void setIsCopyToClipboardEnabled(bool enabled);
+
 	bool isOpenDirectoryEnabled() const;
 	void setIsOpenDirectoryEnabled(bool enabled);
 
-	friend bool operator==(const Action& a, const Action& b);
+	bool isHideMainWindowEnabled() const;
+	void setIsHideMainWindowEnabled(bool enabled);
+
+	friend bool operator==(const Action& left, const Action& right);
 
 private:
 	QString mName;
@@ -76,6 +80,7 @@ private:
 	bool mIsSaveEnabled;
 	bool mIsCopyToClipboardEnabled;
 	bool mIsOpenDirectoryEnabled;
+	bool mIsHideMainWindowEnabled;
 	QKeySequence mShortcut;
 };
 

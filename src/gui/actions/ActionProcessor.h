@@ -27,12 +27,12 @@
 class ActionProcessor : public QObject
 {
 	Q_OBJECT
-
 public:
 	ActionProcessor();
 	~ActionProcessor() override = default;
 	void process(const Action &action);
 	void setPostProcessingEnabled(bool enabled);
+	bool isActionInProgress() const;
 
 signals:
 	void triggerCapture(CaptureModes mode, bool includeCursor, int delay) const;
@@ -41,14 +41,16 @@ signals:
 	void triggerSave() const;
 	void triggerUpload() const;
 	void triggerOpenDirectory() const;
+	void triggerShow(bool minimized) const;
 
 public slots:
 	void captureFinished();
 	void captureCanceled();
 
 private:
-	bool mCaptureInProgress;
-	bool mPostProcessingEnabled;
+	bool mIsCaptureInProgress;
+	bool mIsPostProcessingEnabled;
+	bool mIsActionInProgress;
 	Action mCurrentAction;
 
 	void preCaptureProcessing();

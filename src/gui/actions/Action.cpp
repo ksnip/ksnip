@@ -28,7 +28,8 @@ Action::Action() :
 	mIsSaveEnabled(false),
 	mIsCopyToClipboardEnabled(false),
 	mIsOpenDirectoryEnabled(false),
-	mIncludeCursor(false)
+	mIncludeCursor(false),
+	mIsHideMainWindowEnabled(false)
 {
 
 }
@@ -143,6 +144,16 @@ void Action::setIsOpenDirectoryEnabled(bool enabled)
 	mIsOpenDirectoryEnabled = enabled;
 }
 
+bool Action::isHideMainWindowEnabled() const
+{
+	return mIsHideMainWindowEnabled;
+}
+
+void Action::setIsHideMainWindowEnabled(bool enabled)
+{
+	mIsHideMainWindowEnabled = enabled;
+}
+
 bool operator==(const Action &left, const Action &right)
 {
 	return left.name() == right.name()
@@ -155,5 +166,6 @@ bool operator==(const Action &left, const Action &right)
 		   && left.isCopyToClipboardEnabled() == right.isCopyToClipboardEnabled()
 		   && left.isPinImageEnabled() == right.isPinImageEnabled()
 		   && left.isOpenDirectoryEnabled() == right.isOpenDirectoryEnabled()
-		   && left.isUploadEnabled() == right.isUploadEnabled();
+		   && left.isUploadEnabled() == right.isUploadEnabled()
+		   && left.isHideMainWindowEnabled() == right.isHideMainWindowEnabled();
 }

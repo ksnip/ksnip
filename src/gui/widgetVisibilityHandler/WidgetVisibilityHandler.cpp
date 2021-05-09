@@ -50,6 +50,13 @@ void WidgetVisibilityHandler::show()
 	showWidget();
 }
 
+void WidgetVisibilityHandler::minimize()
+{
+	mWindowStateChangeLock = true;
+	mIsMinimized = true;
+	mWidget->showMinimized();
+}
+
 void WidgetVisibilityHandler::restoreState()
 {
 	setVisible(true);

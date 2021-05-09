@@ -115,6 +115,7 @@ public:
 	static QString actionIsOpenDirectoryEnabledString();
 	static QString actionIsCopyToClipboardEnabledString();
 	static QString actionIsSaveEnabledString();
+	static QString actionIsHideMainWindowEnabledString();
 
 private:
 	static QString applicationSectionString();

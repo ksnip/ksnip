@@ -32,6 +32,7 @@ public:
 	virtual void hide();
 	virtual void makeInvisible();
 	virtual void show();
+	virtual void minimize();
 	virtual void restoreState();
 	virtual void enforceVisible();
 	virtual bool isMaximized();

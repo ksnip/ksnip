@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Cursor einschließen</translation>
     </message>
     <message>
         <source>Delay</source>

@@ -29,6 +29,7 @@
 #include "VersionTab.h"
 #include "AuthorTab.h"
 #include "DonateTab.h"
+#include "ContactTab.h"
 
 class QLabel;
 class MainWindow;
@@ -49,6 +50,7 @@ private:
     VersionTab *mVersionTab;
     AuthorTab *mAuthorTab;
     DonateTab *mDonateTab;
+	ContactTab *mContactTab;
 
     void createHeader();
 };

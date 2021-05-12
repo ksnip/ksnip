@@ -16,6 +16,7 @@
 * New: ksnip as MSI Package for window. ([#546](https://github.com/ksnip/ksnip/issues/546))
 * New: User-defined actions for taking screenshot and post-processing. ([#369](https://github.com/ksnip/ksnip/issues/369))
 * New: Add 'hide main window' option to actions. ([#636](https://github.com/ksnip/ksnip/issues/636))
+* New: Discord Invite in application. ([#638](https://github.com/ksnip/ksnip/issues/638))
 * New kImageAnnotator: Add function for loading translations. ([#173](https://github.com/ksnip/kImageAnnotator/issues/173))
 * New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions. ([#131](https://github.com/ksnip/kImageAnnotator/issues/131))
 * New kImageAnnotator: Add support for hiding annotation settings panel. ([#182](https://github.com/ksnip/kImageAnnotator/issues/182))
@@ -44,7 +45,8 @@
 * Fixed kImageAnnotator: Highlighter/Marker washed out color and overlapping. ([#227](https://github.com/ksnip/kImageAnnotator/issues/227))
 * Fixed kImageAnnotator: Popup menus shown outside screen. ([#226](https://github.com/ksnip/kImageAnnotator/issues/226))
 * Fixed kImageAnnotator: Not possible to enter value in the width tool. ([#233](https://github.com/ksnip/kImageAnnotator/issues/233))
-* Fixed:kImageAnnotator Obfuscation tool shows fonts settings when switching from tool with font. ([#231](https://github.com/ksnip/kImageAnnotator/issues/231))
+* Fixed kImageAnnotator: Obfuscation tool shows fonts settings when switching from tool with font. ([#231](https://github.com/ksnip/kImageAnnotator/issues/231))
+* Fixed kImageAnnotator: Annotation tools are not displayed if application starts with docks hidden. ([#237](https://github.com/ksnip/kImageAnnotator/issues/237))
 
 ## Release 1.8.2
 * Fixed: Add missing includes to build on UNIX. ([#581](https://github.com/ksnip/ksnip/issues/581))

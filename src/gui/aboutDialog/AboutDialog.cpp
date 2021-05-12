@@ -28,6 +28,7 @@ AboutDialog::AboutDialog(QWidget* parent) : QDialog(parent),
 	mVersionTab(new VersionTab),
     mAuthorTab(new AuthorTab),
     mDonateTab(new DonateTab),
+    mContactTab(new ContactTab),
     mCloseButton(new QPushButton)
 {
     setWindowTitle(tr("About ") + QApplication::applicationName());
@@ -38,6 +39,7 @@ AboutDialog::AboutDialog(QWidget* parent) : QDialog(parent),
     mTabWidget->addTab(mVersionTab, tr("Version"));
     mTabWidget->addTab(mAuthorTab, tr("Author"));
     mTabWidget->addTab(mDonateTab, tr("Donate"));
+    mTabWidget->addTab(mContactTab, tr("Contact"));
     mTabWidget->setMinimumSize(mTabWidget->sizeHint());
 
     mCloseButton->setText(tr("Close"));

@@ -17,15 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "AboutTab.h"
+#include "ContactTab.h"
 
-AboutTab::AboutTab() :
-	mLayout(new QVBoxLayout(this)),
-	mContent(new QLabel(this))
+ContactTab::ContactTab() :
+	mLayout(new QVBoxLayout()),
+	mContent(new QLabel())
 {
-	mContent->setText(QLatin1String("<b>") + QApplication::applicationName() + QLatin1String(" - ") + tr("Screenshot and Annotation Tool") + QLatin1String("</b><br/><br/>") +
-				   QLatin1String("(C) 2021 Damir Porobic") + QLatin1String("<br/><br/>") +
-				   tr("License: ") + QLatin1String("<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU General Public License Version 2</a>"));
+	mContent->setText(
+			QLatin1String("<b>") + tr("Community") + QLatin1String("</b><br>") +
+			tr("If you have general questions, ideas or just want to talk about ksnip,") + QLatin1String("<br/>") +
+			tr("please join our ") + QLatin1String("<a href=\"http://discord.ksnip.org\">Discord</a>") +
+			tr(" server.") + QLatin1String("<br/><br/>") +
+			QLatin1String("<b>") + tr("Bug Reports") + QLatin1String("</b><br>") +
+			tr("Please use ") + QLatin1String("<a href=\"https://github.com/ksnip/ksnip/issues/\">GitHub</a>") + tr(" to report bugs."));
 	mContent->setTextFormat(Qt::RichText);
 	mContent->setTextInteractionFlags(Qt::TextBrowserInteraction);
 	mContent->setOpenExternalLinks(true);
@@ -33,7 +37,7 @@ AboutTab::AboutTab() :
 	setLayout(mLayout);
 }
 
-AboutTab::~AboutTab()
+ContactTab::~ContactTab()
 {
 	delete mLayout;
 	delete mContent;

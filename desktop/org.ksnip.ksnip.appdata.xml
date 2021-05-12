@@ -101,6 +101,7 @@
                     <li>New: ksnip as MSI Package for window.</li>
                     <li>New: User-defined actions for taking screenshot and post-processing.</li>
                     <li>New: Add 'hide main window' option to actions.</li>
+                    <li>New: Discord Invite in application.</li>
                     <li>New kImageAnnotator: Add function for loading translations.</li>
                     <li>New kImageAnnotator: Add a new tool for creating resizable movable duplicates of regions.</li>
                     <li>New kImageAnnotator: Add support for hiding annotation settings panel.</li>
@@ -129,7 +130,8 @@
                     <li>Fixed kImageAnnotator: Highlighter/Marker washed out color and overlapping.</li>
                     <li>Fixed kImageAnnotator: Popup menus shown outside screen.</li>
                     <li>Fixed kImageAnnotator: Not possible to enter value in the width tool.</li>
-                    <li>Fixed:kImageAnnotator Obfuscation tool shows fonts settings when switching from tool with font.</li>
+                    <li>Fixed kImageAnnotator: Obfuscation tool shows fonts settings when switching from tool with font.</li>
+                    <li>Fixed kImageAnnotator: Annotation tools are not displayed if application starts with docks hidden.</li>
                 </ul>
             </description>
         </release>

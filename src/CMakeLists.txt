@@ -97,6 +97,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/VersionTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AuthorTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/DonateTab.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/ContactTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/GlobalHotKey.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/NativeKeyEventFilter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/AbstractKeyHandler.cpp

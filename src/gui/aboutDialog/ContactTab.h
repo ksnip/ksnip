@@ -17,24 +17,24 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "AboutTab.h"
+#ifndef KSNIP_CONTACTTAB_H
+#define KSNIP_CONTACTTAB_H
 
-AboutTab::AboutTab() :
-	mLayout(new QVBoxLayout(this)),
-	mContent(new QLabel(this))
-{
-	mContent->setText(QLatin1String("<b>") + QApplication::applicationName() + QLatin1String(" - ") + tr("Screenshot and Annotation Tool") + QLatin1String("</b><br/><br/>") +
-				   QLatin1String("(C) 2021 Damir Porobic") + QLatin1String("<br/><br/>") +
-				   tr("License: ") + QLatin1String("<a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\">GNU General Public License Version 2</a>"));
-	mContent->setTextFormat(Qt::RichText);
-	mContent->setTextInteractionFlags(Qt::TextBrowserInteraction);
-	mContent->setOpenExternalLinks(true);
-	mLayout->addWidget(mContent);
-	setLayout(mLayout);
-}
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QLabel>
 
-AboutTab::~AboutTab()
+class ContactTab : public QWidget
 {
-	delete mLayout;
-	delete mContent;
-}
+	Q_OBJECT
+public:
+	ContactTab();
+	~ContactTab() override;
+
+private:
+	QLabel *mContent;
+	QVBoxLayout *mLayout;
+};
+
+
+#endif //KSNIP_CONTACTTAB_H

@@ -160,7 +160,7 @@ with native Wayland. A workaround is using XWayland by starting ksnip like this 
 switch to XWayland completely by exporting that variable `export QT_QPA_PLATFORM=xcb`. Issue [#416](https://github.com/ksnip/ksnip/issues/416)
 
 # Discussion & Community
-If you have general questions, ideas or just want to talk about ksnip, please join our [Discrod](http://discord.ksnip.org) server. 
+If you have general questions, ideas or just want to talk about ksnip, please join our [Discord](http://discord.ksnip.org) server. 
 
 # Bug report
 Please report any bugs or feature requests related to the annotation editor on the [kImageAnnotator](https://github.com/ksnip/kImageAnnotator/issues) GitHub page under the "Issue" section.

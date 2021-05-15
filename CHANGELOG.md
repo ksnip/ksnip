@@ -47,6 +47,7 @@
 * Fixed kImageAnnotator: Not possible to enter value in the width tool. ([#233](https://github.com/ksnip/kImageAnnotator/issues/233))
 * Fixed kImageAnnotator: Obfuscation tool shows fonts settings when switching from tool with font. ([#231](https://github.com/ksnip/kImageAnnotator/issues/231))
 * Fixed kImageAnnotator: Annotation tools are not displayed if application starts with docks hidden. ([#237](https://github.com/ksnip/kImageAnnotator/issues/237))
+* Fixed kImageAnnotator: Vertical scrollbar missing after using Paste embedded and moving the image. ([#232](https://github.com/ksnip/kImageAnnotator/issues/232))
 
 ## Release 1.8.2
 * Fixed: Add missing includes to build on UNIX. ([#581](https://github.com/ksnip/ksnip/issues/581))

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "--> Install Extra CMake Modules"
-git clone git://github.com/KDE/extra-cmake-modules
+git clone --depth 1 v5.81.0 git://github.com/KDE/extra-cmake-modules
 cd extra-cmake-modules
 mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE}

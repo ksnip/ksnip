@@ -27,24 +27,20 @@
         <source>Donate</source>
         <translation>Podpořit vývoj darem</translation>
     </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AboutTab</name>
-    <message>
-        <source>Screenshot Tool</source>
-        <translation>Nástroj snímku obrazovky</translation>
-    </message>
     <message>
         <source>License: </source>
         <translation>Licence: </translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Použijte prosím </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation> pro hlášení chyb.</translation>
+        <source>Screenshot and Annotation Tool</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -100,6 +96,10 @@
     <message>
         <source>Save image</source>
         <translation>Uložit obrázek</translation>
+    </message>
+    <message>
+        <source>Hide Main Window</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -185,6 +185,15 @@ Disabling this option allows having duplicate numbers.</source>
 Changing color affects only new annotation areas.</source>
         <translation>Výchozí barva pozadí plátna pro oblast poznámek.
 Změna barvy ovlivní pouze nové oblasti anotací.</translation>
+    </message>
+    <message>
+        <source>Select Item after drawing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With this option enabled the item gets selected after
+being created, allowing changing settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -349,6 +358,37 @@ Chcete změny uložit?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Používá Portál snímků obrazovky pro pořizování snímků obrazovky</translation>
+    </message>
+</context>
+<context>
+    <name>ContactTab</name>
+    <message>
+        <source>Community</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please join our </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bug Reports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please use </source>
+        <translation type="unfinished">Použijte prosím </translation>
+    </message>
+    <message>
+        <source> to report bugs.</source>
+        <translation type="unfinished"> pro hlášení chyb.</translation>
     </message>
 </context>
 <context>
@@ -612,18 +652,17 @@ Změna tohoto nastavení se projeví po restartu ksnip.</translation>
         <translation>Zobrazit hlavní okno po pořízení snímku obrazovky</translation>
     </message>
     <message>
-        <source>Show Main Window after capturing a new screenshot
-when the Main Window was hidden or minimized.</source>
-        <translation>Zobrazit hlavní okno po pořízení nového snímku obrazovky
-potom co bylo hlavní okno skryto nebo minimalizováno.</translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Skrýt hlavní okno během snímku obrazovky</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Skrýt hlavní okno při pořizování nového snímku obrazovky.</translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimize.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

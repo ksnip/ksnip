@@ -27,24 +27,20 @@
         <source>Close</source>
         <translation>Luk</translation>
     </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AboutTab</name>
-    <message>
-        <source>Screenshot Tool</source>
-        <translation>Skærmoptagelses værktøj</translation>
-    </message>
     <message>
         <source>License: </source>
         <translation>Licens: </translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Brug venligst </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation> til rapporter fejl.</translation>
+        <source>Screenshot and Annotation Tool</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -99,6 +95,10 @@
     </message>
     <message>
         <source>Save image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -178,6 +178,15 @@ Disabling this option allows having duplicate numbers.</source>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Item after drawing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With this option enabled the item gets selected after
+being created, allowing changing settings.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -337,6 +346,37 @@ Do you want to save it?</source>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ContactTab</name>
+    <message>
+        <source>Community</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please join our </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bug Reports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please use </source>
+        <translation type="unfinished">Brug venligst </translation>
+    </message>
+    <message>
+        <source> to report bugs.</source>
+        <translation type="unfinished"> til rapporter fejl.</translation>
     </message>
 </context>
 <context>
@@ -590,16 +630,16 @@ Change in this option require a ksnip restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show Main Window after capturing a new screenshot
-when the Main Window was hidden or minimized.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimize.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

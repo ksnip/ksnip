@@ -27,24 +27,20 @@
         <source>Close</source>
         <translation>Itxi</translation>
     </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AboutTab</name>
-    <message>
-        <source>Screenshot Tool</source>
-        <translation>Pantaila-argazkiak egiteko tresna</translation>
-    </message>
     <message>
         <source>License: </source>
         <translation>Lizentzia: </translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Erabili </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation> erroreen berri emateko.</translation>
+        <source>Screenshot and Annotation Tool</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -100,6 +96,10 @@
     <message>
         <source>Save image</source>
         <translation>Gorde irudia</translation>
+    </message>
+    <message>
+        <source>Hide Main Window</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -185,6 +185,15 @@ Aukera hau desgaitzeak zenbaki bikoiztuak edukitzea ahalbidetzen du.</translatio
 Changing color affects only new annotation areas.</source>
         <translation>Oharpen-eremurako oihalaren atzeko planoaren kolore lehenetsia.
 Koloreak aldatzeak oharpen gune berriei eragiten die.</translation>
+    </message>
+    <message>
+        <source>Select Item after drawing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With this option enabled the item gets selected after
+being created, allowing changing settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -349,6 +358,37 @@ Nahi duzu gordetzea?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Pantaila-argazkien ataria erabiltzen du pantaila-argazkia egiteko</translation>
+    </message>
+</context>
+<context>
+    <name>ContactTab</name>
+    <message>
+        <source>Community</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please join our </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bug Reports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please use </source>
+        <translation type="unfinished">Erabili </translation>
+    </message>
+    <message>
+        <source> to report bugs.</source>
+        <translation type="unfinished"> erroreen berri emateko.</translation>
     </message>
 </context>
 <context>
@@ -613,18 +653,17 @@ Aukera hau aldatzeak ksnip berrabiaraztea eskatzen du.</translation>
         <translation>Erakutsi leiho nagusia pantaila-argazkia egin ondoren</translation>
     </message>
     <message>
-        <source>Show Main Window after capturing a new screenshot
-when the Main Window was hidden or minimized.</source>
-        <translation>Erakutsi leiho nagusia pantaila-argazkia egin ondoren
-baldin eta leiho nagusia ezkutuan edo minimizatuta badago.</translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Ezkutatu leiho nagusia pantaila-argazkiak egitean</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Ezkutatu leiho nagusia pantaila-argazki berria egitean.</translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimize.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

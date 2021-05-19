@@ -27,24 +27,20 @@
         <source>Donate</source>
         <translation>Doneren</translation>
     </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AboutTab</name>
-    <message>
-        <source>Screenshot Tool</source>
-        <translation>Schermfotohulpmiddel</translation>
-    </message>
     <message>
         <source>License: </source>
         <translation>Licentie: </translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Gebruik </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation> om bugs te melden.</translation>
+        <source>Screenshot and Annotation Tool</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -100,6 +96,10 @@
     <message>
         <source>Save image</source>
         <translation>Schermfoto opslaan</translation>
+    </message>
+    <message>
+        <source>Hide Main Window</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -185,6 +185,15 @@ Hierdoor zijn duplicaten mogelijk.</translation>
 Changing color affects only new annotation areas.</source>
         <translation>De standaard achtergrondkleur van het aantekeningsgebied.
 Dit is alleen van toepassing op nieuwe aantekeningsgebieden.</translation>
+    </message>
+    <message>
+        <source>Select Item after drawing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With this option enabled the item gets selected after
+being created, allowing changing settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -349,6 +358,37 @@ Wil je deze opslaan?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Gebruik het schermfotoportaal om een schermfoto te maken</translation>
+    </message>
+</context>
+<context>
+    <name>ContactTab</name>
+    <message>
+        <source>Community</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please join our </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bug Reports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please use </source>
+        <translation type="unfinished">Gebruik </translation>
+    </message>
+    <message>
+        <source> to report bugs.</source>
+        <translation type="unfinished"> om bugs te melden.</translation>
     </message>
 </context>
 <context>
@@ -613,18 +653,17 @@ maken van schermfoto&apos;s. Herstart ksnip om de wijziging toe te passen.</tran
         <translation>Hoofdvenster tonen na maken van schermfoto</translation>
     </message>
     <message>
-        <source>Show Main Window after capturing a new screenshot
-when the Main Window was hidden or minimized.</source>
-        <translation>Toon het hoofdvenster na het maken van een schermfoto
-als het hoofdvenster geminimaliseerd of verborgen is.</translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Hoofdvenster verbergen tijdens maken van schermfoto</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Verberg het hoofdvenster tijdens het maken van een schermfoto.</translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimize.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

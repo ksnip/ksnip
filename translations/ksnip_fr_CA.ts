@@ -27,24 +27,20 @@
         <source>Donate</source>
         <translation>Faire un don</translation>
     </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AboutTab</name>
-    <message>
-        <source>Screenshot Tool</source>
-        <translation>Outil de capture d’écran</translation>
-    </message>
     <message>
         <source>License: </source>
         <translation>Licence : </translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Veuillez utiliser </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation> pour signaler des erreurs.</translation>
+        <source>Screenshot and Annotation Tool</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -100,6 +96,10 @@
     <message>
         <source>Save image</source>
         <translation>Enregistrer l’image</translation>
+    </message>
+    <message>
+        <source>Hide Main Window</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -185,6 +185,15 @@ La désactivation de cette option permet des numéros dupliqués.</translation>
 Changing color affects only new annotation areas.</source>
         <translation>Couleur d&apos;arrière-plan du canevas par défaut pour la zone d&apos;annotation.
 Le changement de couleur n&apos;affecte que les nouvelles zones d&apos;annotation.</translation>
+    </message>
+    <message>
+        <source>Select Item after drawing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With this option enabled the item gets selected after
+being created, allowing changing settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -349,6 +358,37 @@ Voulez-vous l&apos;enregistrer?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Utilise le portail de capture d&apos;écran pour les captures</translation>
+    </message>
+</context>
+<context>
+    <name>ContactTab</name>
+    <message>
+        <source>Community</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please join our </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bug Reports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please use </source>
+        <translation type="unfinished">Veuillez utiliser </translation>
+    </message>
+    <message>
+        <source> to report bugs.</source>
+        <translation type="unfinished"> pour signaler des erreurs.</translation>
     </message>
 </context>
 <context>
@@ -613,18 +653,17 @@ Plasma et GNOME à utiliser les captures
         <translation>Afficher la fenêtre principale après la capture d&apos;écran</translation>
     </message>
     <message>
-        <source>Show Main Window after capturing a new screenshot
-when the Main Window was hidden or minimized.</source>
-        <translation>Afficher la fenêtre principale après une nouvelle capture d&apos;écran
-quand la fenêtre principale a été cachée ou minimisée.</translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Cacher la fenêtre principale pendant la capture</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Cacher la fenêtre principale pendant une nouvelle capture.</translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimize.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -27,24 +27,20 @@
         <source>Donate</source>
         <translation>捐赠</translation>
     </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AboutTab</name>
-    <message>
-        <source>Screenshot Tool</source>
-        <translation>截图工具</translation>
-    </message>
     <message>
         <source>License: </source>
         <translation>许可证： </translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>请使用 </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation> 报告错误。</translation>
+        <source>Screenshot and Annotation Tool</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -99,6 +95,10 @@
     </message>
     <message>
         <source>Save image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide Main Window</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -182,6 +182,15 @@ Disabling this option allows having duplicate numbers.</source>
 Changing color affects only new annotation areas.</source>
         <translation>注释区域画布的默认背景颜色
 改变颜色只会影响新的注释区域。</translation>
+    </message>
+    <message>
+        <source>Select Item after drawing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With this option enabled the item gets selected after
+being created, allowing changing settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -345,6 +354,37 @@ Do you want to save it?</source>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ContactTab</name>
+    <message>
+        <source>Community</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please join our </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bug Reports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please use </source>
+        <translation type="unfinished">请使用 </translation>
+    </message>
+    <message>
+        <source> to report bugs.</source>
+        <translation type="unfinished"> 报告错误。</translation>
     </message>
 </context>
 <context>
@@ -600,18 +640,17 @@ Change in this option require a ksnip restart.</source>
         <translation>捕捉屏幕截图后显示主窗口</translation>
     </message>
     <message>
-        <source>Show Main Window after capturing a new screenshot
-when the Main Window was hidden or minimized.</source>
-        <translation>当主窗口被隐藏或最小化时，
-捕捉新截图后会显示主窗口。</translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>截图时隐藏主窗口</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>捕获一个新截图时隐藏主窗口。</translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimize.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

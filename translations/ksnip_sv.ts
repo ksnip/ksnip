@@ -27,24 +27,20 @@
         <source>Donate</source>
         <translation>Donera</translation>
     </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AboutTab</name>
-    <message>
-        <source>Screenshot Tool</source>
-        <translation>Skärmklippverktyg</translation>
-    </message>
     <message>
         <source>License: </source>
         <translation>Licens: </translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Använd </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation> för att rapportera fel.</translation>
+        <source>Screenshot and Annotation Tool</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -100,6 +96,10 @@
     <message>
         <source>Save image</source>
         <translation>Spara bilden</translation>
+    </message>
+    <message>
+        <source>Hide Main Window</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -184,6 +184,15 @@ Inaktivering låter dig använda dubblettnummer.</translation>
 Changing color affects only new annotation areas.</source>
         <translation>Standardfärg på arbetsytan i anteckningsområdet.
 Ändring av färgen påverkar bara nya anteckningsområden.</translation>
+    </message>
+    <message>
+        <source>Select Item after drawing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With this option enabled the item gets selected after
+being created, allowing changing settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -348,6 +357,37 @@ Vill du spara det?</translation>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Använder skärmklippsportalen för att ta skärmdump</translation>
+    </message>
+</context>
+<context>
+    <name>ContactTab</name>
+    <message>
+        <source>Community</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please join our </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bug Reports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please use </source>
+        <translation type="unfinished">Använd </translation>
+    </message>
+    <message>
+        <source> to report bugs.</source>
+        <translation type="unfinished"> för att rapportera fel.</translation>
     </message>
 </context>
 <context>
@@ -612,18 +652,17 @@ GNOME att använda XDG-DESKTOP-PORTAL-skärmklipp.
         <translation>Visa huvudfönstret efter utfört skärmklipp</translation>
     </message>
     <message>
-        <source>Show Main Window after capturing a new screenshot
-when the Main Window was hidden or minimized.</source>
-        <translation>Visa huvudfönstret efter nytt skärmklipp, om
-huvudfönstret var dolt eller minimerat.</translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Dölj huvudfönstret under skärmklipp</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Dölj huvudfönstret när du tar ett nytt skärmklipp.</translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimize.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

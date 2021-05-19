@@ -27,24 +27,20 @@
         <source>Donate</source>
         <translation>Doniraj</translation>
     </message>
+    <message>
+        <source>Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AboutTab</name>
-    <message>
-        <source>Screenshot Tool</source>
-        <translation>Alat za snimanje ekrana</translation>
-    </message>
     <message>
         <source>License: </source>
         <translation>Licenca: </translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Koristi </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation> za prijavljivanje grešaka.</translation>
+        <source>Screenshot and Annotation Tool</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -100,6 +96,10 @@
     <message>
         <source>Save image</source>
         <translation>Spremi sliku</translation>
+    </message>
+    <message>
+        <source>Hide Main Window</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -185,6 +185,15 @@ koristiti iste brojeve višestruko.</translation>
 Changing color affects only new annotation areas.</source>
         <translation>Standardna boja pozadine platna za područje komentara.
 Promjena boje utječe samo na nova područja komentara.</translation>
+    </message>
+    <message>
+        <source>Select Item after drawing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With this option enabled the item gets selected after
+being created, allowing changing settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -349,6 +358,37 @@ Do you want to save it?</source>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
         <translation>Koristi portal slika ekrana za snimanje slike ekrana</translation>
+    </message>
+</context>
+<context>
+    <name>ContactTab</name>
+    <message>
+        <source>Community</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please join our </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bug Reports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please use </source>
+        <translation type="unfinished">Koristi </translation>
+    </message>
+    <message>
+        <source> to report bugs.</source>
+        <translation type="unfinished"> za prijavljivanje grešaka.</translation>
     </message>
 </context>
 <context>
@@ -613,18 +653,17 @@ Mijenjanje ove opcije zahtijeva ponovno pokretanje ksnip-a.</translation>
         <translation>Pokaži glavni prozor nakon snimanja slike ekrana</translation>
     </message>
     <message>
-        <source>Show Main Window after capturing a new screenshot
-when the Main Window was hidden or minimized.</source>
-        <translation>Prikaži glavni prozor nakon snimanja nove slike ekrana
-kad je glavni prozor skriven ili smanjen.</translation>
-    </message>
-    <message>
         <source>Hide Main Window during screenshot</source>
         <translation>Sakrij glavni prozor tijekom snimanja slike ekrana</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
         <translation>Sakrij glavni prozor pri snimanju nove slike ekrana.</translation>
+    </message>
+    <message>
+        <source>Show Main Window after capturing a new screenshot
+when the Main Window was hidden or minimize.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

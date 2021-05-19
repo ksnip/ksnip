@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Зв&apos;язок</translation>
     </message>
 </context>
 <context>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Програма для створення та анотування знімків вікон</translation>
     </message>
 </context>
 <context>
@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Приховати головне вікно</translation>
     </message>
 </context>
 <context>
@@ -149,7 +149,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх&#x2028;
+ліній, залишених пером чи маркером, але зробить їх 
 плавнішими.</translation>
     </message>
     <message>
@@ -189,12 +189,13 @@ Changing color affects only new annotation areas.</source>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Позначити елемент після малювання</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо цей пункт буде позначено, програма позначатиме елемент
+після його створення, надаючи змогу змінити його параметри.</translation>
     </message>
 </context>
 <context>
@@ -365,31 +366,31 @@ Do you want to save it?</source>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Спільнота</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо у вас є питання загального характеру, ідеї або ви просто хочете обговорити ksnip,</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation type="unfinished"></translation>
+        <translation>будь ласка, долучайтеся до нашого </translation>
     </message>
     <message>
         <source> server.</source>
-        <translation type="unfinished"></translation>
+        <translation> сервера.</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Звіти щодо вад</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Будь ласка, використовуйте </translation>
+        <translation>Будь ласка, скористайтеся </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> , щоб повідомити про проблеми.</translation>
+        <translation> для надсилання сповіщень щодо вад.</translation>
     </message>
 </context>
 <context>
@@ -664,7 +665,8 @@ Change in this option require a ksnip restart.</source>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати головне вікно після створення знімка,
+якщо головне вікно було приховано або згорнуто.</translation>
     </message>
 </context>
 <context>

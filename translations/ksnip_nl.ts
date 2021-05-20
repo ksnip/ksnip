@@ -365,7 +365,7 @@ Wil je deze opslaan?</translation>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation>gemeenschaps</translation>
+        <translation>Gemeenschap</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>

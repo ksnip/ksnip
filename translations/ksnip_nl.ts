@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Contact opnemen</translation>
     </message>
 </context>
 <context>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Schermfoto- en aantekeningsprogramma</translation>
     </message>
 </context>
 <context>
@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoofdvenster verbergen</translation>
     </message>
 </context>
 <context>
@@ -188,12 +188,13 @@ Dit is alleen van toepassing op nieuwe aantekeningsgebieden.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Item selecteren na tekenen</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel in om een item te selecteren nadat het getekend is,
+zodat de instellingen ervan kunnen worden aangepast.</translation>
     </message>
 </context>
 <context>
@@ -364,31 +365,31 @@ Wil je deze opslaan?</translation>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>gemeenschaps</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>Als je algemene vragen of ideeën hebt of gewoon even wilt praten over ksnip,</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation type="unfinished"></translation>
+        <translation>breng dan eens een bezoekje aan onze </translation>
     </message>
     <message>
         <source> server.</source>
-        <translation type="unfinished"></translation>
+        <translation> server.</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Bugmeldingen</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Gebruik </translation>
+        <translation>Gebruik </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> om bugs te melden.</translation>
+        <translation> om bugs te melden.</translation>
     </message>
 </context>
 <context>
@@ -663,7 +664,8 @@ maken van schermfoto&apos;s. Herstart ksnip om de wijziging toe te passen.</tran
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Toon het hoofdvenster na het maken van een schermfoto als
+het hoofdvenster verborgen of geminimaliseerd is.</translation>
     </message>
 </context>
 <context>

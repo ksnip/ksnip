@@ -49,69 +49,109 @@ Latest ksnip version contains following features:
 | macOS              | X         | X              | X           | X              |               |                     |                      |                   |
 
 # Installing Binaries
-Binaries can be downloaded from the release page [here](https://github.com/ksnip/ksnip/releases). Currently
-RPM, DEB and AppImage for Linux, zipped EXE for Windows and APP for macOS in a DMG package is available.
+Binaries can be downloaded from the [Releases page](https://github.com/ksnip/ksnip/releases). 
+Currently RPM, DEB, APT, Snap, Flatpak and AppImage for Linux, 
+zipped EXE for Windows and 
+APP for macOS in a DMG package are available.
 
 ### Continuous build
 All supported binaries are built for every pushed commit, to be found at the top of the
 release page. Continuous build artifacts are not fully tested and in most cases they are work in progress,
 so use them with caution.
 
-### AppImage (Linux)
+## Linux
+
+### AppImage
 To use AppImages, make them executable and run them, no installation required.
 `$ chmod a+x ksnip*.AppImage`
 `$ ./ksnip*.AppImage`
 
 More info about setting to executable can be found [here](https://discourse.appimage.org/t/how-to-make-an-appimage-executable/80).
 
-### RPM (Linux)
+### RPM
 Just install them via RPM and use.
-`$ rpm -Uvh ksnip*.rpm`
-`$ ksnip`
+```
+$ rpm -Uvh ksnip*.rpm
+$ ksnip
+```
 
-### DEB (Linux)
+### DEB
 Just install them via dpkg and start using.
-`$ sudo dpkg -i ksnip*.deb`
-`$ ksnip`
+```
+$ sudo dpkg -i ksnip*.deb
+$ ksnip
+```
 
-### Snap (Linux)
+### APT
+
+Starting with Ubuntu 21.04 Hirsute Hippo, you can install from the [official package](https://launchpad.net/ubuntu/+source/ksnip):
+```
+$ sudo apt install ksnip
+```
+
+For older Ubuntu versions, you can use [@nemonein](https://github.com/nemonein)'s unofficial [PPA](url):
+```
+sudo add-apt-repository ppa:nemonein/ksnip
+sudo apt update
+sudo apt install ksnip
+```
+
+### Snap
 The usual method for Snaps, will install the latest version:
-`$ sudo snap install ksnip`
+```
+$ sudo snap install ksnip
+```
 
 The continuous build version is also available as edge, in order to install it you need to provide the edge flag:
-`$ sudo snap install ksnip --edge`
+```
+$ sudo snap install ksnip --edge
+```
 
 Snap startup time can be sped up and console output cleaned up from following error `Could not create AF_NETLINK socket (Permission denied)` by running the following commands:
-`$ snap connect ksnip:network-observe`
-`$ snap connect ksnip:network-manager-observe`
+```
+$ snap connect ksnip:network-observe
+$ snap connect ksnip:network-manager-observe
+```
 
 If you need to save screenshots to a removable media, the following additional connection is required:
-`$ snap connect ksnip:removable-media`
+```
+$ snap connect ksnip:removable-media
+```
 
 This only needs to be done once and connects some Snap plugs which are currently not auto-connected.
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/ksnip)
 
-### Flatpak (Linux)
+### Flatpak
 The usual method for Flatpaks will install the latest version:
-`$ flatpak install flathub org.ksnip.ksnip`
+```
+$ flatpak install flathub org.ksnip.ksnip
+```
 
 Then just start it:
-`$ flatpak run org.ksnip.ksnip`
+```
+$ flatpak run org.ksnip.ksnip
+```
 
 <a href='https://flathub.org/apps/details/org.ksnip.ksnip'><img width='220' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
 
-### EXE (Windows)
+## Windows
+
+### EXE
 The EXE file with all required dependencies comes in a zipped package, which just need to be unzipped
 with your favorite unpacking tool. Ksnip can then be started by just double-clicking ksnip.exe.
 
-### APP (macOS)
+## macOS
+
+### APP
 The app file comes in a DMG package which needs to be opened and the ksnip.app file needs to be dragged
 and dropped into the "Application" folder. After that the application can be started by double clicking ksnip.app
 
-### Homebrew Cask (macOS)
+### Homebrew Cask
 Just install via Homebrew and start using from your "Applications" folder.
-`$ brew install --cask ksnip`
+```
+$ brew install --cask ksnip
+```
 
 # Dependencies
 ksnip depends on [kImageAnnotator](https://github.com/ksnip/kImageAnnotator) and [kColorPicker](https://github.com/DamirPorobic/kColorPicker) which needs

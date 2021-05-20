@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Контакт</translation>
     </message>
 </context>
 <context>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Инструмент для создания и аннотирования снимков экрана</translation>
     </message>
 </context>
 <context>
@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрыть основное окно</translation>
     </message>
 </context>
 <context>
@@ -188,12 +188,13 @@ Changing color affects only new annotation areas.</source>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбирать элемент после отрисовки</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>При включении опции элемент будет автоматически
+выбираться после создания, позволяя менять параметры.</translation>
     </message>
 </context>
 <context>
@@ -364,31 +365,31 @@ Do you want to save it?</source>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщество</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>Если у вас есть общие вопросы, идеи, или вы просто хотите поговорить о ksnip,</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation type="unfinished"></translation>
+        <translation>присоединяйтесь к нашему </translation>
     </message>
     <message>
         <source> server.</source>
-        <translation type="unfinished"></translation>
+        <translation> серверу.</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщения об ошибках</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Пожалуйста, используйте </translation>
+        <translation>Пожалуйста, используйте </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> для отчета об ошибках.</translation>
+        <translation> для отправки ошибок.</translation>
     </message>
 </context>
 <context>
@@ -663,7 +664,8 @@ Change in this option require a ksnip restart.</source>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать основное окно после выполенения снимка,
+если оно было скрыто или свёрнуто.</translation>
     </message>
 </context>
 <context>

@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontakt</translation>
     </message>
 </context>
 <context>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Zrzut ekranu i narzędzie adnotacji</translation>
     </message>
 </context>
 <context>
@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ukryj główne okno</translation>
     </message>
 </context>
 <context>
@@ -188,12 +188,13 @@ Zmiana koloru wpływa tylko na nowe obszary adnotacji.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wybierz element po narysowaniu</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Po włączeniu tej opcji element jest zaznaczany po
+utworzeniu, co pozwala na zmianę ustawień.</translation>
     </message>
 </context>
 <context>
@@ -364,31 +365,31 @@ Chcesz go zapisać?</translation>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Społeczność</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeśli masz ogólne pytania, pomysły lub po prostu chcesz porozmawiać o ksnip,</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation type="unfinished"></translation>
+        <translation>dołącz do nas </translation>
     </message>
     <message>
         <source> server.</source>
-        <translation type="unfinished"></translation>
+        <translation> server.</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Zgłaszanie błędów</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Użyj </translation>
+        <translation>Użyj </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> do raportowania błędów.</translation>
+        <translation> do raportowania błędów.</translation>
     </message>
 </context>
 <context>
@@ -663,7 +664,8 @@ Zmiana tej opcji wymaga ponownego uruchomienia ksnip.</translation>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż Główne okno po zrobieniu nowego zrzutu ekranu
+kiedy główne okno było ukryte lub zminimalizowane.</translation>
     </message>
 </context>
 <context>
@@ -997,23 +999,23 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Prześlij trigerCapture do zewnętrznego źródła</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiuj triggerCapture do schowka systemowego</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Skaluj obraz</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Obróć</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Obróć obraz</translation>
     </message>
 </context>
 <context>
@@ -1312,7 +1314,7 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Akcje</translation>
     </message>
 </context>
 <context>
@@ -1576,12 +1578,13 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Skorzystaj z usługi powiadomień specyficznej dla platformy</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gdy włączone, będzie próbował używać powiadomień specyficznych dla platformy
+jeśli taka istnieje. Zmiana wymaga restartu aby zaczęła działać.</translation>
     </message>
 </context>
 <context>

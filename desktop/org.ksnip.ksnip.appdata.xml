@@ -133,6 +133,7 @@
                     <li>Fixed kImageAnnotator: Obfuscation tool shows fonts settings when switching from tool with font.</li>
                     <li>Fixed kImageAnnotator: Annotation tools are not displayed if application starts with docks hidden.</li>
                     <li>Fixed kImageAnnotator: Vertical scrollbar missing after using Paste embedded and moving the image.</li>
+                    <li>Fixed kImageAnnotator: Not possible to disable tool automatically deselected after drawn.</li>
                 </ul>
             </description>
         </release>

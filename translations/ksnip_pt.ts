@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Contacto</translation>
     </message>
 </context>
 <context>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Ferramenta de Captura de Imagem e Edição</translation>
     </message>
 </context>
 <context>
@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Esconder Janela Principal</translation>
     </message>
 </context>
 <context>
@@ -188,19 +188,20 @@ Alterar a cor afeta apenas novas áreas de anotação.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Escolher o item após desenhar</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Com esta opção ativa, o item fica selecionado após
+ser criado, permitindo alterar as configurações.</translation>
     </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation>Capturar o ecrã ao iniciar a utilizar o modo padrão de captura</translation>
+        <translation>Capturar ecrã ao iniciar, usando o modo por omissão</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -364,31 +365,31 @@ Deseja salvá-la?</translation>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Comunidade</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>Se tiver questões gerais, ideias ou apenas desjea falar acerca do ksnip,</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation type="unfinished"></translation>
+        <translation>por favor entre no nosso </translation>
     </message>
     <message>
         <source> server.</source>
-        <translation type="unfinished"></translation>
+        <translation> servidor.</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Registo de Problemas</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Por favor, utilize o </translation>
+        <translation>Por favor, utilize o </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> para reportar problemas.</translation>
+        <translation> para reportar problemas.</translation>
     </message>
 </context>
 <context>
@@ -663,7 +664,8 @@ desta opção exige que o ksnip seja reiniciado.</translation>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar a Janela Principal após uma nova captura
+quando a Janela Principal foi escondida ou minimizada.</translation>
     </message>
 </context>
 <context>

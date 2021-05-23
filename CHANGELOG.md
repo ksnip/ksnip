@@ -49,6 +49,7 @@
 * Fixed kImageAnnotator: Annotation tools are not displayed if application starts with docks hidden. ([#237](https://github.com/ksnip/kImageAnnotator/issues/237))
 * Fixed kImageAnnotator: Vertical scrollbar missing after using Paste embedded and moving the image. ([#232](https://github.com/ksnip/kImageAnnotator/issues/232))
 * Fixed kImageAnnotator: Not possible to disable tool automatically deselected after drawn. ([#238](https://github.com/ksnip/kImageAnnotator/issues/238))
+* Fixed kImageAnnotator: Annotation tool shortcuts do not work if the panel is hidden. ([#239](https://github.com/ksnip/kImageAnnotator/issues/239))
 
 ## Release 1.8.2
 * Fixed: Add missing includes to build on UNIX. ([#581](https://github.com/ksnip/ksnip/issues/581))

@@ -360,7 +360,7 @@ Speichern?</translation>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Gemeinschaft</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
@@ -784,11 +784,11 @@ Changing requires restart.</source>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild kann nicht geöffnet werden</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild kann nicht aus Pfad %1 geöffnet werden</translation>
     </message>
 </context>
 <context>

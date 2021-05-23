@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Contact</translation>
     </message>
 </context>
 <context>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Outil de capture d&apos;écran et d&apos;annotation</translation>
     </message>
 </context>
 <context>
@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Masquer la fenêtre principale</translation>
     </message>
 </context>
 <context>
@@ -188,12 +188,13 @@ Le changement de couleur n&apos;affecte que les nouvelles zones d&apos;annotatio
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionner l&apos;élément après le dessin</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si cette option est activée, l&apos;élément est sélectionné après
+après avoir été créé, ce qui permet de modifier les paramètres.</translation>
     </message>
 </context>
 <context>
@@ -364,31 +365,31 @@ Voulez-vous l&apos;enregistrer?</translation>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Communauté</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>Si vous avez des questions générales, des idées ou si vous voulez simplement parler de ksnip,</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation type="unfinished"></translation>
+        <translation>veuillez rejoindre notre </translation>
     </message>
     <message>
         <source> server.</source>
-        <translation type="unfinished"></translation>
+        <translation> serveur.</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Signalements d&apos;erreurs</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Veuillez utiliser </translation>
+        <translation>Veuillez utiliser </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> pour signaler des erreurs.</translation>
+        <translation> pour signaler des erreurs.</translation>
     </message>
 </context>
 <context>
@@ -663,7 +664,8 @@ Plasma et GNOME à utiliser les captures
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher la fenêtre principale après avoir créé une nouvelle capture d&apos;écran
+lorsque la fenêtre principale a été masquée ou réduite.</translation>
     </message>
 </context>
 <context>

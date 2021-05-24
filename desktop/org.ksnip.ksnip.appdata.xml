@@ -84,7 +84,7 @@
     <update_contact>damir.porobic@gmx.com</update_contact>
     <content_rating type="oars-1.0" />
     <releases>
-        <release type="stable" version="1.9.0" date="2021-05-20T00:00:00Z">
+        <release type="stable" version="1.9.0" date="2021-05-24T00:00:00Z">
             <description>
                 <ul>
                     <li>New: Add option to select the default action for tray icon left click.</li>

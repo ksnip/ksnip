@@ -33,6 +33,7 @@
 #include "src/widgets/CustomLineEdit.h"
 #include "src/widgets/KeySequenceLineEdit.h"
 #include "src/gui/actions/Action.h"
+#include "src/gui/globalHotKeys/HotKeyMap.h"
 
 class ActionSettingTab : public QWidget
 {

@@ -87,7 +87,7 @@
         <release type="stable" version="1.9.1" date="2021-05-25T00:00:00Z">
             <description>
                 <ul>
-                    <li></li>
+                    <li>Fixed: MacOS package damaged and not starting.</li>
                 </ul>
             </description>
         </release>

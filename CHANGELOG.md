@@ -1,5 +1,7 @@
 # Change log
 
+## Release 1.9.1
+
 ## Release 1.9.0
 * New: Add option to select the default action for tray icon left click. ([#502](https://github.com/ksnip/ksnip/issues/502))
 * New: Open/Paste from clipboard via tray icon. ([#520](https://github.com/ksnip/ksnip/issues/520))

@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontakt</translation>
     </message>
 </context>
 <context>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Alat za snimanje ekrana i komentiranje</translation>
     </message>
 </context>
 <context>
@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Sakrij glavni prozor</translation>
     </message>
 </context>
 <context>
@@ -188,12 +188,13 @@ Promjena boje utječe samo na nova područja komentara.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Odabir element nakon crtanja</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kad je ova opcija aktivirana, element se odabire nakon
+što se stvori i omogućuje mijenjanje postavki.</translation>
     </message>
 </context>
 <context>
@@ -364,31 +365,31 @@ Do you want to save it?</source>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Zajednica</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>Ako imaš opća pitanja, ideje ili ako samo želiš razgovarati o ksnipu,</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation type="unfinished"></translation>
+        <translation>pridruži se našem </translation>
     </message>
     <message>
         <source> server.</source>
-        <translation type="unfinished"></translation>
+        <translation> serveru.</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Prijave grešaka</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Koristi </translation>
+        <translation>Koristi </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> za prijavljivanje grešaka.</translation>
+        <translation> za prijavljivanje grešaka.</translation>
     </message>
 </context>
 <context>
@@ -663,7 +664,8 @@ Mijenjanje ove opcije zahtijeva ponovno pokretanje ksnip-a.</translation>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prikaži glavni prozor nakon snimanja nove snimke ekrana
+kad je glavni prozor bio skriven ili smanjen.</translation>
     </message>
 </context>
 <context>

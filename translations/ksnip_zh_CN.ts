@@ -258,7 +258,8 @@ a new start of all instances.</source>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>在启动时隐藏工具栏和注释器，
+可以按下 Tab 键显示 Dock。</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
@@ -353,7 +354,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>使用 the screenshot Portal 截图</translation>
     </message>
 </context>
 <context>
@@ -399,7 +400,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>已复制到剪切板</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
@@ -443,7 +444,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip 是一个非盈利的公共版权自由软件项目，&lt;br/&gt; 仍有一些成本需要支付，&lt;br/&gt; 比如域名成本和跨平台支持所需的硬件成本。</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
@@ -633,7 +634,11 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME 和 KDE Plasma 支持各自的Wayland，
+也有通用的 XDG-DESKTOP-PORTAL 屏幕截图。
+启用该选项将强制 KDE Plasma 和 GNOME
+使用 XDG-DESKTOP-PORTAL 截图方式。
+改变这个选项需要重新启动ksnip。</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>

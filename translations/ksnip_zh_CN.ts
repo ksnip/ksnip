@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>联系</translation>
     </message>
 </context>
 <context>
@@ -40,18 +40,18 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>屏幕截图和注释工具</translation>
     </message>
 </context>
 <context>
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名称</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷键</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -59,15 +59,15 @@
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>捕获</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>包含光标</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>延迟</translation>
     </message>
     <message>
         <source>s</source>
@@ -75,31 +75,31 @@
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>捕获模式</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>在图钉窗口中显示图像</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>图像复制到剪贴板</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>上传图像</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>打开图像父目录</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>保存图像</translation>
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>隐藏主窗口</translation>
     </message>
 </context>
 <context>
@@ -110,11 +110,11 @@
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>操作设置</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>操作</translation>
     </message>
 </context>
 <context>
@@ -165,13 +165,15 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>数字工具种子更改将更新所有数字项目</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>禁用此选项将导致数字工具的更改
+种子仅影响新项目，而不影响现有项目。
+禁用此选项将允许重复的数字。</translation>
     </message>
     <message>
         <source>Canvas Color</source>
@@ -185,12 +187,13 @@ Changing color affects only new annotation areas.</source>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>绘图后选择项目</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>启用此选项后，将在创建项目后对其进行选择，
+从而可以更改设置。</translation>
     </message>
 </context>
 <context>
@@ -245,7 +248,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>在移动时记住主窗口的位置并在启动时加载</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
@@ -253,7 +256,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>自动隐藏 Docks</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
@@ -263,11 +266,11 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>自动调整内容大小</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>自动调整主窗口的大小以适合内容图像。</translation>
     </message>
 </context>
 <context>
@@ -361,23 +364,23 @@ Do you want to save it?</source>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>社区</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>如果您有一般性问题，想法或只想谈谈 ksnip，</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation type="unfinished"></translation>
+        <translation>请加入我们 </translation>
     </message>
     <message>
         <source> server.</source>
-        <translation type="unfinished"></translation>
+        <translation> 服务。</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>错误报告</translation>
     </message>
     <message>
         <source>Please use </source>
@@ -404,7 +407,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>已将图像的 base64 编码复制到剪切板。</translation>
     </message>
 </context>
 <context>
@@ -448,14 +451,14 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>如果您想请开发人员喝杯啤酒或咖啡或只是想&lt;br/&gt;欣赏正在完成的工作&lt;br/&gt;，则可以这样做</translation>
     </message>
 </context>
 <context>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>通过点击“添加”标签按钮来添加新的操作。</translation>
     </message>
 </context>
 <context>
@@ -486,7 +489,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Screenshot Portal</translation>
     </message>
 </context>
 <context>
@@ -588,12 +591,13 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>使用 Portal 捕获</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>当前仅 Windows 和 X11 支持热键。
+禁用此选项也会使仅 ksnip 操作快捷方式。</translation>
     </message>
 </context>
 <context>
@@ -614,11 +618,11 @@ screenshots.</source>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>强制通用 Wayland 截图</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>缩放通用 Wayland 截图</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -626,7 +630,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>使用 XDG-DESKTOP-PORTAL 的通用 Wayland 实现
+以不同的方式处理屏幕缩放。
+启用此选项将确定当前屏幕缩放
+并将其
+应用于 ksnip 中的屏幕截图 。</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland

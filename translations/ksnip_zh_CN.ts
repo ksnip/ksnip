@@ -646,7 +646,7 @@ Change in this option require a ksnip restart.</source>
 也有通用的 XDG-DESKTOP-PORTAL 屏幕截图。
 启用该选项将强制 KDE Plasma 和 GNOME
 使用 XDG-DESKTOP-PORTAL 截图方式。
-改变这个选项需要重新启动ksnip。</translation>
+改变这个选项需要重新启动 ksnip。</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
@@ -663,14 +663,15 @@ Change in this option require a ksnip restart.</source>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>隐藏或最小化主窗口时在捕获新的
+屏幕快照后显示主窗口。</translation>
     </message>
 </context>
 <context>
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation>上传到Imgur的历史信息</translation>
+        <translation>Imgur 历史记录</translation>
     </message>
     <message>
         <source>Close</source>
@@ -701,7 +702,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation>Imgur令牌已过期，正在请求新令牌…</translation>
+        <translation>Imgur 令牌已过期，正在请求新令牌…</translation>
     </message>
 </context>
 <context>
@@ -712,7 +713,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation>总是将Imgur链接复制到剪贴板</translation>
+        <translation>总是将 Imgur 链接复制到剪贴板</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -732,7 +733,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation>获得PIN</translation>
+        <translation>获得 PIN</translation>
     </message>
     <message>
         <source>Get Token</source>
@@ -740,7 +741,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation>上传到Imgur的历史信息</translation>
+        <translation>Imgur 历史记录</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
@@ -752,15 +753,15 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation>等待imgur.com的回应…</translation>
+        <translation>等待 imgur.com 的回应…</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation>Imgur.com令牌已成功更新。</translation>
+        <translation>Imgur.com 令牌已成功更新。</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation>Imgur.com令牌更新错误。</translation>
+        <translation>Imgur.com 令牌更新错误。</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
@@ -772,12 +773,12 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>基址 URL：</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation>Base url 用来与 Imgur 通信。
+        <translation>基地 URL 用来与 Imgur 通信。
 更改需要重启应用。</translation>
     </message>
     <message>
@@ -826,7 +827,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation>将屏幕截图复制到剪贴板</translation>
+        <translation>复制屏幕截图到剪贴板</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -941,7 +942,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>图钉</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
@@ -977,11 +978,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>显示 Docks</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>隐藏 Docks</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
@@ -997,23 +998,23 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>上传 triggerCapture 到外部源</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>复制 triggerCapture 到系统剪贴板</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>缩放图像</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>旋转</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>旋转图像</translation>
     </message>
 </context>
 <context>
@@ -1186,7 +1187,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>因子</translation>
     </message>
     <message>
         <source>Save Quality</source>
@@ -1268,7 +1269,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation>Imgur上传程序</translation>
+        <translation>Imgur 上传程序</translation>
     </message>
     <message>
         <source>Application</source>
@@ -1312,7 +1313,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>操作</translation>
     </message>
 </context>
 <context>
@@ -1354,7 +1355,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation>选择后，按住CTRL键防止调整大小。</translation>
+        <translation>选择后，按住 CTRL 键防止调整大小。</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
@@ -1380,7 +1381,14 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>启用后将在选择矩形区域时冻结背景。
+它还会更改延迟屏幕截图的行为，
+从而更改了延迟屏幕截图的行为，
+启用此选项将延迟发生在显示剪裁区域之前，
+而禁用此选项
+将延迟发生在显示剪裁区域之后。
+Wayland 始终禁用此功能，
+MacOs 始终启用此功能。</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
@@ -1413,22 +1421,28 @@ desktop edges to cursor on snipping area.</source>
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>当未按下鼠标左键时，
+显示位置，
+当按下鼠标按钮时，
+所选区域的大小显示在捕获区域的左上方。</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>默认情况下允许调整矩形区域的大小</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>启用后，
+将在选择矩形区域后允许调整选择的大小。
+完成调整大小后，
+可以按回车键确认选择。</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>显示截图区域信息文本</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
@@ -1436,7 +1450,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>设置剪切区域光标的颜色。</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
@@ -1444,7 +1458,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>设置剪切区域光标的粗细。</translation>
     </message>
     <message>
         <source>Snipping Area</source>
@@ -1452,40 +1466,42 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>截图区域装饰色</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>设置剪切区域上
+所有装饰元素的颜色。</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>截图区域透明度</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>剪裁区域中未选择区域的 Alpha。
+数字越小越透明。</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>向上</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>向下</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>使用默认贴纸</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>贴纸设置</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
@@ -1501,7 +1517,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>添加贴纸</translation>
     </message>
 </context>
 <context>
@@ -1557,16 +1573,17 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>显示任务栏图标通知</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>使用平台特定的通知服务</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>启用后将使用尝试使用特定于平台的通知存在时提供服务。
+ 更改需要重新启动才能生效。</translation>
     </message>
 </context>
 <context>
@@ -1592,11 +1609,11 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>请通过选项&gt;设置&gt;上传脚本添加一个上传脚本</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>捕获上传</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>

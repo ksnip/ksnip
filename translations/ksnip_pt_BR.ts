@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Contato</translation>
     </message>
 </context>
 <context>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Ferramenta de captura de tela e anotação</translation>
     </message>
 </context>
 <context>
@@ -55,7 +55,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Apagar</translation>
+        <translation>Limpar</translation>
     </message>
     <message>
         <source>Take Capture</source>
@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar Janela Principal</translation>
     </message>
 </context>
 <context>
@@ -188,12 +188,13 @@ Alterar a cor afeta apenas novas áreas de anotação.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecione o item após o desenho</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Com esta opção habilitada, o item é selecionado após
+ter sido criado, permitindo a alteração de configurações.</translation>
     </message>
 </context>
 <context>
@@ -364,31 +365,31 @@ Deseja salvá-la?</translation>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Comunidade</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>Se você tiver dúvidas gerais, idéias ou apenas quiser falar sobre o ksnip,</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation type="unfinished"></translation>
+        <translation>por favor junte-se ao nosso </translation>
     </message>
     <message>
         <source> server.</source>
-        <translation type="unfinished"></translation>
+        <translation> servidor.</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Relatório de erros</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Por favor, utilize o </translation>
+        <translation>Por favor, use </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> para reportar problemas.</translation>
+        <translation> para relatar bugs.</translation>
     </message>
 </context>
 <context>
@@ -596,7 +597,8 @@ Deseja continuar?</translation>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Atualmente, as teclas de atalho são suportadas apenas para Windows e X11.
+Desabilitar esta opção também torna os atalhos de ação apenas no ksnip.</translation>
     </message>
 </context>
 <context>
@@ -662,7 +664,8 @@ de tela no ksnip.</translation>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar a Janela Principal após capturar uma nova imagem
+quando a Janela Principal for ocultada ou minimizada.</translation>
     </message>
 </context>
 <context>
@@ -696,7 +699,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation>Novo token recebido , tentando enviar novamente…</translation>
+        <translation>Novo token recebido, tentando enviar novamente…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
@@ -727,7 +730,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation>Digite imgur Pin, que será trocado por um token.</translation>
+        <translation>Digite o Pin do imgur Pin, que será trocado por um token.</translation>
     </message>
     <message>
         <source>Get PIN</source>
@@ -996,11 +999,11 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished">Carregar triggerCapture para fonte externa</translation>
+        <translation>Carregar captura para fonte externa</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished">Copiar triggerCapture para a área de transferência do sistema</translation>
+        <translation>Copiar captura para a área de transferência do sistema</translation>
     </message>
     <message>
         <source>Scale Image</source>

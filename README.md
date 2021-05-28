@@ -96,6 +96,17 @@ sudo apt update
 sudo apt install ksnip
 ```
 
+### Archlinux
+Ksnip is in the [Community repository](https://archlinux.org/packages/community/x86_64/ksnip/), so you can install it directly via pacman.
+```
+$ sudo pacman -S ksnip
+```
+
+If you want to build from the GIT repository, you can use the [AUR package](https://aur.archlinux.org/packages/ksnip-git/) (make sure you build the necessary dependencies too).
+```
+$ yay -S ksnip-git kimageannotator-git kcolorpicker-git
+```
+
 ### Snap
 The usual method for Snaps, will install the latest version:
 ```
@@ -170,6 +181,8 @@ to be installed before building ksnip from source. Installation instructions can
     `$ sudo make install`
 6. Run the application:
     `$ ksnip`
+
+If you are using Archlinux, you may prefer to [build ksnip through AUR](https://github.com/ksnip/ksnip#archlinux).
 
 # Translations
 As with all continuous translations, contributors are always welcome!

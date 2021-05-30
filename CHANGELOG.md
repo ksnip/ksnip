@@ -2,6 +2,7 @@
 
 ## Release 1.9.1
 * Fixed: MacOS package damaged and not starting. ([#653](https://github.com/ksnip/ksnip/issues/653))
+* Fixed kImageAnnotator: Crashes on destruction. ([#242](https://github.com/ksnip/kImageAnnotator/issues/242))
 
 ## Release 1.9.0
 * New: Add option to select the default action for tray icon left click. ([#502](https://github.com/ksnip/ksnip/issues/502))

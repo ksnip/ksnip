@@ -84,10 +84,11 @@
     <update_contact>damir.porobic@gmx.com</update_contact>
     <content_rating type="oars-1.0" />
     <releases>
-        <release type="stable" version="1.9.1" date="2021-05-25T00:00:00Z">
+        <release type="stable" version="1.9.1" date="2021-06-01T00:00:00Z">
             <description>
                 <ul>
                     <li>Fixed: MacOS package damaged and not starting.</li>
+                    <li>Fixed kImageAnnotator: Crashes on destruction.</li>
                 </ul>
             </description>
         </release>

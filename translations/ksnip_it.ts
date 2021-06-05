@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Contatto</translation>
     </message>
 </context>
 <context>
@@ -40,81 +40,81 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Screenshot e Strumento di Annotazione</translation>
     </message>
 </context>
 <context>
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Scorciatoia</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Pulisci</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Cattura</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Includi cursore</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Ritardo</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Modalità di cattura</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra immagine nella finestra bloccata</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia l&apos;immagine negli appunti</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Carica immagine</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri la directory principale dell&apos;immagine</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Salva immagine</translation>
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Nascondi finestra principale</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni delle azioni</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Azione</translation>
     </message>
 </context>
 <context>
@@ -148,7 +148,9 @@ dopo che sono stati tracciati.</translation>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation>All&apos;aumentare del fattore di smussamento diminuirà la precisione, ma aumenterà la levigazione del tratto di penna/pennarello.</translation>
+        <translation>Aumentando il fattore di morbidezza diminuirà
+precisione per penna e pennarello ma li
+renderà più lisci.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
@@ -156,39 +158,43 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Ricorda la selezione dello strumento di annotazione e carica all&apos;avvio</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Passa allo strumento Seleziona dopo aver disegnato l&apos;oggetto</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Una modifica al numero di partenza aggiorna tutti gli elementi numerati</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>La disabilitazione di questa opzione provoca modifiche allo strumento del numero
+ed influenza solo i nuovi elementi ma non gli elementi esistenti.
+La disabilitazione di questa opzione consente di avere numeri duplicati.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Colore della tela</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Colore di sfondo predefinito della tela per l&apos;area di annotazione.
+La modifica del colore ha effetto solo sulle nuove aree di annotazione.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona l&apos;oggetto dopo il disegno</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Con questa opzione abilitata l&apos;elemento viene selezionato dopo
+essere stato creato, consentendo la modifica delle impostazioni.</translation>
     </message>
 </context>
 <context>
@@ -221,7 +227,7 @@ Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation>Questo cambio richiede far ripartire l&apos;applicazione</translation>
+        <translation>La modifica richiede il riavvio.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
@@ -229,39 +235,43 @@ Questa impostazione richiede il riavvio.</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nascondi la barra delle schede quando viene utilizzata una sola scheda.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Questa opzione consente solo l&apos;avvio di una singola istanza di ksnip.
+Se vengono lanciate altre istanze, passeranno il loro
+argomenti al primo prima di fermarsi. Devi ricominciare
+tutte le istanze per abilitare o disabilitare questa opzione.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Ricorda la posizione della finestra principale durante lo spostamento e il caricamento all&apos;avvio</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Nascondi automaticamente le schede</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Nascondi automaticamente i dock</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>All&apos;avvio nascondi la barra degli strumenti e le impostazioni delle annotazioni.
+La visibilità dei dock può essere attivata o disattivata con il tasto Tab.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Ridimensiona automaticamente al contenuto</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ridimensiona automaticamente la finestra principale per adattarla all&apos;immagine del contenuto.</translation>
     </message>
 </context>
 <context>
@@ -300,7 +310,7 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Gli autori:</translation>
     </message>
 </context>
 <context>
@@ -348,7 +358,7 @@ Vuoi salvarla?</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizza il portale screenshot per acquisire screenshot</translation>
     </message>
 </context>
 <context>
@@ -359,58 +369,59 @@ Vuoi salvarla?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>Se hai domande generali, idee o vuoi semplicemente parlare di ksnip,</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation type="unfinished"></translation>
+        <translation>per favore unisciti al nostro </translation>
     </message>
     <message>
         <source> server.</source>
-        <translation type="unfinished"></translation>
+        <translation> server.</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Segnalazioni di bug</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Usa </translation>
+        <translation>Si prega di utilizzare </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> per segnalare malfunzionamenti.</translation>
+        <translation> per segnalare bug.</translation>
     </message>
 </context>
 <context>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile copiare negli appunti</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile copiare negli appunti come immagine codificata base64.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiato negli appunti</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiato negli appunti come immagine codificata base64.</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina immagine</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;elemento &apos;%1&apos; verrà eliminato.
+Vuoi continuare?</translation>
     </message>
 </context>
 <context>
@@ -433,22 +444,22 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>Diventa uno sponsor GitHub</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip è un progetto software libero con copyleft no-profit e&lt;br/&gt;ha ancora alcuni costi che devono essere coperti,&lt;br/&gt;come i costi del dominio o i costi hardware per il supporto multipiattaforma.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Se vuoi aiutare o semplicemente&lt;br/&gt;apprezzi il lavoro svolto&lt;br/&gt;offri agli sviluppatori una birra o un caffè, puoi farlo</translation>
     </message>
 </context>
 <context>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi nuove azioni premendo il pulsante della scheda &quot;Aggiungi&quot;.</translation>
     </message>
 </context>
 <context>
@@ -459,23 +470,23 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Ultima area rettangolare usata</translation>
+        <translation>Ultima area rettangolare</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Schermo completo (tutti gli schermi)</translation>
+        <translation>Schermo intero (tutti i monitor)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Schermo attuale</translation>
+        <translation>Schermo corrente</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Finestra attiva</translation>
+        <translation>Finestra attiva</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Finestra sotto il cursore</translation>
+        <translation>Finestra sotto il cursore</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
@@ -490,11 +501,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload script </source>
-        <translation>Carica script</translation>
+        <translation>Carica script </translation>
     </message>
     <message>
         <source> finished successfully.</source>
-        <translation>finito con successo</translation>
+        <translation> terminato con successo.</translation>
     </message>
     <message>
         <source>Uploaded to</source>
@@ -538,7 +549,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lo script ha scritto su StdErr.</translation>
     </message>
 </context>
 <context>
@@ -577,16 +588,17 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Pulisci</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Cattura usando il portale</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>I tasti di scelta rapida sono attualmente supportati solo per Windows e X11.
+La disabilitazione di questa opzione rende anche le scorciatoie di azione solo ksnip.</translation>
     </message>
 </context>
 <context>
@@ -603,15 +615,15 @@ screenshot.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Acquisizione di immagini</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Forza screenshot Wayland generico</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Ridimensiona gli screenshot generici di Wayland</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -619,7 +631,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Implementazioni generiche di Wayland che utilizzano
+XDG-DESKTOP-PORTAL gestiscono diversamente il ridimensionamento
+ dello schermo. L&apos;attivazione di questa opzione sarà
+determinare il ridimensionamento dello schermo corrente e
+applicarlo allo screenshot in ksnip.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -627,31 +643,36 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME e KDE Plasma supportano il proprio Wayland
+e gli screenshot generici di XDG-DESKTOP-PORTAL.
+Abilitare questa opzione forzerà KDE Plasma e
+GNOME per utilizzare gli screenshot di XDG-DESKTOP-PORTAL.
+La modifica di questa opzione richiede un riavvio di ksnip.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra la finestra principale dopo aver catturato lo screenshot</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Nascondi la finestra principale durante lo screenshot</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nascondi la finestra principale durante l&apos;acquisizione di un nuovo screenshot.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra la finestra principale dopo aver catturato un nuovo screenshot
+quando la finestra principale era nascosta o ridotta a icona.</translation>
     </message>
 </context>
 <context>
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished">Cronologia di Imgur</translation>
+        <translation>Cronologia di Imgur</translation>
     </message>
     <message>
         <source>Close</source>
@@ -659,7 +680,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Time Stamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Data e ora</translation>
     </message>
     <message>
         <source>Link</source>
@@ -737,7 +758,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation>In attesa di imgur.com...</translation>
+        <translation>In attesa di imgur.com…</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
@@ -753,27 +774,28 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>URL di base:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>URL di base che verrà utilizzato per la comunicazione con Imgur.
+La modifica richiede il riavvio.</translation>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancella token</translation>
     </message>
 </context>
 <context>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile aprire l&apos;immagine</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile aprire l&apos;immagine dal percorso %1</translation>
     </message>
 </context>
 <context>
@@ -917,114 +939,114 @@ e cattura screenshot.</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished">Incollaggio Incorporato</translation>
+        <translation>Incollaggio Incorporato</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Blocca</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Blocca lo screenshot in primo piano nella finestra senza cornice</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nessuna immagine fornita ma ne era prevista una.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia percorso</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri directory</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vista</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancella</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Rinomina</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri immagini</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra Dock</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Nascondi Dock</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia come dati URI</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri &amp;Recenti</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifica tela</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Carica l&apos;acquisizione del trigger su una fonte esterna</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia la cattura del trigger negli appunti di sistema</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Scala immagine</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruota</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruota immagine</translation>
     </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Salva</translation>
+        <translation>Salva</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Salva Come</translation>
+        <translation>Salva Come</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Apri directory</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Copia</translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia percorso</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancella</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Rinomina</translation>
     </message>
 </context>
 <context>
@@ -1038,49 +1060,49 @@ e cattura screenshot.</translation>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Chiudi</translation>
+        <translation>Chiudi</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi Altro</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi Tutto</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Blocca Finestra %1</translation>
     </message>
 </context>
 <context>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Immagine rinominata</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Immagine rinominata con successo in </translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Rinomina immagine non riuscita</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile rinominare l&apos;immagine in </translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Rinomina immagine</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuovo nome file:</translation>
     </message>
 </context>
 <context>
@@ -1118,231 +1140,238 @@ e cattura screenshot.</translation>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished">Salva automaticamente le nuove acquisizioni nella posizione predefinita</translation>
+        <translation>Salva automaticamente le nuove acquisizioni nella posizione predefinita</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
-        <translation type="unfinished">Chiedi conferma prima di scartare i cambiamenti non salvati</translation>
+        <translation>Richiedi di salvare prima di eliminare le modifiche non salvate</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished">Ricorda l&apos;ultima directory di salvataggio</translation>
+        <translation>Ricorda l&apos;ultima directory di salvataggio</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished">Se abilitato, sovrascriverà la directory di salvataggio memorizzata nelle impostazioni
+        <translation>Se abilitato, sovrascriverà la directory di salvataggio memorizzata nelle impostazioni
 con l&apos;ultima directory di salvataggio, per ogni salvataggio.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">Posizione e nome del file per il salvataggio</translation>
+        <translation>Directory di registrazione e nome del file</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>I formati supportati sono JPG, PNG e BMP. Se non viene fornito alcun formato, come impostazione predefinita verrà utilizzato PNG.
+Il nome del file può contenere i seguenti caratteri jolly:
+- $Y, $M, $D per la data, $h, $m, $s per l&apos;ora o $T per l&apos;ora in formato hhmmss.
+- Più # consecutivi per contatore. #### risulterà in 0001, la prossima acquisizione sarà 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Sfoglia</translation>
+        <translation>Sfoglia</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni di risparmio</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished">Posizione di salvataggio della schermata</translation>
+        <translation>Cattura directory di registrazione</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Predefinito</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Fattore</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Qualità di registrazione</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Specificare 0 per ottenere file compressi di piccole dimensioni, 100 per file non compressi di grandi dimensioni.
+Non tutti i formati di immagine supportano l&apos;intera gamma, JPEG lo fa.</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia l&apos;output dello script negli appunti</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Script:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Percorso per lo script che verrà chiamato per il caricamento. Durante il caricamento verrà chiamato lo script
+con il percorso di un file png temporaneo come singolo argomento.</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Sfoglia</translation>
+        <translation>Sfoglia</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Caricatore di script</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona carica script</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Interrompi quando lo script di invio scrive su StdErr</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Il caricamento verrà annotato come non riuscito se lo script ha scritto su StdErr.
+Se questa casella non è selezionata, gli errori di script passeranno inosservati.</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtro:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Espressione regolare (RegEx). Saranno solo le righe corrispondenti alla RegEx
+copiato negli appunti. Se non è definito alcun filtro, verranno copiate tutte le righe.</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Impostazioni</translation>
+        <translation>Impostazioni</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancella</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Applicazione</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Acquisizione di immagini</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished">Carica Imgur</translation>
+        <translation>Carica su Imgur</translation>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished"></translation>
+        <translation>Annotatore</translation>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Tasti di scelta rapida</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Caricatore</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Caricatore di script</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Registrazione</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Adesivi</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Area di taglio</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Icona della barra delle applicazioni</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Filigrana</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Azioni</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ridimensiona il rettangolo selezionato utilizzando le maniglie o spostalo trascinando la selezione.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizzare i tasti freccia per spostare la selezione.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Usa i tasti freccia mentre premi CTRL per spostare la maniglia in alto a sinistra.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizzare i tasti freccia mentre si preme ALT per spostare la maniglia in basso a destra.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Confermare la selezione premendo ENTER/RETURN o interrompere premendo ESC.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Questo messaggio può essere disabilitato tramite le impostazioni.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fare clic e trascinare per selezionare un&apos;area rettangolare o premere ESC per uscire.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tenere premuto CTRL per ridimensionare dopo la selezione.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tenere premuto CTRL per impedire il ridimensionamento dopo la selezione.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;operazione verrà annullata dopo 60 secondi in assenza di selezione.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Questo messaggio può essere disabilitato tramite le impostazioni.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Blocca l&apos;immagine durante lo snipping</translation>
+        <translation>Blocca l&apos;immagine durante l&apos;acquisizione</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1353,286 +1382,304 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando abilitato bloccherà lo sfondo mentre si
+seleziona una regione rettangolare. Cambia anche
+il comportamento degli screenshot ritardati, con questo
+opzione abilitata il ritardo si verifica prima che
+venga mostrata l&apos;area di cattura e con l&apos;opzione disabilitata
+il ritardo si verifica dopo la visualizzazione dell&apos;area di cattura.
+Questa funzione è sempre disabilitata per Wayland e sempre
+abilitata per MacOs.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Mostra la lente d&apos;ingrandimento sull&apos;area di cattura</translation>
+        <translation>Mostra la lente d&apos;ingrandimento sull&apos;area di cattura</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra una lente d&apos;ingrandimento che ingrandisce
+l&apos;immagine di sfondo. Questa opzione funziona solo
+con &apos;Blocca immagine durante la cattura&apos; abilitato.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Mostra righelli area di cattura</translation>
+        <translation>Mostra righelli su area di cattura</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Linee orizzontali e verticali che vanno da
-bordi del desktop per il cursore sull&apos;area di cattura.</translation>
+        <translation>Mostra linee orizzontali e verticali
+dai bordi dello schermo al puntatore per facilitare l&apos;inquadratura.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Mostra le informazioni sulla posizione e sulla dimensione dell&apos;area di cattura</translation>
+        <translation>Mostra le informazioni sulla posizione e sulla dimensione dell&apos;area di cattura</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando il tasto sinistro del mouse non viene premuto la posizione
+viene mostrato, quando si preme il pulsante del mouse,
+la dimensione dell&apos;area selezionata è mostrata a sinistra
+e sopra dalla zona catturata.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Consenti il ridimensionamento della selezione dell&apos;area retta per impostazione predefinita</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando abilitato, dopo aver selezionato un area
+retta, consente di ridimensionare la selezione. Quando
+fatto il ridimensionamento la selezione può essere confermata
+premendo Invio.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra il testo delle informazioni sull&apos;area di cattura</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Colore del cursore dell&apos;area di cattura</translation>
+        <translation>Colore del cursore dell&apos;area di cattura</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imposta il colore del cursore dell&apos;area di cattura.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Spessore cursore area di cattura</translation>
+        <translation>Spessore cursore area di cattura</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imposta lo spessore del cursore dell&apos;area di cattura.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Area di cattura</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Colore ornamentale dell&apos;area di cattura</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imposta il colore di tutti gli elementi
+ornamento sull&apos;area di cattura.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Trasparenza dell&apos;area di cattura</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alfa per la regione non selezionata nell&apos;area di cattura.
+Il numero più piccolo è più trasparente.</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Su</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Giù</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Usa adesivi predefiniti</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni adesivo</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>File di immagini vettoriali (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi</translation>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi adesivi</translation>
     </message>
 </context>
 <context>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra editor</translation>
     </message>
 </context>
 <context>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Mostra icona nel vassoio di sistema</translation>
+        <translation>Usa l&apos;icona della barra delle applicazioni</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Se abilitato, mostrerà un&apos;icona nel vassoio di sistema se il DE lo supporta.
-Questa impostazione richiede il riavvio.</translation>
+        <translation>Quando abilitato aggiungerà un&apos;icona della barra delle applicazioni alla barra delle applicazioni se il gestore di finestre del sistema operativo lo supporta.
+La modifica richiede il riavvio.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Minimizza nel vassoio</translation>
+        <translation>Riduci a icona nella barra delle applicazioni</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Iniziare minimizzato nella barra delle applicazione</translation>
+        <translation>Inizia in miniatura nella barra delle applicazioni</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Chiudi nel vassoio</translation>
+        <translation>Vicino alla barra delle applicazioni</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra editor</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Cattura</translation>
+        <translation>Cattura</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Azione predefinita dell&apos;icona della barra delle applicazioni</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Azione predefinita che viene attivata facendo clic con il tasto sinistro sull&apos;icona della barra delle applicazioni.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni dell&apos;icona della barra delle applicazioni</translation>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra notifiche dall&apos;icona della barra degli strumenti</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilizza il servizio di notifica specifico della piattaforma</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quando abilitato, proverà ad utilizzare la notifica specifica del servizio 
+della piattaforma quando questa esiste. La modifica richiede il riavvio per avere effetto.</translation>
     </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona immagine</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Immagini</translation>
+        <translation>Immagini</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Tutti i FIle</translation>
+        <translation>Tutti i FIle</translation>
     </message>
 </context>
 <context>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>È richiesto uno script di invio</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi uno script di caricamento tramite Opzioni &gt; Impostazioni &gt; Carica script</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Cattura caricamento</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Stai per caricare l&apos;immagine su una destinazione esterna, vuoi procedere?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiedi conferma prima di caricare</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo di caricamento:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Script</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Caricamento</translation>
     </message>
 </context>
 <context>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Versione</translation>
+        <translation>Versione</translation>
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">Build</translation>
+        <translation>Compilato</translation>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished">Utilizza:</translation>
+        <translation>Utilizzando:</translation>
     </message>
 </context>
 <context>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Immagine di filigrana</translation>
+        <translation>Filigrana Immagine</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Aggiorna</translation>
+        <translation>Aggiorna</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Ruota immagine</translation>
+        <translation>Ruota Filigrana</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">Se abilitato, l&apos;immagine verrà aggiunta con una rotazione di 45°</translation>
+        <translation>Se abilitato, la Filigrana verrà aggiunta con una rotazione di 45 °</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Impostazioni filigrana</translation>
     </message>
 </context>
 </TS>

@@ -2,6 +2,7 @@
 
 ## Release 1.9.1
 * Fixed: MacOS package damaged and not starting. ([#653](https://github.com/ksnip/ksnip/issues/653))
+* Fixed: Deb CI build is frequently failing due to docker image pull limit. ([#655](https://github.com/ksnip/ksnip/issues/655))
 * Fixed kImageAnnotator: Crashes on destruction. ([#242](https://github.com/ksnip/kImageAnnotator/issues/242))
 
 ## Release 1.9.0

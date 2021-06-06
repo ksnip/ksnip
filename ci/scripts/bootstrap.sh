@@ -7,9 +7,11 @@ if [[ "${BINARY_TYPE}" == "AppImage" ]]; then
     wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
     chmod a+x linuxdeployqt-continuous-x86_64.AppImage
 elif [[ "${BINARY_TYPE}" == "deb" ]]; then
+    docker login --username "${DOCKERHUB_USERNAME}" --password "${DOCKERHUB_PASSWORD}"
     docker pull ubuntu:18.04
     docker run --name build-container -v $(pwd):$(pwd) -w $(pwd) -dit ubuntu:18.04 bash
 elif [[ "${BINARY_TYPE}" == "rpm" ]]; then
+    docker login --username "${DOCKERHUB_USERNAME}" --password "${DOCKERHUB_PASSWORD}"
     docker pull opensuse/leap:15.1
     docker run --name build-container -v $(pwd):$(pwd) -w $(pwd) -dit opensuse/leap:15.1 bash
 elif [[ "${BINARY_TYPE}" == "exe" ]]; then

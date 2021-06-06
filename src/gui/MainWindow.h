@@ -169,6 +169,7 @@ private slots:
 	void updateApplicationTitle();
 	void capturePostProcessing();
 	void loadImageFromFile(const QString &path);
+	void loadImageFromPixmap(const QPixmap &pixmap);
 	void sessionFinished();
 	void captureCanceled();
 	void showPinWindow();

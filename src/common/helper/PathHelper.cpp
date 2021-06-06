@@ -30,6 +30,11 @@ bool PathHelper::isPipePath(const QString &path)
 	return path == QLatin1String("-");
 }
 
+bool PathHelper::isTempDirectory(const QString &path)
+{
+	return path.startsWith(QDir::tempPath());
+}
+
 QString PathHelper::extractParentDirectory(const QString& path)
 {
     return path.section(QLatin1Char('/'), 0, -2);
@@ -59,4 +64,3 @@ QString PathHelper::extractFormat(const QString& path)
         return {};
     }
 }
-

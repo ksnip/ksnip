@@ -89,6 +89,7 @@
                 <ul>
                     <li>Fixed: MacOS package damaged and not starting.</li>
                     <li>Fixed: Deb CI build is frequently failing due to docker image pull limit.</li>
+                    <li>Fixed: Dropped temporary images appear in the open recent menu.</li>
                     <li>Fixed kImageAnnotator: Crashes on destruction.</li>
                 </ul>
             </description>

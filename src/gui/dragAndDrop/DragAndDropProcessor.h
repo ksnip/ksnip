@@ -29,9 +29,11 @@
 #include <QPixmap>
 #include <QList>
 #include <QUrl>
+#include <QDir>
 
 #include "IDragContentProvider.h"
 #include "src/common/helper/FileUrlHelper.h"
+#include "src/common/helper/PathHelper.h"
 #include "src/common/provider/TempFileProvider.h"
 
 class DragAndDropProcessor : public QObject
@@ -43,7 +45,8 @@ public:
 	bool eventFilter(QObject *object, QEvent *event) override;
 
 signals:
-	void imageDropped(const QString &path);
+	void fileDropped(const QString &path);
+	void imageDropped(const QPixmap &pixmap);
 
 private:
 	IDragContentProvider *mDragContentProvider;
@@ -60,6 +63,7 @@ private:
 	bool isMinDragDistanceReached(const QMouseEvent *event) const;
 	void createDrag(const DragContent &dragContent);
 	static QString getPathToDraggedImage(const DragContent &dragContent);
+	void processDroppedImagePaths(const QStringList &paths);
 };
 
 #endif //KSNIP_DRAGANDDROPPROCESSOR_H

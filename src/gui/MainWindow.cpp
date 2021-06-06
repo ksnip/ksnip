@@ -85,7 +85,8 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 
 	setAcceptDrops(true);
 	coreApplication->installEventFilter(mDragAndDropProcessor);
-	connect(mDragAndDropProcessor, &DragAndDropProcessor::imageDropped, this, &MainWindow::loadImageFromFile);
+	connect(mDragAndDropProcessor, &DragAndDropProcessor::fileDropped, this, &MainWindow::loadImageFromFile);
+	connect(mDragAndDropProcessor, &DragAndDropProcessor::imageDropped, this, &MainWindow::loadImageFromPixmap);
 
 	connect(mConfig, &KsnipConfig::annotatorConfigChanged, this, &MainWindow::setupImageAnnotator);
 
@@ -304,11 +305,11 @@ void MainWindow::moveEvent(QMoveEvent* event)
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
-	if(!mSessionManagerRequestedQuit) {
+	if (!mSessionManagerRequestedQuit) {
 		event->ignore();
 	}
 
-	if(mTrayIcon->isVisible() && mConfig->closeToTray()) {
+	if (mTrayIcon->isVisible() && mConfig->closeToTray()) {
 		mVisibilityHandler->hide();
 	} else {
 		quit();
@@ -698,14 +699,11 @@ void MainWindow::pasteFromClipboard()
 {
 	auto pixmap = mClipboard->pixmap();
 
-	if(!pixmap.isNull()) {
-		if(mClipboard->url().isNull()) {
-			CaptureDto captureDto(pixmap);
-			processImage(captureDto);
-		} else {
-			CaptureFromFileDto captureDto(pixmap, mClipboard->url());
-			processImage(captureDto);
-		}
+	if (mClipboard->url().isNull()) {
+		loadImageFromPixmap(pixmap);
+	} else if (!pixmap.isNull()) {
+		CaptureFromFileDto captureDto(pixmap, mClipboard->url());
+		processImage(captureDto);
 	}
 }
 
@@ -729,6 +727,16 @@ void MainWindow::loadImageFromFile(const QString &path)
 {
 	LoadImageFromFileOperation operation(this, path, mTrayIcon, mServiceLocator);
 	operation.execute();
+}
+
+void MainWindow::loadImageFromPixmap(const QPixmap &pixmap)
+{
+	if (!pixmap.isNull()) {
+		CaptureDto captureDto(pixmap);
+		processImage(captureDto);
+	} else {
+		qWarning("Provided pixmap is not valid.");
+	}
 }
 
 void MainWindow::sessionFinished()

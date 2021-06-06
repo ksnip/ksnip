@@ -64,9 +64,7 @@ bool DragAndDropProcessor::handleDragEnter(QGraphicsSceneDragDropEvent *event)
 bool DragAndDropProcessor::handleDrop(QDropEvent *event)
 {
 	auto paths = getUrlsFromMimeData(event->mimeData());
-	for(const auto& path: paths) {
-		emit imageDropped(path);
-	}
+	processDroppedImagePaths(paths);
 
 	event->acceptProposedAction();
 	return true;
@@ -75,9 +73,7 @@ bool DragAndDropProcessor::handleDrop(QDropEvent *event)
 bool DragAndDropProcessor::handleDrop(QGraphicsSceneDragDropEvent *event)
 {
 	auto paths = getUrlsFromMimeData(event->mimeData());
-	for(const auto& path: paths) {
-		emit imageDropped(path);
-	}
+	processDroppedImagePaths(paths);
 
 	event->acceptProposedAction();
 	return true;
@@ -142,7 +138,7 @@ void DragAndDropProcessor::createDrag(const DragContent &dragContent)
 QString DragAndDropProcessor::getPathToDraggedImage(const DragContent &dragContent)
 {
 	QString imagePath;
-	if(dragContent.isSaved) {
+	if (dragContent.isSaved) {
 		imagePath = dragContent.path;
 	} else{
 		imagePath = TempFileProvider::tempFile();
@@ -151,4 +147,15 @@ QString DragAndDropProcessor::getPathToDraggedImage(const DragContent &dragConte
 		}
 	}
 	return imagePath;
+}
+
+void DragAndDropProcessor::processDroppedImagePaths(const QStringList &paths)
+{
+	for(const auto& path: paths) {
+		if (PathHelper::isTempDirectory(path)) {
+			emit imageDropped(QPixmap(path));
+		} else {
+			emit fileDropped(path);
+		}
+	}
 }

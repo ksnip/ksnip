@@ -5,6 +5,7 @@
 * Fixed: Deb CI build is frequently failing due to docker image pull limit. ([#655](https://github.com/ksnip/ksnip/issues/655))
 * Fixed: Dropped temporary images appear in the open recent menu. ([#613](https://github.com/ksnip/ksnip/issues/613))
 * Fixed kImageAnnotator: Crashes on destruction. ([#242](https://github.com/ksnip/kImageAnnotator/issues/242))
+* Fixed kImageAnnotator: Memory leaks caught by ASAN. ([#243](https://github.com/ksnip/kImageAnnotator/issues/243))
 
 ## Release 1.9.0
 * New: Add option to select the default action for tray icon left click. ([#502](https://github.com/ksnip/ksnip/issues/502))

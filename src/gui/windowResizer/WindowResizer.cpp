@@ -19,10 +19,12 @@
 
 #include "WindowResizer.h"
 
-WindowResizer::WindowResizer(IResizableWindow *resizableWindow, KsnipConfig *config) :
+WindowResizer::WindowResizer(IResizableWindow *resizableWindow, KsnipConfig *config, QObject *parent) :
+	QObject(parent),
 	mResizableWindow(resizableWindow),
 	mConfig(config),
-	mPerformedAutoResize(false)
+	mPerformedAutoResize(false),
+	mResizeDelayInMs(10)
 {
 	Q_ASSERT(mResizableWindow != nullptr);
 	Q_ASSERT(mConfig != nullptr);
@@ -36,8 +38,7 @@ void WindowResizer::resize()
 
 	auto enforceAutoResize = mConfig->autoResizeToContent() || !mPerformedAutoResize;
 	if (enforceAutoResize) {
-		mPerformedAutoResize = true;
-		mResizableWindow->resizeToContent();
+		QTimer::singleShot(mResizeDelayInMs, this, &WindowResizer::resizeWindow);
 	}
 }
 
@@ -45,4 +46,10 @@ void WindowResizer::resetAndResize()
 {
 	mPerformedAutoResize = false;
 	resize();
+}
+
+void WindowResizer::resizeWindow()
+{
+	mPerformedAutoResize = true;
+	mResizableWindow->resizeToContent();
 }

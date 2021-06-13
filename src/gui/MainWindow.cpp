@@ -63,7 +63,7 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mPinWindowHandler(new PinWindowHandler(this)),
 	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this)),
 	mFileDialog(FileDialogAdapterFactory::create()),
-	mWindowResizer(new WindowResizer(this, mConfig)),
+	mWindowResizer(new WindowResizer(this, mConfig, this)),
 	mActionProcessor(new ActionProcessor)
 {
 	// When we run in CLI only mode we don't need to setup gui, but only need

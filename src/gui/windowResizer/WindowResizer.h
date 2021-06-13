@@ -20,14 +20,17 @@
 #ifndef KSNIP_WINDOWRESIZER_H
 #define KSNIP_WINDOWRESIZER_H
 
+#include <QObject>
+#include <QTimer>
+
 #include "IResizableWindow.h"
 #include "src/backend/config/KsnipConfig.h"
 
-class WindowResizer
+class WindowResizer : public QObject
 {
 public:
-	WindowResizer(IResizableWindow *resizableWindow, KsnipConfig *config);
-	~WindowResizer() = default;
+	WindowResizer(IResizableWindow *resizableWindow, KsnipConfig *config, QObject *parent);
+	~WindowResizer() override = default;
 	void resize();
 	void resetAndResize();
 
@@ -35,6 +38,10 @@ private:
 	IResizableWindow *mResizableWindow;
 	KsnipConfig *mConfig;
 	bool mPerformedAutoResize;
+	int mResizeDelayInMs;
+
+private slots:
+	void resizeWindow();
 };
 
 #endif //KSNIP_WINDOWRESIZER_H

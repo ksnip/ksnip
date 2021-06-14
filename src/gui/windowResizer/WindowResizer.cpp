@@ -24,7 +24,7 @@ WindowResizer::WindowResizer(IResizableWindow *resizableWindow, KsnipConfig *con
 	mResizableWindow(resizableWindow),
 	mConfig(config),
 	mPerformedAutoResize(false),
-	mResizeDelayInMs(10)
+	mResizeDelayInMs(50)
 {
 	Q_ASSERT(mResizableWindow != nullptr);
 	Q_ASSERT(mConfig != nullptr);

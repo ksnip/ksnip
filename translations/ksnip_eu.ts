@@ -385,11 +385,11 @@ Nahi duzu gordetzea?</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Erabili </translation>
+        <translation>Erabili </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> erroreen berri emateko.</translation>
+        <translation> erroreen berri emateko.</translation>
     </message>
 </context>
 <context>
@@ -664,7 +664,8 @@ Aukera hau aldatzeak ksnip berrabiaraztea eskatzen du.</translation>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erakutsi leiho nagusia pantaila argazki berri bat egin ondoren
+leiho nagusia ezkutuan edo minimizatuta dagoenean.</translation>
     </message>
 </context>
 <context>

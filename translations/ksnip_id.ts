@@ -29,53 +29,53 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontak</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Lisensi: </translation>
+        <translation>Lisensi: </translation>
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Alat Tangkapan layar dan Anotasi</translation>
     </message>
 </context>
 <context>
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nama</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Pintasan</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Bersihkan</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Ambil Gambar</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Sertakan Kursor</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeda</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">dtk</translation>
+        <translation>dtk</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode Tangkapan</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
@@ -83,38 +83,38 @@
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Salin gambar ke Papan klip</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Unggah gambar</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka direktori induk gambar</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan gambar</translation>
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Sembunyikan Jendela Utama</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambah</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengaturan Tindakan</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindakan</translation>
     </message>
 </context>
 <context>
@@ -137,28 +137,28 @@
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished">Jika diaktifkan, akan membuat halus path pena 
+        <translation>Jika diaktifkan, akan membuat halus path pena 
 dan penanda setelah selesai menggambar.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished">Faktor Penghalusan</translation>
+        <translation>Faktor Penghalusan</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished">Menambah faktor penghalusan akan mengurangi
+        <translation>Menambah faktor penghalusan akan mengurangi
 akurasi untuk pena dan penanda, tetapi akan
 membuatnya lebih halus.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengaturan Annotator</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingat pilihan alat anotasi dan muat pada saat mulai</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
@@ -698,7 +698,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished">ID Klien</translation>
+        <translation>ID Klien</translation>
     </message>
     <message>
         <source>Client Secret</source>
@@ -706,31 +706,31 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished">PIN</translation>
+        <translation>PIN</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished">Masukkan Pin imgur yang akan diubah menjadi token.</translation>
+        <translation>Masukkan Pin imgur yang akan diubah menjadi token.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished">Dapatkan PIN</translation>
+        <translation>Dapatkan PIN</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished">Dapatkan Token</translation>
+        <translation>Dapatkan Token</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished">Riwayat imgur</translation>
+        <translation>Riwayat imgur</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished">Pengunggah Imgur</translation>
+        <translation>Pengunggah Imgur</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Nama user</translation>
+        <translation>Nama user</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
@@ -770,11 +770,11 @@ Changing requires restart.</source>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak dapat membuka gambar</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak dapat membuka gambar dari %1</translation>
     </message>
 </context>
 <context>
@@ -990,30 +990,30 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Putar</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Putar Gambar</translation>
     </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Simpan</translation>
+        <translation>Simpan</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Simpan Sebagai</translation>
+        <translation>Simpan Sebagai</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka Direktori</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Salin</translation>
+        <translation>Salin</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -1021,11 +1021,11 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Hapus</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubah nama</translation>
     </message>
 </context>
 <context>
@@ -1039,15 +1039,15 @@ gambar, dalam detik.</translation>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Tutup</translation>
+        <translation>Tutup</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutup Lainnya</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutup Semua</translation>
     </message>
 </context>
 <context>
@@ -1077,42 +1077,42 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubah nama gambar</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nama file baru:</translation>
     </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Simpan Sebagai</translation>
+        <translation>Simpan Sebagai</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Gambar</translation>
+        <translation>Gambar</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Semua file</translation>
+        <translation>Semua file</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Gambar Disimpan</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Gagal Menyimpan Gambar</translation>
     </message>
     <message>
         <source>Saved to</source>
-        <translation type="unfinished"></translation>
+        <translation>Menyimpan ke</translation>
     </message>
     <message>
         <source>Failed to save image to</source>
-        <translation type="unfinished"></translation>
+        <translation>Gagal menyimpan gambar ke</translation>
     </message>
 </context>
 <context>
@@ -1147,7 +1147,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Telusuri</translation>
+        <translation>Telusuri</translation>
     </message>
     <message>
         <source>Saver Settings</source>
@@ -1163,11 +1163,11 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Faktor</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan Kualitas</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
@@ -1183,7 +1183,7 @@ Not all image formats support the full range, JPEG does.</source>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrip:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
@@ -1192,7 +1192,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">Telusuri</translation>
+        <translation>Telusuri</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1257,11 +1257,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengunggah</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengunggah Skrip</translation>
     </message>
     <message>
         <source>Saver</source>
@@ -1285,7 +1285,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindakan</translation>
     </message>
 </context>
 <context>
@@ -1421,7 +1421,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Area Pemotong</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
@@ -1446,19 +1446,19 @@ Smaller number is more transparent.</source>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Atas</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Bawah</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Gunakan Stiker Default</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengaturan Stiker</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
@@ -1466,29 +1466,29 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambah</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Hapus</translation>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambah Stiker</translation>
     </message>
 </context>
 <context>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan Editor</translation>
     </message>
 </context>
 <context>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Gunakan Ikon Baki</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
@@ -1509,7 +1509,7 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan Editor</translation>
     </message>
     <message>
         <source>Capture</source>
@@ -1549,7 +1549,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished">Gambar</translation>
+        <translation>Gambar</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1583,26 +1583,26 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipe Pengunggah:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrip</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengunggah</translation>
     </message>
 </context>
 <context>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Versi</translation>
+        <translation>Versi</translation>
     </message>
     <message>
         <source>Build</source>

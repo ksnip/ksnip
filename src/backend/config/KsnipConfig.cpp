@@ -100,6 +100,19 @@ void KsnipConfig::setAutoResizeToContent(bool enabled)
 	saveValue(KsnipConfigOptions::autoResizeToContentString(), enabled);
 }
 
+int KsnipConfig::resizeToContentDelay() const
+{
+	return loadValue(KsnipConfigOptions::resizeToContentDelayString(), 10).toInt();
+}
+
+void KsnipConfig::setResizeToContentDelay(int ms)
+{
+	if (resizeToContentDelay() == ms) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::resizeToContentDelayString(), ms);
+}
+
 bool KsnipConfig::useTabs() const
 {
 	return loadValue(KsnipConfigOptions::useTabsString(), true).toBool();

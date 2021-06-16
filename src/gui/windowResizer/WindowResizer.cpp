@@ -38,7 +38,7 @@ void WindowResizer::resize()
 
 	auto enforceAutoResize = mConfig->autoResizeToContent() || !mPerformedAutoResize;
 	if (enforceAutoResize) {
-		QTimer::singleShot(mResizeDelayInMs, this, &WindowResizer::resizeWindow);
+		QTimer::singleShot(mConfig->resizeToContentDelay(), this, &WindowResizer::resizeWindow);
 	}
 }
 

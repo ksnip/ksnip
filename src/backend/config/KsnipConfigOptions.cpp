@@ -84,6 +84,11 @@ QString KsnipConfigOptions::autoResizeToContentString()
 	return applicationSectionString() + QLatin1String("AutoResizeToContent");
 }
 
+QString KsnipConfigOptions::resizeToContentDelayString()
+{
+	return applicationSectionString() + QLatin1String("ResizeToContentDelay");
+}
+
 QString KsnipConfigOptions::freezeImageWhileSnippingEnabledString()
 {
 	return imageGrabberSectionString() + QLatin1String("FreezeImageWhileSnippingEnabled");

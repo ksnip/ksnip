@@ -40,6 +40,7 @@ public:
 	static QString positionString();
 	static QString autoHideDocksString();
 	static QString autoResizeToContentString();
+	static QString resizeToContentDelayString();
 	static QString captureModeString();
 	static QString saveQualityModeString();
 	static QString saveQualityFactorString();

@@ -32,13 +32,14 @@
 
 #include "src/backend/config/KsnipConfig.h"
 #include "src/common/helper/EnumTranslator.h"
+#include "src/widgets/CustomSpinBox.h"
 
 class ApplicationSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
 	explicit ApplicationSettings(KsnipConfig *ksnipConfig);
-	~ApplicationSettings() override;
+	~ApplicationSettings() override = default;
 	void saveSettings();
 
 private:
@@ -51,7 +52,9 @@ private:
 	QCheckBox *mAutoHideDocksCheckBox;
 	QCheckBox *mAutoResizeToContentCheckBox;
 	QLabel *mApplicationStyleLabel;
+	QLabel *mResizeToContentDelayLabel;
 	QComboBox *mApplicationStyleCombobox;
+	CustomSpinBox *mResizeToContentDelaySpinBox;
 	QGridLayout *mLayout;
 	KsnipConfig *mConfig;
 

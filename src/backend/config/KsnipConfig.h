@@ -64,6 +64,9 @@ public:
 	virtual bool autoResizeToContent() const;
 	virtual void setAutoResizeToContent(bool enabled);
 
+	virtual int resizeToContentDelay() const;
+	virtual void setResizeToContentDelay(int ms);
+
 	virtual bool useTabs() const;
 	virtual void setUseTabs(bool enabled);
 

@@ -30,7 +30,9 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	mAutoHideDocksCheckBox(new QCheckBox(this)),
 	mAutoResizeToContentCheckBox(new QCheckBox(this)),
 	mApplicationStyleLabel(new QLabel(this)),
+	mResizeToContentDelayLabel(new QLabel(this)),
 	mApplicationStyleCombobox(new QComboBox(this)),
+	mResizeToContentDelaySpinBox(new CustomSpinBox(0, 1000, this)),
 	mLayout(new QGridLayout)
 {
 	Q_ASSERT(mConfig != nullptr);
@@ -38,21 +40,6 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	initGui();
 
 	loadConfig();
-}
-
-ApplicationSettings::~ApplicationSettings()
-{
-	delete mAutoCopyToClipboardNewCapturesCheckbox;
-	delete mRememberPositionCheckbox;
-	delete mCaptureOnStartupCheckbox;
-	delete mUseTabsCheckbox;
-	delete mAutoHideTabsCheckbox;
-	delete mUseSingleInstanceCheckBox;
-	delete mAutoHideDocksCheckBox;
-	delete mAutoResizeToContentCheckBox;
-	delete mApplicationStyleLabel;
-	delete mApplicationStyleCombobox;
-	delete mLayout;
 }
 
 void ApplicationSettings::initGui()
@@ -80,6 +67,14 @@ void ApplicationSettings::initGui()
 	mAutoResizeToContentCheckBox->setText(tr("Auto resize to content"));
 	mAutoResizeToContentCheckBox->setToolTip(tr("Automatically resize Main Window to fit content image."));
 
+	mResizeToContentDelayLabel->setText(tr("Resize to content delay") + QLatin1String(":"));
+	mResizeToContentDelayLabel->setToolTip(tr("Resizing to content is delay to allow the Window Manager to receive\n"
+										   		 "the new content. In case that the Main Windows is not adjusted correctly\n"
+												 "to the new content, increasing this delay might improve the behavior."));
+
+	mResizeToContentDelaySpinBox->setSuffix(QLatin1String("ms"));
+	mResizeToContentDelaySpinBox->setToolTip(mResizeToContentDelayLabel->toolTip());
+
 	connect(mUseTabsCheckbox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTabsChanged);
 
 	mApplicationStyleLabel->setText(tr("Application Style") + QLatin1String(":"));
@@ -100,9 +95,11 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mUseSingleInstanceCheckBox, 5, 0, 1, 4);
 	mLayout->addWidget(mAutoHideDocksCheckBox, 6, 0, 1, 4);
 	mLayout->addWidget(mAutoResizeToContentCheckBox, 7, 0, 1, 4);
-	mLayout->setRowMinimumHeight(8, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 9, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 9, 2, Qt::AlignLeft);
+	mLayout->addWidget(mResizeToContentDelayLabel, 8, 0, 1, 2);
+	mLayout->addWidget(mResizeToContentDelaySpinBox, 8, 2, Qt::AlignLeft);
+	mLayout->setRowMinimumHeight(9, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 10, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 10, 2, Qt::AlignLeft);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -118,6 +115,7 @@ void ApplicationSettings::loadConfig()
 	mUseSingleInstanceCheckBox->setChecked(mConfig->useSingleInstance());
 	mAutoHideDocksCheckBox->setChecked(mConfig->autoHideDocks());
 	mAutoResizeToContentCheckBox->setChecked(mConfig->autoResizeToContent());
+	mResizeToContentDelaySpinBox->setValue(mConfig->resizeToContentDelay());
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
 
 	useTabsChanged();
@@ -133,6 +131,7 @@ void ApplicationSettings::saveSettings()
 	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
 	mConfig->setAutoHideDocks(mAutoHideDocksCheckBox->isChecked());
 	mConfig->setAutoResizeToContent(mAutoResizeToContentCheckBox->isChecked());
+	mConfig->setResizeToContentDelay(mResizeToContentDelaySpinBox->value());
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 }
 

@@ -148,6 +148,9 @@ $ flatpak run org.ksnip.ksnip
 
 ## Windows
 
+### MSI
+The MSI installer installs ksnip on your system and is the preferred way for installing ksnip under Windows.
+
 ### EXE
 The EXE file with all required dependencies comes in a zipped package, which just need to be unzipped
 with your favorite unpacking tool. Ksnip can then be started by just double-clicking ksnip.exe.

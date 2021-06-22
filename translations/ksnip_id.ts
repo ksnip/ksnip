@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan gambar di Jendela Sematkan</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
@@ -132,7 +132,7 @@
     <name>AnnotationSettings</name>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished">Haluskan Path Pinter</translation>
+        <translation>Haluskan Path Painter</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and

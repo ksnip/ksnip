@@ -7,6 +7,7 @@
 * Fixed: Resizing window to match content doesn't work on opening first image/screenshot. ([#664](https://github.com/ksnip/ksnip/issues/664))
 * Fixed kImageAnnotator: Crashes on destruction. ([#242](https://github.com/ksnip/kImageAnnotator/issues/242))
 * Fixed kImageAnnotator: Memory leaks caught by ASAN. ([#243](https://github.com/ksnip/kImageAnnotator/issues/243))
+* Changed kImageAnnotator: Use system font provided by QGuiApplication as default for text tool. ([#247](https://github.com/ksnip/kImageAnnotator/issues/247))
 
 ## Release 1.9.0
 * New: Add option to select the default action for tray icon left click. ([#502](https://github.com/ksnip/ksnip/issues/502))

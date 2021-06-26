@@ -93,6 +93,7 @@
                     <li>Fixed: Resizing window to match content doesn't work on opening first image/screenshot.</li>
                     <li>Fixed kImageAnnotator: Crashes on destruction.</li>
                     <li>Fixed kImageAnnotator: Memory leaks caught by ASAN.</li>
+                    <li>Changed kImageAnnotator: Use system font provided by QGuiApplication as default for text tool.</li>
                 </ul>
             </description>
         </release>

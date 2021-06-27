@@ -19,7 +19,9 @@
 
 #include "WinSnippingArea.h"
 
-WinSnippingArea::WinSnippingArea() : AbstractSnippingArea()
+WinSnippingArea::WinSnippingArea() :
+        AbstractSnippingArea(),
+        mIsFullScreenSizeSet(false)
 {
     setWindowFlags(windowFlags() | Qt::Tool);
 }
@@ -37,25 +39,20 @@ QRect WinSnippingArea::selectedRectArea() const
 
 void WinSnippingArea::setFullScreen()
 {
-    auto fullScreenRect = getFullScreenRect();
-    setGeometry(fullScreenRect);
+    auto rect = mWinWrapper.getFullScreenRect();
+
+    // Workaround for Qt HiDPI issue, setting geometry more then once
+    // enlarges the widget outside the size of the visible desktop. See #668.
+    if(!mIsFullScreenSizeSet) {
+        setGeometry(rect);
+        mIsFullScreenSizeSet = true;
+    }
+
     QWidget::show();
 }
 
 QRect WinSnippingArea::getSnippingAreaGeometry() const
 {
-    auto snippingAreaGeometry = geometry();
-    return {mapFromGlobal(snippingAreaGeometry.topLeft()), mapFromGlobal(snippingAreaGeometry.bottomRight())};
-}
-
-QRect WinSnippingArea::getFullScreenRect() const
-{
-    QRect fullScreenRect;
-    auto screenCount = QDesktopWidget().screenCount();
-    for(int i = 0; i < screenCount; i++) {
-        auto screenRect = QDesktopWidget().screenGeometry(i);
-		fullScreenRect = fullScreenRect.united(screenRect);
-    }
-
-    return fullScreenRect;
+    auto geometrySize = geometry().size();
+    return {0, 0, geometrySize.width(), geometrySize.height() };
 }

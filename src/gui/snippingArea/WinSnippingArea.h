@@ -22,6 +22,7 @@
 
 #include "AbstractSnippingArea.h"
 #include "src/common/platform/HdpiScaler.h"
+#include "src/backend/imageGrabber/WinWrapper.h"
 
 class WinSnippingArea : public AbstractSnippingArea
 {
@@ -35,8 +36,9 @@ protected:
     QRect getSnippingAreaGeometry() const override;
 
 private:
-    QRect getFullScreenRect() const;
     HdpiScaler mHdpiScaler;
+    WinWrapper mWinWrapper;
+    bool mIsFullScreenSizeSet;
 };
 
 #endif //KSNIP_WINSNIPPINGAREA_H

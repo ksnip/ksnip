@@ -5,6 +5,7 @@
 * Fixed: Deb CI build is frequently failing due to docker image pull limit. ([#655](https://github.com/ksnip/ksnip/issues/655))
 * Fixed: Dropped temporary images appear in the open recent menu. ([#613](https://github.com/ksnip/ksnip/issues/613))
 * Fixed: Resizing window to match content doesn't work on opening first image/screenshot. ([#664](https://github.com/ksnip/ksnip/issues/664))
+* Fixed: HiDPI issue with multiple screen on Windows. ([#668](https://github.com/ksnip/ksnip/issues/668))
 * Fixed kImageAnnotator: Crashes on destruction. ([#242](https://github.com/ksnip/kImageAnnotator/issues/242))
 * Fixed kImageAnnotator: Memory leaks caught by ASAN. ([#243](https://github.com/ksnip/kImageAnnotator/issues/243))
 * Changed kImageAnnotator: Use system font provided by QGuiApplication as default for text tool. ([#247](https://github.com/ksnip/kImageAnnotator/issues/247))

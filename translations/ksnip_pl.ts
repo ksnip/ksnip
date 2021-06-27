@@ -166,7 +166,7 @@ ale uczyni je bardziej gładkimi.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmiana numeru aktualizuje wszystkie ponumerowane pozycje</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
@@ -188,7 +188,7 @@ Zmiana koloru wpływa tylko na nowe obszary adnotacji.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished">Wybierz element po narysowaniu</translation>
+        <translation>Wybierz element po narysowaniu</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
@@ -1399,8 +1399,8 @@ włączone dla MacO.</translation>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Pokaż lupę, która powiększa
-obraz tła. Ta opcja działa tylko
+        <translation>Wyświetla lupę, która pozwala
+powiększyć obraz tła. Ta opcja działa tylko
 z włączoną funkcją &quot;Zamrażaj obraz podczas przycinania&quot;.</translation>
     </message>
     <message>
@@ -1467,7 +1467,7 @@ naciskając klawisz return.</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished">Kolor ozdobnika obszaru wycinania</translation>
+        <translation>Ozdobny kolor obszaru przechwytywania</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements

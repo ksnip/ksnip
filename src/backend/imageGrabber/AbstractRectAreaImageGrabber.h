@@ -69,6 +69,7 @@ private:
 	bool isRectAreaCaptureWithBackground() const;
 	bool isRectAreaCaptureWithoutBackground() const;
 	CursorDto getCursorRelativeToScreenshot() const;
+    void storeCursorForPostProcessing(const QRect &screenRect);
 };
 
 #endif // KSNIP_ABSTRACTRECTAREAIMAGEGRABBER_H

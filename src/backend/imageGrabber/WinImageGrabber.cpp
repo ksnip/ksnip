@@ -44,5 +44,5 @@ QRect WinImageGrabber::fullScreenRect() const
 
 CursorDto WinImageGrabber::getCursorWithPosition() const
 {
-	return mWinWrapper->getCursorWithPosition();
+    return mWinWrapper->getCursorWithPosition();
 }

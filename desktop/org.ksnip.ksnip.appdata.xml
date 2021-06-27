@@ -92,6 +92,7 @@
                     <li>Fixed: Dropped temporary images appear in the open recent menu.</li>
                     <li>Fixed: Resizing window to match content doesn't work on opening first image/screenshot.</li>
                     <li>Fixed: HiDPI issue with multiple screen on Windows.</li>
+                    <li>Fixed: Cursor not captured in rectangle capture.</li>
                     <li>Fixed kImageAnnotator: Crashes on destruction.</li>
                     <li>Fixed kImageAnnotator: Memory leaks caught by ASAN.</li>
                     <li>Changed kImageAnnotator: Use system font provided by QGuiApplication as default for text tool.</li>

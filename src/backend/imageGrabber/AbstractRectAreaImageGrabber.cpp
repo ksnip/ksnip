@@ -164,11 +164,13 @@ void AbstractRectAreaImageGrabber::grab()
 CursorDto AbstractRectAreaImageGrabber::getCursorRelativeToScreenshot() const
 {
 	auto cursor = getCursorImageWithPositionFromCorrectSource();
-	if(mCaptureRect.contains(cursor.position)) {
-		cursor.position -= mCaptureRect.topLeft();
-		return cursor;
-	}
-	return {};
+
+    if (mCaptureRect.contains(cursor.position)) {
+        cursor.position -= mCaptureRect.topLeft(); // The final cursor is inserted with offset from 0,0
+        return cursor;
+    } else {
+        return {};
+    }
 }
 
 bool AbstractRectAreaImageGrabber::shouldCaptureCursor() const
@@ -183,9 +185,17 @@ void AbstractRectAreaImageGrabber::openSnippingArea()
 	} else {
 		auto screenRect = fullScreenRect();
 		auto background = getScreenshotFromRect(screenRect);
-		mStoredCursorImageWithPosition = getCursorWithPosition();
-		openSnippingAreaWithBackground(background);
+        storeCursorForPostProcessing(screenRect);
+        openSnippingAreaWithBackground(background);
 	}
+}
+
+void AbstractRectAreaImageGrabber::storeCursorForPostProcessing(const QRect &screenRect)
+{
+    auto offset = screenRect.topLeft();
+    auto cursorWithPosition = getCursorWithPosition();
+    cursorWithPosition.position -= offset; // Fix in case left most monitor has negative position
+    mStoredCursorImageWithPosition = cursorWithPosition;
 }
 
 void AbstractRectAreaImageGrabber::connectSnippingAreaCancel()

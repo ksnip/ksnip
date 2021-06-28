@@ -234,7 +234,7 @@ If you want to help or just want appreciate the work being done by treating deve
 you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)
 
 [travis-badge]:        https://img.shields.io/travis/ksnip/ksnip.svg?label=travis&logo=travis
-[travis-url]:          https://travis-ci.org/ksnip/ksnip
+[travis-url]:          https://travis-ci.com/ksnip/ksnip
 
 [weblate-badge]:       https://hosted.weblate.org/widgets/ksnip/-/translations/svg-badge.svg
 [weblate-url]:         https://hosted.weblate.org/engage/ksnip/?utm_source=widget

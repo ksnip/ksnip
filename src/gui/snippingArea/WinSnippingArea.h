@@ -39,6 +39,9 @@ private:
     HdpiScaler mHdpiScaler;
     WinWrapper mWinWrapper;
     bool mIsFullScreenSizeSet;
+    bool mIsMultipleScaledScreens;
+
+    void checkMultipleScaledScreens();
 };
 
 #endif //KSNIP_WINSNIPPINGAREA_H

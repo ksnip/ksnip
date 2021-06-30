@@ -20,10 +20,13 @@
 #include "WinSnippingArea.h"
 
 WinSnippingArea::WinSnippingArea() :
-        AbstractSnippingArea(),
-        mIsFullScreenSizeSet(false)
+    AbstractSnippingArea(),
+    mIsFullScreenSizeSet(false),
+    mIsMultipleScaledScreens(false)
 {
     setWindowFlags(windowFlags() | Qt::Tool);
+
+    checkMultipleScaledScreens();
 }
 
 QRect WinSnippingArea::selectedRectArea() const
@@ -39,13 +42,20 @@ QRect WinSnippingArea::selectedRectArea() const
 
 void WinSnippingArea::setFullScreen()
 {
-    auto rect = mWinWrapper.getFullScreenRect();
-
     // Workaround for Qt HiDPI issue, setting geometry more then once
     // enlarges the widget outside the size of the visible desktop. See #668.
-    if(!mIsFullScreenSizeSet) {
-        setGeometry(rect);
-        mIsFullScreenSizeSet = true;
+    // Qt behaves differently in case of one or multiple scaled screens so
+    // we utilise here different 'hacks' to fix the different use cases.
+    // This part just be checked after upgrading to newer Qt version if it
+    // can be simplified again in case the issue was fixed from Qt side.
+    if(mIsMultipleScaledScreens) {
+        setGeometry(QApplication::desktop()->geometry());
+        QWidget::show();
+        setGeometry(QApplication::desktop()->geometry());
+    } else if(!mIsFullScreenSizeSet) {
+            auto rect = mWinWrapper.getFullScreenRect();
+            setGeometry(rect);
+            mIsFullScreenSizeSet = true;
     }
 
     QWidget::show();
@@ -53,6 +63,23 @@ void WinSnippingArea::setFullScreen()
 
 QRect WinSnippingArea::getSnippingAreaGeometry() const
 {
-    auto geometrySize = geometry().size();
-    return {0, 0, geometrySize.width(), geometrySize.height() };
+    if(mIsMultipleScaledScreens) {
+        auto rect = mWinWrapper.getFullScreenRect();
+        return {0, 0, rect.width() / 2, rect.height() / 2 };
+    } else {
+        return {0, 0, geometry().width(), geometry().height() };
+    }
+}
+
+void WinSnippingArea::checkMultipleScaledScreens() {
+    auto scaledScreens = 0;
+    auto screens = QApplication::screens();
+    for(auto screen : screens) {
+        if(screen->devicePixelRatio() > 1) {
+
+            scaledScreens++;
+        }
+    }
+
+    mIsMultipleScaledScreens = scaledScreens > 1;
 }

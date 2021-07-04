@@ -1436,10 +1436,10 @@ i powyżej przechwyconego obszaru.</translation>
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished">Po włączeniu tej opcji, po zaznaczeniu prostokątnego
-pozwoli na zmianę rozmiaru zaznaczenia. Kiedy
+        <translation>Po włączeniu tej opcji, po zaznaczeniu prostokątnego
+obszaru, pozwoli na zmianę rozmiaru zaznaczenia. Po
 zakończeniu zmiany rozmiaru można potwierdzić wybór
-naciskając klawisz return.</translation>
+naciskając wstecz.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
@@ -1482,7 +1482,7 @@ na obszarze wycinania.</translation>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished">Alfa dla nie zaznaczonego regionu na obszarze wycinania.
+        <translation>Przezroczystość nie zaznaczonego regionu w obszarze przycinania.
 Mniejsza liczba jest bardziej przezroczysta.</translation>
     </message>
 </context>
@@ -1537,7 +1537,7 @@ Mniejsza liczba jest bardziej przezroczysta.</translation>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Po włączeniu doda ikonę do paska zadań, jeśli obsługuje go Menedżer okien systemu operacyjnego.
+        <translation>Po włączeniu doda ikonę do paska zadań, jeśli obsługuje go Menedżer okien systemu operacyjnego.
 Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
     <message>

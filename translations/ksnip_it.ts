@@ -1675,7 +1675,7 @@ della piattaforma quando questa esiste. La modifica richiede il riavvio per aver
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation>Se abilitato, la Filigrana verrà aggiunta con una rotazione di 45 °</translation>
+        <translation>Se abilitato, la Filigrana verrà aggiunta con una rotazione di 45°</translation>
     </message>
     <message>
         <source>Watermark Settings</source>

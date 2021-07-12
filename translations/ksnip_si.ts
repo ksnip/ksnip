@@ -51,11 +51,11 @@
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>කෙටිමග</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>හිස් කරන්න</translation>
     </message>
     <message>
         <source>Take Capture</source>
@@ -67,11 +67,11 @@
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>ප්‍රමාදය</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>තත්.</translation>
     </message>
     <message>
         <source>Capture Mode</source>
@@ -99,22 +99,22 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>ප්‍රධාන කවුළුව සඟවන්න</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>එකතු කරන්න</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>ක්‍රියමාර්ග සැකසුම</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>ක්‍රියාමාර්ගය</translation>
     </message>
 </context>
 <context>
@@ -151,7 +151,7 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
@@ -207,7 +207,7 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>යෙදුමේ සැකසුම්</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
@@ -266,35 +266,35 @@ Docks visibility can be toggled with the Tab Key.</source>
     <name>AuthorTab</name>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished"></translation>
+        <translation>සහදායකයින්:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>ස්පාඤ්ඤ පරිවර්තනය</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>ලන්දේසි පරිවර්තනය</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>රුසියානු පරිවර්තනය</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>නෝර්වීජියානු බොක්මාල් පරිවර්තනය</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>ප්‍රංශ පරිවර්තනය</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>පෝලන්ත පරිවර්තනය</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>ස්නැප් සහ ෆ්ලැට්පැක් සහාය</translation>
     </message>
     <message>
         <source>The Authors:</source>
@@ -305,7 +305,7 @@ Docks visibility can be toggled with the Tab Key.</source>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished"></translation>
+        <translation>අවවාදයයි - </translation>
     </message>
     <message>
         <source>The capture %1%2%3 has been modified.
@@ -352,19 +352,19 @@ Do you want to save it?</source>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>ප්‍රජාව</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>ඔබට සාමාන්‍ය ප්‍රශ්න, අදහස් තිබේ නම් හෝ කේස්නිප් ගැන කතා කිරීමට අවශ්‍ය නම්,</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation type="unfinished"></translation>
+        <translation>සම්බන්ධ වන්න </translation>
     </message>
     <message>
         <source> server.</source>
-        <translation type="unfinished"></translation>
+        <translation> සේවාදායකය.</translation>
     </message>
     <message>
         <source>Bug Reports</source>
@@ -414,7 +414,7 @@ Do you want to continue?</source>
     <name>DonateTab</name>
     <message>
         <source>here</source>
-        <translation type="unfinished"></translation>
+        <translation>මෙතැන</translation>
     </message>
     <message>
         <source>Also possible, </source>
@@ -422,15 +422,15 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>පරිත්‍යාග සැමවිටම පිළිගනු ලැබේ</translation>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>පරිත්‍යාග</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation type="unfinished"></translation>
+        <translation>ගිට්හබ් අනුග්‍රාහකයෙකු වන්න</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
@@ -464,11 +464,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>වත්මන් තිරය</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>සක්‍රීය කවුළුව</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
@@ -476,14 +476,14 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>තිරසේයා ද්වාරය</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>උඩුගත වීම සාර්ථකයි</translation>
     </message>
     <message>
         <source>Upload script </source>
@@ -531,7 +531,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>උඩුගත වීම අසාර්ථකයි</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
@@ -542,7 +542,7 @@ Do you want to continue?</source>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>ගෝලීය උණුසුම්යතුර සබල කරන්න</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
@@ -550,7 +550,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>ගෝලීය උණුසුම් යතුරු</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
@@ -566,7 +566,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>ගෝලීය උණුසුම්යතුරු</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
@@ -574,7 +574,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>හිස් කරන්න</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
@@ -659,7 +659,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"></translation>
+        <translation>සබැඳිය</translation>
     </message>
     <message>
         <source>Delete Link</source>
@@ -670,7 +670,7 @@ when the Main Window was hidden or minimize.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur.com වෙත උඩුගත කිරීම අවසන්!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -685,7 +685,7 @@ when the Main Window was hidden or minimize.</source>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished"></translation>
+        <translation>බලාත්මක නිර්නාමික උඩුගත කිරීම</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
@@ -693,11 +693,11 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුග්‍රාහකයේ හැඳුනුම</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished"></translation>
+        <translation>අනුග්‍රාහකයේ රහස</translation>
     </message>
     <message>
         <source>PIN</source>
@@ -725,11 +725,11 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur.com සඳහා රැඳෙමින්…</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
@@ -789,7 +789,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>සුරකින්න</translation>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
@@ -797,7 +797,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>පිටපත්</translation>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
@@ -805,15 +805,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished"></translation>
+        <translation>මෙවලම්</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>පෙරසේ</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>පසුසේ</translation>
     </message>
     <message>
         <source>Crop</source>
@@ -832,11 +832,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>උඩුගත කරන්න</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"></translation>
+        <translation>මුද්‍රණය කරන්න</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
@@ -844,7 +844,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>මුද්‍රණ පෙරදසුන</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
@@ -856,31 +856,31 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>ඉවත් වන්න</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>සැකසුම්</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>පිළිබඳව</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>විවෘත කරන්න</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>සංස්කරණය</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation type="unfinished"></translation>
+        <translation>විකල්ප</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>උපකාර</translation>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
@@ -888,7 +888,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>දිය සලකුණ එකතුකරන්න</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
@@ -896,7 +896,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>ගොනුව</translation>
     </message>
     <message>
         <source>Unable to show image</source>
@@ -904,11 +904,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>ලෙස සුරකින්න...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>අලවන්න</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
@@ -944,7 +944,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>නැවත නම් කරන්න</translation>
     </message>
     <message>
         <source>Open Images</source>
@@ -960,7 +960,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>දත්ත ඒ.ස.හ.(URI) ලෙස පිටපත් කරන්න</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
@@ -995,11 +995,11 @@ and capturing screenshot.</source>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>සුරකින්න</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>ලෙස සුරකින්න</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -1007,11 +1007,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>පිටපත් කරන්න</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>මාර්ගය පිටපත් කරන්න</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1019,7 +1019,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>නැවත නම් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -1033,15 +1033,15 @@ and capturing screenshot.</source>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">වසන්න</translation>
+        <translation>වසන්න</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>අනෙක්වා වසන්න</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>සියල්ල වසන්න</translation>
     </message>
 </context>
 <context>
@@ -1075,14 +1075,14 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>නව ගොනුනාමය:</translation>
     </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished"></translation>
+        <translation>ලෙස සුරකින්න</translation>
     </message>
     <message>
         <source>Images</source>
@@ -1090,7 +1090,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished"></translation>
+        <translation>සියලුම ගොනු</translation>
     </message>
     <message>
         <source>Image Saved</source>
@@ -1141,11 +1141,11 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>පිරික්සන්න</translation>
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>සුරැකීමේ සැකසුම්</translation>
     </message>
     <message>
         <source>Capture save location</source>
@@ -1161,7 +1161,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>සුරැකීමේ ගුණාත්මභාවය</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
@@ -1186,7 +1186,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>පිරික්සන්න</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1207,7 +1207,7 @@ Without this setting errors in the script will be unnoticed.</source>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>පෙරහන:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
@@ -1219,15 +1219,15 @@ When omitted, everything is copied.</source>
     <name>SettingsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>සැකසුම්</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>හරි</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -1239,7 +1239,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>යෙදුම</translation>
     </message>
     <message>
         <source>Annotator</source>
@@ -1247,11 +1247,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>උණුසුම් යතුරු</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1259,7 +1259,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>සුරැකුම</translation>
     </message>
     <message>
         <source>Stickers</source>
@@ -1275,11 +1275,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>දිය සලකුණ</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>ක්‍රියාමාර්ග</translation>
     </message>
 </context>
 <context>
@@ -1306,7 +1306,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>සැකසුම් හරහා මෙම පණිවිඩය අබල කළ හැකිය.</translation>
     </message>
 </context>
 <context>
@@ -1457,11 +1457,11 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>එකතු කරන්න</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>ඉවත් කරන්න</translation>
     </message>
     <message>
         <source>Add Stickers</source>
@@ -1544,7 +1544,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished"></translation>
+        <translation>සියලුම ගොනු</translation>
     </message>
 </context>
 <context>
@@ -1601,7 +1601,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Using:</source>
-        <translation type="unfinished"></translation>
+        <translation>භාවිතයෙන්:</translation>
     </message>
 </context>
 <context>
@@ -1612,11 +1612,11 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>යාවත්කාල</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>දිය සලකුණ කරකවන්න</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
@@ -1624,7 +1624,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>දිය සලකුණු සැකසුම්</translation>
     </message>
 </context>
 </TS>

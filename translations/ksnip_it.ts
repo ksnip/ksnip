@@ -282,27 +282,27 @@ La visibilità dei dock può essere attivata o disattivata con il tasto Tab.</tr
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation>Traduzione in spagnolo</translation>
+        <translation>Traduzione in Spagnolo</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation>Traduzione in olandese</translation>
+        <translation>Traduzione in Olandese</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation>Traduzione in russo</translation>
+        <translation>Traduzione in Russo</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation>Traduzione in Bokmål norvegese</translation>
+        <translation>Traduzione in Bokmål Norvegese</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation>Traduzione in francese</translation>
+        <translation>Traduzione in Francese</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation>Traduzione in polacco</translation>
+        <translation>Traduzione in Polacco</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>

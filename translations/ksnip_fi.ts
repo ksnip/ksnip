@@ -1633,7 +1633,7 @@ palvelua, jos sellainen on olemassa. Vaatii käynnistyksen uudelleen.</translati
     </message>
     <message>
         <source>Imgur</source>
-        <translation>Imgur</translation>
+        <translation>Imgur palvelu</translation>
     </message>
     <message>
         <source>Script</source>

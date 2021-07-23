@@ -28,10 +28,10 @@ jobs:
         
     - name: Setup Qt
       run: |
-        brew install qt@5
-        export PATH="/usr/local/opt/qt@5/bin:$PATH"
-        export LDFLAGS="-L/usr/local/opt/qt@5/lib"
-        export CPPFLAGS="-I/usr/local/opt/qt@5/include"
+        brew install qt5
+        export PATH="/usr/local/opt/qt5/bin:$PATH"
+        export LDFLAGS="-L/usr/local/opt/qt5/lib"
+        export CPPFLAGS="-I/usr/local/opt/qt5/include"
         
     - name: Setup kColorPicker
       working-directory: ${{github.workspace}}
@@ -41,7 +41,7 @@ jobs:
         
         cd kColorPicker
         mkdir build && cd build
-        cmake ..
+        cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DBUILD_EXAMPLE=OFF
         make && sudo make install
         
     - name: Setup kImageAnnotator
@@ -52,7 +52,7 @@ jobs:
         
         cd kImageAnnotator
         mkdir build && cd build
-        cmake ..
+        cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DBUILD_EXAMPLE=OFF
         make && sudo make install
         
     - name: Build

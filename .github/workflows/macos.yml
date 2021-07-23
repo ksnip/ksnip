@@ -25,13 +25,13 @@ jobs:
         
         echo "Build number is $BUILD_NUMBER"
         echo "Version number is $VERSION_NUMBER"
-        
-    - name: Setup Qt
-      run: |
-        brew install qt5
-        export PATH="/usr/local/opt/qt@5/bin:$PATH"
-        export LDFLAGS="-L/usr/local/opt/qt@5/lib"
-        export CPPFLAGS="-I/usr/local/opt/qt@5/include"
+                
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: '5.15.2'
+        host: 'mac'
+        install-deps: 'true'
         
     - name: Setup kColorPicker
       working-directory: ${{github.workspace}}

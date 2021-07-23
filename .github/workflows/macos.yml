@@ -23,12 +23,15 @@ jobs:
         export INSTALL_PREFIX="/usr"
         export BUILD_TYPE="Release"
         
+        echo "Build number is $BUILD_NUMBER"
+        echo "Version number is $VERSION_NUMBER"
+        
     - name: Setup Qt
       run: |
         brew install qt@5
-        export LDFLAGS="-L/usr/local/opt/qt5/lib"
-        export CPPFLAGS="-I/usr/local/opt/qt5/include"
-        export PATH="/usr/local/opt/qt5/bin:$PATH"
+        export PATH="/usr/local/opt/qt@5/bin:$PATH"
+        export LDFLAGS="-L/usr/local/opt/qt@5/lib"
+        export CPPFLAGS="-I/usr/local/opt/qt@5/include"
         
     - name: Setup kColorPicker
       working-directory: ${{github.workspace}}

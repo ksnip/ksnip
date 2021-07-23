@@ -1,0 +1,60 @@
+name: macOS
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Define Release Number
+      run: |
+        VERSION_REGEX="([0-9]{1,}\.)+[0-9]{1,}"
+        export BUILD_TIME=$(date +"%a, %d %b %Y %T %z")
+        export BUILD_DATE=$(date  +"%a %b %d %Y")
+        export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
+        export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
+        export INSTALL_PREFIX="/usr"
+        export BUILD_TYPE="Release"
+        
+    - name: Setup Qt
+      run: |
+        brew install qt@5
+        export LDFLAGS="-L/usr/local/opt/qt5/lib"
+        export CPPFLAGS="-I/usr/local/opt/qt5/include"
+        export PATH="/usr/local/opt/qt5/bin:$PATH"
+        
+    - name: Setup kColorPicker
+      working-directory: ${{github.workspace}}
+      run: |
+        echo "--> Building ksnip with latest version of kColorPicker"
+        git clone --depth 1 git://github.com/ksnip/kColorPicker
+        
+        cd kColorPicker
+        mkdir build && cd build
+        cmake ..
+        make && sudo make install
+        
+    - name: Setup kImageAnnotator
+      working-directory: ${{github.workspace}}
+      run: |
+        echo "--> Building ksnip with latest version of kImageAnnotator"
+        git clone --depth 1 git://github.com/ksnip/kImageAnnotator
+        
+        cd kImageAnnotator
+        mkdir build && cd build
+        cmake ..
+        make && sudo make install
+        
+    - name: Build
+      working-directory: ${{github.workspace}}
+      run: |
+        mkdir build && cd build
+        cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=/usr/local/include/kImageAnnotator
+        make    

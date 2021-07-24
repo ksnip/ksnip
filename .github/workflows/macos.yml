@@ -11,6 +11,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
+    - name: Checkout
     - uses: actions/checkout@v2
     
     - name: Define Release Number
@@ -20,7 +21,7 @@ jobs:
         export BUILD_DATE=$(date  +"%a %b %d %Y")
         export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
         export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
-        export INSTALL_PREFIX="$GITHUB_WORKSPACE"
+        export INSTALL_PREFIX="${{ github.workspace }}"
         export BUILD_TYPE="Release"
         
         echo "Build number is $BUILD_NUMBER"
@@ -41,6 +42,7 @@ jobs:
 
         echo "------------------------"
         echo "Install prefix ${INSTALL_PREFIX}"
+        echo "Workspace ${{ github.workspace }}"
         echo "------------------------"
 
         cd kColorPicker

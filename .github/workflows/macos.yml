@@ -38,14 +38,18 @@ jobs:
       run: |
         echo "--> Building ksnip with latest version of kColorPicker"
         git clone --depth 1 git://github.com/ksnip/kColorPicker
-        
+
+        echo "------------------------"
+        echo "Install prefix ${INSTALL_PREFIX}"
+
         echo $PATH
         echo $LDFLAGS
         echo $CPPFLAGS
-        
+        echo "------------------------"
+
         cd kColorPicker
         mkdir build && cd build
-        cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX}
+        cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DBUILD_EXAMPLE=OFF
         make && sudo make install
         
     - name: Setup kImageAnnotator

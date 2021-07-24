@@ -22,6 +22,12 @@ jobs:
         export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
         export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
         export INSTALL_PREFIX="${{ github.workspace }}"
+
+        echo "------------------------"
+        echo "Install prefix ${INSTALL_PREFIX}"
+        echo "Workspace ${{ github.workspace }}"
+        echo "------------------------"
+
         export BUILD_TYPE="Release"
         
         echo "Build number is $BUILD_NUMBER"
@@ -47,7 +53,7 @@ jobs:
 
         cd kColorPicker
         mkdir build && cd build
-        cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DBUILD_EXAMPLE=OFF
+        cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ github.workspace }}
         make && sudo make install
         
     - name: Setup kImageAnnotator

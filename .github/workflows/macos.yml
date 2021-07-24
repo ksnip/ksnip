@@ -21,10 +21,10 @@ jobs:
         export BUILD_DATE=$(date  +"%a %b %d %Y")
         export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
         export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
-        export INSTALL_PREFIX="${{ github.workspace }}"
+        export INSTALL_PREFIX_2="${{ github.workspace }}"
 
         echo "------------------------"
-        echo "Install prefix ${INSTALL_PREFIX}"
+        echo "Install prefix ${INSTALL_PREFIX_2}"
         echo "Workspace ${{ github.workspace }}"
         echo "------------------------"
 
@@ -47,7 +47,7 @@ jobs:
         git clone --depth 1 git://github.com/ksnip/kColorPicker
 
         echo "------------------------"
-        echo "Install prefix ${INSTALL_PREFIX}"
+        echo "Install prefix ${INSTALL_PREFIX_2}"
         echo "Workspace ${{ github.workspace }}"
         echo "------------------------"
 
@@ -65,12 +65,12 @@ jobs:
         
         cd kImageAnnotator
         mkdir build && cd build
-        cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX}
+        cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ github.workspace }} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=${{ github.workspace }}/include/kImageAnnotator
         make && sudo make install
         
     - name: Build
       working-directory: ${{github.workspace}}
       run: |
         mkdir build && cd build
-        cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=/usr/local/include/kImageAnnotator
+        cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=${{ github.workspace }}/include/kImageAnnotator
         make    

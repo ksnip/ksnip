@@ -22,10 +22,12 @@ jobs:
         export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
         export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
         export TMP_INSTALL_DIR="${{ github.workspace }}/tmp"
+        export TMP_INSTALL_DIR_2="${{ github.workspace }}/tmp"
 
         echo "------------------------"
-        echo "Install prefix ${TMP_INSTALL_DIR}"
         echo "Workspace ${{ github.workspace }}"
+        echo "Install prefix $TMP_INSTALL_DIR"
+        echo "Install prefix 2 $TMP_INSTALL_DIR_2"
         echo "------------------------"
 
         export BUILD_TYPE="Release"

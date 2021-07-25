@@ -21,16 +21,11 @@ jobs:
         export BUILD_DATE=$(date  +"%a %b %d %Y")
         export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
         export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
-        export TMP_INSTALL_DIR="${{ github.workspace }}/tmp"
-        export TMP_INSTALL_DIR_2="${{ github.workspace }}/tmp"
 
-        echo "------------------------"
-        echo "Workspace ${{ github.workspace }}"
-        echo "Install prefix $TMP_INSTALL_DIR"
-        echo "Install prefix 2 $TMP_INSTALL_DIR_2"
-        echo "------------------------"
 
-        export BUILD_TYPE="Release"
+        echo "INSTALL_PREFIX=${{ github.workspace }}/tmp" >> $GITHUB_ENV
+        echo "BUILD_TYPE=Release" >> $GITHUB_ENV
+
         
         echo "Build number is $BUILD_NUMBER"
         echo "Version number is $VERSION_NUMBER"
@@ -46,23 +41,11 @@ jobs:
       working-directory: ${{github.workspace}}
       run: |
         echo "--> Building ksnip with latest version of kColorPicker"
-
-        echo "------------------------"
-        echo "Workspace ${{ github.workspace }}"
-        echo "Install prefix $TMP_INSTALL_DIR"
-        echo "Install prefix 2 $TMP_INSTALL_DIR_2"
-        echo "------------------------"
-
         git clone --depth 1 git://github.com/ksnip/kColorPicker
-
-        echo "------------------------"
-        echo "Install prefix ${TMP_INSTALL_DIR}"
-        echo "Workspace ${{ github.workspace }}"
-        echo "------------------------"
 
         cd kColorPicker
         mkdir build && cd build
-        cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${TMP_INSTALL_DIR}
+        cmake .. -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
         make && sudo make install
         
     - name: Setup kImageAnnotator
@@ -74,12 +57,12 @@ jobs:
         
         cd kImageAnnotator
         mkdir build && cd build
-        cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${TMP_INSTALL_DIR} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=${TMP_INSTALL_DIR}/include/kColorPicker
+        cmake .. -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=${{ env.INSTALL_PREFIX }}/include/kColorPicker
         make && sudo make install
         
     - name: Build
       working-directory: ${{github.workspace}}
       run: |
         mkdir build && cd build
-        cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${TMP_INSTALL_DIR} -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=${TMP_INSTALL_DIR}/include/kImageAnnotator
+        cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=${{ env.INSTALL_PREFIX }}/include/kImageAnnotator
         make    

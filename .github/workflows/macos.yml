@@ -14,22 +14,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     
-    - name: Define Release Number
-      run: |
-        VERSION_REGEX="([0-9]{1,}\.)+[0-9]{1,}"
-        export BUILD_TIME=$(date +"%a, %d %b %Y %T %z")
-        export BUILD_DATE=$(date  +"%a %b %d %Y")
-        export BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
-        export VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
+    - name: Define build variables
+      working-directory: ${{github.workspace}}
+      run: sh ./.github/scripts/setup_build_vriables.sh
 
-
-        echo "INSTALL_PREFIX=${{ github.workspace }}/tmp" >> $GITHUB_ENV
-        echo "BUILD_TYPE=Release" >> $GITHUB_ENV
-
-        
-        echo "Build number is $BUILD_NUMBER"
-        echo "Version number is $VERSION_NUMBER"
-                
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
@@ -64,5 +52,5 @@ jobs:
       working-directory: ${{github.workspace}}
       run: |
         mkdir build && cd build
-        cmake .. -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=${{ env.INSTALL_PREFIX }}/include/kImageAnnotator
+        cmake .. -DVERSION_SUFIX=${{ env.VERSION_SUFFIX }} -DBUILD_NUMBER=${{ env.BUILD_NUMBER }} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=${{ env.INSTALL_PREFIX }}/include/kImageAnnotator
         make    

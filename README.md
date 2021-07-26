@@ -1,5 +1,5 @@
 # [ksnip](http://ksnip.org/) 
-[![Build Status][travis-badge]][travis-url] [![GitHub commits (since latest release)][gh-comm-since-badge]][gh-comm-since-url] [![Translation status][weblate-badge]][weblate-url] [![GitHub total downloads][gh-dl-badge]][gh-dl-url] [![SourceForge total downloads][sf-dt-badge]][sf-dt-badge-url] [![Discord][discord-badge]][discord-badge-url]
+[![Build Status][travis-badge]][travis-url] [![Linux build status][github-linux-badge]][github-linux-url] [![Windows build status][github-windows-badge]][github-windows-url] [![MacOS build status][github-macos-badge]][github-macos-url] [![GitHub commits (since latest release)][gh-comm-since-badge]][gh-comm-since-url] [![Translation status][weblate-badge]][weblate-url] [![GitHub total downloads][gh-dl-badge]][gh-dl-url] [![SourceForge total downloads][sf-dt-badge]][sf-dt-badge-url] [![Discord][discord-badge]][discord-badge-url]
 
 Version v1.9.1
 
@@ -235,6 +235,15 @@ you can do that [here](https://www.paypal.me/damirporobic), donations are always
 
 [travis-badge]:        https://img.shields.io/travis/ksnip/ksnip.svg?label=travis&logo=travis
 [travis-url]:          https://travis-ci.com/ksnip/ksnip
+
+[github-linux-badge]:  https://github.com/ksnip/ksnip/actions/workflows/linux.yml/badge.svg
+[github-linux-url]:    https://github.com/ksnip/ksnip/actions/workflows/linux.yml
+
+[github-windows-badge]:https://github.com/ksnip/ksnip/actions/workflows/windows.yml/badge.svg
+[github-windows-url]:  https://github.com/ksnip/ksnip/actions/workflows/windows.yml
+
+[github-macos-badge]:  https://github.com/ksnip/ksnip/actions/workflows/macos.yml/badge.svg
+[github-macos-url]:    https://github.com/ksnip/ksnip/actions/workflows/macos.yml
 
 [weblate-badge]:       https://hosted.weblate.org/widgets/ksnip/-/translations/svg-badge.svg
 [weblate-url]:         https://hosted.weblate.org/engage/ksnip/?utm_source=widget

@@ -25,6 +25,9 @@ jobs:
         host: 'linux'
         install-deps: 'true'
         
+    - name: Install dependencies
+      run: sudo apt-get install extra-cmake-modules
+
     - name: Setup kColorPicker
       working-directory: ${{github.workspace}}
       run: sh ./.github/scripts/setup_kColorPicker.sh

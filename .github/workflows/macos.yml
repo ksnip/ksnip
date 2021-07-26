@@ -16,7 +16,10 @@ jobs:
     
     - name: Define build variables
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_build_vriables.sh
+      run: |
+        ls
+        pwd
+        sh ./ksnip/.github/scripts/setup_build_vriables.sh
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v2

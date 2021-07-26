@@ -24,9 +24,9 @@ jobs:
         version: '5.15.2'
         host: 'linux'
         install-deps: 'true'
-        
+
     - name: Install dependencies
-      run: sudo apt-get install extra-cmake-modules
+      run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev
 
     - name: Setup kColorPicker
       working-directory: ${{github.workspace}}

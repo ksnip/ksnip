@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "--> Install latest version of kColorPicker"
+echo "--> Install latest version of kImageAnnotator"
 git clone --depth 1 git://github.com/ksnip/kImageAnnotator
 
 cd kImageAnnotator || exit

@@ -14,9 +14,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     
-    - name: Define build variables
+    - name: Setup build variables
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_build_variables.sh
+      run: bash ./.github/scripts/setup_build_variables.sh
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
@@ -27,11 +27,11 @@ jobs:
         
     - name: Setup kColorPicker
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_kColorPicker.sh
+      run: bash ./.github/scripts/setup_kColorPicker.sh
         
     - name: Setup kImageAnnotator
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_kImageAnnotator.sh
+      run: bash ./.github/scripts/setup_kImageAnnotator.sh
         
     - name: Build
       working-directory: ${{github.workspace}}

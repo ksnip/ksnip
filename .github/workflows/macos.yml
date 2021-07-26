@@ -16,10 +16,7 @@ jobs:
     
     - name: Define build variables
       working-directory: ${{github.workspace}}
-      run: |
-        ls -al
-        pwd
-        sh ./.github/scripts/setup_build_variables.sh
+      run: sh ./.github/scripts/setup_build_variables.sh
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
@@ -30,26 +27,11 @@ jobs:
         
     - name: Setup kColorPicker
       working-directory: ${{github.workspace}}
-      run: |
-        echo "--> Building ksnip with latest version of kColorPicker"
-        git clone --depth 1 git://github.com/ksnip/kColorPicker
-
-        cd kColorPicker
-        mkdir build && cd build
-        cmake .. -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
-        make && sudo make install
+      run: sh ./.github/scripts/setup_kColorPicker.sh
         
     - name: Setup kImageAnnotator
       working-directory: ${{github.workspace}}
-      run: |
-        ls -al
-        echo "--> Building ksnip with latest version of kImageAnnotator"
-        git clone --depth 1 git://github.com/ksnip/kImageAnnotator
-        
-        cd kImageAnnotator
-        mkdir build && cd build
-        cmake .. -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=${{ env.INSTALL_PREFIX }}/include/kColorPicker
-        make && sudo make install
+      run: sh ./.github/scripts/setup_kImageAnnotator.sh
         
     - name: Build
       working-directory: ${{github.workspace}}

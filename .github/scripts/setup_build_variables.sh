@@ -7,6 +7,8 @@ BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
 VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
 INSTALL_PREFIX="$GITHUB_WOTKSPACE/tmp"
 
+echo "Workspace: $GITHUB_WOTKSPACE"
+
 # Store variables in files that is shared among runners.
 echo "BUILD_TYPE=Release" >> $GITHUB_ENV
 echo "BUILD_TIME=$BUILD_TIME" >> $GITHUB_ENV

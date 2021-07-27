@@ -27,7 +27,7 @@ jobs:
         
     - name: Setup kColorPicker
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_kColorPicker.sh
+      run: sh ./.github/scripts/setup_kColorPicker.sh "MinGW Makefiles"
         
     - name: Setup kImageAnnotator
       working-directory: ${{github.workspace}}

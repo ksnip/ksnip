@@ -37,16 +37,13 @@ jobs:
     - name: Build
       working-directory: ${{github.workspace}}
       run: |
-        set LIB="${{ env.INSTALL_PREFIX }}/lib/kImageAnnotator"
-        set INCLUDE="${{ env.INSTALL_PREFIX }}/include/kImageAnnotator"
+        setx LIB "${{ env.INSTALL_PREFIX }}/lib/kImageAnnotator" /M
+        setx INCLUDE "${{ env.INSTALL_PREFIX }}/include/kImageAnnotator" /M
         echo "LIB=$LIB"
         echo "INCLUDE=$INCLUDE"
+
         echo "--------------------"
-        ls ${{ env.INSTALL_PREFIX }}
-        echo "--------------------"
-        ls ${{ env.INSTALL_PREFIX }}/lib
-        echo "--------------------"
-        ls ${{ env.INSTALL_PREFIX }}/include
+        ls ${{ env.INSTALL_PREFIX }}/include/kImageAnnotator
         echo "--------------------"
 
         mkdir build && cd build

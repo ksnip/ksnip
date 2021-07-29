@@ -24,6 +24,7 @@ jobs:
         version: '5.15.2'
         host: 'windows'
         install-deps: 'true'
+        arch: 'win64_mingw81'
         
     - name: Setup kColorPicker
       working-directory: ${{github.workspace}}

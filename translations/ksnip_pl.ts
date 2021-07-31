@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>Action</source>
-        <translation>Działania</translation>
+        <translation>Działanie</translation>
     </message>
 </context>
 <context>
@@ -132,7 +132,7 @@
     <name>AnnotationSettings</name>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation>Wygładzanie linii rysunkowych</translation>
+        <translation>Wygładzaj linie rysunkowe</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
@@ -142,7 +142,7 @@ marker paths after finished drawing.</source>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation>Czynnik wygładzający</translation>
+        <translation>Współczynnik wygładzania</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
@@ -166,15 +166,15 @@ ale uczyni je bardziej gładkimi.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation>Zmiana numeru aktualizuje wszystkie ponumerowane pozycje</translation>
+        <translation>Narzędzie numeracji Zmiana numeru aktualizuje wszystkie ponumerowane pozycje</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation>Wyłączenie tej opcji powoduje zmiany narzędzia liczbowego
-seed, aby wpływać tylko na nowe elementy, ale nie na istniejące.
-Wyłączenie tej opcji umożliwia posiadanie zduplikowanych numerów.</translation>
+        <translation>Wyłączenie tej opcji powoduje zmiany narzędzia numeracji.
+Dotyczy tylko nowych elementów i nie wpływa na już istniejące elementy.
+Wyłączenie tej opcji spowoduje zduplikowanie numerów.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
@@ -245,7 +245,7 @@ a new start of all instances.</source>
         <translation>Włączenie tej opcji pozwoli na uruchomienie tylko jednej instancji ksnip,
 wszystkie inne instancje uruchomione po pierwszym przekażą ich
 argumenty do pierwszego i zostaną zamknięte. Zmiana tej opcji wymaga
-nowego uruchomienia wszystkich instancji.</translation>
+ponownego uruchomienia wszystkich instancji.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
@@ -253,11 +253,11 @@ nowego uruchomienia wszystkich instancji.</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation>Automatyczne ukrywanie Zakładki</translation>
+        <translation>Ukryj automatycznie Zakładki</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation>Automatyczne ukrywanie Doków</translation>
+        <translation>Ukryj automatycznie Doki</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
@@ -267,7 +267,7 @@ Widoczność doków można przełączać za pomocą klawisza Tab.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation>Automatyczna zmiana rozmiaru do zawartości</translation>
+        <translation>Dostosuj rozmiar do zawartości</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
@@ -373,7 +373,7 @@ Chcesz go zapisać?</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation>dołącz do nas </translation>
+        <translation>dołącz do nas na </translation>
     </message>
     <message>
         <source> server.</source>
@@ -400,7 +400,7 @@ Chcesz go zapisać?</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation>Nieudane kopiowanie do schowka jako obrazu zakodowanego w base64.</translation>
+        <translation>Nie udało się skopiować do schowka obrazu zakodowanego w base64.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
@@ -448,11 +448,11 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip jest niedochodowym projektem wolnego oprogramowania objętego licencją typu copylefted &lt;br/&gt; i nadal ma pewne koszty, które trzeba pokryć &lt;br/&gt;, takie jak koszty domeny lub koszty sprzętu do obsługi wielu platform.</translation>
+        <translation>ksnip jest niedochodowym projektem wolnego oprogramowania objętego licencją typu copylefted &lt;br/&gt; i nadal ma pewne koszty, które trzeba pokryć, takie jak koszty domeny lub koszty sprzętu&lt;br/&gt; do obsługi wielu platform.</translation>
     </message>
     <message>
         <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Jeśli chcesz pomóc lub &lt;br/&gt;chcesz docenić wykonywaną pracę&lt;br/&gt; polegającą na poczęstowaniu programistów piwem lub kawą, możesz to zrobić</translation>
+        <translation>Jeśli chcesz pomóc lub chcesz docenić wykonywaną pracę&lt;br/&gt; polegającą na poczęstowaniu programistów piwem lub kawą, możesz to zrobić</translation>
     </message>
 </context>
 <context>
@@ -560,19 +560,19 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation>Proste przechwytywanie obszaru</translation>
+        <translation>Przechwyć obszar prostokątny</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation>Przechwytywanie pełnego ekranu</translation>
+        <translation>Przechwyć pełny ekran</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation>Przechwytywanie bieżącego ekranu</translation>
+        <translation>Przechwyć bieżący ekran</translation>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation>Przechwytywanie aktywnego okna</translation>
+        <translation>Przechwyć aktywne okno</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
@@ -584,7 +584,7 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation>Ostatnie proste przechwytywanie obszaru</translation>
+        <translation>Przechwyć ostatni obszar prostokątny</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -592,13 +592,13 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation>Przechwytywanie za pomocą Portalu</translation>
+        <translation>Przechwyć za pomocą Portalu</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
         <translation>Skróty klawiszowe są obecnie obsługiwane tylko dla systemów Windows i X11.
-Wyłączenie tej opcji powoduje, że skróty akcji są również dostępne tylko dla ksnip.</translation>
+Wyłączenie tej opcji spowoduje, że skróty akcji będą obsługiwane tylko przez ksnip.</translation>
     </message>
 </context>
 <context>
@@ -619,11 +619,11 @@ na zrzutach ekranu.</translation>
     </message>
     <message>
         <source>Force Generic Wayland Screenshot</source>
-        <translation>Force Generic Wayland Zrzut z ekranu</translation>
+        <translation>Wymuś rodzajowy zrzut ekranu Wayland</translation>
     </message>
     <message>
         <source>Scale Generic Wayland Screenshots</source>
-        <translation>Skalowanie generycznych zrzutów ekranu Wayland</translation>
+        <translation>Skaluj rodzajowy zrzut ekranu z Wayland</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -631,9 +631,9 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation>Generyczne implementacje Waylanda które używają
+        <translation>Rodzajowe wdrożenia Wayland, które używają
 XDG-DESKTOP-PORTAL obsługują skalowanie ekranu
-inaczej. Włączenie tej opcji określi 
+w inny sposób. Włączenie tej opcji określi 
 bieżące skalowanie ekranu i 
 zastosuje je do zrzutu ekranu w ksnip.</translation>
     </message>
@@ -644,9 +644,9 @@ Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
         <translation>GNOME i KDE Plasma obsługują własny Wayland
-i zrzuty ekranu Generic XDG-DESKTOP-PORTAL.
-Włączenie tej opcji wymusi KDE Plasma i
-GNOME do korzystania ze zrzutów ekranu XDG-DESKTOP-PORTAL.
+oraz zrzuty ekranu Generic XDG-DESKTOP-PORTAL.
+Włączenie tej opcji wymusi KDE Plasma
+i GNOME do korzystania ze zrzutów ekranu XDG-DESKTOP-PORTAL.
 Zmiana tej opcji wymaga ponownego uruchomienia ksnip.</translation>
     </message>
     <message>
@@ -710,7 +710,7 @@ kiedy główne okno było ukryte lub zminimalizowane.</translation>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation>Wymuszaj anonimowe przesyłanie danych</translation>
+        <translation>Wymuś anonimowe przesyłanie</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
@@ -987,7 +987,7 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation>Kopiowanie jako dane URI</translation>
+        <translation>Kopiuj jako dane URI</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
@@ -1140,7 +1140,7 @@ i wykonaniem zrzutu ekranu.</translation>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation>Automatyczne zapisywanie nowych zrzutów w lokalizacji domyślnej</translation>
+        <translation>Zapisz automatycznie nowe zrzuty w domyślnej lokalizacji</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
@@ -1184,7 +1184,7 @@ Nazwa pliku może zawierać następujące symbole wieloznaczne:
     </message>
     <message>
         <source>Default</source>
-        <translation>Domyślnie</translation>
+        <translation>Domyślna</translation>
     </message>
     <message>
         <source>Factor</source>
@@ -1192,7 +1192,7 @@ Nazwa pliku może zawierać następujące symbole wieloznaczne:
     </message>
     <message>
         <source>Save Quality</source>
-        <translation>Oszczędzaj na jakości</translation>
+        <translation>Jakość zapisu</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
@@ -1286,7 +1286,7 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Prześlij</translation>
+        <translation>Przesyłanie</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1314,7 +1314,7 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation>Akcje</translation>
+        <translation>Działania</translation>
     </message>
 </context>
 <context>
@@ -1382,14 +1382,14 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished">Po włączeniu tej opcji zamrozi tło, podczas
-wybierania prostokątnego obszaru. Zmienia to również
-zachowanie się opóźnionych zrzutów ekranu, z tym że
-opcja włączona opóźnienie następuje przed
-obszarem snippingu jest pokazana i z wyłączoną opcją
-opóźnienie następuje po ukazaniu się obszaru obcinania.
+        <translation>Po włączeniu tej opcji zamraża tło, podczas
+wybierania prostokątnego obszaru. Zmienia również
+zachowanie opóźnionych zrzutów ekranu, z tym że
+przy opcji włączonej opóźnienie następuje przed
+wyświetleniem obszaru wycinania, a z opcją wyłączoną
+opóźnienie następuje po wyświetleniu obszaru wycinania.
 Ta funkcja jest zawsze wyłączona dla Wayland i zawsze
-włączone dla MacO.</translation>
+włączone dla MacOs.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
@@ -1422,14 +1422,14 @@ krawędzi pulpitu do kursora w obszarze wycinania.</translation>
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished">Gdy lewy przycisk myszy nie jest wciśnięty wyświetlana 
-jest pozycja, po naciśnięciu przycisku myszy 
-rozmiar zaznaczonego obszaru jest pokazywany po lewej stronie 
+        <translation>Gdy lewy przycisk myszy nie jest wciśnięty pozycja 
+jest wyświetlana, po naciśnięciu przycisku myszy 
+wielkość wybranego obszaru jest wyświetlana po lewej stronie 
 i powyżej przechwyconego obszaru.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation>Zezwalaj na zmianę rozmiaru zaznaczenia obszaru prostego</translation>
+        <translation>Domyślnie zezwalaj na zmianę rozmiaru zaznaczenia obszaru prostokątnego</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
@@ -1443,7 +1443,7 @@ naciskając wstecz.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation>Pokaż tekst informacji o wycinaniu obszaru</translation>
+        <translation>Pokaż tekst informacyjny o obszarze wycinania</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
@@ -1451,7 +1451,7 @@ naciskając wstecz.</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation>Ustawia kolor kursora obszaru obcinania.</translation>
+        <translation>Ustawia kolor kursora obszaru wycinania.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
@@ -1473,7 +1473,7 @@ naciskając wstecz.</translation>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
         <translation>Ustawia kolor wszystkich elementów ozdobnych
-na obszarze wycinania.</translation>
+w obszarze wycinania.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
@@ -1482,8 +1482,8 @@ na obszarze wycinania.</translation>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation>Przezroczystość nie zaznaczonego regionu w obszarze przycinania.
-Mniejsza liczba jest bardziej przezroczysta.</translation>
+        <translation>Przezroczystość nie wybranego regionu w obszarze wycinania.
+Im mniejsza liczba, tym obszar bardziej przezroczysty.</translation>
     </message>
 </context>
 <context>
@@ -1537,7 +1537,7 @@ Mniejsza liczba jest bardziej przezroczysta.</translation>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation>Po włączeniu doda ikonę do paska zadań, jeśli obsługuje go Menedżer okien systemu operacyjnego.
+        <translation>Po włączeniu doda ikonę do zasobnika paska zadań, jeśli obsługuje go Menedżer okien systemu operacyjnego.
 Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
     <message>
@@ -1558,7 +1558,7 @@ Zmiana wymaga ponownego uruchomienia.</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation>Przechwytywanie</translation>
+        <translation>Zrzut z ekranu</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
@@ -1584,7 +1584,7 @@ Zmiana wymaga ponownego uruchomienia.</translation>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
         <translation>Gdy włączone, będzie próbował używać powiadomień specyficznych dla platformy
-jeśli taka istnieje. Zmiana wymaga restartu aby zaczęła działać.</translation>
+jeśli taka istnieje. Zmiana wymaga ponownego uruchomienia, aby zaczęła obowiązywać.</translation>
     </message>
 </context>
 <context>

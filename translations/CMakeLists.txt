@@ -23,6 +23,7 @@ set(KSNIP_LANG_TS
 	ksnip_pl.ts
 	ksnip_pt.ts
 	ksnip_pt_BR.ts
+	ksnip_ro.ts
 	ksnip_ru.ts
 	ksnip_si.ts
 	ksnip_sv.ts

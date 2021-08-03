@@ -10,6 +10,8 @@ set(KSNIP_VERSION "${PROJECT_VERSION}${KSNIP_VERSION_SUFIX}")
 include(GNUInstallDirs)
 
 if (WIN32)
+	message("---> Setting up for windows!")
+	add_definitions(-D _WIN32_WINNT=0x0A00)
 	set(KSNIP_LANG_INSTALL_DIR "translations")
 	set(KIMAGEANNOTATOR_LANG_INSTALL_DIR "translations")
 elseif (APPLE)

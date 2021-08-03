@@ -25,7 +25,6 @@
 
 #include <wtypes.h>
 #include <dwmapi.h>
-#include <WinUser.h>
 
 #include "common/dtos/CursorDto.h"
 

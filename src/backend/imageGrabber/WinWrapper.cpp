@@ -52,13 +52,13 @@ CursorDto WinWrapper::getCursorWithPosition() const
 
 QPoint WinWrapper::getCursorPosition(const QRect &rect, const CURSORINFO &cursor) const
 {
-    ICONINFOEXW iconInfo = {sizeof(iconInfo)};
+    ICONINFOEXW iconInfo = { sizeof(iconInfo) };
     GetIconInfoExW(cursor.hCursor, &iconInfo);
 
     auto x = cursor.ptScreenPos.x - (int)iconInfo.xHotspot;
     auto y = cursor.ptScreenPos.y - (int)iconInfo.yHotspot;
 
-    return {x, y};
+    return { x, y };
 }
 
 QPixmap WinWrapper::getCursorPixmap(const CURSORINFO &cursor) const

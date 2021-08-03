@@ -14,7 +14,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     
-    - name: Setup build variables
+    - name: Set up build variables
       working-directory: ${{github.workspace}}
       run: sh ./.github/scripts/setup_build_variables.sh
 
@@ -25,11 +25,11 @@ jobs:
         host: 'mac'
         install-deps: 'true'
         
-    - name: Setup kColorPicker
+    - name: Set up kColorPicker
       working-directory: ${{github.workspace}}
       run: sh ./.github/scripts/setup_kColorPicker.sh "Unix Makefiles"
         
-    - name: Setup kImageAnnotator
+    - name: Set up kImageAnnotator
       working-directory: ${{github.workspace}}
       run: sh ./.github/scripts/setup_kImageAnnotator.sh "Unix Makefiles"
         

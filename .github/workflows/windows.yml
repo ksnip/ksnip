@@ -14,9 +14,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     
-    - name: Setup build variables
+    - name: Set up build variables
       working-directory: ${{github.workspace}}
       run: sh ./.github/scripts/setup_build_variables.sh
+
+    - name: Set up MinGW
+      uses: egor-tensin/setup-mingw@v2
+      with:
+        platform: x64
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
@@ -26,11 +31,11 @@ jobs:
         install-deps: 'true'
         arch: 'win64_mingw81'
         
-    - name: Setup kColorPicker
+    - name: Set up kColorPicker
       working-directory: ${{github.workspace}}
       run: sh ./.github/scripts/setup_kColorPicker.sh "MinGW Makefiles"
         
-    - name: Setup kImageAnnotator
+    - name: Set up kImageAnnotator
       working-directory: ${{github.workspace}}
       run: sh ./.github/scripts/setup_kImageAnnotator.sh "MinGW Makefiles"
         

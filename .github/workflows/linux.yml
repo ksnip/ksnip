@@ -14,7 +14,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     
-    - name: Setup build variables
+    - name: Set up build variables
       working-directory: ${{github.workspace}}
       run: sh ./.github/scripts/setup_build_variables.sh
 
@@ -28,11 +28,11 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev
 
-    - name: Setup kColorPicker
+    - name: Set up kColorPicker
       working-directory: ${{github.workspace}}
       run: sh ./.github/scripts/setup_kColorPicker.sh "Unix Makefiles"
         
-    - name: Setup kImageAnnotator
+    - name: Set up kImageAnnotator
       working-directory: ${{github.workspace}}
       run: sh ./.github/scripts/setup_kImageAnnotator.sh "Unix Makefiles"
         

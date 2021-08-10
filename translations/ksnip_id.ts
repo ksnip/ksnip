@@ -162,7 +162,7 @@ membuatnya lebih halus.</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubah ke Alat Seleksi setelah selesai menggambar</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
@@ -176,16 +176,17 @@ Disabling this option allows having duplicate numbers.</source>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Warna Kanvas</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Warna latar belakang kanvas untuk area anotasi.
+Mengganti warna hanya memengaruhi area anotasi baru.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleksi objek setelah selesai menggambar</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after

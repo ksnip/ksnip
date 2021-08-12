@@ -38,8 +38,7 @@ jobs:
         cd kColorPicker || exit
         mkdir build && cd build || exit
         cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DCMAKE_CXX_COMPILER=cl
-
-        nmake VERBOSE=1 && make install
+        nmake VERBOSE=1 && nmake install
         
     - name: Set up kImageAnnotator
       working-directory: ${{github.workspace}}
@@ -50,7 +49,7 @@ jobs:
         cd kImageAnnotator || exit
         mkdir build && cd build || exit
         cmake .. -G"NMake Makefiles" -D -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
-        nmake && make install
+        nmake && nmake install
       env:
         LIB: "${{ env.INSTALL_PREFIX }}/lib"
         INCLUDE: "${{ env.INSTALL_PREFIX }}/include"

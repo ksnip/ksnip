@@ -37,8 +37,8 @@ jobs:
 
         cd kColorPicker || exit
         mkdir build && cd build || exit
-        cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DCMAKE_CXX_COMPILER=cl
-        nmake VERBOSE=1 && nmake install
+        cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
+        nmake && nmake install
         
     - name: Set up kImageAnnotator
       working-directory: ${{github.workspace}}
@@ -48,7 +48,7 @@ jobs:
 
         cd kImageAnnotator || exit
         mkdir build && cd build || exit
-        cmake .. -G"NMake Makefiles" -D -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
+        cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
         nmake && nmake install
       env:
         LIB: "${{ env.INSTALL_PREFIX }}/lib"
@@ -59,7 +59,7 @@ jobs:
       run: |
         mkdir build && cd build
         cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DVERSION_SUFIX=${{ env.VERSION_SUFFIX }} -DBUILD_NUMBER=${{ env.BUILD_NUMBER }} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
-        nmake VERBOSE=1
+        nmake
       env:
         LIB: "${{ env.INSTALL_PREFIX }}/lib"
         INCLUDE: "${{ env.INSTALL_PREFIX }}/include"

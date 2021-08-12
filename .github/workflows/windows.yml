@@ -24,7 +24,7 @@ jobs:
         version: '5.15.2'
         host: 'windows'
         install-deps: 'true'
-        arch: 'win64_msvc2019_64'
+        arch: 'win64_msvc2017_64'
 
     - name: Set up nmake
       uses: ilammy/msvc-dev-cmd@v1
@@ -37,8 +37,8 @@ jobs:
 
         cd kColorPicker || exit
         mkdir build && cd build || exit
-        cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
-        nmake && make install
+        cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DCMAKE_CXX_COMPILER=cl
+        nmake VERBOSE=1 && make install
         
     - name: Set up kImageAnnotator
       working-directory: ${{github.workspace}}

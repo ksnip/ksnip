@@ -28,27 +28,35 @@ jobs:
         
     - name: Set up kColorPicker
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_kColorPicker.sh "MinGW Makefiles"
+      run: |
+        echo "--> Install latest version of kColorPicker"
+        git clone --depth 1 git://github.com/ksnip/kColorPicker
+
+        cd kColorPicker || exit
+        mkdir build && cd build || exit
+        cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
+        nmake && make install
         
     - name: Set up kImageAnnotator
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_kImageAnnotator.sh "MinGW Makefiles"
+      run: |
+        echo "--> Install latest version of kImageAnnotator"
+        git clone --depth 1 git://github.com/ksnip/kImageAnnotator
+
+        cd kImageAnnotator || exit
+        mkdir build && cd build || exit
+        cmake .. -G"NMake Makefiles" -D -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
+        nmake && make install
+      env:
+        LIB: "${{ env.INSTALL_PREFIX }}/lib"
+        INCLUDE: "${{ env.INSTALL_PREFIX }}/include"
         
     - name: Build
       working-directory: ${{github.workspace}}
       run: |
         mkdir build && cd build
-
-        echo "1. Env:CMAKE_LIBRARY_PATH ->  $Env:CMAKE_LIBRARY_PATH"
-        echo "1. env.CMAKE_LIBRARY_PATH -> ${{ env.CMAKE_LIBRARY_PATH }}"
-
-        set CMAKE_LIBRARY_PATH="$CMAKE_LIBRARY_PATH:${{ env.INSTALL_PREFIX }}/lib"
-
-        echo "2. Env:CMAKE_LIBRARY_PATH ->  $Env:CMAKE_LIBRARY_PATH"
-        echo "2. env.CMAKE_LIBRARY_PATH -> ${{ env.CMAKE_LIBRARY_PATH }}"
-
-        cmake .. -G"MinGW Makefiles" -D CMAKE_CXX_FLAGS="-D_WIN32_WINNT=0x0A00" -DVERSION_SUFIX=${{ env.VERSION_SUFFIX }} -DBUILD_NUMBER=${{ env.BUILD_NUMBER }} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES="${{ env.INSTALL_PREFIX }}/include"
-        make VERBOSE=1
+        cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DVERSION_SUFIX=${{ env.VERSION_SUFFIX }} -DBUILD_NUMBER=${{ env.BUILD_NUMBER }} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
+        nmake VERBOSE=1
       env:
-        CMAKE_LIBRARY_PATH: "${{ env.INSTALL_PREFIX }}/lib"
         LIB: "${{ env.INSTALL_PREFIX }}/lib"
+        INCLUDE: "${{ env.INSTALL_PREFIX }}/include"

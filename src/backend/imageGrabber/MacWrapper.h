@@ -24,7 +24,7 @@
 
 #include "CoreGraphics/CGDirectDisplay.h"
 
-#include "common/dtos/CursorDto.h"
+#include "src/common/dtos/CursorDto.h"
 
 class MacWrapper
 {

@@ -60,3 +60,7 @@ jobs:
       env:
         LIB: "${{ env.LIB }};${{ env.INSTALL_PREFIX }}/lib"
         INCLUDE: "${{ env.INCLUDE }};${{ env.INSTALL_PREFIX }}/include"
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build
+      run: nmake test CTEST_OUTPUT_ON_FAILURE=1

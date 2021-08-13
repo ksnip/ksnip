@@ -41,7 +41,7 @@ jobs:
       run: |
         mkdir build && cd build
         cmake .. -DBUILD_TESTS=ON -DVERSION_SUFIX=${{ env.VERSION_SUFFIX }} -DBUILD_NUMBER=${{ env.BUILD_NUMBER }} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_TESTS=ON
-        make VERBOSE=1
+        make
 
     - name: Test
       working-directory: ${{github.workspace}}/build

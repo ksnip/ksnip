@@ -74,6 +74,8 @@ add_subdirectory(translations)
 add_subdirectory(desktop)
 
 if (BUILD_TESTS)
+	include(CMakePackageConfigHelpers)
+
 	configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/tests/BuildConfig.h)
 
 	enable_testing()

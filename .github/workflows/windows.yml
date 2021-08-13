@@ -65,4 +65,4 @@ jobs:
         nmake
       env:
         LIB: "${{ env.LIB }};${{ env.INSTALL_PREFIX }}/lib"
-        INCLUDE: "${{ env.INCLUDE };${{ env.INSTALL_PREFIX }}/include"
+        INCLUDE: "${{ env.INCLUDE }};${{ env.INSTALL_PREFIX }}/include"

@@ -50,9 +50,9 @@ jobs:
         mkdir build && cd build || exit
         cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
         nmake && nmake install
-      env:
-        LIB: "${{ env.INSTALL_PREFIX }}/lib"
-        INCLUDE: "${{ env.INSTALL_PREFIX }}/include"
+#      env:
+#        LIB: "${{ env.INSTALL_PREFIX }}/lib"
+#        INCLUDE: "${{ env.INSTALL_PREFIX }}/include"
         
     - name: Build
       working-directory: ${{github.workspace}}

@@ -58,5 +58,5 @@ jobs:
         cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DVERSION_SUFIX=${{ env.VERSION_SUFFIX }} -DBUILD_NUMBER=${{ env.BUILD_NUMBER }} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
         nmake
       env:
-        LIB: "$Env:LIB;${{ env.INSTALL_PREFIX }}/lib"
-        INCLUDE: "$Env:INCLUDE;${{ env.INSTALL_PREFIX }}/include"
+        LIB: "$LIB;${{ env.INSTALL_PREFIX }}/lib"
+        INCLUDE: "$INCLUDE;${{ env.INSTALL_PREFIX }}/include"

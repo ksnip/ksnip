@@ -47,7 +47,6 @@ qreal HdpiScaler::scaleFactor() const
 
 #if defined(__APPLE__)
     auto myWindow = QGuiApplication::topLevelWindows().first();
-    qDebug("QWindow devicePixelRatio: %s", qPrintable(QString::number(myWindow->devicePixelRatio())));
 
 	return myWindow->devicePixelRatio();
 #endif

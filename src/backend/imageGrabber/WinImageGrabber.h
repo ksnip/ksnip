@@ -22,7 +22,7 @@
 
 #include "AbstractRectAreaImageGrabber.h"
 #include "WinWrapper.h"
-#include "gui/snippingArea/WinSnippingArea.h"
+#include "src/gui/snippingArea/WinSnippingArea.h"
 #include "src/common/platform/HdpiScaler.h"
 
 class WinImageGrabber : public AbstractRectAreaImageGrabber

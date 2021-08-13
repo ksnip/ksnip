@@ -137,6 +137,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceClientBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceServerBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceParameterTranslator.cpp
+	${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
 	)
 
 if (APPLE)
@@ -148,7 +149,6 @@ if (APPLE)
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/DummyKeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/MacKeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToMacKeyCodeTranslator.cpp
-		${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.mm
 		)
 elseif (UNIX)
 	list(APPEND KSNIP_SRCS
@@ -169,7 +169,6 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToX11KeyCodeTranslator.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11ErrorLogger.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/notificationService/FreeDesktopNotificationService.cpp
-		${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
 		)
 elseif (WIN32)
 	list(APPEND KSNIP_SRCS
@@ -178,7 +177,6 @@ elseif (WIN32)
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/WinSnippingArea.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/WinKeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToWinKeyCodeTranslator.cpp
-		${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
 		)
 endif ()
 

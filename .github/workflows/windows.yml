@@ -61,6 +61,21 @@ jobs:
         LIB: "${{ env.LIB }};${{ env.INSTALL_PREFIX }}/lib"
         INCLUDE: "${{ env.INCLUDE }};${{ env.INSTALL_PREFIX }}/include"
 
-    - name: Test
-      working-directory: ${{github.workspace}}/build
-      run: nmake test CTEST_OUTPUT_ON_FAILURE=1
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-package
+        path: ${{github.workspace}}/build
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-package
+          path: ${{github.workspace}}/build
+
+      - name: Test
+        working-directory: ${{github.workspace}}/build
+        run: make test CTEST_OUTPUT_ON_FAILURE=1

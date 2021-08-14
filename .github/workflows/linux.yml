@@ -44,7 +44,7 @@ jobs:
         make
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@v2
       with:
         name: build-package
         path: ${{github.workspace}}/build
@@ -53,7 +53,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v2
         with:
           name: build-package
           path: ${{github.workspace}}/build

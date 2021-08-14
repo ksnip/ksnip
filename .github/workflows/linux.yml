@@ -62,6 +62,17 @@ jobs:
           name: build-package
           path: ${{github.workspace}}/build
 
+      - name: 'Unpack tar files'
+        run: |
+          ls
+          ls build
+          tar -xvf build/build-package.tar
+          ls build
+
+      - name: Test
+        working-directory: ${{github.workspace}}/build
+        run: make test CTEST_OUTPUT_ON_FAILURE=1
+
   release:
     needs: test
     runs-on: ubuntu-latest

@@ -83,9 +83,9 @@ jobs:
       - name: Set up nmake
         uses: ilammy/msvc-dev-cmd@v1
 
-      - name: Test
-        working-directory: ${{github.workspace}}/build
-        run: nmake test CTEST_OUTPUT_ON_FAILURE=1
+#      - name: Test
+#        working-directory: ${{github.workspace}}/build
+#        run: nmake test CTEST_OUTPUT_ON_FAILURE=1
 
   release:
     needs: test

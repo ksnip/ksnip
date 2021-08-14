@@ -53,12 +53,20 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v2
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
         with:
           name: build-package
           path: ${{github.workspace}}/build
 
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Test
-        working-directory: ${{github.workspace}}/build
-        run: make test CTEST_OUTPUT_ON_FAILURE=1
-
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "continuous"
+          prerelease: true
+          title: "Continuous build"

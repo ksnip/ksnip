@@ -63,7 +63,7 @@ jobs:
           path: ${{github.workspace}}/build
 
   release:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Test

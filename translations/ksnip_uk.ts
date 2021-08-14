@@ -837,7 +837,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Undo</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <source>Redo</source>
@@ -1263,7 +1263,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <source>Image Grabber</source>

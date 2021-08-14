@@ -69,7 +69,7 @@ jobs:
 
   test:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v2

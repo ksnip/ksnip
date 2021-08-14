@@ -37,7 +37,7 @@ jobs:
       working-directory: ${{github.workspace}}
       run: |
         mkdir build && cd build
-        cmake .. -G"Unix Makefiles" -DBUILD_TESTS=ON -DVERSION_SUFIX=${{ env.VERSION_SUFFIX }} -DBUILD_NUMBER=${{ env.BUILD_NUMBER }} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=${{ env.INSTALL_PREFIX }}/include/kImageAnnotator
+        cmake .. -DBUILD_TESTS=ON -DVERSION_SUFIX=${{ env.VERSION_SUFFIX }} -DBUILD_NUMBER=${{ env.BUILD_NUMBER }} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DCMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES=${{ env.INSTALL_PREFIX }}/include/kImageAnnotator
         make
 
     - name: Upload artifacts
@@ -48,7 +48,7 @@ jobs:
 
   test:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v2

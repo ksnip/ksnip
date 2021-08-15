@@ -44,22 +44,22 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: make test CTEST_OUTPUT_ON_FAILURE=1
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-package
-        path: ${{github.workspace}}/build
-
-  release:
-    needs: build
-    runs-on: macos-latest
-    steps:
-      - name: Create release
-        uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          body: "Release body text"
-          prerelease: true
-          token: "${{ secrets.GITHUB_TOKEN }}"
-          commit: master
-          name: "Continuous build"
+#    - name: Upload artifacts
+#      uses: actions/upload-artifact@v2
+#      with:
+#        name: build-package
+#        path: ${{github.workspace}}/build
+#
+#  release:
+#    needs: build
+#    runs-on: macos-latest
+#    steps:
+#      - name: Create release
+#        uses: ncipollo/release-action@v1
+#        with:
+#          allowUpdates: true
+#          body: "Release body text"
+#          prerelease: true
+#          token: "${{ secrets.GITHUB_TOKEN }}"
+#          commit: master
+#          name: "Continuous build"

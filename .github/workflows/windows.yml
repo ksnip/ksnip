@@ -79,9 +79,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        set -e
         wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-        export UPLOADTOOL_ISPRERELEASE="true"
         bash upload.sh ksnip-*.zip
 
 #    - name: Upload artifacts

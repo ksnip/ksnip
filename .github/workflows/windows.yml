@@ -74,7 +74,6 @@ jobs:
         cp build/translations/ksnip_*.qm ./packageDir/translations/
         cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./packageDir/translations/
 #        cp ${OPENSSL_DIR}/libeay32.dll ${OPENSSL_DIR}/ssleay32.dll ./packageDir/
-
         7z a ksnip-${VERSION}-windows.zip ./packageDir/*
 
     - name: Upload files

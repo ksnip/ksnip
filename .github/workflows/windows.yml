@@ -80,7 +80,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PATH: "${{ env.PATH }};C:/msys64/usr/bin"
       run: |
-        wget-c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+        wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
         bash upload.sh ksnip-*.zip
 
 #    - name: Upload artifacts

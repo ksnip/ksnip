@@ -61,40 +61,27 @@ jobs:
         LIB: "${{ env.LIB }};${{ env.INSTALL_PREFIX }}/lib"
         INCLUDE: "${{ env.INCLUDE }};${{ env.INSTALL_PREFIX }}/include"
 
-    - name: 'Tar files'
-      run: tar -cvf build-package.tar ${{github.workspace}}/build
+    - name: Test
+      working-directory: ${{github.workspace}}/build
+      run: nmake test CTEST_OUTPUT_ON_FAILURE=1
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: build-package
-        path: ${{github.workspace}}/build-package.tar
-
-  test:
-    needs: build
-    runs-on: windows-latest
-    steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: build-package
-          path: ${{github.workspace}}/build
-
-      - name: Set up nmake
-        uses: ilammy/msvc-dev-cmd@v1
-
-#      - name: Test
-#        working-directory: ${{github.workspace}}/build
-#        run: nmake test CTEST_OUTPUT_ON_FAILURE=1
+        path: ${{github.workspace}}/build
 
   release:
-    needs: test
-    runs-on: windows-latest
+    needs: build
+    runs-on: ubuntu-latest
     steps:
-      - name: Test
-        uses: marvinpinto/action-automatic-releases@latest
+      - name: Create release
+        uses: ncipollo/release-action@v1
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "continuous"
+          allowUpdates: true
+          body: "Release body text"
+          tag: "continuous"
           prerelease: true
-          title: "Continuous build"
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          commit: master
+          name: "Continuous build"

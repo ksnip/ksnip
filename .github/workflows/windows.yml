@@ -80,7 +80,6 @@ jobs:
         with:
           allowUpdates: true
           body: "Release body text"
-          tag: "continuous"
           prerelease: true
           token: "${{ secrets.GITHUB_TOKEN }}"
           commit: master

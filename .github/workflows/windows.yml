@@ -65,17 +65,26 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: nmake test CTEST_OUTPUT_ON_FAILURE=1
 
-    - name: Package Windows
+    - name: Package exe
       working-directory: ${{github.workspace}}
       run: |
+        wget --quiet -O openssl.zip "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip"
+        7z x openssl.zip -o"open_ssl"
         mkdir packageDir
         mv build/src/ksnip*.exe packageDir/ksnip.exe
         windeployqt.exe packageDir/ksnip.exe
         cp build/translations/ksnip_*.qm ./packageDir/translations/
         cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./packageDir/translations/
+        cp open_ssl/libeay32.dll open_ssl/ssleay32.dll ./packageDir/
         rm ./packageDir/opengl32sw.dll
         rm ./packageDir/vc_redist.x64.exe
         7z a ksnip-${{ env.VERSION }}-windows.zip ./packageDir/*
+
+    - name: Package msi
+      working-directory: ${{github.workspace}}/build
+      run: |
+        cpack
+        mv build/ksnip*.msi ./ksnip-${{ env.VERSION }}.msi
 
     - name: Upload files
       env:
@@ -84,6 +93,7 @@ jobs:
       run: |
         wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
         bash upload.sh ksnip-*.zip
+        bash upload.sh ksnip-*.msi
 
 #    - name: Upload artifacts
 #      uses: actions/upload-artifact@v2

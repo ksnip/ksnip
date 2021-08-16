@@ -77,20 +77,19 @@ jobs:
         windeployqt.exe packageDir/ksnip.exe
         cp build/translations/ksnip_*.qm ./packageDir/translations/
         cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./packageDir/translations/
-        cp open_ssl/libeay32.dll open_ssl/ssleay32.dll ./packageDir/
+        cp open_ssl/libeay32.dll ./packageDir/
+        cp open_ssl/ssleay32.dll ./packageDir/
         rm ./packageDir/opengl32sw.dll
         rm ./packageDir/vc_redist.x64.exe
         7z a ksnip-${{ env.VERSION }}-windows.zip ./packageDir/*
 
     - name: Package msi
       working-directory: ${{github.workspace}}/build
-      continue-on-error: true
       run: |
         cpack
         mv build/ksnip*.msi ./ksnip-${{ env.VERSION }}.msi
 
     - name: Upload files
-      continue-on-error: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PATH: "${{ env.PATH }};C:/msys64/usr/bin"

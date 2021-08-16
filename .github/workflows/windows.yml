@@ -86,8 +86,8 @@ jobs:
     - name: Package msi
       working-directory: ${{github.workspace}}/build
       run: |
-        cpack
-        mv build/ksnip*.msi ./ksnip-${{ env.VERSION }}.msi
+        cpack --verbose
+        mv ksnip*.msi ./ksnip-${{ env.VERSION }}.msi
 
     - name: Upload files
       env:

@@ -73,7 +73,9 @@ jobs:
         windeployqt.exe packageDir/ksnip.exe
         cp build/translations/ksnip_*.qm ./packageDir/translations/
         cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./packageDir/translations/
-        7z a ksnip-${VERSION}-windows.zip ./packageDir/*
+        rm ./packageDir/opengl32sw.dll
+        rm ./packageDir/vc_redist.x64.exe
+        7z a ksnip-${{ env.VERSION }}-windows.zip ./packageDir/*
 
     - name: Upload files
       env:

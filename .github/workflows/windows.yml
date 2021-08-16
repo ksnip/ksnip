@@ -67,6 +67,8 @@ jobs:
 
     - name: Package exe
       working-directory: ${{github.workspace}}
+      env:
+        PATH: "${{ env.PATH }};C:/msys64/usr/bin"
       run: |
         wget --quiet -O openssl.zip "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip"
         7z x openssl.zip -o"open_ssl"
@@ -82,11 +84,13 @@ jobs:
 
     - name: Package msi
       working-directory: ${{github.workspace}}/build
+      continue-on-error: true
       run: |
         cpack
         mv build/ksnip*.msi ./ksnip-${{ env.VERSION }}.msi
 
     - name: Upload files
+      continue-on-error: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PATH: "${{ env.PATH }};C:/msys64/usr/bin"

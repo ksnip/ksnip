@@ -90,10 +90,7 @@ jobs:
         INCLUDE: "${{ env.INCLUDE }};${{ env.INSTALL_PREFIX }}/include"
       run: |
         cpack --verbose
-        echo "--------------------------"
-        cat "D:/a/ksnip/ksnip/build/_CPack_Packages/win64/WIX/PreinstallOutput.log"
-        echo "--------------------------"
-        mv ksnip*.msi ./ksnip-${{ env.VERSION }}.msi
+        mv ksnip*.msi ../ksnip-${{ env.VERSION }}.msi
 
     - name: Upload files
       env:

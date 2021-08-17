@@ -87,6 +87,9 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: |
         cpack --verbose
+        echo "--------------------------"
+        cat "D:/a/ksnip/ksnip/build/_CPack_Packages/win64/WIX/PreinstallOutput.log"
+        echo "--------------------------"
         mv ksnip*.msi ./ksnip-${{ env.VERSION }}.msi
 
     - name: Upload files

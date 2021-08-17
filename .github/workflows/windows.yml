@@ -85,6 +85,9 @@ jobs:
 
     - name: Package msi
       working-directory: ${{github.workspace}}/build
+      env:
+        LIB: "${{ env.LIB }};${{ env.INSTALL_PREFIX }}/lib"
+        INCLUDE: "${{ env.INCLUDE }};${{ env.INSTALL_PREFIX }}/include"
       run: |
         cpack --verbose
         echo "--------------------------"

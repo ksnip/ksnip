@@ -88,12 +88,14 @@ jobs:
       env:
         LIB: "${{ env.LIB }};${{ env.INSTALL_PREFIX }}/lib"
         INCLUDE: "${{ env.INCLUDE }};${{ env.INSTALL_PREFIX }}/include"
-        KCOLORPICKER: "${{ env.INSTALL_PREFIX }}/kColorPicker"
-        KIMAGEANNOTATOR: "${{ env.INSTALL_PREFIX }}/kImageAnnotator"
+        KIMAGEANNOTATOR: "${{ env.INSTALL_PREFIX }}"
         QTDIR: "${{ env.Qt5_Dir }}"
         OPENSSL_DIR: "${{github.workspace}}/open_ssl"
       run: |
-        cpack --verbose
+        cpack --verbose --debug
+        echo "---------------------"
+        ls D:/a/ksnip/ksnip/build/_CPack_Packages/win64/WIX/
+        echo "---------------------"
         mv ksnip*.msi ../ksnip-${{ env.VERSION }}.msi
 
     - name: Upload files

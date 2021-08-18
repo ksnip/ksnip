@@ -92,9 +92,9 @@ jobs:
         QTDIR: "${{ env.Qt5_Dir }}"
         OPENSSL_DIR: "${{github.workspace}}/open_ssl"
       run: |
-        cpack --verbose --debug
+        cpack --verbose
         echo "---------------------"
-        ls D:/a/ksnip/ksnip/build/_CPack_Packages/win64/WIX/
+        cat D:/a/ksnip/ksnip/build/_CPack_Packages/win64/WIX/wix.log
         echo "---------------------"
         mv ksnip*.msi ../ksnip-${{ env.VERSION }}.msi
 

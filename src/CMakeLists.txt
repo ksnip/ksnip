@@ -263,10 +263,13 @@ endif ()
 target_link_libraries(ksnip ${DEPENDENCY_LIBRARIES})
 
 # install target
+message("DEBUG: Install target")
 if (WIN32)
+	message("DEBUG: WIN32")
 	install(TARGETS ksnip RUNTIME DESTINATION .)
 
 	if (DEFINED ENV{QTDIR})
+		message("DEBUG: WINDEPLOYQT")
 		find_program(WINDEPLOYQT windeployqt HINTS $ENV{QTDIR} PATH_SUFFIXES bin)
 		install(CODE "execute_process(COMMAND ${WINDEPLOYQT} . WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
 	else ()
@@ -276,6 +279,7 @@ if (WIN32)
 	find_program(COPY cp)
 
 	if (DEFINED ENV{OPENSSL_DIR})
+		message("DEBUG: OPENSSL_DIR")
 		install(CODE "execute_process(COMMAND ${COPY} $ENV{OPENSSL_DIR}/libeay32.dll $ENV{OPENSSL_DIR}/ssleay32.dll \${CMAKE_INSTALL_PREFIX})")
 	else ()
 		message("OPENSSL_DIR not set, not able to install openssl dependencies.")
@@ -292,6 +296,8 @@ if (WIN32)
 	)
 elseif (UNIX AND NOT APPLE)
 	install(TARGETS ksnip RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+else ()
+	message("DEBUG: NOT WIN32, NOT UNIX")
 endif ()
 
 # uninstall target

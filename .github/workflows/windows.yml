@@ -88,6 +88,9 @@ jobs:
       env:
         LIB: "${{ env.LIB }};${{ env.INSTALL_PREFIX }}/lib"
         INCLUDE: "${{ env.INCLUDE }};${{ env.INSTALL_PREFIX }}/include"
+        KCOLORPICKER_INCLUDE: "${{ env.INSTALL_PREFIX }}/kColorPicker/include"
+        KIMAGEANNOTATOR_INCLUDE: "${{ env.INSTALL_PREFIX }}/kImageAnnotator/include"
+        QTDIR: "${{ env.Qt5_Dir }}"
       run: |
         cpack --verbose
         mv ksnip*.msi ../ksnip-${{ env.VERSION }}.msi

@@ -55,7 +55,7 @@ jobs:
       working-directory: ${{github.workspace}}
       run: |
         mkdir build && cd build
-        cmake .. -G"NMake Makefiles" -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DVERSION_SUFIX=${{ env.VERSION_SUFFIX }} -DBUILD_NUMBER=${{ env.BUILD_NUMBER }} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DOPENSSL_DIR="${{ env.GITHUB_WORKSPACE }}/open_ssl" -DKIMAGEANNOTATOR_DIR=${{ env.INSTALL_PREFIX }}
+        cmake .. -G"NMake Makefiles" -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DVERSION_SUFIX=${{ env.VERSION_SUFFIX }} -DBUILD_NUMBER=${{ env.BUILD_NUMBER }} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DOPENSSL_DIR="${{ env.WORKSPACE }}/open_ssl" -DKIMAGEANNOTATOR_DIR=${{ env.INSTALL_PREFIX }}
         nmake
       env:
         LIB: "${{ env.LIB }};${{ env.INSTALL_PREFIX }}/lib"

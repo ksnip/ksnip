@@ -88,9 +88,6 @@ jobs:
       env:
         LIB: "${{ env.LIB }};${{ env.INSTALL_PREFIX }}/lib"
         INCLUDE: "${{ env.INCLUDE }};${{ env.INSTALL_PREFIX }}/include"
-        KIMAGEANNOTATOR: "${{ env.INSTALL_PREFIX }}"
-        QTDIR: "${{ env.Qt5_Dir }}"
-        OPENSSL_DIR: "${{github.workspace}}/open_ssl"
       run: sh ./.github/scripts/package_msi.sh
 
     - name: Upload files

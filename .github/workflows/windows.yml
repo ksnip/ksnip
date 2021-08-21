@@ -84,7 +84,7 @@ jobs:
         7z a ksnip-${{ env.VERSION }}-windows.zip ./packageDir/*
 
     - name: Package msi
-      working-directory: ${{github.workspace}}/build
+      working-directory: ${{github.workspace}}
       env:
         LIB: "${{ env.LIB }};${{ env.INSTALL_PREFIX }}/lib"
         INCLUDE: "${{ env.INCLUDE }};${{ env.INSTALL_PREFIX }}/include"

@@ -94,7 +94,11 @@ jobs:
       run: |
         cpack --verbose
         echo "---------------------"
-        cat D:/a/ksnip/ksnip/build/_CPack_Packages/win64/WIX/wix.log
+        echo ${{ env.QTDIR }}
+        echo "---------------------"
+        echo $Env:QTDIR
+        echo "---------------------"
+        echo %QTDIR%
         echo "---------------------"
         mv ksnip*.msi ../ksnip-${{ env.VERSION }}.msi
 

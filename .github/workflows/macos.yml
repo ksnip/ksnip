@@ -44,6 +44,22 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: make test CTEST_OUTPUT_ON_FAILURE=1
 
+    - name: Package dmg
+      working-directory: ${{github.workspace}}
+      run: |
+        mv build/src/ksnip*.app ksnip.app
+        cp build/translations/ksnip_*.qm ./ksnip.app/Contents/Resources/
+        cp build/translations/kImageAnnotator_*.qm ./ksnip.app/Contents/Resources/
+        macdeployqt ksnip.app -dmg -sign-for-notarization="${APPLE_DEV_IDENTITY}"
+        mv ksnip.dmg ksnip-${VERSION}.dmg
+
+    - name: Upload files
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+        bash upload.sh ksnip-*.dmg
+
 #    - name: Upload artifacts
 #      uses: actions/upload-artifact@v2
 #      with:

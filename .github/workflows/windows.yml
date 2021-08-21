@@ -91,16 +91,7 @@ jobs:
         KIMAGEANNOTATOR: "${{ env.INSTALL_PREFIX }}"
         QTDIR: "${{ env.Qt5_Dir }}"
         OPENSSL_DIR: "${{github.workspace}}/open_ssl"
-      run: |
-        cpack --verbose
-        echo "---------------------"
-        echo ${{ env.QTDIR }}
-        echo "---------------------"
-        echo $Env:QTDIR
-        echo "---------------------"
-        echo %QTDIR%
-        echo "---------------------"
-        mv ksnip*.msi ../ksnip-${{ env.VERSION }}.msi
+      run: sh ./.github/scripts/package_msi.sh
 
     - name: Upload files
       env:

@@ -9,6 +9,10 @@ cd build
 nmake install
 
 echo "----------------------"
+cat ./cmake_install.cmake
+echo "----------------------"
+cat ./src/cmake_install.cmake
+echo "----------------------"
 
 cpack --verbose
 mv ksnip*.msi ${GITHUB_WORKSPACE}/ksnip-${VERSION}.msi

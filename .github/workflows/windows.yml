@@ -99,22 +99,3 @@ jobs:
         bash upload.sh ksnip-*.zip
         bash upload.sh ksnip-*.msi
 
-#    - name: Upload artifacts
-#      uses: actions/upload-artifact@v2
-#      with:
-#        name: build-package
-#        path: ${{github.workspace}}/build
-#
-#  release:
-#    needs: build
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Create release
-#        uses: ncipollo/release-action@v1
-#        with:
-#          allowUpdates: true
-#          body: "Release body text"
-#          prerelease: true
-#          token: "${{ secrets.GITHUB_TOKEN }}"
-#          commit: master
-#          name: "Continuous build"

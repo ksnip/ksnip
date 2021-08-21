@@ -49,7 +49,7 @@ jobs:
       run: |
         mv build/src/ksnip*.app ksnip.app
         cp build/translations/ksnip_*.qm ./ksnip.app/Contents/Resources/
-        cp build/translations/kImageAnnotator_*.qm ./ksnip.app/Contents/Resources/
+        cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./ksnip.app/Contents/Resources/
         macdeployqt ksnip.app -dmg -sign-for-notarization="${APPLE_DEV_IDENTITY}"
         mv ksnip.dmg ksnip-${VERSION}.dmg
 
@@ -59,23 +59,3 @@ jobs:
       run: |
         wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
         bash upload.sh ksnip-*.dmg
-
-#    - name: Upload artifacts
-#      uses: actions/upload-artifact@v2
-#      with:
-#        name: build-package
-#        path: ${{github.workspace}}/build
-#
-#  release:
-#    needs: build
-#    runs-on: macos-latest
-#    steps:
-#      - name: Create release
-#        uses: ncipollo/release-action@v1
-#        with:
-#          allowUpdates: true
-#          body: "Release body text"
-#          prerelease: true
-#          token: "${{ secrets.GITHUB_TOKEN }}"
-#          commit: master
-#          name: "Continuous build"

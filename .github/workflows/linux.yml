@@ -47,24 +47,3 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" make test CTEST_OUTPUT_ON_FAILURE=1
 
-
-#
-#    - name: Upload artifacts
-#      uses: actions/upload-artifact@v2
-#      with:
-#        name: build-package
-#        path: ${{github.workspace}}/build
-#
-#  release:
-#    needs: build
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Create release
-#        uses: ncipollo/release-action@v1
-#        with:
-#          allowUpdates: true
-#          body: "Release body text"
-#          prerelease: true
-#          token: "${{ secrets.GITHUB_TOKEN }}"
-#          commit: master
-#          name: "Continuous build"

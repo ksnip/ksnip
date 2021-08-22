@@ -47,3 +47,13 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" make test CTEST_OUTPUT_ON_FAILURE=1
 
+    - name: Download deploy tool
+      working-directory: ${{github.workspace}}
+      run: |
+        wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+        chmod a+x linuxdeployqt-continuous-x86_64.AppImage
+
+    - name: Build AppImage
+      working-directory: ${{github.workspace}}
+      run: sh ./.github/scripts/build_appImage.sh
+

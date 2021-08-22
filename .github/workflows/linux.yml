@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
     - name: Checkout
@@ -54,6 +54,6 @@ jobs:
         chmod a+x linuxdeployqt-continuous-x86_64.AppImage
 
     - name: Build AppImage
-      working-directory: ${{github.workspace}}
+      working-directory: ${{github.workspace}}/build
       run: sh ./.github/scripts/build_appImage.sh
 

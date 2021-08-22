@@ -1,7 +1,6 @@
 #!/bin/bash
 
-echo "--> Build "
-cmake . -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=/usr -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}
+echo "--> Build"
 make DESTDIR=appdir -j$(nproc) install ; find appdir/
 
 echo "--> Copy SSL libs to appDir"

@@ -55,5 +55,5 @@ jobs:
 
     - name: Build AppImage
       working-directory: ${{github.workspace}}/build
-      run: sh ./.github/scripts/build_appImage.sh
+      run: sh ../.github/scripts/build_appImage.sh
 

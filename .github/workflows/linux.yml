@@ -26,7 +26,7 @@ jobs:
         install-deps: 'true'
 
     - name: Install dependencies
-      run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev xvfb
+      run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev xvfb libssl-dev
 
     - name: Set up kColorPicker
       working-directory: ${{github.workspace}}

@@ -57,3 +57,10 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: sh ../.github/scripts/build_appImage.sh
 
+    - name: Upload files
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+        bash upload.sh ksnip*.AppImage*
+

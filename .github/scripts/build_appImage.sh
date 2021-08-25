@@ -4,11 +4,6 @@ echo "--> Build"
 cmake .. -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=/usr -DVERSION_SUFIX=${VERSION_SUFFIX} -DBUILD_NUMBER=${BUILD_NUMBER}
 make DESTDIR=appdir -j$(nproc) install ; find appdir/
 
-echo "--------------"
-echo "Find libssl"
-sudo find / -name libssl.*
-echo "--------------"
-
 echo "--> Copy SSL libs to appDir"
 mkdir -p appdir/usr/lib/
 cp /lib/x86_64-linux-gnu/libssl.so.1.0.0 appdir/usr/lib/

@@ -1,5 +1,5 @@
 # [ksnip](http://ksnip.org/) 
-[![Build Status][travis-badge]][travis-url] [![Linux build status][github-linux-badge]][github-linux-url] [![Windows build status][github-windows-badge]][github-windows-url] [![MacOS build status][github-macos-badge]][github-macos-url] [![GitHub commits (since latest release)][gh-comm-since-badge]][gh-comm-since-url] [![Translation status][weblate-badge]][weblate-url] [![GitHub total downloads][gh-dl-badge]][gh-dl-url] [![SourceForge total downloads][sf-dt-badge]][sf-dt-badge-url] [![Discord][discord-badge]][discord-badge-url]
+[![Linux build status][github-linux-badge]][github-linux-url] [![Windows build status][github-windows-badge]][github-windows-url] [![MacOS build status][github-macos-badge]][github-macos-url] [![GitHub commits (since latest release)][gh-comm-since-badge]][gh-comm-since-url] [![Translation status][weblate-badge]][weblate-url] [![GitHub total downloads][gh-dl-badge]][gh-dl-url] [![SourceForge total downloads][sf-dt-badge]][sf-dt-badge-url] [![Discord][discord-badge]][discord-badge-url]
 
 Version v1.9.1
 
@@ -223,18 +223,15 @@ Please report any bugs or feature requests related to the annotation editor on t
 All other bugs or feature requests can be reported on the [ksnip](https://github.com/ksnip/ksnip/issues) GitHub page under the "Issue" section.
 
 # Contribution
-Any contribution welcome, be it code, translations or other things. Currently this is needed:
-* Write code and fix bugs for macOS.
+Any contribution welcome, be it code, translations or other things. Currently, this is needed:
+* Write code and fix bugs for linux, windows and macOS.
 * Write wiki entries and documentation for ksnip.
 * Package ksnip for different operating systems and distros.
 
 # Donation 
 ksnip is a non-profitable copylefted libre software project, and still has some costs that need to be covered, like domain costs or hardware costs for cross-platform support.
-If you want to help or just want appreciate the work being done by treating developers to a beer or coffee,
+If you want to help or just want to appreciate the work being done by treating developers to a beer or coffee,
 you can do that [here](https://www.paypal.me/damirporobic), donations are always welcome :)
-
-[travis-badge]:        https://img.shields.io/travis/ksnip/ksnip.svg?label=travis&logo=travis
-[travis-url]:          https://travis-ci.com/ksnip/ksnip
 
 [github-linux-badge]:  https://github.com/ksnip/ksnip/actions/workflows/linux.yml/badge.svg
 [github-linux-url]:    https://github.com/ksnip/ksnip/actions/workflows/linux.yml

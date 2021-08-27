@@ -17,9 +17,8 @@ unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
 ../linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
 ../linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage -extra-plugins=iconengines,imageformats
 
-echo "--> Some magic"
-find appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq
-
 echo "--> Whats in here"
+ls
+echo "--> Move"
 mv ksnip*.AppImage* ${GITHUB_WORKSPACE}/
 echo "--> Done"

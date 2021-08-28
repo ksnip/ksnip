@@ -30,11 +30,11 @@ jobs:
 
     - name: Set up kColorPicker
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_kColorPicker.sh "Unix Makefiles" "cmake"
+      run: sh ./.github/scripts/setup_kColorPicker.sh "Unix Makefiles" "make"
         
     - name: Set up kImageAnnotator
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_kImageAnnotator.sh "Unix Makefiles"
+      run: sh ./.github/scripts/setup_kImageAnnotator.sh "Unix Makefiles" "make"
         
     - name: Build
       working-directory: ${{github.workspace}}

@@ -55,7 +55,7 @@
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">清除</translation>
+        <translation>清除</translation>
     </message>
     <message>
         <source>Take Capture</source>
@@ -71,7 +71,7 @@
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">秒</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
@@ -106,7 +106,7 @@
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">添加</translation>
+        <translation>添加</translation>
     </message>
     <message>
         <source>Actions Settings</source>
@@ -384,11 +384,11 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">请使用 </translation>
+        <translation>请使用 </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> 报告错误。</translation>
+        <translation> 报告错误。</translation>
     </message>
 </context>
 <context>
@@ -489,7 +489,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Screenshot Portal</translation>
+        <translation>截图门户</translation>
     </message>
 </context>
 <context>
@@ -986,7 +986,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished">复制为数据 URI</translation>
+        <translation>复制为数据 URI</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
@@ -994,7 +994,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished">修改画布</translation>
+        <translation>修改画布</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
@@ -1157,7 +1157,7 @@ with the latest save directory, for every save.</source>
     </message>
     <message>
         <source>Capture save location and filename</source>
-        <translation type="unfinished">捕获保存位置和文件名</translation>
+        <translation>捕获保存位置和文件名</translation>
     </message>
     <message>
         <source>Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.
@@ -1218,7 +1218,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished">浏览</translation>
+        <translation>浏览</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1285,7 +1285,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished">上传</translation>
+        <translation>上传程序</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1301,7 +1301,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished">剪切区域</translation>
+        <translation>截图区域</translation>
     </message>
     <message>
         <source>Tray Icon</source>
@@ -1363,14 +1363,14 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished">可以通过设置禁用此消息。</translation>
+        <translation>可以通过设置禁用此消息。</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">截图时冻结图像</translation>
+        <translation>截图时冻结图像</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1392,29 +1392,29 @@ MacOs 始终启用此功能。</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">在截屏区域显示放大镜</translation>
+        <translation>在截屏区域显示放大镜</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">在背景图片上显示放大镜。
-此选项仅适用启用了“在
-截屏时冻结图像”。</translation>
+        <translation>显示放大背景图的
+放大镜。此设置仅在
+启用了&apos;在截图时冻结图像&apos;时生效。</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">在截图区域显示标尺</translation>
+        <translation>在截图区域显示标尺</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">在截屏时，显示从屏幕边缘跟踪到鼠标
+        <translation>在截屏区域，显示从屏幕边缘到鼠标
 的水平线和垂直线。</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">显示截图区域的位置和大小信息</translation>
+        <translation>显示截图区域的位置和尺寸信息</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
@@ -1446,7 +1446,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">截图区域的光标颜色</translation>
+        <translation>截图区域的光标颜色</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
@@ -1454,7 +1454,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">截图区域的光标粗度</translation>
+        <translation>截图区域的光标粗细</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
@@ -1462,7 +1462,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished">剪切区域</translation>
+        <translation>截屏区域</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
@@ -1536,8 +1536,8 @@ Smaller number is more transparent.</source>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">如果启用，则会在操作系统窗口的任务栏上添加图标（如果支持）。
-更改需要重新启动。</translation>
+        <translation>启用后，如系统窗口管理器支持，会向任务栏添加托盘图标。
+更改需要重新启动才能生效。</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
@@ -1624,7 +1624,7 @@ service when such exists. Change requires restart to take effect.</source>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">上传前要求确认</translation>
+        <translation>上传前请求确认</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
@@ -1640,7 +1640,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished">上传</translation>
+        <translation>上传程序</translation>
     </message>
 </context>
 <context>
@@ -1662,19 +1662,19 @@ service when such exists. Change requires restart to take effect.</source>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">水印图像</translation>
+        <translation>水印图像</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">更新</translation>
+        <translation>更新</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">旋转水印</translation>
+        <translation>旋转水印</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">启用后，水印将旋转45度</translation>
+        <translation>启用后，将添加旋转 45° 的水印</translation>
     </message>
     <message>
         <source>Watermark Settings</source>

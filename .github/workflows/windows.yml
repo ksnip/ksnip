@@ -56,7 +56,7 @@ jobs:
       working-directory: ${{github.workspace}}
       run: |
         curl "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip" --output openssl.zip
-        7z x openssl.zip -o"open_ssl"
+        7z x openssl.zip -o"open_ssl" || true
 
     - name: Package exe
       working-directory: ${{github.workspace}}

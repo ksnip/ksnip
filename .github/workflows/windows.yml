@@ -52,15 +52,15 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: nmake test CTEST_OUTPUT_ON_FAILURE=1
 
-    - name: Install OpenSSL
-      working-directory: ${{github.workspace}}
-      run: choco install openssl
-
-    - name: Download OpenSSL
-      working-directory: ${{github.workspace}}
-      run: |
-        curl "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip" --output openssl.zip
-        7z x openssl.zip -o"open_ssl" || true
+#    - name: Install OpenSSL
+#      working-directory: ${{github.workspace}}
+#      run: choco install openssl
+#
+#    - name: Download OpenSSL
+#      working-directory: ${{github.workspace}}
+#      run: |
+#        curl "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip" --output openssl.zip
+#        7z x openssl.zip -o"open_ssl" || true
 
     - name: Package exe
       working-directory: ${{github.workspace}}
@@ -70,6 +70,13 @@ jobs:
         windeployqt.exe packageDir/ksnip.exe
         cp build/translations/ksnip_*.qm ./packageDir/translations/
         cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./packageDir/translations/
+        echo "------------------"
+        ls "C:\Program Files\OpenSSL\"
+        echo "------------------"
+        ls "C:\Program Files\OpenSSL\bin"
+        echo "------------------"
+        find "C:\" -name libeay32*
+        echo "------------------"
         cp open_ssl/{libeay32.dll,ssleay32.dll} ./packageDir/ || true
         7z a ksnip-${{ env.VERSION }}-windows.zip ./packageDir/*
 

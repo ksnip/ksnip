@@ -18,6 +18,10 @@ jobs:
       working-directory: ${{github.workspace}}
       run: sh ./.github/scripts/setup_build_variables.sh
 
+    - name: Set up windows build variables
+      working-directory: ${{github.workspace}}
+      run: sh ./.github/scripts/setup_windows_build_variables.sh
+
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
@@ -51,10 +55,6 @@ jobs:
         cmake .. -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_EXAMPLE=OFF -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }}
         nmake && nmake install
 
-    - name: Set up windows build variables
-      working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_windows_build_variables.sh
-
     - name: Build
       working-directory: ${{github.workspace}}
       run: |
@@ -65,6 +65,9 @@ jobs:
     - name: Test
       working-directory: ${{github.workspace}}/build
       run: nmake test CTEST_OUTPUT_ON_FAILURE=1
+
+    - name: Install wget
+      run: choco install wget --verbose
 
     - name: Package exe
       working-directory: ${{github.workspace}}

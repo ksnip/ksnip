@@ -52,6 +52,10 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: nmake test CTEST_OUTPUT_ON_FAILURE=1
 
+    - name: Install OpenSSL
+      working-directory: ${{github.workspace}}
+      run: choco install openssl
+
     - name: Download OpenSSL
       working-directory: ${{github.workspace}}
       run: |

@@ -16,9 +16,11 @@ jobs:
     
     - name: Set up build variables
       working-directory: ${{github.workspace}}
-      run: |
-        sh ./.github/scripts/setup_build_variables.sh
-        sh ./.github/scripts/setup_windows_build_variables.sh
+      run: sh ./.github/scripts/setup_build_variables.sh
+
+    - name: Set up windows build variables
+      working-directory: ${{github.workspace}}
+      run: sh ./.github/scripts/setup_windows_build_variables.sh
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v2

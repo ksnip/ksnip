@@ -1,6 +1,7 @@
 find_package(Qt5LinguistTools)
 
 set(KSNIP_LANG_TS
+	ksnip_ar.ts
 	ksnip_bn_BD.ts
 	ksnip_cs.ts
 	ksnip_da.ts
@@ -9,6 +10,7 @@ set(KSNIP_LANG_TS
 	ksnip_es.ts
 	ksnip_eu.ts
 	ksnip_fa.ts
+	ksnip_fi.ts
 	ksnip_fr.ts
 	ksnip_fr_CA.ts
 	ksnip_gl.ts

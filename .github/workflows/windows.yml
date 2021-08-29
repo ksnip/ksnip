@@ -67,7 +67,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        curl "https://github.com/probonopd/uploadtool/raw/master/upload.sh" --output upload.sh
+        curl -C "https://github.com/probonopd/uploadtool/raw/master/upload.sh" --output upload.sh
         ls
         bash upload.sh ksnip-*.zip
         bash upload.sh ksnip-*.msi

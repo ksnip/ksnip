@@ -20,7 +20,7 @@ jobs:
 
     - name: Set up windows build variables
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_windows_build_variables.sh
+      run: sh ./.github/scripts/windows/setup_windows_build_variables.sh
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
@@ -43,10 +43,7 @@ jobs:
 
     - name: Build
       working-directory: ${{github.workspace}}
-      run: |
-        mkdir build && cd build
-        cmake .. -G"${{ env.CMAKE_GENERATOR }}" -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DVERSION_SUFIX=${{ env.VERSION_SUFFIX }} -DBUILD_NUMBER=${{ env.BUILD_NUMBER }} -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_PREFIX }} -DOPENSSL_DIR="${{ env.OPENSSL_DIR }}" -DKIMAGEANNOTATOR_DIR=${{ env.INSTALL_PREFIX }}
-        nmake
+      run: sh ./.github/scripts/build_ksnip.sh
 
     - name: Test
       working-directory: ${{github.workspace}}/build
@@ -60,11 +57,11 @@ jobs:
 
     - name: Package exe
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/package_exe.sh
+      run: sh ./.github/scripts/windows/package_exe.sh
 
     - name: Package msi
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/package_msi.sh
+      run: sh ./.github/scripts/windows/package_msi.sh
 
     - name: Upload files
       env:

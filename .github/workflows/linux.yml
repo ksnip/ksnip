@@ -16,11 +16,11 @@ jobs:
     
     - name: Set up build variables
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_build_variables.sh
+      run: bash ./.github/scripts/setup_build_variables.sh
 
     - name: Set up windows build variables
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/linux/setup_linux_build_variables.sh
+      run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
@@ -34,11 +34,11 @@ jobs:
 
     - name: Set up kColorPicker
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_kColorPicker.sh
+      run: bash ./.github/scripts/setup_kColorPicker.sh
         
     - name: Set up kImageAnnotator
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_kImageAnnotator.sh
+      run: bash ./.github/scripts/setup_kImageAnnotator.sh
         
     - name: Build
       working-directory: ${{github.workspace}}

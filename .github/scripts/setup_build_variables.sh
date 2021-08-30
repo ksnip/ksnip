@@ -8,10 +8,11 @@ VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
 WORKSPACE="$GITHUB_WORKSPACE"
 INSTALL_PREFIX="$WORKSPACE/tmp"
 
-[[ ! "$GITHUB_REF" =~ refs/tags ]] && exit
-      echo "::set-output name=GITHUB_TAG::${GITHUB_REF#refs/tags/}"
+#[[ ! "$GITHUB_REF" =~ refs/tags ]] && exit
+#      echo "::set-output name=GITHUB_TAG::${GITHUB_REF#refs/tags/}"
 
 echo "GitHub Tag is: $GITHUB_TAG"
+echo "GitHub Ref is: $GITHUB_REF"
 
 echo "BUILD_TYPE=Release" >> $GITHUB_ENV
 echo "BUILD_TIME=$BUILD_TIME" >> $GITHUB_ENV
@@ -23,7 +24,7 @@ echo "VERSION_NUMBER=$VERSION_NUMBER" >> $GITHUB_ENV
 echo "UPLOADTOOL_ISPRERELEASE=true" >> $GITHUB_ENV
 
 
-if [[ -z "${TRAVIS_TAG}" ]]; then
+if [[ -z "${GITHUB_TAG}" ]]; then
     echo "Build is not tagged this is a continues build"
     VERSION_SUFFIX="continuous"
     echo "VERSION_SUFFIX=$VERSION_SUFFIX" >> $GITHUB_ENV
@@ -31,5 +32,5 @@ if [[ -z "${TRAVIS_TAG}" ]]; then
 else
     echo "--> Build is tagged this is not a continues build"
     echo "--> Building ksnip version ${VERSION_NUMBER}"
-    echo "VERSION=${VERSION_NUMBER}-${VERSION_SUFFIX}" >> $GITHUB_ENV
+    echo "VERSION=${VERSION_NUMBER}" >> $GITHUB_ENV
 fi

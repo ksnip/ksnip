@@ -16,11 +16,11 @@ jobs:
     
     - name: Set up build variables
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_build_variables.sh
+      run: bash ./.github/scripts/setup_build_variables.sh
 
     - name: Set up windows build variables
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/windows/setup_windows_build_variables.sh
+      run: bash ./.github/scripts/windows/setup_windows_build_variables.sh
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
@@ -35,15 +35,15 @@ jobs:
 
     - name: Set up kColorPicker
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_kColorPicker.sh
+      run: bash ./.github/scripts/setup_kColorPicker.sh
         
     - name: Set up kImageAnnotator
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/setup_kImageAnnotator.sh
+      run: bash ./.github/scripts/setup_kImageAnnotator.sh
 
     - name: Build
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/build_ksnip.sh
+      run: bash ./.github/scripts/build_ksnip.sh
 
     - name: Test
       working-directory: ${{github.workspace}}/build
@@ -57,21 +57,17 @@ jobs:
 
     - name: Package exe
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/windows/package_exe.sh
+      run: bash ./.github/scripts/windows/package_exe.sh
 
     - name: Package msi
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/windows/package_msi.sh
+      run: bash ./.github/scripts/windows/package_msi.sh
 
     - name: Upload files
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         curl -L https://github.com/probonopd/uploadtool/raw/master/upload.sh --output upload.sh
-        ls
-        echo "----------------"
-        cat upload.sh
-        echo "----------------"
         bash upload.sh ksnip-*.zip
         bash upload.sh ksnip-*.msi
 

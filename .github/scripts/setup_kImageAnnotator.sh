@@ -1,12 +1,12 @@
 #!/bin/bash
 
 if [[ -z "${GITHUB_TAG}" ]]; then
-    echo "--> Building ksnip with latest version of kImageAnnotator"
+    echo "Building ksnip with latest version of kImageAnnotator"
 
     git clone --depth 1 git://github.com/ksnip/kImageAnnotator
 else
     KIMAGEANNOTATOR_VERSION=$(grep "set.*KIMAGEANNOTATOR_MIN_VERSION" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
-    echo "--> Building ksnip with kImageAnnotator version ${KIMAGEANNOTATOR_VERSION}"
+    echo "Building ksnip with kImageAnnotator version ${KIMAGEANNOTATOR_VERSION}"
 
     git clone --depth 1 --branch "v${KIMAGEANNOTATOR_VERSION}" git://github.com/ksnip/kImageAnnotator
 fi

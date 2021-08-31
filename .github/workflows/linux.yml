@@ -42,7 +42,7 @@ jobs:
         
     - name: Build
       working-directory: ${{github.workspace}}
-      run: sh ./.github/scripts/build_ksnip.sh
+      run: bash ./.github/scripts/build_ksnip.sh
 
     - name: Test
       working-directory: ${{github.workspace}}/build
@@ -56,7 +56,7 @@ jobs:
 
     - name: Build AppImage
       working-directory: ${{github.workspace}}/build
-      run: sh ../.github/scripts/linux/build_appImage.sh
+      run: bash ../.github/scripts/linux/build_appImage.sh
 
     - name: Upload files
       env:

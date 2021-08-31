@@ -39,6 +39,8 @@ jobs:
         
     - name: Build
       working-directory: ${{github.workspace}}
+      env:
+        BUILD_TESTS: ON
       run: bash ./.github/scripts/build_ksnip.sh
 
     - name: Test

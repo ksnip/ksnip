@@ -7,9 +7,53 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
     runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
+      - name: Set up build variables
+        working-directory: ${{github.workspace}}
+        run: bash ./.github/scripts/setup_build_variables.sh
+
+      - name: Set up windows build variables
+        working-directory: ${{github.workspace}}
+        run: bash ./.github/scripts/windows/setup_windows_build_variables.sh
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: '5.15.2'
+          host: 'windows'
+          install-deps: 'true'
+          arch: 'win64_msvc2019_64'
+
+      - name: Set up nmake
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Set up kColorPicker
+        working-directory: ${{github.workspace}}
+        run: bash ./.github/scripts/setup_kColorPicker.sh
+
+      - name: Set up kImageAnnotator
+        working-directory: ${{github.workspace}}
+        run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+      - name: Build
+        working-directory: ${{github.workspace}}
+        env:
+          BUILD_TESTS: ON
+        run: bash ./.github/scripts/build_ksnip.sh
+
+      - name: Test
+        working-directory: ${{github.workspace}}/build
+        run: nmake test CTEST_OUTPUT_ON_FAILURE=1
+
+
+  package-exe:
+    runs-on: windows-latest
+    needs: test
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -45,10 +89,6 @@ jobs:
       working-directory: ${{github.workspace}}
       run: bash ./.github/scripts/build_ksnip.sh
 
-    - name: Test
-      working-directory: ${{github.workspace}}/build
-      run: nmake test CTEST_OUTPUT_ON_FAILURE=1
-
     - name: Download OpenSSL
       working-directory: ${{github.workspace}}
       run: |
@@ -59,15 +99,62 @@ jobs:
       working-directory: ${{github.workspace}}
       run: bash ./.github/scripts/windows/package_exe.sh
 
-    - name: Package msi
-      working-directory: ${{github.workspace}}
-      run: bash ./.github/scripts/windows/package_msi.sh
-
     - name: Upload files
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         curl -L https://github.com/probonopd/uploadtool/raw/master/upload.sh --output upload.sh
         bash upload.sh ksnip-*.zip
-        bash upload.sh ksnip-*.msi
+
+
+  package-msi:
+    runs-on: windows-latest
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up build variables
+        working-directory: ${{github.workspace}}
+        run: bash ./.github/scripts/setup_build_variables.sh
+
+      - name: Set up windows build variables
+        working-directory: ${{github.workspace}}
+        run: bash ./.github/scripts/windows/setup_windows_build_variables.sh
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: '5.15.2'
+          host: 'windows'
+          install-deps: 'true'
+          arch: 'win64_msvc2019_64'
+
+      - name: Set up nmake
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Set up kColorPicker
+        working-directory: ${{github.workspace}}
+        run: bash ./.github/scripts/setup_kColorPicker.sh
+
+      - name: Set up kImageAnnotator
+        working-directory: ${{github.workspace}}
+        run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+      - name: Download OpenSSL
+        working-directory: ${{github.workspace}}
+        run: |
+          curl "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip" --output openssl.zip
+          7z x openssl.zip -o"${{ env.OPENSSL_DIR }}" || true
+
+      - name: Package msi
+        working-directory: ${{github.workspace}}
+        run: bash ./.github/scripts/windows/package_msi.sh
+
+      - name: Upload files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -L https://github.com/probonopd/uploadtool/raw/master/upload.sh --output upload.sh
+          bash upload.sh ksnip-*.msi
 

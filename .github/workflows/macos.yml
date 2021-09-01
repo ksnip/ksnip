@@ -7,19 +7,16 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
     runs-on: macos-latest
-
     steps:
     - name: Checkout
       uses: actions/checkout@v2
     
     - name: Set up build variables
-      working-directory: ${{github.workspace}}
       run: bash ./.github/scripts/setup_build_variables.sh
 
     - name: Set up windows build variables
-      working-directory: ${{github.workspace}}
       run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
 
     - name: Install Qt
@@ -30,15 +27,12 @@ jobs:
         install-deps: 'true'
         
     - name: Set up kColorPicker
-      working-directory: ${{github.workspace}}
       run: bash ./.github/scripts/setup_kColorPicker.sh
         
     - name: Set up kImageAnnotator
-      working-directory: ${{github.workspace}}
       run: bash ./.github/scripts/setup_kImageAnnotator.sh
         
     - name: Build
-      working-directory: ${{github.workspace}}
       env:
         BUILD_TESTS: ON
       run: bash ./.github/scripts/build_ksnip.sh
@@ -47,18 +41,48 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: make test CTEST_OUTPUT_ON_FAILURE=1
 
-    - name: Package dmg
-      working-directory: ${{github.workspace}}
-      run: |
-        mv build/src/ksnip*.app ksnip.app
-        cp build/translations/ksnip_*.qm ./ksnip.app/Contents/Resources/
-        cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./ksnip.app/Contents/Resources/
-        macdeployqt ksnip.app -dmg -sign-for-notarization="${APPLE_DEV_IDENTITY}"
-        mv ksnip.dmg ksnip-${VERSION}.dmg
 
-    - name: Upload files
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-        bash upload.sh ksnip-*.dmg
+  package-dmg:
+    runs-on: macos-latest
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up build variables
+        run: bash ./.github/scripts/setup_build_variables.sh
+
+      - name: Set up windows build variables
+        run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: '5.15.2'
+          host: 'mac'
+          install-deps: 'true'
+
+      - name: Set up kColorPicker
+        run: bash ./.github/scripts/setup_kColorPicker.sh
+
+      - name: Set up kImageAnnotator
+        run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+      - name: Build
+        working-directory: ${{github.workspace}}
+        run: bash ./.github/scripts/build_ksnip.sh
+
+      - name: Package dmg
+        run: |
+          mv build/src/ksnip*.app ksnip.app
+          cp build/translations/ksnip_*.qm ./ksnip.app/Contents/Resources/
+          cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./ksnip.app/Contents/Resources/
+          macdeployqt ksnip.app -dmg -sign-for-notarization="${APPLE_DEV_IDENTITY}"
+          mv ksnip.dmg ksnip-${VERSION}.dmg
+
+      - name: Upload files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+          bash upload.sh ksnip-*.dmg

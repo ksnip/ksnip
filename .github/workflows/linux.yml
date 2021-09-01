@@ -7,19 +7,16 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-18.04
-
     steps:
     - name: Checkout
       uses: actions/checkout@v2
     
     - name: Set up build variables
-      working-directory: ${{github.workspace}}
       run: bash ./.github/scripts/setup_build_variables.sh
 
     - name: Set up windows build variables
-      working-directory: ${{github.workspace}}
       run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
 
     - name: Install Qt
@@ -33,15 +30,12 @@ jobs:
       run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev xvfb libssl-dev
 
     - name: Set up kColorPicker
-      working-directory: ${{github.workspace}}
       run: bash ./.github/scripts/setup_kColorPicker.sh
         
     - name: Set up kImageAnnotator
-      working-directory: ${{github.workspace}}
       run: bash ./.github/scripts/setup_kImageAnnotator.sh
         
     - name: Build
-      working-directory: ${{github.workspace}}
       env:
         BUILD_TESTS: ON
       run: bash ./.github/scripts/build_ksnip.sh
@@ -50,20 +44,52 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" make test CTEST_OUTPUT_ON_FAILURE=1
 
-    - name: Download deploy tool
-      working-directory: ${{github.workspace}}
-      run: |
-        wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
-        chmod a+x linuxdeployqt-continuous-x86_64.AppImage
 
-    - name: Build AppImage
-      working-directory: ${{github.workspace}}/build
-      run: bash ../.github/scripts/linux/build_appImage.sh
+  package-appImage:
+    runs-on: ubuntu-18.04
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Upload files
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-        bash upload.sh ksnip*.AppImage*
+      - name: Set up build variables
+        run: bash ./.github/scripts/setup_build_variables.sh
+
+      - name: Set up windows build variables
+        run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: '5.15.2'
+          host: 'linux'
+          install-deps: 'true'
+
+      - name: Install dependencies
+        run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev xvfb libssl-dev
+
+      - name: Set up kColorPicker
+        run: bash ./.github/scripts/setup_kColorPicker.sh
+
+      - name: Set up kImageAnnotator
+        run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+      - name: Build
+        run: bash ./.github/scripts/build_ksnip.sh
+
+      - name: Download deploy tool
+        run: |
+          wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+          chmod a+x linuxdeployqt-continuous-x86_64.AppImage
+
+      - name: Build AppImage
+        working-directory: ${{github.workspace}}/build
+        run: bash ../.github/scripts/linux/build_appImage.sh
+
+      - name: Upload files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+          bash upload.sh ksnip*.AppImage*
 

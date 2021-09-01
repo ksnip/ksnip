@@ -74,9 +74,6 @@ jobs:
       - name: Set up kImageAnnotator
         run: bash ./.github/scripts/setup_kImageAnnotator.sh
 
-      - name: Build
-        run: bash ./.github/scripts/build_ksnip.sh
-
       - name: Download deploy tool
         run: |
           wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
@@ -92,4 +89,47 @@ jobs:
         run: |
           wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
           bash upload.sh ksnip*.AppImage*
+
+
+  package-rpm:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up build variables
+        run: bash ./.github/scripts/setup_build_variables.sh
+
+      - name: Set up windows build variables
+        run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: '5.15.2'
+          host: 'linux'
+          install-deps: 'true'
+
+      - name: Install dependencies
+        run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev xvfb libssl-dev
+
+      - name: Set up kColorPicker
+        run: bash ./.github/scripts/setup_kColorPicker.sh
+
+      - name: Set up kImageAnnotator
+        run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+      - name: build RPM package
+        id: rpm
+        uses: naveenrajm7/rpmbuild@master
+        with:
+          spec_file: ./.github/scripts/linux/rpm/ksnip.spec
+
+      - name: Upload files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+          bash upload.sh ksnip-*.rpm
 

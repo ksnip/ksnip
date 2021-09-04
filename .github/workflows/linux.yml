@@ -80,7 +80,7 @@ jobs:
           chmod a+x linuxdeployqt-continuous-x86_64.AppImage
 
       - name: Build AppImage
-        working-directory: ${{github.workspace}}/build
+        working-directory: ${{github.workspace}}
         run: bash ../.github/scripts/linux/build_appImage.sh
 
       - name: Upload files
@@ -120,11 +120,17 @@ jobs:
       - name: Set up kImageAnnotator
         run: bash ./.github/scripts/setup_kImageAnnotator.sh
 
-      - name: build RPM package
+      - name: Set up rpm spec file
+        run: bash ./.github/scripts/linux/rpm/setup_spec_file.sh
+
+      - name: Set up rpm directory structure
+        run: bash ./.github/scripts/linux/rpm/setup_rpm_directory_structure.sh
+
+      - name: Build RPM package
         id: rpm
         uses: naveenrajm7/rpmbuild@master
         with:
-          spec_file: ./.github/scripts/linux/rpm/ksnip.spec
+          spec_file: "ksnip-${VERSION_NUMBER}/SPECS/ksnip-${VERSION_NUMBER}.spec"
 
       - name: Upload files
         env:

@@ -27,7 +27,7 @@ jobs:
         install-deps: 'true'
 
     - name: Install dependencies
-      run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev xvfb libssl-dev
+      run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev xvfb
 
     - name: Set up kColorPicker
       run: bash ./.github/scripts/setup_kColorPicker.sh
@@ -66,7 +66,7 @@ jobs:
           install-deps: 'true'
 
       - name: Install dependencies
-        run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev xvfb libssl-dev
+        run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev libssl-dev
 
       - name: Set up kColorPicker
         run: bash ./.github/scripts/setup_kColorPicker.sh
@@ -79,9 +79,9 @@ jobs:
           wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
           chmod a+x linuxdeployqt-continuous-x86_64.AppImage
 
-      - name: Build AppImage
+      - name: Package AppImage
         working-directory: ${{github.workspace}}
-        run: bash ../.github/scripts/linux/build_appImage.sh
+        run: bash ./.github/scripts/linux/build_appImage.sh
 
       - name: Upload files
         env:
@@ -112,7 +112,7 @@ jobs:
           install-deps: 'true'
 
       - name: Install dependencies
-        run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev xvfb libssl-dev
+        run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev libssl-dev rpm
 
       - name: Set up kColorPicker
         run: bash ./.github/scripts/setup_kColorPicker.sh
@@ -126,11 +126,8 @@ jobs:
       - name: Set up rpm directory structure
         run: bash ./.github/scripts/linux/rpm/setup_rpm_directory_structure.sh
 
-      - name: Build RPM package
-        id: rpm
-        uses: naveenrajm7/rpmbuild@master
-        with:
-          spec_file: "ksnip-${VERSION_NUMBER}/SPECS/ksnip-${VERSION_NUMBER}.spec"
+      - name: Package rpm
+        run: bash ./.github/scripts/linux/rpm/build_rpm.sh
 
       - name: Upload files
         env:

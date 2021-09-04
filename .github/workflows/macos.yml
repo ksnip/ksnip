@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  test-macos:
     runs-on: macos-latest
     steps:
     - name: Checkout
@@ -44,7 +44,7 @@ jobs:
 
   package-dmg:
     runs-on: macos-latest
-    needs: test
+    needs: test-macos
     steps:
       - name: Checkout
         uses: actions/checkout@v2

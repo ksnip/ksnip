@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  test-linux:
     runs-on: ubuntu-18.04
     steps:
     - name: Checkout
@@ -47,7 +47,7 @@ jobs:
 
   package-appImage:
     runs-on: ubuntu-18.04
-    needs: test
+    needs: test-linux
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -93,7 +93,7 @@ jobs:
 
   package-rpm:
     runs-on: ubuntu-latest
-    needs: test
+    needs: test-linux
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -120,10 +120,10 @@ jobs:
       - name: Set up kImageAnnotator
         run: bash ./.github/scripts/setup_kImageAnnotator.sh
 
-      - name: Set up rpm spec file
+      - name: Set up spec file
         run: bash ./.github/scripts/linux/rpm/setup_spec_file.sh
 
-      - name: Set up rpm directory structure
+      - name: Set up directory structure
         run: bash ./.github/scripts/linux/rpm/setup_rpm_directory_structure.sh
 
       - name: Package rpm
@@ -135,4 +135,53 @@ jobs:
         run: |
           wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
           bash upload.sh ksnip-*.rpm
+
+
+  package-deb:
+    runs-on: ubuntu-latest
+    needs: test-linux
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up build variables
+        run: bash ./.github/scripts/setup_build_variables.sh
+
+      - name: Set up windows build variables
+        run: bash ./.github/scripts/linux/setup_linux_build_variables.sh
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: '5.15.2'
+          host: 'linux'
+          install-deps: 'true'
+
+      - name: Install dependencies
+        run: sudo apt-get install extra-cmake-modules libxcb-xfixes0-dev libssl-dev devscripts debhelper
+
+      - name: Set up kColorPicker
+        run: bash ./.github/scripts/setup_kColorPicker.sh
+
+      - name: Set up kImageAnnotator
+        run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+      - name: Set up directory structure
+        run: bash ./.github/scripts/linux/deb/setup_deb_directory_structure.sh
+
+      - name: Set up changelog
+        run: bash ./.github/scripts/linux/deb/setup_changelog_file.sh
+
+      - name: Set up build rules
+        run: bash ./.github/scripts/linux/deb/setup_build_rules.sh
+
+      - name: Package deb
+        run: bash ./.github/scripts/linux/rpm/build_deb.sh
+
+      - name: Upload files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+          bash upload.sh ksnip-*.deb
 

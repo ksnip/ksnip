@@ -14,7 +14,6 @@ Source0: %{name}-%{version}.tar.gz
 URL:     https://github.com/ksnip/ksnip
 License: GPLV2+
 Group:   Application/Utility
-BuildRequires: update-desktop-files
 
 
 %description

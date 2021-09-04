@@ -134,7 +134,10 @@ jobs:
         run: bash ./.github/scripts/build_ksnip.sh
 
       - name: Package msi
-        run: bash ./.github/scripts/windows/package_msi.sh
+        run: bash ./.github/scripts/windows/msi/package_msi.sh
+
+      - name: Sign msi
+        run: powershell ./.github/scripts/windows/msi/sign_msi_package.ps1
 
       - name: Upload files
         env:

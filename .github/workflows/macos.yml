@@ -69,16 +69,16 @@ jobs:
         run: bash ./.github/scripts/setup_kImageAnnotator.sh
 
       - name: Build
-        working-directory: ${{github.workspace}}
         run: bash ./.github/scripts/build_ksnip.sh
 
       - name: Package dmg
-        run: |
-          mv build/src/ksnip*.app ksnip.app
-          cp build/translations/ksnip_*.qm ./ksnip.app/Contents/Resources/
-          cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./ksnip.app/Contents/Resources/
-          macdeployqt ksnip.app -dmg -sign-for-notarization="${APPLE_DEV_IDENTITY}"
-          mv ksnip.dmg ksnip-${VERSION}.dmg
+        run: bash ./.github/scripts/macos/package_dmg.sh
+
+      - name: Add OSX certificate to key chain
+        run: bash ./.github/scripts/macos/add_osx_cert.sh
+
+      - name: Notarize dmg package
+        run: bash ./.github/scripts/macos/notarize_osx_dmg_package.sh
 
       - name: Upload files
         env:

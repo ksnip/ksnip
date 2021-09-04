@@ -32,7 +32,6 @@ rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/share/kImageAnnotator/
 cp -r /usr/local/share/kImageAnnotator/translations $RPM_BUILD_ROOT/usr/share/kImageAnnotator/
-%suse_update_desktop_file -r org.%{name}.%{name} Utility DesktopUtility
 
 %clean
 rm -rf $RPM_BUILD_ROOT

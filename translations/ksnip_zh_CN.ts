@@ -137,7 +137,8 @@
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation>启用时平滑处理笔和标记路径完成后的绘制内容。</translation>
+        <translation>如启用，绘制完成后
+消除笔和标记路径。</translation>
     </message>
     <message>
         <source>Smooth Factor</source>

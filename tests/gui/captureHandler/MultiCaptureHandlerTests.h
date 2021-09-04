@@ -22,11 +22,6 @@
 
 #include <QtTest>
 
-#include "src/gui/captureHandler/MultiCaptureHandler.h"
-#include "tests/mocks/ImageAnnotatorMock.h"
-#include "tests/mocks/CaptureTabStateHandlerMock.h"
-#include "tests/mocks/ServiceLocatorMock.h"
-
 class MultiCaptureHandlerTests : public QObject
 {
 	Q_OBJECT

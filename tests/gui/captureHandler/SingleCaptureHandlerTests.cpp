@@ -19,6 +19,11 @@
 
 #include "SingleCaptureHandlerTests.h"
 
+#include "src/gui/captureHandler/SingleCaptureHandler.h"
+#include "src/common/dtos/CaptureFromFileDto.h"
+#include "tests/mocks/ImageAnnotatorMock.h"
+#include "tests/mocks/ServiceLocatorMock.h"
+
 void SingleCaptureHandlerTests::RemoveImage_Should_CleanupAnnotationData_When_ImageDeleted()
 {
 	ImageAnnotatorMock imageAnnotatorMock;

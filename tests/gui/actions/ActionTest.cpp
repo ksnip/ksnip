@@ -19,7 +19,7 @@
 
 #include "ActionTest.h"
 
-QTEST_MAIN(ActionTest)
+#include "src/gui/actions/Action.h"
 
 void ActionTest::EqualsOperator_Should_ReturnTrue_When_AllValuesMatch()
 {
@@ -103,3 +103,5 @@ void ActionTest::EqualsOperator_Should_ReturnTrue_When_AllValuesMatch_data()
 	QTest::newRow("11. Pin differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << false << true << false;
 	QTest::newRow("12. Hide differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << false << false;
 }
+
+QTEST_MAIN(ActionTest)

@@ -19,6 +19,8 @@
 
 #include "PathHelperTests.h"
 
+#include "src/common/helper/PathHelper.h"
+
 void PathHelperTests::IsPathValid_Should_ReturnFalse_When_StringEmpty()
 {
 	auto input = QStringLiteral("");

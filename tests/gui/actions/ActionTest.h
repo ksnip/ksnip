@@ -22,8 +22,6 @@
 
 #include <QtTest>
 
-#include "src/gui/actions/Action.h"
-
 class ActionTest : public QObject
 {
 	Q_OBJECT

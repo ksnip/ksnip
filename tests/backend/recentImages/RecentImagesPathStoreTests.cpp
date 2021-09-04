@@ -19,6 +19,10 @@
 
 #include "RecentImagesPathStoreTests.h"
 
+#include "src/backend/recentImages/RecentImagesPathStore.h"
+
+#include "tests/mocks/ImagePathStorageMock.h"
+
 void RecentImagesPathStoreTests::GetRecentImagesPath_Should_ReturnEmptyStringList_When_Initialized()
 {
 	// arrange

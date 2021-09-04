@@ -19,6 +19,11 @@
 
 #include "MultiCaptureHandlerTests.h"
 
+#include "src/gui/captureHandler/MultiCaptureHandler.h"
+#include "tests/mocks/ImageAnnotatorMock.h"
+#include "tests/mocks/CaptureTabStateHandlerMock.h"
+#include "tests/mocks/ServiceLocatorMock.h"
+
 void MultiCaptureHandlerTests::Copy_Should_CopyCurrentTabImageToClipboard()
 {
 	auto index = 22;

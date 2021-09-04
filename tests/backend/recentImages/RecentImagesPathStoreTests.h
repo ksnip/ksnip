@@ -22,10 +22,6 @@
 
 #include <QtTest>
 
-#include "src/backend/recentImages/RecentImagesPathStore.h"
-
-#include "tests/mocks/ImagePathStorageMock.h"
-
 class RecentImagesPathStoreTests : public QObject
 {
 	Q_OBJECT

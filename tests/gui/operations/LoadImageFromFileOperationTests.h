@@ -22,11 +22,6 @@
 
 #include <QtTest>
 
-#include "src/gui/operations/LoadImageFromFileOperation.h"
-#include "tests/mocks/ToastServiceMock.h"
-#include "tests/mocks/ImageProcessorMock.h"
-#include "tests/mocks/ServiceLocatorMock.h"
-
 class LoadImageFromFileOperationTests : public QObject
 {
 Q_OBJECT

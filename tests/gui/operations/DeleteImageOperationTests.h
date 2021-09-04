@@ -22,10 +22,6 @@
 
 #include <QtTest>
 
-#include "src/gui/operations/DeleteImageOperation.h"
-#include "tests/mocks/MessageBoxServiceMock.h"
-#include "tests/mocks/FileServiceMock.h"
-
 class DeleteImageOperationTests : public QObject
 {
 	Q_OBJECT

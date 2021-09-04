@@ -22,8 +22,6 @@
 
 #include <QtTest>
 
-#include "src/gui/actions/ActionProcessor.h"
-
 class ActionProcessorTest : public QObject
 {
 	Q_OBJECT

@@ -22,11 +22,6 @@
 
 #include <QtTest>
 
-#include "src/gui/captureHandler/SingleCaptureHandler.h"
-#include "src/common/dtos/CaptureFromFileDto.h"
-#include "tests/mocks/ImageAnnotatorMock.h"
-#include "tests/mocks/ServiceLocatorMock.h"
-
 class SingleCaptureHandlerTests : public QObject
 {
 	Q_OBJECT

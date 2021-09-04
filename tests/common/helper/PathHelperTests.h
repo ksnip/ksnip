@@ -22,8 +22,6 @@
 
 #include <QtTest>
 
-#include "src/common/helper/PathHelper.h"
-
 class PathHelperTests : public QObject
 {
 	Q_OBJECT

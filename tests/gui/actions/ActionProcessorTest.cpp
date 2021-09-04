@@ -19,6 +19,8 @@
 
 #include "ActionProcessorTest.h"
 
+#include "src/gui/actions/ActionProcessor.h"
+
 void ActionProcessorTest::Process_Should_TriggerCapture_When_CaptureEnabled()
 {
 	// arrange

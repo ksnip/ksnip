@@ -19,6 +19,11 @@
 
 #include "LoadImageFromFileOperationTests.h"
 
+#include "src/gui/operations/LoadImageFromFileOperation.h"
+#include "tests/mocks/ToastServiceMock.h"
+#include "tests/mocks/ImageProcessorMock.h"
+#include "tests/mocks/ServiceLocatorMock.h"
+
 void LoadImageFromFileOperationTests::Execute_Should_ShowNotificationAndNotOpenImage_When_PathToImageCannotBeOpened()
 {
 	// arrange

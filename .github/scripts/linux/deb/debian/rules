@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 # See debhelper(7) (uncomment to enable)
 # output every command that modifies files on the build system.
- export DH_VERBOSE = 1
+# export DH_VERBOSE = 1
 
 
 # see FEATURE AREAS in dpkg-buildflags(1)
@@ -9,9 +9,9 @@
 
 # see ENVIRONMENT in dpkg-buildflags(1)
 # package maintainers to append CFLAGS
-#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+# export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
 # package maintainers to append LDFLAGS
-#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+# export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
 
 %:
@@ -21,4 +21,6 @@
 #dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
 override_dh_auto_configure:
-	dh_auto_configure --
+	dh_auto_configure O--buildsystem=cmake
+	    cd obj-x86_64-linux-gnu
+	    cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_SYSCONFDIR=/etc -DCMAKE_INSTALL_LOCALSTATEDIR=/var -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON -G"Unix Makefiles" -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_AUTOGEN_VERBOSE=ON -DCMAKE_INSTALL_LIBDIR=lib/x86_64-linux-gnu -DVERSION_SUFIX=continuous -DBUILD_NUMBER=1-4b604fb -DCMAKE_BUILD_TYPE=Release

@@ -3,7 +3,7 @@
 cd build
 
 echo "--------------"
-ls
+ls -al
 echo "--------------"
 
 rm ./*.nuspec

@@ -2,5 +2,11 @@
 
 cd build
 
+echo "--------------"
+ls
+echo "--------------"
+
+rm ./*.nuspec
+
 cpack --verbose
 mv ksnip*.msi ${GITHUB_WORKSPACE}/ksnip-${VERSION}.msi

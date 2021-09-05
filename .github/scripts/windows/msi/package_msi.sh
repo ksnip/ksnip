@@ -3,10 +3,10 @@
 cd build
 
 echo "--------------"
-ls -al
+ls -al "C:\Program Files\CMake\bin\""
 echo "--------------"
 
 rm ./*.nuspec
 
-cpack --verbose
+"C:\Program Files\CMake\bin\cpack.exe" --verbose
 mv ksnip*.msi ${GITHUB_WORKSPACE}/ksnip-${VERSION}.msi

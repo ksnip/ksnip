@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "--> Create copy of spec file"
-cp github/scripts/linux/rpm/ksnip.spec .
+cp ${WORKSPACE}/.github/scripts/linux/rpm/ksnip.spec .
 
 echo "--> Update changelog entries"
 cp CHANGELOG.md changelog

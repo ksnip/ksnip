@@ -6,4 +6,4 @@ cp -R CMakeLists.txt cmake/ desktop/ icons/ LICENSE README.md src/ translations/
 echo "--> Package source content"
 tar -cvzf ksnip_${VERSION_NUMBER}.orig.tar.gz ksnip-${VERSION_NUMBER}/
 echo "--> Copy source package to debian directory"
-cp -R github/scripts/linux/deb/debian ksnip-${VERSION_NUMBER}/
+cp -R ${WORKSPACE}/.github/scripts/linux/deb/debian ksnip-${VERSION_NUMBER}/

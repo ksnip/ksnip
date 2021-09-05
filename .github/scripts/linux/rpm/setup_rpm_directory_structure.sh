@@ -2,7 +2,7 @@
 
 echo "--> Create directory and everything we need to deliver"
 mkdir ksnip-${VERSION_NUMBER}
-cp -R CMakeLists.txt cmake/ desktop/ icons/ LICENSE README.md src/ translations/ ksnip-${VERSION_NUMBER}/
+cp -R CMakeLists.txt cmake/ desktop/ icons/ LICENSE.txt README.md src/ translations/ ksnip-${VERSION_NUMBER}/
 
 echo "--> Package directory"
 tar -cvzf ksnip-${VERSION_NUMBER}.tar.gz ksnip-${VERSION_NUMBER}/

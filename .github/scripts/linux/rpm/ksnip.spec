@@ -30,7 +30,8 @@ make
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/share/kImageAnnotator/
-cp -r $INSTALL_PREFIX/share/kImageAnnotator/translations/* $RPM_BUILD_ROOT/usr/share/kImageAnnotator/translations/
+ls a-l $RPM_BUILD_ROOT/usr/share/kImageAnnotator/
+cp -a $INSTALL_PREFIX/share/kImageAnnotator/translations/. $RPM_BUILD_ROOT/usr/share/kImageAnnotator/translations
 
 %clean
 rm -rf $RPM_BUILD_ROOT

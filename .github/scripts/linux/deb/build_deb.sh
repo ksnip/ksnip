@@ -1,6 +1,12 @@
 #!/bin/bash
 
-cd ksnip-*
-debuild -us -uc
+cd ksnip-${VERSION}
+debuild -us -uc --lintian-opts --profile debian
 
 mv ksnip_*.deb ksnip-${VERSION}.deb
+
+echo "-----------"
+ls .. -al
+echo "-----------"
+ls -al
+echo "-----------"

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd ksnip-${VERSION}
+cd ksnip-${VERSION_NUMBER}
+
 debuild -us -uc --lintian-opts --profile debian
 
 mv ksnip_*.deb ksnip-${VERSION}.deb

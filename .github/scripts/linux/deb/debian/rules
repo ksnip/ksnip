@@ -21,4 +21,4 @@
 #dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
 override_dh_auto_configure:
-	dh_auto_configure --
+	dh_auto_configure -- -DVERSION_SUFIX=continuous -DBUILD_NUMBER=1-01c3e7b -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_PREFIX_PATH="/home/runner/work/ksnip/Qt/5.15.2/gcc_64;/home/runner/work/ksnip/ksnip/tmp/" -DCMAKE_BUILD_TYPE=Release

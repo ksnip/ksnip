@@ -176,8 +176,6 @@ jobs:
         run: bash ./.github/scripts/linux/deb/setup_build_rules.sh
 
       - name: Package deb
-        env:
-          LIB: "/home/runner/work/ksnip/ksnip/tmp/"
         run: bash ./.github/scripts/linux/deb/build_deb.sh
 
       - name: Upload files

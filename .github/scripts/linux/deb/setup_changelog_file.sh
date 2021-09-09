@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo "--> Setup changelog file"
 cp CHANGELOG.md changelog
 sed -i '1,2d' changelog  #Remove header and empty line ad the beginning
 sed -i 's/\[\(.*[^]]*\)\].*/\1)/g' changelog # Replace links to issues with only number
@@ -10,6 +9,7 @@ sed -i 's/^\(\* .*\)/  \1/' changelog # Add two spaces before every entry
 printf "\n -- Damir Porobic <damir.porobic@gmx.com>  ${BUILD_TIME}\n" >> changelog # Add time and author for the first release
 cp changelog ksnip-${VERSION_NUMBER}/debian/
 
+echo "Changelog:"
 echo "---------------"
 cat changelog
 echo "---------------"

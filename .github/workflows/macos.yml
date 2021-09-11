@@ -75,9 +75,15 @@ jobs:
         run: bash ./.github/scripts/macos/package_dmg.sh
 
       - name: Add OSX certificate to key chain
+        env:
+          APPLE_CERT_P12: ${{ secrets.APPLE_CERT_P12 }}
+          APPLE_CERT_P12_PASS: ${{ secrets.APPLE_CERT_P12_PASS }}
         run: bash ./.github/scripts/macos/add_osx_cert.sh
 
       - name: Notarize dmg package
+        env:
+          APPLE_DEV_PASS: ${{ secrets.APPLE_DEV_PASS }}
+          APPLE_DEV_USER: ${{ secrets.APPLE_DEV_USER }}
         run: bash ./.github/scripts/macos/notarize_osx_dmg_package.sh
 
       - name: Upload files

@@ -72,6 +72,8 @@ jobs:
         run: bash ./.github/scripts/build_ksnip.sh
 
       - name: Package dmg
+        env:
+          APPLE_DEV_IDENTITY: ${{ secrets.APPLE_DEV_IDENTITY }}
         run: bash ./.github/scripts/macos/package_dmg.sh
 
       - name: Add OSX certificate to key chain

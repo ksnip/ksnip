@@ -137,6 +137,9 @@ jobs:
         run: bash ./.github/scripts/windows/msi/package_msi.sh
 
       - name: Sign msi
+        env:
+          MICROSOFT_CERT_PFX: ${{ secrets.MICROSOFT_CERT_PFX }}
+          MICROSOFT_CERT_PFX_PASS: ${{ secrets.MICROSOFT_CERT_PFX_PASS }}
         run: powershell ./.github/scripts/windows/msi/sign_msi_package.ps1
 
       - name: Upload files

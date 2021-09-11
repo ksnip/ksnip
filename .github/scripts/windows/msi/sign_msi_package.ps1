@@ -19,7 +19,7 @@ $KSNIP_MSI = "ksnip-$KSNIP_VERSION.msi"
 $TIMESTAMP_SERVER = "http://timestamp.comodoca.com/authenticode"
 $SIGNTOOL = 'C:\Program Files (x86)\Windows Kits\10\bin\x64\signtool.exe'
 
-& SIGNTOOL sign /v /debug /sm /s My /n 'Damir Porobic' /d 'Ksnip - Screenshot Tool' /t $TIMESTAMP_SERVER $KSNIP_MSI
+& SIGNTOOL sign /v /debug /sm /fd SHA256 /s My /n 'Damir Porobic' /d 'Ksnip - Screenshot Tool' /t $TIMESTAMP_SERVER $KSNIP_MSI
 
 rm $CERTIFICATE_PFX
 

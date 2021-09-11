@@ -71,16 +71,16 @@ jobs:
       - name: Build
         run: bash ./.github/scripts/build_ksnip.sh
 
-      - name: Package dmg
-        env:
-          APPLE_DEV_IDENTITY: ${{ secrets.APPLE_DEV_IDENTITY }}
-        run: bash ./.github/scripts/macos/package_dmg.sh
-
       - name: Add OSX certificate to key chain
         env:
           APPLE_CERT_P12: ${{ secrets.APPLE_CERT_P12 }}
           APPLE_CERT_P12_PASS: ${{ secrets.APPLE_CERT_P12_PASS }}
         run: bash ./.github/scripts/macos/add_osx_cert.sh
+
+      - name: Package dmg
+        env:
+          APPLE_DEV_IDENTITY: ${{ secrets.APPLE_DEV_IDENTITY }}
+        run: bash ./.github/scripts/macos/package_dmg.sh
 
       - name: Notarize dmg package
         env:

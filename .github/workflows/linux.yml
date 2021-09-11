@@ -172,9 +172,6 @@ jobs:
       - name: Set up changelog
         run: bash ./.github/scripts/linux/deb/setup_changelog_file.sh
 
-      - name: Set up build rules
-        run: bash ./.github/scripts/linux/deb/setup_build_rules.sh
-
       - name: Package deb
         run: bash ./.github/scripts/linux/deb/build_deb.sh
 

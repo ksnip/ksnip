@@ -29,45 +29,45 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Επικοινωνία</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>License: </source>
-        <translation>Άδεια: </translation>
+        <translation>Άδεια χρήσης: </translation>
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Εργαλείο λήψης στιγμιότυπων και σημειώσεων</translation>
     </message>
 </context>
 <context>
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Όνομα</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Συντόμευση</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Καθαρισμός</translation>
+        <translation>Καθαρισμός</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Σύλληψη</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Συμπερίληψη του δρομέα</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Καθυστέρηση</translation>
     </message>
     <message>
         <source>s</source>
@@ -75,7 +75,7 @@
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Λειτουργία σύλληψης</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
@@ -83,11 +83,11 @@
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγραφή της εικόνας στο πρόχειρο</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποστολή εικόνας</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
@@ -95,26 +95,26 @@
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποθήκευση εικόνας</translation>
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Απόκρυψη του κύριου παραθύρου</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Προσθήκη</translation>
+        <translation>Προσθήκη</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρυθμίσεις ενεργειών</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Ενέργεια</translation>
     </message>
 </context>
 <context>
@@ -249,7 +249,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτόματη απόκρυψη των καρτελών</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
@@ -360,7 +360,7 @@ Do you want to save it?</source>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Κοινότητα</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
@@ -372,19 +372,19 @@ Do you want to save it?</source>
     </message>
     <message>
         <source> server.</source>
-        <translation type="unfinished"></translation>
+        <translation> εξυπηρετητή.</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Αναφορές σφαλμάτων</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Παρακαλώ χρησιμοποιήστε το </translation>
+        <translation>Παρακαλώ χρησιμοποιήστε το </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> για αναφορά σφαλμάτων.</translation>
+        <translation> για αναφορά σφαλμάτων.</translation>
     </message>
 </context>
 <context>
@@ -399,7 +399,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγράφηκε στο πρόχειρο</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
@@ -461,31 +461,31 @@ Do you want to continue?</source>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Ορθογώνια περιοχή</translation>
+        <translation>Ορθογώνια περιοχή</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished">Τελευταία ορθογώνια περιοχή</translation>
+        <translation>Τελευταία ορθογώνια περιοχή</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Πλήρης οθόνη (Όλες οι οθόνες)</translation>
+        <translation>Πλήρης οθόνη (Όλες οι οθόνες)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Τρέχουσα οθόνη</translation>
+        <translation>Τρέχουσα οθόνη</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Ενεργό παράθυρο</translation>
+        <translation>Ενεργό παράθυρο</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Παράθυρο κάτω από τον δρομέα</translation>
+        <translation>Παράθυρο κάτω από τον δρομέα</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished">Πύλη στιγμιότυπου</translation>
+        <translation>Πύλη στιγμιότυπου</translation>
     </message>
 </context>
 <context>
@@ -970,11 +970,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση αποβάθρας</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Απόκρυψη αποβάθρας</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
@@ -982,11 +982,12 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Άνοιγμα
+πρόσφατου</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Τροποποίηση του καμβά</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
@@ -998,15 +999,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Κλιμάκωση εικόνας</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Περιστροφή</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Περιστροφή εικόνας</translation>
     </message>
 </context>
 <context>
@@ -1291,19 +1292,19 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Περιοχή σύλληψης</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Εικονίδιο πλαισίου συστήματος</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Υδατογράφημα</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Ενέργειες</translation>
     </message>
 </context>
 <context>
@@ -1360,7 +1361,7 @@ When omitted, everything is copied.</source>
     <name>SnippingAreaSettings</name>
     <message>
         <source>Freeze Image while snipping</source>
-        <translation type="unfinished">Πάγωμα της οθόνης κατά την σύλληψη</translation>
+        <translation>Πάγωμα της οθόνης κατά την σύλληψη</translation>
     </message>
     <message>
         <source>When enabled will freeze the background while
@@ -1371,49 +1372,37 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished">Όταν είναι ενεργοποιημένο, το παρασκήνιο θα είναι παγωμένο
-κατά την επιλογή της ορθογώνιας περιοχής. Επίσης αλλάζει την
-συμπεριφορά των στιγμιότυπων με καθυστέρηση: η καθυστέρηση
-λαμβάνει χώρα πριν την εμφάνιση της περιοχής σύλληψης ενώ
-όταν είναι απενεργοποιημένο η καθυστέρηση λαμβάνει χώρα μετά
-την εμφάνιση της περιοχής σύλληψης. Αυτό το χαρακτηριστικό είναι 
-απενεργοποιημένο για τον εξυπηρετητή Wayland και πάντα
-ενεργοποιημένο για το MacOs.</translation>
+        <translation>Όταν είναι ενεργοποιημένο, το παρασκήνιο θα είναι παγωμένο κατά την επιλογή της ορθογώνιας περιοχής. Επίσης αλλάζει την συμπεριφορά των στιγμιότυπων με καθυστέρηση: η καθυστέρηση λαμβάνει χώρα πριν την εμφάνιση της περιοχής σύλληψης ενώ όταν είναι απενεργοποιημένο η καθυστέρηση λαμβάνει χώρα μετά την εμφάνιση της περιοχής σύλληψης. Αυτό το χαρακτηριστικό είναι απενεργοποιημένο για τον εξυπηρετητή Wayland και πάντα ενεργοποιημένο για το MacOs.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
-        <translation type="unfinished">Εμφάνιση του μεγεθυντικού φακού στην περιοχή σύλληψης</translation>
+        <translation>Εμφάνιση του μεγεθυντικού φακού στην περιοχή σύλληψης</translation>
     </message>
     <message>
         <source>Show a magnifying glass which zooms into
 the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
-        <translation type="unfinished">Εμφανίζει έναν μεγεθυντικό φακό ο οποίος εστιάζει
-στην εικόνα του παρασκηνίου. Αυτή η επιλογή λειτουργεί
-μόνο όταν το &quot;πάγωμα της οθόνης κατά την σύλληψη&quot; είναι ενεργό.</translation>
+        <translation>Εμφανίζει έναν μεγεθυντικό φακό ο οποίος εστιάζει στην εικόνα του παρασκηνίου. Αυτή η επιλογή λειτουργεί μόνο όταν το &quot;πάγωμα της οθόνης κατά την σύλληψη&quot; είναι ενεργοποιημένο.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
-        <translation type="unfinished">Εμφάνιση των χαράκων στην περιοχή σύλληψης</translation>
+        <translation>Εμφάνιση των χαράκων στην περιοχή σύλληψης</translation>
     </message>
     <message>
         <source>Horizontal and vertical lines going from
 desktop edges to cursor on snipping area.</source>
-        <translation type="unfinished">Οριζόντιες και κάθετες γραμμές από τις άκρες της επιφάνειας εργασίας
-μέχρι τον δρομέα στην περιοχή της σύλληψης.</translation>
+        <translation>Οριζόντιες και κάθετες γραμμές από τις άκρες της επιφάνειας εργασίας μέχρι τον δρομέα στην περιοχή της σύλληψης.</translation>
     </message>
     <message>
         <source>Show Snipping Area position and size info</source>
-        <translation type="unfinished">Εμφάνιση των πληροφοριών θέσης και μεγέθους στην περιοχή σύλληψης</translation>
+        <translation>Εμφάνιση των πληροφοριών θέσης και μεγέθους στην περιοχή σύλληψης</translation>
     </message>
     <message>
         <source>When left mouse button is not pressed the position
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished">Όταν το αριστερό κλικ του ποντικιού δεν είναι πιεσμένο, εμφανίζεται η θέση.
-Όταν το κλικ του ποντικιού είναι πατημένο, το μέγεθος της επιλεγμένης
-περιοχής εμφανίζεται στα αριστερά και κάτω από την περιοχή σύλληψης.</translation>
+        <translation>Όταν το αριστερό κλικ του ποντικιού δεν είναι πιεσμένο, εμφανίζεται η θέση. Όταν το κλικ του ποντικιού είναι πατημένο, το μέγεθος της επιλεγμένης περιοχής εμφανίζεται στα αριστερά και κάτω από την περιοχή σύλληψης.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
@@ -1424,7 +1413,7 @@ and above from the captured area.</source>
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished">Όταν είναι ενεργοποιημένο και αφού έχει
+        <translation>Όταν είναι ενεργοποιημένο και αφού έχει
 επιλεγεί μια ορθογώνια περιοχή, επιτρέπει
 την αλλαγή μεγέθους της επιλογής.
 Μετά το πέρας της ενέργειας επιβεβαιώστε
@@ -1436,19 +1425,19 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Χρώμα του δρομέα της περιοχής σύλληψης</translation>
+        <translation>Χρώμα του δρομέα της περιοχής σύλληψης</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished">Ορίζει το χρώμα του δρομέα της περιοχής σύλληψης.</translation>
+        <translation>Ορίζει το χρώμα του δρομέα της περιοχής σύλληψης.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished">Πάχος του δρομέα της περιοχής σύλληψης</translation>
+        <translation>Πάχος του δρομέα της περιοχής σύλληψης</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished">Ορίζει το πάχος του δρομέα της περιοχής σύλληψης.</translation>
+        <translation>Ορίζει το πάχος του δρομέα της περιοχής σύλληψης.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
@@ -1519,29 +1508,28 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Εικονίδιο στο πλαίσιο συστήματος</translation>
+        <translation>Εικονίδιο στο πλαίσιο συστήματος</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Όταν ενεργοποιηθεί προσθέτει εικονίδιο στη γραμμή εργασιών, εαν υποστηρίζεται. 
-Απαιτείται επανεκκίνηση.</translation>
+        <translation>Όταν είναι ενεργοποιημένο προστίθεται ένα εικονίδιο στο πλαίσιο συστήματος αν υποστηρίζεται από τον διαχειριστή παραθύρων του λειτουργικού συστήματος. Για να ληφθούν υπόψιν οι αλλαγές, απαιτείται επανεκκίνηση.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Ελαχιστοποίηση στο πλαίσιο συστήματος</translation>
+        <translation>Ελαχιστοποίηση στο πλαίσιο συστήματος</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Εκκίνηση ελαχιστοποιημένο στο πλαίσιο συστήματος</translation>
+        <translation>Εκκίνηση ελαχιστοποιημένο στο πλαίσιο συστήματος</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Κλείσιμο στο πλαίσιο συστήματος</translation>
+        <translation>Κλείσιμο στο πλαίσιο συστήματος</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Εμφάνιση επεξεργαστή</translation>
+        <translation>Εμφάνιση επεξεργαστή</translation>
     </message>
     <message>
         <source>Capture</source>
@@ -1649,7 +1637,7 @@ service when such exists. Change requires restart to take effect.</source>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Εικόνα υδατογραφήματος</translation>
+        <translation>Εικόνα υδατογραφήματος</translation>
     </message>
     <message>
         <source>Update</source>
@@ -1657,15 +1645,15 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Περιστροφή υδατογραφήματος</translation>
+        <translation>Περιστροφή υδατογραφήματος</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">Όταν είναι ενεργοποιημένο, το υδατογράφημα θα εισαχθεί με περιστροφή 45°</translation>
+        <translation>Όταν είναι ενεργοποιημένο, το υδατογράφημα θα εισαχθεί με περιστροφή 45°</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ρυθμίσεις υδατογραφήματος</translation>
     </message>
 </context>
 </TS>

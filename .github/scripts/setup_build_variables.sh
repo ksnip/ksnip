@@ -38,3 +38,8 @@ else
     echo "Building ksnip version ${VERSION_NUMBER}"
     echo "VERSION=${VERSION_NUMBER}" >> $GITHUB_ENV
 fi
+
+
+# Message show on the release page
+UPLOADTOOL_BODY="GitHub Action build logs: https://github.com/ksnip/ksnip/actions"
+echo "UPLOADTOOL_BODY=$UPLOADTOOL_BODY" >> $GITHUB_ENV

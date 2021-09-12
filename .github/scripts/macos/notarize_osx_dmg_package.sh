@@ -9,7 +9,7 @@ retryCounter=0
 while true; do
   retryCounter=$((retryCounter + 1))
 
-  if [[ "${retryCounter}" -gt 3 ]]; then
+  if [[ "${retryCounter}" -gt 5 ]]; then
       echo "Notarization timeout!"
       exit 1
   fi

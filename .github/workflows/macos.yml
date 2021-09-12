@@ -7,44 +7,44 @@ on:
     branches: [ master ]
 
 jobs:
-#  test-macos:
-#    runs-on: macos-latest
-#    steps:
-#    - name: Checkout
-#      uses: actions/checkout@v2
-#
-#    - name: Set up build variables
-#      run: bash ./.github/scripts/setup_build_variables.sh
-#
-#    - name: Set up windows build variables
-#      run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
-#
-#    - name: Install Qt
-#      uses: jurplel/install-qt-action@v2
-#      with:
-#        version: '5.15.2'
-#        host: 'mac'
-#        install-deps: 'true'
-#
-#    - name: Set up kColorPicker
-#      run: bash ./.github/scripts/setup_kColorPicker.sh
-#
-#    - name: Set up kImageAnnotator
-#      run: bash ./.github/scripts/setup_kImageAnnotator.sh
-#
-#    - name: Build
-#      env:
-#        BUILD_TESTS: ON
-#      run: bash ./.github/scripts/build_ksnip.sh
-#
-#    - name: Test
-#      working-directory: ${{github.workspace}}/build
-#      run: make test CTEST_OUTPUT_ON_FAILURE=1
+  test-macos:
+    runs-on: macos-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up build variables
+      run: bash ./.github/scripts/setup_build_variables.sh
+
+    - name: Set up windows build variables
+      run: bash ./.github/scripts/macos/setup_macos_build_variables.sh
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: '5.15.2'
+        host: 'mac'
+        install-deps: 'true'
+
+    - name: Set up kColorPicker
+      run: bash ./.github/scripts/setup_kColorPicker.sh
+
+    - name: Set up kImageAnnotator
+      run: bash ./.github/scripts/setup_kImageAnnotator.sh
+
+    - name: Build
+      env:
+        BUILD_TESTS: ON
+      run: bash ./.github/scripts/build_ksnip.sh
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build
+      run: make test CTEST_OUTPUT_ON_FAILURE=1
 
 
   package-dmg:
     runs-on: macos-latest
-#    needs: test-macos
+    needs: test-macos
     steps:
       - name: Checkout
         uses: actions/checkout@v2

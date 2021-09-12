@@ -9,9 +9,9 @@ retryCounter=0
 while true; do
   retryCounter=$((retryCounter + 1))
 
-  if [ "${retryCounter}" -gt 5 ]; then
+  if [[ "${retryCounter}" -gt 3 ]]; then
       echo "Notarization timeout!"
-      return 1
+      exit 1
   fi
 
   echo "Notarization retry ${retryCounter}."
@@ -26,12 +26,12 @@ while true; do
       echo "Notarization done!"
       xcrun stapler staple -v ksnip-${VERSION}.dmg
       echo "Stapler done!"
-      break
+      exit 0
   fi
 
   if [[ "${isFailure}" != "" ]]; then
       echo "Notarization failed!"
-      return 1
+      exit 1
   fi
 
   echo "Notarization not finished yet, sleep 2min then check again..."

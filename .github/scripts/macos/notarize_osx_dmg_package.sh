@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Starting Notarization process."
-response=$(xcrun altool -t osx -f ksnip-${VERSION}.dmg --primary-bundle-id org.ksnip --notarize-app -u ${APPLE_DEV_USER} -p ${APPLE_DEV_PASS})
+response=$(xcrun altool -t osx -f ksnip-${VERSION}.dmg --primary-bundle-id org.ksnip.ksnip --notarize-app -u ${APPLE_DEV_USER} -p ${APPLE_DEV_PASS})
 requestUUID=$(echo "${response}" | tr ' ' '\n' | tail -1)
 
 retryCounter=0
@@ -9,7 +9,7 @@ retryCounter=0
 while true; do
   retryCounter=$((retryCounter + 1))
 
-  if [[ "${retryCounter}" -ge 5 ]]; then
+  if [ "${retryCounter}" -gt 5 ]; then
       echo "Notarization timeout!"
       return 1
   fi

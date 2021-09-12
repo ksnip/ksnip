@@ -6,7 +6,16 @@ requestUUID=$(echo "${response}" | tr ' ' '\n' | tail -1)
 
 retryCounter=0
 
-until [ "$retryCounter" -ge 10 ]; do
+while true; do
+  retryCounter=$((retryCounter + 1))
+
+  if [[ "${retryCounter}" -ge 5 ]]; then
+      echo "Notarization timeout!"
+      return 1
+  fi
+
+  echo "Notarization retry ${retryCounter}."
+
   echo "Checking notarization status."
   statusCheckResponse=$(xcrun altool --notarization-info ${requestUUID} -u ${APPLE_DEV_USER} -p ${APPLE_DEV_PASS})
 
@@ -24,8 +33,6 @@ until [ "$retryCounter" -ge 10 ]; do
       echo "Notarization failed!"
       return 1
   fi
-
-  retryCounter=$((retryCounter + 1))
 
   echo "Notarization not finished yet, sleep 2min then check again..."
   sleep 120

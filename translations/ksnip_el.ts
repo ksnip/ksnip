@@ -71,7 +71,7 @@
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">δ</translation>
+        <translation>δ</translation>
     </message>
     <message>
         <source>Capture Mode</source>
@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Προβολή της εικόνας σε καρφιτσωμένο παράθυρο</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Άνοιγμα του γονικού καταλόγου της εικόνας</translation>
     </message>
     <message>
         <source>Save image</source>
@@ -166,31 +166,32 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Μια αλλαγή στον αρχικό αριθμό αλλάζει όλα τα αριθμημένα αντικείμενα</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Απενεργοποιώντας αυτήν την επιλογή, οι αλλαγές στον αρχικό αριθμό επηρεάζουν μόνον τα νέα αντικείμενα και όχι τα υπάρχοντα. Η απενεργοποίηση της επιλογής επιτρέπει διπλότυπους αριθμούς.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρώμα του καμβά</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Το προκαθορισμένο χρώμα παρασκηνίου του καμβά για την περιοχή σχολιασμού.
+Η αλλαγή του χρώματος επηρεάζει μόνον τις νέες περιοχές σχολιασμού.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλογή του αντικειμένου μετά τον σχεδιασμό</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αν αυτή η επιλογή είναι ενεργοποιημένη, το αντικείμενο επιλέγεται αμέσως μετά την δημιουργία του και επιτρέπει την επεξεργασία των παραμέτρων.</translation>
     </message>
 </context>
 <context>
@@ -253,20 +254,21 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτόματη απόκρυψη αποβάθρων</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Απόκρυψη της εργαλειοθήκης και των ρυθμίσεων σχολιασμού κατά την εκκίνηση.
+Χρησιμοποιήστε το πλήκτρο Tab για εναλλαγή της ορατότητας των αποβάθρων.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτόματη κλιμάκωση βάσει του περιεχομένου</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτόματη αλλαγή μεγέθους του κυρίως παραθύρου για προσαρμογή στο περιεχόμενο της εικόνας.</translation>
     </message>
 </context>
 <context>
@@ -305,7 +307,7 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Οι δημιουργοί:</translation>
     </message>
 </context>
 <context>
@@ -364,15 +366,15 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>Αν έχετε γενικές ερωτήσεις, ιδέες ή απλώς θέλετε να συζητήσετε για το ksnip,</translation>
     </message>
     <message>
         <source>please join our </source>
-        <translation type="unfinished"></translation>
+        <translation>μπορείτε να έρθετε στον </translation>
     </message>
     <message>
         <source> server.</source>
-        <translation> εξυπηρετητή.</translation>
+        <translation> εξυπηρετητή μας.</translation>
     </message>
     <message>
         <source>Bug Reports</source>
@@ -391,11 +393,11 @@ Do you want to save it?</source>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία αντιγραφής στο πρόχειρο</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποτυχία αντιγραφής στο πρόχειρο ως εικόνα κωδικοποιημένη σε base64.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
@@ -403,7 +405,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγραφή στο πρόχειρο ως εικόνα κωδικοποιημένη σε base64.</translation>
     </message>
 </context>
 <context>
@@ -454,7 +456,7 @@ Do you want to continue?</source>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη νέων ενεργειών με το πλήκτρο &quot;Προσθήκη&quot; της καρτέλας.</translation>
     </message>
 </context>
 <context>
@@ -592,7 +594,8 @@ Do you want to continue?</source>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Οι συντομεύσεις υποστηρίζονται προς το παρόν μόνο για Windows και X11.
+Απενεργοποιώντας αυτήν την επιλογή οι συντομεύσεις θα έχουν ισχύ μόνο στο ksnip.</translation>
     </message>
 </context>
 <context>
@@ -658,7 +661,8 @@ Wayland και γενικού XDG-DESKTOP-PORTAL στιγμιότυπα.
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Εμφάνιση του κύριου παραθύρου μετά την σύλληψη ενός στιγμιότυπου
+όταν το κύριο παράθυρο είναι καταχωνιασμένο ή ελαχιστοποιημένο.</translation>
     </message>
 </context>
 <context>
@@ -776,18 +780,18 @@ Changing requires restart.</source>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Εκκαθάριση αδειοδοτικού</translation>
     </message>
 </context>
 <context>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Αδύνατο το άνοιγμα της εικόνας</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Αδύνατο το άνοιγμα της εικόνας από την διαδρομή %1</translation>
     </message>
 </context>
 <context>
@@ -978,12 +982,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγραφή ως URI δεδομένων</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished">Άνοιγμα
-πρόσφατου</translation>
+        <translation>Άνοιγμα &amp;πρόσφατου</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
@@ -991,11 +994,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Αποστολή της σύλληψης του ενεργοποιητή προς μια εξωτερική πηγή</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Αντιγραφή της σύλληψης του ενεργοποιητή στο πρόχειρο του συστήματος</translation>
     </message>
     <message>
         <source>Scale Image</source>
@@ -1311,11 +1314,11 @@ When omitted, everything is copied.</source>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Αλλαγή μεγέθους του επιλεγμένου ορθογωνίου χρησιμοποιώντας τις λαβές ή μετακίνηση με σύρσιμο της επιλογής.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρησιμοποιήστε τα βελάκια για να μετακινήσετε την επιλογή.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>

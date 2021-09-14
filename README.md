@@ -2,7 +2,7 @@
 [![Linux build status][github-linux-badge]][github-linux-url] [![Windows build status][github-windows-badge]][github-windows-url] [![MacOS build status][github-macos-badge]][github-macos-url] [![GitHub commits (since latest release)][gh-comm-since-badge]][gh-comm-since-url]  
 [![Translation status][weblate-badge]][weblate-url] [![GitHub total downloads][gh-dl-badge]][gh-dl-url] [![SourceForge total downloads][sf-dt-badge]][sf-dt-badge-url] [![Discord][discord-badge]][discord-badge-url]
 
-Version v1.9.1
+Version v1.10.0
 
 Ksnip is a Qt-based cross-platform screenshot tool that provides many annotation features
 for your screenshots.

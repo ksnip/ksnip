@@ -25,3 +25,9 @@ override_dh_auto_configure:
 
 override_dh_shlibdeps:
 	dh_shlibdeps -l"$(Qt5_DIR)/lib" --dpkg-shlibdeps-params=--ignore-missing-info
+
+# Manually install kimageannotator translation files
+override_dh_auto_install:
+	dh_auto_install
+	mkdir -p $(CURDIR)/debian/ksnip/usr/
+	cp -r $(INSTALL_PREFIX)/share $(CURDIR)/debian/ksnip/usr/

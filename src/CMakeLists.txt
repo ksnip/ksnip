@@ -3,6 +3,8 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfig.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfigOptions.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfigProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/commandLine/CommandLine.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/commandLine/CommandLineCaptureHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractRectAreaImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp
@@ -18,12 +20,17 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/saver/UniqueNameProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/CapturePrinter.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/TranslationLoader.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/KsnipCommandLine.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/WatermarkImageLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/recentImages/RecentImagesPathStore.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/recentImages/ImagePathStorage.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ipc/IpcServer.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/ipc/IpcClient.cpp
+	${CMAKE_SOURCE_DIR}/src/bootstrapper/BootstrapperFactory.cpp
+	${CMAKE_SOURCE_DIR}/src/bootstrapper/StandAloneBootstrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/InstanceLock.cpp
+	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceClientBootstrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceServerBootstrapper.cpp
+	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceParameterTranslator.cpp
 	${CMAKE_SOURCE_DIR}/src/common/adapter/fileDialog/FileDialogAdapter.cpp
 	${CMAKE_SOURCE_DIR}/src/common/adapter/fileDialog/FileDialogAdapterFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
@@ -39,6 +46,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/provider/DirectoryPathProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/ScaledSizeProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/TempFileProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomToolButton.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomCursor.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CursorFactory.cpp
@@ -131,13 +139,6 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/windowResizer/WindowResizer.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/dragAndDrop/DragAndDropProcessor.cpp
 	${CMAKE_SOURCE_DIR}/src/logging/LogOutputHandler.cpp
-	${CMAKE_SOURCE_DIR}/src/bootstrapper/BootstrapperFactory.cpp
-	${CMAKE_SOURCE_DIR}/src/bootstrapper/StandAloneBootstrapper.cpp
-	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/InstanceLock.cpp
-	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceClientBootstrapper.cpp
-	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceServerBootstrapper.cpp
-	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceParameterTranslator.cpp
-	${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
 	)
 
 if (APPLE)

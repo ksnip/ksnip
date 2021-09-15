@@ -50,12 +50,11 @@
 #include "src/gui/windowResizer/IResizableWindow.h"
 #include "src/gui/windowResizer/WindowResizer.h"
 #include "src/widgets/MainToolBar.h"
-#include "src/backend/imageGrabber/AbstractImageGrabber.h"
+#include "src/backend/imageGrabber/ImageGrabberFactory.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/backend/uploader/UploaderProvider.h"
 #include "src/backend/CapturePrinter.h"
 #include "src/common/loader/IconLoader.h"
-#include "src/common/enum/RunMode.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
@@ -64,7 +63,7 @@ class MainWindow : public QMainWindow, public ICaptureChangeListener, public IIm
 {
     Q_OBJECT
 public:
-    explicit MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode = RunMode::GUI);
+    explicit MainWindow();
     ~MainWindow() override;
     void showEmpty();
 	void showHidden();
@@ -92,7 +91,6 @@ protected:
 private:
     AbstractImageGrabber *mImageGrabber;
 	IServiceLocator *mServiceLocator;
-    RunMode mMode;
     bool mSessionManagerRequestedQuit;
     QAction *mSaveAsAction;
     QAction *mUploadAction;
@@ -140,7 +138,6 @@ private:
     void triggerCapture(CaptureModes captureMode);
     void capture(CaptureModes captureMode, bool captureCursor, int delay);
     void initGui();
-	void processInstantCapture(const CaptureDto &capture);
 	void showDialog(const std::function<void ()>& showDialogMethod);
 
 private slots:

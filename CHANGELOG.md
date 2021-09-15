@@ -1,5 +1,8 @@
 # Change log
 
+## Release 1.10.1
+* New: Set image save location on command line. ([#666](https://github.com/ksnip/ksnip/issues/666))
+
 ## Release 1.9.1
 * Fixed: MacOS package damaged and not starting. ([#653](https://github.com/ksnip/ksnip/issues/653))
 * Fixed: Deb CI build is frequently failing due to docker image pull limit. ([#655](https://github.com/ksnip/ksnip/issues/655))

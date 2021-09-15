@@ -25,7 +25,7 @@
 #include "src/bootstrapper/singleInstance/SingleInstanceParameterTranslator.h"
 #include "src/backend/ipc/IpcServer.h"
 
-class SingleInstanceServerBootstrapper : public QObject, public StandAloneBootstrapper
+class SingleInstanceServerBootstrapper : public StandAloneBootstrapper
 {
 	Q_OBJECT
 public:

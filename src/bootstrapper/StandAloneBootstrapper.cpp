@@ -20,9 +20,9 @@
 #include "StandAloneBootstrapper.h"
 
 StandAloneBootstrapper::StandAloneBootstrapper() :
-	mImageGrabber(nullptr),
-	mCommandLine(nullptr),
-	mMainWindow(nullptr)
+		mCommandLine(nullptr),
+		mMainWindow(nullptr),
+		mCommandLineCaptureHandler(nullptr)
 {
 
 }
@@ -30,13 +30,13 @@ StandAloneBootstrapper::StandAloneBootstrapper() :
 StandAloneBootstrapper::~StandAloneBootstrapper()
 {
 	delete mCommandLine;
+	delete mCommandLineCaptureHandler;
 }
 
 int StandAloneBootstrapper::start(const QApplication &app)
 {
 	app.setQuitOnLastWindowClosed(false);
 
-	createImageGrabber();
 	createCommandLineParser(app);
 
 	if (isVersionRequested()) {
@@ -51,7 +51,31 @@ int StandAloneBootstrapper::start(const QApplication &app)
 		return startKsnipAndEditImage(app);
 	}
 
-	return startKsnipAndTakeCapture(app);
+	if (isCommandLineCaptureRequested()) {
+		return takeCaptureAndSave(app);
+	}
+
+	return takeCaptureAndStartKsnip(app);
+}
+
+int StandAloneBootstrapper::takeCaptureAndSave(const QApplication &app)
+{
+	auto captureMode = getCaptureMode();
+	auto captureCursor = getCaptureCursor();
+	auto delay = getDelay();
+	auto savePath = getSavePath();
+
+	connect(mCommandLineCaptureHandler, &CommandLineCaptureHandler::finished, this, &StandAloneBootstrapper::close);
+	connect(mCommandLineCaptureHandler, &CommandLineCaptureHandler::canceled, this, &StandAloneBootstrapper::close);
+
+	mCommandLineCaptureHandler->captureScreenshotAndSave(captureMode, captureCursor, delay, savePath);
+
+	return app.exec();
+}
+
+bool StandAloneBootstrapper::isCommandLineCaptureRequested() const
+{
+	return mCommandLine->isSaveSet();
 }
 
 bool StandAloneBootstrapper::isEditRequested() const
@@ -70,19 +94,18 @@ bool StandAloneBootstrapper::isStartedWithoutArguments() const
 	return arguments.count() <= 1;
 }
 
-int StandAloneBootstrapper::startKsnipAndTakeCapture(const QApplication &app)
+int StandAloneBootstrapper::takeCaptureAndStartKsnip(const QApplication &app)
 {
 	auto captureMode = getCaptureMode();
-	auto runMode = getRunMode();
 	auto captureCursor = getCaptureCursor();
 	auto delay = getDelay();
 
-	if(runMode != RunMode::CLI) {
-		loadTranslations(app);
-	}
+	loadTranslations(app);
 
-	createMainWindow(runMode);
-	mMainWindow->captureScreenshot(captureMode, captureCursor, delay);
+	connect(mCommandLineCaptureHandler, &CommandLineCaptureHandler::finished, this, &StandAloneBootstrapper::openMainWindow);
+	connect(mCommandLineCaptureHandler, &CommandLineCaptureHandler::canceled, this, &StandAloneBootstrapper::close);
+	mCommandLineCaptureHandler->captureScreenshot(captureMode, captureCursor, delay);
+
 	return app.exec();
 }
 
@@ -104,14 +127,14 @@ int StandAloneBootstrapper::getDelay() const
 	return delay * 1000;
 }
 
-RunMode StandAloneBootstrapper::getRunMode() const
-{
-	return getSave() ? RunMode::CLI : RunMode::Edit;
-}
-
 bool StandAloneBootstrapper::getSave() const
 {
 	return mCommandLine->isSaveSet();
+}
+
+QString StandAloneBootstrapper::getSavePath() const
+{
+	return mCommandLine->saveToPath();
 }
 
 CaptureModes StandAloneBootstrapper::getCaptureMode() const
@@ -126,7 +149,6 @@ CaptureModes StandAloneBootstrapper::getCaptureMode() const
 
 int StandAloneBootstrapper::startKsnipAndEditImage(const QApplication &app)
 {
-	loadTranslations(app);
 	auto pathToImage = getImagePath();
 	auto pixmap = getPixmapFromCorrectSource(pathToImage);
 
@@ -134,11 +156,11 @@ int StandAloneBootstrapper::startKsnipAndEditImage(const QApplication &app)
 		qWarning("Unable to open image file %s.", qPrintable(pathToImage));
 		return 1;
 	} else {
-		createMainWindow(RunMode::Edit);
+		loadTranslations(app);
 		if(PathHelper::isPipePath(pathToImage)) {
-			mMainWindow->processImage(CaptureDto(pixmap));
+			openMainWindow(CaptureDto(pixmap));
 		} else {
-			mMainWindow->processImage(CaptureFromFileDto(pixmap, pathToImage));
+			openMainWindow(CaptureFromFileDto(pixmap, pathToImage));
 		}
 		return app.exec();
 	}
@@ -176,7 +198,7 @@ QString StandAloneBootstrapper::getImagePath() const
 int StandAloneBootstrapper::startKsnip(const QApplication &app)
 {
 	loadTranslations(app);
-	createMainWindow(RunMode::GUI);
+	createMainWindow();
 	return app.exec();
 }
 
@@ -188,24 +210,34 @@ int StandAloneBootstrapper::showVersion()
 	return 0;
 }
 
-void StandAloneBootstrapper::createMainWindow(RunMode mode)
+void StandAloneBootstrapper::createMainWindow()
 {
 	Q_ASSERT(mMainWindow == nullptr);
 
-	mMainWindow = new MainWindow(mImageGrabber, mode);
+	mMainWindow = new MainWindow();
 }
 
 void StandAloneBootstrapper::createCommandLineParser(const QApplication &app)
 {
-	mCommandLine = new KsnipCommandLine (app, mImageGrabber->supportedCaptureModes());
-}
+	Q_ASSERT(mCommandLine == nullptr);
+	Q_ASSERT(mCommandLineCaptureHandler == nullptr);
 
-void StandAloneBootstrapper::createImageGrabber()
-{
-	mImageGrabber = ImageGrabberFactory::createImageGrabber();
+	mCommandLineCaptureHandler = new CommandLineCaptureHandler();
+	mCommandLine = new CommandLine (app, mCommandLineCaptureHandler->supportedCaptureModes());
 }
 
 void StandAloneBootstrapper::loadTranslations(const QApplication &app)
 {
 	TranslationLoader::load(app);
+}
+
+void StandAloneBootstrapper::openMainWindow(const CaptureDto &captureDto)
+{
+	createMainWindow();
+	mMainWindow->processImage(captureDto);
+}
+
+void StandAloneBootstrapper::close()
+{
+	QCoreApplication::quit();
 }

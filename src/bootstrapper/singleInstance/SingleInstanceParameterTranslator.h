@@ -24,7 +24,6 @@
 #include <QList>
 
 #include "src/bootstrapper/singleInstance/SingleInstanceParameter.h"
-#include "src/common/enum/RunMode.h"
 
 class SingleInstanceParameterTranslator
 {
@@ -38,11 +37,10 @@ public:
 private:
 	QByteArray getStartParameter() const;
 	QByteArray getEditParameters(const QString &path) const;
-	QByteArray getCaptureParameters(CaptureModes captureModes, bool save, bool captureCursor, int delay) const;
+	QByteArray getCaptureParameters(CaptureModes captureModes, bool save, const QString &savePath, bool captureCursor, int delay) const;
 	QByteArray getSeparator() const;
 	QByteArray getPathParameter(const QString &path) const;
 	QByteArray getCaptureModeParameter(const CaptureModes &captureModes) const;
-	QByteArray getSaveParameter(bool save) const;
 	QByteArray getBooleanString(bool value) const;
 	QByteArray getCaptureCursorParameter(bool captureCursor) const;
 	QByteArray getDelayParameter(int delay) const;

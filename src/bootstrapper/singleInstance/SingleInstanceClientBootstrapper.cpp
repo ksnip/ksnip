@@ -32,7 +32,6 @@ SingleInstanceClientBootstrapper::~SingleInstanceClientBootstrapper()
 
 int SingleInstanceClientBootstrapper::start(const QApplication &app)
 {
-	createImageGrabber();
 	createCommandLineParser(app);
 
 	if (isVersionRequested()) {
@@ -63,7 +62,7 @@ int SingleInstanceClientBootstrapper::notifyServer() const
 
 		parameter = SingleInstanceParameter(imagePath);
 	} else {
-		parameter = SingleInstanceParameter(getCaptureMode(), getSave(), getCaptureCursor(), getDelay());
+		parameter = SingleInstanceParameter(getCaptureMode(), getSave(), getSavePath(), getCaptureCursor(), getDelay());
 	}
 	mIpcClient->send(mParameterTranslator.translate(parameter));
 

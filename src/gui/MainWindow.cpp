@@ -20,12 +20,11 @@
 
 #include "MainWindow.h"
 
-MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
+MainWindow::MainWindow() :
 	QMainWindow(),
 	mToolBar(nullptr),
-	mImageGrabber(imageGrabber),
+	mImageGrabber(ImageGrabberFactory::createImageGrabber()),
 	mServiceLocator(new ServiceLocator),
-	mMode(mode),
 	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
 	mUploadAction(new QAction(this)),
@@ -66,15 +65,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 	mWindowResizer(new WindowResizer(this, mConfig, this)),
 	mActionProcessor(new ActionProcessor)
 {
-	// When we run in CLI only mode we don't need to setup gui, but only need
-	// to connect imagegrabber signals to mainwindow slots to handle the
-	// feedback.
-	if (mMode == RunMode::CLI) {
-		connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processInstantCapture);
-		connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::close);
-		return;
-	}
-
 	initGui();
 
 	setWindowIcon(IconLoader::load(QLatin1String("ksnip")));
@@ -121,23 +111,6 @@ MainWindow::MainWindow(AbstractImageGrabber *imageGrabber, RunMode mode) :
 MainWindow::~MainWindow()
 {
     delete mImageAnnotator;
-    delete mUploadAction;
-    delete mCopyAsDataUriAction;
-    delete mPrintAction;
-    delete mPrintPreviewAction;
-    delete mQuitAction;
-    delete mCopyPathAction;
-    delete mRenameAction;
-    delete mOpenDirectoryAction;
-    delete mToggleDocksAction;
-    delete mSettingsAction;
-    delete mAboutAction;
-    delete mOpenImageAction;
-    delete mScaleAction;
-    delete mRotateAction;
-    delete mAddWatermarkAction;
-    delete mSaveAsAction;
-    delete mModifyCanvasAction;
     delete mCapturePrinter;
     delete mTrayIcon;
     delete mDragAndDropProcessor;
@@ -148,18 +121,17 @@ MainWindow::~MainWindow()
     delete mWindowResizer;
     delete mActionProcessor;
     delete mActionsMenu;
+    delete mImageGrabber;
 }
 
 void MainWindow::handleGuiStartup()
 {
-	if (mMode == RunMode::GUI) {
-		if (mConfig->captureOnStartup()) {
-			triggerCapture(mConfig->captureMode());
-		} else if (mTrayIcon->isVisible() && mConfig->startMinimizedToTray()) {
-			showHidden();
-		} else {
-			showEmpty();
-		}
+	if (mConfig->captureOnStartup()) {
+		triggerCapture(mConfig->captureMode());
+	} else if (mTrayIcon->isVisible() && mConfig->startMinimizedToTray()) {
+		showHidden();
+	} else {
+		showEmpty();
 	}
 }
 
@@ -173,14 +145,6 @@ void MainWindow::setPosition()
 		position = QPoint(screenCenter.x() - mainWindowSize.width() / 2, screenCenter.y() - mainWindowSize.height() / 2);
 	}
 	move(position);
-}
-
-void MainWindow::processInstantCapture(const CaptureDto &capture)
-{
-	mCaptureHandler->load(capture);
-	mCaptureHandler->save();
-	mImageAnnotator->close();
-	close();
 }
 
 void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay)

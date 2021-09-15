@@ -25,7 +25,7 @@ QByteArray SingleInstanceParameterTranslator::translate(const SingleInstancePara
 		case SingleInstanceStartupModes::Edit:
 			return getEditParameters(parameter.imagePath);
 		case SingleInstanceStartupModes::Capture:
-			return getCaptureParameters(parameter.captureMode, parameter.save, parameter.captureCursor, parameter.delay);
+			return getCaptureParameters(parameter.captureMode, parameter.save, parameter.savePath, parameter.captureCursor, parameter.delay);
 		default:
 			return getStartParameter();
 	}
@@ -46,9 +46,10 @@ SingleInstanceParameter SingleInstanceParameterTranslator::translate(const QByte
 	} else if (startupMode == getCaptureParameter() && parameters.count() == 5){
 		auto captureMode = getCaptureMode(parameters[1]);
 		auto save = getBoolean(parameters[2]);
-		auto captureCursor = getBoolean(parameters[3]);
-		auto delay = parameters[4].toInt();
-		return SingleInstanceParameter(captureMode, save, captureCursor, delay);
+		auto savePath = getPathParameter(parameters[3]);
+		auto captureCursor = getBoolean(parameters[4]);
+		auto delay = parameters[5].toInt();
+		return SingleInstanceParameter(captureMode, save, savePath, captureCursor, delay);
 	} else {
 		return SingleInstanceParameter();
 	}
@@ -88,11 +89,12 @@ QByteArray SingleInstanceParameterTranslator::getEditParameter() const
 	return QByteArray("edit"); 
 }
 
-QByteArray SingleInstanceParameterTranslator::getCaptureParameters(CaptureModes captureModes, bool save, bool captureCursor, int delay) const
+QByteArray SingleInstanceParameterTranslator::getCaptureParameters(CaptureModes captureModes, bool save, const QString &savePath, bool captureCursor, int delay) const
 {
 	return getCaptureParameter() +
 		getSeparator() + getCaptureModeParameter(captureModes) +
-		getSeparator() + getSaveParameter(save) +
+		getSeparator() + getBooleanString(save) +
+		getSeparator() + getPathParameter(savePath) +
 		getSeparator() + getCaptureCursorParameter(captureCursor) +
 		getSeparator() + getDelayParameter(delay);
 }
@@ -100,11 +102,6 @@ QByteArray SingleInstanceParameterTranslator::getCaptureParameters(CaptureModes 
 QByteArray SingleInstanceParameterTranslator::getCaptureParameter() const
 { 
 	return QByteArray("capture"); 
-}
-
-QByteArray SingleInstanceParameterTranslator::getSaveParameter(bool save) const
-{
-	return getBooleanString(save);
 }
 
 QByteArray SingleInstanceParameterTranslator::getCaptureModeParameter(const CaptureModes &captureModes) const

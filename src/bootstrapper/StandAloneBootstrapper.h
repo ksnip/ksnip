@@ -29,14 +29,15 @@
 #include "src/gui/MainWindow.h"
 #include "src/backend/imageGrabber/ImageGrabberFactory.h"
 #include "src/backend/TranslationLoader.h"
-#include "src/backend/KsnipCommandLine.h"
-#include "src/common/dtos/CaptureFromFileDto.h"
+#include "src/backend/commandLine/CommandLine.h"
+#include "src/backend/commandLine/CommandLineCaptureHandler.h"
 
-class StandAloneBootstrapper : public IBootstrapper
+class StandAloneBootstrapper : public QObject, public IBootstrapper
 {
+	Q_OBJECT
 public:
 	StandAloneBootstrapper();
-	~StandAloneBootstrapper();
+	~StandAloneBootstrapper() override;
 
 	int start(const QApplication &app) override;
 
@@ -44,29 +45,35 @@ protected:
 	MainWindow *mMainWindow;
 
 	void createCommandLineParser(const QApplication &app);
-	void createImageGrabber();
-	static int showVersion() ;
+	static int showVersion();
 	bool isStartedWithoutArguments() const;
 	bool isVersionRequested() const;
 	bool isEditRequested() const;
 	CaptureModes getCaptureMode() const;
-	RunMode getRunMode() const;
 	int getDelay() const;
 	QString getImagePath() const;
 	bool getCaptureCursor() const;
 	bool getSave() const;
+	QString getSavePath() const;
 
 private:
-    AbstractImageGrabber *mImageGrabber;
-	KsnipCommandLine *mCommandLine;
+	CommandLine *mCommandLine;
+	CommandLineCaptureHandler *mCommandLineCaptureHandler;
 
 	static void loadTranslations(const QApplication &app) ;
-	virtual void createMainWindow(RunMode mode);
+	virtual void createMainWindow();
 	int startKsnip(const QApplication &app);
 	int startKsnipAndEditImage(const QApplication &app);
-	int startKsnipAndTakeCapture(const QApplication &app);
+	int takeCaptureAndStartKsnip(const QApplication &app);
 	static QPixmap getPixmapFromCorrectSource(const QString &pathToImage);
 	static QPixmap getPixmapFromStdin();
+	bool isCommandLineCaptureRequested() const;
+	int takeCaptureAndSave(const QApplication &app);
+
+private slots:
+	void openMainWindow(const CaptureDto &captureDto);
+	void close();
+
 };
 
 

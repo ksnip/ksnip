@@ -87,6 +87,7 @@
         <release type="stable" version="1.10.0" date="2021-12-01T00:00:00Z">
             <description>
                 <ul>
+                    <li>New: Set image save location on command line.</li>
                 </ul>
             </description>
         </release>

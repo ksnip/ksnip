@@ -30,24 +30,26 @@ struct SingleInstanceParameter
 	SingleInstanceStartupModes startupMode;
 	CaptureModes captureMode;
 	QString imagePath;
-	bool save;
-	bool captureCursor;
-	int delay;
+	bool save{};
+	bool captureCursor{};
+	int delay{};
+	QString savePath;
 
 	SingleInstanceParameter() {
 		this->startupMode = SingleInstanceStartupModes::Start;
 	}
 
-	SingleInstanceParameter(const QString &path) {
+	explicit SingleInstanceParameter(const QString &path) {
 		this->startupMode = SingleInstanceStartupModes::Edit;
 		this->imagePath = path;
 	}
 
-	SingleInstanceParameter(CaptureModes captureMode, bool save, bool captureCursor, int delay) {
+	SingleInstanceParameter(CaptureModes captureMode, bool save, const QString &savePath, bool captureCursor, int delay) {
 		this->startupMode = SingleInstanceStartupModes::Capture;
 		this->captureMode = captureMode;
 		this->save = save;
 		this->captureCursor = captureCursor;
+		this->savePath = savePath;
 		this->delay = delay;
 	}
 };

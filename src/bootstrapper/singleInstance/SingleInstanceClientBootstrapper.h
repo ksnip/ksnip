@@ -32,7 +32,7 @@ class SingleInstanceClientBootstrapper : public StandAloneBootstrapper
 {
 public:
 	SingleInstanceClientBootstrapper();
-	~SingleInstanceClientBootstrapper();
+	~SingleInstanceClientBootstrapper() override;
 
 	int start(const QApplication &app) override;
 

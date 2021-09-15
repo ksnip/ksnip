@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_KSNIPCOMMANDLINE_H
-#define KSNIP_KSNIPCOMMANDLINE_H
+#ifndef KSNIP_COMMANDLINE_H
+#define KSNIP_COMMANDLINE_H
 
 #include <QCommandLineParser>
 #include <QCommandLineOption>
@@ -27,11 +27,11 @@
 
 #include "src/common/enum/CaptureModes.h"
 
-class KsnipCommandLine : public QCommandLineParser
+class CommandLine : public QCommandLineParser
 {
 public:
-    KsnipCommandLine(const QCoreApplication &app, const QList<CaptureModes> &captureModes);
-    ~KsnipCommandLine();
+    CommandLine(const QCoreApplication &app, const QList<CaptureModes> &captureModes);
+    ~CommandLine();
     bool isRectAreaSet() const;
     bool isLastRectAreaSet() const;
     bool isFullScreenSet() const;
@@ -47,6 +47,7 @@ public:
     bool isCaptureModeSet() const;
     int delay() const;
     QString imagePath() const;
+	QString saveToPath() const;
     CaptureModes captureMode() const;
 
 private:
@@ -61,6 +62,7 @@ private:
     QCommandLineOption *mCursorOption = nullptr;
     QCommandLineOption *mEditOption = nullptr;
     QCommandLineOption *mSaveOption = nullptr;
+    QCommandLineOption *mSaveToOption = nullptr;
     QCommandLineOption *mVersionOption = nullptr;
 
     void addImageGrabberOptions(const QList<CaptureModes> &captureModes);
@@ -72,4 +74,4 @@ private:
 	void addPositionalArguments();
 };
 
-#endif //KSNIP_KSNIPCOMMANDLINE_H
+#endif //KSNIP_COMMANDLINE_H

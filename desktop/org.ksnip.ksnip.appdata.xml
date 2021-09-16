@@ -88,6 +88,7 @@
             <description>
                 <ul>
                     <li>New: Set image save location on command line.</li>
+                    <li>New: Add debug logging.</li>
                 </ul>
             </description>
         </release>

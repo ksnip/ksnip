@@ -2,6 +2,7 @@
 
 ## Release 1.10.1
 * New: Set image save location on command line. ([#666](https://github.com/ksnip/ksnip/issues/666))
+* New: Add debug logging. ([#711](https://github.com/ksnip/ksnip/issues/711))
 
 ## Release 1.9.1
 * Fixed: MacOS package damaged and not starting. ([#653](https://github.com/ksnip/ksnip/issues/653))

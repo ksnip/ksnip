@@ -130,6 +130,9 @@ public:
 	virtual int saveQualityFactor() const;
 	virtual void setSaveQualityFactor(int factor);
 
+	virtual bool isDebugEnabled() const;
+	virtual void setIsDebugEnabled(bool enabled);
+
 	// Annotator
 
 	virtual bool rememberToolSelection() const;

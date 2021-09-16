@@ -114,6 +114,11 @@ QString KsnipConfigOptions::saveQualityFactorString()
 	return saveSectionString() + QLatin1String("SaveQualityFactor");
 }
 
+QString KsnipConfigOptions::isDebugEnabledString()
+{
+	return applicationSectionString() + QLatin1String("IsDebugEnabled");
+}
+
 QString KsnipConfigOptions::saveDirectoryString()
 {
 	return applicationSectionString() + QLatin1String("SaveDirectory");

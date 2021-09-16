@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,33 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IMAGEGRABBERFACTORY_H
-#define KSNIP_IMAGEGRABBERFACTORY_H
+#include "NoneLogger.h"
 
-#include "src/logging/LoggerProvider.h"
-
-#if defined(__APPLE__)
-#include "MacImageGrabber.h"
-#endif
-
-#if defined(UNIX_X11)
-#include "X11ImageGrabber.h"
-#include "GnomeX11ImageGrabber.h"
-#include "KdeWaylandImageGrabber.h"
-#include "GnomeWaylandImageGrabber.h"
-#include "WaylandImageGrabber.h"
-#include "src/common/platform/PlatformChecker.h"
-#include "src/backend/config/KsnipConfigProvider.h"
-#endif
-
-#if  defined(_WIN32)
-#include "WinImageGrabber.h"
-#endif
-
-class ImageGrabberFactory
+void NoneLogger::log(const QString &message) const
 {
-public:
-    static AbstractImageGrabber *createImageGrabber();
-};
+	Q_UNUSED(message)
 
-#endif // KSNIP_IMAGEGRABBERFACTORY_H
+	// doing nothing
+}
+
+void NoneLogger::log(const QString &message, bool isSuccess) const
+{
+	Q_UNUSED(message)
+	Q_UNUSED(isSuccess)
+
+	// doing nothing
+}

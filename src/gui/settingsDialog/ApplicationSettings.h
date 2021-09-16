@@ -51,6 +51,7 @@ private:
 	QCheckBox *mUseSingleInstanceCheckBox;
 	QCheckBox *mAutoHideDocksCheckBox;
 	QCheckBox *mAutoResizeToContentCheckBox;
+	QCheckBox *mEnableDebugging;
 	QLabel *mApplicationStyleLabel;
 	QLabel *mResizeToContentDelayLabel;
 	QComboBox *mApplicationStyleCombobox;

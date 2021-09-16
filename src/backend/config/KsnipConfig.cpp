@@ -459,6 +459,20 @@ void KsnipConfig::setSaveQualityFactor(int factor)
 	saveValue(KsnipConfigOptions::saveQualityFactorString(), factor);
 }
 
+bool KsnipConfig::isDebugEnabled() const
+{
+	return loadValue(KsnipConfigOptions::isDebugEnabledString(), false).toBool();
+}
+
+void KsnipConfig::setIsDebugEnabled(bool enabled)
+{
+	if (isDebugEnabled() == enabled) {
+		return;
+	}
+
+	saveValue(KsnipConfigOptions::isDebugEnabledString(), enabled);
+}
+
 // Annotator
 
 bool KsnipConfig::rememberToolSelection() const

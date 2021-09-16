@@ -29,6 +29,7 @@ ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
 	mUseSingleInstanceCheckBox(new QCheckBox(this)),
 	mAutoHideDocksCheckBox(new QCheckBox(this)),
 	mAutoResizeToContentCheckBox(new QCheckBox(this)),
+	mEnableDebugging(new QCheckBox(this)),
 	mApplicationStyleLabel(new QLabel(this)),
 	mResizeToContentDelayLabel(new QLabel(this)),
 	mApplicationStyleCombobox(new QComboBox(this)),
@@ -67,6 +68,10 @@ void ApplicationSettings::initGui()
 	mAutoResizeToContentCheckBox->setText(tr("Auto resize to content"));
 	mAutoResizeToContentCheckBox->setToolTip(tr("Automatically resize Main Window to fit content image."));
 
+	mEnableDebugging->setText(tr("Enable Debugging"));
+	mEnableDebugging->setToolTip(tr("Enables debug output written to the console.\n"
+									   "Change requires ksnip restart to take effect."));
+
 	mResizeToContentDelayLabel->setText(tr("Resize to content delay") + QLatin1String(":"));
 	mResizeToContentDelayLabel->setToolTip(tr("Resizing to content is delay to allow the Window Manager to receive\n"
 										   		 "the new content. In case that the Main Windows is not adjusted correctly\n"
@@ -95,11 +100,13 @@ void ApplicationSettings::initGui()
 	mLayout->addWidget(mUseSingleInstanceCheckBox, 5, 0, 1, 4);
 	mLayout->addWidget(mAutoHideDocksCheckBox, 6, 0, 1, 4);
 	mLayout->addWidget(mAutoResizeToContentCheckBox, 7, 0, 1, 4);
-	mLayout->addWidget(mResizeToContentDelayLabel, 8, 0, 1, 2);
-	mLayout->addWidget(mResizeToContentDelaySpinBox, 8, 2, Qt::AlignLeft);
+	mLayout->addWidget(mEnableDebugging, 8, 0, 1, 4);
 	mLayout->setRowMinimumHeight(9, 15);
-	mLayout->addWidget(mApplicationStyleLabel, 10, 0, 1, 2);
-	mLayout->addWidget(mApplicationStyleCombobox, 10, 2, Qt::AlignLeft);
+	mLayout->addWidget(mResizeToContentDelayLabel, 10, 0, 1, 2);
+	mLayout->addWidget(mResizeToContentDelaySpinBox, 10, 2, Qt::AlignLeft);
+	mLayout->setRowMinimumHeight(11, 15);
+	mLayout->addWidget(mApplicationStyleLabel, 12, 0, 1, 2);
+	mLayout->addWidget(mApplicationStyleCombobox, 12, 2, Qt::AlignLeft);
 
 	setTitle(tr("Application Settings"));
 	setLayout(mLayout);
@@ -115,6 +122,7 @@ void ApplicationSettings::loadConfig()
 	mUseSingleInstanceCheckBox->setChecked(mConfig->useSingleInstance());
 	mAutoHideDocksCheckBox->setChecked(mConfig->autoHideDocks());
 	mAutoResizeToContentCheckBox->setChecked(mConfig->autoResizeToContent());
+	mEnableDebugging->setChecked(mConfig->isDebugEnabled());
 	mResizeToContentDelaySpinBox->setValue(mConfig->resizeToContentDelay());
 	mApplicationStyleCombobox->setCurrentText(mConfig->applicationStyle());
 
@@ -131,6 +139,7 @@ void ApplicationSettings::saveSettings()
 	mConfig->setAutoHideTabs(mAutoHideTabsCheckbox->isChecked());
 	mConfig->setAutoHideDocks(mAutoHideDocksCheckBox->isChecked());
 	mConfig->setAutoResizeToContent(mAutoResizeToContentCheckBox->isChecked());
+	mConfig->setIsDebugEnabled(mEnableDebugging->isChecked());
 	mConfig->setResizeToContentDelay(mResizeToContentDelaySpinBox->value());
 	mConfig->setApplicationStyle(mApplicationStyleCombobox->currentText());
 }

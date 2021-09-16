@@ -71,5 +71,7 @@ bool TranslationLoader::loadTranslationForAppImage(QTranslator *translator, cons
 bool TranslationLoader::loadTranslation(QTranslator *translator, const QString &path, const QString &applicationName)
 {
 	auto separator = QLatin1String("_");
-    return translator->load(QLocale(), applicationName, separator, path);
+	bool isSuccessful = translator->load(QLocale(), applicationName, separator, path);
+	LoggerProvider::instance()->log(QString("Loading translation for %1 from %2").arg(applicationName, path), isSuccessful);
+	return isSuccessful;
 }

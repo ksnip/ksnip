@@ -139,6 +139,9 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/windowResizer/WindowResizer.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/dragAndDrop/DragAndDropProcessor.cpp
 	${CMAKE_SOURCE_DIR}/src/logging/LogOutputHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/logging/LoggerProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/logging/ConsoleLogger.cpp
+	${CMAKE_SOURCE_DIR}/src/logging/NoneLogger.cpp
 	)
 
 if (APPLE)

@@ -21,13 +21,17 @@
 
 QSharedPointer<IBootstrapper> BootstrapperFactory::create()
 {
+	auto logger = LoggerProvider::instance();
 	if(isSingleInstance()) {
 		if (mInstanceLock.lock()) {
+			logger->log(QLatin1String("SingleInstance mode detected, we are the server"));
 			return QSharedPointer<IBootstrapper>(new SingleInstanceServerBootstrapper());
 		} else {
+			logger->log(QLatin1String("SingleInstance mode detected, we are the client"));
 			return QSharedPointer<IBootstrapper>(new SingleInstanceClientBootstrapper());
 		}
 	} else {
+		logger->log(QLatin1String("StandAlone mode detected"));
 		return QSharedPointer<IBootstrapper>(new StandAloneBootstrapper());
 	}
 }

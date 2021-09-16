@@ -27,6 +27,7 @@
 #include "src/bootstrapper/singleInstance/SingleInstanceServerBootstrapper.h"
 #include "src/bootstrapper/singleInstance/SingleInstanceClientBootstrapper.h"
 #include "src/bootstrapper/singleInstance/InstanceLock.h"
+#include "src/logging/LoggerProvider.h"
 
 class BootstrapperFactory
 {

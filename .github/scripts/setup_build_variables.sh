@@ -20,7 +20,7 @@ echo "BUILD_TESTS=OFF" >> $GITHUB_ENV
 
 
 if [[ "$GITHUB_REF" = refs/tags* ]]; then
-  GITHUB_TAG=${$GITHUB_REF#refs/tags/}
+  GITHUB_TAG=${GITHUB_REF#refs/tags/}
  	echo "GitHub Tag is: $GITHUB_TAG"
   echo "GITHUB_TAG=$GITHUB_TAG" >> $GITHUB_ENV
 else

@@ -84,9 +84,12 @@
     <update_contact>damir.porobic@gmx.com</update_contact>
     <content_rating type="oars-1.0" />
     <releases>
-        <release type="stable" version="1.10.0" date="2021-12-01T00:00:00Z">
+        <release type="stable" version="1.9.2" date="2021-10-01T00:00:00Z">
             <description>
                 <ul>
+                    <li>Fixed: Version `Qt_5.15' not found (required by /usr/bin/ksnip).</li>
+                    <li>Fixed: CI packages show continuous suffix for tagged build.</li>
+                    <li>Fixed: kImageAnnotator not translated with deb package.</li>
                 </ul>
             </description>
         </release>

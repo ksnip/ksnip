@@ -1,5 +1,10 @@
 # Change log
 
+## Release 1.9.2
+* Fixed: Version `Qt_5.15' not found (required by /usr/bin/ksnip). ([#712](https://github.com/ksnip/ksnip/issues/712))
+* Fixed: CI packages show continuous suffix for tagged build. ([#710](https://github.com/ksnip/ksnip/issues/710))
+* Fixed: kImageAnnotator not translated with deb package. ([#359](https://github.com/ksnip/ksnip/issues/359))
+
 ## Release 1.9.1
 * Fixed: MacOS package damaged and not starting. ([#653](https://github.com/ksnip/ksnip/issues/653))
 * Fixed: Deb CI build is frequently failing due to docker image pull limit. ([#655](https://github.com/ksnip/ksnip/issues/655))

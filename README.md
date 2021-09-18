@@ -77,9 +77,9 @@ $ ksnip
 ```
 
 ### DEB
-Just install them via dpkg and start using.
+Just install them via apt and start using.
 ```
-$ sudo dpkg -i ksnip*.deb
+$ sudo apt install ./ksnip*.deb
 $ ksnip
 ```
 
@@ -96,6 +96,14 @@ sudo add-apt-repository ppa:nemonein/ksnip
 sudo apt update
 sudo apt install ksnip
 ```
+
+For Debian 11 and later releases, you can install from the [official package](https://tracker.debian.org/pkg/ksnip):
+```
+$ sudo apt install ksnip
+```
+
+For Debian 10 and Debian 9, ksnip is available via [Debian Backports](https://backports.debian.org/).
+Please enable `bullseye-backports` and `buster-backports` repo for Debian 10 and Debian 9 respectively before installing using `sudo apt install ksnip`.
 
 ### Archlinux
 Ksnip is in the [Community repository](https://archlinux.org/packages/community/x86_64/ksnip/), so you can install it directly via pacman.

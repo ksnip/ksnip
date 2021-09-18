@@ -9,5 +9,6 @@ Homepage: http://ksnip.org
 Package: ksnip
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libkimageannotator-common
 Description: Screenshot Tool
  Screenshot tool that provides many annotation features for your screenshots.

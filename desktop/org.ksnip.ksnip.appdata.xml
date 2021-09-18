@@ -97,6 +97,7 @@
                 <ul>
                     <li>Fixed: Version `Qt_5.15' not found (required by /usr/bin/ksnip).</li>
                     <li>Fixed: CI packages show continuous suffix for tagged build.</li>
+                    <li>Fixed: kImageAnnotator not translated with deb package.</li>
                 </ul>
             </description>
         </release>

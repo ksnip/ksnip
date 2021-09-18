@@ -4,6 +4,7 @@
 * Fixed: Version `Qt_5.15' not found (required by /usr/bin/ksnip). ([#712](https://github.com/ksnip/ksnip/issues/712))
 * Fixed: CI packages show continuous suffix for tagged build. ([#710](https://github.com/ksnip/ksnip/issues/710))
 * Fixed: kImageAnnotator not translated with deb package. ([#359](https://github.com/ksnip/ksnip/issues/359))
+* Fixed: Windows packages increased in size. ([#713](https://github.com/ksnip/ksnip/issues/713))
 
 ## Release 1.9.1
 * Fixed: MacOS package damaged and not starting. ([#653](https://github.com/ksnip/ksnip/issues/653))

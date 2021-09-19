@@ -37,6 +37,7 @@ private:
 	static bool loadTranslationFromAbsolutePath(QTranslator *translator, const QString &path, const QString &applicationName);
 	static bool loadTranslationFromRelativePath(QTranslator *translator, const QString &path, const QString &applicationName);
 	static bool loadTranslationForAppImage(QTranslator *translator, const QString &path, const QString &applicationName);
+	static bool loadTranslationForSnap(QTranslator *translator, const QString &path, const QString &applicationName);
     static bool loadTranslation(QTranslator *translator, const QString &path, const QString &applicationName);
 	static void loadTranslations(const QApplication &app, QTranslator *translator, QString &path, const QString &applicationName);
 };

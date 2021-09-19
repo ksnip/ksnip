@@ -5,6 +5,7 @@
 * Fixed: CI packages show continuous suffix for tagged build. ([#710](https://github.com/ksnip/ksnip/issues/710))
 * Fixed: kImageAnnotator not translated with deb package. ([#359](https://github.com/ksnip/ksnip/issues/359))
 * Fixed: Windows packages increased in size. ([#713](https://github.com/ksnip/ksnip/issues/713))
+* Fixed: Translations are not working in ksnip snap package. ([#662](https://github.com/ksnip/ksnip/issues/662))
 
 ## Release 1.9.1
 * Fixed: MacOS package damaged and not starting. ([#653](https://github.com/ksnip/ksnip/issues/653))

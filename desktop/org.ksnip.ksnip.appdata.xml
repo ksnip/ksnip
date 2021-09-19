@@ -91,6 +91,7 @@
                     <li>Fixed: CI packages show continuous suffix for tagged build.</li>
                     <li>Fixed: kImageAnnotator not translated with deb package.</li>
                     <li>Fixed: Windows packages increased in size.</li>
+                    <li>Fixed: Translations are not working in ksnip snap package.</li>
                 </ul>
             </description>
         </release>

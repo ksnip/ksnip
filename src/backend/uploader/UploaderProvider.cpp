@@ -22,7 +22,8 @@
 UploaderProvider::UploaderProvider() :
 	mConfig(KsnipConfigProvider::instance()),
 	mImgurUploader(nullptr),
-	mScriptUploader(nullptr)
+	mScriptUploader(nullptr),
+	mFtpUploader(nullptr)
 {
 }
 
@@ -30,6 +31,7 @@ UploaderProvider::~UploaderProvider()
 {
 	delete mImgurUploader;
 	delete mScriptUploader;
+	delete mFtpUploader;
 }
 
 IUploader* UploaderProvider::get()
@@ -39,6 +41,8 @@ IUploader* UploaderProvider::get()
 			return getImgurUploader();
 		case UploaderType::Script:
 			return getScriptUploader();
+		case UploaderType::Ftp:
+			return getFtpUploader();
 		default:
 			return getImgurUploader();
 	}
@@ -65,6 +69,15 @@ IUploader* UploaderProvider::getImgurUploader()
 void UploaderProvider::connectSignals(IUploader *uploader)
 { 
 	connect(dynamic_cast<QObject*>(uploader), SIGNAL(finished(UploadResult)), this, SIGNAL(finished(UploadResult)));
+}
+
+IUploader *UploaderProvider::getFtpUploader()
+{
+	if(mFtpUploader == nullptr) {
+		mFtpUploader = new FtpUploader();
+		connectSignals(mFtpUploader);
+	}
+	return mFtpUploader;
 }
 
 

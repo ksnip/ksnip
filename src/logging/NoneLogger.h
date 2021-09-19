@@ -20,7 +20,11 @@
 #ifndef KSNIP_NONELOGGER_H
 #define KSNIP_NONELOGGER_H
 
+#include <QNetworkReply>
+
 #include "ILogger.h"
+
+class QNetworkReply;
 
 class NoneLogger : public ILogger
 {
@@ -30,6 +34,7 @@ public:
 
 	void log(const QString &message) const override;
 	void log(const QString &message, bool isSuccess) const override;
+	void log(const QString &message, QNetworkReply::NetworkError value) const override;
 };
 
 #endif //KSNIP_NONELOGGER_H

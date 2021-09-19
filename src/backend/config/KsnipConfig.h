@@ -276,6 +276,20 @@ public:
 	virtual bool uploadScriptStopOnStdErr() const;
 	virtual void setUploadScriptStopOnStdErr(bool enabled);
 
+	// FTP Uploader
+
+	virtual bool ftpUploadForceAnonymous() const;
+	virtual void setFtpUploadForceAnonymous(bool enabled);
+
+	virtual QString ftpUploadUrl() const;
+	virtual void setFtpUploadUrl(const QString &path);
+
+	virtual QString ftpUploadUsername() const;
+	virtual void setFtpUploadUsername(const QString &username);
+
+	virtual QString ftpUploadPassword() const;
+	virtual void setFtpUploadPassword(const QString &password);
+
 	// HotKeys
 
 	virtual bool isGlobalHotKeysEnabledReadOnly() const;

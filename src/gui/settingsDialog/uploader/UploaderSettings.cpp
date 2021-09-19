@@ -50,6 +50,7 @@ void UploaderSettings::initGui()
 	mUploaderTypeLabel->setText(tr("Uploader Type:"));
 
 	mUploaderTypeComboBox->addItem(tr("Imgur"), static_cast<int>(UploaderType::Imgur));
+	mUploaderTypeComboBox->addItem(tr("FTP"), static_cast<int>(UploaderType::Ftp));
 	mUploaderTypeComboBox->addItem(tr("Script"), static_cast<int>(UploaderType::Script));
 
 	mLayout->setAlignment(Qt::AlignTop);

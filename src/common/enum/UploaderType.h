@@ -23,7 +23,8 @@
 enum class UploaderType
 {
 	Imgur,
-	Script
+	Script,
+	Ftp
 };
 
 Q_DECLARE_METATYPE(UploaderType)

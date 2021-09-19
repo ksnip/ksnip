@@ -29,16 +29,17 @@
 #include "AnnotationSettings.h"
 #include "ApplicationSettings.h"
 #include "ImageGrabberSettings.h"
-#include "ImgurUploaderSettings.h"
-#include "ScriptUploaderSettings.h"
 #include "HotKeySettings.h"
-#include "UploaderSettings.h"
 #include "SaverSettings.h"
 #include "StickerSettings.h"
 #include "TrayIconSettings.h"
 #include "SnippingAreaSettings.h"
 #include "WatermarkSettings.h"
-#include "actions/ActionsSettings.h"
+#include "src/gui/settingsDialog/uploader/UploaderSettings.h"
+#include "src/gui/settingsDialog/uploader/ImgurUploaderSettings.h"
+#include "src/gui/settingsDialog/uploader/ScriptUploaderSettings.h"
+#include "src/gui/settingsDialog/uploader/FtpUploaderSettings.h"
+#include "src/gui/settingsDialog/actions/ActionsSettings.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 #include "src/common/provider/ScaledSizeProvider.h"
 
@@ -66,6 +67,7 @@ private:
     SnippingAreaSettings *mSnippingAreaSettings;
 	WatermarkSettings *mWatermarkSettings;
 	ActionsSettings *mActionsSettings;
+	FtpUploaderSettings *mFtpUploaderSettings;
 	QTreeWidget *mTreeWidget;
     QStackedLayout *mStackedLayout;
     QList<QTreeWidgetItem*> mNavigatorItems;

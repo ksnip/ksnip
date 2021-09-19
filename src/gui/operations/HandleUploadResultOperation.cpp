@@ -36,6 +36,9 @@ bool HandleUploadResultOperation::execute()
 		case UploaderType::Script:
 			handleScriptResult();
 			break;
+		case UploaderType::Ftp:
+			handleFtpResult();
+			break;
 	}
 
 	return mUploadResult.status == UploadStatus::NoError;
@@ -71,6 +74,21 @@ void HandleUploadResultOperation::handleScriptResult()
 	}
 }
 
+void HandleUploadResultOperation::handleFtpResult()
+{
+	if(mUploadResult.status == UploadStatus::NoError) {
+		notifyFtpSuccessfulUpload();
+	} else {
+		handleUploadError();
+	}
+}
+
+void HandleUploadResultOperation::notifyFtpSuccessfulUpload() const
+{
+	NotifyOperation operation(mTrayIcon, tr("Upload Successful"), tr("FTP Upload finished successfully."), NotificationTypes::Information);
+	operation.execute();
+}
+
 void HandleUploadResultOperation::notifyScriptSuccessfulUpload() const
 {
 	NotifyOperation operation(mTrayIcon, tr("Upload Successful"), tr("Upload script ") + mConfig->uploadScriptPath() + tr(" finished successfully."), NotificationTypes::Information);
@@ -97,7 +115,6 @@ void HandleUploadResultOperation::OpenUrl(const QString &url) const
 void HandleUploadResultOperation::handleUploadError()
 {
 	switch (mUploadResult.status) {
-
 		case UploadStatus::NoError:
 			// Nothing to report all good
 			break;
@@ -123,10 +140,16 @@ void HandleUploadResultOperation::handleUploadError()
 			notifyFailedUpload(tr("Web error, check console output."));
 			break;
 		case UploadStatus::UnknownError:
-			notifyFailedUpload(tr("Unknown process error."));
+			notifyFailedUpload(tr("Unknown error."));
 			break;
 		case UploadStatus::ScriptWroteToStdErr:
 			notifyFailedUpload(tr("Script wrote to StdErr."));
+			break;
+		case UploadStatus::ConnectionError:
+			notifyFailedUpload(tr("Connection Error."));
+			break;
+		case UploadStatus::PermissionError:
+			notifyFailedUpload(tr("Permission Error."));
 			break;
 	}
 }

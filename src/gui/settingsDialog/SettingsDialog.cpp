@@ -39,7 +39,8 @@ SettingsDialog::SettingsDialog(QWidget *parent, const QList<CaptureModes> &captu
 	mTrayIconSettings(new TrayIconSettings(mConfig, captureModes)),
 	mSnippingAreaSettings(new SnippingAreaSettings(mConfig)),
 	mWatermarkSettings(new WatermarkSettings(mConfig)),
-	mActionsSettings(new ActionsSettings(mConfig, captureModes))
+	mActionsSettings(new ActionsSettings(mConfig, captureModes)),
+	mFtpUploaderSettings(new FtpUploaderSettings(mConfig))
 {
     setWindowTitle(QApplication::applicationName() + QLatin1String(" - ") + tr("Settings"));
 
@@ -66,6 +67,7 @@ SettingsDialog::~SettingsDialog()
     delete mSnippingAreaSettings;
     delete mWatermarkSettings;
     delete mActionsSettings;
+    delete mFtpUploaderSettings;
 }
 
 void SettingsDialog::saveSettings()
@@ -83,6 +85,7 @@ void SettingsDialog::saveSettings()
     mSnippingAreaSettings->saveSettings();
     mWatermarkSettings->saveSettings();
 	mActionsSettings->saveSettings();
+	mFtpUploaderSettings->saveSettings();
 }
 
 void SettingsDialog::initGui()
@@ -105,6 +108,7 @@ void SettingsDialog::initGui()
     mStackedLayout->addWidget(mSnippingAreaSettings);
     mStackedLayout->addWidget(mUploaderSettings);
     mStackedLayout->addWidget(mImgurUploaderSettings);
+    mStackedLayout->addWidget(mFtpUploaderSettings);
     mStackedLayout->addWidget(mScriptUploaderSettings);
 	mStackedLayout->addWidget(mAnnotationSettings);
 	mStackedLayout->addWidget(mStickerSettings);
@@ -119,6 +123,7 @@ void SettingsDialog::initGui()
 	auto snippingArea = new QTreeWidgetItem(imageGrabber, { tr("Snipping Area") });
 	auto uploader = new QTreeWidgetItem(mTreeWidget, { tr("Uploader") });
 	auto imgurUploader = new QTreeWidgetItem(uploader, { tr("Imgur Uploader") });
+	auto ftpUploader = new QTreeWidgetItem(uploader, { tr("FTP Uploader") });
 	auto scriptUploader = new QTreeWidgetItem(uploader, { tr("Script Uploader") });
 	auto annotator = new QTreeWidgetItem(mTreeWidget, { tr("Annotator") });
 	auto stickers = new QTreeWidgetItem(annotator, { tr("Stickers") });
@@ -133,6 +138,7 @@ void SettingsDialog::initGui()
 	mNavigatorItems.append(snippingArea);
 	mNavigatorItems.append(uploader);
 	mNavigatorItems.append(imgurUploader);
+	mNavigatorItems.append(ftpUploader);
 	mNavigatorItems.append(scriptUploader);
 	mNavigatorItems.append(annotator);
 	mNavigatorItems.append(stickers);

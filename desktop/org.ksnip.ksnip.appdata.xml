@@ -89,6 +89,7 @@
                 <ul>
                     <li>New: Set image save location on command line.</li>
                     <li>New: Add debug logging.</li>
+                    <li>New: Add FTP upload.</li>
                 </ul>
             </description>
         </release>

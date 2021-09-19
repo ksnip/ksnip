@@ -95,6 +95,10 @@ public:
 	static QString uploadScriptCopyOutputToClipboardString();
 	static QString uploadScriptStopOnStdErrString();
 	static QString uploadScriptCopyOutputFilterString();
+	static QString ftpUploadForceAnonymousString();
+	static QString ftpUploadUrlString();
+	static QString ftpUploadUsernameString();
+	static QString ftpUploadPasswordString();
 	static QString globalHotKeysEnabledString();
 	static QString rectAreaHotKeyString();
 	static QString lastRectAreaHotKeyString();
@@ -126,6 +130,7 @@ private:
 	static QString uploaderSectionString();
 	static QString imgurSectionString();
 	static QString uploadScriptSectionString();
+	static QString ftpUploadSectionString();
 	static QString hotKeysSectionString();
 	static QString mainWindowSectionString();
 	static QString saveSectionString();

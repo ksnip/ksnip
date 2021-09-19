@@ -8,12 +8,13 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractRectAreaImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploaderProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurWrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurResponse.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurResponseLogger.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/script/ScriptUploader.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploaderProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/ftp/FtpUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/saver/SavePathProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/saver/ImageSaver.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/saver/WildcardResolver.cpp
@@ -87,10 +88,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/AnnotationSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/ApplicationSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/ImageGrabberSettings.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/ImgurUploaderSettings.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/ScriptUploaderSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/HotKeySettings.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/UploaderSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/SaverSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/StickerSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/SnippingAreaSettings.cpp
@@ -100,6 +98,10 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/actions/ActionsSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/actions/ActionSettingTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/actions/EmptyActionSettingTab.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/uploader/UploaderSettings.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/uploader/ImgurUploaderSettings.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/uploader/ScriptUploaderSettings.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/uploader/FtpUploaderSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AboutDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AboutTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/VersionTab.cpp

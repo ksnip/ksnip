@@ -20,6 +20,9 @@
 #ifndef KSNIP_CONSOLELOGGER_H
 #define KSNIP_CONSOLELOGGER_H
 
+#include <QNetworkReply>
+#include <QMetaEnum>
+
 #include "ILogger.h"
 
 class ConsoleLogger : public ILogger
@@ -30,6 +33,7 @@ public:
 
 	void log(const QString &message) const override;
 	void log(const QString &message, bool isSuccess) const override;
+	void log(const QString &message, QNetworkReply::NetworkError value) const override;
 
 private:
 	static QString boolToString(bool isSuccess) ;

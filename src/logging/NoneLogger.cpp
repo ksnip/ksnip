@@ -33,3 +33,11 @@ void NoneLogger::log(const QString &message, bool isSuccess) const
 
 	// doing nothing
 }
+
+void NoneLogger::log(const QString &message, QNetworkReply::NetworkError value) const
+{
+	Q_UNUSED(message)
+	Q_UNUSED(value)
+
+	// doing nothing
+}

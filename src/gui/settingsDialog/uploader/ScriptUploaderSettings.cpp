@@ -19,8 +19,8 @@
 
 #include "ScriptUploaderSettings.h"
 
-ScriptUploaderSettings::ScriptUploaderSettings(KsnipConfig *ksnipConfig) :
-	mConfig(ksnipConfig),
+ScriptUploaderSettings::ScriptUploaderSettings(KsnipConfig *config) :
+	mConfig(config),
 	mLayout(new QGridLayout(this)),
 	mCopyOutputToClipboardCheckbox(new QCheckBox(this)),
 	mStopOnStdErrCheckbox(new QCheckBox(this)),

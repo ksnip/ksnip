@@ -1043,6 +1043,60 @@ void KsnipConfig::setUploadScriptStopOnStdErr(bool enabled)
 	saveValue(KsnipConfigOptions::uploadScriptStopOnStdErrString(), enabled);
 }
 
+// FTP Uploader
+
+bool KsnipConfig::ftpUploadForceAnonymous() const
+{
+	return loadValue(KsnipConfigOptions::ftpUploadForceAnonymousString(), false).toBool();
+}
+
+void KsnipConfig::setFtpUploadForceAnonymous(bool enabled)
+{
+	if (ftpUploadForceAnonymous() == enabled) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::ftpUploadForceAnonymousString(), enabled);
+}
+
+QString KsnipConfig::ftpUploadUrl() const
+{
+	return loadValue(KsnipConfigOptions::ftpUploadUrlString(), QString()).toString();
+}
+
+void KsnipConfig::setFtpUploadUrl(const QString &path)
+{
+	if (ftpUploadUrl() == path) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::ftpUploadUrlString(), path);
+}
+
+QString KsnipConfig::ftpUploadUsername() const
+{
+	return loadValue(KsnipConfigOptions::ftpUploadUsernameString(), QString()).toString();
+}
+
+void KsnipConfig::setFtpUploadUsername(const QString &username)
+{
+	if (ftpUploadUsername() == username) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::ftpUploadUsernameString(), username);
+}
+
+QString KsnipConfig::ftpUploadPassword() const
+{
+	return loadValue(KsnipConfigOptions::ftpUploadPasswordString(), QString()).toString();
+}
+
+void KsnipConfig::setFtpUploadPassword(const QString &password)
+{
+	if (ftpUploadPassword() == password) {
+		return;
+	}
+	saveValue(KsnipConfigOptions::ftpUploadPasswordString(), password);
+}
+
 // HotKeys
 
 bool KsnipConfig::isGlobalHotKeysEnabledReadOnly() const

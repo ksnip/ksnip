@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,46 +17,39 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_SCRIPTUPLOADERSETTINGS_H
-#define KSNIP_SCRIPTUPLOADERSETTINGS_H
+#ifndef KSNIP_FTPUPLOADERSETTINGS_H
+#define KSNIP_FTPUPLOADERSETTINGS_H
 
 #include <QGroupBox>
 #include <QCheckBox>
 #include <QLineEdit>
 #include <QLabel>
 #include <QGridLayout>
-#include <QPushButton>
-#include <QFileDialog>
 
 #include "src/backend/config/KsnipConfig.h"
-#include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
 
-class ScriptUploaderSettings : public QGroupBox
+class FtpUploaderSettings : public QGroupBox
 {
-	Q_OBJECT
+Q_OBJECT
 public:
-	explicit ScriptUploaderSettings(KsnipConfig *ksnipConfig);
-	~ScriptUploaderSettings() override;
+	explicit FtpUploaderSettings(KsnipConfig *config);
+	~FtpUploaderSettings() override = default;
 	void saveSettings();
 
 private:
 	QGridLayout *mLayout;
 	KsnipConfig *mConfig;
-	QCheckBox *mCopyOutputToClipboardCheckbox;
-	QCheckBox *mStopOnStdErrCheckbox;
-	QLineEdit *mCopyOutputFilterLineEdit;
-	QLineEdit *mUploadScriptPathLineEdit;
-	QLabel *mCopyOutputFilterLabel;
-	QLabel *mScriptPathLabel;
-	QPushButton *mBrowseButton;
-	IFileDialogAdapter *mFileDialog;
+	QCheckBox *mForceAnonymousUploadCheckBox;
+	QLabel *mUrlLabel;
+	QLabel *mUsernameLabel;
+	QLabel *mPasswordLabel;
+	QLineEdit *mUrlLineEdit;
+	QLineEdit *mUsernameLineEdit;
+	QLineEdit *mPasswordLineEdit;
 
 	void initGui();
 	void loadConfig();
-
-private slots:
-	void ShowScriptSelectionDialog();
-	void copyToClipboardChanged();
 };
 
-#endif //KSNIP_SCRIPTUPLOADERSETTINGS_H
+
+#endif //KSNIP_FTPUPLOADERSETTINGS_H

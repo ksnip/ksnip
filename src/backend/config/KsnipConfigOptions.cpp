@@ -444,6 +444,26 @@ QString KsnipConfigOptions::uploadScriptCopyOutputFilterString()
 	return uploadScriptSectionString() + QLatin1String("CopyOutputFilter");
 }
 
+QString KsnipConfigOptions::ftpUploadForceAnonymousString()
+{
+	return ftpUploadSectionString() + QLatin1String("ForceAnonymous");
+}
+
+QString KsnipConfigOptions::ftpUploadUrlString()
+{
+	return ftpUploadSectionString() + QLatin1String("Url");
+}
+
+QString KsnipConfigOptions::ftpUploadUsernameString()
+{
+	return ftpUploadSectionString() + QLatin1String("Username");
+}
+
+QString KsnipConfigOptions::ftpUploadPasswordString()
+{
+	return ftpUploadSectionString() + QLatin1String("Password");
+}
+
 QString KsnipConfigOptions::globalHotKeysEnabledString()
 {
 	return hotKeysSectionString() + QLatin1String("GlobalHotKeysEnabled");
@@ -512,6 +532,11 @@ QString KsnipConfigOptions::imgurSectionString()
 QString KsnipConfigOptions::uploadScriptSectionString()
 {
 	return QLatin1String("UploadScript/");
+}
+
+QString KsnipConfigOptions::ftpUploadSectionString()
+{
+	return QLatin1String("FtpUpload/");
 }
 
 QString KsnipConfigOptions::hotKeysSectionString()

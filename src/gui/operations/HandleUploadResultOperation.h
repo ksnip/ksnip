@@ -46,9 +46,11 @@ private:
 	void notifyImgurSuccessfulUpload(const QString &url) const;
 	void handleImgurResult();
 	void handleScriptResult();
+	void handleFtpResult();
 	void copyToClipboard(const QString &url) const;
 	void OpenUrl(const QString &url) const;
 	void handleUploadError();
+	void notifyFtpSuccessfulUpload() const;
 	void notifyScriptSuccessfulUpload() const;
 	void notifyFailedUpload(const QString &message) const;
 };

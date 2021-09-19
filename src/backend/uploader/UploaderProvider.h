@@ -24,6 +24,7 @@
 
 #include "src/backend/uploader/imgur/ImgurUploader.h"
 #include "src/backend/uploader/script/ScriptUploader.h"
+#include "src/backend/uploader/ftp/FtpUploader.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
 class UploaderProvider : public QObject
@@ -41,10 +42,12 @@ private:
 	KsnipConfig *mConfig;
 	IUploader *mImgurUploader;
 	IUploader *mScriptUploader;
+	IUploader *mFtpUploader;
 
 	void connectSignals(IUploader *uploader);
 	IUploader* getImgurUploader();
 	IUploader* getScriptUploader();
+	IUploader* getFtpUploader();
 };
 
 #endif //KSNIP_UPLOADERPROVIDER_H

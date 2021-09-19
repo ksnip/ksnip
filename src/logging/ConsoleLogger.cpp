@@ -34,3 +34,9 @@ QString ConsoleLogger::boolToString(bool isSuccess)
 {
 	return isSuccess ? QString("success") : QString("failed");
 }
+
+void ConsoleLogger::log(const QString &message, QNetworkReply::NetworkError value) const
+{
+	auto metaEnum = QMetaEnum::fromType<QNetworkReply::NetworkError>();
+	log(message.arg(metaEnum.valueToKey(value)));
+}

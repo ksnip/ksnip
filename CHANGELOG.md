@@ -3,6 +3,7 @@
 ## Release 1.10.0
 * New: Set image save location on command line. ([#666](https://github.com/ksnip/ksnip/issues/666))
 * New: Add debug logging. ([#711](https://github.com/ksnip/ksnip/issues/711))
+* New: Add FTP upload. ([#104](https://github.com/ksnip/ksnip/issues/104))
 
 ## Release 1.9.2
 * Fixed: Version `Qt_5.15' not found (required by /usr/bin/ksnip). ([#712](https://github.com/ksnip/ksnip/issues/712))

@@ -31,7 +31,9 @@ enum class UploadStatus
 	WriteError,
 	WebError,
 	UnknownError,
-	ScriptWroteToStdErr
+	ScriptWroteToStdErr,
+	ConnectionError,
+	PermissionError
 };
 
 #endif //KSNIP_UPLOADSTATUS_H

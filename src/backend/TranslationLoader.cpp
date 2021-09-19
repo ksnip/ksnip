@@ -39,9 +39,14 @@ void TranslationLoader::loadTranslations(const QApplication &app, QTranslator *t
 		translationSuccessfullyLoaded = loadTranslationFromRelativePath(translator, path, applicationName);
 	}
 
-	// Fix for appimages as they need to use relative paths
+	// Translation loading for AppImage
 	if (!translationSuccessfullyLoaded) {
 	    translationSuccessfullyLoaded = loadTranslationForAppImage(translator, path, applicationName);
+	}
+
+	// Translation loading for Snap
+	if (!translationSuccessfullyLoaded) {
+		translationSuccessfullyLoaded = loadTranslationForSnap(translator, path, applicationName);
 	}
 
 	if (translationSuccessfullyLoaded) {
@@ -66,6 +71,12 @@ bool TranslationLoader::loadTranslationForAppImage(QTranslator *translator, cons
 {
     auto relativePathToAppDir = QCoreApplication::applicationDirPath() + QLatin1String("/../..");
     return loadTranslation(translator, relativePathToAppDir + path, applicationName);
+}
+
+bool TranslationLoader::loadTranslationForSnap(QTranslator *translator, const QString &path, const QString &applicationName)
+{
+	auto relativePathToSnapVersionDir = QCoreApplication::applicationDirPath() + QLatin1String("/..");
+	return loadTranslation(translator, relativePathToSnapVersionDir + path, applicationName);
 }
 
 bool TranslationLoader::loadTranslation(QTranslator *translator, const QString &path, const QString &applicationName)

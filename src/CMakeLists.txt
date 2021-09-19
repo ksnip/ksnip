@@ -267,7 +267,8 @@ if (WIN32)
 	install(TARGETS ksnip RUNTIME DESTINATION .)
 
 	find_program(WINDEPLOYQT windeployqt HINTS $ENV{QTDIR} PATH_SUFFIXES bin)
-	install(CODE "execute_process(COMMAND ${WINDEPLOYQT} . WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
+	SET(WINDEPLOYQT_PARAMETERS "--no-opengl-sw --no-system-d3d-compiler --no-compiler-runtime --release")
+	install(CODE "execute_process(COMMAND ${WINDEPLOYQT} ${WINDEPLOYQT_PARAMETERS} . WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
 
 	find_program(COPY cp)
 

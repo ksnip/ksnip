@@ -31,6 +31,7 @@
 #include "src/backend/TranslationLoader.h"
 #include "src/backend/commandLine/CommandLine.h"
 #include "src/backend/commandLine/CommandLineCaptureHandler.h"
+#include "src/logging/LoggerProvider.h"
 
 class StandAloneBootstrapper : public QObject, public IBootstrapper
 {
@@ -43,10 +44,11 @@ public:
 
 protected:
 	MainWindow *mMainWindow;
+	ILogger *mLogger;
 
 	void createCommandLineParser(const QApplication &app);
 	static int showVersion();
-	bool isStartedWithoutArguments() const;
+	static bool isStartedWithoutArguments();
 	bool isVersionRequested() const;
 	bool isEditRequested() const;
 	CaptureModes getCaptureMode() const;
@@ -60,7 +62,7 @@ private:
 	CommandLine *mCommandLine;
 	CommandLineCaptureHandler *mCommandLineCaptureHandler;
 
-	static void loadTranslations(const QApplication &app) ;
+	static void loadTranslations(const QApplication &app);
 	virtual void createMainWindow();
 	int startKsnip(const QApplication &app);
 	int startKsnipAndEditImage(const QApplication &app);
@@ -68,12 +70,13 @@ private:
 	static QPixmap getPixmapFromCorrectSource(const QString &pathToImage);
 	static QPixmap getPixmapFromStdin();
 	bool isCommandLineCaptureRequested() const;
-	int takeCaptureAndSave(const QApplication &app);
+	int takeCaptureAndProcess(const QApplication &app);
+	bool getIsSave() const;
+	bool getIsUpload() const;
 
 private slots:
 	void openMainWindow(const CaptureDto &captureDto);
 	void close();
-
 };
 
 

@@ -22,10 +22,12 @@
 
 #include <QObject>
 
+#include "CommandLineCaptureParameter.h"
 #include "src/backend/imageGrabber/AbstractImageGrabber.h"
+#include "src/backend/imageGrabber/ImageGrabberFactory.h"
 #include "src/backend/saver/ImageSaver.h"
 #include "src/backend/saver/SavePathProvider.h"
-#include "src/backend/imageGrabber/ImageGrabberFactory.h"
+#include "src/backend/uploader/UploaderProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 
 class CommandLineCaptureHandler : public QObject
@@ -35,9 +37,7 @@ class CommandLineCaptureHandler : public QObject
 public:
 	explicit CommandLineCaptureHandler();
 	~CommandLineCaptureHandler() override;
-
-	void captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay);
-	void captureScreenshotAndSave(CaptureModes captureMode, bool captureCursor, int delay, const QString &savePath);
+	void captureAndProcessScreenshot(const CommandLineCaptureParameter &parameter);
 	QList<CaptureModes> supportedCaptureModes() const;
 
 signals:
@@ -46,12 +46,16 @@ signals:
 
 private:
 	AbstractImageGrabber *mImageGrabber;
+	UploaderProvider *mUploadProvider;
 	QString mSavePath;
-	bool mIsWithSaveImage;
+	bool mIsWithSave;
+	bool mIsWithUpload;
+	CaptureDto mCurrentCapture;
 
 private slots:
 	void processCapture(const CaptureDto &capture);
-	void savecapture(const CaptureDto &capture) const;
+	void saveCapture(const CaptureDto &capture) const;
+	void uploadFinished(const UploadResult &result);
 };
 
 

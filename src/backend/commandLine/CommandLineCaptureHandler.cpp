@@ -20,42 +20,49 @@
 #include "CommandLineCaptureHandler.h"
 
 CommandLineCaptureHandler::CommandLineCaptureHandler() :
-	mImageGrabber(ImageGrabberFactory::createImageGrabber())
+	mImageGrabber(ImageGrabberFactory::createImageGrabber()),
+	mUploadProvider(new UploaderProvider),
+	mIsWithSave(false),
+	mIsWithUpload(false)
 {
 	Q_ASSERT(mImageGrabber != nullptr);
 
 	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &CommandLineCaptureHandler::processCapture);
 	connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &CommandLineCaptureHandler::canceled);
+
+	connect(mUploadProvider, &UploaderProvider::finished, this, &CommandLineCaptureHandler::uploadFinished);
 }
 
 CommandLineCaptureHandler::~CommandLineCaptureHandler()
 {
 	delete mImageGrabber;
+	delete mUploadProvider;
 }
 
-void CommandLineCaptureHandler::captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay)
+void CommandLineCaptureHandler::captureAndProcessScreenshot(const CommandLineCaptureParameter &parameter)
 {
-	mIsWithSaveImage = false;
-	mImageGrabber->grabImage(captureMode, captureCursor, delay);
-}
-
-void CommandLineCaptureHandler::captureScreenshotAndSave(CaptureModes captureMode, bool captureCursor, int delay, const QString &savePath)
-{
-	mIsWithSaveImage = true;
-	mSavePath = savePath;
-	mImageGrabber->grabImage(captureMode, captureCursor, delay);
+	mIsWithSave = parameter.isWithSave;
+	mIsWithUpload = parameter.isWithUpload; // to be set
+	mSavePath = parameter.savePath;
+	mImageGrabber->grabImage(parameter.captureMode, parameter.isWithCursor, parameter.delay);
 }
 
 void CommandLineCaptureHandler::processCapture(const CaptureDto &capture)
 {
-	if(mIsWithSaveImage) {
-		savecapture(capture);
+	mCurrentCapture = capture;
+
+	if (mIsWithSave) {
+		saveCapture(mCurrentCapture);
 	}
 
-	finished(capture);
+	if (mIsWithUpload) {
+		mUploadProvider->get()->upload(capture.screenshot.toImage());
+	} else {
+		finished(mCurrentCapture);
+	}
 }
 
-void CommandLineCaptureHandler::savecapture(const CaptureDto &capture) const
+void CommandLineCaptureHandler::saveCapture(const CaptureDto &capture) const
 {
 	SavePathProvider savePathProvider;
 	ImageSaver imageSaver;
@@ -73,4 +80,19 @@ void CommandLineCaptureHandler::savecapture(const CaptureDto &capture) const
 QList<CaptureModes> CommandLineCaptureHandler::supportedCaptureModes() const
 {
 	return mImageGrabber->supportedCaptureModes();
+}
+
+void CommandLineCaptureHandler::uploadFinished(const UploadResult &result)
+{
+	if (result.isError()) {
+		qWarning("Upload failed");
+	} else {
+		qInfo("Upload finished");
+	}
+
+	if (result.hasContent()) {
+		qInfo("Upload result: %s", qPrintable(result.content));
+	}
+
+	finished(mCurrentCapture);
 }

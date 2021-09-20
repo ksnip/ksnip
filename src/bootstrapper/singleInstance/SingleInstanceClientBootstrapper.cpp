@@ -44,8 +44,7 @@ int SingleInstanceClientBootstrapper::start(const QApplication &app)
 bool SingleInstanceClientBootstrapper::isImagePathValid(const QString &imagePath) const
 {
 	QPixmap pixmap(imagePath);
-	auto imageValid = pixmap.isNull();
-	return imageValid;
+	return pixmap.isNull();
 }
 
 int SingleInstanceClientBootstrapper::notifyServer() const
@@ -65,6 +64,8 @@ int SingleInstanceClientBootstrapper::notifyServer() const
 		parameter = SingleInstanceParameter(getCaptureMode(), getSave(), getSavePath(), getCaptureCursor(), getDelay());
 	}
 	mIpcClient->send(mParameterTranslator.translate(parameter));
+
+	mLogger->log(QLatin1String("Notification sent to server, closing client.."));
 
 	return 0;
 }

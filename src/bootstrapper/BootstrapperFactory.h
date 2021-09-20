@@ -39,7 +39,7 @@ public:
 private:
 	InstanceLock mInstanceLock;
 
-	bool isSingleInstance();
+	static bool isSingleInstance();
 };
 
 #endif //KSNIP_BOOTSTRAPPERFACTORY_H

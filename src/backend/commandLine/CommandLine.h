@@ -45,6 +45,7 @@ public:
     bool isSaveSet() const;
     bool isVersionSet() const;
     bool isCaptureModeSet() const;
+    bool isUploadSet() const;
     int delay() const;
     QString imagePath() const;
 	QString saveToPath() const;
@@ -64,6 +65,7 @@ private:
     QCommandLineOption *mSaveOption = nullptr;
     QCommandLineOption *mSaveToOption = nullptr;
     QCommandLineOption *mVersionOption = nullptr;
+    QCommandLineOption *mUploadOption = nullptr;
 
     void addImageGrabberOptions(const QList<CaptureModes> &captureModes);
     void addDefaultOptions();

@@ -43,6 +43,7 @@ void SingleInstanceServerBootstrapper::startServer() const
 
 void SingleInstanceServerBootstrapper::processData(const QByteArray &data)
 {
+	mLogger->log(QLatin1String("Single instance server received data from client."));
 	auto parameter = mParameterTranslator.translate(data);
 	switch (parameter.startupMode) {
 		case SingleInstanceStartupModes::Start:
@@ -59,16 +60,19 @@ void SingleInstanceServerBootstrapper::processData(const QByteArray &data)
 
 void SingleInstanceServerBootstrapper::capture(const SingleInstanceParameter &parameter) const
 {
+	mLogger->log(QLatin1String("Single instance server was request to take screenshot."));
 	mMainWindow->captureScreenshot(parameter.captureMode, parameter.captureCursor, parameter.delay);
 }
 
 void SingleInstanceServerBootstrapper::show() const
 {
+	mLogger->log(QLatin1String("Single instance server was request to show main window."));
 	mMainWindow->show();
 }
 
 void SingleInstanceServerBootstrapper::processImage(const QString &imagePath)
 {
+	mLogger->log(QString("Single instance server was request to open image %1.").arg(imagePath));
 	QPixmap pixmap(imagePath);
 	auto captureDto = CaptureFromFileDto(pixmap, imagePath);
 	mMainWindow->processCapture(captureDto);

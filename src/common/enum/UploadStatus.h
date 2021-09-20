@@ -24,7 +24,7 @@ enum class UploadStatus
 {
 	NoError,
 	UnableToSaveTemporaryImage,
-	FailedToStart, //### file not found, resource error
+	FailedToStart,               // file not found, resource error
 	Crashed,
 	Timedout,
 	ReadError,

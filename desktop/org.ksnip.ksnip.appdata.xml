@@ -90,6 +90,7 @@
                     <li>New: Set image save location on command line.</li>
                     <li>New: Add debug logging.</li>
                     <li>New: Add FTP upload.</li>
+                    <li>New: Upload image via command line without opening editor.</li>
                 </ul>
             </description>
         </release>

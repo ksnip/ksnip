@@ -43,7 +43,7 @@ SingleInstanceParameter SingleInstanceParameterTranslator::translate(const QByte
 	auto startupMode = parameters[0];
 	if (startupMode == getEditParameter() && parameters.count() == 2) {
 		return SingleInstanceParameter(parameters[1]);
-	} else if (startupMode == getCaptureParameter() && parameters.count() == 5){
+	} else if (startupMode == getCaptureParameter() && parameters.count() == 6){
 		auto captureMode = getCaptureMode(parameters[1]);
 		auto save = getBoolean(parameters[2]);
 		auto savePath = getPathParameter(parameters[3]);

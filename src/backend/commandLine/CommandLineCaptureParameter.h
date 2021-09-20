@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2030 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,38 +17,34 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_UPLOADRESULT_H
-#define KSNIP_UPLOADRESULT_H
+#ifndef KSNIP_COMMANDLINECAPTUREPARAMETER_H
+#define KSNIP_COMMANDLINECAPTUREPARAMETER_H
 
 #include <QString>
 
-#include "src/common/enum/UploadStatus.h"
-#include "src/common/enum/UploaderType.h"
+#include "src/common/enum/CaptureModes.h"
 
-struct UploadResult
+struct CommandLineCaptureParameter
 {
-	UploadStatus status;
-	UploaderType type;
-	QString content;
+	CaptureModes captureMode;
+	int delay;
+	bool isWithCursor;
+	bool isWithSave;
+	bool isWithUpload;
+	QString savePath;
 
-	explicit UploadResult(UploadStatus status, UploaderType type) {
-		this->status = status;
-		this->type = type;
-	}
+	explicit CommandLineCaptureParameter() = default;
 
-	explicit UploadResult(UploadStatus status, UploaderType type, const QString &content) {
-		this->status = status;
-		this->type = type;
-		this->content = content;
-	}
-
-	bool isError() const {
-		return this->status != UploadStatus::NoError;
-	}
-
-	bool hasContent() const {
-		return !this->content.isEmpty() && !this->content.isNull();
+	explicit CommandLineCaptureParameter(CaptureModes captureMode, int delay, bool isWithCursor)
+	{
+		this->captureMode = captureMode;
+		this->delay = delay;
+		this->isWithCursor = isWithCursor;
+		this->isWithSave = false;
+		this->savePath = QString();
+		this->isWithUpload = false;
 	}
 };
 
-#endif //KSNIP_UPLOADRESULT_H
+
+#endif //KSNIP_COMMANDLINECAPTUREPARAMETER_H

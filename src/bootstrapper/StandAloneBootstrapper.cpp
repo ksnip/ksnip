@@ -20,9 +20,10 @@
 #include "StandAloneBootstrapper.h"
 
 StandAloneBootstrapper::StandAloneBootstrapper() :
-		mCommandLine(nullptr),
-		mMainWindow(nullptr),
-		mCommandLineCaptureHandler(nullptr)
+	mCommandLine(nullptr),
+	mMainWindow(nullptr),
+	mCommandLineCaptureHandler(nullptr),
+	mLogger(LoggerProvider::instance())
 {
 
 }
@@ -52,30 +53,40 @@ int StandAloneBootstrapper::start(const QApplication &app)
 	}
 
 	if (isCommandLineCaptureRequested()) {
-		return takeCaptureAndSave(app);
+		return takeCaptureAndProcess(app);
 	}
 
 	return takeCaptureAndStartKsnip(app);
 }
 
-int StandAloneBootstrapper::takeCaptureAndSave(const QApplication &app)
+int StandAloneBootstrapper::takeCaptureAndProcess(const QApplication &app)
 {
-	auto captureMode = getCaptureMode();
-	auto captureCursor = getCaptureCursor();
-	auto delay = getDelay();
-	auto savePath = getSavePath();
-
 	connect(mCommandLineCaptureHandler, &CommandLineCaptureHandler::finished, this, &StandAloneBootstrapper::close);
 	connect(mCommandLineCaptureHandler, &CommandLineCaptureHandler::canceled, this, &StandAloneBootstrapper::close);
 
-	mCommandLineCaptureHandler->captureScreenshotAndSave(captureMode, captureCursor, delay, savePath);
+	CommandLineCaptureParameter parameter(getCaptureMode(), getDelay(), getCaptureCursor());
+	parameter.isWithSave = getIsSave();
+	parameter.isWithUpload = getIsUpload();
+	parameter.savePath = getSavePath();
+
+	mCommandLineCaptureHandler->captureAndProcessScreenshot(parameter);
 
 	return app.exec();
 }
 
-bool StandAloneBootstrapper::isCommandLineCaptureRequested() const
+bool StandAloneBootstrapper::getIsUpload() const
+{
+	return mCommandLine->isUploadSet();
+}
+
+bool StandAloneBootstrapper::getIsSave() const
 {
 	return mCommandLine->isSaveSet();
+}
+
+bool StandAloneBootstrapper::isCommandLineCaptureRequested() const
+{
+	return getIsSave() || getIsUpload();
 }
 
 bool StandAloneBootstrapper::isEditRequested() const
@@ -88,7 +99,7 @@ bool StandAloneBootstrapper::isVersionRequested() const
 	return mCommandLine->isVersionSet();
 }
 
-bool StandAloneBootstrapper::isStartedWithoutArguments() const
+bool StandAloneBootstrapper::isStartedWithoutArguments()
 {
 	auto arguments = QCoreApplication::arguments();
 	return arguments.count() <= 1;
@@ -96,15 +107,14 @@ bool StandAloneBootstrapper::isStartedWithoutArguments() const
 
 int StandAloneBootstrapper::takeCaptureAndStartKsnip(const QApplication &app)
 {
-	auto captureMode = getCaptureMode();
-	auto captureCursor = getCaptureCursor();
-	auto delay = getDelay();
-
 	loadTranslations(app);
 
 	connect(mCommandLineCaptureHandler, &CommandLineCaptureHandler::finished, this, &StandAloneBootstrapper::openMainWindow);
 	connect(mCommandLineCaptureHandler, &CommandLineCaptureHandler::canceled, this, &StandAloneBootstrapper::close);
-	mCommandLineCaptureHandler->captureScreenshot(captureMode, captureCursor, delay);
+
+	CommandLineCaptureParameter parameter(getCaptureMode(), getDelay(), getCaptureCursor());
+
+	mCommandLineCaptureHandler->captureAndProcessScreenshot(parameter);
 
 	return app.exec();
 }

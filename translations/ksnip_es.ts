@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Contacto</translation>
     </message>
 </context>
 <context>

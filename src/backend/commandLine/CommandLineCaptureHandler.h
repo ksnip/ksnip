@@ -29,6 +29,7 @@
 #include "src/backend/saver/SavePathProvider.h"
 #include "src/backend/uploader/UploaderProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
+#include "src/common/helper/EnumTranslator.h"
 
 class CommandLineCaptureHandler : public QObject
 {

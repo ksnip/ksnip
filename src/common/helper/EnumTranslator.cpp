@@ -25,13 +25,41 @@ EnumTranslator *EnumTranslator::instance()
 	return &instance;
 }
 
-QString EnumTranslator::toString(CaptureModes captureMode) const
+QString EnumTranslator::toTranslatedString(CaptureModes captureMode) const
 {
 	Q_ASSERT(mCaptureModeMap.contains(captureMode));
 	return mCaptureModeMap.value(captureMode);
 }
 
+QString EnumTranslator::toString(UploadStatus uploadStatus) const
+{
+	Q_ASSERT(mUploadStatusMap.contains(uploadStatus));
+	return mUploadStatusMap.value(uploadStatus);
+}
+
 EnumTranslator::EnumTranslator()
+{
+	mapCaptureModeEnum();
+	mapUploadStatusEnum();
+}
+
+void EnumTranslator::mapUploadStatusEnum()
+{
+	mUploadStatusMap[UploadStatus::NoError] = QLatin1String("No Error");
+	mUploadStatusMap[UploadStatus::ConnectionError] = QLatin1String("Connection Error");
+	mUploadStatusMap[UploadStatus::PermissionError] = QLatin1String("Permission Error");
+	mUploadStatusMap[UploadStatus::TimedOut] = QLatin1String("Timed Out");
+	mUploadStatusMap[UploadStatus::Crashed] = QLatin1String("Crashed");
+	mUploadStatusMap[UploadStatus::FailedToStart] = QLatin1String("Failed To Start");
+	mUploadStatusMap[UploadStatus::ReadError] = QLatin1String("Read Error");
+	mUploadStatusMap[UploadStatus::ScriptWroteToStdErr] = QLatin1String("Script Wrote To StdErr");
+	mUploadStatusMap[UploadStatus::UnableToSaveTemporaryImage] = QLatin1String("Unable To Save Temporary Image");
+	mUploadStatusMap[UploadStatus::UnknownError] = QLatin1String("Unknown Error");
+	mUploadStatusMap[UploadStatus::WebError] = QLatin1String("Web Error");
+	mUploadStatusMap[UploadStatus::WriteError] = QLatin1String("Write Error");
+}
+
+void EnumTranslator::mapCaptureModeEnum()
 {
 	mCaptureModeMap[CaptureModes::RectArea] = tr("Rectangular Area");
 	mCaptureModeMap[CaptureModes::LastRectArea] = tr("Last Rectangular Area");

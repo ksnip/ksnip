@@ -21,6 +21,7 @@
 #define KSNIP_ILOGGER_H
 
 #include <QString>
+#include <QNetworkReply>
 
 class ILogger
 {

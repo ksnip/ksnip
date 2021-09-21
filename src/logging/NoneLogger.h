@@ -20,11 +20,7 @@
 #ifndef KSNIP_NONELOGGER_H
 #define KSNIP_NONELOGGER_H
 
-#include <QNetworkReply>
-
 #include "ILogger.h"
-
-class QNetworkReply;
 
 class NoneLogger : public ILogger
 {

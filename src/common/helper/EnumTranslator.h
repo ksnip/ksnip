@@ -24,6 +24,7 @@
 #include <QHash>
 
 #include "src/common/enum/CaptureModes.h"
+#include "src/common/enum/UploadStatus.h"
 
 class EnumTranslator : public QObject
 {
@@ -31,12 +32,16 @@ Q_OBJECT
 public:
 	static EnumTranslator *instance();
 
-	QString toString(CaptureModes captureMode) const;
+	QString toTranslatedString(CaptureModes captureMode) const;
+	QString toString(UploadStatus uploadStatus) const;
 
 private:
 	QHash<CaptureModes, QString> mCaptureModeMap;
+	QHash<UploadStatus, QString> mUploadStatusMap;
 
 	EnumTranslator();
+	void mapCaptureModeEnum();
+	void mapUploadStatusEnum();
 };
 
 #endif //KSNIP_ENUMTRANSLATOR_H

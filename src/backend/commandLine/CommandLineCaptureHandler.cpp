@@ -42,7 +42,7 @@ CommandLineCaptureHandler::~CommandLineCaptureHandler()
 void CommandLineCaptureHandler::captureAndProcessScreenshot(const CommandLineCaptureParameter &parameter)
 {
 	mIsWithSave = parameter.isWithSave;
-	mIsWithUpload = parameter.isWithUpload; // to be set
+	mIsWithUpload = parameter.isWithUpload;
 	mSavePath = parameter.savePath;
 	mImageGrabber->grabImage(parameter.captureMode, parameter.isWithCursor, parameter.delay);
 }
@@ -85,7 +85,8 @@ QList<CaptureModes> CommandLineCaptureHandler::supportedCaptureModes() const
 void CommandLineCaptureHandler::uploadFinished(const UploadResult &result)
 {
 	if (result.isError()) {
-		qWarning("Upload failed");
+		auto enumTranslator = EnumTranslator::instance();
+		qWarning("Upload failed: %s", qPrintable(enumTranslator->toString(result.status)));
 	} else {
 		qInfo("Upload finished");
 	}

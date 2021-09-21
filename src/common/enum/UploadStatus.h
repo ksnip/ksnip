@@ -26,7 +26,7 @@ enum class UploadStatus
 	UnableToSaveTemporaryImage,
 	FailedToStart,               // file not found, resource error
 	Crashed,
-	Timedout,
+	TimedOut,
 	ReadError,
 	WriteError,
 	WebError,
@@ -35,5 +35,9 @@ enum class UploadStatus
 	ConnectionError,
 	PermissionError
 };
+
+inline uint qHash(const UploadStatus uploadStatus, uint seed) {
+	return qHash(static_cast<int>(uploadStatus), seed);
+}
 
 #endif //KSNIP_UPLOADSTATUS_H

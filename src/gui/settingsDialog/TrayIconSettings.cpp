@@ -138,7 +138,7 @@ TrayIconDefaultActionMode TrayIconSettings::selectedTrayIconDefaultActionMode() 
 void TrayIconSettings::populateDefaultActionCaptureModeCombobox(const QList<CaptureModes> &captureModes)
 {
 	for (auto captureMode: captureModes) {
-		const auto label = EnumTranslator::instance()->toString(captureMode);
+		const auto label = EnumTranslator::instance()->toTranslatedString(captureMode);
 		mDefaultActionCaptureModeCombobox->addItem(label, static_cast<int>(captureMode));
 	}
 }

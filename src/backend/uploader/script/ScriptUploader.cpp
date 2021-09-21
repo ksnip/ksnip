@@ -110,7 +110,7 @@ UploadStatus ScriptUploader::mapErrorTypeToStatus(QProcess::ProcessError errorTy
 		case QProcess::Crashed:
 			return UploadStatus::Crashed;
 		case QProcess::Timedout:
-			return UploadStatus::Timedout;
+			return UploadStatus::TimedOut;
 		case QProcess::ReadError:
 			return UploadStatus::ReadError;
 		case QProcess::WriteError:

@@ -93,7 +93,7 @@ UploadStatus FtpUploader::mapErrorTypeToStatus(QNetworkReply::NetworkError error
 		case QNetworkReply::NetworkError::NoError:
 			return UploadStatus::NoError;
 		case QNetworkReply::NetworkError::TimeoutError:
-			return UploadStatus::Timedout;
+			return UploadStatus::TimedOut;
 		case QNetworkReply::NetworkError::ConnectionRefusedError:
 		case QNetworkReply::NetworkError::RemoteHostClosedError:
 		case QNetworkReply::NetworkError::HostNotFoundError:

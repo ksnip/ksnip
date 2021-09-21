@@ -127,7 +127,7 @@ void HandleUploadResultOperation::handleUploadError()
 		case UploadStatus::Crashed:
 			notifyFailedUpload(tr("Process crashed"));
 			break;
-		case UploadStatus::Timedout:
+		case UploadStatus::TimedOut:
 			notifyFailedUpload(tr("Process timed out."));
 			break;
 		case UploadStatus::ReadError:

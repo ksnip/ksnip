@@ -116,7 +116,7 @@ void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 void ActionSettingTab::populateCaptureModeCombobox(const QList<CaptureModes> &captureModes)
 {
 	for (auto captureMode: captureModes) {
-		const auto label = EnumTranslator::instance()->toString(captureMode);
+		const auto label = EnumTranslator::instance()->toTranslatedString(captureMode);
 		mCaptureModeComboBox->addItem(label, static_cast<int>(captureMode));
 	}
 }

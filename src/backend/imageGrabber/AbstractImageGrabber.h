@@ -23,24 +23,19 @@
 #include <QObject>
 #include <QTimer>
 
-#include "src/common/dtos/CaptureDto.h"
-#include "src/common/enum/CaptureModes.h"
+#include "IImageGrabber.h"
 #include "src/common/handler/DelayHandler.h"
 #include "src/backend/config/KsnipConfigProvider.h"
 
-class AbstractImageGrabber : public QObject
+class AbstractImageGrabber : public IImageGrabber
 {
 Q_OBJECT
 public:
     explicit AbstractImageGrabber();
     ~AbstractImageGrabber() override = default;
-    bool isCaptureModeSupported(CaptureModes captureMode) const;
-    QList<CaptureModes> supportedCaptureModes() const;
-    virtual void grabImage(CaptureModes captureMode, bool captureCursor, int delay);
-
-signals:
-    void finished(const CaptureDto &capture) const;
-    void canceled() const;
+    bool isCaptureModeSupported(CaptureModes captureMode) const override;
+    QList<CaptureModes> supportedCaptureModes() const override;
+    void grabImage(CaptureModes captureMode, bool captureCursor, int delay) override;
 
 protected:
     KsnipConfig* mConfig;

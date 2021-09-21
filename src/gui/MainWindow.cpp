@@ -80,8 +80,9 @@ MainWindow::MainWindow() :
 
 	connect(mConfig, &KsnipConfig::annotatorConfigChanged, this, &MainWindow::setupImageAnnotator);
 
-	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &MainWindow::processCapture);
-	connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &MainWindow::captureCanceled);
+	connect(mImageGrabber, &IImageGrabber::finished, this, &MainWindow::processCapture);
+	connect(mImageGrabber, &IImageGrabber::canceled, this, &MainWindow::captureCanceled);
+	connect(mImageGrabber, &IImageGrabber::canceled, mActionProcessor, &ActionProcessor::captureCanceled);
 
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::captureTriggered, this, &MainWindow::triggerCapture);
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::actionTriggered, this, &MainWindow::actionTriggered);
@@ -91,7 +92,6 @@ MainWindow::MainWindow() :
 	connect(mRecentImagesMenu, &RecentImagesMenu::openRecentSelected, this, &MainWindow::loadImageFromFile);
 
 	connect(this, &MainWindow::imageLoaded, mActionProcessor, &ActionProcessor::captureFinished);
-	connect(mImageGrabber, &AbstractImageGrabber::canceled, mActionProcessor, &ActionProcessor::captureCanceled);
 	connect(mActionProcessor, &ActionProcessor::triggerCapture, this, &MainWindow::capture);
 	connect(mActionProcessor, &ActionProcessor::triggerPinImage, mPinAction, &QAction::trigger);
 	connect(mActionProcessor, &ActionProcessor::triggerUpload, mUploadAction, &QAction::trigger);

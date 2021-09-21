@@ -5,6 +5,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/config/KsnipConfigProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/commandLine/CommandLine.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/commandLine/CommandLineCaptureHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/IImageGrabber.h
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractRectAreaImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/ImageGrabberFactory.cpp

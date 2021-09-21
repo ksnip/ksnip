@@ -89,7 +89,7 @@ protected:
     QSize sizeHint() const override;
 
 private:
-    AbstractImageGrabber *mImageGrabber;
+    IImageGrabber *mImageGrabber;
 	IServiceLocator *mServiceLocator;
     bool mSessionManagerRequestedQuit;
     QAction *mSaveAsAction;

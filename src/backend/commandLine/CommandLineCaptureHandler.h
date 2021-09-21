@@ -23,7 +23,6 @@
 #include <QObject>
 
 #include "CommandLineCaptureParameter.h"
-#include "src/backend/imageGrabber/AbstractImageGrabber.h"
 #include "src/backend/imageGrabber/ImageGrabberFactory.h"
 #include "src/backend/saver/ImageSaver.h"
 #include "src/backend/saver/SavePathProvider.h"
@@ -46,7 +45,7 @@ signals:
 	void canceled();
 
 private:
-	AbstractImageGrabber *mImageGrabber;
+	IImageGrabber *mImageGrabber;
 	UploaderProvider *mUploadProvider;
 	QString mSavePath;
 	bool mIsWithSave;

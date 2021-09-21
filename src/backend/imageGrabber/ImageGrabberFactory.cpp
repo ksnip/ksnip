@@ -19,7 +19,7 @@
 
 #include "ImageGrabberFactory.h"
 
-AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
+IImageGrabber* ImageGrabberFactory::createImageGrabber()
 {
 	auto logger = LoggerProvider::instance();
 #if defined(__APPLE__)

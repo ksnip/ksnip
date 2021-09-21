@@ -27,8 +27,8 @@ CommandLineCaptureHandler::CommandLineCaptureHandler() :
 {
 	Q_ASSERT(mImageGrabber != nullptr);
 
-	connect(mImageGrabber, &AbstractImageGrabber::finished, this, &CommandLineCaptureHandler::processCapture);
-	connect(mImageGrabber, &AbstractImageGrabber::canceled, this, &CommandLineCaptureHandler::canceled);
+	connect(mImageGrabber, &IImageGrabber::finished, this, &CommandLineCaptureHandler::processCapture);
+	connect(mImageGrabber, &IImageGrabber::canceled, this, &CommandLineCaptureHandler::canceled);
 
 	connect(mUploadProvider, &UploaderProvider::finished, this, &CommandLineCaptureHandler::uploadFinished);
 }

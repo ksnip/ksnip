@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,30 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CONFIGPROVIDER_H
-#define KSNIP_CONFIGPROVIDER_H
+#ifndef KSNIP_IIMGURUPLOADER_H
+#define KSNIP_IIMGURUPLOADER_H
 
-#if defined(__APPLE__)
-#include "MacConfig.h"
-#endif
+#include "src/backend/uploader/IUploader.h"
 
-#if defined(UNIX_X11)
-#include "WaylandConfig.h"
-#include "Config.h"
-#include "src/common/platform/PlatformChecker.h"
-#endif
-
-#if  defined(_WIN32)
-#include "Config.h"
-#endif
-
-class ConfigProvider
+class IImgurUploader : public QObject, public IUploader
 {
+	Q_OBJECT
 public:
-	static Config *instance();
+	explicit IImgurUploader() = default;
+	~IImgurUploader() override = default;
 
-private:
-	ConfigProvider() = default;
+signals:
+	void finished(const UploadResult &result) override;
 };
 
-#endif //KSNIP_CONFIGPROVIDER_H
+#endif //KSNIP_IIMGURUPLOADER_H

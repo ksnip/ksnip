@@ -19,6 +19,7 @@
 
 #include "SingleCaptureHandlerTests.h"
 
+#include "src/backend/config/Config.h"
 #include "src/gui/captureHandler/SingleCaptureHandler.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "tests/mocks/ImageAnnotatorMock.h"

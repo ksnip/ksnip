@@ -19,7 +19,8 @@
 
 #include "ScriptUploader.h"
 
-ScriptUploader::ScriptUploader() : mConfig(ConfigProvider::instance())
+ScriptUploader::ScriptUploader(const QSharedPointer<IConfig> &config) :
+	mConfig(config)
 {
 	connect(&mProcessHandler, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &ScriptUploader::scriptFinished);
 	connect(&mProcessHandler, &QProcess::errorOccurred, this, &ScriptUploader::errorOccurred);

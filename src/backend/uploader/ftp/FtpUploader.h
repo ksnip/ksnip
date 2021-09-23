@@ -26,31 +26,28 @@
 #include <QBuffer>
 #include <QDateTime>
 
-#include "src/backend/uploader/IUploader.h"
-#include "src/backend/config/ConfigProvider.h"
-#include "src/logging/LoggerProvider.h"
+#include "IFtpUploader.h"
+#include "src/backend/config/IConfig.h"
+#include "src/logging/ILogger.h"
 
-class FtpUploader : public QObject, public IUploader
+class FtpUploader : public IFtpUploader
 {
 	Q_OBJECT
 public:
-	FtpUploader();
+	FtpUploader(const QSharedPointer<IConfig> &config, const QSharedPointer<ILogger> &logger);
 	~FtpUploader() override = default;
 	void upload(const QImage &image) override;
 	UploaderType type() const override;
 
-signals:
-	void finished(const UploadResult &result) override;
-
 private:
-	Config * mConfig;
-	ILogger *mLogger;
+	QSharedPointer<IConfig> mConfig;
+	QSharedPointer<ILogger> mLogger;
 	QNetworkAccessManager mNetworkAccessManager;
 	QNetworkReply *mReply;
 
 	static UploadStatus mapErrorTypeToStatus(QNetworkReply::NetworkError errorType);
 	static QString getFilename();
-	static QByteArray getImageAsByteArray(const QImage &image) ;
+	static QByteArray getImageAsByteArray(const QImage &image);
 	QUrl getUploadUrl() const;
 
 private slots:

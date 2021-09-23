@@ -57,7 +57,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 	mTrayIcon(new TrayIcon(this)),
 	mDragAndDropProcessor(new DragAndDropProcessor(this)),
-	mUploaderProvider(new UploaderProvider(QSharedPointer<IConfig>(new Config))),
+	mUploaderProvider(mDependencyInjector->getObject<IUploaderProvider>()),
 	mSessionManagerRequestedQuit(false),
 	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, NotificationServiceFactory::create(mTrayIcon), mServiceLocator, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
@@ -88,7 +88,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::captureTriggered, this, &MainWindow::triggerCapture);
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::actionTriggered, this, &MainWindow::actionTriggered);
 
-	connect(mUploaderProvider, &UploaderProvider::finished, this, &MainWindow::uploadFinished);
+	connect(mUploaderProvider.data(), &UploaderProvider::finished, this, &MainWindow::uploadFinished);
 
 	connect(mRecentImagesMenu, &RecentImagesMenu::openRecentSelected, this, &MainWindow::loadImageFromFile);
 
@@ -115,7 +115,6 @@ MainWindow::~MainWindow()
     delete mCapturePrinter;
     delete mTrayIcon;
     delete mDragAndDropProcessor;
-    delete mUploaderProvider;
     delete mCaptureHandler;
     delete mVisibilityHandler;
     delete mFileDialog;

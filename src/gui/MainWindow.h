@@ -128,7 +128,7 @@ private:
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
     TrayIcon *mTrayIcon;
 	DragAndDropProcessor *mDragAndDropProcessor;
-	UploaderProvider *mUploaderProvider;
+	QSharedPointer<IUploaderProvider> mUploaderProvider;
 	ICaptureHandler *mCaptureHandler;
 	PinWindowHandler *mPinWindowHandler;
 	WidgetVisibilityHandler *mVisibilityHandler;

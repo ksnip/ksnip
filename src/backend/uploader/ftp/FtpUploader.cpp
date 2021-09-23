@@ -19,9 +19,9 @@
 
 #include "FtpUploader.h"
 
-FtpUploader::FtpUploader() :
-	mConfig(ConfigProvider::instance()),
-	mLogger(LoggerProvider::instance()),
+FtpUploader::FtpUploader(const QSharedPointer<IConfig> &config, const QSharedPointer<ILogger> &logger) :
+	mConfig(config),
+	mLogger(logger),
 	mReply(nullptr)
 {
 

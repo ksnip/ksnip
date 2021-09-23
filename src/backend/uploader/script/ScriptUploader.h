@@ -22,26 +22,25 @@
 
 #include <QProcess>
 #include <QRegularExpression>
+#include <QSharedPointer>
+#include <QImage>
 
-#include "src/backend/uploader/IUploader.h"
-#include "src/backend/config/ConfigProvider.h"
+#include "src/backend/uploader/script/IScriptUploader.h"
+#include "src/backend/config/IConfig.h"
 #include "src/common/enum/UploadStatus.h"
 #include "src/common/provider/TempFileProvider.h"
 
-class ScriptUploader : public QObject, public IUploader
+class ScriptUploader : public IScriptUploader
 {
 	Q_OBJECT
 public:
-	ScriptUploader();
+	explicit ScriptUploader(const QSharedPointer<IConfig> &config);
 	~ScriptUploader() override = default;
 	void upload(const QImage &image) override;
 	UploaderType type() const override;
 
-signals:
-	void finished(const UploadResult &result) override;
-
 private:
-	Config * mConfig;
+	QSharedPointer<IConfig> mConfig;
 	QProcess mProcessHandler;
 	QString mPathToTmpImage;
 

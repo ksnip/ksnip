@@ -21,6 +21,9 @@
 
 #include "src/backend/config/Config.h"
 #include "src/backend/uploader/UploaderProvider.h"
+#include "src/backend/uploader/ftp/FtpUploader.h"
+#include "src/backend/uploader/script/ScriptUploader.h"
+#include "src/backend/uploader/imgur/ImgurUploader.h"
 #include "src/logging/ConsoleLogger.h"
 #include "src/logging/NoneLogger.h"
 
@@ -55,7 +58,10 @@ void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependenc
 void DependencyInjectorBootstrapper::BootstrapCommandLine(DependencyInjector *dependencyInjector)
 {
 	injectImageGrabber(dependencyInjector);
-	dependencyInjector->registerFactory<IUploaderProvider, UploaderProvider, IConfig>();
+	dependencyInjector->registerFactory<IFtpUploader, FtpUploader, IConfig, ILogger>();
+	dependencyInjector->registerFactory<IScriptUploader, ScriptUploader, IConfig>();
+	dependencyInjector->registerFactory<IImgurUploader, ImgurUploader, IConfig>();
+	dependencyInjector->registerFactory<IUploaderProvider, UploaderProvider, IConfig, IFtpUploader, IScriptUploader, IImgurUploader>();
 }
 
 void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *dependencyInjector)

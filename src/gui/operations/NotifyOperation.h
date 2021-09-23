@@ -21,6 +21,7 @@
 #define KSNIP_NOTIFYOPERATION_H
 
 #include "src/gui/TrayIcon.h"
+#include "src/backend/config/Config.h"
 #include "src/common/enum/NotificationTypes.h"
 
 class NotifyOperation

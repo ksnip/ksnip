@@ -21,31 +21,33 @@
 #define KSNIP_UPLOADERPROVIDER_H
 
 #include <QObject>
+#include <QSharedPointer>
 
 #include "IUploaderProvider.h"
-#include "src/backend/uploader/imgur/ImgurUploader.h"
-#include "src/backend/uploader/script/ScriptUploader.h"
-#include "src/backend/uploader/ftp/FtpUploader.h"
+#include "src/backend/uploader/imgur/IImgurUploader.h"
+#include "src/backend/uploader/script/IScriptUploader.h"
+#include "src/backend/uploader/ftp/IFtpUploader.h"
 #include "src/backend/config/IConfig.h"
 
 class UploaderProvider : public IUploaderProvider
 {
 	Q_OBJECT
 public:
-	explicit UploaderProvider(const QSharedPointer<IConfig> &config);
-	~UploaderProvider() override;
+	explicit UploaderProvider(
+			const QSharedPointer<IConfig> &config,
+			const QSharedPointer<IFtpUploader> &ftpUploader,
+			const QSharedPointer<IScriptUploader> &scriptUploader,
+			const QSharedPointer<IImgurUploader> &imgurUploader);
+	~UploaderProvider() override = default;
 	IUploader* get() override;
 
 private:
 	QSharedPointer<IConfig> mConfig;
-	IUploader *mImgurUploader;
-	IUploader *mScriptUploader;
-	IUploader *mFtpUploader;
+	QSharedPointer<IImgurUploader> mImgurUploader;
+	QSharedPointer<IScriptUploader> mScriptUploader;
+	QSharedPointer<IFtpUploader> mFtpUploader;
 
 	void connectSignals(IUploader *uploader);
-	IUploader* getImgurUploader();
-	IUploader* getScriptUploader();
-	IUploader* getFtpUploader();
 };
 
 #endif //KSNIP_UPLOADERPROVIDER_H

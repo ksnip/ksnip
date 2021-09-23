@@ -19,65 +19,33 @@
 
 #include "UploaderProvider.h"
 
-UploaderProvider::UploaderProvider(const QSharedPointer<IConfig> &config) :
+UploaderProvider::UploaderProvider(
+		const QSharedPointer<IConfig> &config,
+		const QSharedPointer<IFtpUploader> &ftpUploader,
+		const QSharedPointer<IScriptUploader> &scriptUploader,
+		const QSharedPointer<IImgurUploader> &imgurUploader) :
 	mConfig(config),
-	mImgurUploader(nullptr),
-	mScriptUploader(nullptr),
-	mFtpUploader(nullptr)
+	mImgurUploader(imgurUploader),
+	mScriptUploader(scriptUploader),
+	mFtpUploader(ftpUploader)
 {
-}
-
-UploaderProvider::~UploaderProvider()
-{
-	delete mImgurUploader;
-	delete mScriptUploader;
-	delete mFtpUploader;
 }
 
 IUploader* UploaderProvider::get()
 {
 	switch (mConfig->uploaderType()) {
 		case UploaderType::Imgur:
-			return getImgurUploader();
+			return mImgurUploader.data();
 		case UploaderType::Script:
-			return getScriptUploader();
+			return mScriptUploader.data();
 		case UploaderType::Ftp:
-			return getFtpUploader();
+			return mFtpUploader.data();
 		default:
-			return getImgurUploader();
+			return mImgurUploader.data();
 	}
-}
-
-IUploader* UploaderProvider::getScriptUploader()
-{
-	if(mScriptUploader == nullptr) {
-		mScriptUploader = new ScriptUploader;
-		connectSignals(mScriptUploader);
-	}
-	return mScriptUploader;
-}
-
-IUploader* UploaderProvider::getImgurUploader()
-{
-	if(mImgurUploader == nullptr) {
-		mImgurUploader = new ImgurUploader;
-		connectSignals(mImgurUploader);
-	}
-	return mImgurUploader;
 }
 
 void UploaderProvider::connectSignals(IUploader *uploader)
 { 
 	connect(dynamic_cast<QObject*>(uploader), SIGNAL(finished(UploadResult)), this, SIGNAL(finished(UploadResult)));
 }
-
-IUploader *UploaderProvider::getFtpUploader()
-{
-	if(mFtpUploader == nullptr) {
-		mFtpUploader = new FtpUploader();
-		connectSignals(mFtpUploader);
-	}
-	return mFtpUploader;
-}
-
-

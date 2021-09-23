@@ -22,28 +22,26 @@
 
 #include <QImage>
 
+#include "IImgurUploader.h"
 #include "ImgurWrapper.h"
 #include "ImgurResponseLogger.h"
 #include "src/backend/uploader/IUploader.h"
 #include "src/backend/uploader/UploadResult.h"
-#include "src/backend/config/ConfigProvider.h"
+#include "src/backend/config/IConfig.h"
 #include "src/common/constants/DefaultValues.h"
 
-class ImgurUploader : public QObject, public IUploader
+class ImgurUploader : public IImgurUploader
 {
 Q_OBJECT
 public:
-    explicit ImgurUploader();
+    explicit ImgurUploader(const QSharedPointer<IConfig> &config);
     ~ImgurUploader() override;
 
     void upload(const QImage &image) override;
 	UploaderType type() const override;
 
-signals:
-    void finished(const UploadResult &result) override;
-
 private:
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	ImgurWrapper *mImgurWrapper;
     ImgurResponseLogger *mImgurResponseLogger;
     QImage mImage;

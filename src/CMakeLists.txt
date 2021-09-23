@@ -11,11 +11,14 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractRectAreaImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/IUploaderProvider.h
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploaderProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/IImgurUploader.h
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurWrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurResponse.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurResponseLogger.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/script/IScriptUploader.h
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/script/ScriptUploader.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/ftp/IFtpUploader.h
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/ftp/FtpUploader.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/saver/SavePathProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/saver/ImageSaver.cpp

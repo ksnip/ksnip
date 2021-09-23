@@ -22,7 +22,7 @@
 
 #include "Config.h"
 
-class MacConfig : public KsnipConfig
+class MacConfig : public Config
 {
 public:
 	MacConfig() = default;

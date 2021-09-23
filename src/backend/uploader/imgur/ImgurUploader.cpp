@@ -19,8 +19,8 @@
 
 #include "ImgurUploader.h"
 
-ImgurUploader::ImgurUploader() :
-	mConfig(ConfigProvider::instance()),
+ImgurUploader::ImgurUploader(const QSharedPointer<IConfig> &config) :
+	mConfig(config),
 	mImgurWrapper(new ImgurWrapper(mConfig->imgurBaseUrl(), nullptr)),
 	mImgurResponseLogger(new ImgurResponseLogger)
 

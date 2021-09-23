@@ -19,7 +19,7 @@
 
 #include "SnippingAreaSelector.h"
 
-SnippingAreaSelector::SnippingAreaSelector(KsnipConfig *config, QObject *parent) :
+SnippingAreaSelector::SnippingAreaSelector(Config *config, QObject *parent) :
 	QObject(parent),
 	mIsActive(false),
 	mConfig(config),

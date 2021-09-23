@@ -25,7 +25,7 @@ CanDiscardOperation::CanDiscardOperation(QWidget *parent, QImage image, bool isU
 	mIsUnsaved(isUnsaved),
 	mPathToImageSource(std::move(pathToImageSource)),
 	mFilename(std::move(filename)),
-	mConfig(KsnipConfigProvider::instance()),
+	mConfig(ConfigProvider::instance()),
 	mToastService(toastService),
 	mMessageBoxService(new MessageBoxService),
 	mRecentImageService(recentImageService)

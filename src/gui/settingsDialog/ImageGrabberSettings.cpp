@@ -19,7 +19,7 @@
 
 #include "ImageGrabberSettings.h"
 
-ImageGrabberSettings::ImageGrabberSettings(KsnipConfig *config) :
+ImageGrabberSettings::ImageGrabberSettings(Config *config) :
 	mCaptureCursorCheckbox(new QCheckBox(this)),
 	mHideMainWindowDuringScreenshotCheckbox(new QCheckBox(this)),
 	mShowMainWindowAfterTakingScreenshotCheckbox(new QCheckBox(this)),

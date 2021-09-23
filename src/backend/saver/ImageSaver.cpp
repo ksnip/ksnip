@@ -19,7 +19,7 @@
 
 #include "ImageSaver.h"
 
-ImageSaver::ImageSaver() : mConfig(KsnipConfigProvider::instance())
+ImageSaver::ImageSaver() : mConfig(ConfigProvider::instance())
 {
 }
 

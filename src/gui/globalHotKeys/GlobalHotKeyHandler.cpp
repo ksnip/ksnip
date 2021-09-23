@@ -22,9 +22,9 @@
 GlobalHotKeyHandler::GlobalHotKeyHandler(const QList<CaptureModes> &supportedCaptureModes)
 {
 	mSupportedCaptureModes = supportedCaptureModes;
-	mConfig = KsnipConfigProvider::instance();
+	mConfig = ConfigProvider::instance();
 
-	connect(mConfig, &KsnipConfig::hotKeysChanged, this, &GlobalHotKeyHandler::setupHotKeys);
+	connect(mConfig, &Config::hotKeysChanged, this, &GlobalHotKeyHandler::setupHotKeys);
 
 	setupHotKeys();
 }

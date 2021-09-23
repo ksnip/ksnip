@@ -23,20 +23,21 @@
 #include <QObject>
 
 #include "CommandLineCaptureParameter.h"
-#include "src/backend/imageGrabber/ImageGrabberFactory.h"
+#include "src/backend/imageGrabber/IImageGrabber.h"
 #include "src/backend/saver/ImageSaver.h"
 #include "src/backend/saver/SavePathProvider.h"
 #include "src/backend/uploader/UploaderProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/helper/EnumTranslator.h"
+#include "src/dependencyInjector/DependencyInjector.h"
 
 class CommandLineCaptureHandler : public QObject
 {
 	Q_OBJECT
 
 public:
-	explicit CommandLineCaptureHandler();
-	~CommandLineCaptureHandler() override;
+	explicit CommandLineCaptureHandler(DependencyInjector *dependencyInjector);
+	~CommandLineCaptureHandler() override = default;
 	void captureAndProcessScreenshot(const CommandLineCaptureParameter &parameter);
 	QList<CaptureModes> supportedCaptureModes() const;
 
@@ -45,8 +46,8 @@ signals:
 	void canceled();
 
 private:
-	IImageGrabber *mImageGrabber;
-	UploaderProvider *mUploadProvider;
+	QSharedPointer<IImageGrabber> mImageGrabber;
+	QSharedPointer<IUploaderProvider> mUploadProvider;
 	QString mSavePath;
 	bool mIsWithSave;
 	bool mIsWithUpload;

@@ -19,7 +19,8 @@
 
 #include "SingleInstanceServerBootstrapper.h"
 
-SingleInstanceServerBootstrapper::SingleInstanceServerBootstrapper() :
+SingleInstanceServerBootstrapper::SingleInstanceServerBootstrapper(DependencyInjector *dependencyInjector) :
+	StandAloneBootstrapper(dependencyInjector),
 	mIpcServer(new IpcServer)
 {
 }

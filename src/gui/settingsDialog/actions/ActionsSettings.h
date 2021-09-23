@@ -27,19 +27,19 @@
 
 #include "ActionSettingTab.h"
 #include "EmptyActionSettingTab.h"
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/Config.h"
 
 class ActionsSettings : public QGroupBox
 {
 Q_OBJECT
 public:
-	explicit ActionsSettings(KsnipConfig *config, const QList<CaptureModes> &captureModes);
+	explicit ActionsSettings(Config *config, const QList<CaptureModes> &captureModes);
 	~ActionsSettings() override;
 	void saveSettings();
 
 private:
 	QVBoxLayout *mLayout;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	QTabWidget *mTabWidget;
 	QList<CaptureModes> mCaptureModes;
 

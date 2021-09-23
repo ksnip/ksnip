@@ -26,7 +26,7 @@
 #include <QGridLayout>
 #include <QPushButton>
 
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/Config.h"
 #include "src/backend/WatermarkImageLoader.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/widgets/ColorButton.h"
@@ -37,7 +37,7 @@ class AnnotationSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-    explicit AnnotationSettings(KsnipConfig *config);
+    explicit AnnotationSettings(Config *config);
     ~AnnotationSettings() override;
     void saveSettings();
 
@@ -52,7 +52,7 @@ private:
     NumericComboBox *mSmoothFactorCombobox;
     ColorButton *mCanvasColorButton;
     QGridLayout *mLayout;
-    KsnipConfig *mConfig;
+    Config *mConfig;
 
     void initGui();
     void loadConfig();

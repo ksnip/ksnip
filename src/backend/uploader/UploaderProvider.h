@@ -22,24 +22,22 @@
 
 #include <QObject>
 
+#include "IUploaderProvider.h"
 #include "src/backend/uploader/imgur/ImgurUploader.h"
 #include "src/backend/uploader/script/ScriptUploader.h"
 #include "src/backend/uploader/ftp/FtpUploader.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/IConfig.h"
 
-class UploaderProvider : public QObject
+class UploaderProvider : public IUploaderProvider
 {
 	Q_OBJECT
 public:
-	UploaderProvider();
+	explicit UploaderProvider(const QSharedPointer<IConfig> &config);
 	~UploaderProvider() override;
-	IUploader* get();
-
-signals:
-	void finished(const UploadResult &result);
+	IUploader* get() override;
 
 private:
-	KsnipConfig *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	IUploader *mImgurUploader;
 	IUploader *mScriptUploader;
 	IUploader *mFtpUploader;

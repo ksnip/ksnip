@@ -21,7 +21,7 @@
 
 AddWatermarkOperation::AddWatermarkOperation(IImageAnnotator *imageAnnotator) :
 	mImageAnnotator(imageAnnotator),
-	mConfig(KsnipConfigProvider::instance()),
+	mConfig(ConfigProvider::instance()),
 	mMessageBoxService(new MessageBoxService)
 {
 

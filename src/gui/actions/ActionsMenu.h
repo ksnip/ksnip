@@ -22,20 +22,20 @@
 
 #include <QMenu>
 
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/Config.h"
 
 class ActionsMenu : public QMenu
 {
 	Q_OBJECT
 public:
-	explicit ActionsMenu(KsnipConfig *config);
+	explicit ActionsMenu(Config *config);
 	~ActionsMenu() override = default;
 
 signals:
 	void triggered(const Action &action);
 
 private:
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	QList<Action> mActions;
 
 private slots:

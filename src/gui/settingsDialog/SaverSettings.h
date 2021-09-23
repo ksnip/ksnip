@@ -29,7 +29,7 @@
 #include <QFileDialog>
 #include <QRadioButton>
 
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/Config.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
 #include "src/widgets/CustomSpinBox.h"
 
@@ -37,7 +37,7 @@ class SaverSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit SaverSettings(KsnipConfig *ksnipConfig);
+	explicit SaverSettings(Config *ksnipConfig);
 	~SaverSettings() override;
 	void saveSettings();
 
@@ -54,7 +54,7 @@ private:
 	QGridLayout *mLayout;
 	QGridLayout *mSaveQualityLayout;
 	QGroupBox *mSaveQualityGroupBox;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	IFileDialogAdapter *mFileDialog;
 
 	void initGui();

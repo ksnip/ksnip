@@ -25,7 +25,7 @@
 
 #include "IImageGrabber.h"
 #include "src/common/handler/DelayHandler.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 
 class AbstractImageGrabber : public IImageGrabber
 {
@@ -38,7 +38,7 @@ public:
     void grabImage(CaptureModes captureMode, bool captureCursor, int delay) override;
 
 protected:
-    KsnipConfig* mConfig;
+    Config* mConfig;
 
     void addSupportedCaptureMode(CaptureModes captureMode);
     void setCaptureDelay(int delay);

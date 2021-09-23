@@ -30,7 +30,7 @@ NotifyOperation::NotifyOperation(IToastService *toastService, const QString &tit
 	mTitle(title),
 	mMessage(message),
 	mNotificationType(notificationType),
-	mConfig(KsnipConfigProvider::instance())
+	mConfig(ConfigProvider::instance())
 {
 	Q_ASSERT(mToastService != nullptr);
 }

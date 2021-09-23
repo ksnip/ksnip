@@ -26,7 +26,7 @@
 #include "ImgurResponseLogger.h"
 #include "src/backend/uploader/IUploader.h"
 #include "src/backend/uploader/UploadResult.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 #include "src/common/constants/DefaultValues.h"
 
 class ImgurUploader : public QObject, public IUploader
@@ -43,7 +43,7 @@ signals:
     void finished(const UploadResult &result) override;
 
 private:
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	ImgurWrapper *mImgurWrapper;
     ImgurResponseLogger *mImgurResponseLogger;
     QImage mImage;

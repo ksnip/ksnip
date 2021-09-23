@@ -24,14 +24,14 @@
 #include <QMouseEvent>
 
 #include "SnippingAreaAdorner.h"
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/Config.h"
 #include "src/widgets/CursorFactory.h"
 
 class SnippingAreaSelector : public QObject
 {
 	Q_OBJECT
 public:
-	explicit SnippingAreaSelector(KsnipConfig *config, QObject *parent);
+	explicit SnippingAreaSelector(Config *config, QObject *parent);
 	~SnippingAreaSelector() override;
 	void activate(const QRectF &snippingAreaGeometry, const QPointF &pos);
 	void deactivate();
@@ -49,7 +49,7 @@ signals:
 private:
 	QRectF mCurrentRect;
 	bool mIsActive;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	CursorFactory *mCursorFactory;
 	SnippingAreaAdorner mAdorner;
 	QPointF mMouseDownPos;

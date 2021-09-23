@@ -20,7 +20,7 @@
 #include "CursorFactory.h"
 
 CursorFactory::CursorFactory() :
-	mConfig(KsnipConfigProvider::instance()),
+	mConfig(ConfigProvider::instance()),
 	mDefaultCursorSize(8)
 {
 }

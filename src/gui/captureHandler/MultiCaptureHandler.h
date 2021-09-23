@@ -33,7 +33,7 @@
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
 #include "src/common/loader/IconLoader.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 
 class MultiCaptureHandler : public ICaptureHandler
 {
@@ -68,7 +68,7 @@ private:
 	NewCaptureNameProvider mNewCaptureNameProvider;
 	PathFromCaptureProvider mPathFromCaptureProvider;
 	IServiceLocator *mServiceLocator;
-	KsnipConfig *mConfig;
+	IConfig *mConfig;
 	IClipboard *mClipboard;
 	IDesktopService *mDesktopService;
 	TabContextMenuAction *mSaveContextMenuAction;

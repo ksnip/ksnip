@@ -19,7 +19,7 @@
 
 #include "SnippingAreaResizer.h"
 
-SnippingAreaResizer::SnippingAreaResizer(KsnipConfig *config, QObject *parent) :
+SnippingAreaResizer::SnippingAreaResizer(Config *config, QObject *parent) :
 	QObject(parent),
 	mConfig(config),
 	mIsActive(false),

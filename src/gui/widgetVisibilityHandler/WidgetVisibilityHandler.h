@@ -22,7 +22,7 @@
 
 #include <QWidget>
 
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/Config.h"
 
 class WidgetVisibilityHandler
 {

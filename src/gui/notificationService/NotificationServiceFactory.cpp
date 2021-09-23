@@ -18,7 +18,7 @@
  */
 
 #include "NotificationServiceFactory.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 
 #if defined(UNIX_X11)
 #include "FreeDesktopNotificationService.h"
@@ -27,7 +27,7 @@
 IToastService *NotificationServiceFactory::create(IToastService *defaultNotificationService)
 {
 #if defined(UNIX_X11)
-	if (KsnipConfigProvider::instance()->platformSpecificNotificationServiceEnabled()) {
+	if (ConfigProvider::instance()->platformSpecificNotificationServiceEnabled()) {
 		return new FreeDesktopNotificationService();
 	} else {
 		return defaultNotificationService;

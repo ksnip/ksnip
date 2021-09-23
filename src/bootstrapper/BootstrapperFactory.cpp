@@ -19,24 +19,21 @@
 
 #include "BootstrapperFactory.h"
 
-QSharedPointer<IBootstrapper> BootstrapperFactory::create()
+QSharedPointer<IBootstrapper> BootstrapperFactory::create(DependencyInjector *dependencyInjector)
 {
-	auto logger = LoggerProvider::instance();
-	if(isSingleInstance()) {
+	auto logger = dependencyInjector->getObject<ILogger>();
+	auto config = dependencyInjector->getObject<IConfig>();
+
+	if(config->useSingleInstance()) {
 		if (mInstanceLock.lock()) {
 			logger->log(QLatin1String("SingleInstance mode detected, we are the server"));
-			return QSharedPointer<IBootstrapper>(new SingleInstanceServerBootstrapper());
+			return QSharedPointer<IBootstrapper>(new SingleInstanceServerBootstrapper(dependencyInjector));
 		} else {
 			logger->log(QLatin1String("SingleInstance mode detected, we are the client"));
-			return QSharedPointer<IBootstrapper>(new SingleInstanceClientBootstrapper());
+			return QSharedPointer<IBootstrapper>(new SingleInstanceClientBootstrapper(dependencyInjector));
 		}
 	} else {
 		logger->log(QLatin1String("StandAlone mode detected"));
-		return QSharedPointer<IBootstrapper>(new StandAloneBootstrapper());
+		return QSharedPointer<IBootstrapper>(new StandAloneBootstrapper(dependencyInjector));
 	}
-}
-
-bool BootstrapperFactory::isSingleInstance()
-{
-	return KsnipConfigProvider::instance()->useSingleInstance();
 }

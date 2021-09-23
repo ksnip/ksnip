@@ -22,7 +22,7 @@
 
 ILogger *LoggerProvider::instance()
 {
-	static bool isDebugEnabled = KsnipConfigProvider::instance()->isDebugEnabled();
+	static bool isDebugEnabled = ConfigProvider::instance()->isDebugEnabled();
 
 	if (isDebugEnabled) {
 		static ConsoleLogger instance;

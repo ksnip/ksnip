@@ -20,7 +20,7 @@
 #include "ImgurUploader.h"
 
 ImgurUploader::ImgurUploader() :
-	mConfig(KsnipConfigProvider::instance()),
+	mConfig(ConfigProvider::instance()),
 	mImgurWrapper(new ImgurWrapper(mConfig->imgurBaseUrl(), nullptr)),
 	mImgurResponseLogger(new ImgurResponseLogger)
 

@@ -17,19 +17,29 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_KSNIPMACCONFIG_H
-#define KSNIP_KSNIPMACCONFIG_H
+#ifndef KSNIP_WAYLANDCONFIG_H
+#define KSNIP_WAYLANDCONFIG_H
 
-#include "KsnipConfig.h"
+#include "Config.h"
 
-class KsnipMacConfig : public KsnipConfig
+class WaylandConfig : public Config
 {
 public:
+	WaylandConfig() = default;
+	~WaylandConfig() override = default;
+
 	bool isFreezeImageWhileSnippingEnabledReadOnly() const override;
 	bool freezeImageWhileSnippingEnabled() const override;
 
 	bool isGlobalHotKeysEnabledReadOnly() const override;
 	bool globalHotKeysEnabled() const override;
+
+	bool isSnippingAreaMagnifyingGlassEnabledReadOnly() const override;
+	bool snippingAreaMagnifyingGlassEnabled() const override;
+
+    bool isForceGenericWaylandEnabledReadOnly() const override;
+
+    bool isScaleGenericWaylandScreenshotEnabledReadOnly() const override;
 };
 
-#endif //KSNIP_KSNIPMACCONFIG_H
+#endif //KSNIP_WAYLANDCONFIG_H

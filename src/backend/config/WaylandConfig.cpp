@@ -17,27 +17,44 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "KsnipConfigProvider.h"
+#include "WaylandConfig.h"
 
-KsnipConfig* KsnipConfigProvider::instance()
+bool WaylandConfig::isFreezeImageWhileSnippingEnabledReadOnly() const
 {
-#if defined(__APPLE__)
-	static KsnipMacConfig instance;
-	return &instance;
-#endif
+	return true;
+}
 
-#if defined(UNIX_X11)
-	if (PlatformChecker::instance()->isWayland()) {
-		static KsnipWaylandConfig instance;
-		return &instance;
-	} else {
-		static KsnipConfig instance;
-		return &instance;
-	}
-#endif
+bool WaylandConfig::freezeImageWhileSnippingEnabled() const
+{
+	return false;
+}
 
-#if  defined(_WIN32)
-	static KsnipConfig instance;
-	return &instance;
-#endif
+bool WaylandConfig::isGlobalHotKeysEnabledReadOnly() const
+{
+	return true;
+}
+
+bool WaylandConfig::globalHotKeysEnabled() const
+{
+	return false;
+}
+
+bool WaylandConfig::isSnippingAreaMagnifyingGlassEnabledReadOnly() const
+{
+	return true;
+}
+
+bool WaylandConfig::snippingAreaMagnifyingGlassEnabled() const
+{
+	return false;
+}
+
+bool WaylandConfig::isForceGenericWaylandEnabledReadOnly() const
+{
+    return false;
+}
+
+bool WaylandConfig::isScaleGenericWaylandScreenshotEnabledReadOnly() const
+{
+    return false;
 }

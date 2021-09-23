@@ -26,19 +26,19 @@
 #include <QLabel>
 #include <QGridLayout>
 
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/Config.h"
 
 class FtpUploaderSettings : public QGroupBox
 {
 Q_OBJECT
 public:
-	explicit FtpUploaderSettings(KsnipConfig *config);
+	explicit FtpUploaderSettings(Config *config);
 	~FtpUploaderSettings() override = default;
 	void saveSettings();
 
 private:
 	QGridLayout *mLayout;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	QCheckBox *mForceAnonymousUploadCheckBox;
 	QLabel *mUrlLabel;
 	QLabel *mUsernameLabel;

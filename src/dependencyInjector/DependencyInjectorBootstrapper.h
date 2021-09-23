@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,24 +17,25 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "KsnipMacConfig.h"
+#ifndef KSNIP_DEPENDENCYINJECTORBOOTSTRAPPER_H
+#define KSNIP_DEPENDENCYINJECTORBOOTSTRAPPER_H
 
-bool KsnipMacConfig::isFreezeImageWhileSnippingEnabledReadOnly() const
-{
-	return true;
-}
+#include "DependencyInjector.h"
 
-bool KsnipMacConfig::freezeImageWhileSnippingEnabled() const
+class DependencyInjectorBootstrapper
 {
-	return true;
-}
+public:
+	DependencyInjectorBootstrapper() = default;
+	~DependencyInjectorBootstrapper() = default;
 
-bool KsnipMacConfig::isGlobalHotKeysEnabledReadOnly() const
-{
-	return true;
-}
+	static void BootstrapCore(DependencyInjector *dependencyInjector);
+	static void BootstrapCommandLine(DependencyInjector *dependencyInjector);
 
-bool KsnipMacConfig::globalHotKeysEnabled() const
-{
-	return false;
-}
+private:
+	static void injectConfig(DependencyInjector *dependencyInjector);
+	static void injectLogger(DependencyInjector *dependencyInjector) ;
+	static void injectImageGrabber(DependencyInjector *dependencyInjector);
+};
+
+
+#endif //KSNIP_DEPENDENCYINJECTORBOOTSTRAPPER_H

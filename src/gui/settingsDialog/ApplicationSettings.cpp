@@ -19,7 +19,7 @@
 
 #include "ApplicationSettings.h"
 
-ApplicationSettings::ApplicationSettings(KsnipConfig *ksnipConfig) :
+ApplicationSettings::ApplicationSettings(Config *ksnipConfig) :
 	mConfig(ksnipConfig),
 	mAutoCopyToClipboardNewCapturesCheckbox(new QCheckBox(this)),
 	mRememberPositionCheckbox(new QCheckBox(this)),

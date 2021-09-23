@@ -25,7 +25,7 @@
 #include <QSharedPointer>
 
 #include "GlobalHotKey.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 #include "src/common/enum/CaptureModes.h"
 
 class GlobalHotKeyHandler : public QObject
@@ -41,7 +41,7 @@ signals:
 	void actionTriggered(const Action &action) const;
 
 private:
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	QList<QSharedPointer<GlobalHotKey>> mGlobalHotKeys;
 	QList<CaptureModes> mSupportedCaptureModes;
 

@@ -26,7 +26,7 @@
 #include <QUrl>
 
 #include "IToastService.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/loader/IconLoader.h"
 
@@ -53,7 +53,7 @@ signals:
 	void showEditorTriggered() const;
 
 private:
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	QMenu mMenu;
 	QList<QAction*> mCaptureActions;
 	QAction *mOpenAction;

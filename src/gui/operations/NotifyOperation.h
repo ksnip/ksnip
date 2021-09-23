@@ -37,7 +37,7 @@ private:
 	QString mMessage;
 	QString mContentUrl;
 	NotificationTypes mNotificationType;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 
 	void notifyViaToastMessage() const;
 	void notifyViaConsoleMessage() const;

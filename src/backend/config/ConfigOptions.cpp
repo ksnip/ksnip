@@ -17,539 +17,539 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "KsnipConfigOptions.h"
+#include "ConfigOptions.h"
 
-QString KsnipConfigOptions::rememberPositionString()
+QString ConfigOptions::rememberPositionString()
 {
 	return applicationSectionString() + QLatin1String("SavePosition");
 }
 
-QString KsnipConfigOptions::promptSaveBeforeExitString()
+QString ConfigOptions::promptSaveBeforeExitString()
 {
 	return applicationSectionString() + QLatin1String("PromptSaveBeforeExit");
 }
 
-QString KsnipConfigOptions::autoCopyToClipboardNewCapturesString()
+QString ConfigOptions::autoCopyToClipboardNewCapturesString()
 {
 	return applicationSectionString() + QLatin1String("AutoCopyToClipboardNewCaptures");
 }
 
-QString KsnipConfigOptions::autoSaveNewCapturesString()
+QString ConfigOptions::autoSaveNewCapturesString()
 {
 	return applicationSectionString() + QLatin1String("AutoSaveNewCaptures");
 }
 
-QString KsnipConfigOptions::rememberToolSelectionString()
+QString ConfigOptions::rememberToolSelectionString()
 {
 	return annotatorSectionString() + QLatin1String("SaveToolsSelection");
 }
 
-QString KsnipConfigOptions::switchToSelectToolAfterDrawingItemString()
+QString ConfigOptions::switchToSelectToolAfterDrawingItemString()
 {
 	return annotatorSectionString() + QLatin1String("SwitchToSelectToolAfterDrawingItem");
 }
 
-QString KsnipConfigOptions::selectItemAfterDrawingString()
+QString ConfigOptions::selectItemAfterDrawingString()
 {
 	return annotatorSectionString() + QLatin1String("SelectItemAfterDrawing");
 }
 
-QString KsnipConfigOptions::numberToolSeedChangeUpdatesAllItemsString()
+QString ConfigOptions::numberToolSeedChangeUpdatesAllItemsString()
 {
 	return annotatorSectionString() + QLatin1String("NumberToolSeedChangeUpdatesAllItems");
 }
 
-QString KsnipConfigOptions::useTabsString()
+QString ConfigOptions::useTabsString()
 {
 	return applicationSectionString() + QLatin1String("UseTabs");
 }
 
-QString KsnipConfigOptions::autoHideTabsString()
+QString ConfigOptions::autoHideTabsString()
 {
 	return applicationSectionString() + QLatin1String("AutoHideTabs");
 }
 
-QString KsnipConfigOptions::captureOnStartupString()
+QString ConfigOptions::captureOnStartupString()
 {
 	return applicationSectionString() + QLatin1String("CaptureOnStartup");
 }
 
-QString KsnipConfigOptions::autoHideDocksString()
+QString ConfigOptions::autoHideDocksString()
 {
 	return applicationSectionString() + QLatin1String("AutoHideDocks");
 }
 
-QString KsnipConfigOptions::autoResizeToContentString()
+QString ConfigOptions::autoResizeToContentString()
 {
 	return applicationSectionString() + QLatin1String("AutoResizeToContent");
 }
 
-QString KsnipConfigOptions::resizeToContentDelayString()
+QString ConfigOptions::resizeToContentDelayString()
 {
 	return applicationSectionString() + QLatin1String("ResizeToContentDelay");
 }
 
-QString KsnipConfigOptions::freezeImageWhileSnippingEnabledString()
+QString ConfigOptions::freezeImageWhileSnippingEnabledString()
 {
 	return imageGrabberSectionString() + QLatin1String("FreezeImageWhileSnippingEnabled");
 }
 
-QString KsnipConfigOptions::positionString()
+QString ConfigOptions::positionString()
 {
 	return mainWindowSectionString() + QLatin1String("Position");
 }
 
-QString KsnipConfigOptions::captureModeString()
+QString ConfigOptions::captureModeString()
 {
 	return imageGrabberSectionString() + QLatin1String("CaptureMode");
 }
 
-QString KsnipConfigOptions::saveQualityModeString()
+QString ConfigOptions::saveQualityModeString()
 {
 	return saveSectionString() + QLatin1String("SaveQualityMode");
 }
 
-QString KsnipConfigOptions::saveQualityFactorString()
+QString ConfigOptions::saveQualityFactorString()
 {
 	return saveSectionString() + QLatin1String("SaveQualityFactor");
 }
 
-QString KsnipConfigOptions::isDebugEnabledString()
+QString ConfigOptions::isDebugEnabledString()
 {
 	return applicationSectionString() + QLatin1String("IsDebugEnabled");
 }
 
-QString KsnipConfigOptions::saveDirectoryString()
+QString ConfigOptions::saveDirectoryString()
 {
 	return applicationSectionString() + QLatin1String("SaveDirectory");
 }
 
-QString KsnipConfigOptions::saveFilenameString()
+QString ConfigOptions::saveFilenameString()
 {
 	return applicationSectionString() + QLatin1String("SaveFilename");
 }
 
-QString KsnipConfigOptions::saveFormatString()
+QString ConfigOptions::saveFormatString()
 {
 	return applicationSectionString() + QLatin1String("SaveFormat");
 }
 
-QString KsnipConfigOptions::applicationStyleString()
+QString ConfigOptions::applicationStyleString()
 {
 	return applicationSectionString() + QLatin1String("ApplicationStyle");
 }
 
-QString KsnipConfigOptions::trayIconDefaultActionModeString()
+QString ConfigOptions::trayIconDefaultActionModeString()
 {
 	return applicationSectionString() + QLatin1String("TrayIconDefaultActionMode");
 }
 
-QString KsnipConfigOptions::trayIconDefaultCaptureModeString()
+QString ConfigOptions::trayIconDefaultCaptureModeString()
 {
 	return applicationSectionString() + QLatin1String("TrayIconDefaultCaptureMode");
 }
 
-QString KsnipConfigOptions::useTrayIconString()
+QString ConfigOptions::useTrayIconString()
 {
 	return applicationSectionString() + QLatin1String("UseTrayIcon");
 }
 
-QString KsnipConfigOptions::minimizeToTrayString()
+QString ConfigOptions::minimizeToTrayString()
 {
 	return applicationSectionString() + QLatin1String("MinimizeToTray");
 }
 
-QString KsnipConfigOptions::closeToTrayString()
+QString ConfigOptions::closeToTrayString()
 {
 	return applicationSectionString() + QLatin1String("CloseToTray");
 }
 
-QString KsnipConfigOptions::trayIconNotificationsEnabledString()
+QString ConfigOptions::trayIconNotificationsEnabledString()
 {
 	return applicationSectionString() + QLatin1String("TrayIconNotificationsEnabled");
 }
 
-QString KsnipConfigOptions::platformSpecificNotificationServiceEnabledString()
+QString ConfigOptions::platformSpecificNotificationServiceEnabledString()
 {
 	return applicationSectionString() + QLatin1String("PlatformSpecificNotificationServiceEnabled");
 }
 
-QString KsnipConfigOptions::startMinimizedToTrayString()
+QString ConfigOptions::startMinimizedToTrayString()
 {
 	return applicationSectionString() + QLatin1String("StartMinimizedToTray");
 }
 
-QString KsnipConfigOptions::rememberLastSaveDirectoryString()
+QString ConfigOptions::rememberLastSaveDirectoryString()
 {
 	return applicationSectionString() + QLatin1String("RememberLastSaveDirectory");
 }
 
-QString KsnipConfigOptions::useSingleInstanceString()
+QString ConfigOptions::useSingleInstanceString()
 {
 	return applicationSectionString() + QLatin1String("UseSingleInstanceString");
 }
 
-QString KsnipConfigOptions::hideMainWindowDuringScreenshotString()
+QString ConfigOptions::hideMainWindowDuringScreenshotString()
 {
 	return applicationSectionString() + QLatin1String("HideMainWindowDuringScreenshot");
 }
 
-QString KsnipConfigOptions::allowResizingRectSelectionString()
+QString ConfigOptions::allowResizingRectSelectionString()
 {
 	return applicationSectionString() + QLatin1String("AllowResizingRectSelection");
 }
 
-QString KsnipConfigOptions::showSnippingAreaInfoTextString()
+QString ConfigOptions::showSnippingAreaInfoTextString()
 {
 	return applicationSectionString() + QLatin1String("ShowSnippingAreaInfoText");
 }
 
-QString KsnipConfigOptions::smoothPathEnabledString()
+QString ConfigOptions::smoothPathEnabledString()
 {
 	return annotatorSectionString() + QLatin1String("SmoothPathEnabled");
 }
 
-QString KsnipConfigOptions::smoothPathFactorString()
+QString ConfigOptions::smoothPathFactorString()
 {
 	return annotatorSectionString() + QLatin1String("SmoothPathFactor");
 }
 
-QString KsnipConfigOptions::rotateWatermarkEnabledString()
+QString ConfigOptions::rotateWatermarkEnabledString()
 {
 	return annotatorSectionString() + QLatin1String("RotateWatermark");
 }
 
-QString KsnipConfigOptions::stickerPathsString()
+QString ConfigOptions::stickerPathsString()
 {
 	return annotatorSectionString() + QLatin1String("StickerPaths");
 }
 
-QString KsnipConfigOptions::useDefaultStickerString()
+QString ConfigOptions::useDefaultStickerString()
 {
 	return annotatorSectionString() + QLatin1String("UseDefaultSticker");
 }
 
-QString KsnipConfigOptions::captureCursorString()
+QString ConfigOptions::captureCursorString()
 {
 	return imageGrabberSectionString() + QLatin1String("CaptureCursor");
 }
 
-QString KsnipConfigOptions::snippingAreaRulersEnabledString()
+QString ConfigOptions::snippingAreaRulersEnabledString()
 {
 	return imageGrabberSectionString() + QLatin1String("SnippingAreaRulersEnabled");
 }
 
-QString KsnipConfigOptions::snippingAreaPositionAndSizeInfoEnabledString()
+QString ConfigOptions::snippingAreaPositionAndSizeInfoEnabledString()
 {
 	return imageGrabberSectionString() + QLatin1String("SnippingAreaPositionAndSizeInfoEnabled");
 }
 
-QString KsnipConfigOptions::snippingAreaMagnifyingGlassEnabledString()
+QString ConfigOptions::snippingAreaMagnifyingGlassEnabledString()
 {
 	return imageGrabberSectionString() + QLatin1String("SnippingAreaMagnifyingGlassEnabled");
 }
 
-QString KsnipConfigOptions::showMainWindowAfterTakingScreenshotEnabledString()
+QString ConfigOptions::showMainWindowAfterTakingScreenshotEnabledString()
 {
 	return imageGrabberSectionString() + QLatin1String("ShowMainWindowAfterTakingScreenshotEnabled");
 }
 
-QString KsnipConfigOptions::captureDelayString()
+QString ConfigOptions::captureDelayString()
 {
 	return imageGrabberSectionString() + QLatin1String("CaptureDelay");
 }
 
-QString KsnipConfigOptions::snippingCursorSizeString()
+QString ConfigOptions::snippingCursorSizeString()
 {
 	return imageGrabberSectionString() + QLatin1String("SnippingCursorSize");
 }
 
-QString KsnipConfigOptions::snippingCursorColorString()
+QString ConfigOptions::snippingCursorColorString()
 {
 	return imageGrabberSectionString() + QLatin1String("SnippingCursorColor");
 }
 
-QString KsnipConfigOptions::snippingAdornerColorString()
+QString ConfigOptions::snippingAdornerColorString()
 {
 	return imageGrabberSectionString() + QLatin1String("SnippingAdornerColor");
 }
 
-QString KsnipConfigOptions::snippingAreaTransparencyString()
+QString ConfigOptions::snippingAreaTransparencyString()
 {
 	return imageGrabberSectionString() + QLatin1String("SnippingAreaTransparency");
 }
 
-QString KsnipConfigOptions::lastRectAreaString()
+QString ConfigOptions::lastRectAreaString()
 {
 	return imageGrabberSectionString() + QLatin1String("LastRectArea");
 }
 
-QString KsnipConfigOptions::forceGenericWaylandEnabledString()
+QString ConfigOptions::forceGenericWaylandEnabledString()
 {
     return imageGrabberSectionString() + QLatin1String("ForceGenericWaylandEnabled");
 }
 
-QString KsnipConfigOptions::scaleWaylandScreenshotsEnabledString()
+QString ConfigOptions::scaleWaylandScreenshotsEnabledString()
 {
     return imageGrabberSectionString() + QLatin1String("ScaleGenericWaylandScreenshotsEnabledString");
 }
 
-QString KsnipConfigOptions::imgurUsernameString()
+QString ConfigOptions::imgurUsernameString()
 {
 	return imgurSectionString() + QLatin1String("Username");
 }
 
-QString KsnipConfigOptions::imgurClientIdString()
+QString ConfigOptions::imgurClientIdString()
 {
 	return imgurSectionString() + QLatin1String("ClientId");
 }
 
-QString KsnipConfigOptions::imgurClientSecretString()
+QString ConfigOptions::imgurClientSecretString()
 {
 	return imgurSectionString() + QLatin1String("ClientSecret");
 }
 
-QString KsnipConfigOptions::imgurAccessTokenString()
+QString ConfigOptions::imgurAccessTokenString()
 {
 	return imgurSectionString() + QLatin1String("AccessToken");
 }
 
-QString KsnipConfigOptions::imgurRefreshTokenString()
+QString ConfigOptions::imgurRefreshTokenString()
 {
 	return imgurSectionString() + QLatin1String("RefreshToken");
 }
 
-QString KsnipConfigOptions::imgurForceAnonymousString()
+QString ConfigOptions::imgurForceAnonymousString()
 {
 	return imgurSectionString() + QLatin1String("ForceAnonymous");
 }
 
-QString KsnipConfigOptions::imgurLinkDirectlyToImageString()
+QString ConfigOptions::imgurLinkDirectlyToImageString()
 {
 	return imgurSectionString() + QLatin1String("OpenLinkDirectlyToImage");
 }
 
-QString KsnipConfigOptions::imgurOpenLinkInBrowserString()
+QString ConfigOptions::imgurOpenLinkInBrowserString()
 {
 	return imgurSectionString() + QLatin1String("OpenLinkInBrowser");
 }
 
-QString KsnipConfigOptions::imgurAlwaysCopyToClipboardString()
+QString ConfigOptions::imgurAlwaysCopyToClipboardString()
 {
 	return imgurSectionString() + QLatin1String("AlwaysCopyToClipboard");
 }
 
-QString KsnipConfigOptions::imgurBaseUrlString()
+QString ConfigOptions::imgurBaseUrlString()
 {
 	return imgurSectionString() + QLatin1String("BaseUrl");
 }
 
-QString KsnipConfigOptions::uploadScriptPathString()
+QString ConfigOptions::uploadScriptPathString()
 {
 	return uploadScriptSectionString() + QLatin1String("UploadScriptPath");
 }
 
-QString KsnipConfigOptions::confirmBeforeUploadString()
+QString ConfigOptions::confirmBeforeUploadString()
 {
 	return uploaderSectionString() + QLatin1String("ConfirmBeforeUpload");
 }
 
-QString KsnipConfigOptions::uploaderTypeString()
+QString ConfigOptions::uploaderTypeString()
 {
 	return uploaderSectionString() + QLatin1String("UploaderType");
 }
 
-QString KsnipConfigOptions::canvasColorString()
+QString ConfigOptions::canvasColorString()
 {
 	return annotatorSectionString() + QLatin1String("CanvasColor");
 }
 
-QString KsnipConfigOptions::actionsString()
+QString ConfigOptions::actionsString()
 {
 	return QLatin1String("Actions");
 }
 
-QString KsnipConfigOptions::actionNameString()
+QString ConfigOptions::actionNameString()
 {
 	return QLatin1String("Name");
 }
 
-QString KsnipConfigOptions::actionShortcutString()
+QString ConfigOptions::actionShortcutString()
 {
 	return QLatin1String("Shortcut");
 }
 
-QString KsnipConfigOptions::actionIsCaptureEnabledString()
+QString ConfigOptions::actionIsCaptureEnabledString()
 {
 	return QLatin1String("IsCaptureEnabled");
 }
 
-QString KsnipConfigOptions::actionIncludeCursorString()
+QString ConfigOptions::actionIncludeCursorString()
 {
 	return QLatin1String("IncludeCursor");
 }
 
-QString KsnipConfigOptions::actionCaptureDelayString()
+QString ConfigOptions::actionCaptureDelayString()
 {
 	return QLatin1String("CaptureDelay");
 }
 
-QString KsnipConfigOptions::actionCaptureModeString()
+QString ConfigOptions::actionCaptureModeString()
 {
 	return QLatin1String("CaptureMode");
 }
 
-QString KsnipConfigOptions::actionIsPinImageEnabledString()
+QString ConfigOptions::actionIsPinImageEnabledString()
 {
 	return QLatin1String("IsPinImageEnabled");
 }
 
-QString KsnipConfigOptions::actionIsUploadEnabledString()
+QString ConfigOptions::actionIsUploadEnabledString()
 {
 	return QLatin1String("IsUploadEnabled");
 }
 
-QString KsnipConfigOptions::actionIsOpenDirectoryEnabledString()
+QString ConfigOptions::actionIsOpenDirectoryEnabledString()
 {
 	return QLatin1String("IsOpenDirectoryEnabled");
 }
 
-QString KsnipConfigOptions::actionIsCopyToClipboardEnabledString()
+QString ConfigOptions::actionIsCopyToClipboardEnabledString()
 {
 	return QLatin1String("IsCopyToClipboardEnabled");
 }
 
-QString KsnipConfigOptions::actionIsSaveEnabledString()
+QString ConfigOptions::actionIsSaveEnabledString()
 {
 	return QLatin1String("IsSaveEnabled");
 }
 
-QString KsnipConfigOptions::actionIsHideMainWindowEnabledString()
+QString ConfigOptions::actionIsHideMainWindowEnabledString()
 {
 	return QLatin1String("IsHideMainWindowEnabled");
 }
 
-QString KsnipConfigOptions::uploadScriptCopyOutputToClipboardString()
+QString ConfigOptions::uploadScriptCopyOutputToClipboardString()
 {
 	return uploadScriptSectionString() + QLatin1String("CopyOutputToClipboard");
 }
 
-QString KsnipConfigOptions::uploadScriptStopOnStdErrString()
+QString ConfigOptions::uploadScriptStopOnStdErrString()
 {
 	return uploadScriptSectionString() + QLatin1String("UploadScriptStoOnStdErr");
 }
 
-QString KsnipConfigOptions::uploadScriptCopyOutputFilterString()
+QString ConfigOptions::uploadScriptCopyOutputFilterString()
 {
 	return uploadScriptSectionString() + QLatin1String("CopyOutputFilter");
 }
 
-QString KsnipConfigOptions::ftpUploadForceAnonymousString()
+QString ConfigOptions::ftpUploadForceAnonymousString()
 {
 	return ftpUploadSectionString() + QLatin1String("ForceAnonymous");
 }
 
-QString KsnipConfigOptions::ftpUploadUrlString()
+QString ConfigOptions::ftpUploadUrlString()
 {
 	return ftpUploadSectionString() + QLatin1String("Url");
 }
 
-QString KsnipConfigOptions::ftpUploadUsernameString()
+QString ConfigOptions::ftpUploadUsernameString()
 {
 	return ftpUploadSectionString() + QLatin1String("Username");
 }
 
-QString KsnipConfigOptions::ftpUploadPasswordString()
+QString ConfigOptions::ftpUploadPasswordString()
 {
 	return ftpUploadSectionString() + QLatin1String("Password");
 }
 
-QString KsnipConfigOptions::globalHotKeysEnabledString()
+QString ConfigOptions::globalHotKeysEnabledString()
 {
 	return hotKeysSectionString() + QLatin1String("GlobalHotKeysEnabled");
 }
 
-QString KsnipConfigOptions::rectAreaHotKeyString()
+QString ConfigOptions::rectAreaHotKeyString()
 {
 	return hotKeysSectionString() + QLatin1String("RectAreaHotKey");
 }
 
-QString KsnipConfigOptions::lastRectAreaHotKeyString()
+QString ConfigOptions::lastRectAreaHotKeyString()
 {
 	return hotKeysSectionString() + QLatin1String("LastRectAreaHotKey");
 }
 
-QString KsnipConfigOptions::fullScreenHotKeyString()
+QString ConfigOptions::fullScreenHotKeyString()
 {
 	return hotKeysSectionString() + QLatin1String("FullScreenHotKey");
 }
 
-QString KsnipConfigOptions::currentScreenHotKeyString()
+QString ConfigOptions::currentScreenHotKeyString()
 {
 	return hotKeysSectionString() + QLatin1String("CurrentScreenHotKey");
 }
 
-QString KsnipConfigOptions::activeWindowHotKeyString()
+QString ConfigOptions::activeWindowHotKeyString()
 {
 	return hotKeysSectionString() + QLatin1String("ActiveWindowHotKey");
 }
 
-QString KsnipConfigOptions::windowUnderCursorHotKeyString()
+QString ConfigOptions::windowUnderCursorHotKeyString()
 {
 	return hotKeysSectionString() + QLatin1String("WindowUnderCursorHotKey");
 }
 
-QString KsnipConfigOptions::portalHotKeyString()
+QString ConfigOptions::portalHotKeyString()
 {
     return hotKeysSectionString() + QLatin1String("PortalHotKey");
 }
 
-QString KsnipConfigOptions::applicationSectionString()
+QString ConfigOptions::applicationSectionString()
 {
 	return QLatin1String("Application/");
 }
 
-QString KsnipConfigOptions::imageGrabberSectionString()
+QString ConfigOptions::imageGrabberSectionString()
 {
 	return QLatin1String("ImageGrabber/");
 }
 
-QString KsnipConfigOptions::annotatorSectionString()
+QString ConfigOptions::annotatorSectionString()
 {
 	return QLatin1String("Painter/");
 }
 
-QString KsnipConfigOptions::uploaderSectionString()
+QString ConfigOptions::uploaderSectionString()
 {
 	return QLatin1String("Uploader/");
 }
 
-QString KsnipConfigOptions::imgurSectionString()
+QString ConfigOptions::imgurSectionString()
 {
 	return QLatin1String("Imgur/");
 }
 
-QString KsnipConfigOptions::uploadScriptSectionString()
+QString ConfigOptions::uploadScriptSectionString()
 {
 	return QLatin1String("UploadScript/");
 }
 
-QString KsnipConfigOptions::ftpUploadSectionString()
+QString ConfigOptions::ftpUploadSectionString()
 {
 	return QLatin1String("FtpUpload/");
 }
 
-QString KsnipConfigOptions::hotKeysSectionString()
+QString ConfigOptions::hotKeysSectionString()
 {
 	return QLatin1String("HotKeys/");
 }
 
-QString KsnipConfigOptions::mainWindowSectionString()
+QString ConfigOptions::mainWindowSectionString()
 {
 	return QLatin1String("MainWindow/");
 }
 
-QString KsnipConfigOptions::saveSectionString()
+QString ConfigOptions::saveSectionString()
 {
 	return QLatin1String("Save/");
 }

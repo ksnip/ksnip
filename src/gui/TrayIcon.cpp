@@ -21,7 +21,7 @@
 
 TrayIcon::TrayIcon(QObject *parent) :
 	QSystemTrayIcon(parent),
-	mConfig(KsnipConfigProvider::instance()),
+	mConfig(ConfigProvider::instance()),
 	mOpenAction(nullptr),
 	mSaveAction(nullptr),
 	mPasteAction(nullptr),

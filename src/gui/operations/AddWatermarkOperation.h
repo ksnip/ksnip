@@ -27,7 +27,7 @@
 #include "WatermarkImagePreparer.h"
 #include "src/gui/messageBoxService/MessageBoxService.h"
 #include "src/backend/WatermarkImageLoader.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
 
 class AddWatermarkOperation : public QObject
@@ -42,7 +42,7 @@ private:
 	IImageAnnotator *mImageAnnotator;
 	WatermarkImagePreparer mImagePreparer;
 	WatermarkImageLoader mWatermarkImageLoader;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	IMessageBoxService *mMessageBoxService;
 
 	static QPointF getPositionForWatermark(const QPixmap &image, const QSize &availableSpace) ;

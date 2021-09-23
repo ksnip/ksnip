@@ -19,7 +19,8 @@
 
 #include "SingleInstanceClientBootstrapper.h"
 
-SingleInstanceClientBootstrapper::SingleInstanceClientBootstrapper() :
+SingleInstanceClientBootstrapper::SingleInstanceClientBootstrapper(DependencyInjector *dependencyInjector) :
+	StandAloneBootstrapper(dependencyInjector),
 	mIpcClient(new IpcClient)
 {
 	mIpcClient->connectTo(SingleInstance::ServerName);

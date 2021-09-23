@@ -22,7 +22,7 @@
 UploadOperation::UploadOperation(QImage image, IUploader* uploader) :
 	mImage(std::move(image)),
 	mUploader(uploader),
-	mConfig(KsnipConfigProvider::instance()),
+	mConfig(ConfigProvider::instance()),
 	mMessageBoxService(new MessageBoxService)
 {
 	Q_ASSERT(mUploader != nullptr);

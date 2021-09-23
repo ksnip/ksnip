@@ -17,12 +17,12 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_KSNIPCONFIGOPTIONS_H
-#define KSNIP_KSNIPCONFIGOPTIONS_H
+#ifndef KSNIP_CONFIGOPTIONS_H
+#define KSNIP_CONFIGOPTIONS_H
 
 #include <QString>
 
-class KsnipConfigOptions
+class ConfigOptions
 {
 public:
 	static QString rememberPositionString();
@@ -136,4 +136,4 @@ private:
 	static QString saveSectionString();
 };
 
-#endif //KSNIP_KSNIPCONFIGOPTIONS_H
+#endif //KSNIP_CONFIGOPTIONS_H

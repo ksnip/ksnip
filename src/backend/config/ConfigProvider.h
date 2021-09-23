@@ -17,26 +17,29 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_KSNIPWAYLANDCONFIG_H
-#define KSNIP_KSNIPWAYLANDCONFIG_H
+#ifndef KSNIP_CONFIGPROVIDER_H
+#define KSNIP_CONFIGPROVIDER_H
 
-#include "KsnipConfig.h"
+#if defined(__APPLE__)
+#include "MacConfig.h"
+#endif
 
-class KsnipWaylandConfig : public KsnipConfig
+#if defined(UNIX_X11)
+#include "WaylandConfig.h"
+#include "src/common/platform/PlatformChecker.h"
+#endif
+
+#if  defined(_WIN32)
+#include "Config.h"
+#endif
+
+class ConfigProvider
 {
 public:
-	bool isFreezeImageWhileSnippingEnabledReadOnly() const override;
-	bool freezeImageWhileSnippingEnabled() const override;
+	static Config *instance();
 
-	bool isGlobalHotKeysEnabledReadOnly() const override;
-	bool globalHotKeysEnabled() const override;
-
-	bool isSnippingAreaMagnifyingGlassEnabledReadOnly() const override;
-	bool snippingAreaMagnifyingGlassEnabled() const override;
-
-    bool isForceGenericWaylandEnabledReadOnly() const override;
-
-    bool isScaleGenericWaylandScreenshotEnabledReadOnly() const override;
+private:
+	ConfigProvider() = default;
 };
 
-#endif //KSNIP_KSNIPWAYLANDCONFIG_H
+#endif //KSNIP_CONFIGPROVIDER_H

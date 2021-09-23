@@ -22,7 +22,7 @@
 
 #include "src/backend/saver/WildcardResolver.h"
 #include "src/backend/saver/UniqueNameProvider.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 
 class SavePathProvider
 {
@@ -34,7 +34,7 @@ public:
     QString saveDirectory() const;
 
 private:
-    KsnipConfig *mConfig;
+    Config *mConfig;
 
     QString getFormat(const QString &format) const;
     QString getFilename() const;

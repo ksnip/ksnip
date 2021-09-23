@@ -27,24 +27,24 @@
 #include "BuildConfig.h"
 #include "src/bootstrapper/IBootstrapper.h"
 #include "src/gui/MainWindow.h"
-#include "src/backend/imageGrabber/ImageGrabberFactory.h"
 #include "src/backend/TranslationLoader.h"
 #include "src/backend/commandLine/CommandLine.h"
 #include "src/backend/commandLine/CommandLineCaptureHandler.h"
 #include "src/logging/LoggerProvider.h"
+#include "src/dependencyInjector/DependencyInjectorBootstrapper.h"
 
 class StandAloneBootstrapper : public QObject, public IBootstrapper
 {
 	Q_OBJECT
 public:
-	StandAloneBootstrapper();
+	explicit StandAloneBootstrapper(DependencyInjector *dependencyInjector);
 	~StandAloneBootstrapper() override;
 
 	int start(const QApplication &app) override;
 
 protected:
 	MainWindow *mMainWindow;
-	ILogger *mLogger;
+	QSharedPointer<ILogger> mLogger;
 
 	void createCommandLineParser(const QApplication &app);
 	static int showVersion();
@@ -59,6 +59,7 @@ protected:
 	QString getSavePath() const;
 
 private:
+	DependencyInjector *mDependencyInjector;
 	CommandLine *mCommandLine;
 	CommandLineCaptureHandler *mCommandLineCaptureHandler;
 

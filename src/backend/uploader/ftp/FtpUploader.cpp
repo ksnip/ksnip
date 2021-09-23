@@ -20,7 +20,7 @@
 #include "FtpUploader.h"
 
 FtpUploader::FtpUploader() :
-	mConfig(KsnipConfigProvider::instance()),
+	mConfig(ConfigProvider::instance()),
 	mLogger(LoggerProvider::instance()),
 	mReply(nullptr)
 {

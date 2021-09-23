@@ -24,7 +24,7 @@
 #include "src/gui/captureHandler/MultiCaptureHandler.h"
 #include "src/gui/captureHandler/CaptureTabStateHandler.h"
 #include "src/gui/serviceLocator/ServiceLocator.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 
 class CaptureHandlerFactory
 {

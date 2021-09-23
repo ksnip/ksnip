@@ -19,7 +19,7 @@
 
 #include "ImgurUploaderSettings.h"
 
-ImgurUploaderSettings::ImgurUploaderSettings(KsnipConfig *ksnipConfig) :
+ImgurUploaderSettings::ImgurUploaderSettings(Config *ksnipConfig) :
 	mConfig(ksnipConfig),
 	mForceAnonymousCheckbox(new QCheckBox(this)),
 	mDirectLinkToImageCheckbox(new QCheckBox(this)),

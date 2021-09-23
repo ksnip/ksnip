@@ -32,7 +32,7 @@
 #include "SnippingAreaSelectorInfoText.h"
 #include "SnippingAreaResizerInfoText.h"
 #include "src/common/helper/MathHelper.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 
 class AbstractSnippingArea : public QWidget
 {
@@ -65,7 +65,7 @@ protected:
 	virtual QRect getSnippingAreaGeometry() const = 0;
 
 private:
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	QPixmap *mBackground;
 	SnippingAreaResizer *mResizer;
 	SnippingAreaSelector *mSelector;

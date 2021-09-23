@@ -20,7 +20,7 @@
 #include "AbstractSnippingArea.h"
 
 AbstractSnippingArea::AbstractSnippingArea() :
-	mConfig(KsnipConfigProvider::instance()),
+	mConfig(ConfigProvider::instance()),
 	mBackground(nullptr),
 	mResizer(new SnippingAreaResizer(mConfig, this)),
 	mSelector(new SnippingAreaSelector(mConfig, this)),

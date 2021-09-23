@@ -24,19 +24,19 @@
 #include <QTimer>
 
 #include "IResizableWindow.h"
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/Config.h"
 
 class WindowResizer : public QObject
 {
 public:
-	WindowResizer(IResizableWindow *resizableWindow, KsnipConfig *config, QObject *parent);
+	WindowResizer(IResizableWindow *resizableWindow, Config *config, QObject *parent);
 	~WindowResizer() override = default;
 	void resize();
 	void resetAndResize();
 
 private:
 	IResizableWindow *mResizableWindow;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	bool mPerformedAutoResize;
 	int mResizeDelayInMs;
 

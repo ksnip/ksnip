@@ -25,7 +25,7 @@
 #include <QDesktopServices>
 #include <QClipboard>
 
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 #include "src/backend/uploader/UploadResult.h"
 #include "src/gui/operations/NotifyOperation.h"
 
@@ -40,7 +40,7 @@ public:
 private:
 	UploadResult mUploadResult;
 	TrayIcon *mTrayIcon;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	QClipboard *mClipboard;
 
 	void notifyImgurSuccessfulUpload(const QString &url) const;

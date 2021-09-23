@@ -27,7 +27,7 @@ MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToast
 	mCaptureChangeListener(nullptr),
 	mTabStateHandler(captureTabStateHandler),
 	mServiceLocator(serviceLocator),
-	mConfig(KsnipConfigProvider::instance()),
+	mConfig(ConfigProvider::instance()),
 	mClipboard(mServiceLocator->clipboard()),
 	mDesktopService(mServiceLocator->desktopService()),
 	mSaveContextMenuAction(new TabContextMenuAction(this)),
@@ -49,7 +49,7 @@ MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToast
 	connect(mImageAnnotator, &IImageAnnotator::tabCloseRequested, this, &MultiCaptureHandler::tabCloseRequested);
 	connect(mImageAnnotator, &IImageAnnotator::tabContextMenuOpened, this, &MultiCaptureHandler::updateContextMenuActions);
 
-	connect(mConfig, &KsnipConfig::annotatorConfigChanged, this, &MultiCaptureHandler::annotatorConfigChanged);
+	connect(mConfig, &IConfig::annotatorConfigChanged, this, &MultiCaptureHandler::annotatorConfigChanged);
 
 	addTabContextMenuActions();
 

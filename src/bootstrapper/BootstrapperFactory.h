@@ -23,23 +23,21 @@
 #include <QApplication>
 #include <QSharedPointer>
 
-#include "src/backend/config/KsnipConfigProvider.h"
 #include "src/bootstrapper/singleInstance/SingleInstanceServerBootstrapper.h"
 #include "src/bootstrapper/singleInstance/SingleInstanceClientBootstrapper.h"
 #include "src/bootstrapper/singleInstance/InstanceLock.h"
-#include "src/logging/LoggerProvider.h"
+#include "src/dependencyInjector/DependencyInjector.h"
+
 
 class BootstrapperFactory
 {
 public:
 	BootstrapperFactory() = default;
 	~BootstrapperFactory() = default;
-	QSharedPointer<IBootstrapper> create();
+	QSharedPointer<IBootstrapper> create(DependencyInjector *dependencyInjector);
 
 private:
 	InstanceLock mInstanceLock;
-
-	static bool isSingleInstance();
 };
 
 #endif //KSNIP_BOOTSTRAPPERFACTORY_H

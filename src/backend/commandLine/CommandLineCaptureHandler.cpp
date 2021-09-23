@@ -19,24 +19,18 @@
 
 #include "CommandLineCaptureHandler.h"
 
-CommandLineCaptureHandler::CommandLineCaptureHandler() :
-	mImageGrabber(ImageGrabberFactory::createImageGrabber()),
-	mUploadProvider(new UploaderProvider),
+CommandLineCaptureHandler::CommandLineCaptureHandler(DependencyInjector *dependencyInjector) :
+	mImageGrabber(dependencyInjector->getObject<IImageGrabber>()),
+	mUploadProvider(dependencyInjector->getObject<IUploaderProvider>()),
 	mIsWithSave(false),
 	mIsWithUpload(false)
 {
 	Q_ASSERT(mImageGrabber != nullptr);
+	
+	connect(mImageGrabber.data(), &IImageGrabber::finished, this, &CommandLineCaptureHandler::processCapture);
+	connect(mImageGrabber.data(), &IImageGrabber::canceled, this, &CommandLineCaptureHandler::canceled);
 
-	connect(mImageGrabber, &IImageGrabber::finished, this, &CommandLineCaptureHandler::processCapture);
-	connect(mImageGrabber, &IImageGrabber::canceled, this, &CommandLineCaptureHandler::canceled);
-
-	connect(mUploadProvider, &UploaderProvider::finished, this, &CommandLineCaptureHandler::uploadFinished);
-}
-
-CommandLineCaptureHandler::~CommandLineCaptureHandler()
-{
-	delete mImageGrabber;
-	delete mUploadProvider;
+	connect(mUploadProvider.data(), &IUploaderProvider::finished, this, &CommandLineCaptureHandler::uploadFinished);
 }
 
 void CommandLineCaptureHandler::captureAndProcessScreenshot(const CommandLineCaptureParameter &parameter)

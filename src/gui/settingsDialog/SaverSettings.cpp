@@ -19,7 +19,7 @@
 
 #include "SaverSettings.h"
 
-SaverSettings::SaverSettings(KsnipConfig *ksnipConfig) :
+SaverSettings::SaverSettings(Config *ksnipConfig) :
 	mConfig(ksnipConfig),
 	mAutoSaveNewCapturesCheckbox(new QCheckBox(this)),
 	mPromptToSaveBeforeExitCheckbox(new QCheckBox(this)),

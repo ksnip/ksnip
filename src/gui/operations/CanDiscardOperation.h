@@ -26,7 +26,7 @@
 
 #include "SaveOperation.h"
 #include "NotifyOperation.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 #include "src/backend/recentImages/IRecentImageService.h"
 #include "src/gui/messageBoxService/MessageBoxService.h"
 
@@ -39,7 +39,7 @@ public:
 	bool execute();
 
 private:
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	bool mIsUnsaved;
 	QWidget *mParent;
 	QImage mImage;

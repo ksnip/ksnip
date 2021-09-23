@@ -19,7 +19,7 @@
 
 #include "StickerSettings.h"
 
-StickerSettings::StickerSettings(KsnipConfig *config) :
+StickerSettings::StickerSettings(Config *config) :
 	mConfig(config),
 	mListWidget(new QListWidget(this)),
 	mAddButton(new QPushButton(this)),

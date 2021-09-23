@@ -27,14 +27,14 @@
 #include <QComboBox>
 #include <QRadioButton>
 
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/Config.h"
 #include "src/common/helper/EnumTranslator.h"
 
 class TrayIconSettings : public QGroupBox
 {
 Q_OBJECT
 public:
-	explicit TrayIconSettings(KsnipConfig *config, const QList<CaptureModes> &captureModes);
+	explicit TrayIconSettings(Config *config, const QList<CaptureModes> &captureModes);
 	~TrayIconSettings() override;
 	void saveSettings();
 
@@ -51,7 +51,7 @@ private:
 	QGridLayout *mLayout;
 	QGridLayout *mDefaultActionLayout;
 	QGroupBox *mDefaultActionGroupBox;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 
 	void initGui();
 	void loadConfig();

@@ -20,7 +20,7 @@
 #ifndef KSNIP_LOGGERPROVIDER_H
 #define KSNIP_LOGGERPROVIDER_H
 
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 #include "ConsoleLogger.h"
 #include "NoneLogger.h"
 

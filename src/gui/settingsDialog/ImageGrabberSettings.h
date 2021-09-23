@@ -24,13 +24,13 @@
 #include <QCheckBox>
 #include <QGridLayout>
 
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/Config.h"
 
 class ImageGrabberSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit ImageGrabberSettings(KsnipConfig *config);
+	explicit ImageGrabberSettings(Config *config);
 	~ImageGrabberSettings() override;
 	void saveSettings();
 
@@ -41,7 +41,7 @@ private:
 	QCheckBox *mForceGenericWaylandCheckbox;
 	QCheckBox *mScaleGenericWaylandScreenshotsCheckbox;
 	QGridLayout *mLayout;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 
 	void initGui();
 	void loadConfig();

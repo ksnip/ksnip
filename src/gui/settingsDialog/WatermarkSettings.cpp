@@ -19,7 +19,7 @@
 
 #include "WatermarkSettings.h"
 
-WatermarkSettings::WatermarkSettings(KsnipConfig *config) :
+WatermarkSettings::WatermarkSettings(Config *config) :
 	mConfig(config),
 	mLayout(new QGridLayout(this)),
 	mRotateWatermarkCheckbox(new QCheckBox(this)),

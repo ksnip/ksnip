@@ -19,12 +19,12 @@
 
 #include "ActionsMenu.h"
 
-ActionsMenu::ActionsMenu(KsnipConfig *config) :
+ActionsMenu::ActionsMenu(Config *config) :
 	mConfig(config)
 {
 	Q_ASSERT(mConfig != nullptr);
 
-	connect(mConfig, &KsnipConfig::actionsChanged, this, &ActionsMenu::actionsChanged);
+	connect(mConfig, &Config::actionsChanged, this, &ActionsMenu::actionsChanged);
 
 	actionsChanged();
 }

@@ -28,20 +28,20 @@
 #include <QPushButton>
 #include <QFileDialog>
 
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/Config.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
 
 class ScriptUploaderSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit ScriptUploaderSettings(KsnipConfig *config);
+	explicit ScriptUploaderSettings(Config *config);
 	~ScriptUploaderSettings() override;
 	void saveSettings();
 
 private:
 	QGridLayout *mLayout;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	QCheckBox *mCopyOutputToClipboardCheckbox;
 	QCheckBox *mStopOnStdErrCheckbox;
 	QLineEdit *mCopyOutputFilterLineEdit;

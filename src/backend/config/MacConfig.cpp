@@ -17,31 +17,24 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_KSNIPCONFIGPROVIDER_H
-#define KSNIP_KSNIPCONFIGPROVIDER_H
+#include "MacConfig.h"
 
-#include "KsnipWaylandConfig.h"
-
-#if defined(__APPLE__)
-#include "KsnipMacConfig.h"
-#endif
-
-#if defined(UNIX_X11)
-#include "KsnipWaylandConfig.h"
-#include "src/common/platform/PlatformChecker.h"
-#endif
-
-#if  defined(_WIN32)
-#include "KsnipConfig.h"
-#endif
-
-class KsnipConfigProvider
+bool MacConfig::isFreezeImageWhileSnippingEnabledReadOnly() const
 {
-public:
-	static KsnipConfig *instance();
+	return true;
+}
 
-private:
-	KsnipConfigProvider() = default;
-};
+bool MacConfig::freezeImageWhileSnippingEnabled() const
+{
+	return true;
+}
 
-#endif //KSNIP_KSNIPCONFIGPROVIDER_H
+bool MacConfig::isGlobalHotKeysEnabledReadOnly() const
+{
+	return true;
+}
+
+bool MacConfig::globalHotKeysEnabled() const
+{
+	return false;
+}

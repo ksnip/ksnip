@@ -19,7 +19,7 @@
 
 #include "AnnotationSettings.h"
 
-AnnotationSettings::AnnotationSettings(KsnipConfig *config) :
+AnnotationSettings::AnnotationSettings(Config *config) :
 	mSmoothPathCheckbox(new QCheckBox(this)),
 	mRememberToolSelectionCheckBox(new QCheckBox(this)),
 	mSwitchToSelectToolAfterDrawingItemCheckBox(new QCheckBox(this)),

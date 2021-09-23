@@ -40,7 +40,7 @@
 #include "src/gui/settingsDialog/uploader/ScriptUploaderSettings.h"
 #include "src/gui/settingsDialog/uploader/FtpUploaderSettings.h"
 #include "src/gui/settingsDialog/actions/ActionsSettings.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 #include "src/common/provider/ScaledSizeProvider.h"
 
 class SettingsDialog : public QDialog
@@ -51,7 +51,7 @@ public:
     ~SettingsDialog() override;
 
 private:
-	KsnipConfig *mConfig;
+	Config *mConfig;
     QPushButton *mOkButton;
     QPushButton *mCancelButton;
 	ApplicationSettings *mApplicationSettings;

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,33 +17,21 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IMAGEGRABBERFACTORY_H
-#define KSNIP_IMAGEGRABBERFACTORY_H
+#ifndef KSNIP_IUPLOADERPROVIDER_H
+#define KSNIP_IUPLOADERPROVIDER_H
 
-#include "src/logging/LoggerProvider.h"
+#include "IUploader.h"
 
-#if defined(__APPLE__)
-#include "MacImageGrabber.h"
-#endif
-
-#if defined(UNIX_X11)
-#include "X11ImageGrabber.h"
-#include "GnomeX11ImageGrabber.h"
-#include "KdeWaylandImageGrabber.h"
-#include "GnomeWaylandImageGrabber.h"
-#include "WaylandImageGrabber.h"
-#include "src/common/platform/PlatformChecker.h"
-#include "src/backend/config/KsnipConfigProvider.h"
-#endif
-
-#if  defined(_WIN32)
-#include "WinImageGrabber.h"
-#endif
-
-class ImageGrabberFactory
+class IUploaderProvider : public QObject
 {
+	Q_OBJECT
 public:
-    static IImageGrabber *createImageGrabber();
+	IUploaderProvider() = default;
+	~IUploaderProvider() override = default;
+	virtual IUploader* get() = 0;
+
+signals:
+	void finished(const UploadResult &result);
 };
 
-#endif // KSNIP_IMAGEGRABBERFACTORY_H
+#endif //KSNIP_IUPLOADERPROVIDER_H

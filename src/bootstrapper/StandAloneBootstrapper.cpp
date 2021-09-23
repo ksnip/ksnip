@@ -19,11 +19,12 @@
 
 #include "StandAloneBootstrapper.h"
 
-StandAloneBootstrapper::StandAloneBootstrapper() :
+StandAloneBootstrapper::StandAloneBootstrapper(DependencyInjector *dependencyInjector) :
 	mCommandLine(nullptr),
 	mMainWindow(nullptr),
 	mCommandLineCaptureHandler(nullptr),
-	mLogger(LoggerProvider::instance())
+	mLogger(dependencyInjector->getObject<ILogger>()),
+	mDependencyInjector(dependencyInjector)
 {
 
 }
@@ -224,7 +225,7 @@ void StandAloneBootstrapper::createMainWindow()
 {
 	Q_ASSERT(mMainWindow == nullptr);
 
-	mMainWindow = new MainWindow();
+	mMainWindow = new MainWindow(mDependencyInjector);
 }
 
 void StandAloneBootstrapper::createCommandLineParser(const QApplication &app)
@@ -232,7 +233,9 @@ void StandAloneBootstrapper::createCommandLineParser(const QApplication &app)
 	Q_ASSERT(mCommandLine == nullptr);
 	Q_ASSERT(mCommandLineCaptureHandler == nullptr);
 
-	mCommandLineCaptureHandler = new CommandLineCaptureHandler();
+	DependencyInjectorBootstrapper::BootstrapCommandLine(mDependencyInjector);
+
+	mCommandLineCaptureHandler = new CommandLineCaptureHandler(mDependencyInjector);
 	mCommandLine = new CommandLine (app, mCommandLineCaptureHandler->supportedCaptureModes());
 }
 

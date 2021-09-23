@@ -26,7 +26,7 @@
 #include <utility>
 
 #include "src/backend/uploader/IUploader.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 #include "src/gui/messageBoxService/MessageBoxService.h"
 
 class UploadOperation : public QObject
@@ -38,7 +38,7 @@ public:
 	bool execute();
 
 private:
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	IUploader *mUploader;
 	QImage mImage;
 	IMessageBoxService *mMessageBoxService;

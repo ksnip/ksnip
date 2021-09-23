@@ -22,7 +22,7 @@
 HandleUploadResultOperation::HandleUploadResultOperation(const UploadResult &result, TrayIcon *trayIcon) :
 	mUploadResult(result),
 	mTrayIcon(trayIcon),
-	mConfig(KsnipConfigProvider::instance()),
+	mConfig(ConfigProvider::instance()),
 	mClipboard(QApplication::clipboard())
 {
 }

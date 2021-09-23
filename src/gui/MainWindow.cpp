@@ -20,10 +20,11 @@
 
 #include "MainWindow.h"
 
-MainWindow::MainWindow() :
+MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	QMainWindow(),
+	mDependencyInjector(dependencyInjector),
 	mToolBar(nullptr),
-	mImageGrabber(ImageGrabberFactory::createImageGrabber()),
+	mImageGrabber(mDependencyInjector->getObject<IImageGrabber>()),
 	mServiceLocator(new ServiceLocator),
 	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
@@ -48,7 +49,7 @@ MainWindow::MainWindow() :
 	mRemoveImageAction(new QAction(this)),
 	mModifyCanvasAction(new QAction(this)),
 	mMainLayout(layout()),
-	mConfig(KsnipConfigProvider::instance()),
+	mConfig(ConfigProvider::instance()),
 	mActionsMenu(new ActionsMenu(mConfig)),
 	mRecentImagesMenu(new RecentImagesMenu(mServiceLocator->recentImageService(), this)),
 	mClipboard(mServiceLocator->clipboard()),
@@ -56,7 +57,7 @@ MainWindow::MainWindow() :
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 	mTrayIcon(new TrayIcon(this)),
 	mDragAndDropProcessor(new DragAndDropProcessor(this)),
-	mUploaderProvider(new UploaderProvider),
+	mUploaderProvider(new UploaderProvider(QSharedPointer<IConfig>(new Config))),
 	mSessionManagerRequestedQuit(false),
 	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, NotificationServiceFactory::create(mTrayIcon), mServiceLocator, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
@@ -78,11 +79,11 @@ MainWindow::MainWindow() :
 	connect(mDragAndDropProcessor, &DragAndDropProcessor::fileDropped, this, &MainWindow::loadImageFromFile);
 	connect(mDragAndDropProcessor, &DragAndDropProcessor::imageDropped, this, &MainWindow::loadImageFromPixmap);
 
-	connect(mConfig, &KsnipConfig::annotatorConfigChanged, this, &MainWindow::setupImageAnnotator);
+	connect(mConfig, &Config::annotatorConfigChanged, this, &MainWindow::setupImageAnnotator);
 
-	connect(mImageGrabber, &IImageGrabber::finished, this, &MainWindow::processCapture);
-	connect(mImageGrabber, &IImageGrabber::canceled, this, &MainWindow::captureCanceled);
-	connect(mImageGrabber, &IImageGrabber::canceled, mActionProcessor, &ActionProcessor::captureCanceled);
+	connect(mImageGrabber.data(), &IImageGrabber::finished, this, &MainWindow::processCapture);
+	connect(mImageGrabber.data(), &IImageGrabber::canceled, this, &MainWindow::captureCanceled);
+	connect(mImageGrabber.data(), &IImageGrabber::canceled, mActionProcessor, &ActionProcessor::captureCanceled);
 
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::captureTriggered, this, &MainWindow::triggerCapture);
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::actionTriggered, this, &MainWindow::actionTriggered);
@@ -121,7 +122,6 @@ MainWindow::~MainWindow()
     delete mWindowResizer;
     delete mActionProcessor;
     delete mActionsMenu;
-    delete mImageGrabber;
 }
 
 void MainWindow::handleGuiStartup()

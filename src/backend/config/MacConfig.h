@@ -17,13 +17,22 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "CaptureHandlerFactory.h"
+#ifndef KSNIP_KSNIPMACCONFIG_H
+#define KSNIP_KSNIPMACCONFIG_H
 
-ICaptureHandler * CaptureHandlerFactory::create(IImageAnnotator *imageAnnotator, IToastService *toastService, IServiceLocator *serviceLocator, QWidget *parent)
+#include "Config.h"
+
+class MacConfig : public KsnipConfig
 {
-	if(ConfigProvider::instance()->useTabs()) {
-		return new MultiCaptureHandler(imageAnnotator, toastService, serviceLocator, new CaptureTabStateHandler, parent);
-	} else {
-		return new SingleCaptureHandler(imageAnnotator, toastService, serviceLocator, parent);
-	}
-}
+public:
+	MacConfig() = default;
+	~MacConfig() override = default;
+
+	bool isFreezeImageWhileSnippingEnabledReadOnly() const override;
+	bool freezeImageWhileSnippingEnabled() const override;
+
+	bool isGlobalHotKeysEnabledReadOnly() const override;
+	bool globalHotKeysEnabled() const override;
+};
+
+#endif //KSNIP_KSNIPMACCONFIG_H

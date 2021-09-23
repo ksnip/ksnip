@@ -19,7 +19,7 @@
 
 #include "UploaderSettings.h"
 
-UploaderSettings::UploaderSettings(KsnipConfig *ksnipConfig) :
+UploaderSettings::UploaderSettings(Config *ksnipConfig) :
 	mConfig(ksnipConfig),
 	mConfirmBeforeUploadCheckbox(new QCheckBox(this)),
 	mUploaderTypeComboBox(new QComboBox(this)),

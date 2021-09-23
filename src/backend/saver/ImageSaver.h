@@ -26,7 +26,7 @@
 #include <QObject>
 #include <QString>
 
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 
 class ImageSaver
 {
@@ -36,7 +36,7 @@ public:
     bool save(const QImage &image, const QString &path);
 
 private:
-    KsnipConfig* mConfig;
+    Config* mConfig;
 
 	void ensurePathExists(const QString &path);
     QString ensureFilenameHasFormat(const QString &path);

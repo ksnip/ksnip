@@ -19,7 +19,7 @@
 
 #include "HotKeySettings.h"
 
-HotKeySettings::HotKeySettings(KsnipConfig *ksnipConfig, const QList<CaptureModes> &captureModes) :
+HotKeySettings::HotKeySettings(Config *ksnipConfig, const QList<CaptureModes> &captureModes) :
 	mConfig(ksnipConfig),
 	mCaptureModes(captureModes),
 	mEnableGlobalHotKeysCheckBox(new QCheckBox(this)),

@@ -24,7 +24,7 @@
 #include <QRegularExpression>
 
 #include "src/backend/uploader/IUploader.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 #include "src/common/enum/UploadStatus.h"
 #include "src/common/provider/TempFileProvider.h"
 
@@ -41,7 +41,7 @@ signals:
 	void finished(const UploadResult &result) override;
 
 private:
-	KsnipConfig * mConfig;
+	Config * mConfig;
 	QProcess mProcessHandler;
 	QString mPathToTmpImage;
 

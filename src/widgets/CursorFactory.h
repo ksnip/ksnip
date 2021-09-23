@@ -21,7 +21,7 @@
 #define CURSORFACTORY_H
 
 #include "CustomCursor.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 
 class CursorFactory
 {
@@ -30,7 +30,7 @@ public:
     QCursor createSnippingCursor();
 
 private:
-    KsnipConfig *mConfig;
+    Config *mConfig;
 	int mDefaultCursorSize;
 };
 

@@ -31,7 +31,7 @@
 class SingleInstanceClientBootstrapper : public StandAloneBootstrapper
 {
 public:
-	SingleInstanceClientBootstrapper();
+	explicit SingleInstanceClientBootstrapper(DependencyInjector *dependencyInjector);
 	~SingleInstanceClientBootstrapper() override;
 
 	int start(const QApplication &app) override;

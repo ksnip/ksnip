@@ -50,20 +50,22 @@
 #include "src/gui/windowResizer/IResizableWindow.h"
 #include "src/gui/windowResizer/WindowResizer.h"
 #include "src/widgets/MainToolBar.h"
-#include "src/backend/imageGrabber/ImageGrabberFactory.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 #include "src/backend/uploader/UploaderProvider.h"
 #include "src/backend/CapturePrinter.h"
+#include "src/backend/imageGrabber/IImageGrabber.h"
 #include "src/common/loader/IconLoader.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
+#include "src/dependencyInjector/DependencyInjector.h"
+
 
 class MainWindow : public QMainWindow, public ICaptureChangeListener, public IImageProcessor, public IResizableWindow, public IDragContentProvider
 {
     Q_OBJECT
 public:
-    explicit MainWindow();
+    explicit MainWindow(DependencyInjector *dependencyInjector);
     ~MainWindow() override;
     void showEmpty();
 	void showHidden();
@@ -89,7 +91,8 @@ protected:
     QSize sizeHint() const override;
 
 private:
-    IImageGrabber *mImageGrabber;
+	DependencyInjector *mDependencyInjector;
+	QSharedPointer<IImageGrabber> mImageGrabber;
 	IServiceLocator *mServiceLocator;
     bool mSessionManagerRequestedQuit;
     QAction *mSaveAsAction;
@@ -115,7 +118,7 @@ private:
 	QAction *mModifyCanvasAction;
 	MainToolBar *mToolBar;
 	QLayout *mMainLayout;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 	ActionsMenu *mActionsMenu;
 	RecentImagesMenu *mRecentImagesMenu;
 	IClipboard *mClipboard;

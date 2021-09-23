@@ -26,7 +26,7 @@
 #include "src/common/dtos/SaveResultDto.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
 #include "src/backend/recentImages/IRecentImageService.h"
-#include "src/backend/config/KsnipConfig.h"
+#include "src/backend/config/Config.h"
 #include "src/backend/saver/SavePathProvider.h"
 #include "src/backend/saver/ImageSaver.h"
 #include "src/gui/IToastService.h"
@@ -49,7 +49,7 @@ private:
     bool mIsInstantSave;
 	IToastService *mToastService;
 	IRecentImageService *mRecentImageService;
-	KsnipConfig *mConfig;
+	Config *mConfig;
 
 	void notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const;
 	SaveResultDto save(const QString &path);

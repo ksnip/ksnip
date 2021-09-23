@@ -19,8 +19,8 @@
 
 #include "UploaderProvider.h"
 
-UploaderProvider::UploaderProvider() :
-	mConfig(KsnipConfigProvider::instance()),
+UploaderProvider::UploaderProvider(const QSharedPointer<IConfig> &config) :
+	mConfig(config),
 	mImgurUploader(nullptr),
 	mScriptUploader(nullptr),
 	mFtpUploader(nullptr)

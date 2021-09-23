@@ -19,7 +19,7 @@
 
 #include "ScriptUploader.h"
 
-ScriptUploader::ScriptUploader() : mConfig(KsnipConfigProvider::instance())
+ScriptUploader::ScriptUploader() : mConfig(ConfigProvider::instance())
 {
 	connect(&mProcessHandler, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &ScriptUploader::scriptFinished);
 	connect(&mProcessHandler, &QProcess::errorOccurred, this, &ScriptUploader::errorOccurred);

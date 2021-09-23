@@ -27,7 +27,7 @@
 #include <QDateTime>
 
 #include "src/backend/uploader/IUploader.h"
-#include "src/backend/config/KsnipConfigProvider.h"
+#include "src/backend/config/ConfigProvider.h"
 #include "src/logging/LoggerProvider.h"
 
 class FtpUploader : public QObject, public IUploader
@@ -43,7 +43,7 @@ signals:
 	void finished(const UploadResult &result) override;
 
 private:
-	KsnipConfig * mConfig;
+	Config * mConfig;
 	ILogger *mLogger;
 	QNetworkAccessManager mNetworkAccessManager;
 	QNetworkReply *mReply;
@@ -57,6 +57,5 @@ private slots:
 	void uploadProgress(qint64 bytesSent, qint64 bytesTotal);
 	void uploadDone();
 };
-
 
 #endif //KSNIP_FTPUPLOADER_H

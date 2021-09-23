@@ -27,7 +27,7 @@ SaveOperation::SaveOperation(QWidget *parent, QImage image, bool isInstantSave, 
 	mIsInstantSave(isInstantSave),
 	mToastService(toastService),
 	mRecentImageService(recentImageService),
-	mConfig(KsnipConfigProvider::instance())
+	mConfig(ConfigProvider::instance())
 {
     Q_ASSERT(mParent != nullptr);
 }

@@ -20,11 +20,12 @@
 #include "AbstractImageGrabber.h"
 
 AbstractImageGrabber::AbstractImageGrabber() :
-    mConfig(KsnipConfigProvider::instance()),
+    mConfig(ConfigProvider::instance()),
     mIsCaptureCursorEnabled(false),
     mCaptureDelay(0),
     mCaptureMode(CaptureModes::FullScreen)
 {
+	qDebug("AbstractImageGrabber");
 }
 
 bool AbstractImageGrabber::isCaptureModeSupported(CaptureModes captureMode) const

@@ -19,7 +19,7 @@
 
 #include "FtpUploaderSettings.h"
 
-FtpUploaderSettings::FtpUploaderSettings(KsnipConfig *config) :
+FtpUploaderSettings::FtpUploaderSettings(Config *config) :
 	mConfig(config),
 	mLayout(new QGridLayout(this)),
 	mForceAnonymousUploadCheckBox(new QCheckBox(this)),

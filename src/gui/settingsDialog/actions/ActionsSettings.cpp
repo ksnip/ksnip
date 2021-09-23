@@ -19,7 +19,7 @@
 
 #include "ActionsSettings.h"
 
-ActionsSettings::ActionsSettings(KsnipConfig *config, const QList<CaptureModes> &captureModes) :
+ActionsSettings::ActionsSettings(Config *config, const QList<CaptureModes> &captureModes) :
 	mConfig(config),
 	mLayout(new QVBoxLayout(this)),
 	mTabWidget(new QTabWidget(this)),

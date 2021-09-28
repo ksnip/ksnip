@@ -52,7 +52,7 @@ elseif (UNIX)
 		target_link_libraries(KSNIP_STATIC X11)
 	endif()
 
-	target_compile_definitions(KSNIP_STATIC PRIVATE UNIX_X11)
+	target_compile_definitions(KSNIP_STATIC PUBLIC UNIX_X11)
 elseif(WIN32)
 	target_link_libraries(KSNIP_STATIC
 		Qt5::WinExtras

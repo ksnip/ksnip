@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,25 +17,17 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "ImagePathStorageMock.h"
+#ifndef KSNIP_IUPLOADHANDLER_H
+#define KSNIP_IUPLOADHANDLER_H
 
-void ImagePathStorageMock::store(const QString &value, int index)
-{
-	mStoreCallCounter.increment(index);
-	mPathMap[index] = value;
-}
+#include "IUploader.h"
 
-QString ImagePathStorageMock::load(int index)
+class IUploadHandler : public IUploader
 {
-	return mPathMap[index];
-}
+	Q_OBJECT
+public:
+	IUploadHandler() = default;
+	~IUploadHandler() override = default;
+};
 
-int ImagePathStorageMock::count()
-{
-	return mPathMap.count();
-}
-
-int ImagePathStorageMock::store_callCounter(int index) const
-{
-	return mStoreCallCounter.count(index);
-}
+#endif //KSNIP_IUPLOADHANDLER_H

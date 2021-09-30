@@ -19,8 +19,8 @@
 
 #include "DeleteImageOperation.h"
 
-DeleteImageOperation::DeleteImageOperation(QString path, IFileService *fileService, IMessageBoxService *messageBoxService) :
-	mPath(std::move(path)),
+DeleteImageOperation::DeleteImageOperation(const QString &path, IFileService *fileService, IMessageBoxService *messageBoxService) :
+	mPath(path),
 	mFileService(fileService),
 	mMessageBoxService(messageBoxService)
 {

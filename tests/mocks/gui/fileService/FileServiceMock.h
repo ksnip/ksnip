@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,35 +20,15 @@
 #ifndef KSNIP_FILESERVICEMOCK_H
 #define KSNIP_FILESERVICEMOCK_H
 
-#include <QString>
+#include <gmock/gmock.h>
 
 #include "src/gui/fileService/IFileService.h"
-#include "tests/utils/CallCounter.h"
 
 class FileServiceMock : public IFileService
 {
 public:
-	explicit FileServiceMock();
-	~FileServiceMock() override = default;
-	bool remove(const QString &path) override;
-	QPixmap openPixmap(const QString &path) override;
-
-	// Mock Methods
-	QString remove_get() const;
-	void remove_set(bool result);
-	int remove_callCounter(const QString &path) const;
-	QString openPixmap_get() const;
-	void openPixmap_set(const QPixmap &pixmap);
-	int openPixmap_callCounter(const QString &path) const;
-
-public:
-	QString mLastRemovePathParameter;
-	bool mRemoveResult;
-	CallCounter<QString> mRemoveCallCounter;
-	QString mLastOpenPixmapParameter;
-	QPixmap mOpenPixmapResult;
-	CallCounter<QString> mOpenPixmapCallCounter;
+	MOCK_METHOD(bool, remove, (const QString &path), (override));
+	MOCK_METHOD(QPixmap, openPixmap, (const QString &path), (override));
 };
-
 
 #endif //KSNIP_FILESERVICEMOCK_H

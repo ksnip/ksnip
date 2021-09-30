@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,18 +17,20 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_DELETEIMAGEOPERATIONTESTS_H
-#define KSNIP_DELETEIMAGEOPERATIONTESTS_H
+#ifndef KSNIP_MESSAGEBOXSERVICEMOCK_H
+#define KSNIP_MESSAGEBOXSERVICEMOCK_H
 
-#include <QtTest>
+#include <gmock/gmock.h>
 
-class DeleteImageOperationTests : public QObject
+#include "src/gui/messageBoxService/IMessageBoxService.h"
+
+class MessageBoxServiceMock : public IMessageBoxService
 {
-	Q_OBJECT
-private slots:
-	void Execute_Should_ReturnFalse_When_MessageBoxResponseWasCancel();
-	void Execute_Should_ReturnTrue_When_MessageBoxResponseWasTrue_And_FileServiceSaveSuccessfully();
-	void Execute_Should_ReturnFalse_When_MessageBoxResponseWasTrue_And_FileServiceSaveFailed();
+public:
+	MOCK_METHOD(bool, yesNo, (const QString &title, const QString &question), (override));
+	MOCK_METHOD(MessageBoxResponse, yesNoCancel, (const QString &title, const QString &question), (override));
+	MOCK_METHOD(void, ok, (const QString &title, const QString &info), (override));
+	MOCK_METHOD(bool, okCancel, (const QString &title, const QString &info), (override));
 };
 
-#endif //KSNIP_DELETEIMAGEOPERATIONTESTS_H
+#endif //KSNIP_MESSAGEBOXSERVICEMOCK_H

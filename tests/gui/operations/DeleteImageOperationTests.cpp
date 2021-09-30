@@ -17,54 +17,86 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "DeleteImageOperationTests.h"
+#include <gtest/gtest.h>
 
 #include "src/gui/operations/DeleteImageOperation.h"
-#include "tests/mocks/MessageBoxServiceMock.h"
-#include "tests/mocks/FileServiceMock.h"
 
-void DeleteImageOperationTests::Execute_Should_ReturnFalse_When_MessageBoxResponseWasCancel()
+#include "tests/mocks/gui/messageBoxService/MessageBoxServiceMock.h"
+#include "tests/mocks/gui/fileService/FileServiceMock.h"
+
+TEST(DeleteImageOperationTests, Execute_Should_ReturnFalse_When_MessageBoxResponseWasCancel)
 {
-	auto path = QLatin1Literal("/la/la");
-	auto messageBoxServiceMock = new MessageBoxServiceMock;
-	messageBoxServiceMock->okCancel_set(false);
-	auto fileServiceMock = new FileServiceMock;
-	DeleteImageOperation operation(path, fileServiceMock, messageBoxServiceMock);
+	// arrange
+	auto path = QString("/la/la");
+	MessageBoxServiceMock messageBoxServiceMock;
+	FileServiceMock fileServiceMock;
 
+	EXPECT_CALL(messageBoxServiceMock, okCancel(testing::_, testing::_))
+			.WillRepeatedly([=](const QString &title, const QString &question) {
+				return false;
+			});
+
+	DeleteImageOperation operation(path, &fileServiceMock, &messageBoxServiceMock);
+
+	EXPECT_CALL(fileServiceMock, remove(path)).Times(testing::Exactly(0));
+
+	// act
 	auto result = operation.execute();
 
-	QCOMPARE(result, false);
-	QCOMPARE(fileServiceMock->remove_callCounter(path), 0);
+	// assert
+	EXPECT_EQ(result, false);
 }
 
-void DeleteImageOperationTests::Execute_Should_ReturnTrue_When_MessageBoxResponseWasTrue_And_FileServiceSaveSuccessfully()
+TEST(DeleteImageOperationTests, Execute_Should_ReturnTrue_When_MessageBoxResponseWasTrue_And_FileServiceSaveSuccessfully)
 {
-	auto path = QLatin1Literal("/la/la");
-	auto messageBoxServiceMock = new MessageBoxServiceMock;
-	messageBoxServiceMock->okCancel_set(true);
-	auto fileServiceMock = new FileServiceMock;
-	fileServiceMock->remove_set(true);
-	DeleteImageOperation operation(path, fileServiceMock, messageBoxServiceMock);
+	// arrange
+	auto path = QString("/la/la");
+	MessageBoxServiceMock messageBoxServiceMock;
+	FileServiceMock fileServiceMock;
 
+	EXPECT_CALL(messageBoxServiceMock, okCancel(testing::_, testing::_))
+			.WillRepeatedly([=](const QString &title, const QString &question) {
+				return true;
+			});
+
+	EXPECT_CALL(fileServiceMock, remove(path))
+			.Times(testing::Exactly(1))
+			.WillRepeatedly([=](const QString &path) {
+				return true;
+			});
+
+	DeleteImageOperation operation(path, &fileServiceMock, &messageBoxServiceMock);
+
+	// act
 	auto result = operation.execute();
 
-	QCOMPARE(result, true);
-	QCOMPARE(fileServiceMock->remove_callCounter(path), 1);
+	// assert
+	EXPECT_EQ(result, true);
 }
 
-void DeleteImageOperationTests::Execute_Should_ReturnFalse_When_MessageBoxResponseWasTrue_And_FileServiceSaveFailed()
+TEST(DeleteImageOperationTests, Execute_Should_ReturnFalse_When_MessageBoxResponseWasTrue_And_FileServiceSaveFailed)
 {
-	auto path = QLatin1Literal("/la/la");
-	auto messageBoxServiceMock = new MessageBoxServiceMock;
-	messageBoxServiceMock->okCancel_set(true);
-	auto fileServiceMock = new FileServiceMock;
-	fileServiceMock->remove_set(false);
-	DeleteImageOperation operation(path, fileServiceMock, messageBoxServiceMock);
+	// arrange
+	auto path = QString("/la/la");
+	MessageBoxServiceMock messageBoxServiceMock;
+	FileServiceMock fileServiceMock;
 
+	EXPECT_CALL(messageBoxServiceMock, okCancel(testing::_, testing::_))
+			.WillRepeatedly([=](const QString &title, const QString &question) {
+				return true;
+			});
+
+	EXPECT_CALL(fileServiceMock, remove(path))
+			.Times(testing::Exactly(1))
+			.WillRepeatedly([=](const QString &path) {
+				return false;
+			});
+
+	DeleteImageOperation operation(path, &fileServiceMock, &messageBoxServiceMock);
+
+	// act
 	auto result = operation.execute();
 
-	QCOMPARE(result, false);
-	QCOMPARE(fileServiceMock->remove_callCounter(path), 1);
+	// assert
+	EXPECT_EQ(result, false);
 }
-
-QTEST_MAIN(DeleteImageOperationTests)

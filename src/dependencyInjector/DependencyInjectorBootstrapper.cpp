@@ -20,10 +20,11 @@
 #include "DependencyInjectorBootstrapper.h"
 
 #include "src/backend/config/Config.h"
-#include "src/backend/uploader/UploaderProvider.h"
+#include "src/backend/uploader/UploadHandler.h"
 #include "src/backend/uploader/ftp/FtpUploader.h"
 #include "src/backend/uploader/script/ScriptUploader.h"
 #include "src/backend/uploader/imgur/ImgurUploader.h"
+#include "src/backend/commandLine/CommandLineCaptureHandler.h"
 #include "src/logging/ConsoleLogger.h"
 #include "src/logging/NoneLogger.h"
 
@@ -47,8 +48,6 @@
 #include "src/backend/imageGrabber/WinImageGrabber.h"
 #endif
 
-int DependencyInjector::NextTypeId = 1;
-
 void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependencyInjector)
 {
 	injectConfig(dependencyInjector);
@@ -61,7 +60,8 @@ void DependencyInjectorBootstrapper::BootstrapCommandLine(DependencyInjector *de
 	dependencyInjector->registerFactory<IFtpUploader, FtpUploader, IConfig, ILogger>();
 	dependencyInjector->registerFactory<IScriptUploader, ScriptUploader, IConfig>();
 	dependencyInjector->registerFactory<IImgurUploader, ImgurUploader, IConfig>();
-	dependencyInjector->registerFactory<IUploaderProvider, UploaderProvider, IConfig, IFtpUploader, IScriptUploader, IImgurUploader>();
+	dependencyInjector->registerFactory<IUploadHandler, UploadHandler, IConfig, IFtpUploader, IScriptUploader, IImgurUploader>();
+	dependencyInjector->registerFactory<ICommandLineCaptureHandler, CommandLineCaptureHandler, IImageGrabber, IUploadHandler>();
 }
 
 void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *dependencyInjector)

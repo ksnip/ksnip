@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,21 +17,6 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IUPLOADERPROVIDER_H
-#define KSNIP_IUPLOADERPROVIDER_H
+#include "DependencyInjector.h"
 
-#include "IUploader.h"
-
-class IUploaderProvider : public QObject
-{
-	Q_OBJECT
-public:
-	IUploaderProvider() = default;
-	~IUploaderProvider() override = default;
-	virtual IUploader* get() = 0;
-
-signals:
-	void finished(const UploadResult &result);
-};
-
-#endif //KSNIP_IUPLOADERPROVIDER_H
+int DependencyInjector::NextTypeId = 1;

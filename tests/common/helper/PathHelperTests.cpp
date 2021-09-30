@@ -17,111 +17,162 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "PathHelperTests.h"
+#include <gtest/gtest.h>
 
 #include "src/common/helper/PathHelper.h"
 
-void PathHelperTests::IsPathValid_Should_ReturnFalse_When_StringEmpty()
+TEST(PathHelperTests, IsPathValid_Should_ReturnFalse_When_StringEmpty)
 {
+	// arrange
 	auto input = QStringLiteral("");
+
+	// act
 	auto result = PathHelper::isPathValid(input);
 
-	QCOMPARE(result, false);
+	// assert
+	EXPECT_EQ(result, false);
 }
 
-void PathHelperTests::IsPathValid_Should_ReturnFalse_When_StringNull()
+TEST(PathHelperTests, IsPathValid_Should_ReturnFalse_When_StringNull)
 {
+	// arrange
 	auto input = QString();
+
+	// act
 	auto result = PathHelper::isPathValid(input);
 
-	QCOMPARE(result, false);
+	// assert
+	EXPECT_EQ(result, false);
 }
 
-void PathHelperTests::IsPathValid_Should_ReturnTrue_When_StringHasContent()
+TEST(PathHelperTests, IsPathValid_Should_ReturnTrue_When_StringHasContent)
 {
+	// arrange
 	auto input = QStringLiteral("lala");
+
+	// act
 	auto result = PathHelper::isPathValid(input);
 
-	QCOMPARE(result, true);
+	// assert
+	EXPECT_EQ(result, true);
 }
 
-void PathHelperTests::IsPipePath_Should_ReturnTrue_When_PathIsDash()
+TEST(PathHelperTests, IsPipePath_Should_ReturnTrue_When_PathIsDash)
 {
+	// arrange
 	auto input = QStringLiteral("-");
+
+	// act
 	auto result = PathHelper::isPipePath(input);
 
-	QCOMPARE(result, true);
+	// assert
+	EXPECT_EQ(result, true);
 }
 
-void PathHelperTests::IsPipePath_Should_ReturnFalse_When_PathIsNull()
+TEST(PathHelperTests, IsPipePath_Should_ReturnFalse_When_PathIsNull)
 {
+	// arrange
 	auto input = QString();
+
+	// act
 	auto result = PathHelper::isPipePath(input);
 
-	QCOMPARE(result, false);
+	// assert
+	EXPECT_EQ(result, false);
 }
 
-void PathHelperTests::IsPipePath_Should_ReturnFalse_When_PathIsEmpty()
+TEST(PathHelperTests, IsPipePath_Should_ReturnFalse_When_PathIsEmpty)
 {
+	// arrange
 	auto input = QLatin1Literal("");
+
+	// act
 	auto result = PathHelper::isPipePath(input);
 
-	QCOMPARE(result, false);
+	// assert
+	EXPECT_EQ(result, false);
 }
 
-void PathHelperTests::ExtractParentDirectory_Should_ReturnStringWithParentDirectoryPath()
+TEST(PathHelperTests, ExtractParentDirectory_Should_ReturnStringWithParentDirectoryPath)
 {
+	// arrange
 	auto expected = QStringLiteral("/theRoot/theHome/myHome");
+
+	// act
 	auto result = PathHelper::extractParentDirectory(expected + QStringLiteral("/theFile.me"));
 
-	QCOMPARE(result, expected);
+	// assert
+	EXPECT_EQ(result, expected);
 }
 
-void PathHelperTests::ExtractFilename_Should_ReturnStringWithFilenameWithoutFormat_When_FormatExists()
+TEST(PathHelperTests, ExtractFilename_Should_ReturnStringWithFilenameWithoutFormat_When_FormatExists)
 {
+	// arrange
 	auto expected = QStringLiteral("theFile");
+
+	// act
 	auto result = PathHelper::extractFilename(QStringLiteral("/theRoot/theHome/myHome/") + expected + QStringLiteral(".me"));
 
-	QCOMPARE(result, expected);
+	// assert
+	EXPECT_EQ(result, expected);
 }
 
-void PathHelperTests::ExtractFilename_Should_ReturnStringWithFilenameWithoutFormat_When_NoFormatExists()
+TEST(PathHelperTests, ExtractFilename_Should_ReturnStringWithFilenameWithoutFormat_When_NoFormatExists)
 {
+	// arrange
 	auto expected = QStringLiteral("theFile");
+
+	// act
 	auto result = PathHelper::extractFilename(QStringLiteral("/theRoot/theHome/myHome/") + expected);
 
-	QCOMPARE(result, expected);
+	// assert
+	EXPECT_EQ(result, expected);
 }
 
-void PathHelperTests::ExtractFilenameWithFormat_Should_ReturnStringWithFilenameWithFormat_When_FormatExists()
+TEST(PathHelperTests, ExtractFilenameWithFormat_Should_ReturnStringWithFilenameWithFormat_When_FormatExists)
 {
+	// arrange
 	auto expected = QStringLiteral("theFile.me");
+
+	// act
 	auto result = PathHelper::extractFilenameWithFormat(QStringLiteral("/theRoot/theHome/myHome/") + expected);
 
-	QCOMPARE(result, expected);
+	// assert
+	EXPECT_EQ(result, expected);
 }
 
-void PathHelperTests::ExtractFilenameWithFormat_Should_ReturnStringWithFilenameWithFormat_When_NoFormatExists()
+TEST(PathHelperTests, ExtractFilenameWithFormat_Should_ReturnStringWithFilenameWithFormat_When_NoFormatExists)
 {
+	// arrange
 	auto expected = QStringLiteral("theFile");
+
+	// act
 	auto result = PathHelper::extractFilenameWithFormat(QStringLiteral("/theRoot/theHome/myHome/") + expected);
 
-	QCOMPARE(result, expected);
+	// assert
+	EXPECT_EQ(result, expected);
 }
 
-void PathHelperTests::ExtractFormat_Should_ReturnWithFormat_When_FormatExists()
+TEST(PathHelperTests, ExtractFormat_Should_ReturnWithFormat_When_FormatExists)
 {
+	// arrange
 	auto expected = QStringLiteral("me");
+
+	// act
 	auto result = PathHelper::extractFormat(QStringLiteral("/theRoot/theHome/myHome/theFile.") + expected);
 
-	QCOMPARE(result, expected);
+	// assert
+	EXPECT_EQ(result, expected);
 }
 
-void PathHelperTests::ExtractFormat_Should_ReturnEmptyString_When_NoFormatExists()
+TEST(PathHelperTests, ExtractFormat_Should_ReturnEmptyString_When_NoFormatExists)
 {
-	auto result = PathHelper::extractFormat(QStringLiteral("/theRoot/theHome/myHome/theFile"));
+	// arrange
+	auto path = QStringLiteral("/theRoot/theHome/myHome/theFile");
 
-	QCOMPARE(result, QStringLiteral(""));
+	// act
+	auto result = PathHelper::extractFormat(path);
+
+	// assert
+	EXPECT_EQ(result, QStringLiteral(""));
 }
-
-QTEST_MAIN(PathHelperTests)

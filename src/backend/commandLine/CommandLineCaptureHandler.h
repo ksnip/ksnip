@@ -22,32 +22,27 @@
 
 #include <QObject>
 
+#include "ICommandLineCaptureHandler.h"
 #include "CommandLineCaptureParameter.h"
 #include "src/backend/imageGrabber/IImageGrabber.h"
 #include "src/backend/saver/ImageSaver.h"
 #include "src/backend/saver/SavePathProvider.h"
-#include "src/backend/uploader/UploaderProvider.h"
+#include "src/backend/uploader/IUploadHandler.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/helper/EnumTranslator.h"
 #include "src/dependencyInjector/DependencyInjector.h"
 
-class CommandLineCaptureHandler : public QObject
+class CommandLineCaptureHandler : public ICommandLineCaptureHandler
 {
-	Q_OBJECT
-
 public:
-	explicit CommandLineCaptureHandler(DependencyInjector *dependencyInjector);
+	explicit CommandLineCaptureHandler(const QSharedPointer<IImageGrabber> &imageGrabber, const QSharedPointer<IUploadHandler> &uploadHandler);
 	~CommandLineCaptureHandler() override = default;
-	void captureAndProcessScreenshot(const CommandLineCaptureParameter &parameter);
-	QList<CaptureModes> supportedCaptureModes() const;
-
-signals:
-	void finished(const CaptureDto &captureDto);
-	void canceled();
+	void captureAndProcessScreenshot(const CommandLineCaptureParameter &parameter) override;
+	QList<CaptureModes> supportedCaptureModes() const override;
 
 private:
 	QSharedPointer<IImageGrabber> mImageGrabber;
-	QSharedPointer<IUploaderProvider> mUploadProvider;
+	QSharedPointer<IUploadHandler> mUploadHandler;
 	QString mSavePath;
 	bool mIsWithSave;
 	bool mIsWithUpload;
@@ -55,9 +50,8 @@ private:
 
 private slots:
 	void processCapture(const CaptureDto &capture);
-	void saveCapture(const CaptureDto &capture) const;
+	void saveCapture(const CaptureDto &capture);
 	void uploadFinished(const UploadResult &result);
 };
-
 
 #endif //KSNIP_COMMANDLINECAPTUREHANDLER_H

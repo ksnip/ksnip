@@ -22,15 +22,11 @@
 
 #include "src/backend/uploader/IUploader.h"
 
-class IFtpUploader : public QObject, public IUploader
+class IFtpUploader : public IUploader
 {
-	Q_OBJECT
 public:
 	IFtpUploader() = default;
 	~IFtpUploader() override = default;
-
-signals:
-	void finished(const UploadResult &result);
 };
 
 #endif //KSNIP_IFTPUPLOADER_H

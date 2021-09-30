@@ -17,13 +17,13 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "RecentImagesPathStoreTests.h"
+#include <gtest/gtest.h>
 
 #include "src/backend/recentImages/RecentImagesPathStore.h"
 
-#include "tests/mocks/ImagePathStorageMock.h"
+#include "tests/mocks/backend/recentImages/ImagePathStorageMock.h"
 
-void RecentImagesPathStoreTests::GetRecentImagesPath_Should_ReturnEmptyStringList_When_Initialized()
+TEST(RecentImagesPathStoreTests, GetRecentImagesPath_Should_ReturnEmptyStringList_When_Initialized)
 {
 	// arrange
 	auto imagePathStorageMock = new ImagePathStorageMock;
@@ -33,10 +33,10 @@ void RecentImagesPathStoreTests::GetRecentImagesPath_Should_ReturnEmptyStringLis
 	auto recentImagesPath = recentImagesPathStore.getRecentImagesPath();
 
 	// assert
-	QCOMPARE(recentImagesPath.size(), 0);
+	EXPECT_EQ(recentImagesPath.size(), 0);
 }
 
-void RecentImagesPathStoreTests::GetRecentImagesPath_Should_ReturnNonEmptyStringList_When_ImagesAreStored()
+TEST(RecentImagesPathStoreTests, GetRecentImagesPath_Should_ReturnNonEmptyStringList_When_ImagesAreStored)
 {
 	// arrange
 	auto imagePathStorageMock = new ImagePathStorageMock;
@@ -48,12 +48,12 @@ void RecentImagesPathStoreTests::GetRecentImagesPath_Should_ReturnNonEmptyString
 	auto recentImagesPath =	recentImagesPathStore.getRecentImagesPath();
 
 	// assert
-	QCOMPARE(recentImagesPath.size(), 2);
-	QCOMPARE(recentImagesPath.at(0), QStringLiteral("/path/image2.png"));
-	QCOMPARE(recentImagesPath.at(1), QStringLiteral("/path/image.png"));
+	EXPECT_EQ(recentImagesPath.size(), 2);
+	EXPECT_EQ(recentImagesPath.at(0), QStringLiteral("/path/image2.png"));
+	EXPECT_EQ(recentImagesPath.at(1), QStringLiteral("/path/image.png"));
 }
 
-void RecentImagesPathStoreTests::GetRecentImagesPath_Should_ReturnListOfEntriesInReversedOrder()
+TEST(RecentImagesPathStoreTests, GetRecentImagesPath_Should_ReturnListOfEntriesInReversedOrder)
 {
 	// arrange
 	auto imagePathStorageMock = new ImagePathStorageMock;
@@ -73,39 +73,39 @@ void RecentImagesPathStoreTests::GetRecentImagesPath_Should_ReturnListOfEntriesI
 	auto recentImagesPath =	recentImagesPathStore.getRecentImagesPath();
 
 	// assert
-	QCOMPARE(recentImagesPath.size(), 10);
-	QCOMPARE(recentImagesPath[0], QStringLiteral("/path/image10.png"));
-	QCOMPARE(recentImagesPath[1], QStringLiteral("/path/image9.png"));
-	QCOMPARE(recentImagesPath[2], QStringLiteral("/path/image8.png"));
-	QCOMPARE(recentImagesPath[3], QStringLiteral("/path/image7.png"));
-	QCOMPARE(recentImagesPath[4], QStringLiteral("/path/image6.png"));
-	QCOMPARE(recentImagesPath[5], QStringLiteral("/path/image5.png"));
-	QCOMPARE(recentImagesPath[6], QStringLiteral("/path/image4.png"));
-	QCOMPARE(recentImagesPath[7], QStringLiteral("/path/image3.png"));
-	QCOMPARE(recentImagesPath[8], QStringLiteral("/path/image2.png"));
-	QCOMPARE(recentImagesPath[9], QStringLiteral("/path/image1.png"));
+	EXPECT_EQ(recentImagesPath.size(), 10);
+	EXPECT_EQ(recentImagesPath[0], QStringLiteral("/path/image10.png"));
+	EXPECT_EQ(recentImagesPath[1], QStringLiteral("/path/image9.png"));
+	EXPECT_EQ(recentImagesPath[2], QStringLiteral("/path/image8.png"));
+	EXPECT_EQ(recentImagesPath[3], QStringLiteral("/path/image7.png"));
+	EXPECT_EQ(recentImagesPath[4], QStringLiteral("/path/image6.png"));
+	EXPECT_EQ(recentImagesPath[5], QStringLiteral("/path/image5.png"));
+	EXPECT_EQ(recentImagesPath[6], QStringLiteral("/path/image4.png"));
+	EXPECT_EQ(recentImagesPath[7], QStringLiteral("/path/image3.png"));
+	EXPECT_EQ(recentImagesPath[8], QStringLiteral("/path/image2.png"));
+	EXPECT_EQ(recentImagesPath[9], QStringLiteral("/path/image1.png"));
 }
 
-void RecentImagesPathStoreTests::StoreImagesPath_Should_NotSavePath_When_PathAlreadyStored()
+TEST(RecentImagesPathStoreTests, StoreImagesPath_Should_NotSavePath_When_PathAlreadyStored)
 {
 	// arrange
+	auto path1 = QStringLiteral("/path/image.png");
+	auto path2 = QStringLiteral("/path/image2.png");
 	auto imagePathStorageMock = new ImagePathStorageMock;
 	RecentImagesPathStore recentImagesPathStore(imagePathStorageMock);
-	recentImagesPathStore.storeImagePath("/path/image.png");
-	recentImagesPathStore.storeImagePath("/path/image2.png");
+
+	EXPECT_CALL(*imagePathStorageMock, store(path1, 0)).Times(testing::Exactly(1));
 
 	// act
-	recentImagesPathStore.storeImagePath("/path/image.png");
+	recentImagesPathStore.storeImagePath(path1);
+	recentImagesPathStore.storeImagePath(path1);
 
 	// assert
 	auto recentImagesPath =	recentImagesPathStore.getRecentImagesPath();
-	QCOMPARE(recentImagesPath.size(), 2);
-	QCOMPARE(imagePathStorageMock->count(), 2);
-	QCOMPARE(imagePathStorageMock->store_callCounter(0), 1);
-	QCOMPARE(imagePathStorageMock->store_callCounter(1), 1);
+	EXPECT_EQ(recentImagesPath.size(), 1);
 }
 
-void RecentImagesPathStoreTests::StoreImagesPath_Should_DropOlderPaths_When_MoreThenTenPathsAdded()
+TEST(RecentImagesPathStoreTests, StoreImagesPath_Should_DropOlderPaths_When_MoreThenTenPathsAdded)
 {
 	// arrange
 	auto imagePathStorageMock = new ImagePathStorageMock;
@@ -127,17 +127,15 @@ void RecentImagesPathStoreTests::StoreImagesPath_Should_DropOlderPaths_When_More
 
 	// assert
 	auto recentImagesPath =	recentImagesPathStore.getRecentImagesPath();
-	QCOMPARE(recentImagesPath.size(), 10);
-	QCOMPARE(recentImagesPath[0], QStringLiteral("/path/image12.png"));
-	QCOMPARE(recentImagesPath[1], QStringLiteral("/path/image11.png"));
-	QCOMPARE(recentImagesPath[2], QStringLiteral("/path/image10.png"));
-	QCOMPARE(recentImagesPath[3], QStringLiteral("/path/image9.png"));
-	QCOMPARE(recentImagesPath[4], QStringLiteral("/path/image8.png"));
-	QCOMPARE(recentImagesPath[5], QStringLiteral("/path/image7.png"));
-	QCOMPARE(recentImagesPath[6], QStringLiteral("/path/image6.png"));
-	QCOMPARE(recentImagesPath[7], QStringLiteral("/path/image5.png"));
-	QCOMPARE(recentImagesPath[8], QStringLiteral("/path/image4.png"));
-	QCOMPARE(recentImagesPath[9], QStringLiteral("/path/image3.png"));
+	EXPECT_EQ(recentImagesPath.size(), 10);
+	EXPECT_EQ(recentImagesPath[0], QStringLiteral("/path/image12.png"));
+	EXPECT_EQ(recentImagesPath[1], QStringLiteral("/path/image11.png"));
+	EXPECT_EQ(recentImagesPath[2], QStringLiteral("/path/image10.png"));
+	EXPECT_EQ(recentImagesPath[3], QStringLiteral("/path/image9.png"));
+	EXPECT_EQ(recentImagesPath[4], QStringLiteral("/path/image8.png"));
+	EXPECT_EQ(recentImagesPath[5], QStringLiteral("/path/image7.png"));
+	EXPECT_EQ(recentImagesPath[6], QStringLiteral("/path/image6.png"));
+	EXPECT_EQ(recentImagesPath[7], QStringLiteral("/path/image5.png"));
+	EXPECT_EQ(recentImagesPath[8], QStringLiteral("/path/image4.png"));
+	EXPECT_EQ(recentImagesPath[9], QStringLiteral("/path/image3.png"));
 }
-
-QTEST_MAIN(RecentImagesPathStoreTests)

@@ -20,18 +20,24 @@
 #ifndef KSNIP_IUPLOADER_H
 #define KSNIP_IUPLOADER_H
 
+#include <QObject>
+
 #include "UploadResult.h"
 #include "src/common/enum/UploaderType.h"
 
-class IUploader
+class QImage;
+
+class IUploader : public QObject
 {
+Q_OBJECT
 public:
-	virtual ~IUploader() = default;
+	IUploader() = default;
+	~IUploader() override = default;
 	virtual void upload(const QImage &image) = 0;
 	virtual UploaderType type() const = 0;
 
-protected:
-	virtual void finished(const UploadResult &result) = 0;
+signals:
+	void finished(const UploadResult &result);
 };
 
 #endif //KSNIP_IUPLOADER_H

@@ -27,7 +27,7 @@
 class FileService : public IFileService
 {
 public:
-	explicit FileService() { qDebug("FileService"); };
+	explicit FileService() = default;
 	~FileService() override = default;
 	bool remove(const QString &path) override;
 	QPixmap openPixmap(const QString &path) override;

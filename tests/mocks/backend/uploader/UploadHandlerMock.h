@@ -17,16 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IIMGURUPLOADER_H
-#define KSNIP_IIMGURUPLOADER_H
+#ifndef KSNIP_UPLOADHANDLERMOCK_H
+#define KSNIP_UPLOADHANDLERMOCK_H
 
-#include "src/backend/uploader/IUploader.h"
+#include <gmock/gmock.h>
 
-class IImgurUploader : public IUploader
+#include "src/backend/uploader/IUploadHandler.h"
+
+class UploadHandlerMock : public IUploadHandler
 {
 public:
-	explicit IImgurUploader() = default;
-	~IImgurUploader() override = default;
+	MOCK_METHOD(void, upload, (const QImage &image), (override));
+	MOCK_METHOD(UploaderType, type, (), (const, override));
+	MOCK_METHOD(void, finished, ());
 };
 
-#endif //KSNIP_IIMGURUPLOADER_H
+#endif //KSNIP_UPLOADHANDLERMOCK_H

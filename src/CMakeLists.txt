@@ -6,11 +6,13 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/config/ConfigProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/commandLine/CommandLine.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/commandLine/CommandLineCaptureHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/commandLine/ICommandLineCaptureHandler.h
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/IImageGrabber.h
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractImageGrabber.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/AbstractRectAreaImageGrabber.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/uploader/IUploaderProvider.h
-	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploaderProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/IUploader.h
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/UploadHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/backend/uploader/IUploadHandler.h
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/IImgurUploader.h
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurWrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/uploader/imgur/ImgurResponse.cpp
@@ -53,7 +55,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/provider/ScaledSizeProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/TempFileProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
-	${CMAKE_SOURCE_DIR}/src/dependencyInjector/DependencyInjector.h
+	${CMAKE_SOURCE_DIR}/src/dependencyInjector/DependencyInjector.cpp
 	${CMAKE_SOURCE_DIR}/src/dependencyInjector/DependencyInjectorBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomToolButton.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomCursor.cpp

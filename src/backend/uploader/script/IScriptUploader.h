@@ -22,15 +22,11 @@
 
 #include "src/backend/uploader/IUploader.h"
 
-class IScriptUploader : public QObject, public IUploader
+class IScriptUploader : public IUploader
 {
-	Q_OBJECT
 public:
 	IScriptUploader() = default;
 	~IScriptUploader() override = default;
-
-signals:
-	void finished(const UploadResult &result) override;
 };
 
 #endif //KSNIP_ISCRIPTUPLOADER_H

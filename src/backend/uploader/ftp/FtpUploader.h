@@ -32,7 +32,6 @@
 
 class FtpUploader : public IFtpUploader
 {
-	Q_OBJECT
 public:
 	FtpUploader(const QSharedPointer<IConfig> &config, const QSharedPointer<ILogger> &logger);
 	~FtpUploader() override = default;

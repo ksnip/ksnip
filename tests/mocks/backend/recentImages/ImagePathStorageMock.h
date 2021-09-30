@@ -17,16 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IIMGURUPLOADER_H
-#define KSNIP_IIMGURUPLOADER_H
+#ifndef KSNIP_IMAGEPATHSTORAGEMOCK_H
+#define KSNIP_IMAGEPATHSTORAGEMOCK_H
 
-#include "src/backend/uploader/IUploader.h"
+#include <gmock/gmock.h>
 
-class IImgurUploader : public IUploader
+#include "src/backend/recentImages/IImagePathStorage.h"
+
+class ImagePathStorageMock :  public IImagePathStorage
 {
 public:
-	explicit IImgurUploader() = default;
-	~IImgurUploader() override = default;
+	MOCK_METHOD(void, store, (const QString &value, int index), (override));
+	MOCK_METHOD(QString, load, (int index), (override));
+	MOCK_METHOD(int, count, (), (override));
 };
 
-#endif //KSNIP_IIMGURUPLOADER_H
+#endif //KSNIP_IMAGEPATHSTORAGEMOCK_H

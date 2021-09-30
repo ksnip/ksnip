@@ -33,13 +33,13 @@ class UploadOperation : public QObject
 {
 	Q_OBJECT
 public:
-	UploadOperation(QImage image, IUploader *uploader);
+	UploadOperation(QImage image, const QSharedPointer<IUploader> &uploader);
 	~UploadOperation() override;
 	bool execute();
 
 private:
 	Config *mConfig;
-	IUploader *mUploader;
+	QSharedPointer<IUploader> mUploader;
 	QImage mImage;
 	IMessageBoxService *mMessageBoxService;
 

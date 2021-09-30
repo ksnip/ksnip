@@ -29,8 +29,8 @@
 #include "src/gui/MainWindow.h"
 #include "src/backend/TranslationLoader.h"
 #include "src/backend/commandLine/CommandLine.h"
-#include "src/backend/commandLine/CommandLineCaptureHandler.h"
-#include "src/logging/LoggerProvider.h"
+#include "src/backend/commandLine/ICommandLineCaptureHandler.h"
+#include "src/backend/commandLine/CommandLineCaptureParameter.h"
 #include "src/dependencyInjector/DependencyInjectorBootstrapper.h"
 
 class StandAloneBootstrapper : public QObject, public IBootstrapper
@@ -61,7 +61,7 @@ protected:
 private:
 	DependencyInjector *mDependencyInjector;
 	CommandLine *mCommandLine;
-	CommandLineCaptureHandler *mCommandLineCaptureHandler;
+	QSharedPointer<ICommandLineCaptureHandler> mCommandLineCaptureHandler;
 
 	static void loadTranslations(const QApplication &app);
 	virtual void createMainWindow();

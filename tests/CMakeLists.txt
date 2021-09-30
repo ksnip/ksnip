@@ -1,27 +1,34 @@
+find_package(GTest REQUIRED)
+include(GoogleTest)
+
+enable_testing()
+
 set(UNITTEST_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/backend/recentImages/RecentImagesPathStoreTests.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/backend/commandLine/CommandLineCaptureHandlerTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/common/helper/PathHelperTests.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionTest.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionTest.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionProcessorTest.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/MultiCaptureHandlerTests.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/SingleCaptureHandlerTests.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/DeleteImageOperationTests.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/LoadImageFromFileOperationTests.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/MultiCaptureHandlerTests.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/SingleCaptureHandlerTests.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/DeleteImageOperationTests.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/LoadImageFromFileOperationTests.cpp
 	)
 
 set(TESTUTILS_SRC
-	${CMAKE_CURRENT_SOURCE_DIR}/utils/CallCounter.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/CaptureTabStateHandlerMock.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ImageAnnotatorMock.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ClipboardMock.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/DesktopServiceMock.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/MessageBoxServiceMock.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/FileServiceMock.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ServiceLocatorMock.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ImagePathStorageMock.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ToastServiceMock.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/RecentImageServiceMock.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ImageProcessorMock.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/utils/CallCounter.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/mocks/CaptureTabStateHandlerMock.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ImageAnnotatorMock.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ClipboardMock.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/mocks/DesktopServiceMock.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/mocks/MessageBoxServiceMock.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/mocks/FileServiceMock.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ServiceLocatorMock.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ToastServiceMock.cpp
+#	${CMAKE_CURRENT_SOURCE_DIR}/mocks/ImageProcessorMock.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/backend/uploader/UploadHandlerMock.h
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/backend/imageGrabber/ImageGrabberMock.h
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/backend/recentImages/ImagePathStorageMock.h
 	)
 
 add_library(KSNIP_STATIC STATIC ${KSNIP_SRCS})
@@ -62,7 +69,7 @@ endif ()
 
 foreach (UnitTest ${UNITTEST_SRC})
 	get_filename_component(UnitTestName ${UnitTest} NAME_WE)
-	add_executable(${UnitTestName} ${UnitTest} ${TESTUTILS_SRC})
-	target_link_libraries(${UnitTestName} KSNIP_STATIC Qt5::Test)
-	add_test(${UnitTestName} ${UnitTestName})
+	add_executable(${UnitTestName} ${UnitTest} ${TESTUTILS_SRC} )
+	target_link_libraries(${UnitTestName} GTest::gtest gmock gtest_main Qt5::Test KSNIP_STATIC)
+	gtest_add_tests(TARGET ${UnitTestName})
 endforeach (UnitTest)

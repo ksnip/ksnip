@@ -76,6 +76,5 @@ add_subdirectory(desktop)
 if (BUILD_TESTS)
 	configure_file(src/BuildConfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/tests/BuildConfig.h)
 
-	enable_testing()
 	add_subdirectory(tests)
 endif (BUILD_TESTS)

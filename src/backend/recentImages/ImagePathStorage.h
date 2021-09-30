@@ -39,5 +39,4 @@ private:
 	const QString mSettingsGroupKey;
 };
 
-
 #endif //KSNIP_IMAGEPATHSTORAGE_H

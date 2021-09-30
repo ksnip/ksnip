@@ -51,7 +51,7 @@
 #include "src/gui/windowResizer/WindowResizer.h"
 #include "src/widgets/MainToolBar.h"
 #include "src/backend/config/ConfigProvider.h"
-#include "src/backend/uploader/UploaderProvider.h"
+#include "src/backend/uploader/UploadHandler.h"
 #include "src/backend/CapturePrinter.h"
 #include "src/backend/imageGrabber/IImageGrabber.h"
 #include "src/common/loader/IconLoader.h"
@@ -128,7 +128,7 @@ private:
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
     TrayIcon *mTrayIcon;
 	DragAndDropProcessor *mDragAndDropProcessor;
-	QSharedPointer<IUploaderProvider> mUploaderProvider;
+	QSharedPointer<IUploadHandler> mUploadHandler;
 	ICaptureHandler *mCaptureHandler;
 	PinWindowHandler *mPinWindowHandler;
 	WidgetVisibilityHandler *mVisibilityHandler;

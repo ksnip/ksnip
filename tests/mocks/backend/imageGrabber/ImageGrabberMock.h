@@ -17,16 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IIMGURUPLOADER_H
-#define KSNIP_IIMGURUPLOADER_H
+#ifndef KSNIP_IMAGEGRABBERMOCK_H
+#define KSNIP_IMAGEGRABBERMOCK_H
 
-#include "src/backend/uploader/IUploader.h"
+#include <gmock/gmock.h>
 
-class IImgurUploader : public IUploader
+#include "src/backend/imageGrabber/IImageGrabber.h"
+
+class ImageGrabberMock : public IImageGrabber
 {
 public:
-	explicit IImgurUploader() = default;
-	~IImgurUploader() override = default;
+	MOCK_METHOD(bool, isCaptureModeSupported, (CaptureModes captureMode), (const, override));
+	MOCK_METHOD(QList<CaptureModes>, supportedCaptureModes, (), (const, override));
+	MOCK_METHOD(void, grabImage, (CaptureModes captureMode, bool captureCursor, int delay), (override));
 };
 
-#endif //KSNIP_IIMGURUPLOADER_H
+#endif //KSNIP_IMAGEGRABBERMOCK_H

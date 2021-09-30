@@ -19,7 +19,7 @@
 
 #include "UploadOperation.h"
 
-UploadOperation::UploadOperation(QImage image, IUploader* uploader) :
+UploadOperation::UploadOperation(QImage image, const QSharedPointer<IUploader> &uploader) :
 	mImage(std::move(image)),
 	mUploader(uploader),
 	mConfig(ConfigProvider::instance()),

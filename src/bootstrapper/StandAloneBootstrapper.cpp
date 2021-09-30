@@ -32,7 +32,6 @@ StandAloneBootstrapper::StandAloneBootstrapper(DependencyInjector *dependencyInj
 StandAloneBootstrapper::~StandAloneBootstrapper()
 {
 	delete mCommandLine;
-	delete mCommandLineCaptureHandler;
 }
 
 int StandAloneBootstrapper::start(const QApplication &app)
@@ -62,8 +61,8 @@ int StandAloneBootstrapper::start(const QApplication &app)
 
 int StandAloneBootstrapper::takeCaptureAndProcess(const QApplication &app)
 {
-	connect(mCommandLineCaptureHandler, &CommandLineCaptureHandler::finished, this, &StandAloneBootstrapper::close);
-	connect(mCommandLineCaptureHandler, &CommandLineCaptureHandler::canceled, this, &StandAloneBootstrapper::close);
+	connect(mCommandLineCaptureHandler.data(), &ICommandLineCaptureHandler::finished, this, &StandAloneBootstrapper::close);
+	connect(mCommandLineCaptureHandler.data(), &ICommandLineCaptureHandler::canceled, this, &StandAloneBootstrapper::close);
 
 	CommandLineCaptureParameter parameter(getCaptureMode(), getDelay(), getCaptureCursor());
 	parameter.isWithSave = getIsSave();
@@ -110,8 +109,8 @@ int StandAloneBootstrapper::takeCaptureAndStartKsnip(const QApplication &app)
 {
 	loadTranslations(app);
 
-	connect(mCommandLineCaptureHandler, &CommandLineCaptureHandler::finished, this, &StandAloneBootstrapper::openMainWindow);
-	connect(mCommandLineCaptureHandler, &CommandLineCaptureHandler::canceled, this, &StandAloneBootstrapper::close);
+	connect(mCommandLineCaptureHandler.data(), &ICommandLineCaptureHandler::finished, this, &StandAloneBootstrapper::openMainWindow);
+	connect(mCommandLineCaptureHandler.data(), &ICommandLineCaptureHandler::canceled, this, &StandAloneBootstrapper::close);
 
 	CommandLineCaptureParameter parameter(getCaptureMode(), getDelay(), getCaptureCursor());
 
@@ -235,7 +234,7 @@ void StandAloneBootstrapper::createCommandLineParser(const QApplication &app)
 
 	DependencyInjectorBootstrapper::BootstrapCommandLine(mDependencyInjector);
 
-	mCommandLineCaptureHandler = new CommandLineCaptureHandler(mDependencyInjector);
+	mCommandLineCaptureHandler = mDependencyInjector->getObject<ICommandLineCaptureHandler>();
 	mCommandLine = new CommandLine (app, mCommandLineCaptureHandler->supportedCaptureModes());
 }
 

@@ -19,18 +19,18 @@
 
 #include "CommandLineCaptureHandler.h"
 
-CommandLineCaptureHandler::CommandLineCaptureHandler(DependencyInjector *dependencyInjector) :
-	mImageGrabber(dependencyInjector->getObject<IImageGrabber>()),
-	mUploadProvider(dependencyInjector->getObject<IUploaderProvider>()),
+CommandLineCaptureHandler::CommandLineCaptureHandler(
+		const QSharedPointer<IImageGrabber> &imageGrabber,
+		const QSharedPointer<IUploadHandler> &uploadHandler) :
+	mImageGrabber(imageGrabber),
+	mUploadHandler(uploadHandler),
 	mIsWithSave(false),
 	mIsWithUpload(false)
 {
-	Q_ASSERT(mImageGrabber != nullptr);
-	
 	connect(mImageGrabber.data(), &IImageGrabber::finished, this, &CommandLineCaptureHandler::processCapture);
 	connect(mImageGrabber.data(), &IImageGrabber::canceled, this, &CommandLineCaptureHandler::canceled);
 
-	connect(mUploadProvider.data(), &IUploaderProvider::finished, this, &CommandLineCaptureHandler::uploadFinished);
+	connect(mUploadHandler.data(), &IUploader::finished, this, &CommandLineCaptureHandler::uploadFinished);
 }
 
 void CommandLineCaptureHandler::captureAndProcessScreenshot(const CommandLineCaptureParameter &parameter)
@@ -50,13 +50,13 @@ void CommandLineCaptureHandler::processCapture(const CaptureDto &capture)
 	}
 
 	if (mIsWithUpload) {
-		mUploadProvider->get()->upload(capture.screenshot.toImage());
+		mUploadHandler->upload(capture.screenshot.toImage());
 	} else {
 		finished(mCurrentCapture);
 	}
 }
 
-void CommandLineCaptureHandler::saveCapture(const CaptureDto &capture) const
+void CommandLineCaptureHandler::saveCapture(const CaptureDto &capture)
 {
 	SavePathProvider savePathProvider;
 	ImageSaver imageSaver;

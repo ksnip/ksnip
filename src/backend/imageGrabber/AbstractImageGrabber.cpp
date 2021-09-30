@@ -25,7 +25,6 @@ AbstractImageGrabber::AbstractImageGrabber() :
     mCaptureDelay(0),
     mCaptureMode(CaptureModes::FullScreen)
 {
-	qDebug("AbstractImageGrabber");
 }
 
 bool AbstractImageGrabber::isCaptureModeSupported(CaptureModes captureMode) const

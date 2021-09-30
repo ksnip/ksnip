@@ -57,7 +57,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 	mTrayIcon(new TrayIcon(this)),
 	mDragAndDropProcessor(new DragAndDropProcessor(this)),
-	mUploaderProvider(mDependencyInjector->getObject<IUploaderProvider>()),
+	mUploadHandler(mDependencyInjector->getObject<IUploadHandler>()),
 	mSessionManagerRequestedQuit(false),
 	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, NotificationServiceFactory::create(mTrayIcon), mServiceLocator, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
@@ -88,7 +88,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::captureTriggered, this, &MainWindow::triggerCapture);
 	connect(mGlobalHotKeyHandler, &GlobalHotKeyHandler::actionTriggered, this, &MainWindow::actionTriggered);
 
-	connect(mUploaderProvider.data(), &UploaderProvider::finished, this, &MainWindow::uploadFinished);
+	connect(mUploadHandler.data(), &IUploadHandler::finished, this, &MainWindow::uploadFinished);
 
 	connect(mRecentImagesMenu, &RecentImagesMenu::openRecentSelected, this, &MainWindow::loadImageFromFile);
 
@@ -561,7 +561,7 @@ void MainWindow::copyCaptureToClipboard()
 void MainWindow::upload()
 {
 	auto image = mCaptureHandler->image();
-	UploadOperation operation(image, mUploaderProvider->get());
+	UploadOperation operation(image, mUploadHandler);
 	operation.execute();
 }
 

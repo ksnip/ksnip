@@ -32,7 +32,7 @@ jobs:
 
       - name: Set up GoogleTest
         run: bash ./.github/scripts/setup_googleTest.sh
-        
+
       - name: Set up kColorPicker
         run: bash ./.github/scripts/setup_kColorPicker.sh
 

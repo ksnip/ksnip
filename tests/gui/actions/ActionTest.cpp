@@ -17,27 +17,13 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "ActionTest.h"
+#include <gtest/gtest.h>
 
 #include "src/gui/actions/Action.h"
 
-void ActionTest::EqualsOperator_Should_ReturnTrue_When_AllValuesMatch()
+TEST(ActionTest, EqualsOperator_Should_ReturnTrue_When_AllValuesMatch)
 {
 	// arrange
-	QFETCH(QString, name);
-	QFETCH(QKeySequence, shortcut);
-	QFETCH(bool, captureEnabled);
-	QFETCH(bool, includeCursor);
-	QFETCH(int, delay);
-	QFETCH(CaptureModes, captureMode);
-	QFETCH(bool, save);
-	QFETCH(bool, copy);
-	QFETCH(bool, upload);
-	QFETCH(bool, openDirectory);
-	QFETCH(bool, pin);
-	QFETCH(bool, hide);
-	QFETCH(bool, expected);
-
 	Action action1;
 	action1.setName("Name");
 	action1.setShortcut(Qt::CTRL + Qt::Key_A);
@@ -49,59 +35,482 @@ void ActionTest::EqualsOperator_Should_ReturnTrue_When_AllValuesMatch()
 	action1.setIsCopyToClipboardEnabled(true);
 	action1.setIsUploadEnabled(true);
 	action1.setIsOpenDirectoryEnabled(true);
-	action1.setIsPinScreenshotEnabled(true);
+	action1.setIsPinImageEnabled(true);
 	action1.setIsHideMainWindowEnabled(true);
 
 	Action action2;
-	action2.setName(name);
-	action2.setShortcut(shortcut);
-	action2.setIsCaptureEnabled(captureEnabled);
-	action2.setIncludeCursor(includeCursor);
-	action2.setCaptureDelay(delay);
-	action2.setCaptureMode(captureMode);
-	action2.setIsSaveEnabled(save);
-	action2.setIsCopyToClipboardEnabled(copy);
-	action2.setIsUploadEnabled(upload);
-	action2.setIsOpenDirectoryEnabled(openDirectory);
-	action2.setIsPinScreenshotEnabled(pin);
-	action2.setIsHideMainWindowEnabled(hide);
+	action2.setName(action1.name());
+	action2.setShortcut(action1.shortcut());
+	action2.setIsCaptureEnabled(action1.isCaptureEnabled());
+	action2.setIncludeCursor(action1.includeCursor());
+	action2.setCaptureDelay(action1.captureDelay());
+	action2.setCaptureMode(action1.captureMode());
+	action2.setIsSaveEnabled(action1.isSaveEnabled());
+	action2.setIsCopyToClipboardEnabled(action1.isCopyToClipboardEnabled());
+	action2.setIsUploadEnabled(action1.isUploadEnabled());
+	action2.setIsOpenDirectoryEnabled(action1.isOpenDirectoryEnabled());
+	action2.setIsPinImageEnabled(action1.isPinImageEnabled());
+	action2.setIsHideMainWindowEnabled(action1.isHideMainWindowEnabled());
 
 	// act
 	auto result = action1 == action2;
 
 	// assert
-	QCOMPARE(result, expected);
+	EXPECT_TRUE(result);
 }
 
-void ActionTest::EqualsOperator_Should_ReturnTrue_When_AllValuesMatch_data()
+TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_NameIsDifferent)
 {
-	QTest::addColumn<QString>("name");
-	QTest::addColumn<QKeySequence>("shortcut");
-	QTest::addColumn<bool>("captureEnabled");
-	QTest::addColumn<bool>("includeCursor");
-	QTest::addColumn<int>("delay");
-	QTest::addColumn<CaptureModes>("captureMode");
-	QTest::addColumn<bool>("save");
-	QTest::addColumn<bool>("copy");
-	QTest::addColumn<bool>("upload");
-	QTest::addColumn<bool>("openDirectory");
-	QTest::addColumn<bool>("pin");
-	QTest::addColumn<bool>("hide");
-	QTest::addColumn<bool>("expected");
+	// arrange
+	Action action1;
+	action1.setName("Name");
+	action1.setShortcut(Qt::CTRL + Qt::Key_A);
+	action1.setIsCaptureEnabled(true);
+	action1.setIncludeCursor(true);
+	action1.setCaptureDelay(2000);
+	action1.setCaptureMode(CaptureModes::FullScreen);
+	action1.setIsSaveEnabled(true);
+	action1.setIsCopyToClipboardEnabled(true);
+	action1.setIsUploadEnabled(true);
+	action1.setIsOpenDirectoryEnabled(true);
+	action1.setIsPinImageEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
 
-	QTest::newRow("01. All set") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << true << true;
-	QTest::newRow("02. Name differ") << "Other" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << true << false;
-	QTest::newRow("03. Shortcut differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_B) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << true << false;
-	QTest::newRow("04. Capture enabled differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << false << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << true << false;
-	QTest::newRow("05. Cursor included differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << false << 2000 << CaptureModes::FullScreen << true << true << true << true << true << true << false;
-	QTest::newRow("06. Delay differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 3000 << CaptureModes::FullScreen << true << true << true << true << true << true << false;
-	QTest::newRow("06. Capture mode differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::RectArea << true << true << true << true << true << true << false;
-	QTest::newRow("07. Save differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << false << true << true << true << true << true << false;
-	QTest::newRow("08. Copy differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << false << true << true << true << true << false;
-	QTest::newRow("09. Upload differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << false << true << true << true << false;
-	QTest::newRow("10. Open directory differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << false << false << true << false;
-	QTest::newRow("11. Pin differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << false << true << false;
-	QTest::newRow("12. Hide differ") << "Name" << QKeySequence(Qt::CTRL + Qt::Key_A) << true << true << 2000 << CaptureModes::FullScreen << true << true << true << true << true << false << false;
+	Action action2;
+	action2.setName("Other");
+	action2.setShortcut(action1.shortcut());
+	action2.setIsCaptureEnabled(action1.isCaptureEnabled());
+	action2.setIncludeCursor(action1.includeCursor());
+	action2.setCaptureDelay(action1.captureDelay());
+	action2.setCaptureMode(action1.captureMode());
+	action2.setIsSaveEnabled(action1.isSaveEnabled());
+	action2.setIsCopyToClipboardEnabled(action1.isCopyToClipboardEnabled());
+	action2.setIsUploadEnabled(action1.isUploadEnabled());
+	action2.setIsOpenDirectoryEnabled(action1.isOpenDirectoryEnabled());
+	action2.setIsPinImageEnabled(action1.isPinImageEnabled());
+	action2.setIsHideMainWindowEnabled(action1.isHideMainWindowEnabled());
+
+	// act
+	auto result = action1 == action2;
+
+	// assert
+	EXPECT_FALSE(result);
 }
 
-QTEST_MAIN(ActionTest)
+TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_ShortcutDifferent)
+{
+	// arrange
+	Action action1;
+	action1.setName("Name");
+	action1.setShortcut(Qt::CTRL + Qt::Key_A);
+	action1.setIsCaptureEnabled(true);
+	action1.setIncludeCursor(true);
+	action1.setCaptureDelay(2000);
+	action1.setCaptureMode(CaptureModes::FullScreen);
+	action1.setIsSaveEnabled(true);
+	action1.setIsCopyToClipboardEnabled(true);
+	action1.setIsUploadEnabled(true);
+	action1.setIsOpenDirectoryEnabled(true);
+	action1.setIsPinImageEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
+
+	Action action2;
+	action2.setName(action1.name());
+	action2.setShortcut(QKeySequence(Qt::CTRL + Qt::Key_B));
+	action2.setIsCaptureEnabled(action1.isCaptureEnabled());
+	action2.setIncludeCursor(action1.includeCursor());
+	action2.setCaptureDelay(action1.captureDelay());
+	action2.setCaptureMode(action1.captureMode());
+	action2.setIsSaveEnabled(action1.isSaveEnabled());
+	action2.setIsCopyToClipboardEnabled(action1.isCopyToClipboardEnabled());
+	action2.setIsUploadEnabled(action1.isUploadEnabled());
+	action2.setIsOpenDirectoryEnabled(action1.isOpenDirectoryEnabled());
+	action2.setIsPinImageEnabled(action1.isPinImageEnabled());
+	action2.setIsHideMainWindowEnabled(action1.isHideMainWindowEnabled());
+
+	// act
+	auto result = action1 == action2;
+
+	// assert
+	EXPECT_FALSE(result);
+}
+
+TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsCaptureEnabledDifferent)
+{
+	// arrange
+	Action action1;
+	action1.setName("Name");
+	action1.setShortcut(Qt::CTRL + Qt::Key_A);
+	action1.setIsCaptureEnabled(true);
+	action1.setIncludeCursor(true);
+	action1.setCaptureDelay(2000);
+	action1.setCaptureMode(CaptureModes::FullScreen);
+	action1.setIsSaveEnabled(true);
+	action1.setIsCopyToClipboardEnabled(true);
+	action1.setIsUploadEnabled(true);
+	action1.setIsOpenDirectoryEnabled(true);
+	action1.setIsPinImageEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
+
+	Action action2;
+	action2.setName(action1.name());
+	action2.setShortcut(action1.shortcut());
+	action2.setIsCaptureEnabled(false);
+	action2.setIncludeCursor(action1.includeCursor());
+	action2.setCaptureDelay(action1.captureDelay());
+	action2.setCaptureMode(action1.captureMode());
+	action2.setIsSaveEnabled(action1.isSaveEnabled());
+	action2.setIsCopyToClipboardEnabled(action1.isCopyToClipboardEnabled());
+	action2.setIsUploadEnabled(action1.isUploadEnabled());
+	action2.setIsOpenDirectoryEnabled(action1.isOpenDirectoryEnabled());
+	action2.setIsPinImageEnabled(action1.isPinImageEnabled());
+	action2.setIsHideMainWindowEnabled(action1.isHideMainWindowEnabled());
+
+	// act
+	auto result = action1 == action2;
+
+	// assert
+	EXPECT_FALSE(result);
+}
+
+TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IncludeCursorDifferent)
+{
+	// arrange
+	Action action1;
+	action1.setName("Name");
+	action1.setShortcut(Qt::CTRL + Qt::Key_A);
+	action1.setIsCaptureEnabled(true);
+	action1.setIncludeCursor(true);
+	action1.setCaptureDelay(2000);
+	action1.setCaptureMode(CaptureModes::FullScreen);
+	action1.setIsSaveEnabled(true);
+	action1.setIsCopyToClipboardEnabled(true);
+	action1.setIsUploadEnabled(true);
+	action1.setIsOpenDirectoryEnabled(true);
+	action1.setIsPinImageEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
+
+	Action action2;
+	action2.setName(action1.name());
+	action2.setShortcut(action1.shortcut());
+	action2.setIsCaptureEnabled(action1.isCaptureEnabled());
+	action2.setIncludeCursor(false);
+	action2.setCaptureDelay(action1.captureDelay());
+	action2.setCaptureMode(action1.captureMode());
+	action2.setIsSaveEnabled(action1.isSaveEnabled());
+	action2.setIsCopyToClipboardEnabled(action1.isCopyToClipboardEnabled());
+	action2.setIsUploadEnabled(action1.isUploadEnabled());
+	action2.setIsOpenDirectoryEnabled(action1.isOpenDirectoryEnabled());
+	action2.setIsPinImageEnabled(action1.isPinImageEnabled());
+	action2.setIsHideMainWindowEnabled(action1.isHideMainWindowEnabled());
+
+	// act
+	auto result = action1 == action2;
+
+	// assert
+	EXPECT_FALSE(result);
+}
+
+TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_CaptureDelayDifferent)
+{
+	// arrange
+	Action action1;
+	action1.setName("Name");
+	action1.setShortcut(Qt::CTRL + Qt::Key_A);
+	action1.setIsCaptureEnabled(true);
+	action1.setIncludeCursor(true);
+	action1.setCaptureDelay(2000);
+	action1.setCaptureMode(CaptureModes::FullScreen);
+	action1.setIsSaveEnabled(true);
+	action1.setIsCopyToClipboardEnabled(true);
+	action1.setIsUploadEnabled(true);
+	action1.setIsOpenDirectoryEnabled(true);
+	action1.setIsPinImageEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
+
+	Action action2;
+	action2.setName(action1.name());
+	action2.setShortcut(action1.shortcut());
+	action2.setIsCaptureEnabled(action1.isCaptureEnabled());
+	action2.setIncludeCursor(action1.includeCursor());
+	action2.setCaptureDelay(5000);
+	action2.setCaptureMode(action1.captureMode());
+	action2.setIsSaveEnabled(action1.isSaveEnabled());
+	action2.setIsCopyToClipboardEnabled(action1.isCopyToClipboardEnabled());
+	action2.setIsUploadEnabled(action1.isUploadEnabled());
+	action2.setIsOpenDirectoryEnabled(action1.isOpenDirectoryEnabled());
+	action2.setIsPinImageEnabled(action1.isPinImageEnabled());
+	action2.setIsHideMainWindowEnabled(action1.isHideMainWindowEnabled());
+
+	// act
+	auto result = action1 == action2;
+
+	// assert
+	EXPECT_FALSE(result);
+}
+
+TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_CaptureModeDifferent)
+{
+	// arrange
+	Action action1;
+	action1.setName("Name");
+	action1.setShortcut(Qt::CTRL + Qt::Key_A);
+	action1.setIsCaptureEnabled(true);
+	action1.setIncludeCursor(true);
+	action1.setCaptureDelay(2000);
+	action1.setCaptureMode(CaptureModes::FullScreen);
+	action1.setIsSaveEnabled(true);
+	action1.setIsCopyToClipboardEnabled(true);
+	action1.setIsUploadEnabled(true);
+	action1.setIsOpenDirectoryEnabled(true);
+	action1.setIsPinImageEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
+
+	Action action2;
+	action2.setName(action1.name());
+	action2.setShortcut(action1.shortcut());
+	action2.setIsCaptureEnabled(action1.isCaptureEnabled());
+	action2.setIncludeCursor(action1.includeCursor());
+	action2.setCaptureDelay(action1.captureDelay());
+	action2.setCaptureMode(CaptureModes::RectArea);
+	action2.setIsSaveEnabled(action1.isSaveEnabled());
+	action2.setIsCopyToClipboardEnabled(action1.isCopyToClipboardEnabled());
+	action2.setIsUploadEnabled(action1.isUploadEnabled());
+	action2.setIsOpenDirectoryEnabled(action1.isOpenDirectoryEnabled());
+	action2.setIsPinImageEnabled(action1.isPinImageEnabled());
+	action2.setIsHideMainWindowEnabled(action1.isHideMainWindowEnabled());
+
+	// act
+	auto result = action1 == action2;
+
+	// assert
+	EXPECT_FALSE(result);
+}
+
+TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsSaveEnabledDifferent)
+{
+	// arrange
+	Action action1;
+	action1.setName("Name");
+	action1.setShortcut(Qt::CTRL + Qt::Key_A);
+	action1.setIsCaptureEnabled(true);
+	action1.setIncludeCursor(true);
+	action1.setCaptureDelay(2000);
+	action1.setCaptureMode(CaptureModes::FullScreen);
+	action1.setIsSaveEnabled(true);
+	action1.setIsCopyToClipboardEnabled(true);
+	action1.setIsUploadEnabled(true);
+	action1.setIsOpenDirectoryEnabled(true);
+	action1.setIsPinImageEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
+
+	Action action2;
+	action2.setName(action1.name());
+	action2.setShortcut(action1.shortcut());
+	action2.setIsCaptureEnabled(action1.isCaptureEnabled());
+	action2.setIncludeCursor(action1.includeCursor());
+	action2.setCaptureDelay(action1.captureDelay());
+	action2.setCaptureMode(action1.captureMode());
+	action2.setIsSaveEnabled(false);
+	action2.setIsCopyToClipboardEnabled(action1.isCopyToClipboardEnabled());
+	action2.setIsUploadEnabled(action1.isUploadEnabled());
+	action2.setIsOpenDirectoryEnabled(action1.isOpenDirectoryEnabled());
+	action2.setIsPinImageEnabled(action1.isPinImageEnabled());
+	action2.setIsHideMainWindowEnabled(action1.isHideMainWindowEnabled());
+
+	// act
+	auto result = action1 == action2;
+
+	// assert
+	EXPECT_FALSE(result);
+}
+
+TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsCopyToClipboardEnabledDifferent)
+{
+	// arrange
+	Action action1;
+	action1.setName("Name");
+	action1.setShortcut(Qt::CTRL + Qt::Key_A);
+	action1.setIsCaptureEnabled(true);
+	action1.setIncludeCursor(true);
+	action1.setCaptureDelay(2000);
+	action1.setCaptureMode(CaptureModes::FullScreen);
+	action1.setIsSaveEnabled(true);
+	action1.setIsCopyToClipboardEnabled(true);
+	action1.setIsUploadEnabled(true);
+	action1.setIsOpenDirectoryEnabled(true);
+	action1.setIsPinImageEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
+
+	Action action2;
+	action2.setName(action1.name());
+	action2.setShortcut(action1.shortcut());
+	action2.setIsCaptureEnabled(action1.isCaptureEnabled());
+	action2.setIncludeCursor(action1.includeCursor());
+	action2.setCaptureDelay(action1.captureDelay());
+	action2.setCaptureMode(action1.captureMode());
+	action2.setIsSaveEnabled(action1.isSaveEnabled());
+	action2.setIsCopyToClipboardEnabled(false);
+	action2.setIsUploadEnabled(action1.isUploadEnabled());
+	action2.setIsOpenDirectoryEnabled(action1.isOpenDirectoryEnabled());
+	action2.setIsPinImageEnabled(action1.isPinImageEnabled());
+	action2.setIsHideMainWindowEnabled(action1.isHideMainWindowEnabled());
+
+	// act
+	auto result = action1 == action2;
+
+	// assert
+	EXPECT_FALSE(result);
+}
+
+TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsUploadEnabledDifferent)
+{
+	// arrange
+	Action action1;
+	action1.setName("Name");
+	action1.setShortcut(Qt::CTRL + Qt::Key_A);
+	action1.setIsCaptureEnabled(true);
+	action1.setIncludeCursor(true);
+	action1.setCaptureDelay(2000);
+	action1.setCaptureMode(CaptureModes::FullScreen);
+	action1.setIsSaveEnabled(true);
+	action1.setIsCopyToClipboardEnabled(true);
+	action1.setIsUploadEnabled(true);
+	action1.setIsOpenDirectoryEnabled(true);
+	action1.setIsPinImageEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
+
+	Action action2;
+	action2.setName(action1.name());
+	action2.setShortcut(action1.shortcut());
+	action2.setIsCaptureEnabled(action1.isCaptureEnabled());
+	action2.setIncludeCursor(action1.includeCursor());
+	action2.setCaptureDelay(action1.captureDelay());
+	action2.setCaptureMode(action1.captureMode());
+	action2.setIsSaveEnabled(action1.isSaveEnabled());
+	action2.setIsCopyToClipboardEnabled(action1.isCopyToClipboardEnabled());
+	action2.setIsUploadEnabled(false);
+	action2.setIsOpenDirectoryEnabled(action1.isOpenDirectoryEnabled());
+	action2.setIsPinImageEnabled(action1.isPinImageEnabled());
+	action2.setIsHideMainWindowEnabled(action1.isHideMainWindowEnabled());
+
+	// act
+	auto result = action1 == action2;
+
+	// assert
+	EXPECT_FALSE(result);
+}
+
+TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsOpenDirectoryEnabledDifferent)
+{
+	// arrange
+	Action action1;
+	action1.setName("Name");
+	action1.setShortcut(Qt::CTRL + Qt::Key_A);
+	action1.setIsCaptureEnabled(true);
+	action1.setIncludeCursor(true);
+	action1.setCaptureDelay(2000);
+	action1.setCaptureMode(CaptureModes::FullScreen);
+	action1.setIsSaveEnabled(true);
+	action1.setIsCopyToClipboardEnabled(true);
+	action1.setIsUploadEnabled(true);
+	action1.setIsOpenDirectoryEnabled(true);
+	action1.setIsPinImageEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
+
+	Action action2;
+	action2.setName(action1.name());
+	action2.setShortcut(action1.shortcut());
+	action2.setIsCaptureEnabled(action1.isCaptureEnabled());
+	action2.setIncludeCursor(action1.includeCursor());
+	action2.setCaptureDelay(action1.captureDelay());
+	action2.setCaptureMode(action1.captureMode());
+	action2.setIsSaveEnabled(action1.isSaveEnabled());
+	action2.setIsCopyToClipboardEnabled(action1.isCopyToClipboardEnabled());
+	action2.setIsUploadEnabled(action1.isUploadEnabled());
+	action2.setIsOpenDirectoryEnabled(false);
+	action2.setIsPinImageEnabled(action1.isPinImageEnabled());
+	action2.setIsHideMainWindowEnabled(action1.isHideMainWindowEnabled());
+
+	// act
+	auto result = action1 == action2;
+
+	// assert
+	EXPECT_FALSE(result);
+}
+
+TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsPinScreenshotEnabledDifferent)
+{
+	// arrange
+	Action action1;
+	action1.setName("Name");
+	action1.setShortcut(Qt::CTRL + Qt::Key_A);
+	action1.setIsCaptureEnabled(true);
+	action1.setIncludeCursor(true);
+	action1.setCaptureDelay(2000);
+	action1.setCaptureMode(CaptureModes::FullScreen);
+	action1.setIsSaveEnabled(true);
+	action1.setIsCopyToClipboardEnabled(true);
+	action1.setIsUploadEnabled(true);
+	action1.setIsOpenDirectoryEnabled(true);
+	action1.setIsPinImageEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
+
+	Action action2;
+	action2.setName(action1.name());
+	action2.setShortcut(action1.shortcut());
+	action2.setIsCaptureEnabled(action1.isCaptureEnabled());
+	action2.setIncludeCursor(action1.includeCursor());
+	action2.setCaptureDelay(action1.captureDelay());
+	action2.setCaptureMode(action1.captureMode());
+	action2.setIsSaveEnabled(action1.isSaveEnabled());
+	action2.setIsCopyToClipboardEnabled(action1.isCopyToClipboardEnabled());
+	action2.setIsUploadEnabled(action1.isUploadEnabled());
+	action2.setIsOpenDirectoryEnabled(action1.isOpenDirectoryEnabled());
+	action2.setIsPinImageEnabled(false);
+	action2.setIsHideMainWindowEnabled(action1.isHideMainWindowEnabled());
+
+	// act
+	auto result = action1 == action2;
+
+	// assert
+	EXPECT_FALSE(result);
+}
+
+TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsHideMainWindowEnabledDifferent)
+{
+	// arrange
+	Action action1;
+	action1.setName("Name");
+	action1.setShortcut(Qt::CTRL + Qt::Key_A);
+	action1.setIsCaptureEnabled(true);
+	action1.setIncludeCursor(true);
+	action1.setCaptureDelay(2000);
+	action1.setCaptureMode(CaptureModes::FullScreen);
+	action1.setIsSaveEnabled(true);
+	action1.setIsCopyToClipboardEnabled(true);
+	action1.setIsUploadEnabled(true);
+	action1.setIsOpenDirectoryEnabled(true);
+	action1.setIsPinImageEnabled(true);
+	action1.setIsHideMainWindowEnabled(true);
+
+	Action action2;
+	action2.setName(action1.name());
+	action2.setShortcut(action1.shortcut());
+	action2.setIsCaptureEnabled(action1.isCaptureEnabled());
+	action2.setIncludeCursor(action1.includeCursor());
+	action2.setCaptureDelay(action1.captureDelay());
+	action2.setCaptureMode(action1.captureMode());
+	action2.setIsSaveEnabled(action1.isSaveEnabled());
+	action2.setIsCopyToClipboardEnabled(action1.isCopyToClipboardEnabled());
+	action2.setIsUploadEnabled(action1.isUploadEnabled());
+	action2.setIsOpenDirectoryEnabled(action1.isOpenDirectoryEnabled());
+	action2.setIsPinImageEnabled(action1.isPinImageEnabled());
+	action2.setIsHideMainWindowEnabled(false);
+
+	// act
+	auto result = action1 == action2;
+
+	// assert
+	EXPECT_FALSE(result);
+}

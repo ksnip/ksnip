@@ -44,7 +44,7 @@ public:
 	void setCaptureDelay(int delayInMs);
 
 	bool isPinImageEnabled() const;
-	void setIsPinScreenshotEnabled(bool enabled);
+	void setIsPinImageEnabled(bool enabled);
 
 	CaptureModes captureMode() const;
 	void setCaptureMode(CaptureModes mode);

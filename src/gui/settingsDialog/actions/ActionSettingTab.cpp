@@ -140,7 +140,7 @@ Action ActionSettingTab::action() const
 	action.setCaptureDelay(mDelaySpinBox->value() * 1000);
 	action.setIncludeCursor(mIncludeCursorCheckBox->isChecked());
 	action.setCaptureMode(mCaptureModeComboBox->currentData().value<CaptureModes>());
-	action.setIsPinScreenshotEnabled(mShowPinWindowCheckBox->isChecked());
+	action.setIsPinImageEnabled(mShowPinWindowCheckBox->isChecked());
 	action.setIsSaveEnabled(mSaveCheckBox->isChecked());
 	action.setIsCopyToClipboardEnabled(mCopyToClipboardCheckBox->isChecked());
 	action.setIsOpenDirectoryEnabled(mOpenDirectoryCheckBox->isChecked());

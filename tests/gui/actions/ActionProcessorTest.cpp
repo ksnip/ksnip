@@ -175,7 +175,7 @@ TEST(ActionProcessorTest, CaptureFinished_Should_SendSignalsForAllSelectedAction
 	action.setIsCopyToClipboardEnabled(true);
 	action.setIsOpenDirectoryEnabled(true);
 	action.setIsUploadEnabled(true);
-	action.setIsPinScreenshotEnabled(true);
+	action.setIsPinImageEnabled(true);
 	ActionProcessor processor;
 	processor.setPostProcessingEnabled(false);
 	QSignalSpy saveSignalSpy(&processor, &ActionProcessor::triggerSave);
@@ -205,7 +205,7 @@ TEST(ActionProcessorTest, CaptureFinished_Should_NotSendSignalsForNotSelectedAct
 	action.setIsCopyToClipboardEnabled(false);
 	action.setIsOpenDirectoryEnabled(false);
 	action.setIsUploadEnabled(false);
-	action.setIsPinScreenshotEnabled(false);
+	action.setIsPinImageEnabled(false);
 	ActionProcessor processor;
 	processor.setPostProcessingEnabled(false);
 	QSignalSpy saveSignalSpy(&processor, &ActionProcessor::triggerSave);

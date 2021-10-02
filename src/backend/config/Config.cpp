@@ -1232,7 +1232,7 @@ QList<Action> Config::actions()
 		action.setIncludeCursor(mConfig.value(ConfigOptions::actionIncludeCursorString()).toBool());
 		action.setCaptureDelay(mConfig.value(ConfigOptions::actionCaptureDelayString()).toInt());
 		action.setCaptureMode(mConfig.value(ConfigOptions::actionCaptureModeString()).value<CaptureModes>());
-		action.setIsPinScreenshotEnabled(mConfig.value(ConfigOptions::actionIsPinImageEnabledString()).toBool());
+		action.setIsPinImageEnabled(mConfig.value(ConfigOptions::actionIsPinImageEnabledString()).toBool());
 		action.setIsUploadEnabled(mConfig.value(ConfigOptions::actionIsUploadEnabledString()).toBool());
 		action.setIsOpenDirectoryEnabled(mConfig.value(ConfigOptions::actionIsOpenDirectoryEnabledString()).toBool());
 		action.setIsCopyToClipboardEnabled(mConfig.value(ConfigOptions::actionIsCopyToClipboardEnabledString()).toBool());

@@ -99,7 +99,7 @@ bool Action::isPinImageEnabled() const
 	return mIsPinImageEnabled;
 }
 
-void Action::setIsPinScreenshotEnabled(bool enabled)
+void Action::setIsPinImageEnabled(bool enabled)
 {
 	mIsPinImageEnabled = enabled;
 }

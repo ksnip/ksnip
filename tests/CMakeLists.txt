@@ -1,4 +1,5 @@
-find_package(GTest REQUIRED)
+find_package(GTest CONFIG REQUIRED)
+include(GoogleTest)
 
 enable_testing()
 

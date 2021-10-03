@@ -17,71 +17,165 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "SingleCaptureHandlerTests.h"
+#include <gtest/gtest.h>
 
-#include "src/backend/config/Config.h"
 #include "src/gui/captureHandler/SingleCaptureHandler.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
-#include "tests/mocks/ImageAnnotatorMock.h"
-#include "tests/mocks/ServiceLocatorMock.h"
 
-void SingleCaptureHandlerTests::RemoveImage_Should_CleanupAnnotationData_When_ImageDeleted()
+#include "tests/mocks/gui/imageAnnotator/ImageAnnotatorMock.h"
+#include "tests/mocks/gui/NotificationServiceMock.h"
+#include "tests/mocks/gui/fileService/FileServiceMock.h"
+#include "tests/mocks/gui/desktopService/DesktopServiceMock.h"
+#include "tests/mocks/gui/clipboard/ClipboardMock.h"
+#include "tests/mocks/gui/messageBoxService/MessageBoxServiceMock.h"
+#include "tests/mocks/backend/recentImages/RecentImageServiceMock.h"
+
+TEST(SingleCaptureHandlerTests, RemoveImage_Should_CleanupAnnotationData_When_ImageDeleted)
 {
+	// arrange
 	ImageAnnotatorMock imageAnnotatorMock;
-	ServiceLocatorMock serviceLocatorMock;
-	serviceLocatorMock.messageBoxService_mock()->okCancel_set(true);
-	serviceLocatorMock.fileService_mock()->remove_set(true);
-	SingleCaptureHandler captureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, nullptr);
+	NotificationServiceMock notificationServiceMock;
+	auto clipboardMock = QSharedPointer<ClipboardMock>(new ClipboardMock);
+	auto desktopServiceMock = QSharedPointer<DesktopServiceMock>(new DesktopServiceMock);
+	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
+	auto messageBoxServiceMock = QSharedPointer<MessageBoxServiceMock>(new MessageBoxServiceMock);
+	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
+
+	EXPECT_CALL(*messageBoxServiceMock, okCancel(testing::_, testing::_))
+			.WillRepeatedly([=](const QString &title, const QString &question) {
+				return true;
+			});
+
+	EXPECT_CALL(*fileServiceMock, remove(testing::_))
+			.Times(testing::Exactly(1))
+			.WillRepeatedly([=](const QString &path) {
+				return true;
+			});
+
+	EXPECT_CALL(imageAnnotatorMock, hide()).Times(testing::Exactly(1));
+
+	SingleCaptureHandler captureHandler(
+			&imageAnnotatorMock,
+			&notificationServiceMock,
+			clipboardMock,
+			desktopServiceMock,
+			fileServiceMock,
+			messageBoxServiceMock,
+			recentImageServiceMock,
+			nullptr);
+
 	auto capture = CaptureFromFileDto(QPixmap(), QLatin1Literal("lala"));
 	captureHandler.load(capture);
 
+	// act
 	captureHandler.removeImage();
 
-	QCOMPARE(imageAnnotatorMock.hide_callCounter(), 1);
-	QCOMPARE(captureHandler.path(), QString());
-	QCOMPARE(captureHandler.isSaved(), true);
+	// assert
+	EXPECT_EQ(captureHandler.path(), QString());
+	EXPECT_TRUE(captureHandler.isSaved());
 }
 
-void SingleCaptureHandlerTests::RemoveImage_Should_NotCleanupAnnotationData_When_ImageWasNotDeleted()
+TEST(SingleCaptureHandlerTests, RemoveImage_Should_NotCleanupAnnotationData_When_ImageWasNotDeleted)
 {
+	// arrange
 	ImageAnnotatorMock imageAnnotatorMock;
-	ServiceLocatorMock serviceLocatorMock;
-	serviceLocatorMock.messageBoxService_mock()->okCancel_set(false);
-	SingleCaptureHandler captureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, nullptr);
+	NotificationServiceMock notificationServiceMock;
+	auto clipboardMock = QSharedPointer<ClipboardMock>(new ClipboardMock);
+	auto desktopServiceMock = QSharedPointer<DesktopServiceMock>(new DesktopServiceMock);
+	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
+	auto messageBoxServiceMock = QSharedPointer<MessageBoxServiceMock>(new MessageBoxServiceMock);
+	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
+
+	EXPECT_CALL(*messageBoxServiceMock, okCancel(testing::_, testing::_))
+			.WillRepeatedly([=](const QString &title, const QString &question) {
+				return false;
+			});
+
+	EXPECT_CALL(imageAnnotatorMock, hide()).Times(testing::Exactly(0));
+
+	SingleCaptureHandler captureHandler(
+			&imageAnnotatorMock,
+			&notificationServiceMock,
+			clipboardMock,
+			desktopServiceMock,
+			fileServiceMock,
+			messageBoxServiceMock,
+			recentImageServiceMock,
+			nullptr);
 	auto capture = CaptureFromFileDto(QPixmap(), QLatin1Literal("lala"));
 	captureHandler.load(capture);
 
+	// act
 	captureHandler.removeImage();
 
-	QCOMPARE(imageAnnotatorMock.hide_callCounter(), 0);
-	QCOMPARE(captureHandler.path(), capture.path);
-	QCOMPARE(captureHandler.isSaved(), true);
+	// assert
+	EXPECT_EQ(captureHandler.path(), capture.path);
+	EXPECT_TRUE(captureHandler.isSaved());
 }
 
-void SingleCaptureHandlerTests::Load_Should_SetPathAndIsSavedToValuesFromCaptureDto_When_CaptureLoadedFromFile()
+TEST(SingleCaptureHandlerTests, Load_Should_SetPathAndIsSavedToValuesFromCaptureDto_When_CaptureLoadedFromFile)
 {
+	// arrange
 	ImageAnnotatorMock imageAnnotatorMock;
-	ServiceLocatorMock serviceLocatorMock;
-	SingleCaptureHandler captureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, nullptr);
+	NotificationServiceMock notificationServiceMock;
+	auto clipboardMock = QSharedPointer<ClipboardMock>(new ClipboardMock);
+	auto desktopServiceMock = QSharedPointer<DesktopServiceMock>(new DesktopServiceMock);
+	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
+	auto messageBoxServiceMock = QSharedPointer<MessageBoxServiceMock>(new MessageBoxServiceMock);
+	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
+
+	SingleCaptureHandler captureHandler(
+			&imageAnnotatorMock,
+			&notificationServiceMock,
+			clipboardMock,
+			desktopServiceMock,
+			fileServiceMock,
+			messageBoxServiceMock,
+			recentImageServiceMock,
+			nullptr);
+
 	auto capture = CaptureFromFileDto(QPixmap(), QLatin1Literal("lala"));
 
+	// act
 	captureHandler.load(capture);
 
-	QCOMPARE(captureHandler.path(), capture.path);
-	QCOMPARE(captureHandler.isSaved(), true);
+	// assert
+	EXPECT_EQ(captureHandler.path(), capture.path);
+	EXPECT_TRUE(captureHandler.isSaved());
 }
 
-void SingleCaptureHandlerTests::Load_Should_SetPathToEmptyAndIsSavedToFalse_When_CaptureNotLoadedFromFile()
+TEST(SingleCaptureHandlerTests, Load_Should_SetPathToEmptyAndIsSavedToFalse_When_CaptureNotLoadedFromFile)
 {
+	// arrange
 	ImageAnnotatorMock imageAnnotatorMock;
-	ServiceLocatorMock serviceLocatorMock;
-	SingleCaptureHandler captureHandler(&imageAnnotatorMock, nullptr, &serviceLocatorMock, nullptr);
+	NotificationServiceMock notificationServiceMock;
+	auto clipboardMock = QSharedPointer<ClipboardMock>(new ClipboardMock);
+	auto desktopServiceMock = QSharedPointer<DesktopServiceMock>(new DesktopServiceMock);
+	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
+	auto messageBoxServiceMock = QSharedPointer<MessageBoxServiceMock>(new MessageBoxServiceMock);
+	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
+
+	SingleCaptureHandler captureHandler(
+			&imageAnnotatorMock,
+			&notificationServiceMock,
+			clipboardMock,
+			desktopServiceMock,
+			fileServiceMock,
+			messageBoxServiceMock,
+			recentImageServiceMock,
+			nullptr);
 	auto capture = CaptureDto(QPixmap());
 
+	// act
 	captureHandler.load(capture);
 
-	QCOMPARE(captureHandler.path(), QString());
-	QCOMPARE(captureHandler.isSaved(), false);
+	// assert
+	EXPECT_EQ(captureHandler.path(), QString());
+	EXPECT_FALSE(captureHandler.isSaved());
 }
 
-QTEST_MAIN(SingleCaptureHandlerTests)
+int main(int argc, char **argv) {
+	QGuiApplication guiApplication(argc, argv);
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
+}

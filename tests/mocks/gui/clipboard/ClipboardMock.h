@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,20 +17,21 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_SINGLECAPTUREHANDLERTESTS_H
-#define KSNIP_SINGLECAPTUREHANDLERTESTS_H
+#ifndef KSNIP_CLIPBOARDMOCK_H
+#define KSNIP_CLIPBOARDMOCK_H
 
-#include <QtTest>
+#include <gmock/gmock.h>
 
-class SingleCaptureHandlerTests : public QObject
+#include "src/gui/clipboard/IClipboard.h"
+
+class ClipboardMock : public IClipboard
 {
-	Q_OBJECT
-private slots:
-	void RemoveImage_Should_CleanupAnnotationData_When_ImageDeleted();
-	void RemoveImage_Should_NotCleanupAnnotationData_When_ImageWasNotDeleted();
-	void Load_Should_SetPathAndIsSavedToValuesFromCaptureDto_When_CaptureLoadedFromFile();
-	void Load_Should_SetPathToEmptyAndIsSavedToFalse_When_CaptureNotLoadedFromFile();
+public:
+	MOCK_METHOD(QPixmap, pixmap, (), (const, override));
+	MOCK_METHOD(bool, isPixmap, (), (const, override));
+	MOCK_METHOD(void, setImage, (const QImage &image), (override));
+	MOCK_METHOD(void, setText, (const QString &text), (override));
+	MOCK_METHOD(QString, url, (), (const, override));
 };
 
-
-#endif //KSNIP_SINGLECAPTUREHANDLERTESTS_H
+#endif //KSNIP_CLIPBOARDMOCK_H

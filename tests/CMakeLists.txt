@@ -10,7 +10,7 @@ set(UNITTEST_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionTest.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionProcessorTest.cpp
 #	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/MultiCaptureHandlerTests.cpp
-#	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/SingleCaptureHandlerTests.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/SingleCaptureHandlerTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/DeleteImageOperationTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/LoadImageFromFileOperationTests.cpp
 	)
@@ -32,6 +32,8 @@ set(TESTUTILS_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/messageBoxService/MessageBoxServiceMock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/NotificationServiceMock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/ImageProcessorMock.h
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/desktopService/DesktopServiceMock.h
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/clipboard/ClipboardMock.h
 	)
 
 add_library(KSNIP_STATIC STATIC ${KSNIP_SRCS})

@@ -34,7 +34,15 @@ class SingleCaptureHandler : public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit SingleCaptureHandler(IImageAnnotator *imageAnnotator, INotificationService *toastService, IServiceLocator *serviceLocator, DependencyInjector *dependencyInjector, QWidget *parent);
+	explicit SingleCaptureHandler(
+			IImageAnnotator *imageAnnotator,
+			INotificationService *notificationService,
+			const QSharedPointer<IClipboard> &clipboard,
+			const QSharedPointer<IDesktopService> &desktopService,
+			const QSharedPointer<IFileService> &fileService,
+			const QSharedPointer<IMessageBoxService> &messageBoxService,
+			const QSharedPointer<IRecentImageService> &recentImageService,
+			QWidget *parent);
 	~SingleCaptureHandler() override = default;
 	bool canClose() override;
 	bool canTakeNew() override;
@@ -54,16 +62,17 @@ public:
 	void addListener(ICaptureChangeListener *captureChangeListener) override;
 
 private:
-	DependencyInjector *mDependencyInjector;
 	IImageAnnotator *mImageAnnotator;
-	INotificationService *mToastService;
+	INotificationService *mNotificationService;
+	QSharedPointer<IClipboard> mClipboard;
+	QSharedPointer<IDesktopService> mDesktopService;
+	QSharedPointer<IFileService> mFileService;
+	QSharedPointer<IMessageBoxService> mMessageBoxService;
+	QSharedPointer<IRecentImageService> mRecentImageService;
 	QWidget *mParent;
 	ICaptureChangeListener *mCaptureChangeListener;
 	bool mIsSaved;
 	QString mPath;
-	IServiceLocator *mServiceLocator;
-	IClipboard *mClipboard;
-	IDesktopService *mDesktopService;
 	PathFromCaptureProvider mPathFromCaptureProvider;
 
 	bool discardChanges();

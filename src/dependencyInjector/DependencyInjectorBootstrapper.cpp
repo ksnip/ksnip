@@ -28,6 +28,9 @@
 #include "src/backend/recentImages/RecentImagesPathStore.h"
 #include "src/backend/recentImages/ImagePathStorage.h"
 #include "src/gui/fileService/FileService.h"
+#include "src/gui/clipboard/ClipboardAdapter.h"
+#include "src/gui/desktopService/DesktopServiceAdapter.h"
+#include "src/gui/messageBoxService/MessageBoxService.h"
 #include "src/logging/ConsoleLogger.h"
 #include "src/logging/NoneLogger.h"
 
@@ -71,6 +74,9 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 {
 	dependencyInjector->registerInstance<IFileService, FileService>();
 	dependencyInjector->registerInstance<IImagePathStorage, ImagePathStorage>();
+	dependencyInjector->registerInstance<IClipboard, ClipboardAdapter>();
+	dependencyInjector->registerInstance<IDesktopService, DesktopServiceAdapter>();
+	dependencyInjector->registerInstance<IMessageBoxService, MessageBoxService>();
 	dependencyInjector->registerFactory<IRecentImageService, RecentImagesPathStore, IImagePathStorage>();
 }
 

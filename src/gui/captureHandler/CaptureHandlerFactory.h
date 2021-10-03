@@ -33,7 +33,7 @@ public:
 	~CaptureHandlerFactory() = default;
 	static ICaptureHandler *create(
 			IImageAnnotator *imageAnnotator,
-			INotificationService *toastService,
+			INotificationService *notificationService,
 			IServiceLocator *serviceLocator,
 			DependencyInjector *dependencyInjector,
 			QWidget *parent);

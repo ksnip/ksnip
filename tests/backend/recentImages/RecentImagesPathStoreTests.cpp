@@ -26,7 +26,7 @@
 TEST(RecentImagesPathStoreTests, GetRecentImagesPath_Should_ReturnEmptyStringList_When_Initialized)
 {
 	// arrange
-	auto imagePathStorageMock = new ImagePathStorageMock;
+	auto imagePathStorageMock = QSharedPointer<ImagePathStorageMock>(new ImagePathStorageMock);
 	RecentImagesPathStore recentImagesPathStore(imagePathStorageMock);
 
 	// act
@@ -39,7 +39,7 @@ TEST(RecentImagesPathStoreTests, GetRecentImagesPath_Should_ReturnEmptyStringLis
 TEST(RecentImagesPathStoreTests, GetRecentImagesPath_Should_ReturnNonEmptyStringList_When_ImagesAreStored)
 {
 	// arrange
-	auto imagePathStorageMock = new ImagePathStorageMock;
+	auto imagePathStorageMock = QSharedPointer<ImagePathStorageMock>(new ImagePathStorageMock);
 	RecentImagesPathStore recentImagesPathStore(imagePathStorageMock);
 	recentImagesPathStore.storeImagePath("/path/image.png");
 	recentImagesPathStore.storeImagePath("/path/image2.png");
@@ -56,7 +56,7 @@ TEST(RecentImagesPathStoreTests, GetRecentImagesPath_Should_ReturnNonEmptyString
 TEST(RecentImagesPathStoreTests, GetRecentImagesPath_Should_ReturnListOfEntriesInReversedOrder)
 {
 	// arrange
-	auto imagePathStorageMock = new ImagePathStorageMock;
+	auto imagePathStorageMock = QSharedPointer<ImagePathStorageMock>(new ImagePathStorageMock);
 	RecentImagesPathStore recentImagesPathStore(imagePathStorageMock);
 	recentImagesPathStore.storeImagePath("/path/image1.png");
 	recentImagesPathStore.storeImagePath("/path/image2.png");
@@ -91,7 +91,7 @@ TEST(RecentImagesPathStoreTests, StoreImagesPath_Should_NotSavePath_When_PathAlr
 	// arrange
 	auto path1 = QStringLiteral("/path/image.png");
 	auto path2 = QStringLiteral("/path/image2.png");
-	auto imagePathStorageMock = new ImagePathStorageMock;
+	auto imagePathStorageMock = QSharedPointer<ImagePathStorageMock>(new ImagePathStorageMock);
 	RecentImagesPathStore recentImagesPathStore(imagePathStorageMock);
 
 	EXPECT_CALL(*imagePathStorageMock, store(path1, 0)).Times(testing::Exactly(1));
@@ -108,7 +108,7 @@ TEST(RecentImagesPathStoreTests, StoreImagesPath_Should_NotSavePath_When_PathAlr
 TEST(RecentImagesPathStoreTests, StoreImagesPath_Should_DropOlderPaths_When_MoreThenTenPathsAdded)
 {
 	// arrange
-	auto imagePathStorageMock = new ImagePathStorageMock;
+	auto imagePathStorageMock = QSharedPointer<ImagePathStorageMock>(new ImagePathStorageMock);
 	RecentImagesPathStore recentImagesPathStore(imagePathStorageMock);
 	recentImagesPathStore.storeImagePath("/path/image1.png");
 	recentImagesPathStore.storeImagePath("/path/image2.png");

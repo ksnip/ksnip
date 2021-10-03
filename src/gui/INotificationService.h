@@ -17,36 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_RENAMEOPERATION_H
-#define KSNIP_RENAMEOPERATION_H
+#ifndef KSNIP_INOTIFICATIONSERVICE_H
+#define KSNIP_INOTIFICATIONSERVICE_H
 
-#include <QCoreApplication>
-#include <QFile>
-#include <QInputDialog>
-
-#include <utility>
-
-#include "NotifyOperation.h"
-#include "src/common/dtos/RenameResultDto.h"
-#include "src/common/helper/PathHelper.h"
-#include "src/gui/INotificationService.h"
-
-class RenameOperation : public QObject
+class INotificationService
 {
-	Q_OBJECT
 public:
-	RenameOperation(QWidget *parent, const QString &pathToImageSource, const QString &imageFilename, INotificationService *toastService);
-	~RenameOperation() override = default;
-	RenameResultDto execute();
-
-private:
-	QWidget* mParent;
-	QString mPathToImageSource;
-	QString mImageFilename;
-	INotificationService *mToastService;
-
-	QString getNewFilename() const;
-	bool rename(const QString &newFilename);
+	virtual void showInfo(const QString &title, const QString &message, const QString &contentUrl) = 0;
+	virtual void showWarning(const QString &title, const QString &message, const QString &contentUrl) = 0;
+	virtual void showCritical(const QString &title, const QString &message, const QString &contentUrl) = 0;
 };
 
-#endif //KSNIP_RENAMEOPERATION_H
+#endif //KSNIP_INOTIFICATIONSERVICE_H

@@ -22,15 +22,15 @@
 
 #include <QString>
 
-#include "src/gui/IToastService.h"
+#include "src/gui/INotificationService.h"
 #include "tests/utils/CallCounter.h"
 
-class ToastServiceMock : public IToastService
+class ToastServiceMock : public INotificationService
 {
 public:
-	void showInfoToast(const QString &title, const QString &message, const QString &contentUrl) override;
-	void showWarningToast(const QString &title, const QString &message, const QString &contentUrl) override;
-	void showCriticalToast(const QString &title, const QString &message, const QString &contentUrl) override;
+	void showInfo(const QString &title, const QString &message, const QString &contentUrl) override;
+	void showWarning(const QString &title, const QString &message, const QString &contentUrl) override;
+	void showCritical(const QString &title, const QString &message, const QString &contentUrl) override;
 
 	// Mock Methods
 	int showInfoToast_callCounter(const QString &message) const;

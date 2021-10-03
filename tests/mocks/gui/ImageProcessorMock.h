@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,18 +17,17 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_LOADIMAGEFROMFILEOPERATIONTESTS_H
-#define KSNIP_LOADIMAGEFROMFILEOPERATIONTESTS_H
+#ifndef KSNIP_IMAGEPROCESSORMOCK_H
+#define KSNIP_IMAGEPROCESSORMOCK_H
 
-#include <QtTest>
+#include <gmock/gmock.h>
 
-class LoadImageFromFileOperationTests : public QObject
+#include "src/gui/IImageProcessor.h"
+
+class ImageProcessorMock : public IImageProcessor
 {
-Q_OBJECT
-private slots:
-	void Execute_Should_ShowNotificationAndNotOpenImage_When_PathToImageCannotBeOpened();
-	void Execute_Should_OpenImageAndNotShowNotification_When_PathToImageCanBeOpened();
+public:
+	MOCK_METHOD(void, processImage, (const CaptureDto &capture), (override));
 };
 
-
-#endif //KSNIP_LOADIMAGEFROMFILEOPERATIONTESTS_H
+#endif //KSNIP_IMAGEPROCESSORMOCK_H

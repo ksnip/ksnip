@@ -34,7 +34,7 @@ class CanDiscardOperation : public QObject
 {
 	Q_OBJECT
 public:
-	CanDiscardOperation(QWidget *parent, QImage image, bool isUnsaved, QString pathToImageSource, QString filename, IToastService *toastService, IRecentImageService *recentImageService);
+	CanDiscardOperation(QWidget *parent, QImage image, bool isUnsaved, QString pathToImageSource, QString filename, INotificationService *toastService, IRecentImageService *recentImageService);
 	~CanDiscardOperation() override;
 	bool execute();
 
@@ -45,7 +45,7 @@ private:
 	QImage mImage;
 	QString mPathToImageSource;
 	QString mFilename;
-	IToastService *mToastService;
+	INotificationService *mToastService;
 	IMessageBoxService *mMessageBoxService;
 	IRecentImageService *mRecentImageService;
 

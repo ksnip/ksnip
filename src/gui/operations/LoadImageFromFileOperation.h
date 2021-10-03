@@ -22,29 +22,35 @@
 
 #include <QObject>
 
-#include "src/gui/serviceLocator/IServiceLocator.h"
-#include "src/gui/IToastService.h"
+#include "src/gui/INotificationService.h"
 #include "src/gui/IImageProcessor.h"
 #include "src/gui/operations/NotifyOperation.h"
+#include "src/gui/fileService/IFileService.h"
+#include "src/backend/recentImages/IRecentImageService.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 
 class LoadImageFromFileOperation : public QObject
 {
 Q_OBJECT
 public:
-	LoadImageFromFileOperation(IImageProcessor *imageProcessor, const QString &path, IToastService *toastService, IServiceLocator *serviceLocator);
+	LoadImageFromFileOperation(
+			const QString &path,
+			const QSharedPointer<IImageProcessor> &imageProcessor,
+			const QSharedPointer<INotificationService> &notificationService,
+			const QSharedPointer<IRecentImageService> &recentImageService,
+			const QSharedPointer<IFileService> &fileService
+			);
 	~LoadImageFromFileOperation() override = default;
 	bool execute();
 
 private:
-	IImageProcessor *mImageProcessor;
 	QString mPath;
-	IToastService *mToastService;
-	IRecentImageService *mRecentImageService;
-	IFileService *mFileService;
+	QSharedPointer<IImageProcessor> mImageProcessor;
+	QSharedPointer<INotificationService> mNotificationService;
+	QSharedPointer<IRecentImageService> mRecentImageService;
+	QSharedPointer<IFileService> mFileService;
 
 	void notifyAboutInvalidPath() const;
 };
-
 
 #endif //KSNIP_LOADIMAGEFROMFILEOPERATION_H

@@ -19,7 +19,7 @@
 
 #include "CopyAsDataUriOperation.h"
 
-CopyAsDataUriOperation::CopyAsDataUriOperation(QImage image, IClipboard *clipboard, IToastService *toastService) :
+CopyAsDataUriOperation::CopyAsDataUriOperation(QImage image, IClipboard *clipboard, INotificationService *toastService) :
 	mImage(std::move(image)),
 	mClipboard(clipboard),
 	mToastService(toastService)

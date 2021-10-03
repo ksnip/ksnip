@@ -21,6 +21,7 @@
 #define KSNIP_RECENTIMAGESPATHSTORE_H
 
 #include <QQueue>
+#include <QSharedPointer>
 
 #include <algorithm>
 
@@ -30,14 +31,14 @@
 class RecentImagesPathStore : public IRecentImageService
 {
 public:
-	explicit RecentImagesPathStore(IImagePathStorage *imagePathStorage);
-	~RecentImagesPathStore() override;
+	explicit RecentImagesPathStore(const QSharedPointer<IImagePathStorage> &imagePathStorage);
+	~RecentImagesPathStore() override = default;
 
 	void storeImagePath(const QString &imagePath) override;
 	QStringList getRecentImagesPath() const override;
 
 private:
-	IImagePathStorage *mImagePathStorage;
+	const QSharedPointer<IImagePathStorage> mImagePathStorage;
 	QQueue<QString> mRecentImagesPathCache;
 	const int mMaxRecentItems;
 

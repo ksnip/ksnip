@@ -25,6 +25,9 @@
 #include "src/backend/uploader/script/ScriptUploader.h"
 #include "src/backend/uploader/imgur/ImgurUploader.h"
 #include "src/backend/commandLine/CommandLineCaptureHandler.h"
+#include "src/backend/recentImages/RecentImagesPathStore.h"
+#include "src/backend/recentImages/ImagePathStorage.h"
+#include "src/gui/fileService/FileService.h"
 #include "src/logging/ConsoleLogger.h"
 #include "src/logging/NoneLogger.h"
 
@@ -62,6 +65,13 @@ void DependencyInjectorBootstrapper::BootstrapCommandLine(DependencyInjector *de
 	dependencyInjector->registerFactory<IImgurUploader, ImgurUploader, IConfig>();
 	dependencyInjector->registerFactory<IUploadHandler, UploadHandler, IConfig, IFtpUploader, IScriptUploader, IImgurUploader>();
 	dependencyInjector->registerFactory<ICommandLineCaptureHandler, CommandLineCaptureHandler, IImageGrabber, IUploadHandler>();
+}
+
+void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependencyInjector)
+{
+	dependencyInjector->registerInstance<IFileService, FileService>();
+	dependencyInjector->registerInstance<IImagePathStorage, ImagePathStorage>();
+	dependencyInjector->registerFactory<IRecentImageService, RecentImagesPathStore, IImagePathStorage>();
 }
 
 void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *dependencyInjector)

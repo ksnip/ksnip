@@ -19,7 +19,13 @@
 
 #include "SingleCaptureHandler.h"
 
-SingleCaptureHandler::SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IServiceLocator *serviceLocator, QWidget *parent) :
+SingleCaptureHandler::SingleCaptureHandler(
+		IImageAnnotator *imageAnnotator,
+		INotificationService *toastService,
+		IServiceLocator *serviceLocator,
+		DependencyInjector *dependencyInjector,
+		QWidget *parent) :
+	mDependencyInjector(dependencyInjector),
 	mImageAnnotator(imageAnnotator),
 	mToastService(toastService),
 	mParent(parent),
@@ -97,7 +103,7 @@ void SingleCaptureHandler::openDirectory()
 
 void SingleCaptureHandler::removeImage()
 {
-	DeleteImageOperation operation(mPath, mServiceLocator->fileService(), mServiceLocator->messageBoxService());
+	DeleteImageOperation operation(mPath, mDependencyInjector->getObject<IFileService>().data(), mServiceLocator->messageBoxService());
 	if(operation.execute()){
 		reset();
 	}
@@ -115,7 +121,7 @@ void SingleCaptureHandler::reset()
 void SingleCaptureHandler::innerSave(bool isInstant)
 {
 	auto image = mImageAnnotator->image();
-	SaveOperation operation(mParent, image, isInstant, mPath, mToastService, mServiceLocator->recentImageService());
+	SaveOperation operation(mParent, image, isInstant, mPath, mToastService, mDependencyInjector->getObject<IRecentImageService>().data());
 	auto saveResult = operation.execute();
 	mIsSaved = saveResult.isSuccessful;
 	if (mIsSaved) {
@@ -153,7 +159,7 @@ bool SingleCaptureHandler::discardChanges()
 {
 	auto image = mImageAnnotator->image();
 	auto filename = PathHelper::extractFilename(mPath);
-	CanDiscardOperation operation(mParent, image, !mIsSaved, mPath, filename, mToastService, mServiceLocator->recentImageService());
+	CanDiscardOperation operation(mParent, image, !mIsSaved, mPath, filename, mToastService, mDependencyInjector->getObject<IRecentImageService>().data());
 	return operation.execute();
 }
 

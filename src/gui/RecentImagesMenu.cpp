@@ -20,7 +20,7 @@
 #include "RecentImagesMenu.h"
 
 
-RecentImagesMenu::RecentImagesMenu(IRecentImageService *recentImageService, QWidget *parent) :
+RecentImagesMenu::RecentImagesMenu(const QSharedPointer<IRecentImageService> &recentImageService, QWidget *parent) :
 	QMenu(parent),
 	mRecentImageService(recentImageService)
 {
@@ -39,7 +39,7 @@ void RecentImagesMenu::populateMenu()
 		addAction(action);
 	}
 
-	setEnabled(recentImages.size() > 0);
+	setEnabled(!recentImages.isEmpty());
 }
 
 QAction *RecentImagesMenu::createAction(const QString &path, int index)

@@ -25,12 +25,12 @@
 #include <QDesktopServices>
 #include <QUrl>
 
-#include "IToastService.h"
+#include "INotificationService.h"
 #include "src/backend/config/ConfigProvider.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/loader/IconLoader.h"
 
-class TrayIcon : public QSystemTrayIcon, public IToastService
+class TrayIcon : public QSystemTrayIcon, public INotificationService
 {
 Q_OBJECT
 public:
@@ -45,9 +45,9 @@ public:
 	void setQuitAction(QAction *action);
 	void setActionsMenu(QMenu *actionsMenu);
 	void setEnabled(bool enabled);
-	void showInfoToast(const QString &title, const QString &message, const QString &contentUrl) override;
-	void showWarningToast(const QString &title, const QString &message, const QString &contentUrl) override;
-	void showCriticalToast(const QString &title, const QString &message, const QString &contentUrl) override;
+	void showInfo(const QString &title, const QString &message, const QString &contentUrl) override;
+	void showWarning(const QString &title, const QString &message, const QString &contentUrl) override;
+	void showCritical(const QString &title, const QString &message, const QString &contentUrl) override;
 
 signals:
 	void showEditorTriggered() const;

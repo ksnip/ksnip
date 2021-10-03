@@ -34,17 +34,17 @@ FreeDesktopNotificationService::FreeDesktopNotificationService()
 					   );
 }
 
-void FreeDesktopNotificationService::showInfoToast(const QString &title, const QString &message, const QString &contentUrl)
+void FreeDesktopNotificationService::showInfo(const QString &title, const QString &message, const QString &contentUrl)
 {
 	showToast(title, message, contentUrl, QStringLiteral("dialog-information"));
 }
 
-void FreeDesktopNotificationService::showWarningToast(const QString &title, const QString &message, const QString &contentUrl)
+void FreeDesktopNotificationService::showWarning(const QString &title, const QString &message, const QString &contentUrl)
 {
 	showToast(title, message, contentUrl, QStringLiteral("dialog-warning"));
 }
 
-void FreeDesktopNotificationService::showCriticalToast(const QString &title, const QString &message, const QString &contentUrl)
+void FreeDesktopNotificationService::showCritical(const QString &title, const QString &message, const QString &contentUrl)
 {
 	showToast(title, message, contentUrl, QStringLiteral("dialog-error"));
 }

@@ -116,17 +116,17 @@ void TrayIcon::setEnabled(bool enabled)
 	}
 }
 
-void TrayIcon::showInfoToast(const QString &title, const QString &message, const QString &contentUrl)
+void TrayIcon::showInfo(const QString &title, const QString &message, const QString &contentUrl)
 {
 	showMessage(title, message, contentUrl, QSystemTrayIcon::Information);
 }
 
-void TrayIcon::showWarningToast(const QString &title, const QString &message, const QString &contentUrl)
+void TrayIcon::showWarning(const QString &title, const QString &message, const QString &contentUrl)
 {
 	showMessage(title, message, contentUrl, QSystemTrayIcon::Warning);
 }
 
-void TrayIcon::showCriticalToast(const QString &title, const QString &message, const QString &contentUrl)
+void TrayIcon::showCritical(const QString &title, const QString &message, const QString &contentUrl)
 {
 	showMessage(title, message, contentUrl, QSystemTrayIcon::Critical);
 }

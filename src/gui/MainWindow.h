@@ -126,7 +126,7 @@ private:
     IImageAnnotator *mImageAnnotator;
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
-    TrayIcon *mTrayIcon;
+	QSharedPointer<TrayIcon> mTrayIcon;
 	DragAndDropProcessor *mDragAndDropProcessor;
 	QSharedPointer<IUploadHandler> mUploadHandler;
 	ICaptureHandler *mCaptureHandler;

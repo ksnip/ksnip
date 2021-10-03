@@ -21,7 +21,7 @@
 
 #include <utility>
 
-SaveOperation::SaveOperation(QWidget *parent, QImage image, bool isInstantSave, IToastService *toastService, IRecentImageService *recentImageService) :
+SaveOperation::SaveOperation(QWidget *parent, QImage image, bool isInstantSave, INotificationService *toastService, IRecentImageService *recentImageService) :
 	mParent(parent),
 	mImage(std::move(image)),
 	mIsInstantSave(isInstantSave),
@@ -32,7 +32,7 @@ SaveOperation::SaveOperation(QWidget *parent, QImage image, bool isInstantSave, 
     Q_ASSERT(mParent != nullptr);
 }
 
-SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, IToastService *toastService, IRecentImageService *recentImageService) :
+SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, INotificationService *toastService, IRecentImageService *recentImageService) :
 	SaveOperation(parent, image, isInstantSave, toastService, recentImageService)
 {
 	mPathToImageSource = pathToImageSource;

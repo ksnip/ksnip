@@ -19,14 +19,18 @@
 
 #include "LoadImageFromFileOperation.h"
 
-LoadImageFromFileOperation::LoadImageFromFileOperation(IImageProcessor *imageProcessor, const QString &path, IToastService *toastService, IServiceLocator *serviceLocator) :
-	mImageProcessor(imageProcessor),
-	mPath(path),
-	mToastService(toastService),
-	mRecentImageService(serviceLocator->recentImageService()),
-	mFileService(serviceLocator->fileService())
+LoadImageFromFileOperation::LoadImageFromFileOperation(
+		const QString &path,
+		const QSharedPointer<IImageProcessor> &imageProcessor,
+		const QSharedPointer<INotificationService> &notificationService,
+		const QSharedPointer<IRecentImageService> &recentImageService,
+		const QSharedPointer<IFileService> &fileService) :
+		mImageProcessor(imageProcessor),
+		mPath(path),
+		mNotificationService(notificationService),
+		mRecentImageService(recentImageService),
+		mFileService(fileService)
 {
-
 }
 
 bool LoadImageFromFileOperation::execute()
@@ -47,7 +51,7 @@ void LoadImageFromFileOperation::notifyAboutInvalidPath() const
 {
 	auto title = tr("Unable to open image");
 	auto message = tr("Unable to open image from path %1").arg(mPath);
-	NotifyOperation operation(mToastService, title, message, NotificationTypes::Warning);
+	NotifyOperation operation(mNotificationService.data(), title, message, NotificationTypes::Warning);
 	operation.execute();
 }
 

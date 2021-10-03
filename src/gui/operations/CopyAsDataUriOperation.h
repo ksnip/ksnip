@@ -24,21 +24,21 @@
 #include <QImage>
 
 #include "src/gui/clipboard/IClipboard.h"
-#include "src/gui/IToastService.h"
+#include "src/gui/INotificationService.h"
 #include "src/gui/operations/NotifyOperation.h"
 
 class CopyAsDataUriOperation : public QObject
 {
 	Q_OBJECT
 public:
-	CopyAsDataUriOperation(QImage image, IClipboard *clipboard, IToastService *toastService);
+	CopyAsDataUriOperation(QImage image, IClipboard *clipboard, INotificationService *toastService);
 	~CopyAsDataUriOperation() override = default;
 	bool execute();
 
 private:
 	QImage mImage;
 	IClipboard *mClipboard;
-	IToastService *mToastService;
+	INotificationService *mToastService;
 
 	void notifySuccess() const;
 	void notifyFailure() const;

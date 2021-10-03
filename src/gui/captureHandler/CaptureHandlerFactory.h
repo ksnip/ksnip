@@ -31,7 +31,12 @@ class CaptureHandlerFactory
 public:
 	explicit CaptureHandlerFactory() = default;
 	~CaptureHandlerFactory() = default;
-	static ICaptureHandler *create(IImageAnnotator *imageAnnotator, IToastService *toastService, IServiceLocator *serviceLocator, QWidget *parent);
+	static ICaptureHandler *create(
+			IImageAnnotator *imageAnnotator,
+			INotificationService *toastService,
+			IServiceLocator *serviceLocator,
+			DependencyInjector *dependencyInjector,
+			QWidget *parent);
 };
 
 #endif //KSNIP_CAPTUREHANDLERFACTORY_H

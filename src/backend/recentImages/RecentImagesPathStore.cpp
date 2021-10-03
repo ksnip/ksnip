@@ -19,18 +19,13 @@
 
 #include "RecentImagesPathStore.h"
 
-RecentImagesPathStore::RecentImagesPathStore(IImagePathStorage *imagePathStorage) :
+RecentImagesPathStore::RecentImagesPathStore(const QSharedPointer<IImagePathStorage> &imagePathStorage) :
 	mImagePathStorage(imagePathStorage),
 	mMaxRecentItems(10)
 {
 	Q_ASSERT(mImagePathStorage != nullptr);
 
 	loadRecentImagesPath();
-}
-
-RecentImagesPathStore::~RecentImagesPathStore()
-{
-	delete mImagePathStorage;
 }
 
 void RecentImagesPathStore::loadRecentImagesPath()

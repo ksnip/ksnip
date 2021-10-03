@@ -23,8 +23,7 @@ ServiceLocator::ServiceLocator() :
 	mMessageBoxService(new MessageBoxService),
 	mFileService(new FileService),
 	mClipboard(new ClipboardAdapter),
-	mDesktopService(new DesktopServiceAdapter),
-	mRecentImageService(new RecentImagesPathStore(new ImagePathStorage))
+	mDesktopService(new DesktopServiceAdapter)
 {
 
 }
@@ -33,8 +32,7 @@ ServiceLocator::ServiceLocator(ServiceLocator &other) :
 	mMessageBoxService(new MessageBoxService),
 	mFileService(new FileService),
 	mClipboard(new ClipboardAdapter),
-	mDesktopService(new DesktopServiceAdapter),
-	mRecentImageService(new RecentImagesPathStore(new ImagePathStorage))
+	mDesktopService(new DesktopServiceAdapter)
 {
 
 }
@@ -45,7 +43,6 @@ ServiceLocator::~ServiceLocator()
 	delete mFileService;
 	delete mClipboard;
 	delete mDesktopService;
-	delete mRecentImageService;
 }
 
 IMessageBoxService* ServiceLocator::messageBoxService() const
@@ -66,9 +63,4 @@ IClipboard *ServiceLocator::clipboard() const
 IDesktopService *ServiceLocator::desktopService() const
 {
 	return mDesktopService;
-}
-
-IRecentImageService *ServiceLocator::recentImageService() const
-{
-	return mRecentImageService;
 }

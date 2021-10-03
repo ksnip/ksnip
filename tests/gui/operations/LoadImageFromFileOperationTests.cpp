@@ -17,49 +17,71 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "LoadImageFromFileOperationTests.h"
+#include <gtest/gtest.h>
 
 #include "src/gui/operations/LoadImageFromFileOperation.h"
-#include "tests/mocks/ToastServiceMock.h"
-#include "tests/mocks/ImageProcessorMock.h"
-#include "tests/mocks/ServiceLocatorMock.h"
 
-void LoadImageFromFileOperationTests::Execute_Should_ShowNotificationAndNotOpenImage_When_PathToImageCannotBeOpened()
+#include "tests/mocks/gui/NotificationServiceMock.h"
+#include "tests/mocks/gui/ImageProcessorMock.h"
+#include "tests/mocks/gui/fileService/FileServiceMock.h"
+#include "tests/mocks/backend/recentImages/RecentImageServiceMock.h"
+
+TEST(LoadImageFromFileOperationTests, Execute_Should_ShowNotificationAndNotOpenImage_When_PathToImageCannotBeOpened)
 {
 	// arrange
-	ImageProcessorMock imageProcessorMock;
-	ServiceLocatorMock serviceLocatorMock;
-	ToastServiceMock toastServiceMock;
-	serviceLocatorMock.fileService_mock()->openPixmap_set(QPixmap());
-	LoadImageFromFileOperation operation(&imageProcessorMock, QLatin1String("/path/image.png"), &toastServiceMock, &serviceLocatorMock);
+	auto notificationServiceMock = QSharedPointer<NotificationServiceMock>(new NotificationServiceMock);
+	auto imageProcessorMock = QSharedPointer<ImageProcessorMock>(new ImageProcessorMock);
+	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
+	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
+
+	EXPECT_CALL(*fileServiceMock, openPixmap(testing::_))
+			.WillRepeatedly([=](const QString &path) {
+				return QPixmap();
+			});
+
+	EXPECT_CALL(*imageProcessorMock, processImage(testing::_)).Times(testing::Exactly(0));
+	EXPECT_CALL(*recentImageServiceMock, storeImagePath(testing::_)).Times(testing::Exactly(0));
+	EXPECT_CALL(*notificationServiceMock, showWarning(testing::_, QString("Unable to open image from path /path/image.png"), testing::_))
+		.Times(testing::Exactly(1));
+
+	LoadImageFromFileOperation operation(QLatin1String("/path/image.png"), imageProcessorMock, notificationServiceMock, recentImageServiceMock, fileServiceMock);
 
 	// act
 	auto result = operation.execute();
 
 	// assert
-	QCOMPARE(result, false);
-	QCOMPARE(imageProcessorMock.processImage_callCounter(), 0);
-	QCOMPARE(serviceLocatorMock.recentImageService_mock()->storeImagePath_callCounter(), 0);
-	QCOMPARE(toastServiceMock.showWarningToast_callCounter(QLatin1String("Unable to open image from path /path/image.png")), 1);
+	EXPECT_FALSE(result);
 }
 
-void LoadImageFromFileOperationTests::Execute_Should_OpenImageAndNotShowNotification_When_PathToImageCanBeOpened()
+TEST(LoadImageFromFileOperationTests, Execute_Should_OpenImageAndNotShowNotification_When_PathToImageCanBeOpened)
 {
 	// arrange
-	ImageProcessorMock imageProcessorMock;
-	ServiceLocatorMock serviceLocatorMock;
-	ToastServiceMock toastServiceMock;
-	serviceLocatorMock.fileService_mock()->openPixmap_set(QPixmap(100, 100));
-	LoadImageFromFileOperation operation(&imageProcessorMock, QLatin1String("/path/image.png"), &toastServiceMock, &serviceLocatorMock);
+	auto imagePath = QString("/path/image.png");
+	auto notificationServiceMock = QSharedPointer<NotificationServiceMock>(new NotificationServiceMock);
+	auto imageProcessorMock = QSharedPointer<ImageProcessorMock>(new ImageProcessorMock);
+	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
+	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
+
+	EXPECT_CALL(*fileServiceMock, openPixmap(imagePath))
+			.WillRepeatedly([=](const QString &path) {
+				return QPixmap(100, 100);
+			});
+
+	EXPECT_CALL(*imageProcessorMock, processImage(testing::_)).Times(testing::Exactly(1));
+	EXPECT_CALL(*recentImageServiceMock, storeImagePath(imagePath)).Times(testing::Exactly(1));
+	EXPECT_CALL(*notificationServiceMock, showWarning(testing::_, testing::_, testing::_)).Times(testing::Exactly(0));
+
+	LoadImageFromFileOperation operation(imagePath, imageProcessorMock, notificationServiceMock, recentImageServiceMock, fileServiceMock);
 
 	// act
 	auto result = operation.execute();
 
 	// assert
-	QCOMPARE(result, true);
-	QCOMPARE(imageProcessorMock.processImage_callCounter(), 1);
-	QCOMPARE(serviceLocatorMock.recentImageService_mock()->storeImagePath_callCounter(QLatin1String("/path/image.png")), 1);
-	QCOMPARE(toastServiceMock.showWarningToast_callCounter(), 0);
+	EXPECT_TRUE(result);
 }
 
-QTEST_MAIN(LoadImageFromFileOperationTests)
+int main(int argc, char **argv) {
+	QGuiApplication guiApplication(argc, argv);
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
+}

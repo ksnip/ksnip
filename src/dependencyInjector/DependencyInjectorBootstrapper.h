@@ -30,6 +30,7 @@ public:
 
 	static void BootstrapCore(DependencyInjector *dependencyInjector);
 	static void BootstrapCommandLine(DependencyInjector *dependencyInjector);
+	static void BootstrapGui(DependencyInjector *dependencyInjector);
 
 private:
 	static void injectConfig(DependencyInjector *dependencyInjector);

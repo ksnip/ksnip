@@ -19,13 +19,13 @@
 
 #include "NotifyOperation.h"
 
-NotifyOperation::NotifyOperation(IToastService *toastService, const QString &title, const QString &message, const QString &contentUrl, NotificationTypes notificationType)
+NotifyOperation::NotifyOperation(INotificationService *toastService, const QString &title, const QString &message, const QString &contentUrl, NotificationTypes notificationType)
 	: NotifyOperation(toastService, title, message, notificationType)
 {
 	mContentUrl = contentUrl;
 }
 
-NotifyOperation::NotifyOperation(IToastService *toastService, const QString &title, const QString &message, NotificationTypes notificationType) :
+NotifyOperation::NotifyOperation(INotificationService *toastService, const QString &title, const QString &message, NotificationTypes notificationType) :
 	mToastService(toastService),
 	mTitle(title),
 	mMessage(message),
@@ -50,13 +50,13 @@ void NotifyOperation::notifyViaToastMessage() const
 {
 	switch (mNotificationType) {
 		case NotificationTypes::Information:
-			mToastService->showInfoToast(mTitle, mMessage, mContentUrl);
+			mToastService->showInfo(mTitle, mMessage, mContentUrl);
 			break;
 		case NotificationTypes::Warning:
-			mToastService->showWarningToast(mTitle, mMessage, mContentUrl);
+			mToastService->showWarning(mTitle, mMessage, mContentUrl);
 			break;
 		case NotificationTypes::Critical:
-			mToastService->showCriticalToast(mTitle, mMessage, mContentUrl);
+			mToastService->showCritical(mTitle, mMessage, mContentUrl);
 			break;
 	}
 }

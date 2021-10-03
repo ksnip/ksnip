@@ -27,20 +27,20 @@
 #include "src/gui/operations/SaveOperation.h"
 #include "src/gui/operations/RenameOperation.h"
 #include "src/gui/operations/DeleteImageOperation.h"
-#include "src/gui/IToastService.h"
+#include "src/gui/INotificationService.h"
 #include "src/gui/serviceLocator/IServiceLocator.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
 #include "src/common/loader/IconLoader.h"
-#include "src/backend/config/ConfigProvider.h"
+#include "src/dependencyInjector/DependencyInjector.h"
 
 class MultiCaptureHandler : public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit MultiCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IServiceLocator *serviceLocator,
-								 ICaptureTabStateHandler *captureTabStateHandler, QWidget *parent);
+	explicit MultiCaptureHandler(IImageAnnotator *imageAnnotator, INotificationService *toastService, IServiceLocator *serviceLocator,
+								 ICaptureTabStateHandler *captureTabStateHandler, DependencyInjector *dependencyInjector, QWidget *parent);
 	~MultiCaptureHandler() override;
 	bool canClose() override;
 	bool canTakeNew() override;
@@ -60,15 +60,16 @@ public:
 	void addListener(ICaptureChangeListener *captureChangeListener) override;
 
 private:
+	DependencyInjector *mDependencyInjector;
 	IImageAnnotator *mImageAnnotator;
 	ICaptureTabStateHandler *mTabStateHandler;
-	IToastService *mToastService;
+	INotificationService *mToastService;
 	QWidget *mParent;
 	ICaptureChangeListener *mCaptureChangeListener;
 	NewCaptureNameProvider mNewCaptureNameProvider;
 	PathFromCaptureProvider mPathFromCaptureProvider;
 	IServiceLocator *mServiceLocator;
-	IConfig *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	IClipboard *mClipboard;
 	IDesktopService *mDesktopService;
 	TabContextMenuAction *mSaveContextMenuAction;

@@ -28,7 +28,7 @@ class RecentImagesMenu : public QMenu
 {
     Q_OBJECT
 public:
-    explicit RecentImagesMenu(IRecentImageService *recentImagesPathStore, QWidget *parent = nullptr);
+    explicit RecentImagesMenu(const QSharedPointer<IRecentImageService> &recentImageService, QWidget *parent);
     ~RecentImagesMenu() override = default;
 
 signals:
@@ -37,7 +37,7 @@ signals:
 private:
     void populateMenu();
 
-	IRecentImageService *mRecentImageService;
+	QSharedPointer<IRecentImageService> mRecentImageService;
 	QAction *createAction(const QString &path, int index);
 };
 

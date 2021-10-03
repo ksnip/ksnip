@@ -24,7 +24,7 @@
 #include "FreeDesktopNotificationService.h"
 #endif
 
-IToastService *NotificationServiceFactory::create(IToastService *defaultNotificationService)
+INotificationService *NotificationServiceFactory::create(INotificationService *defaultNotificationService)
 {
 #if defined(UNIX_X11)
 	if (ConfigProvider::instance()->platformSpecificNotificationServiceEnabled()) {

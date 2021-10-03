@@ -24,16 +24,17 @@
 #include "src/gui/operations/CanDiscardOperation.h"
 #include "src/gui/operations/DeleteImageOperation.h"
 #include "src/gui/operations/RenameOperation.h"
-#include "src/gui/IToastService.h"
+#include "src/gui/INotificationService.h"
 #include "src/gui/serviceLocator/IServiceLocator.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
+#include "src/dependencyInjector/DependencyInjector.h"
 
 class SingleCaptureHandler : public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit SingleCaptureHandler(IImageAnnotator *imageAnnotator, IToastService *toastService, IServiceLocator *serviceLocator, QWidget *parent);
+	explicit SingleCaptureHandler(IImageAnnotator *imageAnnotator, INotificationService *toastService, IServiceLocator *serviceLocator, DependencyInjector *dependencyInjector, QWidget *parent);
 	~SingleCaptureHandler() override = default;
 	bool canClose() override;
 	bool canTakeNew() override;
@@ -53,8 +54,9 @@ public:
 	void addListener(ICaptureChangeListener *captureChangeListener) override;
 
 private:
+	DependencyInjector *mDependencyInjector;
 	IImageAnnotator *mImageAnnotator;
-	IToastService *mToastService;
+	INotificationService *mToastService;
 	QWidget *mParent;
 	ICaptureChangeListener *mCaptureChangeListener;
 	bool mIsSaved;

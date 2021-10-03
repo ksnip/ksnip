@@ -38,14 +38,12 @@ public:
 	IFileService* fileService() const override;
 	IClipboard* clipboard() const override;
 	IDesktopService* desktopService() const override;
-	IRecentImageService* recentImageService() const override;
 
 private:
 	IFileService *mFileService;
 	IMessageBoxService *mMessageBoxService;
 	IClipboard *mClipboard;
 	IDesktopService *mDesktopService;
-	IRecentImageService *mRecentImageService;
 };
 
 #endif //KSNIP_SERVICELOCATOR_H

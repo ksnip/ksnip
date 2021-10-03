@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,18 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "CaptureHandlerFactory.h"
+#ifndef KSNIP_NOTIFICATIONSERVICEMOCK_H
+#define KSNIP_NOTIFICATIONSERVICEMOCK_H
 
-ICaptureHandler * CaptureHandlerFactory::create(
-		IImageAnnotator *imageAnnotator,
-		INotificationService *toastService,
-		IServiceLocator *serviceLocator,
-		DependencyInjector *dependencyInjector,
-		QWidget *parent)
+#include <gmock/gmock.h>
+
+#include "src/gui/INotificationService.h"
+
+class NotificationServiceMock : public INotificationService
 {
-	if(ConfigProvider::instance()->useTabs()) {
-		return new MultiCaptureHandler(imageAnnotator, toastService, serviceLocator, new CaptureTabStateHandler, dependencyInjector, parent);
-	} else {
-		return new SingleCaptureHandler(imageAnnotator, toastService, serviceLocator, dependencyInjector, parent);
-	}
-}
+public:
+	MOCK_METHOD(void, showInfo, (const QString &title, const QString &message, const QString &contentUrl), (override));
+	MOCK_METHOD(void, showWarning, (const QString &title, const QString &message, const QString &contentUrl), (override));
+	MOCK_METHOD(void, showCritical, (const QString &title, const QString &message, const QString &contentUrl), (override));
+};
+
+#endif //KSNIP_NOTIFICATIONSERVICEMOCK_H

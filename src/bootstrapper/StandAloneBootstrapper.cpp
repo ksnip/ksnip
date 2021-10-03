@@ -224,6 +224,8 @@ void StandAloneBootstrapper::createMainWindow()
 {
 	Q_ASSERT(mMainWindow == nullptr);
 
+	DependencyInjectorBootstrapper::BootstrapGui(mDependencyInjector);
+
 	mMainWindow = new MainWindow(mDependencyInjector);
 }
 

@@ -22,7 +22,7 @@
 
 #include <QString>
 
-#include "src/gui/IToastService.h"
+#include "src/gui/INotificationService.h"
 
 class NotificationServiceFactory
 {
@@ -30,7 +30,7 @@ public:
 	explicit NotificationServiceFactory() = default;
 	~NotificationServiceFactory() = default;
 
-	static IToastService *create(IToastService *defaultNotificationService);
+	static INotificationService *create(INotificationService *defaultNotificationService);
 };
 
 #endif //KSNIP_NOTIFICATIONSERVICEFACTORY_H

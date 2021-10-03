@@ -29,14 +29,14 @@
 #include "src/backend/config/Config.h"
 #include "src/backend/saver/SavePathProvider.h"
 #include "src/backend/saver/ImageSaver.h"
-#include "src/gui/IToastService.h"
+#include "src/gui/INotificationService.h"
 
 class SaveOperation : public QObject
 {
 	Q_OBJECT
 public:
-    SaveOperation(QWidget *parent, QImage image, bool isInstantSave, IToastService *toastService, IRecentImageService *recentImageService);
-	SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, IToastService *toastService, IRecentImageService *recentImageService);
+    SaveOperation(QWidget *parent, QImage image, bool isInstantSave, INotificationService *toastService, IRecentImageService *recentImageService);
+	SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, INotificationService *toastService, IRecentImageService *recentImageService);
     ~SaveOperation() override = default;
 	SaveResultDto execute();
 
@@ -47,7 +47,7 @@ private:
     ImageSaver mImageSaver;
     QString mPathToImageSource;
     bool mIsInstantSave;
-	IToastService *mToastService;
+	INotificationService *mToastService;
 	IRecentImageService *mRecentImageService;
 	Config *mConfig;
 

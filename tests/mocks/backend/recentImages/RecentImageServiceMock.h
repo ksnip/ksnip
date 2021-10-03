@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,15 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ITOASTSERVICE_H
-#define KSNIP_ITOASTSERVICE_H
+#ifndef KSNIP_RECENTIMAGESERVICEMOCK_H
+#define KSNIP_RECENTIMAGESERVICEMOCK_H
 
-class IToastService
+#include <gmock/gmock.h>
+
+#include "src/backend/recentImages/IRecentImageService.h"
+
+class RecentImageServiceMock :  public IRecentImageService
 {
 public:
-	virtual void showInfoToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
-	virtual void showWarningToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
-	virtual void showCriticalToast(const QString &title, const QString &message, const QString &contentUrl) = 0;
+	MOCK_METHOD(void, storeImagePath, (const QString &imagePath), (override));
+	MOCK_METHOD(QStringList, getRecentImagesPath, (), (const, override));
 };
 
-#endif //KSNIP_ITOASTSERVICE_H
+#endif //KSNIP_RECENTIMAGESERVICEMOCK_H

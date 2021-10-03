@@ -51,7 +51,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mMainLayout(layout()),
 	mConfig(ConfigProvider::instance()),
 	mActionsMenu(new ActionsMenu(mConfig)),
-	mRecentImagesMenu(new RecentImagesMenu(mServiceLocator->recentImageService(), this)),
+	mRecentImagesMenu(new RecentImagesMenu(mDependencyInjector->getObject<IRecentImageService>(), this)),
 	mClipboard(mServiceLocator->clipboard()),
 	mCapturePrinter(new CapturePrinter(this)),
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
@@ -59,7 +59,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mDragAndDropProcessor(new DragAndDropProcessor(this)),
 	mUploadHandler(mDependencyInjector->getObject<IUploadHandler>()),
 	mSessionManagerRequestedQuit(false),
-	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, NotificationServiceFactory::create(mTrayIcon), mServiceLocator, this)),
+	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, NotificationServiceFactory::create(mTrayIcon.data()), mServiceLocator, mDependencyInjector, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
 	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this)),
 	mFileDialog(FileDialogAdapterFactory::create()),
@@ -113,7 +113,6 @@ MainWindow::~MainWindow()
 {
     delete mImageAnnotator;
     delete mCapturePrinter;
-    delete mTrayIcon;
     delete mDragAndDropProcessor;
     delete mCaptureHandler;
     delete mVisibilityHandler;
@@ -166,7 +165,7 @@ void MainWindow::processCapture(const CaptureDto &capture)
 	if (!capture.isValid()) {
 		auto title = tr("Unable to show image");
 		auto message = tr("No image provided but one was expected.");
-		NotifyOperation operation(mTrayIcon, title, message, NotificationTypes::Critical);
+		NotifyOperation operation(mTrayIcon.data(), title, message, NotificationTypes::Critical);
 		operation.execute();
 		showEmpty();
 		return;
@@ -538,7 +537,7 @@ void MainWindow::initGui()
     addToolBar(mToolBar);
 
     if(mConfig->useTrayIcon()) {
-	    connect(mTrayIcon, &TrayIcon::showEditorTriggered, [this](){ mVisibilityHandler->enforceVisible(); });
+	    connect(mTrayIcon.data(), &TrayIcon::showEditorTriggered, [this](){ mVisibilityHandler->enforceVisible(); });
 	    mTrayIcon->setCaptureActions(mToolBar->captureActions());
 	    mTrayIcon->setOpenAction(mOpenImageAction);
 	    mTrayIcon->setSaveAction(mToolBar->saveAction());
@@ -568,7 +567,7 @@ void MainWindow::upload()
 void MainWindow::copyAsDataUri()
 {
 	auto image = mCaptureHandler->image();
-	CopyAsDataUriOperation operation(image, mClipboard, mTrayIcon);
+	CopyAsDataUriOperation operation(image, mClipboard, mTrayIcon.data());
 	operation.execute();
 }
 
@@ -688,7 +687,7 @@ void MainWindow::saveAsClicked()
 
 void MainWindow::loadImageFromFile(const QString &path)
 {
-	LoadImageFromFileOperation operation(this, path, mTrayIcon, mServiceLocator);
+	LoadImageFromFileOperation operation(path, QSharedPointer<IImageProcessor>(this), mTrayIcon, mDependencyInjector->getObject<IRecentImageService>(), mDependencyInjector->getObject<IFileService>());
 	operation.execute();
 }
 
@@ -714,7 +713,7 @@ void MainWindow::captureCanceled()
 
 void MainWindow::uploadFinished(const UploadResult &result)
 {
-	HandleUploadResultOperation handleUploadResponseOperation(result, mTrayIcon);
+	HandleUploadResultOperation handleUploadResponseOperation(result, mTrayIcon.data());
 	handleUploadResponseOperation.execute();
 }
 

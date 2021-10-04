@@ -43,7 +43,6 @@
 #include "src/gui/captureHandler/ICaptureChangeListener.h"
 #include "src/gui/widgetVisibilityHandler/WidgetVisibilityHandlerFactory.h"
 #include "src/gui/pinWindow/PinWindowHandler.h"
-#include "src/gui/serviceLocator/ServiceLocator.h"
 #include "src/gui/RecentImagesMenu.h"
 #include "src/gui/dragAndDrop/DragAndDropProcessor.h"
 #include "src/gui/dragAndDrop/IDragContentProvider.h"
@@ -93,7 +92,7 @@ protected:
 private:
 	DependencyInjector *mDependencyInjector;
 	QSharedPointer<IImageGrabber> mImageGrabber;
-	IServiceLocator *mServiceLocator;
+	QSharedPointer<INotificationService> mNotificationService;
     bool mSessionManagerRequestedQuit;
     QAction *mSaveAsAction;
     QAction *mUploadAction;
@@ -121,12 +120,12 @@ private:
 	Config *mConfig;
 	ActionsMenu *mActionsMenu;
 	RecentImagesMenu *mRecentImagesMenu;
-	IClipboard *mClipboard;
+	QSharedPointer<IClipboard> mClipboard;
 	CapturePrinter *mCapturePrinter;
     IImageAnnotator *mImageAnnotator;
     SavePathProvider mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
-	QSharedPointer<TrayIcon> mTrayIcon;
+	TrayIcon *mTrayIcon;
 	DragAndDropProcessor *mDragAndDropProcessor;
 	QSharedPointer<IUploadHandler> mUploadHandler;
 	ICaptureHandler *mCaptureHandler;

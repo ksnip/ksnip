@@ -22,9 +22,6 @@
 
 #include "src/gui/captureHandler/SingleCaptureHandler.h"
 #include "src/gui/captureHandler/MultiCaptureHandler.h"
-#include "src/gui/captureHandler/CaptureTabStateHandler.h"
-#include "src/gui/serviceLocator/ServiceLocator.h"
-#include "src/backend/config/ConfigProvider.h"
 
 class CaptureHandlerFactory
 {
@@ -33,8 +30,7 @@ public:
 	~CaptureHandlerFactory() = default;
 	static ICaptureHandler *create(
 			IImageAnnotator *imageAnnotator,
-			INotificationService *notificationService,
-			IServiceLocator *serviceLocator,
+			QSharedPointer<INotificationService> notificationService,
 			DependencyInjector *dependencyInjector,
 			QWidget *parent);
 };

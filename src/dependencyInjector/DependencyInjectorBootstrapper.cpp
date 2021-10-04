@@ -31,6 +31,7 @@
 #include "src/gui/clipboard/ClipboardAdapter.h"
 #include "src/gui/desktopService/DesktopServiceAdapter.h"
 #include "src/gui/messageBoxService/MessageBoxService.h"
+#include "src/gui/captureHandler/CaptureTabStateHandler.h"
 #include "src/logging/ConsoleLogger.h"
 #include "src/logging/NoneLogger.h"
 
@@ -77,6 +78,7 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 	dependencyInjector->registerInstance<IClipboard, ClipboardAdapter>();
 	dependencyInjector->registerInstance<IDesktopService, DesktopServiceAdapter>();
 	dependencyInjector->registerInstance<IMessageBoxService, MessageBoxService>();
+	dependencyInjector->registerInstance<ICaptureTabStateHandler, CaptureTabStateHandler>();
 	dependencyInjector->registerFactory<IRecentImageService, RecentImagesPathStore, IImagePathStorage>();
 }
 

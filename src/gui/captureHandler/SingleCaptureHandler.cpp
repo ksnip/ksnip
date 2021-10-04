@@ -21,7 +21,7 @@
 
 SingleCaptureHandler::SingleCaptureHandler(
 		IImageAnnotator *imageAnnotator,
-		INotificationService *notificationService,
+		const QSharedPointer<INotificationService> &notificationService,
 		const QSharedPointer<IClipboard> &clipboard,
 		const QSharedPointer<IDesktopService> &desktopService,
 		const QSharedPointer<IFileService> &fileService,
@@ -81,7 +81,7 @@ void SingleCaptureHandler::save()
 
 void SingleCaptureHandler::rename()
 {
-	RenameOperation operation(mParent, mPath, QFileInfo(mPath).fileName(), mNotificationService);
+	RenameOperation operation(mParent, mPath, QFileInfo(mPath).fileName(), mNotificationService.data());
 	const auto renameResult = operation.execute();
 	if (renameResult.isSuccessful) {
 		mPath = renameResult.path;
@@ -125,7 +125,7 @@ void SingleCaptureHandler::reset()
 void SingleCaptureHandler::innerSave(bool isInstant)
 {
 	auto image = mImageAnnotator->image();
-	SaveOperation operation(mParent, image, isInstant, mPath, mNotificationService, mRecentImageService.data());
+	SaveOperation operation(mParent, image, isInstant, mPath, mNotificationService.data(), mRecentImageService.data());
 	auto saveResult = operation.execute();
 	mIsSaved = saveResult.isSuccessful;
 	if (mIsSaved) {
@@ -163,7 +163,7 @@ bool SingleCaptureHandler::discardChanges()
 {
 	auto image = mImageAnnotator->image();
 	auto filename = PathHelper::extractFilename(mPath);
-	CanDiscardOperation operation(mParent, image, !mIsSaved, mPath, filename, mNotificationService, mRecentImageService.data());
+	CanDiscardOperation operation(mParent, image, !mIsSaved, mPath, filename, mNotificationService.data(), mRecentImageService.data());
 	return operation.execute();
 }
 

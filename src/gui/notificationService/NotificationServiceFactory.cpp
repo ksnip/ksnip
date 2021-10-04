@@ -24,15 +24,15 @@
 #include "FreeDesktopNotificationService.h"
 #endif
 
-INotificationService *NotificationServiceFactory::create(INotificationService *defaultNotificationService)
+QSharedPointer<INotificationService> NotificationServiceFactory::create(INotificationService *defaultNotificationService)
 {
 #if defined(UNIX_X11)
 	if (ConfigProvider::instance()->platformSpecificNotificationServiceEnabled()) {
-		return new FreeDesktopNotificationService();
+		return QSharedPointer<INotificationService>(new FreeDesktopNotificationService());
 	} else {
-		return defaultNotificationService;
+		return QSharedPointer<INotificationService>(defaultNotificationService);
 	}
 #else
-	return defaultNotificationService;
+	return QSharedPointer<INotificationService>(defaultNotificationService);
 #endif
 }

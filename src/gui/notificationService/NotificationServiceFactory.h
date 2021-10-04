@@ -20,7 +20,7 @@
 #ifndef KSNIP_NOTIFICATIONSERVICEFACTORY_H
 #define KSNIP_NOTIFICATIONSERVICEFACTORY_H
 
-#include <QString>
+#include <QSharedPointer>
 
 #include "src/gui/INotificationService.h"
 
@@ -30,7 +30,7 @@ public:
 	explicit NotificationServiceFactory() = default;
 	~NotificationServiceFactory() = default;
 
-	static INotificationService *create(INotificationService *defaultNotificationService);
+	static QSharedPointer<INotificationService> create(INotificationService *defaultNotificationService);
 };
 
 #endif //KSNIP_NOTIFICATIONSERVICEFACTORY_H

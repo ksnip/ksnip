@@ -33,13 +33,13 @@ class HandleUploadResultOperation : public QObject
 {
 	Q_OBJECT
 public:
-	explicit HandleUploadResultOperation(const UploadResult &result, TrayIcon *trayIcon);
+	explicit HandleUploadResultOperation(const UploadResult &result, const QSharedPointer<INotificationService> &notificationService);
 	~HandleUploadResultOperation() override = default;
 	bool execute();
 
 private:
 	UploadResult mUploadResult;
-	TrayIcon *mTrayIcon;
+	QSharedPointer<INotificationService> mNotificationService;
 	Config *mConfig;
 	QClipboard *mClipboard;
 

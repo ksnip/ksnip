@@ -25,7 +25,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mDependencyInjector(dependencyInjector),
 	mToolBar(nullptr),
 	mImageGrabber(mDependencyInjector->getObject<IImageGrabber>()),
-	mServiceLocator(new ServiceLocator),
+	mNotificationService(NotificationServiceFactory::create(mTrayIcon)),
 	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
 	mUploadAction(new QAction(this)),
@@ -52,14 +52,14 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mConfig(ConfigProvider::instance()),
 	mActionsMenu(new ActionsMenu(mConfig)),
 	mRecentImagesMenu(new RecentImagesMenu(mDependencyInjector->getObject<IRecentImageService>(), this)),
-	mClipboard(mServiceLocator->clipboard()),
+	mClipboard(mDependencyInjector->getObject<IClipboard>()),
 	mCapturePrinter(new CapturePrinter(this)),
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
 	mTrayIcon(new TrayIcon(this)),
 	mDragAndDropProcessor(new DragAndDropProcessor(this)),
 	mUploadHandler(mDependencyInjector->getObject<IUploadHandler>()),
 	mSessionManagerRequestedQuit(false),
-	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, NotificationServiceFactory::create(mTrayIcon.data()), mServiceLocator, mDependencyInjector, this)),
+	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mNotificationService, mDependencyInjector, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
 	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this)),
 	mFileDialog(FileDialogAdapterFactory::create()),
@@ -165,7 +165,7 @@ void MainWindow::processCapture(const CaptureDto &capture)
 	if (!capture.isValid()) {
 		auto title = tr("Unable to show image");
 		auto message = tr("No image provided but one was expected.");
-		NotifyOperation operation(mTrayIcon.data(), title, message, NotificationTypes::Critical);
+		NotifyOperation operation(mNotificationService.data(), title, message, NotificationTypes::Critical);
 		operation.execute();
 		showEmpty();
 		return;
@@ -466,14 +466,14 @@ void MainWindow::initGui()
 	mPasteAction->setShortcut(Qt::CTRL + Qt::Key_V);
 	mPasteAction->setEnabled(mClipboard->isPixmap());
 	connect(mPasteAction, &QAction::triggered, this, &MainWindow::pasteFromClipboard);
-	connect(mClipboard, &ClipboardAdapter::changed, mPasteAction, &QAction::setEnabled);
+	connect(mClipboard.data(), &IClipboard::changed, mPasteAction, &QAction::setEnabled);
 
 	mPasteEmbeddedAction->setText(tr("Paste Embedded"));
 	mPasteEmbeddedAction->setIcon(IconLoader::loadForTheme(QLatin1String("pasteEmbedded")));
 	mPasteEmbeddedAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_V);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
 	connect(mPasteEmbeddedAction, &QAction::triggered, this, &MainWindow::pasteEmbeddedFromClipboard);
-	connect(mClipboard, &ClipboardAdapter::changed, [this] (bool isPixmap){ mPasteEmbeddedAction->setEnabled(isPixmap && mImageAnnotator->isVisible()); });
+	connect(mClipboard.data(), &IClipboard::changed, [this] (bool isPixmap){ mPasteEmbeddedAction->setEnabled(isPixmap && mImageAnnotator->isVisible()); });
 
 	mPinAction->setText(tr("Pin"));
 	mPinAction->setToolTip(tr("Pin screenshot to foreground in frameless window"));
@@ -537,7 +537,7 @@ void MainWindow::initGui()
     addToolBar(mToolBar);
 
     if(mConfig->useTrayIcon()) {
-	    connect(mTrayIcon.data(), &TrayIcon::showEditorTriggered, [this](){ mVisibilityHandler->enforceVisible(); });
+	    connect(mTrayIcon, &TrayIcon::showEditorTriggered, [this](){ mVisibilityHandler->enforceVisible(); });
 	    mTrayIcon->setCaptureActions(mToolBar->captureActions());
 	    mTrayIcon->setOpenAction(mOpenImageAction);
 	    mTrayIcon->setSaveAction(mToolBar->saveAction());
@@ -567,7 +567,7 @@ void MainWindow::upload()
 void MainWindow::copyAsDataUri()
 {
 	auto image = mCaptureHandler->image();
-	CopyAsDataUriOperation operation(image, mClipboard, mTrayIcon.data());
+	CopyAsDataUriOperation operation(image, mClipboard.data(), mNotificationService.data());
 	operation.execute();
 }
 
@@ -687,7 +687,7 @@ void MainWindow::saveAsClicked()
 
 void MainWindow::loadImageFromFile(const QString &path)
 {
-	LoadImageFromFileOperation operation(path, QSharedPointer<IImageProcessor>(this), mTrayIcon, mDependencyInjector->getObject<IRecentImageService>(), mDependencyInjector->getObject<IFileService>());
+	LoadImageFromFileOperation operation(path, QSharedPointer<IImageProcessor>(this), mNotificationService, mDependencyInjector->getObject<IRecentImageService>(), mDependencyInjector->getObject<IFileService>());
 	operation.execute();
 }
 
@@ -713,7 +713,7 @@ void MainWindow::captureCanceled()
 
 void MainWindow::uploadFinished(const UploadResult &result)
 {
-	HandleUploadResultOperation handleUploadResponseOperation(result, mTrayIcon.data());
+	HandleUploadResultOperation handleUploadResponseOperation(result, mNotificationService);
 	handleUploadResponseOperation.execute();
 }
 

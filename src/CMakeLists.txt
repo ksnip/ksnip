@@ -146,7 +146,6 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindowHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/messageBoxService/MessageBoxService.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/serviceLocator/ServiceLocator.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/windowResizer/WindowResizer.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/dragAndDrop/DragAndDropProcessor.cpp
 	${CMAKE_SOURCE_DIR}/src/logging/LogOutputHandler.cpp

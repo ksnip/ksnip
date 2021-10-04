@@ -56,7 +56,7 @@ public:
 	MOCK_METHOD(void, setTabBarAutoHide, (bool enabled), (override));
 	MOCK_METHOD(void, removeTab, (int index), (override));
 	MOCK_METHOD(void, setStickers, (const QStringList &stickerPaths, bool keepDefault), (override));
-	MOCK_METHOD(void, addTabContextMenuActions, (const QList<QAction*> & actions), (override));
+	MOCK_METHOD(void, addTabContextMenuActions, (const QList<QAction*> &actions), (override));
 	MOCK_METHOD(void, setCanvasColor, (const QColor &color), (override));
 };
 

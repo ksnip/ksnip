@@ -25,7 +25,8 @@
 #include "src/gui/operations/DeleteImageOperation.h"
 #include "src/gui/operations/RenameOperation.h"
 #include "src/gui/INotificationService.h"
-#include "src/gui/serviceLocator/IServiceLocator.h"
+#include "src/gui/clipboard/IClipboard.h"
+#include "src/gui/desktopService/IDesktopService.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
 #include "src/dependencyInjector/DependencyInjector.h"
@@ -36,7 +37,7 @@ Q_OBJECT
 public:
 	explicit SingleCaptureHandler(
 			IImageAnnotator *imageAnnotator,
-			INotificationService *notificationService,
+			const QSharedPointer<INotificationService> &notificationService,
 			const QSharedPointer<IClipboard> &clipboard,
 			const QSharedPointer<IDesktopService> &desktopService,
 			const QSharedPointer<IFileService> &fileService,
@@ -63,7 +64,7 @@ public:
 
 private:
 	IImageAnnotator *mImageAnnotator;
-	INotificationService *mNotificationService;
+	QSharedPointer<INotificationService> mNotificationService;
 	QSharedPointer<IClipboard> mClipboard;
 	QSharedPointer<IDesktopService> mDesktopService;
 	QSharedPointer<IFileService> mFileService;

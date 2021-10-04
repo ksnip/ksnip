@@ -34,7 +34,7 @@ TEST(SingleCaptureHandlerTests, RemoveImage_Should_CleanupAnnotationData_When_Im
 {
 	// arrange
 	ImageAnnotatorMock imageAnnotatorMock;
-	NotificationServiceMock notificationServiceMock;
+	auto notificationServiceMock = QSharedPointer<NotificationServiceMock>(new NotificationServiceMock);
 	auto clipboardMock = QSharedPointer<ClipboardMock>(new ClipboardMock);
 	auto desktopServiceMock = QSharedPointer<DesktopServiceMock>(new DesktopServiceMock);
 	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
@@ -56,7 +56,7 @@ TEST(SingleCaptureHandlerTests, RemoveImage_Should_CleanupAnnotationData_When_Im
 
 	SingleCaptureHandler captureHandler(
 			&imageAnnotatorMock,
-			&notificationServiceMock,
+			notificationServiceMock,
 			clipboardMock,
 			desktopServiceMock,
 			fileServiceMock,
@@ -79,7 +79,7 @@ TEST(SingleCaptureHandlerTests, RemoveImage_Should_NotCleanupAnnotationData_When
 {
 	// arrange
 	ImageAnnotatorMock imageAnnotatorMock;
-	NotificationServiceMock notificationServiceMock;
+	auto notificationServiceMock = QSharedPointer<NotificationServiceMock>(new NotificationServiceMock);
 	auto clipboardMock = QSharedPointer<ClipboardMock>(new ClipboardMock);
 	auto desktopServiceMock = QSharedPointer<DesktopServiceMock>(new DesktopServiceMock);
 	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
@@ -95,7 +95,7 @@ TEST(SingleCaptureHandlerTests, RemoveImage_Should_NotCleanupAnnotationData_When
 
 	SingleCaptureHandler captureHandler(
 			&imageAnnotatorMock,
-			&notificationServiceMock,
+			notificationServiceMock,
 			clipboardMock,
 			desktopServiceMock,
 			fileServiceMock,
@@ -117,7 +117,7 @@ TEST(SingleCaptureHandlerTests, Load_Should_SetPathAndIsSavedToValuesFromCapture
 {
 	// arrange
 	ImageAnnotatorMock imageAnnotatorMock;
-	NotificationServiceMock notificationServiceMock;
+	auto notificationServiceMock = QSharedPointer<NotificationServiceMock>(new NotificationServiceMock);
 	auto clipboardMock = QSharedPointer<ClipboardMock>(new ClipboardMock);
 	auto desktopServiceMock = QSharedPointer<DesktopServiceMock>(new DesktopServiceMock);
 	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
@@ -126,7 +126,7 @@ TEST(SingleCaptureHandlerTests, Load_Should_SetPathAndIsSavedToValuesFromCapture
 
 	SingleCaptureHandler captureHandler(
 			&imageAnnotatorMock,
-			&notificationServiceMock,
+			notificationServiceMock,
 			clipboardMock,
 			desktopServiceMock,
 			fileServiceMock,
@@ -148,7 +148,7 @@ TEST(SingleCaptureHandlerTests, Load_Should_SetPathToEmptyAndIsSavedToFalse_When
 {
 	// arrange
 	ImageAnnotatorMock imageAnnotatorMock;
-	NotificationServiceMock notificationServiceMock;
+	auto notificationServiceMock = QSharedPointer<NotificationServiceMock>(new NotificationServiceMock);
 	auto clipboardMock = QSharedPointer<ClipboardMock>(new ClipboardMock);
 	auto desktopServiceMock = QSharedPointer<DesktopServiceMock>(new DesktopServiceMock);
 	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
@@ -157,7 +157,7 @@ TEST(SingleCaptureHandlerTests, Load_Should_SetPathToEmptyAndIsSavedToFalse_When
 
 	SingleCaptureHandler captureHandler(
 			&imageAnnotatorMock,
-			&notificationServiceMock,
+			notificationServiceMock,
 			clipboardMock,
 			desktopServiceMock,
 			fileServiceMock,

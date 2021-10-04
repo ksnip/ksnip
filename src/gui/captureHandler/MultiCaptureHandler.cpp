@@ -19,18 +19,28 @@
 
 #include "MultiCaptureHandler.h"
 
-MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, INotificationService *toastService, IServiceLocator *serviceLocator,
-										 ICaptureTabStateHandler *captureTabStateHandler, DependencyInjector *dependencyInjector, QWidget *parent) :
-	mDependencyInjector(dependencyInjector),
+MultiCaptureHandler::MultiCaptureHandler(
+		IImageAnnotator *imageAnnotator,
+		const QSharedPointer<INotificationService> &notificationService,
+		const QSharedPointer<ICaptureTabStateHandler> &captureTabStateHandler,
+		const QSharedPointer<IConfig> &config,
+		const QSharedPointer<IClipboard> &clipboard,
+		const QSharedPointer<IDesktopService> &desktopService,
+		const QSharedPointer<IFileService> &fileService,
+		const QSharedPointer<IMessageBoxService> &messageBoxService,
+		const QSharedPointer<IRecentImageService> &recentImageService,
+		QWidget *parent) :
 	mImageAnnotator(imageAnnotator),
-	mToastService(toastService),
+	mNotificationService(notificationService),
 	mParent(parent),
 	mCaptureChangeListener(nullptr),
 	mTabStateHandler(captureTabStateHandler),
-	mServiceLocator(serviceLocator),
-	mConfig(mDependencyInjector->getObject<IConfig>()),
-	mClipboard(mServiceLocator->clipboard()),
-	mDesktopService(mServiceLocator->desktopService()),
+	mConfig(config),
+	mClipboard(clipboard),
+	mDesktopService(desktopService),
+	mMessageBoxService(messageBoxService),
+	mFileService(fileService),
+	mRecentImageService(recentImageService),
 	mSaveContextMenuAction(new TabContextMenuAction(this)),
 	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
 	mRenameContextMenuAction(new TabContextMenuAction(this)),
@@ -40,10 +50,10 @@ MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, INotif
 	mDeleteImageContextMenuAction(new TabContextMenuAction(this)),
 	mContextMenuSeparatorAction(new QAction(this))
 {
-	connect(mImageAnnotator, &IImageAnnotator::currentTabChanged, mTabStateHandler, &ICaptureTabStateHandler::currentTabChanged);
-	connect(mImageAnnotator, &IImageAnnotator::tabMoved, mTabStateHandler, &ICaptureTabStateHandler::tabMoved);
-	connect(mImageAnnotator, &IImageAnnotator::imageChanged, mTabStateHandler, &ICaptureTabStateHandler::currentTabContentChanged);
-	connect(mTabStateHandler, &ICaptureTabStateHandler::updateTabInfo, mImageAnnotator, &IImageAnnotator::updateTabInfo);
+	connect(mImageAnnotator, &IImageAnnotator::currentTabChanged, mTabStateHandler.data(), &ICaptureTabStateHandler::currentTabChanged);
+	connect(mImageAnnotator, &IImageAnnotator::tabMoved, mTabStateHandler.data(), &ICaptureTabStateHandler::tabMoved);
+	connect(mImageAnnotator, &IImageAnnotator::imageChanged, mTabStateHandler.data(), &ICaptureTabStateHandler::currentTabContentChanged);
+	connect(mTabStateHandler.data(), &ICaptureTabStateHandler::updateTabInfo, mImageAnnotator, &IImageAnnotator::updateTabInfo);
 
 	connect(mImageAnnotator, &IImageAnnotator::imageChanged, this, &MultiCaptureHandler::captureChanged);
 	connect(mImageAnnotator, &IImageAnnotator::currentTabChanged, this, &MultiCaptureHandler::captureChanged);
@@ -59,7 +69,6 @@ MultiCaptureHandler::MultiCaptureHandler(IImageAnnotator *imageAnnotator, INotif
 
 MultiCaptureHandler::~MultiCaptureHandler()
 {
-	delete mTabStateHandler;
 	delete mSaveContextMenuAction;
 	delete mSaveAsContextMenuAction;
 	delete mRenameContextMenuAction;
@@ -93,7 +102,7 @@ bool MultiCaptureHandler::discardChanges(int index)
 	auto isUnsaved = !mTabStateHandler->isSaved(index);
 	auto pathToSource = mTabStateHandler->path(index);
 	auto filename = mTabStateHandler->filename(index);
-	CanDiscardOperation operation(mParent, image, isUnsaved, pathToSource, filename, mToastService, mDependencyInjector->getObject<IRecentImageService>().data());
+	CanDiscardOperation operation(mParent, image, isUnsaved, pathToSource, filename, mNotificationService.data(), mRecentImageService.data());
 	return operation.execute();
 }
 
@@ -162,7 +171,7 @@ void MultiCaptureHandler::removeImage()
 void MultiCaptureHandler::saveAt(int index, bool isInstant)
 {
 	auto image = mImageAnnotator->imageAt(index);
-	SaveOperation operation(mParent, image, isInstant, mTabStateHandler->path(index), mToastService, mDependencyInjector->getObject<IRecentImageService>().data());
+	SaveOperation operation(mParent, image, isInstant, mTabStateHandler->path(index), mNotificationService.data(), mRecentImageService.data());
 	auto saveResult = operation.execute();
 	mTabStateHandler->setSaveState(index, saveResult);
 	captureChanged();
@@ -276,7 +285,7 @@ void MultiCaptureHandler::saveTab(int index)
 
 void MultiCaptureHandler::renameTab(int index)
 {
-	RenameOperation operation(mParent, mTabStateHandler->path(index), mTabStateHandler->filename(index), mToastService);
+	RenameOperation operation(mParent, mTabStateHandler->path(index), mTabStateHandler->filename(index), mNotificationService.data());
 	auto renameResult = operation.execute();
 	if(renameResult.isSuccessful) {
 		mTabStateHandler->renameFile(index, renameResult);
@@ -316,7 +325,7 @@ void MultiCaptureHandler::deleteImageTab(int index)
 {
 	auto path = mTabStateHandler->path(index);
 
-	DeleteImageOperation operation(path, mDependencyInjector->getObject<IFileService>().data(), mServiceLocator->messageBoxService());
+	DeleteImageOperation operation(path, mFileService.data(), mMessageBoxService.data());
 
 	if(operation.execute()) {
 		removeTab(index);

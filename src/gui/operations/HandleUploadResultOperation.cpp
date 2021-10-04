@@ -19,9 +19,9 @@
 
 #include "HandleUploadResultOperation.h"
 
-HandleUploadResultOperation::HandleUploadResultOperation(const UploadResult &result, TrayIcon *trayIcon) :
+HandleUploadResultOperation::HandleUploadResultOperation(const UploadResult &result, const QSharedPointer<INotificationService> &notificationService) :
 	mUploadResult(result),
-	mTrayIcon(trayIcon),
+	mNotificationService(notificationService),
 	mConfig(ConfigProvider::instance()),
 	mClipboard(QApplication::clipboard())
 {
@@ -85,19 +85,19 @@ void HandleUploadResultOperation::handleFtpResult()
 
 void HandleUploadResultOperation::notifyFtpSuccessfulUpload() const
 {
-	NotifyOperation operation(mTrayIcon, tr("Upload Successful"), tr("FTP Upload finished successfully."), NotificationTypes::Information);
+	NotifyOperation operation(mNotificationService.data(), tr("Upload Successful"), tr("FTP Upload finished successfully."), NotificationTypes::Information);
 	operation.execute();
 }
 
 void HandleUploadResultOperation::notifyScriptSuccessfulUpload() const
 {
-	NotifyOperation operation(mTrayIcon, tr("Upload Successful"), tr("Upload script ") + mConfig->uploadScriptPath() + tr(" finished successfully."), NotificationTypes::Information);
+	NotifyOperation operation(mNotificationService.data(), tr("Upload Successful"), tr("Upload script ") + mConfig->uploadScriptPath() + tr(" finished successfully."), NotificationTypes::Information);
 	operation.execute();
 }
 
 void HandleUploadResultOperation::notifyImgurSuccessfulUpload(const QString &url) const
 {
-	NotifyOperation operation(mTrayIcon, tr("Upload Successful"), tr("Uploaded to") + QLatin1String(" ") + url, url, NotificationTypes::Information);
+	NotifyOperation operation(mNotificationService.data(), tr("Upload Successful"), tr("Uploaded to") + QLatin1String(" ") + url, url, NotificationTypes::Information);
 	operation.execute();
 }
 
@@ -156,7 +156,7 @@ void HandleUploadResultOperation::handleUploadError()
 
 void HandleUploadResultOperation::notifyFailedUpload(const QString &message) const
 {
-	NotifyOperation operation(mTrayIcon, tr("Upload Failed"), message, NotificationTypes::Warning);
+	NotifyOperation operation(mNotificationService.data(), tr("Upload Failed"), message, NotificationTypes::Warning);
 	operation.execute();
 }
 

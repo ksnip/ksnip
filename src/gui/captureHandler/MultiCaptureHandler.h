@@ -28,7 +28,8 @@
 #include "src/gui/operations/RenameOperation.h"
 #include "src/gui/operations/DeleteImageOperation.h"
 #include "src/gui/INotificationService.h"
-#include "src/gui/serviceLocator/IServiceLocator.h"
+#include "src/gui/clipboard/IClipboard.h"
+#include "src/gui/desktopService/IDesktopService.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
@@ -39,8 +40,16 @@ class MultiCaptureHandler : public ICaptureHandler
 {
 Q_OBJECT
 public:
-	explicit MultiCaptureHandler(IImageAnnotator *imageAnnotator, INotificationService *toastService, IServiceLocator *serviceLocator,
-								 ICaptureTabStateHandler *captureTabStateHandler, DependencyInjector *dependencyInjector, QWidget *parent);
+	explicit MultiCaptureHandler(
+			IImageAnnotator *imageAnnotator,
+			const QSharedPointer<INotificationService> &notificationService,
+			const QSharedPointer<ICaptureTabStateHandler> &captureTabStateHandler,
+			const QSharedPointer<IConfig> &config,
+			const QSharedPointer<IClipboard> &clipboard,
+			const QSharedPointer<IDesktopService> &desktopService,
+			const QSharedPointer<IFileService> &fileService,
+			const QSharedPointer<IMessageBoxService> &messageBoxService,
+			const QSharedPointer<IRecentImageService> &recentImageService, QWidget *parent);
 	~MultiCaptureHandler() override;
 	bool canClose() override;
 	bool canTakeNew() override;
@@ -60,18 +69,19 @@ public:
 	void addListener(ICaptureChangeListener *captureChangeListener) override;
 
 private:
-	DependencyInjector *mDependencyInjector;
 	IImageAnnotator *mImageAnnotator;
-	ICaptureTabStateHandler *mTabStateHandler;
-	INotificationService *mToastService;
+	QSharedPointer<ICaptureTabStateHandler> mTabStateHandler;
+	QSharedPointer<INotificationService> mNotificationService;
 	QWidget *mParent;
 	ICaptureChangeListener *mCaptureChangeListener;
 	NewCaptureNameProvider mNewCaptureNameProvider;
 	PathFromCaptureProvider mPathFromCaptureProvider;
-	IServiceLocator *mServiceLocator;
 	QSharedPointer<IConfig> mConfig;
-	IClipboard *mClipboard;
-	IDesktopService *mDesktopService;
+	QSharedPointer<IClipboard> mClipboard;
+	QSharedPointer<IDesktopService> mDesktopService;
+	QSharedPointer<IMessageBoxService> mMessageBoxService;
+	QSharedPointer<IFileService> mFileService;
+	QSharedPointer<IRecentImageService> mRecentImageService;
 	TabContextMenuAction *mSaveContextMenuAction;
 	TabContextMenuAction *mSaveAsContextMenuAction;
 	TabContextMenuAction *mRenameContextMenuAction;

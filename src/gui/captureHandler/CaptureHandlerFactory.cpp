@@ -19,15 +19,26 @@
 
 #include "CaptureHandlerFactory.h"
 
-ICaptureHandler * CaptureHandlerFactory::create(
-	IImageAnnotator *imageAnnotator,
-	INotificationService *notificationService,
-	IServiceLocator *serviceLocator,
-	DependencyInjector *dependencyInjector,
-	QWidget *parent)
+ICaptureHandler* CaptureHandlerFactory::create(
+		IImageAnnotator *imageAnnotator,
+		QSharedPointer<INotificationService> notificationService,
+		DependencyInjector *dependencyInjector,
+		QWidget *parent)
 {
-	if(dependencyInjector->getObject<IConfig>()->useTabs()) {
-		return new MultiCaptureHandler(imageAnnotator, notificationService, serviceLocator, new CaptureTabStateHandler, dependencyInjector, parent);
+	auto config = dependencyInjector->getObject<IConfig>();
+
+	if(config->useTabs()) {
+		return new MultiCaptureHandler(
+				imageAnnotator,
+				notificationService,
+				dependencyInjector->getObject<ICaptureTabStateHandler>(),
+				config,
+				dependencyInjector->getObject<IClipboard>(),
+				dependencyInjector->getObject<IDesktopService>(),
+				dependencyInjector->getObject<IFileService>(),
+				dependencyInjector->getObject<IMessageBoxService>(),
+				dependencyInjector->getObject<IRecentImageService>(),
+				parent);
 	} else {
 		return new SingleCaptureHandler(
 				imageAnnotator,

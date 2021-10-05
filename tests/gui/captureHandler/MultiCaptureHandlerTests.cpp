@@ -28,7 +28,6 @@
 #include "tests/mocks/gui/clipboard/ClipboardMock.h"
 #include "tests/mocks/gui/messageBoxService/MessageBoxServiceMock.h"
 #include "tests/mocks/gui/captureHandler/CaptureTabStateHandlerMock.h"
-#include "tests/mocks/backend/recentImages/RecentImageServiceMock.h"
 #include "tests/mocks/backend/config/ConfigMock.h"
 
 TEST(MultiCaptureHandlerTests, Copy_Should_CopyCurrentTabImageToClipboard)
@@ -179,7 +178,7 @@ TEST(MultiCaptureHandlerTests, CopyPathToClipboardTab_Should_FetchCorrectPathFro
 	}
 }
 
-TEST(MultiCaptureHandlerTests, OpenDirectoryTab_Should_FetchCorrectPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService)
+TEST(MultiCaptureHandlerTests, OpenDirectory_Should_FetchCorrectPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService)
 {
 	// arrange
 	int index = 22;

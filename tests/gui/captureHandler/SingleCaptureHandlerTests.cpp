@@ -175,7 +175,7 @@ TEST(SingleCaptureHandlerTests, Load_Should_SetPathToEmptyAndIsSavedToFalse_When
 }
 
 int main(int argc, char **argv) {
-	QGuiApplication guiApplication(argc, argv);
+	QCoreApplication guiApplication(argc, argv);
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
 }

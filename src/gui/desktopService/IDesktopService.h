@@ -20,7 +20,7 @@
 #ifndef KSNIP_IDESKTOPSERVICE_H
 #define KSNIP_IDESKTOPSERVICE_H
 
-class QUrl;
+class QString;
 
 class IDesktopService
 {

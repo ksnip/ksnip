@@ -59,7 +59,7 @@
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran Görüntüsü Al</translation>
     </message>
     <message>
         <source>Include Cursor</source>
@@ -79,15 +79,15 @@
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Görüntüyü Sabit Pencerede Göster</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntüyü Panoya Kopyala</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü Yükle</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
@@ -95,11 +95,11 @@
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntüyü Kaydet</translation>
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ana Pencereyi Gizle</translation>
     </message>
 </context>
 <context>
@@ -110,11 +110,11 @@
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Eylem Özellikleri</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Eylem</translation>
     </message>
 </context>
 <context>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Lüffen Filigran Resmini Ayarlar &gt; Seçenekler &gt; Ek Açıklama &gt; Güncelle kısmından ekleyin</translation>
+        <translation type="unfinished">Lüffen Filigran Resmini Seçenekler &gt; Ayarlar &gt; Ek Açıklama &gt; Güncelle kısmından ekleyin</translation>
     </message>
 </context>
 <context>

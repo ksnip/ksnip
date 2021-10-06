@@ -45,7 +45,7 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/tests
-      run: xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" make test CTEST_OUTPUT_ON_FAILURE=1
+      run: xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" ctest CTEST_OUTPUT_ON_FAILURE=1
 
 
   package-appImage:

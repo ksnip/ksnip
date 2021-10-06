@@ -42,7 +42,7 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build/tests
-      run: make test CTEST_OUTPUT_ON_FAILURE=1
+      run: ctest CTEST_OUTPUT_ON_FAILURE=1
 
 
   package-dmg:

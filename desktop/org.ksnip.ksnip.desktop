@@ -6,9 +6,11 @@ Terminal=false
 StartupNotify=false
 Name=ksnip
 GenericName=ksnip Screenshot Tool
-Comment=Cross-platform screenshot tool that provides many annotation features for your screenshots.
 Categories=Utility;
 Actions=Area;LastArea;FullScreen;Window;
+MimeType=image/bmp;image/gif;image/jpeg;image/jpg;image/png;
+Comment=Cross-platform screenshot tool that provides many annotation features for your screenshots.
+Comment[pt_BR]=Ferramenta de captura de tela de Cross-plataforma que fornece muitos recursos de anotação para suas capturas de tela.
 X-KDE-DBUS-Restricted-Interfaces=org.kde.kwin.Screenshot,org.kde.KWin.ScreenShot2
 
 [Desktop Action Area]

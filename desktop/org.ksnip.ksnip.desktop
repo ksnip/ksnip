@@ -9,6 +9,7 @@ GenericName=ksnip Screenshot Tool
 Comment=Cross-platform screenshot tool that provides many annotation features for your screenshots.
 Categories=Utility;
 Actions=Area;LastArea;FullScreen;Window;
+X-KDE-DBUS-Restricted-Interfaces=org.kde.kwin.Screenshot,org.kde.KWin.ScreenShot2
 
 [Desktop Action Area]
 Exec=ksnip -r

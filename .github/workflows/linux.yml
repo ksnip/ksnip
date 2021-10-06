@@ -44,7 +44,7 @@ jobs:
       run: bash ./.github/scripts/build_ksnip.sh
 
     - name: Test
-      working-directory: ${{github.workspace}}/build
+      working-directory: ${{github.workspace}}/build/tests
       run: xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" make test CTEST_OUTPUT_ON_FAILURE=1
 
 

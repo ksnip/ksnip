@@ -45,7 +45,7 @@ jobs:
         run: bash ./.github/scripts/build_ksnip.sh
 
       - name: Test
-        working-directory: ${{github.workspace}}/build
+        working-directory: ${{github.workspace}}/build/tests
         run: nmake test CTEST_OUTPUT_ON_FAILURE=1
 
 

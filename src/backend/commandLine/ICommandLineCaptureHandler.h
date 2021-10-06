@@ -24,8 +24,8 @@
 
 #include "src/common/enum/CaptureModes.h"
 
-class CommandLineCaptureParameter;
-class CaptureDto;
+struct CommandLineCaptureParameter;
+struct CaptureDto;
 
 class ICommandLineCaptureHandler : public QObject
 {

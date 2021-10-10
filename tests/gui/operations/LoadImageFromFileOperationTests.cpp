@@ -17,7 +17,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <gtest/gtest.h>
+#include "LoadImageFromFileOperationTests.h"
 
 #include "src/gui/operations/LoadImageFromFileOperation.h"
 
@@ -26,7 +26,7 @@
 #include "tests/mocks/gui/fileService/FileServiceMock.h"
 #include "tests/mocks/backend/recentImages/RecentImageServiceMock.h"
 
-TEST(LoadImageFromFileOperationTests, Execute_Should_ShowNotificationAndNotOpenImage_When_PathToImageCannotBeOpened)
+void LoadImageFromFileOperationTests::Execute_Should_ShowNotificationAndNotOpenImage_When_PathToImageCannotBeOpened()
 {
 	// arrange
 	auto notificationServiceMock = QSharedPointer<NotificationServiceMock>(new NotificationServiceMock);
@@ -50,10 +50,10 @@ TEST(LoadImageFromFileOperationTests, Execute_Should_ShowNotificationAndNotOpenI
 	auto result = operation.execute();
 
 	// assert
-	EXPECT_FALSE(result);
+	QCOMPARE(result, false);
 }
 
-TEST(LoadImageFromFileOperationTests, Execute_Should_OpenImageAndNotShowNotification_When_PathToImageCanBeOpened)
+void LoadImageFromFileOperationTests::Execute_Should_OpenImageAndNotShowNotification_When_PathToImageCanBeOpened()
 {
 	// arrange
 	auto imagePath = QString("/path/image.png");
@@ -77,11 +77,7 @@ TEST(LoadImageFromFileOperationTests, Execute_Should_OpenImageAndNotShowNotifica
 	auto result = operation.execute();
 
 	// assert
-	EXPECT_TRUE(result);
+	QCOMPARE(result, true);
 }
 
-int main(int argc, char **argv) {
-	QGuiApplication guiApplication(argc, argv);
-	::testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
-}
+QTEST_MAIN(LoadImageFromFileOperationTests)

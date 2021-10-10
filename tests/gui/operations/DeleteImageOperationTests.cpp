@@ -17,14 +17,14 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <gtest/gtest.h>
+#include "DeleteImageOperationTests.h"
 
 #include "src/gui/operations/DeleteImageOperation.h"
 
 #include "tests/mocks/gui/messageBoxService/MessageBoxServiceMock.h"
 #include "tests/mocks/gui/fileService/FileServiceMock.h"
 
-TEST(DeleteImageOperationTests, Execute_Should_ReturnFalse_When_MessageBoxResponseWasCancel)
+void DeleteImageOperationTests::Execute_Should_ReturnFalse_When_MessageBoxResponseWasCancel()
 {
 	// arrange
 	auto path = QString("/la/la");
@@ -44,10 +44,10 @@ TEST(DeleteImageOperationTests, Execute_Should_ReturnFalse_When_MessageBoxRespon
 	auto result = operation.execute();
 
 	// assert
-	EXPECT_EQ(result, false);
+    QCOMPARE(result, false);
 }
 
-TEST(DeleteImageOperationTests, Execute_Should_ReturnTrue_When_MessageBoxResponseWasTrue_And_FileServiceSaveSuccessfully)
+void DeleteImageOperationTests::Execute_Should_ReturnTrue_When_MessageBoxResponseWasTrue_And_FileServiceSaveSuccessfully()
 {
 	// arrange
 	auto path = QString("/la/la");
@@ -71,10 +71,10 @@ TEST(DeleteImageOperationTests, Execute_Should_ReturnTrue_When_MessageBoxRespons
 	auto result = operation.execute();
 
 	// assert
-	EXPECT_EQ(result, true);
+    QCOMPARE(result, true);
 }
 
-TEST(DeleteImageOperationTests, Execute_Should_ReturnFalse_When_MessageBoxResponseWasTrue_And_FileServiceSaveFailed)
+void DeleteImageOperationTests::Execute_Should_ReturnFalse_When_MessageBoxResponseWasTrue_And_FileServiceSaveFailed()
 {
 	// arrange
 	auto path = QString("/la/la");
@@ -98,5 +98,7 @@ TEST(DeleteImageOperationTests, Execute_Should_ReturnFalse_When_MessageBoxRespon
 	auto result = operation.execute();
 
 	// assert
-	EXPECT_EQ(result, false);
+	QCOMPARE(result, false);
 }
+
+QTEST_MAIN(DeleteImageOperationTests)

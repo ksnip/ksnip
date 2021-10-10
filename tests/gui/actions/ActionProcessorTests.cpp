@@ -17,13 +17,11 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <QtTest>
-
-#include <gtest/gtest.h>
+#include "ActionProcessorTests.h"
 
 #include "src/gui/actions/ActionProcessor.h"
 
-TEST(ActionProcessorTest, Process_Should_TriggerCapture_When_CaptureEnabled)
+void ActionProcessorTests::Process_Should_TriggerCapture_When_CaptureEnabled()
 {
 	// arrange
 	Action action;
@@ -38,13 +36,13 @@ TEST(ActionProcessorTest, Process_Should_TriggerCapture_When_CaptureEnabled)
 	processor.process(action);
 
 	// assert
-	EXPECT_EQ(spy.count(), 1);
-	EXPECT_EQ(qvariant_cast<CaptureModes>(spy.at(0).at(0)), CaptureModes::CurrentScreen);
-	EXPECT_EQ(qvariant_cast<bool>(spy.at(0).at(1)), true);
-	EXPECT_EQ(qvariant_cast<int>(spy.at(0).at(2)), 2000);
+	QCOMPARE(spy.count(), 1);
+    QCOMPARE(qvariant_cast<CaptureModes>(spy.at(0).at(0)), CaptureModes::CurrentScreen);
+    QCOMPARE(qvariant_cast<bool>(spy.at(0).at(1)), true);
+    QCOMPARE(qvariant_cast<int>(spy.at(0).at(2)), 2000);
 }
 
-TEST(ActionProcessorTest, Process_Should_NotTriggerCapture_When_CaptureDisabled)
+void ActionProcessorTests::Process_Should_NotTriggerCapture_When_CaptureDisabled()
 {
 	// arrange
 	Action action;
@@ -59,10 +57,10 @@ TEST(ActionProcessorTest, Process_Should_NotTriggerCapture_When_CaptureDisabled)
 	processor.process(action);
 
 	// assert
-	EXPECT_EQ(spy.count(), 0);
+    QCOMPARE(spy.count(), 0);
 }
 
-TEST(ActionProcessorTest, Process_Should_StartPostProcessing_When_CaptureDisabledAndPostProcessingEnabled)
+void ActionProcessorTests::Process_Should_StartPostProcessing_When_CaptureDisabledAndPostProcessingEnabled()
 {
 	// arrange
 	Action action;
@@ -76,10 +74,10 @@ TEST(ActionProcessorTest, Process_Should_StartPostProcessing_When_CaptureDisable
 	processor.process(action);
 
 	// assert
-	EXPECT_EQ(spy.count(), 1);
+    QCOMPARE(spy.count(), 1);
 }
 
-TEST(ActionProcessorTest, Process_Should_NotStartPostProcessing_When_CaptureDisabledAndPostProcessingDisabled)
+void ActionProcessorTests::Process_Should_NotStartPostProcessing_When_CaptureDisabledAndPostProcessingDisabled()
 {
 	// arrange
 	Action action;
@@ -93,10 +91,10 @@ TEST(ActionProcessorTest, Process_Should_NotStartPostProcessing_When_CaptureDisa
 	processor.process(action);
 
 	// assert
-	EXPECT_EQ(spy.count(), 0);
+    QCOMPARE(spy.count(), 0);
 }
 
-TEST(ActionProcessorTest, Process_Should_NotStartPostProcessing_When_CaptureEnabledAndPostProcessingDisabled)
+void ActionProcessorTests::Process_Should_NotStartPostProcessing_When_CaptureEnabledAndPostProcessingDisabled()
 {
 	// arrange
 	Action action;
@@ -110,10 +108,10 @@ TEST(ActionProcessorTest, Process_Should_NotStartPostProcessing_When_CaptureEnab
 	processor.process(action);
 
 	// assert
-	EXPECT_EQ(spy.count(), 0);
+    QCOMPARE(spy.count(), 0);
 }
 
-TEST(ActionProcessorTest, Process_Should_NotStartPostProcessing_When_CaptureEnabledAndPostProcessingEnabled)
+void ActionProcessorTests::Process_Should_NotStartPostProcessing_When_CaptureEnabledAndPostProcessingEnabled()
 {
 	// arrange
 	Action action;
@@ -127,10 +125,10 @@ TEST(ActionProcessorTest, Process_Should_NotStartPostProcessing_When_CaptureEnab
 	processor.process(action);
 
 	// assert
-	EXPECT_EQ(spy.count(), 0);
+    QCOMPARE(spy.count(), 0);
 }
 
-TEST(ActionProcessorTest, CaptureFinished_Should_StartPostProcessing_When_CaptureEnabledAndPostProcessingEnabled)
+void ActionProcessorTests::CaptureFinished_Should_StartPostProcessing_When_CaptureEnabledAndPostProcessingEnabled()
 {
 	// arrange
 	Action action;
@@ -145,10 +143,10 @@ TEST(ActionProcessorTest, CaptureFinished_Should_StartPostProcessing_When_Captur
 	processor.captureFinished();
 
 	// assert
-	EXPECT_EQ(spy.count(), 1);
+    QCOMPARE(spy.count(), 1);
 }
 
-TEST(ActionProcessorTest, CaptureFinished_Should_StartPostProcessing_When_CaptureEnabledAndPostProcessingDisabled)
+void ActionProcessorTests::CaptureFinished_Should_StartPostProcessing_When_CaptureEnabledAndPostProcessingDisabled()
 {
 	// arrange
 	Action action;
@@ -163,10 +161,10 @@ TEST(ActionProcessorTest, CaptureFinished_Should_StartPostProcessing_When_Captur
 	processor.captureFinished();
 
 	// assert
-	EXPECT_EQ(spy.count(), 1);
+    QCOMPARE(spy.count(), 1);
 }
 
-TEST(ActionProcessorTest, CaptureFinished_Should_SendSignalsForAllSelectedActions)
+void ActionProcessorTests::CaptureFinished_Should_SendSignalsForAllSelectedActions()
 {
 	// arrange
 	Action action;
@@ -189,14 +187,14 @@ TEST(ActionProcessorTest, CaptureFinished_Should_SendSignalsForAllSelectedAction
 	processor.captureFinished();
 
 	// assert
-	EXPECT_EQ(saveSignalSpy.count(), 1);
-	EXPECT_EQ(copySignalSpy.count(), 1);
-	EXPECT_EQ(openSignalSpy.count(), 1);
-	EXPECT_EQ(uploadSignalSpy.count(), 1);
-	EXPECT_EQ(pinSignalSpy.count(), 1);
+    QCOMPARE(saveSignalSpy.count(), 1);
+    QCOMPARE(copySignalSpy.count(), 1);
+    QCOMPARE(openSignalSpy.count(), 1);
+    QCOMPARE(uploadSignalSpy.count(), 1);
+    QCOMPARE(pinSignalSpy.count(), 1);
 }
 
-TEST(ActionProcessorTest, CaptureFinished_Should_NotSendSignalsForNotSelectedActions)
+void ActionProcessorTests::CaptureFinished_Should_NotSendSignalsForNotSelectedActions()
 {
 	// arrange
 	Action action;
@@ -219,14 +217,14 @@ TEST(ActionProcessorTest, CaptureFinished_Should_NotSendSignalsForNotSelectedAct
 	processor.captureFinished();
 
 	// assert
-	EXPECT_EQ(saveSignalSpy.count(), 0);
-	EXPECT_EQ(copySignalSpy.count(), 0);
-	EXPECT_EQ(openSignalSpy.count(), 0);
-	EXPECT_EQ(uploadSignalSpy.count(), 0);
-	EXPECT_EQ(pinSignalSpy.count(), 0);
+    QCOMPARE(saveSignalSpy.count(), 0);
+    QCOMPARE(copySignalSpy.count(), 0);
+    QCOMPARE(openSignalSpy.count(), 0);
+    QCOMPARE(uploadSignalSpy.count(), 0);
+    QCOMPARE(pinSignalSpy.count(), 0);
 }
 
-TEST(ActionProcessorTest, Process_Should_MarkActionAsInProgress_When_CaptureEnabled)
+void ActionProcessorTests::Process_Should_MarkActionAsInProgress_When_CaptureEnabled()
 {
 	// arrange
 	Action action;
@@ -237,10 +235,10 @@ TEST(ActionProcessorTest, Process_Should_MarkActionAsInProgress_When_CaptureEnab
 	processor.process(action);
 
 	// assert
-	EXPECT_EQ(processor.isActionInProgress(), true);
+    QCOMPARE(processor.isActionInProgress(), true);
 }
 
-TEST(ActionProcessorTest, CaptureFinished_Should_MarkActionAsNotInProgress_When_CaptureEnabled)
+void ActionProcessorTests::CaptureFinished_Should_MarkActionAsNotInProgress_When_CaptureEnabled()
 {
 	// arrange
 	Action action;
@@ -252,10 +250,10 @@ TEST(ActionProcessorTest, CaptureFinished_Should_MarkActionAsNotInProgress_When_
 	processor.captureFinished();
 
 	// assert
-	EXPECT_EQ(processor.isActionInProgress(), false);
+    QCOMPARE(processor.isActionInProgress(), false);
 }
 
-TEST(ActionProcessorTest, CaptureFinished_Should_SendShowSignalWithMinimizedSetToTrue_When_HideSelected)
+void ActionProcessorTests::CaptureFinished_Should_SendShowSignalWithMinimizedSetToTrue_When_HideSelected()
 {
 	// arrange
 	Action action;
@@ -270,11 +268,11 @@ TEST(ActionProcessorTest, CaptureFinished_Should_SendShowSignalWithMinimizedSetT
 	processor.captureFinished();
 
 	// assert
-	EXPECT_EQ(spy.count(), 1);
-	EXPECT_EQ(qvariant_cast<bool>(spy.at(0).at(0)), true);
+    QCOMPARE(spy.count(), 1);
+    QCOMPARE(qvariant_cast<bool>(spy.at(0).at(0)), true);
 }
 
-TEST(ActionProcessorTest, CaptureFinished_Should_SendShowSignalWithMinimizedSetToFalse_When_HideNotSelected)
+void ActionProcessorTests::CaptureFinished_Should_SendShowSignalWithMinimizedSetToFalse_When_HideNotSelected()
 {
 	// arrange
 	Action action;
@@ -289,11 +287,11 @@ TEST(ActionProcessorTest, CaptureFinished_Should_SendShowSignalWithMinimizedSetT
 	processor.captureFinished();
 
 	// assert
-	EXPECT_EQ(spy.count(), 1);
-	EXPECT_EQ(qvariant_cast<bool>(spy.at(0).at(0)), false);
+    QCOMPARE(spy.count(), 1);
+    QCOMPARE(qvariant_cast<bool>(spy.at(0).at(0)), false);
 }
 
-TEST(ActionProcessorTest, Process_Should_NotSendShowSignal_When_HideNotSelectedAndCaptureNotSelected)
+void ActionProcessorTests::Process_Should_NotSendShowSignal_When_HideNotSelectedAndCaptureNotSelected()
 {
 	// arrange
 	Action action;
@@ -307,10 +305,10 @@ TEST(ActionProcessorTest, Process_Should_NotSendShowSignal_When_HideNotSelectedA
 	processor.process(action);
 
 	// assert
-	EXPECT_EQ(spy.count(), 0);
+    QCOMPARE(spy.count(), 0);
 }
 
-TEST(ActionProcessorTest, Process_Should_SendShowSignalWithMinimizedSetToTrue_When_HideSelectedAndCaptureNotSelected)
+void ActionProcessorTests::Process_Should_SendShowSignalWithMinimizedSetToTrue_When_HideSelectedAndCaptureNotSelected()
 {
 	// arrange
 	Action action;
@@ -324,6 +322,8 @@ TEST(ActionProcessorTest, Process_Should_SendShowSignalWithMinimizedSetToTrue_Wh
 	processor.process(action);
 
 	// assert
-	EXPECT_EQ(spy.count(), 1);
-	EXPECT_EQ(qvariant_cast<bool>(spy.at(0).at(0)), true);
+    QCOMPARE(spy.count(), 1);
+    QCOMPARE(qvariant_cast<bool>(spy.at(0).at(0)), true);
 }
+
+QTEST_MAIN(ActionProcessorTests)

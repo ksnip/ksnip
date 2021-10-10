@@ -17,10 +17,9 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <gtest/gtest.h>
+#include "SingleCaptureHandlerTests.h"
 
 #include "src/gui/captureHandler/SingleCaptureHandler.h"
-#include "src/common/dtos/CaptureFromFileDto.h"
 
 #include "tests/mocks/gui/imageAnnotator/ImageAnnotatorMock.h"
 #include "tests/mocks/gui/NotificationServiceMock.h"
@@ -30,7 +29,7 @@
 #include "tests/mocks/gui/messageBoxService/MessageBoxServiceMock.h"
 #include "tests/mocks/backend/recentImages/RecentImageServiceMock.h"
 
-TEST(SingleCaptureHandlerTests, RemoveImage_Should_CleanupAnnotationData_When_ImageDeleted)
+void SingleCaptureHandlerTests::RemoveImage_Should_CleanupAnnotationData_When_ImageDeleted()
 {
 	// arrange
 	ImageAnnotatorMock imageAnnotatorMock;
@@ -71,11 +70,11 @@ TEST(SingleCaptureHandlerTests, RemoveImage_Should_CleanupAnnotationData_When_Im
 	captureHandler.removeImage();
 
 	// assert
-	EXPECT_EQ(captureHandler.path(), QString());
-	EXPECT_TRUE(captureHandler.isSaved());
+    QCOMPARE(captureHandler.path(), QString());
+    QCOMPARE(captureHandler.isSaved(), true);
 }
 
-TEST(SingleCaptureHandlerTests, RemoveImage_Should_NotCleanupAnnotationData_When_ImageWasNotDeleted)
+void SingleCaptureHandlerTests::RemoveImage_Should_NotCleanupAnnotationData_When_ImageWasNotDeleted()
 {
 	// arrange
 	ImageAnnotatorMock imageAnnotatorMock;
@@ -109,11 +108,11 @@ TEST(SingleCaptureHandlerTests, RemoveImage_Should_NotCleanupAnnotationData_When
 	captureHandler.removeImage();
 
 	// assert
-	EXPECT_EQ(captureHandler.path(), capture.path);
-	EXPECT_TRUE(captureHandler.isSaved());
+    QCOMPARE(captureHandler.path(), capture.path);
+    QCOMPARE(captureHandler.isSaved(), true);
 }
 
-TEST(SingleCaptureHandlerTests, Load_Should_SetPathAndIsSavedToValuesFromCaptureDto_When_CaptureLoadedFromFile)
+void SingleCaptureHandlerTests::Load_Should_SetPathAndIsSavedToValuesFromCaptureDto_When_CaptureLoadedFromFile()
 {
 	// arrange
 	ImageAnnotatorMock imageAnnotatorMock;
@@ -140,11 +139,11 @@ TEST(SingleCaptureHandlerTests, Load_Should_SetPathAndIsSavedToValuesFromCapture
 	captureHandler.load(capture);
 
 	// assert
-	EXPECT_EQ(captureHandler.path(), capture.path);
-	EXPECT_TRUE(captureHandler.isSaved());
+    QCOMPARE(captureHandler.path(), capture.path);
+    QCOMPARE(captureHandler.isSaved(), true);
 }
 
-TEST(SingleCaptureHandlerTests, Load_Should_SetPathToEmptyAndIsSavedToFalse_When_CaptureNotLoadedFromFile)
+void SingleCaptureHandlerTests::Load_Should_SetPathToEmptyAndIsSavedToFalse_When_CaptureNotLoadedFromFile()
 {
 	// arrange
 	ImageAnnotatorMock imageAnnotatorMock;
@@ -170,12 +169,8 @@ TEST(SingleCaptureHandlerTests, Load_Should_SetPathToEmptyAndIsSavedToFalse_When
 	captureHandler.load(capture);
 
 	// assert
-	EXPECT_EQ(captureHandler.path(), QString());
-	EXPECT_FALSE(captureHandler.isSaved());
+	QCOMPARE(captureHandler.path(), QString());
+    QCOMPARE(captureHandler.isSaved(), false);
 }
 
-int main(int argc, char **argv) {
-	QCoreApplication guiApplication(argc, argv);
-	::testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
-}
+QTEST_MAIN(SingleCaptureHandlerTests)

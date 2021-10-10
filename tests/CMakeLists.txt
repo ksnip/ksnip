@@ -1,5 +1,4 @@
 find_package(GTest CONFIG REQUIRED)
-include(GoogleTest)
 
 enable_testing()
 
@@ -7,8 +6,8 @@ set(UNITTEST_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/backend/recentImages/RecentImagesPathStoreTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/backend/commandLine/CommandLineCaptureHandlerTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/common/helper/PathHelperTests.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionTest.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionProcessorTest.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionTests.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionProcessorTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/MultiCaptureHandlerTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/SingleCaptureHandlerTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/operations/DeleteImageOperationTests.cpp
@@ -27,10 +26,9 @@ set(TESTUTILS_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/ImageProcessorMock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/desktopService/DesktopServiceMock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/clipboard/ClipboardMock.h
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/captureHandler/CaptureTabStateHandlerMock.h
-	)
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/captureHandler/CaptureTabStateHandlerMock.h)
 
-add_library(KSNIP_STATIC STATIC ${KSNIP_SRCS})
+add_library(KSNIP_STATIC ${KSNIP_SRCS})
 
 target_link_libraries(KSNIP_STATIC
 	Qt5::Widgets
@@ -69,6 +67,6 @@ endif ()
 foreach (UnitTest ${UNITTEST_SRC})
 	get_filename_component(UnitTestName ${UnitTest} NAME_WE)
 	add_executable(${UnitTestName} ${UnitTest} ${TESTUTILS_SRC} )
-	target_link_libraries(${UnitTestName} GTest::gtest GTest::gmock GTest::gtest_main Qt5::Test KSNIP_STATIC)
-	gtest_add_tests(TARGET ${UnitTestName})
+	target_link_libraries(${UnitTestName} KSNIP_STATIC GTest::gmock Qt5::Test )
+	add_test(${UnitTestName} ${UnitTestName})
 endforeach (UnitTest)

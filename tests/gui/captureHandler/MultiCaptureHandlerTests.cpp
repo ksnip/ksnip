@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <gtest/gtest.h>
+#include "MultiCaptureHandlerTests.h"
 
 #include "src/gui/captureHandler/MultiCaptureHandler.h"
 
@@ -30,7 +30,7 @@
 #include "tests/mocks/gui/captureHandler/CaptureTabStateHandlerMock.h"
 #include "tests/mocks/backend/config/ConfigMock.h"
 
-TEST(MultiCaptureHandlerTests, Copy_Should_CopyCurrentTabImageToClipboard)
+void MultiCaptureHandlerTests::Copy_Should_CopyCurrentTabImageToClipboard()
 {
 	// arrange
 	auto index = 22;
@@ -72,7 +72,7 @@ TEST(MultiCaptureHandlerTests, Copy_Should_CopyCurrentTabImageToClipboard)
 	multiCaptureHandler.copy();
 }
 
-TEST(MultiCaptureHandlerTests, CopyToClipboardTab_Should_FetchCorrectImageFromAnnotator_And_CopyItToClipboard)
+void MultiCaptureHandlerTests::CopyToClipboardTab_Should_FetchCorrectImageFromAnnotator_And_CopyItToClipboard()
 {
 	// arrange
 	int index = 22;
@@ -125,7 +125,7 @@ TEST(MultiCaptureHandlerTests, CopyToClipboardTab_Should_FetchCorrectImageFromAn
 	}
 }
 
-TEST(MultiCaptureHandlerTests, CopyPathToClipboardTab_Should_FetchCorrectPathFromTabStateHandler_And_CopyItToClipboard)
+void MultiCaptureHandlerTests::CopyPathToClipboardTab_Should_FetchCorrectPathFromTabStateHandler_And_CopyItToClipboard()
 {
 	// arrange
 	int index = 22;
@@ -178,7 +178,7 @@ TEST(MultiCaptureHandlerTests, CopyPathToClipboardTab_Should_FetchCorrectPathFro
 	}
 }
 
-TEST(MultiCaptureHandlerTests, OpenDirectory_Should_FetchCorrectPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService)
+void MultiCaptureHandlerTests::OpenDirectory_Should_FetchCorrectPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService()
 {
 	// arrange
 	int index = 22;
@@ -232,7 +232,7 @@ TEST(MultiCaptureHandlerTests, OpenDirectory_Should_FetchCorrectPathFromTabState
 	}
 }
 
-TEST(MultiCaptureHandlerTests, UpdateContextMenuActions_Should_SetAllActionThatRequirePathToEnabled_When_PathIsValid)
+void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatRequirePathToEnabled_When_PathIsValid()
 {
 	// arrange
 	int index = 22;
@@ -305,7 +305,7 @@ TEST(MultiCaptureHandlerTests, UpdateContextMenuActions_Should_SetAllActionThatR
 	EXPECT_TRUE(copyToClipboardContextMenuAction->isEnabled());
 }
 
-TEST(MultiCaptureHandlerTests, UpdateContextMenuActions_Should_SetAllActionThatRequirePathToDisabled_When_PathIsNotValid)
+void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatRequirePathToDisabled_When_PathIsNotValid()
 {
 	// arrange
 	int index = 22;
@@ -378,7 +378,7 @@ TEST(MultiCaptureHandlerTests, UpdateContextMenuActions_Should_SetAllActionThatR
 	EXPECT_TRUE(copyToClipboardContextMenuAction->isEnabled());
 }
 
-TEST(MultiCaptureHandlerTests, UpdateContextMenuActions_Should_SetSaveActionToDisabled_When_CaptureSaved)
+void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetSaveActionToDisabled_When_CaptureSaved()
 {
 	// arrange
 	int index = 22;
@@ -430,7 +430,7 @@ TEST(MultiCaptureHandlerTests, UpdateContextMenuActions_Should_SetSaveActionToDi
 	EXPECT_FALSE(saveContextMenuAction->isEnabled());
 }
 
-TEST(MultiCaptureHandlerTests, UpdateContextMenuActions_Should_SetSaveActionToEnabled_When_CaptureNotSaved)
+void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetSaveActionToEnabled_When_CaptureNotSaved()
 {
 	// arrange
 	int index = 22;
@@ -482,7 +482,7 @@ TEST(MultiCaptureHandlerTests, UpdateContextMenuActions_Should_SetSaveActionToEn
 	EXPECT_TRUE(saveContextMenuAction->isEnabled());
 }
 
-TEST(MultiCaptureHandlerTests, CopyPath_Should_CopyCurrentTabPathToClipboard)
+void MultiCaptureHandlerTests::CopyPath_Should_CopyCurrentTabPathToClipboard()
 {
 	// arrange
 	int index = 22;
@@ -530,7 +530,7 @@ TEST(MultiCaptureHandlerTests, CopyPath_Should_CopyCurrentTabPathToClipboard)
 	multiCaptureHandler.copyPath();
 }
 
-TEST(MultiCaptureHandlerTests, OpenDirectory_Should_FetchCurrentTabPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService)
+void MultiCaptureHandlerTests::OpenDirectory_Should_FetchCurrentTabPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService()
 {
 	// arrange
 	int index = 22;
@@ -578,13 +578,12 @@ TEST(MultiCaptureHandlerTests, OpenDirectory_Should_FetchCurrentTabPathFromTabSt
 	multiCaptureHandler.openDirectory();
 }
 
-TEST(MultiCaptureHandlerTests, RemoveImage_Should_NotRemoveTab_When_OperationDidNotDeleteImage)
+void MultiCaptureHandlerTests::RemoveImage_Should_NotRemoveTab_When_OperationDidNotDeleteImage()
 {
 	// arrange
 	int index = 22;
 	auto parentDir = QString("/foo");
 	auto path = parentDir + QString("/bar.png");
-	QList<QAction*> parameterActions;
 
 	ImageAnnotatorMock imageAnnotatorMock;
 	auto notificationServiceMock = QSharedPointer<NotificationServiceMock>(new NotificationServiceMock);
@@ -627,13 +626,12 @@ TEST(MultiCaptureHandlerTests, RemoveImage_Should_NotRemoveTab_When_OperationDid
 	multiCaptureHandler.removeImage();
 }
 
-TEST(MultiCaptureHandlerTests, RemoveImage_Should_RemoveTab_When_OperationDidDeleteImage)
+void MultiCaptureHandlerTests::RemoveImage_Should_RemoveTab_When_OperationDidDeleteImage()
 {
 	// arrange
 	int index = 22;
 	auto parentDir = QString("/foo");
 	auto path = parentDir + QString("/bar.png");
-	QList<QAction*> parameterActions;
 
 	ImageAnnotatorMock imageAnnotatorMock;
 	auto notificationServiceMock = QSharedPointer<NotificationServiceMock>(new NotificationServiceMock);
@@ -681,8 +679,4 @@ TEST(MultiCaptureHandlerTests, RemoveImage_Should_RemoveTab_When_OperationDidDel
 	multiCaptureHandler.removeImage();
 }
 
-int main(int argc, char **argv) {
-	QGuiApplication guiApplication(argc, argv);
-	::testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
-}
+QTEST_MAIN(MultiCaptureHandlerTests)

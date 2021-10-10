@@ -17,11 +17,11 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <gtest/gtest.h>
+#include "ActionTests.h"
 
 #include "src/gui/actions/Action.h"
 
-TEST(ActionTest, EqualsOperator_Should_ReturnTrue_When_AllValuesMatch)
+void ActionTests::EqualsOperator_Should_ReturnTrue_When_AllValuesMatch()
 {
 	// arrange
 	Action action1;
@@ -56,10 +56,10 @@ TEST(ActionTest, EqualsOperator_Should_ReturnTrue_When_AllValuesMatch)
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_TRUE(result);
+	QCOMPARE(result, true);
 }
 
-TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_NameIsDifferent)
+void ActionTests::EqualsOperator_Should_ReturnFalse_When_NameIsDifferent()
 {
 	// arrange
 	Action action1;
@@ -94,10 +94,10 @@ TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_NameIsDifferent)
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_FALSE(result);
+    QCOMPARE(result, false);
 }
 
-TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_ShortcutDifferent)
+void ActionTests::EqualsOperator_Should_ReturnFalse_When_ShortcutDifferent()
 {
 	// arrange
 	Action action1;
@@ -132,10 +132,10 @@ TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_ShortcutDifferent)
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_FALSE(result);
+    QCOMPARE(result, false);
 }
 
-TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsCaptureEnabledDifferent)
+void ActionTests::EqualsOperator_Should_ReturnFalse_When_IsCaptureEnabledDifferent()
 {
 	// arrange
 	Action action1;
@@ -170,10 +170,10 @@ TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsCaptureEnabledDifferen
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_FALSE(result);
+    QCOMPARE(result, false);
 }
 
-TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IncludeCursorDifferent)
+void ActionTests::EqualsOperator_Should_ReturnFalse_When_IncludeCursorDifferent()
 {
 	// arrange
 	Action action1;
@@ -208,10 +208,10 @@ TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IncludeCursorDifferent)
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_FALSE(result);
+    QCOMPARE(result, false);
 }
 
-TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_CaptureDelayDifferent)
+void ActionTests::EqualsOperator_Should_ReturnFalse_When_CaptureDelayDifferent()
 {
 	// arrange
 	Action action1;
@@ -246,10 +246,10 @@ TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_CaptureDelayDifferent)
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_FALSE(result);
+    QCOMPARE(result, false);
 }
 
-TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_CaptureModeDifferent)
+void ActionTests::EqualsOperator_Should_ReturnFalse_When_CaptureModeDifferent()
 {
 	// arrange
 	Action action1;
@@ -284,10 +284,10 @@ TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_CaptureModeDifferent)
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_FALSE(result);
+    QCOMPARE(result, false);
 }
 
-TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsSaveEnabledDifferent)
+void ActionTests::EqualsOperator_Should_ReturnFalse_When_IsSaveEnabledDifferent()
 {
 	// arrange
 	Action action1;
@@ -322,10 +322,10 @@ TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsSaveEnabledDifferent)
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_FALSE(result);
+    QCOMPARE(result, false);
 }
 
-TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsCopyToClipboardEnabledDifferent)
+void ActionTests::EqualsOperator_Should_ReturnFalse_When_IsCopyToClipboardEnabledDifferent()
 {
 	// arrange
 	Action action1;
@@ -360,10 +360,10 @@ TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsCopyToClipboardEnabled
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_FALSE(result);
+    QCOMPARE(result, false);
 }
 
-TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsUploadEnabledDifferent)
+void ActionTests::EqualsOperator_Should_ReturnFalse_When_IsUploadEnabledDifferent()
 {
 	// arrange
 	Action action1;
@@ -398,10 +398,10 @@ TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsUploadEnabledDifferent
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_FALSE(result);
+    QCOMPARE(result, false);
 }
 
-TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsOpenDirectoryEnabledDifferent)
+void ActionTests::EqualsOperator_Should_ReturnFalse_When_IsOpenDirectoryEnabledDifferent()
 {
 	// arrange
 	Action action1;
@@ -436,10 +436,10 @@ TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsOpenDirectoryEnabledDi
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_FALSE(result);
+    QCOMPARE(result, false);
 }
 
-TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsPinScreenshotEnabledDifferent)
+void ActionTests::EqualsOperator_Should_ReturnFalse_When_IsPinScreenshotEnabledDifferent()
 {
 	// arrange
 	Action action1;
@@ -474,10 +474,10 @@ TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsPinScreenshotEnabledDi
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_FALSE(result);
+    QCOMPARE(result, false);
 }
 
-TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsHideMainWindowEnabledDifferent)
+void ActionTests::EqualsOperator_Should_ReturnFalse_When_IsHideMainWindowEnabledDifferent()
 {
 	// arrange
 	Action action1;
@@ -512,5 +512,7 @@ TEST(ActionTest, EqualsOperator_Should_ReturnFalse_When_IsHideMainWindowEnabledD
 	auto result = action1 == action2;
 
 	// assert
-	EXPECT_FALSE(result);
+    QCOMPARE(result, false);
 }
+
+QTEST_MAIN(ActionTests)

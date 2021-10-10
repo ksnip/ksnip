@@ -40,10 +40,10 @@ jobs:
         run: bash ./.github/scripts/setup_googleTest.sh
 
       - name: Add GoogleTest bin dir to PATH
-        uses: myci-actions/export-env-var@1
+        uses: myci-actions/export-env-var-powershell@1
         with:
           name: PATH
-          value: $PATH:$INSTALL_PREFIX/bin
+          value: $env:PATH;$env:INSTALL_PREFIX/bin
 
       - name: Build
         env:

@@ -30,20 +30,20 @@ jobs:
       - name: Set up nmake
         uses: ilammy/msvc-dev-cmd@v1
 
-      - name: Set up GoogleTest
+      - name: Set up GoogleMock
         run: bash ./.github/scripts/setup_googleTest.sh
+
+      - name: Add GoogleMock bin dir to PATH
+        uses: myci-actions/export-env-var@1
+        with:
+          name: PATH
+          value: $PATH:$INSTALL_PREFIX/bin
 
       - name: Set up kColorPicker
         run: bash ./.github/scripts/setup_kColorPicker.sh
 
       - name: Set up kImageAnnotator
         run: bash ./.github/scripts/setup_kImageAnnotator.sh
-
-      - name: Add googletest bin dir to PATH
-        uses: myci-actions/export-env-var@1
-        with:
-          name: PATH
-          value: $PATH:$INSTALL_PREFIX/bin
 
       - name: Build
         env:

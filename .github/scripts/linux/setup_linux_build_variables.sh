@@ -1,7 +1,4 @@
 #!/bin/bash
 
-echo "WORKSPACE=$GITHUB_WORKSPACE" >> $GITHUB_ENV
-echo "INSTALL_PREFIX=$GITHUB_WORKSPACE/tmp" >> $GITHUB_ENV
-
 echo "MAKE_BINARY=make" >> $GITHUB_ENV
 echo "CMAKE_GENERATOR=Unix Makefiles" >> $GITHUB_ENV

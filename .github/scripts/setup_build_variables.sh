@@ -5,7 +5,11 @@ BUILD_TIME=$(date +"%a, %d %b %Y %T %z")
 BUILD_DATE=$(date  +"%a %b %d %Y")
 BUILD_NUMBER=$(git rev-list --count HEAD)-$(git rev-parse --short HEAD)
 VERSION_NUMBER=$(grep "project.*" CMakeLists.txt | egrep -o "${VERSION_REGEX}")
+WORKSPACE=$GITHUB_WORKSPACE
+INSTALL_PREFIX="$WORKSPACE\tmp"
 
+echo "WORKSPACE=$WORKSPACE" >> $GITHUB_ENV
+echo "INSTALL_PREFIX=$INSTALL_PREFIX" >> $GITHUB_ENV
 echo "BUILD_TYPE=Release" >> $GITHUB_ENV
 echo "BUILD_TIME=$BUILD_TIME" >> $GITHUB_ENV
 echo "BUILD_DATE=$BUILD_DATE" >> $GITHUB_ENV

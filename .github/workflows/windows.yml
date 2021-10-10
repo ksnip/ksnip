@@ -39,6 +39,12 @@ jobs:
       - name: Set up kImageAnnotator
         run: bash ./.github/scripts/setup_kImageAnnotator.sh
 
+      - name: Add googletest bin dir to PATH
+        uses: myci-actions/export-env-var@1
+        with:
+          name: PATH
+          value: $PATH:$INSTALL_PREFIX/bin
+
       - name: Build
         env:
           BUILD_TESTS: ON

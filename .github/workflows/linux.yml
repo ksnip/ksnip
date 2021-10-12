@@ -33,19 +33,24 @@ jobs:
       run: bash ./.github/scripts/setup_googleTest.sh
 
     - name: Set up kColorPicker
+      env:
+        BUILD_TYPE: Debug
       run: bash ./.github/scripts/setup_kColorPicker.sh
         
     - name: Set up kImageAnnotator
+      env:
+        BUILD_TYPE: Debug
       run: bash ./.github/scripts/setup_kImageAnnotator.sh
         
     - name: Build
       env:
         BUILD_TESTS: ON
+        BUILD_TYPE: Debug
       run: bash ./.github/scripts/build_ksnip.sh
 
     - name: Test
       working-directory: ${{github.workspace}}/build/tests
-      run: xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" ctest CTEST_OUTPUT_ON_FAILURE=1
+      run: xvfb-run --auto-servernum --server-num=1 --server-args="-screen 0 1024x768x24" ctest --extra-verbose
 
 
   package-appImage:

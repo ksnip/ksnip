@@ -31,9 +31,13 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
 
       - name: Set up kColorPicker
+        env:
+          BUILD_TYPE: Debug
         run: bash ./.github/scripts/setup_kColorPicker.sh
 
       - name: Set up kImageAnnotator
+        env:
+          BUILD_TYPE: Debug
         run: bash ./.github/scripts/setup_kImageAnnotator.sh
 
       - name: Set up GoogleTest

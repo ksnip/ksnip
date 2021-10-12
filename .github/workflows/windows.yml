@@ -52,7 +52,7 @@ jobs:
 
       - name: Test
         working-directory: ${{github.workspace}}/build/tests
-        run: ctest CTEST_OUTPUT_ON_FAILURE=1
+        run: ctest --extra-verbose
 
 
   package-exe:

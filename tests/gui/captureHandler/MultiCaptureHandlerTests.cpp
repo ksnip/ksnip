@@ -42,6 +42,11 @@ void MultiCaptureHandlerTests::Copy_Should_CopyCurrentTabImageToClipboard()
 	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
 	auto clipboardMock = QSharedPointer<ClipboardMock>(new ClipboardMock);
 
+	EXPECT_CALL(imageAnnotatorMock, addTabContextMenuActions(testing::_));
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
+	EXPECT_CALL(*configMock, autoHideTabs());
+
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
 			nullptr,
@@ -84,6 +89,10 @@ void MultiCaptureHandlerTests::CopyToClipboardTab_Should_FetchCorrectImageFromAn
 	auto captureTabStateHandlerMock = QSharedPointer<CaptureTabStateHandlerMock>(new CaptureTabStateHandlerMock);
 	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
 	auto clipboardMock = QSharedPointer<ClipboardMock>(new ClipboardMock);
+
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
+	EXPECT_CALL(*configMock, autoHideTabs());
 
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
 			.WillRepeatedly([=]() {
@@ -137,6 +146,10 @@ void MultiCaptureHandlerTests::CopyPathToClipboardTab_Should_FetchCorrectPathFro
 	auto captureTabStateHandlerMock = QSharedPointer<CaptureTabStateHandlerMock>(new CaptureTabStateHandlerMock);
 	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
 	auto clipboardMock = QSharedPointer<ClipboardMock>(new ClipboardMock);
+
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
+	EXPECT_CALL(*configMock, autoHideTabs());
 
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
 			.WillRepeatedly([=]() {
@@ -192,6 +205,10 @@ void MultiCaptureHandlerTests::OpenDirectory_Should_FetchCorrectPathFromTabState
 	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
 	auto desktopServiceMock = QSharedPointer<DesktopServiceMock>(new DesktopServiceMock);
 
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
+	EXPECT_CALL(*configMock, autoHideTabs());
+
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
 			.WillRepeatedly([=]() {
 				return index;
@@ -242,6 +259,12 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 	auto notificationServiceMock = QSharedPointer<NotificationServiceMock>(new NotificationServiceMock);
 	auto captureTabStateHandlerMock = QSharedPointer<CaptureTabStateHandlerMock>(new CaptureTabStateHandlerMock);
 	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
+
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
+	EXPECT_CALL(*configMock, autoHideTabs());
+
+	EXPECT_CALL(*captureTabStateHandlerMock, isSaved(testing::_));
 
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
 			.WillRepeatedly([=]() {
@@ -316,6 +339,12 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 	auto captureTabStateHandlerMock = QSharedPointer<CaptureTabStateHandlerMock>(new CaptureTabStateHandlerMock);
 	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
 
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
+	EXPECT_CALL(*configMock, autoHideTabs());
+
+	EXPECT_CALL(*captureTabStateHandlerMock, isSaved(testing::_));
+
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
 			.WillRepeatedly([=]() {
 				return index;
@@ -389,6 +418,12 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetSaveActionToDi
 	auto captureTabStateHandlerMock = QSharedPointer<CaptureTabStateHandlerMock>(new CaptureTabStateHandlerMock);
 	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
 
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
+	EXPECT_CALL(*configMock, autoHideTabs());
+
+	EXPECT_CALL(*captureTabStateHandlerMock, isPathValid(testing::_));
+
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
 			.WillRepeatedly([=]() {
 				return index;
@@ -440,6 +475,12 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetSaveActionToEn
 	auto notificationServiceMock = QSharedPointer<NotificationServiceMock>(new NotificationServiceMock);
 	auto captureTabStateHandlerMock = QSharedPointer<CaptureTabStateHandlerMock>(new CaptureTabStateHandlerMock);
 	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
+
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
+	EXPECT_CALL(*configMock, autoHideTabs());
+
+	EXPECT_CALL(*captureTabStateHandlerMock, isPathValid(testing::_));
 
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
 			.WillRepeatedly([=]() {
@@ -496,6 +537,10 @@ void MultiCaptureHandlerTests::CopyPath_Should_CopyCurrentTabPathToClipboard()
 	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
 	auto clipboardMock = QSharedPointer<ClipboardMock>(new ClipboardMock);
 
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
+	EXPECT_CALL(*configMock, autoHideTabs());
+
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
 			.WillRepeatedly([=]() {
 				return index;
@@ -543,6 +588,10 @@ void MultiCaptureHandlerTests::OpenDirectory_Should_FetchCurrentTabPathFromTabSt
 	auto captureTabStateHandlerMock = QSharedPointer<CaptureTabStateHandlerMock>(new CaptureTabStateHandlerMock);
 	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
 	auto desktopServiceMock = QSharedPointer<DesktopServiceMock>(new DesktopServiceMock);
+
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
+	EXPECT_CALL(*configMock, autoHideTabs());
 
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
 			.WillRepeatedly([=]() {
@@ -592,6 +641,11 @@ void MultiCaptureHandlerTests::RemoveImage_Should_NotRemoveTab_When_OperationDid
 	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
 	auto messageBoxServiceMock = QSharedPointer<MessageBoxServiceMock>(new MessageBoxServiceMock);
 
+	EXPECT_CALL(imageAnnotatorMock, addTabContextMenuActions(testing::_));
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
+	EXPECT_CALL(*configMock, autoHideTabs());
+
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
 			.WillRepeatedly([=]() {
 				return index;
@@ -639,6 +693,15 @@ void MultiCaptureHandlerTests::RemoveImage_Should_RemoveTab_When_OperationDidDel
 	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
 	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
 	auto messageBoxServiceMock = QSharedPointer<MessageBoxServiceMock>(new MessageBoxServiceMock);
+
+	EXPECT_CALL(imageAnnotatorMock, addTabContextMenuActions(testing::_));
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+	EXPECT_CALL(imageAnnotatorMock, hide());
+
+	EXPECT_CALL(*configMock, autoHideTabs());
+
+	EXPECT_CALL(*captureTabStateHandlerMock, tabRemoved(testing::_));
+	EXPECT_CALL(*captureTabStateHandlerMock, count());
 
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
 			.WillRepeatedly([=]() {

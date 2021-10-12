@@ -40,6 +40,9 @@ void SingleCaptureHandlerTests::RemoveImage_Should_CleanupAnnotationData_When_Im
 	auto messageBoxServiceMock = QSharedPointer<MessageBoxServiceMock>(new MessageBoxServiceMock);
 	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
 
+	EXPECT_CALL(imageAnnotatorMock, loadImage(testing::_));
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
 	EXPECT_CALL(*messageBoxServiceMock, okCancel(testing::_, testing::_))
 			.WillRepeatedly([=](const QString &title, const QString &question) {
 				return true;
@@ -85,6 +88,9 @@ void SingleCaptureHandlerTests::RemoveImage_Should_NotCleanupAnnotationData_When
 	auto messageBoxServiceMock = QSharedPointer<MessageBoxServiceMock>(new MessageBoxServiceMock);
 	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
 
+	EXPECT_CALL(imageAnnotatorMock, loadImage(testing::_));
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
 	EXPECT_CALL(*messageBoxServiceMock, okCancel(testing::_, testing::_))
 			.WillRepeatedly([=](const QString &title, const QString &question) {
 				return false;
@@ -123,6 +129,9 @@ void SingleCaptureHandlerTests::Load_Should_SetPathAndIsSavedToValuesFromCapture
 	auto messageBoxServiceMock = QSharedPointer<MessageBoxServiceMock>(new MessageBoxServiceMock);
 	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
 
+	EXPECT_CALL(imageAnnotatorMock, loadImage(testing::_));
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+
 	SingleCaptureHandler captureHandler(
 			&imageAnnotatorMock,
 			notificationServiceMock,
@@ -153,6 +162,9 @@ void SingleCaptureHandlerTests::Load_Should_SetPathToEmptyAndIsSavedToFalse_When
 	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
 	auto messageBoxServiceMock = QSharedPointer<MessageBoxServiceMock>(new MessageBoxServiceMock);
 	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
+
+	EXPECT_CALL(imageAnnotatorMock, loadImage(testing::_));
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
 
 	SingleCaptureHandler captureHandler(
 			&imageAnnotatorMock,

@@ -48,6 +48,7 @@ jobs:
       - name: Build
         env:
           BUILD_TESTS: ON
+          BUILD_TYPE: Debug
         run: bash ./.github/scripts/build_ksnip.sh
 
       - name: Test

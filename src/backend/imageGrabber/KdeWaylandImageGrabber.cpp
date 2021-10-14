@@ -60,7 +60,7 @@ static QImage readImage(int pipeFd)
     return image;
 };
 
-KdeWaylandImageGrabber::KdeWaylandImageGrabber() : AbstractImageGrabber()
+KdeWaylandImageGrabber::KdeWaylandImageGrabber(const QSharedPointer<IConfig> &config) : AbstractImageGrabber(config)
 {
 	addSupportedCaptureMode(CaptureModes::WindowUnderCursor);
 	addSupportedCaptureMode(CaptureModes::CurrentScreen);

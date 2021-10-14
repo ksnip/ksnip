@@ -19,8 +19,8 @@
 
 #include "AbstractImageGrabber.h"
 
-AbstractImageGrabber::AbstractImageGrabber() :
-    mConfig(ConfigProvider::instance()),
+AbstractImageGrabber::AbstractImageGrabber(const QSharedPointer<IConfig> &config) :
+    mConfig(config),
     mIsCaptureCursorEnabled(false),
     mCaptureDelay(0),
     mCaptureMode(CaptureModes::FullScreen)

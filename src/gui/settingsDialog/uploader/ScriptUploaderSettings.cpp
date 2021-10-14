@@ -19,7 +19,7 @@
 
 #include "ScriptUploaderSettings.h"
 
-ScriptUploaderSettings::ScriptUploaderSettings(Config *config) :
+ScriptUploaderSettings::ScriptUploaderSettings(const QSharedPointer<IConfig> &config) :
 	mConfig(config),
 	mLayout(new QGridLayout(this)),
 	mCopyOutputToClipboardCheckbox(new QCheckBox(this)),
@@ -37,7 +37,6 @@ ScriptUploaderSettings::ScriptUploaderSettings(Config *config) :
 
 ScriptUploaderSettings::~ScriptUploaderSettings()
 {
-	delete mLayout;
 	delete mCopyOutputToClipboardCheckbox;
 	delete mStopOnStdErrCheckbox;
 	delete mCopyOutputFilterLabel;

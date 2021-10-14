@@ -26,7 +26,7 @@
 #include <QLabel>
 #include <QPushButton>
 
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 #include "src/gui/operations/UpdateWatermarkOperation.h"
 #include "src/common/provider/ScaledSizeProvider.h"
 
@@ -34,13 +34,13 @@ class WatermarkSettings : public QGroupBox
 {
 Q_OBJECT
 public:
-	explicit WatermarkSettings(Config *config);
+	explicit WatermarkSettings(const QSharedPointer<IConfig> &config);
 	~WatermarkSettings() override;
 	void saveSettings();
 
 private:
 	QGridLayout *mLayout;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	QCheckBox *mRotateWatermarkCheckbox;
 	QLabel *mWatermarkImageLabel;
 	QPushButton *mUpdateWatermarkImageButton;

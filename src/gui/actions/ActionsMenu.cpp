@@ -19,12 +19,12 @@
 
 #include "ActionsMenu.h"
 
-ActionsMenu::ActionsMenu(Config *config) :
+ActionsMenu::ActionsMenu(const QSharedPointer<IConfig> &config) :
 	mConfig(config)
 {
 	Q_ASSERT(mConfig != nullptr);
 
-	connect(mConfig, &Config::actionsChanged, this, &ActionsMenu::actionsChanged);
+	connect(mConfig.data(), &IConfig::actionsChanged, this, &ActionsMenu::actionsChanged);
 
 	actionsChanged();
 }

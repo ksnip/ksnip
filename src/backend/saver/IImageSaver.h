@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,30 +17,17 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_CONFIGPROVIDER_H
-#define KSNIP_CONFIGPROVIDER_H
+#ifndef KSNIP_IIMAGESAVER_H
+#define KSNIP_IIMAGESAVER_H
 
-#if defined(__APPLE__)
-#include "MacConfig.h"
-#endif
+class QString;
 
-#if defined(UNIX_X11)
-#include "WaylandConfig.h"
-#include "Config.h"
-#include "src/common/platform/PlatformChecker.h"
-#endif
-
-#if  defined(_WIN32)
-#include "Config.h"
-#endif
-
-class ConfigProvider
+class IImageSaver
 {
 public:
-	static Config *instance();
-
-private:
-	ConfigProvider() = default;
+	IImageSaver() = default;
+	~IImageSaver() = default;
+	virtual bool save(const QImage &image, const QString &path) = 0;
 };
 
-#endif //KSNIP_CONFIGPROVIDER_H
+#endif //KSNIP_IIMAGESAVER_H

@@ -27,14 +27,14 @@
 #include "WatermarkImagePreparer.h"
 #include "src/gui/messageBoxService/MessageBoxService.h"
 #include "src/backend/WatermarkImageLoader.h"
-#include "src/backend/config/ConfigProvider.h"
+#include "src/backend/config/IConfig.h"
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
 
 class AddWatermarkOperation : public QObject
 {
 	Q_OBJECT
 public:
-	explicit AddWatermarkOperation(IImageAnnotator *imageAnnotator);
+	explicit AddWatermarkOperation(IImageAnnotator *imageAnnotator, const QSharedPointer<IConfig> &config);
 	~AddWatermarkOperation() override;
 	void execute();
 
@@ -42,7 +42,7 @@ private:
 	IImageAnnotator *mImageAnnotator;
 	WatermarkImagePreparer mImagePreparer;
 	WatermarkImageLoader mWatermarkImageLoader;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	IMessageBoxService *mMessageBoxService;
 
 	static QPointF getPositionForWatermark(const QPixmap &image, const QSize &availableSpace) ;

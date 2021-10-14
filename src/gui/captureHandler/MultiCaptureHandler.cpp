@@ -29,6 +29,8 @@ MultiCaptureHandler::MultiCaptureHandler(
 		const QSharedPointer<IFileService> &fileService,
 		const QSharedPointer<IMessageBoxService> &messageBoxService,
 		const QSharedPointer<IRecentImageService> &recentImageService,
+		const QSharedPointer<IImageSaver> &imageSaver,
+		const QSharedPointer<ISavePathProvider> &savePathProvider,
 		QWidget *parent) :
 	mImageAnnotator(imageAnnotator),
 	mNotificationService(notificationService),
@@ -41,6 +43,8 @@ MultiCaptureHandler::MultiCaptureHandler(
 	mMessageBoxService(messageBoxService),
 	mFileService(fileService),
 	mRecentImageService(recentImageService),
+	mImageSaver(imageSaver),
+	mSavePathProvider(savePathProvider),
 	mSaveContextMenuAction(new TabContextMenuAction(this)),
 	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
 	mRenameContextMenuAction(new TabContextMenuAction(this)),
@@ -102,7 +106,18 @@ bool MultiCaptureHandler::discardChanges(int index)
 	auto isUnsaved = !mTabStateHandler->isSaved(index);
 	auto pathToSource = mTabStateHandler->path(index);
 	auto filename = mTabStateHandler->filename(index);
-	CanDiscardOperation operation(mParent, image, isUnsaved, pathToSource, filename, mNotificationService.data(), mRecentImageService.data());
+	CanDiscardOperation operation(
+			image,
+			isUnsaved,
+			pathToSource,
+			filename,
+			mNotificationService,
+			mRecentImageService,
+			mMessageBoxService,
+			mImageSaver,
+			mSavePathProvider,
+			mConfig,
+			mParent);
 	return operation.execute();
 }
 
@@ -171,7 +186,16 @@ void MultiCaptureHandler::removeImage()
 void MultiCaptureHandler::saveAt(int index, bool isInstant)
 {
 	auto image = mImageAnnotator->imageAt(index);
-	SaveOperation operation(mParent, image, isInstant, mTabStateHandler->path(index), mNotificationService.data(), mRecentImageService.data());
+	SaveOperation operation(
+			image,
+			isInstant,
+			mTabStateHandler->path(index),
+			mNotificationService,
+			mRecentImageService,
+			mImageSaver,
+			mSavePathProvider,
+			mConfig,
+			mParent);
 	auto saveResult = operation.execute();
 	mTabStateHandler->setSaveState(index, saveResult);
 	captureChanged();
@@ -285,7 +309,7 @@ void MultiCaptureHandler::saveTab(int index)
 
 void MultiCaptureHandler::renameTab(int index)
 {
-	RenameOperation operation(mParent, mTabStateHandler->path(index), mTabStateHandler->filename(index), mNotificationService.data());
+	RenameOperation operation(mTabStateHandler->path(index), mTabStateHandler->filename(index), mNotificationService, mConfig, mParent);
 	auto renameResult = operation.execute();
 	if(renameResult.isSuccessful) {
 		mTabStateHandler->renameFile(index, renameResult);

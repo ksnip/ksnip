@@ -23,6 +23,7 @@
 #include <QSharedPointer>
 
 #include "src/gui/INotificationService.h"
+#include "src/backend/config/IConfig.h"
 
 class NotificationServiceFactory
 {
@@ -30,7 +31,7 @@ public:
 	explicit NotificationServiceFactory() = default;
 	~NotificationServiceFactory() = default;
 
-	static QSharedPointer<INotificationService> create(INotificationService *defaultNotificationService);
+	static QSharedPointer<INotificationService> create(INotificationService *defaultNotificationService, const QSharedPointer<IConfig> &config);
 };
 
 #endif //KSNIP_NOTIFICATIONSERVICEFACTORY_H

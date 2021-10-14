@@ -21,24 +21,35 @@
 #define KSNIP_NOTIFYOPERATION_H
 
 #include "src/gui/TrayIcon.h"
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 #include "src/common/enum/NotificationTypes.h"
 
 class NotifyOperation
 {
 public:
-	NotifyOperation(INotificationService *toastService, const QString &title, const QString &message, const QString &contentUrl, NotificationTypes notificationType);
-	NotifyOperation(INotificationService *toastService, const QString &title, const QString &message, NotificationTypes notificationType);
+	NotifyOperation(
+			const QString &title,
+			const QString &message,
+			const QString &contentUrl,
+			NotificationTypes notificationType,
+			const QSharedPointer<INotificationService> &notificationService,
+			const QSharedPointer<IConfig> &config);
+	NotifyOperation(
+			const QString &title,
+			const QString &message,
+			NotificationTypes notificationType,
+			const QSharedPointer<INotificationService> &notificationService,
+			const QSharedPointer<IConfig> &config);
 	~NotifyOperation() = default;
 	bool execute();
 
 private:
-	INotificationService *mToastService;
+	QSharedPointer<INotificationService> mNotificationService;
 	QString mTitle;
 	QString mMessage;
 	QString mContentUrl;
 	NotificationTypes mNotificationType;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 
 	void notifyViaToastMessage() const;
 	void notifyViaConsoleMessage() const;

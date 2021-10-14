@@ -32,13 +32,13 @@
 #include "SnippingAreaSelectorInfoText.h"
 #include "SnippingAreaResizerInfoText.h"
 #include "src/common/helper/MathHelper.h"
-#include "src/backend/config/ConfigProvider.h"
+#include "src/backend/config/IConfig.h"
 
 class AbstractSnippingArea : public QWidget
 {
     Q_OBJECT
 public:
-	explicit AbstractSnippingArea();
+	explicit AbstractSnippingArea(const QSharedPointer<IConfig> &config);
     ~AbstractSnippingArea() override;
     void showWithoutBackground();
     void showWithBackground(const QPixmap& background);
@@ -65,7 +65,7 @@ protected:
 	virtual QRect getSnippingAreaGeometry() const = 0;
 
 private:
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	QPixmap *mBackground;
 	SnippingAreaResizer *mResizer;
 	SnippingAreaSelector *mSelector;

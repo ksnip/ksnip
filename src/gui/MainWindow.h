@@ -49,7 +49,6 @@
 #include "src/gui/windowResizer/IResizableWindow.h"
 #include "src/gui/windowResizer/WindowResizer.h"
 #include "src/widgets/MainToolBar.h"
-#include "src/backend/config/ConfigProvider.h"
 #include "src/backend/uploader/UploadHandler.h"
 #include "src/backend/CapturePrinter.h"
 #include "src/backend/imageGrabber/IImageGrabber.h"
@@ -91,24 +90,25 @@ protected:
 
 private:
 	DependencyInjector *mDependencyInjector;
+	QSharedPointer<IConfig> mConfig;
 	QSharedPointer<IImageGrabber> mImageGrabber;
 	QSharedPointer<INotificationService> mNotificationService;
-    bool mSessionManagerRequestedQuit;
-    QAction *mSaveAsAction;
-    QAction *mUploadAction;
-    QAction *mCopyAsDataUriAction;
-    QAction *mPrintAction;
-    QAction *mPrintPreviewAction;
-    QAction *mQuitAction;
-    QAction *mCopyPathAction;
-    QAction *mRenameAction;
-    QAction *mOpenDirectoryAction;
-    QAction *mToggleDocksAction;
-    QAction *mSettingsAction;
-    QAction *mAboutAction;
-    QAction *mOpenImageAction;
-    QAction *mScaleAction;
-    QAction *mRotateAction;
+	bool mSessionManagerRequestedQuit;
+	QAction *mSaveAsAction;
+	QAction *mUploadAction;
+	QAction *mCopyAsDataUriAction;
+	QAction *mPrintAction;
+	QAction *mPrintPreviewAction;
+	QAction *mQuitAction;
+	QAction *mCopyPathAction;
+	QAction *mRenameAction;
+	QAction *mOpenDirectoryAction;
+	QAction *mToggleDocksAction;
+	QAction *mSettingsAction;
+	QAction *mAboutAction;
+	QAction *mOpenImageAction;
+	QAction *mScaleAction;
+	QAction *mRotateAction;
 	QAction *mAddWatermarkAction;
 	QAction *mPasteAction;
 	QAction *mPasteEmbeddedAction;
@@ -117,13 +117,12 @@ private:
 	QAction *mModifyCanvasAction;
 	MainToolBar *mToolBar;
 	QLayout *mMainLayout;
-	Config *mConfig;
 	ActionsMenu *mActionsMenu;
 	RecentImagesMenu *mRecentImagesMenu;
 	QSharedPointer<IClipboard> mClipboard;
 	CapturePrinter *mCapturePrinter;
     IImageAnnotator *mImageAnnotator;
-    SavePathProvider mSavePathProvider;
+    QSharedPointer<ISavePathProvider> mSavePathProvider;
     GlobalHotKeyHandler *mGlobalHotKeyHandler;
 	TrayIcon *mTrayIcon;
 	DragAndDropProcessor *mDragAndDropProcessor;

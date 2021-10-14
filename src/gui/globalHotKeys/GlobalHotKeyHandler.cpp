@@ -19,12 +19,11 @@
 
 #include "GlobalHotKeyHandler.h"
 
-GlobalHotKeyHandler::GlobalHotKeyHandler(const QList<CaptureModes> &supportedCaptureModes)
+GlobalHotKeyHandler::GlobalHotKeyHandler(const QList<CaptureModes> &supportedCaptureModes, const QSharedPointer<IConfig> &config) :
+	mSupportedCaptureModes(supportedCaptureModes),
+	mConfig(config)
 {
-	mSupportedCaptureModes = supportedCaptureModes;
-	mConfig = ConfigProvider::instance();
-
-	connect(mConfig, &Config::hotKeysChanged, this, &GlobalHotKeyHandler::setupHotKeys);
+	connect(mConfig.data(), &IConfig::hotKeysChanged, this, &GlobalHotKeyHandler::setupHotKeys);
 
 	setupHotKeys();
 }

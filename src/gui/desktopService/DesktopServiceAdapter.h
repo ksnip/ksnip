@@ -37,6 +37,7 @@ public:
 	explicit DesktopServiceAdapter() = default;
 	~DesktopServiceAdapter() override = default;
 	void openFile(const QString &path) override;
+	void openUrl(const QString &url) override;
 
 #if defined(UNIX_X11)
 private:

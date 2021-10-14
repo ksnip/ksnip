@@ -57,6 +57,8 @@ void MultiCaptureHandlerTests::Copy_Should_CopyCurrentTabImageToClipboard()
 			nullptr,
 			nullptr,
 			nullptr,
+			nullptr,
+			nullptr,
 			nullptr);
 
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
@@ -123,6 +125,8 @@ void MultiCaptureHandlerTests::CopyToClipboardTab_Should_FetchCorrectImageFromAn
 			nullptr,
 			nullptr,
 			nullptr,
+			nullptr,
+			nullptr,
 			nullptr);
 
 	// act & assert
@@ -176,6 +180,8 @@ void MultiCaptureHandlerTests::CopyPathToClipboardTab_Should_FetchCorrectPathFro
 			captureTabStateHandlerMock,
 			configMock,
 			clipboardMock,
+			nullptr,
+			nullptr,
 			nullptr,
 			nullptr,
 			nullptr,
@@ -238,6 +244,8 @@ void MultiCaptureHandlerTests::OpenDirectory_Should_FetchCorrectPathFromTabState
 			nullptr,
 			nullptr,
 			nullptr,
+			nullptr,
+			nullptr,
 			nullptr);
 
 	// act & assert
@@ -287,6 +295,8 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 			nullptr,
 			captureTabStateHandlerMock,
 			configMock,
+			nullptr,
+			nullptr,
 			nullptr,
 			nullptr,
 			nullptr,
@@ -371,6 +381,8 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 			nullptr,
 			nullptr,
 			nullptr,
+			nullptr,
+			nullptr,
 			nullptr);
 
 	// act
@@ -449,6 +461,8 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetSaveActionToDi
 			nullptr,
 			nullptr,
 			nullptr,
+			nullptr,
+			nullptr,
 			nullptr);
 
 	// act
@@ -502,6 +516,8 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetSaveActionToEn
 			nullptr,
 			captureTabStateHandlerMock,
 			configMock,
+			nullptr,
+			nullptr,
 			nullptr,
 			nullptr,
 			nullptr,
@@ -569,6 +585,8 @@ void MultiCaptureHandlerTests::CopyPath_Should_CopyCurrentTabPathToClipboard()
 			nullptr,
 			nullptr,
 			nullptr,
+			nullptr,
+			nullptr,
 			nullptr);
 
 	// act & assert
@@ -618,6 +636,8 @@ void MultiCaptureHandlerTests::OpenDirectory_Should_FetchCurrentTabPathFromTabSt
 			configMock,
 			nullptr,
 			desktopServiceMock,
+			nullptr,
+			nullptr,
 			nullptr,
 			nullptr,
 			nullptr,
@@ -673,6 +693,8 @@ void MultiCaptureHandlerTests::RemoveImage_Should_NotRemoveTab_When_OperationDid
 			nullptr,
 			fileServiceMock,
 			messageBoxServiceMock,
+			nullptr,
+			nullptr,
 			nullptr,
 			nullptr);
 
@@ -735,6 +757,8 @@ void MultiCaptureHandlerTests::RemoveImage_Should_RemoveTab_When_OperationDidDel
 			nullptr,
 			fileServiceMock,
 			messageBoxServiceMock,
+			nullptr,
+			nullptr,
 			nullptr,
 			nullptr);
 

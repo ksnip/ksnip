@@ -23,9 +23,10 @@
 MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	QMainWindow(),
 	mDependencyInjector(dependencyInjector),
+	mConfig(mDependencyInjector->getObject<IConfig>()),
 	mToolBar(nullptr),
 	mImageGrabber(mDependencyInjector->getObject<IImageGrabber>()),
-	mNotificationService(NotificationServiceFactory::create(mTrayIcon)),
+	mNotificationService(NotificationServiceFactory::create(mTrayIcon, mConfig)),
 	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
 	mUploadAction(new QAction(this)),
@@ -49,13 +50,12 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mRemoveImageAction(new QAction(this)),
 	mModifyCanvasAction(new QAction(this)),
 	mMainLayout(layout()),
-	mConfig(ConfigProvider::instance()),
 	mActionsMenu(new ActionsMenu(mConfig)),
 	mRecentImagesMenu(new RecentImagesMenu(mDependencyInjector->getObject<IRecentImageService>(), this)),
 	mClipboard(mDependencyInjector->getObject<IClipboard>()),
 	mCapturePrinter(new CapturePrinter(this)),
-	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes())),
-	mTrayIcon(new TrayIcon(this)),
+	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes(), mConfig)),
+	mTrayIcon(new TrayIcon(mConfig, this)),
 	mDragAndDropProcessor(new DragAndDropProcessor(this)),
 	mUploadHandler(mDependencyInjector->getObject<IUploadHandler>()),
 	mSessionManagerRequestedQuit(false),
@@ -64,7 +64,8 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this)),
 	mFileDialog(FileDialogAdapterFactory::create()),
 	mWindowResizer(new WindowResizer(this, mConfig, this)),
-	mActionProcessor(new ActionProcessor)
+	mActionProcessor(new ActionProcessor),
+	mSavePathProvider(mDependencyInjector->getObject<ISavePathProvider>())
 {
 	initGui();
 
@@ -79,7 +80,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	connect(mDragAndDropProcessor, &DragAndDropProcessor::fileDropped, this, &MainWindow::loadImageFromFile);
 	connect(mDragAndDropProcessor, &DragAndDropProcessor::imageDropped, this, &MainWindow::loadImageFromPixmap);
 
-	connect(mConfig, &Config::annotatorConfigChanged, this, &MainWindow::setupImageAnnotator);
+	connect(mConfig.data(), &IConfig::annotatorConfigChanged, this, &MainWindow::setupImageAnnotator);
 
 	connect(mImageGrabber.data(), &IImageGrabber::finished, this, &MainWindow::processCapture);
 	connect(mImageGrabber.data(), &IImageGrabber::canceled, this, &MainWindow::captureCanceled);
@@ -165,7 +166,7 @@ void MainWindow::processCapture(const CaptureDto &capture)
 	if (!capture.isValid()) {
 		auto title = tr("Unable to show image");
 		auto message = tr("No image provided but one was expected.");
-		NotifyOperation operation(mNotificationService.data(), title, message, NotificationTypes::Critical);
+		NotifyOperation operation(title, message, NotificationTypes::Critical, mNotificationService, mConfig);
 		operation.execute();
 		showEmpty();
 		return;
@@ -560,27 +561,27 @@ void MainWindow::copyCaptureToClipboard()
 void MainWindow::upload()
 {
 	auto image = mCaptureHandler->image();
-	UploadOperation operation(image, mUploadHandler);
+	UploadOperation operation(image, mUploadHandler, mConfig, mDependencyInjector->getObject<IMessageBoxService>());
 	operation.execute();
 }
 
 void MainWindow::copyAsDataUri()
 {
 	auto image = mCaptureHandler->image();
-	CopyAsDataUriOperation operation(image, mClipboard.data(), mNotificationService.data());
+	CopyAsDataUriOperation operation(image, mClipboard, mNotificationService, mConfig);
 	operation.execute();
 }
 
 void MainWindow::printClicked()
 {
-	auto savePath = mSavePathProvider.savePathWithFormat(QLatin1String("pdf"));
+	auto savePath = mSavePathProvider->savePathWithFormat(QLatin1String("pdf"));
 	auto image = mCaptureHandler->image();
 	mCapturePrinter->print(image, savePath);
 }
 
 void MainWindow::printPreviewClicked()
 {
-	auto savePath = mSavePathProvider.savePathWithFormat(QLatin1String("pdf"));
+	auto savePath = mSavePathProvider->savePathWithFormat(QLatin1String("pdf"));
 	auto image = mCaptureHandler->image();
 	mCapturePrinter->printPreview(image, savePath);
 }
@@ -588,7 +589,7 @@ void MainWindow::printPreviewClicked()
 void MainWindow::showOpenImageDialog()
 {
 	auto title = tr("Open Images");
-	auto directory = mSavePathProvider.saveDirectory();
+	auto directory = mSavePathProvider->saveDirectory();
 	auto filter = tr("Image Files (*.png *.jpg *.bmp)");
 	auto pathList = mFileDialog->getOpenFileNames(this, title, directory, filter);
 
@@ -616,7 +617,7 @@ void MainWindow::captureDelayChanged(int delay)
 
 void MainWindow::addWatermark()
 {
-	AddWatermarkOperation operation(mImageAnnotator);
+	AddWatermarkOperation operation(mImageAnnotator, mConfig);
 	operation.execute();
 }
 
@@ -630,7 +631,7 @@ void MainWindow::showDialog(const std::function<void ()>& showDialogMethod)
 void MainWindow::showSettingsDialog()
 {
 	showDialog([&](){
-		SettingsDialog settingsDialog(this, mImageGrabber->supportedCaptureModes());
+		SettingsDialog settingsDialog(mImageGrabber->supportedCaptureModes(), mConfig, this);
 		settingsDialog.exec();
 	});
 }
@@ -687,7 +688,13 @@ void MainWindow::saveAsClicked()
 
 void MainWindow::loadImageFromFile(const QString &path)
 {
-	LoadImageFromFileOperation operation(path, QSharedPointer<IImageProcessor>(this), mNotificationService, mDependencyInjector->getObject<IRecentImageService>(), mDependencyInjector->getObject<IFileService>());
+	LoadImageFromFileOperation operation(
+			path,
+			QSharedPointer<IImageProcessor>(this),
+			mNotificationService,
+			mDependencyInjector->getObject<IRecentImageService>(),
+			mDependencyInjector->getObject<IFileService>(),
+			mConfig);
 	operation.execute();
 }
 
@@ -713,7 +720,7 @@ void MainWindow::captureCanceled()
 
 void MainWindow::uploadFinished(const UploadResult &result)
 {
-	HandleUploadResultOperation handleUploadResponseOperation(result, mNotificationService);
+	HandleUploadResultOperation handleUploadResponseOperation(result, mNotificationService, mClipboard, mDependencyInjector->getObject<IDesktopService>(), mConfig);
 	handleUploadResponseOperation.execute();
 }
 

@@ -19,7 +19,7 @@
 
 #include "ImageGrabberSettings.h"
 
-ImageGrabberSettings::ImageGrabberSettings(Config *config) :
+ImageGrabberSettings::ImageGrabberSettings(const QSharedPointer<IConfig> &config) :
 	mCaptureCursorCheckbox(new QCheckBox(this)),
 	mHideMainWindowDuringScreenshotCheckbox(new QCheckBox(this)),
 	mShowMainWindowAfterTakingScreenshotCheckbox(new QCheckBox(this)),

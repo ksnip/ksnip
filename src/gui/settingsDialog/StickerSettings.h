@@ -30,7 +30,7 @@
 #include <QDir>
 #include <QCheckBox>
 
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 #include "src/common/helper/PathHelper.h"
 #include "src/common/provider/DirectoryPathProvider.h"
 
@@ -38,7 +38,7 @@ class StickerSettings : public QGroupBox
 {
 Q_OBJECT
 public:
-	explicit StickerSettings(Config *config);
+	explicit StickerSettings(const QSharedPointer<IConfig> &config);
 	~StickerSettings() override;
 	void saveSettings();
 
@@ -50,7 +50,7 @@ private:
 	QPushButton *mDownButton;
 	QCheckBox *mUseDefaultStickerCheckBox;
 	QGridLayout *mLayout;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	int mPathDataKey;
 	int mIsSavedDataKey;
 	int mIsRemovedDataKey;

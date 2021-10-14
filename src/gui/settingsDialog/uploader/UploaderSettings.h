@@ -26,20 +26,20 @@
 #include <QLabel>
 #include <QComboBox>
 
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 #include "src/common/enum/UploaderType.h"
 
 class UploaderSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit UploaderSettings(Config *ksnipConfig);
+	explicit UploaderSettings(const QSharedPointer<IConfig> &config);
 	~UploaderSettings() override;
 	void saveSettings();
 
 private:
 	QGridLayout *mLayout;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	QCheckBox *mConfirmBeforeUploadCheckbox;
 	QComboBox *mUploaderTypeComboBox;
 	QLabel *mUploaderTypeLabel;

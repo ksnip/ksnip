@@ -182,7 +182,7 @@ QPixmap StandAloneBootstrapper::getPixmapFromCorrectSource(const QString &pathTo
 		qInfo("Reading image from stdin.");
 		return getPixmapFromStdin();
 	} else {
-		return QPixmap(pathToImage);
+		return { pathToImage };
 	}
 }
 
@@ -242,7 +242,8 @@ void StandAloneBootstrapper::createCommandLineParser(const QApplication &app)
 
 void StandAloneBootstrapper::loadTranslations(const QApplication &app)
 {
-	TranslationLoader::load(app);
+	auto translationLoader = mDependencyInjector->getObject<ITranslationLoader>();
+	translationLoader->load(app);
 }
 
 void StandAloneBootstrapper::openMainWindow(const CaptureDto &captureDto)

@@ -19,20 +19,31 @@
 
 #include "NotifyOperation.h"
 
-NotifyOperation::NotifyOperation(INotificationService *toastService, const QString &title, const QString &message, const QString &contentUrl, NotificationTypes notificationType)
-	: NotifyOperation(toastService, title, message, notificationType)
+NotifyOperation::NotifyOperation(
+		const QString &title,
+		const QString &message,
+		const QString &contentUrl,
+		NotificationTypes notificationType,
+		const QSharedPointer<INotificationService> &notificationService,
+		const QSharedPointer<IConfig> &config) :
+	NotifyOperation(title, message, notificationType, notificationService, config)
 {
 	mContentUrl = contentUrl;
 }
 
-NotifyOperation::NotifyOperation(INotificationService *toastService, const QString &title, const QString &message, NotificationTypes notificationType) :
-	mToastService(toastService),
+NotifyOperation::NotifyOperation(
+		const QString &title,
+		const QString &message,
+		NotificationTypes notificationType,
+		const QSharedPointer<INotificationService> &notificationService,
+		const QSharedPointer<IConfig> &config) :
+	mNotificationService(notificationService),
 	mTitle(title),
 	mMessage(message),
 	mNotificationType(notificationType),
-	mConfig(ConfigProvider::instance())
+	mConfig(config)
 {
-	Q_ASSERT(mToastService != nullptr);
+	Q_ASSERT(mNotificationService != nullptr);
 }
 
 bool NotifyOperation::execute()
@@ -50,13 +61,13 @@ void NotifyOperation::notifyViaToastMessage() const
 {
 	switch (mNotificationType) {
 		case NotificationTypes::Information:
-			mToastService->showInfo(mTitle, mMessage, mContentUrl);
+			mNotificationService->showInfo(mTitle, mMessage, mContentUrl);
 			break;
 		case NotificationTypes::Warning:
-			mToastService->showWarning(mTitle, mMessage, mContentUrl);
+			mNotificationService->showWarning(mTitle, mMessage, mContentUrl);
 			break;
 		case NotificationTypes::Critical:
-			mToastService->showCritical(mTitle, mMessage, mContentUrl);
+			mNotificationService->showCritical(mTitle, mMessage, mContentUrl);
 			break;
 	}
 }

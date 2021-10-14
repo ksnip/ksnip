@@ -30,7 +30,7 @@ class AbstractRectAreaImageGrabber : public AbstractImageGrabber
 {
     Q_OBJECT
 public:
-    explicit AbstractRectAreaImageGrabber(AbstractSnippingArea *snippingArea);
+    explicit AbstractRectAreaImageGrabber(AbstractSnippingArea *snippingArea, const QSharedPointer<IConfig> &config);
     ~AbstractRectAreaImageGrabber() override;
     void grabImage(CaptureModes captureMode, bool captureCursor, int delay) override;
 	virtual QRect currentScreenRect() const;

@@ -29,15 +29,16 @@
 #include <QFileDialog>
 #include <QRadioButton>
 
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
+#include "src/common/helper/PathHelper.h"
 #include "src/widgets/CustomSpinBox.h"
 
 class SaverSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit SaverSettings(Config *ksnipConfig);
+	explicit SaverSettings(const QSharedPointer<IConfig> &config);
 	~SaverSettings() override;
 	void saveSettings();
 
@@ -54,7 +55,7 @@ private:
 	QGridLayout *mLayout;
 	QGridLayout *mSaveQualityLayout;
 	QGroupBox *mSaveQualityGroupBox;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	IFileDialogAdapter *mFileDialog;
 
 	void initGui();
@@ -64,6 +65,5 @@ private slots:
 	void chooseSaveDirectory();
 	SaveQualityMode getSaveQualityMode();
 };
-
 
 #endif //KSNIP_SAVERSETTINGS_H

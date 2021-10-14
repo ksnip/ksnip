@@ -19,7 +19,7 @@
 
 #include "GnomeWaylandImageGrabber.h"
 
-GnomeWaylandImageGrabber::GnomeWaylandImageGrabber() : AbstractRectAreaImageGrabber(new LinuxSnippingArea)
+GnomeWaylandImageGrabber::GnomeWaylandImageGrabber(const QSharedPointer<IConfig> &config) : AbstractRectAreaImageGrabber(new LinuxSnippingArea(config), config)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);
 	addSupportedCaptureMode(CaptureModes::LastRectArea);

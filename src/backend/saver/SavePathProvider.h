@@ -20,21 +20,24 @@
 #ifndef KSNIP_SAVEPATHPROVIDER_H
 #define KSNIP_SAVEPATHPROVIDER_H
 
+#include <QSharedPointer>
+
+#include "ISavePathProvider.h"
 #include "src/backend/saver/WildcardResolver.h"
 #include "src/backend/saver/UniqueNameProvider.h"
-#include "src/backend/config/ConfigProvider.h"
+#include "src/backend/config/IConfig.h"
 
-class SavePathProvider
+class SavePathProvider : public ISavePathProvider
 {
 public:
-    SavePathProvider();
+    explicit SavePathProvider(const QSharedPointer<IConfig> &config);
     ~SavePathProvider() = default;
-    QString savePath() const;
-    QString savePathWithFormat(const QString& format) const;
-    QString saveDirectory() const;
+    QString savePath() const override;
+    QString savePathWithFormat(const QString& format) const override;
+    QString saveDirectory() const override;
 
 private:
-    Config *mConfig;
+    QSharedPointer<IConfig> mConfig;
 
     QString getFormat(const QString &format) const;
     QString getFilename() const;

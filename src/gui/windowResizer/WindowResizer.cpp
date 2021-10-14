@@ -19,7 +19,7 @@
 
 #include "WindowResizer.h"
 
-WindowResizer::WindowResizer(IResizableWindow *resizableWindow, Config *config, QObject *parent) :
+WindowResizer::WindowResizer(IResizableWindow *resizableWindow, const QSharedPointer<IConfig> &config, QObject *parent) :
 	QObject(parent),
 	mResizableWindow(resizableWindow),
 	mConfig(config),

@@ -19,8 +19,8 @@
 
 #include "ApplicationSettings.h"
 
-ApplicationSettings::ApplicationSettings(Config *ksnipConfig) :
-	mConfig(ksnipConfig),
+ApplicationSettings::ApplicationSettings(const QSharedPointer<IConfig> &config) :
+	mConfig(config),
 	mAutoCopyToClipboardNewCapturesCheckbox(new QCheckBox(this)),
 	mRememberPositionCheckbox(new QCheckBox(this)),
 	mCaptureOnStartupCheckbox(new QCheckBox(this)),

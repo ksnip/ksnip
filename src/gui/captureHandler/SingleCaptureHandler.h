@@ -43,6 +43,9 @@ public:
 			const QSharedPointer<IFileService> &fileService,
 			const QSharedPointer<IMessageBoxService> &messageBoxService,
 			const QSharedPointer<IRecentImageService> &recentImageService,
+			const QSharedPointer<IImageSaver> &imageSaver,
+			const QSharedPointer<ISavePathProvider> &savePathProvider,
+			const QSharedPointer<IConfig> &config,
 			QWidget *parent);
 	~SingleCaptureHandler() override = default;
 	bool canClose() override;
@@ -70,6 +73,9 @@ private:
 	QSharedPointer<IFileService> mFileService;
 	QSharedPointer<IMessageBoxService> mMessageBoxService;
 	QSharedPointer<IRecentImageService> mRecentImageService;
+	QSharedPointer<IImageSaver> mImageSaver;
+	QSharedPointer<ISavePathProvider> mSavePathProvider;
+	QSharedPointer<IConfig> mConfig;
 	QWidget *mParent;
 	ICaptureChangeListener *mCaptureChangeListener;
 	bool mIsSaved;

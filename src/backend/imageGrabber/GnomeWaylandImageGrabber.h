@@ -31,7 +31,7 @@
 class GnomeWaylandImageGrabber : public AbstractRectAreaImageGrabber
 {
 public:
-    explicit GnomeWaylandImageGrabber();
+    explicit GnomeWaylandImageGrabber(const QSharedPointer<IConfig> &config);
 	QRect fullScreenRect() const override;
 	QRect activeWindowRect() const override;
 

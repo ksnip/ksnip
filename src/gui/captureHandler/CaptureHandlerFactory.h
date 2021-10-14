@@ -30,7 +30,7 @@ public:
 	~CaptureHandlerFactory() = default;
 	static ICaptureHandler *create(
 			IImageAnnotator *imageAnnotator,
-			QSharedPointer<INotificationService> notificationService,
+			QSharedPointer<INotificationService> &notificationService,
 			DependencyInjector *dependencyInjector,
 			QWidget *parent);
 };

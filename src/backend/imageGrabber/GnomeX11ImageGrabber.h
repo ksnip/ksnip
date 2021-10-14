@@ -26,7 +26,7 @@
 class GnomeX11ImageGrabber : public BaseX11ImageGrabber
 {
 public:
-	GnomeX11ImageGrabber();
+	explicit GnomeX11ImageGrabber(const QSharedPointer<IConfig> &config);
 	~GnomeX11ImageGrabber() override = default;
 };
 

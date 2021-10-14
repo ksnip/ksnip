@@ -28,7 +28,7 @@
 #include <QPushButton>
 #include <QDesktopServices>
 
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 #include "src/backend/uploader/imgur/ImgurWrapper.h"
 #include "src/gui/ImgurHistoryDialog.h"
 #include "src/widgets/CustomLineEdit.h"
@@ -38,12 +38,12 @@ class ImgurUploaderSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit ImgurUploaderSettings(Config *ksnipConfig);
+	explicit ImgurUploaderSettings(const QSharedPointer<IConfig> &config);
 	~ImgurUploaderSettings() override;
 	void saveSettings();
 
 private:
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	QCheckBox *mForceAnonymousCheckbox;
 	QCheckBox *mDirectLinkToImageCheckbox;
 	QCheckBox *mAlwaysCopyToClipboardCheckBox;

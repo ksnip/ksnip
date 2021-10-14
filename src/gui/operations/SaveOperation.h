@@ -26,30 +26,47 @@
 #include "src/common/dtos/SaveResultDto.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
 #include "src/backend/recentImages/IRecentImageService.h"
-#include "src/backend/config/Config.h"
-#include "src/backend/saver/SavePathProvider.h"
-#include "src/backend/saver/ImageSaver.h"
+#include "src/backend/config/IConfig.h"
+#include "src/backend/saver/ISavePathProvider.h"
+#include "src/backend/saver/IImageSaver.h"
 #include "src/gui/INotificationService.h"
 
 class SaveOperation : public QObject
 {
 	Q_OBJECT
 public:
-    SaveOperation(QWidget *parent, QImage image, bool isInstantSave, INotificationService *toastService, IRecentImageService *recentImageService);
-	SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, INotificationService *toastService, IRecentImageService *recentImageService);
+    SaveOperation(
+			QImage image,
+			bool isInstantSave,
+			const QSharedPointer<INotificationService> &notificationService,
+			const QSharedPointer<IRecentImageService> &recentImageService,
+			const QSharedPointer<IImageSaver> &imageSaver,
+			const QSharedPointer<ISavePathProvider> &savePathProvider,
+			const QSharedPointer<IConfig> &config,
+			QWidget *parent);
+	SaveOperation(
+			const QImage &image,
+			bool isInstantSave,
+			const QString &pathToImageSource,
+			const QSharedPointer<INotificationService> &notificationService,
+			const QSharedPointer<IRecentImageService> &recentImageService,
+			const QSharedPointer<IImageSaver> &imageSaver,
+			const QSharedPointer<ISavePathProvider> &savePathProvider,
+			const QSharedPointer<IConfig> &config,
+			QWidget *parent);
     ~SaveOperation() override = default;
 	SaveResultDto execute();
 
 private:
     QWidget* mParent;
     QImage mImage;
-    SavePathProvider mSavePathProvider;
-    ImageSaver mImageSaver;
-    QString mPathToImageSource;
-    bool mIsInstantSave;
-	INotificationService *mToastService;
-	IRecentImageService *mRecentImageService;
-	Config *mConfig;
+	QString mPathToImageSource;
+	bool mIsInstantSave;
+	QSharedPointer<IImageSaver> mImageSaver;
+	QSharedPointer<ISavePathProvider> mSavePathProvider;
+	QSharedPointer<INotificationService> mNotificationService;
+	QSharedPointer<IRecentImageService> mRecentImageService;
+	QSharedPointer<IConfig> mConfig;
 
 	void notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const;
 	SaveResultDto save(const QString &path);

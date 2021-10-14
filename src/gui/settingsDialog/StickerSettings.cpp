@@ -19,7 +19,7 @@
 
 #include "StickerSettings.h"
 
-StickerSettings::StickerSettings(Config *config) :
+StickerSettings::StickerSettings(const QSharedPointer<IConfig> &config) :
 	mConfig(config),
 	mListWidget(new QListWidget(this)),
 	mAddButton(new QPushButton(this)),

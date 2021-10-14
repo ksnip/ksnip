@@ -19,8 +19,8 @@
 
 #include "HotKeySettings.h"
 
-HotKeySettings::HotKeySettings(Config *ksnipConfig, const QList<CaptureModes> &captureModes) :
-	mConfig(ksnipConfig),
+HotKeySettings::HotKeySettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config) :
+	mConfig(config),
 	mCaptureModes(captureModes),
 	mEnableGlobalHotKeysCheckBox(new QCheckBox(this)),
 	mRectAreaLabel(new QLabel(this)),

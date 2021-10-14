@@ -19,8 +19,8 @@
 
 #include "AbstractSnippingArea.h"
 
-AbstractSnippingArea::AbstractSnippingArea() :
-	mConfig(ConfigProvider::instance()),
+AbstractSnippingArea::AbstractSnippingArea(const QSharedPointer<IConfig> &config) :
+	mConfig(config),
 	mBackground(nullptr),
 	mResizer(new SnippingAreaResizer(mConfig, this)),
 	mSelector(new SnippingAreaSelector(mConfig, this)),

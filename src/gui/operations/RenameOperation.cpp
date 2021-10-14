@@ -19,11 +19,17 @@
 
 #include "RenameOperation.h"
 
-RenameOperation::RenameOperation(QWidget *parent, const QString &pathToImageSource, const QString &imageFilename, INotificationService *toastService) :
+RenameOperation::RenameOperation(
+		const QString &pathToImageSource,
+		const QString &imageFilename,
+		const QSharedPointer<INotificationService> &notificationService,
+		const QSharedPointer<IConfig> &config,
+		QWidget *parent) :
 	mParent(parent),
 	mPathToImageSource(pathToImageSource),
 	mImageFilename(imageFilename),
-	mToastService(toastService)
+	mNotificationService(notificationService),
+	mConfig(config)
 {
 }
 
@@ -37,16 +43,20 @@ RenameResultDto RenameOperation::execute()
 	auto renameSuccessful = rename(newFilename);
 
 	if (renameSuccessful) {
-		NotifyOperation operation(mToastService,
-							tr("Image Renamed"),
-							tr("Successfully renamed image to ") + newFilename,
-							NotificationTypes::Information);
+		NotifyOperation operation(
+				tr("Image Renamed"),
+				tr("Successfully renamed image to ") + newFilename,
+				NotificationTypes::Information,
+				mNotificationService,
+				mConfig);
 		operation.execute();
 	} else {
-		NotifyOperation operation(mToastService,
-							tr("Image Rename Failed"),
-							tr("Failed to rename image to ") + newFilename,
-							NotificationTypes::Warning);
+		NotifyOperation operation(
+				tr("Image Rename Failed"),
+				tr("Failed to rename image to ") + newFilename,
+				NotificationTypes::Warning,
+				mNotificationService,
+				mConfig);
 		operation.execute();
 	}
 
@@ -67,7 +77,7 @@ QString RenameOperation::getNewFilename() const
 	if (QDialog::Accepted == dialog.exec()) {
 		return dialog.textValue();
 	}
-	return QString();
+	return {};
 }
 
 bool RenameOperation::rename(const QString &newFilename)

@@ -19,7 +19,7 @@
 
 #include "ActionsSettings.h"
 
-ActionsSettings::ActionsSettings(Config *config, const QList<CaptureModes> &captureModes) :
+ActionsSettings::ActionsSettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config) :
 	mConfig(config),
 	mLayout(new QVBoxLayout(this)),
 	mTabWidget(new QTabWidget(this)),

@@ -27,6 +27,9 @@ SingleCaptureHandler::SingleCaptureHandler(
 		const QSharedPointer<IFileService> &fileService,
 		const QSharedPointer<IMessageBoxService> &messageBoxService,
 		const QSharedPointer<IRecentImageService> &recentImageService,
+		const QSharedPointer<IImageSaver> &imageSaver,
+		const QSharedPointer<ISavePathProvider> &savePathProvider,
+		const QSharedPointer<IConfig> &config,
 		QWidget *parent) :
 	mImageAnnotator(imageAnnotator),
 	mNotificationService(notificationService),
@@ -35,6 +38,9 @@ SingleCaptureHandler::SingleCaptureHandler(
 	mFileService(fileService),
 	mMessageBoxService(messageBoxService),
 	mRecentImageService(recentImageService),
+	mImageSaver(imageSaver),
+	mSavePathProvider(savePathProvider),
+	mConfig(config),
 	mParent(parent),
 	mCaptureChangeListener(nullptr),
 	mIsSaved(true)
@@ -81,7 +87,7 @@ void SingleCaptureHandler::save()
 
 void SingleCaptureHandler::rename()
 {
-	RenameOperation operation(mParent, mPath, QFileInfo(mPath).fileName(), mNotificationService.data());
+	RenameOperation operation(mPath, QFileInfo(mPath).fileName(), mNotificationService, mConfig, mParent);
 	const auto renameResult = operation.execute();
 	if (renameResult.isSuccessful) {
 		mPath = renameResult.path;
@@ -125,7 +131,7 @@ void SingleCaptureHandler::reset()
 void SingleCaptureHandler::innerSave(bool isInstant)
 {
 	auto image = mImageAnnotator->image();
-	SaveOperation operation(mParent, image, isInstant, mPath, mNotificationService.data(), mRecentImageService.data());
+	SaveOperation operation(image, isInstant, mPath, mNotificationService, mRecentImageService, mImageSaver, mSavePathProvider, mConfig, mParent);
 	auto saveResult = operation.execute();
 	mIsSaved = saveResult.isSuccessful;
 	if (mIsSaved) {
@@ -163,7 +169,18 @@ bool SingleCaptureHandler::discardChanges()
 {
 	auto image = mImageAnnotator->image();
 	auto filename = PathHelper::extractFilename(mPath);
-	CanDiscardOperation operation(mParent, image, !mIsSaved, mPath, filename, mNotificationService.data(), mRecentImageService.data());
+	CanDiscardOperation operation(
+			image,
+			!mIsSaved,
+			mPath,
+			filename,
+			mNotificationService,
+			mRecentImageService,
+			mMessageBoxService,
+			mImageSaver,
+			mSavePathProvider,
+			mConfig,
+			mParent);
 	return operation.execute();
 }
 

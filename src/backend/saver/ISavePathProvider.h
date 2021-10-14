@@ -17,21 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_LOGGERPROVIDER_H
-#define KSNIP_LOGGERPROVIDER_H
+#ifndef KSNIP_ISAVEPATHPROVIDER_H
+#define KSNIP_ISAVEPATHPROVIDER_H
 
-#include "src/backend/config/ConfigProvider.h"
-#include "ConsoleLogger.h"
-#include "NoneLogger.h"
+class QString;
 
-class LoggerProvider
+class ISavePathProvider
 {
 public:
-	static ILogger *instance();
-
-private:
-	LoggerProvider() = default;
+	ISavePathProvider() = default;
+	~ISavePathProvider() = default;
+	virtual QString savePath() const = 0;
+	virtual QString savePathWithFormat(const QString& format) const = 0;
+	virtual QString saveDirectory() const = 0;
 };
 
-
-#endif //KSNIP_LOGGERPROVIDER_H
+#endif //KSNIP_ISAVEPATHPROVIDER_H

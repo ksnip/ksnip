@@ -19,8 +19,8 @@
 
 #include "X11ImageGrabber.h"
 
-X11ImageGrabber::X11ImageGrabber() :
-	BaseX11ImageGrabber(new X11Wrapper)
+X11ImageGrabber::X11ImageGrabber(const QSharedPointer<IConfig> &config) :
+	BaseX11ImageGrabber(new X11Wrapper, config)
 {
 
 }

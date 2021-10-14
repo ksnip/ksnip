@@ -25,8 +25,8 @@
 #include "ICommandLineCaptureHandler.h"
 #include "CommandLineCaptureParameter.h"
 #include "src/backend/imageGrabber/IImageGrabber.h"
-#include "src/backend/saver/ImageSaver.h"
-#include "src/backend/saver/SavePathProvider.h"
+#include "src/backend/saver/IImageSaver.h"
+#include "src/backend/saver/ISavePathProvider.h"
 #include "src/backend/uploader/IUploadHandler.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/helper/EnumTranslator.h"
@@ -35,7 +35,11 @@
 class CommandLineCaptureHandler : public ICommandLineCaptureHandler
 {
 public:
-	explicit CommandLineCaptureHandler(const QSharedPointer<IImageGrabber> &imageGrabber, const QSharedPointer<IUploadHandler> &uploadHandler);
+	explicit CommandLineCaptureHandler(
+			const QSharedPointer<IImageGrabber> &imageGrabber,
+			const QSharedPointer<IUploadHandler> &uploadHandler,
+			const QSharedPointer<IImageSaver> &imageSaver,
+			const QSharedPointer<ISavePathProvider> &savePathProvider);
 	~CommandLineCaptureHandler() override = default;
 	void captureAndProcessScreenshot(const CommandLineCaptureParameter &parameter) override;
 	QList<CaptureModes> supportedCaptureModes() const override;
@@ -43,6 +47,8 @@ public:
 private:
 	QSharedPointer<IImageGrabber> mImageGrabber;
 	QSharedPointer<IUploadHandler> mUploadHandler;
+	QSharedPointer<IImageSaver> mImageSaver;
+	QSharedPointer<ISavePathProvider> mSavePathProvider;
 	QString mSavePath;
 	bool mIsWithSave;
 	bool mIsWithUpload;

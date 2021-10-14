@@ -23,23 +23,26 @@
 #include <QApplication>
 #include <QTranslator>
 
+#include "ITranslationLoader.h"
 #include "BuildConfig.h"
-#include "src/logging/LoggerProvider.h"
+#include "src/logging/ILogger.h"
 
-class TranslationLoader
+class TranslationLoader : public ITranslationLoader
 {
 public:
-    TranslationLoader() = default;
+    explicit TranslationLoader(const QSharedPointer<ILogger> &logger);
     ~TranslationLoader() = default;
-    static void load(const QApplication &app);
+    void load(const QApplication &app) override;
 
 private:
-	static bool loadTranslationFromAbsolutePath(QTranslator *translator, const QString &path, const QString &applicationName);
-	static bool loadTranslationFromRelativePath(QTranslator *translator, const QString &path, const QString &applicationName);
-	static bool loadTranslationForAppImage(QTranslator *translator, const QString &path, const QString &applicationName);
-	static bool loadTranslation(QTranslator *translator, const QString &path, const QString &applicationName);
-	static bool loadTranslationForSnap(QTranslator *translator, const QString &path, const QString &applicationName);
-	static void loadTranslations(const QApplication &app, QTranslator *translator, QString &path, const QString &applicationName);
+	QSharedPointer<ILogger> mLogger;
+
+	bool loadTranslationFromAbsolutePath(QTranslator *translator, const QString &path, const QString &applicationName);
+	bool loadTranslationFromRelativePath(QTranslator *translator, const QString &path, const QString &applicationName);
+	bool loadTranslationForAppImage(QTranslator *translator, const QString &path, const QString &applicationName);
+	bool loadTranslation(QTranslator *translator, const QString &path, const QString &applicationName);
+	bool loadTranslationForSnap(QTranslator *translator, const QString &path, const QString &applicationName);
+	void loadTranslations(const QApplication &app, QTranslator *translator, QString &path, const QString &applicationName);
 };
 
 #endif //KSNIP_TRANSLATIONLOADER_H

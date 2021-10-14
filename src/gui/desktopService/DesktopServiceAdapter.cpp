@@ -31,3 +31,8 @@ void DesktopServiceAdapter::openFile(const QString &path)
 
 	QDesktopServices::openUrl(QUrl::fromLocalFile(path));
 }
+
+void DesktopServiceAdapter::openUrl(const QString &url)
+{
+	QDesktopServices::openUrl(url);
+}

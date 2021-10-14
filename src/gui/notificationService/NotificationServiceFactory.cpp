@@ -18,16 +18,15 @@
  */
 
 #include "NotificationServiceFactory.h"
-#include "src/backend/config/ConfigProvider.h"
 
 #if defined(UNIX_X11)
 #include "FreeDesktopNotificationService.h"
 #endif
 
-QSharedPointer<INotificationService> NotificationServiceFactory::create(INotificationService *defaultNotificationService)
+QSharedPointer<INotificationService> NotificationServiceFactory::create(INotificationService *defaultNotificationService, const QSharedPointer<IConfig> &config)
 {
 #if defined(UNIX_X11)
-	if (ConfigProvider::instance()->platformSpecificNotificationServiceEnabled()) {
+	if (config->platformSpecificNotificationServiceEnabled()) {
 		return QSharedPointer<INotificationService>(new FreeDesktopNotificationService());
 	} else {
 		return QSharedPointer<INotificationService>(defaultNotificationService);

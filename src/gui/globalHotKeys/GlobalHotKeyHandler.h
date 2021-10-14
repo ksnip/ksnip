@@ -25,14 +25,15 @@
 #include <QSharedPointer>
 
 #include "GlobalHotKey.h"
-#include "src/backend/config/ConfigProvider.h"
+#include "src/backend/config/IConfig.h"
 #include "src/common/enum/CaptureModes.h"
+#include "src/gui/actions/Action.h"
 
 class GlobalHotKeyHandler : public QObject
 {
 	Q_OBJECT
 public:
-	explicit GlobalHotKeyHandler(const QList<CaptureModes> &supportedCaptureModes);
+	explicit GlobalHotKeyHandler(const QList<CaptureModes> &supportedCaptureModes, const QSharedPointer<IConfig> &config);
 	~GlobalHotKeyHandler() override;
 	void setEnabled(bool enabled);
 
@@ -41,7 +42,7 @@ signals:
 	void actionTriggered(const Action &action) const;
 
 private:
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	QList<QSharedPointer<GlobalHotKey>> mGlobalHotKeys;
 	QList<CaptureModes> mSupportedCaptureModes;
 

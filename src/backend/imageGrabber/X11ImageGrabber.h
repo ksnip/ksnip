@@ -26,7 +26,7 @@
 class X11ImageGrabber : public BaseX11ImageGrabber
 {
 public:
-	X11ImageGrabber();
+	explicit X11ImageGrabber(const QSharedPointer<IConfig> &config);
 	~X11ImageGrabber() override = default;
 };
 

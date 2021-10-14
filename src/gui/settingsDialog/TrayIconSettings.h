@@ -27,14 +27,14 @@
 #include <QComboBox>
 #include <QRadioButton>
 
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 #include "src/common/helper/EnumTranslator.h"
 
 class TrayIconSettings : public QGroupBox
 {
 Q_OBJECT
 public:
-	explicit TrayIconSettings(Config *config, const QList<CaptureModes> &captureModes);
+	explicit TrayIconSettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config);
 	~TrayIconSettings() override;
 	void saveSettings();
 
@@ -51,7 +51,7 @@ private:
 	QGridLayout *mLayout;
 	QGridLayout *mDefaultActionLayout;
 	QGroupBox *mDefaultActionGroupBox;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 
 	void initGui();
 	void loadConfig();

@@ -33,7 +33,7 @@ class WaylandImageGrabber  : public AbstractImageGrabber
 {
     Q_OBJECT
 public:
-	explicit WaylandImageGrabber();
+	explicit WaylandImageGrabber(const QSharedPointer<IConfig> &config);
 
 public slots:
     void gotScreenshotResponse(uint response, const QVariantMap& results);

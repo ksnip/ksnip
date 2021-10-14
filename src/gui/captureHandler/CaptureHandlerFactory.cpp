@@ -21,7 +21,7 @@
 
 ICaptureHandler* CaptureHandlerFactory::create(
 		IImageAnnotator *imageAnnotator,
-		QSharedPointer<INotificationService> notificationService,
+		QSharedPointer<INotificationService> &notificationService,
 		DependencyInjector *dependencyInjector,
 		QWidget *parent)
 {
@@ -38,6 +38,8 @@ ICaptureHandler* CaptureHandlerFactory::create(
 				dependencyInjector->getObject<IFileService>(),
 				dependencyInjector->getObject<IMessageBoxService>(),
 				dependencyInjector->getObject<IRecentImageService>(),
+				dependencyInjector->getObject<IImageSaver>(),
+				dependencyInjector->getObject<ISavePathProvider>(),
 				parent);
 	} else {
 		return new SingleCaptureHandler(
@@ -48,6 +50,9 @@ ICaptureHandler* CaptureHandlerFactory::create(
 				dependencyInjector->getObject<IFileService>(),
 				dependencyInjector->getObject<IMessageBoxService>(),
 				dependencyInjector->getObject<IRecentImageService>(),
+				dependencyInjector->getObject<IImageSaver>(),
+				dependencyInjector->getObject<ISavePathProvider>(),
+				config,
 				parent);
 	}
 }

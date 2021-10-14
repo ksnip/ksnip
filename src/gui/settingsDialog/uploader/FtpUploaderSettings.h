@@ -26,19 +26,19 @@
 #include <QLabel>
 #include <QGridLayout>
 
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 
 class FtpUploaderSettings : public QGroupBox
 {
 Q_OBJECT
 public:
-	explicit FtpUploaderSettings(Config *config);
+	explicit FtpUploaderSettings(const QSharedPointer<IConfig> &config);
 	~FtpUploaderSettings() override = default;
 	void saveSettings();
 
 private:
 	QGridLayout *mLayout;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	QCheckBox *mForceAnonymousUploadCheckBox;
 	QLabel *mUrlLabel;
 	QLabel *mUsernameLabel;

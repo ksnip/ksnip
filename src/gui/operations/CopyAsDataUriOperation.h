@@ -26,19 +26,25 @@
 #include "src/gui/clipboard/IClipboard.h"
 #include "src/gui/INotificationService.h"
 #include "src/gui/operations/NotifyOperation.h"
+#include "src/backend/config/Config.h"
 
 class CopyAsDataUriOperation : public QObject
 {
 	Q_OBJECT
 public:
-	CopyAsDataUriOperation(QImage image, IClipboard *clipboard, INotificationService *toastService);
+	CopyAsDataUriOperation(
+			QImage image,
+			const QSharedPointer<IClipboard> &clipboardService,
+			const QSharedPointer<INotificationService> &notificationService,
+			const QSharedPointer<IConfig> &config);
 	~CopyAsDataUriOperation() override = default;
 	bool execute();
 
 private:
 	QImage mImage;
-	IClipboard *mClipboard;
-	INotificationService *mToastService;
+	QSharedPointer<IClipboard> mClipboardService;
+	QSharedPointer<INotificationService> mNotificationService;
+	QSharedPointer<IConfig> mConfig;
 
 	void notifySuccess() const;
 	void notifyFailure() const;

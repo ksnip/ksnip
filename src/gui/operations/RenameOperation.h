@@ -35,7 +35,12 @@ class RenameOperation : public QObject
 {
 	Q_OBJECT
 public:
-	RenameOperation(QWidget *parent, const QString &pathToImageSource, const QString &imageFilename, INotificationService *toastService);
+	RenameOperation(
+			const QString &pathToImageSource,
+			const QString &imageFilename,
+			const QSharedPointer<INotificationService> &notificationService,
+			const QSharedPointer<IConfig> &config,
+			QWidget *parent);
 	~RenameOperation() override = default;
 	RenameResultDto execute();
 
@@ -43,7 +48,8 @@ private:
 	QWidget* mParent;
 	QString mPathToImageSource;
 	QString mImageFilename;
-	INotificationService *mToastService;
+	QSharedPointer<INotificationService> mNotificationService;
+	QSharedPointer<IConfig> mConfig;
 
 	QString getNewFilename() const;
 	bool rename(const QString &newFilename);

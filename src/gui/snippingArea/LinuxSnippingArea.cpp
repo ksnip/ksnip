@@ -19,7 +19,7 @@
 
 #include "LinuxSnippingArea.h"
 
-LinuxSnippingArea::LinuxSnippingArea() : AbstractSnippingArea()
+LinuxSnippingArea::LinuxSnippingArea(const QSharedPointer<IConfig> &config) : AbstractSnippingArea(config)
 {
 	setWindowFlags(windowFlags() | Qt::Tool | Qt::X11BypassWindowManagerHint);
 }

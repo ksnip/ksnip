@@ -21,19 +21,38 @@
 
 #include <utility>
 
-SaveOperation::SaveOperation(QWidget *parent, QImage image, bool isInstantSave, INotificationService *toastService, IRecentImageService *recentImageService) :
+SaveOperation::SaveOperation(
+		QImage image,
+		bool isInstantSave,
+		const QSharedPointer<INotificationService> &notificationService,
+		const QSharedPointer<IRecentImageService> &recentImageService,
+		const QSharedPointer<IImageSaver> &imageSaver,
+		const QSharedPointer<ISavePathProvider> &savePathProvider,
+		const QSharedPointer<IConfig> &config,
+		QWidget *parent) :
 	mParent(parent),
 	mImage(std::move(image)),
 	mIsInstantSave(isInstantSave),
-	mToastService(toastService),
+	mNotificationService(notificationService),
 	mRecentImageService(recentImageService),
-	mConfig(ConfigProvider::instance())
+	mImageSaver(imageSaver),
+	mSavePathProvider(savePathProvider),
+	mConfig(config)
 {
     Q_ASSERT(mParent != nullptr);
 }
 
-SaveOperation::SaveOperation(QWidget *parent, const QImage &image, bool isInstantSave, const QString &pathToImageSource, INotificationService *toastService, IRecentImageService *recentImageService) :
-	SaveOperation(parent, image, isInstantSave, toastService, recentImageService)
+SaveOperation::SaveOperation(
+		const QImage &image,
+		bool isInstantSave,
+		const QString &pathToImageSource,
+		const QSharedPointer<INotificationService> &notificationService,
+		const QSharedPointer<IRecentImageService> &recentImageService,
+		const QSharedPointer<IImageSaver> &imageSaver,
+		const QSharedPointer<ISavePathProvider> &savePathProvider,
+		const QSharedPointer<IConfig> &config,
+		QWidget *parent) :
+	SaveOperation(image, isInstantSave, notificationService, recentImageService, imageSaver, savePathProvider, config, parent)
 {
 	mPathToImageSource = pathToImageSource;
 }
@@ -75,12 +94,12 @@ void SaveOperation::updateSaveDirectoryIfRequired(const QString &path, const Sav
 
 QString SaveOperation::getSavePath() const
 {
-	return PathHelper::isPathValid(mPathToImageSource) ? mPathToImageSource : mSavePathProvider.savePath();
+	return PathHelper::isPathValid(mPathToImageSource) ? mPathToImageSource : mSavePathProvider->savePath();
 }
 
 SaveResultDto SaveOperation::save(const QString &path)
 {
-	auto successful = mImageSaver.save(mImage, path);
+	auto successful = mImageSaver->save(mImage, path);
 	if(successful) {
 		notify(tr("Image Saved"), tr("Saved to"), path, NotificationTypes::Information);
 	} else {
@@ -91,6 +110,6 @@ SaveResultDto SaveOperation::save(const QString &path)
 
 void SaveOperation::notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const
 {
-	NotifyOperation operation(mToastService, title, message + QLatin1String(" ") + path, path, notificationType);
+	NotifyOperation operation(title, message + QLatin1String(" ") + path, path, notificationType, mNotificationService, mConfig);
 	operation.execute();
 }

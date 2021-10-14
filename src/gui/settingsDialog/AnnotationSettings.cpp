@@ -19,7 +19,7 @@
 
 #include "AnnotationSettings.h"
 
-AnnotationSettings::AnnotationSettings(Config *config) :
+AnnotationSettings::AnnotationSettings(const QSharedPointer<IConfig> &config) :
 	mSmoothPathCheckbox(new QCheckBox(this)),
 	mRememberToolSelectionCheckBox(new QCheckBox(this)),
 	mSwitchToSelectToolAfterDrawingItemCheckBox(new QCheckBox(this)),

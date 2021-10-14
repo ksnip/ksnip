@@ -44,10 +44,10 @@ int main(int argc, char** argv)
     app.setApplicationVersion(QLatin1String(KSNIP_VERSION));
     app.setDesktopFileName(QLatin1String("org.ksnip.ksnip.desktop"));
 
-    app.setStyle(ConfigProvider::instance()->applicationStyle());
-
     auto dependencyInjector = new DependencyInjector;
 	DependencyInjectorBootstrapper::BootstrapCore(dependencyInjector);
+
+	app.setStyle(dependencyInjector->getObject<IConfig>()->applicationStyle());
 
 	BootstrapperFactory bootstrapperFactory;
 	return bootstrapperFactory.create(dependencyInjector)->start(app);

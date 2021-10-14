@@ -20,26 +20,26 @@
 
 #include "SettingsDialog.h"
 
-SettingsDialog::SettingsDialog(QWidget *parent, const QList<CaptureModes> &captureModes) :
+SettingsDialog::SettingsDialog(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config, QWidget *parent) :
 	QDialog(parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
 	mOkButton(new QPushButton),
 	mCancelButton(new QPushButton),
 	mTreeWidget(new QTreeWidget),
 	mStackedLayout(new QStackedLayout),
-	mConfig(ConfigProvider::instance()),
+	mConfig(config),
 	mApplicationSettings(new ApplicationSettings(mConfig)),
 	mImageGrabberSettings(new ImageGrabberSettings(mConfig)),
 	mImgurUploaderSettings(new ImgurUploaderSettings(mConfig)),
 	mScriptUploaderSettings(new ScriptUploaderSettings(mConfig)),
 	mAnnotationSettings(new AnnotationSettings(mConfig)),
-	mHotKeySettings(new HotKeySettings(mConfig, captureModes)),
+	mHotKeySettings(new HotKeySettings(captureModes, mConfig)),
 	mUploaderSettings(new UploaderSettings(mConfig)),
 	mSaverSettings(new SaverSettings(mConfig)),
 	mStickerSettings(new StickerSettings(mConfig)),
-	mTrayIconSettings(new TrayIconSettings(mConfig, captureModes)),
+	mTrayIconSettings(new TrayIconSettings(captureModes, mConfig)),
 	mSnippingAreaSettings(new SnippingAreaSettings(mConfig)),
 	mWatermarkSettings(new WatermarkSettings(mConfig)),
-	mActionsSettings(new ActionsSettings(mConfig, captureModes)),
+	mActionsSettings(new ActionsSettings(captureModes, mConfig)),
 	mFtpUploaderSettings(new FtpUploaderSettings(mConfig))
 {
     setWindowTitle(QApplication::applicationName() + QLatin1String(" - ") + tr("Settings"));

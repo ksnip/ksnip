@@ -26,7 +26,7 @@
 #include <QGridLayout>
 #include <QPushButton>
 
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 #include "src/widgets/KeySequenceLineEdit.h"
 #include "src/gui/globalHotKeys/HotKeyMap.h"
 
@@ -34,7 +34,7 @@ class HotKeySettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit HotKeySettings(Config *ksnipConfig, const QList<CaptureModes> &captureModes);
+	explicit HotKeySettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config);
 	~HotKeySettings() override;
 	void saveSettings();
 
@@ -63,7 +63,7 @@ private:
 	QPushButton *mPortalClearPushButton;
 	QGridLayout *mLayout;
 	QList<CaptureModes> mCaptureModes;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 
 	void initGui();
 	void loadConfig();

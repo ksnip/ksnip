@@ -24,12 +24,14 @@ LoadImageFromFileOperation::LoadImageFromFileOperation(
 		const QSharedPointer<IImageProcessor> &imageProcessor,
 		const QSharedPointer<INotificationService> &notificationService,
 		const QSharedPointer<IRecentImageService> &recentImageService,
-		const QSharedPointer<IFileService> &fileService) :
-		mImageProcessor(imageProcessor),
-		mPath(path),
-		mNotificationService(notificationService),
-		mRecentImageService(recentImageService),
-		mFileService(fileService)
+		const QSharedPointer<IFileService> &fileService,
+		const QSharedPointer<IConfig> &config) :
+	mImageProcessor(imageProcessor),
+	mPath(path),
+	mNotificationService(notificationService),
+	mRecentImageService(recentImageService),
+	mFileService(fileService),
+	mConfig(config)
 {
 }
 
@@ -51,7 +53,7 @@ void LoadImageFromFileOperation::notifyAboutInvalidPath() const
 {
 	auto title = tr("Unable to open image");
 	auto message = tr("Unable to open image from path %1").arg(mPath);
-	NotifyOperation operation(mNotificationService.data(), title, message, NotificationTypes::Warning);
+	NotifyOperation operation(title, message, NotificationTypes::Warning, mNotificationService, mConfig);
 	operation.execute();
 }
 

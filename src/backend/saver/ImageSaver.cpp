@@ -19,7 +19,8 @@
 
 #include "ImageSaver.h"
 
-ImageSaver::ImageSaver() : mConfig(ConfigProvider::instance())
+ImageSaver::ImageSaver(const QSharedPointer<IConfig> &config) :
+	mConfig(config)
 {
 }
 

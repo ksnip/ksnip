@@ -19,8 +19,9 @@
 
 #include "AbstractRectAreaImageGrabber.h"
 
-AbstractRectAreaImageGrabber::AbstractRectAreaImageGrabber(AbstractSnippingArea *snippingArea) :
-    mSnippingArea(snippingArea),
+AbstractRectAreaImageGrabber::AbstractRectAreaImageGrabber(AbstractSnippingArea *snippingArea, const QSharedPointer<IConfig> &config) :
+	AbstractImageGrabber(config),
+	mSnippingArea(snippingArea),
     mFreezeImageWhileSnipping(mConfig->freezeImageWhileSnippingEnabled())
 {
     Q_ASSERT(mSnippingArea != nullptr);

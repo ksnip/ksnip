@@ -40,18 +40,18 @@
 #include "src/gui/settingsDialog/uploader/ScriptUploaderSettings.h"
 #include "src/gui/settingsDialog/uploader/FtpUploaderSettings.h"
 #include "src/gui/settingsDialog/actions/ActionsSettings.h"
-#include "src/backend/config/ConfigProvider.h"
+#include "src/backend/config/IConfig.h"
 #include "src/common/provider/ScaledSizeProvider.h"
 
 class SettingsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit SettingsDialog(QWidget *parent, const QList<CaptureModes> &captureModes);
+    explicit SettingsDialog(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config, QWidget *parent);
     ~SettingsDialog() override;
 
 private:
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
     QPushButton *mOkButton;
     QPushButton *mCancelButton;
 	ApplicationSettings *mApplicationSettings;

@@ -63,7 +63,7 @@ private:
 	CommandLine *mCommandLine;
 	QSharedPointer<ICommandLineCaptureHandler> mCommandLineCaptureHandler;
 
-	static void loadTranslations(const QApplication &app);
+	void loadTranslations(const QApplication &app);
 	virtual void createMainWindow();
 	int startKsnip(const QApplication &app);
 	int startKsnipAndEditImage(const QApplication &app);

@@ -19,7 +19,7 @@
 
 #include "WatermarkSettings.h"
 
-WatermarkSettings::WatermarkSettings(Config *config) :
+WatermarkSettings::WatermarkSettings(const QSharedPointer<IConfig> &config) :
 	mConfig(config),
 	mLayout(new QGridLayout(this)),
 	mRotateWatermarkCheckbox(new QCheckBox(this)),

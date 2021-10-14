@@ -19,8 +19,8 @@
 
 #include "GnomeX11ImageGrabber.h"
 
-GnomeX11ImageGrabber::GnomeX11ImageGrabber() :
-	BaseX11ImageGrabber(new GnomeX11Wrapper)
+GnomeX11ImageGrabber::GnomeX11ImageGrabber(const QSharedPointer<IConfig> &config) :
+	BaseX11ImageGrabber(new GnomeX11Wrapper, config)
 {
 
 }

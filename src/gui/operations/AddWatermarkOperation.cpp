@@ -19,9 +19,9 @@
 
 #include "AddWatermarkOperation.h"
 
-AddWatermarkOperation::AddWatermarkOperation(IImageAnnotator *imageAnnotator) :
+AddWatermarkOperation::AddWatermarkOperation(IImageAnnotator *imageAnnotator, const QSharedPointer<IConfig> &config) :
 	mImageAnnotator(imageAnnotator),
-	mConfig(ConfigProvider::instance()),
+	mConfig(config),
 	mMessageBoxService(new MessageBoxService)
 {
 

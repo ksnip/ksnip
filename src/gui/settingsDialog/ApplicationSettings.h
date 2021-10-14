@@ -30,7 +30,7 @@
 #include <QStyleFactory>
 #include <QFileDialog>
 
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 #include "src/common/helper/EnumTranslator.h"
 #include "src/widgets/CustomSpinBox.h"
 
@@ -38,7 +38,7 @@ class ApplicationSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit ApplicationSettings(Config *ksnipConfig);
+	explicit ApplicationSettings(const QSharedPointer<IConfig> &config);
 	~ApplicationSettings() override = default;
 	void saveSettings();
 
@@ -57,7 +57,7 @@ private:
 	QComboBox *mApplicationStyleCombobox;
 	CustomSpinBox *mResizeToContentDelaySpinBox;
 	QGridLayout *mLayout;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 
 	void initGui();
 	void loadConfig();

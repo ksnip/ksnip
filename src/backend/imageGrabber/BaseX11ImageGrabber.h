@@ -29,7 +29,7 @@
 class BaseX11ImageGrabber : public AbstractRectAreaImageGrabber
 {
 public:
-    explicit BaseX11ImageGrabber(X11Wrapper *x11Wrapper);
+    explicit BaseX11ImageGrabber(X11Wrapper *x11Wrapper, const QSharedPointer<IConfig> &config);
 	~BaseX11ImageGrabber() override;
 
 protected:

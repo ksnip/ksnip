@@ -21,27 +21,32 @@
 #define KSNIP_HANDLEUPLOADRESULTOPERATION_H
 
 #include <QUrl>
-#include <QApplication>
-#include <QDesktopServices>
-#include <QClipboard>
 
-#include "src/backend/config/ConfigProvider.h"
+#include "src/backend/config/IConfig.h"
 #include "src/backend/uploader/UploadResult.h"
 #include "src/gui/operations/NotifyOperation.h"
+#include "src/gui/clipboard/IClipboard.h"
+#include "src/gui/desktopService/IDesktopService.h"
 
 class HandleUploadResultOperation : public QObject
 {
 	Q_OBJECT
 public:
-	explicit HandleUploadResultOperation(const UploadResult &result, const QSharedPointer<INotificationService> &notificationService);
+	explicit HandleUploadResultOperation(
+			const UploadResult &result,
+			const QSharedPointer<INotificationService> &notificationService,
+			const QSharedPointer<IClipboard> &clipboard,
+			const QSharedPointer<IDesktopService> &desktopService,
+			const QSharedPointer<IConfig> &config);
 	~HandleUploadResultOperation() override = default;
 	bool execute();
 
 private:
 	UploadResult mUploadResult;
 	QSharedPointer<INotificationService> mNotificationService;
-	Config *mConfig;
-	QClipboard *mClipboard;
+	QSharedPointer<IConfig> mConfig;
+	QSharedPointer<IClipboard> mClipboardService;
+	QSharedPointer<IDesktopService> mDesktopService;
 
 	void notifyImgurSuccessfulUpload(const QString &url) const;
 	void handleImgurResult();

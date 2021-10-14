@@ -26,7 +26,7 @@
 class LinuxSnippingArea : public AbstractSnippingArea
 {
 public:
-	explicit LinuxSnippingArea();
+	explicit LinuxSnippingArea(const QSharedPointer<IConfig> &config);
 	~LinuxSnippingArea() override = default;
     QRect selectedRectArea() const override;
 

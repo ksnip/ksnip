@@ -25,6 +25,7 @@
 #include "tests/mocks/gui/ImageProcessorMock.h"
 #include "tests/mocks/gui/fileService/FileServiceMock.h"
 #include "tests/mocks/backend/recentImages/RecentImageServiceMock.h"
+#include "tests/mocks/backend/config/ConfigMock.h"
 
 void LoadImageFromFileOperationTests::Execute_Should_ShowNotificationAndNotOpenImage_When_PathToImageCannotBeOpened()
 {
@@ -33,6 +34,7 @@ void LoadImageFromFileOperationTests::Execute_Should_ShowNotificationAndNotOpenI
 	auto imageProcessorMock = QSharedPointer<ImageProcessorMock>(new ImageProcessorMock);
 	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
 	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
+	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
 
 	EXPECT_CALL(*fileServiceMock, openPixmap(testing::_))
 			.WillRepeatedly([=](const QString &path) {
@@ -44,7 +46,7 @@ void LoadImageFromFileOperationTests::Execute_Should_ShowNotificationAndNotOpenI
 	EXPECT_CALL(*notificationServiceMock, showWarning(testing::_, QString("Unable to open image from path /path/image.png"), testing::_))
 		.Times(testing::Exactly(1));
 
-	LoadImageFromFileOperation operation(QLatin1String("/path/image.png"), imageProcessorMock, notificationServiceMock, recentImageServiceMock, fileServiceMock);
+	LoadImageFromFileOperation operation(QLatin1String("/path/image.png"), imageProcessorMock, notificationServiceMock, recentImageServiceMock, fileServiceMock, configMock);
 
 	// act
 	auto result = operation.execute();
@@ -61,6 +63,7 @@ void LoadImageFromFileOperationTests::Execute_Should_OpenImageAndNotShowNotifica
 	auto imageProcessorMock = QSharedPointer<ImageProcessorMock>(new ImageProcessorMock);
 	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
 	auto fileServiceMock = QSharedPointer<FileServiceMock>(new FileServiceMock);
+	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
 
 	EXPECT_CALL(*fileServiceMock, openPixmap(imagePath))
 			.WillRepeatedly([=](const QString &path) {
@@ -71,7 +74,7 @@ void LoadImageFromFileOperationTests::Execute_Should_OpenImageAndNotShowNotifica
 	EXPECT_CALL(*recentImageServiceMock, storeImagePath(imagePath)).Times(testing::Exactly(1));
 	EXPECT_CALL(*notificationServiceMock, showWarning(testing::_, testing::_, testing::_)).Times(testing::Exactly(0));
 
-	LoadImageFromFileOperation operation(imagePath, imageProcessorMock, notificationServiceMock, recentImageServiceMock, fileServiceMock);
+	LoadImageFromFileOperation operation(imagePath, imageProcessorMock, notificationServiceMock, recentImageServiceMock, fileServiceMock, configMock);
 
 	// act
 	auto result = operation.execute();

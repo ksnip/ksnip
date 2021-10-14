@@ -19,9 +19,9 @@
 
 #include "TrayIcon.h"
 
-TrayIcon::TrayIcon(QObject *parent) :
+TrayIcon::TrayIcon(const QSharedPointer<IConfig> &config, QObject *parent) :
 	QSystemTrayIcon(parent),
-	mConfig(ConfigProvider::instance()),
+	mConfig(config),
 	mOpenAction(nullptr),
 	mSaveAction(nullptr),
 	mPasteAction(nullptr),

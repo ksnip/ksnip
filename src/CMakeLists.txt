@@ -3,7 +3,6 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/backend/config/IConfig.h
 	${CMAKE_SOURCE_DIR}/src/backend/config/Config.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/config/ConfigOptions.cpp
-	${CMAKE_SOURCE_DIR}/src/backend/config/ConfigProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/commandLine/CommandLine.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/commandLine/CommandLineCaptureHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/backend/commandLine/ICommandLineCaptureHandler.h
@@ -59,7 +58,6 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/dependencyInjector/DependencyInjectorBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomToolButton.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomCursor.cpp
-	${CMAKE_SOURCE_DIR}/src/widgets/CursorFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/NumericComboBox.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomSpinBox.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CaptureModePicker.cpp
@@ -149,7 +147,6 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/windowResizer/WindowResizer.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/dragAndDrop/DragAndDropProcessor.cpp
 	${CMAKE_SOURCE_DIR}/src/logging/LogOutputHandler.cpp
-	${CMAKE_SOURCE_DIR}/src/logging/LoggerProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/logging/ConsoleLogger.cpp
 	${CMAKE_SOURCE_DIR}/src/logging/NoneLogger.cpp
 	)

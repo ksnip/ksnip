@@ -21,9 +21,13 @@
 
 CommandLineCaptureHandler::CommandLineCaptureHandler(
 		const QSharedPointer<IImageGrabber> &imageGrabber,
-		const QSharedPointer<IUploadHandler> &uploadHandler) :
+		const QSharedPointer<IUploadHandler> &uploadHandler,
+		const QSharedPointer<IImageSaver> &imageSaver,
+		const QSharedPointer<ISavePathProvider> &savePathProvider) :
 	mImageGrabber(imageGrabber),
 	mUploadHandler(uploadHandler),
+	mImageSaver(imageSaver),
+	mSavePathProvider(savePathProvider),
 	mIsWithSave(false),
 	mIsWithUpload(false)
 {
@@ -58,11 +62,8 @@ void CommandLineCaptureHandler::processCapture(const CaptureDto &capture)
 
 void CommandLineCaptureHandler::saveCapture(const CaptureDto &capture)
 {
-	SavePathProvider savePathProvider;
-	ImageSaver imageSaver;
-
-	auto savePath = mSavePath.isEmpty() ? savePathProvider.savePath() : mSavePath;
-	auto isSaveSuccessful = imageSaver.save(capture.screenshot.toImage(), savePath);
+	auto savePath = mSavePath.isEmpty() ? mSavePathProvider->savePath() : mSavePath;
+	auto isSaveSuccessful = mImageSaver->save(capture.screenshot.toImage(), savePath);
 
 	if (isSaveSuccessful) {
 		qInfo("Capture saved to %s", qPrintable(savePath));

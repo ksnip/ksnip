@@ -38,7 +38,7 @@
 class KdeWaylandImageGrabber : public AbstractImageGrabber
 {
 public:
-    explicit KdeWaylandImageGrabber();
+    explicit KdeWaylandImageGrabber(const QSharedPointer<IConfig> &config);
 
 protected:
 	void grab() override;

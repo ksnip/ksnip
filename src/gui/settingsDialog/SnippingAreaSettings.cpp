@@ -19,7 +19,7 @@
 
 #include "SnippingAreaSettings.h"
 
-SnippingAreaSettings::SnippingAreaSettings(Config *config) :
+SnippingAreaSettings::SnippingAreaSettings(const QSharedPointer<IConfig> &config) :
 	mConfig(config),
 	mFreezeImageWhileSnippingCheckbox(new QCheckBox(this)),
 	mSnippingAreaRulersCheckbox(new QCheckBox(this)),

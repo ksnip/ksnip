@@ -28,20 +28,21 @@
 #include <QPushButton>
 #include <QFileDialog>
 
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
+#include "src/common/helper/PathHelper.h"
 
 class ScriptUploaderSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit ScriptUploaderSettings(Config *config);
+	explicit ScriptUploaderSettings(const QSharedPointer<IConfig> &config);
 	~ScriptUploaderSettings() override;
 	void saveSettings();
 
 private:
 	QGridLayout *mLayout;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	QCheckBox *mCopyOutputToClipboardCheckbox;
 	QCheckBox *mStopOnStdErrCheckbox;
 	QLineEdit *mCopyOutputFilterLineEdit;

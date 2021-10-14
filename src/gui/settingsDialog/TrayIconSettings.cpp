@@ -19,7 +19,7 @@
 
 #include "TrayIconSettings.h"
 
-TrayIconSettings::TrayIconSettings(Config *config, const QList<CaptureModes> &captureModes) :
+TrayIconSettings::TrayIconSettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config) :
 	mConfig(config),
 	mUseTrayIconCheckBox(new QCheckBox(this)),
 	mMinimizeToTrayCheckBox(new QCheckBox(this)),

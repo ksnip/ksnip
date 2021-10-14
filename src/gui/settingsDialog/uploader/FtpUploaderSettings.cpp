@@ -19,7 +19,7 @@
 
 #include "FtpUploaderSettings.h"
 
-FtpUploaderSettings::FtpUploaderSettings(Config *config) :
+FtpUploaderSettings::FtpUploaderSettings(const QSharedPointer<IConfig> &config) :
 	mConfig(config),
 	mLayout(new QGridLayout(this)),
 	mForceAnonymousUploadCheckBox(new QCheckBox(this)),

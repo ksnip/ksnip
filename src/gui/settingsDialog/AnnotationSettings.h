@@ -26,7 +26,7 @@
 #include <QGridLayout>
 #include <QPushButton>
 
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 #include "src/backend/WatermarkImageLoader.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/widgets/ColorButton.h"
@@ -37,7 +37,7 @@ class AnnotationSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-    explicit AnnotationSettings(Config *config);
+    explicit AnnotationSettings(const QSharedPointer<IConfig> &config);
     ~AnnotationSettings() override;
     void saveSettings();
 
@@ -52,7 +52,7 @@ private:
     NumericComboBox *mSmoothFactorCombobox;
     ColorButton *mCanvasColorButton;
     QGridLayout *mLayout;
-    Config *mConfig;
+    QSharedPointer<IConfig> mConfig;
 
     void initGui();
     void loadConfig();

@@ -19,23 +19,31 @@
 
 #include "CanDiscardOperation.h"
 
-CanDiscardOperation::CanDiscardOperation(QWidget *parent, QImage image, bool isUnsaved, QString pathToImageSource, QString filename, INotificationService *toastService, IRecentImageService *recentImageService) :
+CanDiscardOperation::CanDiscardOperation(
+		QImage image,
+		bool isUnsaved,
+		QString pathToImageSource,
+		QString filename,
+		const QSharedPointer<INotificationService> &notificationService,
+		const QSharedPointer<IRecentImageService> &recentImageService,
+		const QSharedPointer<IMessageBoxService> &messageBoxService,
+		const QSharedPointer<IImageSaver> &imageSaver,
+		const QSharedPointer<ISavePathProvider> &savePathProvider,
+		const QSharedPointer<IConfig> &config,
+		QWidget *parent) :
 	mParent(parent),
 	mImage(std::move(image)),
 	mIsUnsaved(isUnsaved),
 	mPathToImageSource(std::move(pathToImageSource)),
 	mFilename(std::move(filename)),
-	mConfig(ConfigProvider::instance()),
-	mToastService(toastService),
-	mMessageBoxService(new MessageBoxService),
-	mRecentImageService(recentImageService)
+	mConfig(config),
+	mNotificationService(notificationService),
+	mMessageBoxService(messageBoxService),
+	mRecentImageService(recentImageService),
+	mImageSaver(imageSaver),
+	mSavePathProvider(savePathProvider)
 {
 
-}
-
-CanDiscardOperation::~CanDiscardOperation()
-{
-	delete mMessageBoxService;
 }
 
 bool CanDiscardOperation::execute()
@@ -55,7 +63,7 @@ bool CanDiscardOperation::execute()
 
 bool CanDiscardOperation::saveImage() const
 {
-	SaveOperation operation(mParent, mImage, true, mPathToImageSource, mToastService, mRecentImageService);
+	SaveOperation operation(mImage, true, mPathToImageSource, mNotificationService, mRecentImageService, mImageSaver, mSavePathProvider, mConfig, mParent);
 	return operation.execute().isSuccessful;
 }
 
@@ -63,5 +71,5 @@ MessageBoxResponse CanDiscardOperation::getSaveBeforeDiscard() const
 {
 	auto quote = mFilename.isEmpty() ? QString() : QLatin1String("\"");
 	return mMessageBoxService->yesNoCancel(tr("Warning - ") + QApplication::applicationName(),
-										  tr("The capture %1%2%3 has been modified.\nDo you want to save it?").arg(quote).arg(mFilename).arg(quote));
+										  tr("The capture %1%2%3 has been modified.\nDo you want to save it?").arg(quote, mFilename, quote));
 }

@@ -19,8 +19,8 @@
 
 #include "ImgurUploaderSettings.h"
 
-ImgurUploaderSettings::ImgurUploaderSettings(Config *ksnipConfig) :
-	mConfig(ksnipConfig),
+ImgurUploaderSettings::ImgurUploaderSettings(const QSharedPointer<IConfig> &config) :
+	mConfig(config),
 	mForceAnonymousCheckbox(new QCheckBox(this)),
 	mDirectLinkToImageCheckbox(new QCheckBox(this)),
 	mAlwaysCopyToClipboardCheckBox(new QCheckBox(this)),
@@ -47,7 +47,6 @@ ImgurUploaderSettings::ImgurUploaderSettings(Config *ksnipConfig) :
 
 ImgurUploaderSettings::~ImgurUploaderSettings()
 {
-	delete mForceAnonymousCheckbox;
 	delete mDirectLinkToImageCheckbox;
 	delete mAlwaysCopyToClipboardCheckBox;
 	delete mOpenLinkInBrowserCheckbox;
@@ -63,7 +62,6 @@ ImgurUploaderSettings::~ImgurUploaderSettings()
 	delete mClearTokenButton;
 	delete mHistoryButton;
 	delete mImgurWrapper;
-	delete mLayout;
 }
 
 void ImgurUploaderSettings::saveSettings()

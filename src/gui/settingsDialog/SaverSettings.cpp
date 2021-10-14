@@ -19,8 +19,8 @@
 
 #include "SaverSettings.h"
 
-SaverSettings::SaverSettings(Config *ksnipConfig) :
-	mConfig(ksnipConfig),
+SaverSettings::SaverSettings(const QSharedPointer<IConfig> &config) :
+	mConfig(config),
 	mAutoSaveNewCapturesCheckbox(new QCheckBox(this)),
 	mPromptToSaveBeforeExitCheckbox(new QCheckBox(this)),
 	mRememberSaveDirectoryCheckbox(new QCheckBox(this)),

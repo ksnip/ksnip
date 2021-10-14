@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,18 +17,17 @@
  * Boston, MA 02110-1301, USA.
  */
 
+#ifndef KSNIP_ITRANSLATIONLOADER_H
+#define KSNIP_ITRANSLATIONLOADER_H
 
-#include "LoggerProvider.h"
+class QApplication;
 
-ILogger *LoggerProvider::instance()
+class ITranslationLoader
 {
-	static bool isDebugEnabled = ConfigProvider::instance()->isDebugEnabled();
+public:
+	ITranslationLoader() = default;
+	~ITranslationLoader() = default;
+	virtual void load(const QApplication &app) = 0;
+};
 
-	if (isDebugEnabled) {
-		static ConsoleLogger instance;
-		return &instance;
-	} else {
-		static NoneLogger instance;
-		return &instance;
-	}
-}
+#endif //KSNIP_ITRANSLATIONLOADER_H

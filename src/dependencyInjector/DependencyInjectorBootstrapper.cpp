@@ -19,6 +19,7 @@
 
 #include "DependencyInjectorBootstrapper.h"
 
+#include "src/backend/TranslationLoader.h"
 #include "src/backend/config/Config.h"
 #include "src/backend/uploader/UploadHandler.h"
 #include "src/backend/uploader/ftp/FtpUploader.h"
@@ -27,6 +28,8 @@
 #include "src/backend/commandLine/CommandLineCaptureHandler.h"
 #include "src/backend/recentImages/RecentImagesPathStore.h"
 #include "src/backend/recentImages/ImagePathStorage.h"
+#include "src/backend/saver/SavePathProvider.h"
+#include "src/backend/saver/ImageSaver.h"
 #include "src/gui/fileService/FileService.h"
 #include "src/gui/clipboard/ClipboardAdapter.h"
 #include "src/gui/desktopService/DesktopServiceAdapter.h"
@@ -59,16 +62,19 @@ void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependenc
 {
 	injectConfig(dependencyInjector);
 	injectLogger(dependencyInjector);
+	dependencyInjector->registerFactory<ITranslationLoader, TranslationLoader, ILogger>();
 }
 
 void DependencyInjectorBootstrapper::BootstrapCommandLine(DependencyInjector *dependencyInjector)
 {
 	injectImageGrabber(dependencyInjector);
+	dependencyInjector->registerFactory<ISavePathProvider, SavePathProvider, IConfig>();
+	dependencyInjector->registerFactory<IImageSaver, ImageSaver, IConfig>();
 	dependencyInjector->registerFactory<IFtpUploader, FtpUploader, IConfig, ILogger>();
 	dependencyInjector->registerFactory<IScriptUploader, ScriptUploader, IConfig>();
 	dependencyInjector->registerFactory<IImgurUploader, ImgurUploader, IConfig>();
 	dependencyInjector->registerFactory<IUploadHandler, UploadHandler, IConfig, IFtpUploader, IScriptUploader, IImgurUploader>();
-	dependencyInjector->registerFactory<ICommandLineCaptureHandler, CommandLineCaptureHandler, IImageGrabber, IUploadHandler>();
+	dependencyInjector->registerFactory<ICommandLineCaptureHandler, CommandLineCaptureHandler, IImageGrabber, IUploadHandler, IImageSaver, ISavePathProvider>();
 }
 
 void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependencyInjector)
@@ -85,6 +91,7 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *dependencyInjector)
 {
 	auto logger = dependencyInjector->getObject<ILogger>();
+	auto config = dependencyInjector->getObject<IConfig>();
 
 #if defined(__APPLE__)
 	logger->log(QLatin1String("MacImageGrabber selected"));
@@ -95,30 +102,29 @@ void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *depe
 	if (PlatformChecker::instance()->isX11()) {
 		if(PlatformChecker::instance()->isGnome()) {
 			logger->log(QLatin1String("GnomeX11ImageGrabber selected"));
-			dependencyInjector->registerInstance<IImageGrabber, GnomeX11ImageGrabber>();
+			dependencyInjector->registerInstance<IImageGrabber, GnomeX11ImageGrabber, IConfig>();
 		} else {
 			logger->log(QLatin1String("X11ImageGrabber selected"));
-			dependencyInjector->registerInstance<IImageGrabber, X11ImageGrabber>();
+			dependencyInjector->registerInstance<IImageGrabber, X11ImageGrabber, IConfig>();
 		}
 	} else if (PlatformChecker::instance()->isWayland()) {
-		auto config = ConfigProvider::instance();
 		if (config->forceGenericWaylandEnabled() || PlatformChecker::instance()->isSnap()) {
 			logger->log(QLatin1String("WaylandImageGrabber selected"));
-			dependencyInjector->registerInstance<IImageGrabber, WaylandImageGrabber>();
+			dependencyInjector->registerInstance<IImageGrabber, WaylandImageGrabber, IConfig>();
 		} else if(PlatformChecker::instance()->isKde()) {
 			logger->log(QLatin1String("KdeWaylandImageGrabber selected"));
-			dependencyInjector->registerInstance<IImageGrabber, KdeWaylandImageGrabber>();
+			dependencyInjector->registerInstance<IImageGrabber, KdeWaylandImageGrabber, IConfig>();
 		} else if (PlatformChecker::instance()->isGnome()) {
 			logger->log(QLatin1String("GnomeWaylandImageGrabber selected"));
-			dependencyInjector->registerInstance<IImageGrabber, GnomeWaylandImageGrabber>();
+			dependencyInjector->registerInstance<IImageGrabber, GnomeWaylandImageGrabber, IConfig>();
 		} else {
 			qCritical("Unknown wayland platform, using default wayland Image Grabber.");
 			logger->log(QLatin1String("WaylandImageGrabber selected"));
-			dependencyInjector->registerInstance<IImageGrabber, WaylandImageGrabber>();
+			dependencyInjector->registerInstance<IImageGrabber, WaylandImageGrabber, IConfig>();
 		}
 	} else {
 		qCritical("Unknown platform, using default X11 Image Grabber.");
-		dependencyInjector->registerInstance<IImageGrabber, X11ImageGrabber>();
+		dependencyInjector->registerInstance<IImageGrabber, X11ImageGrabber, IConfig>();
 	}
 #endif
 

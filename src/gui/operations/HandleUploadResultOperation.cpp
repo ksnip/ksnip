@@ -19,11 +19,17 @@
 
 #include "HandleUploadResultOperation.h"
 
-HandleUploadResultOperation::HandleUploadResultOperation(const UploadResult &result, const QSharedPointer<INotificationService> &notificationService) :
+HandleUploadResultOperation::HandleUploadResultOperation(
+		const UploadResult &result,
+		const QSharedPointer<INotificationService> &notificationService,
+		const QSharedPointer<IClipboard> &clipboard,
+		const QSharedPointer<IDesktopService> &desktopService,
+		const QSharedPointer<IConfig> &config) :
 	mUploadResult(result),
 	mNotificationService(notificationService),
-	mConfig(ConfigProvider::instance()),
-	mClipboard(QApplication::clipboard())
+	mConfig(config),
+	mClipboardService(clipboard),
+	mDesktopService(desktopService)
 {
 }
 
@@ -85,31 +91,32 @@ void HandleUploadResultOperation::handleFtpResult()
 
 void HandleUploadResultOperation::notifyFtpSuccessfulUpload() const
 {
-	NotifyOperation operation(mNotificationService.data(), tr("Upload Successful"), tr("FTP Upload finished successfully."), NotificationTypes::Information);
+	NotifyOperation operation(tr("Upload Successful"), tr("FTP Upload finished successfully."), NotificationTypes::Information, mNotificationService, mConfig);
 	operation.execute();
 }
 
 void HandleUploadResultOperation::notifyScriptSuccessfulUpload() const
 {
-	NotifyOperation operation(mNotificationService.data(), tr("Upload Successful"), tr("Upload script ") + mConfig->uploadScriptPath() + tr(" finished successfully."), NotificationTypes::Information);
+	NotifyOperation operation(tr("Upload Successful"), tr("Upload script ") + mConfig->uploadScriptPath() + tr(" finished successfully."),
+							  NotificationTypes::Information, mNotificationService, mConfig);
 	operation.execute();
 }
 
 void HandleUploadResultOperation::notifyImgurSuccessfulUpload(const QString &url) const
 {
-	NotifyOperation operation(mNotificationService.data(), tr("Upload Successful"), tr("Uploaded to") + QLatin1String(" ") + url, url, NotificationTypes::Information);
+	NotifyOperation operation(tr("Upload Successful"), tr("Uploaded to") + QLatin1String(" ") + url, url, NotificationTypes::Information,
+							  mNotificationService, mConfig);
 	operation.execute();
 }
 
 void HandleUploadResultOperation::copyToClipboard(const QString &url) const
 {
-	mClipboard->setText(url);
+	mClipboardService->setText(url);
 }
-
 
 void HandleUploadResultOperation::OpenUrl(const QString &url) const
 {
-	QDesktopServices::openUrl(url);
+	mDesktopService->openUrl(url);
 }
 
 void HandleUploadResultOperation::handleUploadError()
@@ -156,7 +163,7 @@ void HandleUploadResultOperation::handleUploadError()
 
 void HandleUploadResultOperation::notifyFailedUpload(const QString &message) const
 {
-	NotifyOperation operation(mNotificationService.data(), tr("Upload Failed"), message, NotificationTypes::Warning);
+	NotifyOperation operation(tr("Upload Failed"), message, NotificationTypes::Warning, mNotificationService, mConfig);
 	operation.execute();
 }
 

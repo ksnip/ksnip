@@ -26,7 +26,7 @@
 #include <QGridLayout>
 #include <QSpinBox>
 
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 #include "src/widgets/ColorButton.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/common/provider/ScaledSizeProvider.h"
@@ -35,7 +35,7 @@ class SnippingAreaSettings : public QGroupBox
 {
 Q_OBJECT
 public:
-	explicit SnippingAreaSettings(Config *config);
+	explicit SnippingAreaSettings(const QSharedPointer<IConfig> &config);
 	~SnippingAreaSettings() override;
 	void saveSettings();
 
@@ -55,7 +55,7 @@ private:
 	NumericComboBox *mSnippingCursorSizeCombobox;
 	QSpinBox *mSnippingAreaTransparencySpinBox;
 	QGridLayout *mLayout;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	void initGui();
 	void loadConfig();
 

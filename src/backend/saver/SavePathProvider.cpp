@@ -19,9 +19,9 @@
 
 #include "SavePathProvider.h"
 
-SavePathProvider::SavePathProvider()
+SavePathProvider::SavePathProvider(const QSharedPointer<IConfig> &config) :
+	mConfig(config)
 {
-    mConfig = ConfigProvider::instance();
 }
 
 QString SavePathProvider::savePath() const

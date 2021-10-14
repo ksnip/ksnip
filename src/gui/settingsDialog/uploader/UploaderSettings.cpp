@@ -19,8 +19,8 @@
 
 #include "UploaderSettings.h"
 
-UploaderSettings::UploaderSettings(Config *ksnipConfig) :
-	mConfig(ksnipConfig),
+UploaderSettings::UploaderSettings(const QSharedPointer<IConfig> &config) :
+	mConfig(config),
 	mConfirmBeforeUploadCheckbox(new QCheckBox(this)),
 	mUploaderTypeComboBox(new QComboBox(this)),
 	mUploaderTypeLabel(new QLabel(this)),

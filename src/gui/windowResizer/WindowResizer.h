@@ -22,21 +22,22 @@
 
 #include <QObject>
 #include <QTimer>
+#include <QSharedPointer>
 
 #include "IResizableWindow.h"
-#include "src/backend/config/Config.h"
+#include "src/backend/config/IConfig.h"
 
 class WindowResizer : public QObject
 {
 public:
-	WindowResizer(IResizableWindow *resizableWindow, Config *config, QObject *parent);
+	WindowResizer(IResizableWindow *resizableWindow, const QSharedPointer<IConfig> &config, QObject *parent);
 	~WindowResizer() override = default;
 	void resize();
 	void resetAndResize();
 
 private:
 	IResizableWindow *mResizableWindow;
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	bool mPerformedAutoResize;
 	int mResizeDelayInMs;
 

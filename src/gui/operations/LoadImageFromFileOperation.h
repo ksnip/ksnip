@@ -38,8 +38,8 @@ public:
 			const QSharedPointer<IImageProcessor> &imageProcessor,
 			const QSharedPointer<INotificationService> &notificationService,
 			const QSharedPointer<IRecentImageService> &recentImageService,
-			const QSharedPointer<IFileService> &fileService
-			);
+			const QSharedPointer<IFileService> &fileService,
+			const QSharedPointer<IConfig> &config);
 	~LoadImageFromFileOperation() override = default;
 	bool execute();
 
@@ -49,6 +49,7 @@ private:
 	QSharedPointer<INotificationService> mNotificationService;
 	QSharedPointer<IRecentImageService> mRecentImageService;
 	QSharedPointer<IFileService> mFileService;
+	QSharedPointer<IConfig> mConfig;
 
 	void notifyAboutInvalidPath() const;
 };

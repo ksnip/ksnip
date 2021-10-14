@@ -23,22 +23,22 @@
 #include <QImage>
 #include <QFileDialog>
 #include <QCoreApplication>
-#include <QObject>
-#include <QString>
 
-#include "src/backend/config/ConfigProvider.h"
+#include "IImageSaver.h"
+#include "src/backend/config/IConfig.h"
+#include "src/common/helper/PathHelper.h"
 
-class ImageSaver
+class ImageSaver : public IImageSaver
 {
 public:
-	explicit ImageSaver();
+	explicit ImageSaver(const QSharedPointer<IConfig> &config);
 	~ImageSaver() = default;
     bool save(const QImage &image, const QString &path);
 
 private:
-    Config* mConfig;
+    QSharedPointer<IConfig> mConfig;
 
-	void ensurePathExists(const QString &path);
+	static void ensurePathExists(const QString &path);
     QString ensureFilenameHasFormat(const QString &path);
 	int getSaveQuality();
 };

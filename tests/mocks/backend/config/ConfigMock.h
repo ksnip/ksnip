@@ -23,6 +23,7 @@
 #include <gmock/gmock.h>
 
 #include "src/backend/config/IConfig.h"
+#include "src/gui/actions/Action.h"
 
 class ConfigMock : public IConfig
 {

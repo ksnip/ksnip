@@ -25,20 +25,20 @@
 
 #include "IImageGrabber.h"
 #include "src/common/handler/DelayHandler.h"
-#include "src/backend/config/ConfigProvider.h"
+#include "src/backend/config/IConfig.h"
 
 class AbstractImageGrabber : public IImageGrabber
 {
 Q_OBJECT
 public:
-    explicit AbstractImageGrabber();
+    explicit AbstractImageGrabber(const QSharedPointer<IConfig> &config);
     ~AbstractImageGrabber() override = default;
     bool isCaptureModeSupported(CaptureModes captureMode) const override;
     QList<CaptureModes> supportedCaptureModes() const override;
     void grabImage(CaptureModes captureMode, bool captureCursor, int delay) override;
 
 protected:
-    Config* mConfig;
+    QSharedPointer<IConfig> mConfig;
 
     void addSupportedCaptureMode(CaptureModes captureMode);
     void setCaptureDelay(int delay);

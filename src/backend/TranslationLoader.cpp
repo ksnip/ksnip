@@ -19,6 +19,12 @@
 
 #include "TranslationLoader.h"
 
+TranslationLoader::TranslationLoader(const QSharedPointer<ILogger> &logger) :
+	mLogger(logger)
+{
+
+}
+
 void TranslationLoader::load(const QApplication &app)
 {
     auto ksnipTranslator = new QTranslator();
@@ -83,6 +89,6 @@ bool TranslationLoader::loadTranslation(QTranslator *translator, const QString &
 {
 	auto separator = QLatin1String("_");
 	bool isSuccessful = translator->load(QLocale(), applicationName, separator, path);
-	LoggerProvider::instance()->log(QString("Loading translation for %1 from %2").arg(applicationName, path), isSuccessful);
+	mLogger->log(QString("Loading translation for %1 from %2").arg(applicationName, path), isSuccessful);
 	return isSuccessful;
 }

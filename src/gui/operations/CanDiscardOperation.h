@@ -26,7 +26,7 @@
 
 #include "SaveOperation.h"
 #include "NotifyOperation.h"
-#include "src/backend/config/ConfigProvider.h"
+#include "src/backend/config/IConfig.h"
 #include "src/backend/recentImages/IRecentImageService.h"
 #include "src/gui/messageBoxService/MessageBoxService.h"
 
@@ -34,20 +34,32 @@ class CanDiscardOperation : public QObject
 {
 	Q_OBJECT
 public:
-	CanDiscardOperation(QWidget *parent, QImage image, bool isUnsaved, QString pathToImageSource, QString filename, INotificationService *toastService, IRecentImageService *recentImageService);
-	~CanDiscardOperation() override;
+	CanDiscardOperation(QImage image,
+						bool isUnsaved,
+						QString pathToImageSource,
+						QString filename,
+						const QSharedPointer<INotificationService> &notificationService,
+						const QSharedPointer<IRecentImageService> &recentImageService,
+						const QSharedPointer<IMessageBoxService> &messageBoxService,
+						const QSharedPointer<IImageSaver> &imageSaver,
+						const QSharedPointer<ISavePathProvider> &savePathProvider,
+						const QSharedPointer<IConfig> &config,
+						QWidget *parent);
+	~CanDiscardOperation() override = default;
 	bool execute();
 
 private:
-	Config *mConfig;
+	QSharedPointer<IConfig> mConfig;
 	bool mIsUnsaved;
 	QWidget *mParent;
 	QImage mImage;
 	QString mPathToImageSource;
 	QString mFilename;
-	INotificationService *mToastService;
-	IMessageBoxService *mMessageBoxService;
-	IRecentImageService *mRecentImageService;
+	QSharedPointer<INotificationService> mNotificationService;
+	QSharedPointer<IMessageBoxService> mMessageBoxService;
+	QSharedPointer<IRecentImageService> mRecentImageService;
+	QSharedPointer<IImageSaver> mImageSaver;
+	QSharedPointer<ISavePathProvider> mSavePathProvider;
 
 	MessageBoxResponse getSaveBeforeDiscard() const;
 	bool saveImage() const;

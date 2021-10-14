@@ -19,18 +19,17 @@
 
 #include "UploadOperation.h"
 
-UploadOperation::UploadOperation(QImage image, const QSharedPointer<IUploader> &uploader) :
+UploadOperation::UploadOperation(
+		QImage image,
+		const QSharedPointer<IUploader> &uploader,
+		const QSharedPointer<IConfig> &config,
+		const QSharedPointer<IMessageBoxService> &messageBoxService) :
 	mImage(std::move(image)),
 	mUploader(uploader),
-	mConfig(ConfigProvider::instance()),
-	mMessageBoxService(new MessageBoxService)
+	mConfig(config),
+	mMessageBoxService(messageBoxService)
 {
 	Q_ASSERT(mUploader != nullptr);
-}
-
-UploadOperation::~UploadOperation()
-{
-	delete mMessageBoxService;
 }
 
 bool UploadOperation::execute()

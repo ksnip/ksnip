@@ -19,10 +19,15 @@
 
 #include "CopyAsDataUriOperation.h"
 
-CopyAsDataUriOperation::CopyAsDataUriOperation(QImage image, IClipboard *clipboard, INotificationService *toastService) :
-	mImage(std::move(image)),
-	mClipboard(clipboard),
-	mToastService(toastService)
+CopyAsDataUriOperation::CopyAsDataUriOperation(
+		QImage image,
+		const QSharedPointer<IClipboard> &clipboardService,
+		const QSharedPointer<INotificationService> &notificationService,
+		const QSharedPointer<IConfig> &config) :
+		mImage(std::move(image)),
+		mClipboardService(clipboardService),
+		mNotificationService(notificationService),
+		mConfig(config)
 {
 }
 
@@ -38,7 +43,7 @@ bool CopyAsDataUriOperation::execute()
 	if (saved) {
 		QByteArray output = "data:image/png;base64,";
 		output.append(byteArray.toBase64());
-		mClipboard->setText(output);
+		mClipboardService->setText(output);
 		notifySuccess();
 	} else {
 		notifyFailure();
@@ -63,6 +68,6 @@ void CopyAsDataUriOperation::notifySuccess() const
 
 void CopyAsDataUriOperation::notify(const QString &title, const QString &message, NotificationTypes type) const
 {
-	NotifyOperation operation(mToastService, title, message, type);
+	NotifyOperation operation(title, message, type, mNotificationService, mConfig);
 	operation.execute();
 }

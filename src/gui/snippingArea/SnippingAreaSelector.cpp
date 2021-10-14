@@ -19,19 +19,13 @@
 
 #include "SnippingAreaSelector.h"
 
-SnippingAreaSelector::SnippingAreaSelector(Config *config, QObject *parent) :
+SnippingAreaSelector::SnippingAreaSelector(const QSharedPointer<IConfig> &config, QObject *parent) :
 	QObject(parent),
 	mIsActive(false),
 	mConfig(config),
-	mCursorFactory(new CursorFactory),
 	mIsMouseDown(false)
 {
 
-}
-
-SnippingAreaSelector::~SnippingAreaSelector()
-{
-	delete mCursorFactory;
 }
 
 void SnippingAreaSelector::activate(const QRectF &snippingAreaGeometry, const QPointF &pos)
@@ -43,7 +37,7 @@ void SnippingAreaSelector::activate(const QRectF &snippingAreaGeometry, const QP
 	mCursorColor = mConfig->snippingCursorColor();
 	updateCurrentRect({}, pos);
 	updateAdorner(pos);
-	emit cursorChanged(mCursorFactory->createSnippingCursor());
+	emit cursorChanged(CustomCursor(mConfig->snippingCursorColor(), mConfig->snippingCursorSize()));
 }
 
 void SnippingAreaSelector::deactivate()

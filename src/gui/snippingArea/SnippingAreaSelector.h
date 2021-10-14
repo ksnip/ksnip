@@ -25,14 +25,14 @@
 
 #include "SnippingAreaAdorner.h"
 #include "src/backend/config/Config.h"
-#include "src/widgets/CursorFactory.h"
+#include "src/widgets/CustomCursor.h"
 
 class SnippingAreaSelector : public QObject
 {
 	Q_OBJECT
 public:
-	explicit SnippingAreaSelector(Config *config, QObject *parent);
-	~SnippingAreaSelector() override;
+	explicit SnippingAreaSelector(const QSharedPointer<IConfig> &config, QObject *parent);
+	~SnippingAreaSelector() override = default;
 	void activate(const QRectF &snippingAreaGeometry, const QPointF &pos);
 	void deactivate();
 	void paint(QPainter *painter);
@@ -49,8 +49,7 @@ signals:
 private:
 	QRectF mCurrentRect;
 	bool mIsActive;
-	Config *mConfig;
-	CursorFactory *mCursorFactory;
+	QSharedPointer<IConfig> mConfig;
 	SnippingAreaAdorner mAdorner;
 	QPointF mMouseDownPos;
 	bool mIsMouseDown;

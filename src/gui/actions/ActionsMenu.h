@@ -22,21 +22,21 @@
 
 #include <QMenu>
 
-#include "src/backend/config/Config.h"
+#include "Action.h"
+#include "src/backend/config/IConfig.h"
 
 class ActionsMenu : public QMenu
 {
 	Q_OBJECT
 public:
-	explicit ActionsMenu(Config *config);
+	explicit ActionsMenu(const QSharedPointer<IConfig> &config);
 	~ActionsMenu() override = default;
 
 signals:
 	void triggered(const Action &action);
 
 private:
-	Config *mConfig;
-	QList<Action> mActions;
+	QSharedPointer<IConfig> mConfig;
 
 private slots:
 	void actionsChanged();

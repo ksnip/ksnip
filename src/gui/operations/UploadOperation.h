@@ -22,26 +22,32 @@
 
 #include <QCoreApplication>
 #include <QImage>
+#include <QSharedPointer>
 
 #include <utility>
 
 #include "src/backend/uploader/IUploader.h"
-#include "src/backend/config/ConfigProvider.h"
-#include "src/gui/messageBoxService/MessageBoxService.h"
+#include "src/backend/config/IConfig.h"
+#include "src/gui/messageBoxService/IMessageBoxService.h"
+#include "src/common/helper/PathHelper.h"
 
 class UploadOperation : public QObject
 {
 	Q_OBJECT
 public:
-	UploadOperation(QImage image, const QSharedPointer<IUploader> &uploader);
-	~UploadOperation() override;
+	UploadOperation(
+			QImage image,
+			const QSharedPointer<IUploader> &uploader,
+			const QSharedPointer<IConfig> &config,
+			const QSharedPointer<IMessageBoxService> &messageBoxService);
+	~UploadOperation() override = default;
 	bool execute();
 
 private:
-	Config *mConfig;
-	QSharedPointer<IUploader> mUploader;
 	QImage mImage;
-	IMessageBoxService *mMessageBoxService;
+	QSharedPointer<IConfig> mConfig;
+	QSharedPointer<IUploader> mUploader;
+	QSharedPointer<IMessageBoxService> mMessageBoxService;
 
 	bool proceedWithUpload() const;
 	bool askIfCanProceedWithUpload() const;

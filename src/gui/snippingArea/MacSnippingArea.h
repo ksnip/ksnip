@@ -26,7 +26,7 @@
 class MacSnippingArea : public AbstractSnippingArea
 {
 public:
-    explicit MacSnippingArea();
+    explicit MacSnippingArea(const QSharedPointer<IConfig> &config);
     ~MacSnippingArea() override = default;
     QRect selectedRectArea() const override;
 

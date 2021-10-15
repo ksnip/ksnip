@@ -28,7 +28,7 @@ class MacImageGrabber  : public AbstractRectAreaImageGrabber
 {
 Q_OBJECT
 public:
-    explicit MacImageGrabber();
+    explicit MacImageGrabber(const QSharedPointer<IConfig> &config);
     ~MacImageGrabber() override = default;
 
 protected slots:

@@ -19,7 +19,7 @@
 
 #include "MacSnippingArea.h"
 
-MacSnippingArea::MacSnippingArea() : AbstractSnippingArea()
+MacSnippingArea::MacSnippingArea(const QSharedPointer<IConfig> &config) : AbstractSnippingArea(config)
 {
     setWindowFlags(windowFlags() | Qt::WindowFullscreenButtonHint);
 }

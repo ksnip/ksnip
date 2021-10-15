@@ -27,7 +27,7 @@
 class WinSnippingArea : public AbstractSnippingArea
 {
 public:
-    explicit WinSnippingArea();
+    explicit WinSnippingArea(const QSharedPointer<IConfig> &config);
     ~WinSnippingArea() override = default;
     QRect selectedRectArea() const override;
 

@@ -19,8 +19,8 @@
 
 #include "WinImageGrabber.h"
 
-WinImageGrabber::WinImageGrabber() :
-	AbstractRectAreaImageGrabber(new WinSnippingArea),
+WinImageGrabber::WinImageGrabber(const QSharedPointer<IConfig> &config) :
+	AbstractRectAreaImageGrabber(new WinSnippingArea(config), config),
     mWinWrapper(new WinWrapper)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);

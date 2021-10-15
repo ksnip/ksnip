@@ -20,8 +20,8 @@
 #include "MacImageGrabber.h"
 
 
-MacImageGrabber::MacImageGrabber() :
-    AbstractRectAreaImageGrabber(new MacSnippingArea),
+MacImageGrabber::MacImageGrabber(const QSharedPointer<IConfig> &config) :
+    AbstractRectAreaImageGrabber(new MacSnippingArea(config), config),
     mMacWrapper(new MacWrapper)
 {
     addSupportedCaptureMode(CaptureModes::RectArea);

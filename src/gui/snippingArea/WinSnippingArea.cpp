@@ -19,8 +19,8 @@
 
 #include "WinSnippingArea.h"
 
-WinSnippingArea::WinSnippingArea() :
-    AbstractSnippingArea(),
+WinSnippingArea::WinSnippingArea(const QSharedPointer<IConfig> &config) :
+    AbstractSnippingArea(config),
     mIsFullScreenSizeSet(false),
     mIsMultipleScaledScreens(false)
 {

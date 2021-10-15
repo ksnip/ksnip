@@ -29,7 +29,7 @@ class WinImageGrabber : public AbstractRectAreaImageGrabber
 {
     Q_OBJECT
 public:
-    explicit WinImageGrabber();
+    explicit WinImageGrabber(const QSharedPointer<IConfig> &config);
     ~WinImageGrabber() override = default;
 
 protected:

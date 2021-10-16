@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,27 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ICONLOADER_H
-#define KSNIP_ICONLOADER_H
+#ifndef KSNIP_ICONLOADERMOCK_H
+#define KSNIP_ICONLOADERMOCK_H
 
-#include <QIcon>
-#include <QApplication>
-#include <QPalette>
+#include <gmock/gmock.h>
 
-#include "IIconLoader.h"
+#include "src/common/loader/IIconLoader.h"
 
-class IconLoader : public IIconLoader
+class IconLoaderMock : public IIconLoader
 {
 public:
-	IconLoader() = default;
-	~IconLoader() override = default;
-	QIcon load(const QString& name) override;
-	QIcon loadForTheme(const QString& name) override;
-
-private:
-	static bool isDarkTheme();
-	static QString getThemePrefix();
-	static double getThemeLuma();
+	MOCK_METHOD(QIcon, load, (const QString& name), (override));
+	MOCK_METHOD(QIcon, loadForTheme, (const QString& name), (override));
 };
 
-#endif // KSNIP_ICONLOADER_H
+#endif //KSNIP_ICONLOADERMOCK_H

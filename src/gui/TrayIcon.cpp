@@ -19,7 +19,7 @@
 
 #include "TrayIcon.h"
 
-TrayIcon::TrayIcon(const QSharedPointer<IConfig> &config, QObject *parent) :
+TrayIcon::TrayIcon(const QSharedPointer<IConfig> &config, const QSharedPointer<IIconLoader> &iconLoader, QObject *parent) :
 	QSystemTrayIcon(parent),
 	mConfig(config),
 	mOpenAction(nullptr),
@@ -31,7 +31,7 @@ TrayIcon::TrayIcon(const QSharedPointer<IConfig> &config, QObject *parent) :
 	mQuitAction(nullptr),
 	mActionsMenu(nullptr)
 {
-	auto icon = IconLoader::loadForTheme(QLatin1String("ksnip"));
+	auto icon = iconLoader->loadForTheme(QLatin1String("ksnip"));
 	setIcon(icon);
 
 	mShowEditorAction = new QAction(tr("Show Editor"), this);

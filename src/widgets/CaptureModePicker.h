@@ -23,7 +23,7 @@
 #include <QAction>
 
 #include "src/widgets/CustomToolButton.h"
-#include "src/common/loader/IconLoader.h"
+#include "src/common/loader/IIconLoader.h"
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/helper/EnumTranslator.h"
 
@@ -31,7 +31,7 @@ class CaptureModePicker : public CustomToolButton
 {
 Q_OBJECT
 public:
-    explicit CaptureModePicker(const QList<CaptureModes> &captureModes);
+    explicit CaptureModePicker(const QList<CaptureModes> &captureModes, const QSharedPointer<IIconLoader> &iconLoader);
     ~CaptureModePicker() override = default;
     void setCaptureMode(CaptureModes mode);
     CaptureModes captureMode() const;
@@ -44,11 +44,11 @@ private:
     CaptureModes mSelectedCaptureMode;
     QList<QAction*> mCaptureActions;
 
-    void init(const QList<CaptureModes> &captureModes);
+    void init(const QList<CaptureModes> &captureModes, const QSharedPointer<IIconLoader> &iconLoader);
     void selectCaptureMode(CaptureModes mode);
 
-	QAction *createAction(const QString &text, const QString &tooltip, const QString &iconName, CaptureModes captureMode, const QKeySequence &shortcut);
-	bool isCaptureModeSupported(const QList<CaptureModes> &captureModes, CaptureModes captureMode) const;
+	QAction *createAction(const QString &text, const QString &tooltip, const QIcon &icon, CaptureModes captureMode, const QKeySequence &shortcut);
+	static bool isCaptureModeSupported(const QList<CaptureModes> &captureModes, CaptureModes captureMode) ;
 };
 
 #endif //KSNIP_CAPTUREMODEPICKER_H

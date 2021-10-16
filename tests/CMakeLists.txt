@@ -15,7 +15,7 @@ set(UNITTEST_SRC
 	)
 
 set(TESTUTILS_SRC
-        ${CMAKE_CURRENT_SOURCE_DIR}/utils/TestRunner.h
+	${CMAKE_CURRENT_SOURCE_DIR}/utils/TestRunner.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/backend/uploader/UploadHandlerMock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/backend/imageGrabber/ImageGrabberMock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/backend/recentImages/ImagePathStorageMock.h
@@ -29,7 +29,8 @@ set(TESTUTILS_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/ImageProcessorMock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/desktopService/DesktopServiceMock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/clipboard/ClipboardMock.h
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/captureHandler/CaptureTabStateHandlerMock.h)
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/captureHandler/CaptureTabStateHandlerMock.h
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/common/loader/IconLoaderMock.h)
 
 add_library(KSNIP_STATIC ${KSNIP_SRCS})
 

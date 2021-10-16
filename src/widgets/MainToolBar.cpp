@@ -20,14 +20,14 @@
 
 #include "MainToolBar.h"
 
-MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoAction, QAction* redoAction) :
+MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoAction, QAction* redoAction, const QSharedPointer<IIconLoader> &iconLoader) :
 	QToolBar(),
 	mSaveButton(new QToolButton(this)),
 	mCopyButton(new QToolButton(this)),
 	mCropButton(new QToolButton(this)),
 	mUndoButton(new QToolButton(this)),
 	mRedoButton(new QToolButton(this)),
-	mCaptureModePicker(new CaptureModePicker(captureModes)),
+	mCaptureModePicker(new CaptureModePicker(captureModes, iconLoader)),
 	mDelayPicker(new CustomSpinBox(0,100)),
 	mDelayLabel(new QLabel),
 	mNewCaptureAction(new QAction(this)),
@@ -65,7 +65,7 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoA
     mCropButton->addAction(mCropAction);
     mCropButton->setDefaultAction(mCropAction);
 
-	auto clockIcon = IconLoader::loadForTheme(QLatin1String("clock.svg"));
+	auto clockIcon = iconLoader->loadForTheme(QLatin1String("clock.svg"));
 	auto clockPixmap = clockIcon.pixmap(ScaledSizeProvider::scaledSize(QSize(24, 24)));
 	mDelayLabel->setPixmap(clockPixmap);
 	mDelayLabel->setContentsMargins(0, 0, 2, 0);
@@ -78,27 +78,27 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoA
 
     mSaveAction->setText(tr("Save"));
     mSaveAction->setToolTip(tr("Save Screen Capture to file system"));
-	mSaveAction->setIcon(IconLoader::loadForTheme(QLatin1String("save.svg")));
+	mSaveAction->setIcon(iconLoader->loadForTheme(QLatin1String("save.svg")));
     mSaveAction->setShortcut(QKeySequence::Save);
     connect(mSaveAction, &QAction::triggered, this, &MainToolBar::saveActionTriggered);
 
     mCopyAction->setText(tr("Copy"));
     mCopyAction->setToolTip(tr("Copy Screen Capture to clipboard"));
-	mCopyAction->setIcon(IconLoader::loadForTheme(QLatin1String("copy.svg")));
+	mCopyAction->setIcon(iconLoader->loadForTheme(QLatin1String("copy.svg")));
     mCopyAction->setShortcut(QKeySequence::Copy);
     connect(mCopyAction, &QAction::triggered, this, &MainToolBar::copyActionTriggered);
 
-    mUndoAction->setIcon(IconLoader::loadForTheme(QLatin1String("undo.svg")));;
+    mUndoAction->setIcon(iconLoader->loadForTheme(QLatin1String("undo.svg")));;
     mUndoAction->setText(tr("Undo"));
     mUndoAction->setShortcut(QKeySequence::Undo);
 
-    mRedoAction->setIcon(IconLoader::loadForTheme(QLatin1String("redo.svg")));
+    mRedoAction->setIcon(iconLoader->loadForTheme(QLatin1String("redo.svg")));
 	mRedoAction->setText(tr("Redo"));
     mRedoAction->setShortcut(QKeySequence::Redo);
 
     mCropAction->setText(tr("Crop"));
     mCropAction->setToolTip(tr("Crop Screen Capture"));
-    mCropAction->setIcon(IconLoader::loadForTheme(QLatin1String("crop.svg")));
+    mCropAction->setIcon(iconLoader->loadForTheme(QLatin1String("crop.svg")));
     mCropAction->setShortcut(Qt::SHIFT + Qt::Key_C);
     connect(mCropAction, &QAction::triggered, this, &MainToolBar::cropActionTriggered);
 

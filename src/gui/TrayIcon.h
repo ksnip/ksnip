@@ -28,14 +28,14 @@
 #include "INotificationService.h"
 #include "src/backend/config/IConfig.h"
 #include "src/common/enum/CaptureModes.h"
-#include "src/common/loader/IconLoader.h"
+#include "src/common/loader/IIconLoader.h"
 #include "src/common/helper/PathHelper.h"
 
 class TrayIcon : public QSystemTrayIcon, public INotificationService
 {
 Q_OBJECT
 public:
-	explicit TrayIcon(const QSharedPointer<IConfig> &config, QObject *parent);
+	explicit TrayIcon(const QSharedPointer<IConfig> &config, const QSharedPointer<IIconLoader> &iconLoader, QObject *parent);
 	~TrayIcon() override;
 	void setCaptureActions(const QList<QAction*> &captureActions);
 	void setOpenAction(QAction *action);

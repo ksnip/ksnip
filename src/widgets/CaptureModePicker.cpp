@@ -19,9 +19,9 @@
 
 #include "CaptureModePicker.h"
 
-CaptureModePicker::CaptureModePicker(const QList<CaptureModes> &captureModes)
+CaptureModePicker::CaptureModePicker(const QList<CaptureModes> &captureModes, const QSharedPointer<IIconLoader> &iconLoader)
 {
-    init(captureModes);
+    init(captureModes, iconLoader);
 
     setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     setButtonText(tr("New"));
@@ -43,7 +43,7 @@ CaptureModes CaptureModePicker::captureMode() const
     return mSelectedCaptureMode;
 }
 
-void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
+void CaptureModePicker::init(const QList<CaptureModes> &captureModes, const QSharedPointer<IIconLoader> &iconLoader)
 {
     auto menu = new CustomMenu();
 
@@ -51,7 +51,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 	    auto action = createAction(
 				EnumTranslator::instance()->toTranslatedString(CaptureModes::RectArea),
 				tr("Draw a rectangular area with your mouse"),
-				QLatin1String("drawRect.svg"),
+				iconLoader->loadForTheme(QLatin1String("drawRect.svg")),
 				CaptureModes::RectArea,
 				QKeySequence(Qt::SHIFT + Qt::Key_R));
         menu->addAction(action);
@@ -61,7 +61,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 		auto action = createAction(
 				EnumTranslator::instance()->toTranslatedString(CaptureModes::LastRectArea),
 			tr("Capture a screenshot of the last selected rectangular area"),
-			QLatin1String("lastRect.svg"),
+				iconLoader->loadForTheme(QLatin1String("lastRect.svg")),
 			CaptureModes::LastRectArea,
 			QKeySequence(Qt::SHIFT + Qt::Key_L));
 		menu->addAction(action);
@@ -71,7 +71,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         auto action = createAction(
 				EnumTranslator::instance()->toTranslatedString(CaptureModes::FullScreen),
 				tr("Capture full screen including all monitors"),
-				QLatin1String("fullScreen.svg"),
+				iconLoader->loadForTheme(QLatin1String("fullScreen.svg")),
 				CaptureModes::FullScreen,
 				QKeySequence(Qt::SHIFT + Qt::Key_F));
         menu->addAction(action);
@@ -81,7 +81,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 	    auto action = createAction(
 				EnumTranslator::instance()->toTranslatedString(CaptureModes::CurrentScreen),
 	    		tr("Capture screen where the mouse is located"),
-	    		QLatin1String("currentScreen.svg"),
+				iconLoader->loadForTheme(QLatin1String("currentScreen.svg")),
 	    		CaptureModes::CurrentScreen,
 				QKeySequence(Qt::SHIFT + Qt::Key_M));
         menu->addAction(action);
@@ -91,7 +91,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
 	    auto action = createAction(
 				EnumTranslator::instance()->toTranslatedString(CaptureModes::ActiveWindow),
 	    		tr("Capture window that currently has focus"),
-	    		QLatin1String("activeWindow.svg"),
+				iconLoader->loadForTheme(QLatin1String("activeWindow.svg")),
 	    		CaptureModes::ActiveWindow,
 				QKeySequence(Qt::SHIFT + Qt::Key_A));
         menu->addAction(action);
@@ -101,7 +101,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         auto action = createAction(
 				EnumTranslator::instance()->toTranslatedString(CaptureModes::WindowUnderCursor),
 				tr("Capture that is currently under the mouse cursor"),
-				QLatin1String("windowUnderCursor.svg"),
+				iconLoader->loadForTheme(QLatin1String("windowUnderCursor.svg")),
 				CaptureModes::WindowUnderCursor,
 				QKeySequence(Qt::SHIFT + Qt::Key_U));
         menu->addAction(action);
@@ -111,7 +111,7 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
         auto action = createAction(
 				EnumTranslator::instance()->toTranslatedString(CaptureModes::Portal),
                 tr("Uses the screenshot Portal for taking screenshot"),
-                QLatin1String("wayland.svg"),
+				iconLoader->loadForTheme(QLatin1String("wayland.svg")),
                 CaptureModes::Portal,
                 QKeySequence(Qt::SHIFT + Qt::Key_T));
         menu->addAction(action);
@@ -123,17 +123,17 @@ void CaptureModePicker::init(const QList<CaptureModes> &captureModes)
     setMenu(menu);
 }
 
-bool CaptureModePicker::isCaptureModeSupported(const QList<CaptureModes> &captureModes, CaptureModes captureMode) const
+bool CaptureModePicker::isCaptureModeSupported(const QList<CaptureModes> &captureModes, CaptureModes captureMode)
 {
     return captureModes.contains(captureMode);
 }
 
-QAction *CaptureModePicker::createAction(const QString &text, const QString &tooltip, const QString &iconName, CaptureModes captureMode, const QKeySequence &shortcut)
+QAction *CaptureModePicker::createAction(const QString &text, const QString &tooltip, const QIcon &icon, CaptureModes captureMode, const QKeySequence &shortcut)
 {
     auto action = new QAction(this);
     action->setIconText(text);
     action->setToolTip(tooltip);
-	action->setIcon(IconLoader::loadForTheme(iconName));
+	action->setIcon(icon);
 	action->setShortcut(shortcut);
 	action->setData(static_cast<int>(captureMode));
     connect(action, &QAction::triggered, [this, captureMode]() { selectCaptureMode(captureMode); } );

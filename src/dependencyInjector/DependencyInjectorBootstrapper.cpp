@@ -37,6 +37,7 @@
 #include "src/gui/captureHandler/CaptureTabStateHandler.h"
 #include "src/logging/ConsoleLogger.h"
 #include "src/logging/NoneLogger.h"
+#include "src/common/loader/IconLoader.h"
 
 #if defined(__APPLE__)
 #include "src/backend/config/MacConfig.h"
@@ -86,6 +87,7 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 	dependencyInjector->registerInstance<IMessageBoxService, MessageBoxService>();
 	dependencyInjector->registerInstance<ICaptureTabStateHandler, CaptureTabStateHandler>();
 	dependencyInjector->registerInstance<IRecentImageService, RecentImagesPathStore, IImagePathStorage>();
+	dependencyInjector->registerInstance<IIconLoader, IconLoader>();
 }
 
 void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *dependencyInjector)

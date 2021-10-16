@@ -25,7 +25,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mDependencyInjector(dependencyInjector),
 	mConfig(mDependencyInjector->get<IConfig>()),
 	mImageGrabber(mDependencyInjector->get<IImageGrabber>()),
-	mTrayIcon(new TrayIcon(mConfig, this)),
+	mTrayIcon(new TrayIcon(mConfig, mDependencyInjector->get<IIconLoader>(), this)),
 	mNotificationService(NotificationServiceFactory::create(mTrayIcon, mConfig)),
 	mToolBar(nullptr),
 	mImageAnnotator(new KImageAnnotatorAdapter),
@@ -69,7 +69,6 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 {
 	initGui();
 
-	setWindowIcon(IconLoader::load(QLatin1String("ksnip")));
 	setPosition();
 
 	auto coreApplication = dynamic_cast<QApplication *>(QCoreApplication::instance());
@@ -377,7 +376,11 @@ void MainWindow::toggleDocks()
 
 void MainWindow::initGui()
 {
-    mToolBar = new MainToolBar(mImageGrabber->supportedCaptureModes(), mImageAnnotator->undoAction(), mImageAnnotator->redoAction());
+	auto iconLoader = mDependencyInjector->get<IIconLoader>();
+
+	setWindowIcon(iconLoader->load(QLatin1String("ksnip")));
+
+	mToolBar = new MainToolBar(mImageGrabber->supportedCaptureModes(), mImageAnnotator->undoAction(), mImageAnnotator->redoAction(), iconLoader);
 
     connect(mToolBar, &MainToolBar::captureModeSelected, this, &MainWindow::triggerCapture);
     connect(mToolBar, &MainToolBar::saveActionTriggered, this, &MainWindow::saveClicked);
@@ -387,7 +390,7 @@ void MainWindow::initGui()
 
 	mSaveAsAction->setText(tr("Save As..."));
 	mSaveAsAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_S);
-	mSaveAsAction->setIcon(IconLoader::loadForTheme(QLatin1String("saveAs")));
+	mSaveAsAction->setIcon(iconLoader->loadForTheme(QLatin1String("saveAs")));
 	connect(mSaveAsAction, &QAction::triggered, this, &MainWindow::saveAsClicked);
 
     mUploadAction->setText(tr("Upload"));
@@ -451,7 +454,7 @@ void MainWindow::initGui()
 	connect(mSettingsAction, &QAction::triggered, this, &MainWindow::showSettingsDialog);
 
     mAboutAction->setText(tr("&About"));
-	mAboutAction->setIcon(IconLoader::load(QLatin1String("ksnip")));
+	mAboutAction->setIcon(iconLoader->load(QLatin1String("ksnip")));
 	connect(mAboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
 
     mOpenImageAction->setText(tr("Open"));
@@ -463,14 +466,14 @@ void MainWindow::initGui()
 	mRecentImagesMenu->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
 
 	mPasteAction->setText(tr("Paste"));
-	mPasteAction->setIcon(IconLoader::loadForTheme(QLatin1String("paste")));
+	mPasteAction->setIcon(iconLoader->loadForTheme(QLatin1String("paste")));
 	mPasteAction->setShortcut(Qt::CTRL + Qt::Key_V);
 	mPasteAction->setEnabled(mClipboard->isPixmap());
 	connect(mPasteAction, &QAction::triggered, this, &MainWindow::pasteFromClipboard);
 	connect(mClipboard.data(), &IClipboard::changed, mPasteAction, &QAction::setEnabled);
 
 	mPasteEmbeddedAction->setText(tr("Paste Embedded"));
-	mPasteEmbeddedAction->setIcon(IconLoader::loadForTheme(QLatin1String("pasteEmbedded")));
+	mPasteEmbeddedAction->setIcon(iconLoader->loadForTheme(QLatin1String("pasteEmbedded")));
 	mPasteEmbeddedAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_V);
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
 	connect(mPasteEmbeddedAction, &QAction::triggered, this, &MainWindow::pasteEmbeddedFromClipboard);
@@ -479,18 +482,18 @@ void MainWindow::initGui()
 	mPinAction->setText(tr("Pin"));
 	mPinAction->setToolTip(tr("Pin screenshot to foreground in frameless window"));
 	mPinAction->setShortcut(Qt::SHIFT + Qt::Key_P);
-	mPinAction->setIcon(IconLoader::loadForTheme(QLatin1String("pin")));
+	mPinAction->setIcon(iconLoader->loadForTheme(QLatin1String("pin")));
 	connect(mPinAction, &QAction::triggered, this, &MainWindow::showPinWindow);
 
 	mRemoveImageAction->setText(tr("Delete"));
-	mRemoveImageAction->setIcon(IconLoader::loadForTheme(QLatin1String("delete")));
+	mRemoveImageAction->setIcon(iconLoader->loadForTheme(QLatin1String("delete")));
 	connect(mRemoveImageAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::removeImage);
 
 	mModifyCanvasAction->setText(tr("Modify Canvas"));
 	connect(mModifyCanvasAction, &QAction::triggered, mImageAnnotator, &IImageAnnotator::showCanvasModifier);
 
 	mActionsMenu->setTitle("Actions");
-	mActionsMenu->setIcon(IconLoader::loadForTheme(QLatin1String("action")));
+	mActionsMenu->setIcon(iconLoader->loadForTheme(QLatin1String("action")));
 	connect(mActionsMenu, &ActionsMenu::triggered, this, &MainWindow::actionTriggered);
 
 	auto menu = menuBar()->addMenu(tr("&File"));

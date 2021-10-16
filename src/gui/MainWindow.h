@@ -52,7 +52,6 @@
 #include "src/backend/uploader/UploadHandler.h"
 #include "src/backend/CapturePrinter.h"
 #include "src/backend/imageGrabber/IImageGrabber.h"
-#include "src/common/loader/IconLoader.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"

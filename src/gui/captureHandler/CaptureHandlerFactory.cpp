@@ -40,6 +40,7 @@ ICaptureHandler* CaptureHandlerFactory::create(
 				dependencyInjector->get<IRecentImageService>(),
 				dependencyInjector->get<IImageSaver>(),
 				dependencyInjector->get<ISavePathProvider>(),
+				dependencyInjector->get<IIconLoader>(),
 				parent);
 	} else {
 		return new SingleCaptureHandler(

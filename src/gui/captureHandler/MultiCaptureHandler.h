@@ -33,7 +33,7 @@
 #include "src/gui/imageAnnotator/IImageAnnotator.h"
 #include "src/common/provider/NewCaptureNameProvider.h"
 #include "src/common/provider/PathFromCaptureProvider.h"
-#include "src/common/loader/IconLoader.h"
+#include "src/common/loader/IIconLoader.h"
 #include "src/dependencyInjector/DependencyInjector.h"
 
 class MultiCaptureHandler : public ICaptureHandler
@@ -52,6 +52,7 @@ public:
 			const QSharedPointer<IRecentImageService> &recentImageService,
 			const QSharedPointer<IImageSaver> &imageSaver,
 			const QSharedPointer<ISavePathProvider> &savePathProvider,
+			const QSharedPointer<IIconLoader> &iconLoader,
 			QWidget *parent);
 	~MultiCaptureHandler() override;
 	bool canClose() override;
@@ -99,13 +100,13 @@ private:
 	bool discardChanges(int index);
 	void removeTab(int currentTabIndex);
 	void saveAt(int index, bool isInstant);
+	void addTabContextMenuActions(const QSharedPointer<IIconLoader> &iconLoader);
 
 private slots:
 	void tabCloseRequested(int index);
 	void captureChanged();
 	void captureEmpty();
 	void annotatorConfigChanged();
-	void addTabContextMenuActions();
 	void saveAsTab(int index);
 	void renameTab(int index);
 	void saveTab(int index);

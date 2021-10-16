@@ -33,7 +33,7 @@ class MainToolBar : public QToolBar
 {
     Q_OBJECT
 public:
-    explicit MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoAction, QAction* redoAction);
+    explicit MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoAction, QAction* redoAction, const QSharedPointer<IIconLoader> &iconLoader);
     ~MainToolBar() override;
     void selectCaptureMode(CaptureModes captureModes);
     void setCaptureDelay(int delay);

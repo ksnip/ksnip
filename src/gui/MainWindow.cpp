@@ -23,10 +23,11 @@
 MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	QMainWindow(),
 	mDependencyInjector(dependencyInjector),
-	mConfig(mDependencyInjector->getObject<IConfig>()),
-	mToolBar(nullptr),
-	mImageGrabber(mDependencyInjector->getObject<IImageGrabber>()),
+	mConfig(mDependencyInjector->get<IConfig>()),
+	mImageGrabber(mDependencyInjector->get<IImageGrabber>()),
+	mTrayIcon(new TrayIcon(mConfig, this)),
 	mNotificationService(NotificationServiceFactory::create(mTrayIcon, mConfig)),
+	mToolBar(nullptr),
 	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
 	mUploadAction(new QAction(this)),
@@ -51,13 +52,12 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mModifyCanvasAction(new QAction(this)),
 	mMainLayout(layout()),
 	mActionsMenu(new ActionsMenu(mConfig)),
-	mRecentImagesMenu(new RecentImagesMenu(mDependencyInjector->getObject<IRecentImageService>(), this)),
-	mClipboard(mDependencyInjector->getObject<IClipboard>()),
+	mRecentImagesMenu(new RecentImagesMenu(mDependencyInjector->get<IRecentImageService>(), this)),
+	mClipboard(mDependencyInjector->get<IClipboard>()),
 	mCapturePrinter(new CapturePrinter(this)),
 	mGlobalHotKeyHandler(new GlobalHotKeyHandler(mImageGrabber->supportedCaptureModes(), mConfig)),
-	mTrayIcon(new TrayIcon(mConfig, this)),
 	mDragAndDropProcessor(new DragAndDropProcessor(this)),
-	mUploadHandler(mDependencyInjector->getObject<IUploadHandler>()),
+	mUploadHandler(mDependencyInjector->get<IUploadHandler>()),
 	mSessionManagerRequestedQuit(false),
 	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mNotificationService, mDependencyInjector, this)),
 	mPinWindowHandler(new PinWindowHandler(this)),
@@ -65,7 +65,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mFileDialog(FileDialogAdapterFactory::create()),
 	mWindowResizer(new WindowResizer(this, mConfig, this)),
 	mActionProcessor(new ActionProcessor),
-	mSavePathProvider(mDependencyInjector->getObject<ISavePathProvider>())
+	mSavePathProvider(mDependencyInjector->get<ISavePathProvider>())
 {
 	initGui();
 
@@ -561,7 +561,7 @@ void MainWindow::copyCaptureToClipboard()
 void MainWindow::upload()
 {
 	auto image = mCaptureHandler->image();
-	UploadOperation operation(image, mUploadHandler, mConfig, mDependencyInjector->getObject<IMessageBoxService>());
+	UploadOperation operation(image, mUploadHandler, mConfig, mDependencyInjector->get<IMessageBoxService>());
 	operation.execute();
 }
 
@@ -692,8 +692,8 @@ void MainWindow::loadImageFromFile(const QString &path)
 			path,
 			QSharedPointer<IImageProcessor>(this),
 			mNotificationService,
-			mDependencyInjector->getObject<IRecentImageService>(),
-			mDependencyInjector->getObject<IFileService>(),
+			mDependencyInjector->get<IRecentImageService>(),
+			mDependencyInjector->get<IFileService>(),
 			mConfig);
 	operation.execute();
 }
@@ -720,7 +720,7 @@ void MainWindow::captureCanceled()
 
 void MainWindow::uploadFinished(const UploadResult &result)
 {
-	HandleUploadResultOperation handleUploadResponseOperation(result, mNotificationService, mClipboard, mDependencyInjector->getObject<IDesktopService>(), mConfig);
+	HandleUploadResultOperation handleUploadResponseOperation(result, mNotificationService, mClipboard, mDependencyInjector->get<IDesktopService>(), mConfig);
 	handleUploadResponseOperation.execute();
 }
 

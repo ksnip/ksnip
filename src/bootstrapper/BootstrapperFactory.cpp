@@ -21,8 +21,8 @@
 
 QSharedPointer<IBootstrapper> BootstrapperFactory::create(DependencyInjector *dependencyInjector)
 {
-	auto logger = dependencyInjector->getObject<ILogger>();
-	auto config = dependencyInjector->getObject<IConfig>();
+	auto logger = dependencyInjector->get<ILogger>();
+	auto config = dependencyInjector->get<IConfig>();
 
 	if(config->useSingleInstance()) {
 		if (mInstanceLock.lock()) {

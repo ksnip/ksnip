@@ -47,7 +47,7 @@ int main(int argc, char** argv)
     auto dependencyInjector = new DependencyInjector;
 	DependencyInjectorBootstrapper::BootstrapCore(dependencyInjector);
 
-	app.setStyle(dependencyInjector->getObject<IConfig>()->applicationStyle());
+	app.setStyle(dependencyInjector->get<IConfig>()->applicationStyle());
 
 	BootstrapperFactory bootstrapperFactory;
 	return bootstrapperFactory.create(dependencyInjector)->start(app);

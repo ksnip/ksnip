@@ -25,33 +25,33 @@ ICaptureHandler* CaptureHandlerFactory::create(
 		DependencyInjector *dependencyInjector,
 		QWidget *parent)
 {
-	auto config = dependencyInjector->getObject<IConfig>();
+	auto config = dependencyInjector->get<IConfig>();
 
 	if(config->useTabs()) {
 		return new MultiCaptureHandler(
 				imageAnnotator,
 				notificationService,
-				dependencyInjector->getObject<ICaptureTabStateHandler>(),
+				dependencyInjector->get<ICaptureTabStateHandler>(),
 				config,
-				dependencyInjector->getObject<IClipboard>(),
-				dependencyInjector->getObject<IDesktopService>(),
-				dependencyInjector->getObject<IFileService>(),
-				dependencyInjector->getObject<IMessageBoxService>(),
-				dependencyInjector->getObject<IRecentImageService>(),
-				dependencyInjector->getObject<IImageSaver>(),
-				dependencyInjector->getObject<ISavePathProvider>(),
+				dependencyInjector->get<IClipboard>(),
+				dependencyInjector->get<IDesktopService>(),
+				dependencyInjector->get<IFileService>(),
+				dependencyInjector->get<IMessageBoxService>(),
+				dependencyInjector->get<IRecentImageService>(),
+				dependencyInjector->get<IImageSaver>(),
+				dependencyInjector->get<ISavePathProvider>(),
 				parent);
 	} else {
 		return new SingleCaptureHandler(
 				imageAnnotator,
 				notificationService,
-				dependencyInjector->getObject<IClipboard>(),
-				dependencyInjector->getObject<IDesktopService>(),
-				dependencyInjector->getObject<IFileService>(),
-				dependencyInjector->getObject<IMessageBoxService>(),
-				dependencyInjector->getObject<IRecentImageService>(),
-				dependencyInjector->getObject<IImageSaver>(),
-				dependencyInjector->getObject<ISavePathProvider>(),
+				dependencyInjector->get<IClipboard>(),
+				dependencyInjector->get<IDesktopService>(),
+				dependencyInjector->get<IFileService>(),
+				dependencyInjector->get<IMessageBoxService>(),
+				dependencyInjector->get<IRecentImageService>(),
+				dependencyInjector->get<IImageSaver>(),
+				dependencyInjector->get<ISavePathProvider>(),
 				config,
 				parent);
 	}

@@ -26,12 +26,12 @@
 
 struct CommandLineCaptureParameter
 {
-	CaptureModes captureMode;
-	int delay;
-	bool isWithCursor;
-	bool isWithSave;
-	bool isWithUpload;
-	QString savePath;
+	CaptureModes captureMode = CaptureModes::RectArea;
+	int delay = 0;
+	bool isWithCursor = false;
+	bool isWithSave = false;
+	bool isWithUpload = false;
+	QString savePath = QString();
 
 	explicit CommandLineCaptureParameter() = default;
 
@@ -45,6 +45,5 @@ struct CommandLineCaptureParameter
 		this->isWithUpload = false;
 	}
 };
-
 
 #endif //KSNIP_COMMANDLINECAPTUREPARAMETER_H

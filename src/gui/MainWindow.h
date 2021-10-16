@@ -92,6 +92,7 @@ private:
 	DependencyInjector *mDependencyInjector;
 	QSharedPointer<IConfig> mConfig;
 	QSharedPointer<IImageGrabber> mImageGrabber;
+	TrayIcon *mTrayIcon;
 	QSharedPointer<INotificationService> mNotificationService;
 	bool mSessionManagerRequestedQuit;
 	QAction *mSaveAsAction;
@@ -121,10 +122,9 @@ private:
 	RecentImagesMenu *mRecentImagesMenu;
 	QSharedPointer<IClipboard> mClipboard;
 	CapturePrinter *mCapturePrinter;
-    IImageAnnotator *mImageAnnotator;
-    QSharedPointer<ISavePathProvider> mSavePathProvider;
-    GlobalHotKeyHandler *mGlobalHotKeyHandler;
-	TrayIcon *mTrayIcon;
+	IImageAnnotator *mImageAnnotator;
+	QSharedPointer<ISavePathProvider> mSavePathProvider;
+	GlobalHotKeyHandler *mGlobalHotKeyHandler;
 	DragAndDropProcessor *mDragAndDropProcessor;
 	QSharedPointer<IUploadHandler> mUploadHandler;
 	ICaptureHandler *mCaptureHandler;

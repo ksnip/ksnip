@@ -71,7 +71,7 @@ public:
 	};
 
 	template<typename T>
-	QSharedPointer<T> getObject()
+	QSharedPointer<T> get()
 	{
 		auto typeId = getTypeID<T>();
 		auto factoryBase = mFactories[typeId];
@@ -84,10 +84,11 @@ public:
 	(QSharedPointer<TS> ...ts)> functor)
 	{
 		mFactories[getTypeID<TInterface>()] = QSharedPointer<CFactory<TInterface>>::create([=]{
-			return functor(getObject<TS>()...);
+			return functor(get<TS>()...);
 		});
 	}
 
+	// Register a single instance, always returns same instance, effectively single instance
 	template<typename TInterface>
 	void registerInstance(QSharedPointer<TInterface> t)
 	{
@@ -104,6 +105,7 @@ public:
 				(QSharedPointer<TS> ...ts)>(functor));
 	}
 
+	// Returns for every request a new instance
 	template<typename TInterface, typename TConcrete, typename ...TArguments>
 	void registerFactory()
 	{
@@ -117,7 +119,7 @@ public:
 	template<typename TInterface, typename TConcrete, typename ...TArguments>
 	void registerInstance()
 	{
-		registerInstance<TInterface>(QSharedPointer<TConcrete>::create(getObject<TArguments>()...));
+		registerInstance<TInterface>(QSharedPointer<TConcrete>::create(get<TArguments>()...));
 	}
 };
 

@@ -23,7 +23,7 @@ StandAloneBootstrapper::StandAloneBootstrapper(DependencyInjector *dependencyInj
 	mCommandLine(nullptr),
 	mMainWindow(nullptr),
 	mCommandLineCaptureHandler(nullptr),
-	mLogger(dependencyInjector->getObject<ILogger>()),
+	mLogger(dependencyInjector->get<ILogger>()),
 	mDependencyInjector(dependencyInjector)
 {
 
@@ -236,13 +236,13 @@ void StandAloneBootstrapper::createCommandLineParser(const QApplication &app)
 
 	DependencyInjectorBootstrapper::BootstrapCommandLine(mDependencyInjector);
 
-	mCommandLineCaptureHandler = mDependencyInjector->getObject<ICommandLineCaptureHandler>();
+	mCommandLineCaptureHandler = mDependencyInjector->get<ICommandLineCaptureHandler>();
 	mCommandLine = new CommandLine (app, mCommandLineCaptureHandler->supportedCaptureModes());
 }
 
 void StandAloneBootstrapper::loadTranslations(const QApplication &app)
 {
-	auto translationLoader = mDependencyInjector->getObject<ITranslationLoader>();
+	auto translationLoader = mDependencyInjector->get<ITranslationLoader>();
 	translationLoader->load(app);
 }
 

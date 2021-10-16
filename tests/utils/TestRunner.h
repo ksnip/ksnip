@@ -24,7 +24,7 @@
 #ifndef KSNIP_TESTRUNNER_H
 #define KSNIP_TESTRUNNER_H
 
-#include "../../../tmp/include/gmock/gmock.h"
+#include <gmock/gmock.h>
 
 class GoogleTestEventListener : public ::testing::EmptyTestEventListener {
 

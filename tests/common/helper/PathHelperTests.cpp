@@ -21,6 +21,8 @@
 
 #include "src/common/helper/PathHelper.h"
 
+#include "tests/utils/TestRunner.h"
+
 void PathHelperTests::IsPathValid_Should_ReturnFalse_When_StringEmpty()
 {
 	// arrange
@@ -177,4 +179,4 @@ void PathHelperTests::ExtractFormat_Should_ReturnEmptyString_When_NoFormatExists
     QCOMPARE(result, QStringLiteral(""));
 }
 
-QTEST_MAIN(PathHelperTests)
+TEST_MAIN(PathHelperTests)

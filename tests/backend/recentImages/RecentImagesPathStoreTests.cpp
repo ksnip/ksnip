@@ -21,6 +21,7 @@
 
 #include "src/backend/recentImages/RecentImagesPathStore.h"
 
+#include "tests/utils/TestRunner.h"
 #include "tests/mocks/backend/recentImages/ImagePathStorageMock.h"
 
 void RecentImagesPathStoreTests::GetRecentImagesPath_Should_ReturnEmptyStringList_When_Initialized()
@@ -157,4 +158,4 @@ void RecentImagesPathStoreTests::StoreImagesPath_Should_DropOlderPaths_When_More
     QCOMPARE(recentImagesPath[9], QStringLiteral("/path/image3.png"));
 }
 
-QTEST_MAIN(RecentImagesPathStoreTests)
+TEST_MAIN(RecentImagesPathStoreTests)

@@ -21,6 +21,8 @@
 
 #include "src/gui/actions/ActionProcessor.h"
 
+#include "tests/utils/TestRunner.h"
+
 void ActionProcessorTests::Process_Should_TriggerCapture_When_CaptureEnabled()
 {
 	// arrange
@@ -326,4 +328,4 @@ void ActionProcessorTests::Process_Should_SendShowSignalWithMinimizedSetToTrue_W
     QCOMPARE(qvariant_cast<bool>(spy.at(0).at(0)), true);
 }
 
-QTEST_MAIN(ActionProcessorTests)
+TEST_MAIN(ActionProcessorTests)

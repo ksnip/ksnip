@@ -17,19 +17,17 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_COMMANDLINECAPTUREHANDLERTESTS_H
-#define KSNIP_COMMANDLINECAPTUREHANDLERTESTS_H
+#ifndef KSNIP_IMAGESAVERMOCK_H
+#define KSNIP_IMAGESAVERMOCK_H
 
-#include <QtTest>
+#include <gmock/gmock.h>
 
-class CommandLineCaptureHandlerTests : public QObject
+#include "src/backend/saver/IImageSaver.h"
+
+class ImageSaverMock : public IImageSaver
 {
-    Q_OBJECT
-private slots:
-    void CaptureAndProcessScreenshot_Should_CallUploader_When_UploadOptionSet();
-    void CaptureAndProcessScreenshot_Should_NotCallUploader_When_UploadOptionNotSet();
-    void CaptureAndProcessScreenshot_Should_CallImageSaverWithDefaultSavePath_When_SaveOptionSetAndSavePathEmpty();
-    void CaptureAndProcessScreenshot_Should_CallImageSaverWithSavePath_When_SaveOptionSetAndSavePathNotEmpty();
+public:
+	MOCK_METHOD(bool, save, (const QImage &image, const QString &path), (override));
 };
 
-#endif //KSNIP_COMMANDLINECAPTUREHANDLERTESTS_H
+#endif //KSNIP_IMAGESAVERMOCK_H

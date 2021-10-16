@@ -21,6 +21,7 @@
 
 #include "src/gui/captureHandler/MultiCaptureHandler.h"
 
+#include "tests/utils/TestRunner.h"
 #include "tests/mocks/gui/imageAnnotator/ImageAnnotatorMock.h"
 #include "tests/mocks/gui/NotificationServiceMock.h"
 #include "tests/mocks/gui/fileService/FileServiceMock.h"
@@ -766,4 +767,4 @@ void MultiCaptureHandlerTests::RemoveImage_Should_RemoveTab_When_OperationDidDel
 	multiCaptureHandler.removeImage();
 }
 
-QTEST_MAIN(MultiCaptureHandlerTests)
+TEST_MAIN(MultiCaptureHandlerTests)

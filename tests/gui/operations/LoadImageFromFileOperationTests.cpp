@@ -21,6 +21,7 @@
 
 #include "src/gui/operations/LoadImageFromFileOperation.h"
 
+#include "tests/utils/TestRunner.h"
 #include "tests/mocks/gui/NotificationServiceMock.h"
 #include "tests/mocks/gui/ImageProcessorMock.h"
 #include "tests/mocks/gui/fileService/FileServiceMock.h"
@@ -45,6 +46,12 @@ void LoadImageFromFileOperationTests::Execute_Should_ShowNotificationAndNotOpenI
 	EXPECT_CALL(*recentImageServiceMock, storeImagePath(testing::_)).Times(testing::Exactly(0));
 	EXPECT_CALL(*notificationServiceMock, showWarning(testing::_, QString("Unable to open image from path /path/image.png"), testing::_))
 		.Times(testing::Exactly(1));
+
+	EXPECT_CALL(*configMock, trayIconNotificationsEnabled())
+		.Times(testing::Exactly(1))
+		.WillRepeatedly([=]() {
+			return true;
+		});
 
 	LoadImageFromFileOperation operation(QLatin1String("/path/image.png"), imageProcessorMock, notificationServiceMock, recentImageServiceMock, fileServiceMock, configMock);
 
@@ -74,6 +81,8 @@ void LoadImageFromFileOperationTests::Execute_Should_OpenImageAndNotShowNotifica
 	EXPECT_CALL(*recentImageServiceMock, storeImagePath(imagePath)).Times(testing::Exactly(1));
 	EXPECT_CALL(*notificationServiceMock, showWarning(testing::_, testing::_, testing::_)).Times(testing::Exactly(0));
 
+	EXPECT_CALL(*configMock, trayIconNotificationsEnabled()).Times(testing::Exactly(0));
+
 	LoadImageFromFileOperation operation(imagePath, imageProcessorMock, notificationServiceMock, recentImageServiceMock, fileServiceMock, configMock);
 
 	// act
@@ -83,4 +92,4 @@ void LoadImageFromFileOperationTests::Execute_Should_OpenImageAndNotShowNotifica
 	QCOMPARE(result, true);
 }
 
-QTEST_MAIN(LoadImageFromFileOperationTests)
+TEST_MAIN(LoadImageFromFileOperationTests)

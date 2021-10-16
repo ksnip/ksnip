@@ -17,19 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_COMMANDLINECAPTUREHANDLERTESTS_H
-#define KSNIP_COMMANDLINECAPTUREHANDLERTESTS_H
+#ifndef KSNIP_SAVEPATHPROVIDERMOCK_H
+#define KSNIP_SAVEPATHPROVIDERMOCK_H
 
-#include <QtTest>
+#include <gmock/gmock.h>
 
-class CommandLineCaptureHandlerTests : public QObject
+#include "src/backend/saver/ISavePathProvider.h"
+
+class SavePathProviderMock : public ISavePathProvider
 {
-    Q_OBJECT
-private slots:
-    void CaptureAndProcessScreenshot_Should_CallUploader_When_UploadOptionSet();
-    void CaptureAndProcessScreenshot_Should_NotCallUploader_When_UploadOptionNotSet();
-    void CaptureAndProcessScreenshot_Should_CallImageSaverWithDefaultSavePath_When_SaveOptionSetAndSavePathEmpty();
-    void CaptureAndProcessScreenshot_Should_CallImageSaverWithSavePath_When_SaveOptionSetAndSavePathNotEmpty();
+public:
+	MOCK_METHOD(QString, savePath, (), (const, override));
+	MOCK_METHOD(QString, savePathWithFormat, (const QString& format), (const, override));
+	MOCK_METHOD(QString, saveDirectory, (), (const, override));
 };
 
-#endif //KSNIP_COMMANDLINECAPTUREHANDLERTESTS_H
+#endif //KSNIP_SAVEPATHPROVIDERMOCK_H

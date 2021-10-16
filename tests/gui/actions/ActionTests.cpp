@@ -21,6 +21,8 @@
 
 #include "src/gui/actions/Action.h"
 
+#include "tests/utils/TestRunner.h"
+
 void ActionTests::EqualsOperator_Should_ReturnTrue_When_AllValuesMatch()
 {
 	// arrange
@@ -515,4 +517,4 @@ void ActionTests::EqualsOperator_Should_ReturnFalse_When_IsHideMainWindowEnabled
     QCOMPARE(result, false);
 }
 
-QTEST_MAIN(ActionTests)
+TEST_MAIN(ActionTests)

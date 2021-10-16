@@ -21,6 +21,7 @@
 
 #include "src/gui/captureHandler/SingleCaptureHandler.h"
 
+#include "tests/utils/TestRunner.h"
 #include "tests/mocks/gui/imageAnnotator/ImageAnnotatorMock.h"
 #include "tests/mocks/gui/NotificationServiceMock.h"
 #include "tests/mocks/gui/fileService/FileServiceMock.h"
@@ -28,6 +29,7 @@
 #include "tests/mocks/gui/clipboard/ClipboardMock.h"
 #include "tests/mocks/gui/messageBoxService/MessageBoxServiceMock.h"
 #include "tests/mocks/backend/recentImages/RecentImageServiceMock.h"
+
 
 void SingleCaptureHandlerTests::RemoveImage_Should_CleanupAnnotationData_When_ImageDeleted()
 {
@@ -197,4 +199,4 @@ void SingleCaptureHandlerTests::Load_Should_SetPathToEmptyAndIsSavedToFalse_When
     QCOMPARE(captureHandler.isSaved(), false);
 }
 
-QTEST_MAIN(SingleCaptureHandlerTests)
+TEST_MAIN(SingleCaptureHandlerTests)

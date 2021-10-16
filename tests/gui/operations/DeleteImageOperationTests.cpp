@@ -21,6 +21,7 @@
 
 #include "src/gui/operations/DeleteImageOperation.h"
 
+#include "tests/utils/TestRunner.h"
 #include "tests/mocks/gui/messageBoxService/MessageBoxServiceMock.h"
 #include "tests/mocks/gui/fileService/FileServiceMock.h"
 
@@ -101,4 +102,4 @@ void DeleteImageOperationTests::Execute_Should_ReturnFalse_When_MessageBoxRespon
 	QCOMPARE(result, false);
 }
 
-QTEST_MAIN(DeleteImageOperationTests)
+TEST_MAIN(DeleteImageOperationTests)

@@ -62,19 +62,19 @@ void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependenc
 {
 	injectConfig(dependencyInjector);
 	injectLogger(dependencyInjector);
-	dependencyInjector->registerFactory<ITranslationLoader, TranslationLoader, ILogger>();
+	dependencyInjector->registerInstance<ITranslationLoader, TranslationLoader, ILogger>();
 }
 
 void DependencyInjectorBootstrapper::BootstrapCommandLine(DependencyInjector *dependencyInjector)
 {
 	injectImageGrabber(dependencyInjector);
-	dependencyInjector->registerFactory<ISavePathProvider, SavePathProvider, IConfig>();
-	dependencyInjector->registerFactory<IImageSaver, ImageSaver, IConfig>();
-	dependencyInjector->registerFactory<IFtpUploader, FtpUploader, IConfig, ILogger>();
-	dependencyInjector->registerFactory<IScriptUploader, ScriptUploader, IConfig>();
-	dependencyInjector->registerFactory<IImgurUploader, ImgurUploader, IConfig>();
-	dependencyInjector->registerFactory<IUploadHandler, UploadHandler, IConfig, IFtpUploader, IScriptUploader, IImgurUploader>();
-	dependencyInjector->registerFactory<ICommandLineCaptureHandler, CommandLineCaptureHandler, IImageGrabber, IUploadHandler, IImageSaver, ISavePathProvider>();
+	dependencyInjector->registerInstance<ISavePathProvider, SavePathProvider, IConfig>();
+	dependencyInjector->registerInstance<IImageSaver, ImageSaver, IConfig>();
+	dependencyInjector->registerInstance<IFtpUploader, FtpUploader, IConfig, ILogger>();
+	dependencyInjector->registerInstance<IScriptUploader, ScriptUploader, IConfig>();
+	dependencyInjector->registerInstance<IImgurUploader, ImgurUploader, IConfig>();
+	dependencyInjector->registerInstance<IUploadHandler, UploadHandler, IConfig, IFtpUploader, IScriptUploader, IImgurUploader>();
+	dependencyInjector->registerInstance<ICommandLineCaptureHandler, CommandLineCaptureHandler, IImageGrabber, IUploadHandler, IImageSaver, ISavePathProvider>();
 }
 
 void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependencyInjector)
@@ -85,7 +85,7 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 	dependencyInjector->registerInstance<IDesktopService, DesktopServiceAdapter>();
 	dependencyInjector->registerInstance<IMessageBoxService, MessageBoxService>();
 	dependencyInjector->registerInstance<ICaptureTabStateHandler, CaptureTabStateHandler>();
-	dependencyInjector->registerFactory<IRecentImageService, RecentImagesPathStore, IImagePathStorage>();
+	dependencyInjector->registerInstance<IRecentImageService, RecentImagesPathStore, IImagePathStorage>();
 }
 
 void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *dependencyInjector)
@@ -95,7 +95,7 @@ void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *depe
 
 #if defined(__APPLE__)
 	logger->log(QLatin1String("MacImageGrabber selected"));
-    dependencyInjector->registerInstance<IImageGrabber, MacImageGrabber>();
+    dependencyInjector->registerInstance<IImageGrabber, MacImageGrabber, IConfig>>();
 #endif
 
 #if defined(UNIX_X11)
@@ -130,7 +130,7 @@ void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *depe
 
 #if  defined(_WIN32)
 	logger->log(QLatin1String("WinImageGrabber selected"));
-    dependencyInjector->registerInstance<IImageGrabber, WinImageGrabber>();
+    dependencyInjector->registerInstance<IImageGrabber, WinImageGrabber, IConfig>>();
 #endif
 
 }

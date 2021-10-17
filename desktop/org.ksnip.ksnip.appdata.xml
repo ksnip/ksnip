@@ -93,6 +93,7 @@
                     <li>Fixed: Windows packages increased in size.</li>
                     <li>Fixed: Translations are not working in ksnip snap package.</li>
                     <li>Fixed: The string 'Actions' is not available for translation.</li>
+                    <li>Fixed: HiDPI issue with multiple screen on Windows.</li>
                     <li>Fixed kImageAnnotator: Crash while typing text on wayland.</li>
                 </ul>
             </description>

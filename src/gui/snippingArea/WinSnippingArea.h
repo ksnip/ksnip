@@ -36,12 +36,14 @@ protected:
     QRect getSnippingAreaGeometry() const override;
 
 private:
+    QPoint mScaleOffset;
+    QRect mFullScreenRect;
     HdpiScaler mHdpiScaler;
     WinWrapper mWinWrapper;
     bool mIsFullScreenSizeSet;
     bool mIsMultipleScaledScreens;
 
-    void checkMultipleScaledScreens();
+    void setupScalingVariables();
 };
 
 #endif //KSNIP_WINSNIPPINGAREA_H

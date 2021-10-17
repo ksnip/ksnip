@@ -28,9 +28,6 @@ class CommandRunner
 public:
     QString getEnvironmentVariable(const QString &variable) const;
     bool isEnvironmentVariableSet(const QString &variable) const;
-
-private:
-    const int mMaxBuffer = 256;
 };
 
 #endif // COMMANDRUNNER_H

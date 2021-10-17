@@ -8,6 +8,7 @@
 * Fixed: Translations are not working in ksnip snap package. ([#662](https://github.com/ksnip/ksnip/issues/662))
 * Fixed: The string 'Actions' is not available for translation. ([#729](https://github.com/ksnip/ksnip/issues/729))
 * Fixed: HiDPI issue with multiple screen on Windows. ([#668](https://github.com/ksnip/ksnip/issues/668))
+* Fixed: Snipping Area not closing when pressing ESC. ([#735](https://github.com/ksnip/ksnip/issues/735))
 * Fixed kImageAnnotator: Crash while typing text on wayland. ([#256](https://github.com/ksnip/kImageAnnotator/issues/256))
 
 ## Release 1.9.1

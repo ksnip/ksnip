@@ -79,6 +79,7 @@ private:
     void clearBackgroundImage();
     virtual void showSnippingArea();
 	void finishSelection();
+    void grabKeyboardFocus();
 
 private slots:
 	void updateCapturedArea(const QRectF &rect);

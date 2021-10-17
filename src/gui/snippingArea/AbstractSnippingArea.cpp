@@ -77,8 +77,7 @@ void AbstractSnippingArea::showSnippingArea()
 	if(mConfig->showSnippingAreaInfoText()) {
 		mSelectorInfoText->activate(getSnippingAreaGeometry(), mConfig->allowResizingRectSelection());
 	}
-	setFocus();
-    grabKeyboard(); // Issue #57
+    grabKeyboardFocus();
 }
 
 void AbstractSnippingArea::setBackgroundImage(const QPixmap &background)
@@ -197,7 +196,7 @@ bool AbstractSnippingArea::isBackgroundTransparent() const
 void AbstractSnippingArea::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
-		cancelSelection();
+        cancelSelection();
 	} else if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
 		finishSelection();
 	} else if (event->key() == Qt::Key_Control){
@@ -240,6 +239,13 @@ void AbstractSnippingArea::finishSelection()
 	closeSnippingArea();
 	mConfig->setLastRectArea(selectedRectArea());
 	emit finished();
+}
+
+void AbstractSnippingArea::grabKeyboardFocus()
+{
+    activateWindow();
+    setFocus();
+    grabKeyboard();
 }
 
 void AbstractSnippingArea::updateCursor(const QCursor &cursor)

@@ -19,10 +19,12 @@
 
 #include "SnippingAreaAdorner.h"
 
-SnippingAreaAdorner::SnippingAreaAdorner()
+SnippingAreaAdorner::SnippingAreaAdorner() :
+    mMouseIsDown(false),
+    mRulerEnabled(false),
+    mPositionAndSizeInfoEnabled(false),
+    mMagnifyingGlassEnabled(false)
 {
-	setRulersEnabled(false);
-	setPositionAndSizeInfoEnabled(false);
 }
 
 void SnippingAreaAdorner::setRulersEnabled(bool enabled)
@@ -72,7 +74,7 @@ void SnippingAreaAdorner::update(const QPoint &mousePosition, const QRect &scree
 void SnippingAreaAdorner::paint(QPainter *painter, const QColor &adornerColor, const QColor &cursorColor)
 {
 	if (mRulerEnabled && !mMouseIsDown) {
-		mRulers.paint(painter, adornerColor);
+	    mRulers.paint(painter, adornerColor);
 	}
 
 	if (mPositionAndSizeInfoEnabled) {

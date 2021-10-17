@@ -25,8 +25,10 @@ WinSnippingArea::WinSnippingArea(const QSharedPointer<IConfig> &config) :
     mIsMultipleScaledScreens(false)
 {
     setWindowFlags(windowFlags() | Qt::Tool);
+    
+    mFullScreenRect = mWinWrapper.getFullScreenRect();
 
-    checkMultipleScaledScreens();
+    setupScalingVariables();
 }
 
 QRect WinSnippingArea::selectedRectArea() const
@@ -35,6 +37,10 @@ QRect WinSnippingArea::selectedRectArea() const
         auto topLeft = mapToGlobal(mCaptureArea.topLeft());
         auto bottomRight = mapToGlobal(mCaptureArea.bottomRight());
         return {topLeft, bottomRight};
+    } else if (mIsMultipleScaledScreens) {
+        auto xWithOffset = mCaptureArea.x() - mScaleOffset.x();
+        auto yWithOffset = mCaptureArea.y() - mScaleOffset.y();
+        return mHdpiScaler.scale({xWithOffset, yWithOffset, mCaptureArea.width(), mCaptureArea.height()});
     } else {
         return mHdpiScaler.scale(mCaptureArea);
     }
@@ -42,19 +48,22 @@ QRect WinSnippingArea::selectedRectArea() const
 
 void WinSnippingArea::setFullScreen()
 {
-    // Workaround for Qt HiDPI issue, setting geometry more then once
-    // enlarges the widget outside the size of the visible desktop. See #668.
-    // Qt behaves differently in case of one or multiple scaled screens so
-    // we utilise here different 'hacks' to fix the different use cases.
-    // This part just be checked after upgrading to newer Qt version if it
-    // can be simplified again in case the issue was fixed from Qt side.
+    /*
+     * Workaround for Qt HiDPI issue, setting geometry more then once
+     * enlarges the widget outside the size of the visible desktop. See #668.
+     * Qt behaves differently in case of one or multiple scaled screens so
+     * we utilise here different 'hacks' to fix the different use cases.
+     * This part just be checked after upgrading to newer Qt version if it
+     * can be simplified again in case the issue was fixed from Qt side.
+     * See bug https://bugreports.qt.io/browse/QTBUG-94638
+     */
+
     if(mIsMultipleScaledScreens) {
         setGeometry(QApplication::desktop()->geometry());
         QWidget::show();
         setGeometry(QApplication::desktop()->geometry());
     } else if(!mIsFullScreenSizeSet) {
-            auto rect = mWinWrapper.getFullScreenRect();
-            setGeometry(rect);
+            setGeometry(mFullScreenRect);
             mIsFullScreenSizeSet = true;
     }
 
@@ -64,23 +73,34 @@ void WinSnippingArea::setFullScreen()
 QRect WinSnippingArea::getSnippingAreaGeometry() const
 {
     if(mIsMultipleScaledScreens) {
-        auto rect = mWinWrapper.getFullScreenRect();
-        return {0, 0, rect.width() / 2, rect.height() / 2 };
+        return {mScaleOffset.x(), mScaleOffset.y(), mFullScreenRect.width() / 2, mFullScreenRect.height() / 2 };
     } else {
         return {0, 0, geometry().width(), geometry().height() };
     }
 }
 
-void WinSnippingArea::checkMultipleScaledScreens()
+void WinSnippingArea::setupScalingVariables()
 {
     auto scaledScreens = 0;
     auto screens = QApplication::screens();
     for(auto screen : screens) {
+        auto screenGeometry = screen->geometry();
+        
         if(screen->devicePixelRatio() > 1) {
-
             scaledScreens++;
         }
+
+        if (screenGeometry.x() != 0) {
+            mScaleOffset.setX(screenGeometry.x());
+        }
+
+        if (screenGeometry.y() != 0) {
+            mScaleOffset.setY(screenGeometry.y());
+        }
     }
+
+    mScaleOffset.setX((mScaleOffset.x() - mFullScreenRect.x()) / mHdpiScaler.scaleFactor());
+    mScaleOffset.setY((mScaleOffset.y() - mFullScreenRect.y()) / mHdpiScaler.scaleFactor());
 
     mIsMultipleScaledScreens = scaledScreens > 1;
 }

@@ -71,7 +71,8 @@ QRect WinSnippingArea::getSnippingAreaGeometry() const
     }
 }
 
-void WinSnippingArea::checkMultipleScaledScreens() {
+void WinSnippingArea::checkMultipleScaledScreens()
+{
     auto scaledScreens = 0;
     auto screens = QApplication::screens();
     for(auto screen : screens) {

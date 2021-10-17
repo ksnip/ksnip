@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,8 @@
 LinuxSnippingArea::LinuxSnippingArea() : AbstractSnippingArea()
 {
 	setWindowFlags(windowFlags() | Qt::Tool | Qt::X11BypassWindowManagerHint);
+
+	calculateDesktopGeometry();
 }
 
 QRect LinuxSnippingArea::selectedRectArea() const
@@ -41,5 +43,20 @@ void LinuxSnippingArea::setFullScreen()
 
 QRect LinuxSnippingArea::getSnippingAreaGeometry() const
 {
-    return geometry();
+    return mDesktopGeometry;
+}
+
+void LinuxSnippingArea::calculateDesktopGeometry()
+{
+	auto screens = QApplication::screens();
+	for(auto screen : screens) {
+		auto scaleFactor = screen->devicePixelRatio();
+		auto screenGeometry = screen->geometry();
+		int x = screenGeometry.x() / scaleFactor;
+		int y = screenGeometry.y() / scaleFactor;
+		auto width = screenGeometry.width();
+		auto height = screenGeometry.height();
+
+		mDesktopGeometry = mDesktopGeometry.united({x, y, width, height});
+	}
 }

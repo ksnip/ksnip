@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,7 +35,9 @@ protected:
 	QRect getSnippingAreaGeometry() const override;
 
 private:
+	QRect mDesktopGeometry;
 	HdpiScaler mHdpiScaler;
+	void calculateDesktopGeometry();
 };
 
 #endif //KSNIP_LINUXSNIPPINGAREA_H

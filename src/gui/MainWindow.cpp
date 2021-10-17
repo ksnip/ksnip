@@ -526,7 +526,7 @@ void MainWindow::initGui()
 	mModifyCanvasAction->setText(tr("Modify Canvas"));
 	connect(mModifyCanvasAction, &QAction::triggered, mImageAnnotator, &IImageAnnotator::showCanvasModifier);
 
-	mActionsMenu->setTitle("Actions");
+	mActionsMenu->setTitle(tr("Actions"));
 	mActionsMenu->setIcon(IconLoader::loadForTheme(QLatin1String("action")));
 	connect(mActionsMenu, &ActionsMenu::triggered, this, &MainWindow::actionTriggered);
 

@@ -79,6 +79,11 @@ QRect WinSnippingArea::getSnippingAreaGeometry() const
     }
 }
 
+QPoint WinSnippingArea::getLocalCursorPosition() const
+{
+    return mapFromGlobal(QCursor::pos());
+}
+
 void WinSnippingArea::setupScalingVariables()
 {
     auto scaledScreens = 0;

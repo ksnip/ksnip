@@ -106,6 +106,9 @@
                     <li>Fixed: Translations are not working in ksnip snap package.</li>
                     <li>Fixed: The string 'Actions' is not available for translation.</li>
                     <li>Fixed: HiDPI issue with multiple screen on Windows.</li>
+                    <li>Fixed: Snipping Area not closing when pressing ESC.</li>
+                    <li>Fixed: Sometimes "Snipping Area Rulers" not shown after starting rectangular selection.</li>
+                    <li>Fixed: Cursor not positioned correctly when snipping area opens.</li>
                     <li>Fixed kImageAnnotator: Crash while typing text on wayland.</li>
                 </ul>
             </description>

@@ -63,6 +63,7 @@ protected:
 	virtual bool isBackgroundTransparent() const;
     virtual void setFullScreen() = 0;
 	virtual QRect getSnippingAreaGeometry() const = 0;
+	virtual QPoint getLocalCursorPosition() const;
 
 private:
 	QSharedPointer<IConfig> mConfig;
@@ -79,6 +80,7 @@ private:
     void clearBackgroundImage();
     virtual void showSnippingArea();
 	void finishSelection();
+    void grabKeyboardFocus();
 
 private slots:
 	void updateCapturedArea(const QRectF &rect);

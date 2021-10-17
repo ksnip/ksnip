@@ -71,8 +71,7 @@ void AbstractSnippingArea::showSnippingArea()
 	startTimeout();
 	mIsSwitchPressed = false;
     setFullScreen();
-	QApplication::setActiveWindow(this);
-	mSelector->activate(getSnippingAreaGeometry(), QCursor::pos());
+	mSelector->activate(getSnippingAreaGeometry(), getLocalCursorPosition());
 	mUnselectedRegionAlpha = mConfig->snippingAreaTransparency();
 	if(mConfig->showSnippingAreaInfoText()) {
 		mSelectorInfoText->activate(getSnippingAreaGeometry(), mConfig->allowResizingRectSelection());
@@ -193,6 +192,11 @@ bool AbstractSnippingArea::isBackgroundTransparent() const
     return mBackground == nullptr;
 }
 
+QPoint AbstractSnippingArea::getLocalCursorPosition() const
+{
+    return QCursor::pos();
+}
+
 void AbstractSnippingArea::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
@@ -243,6 +247,7 @@ void AbstractSnippingArea::finishSelection()
 
 void AbstractSnippingArea::grabKeyboardFocus()
 {
+    QApplication::setActiveWindow(this);
     activateWindow();
     setFocus();
     grabKeyboard();

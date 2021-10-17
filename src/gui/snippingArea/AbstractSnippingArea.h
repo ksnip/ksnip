@@ -63,6 +63,7 @@ protected:
 	virtual bool isBackgroundTransparent() const;
     virtual void setFullScreen() = 0;
 	virtual QRect getSnippingAreaGeometry() const = 0;
+	virtual QPoint getLocalCursorPosition() const;
 
 private:
 	KsnipConfig *mConfig;

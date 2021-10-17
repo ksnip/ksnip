@@ -34,6 +34,7 @@ public:
 protected:
     void setFullScreen() override;
     QRect getSnippingAreaGeometry() const override;
+    QPoint getLocalCursorPosition() const override;
 
 private:
     QPoint mScaleOffset;

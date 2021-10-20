@@ -104,10 +104,10 @@ void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *depe
 	if (PlatformChecker::instance()->isX11()) {
 		if(PlatformChecker::instance()->isGnome()) {
 			logger->log(QLatin1String("GnomeX11ImageGrabber selected"));
-			dependencyInjector->registerInstance<IImageGrabber, GnomeX11ImageGrabber, IConfig>();
+			dependencyInjector->registerFactory<IImageGrabber, GnomeX11ImageGrabber, IConfig>();
 		} else {
 			logger->log(QLatin1String("X11ImageGrabber selected"));
-			dependencyInjector->registerInstance<IImageGrabber, X11ImageGrabber, IConfig>();
+			dependencyInjector->registerFactory<IImageGrabber, X11ImageGrabber, IConfig>();
 		}
 	} else if (PlatformChecker::instance()->isWayland()) {
 		if (config->forceGenericWaylandEnabled() || PlatformChecker::instance()->isSnap()) {

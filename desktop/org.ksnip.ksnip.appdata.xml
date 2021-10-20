@@ -93,6 +93,7 @@
                     <li>New: Upload image via command line without opening editor.</li>
                     <li>New: Add multi-language comment option to desktop file.</li>
                     <li>New: Add MimeType of Images to desktop file.</li>
+                    <li>Fixed: Opens a new window for each capture.</li>
                 </ul>
             </description>
         </release>

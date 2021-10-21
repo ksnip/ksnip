@@ -14,21 +14,21 @@ Comment[pt_BR]=Ferramenta de captura de tela de Cross-plataforma que fornece mui
 X-KDE-DBUS-Restricted-Interfaces=org.kde.kwin.Screenshot,org.kde.KWin.ScreenShot2
 
 [Desktop Action Area]
-Exec=ksnip -r
+Exec=ksnip -r -c
 Icon=ksnip
 Name=Capture a rectangular area
 
 [Desktop Action LastArea]
-Exec=ksnip -l
+Exec=ksnip -l -c
 Icon=ksnip
 Name=Capture last selected rectangular area
 
 [Desktop Action FullScreen]
-Exec=ksnip -m
+Exec=ksnip -m -c
 Icon=ksnip
 Name=Capture a fullscreen
 
 [Desktop Action Window]
-Exec=ksnip -a
+Exec=ksnip -a -c
 Icon=ksnip
 Name=Capture the focused window

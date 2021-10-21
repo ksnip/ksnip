@@ -20,6 +20,7 @@
 * Fixed: Snipping Area not closing when pressing ESC. ([#735](https://github.com/ksnip/ksnip/issues/735))
 * Fixed: Sometimes "Snipping Area Rulers" not shown after starting rectangular selection. ([#684](https://github.com/ksnip/ksnip/issues/684))
 * Fixed: Cursor not positioned correctly when snipping area opens. ([#736](https://github.com/ksnip/ksnip/issues/736))
+* Fixed: Mouse cursor not captured when triggered via global shortcut. ([#737](https://github.com/ksnip/ksnip/issues/737))
 * Fixed kImageAnnotator: Crash while typing text on wayland. ([#256](https://github.com/ksnip/kImageAnnotator/issues/256))
 
 ## Release 1.9.1

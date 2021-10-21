@@ -110,6 +110,7 @@
                     <li>Fixed: Snipping Area not closing when pressing ESC.</li>
                     <li>Fixed: Sometimes "Snipping Area Rulers" not shown after starting rectangular selection.</li>
                     <li>Fixed: Cursor not positioned correctly when snipping area opens.</li>
+                    <li>Fixed: Mouse cursor not captured when triggered via global shortcut.</li>
                     <li>Fixed kImageAnnotator: Crash while typing text on wayland.</li>
                 </ul>
             </description>

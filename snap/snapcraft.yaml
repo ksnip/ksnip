@@ -4,6 +4,7 @@ adopt-info: ksnip
 icon: desktop/ksnip.svg
 grade: stable
 confinement: strict
+compression: lzo
 
 apps:
   ksnip:

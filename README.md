@@ -64,8 +64,10 @@ so use them with caution.
 
 ### AppImage
 To use AppImages, make them executable and run them, no installation required.
-`$ chmod a+x ksnip*.AppImage`
-`$ ./ksnip*.AppImage`
+```
+$ chmod a+x ksnip*.AppImage
+$ ./ksnip*.AppImage
+```
 
 More info about setting to executable can be found [here](https://discourse.appimage.org/t/how-to-make-an-appimage-executable/80).
 

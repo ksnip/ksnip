@@ -4,13 +4,11 @@ adopt-info: ksnip
 icon: desktop/ksnip.svg
 grade: stable
 confinement: strict
-summary: Screenshot and Annotation Tool
-description: |
-  Qt based cross-platform screenshot tool that provides many annotation features for your screenshots.
+compression: lzo
 
 apps:
   ksnip:
-    command: ksnip
+    command: bin/ksnip
     common-id: org.ksnip.ksnip
     environment:
       # Set theme fix on gnome/gtk
@@ -47,6 +45,7 @@ parts:
       - ftp
     configflags:
       - -DCMAKE_FIND_ROOT_PATH=/snap/kde-frameworks-5-core18-sdk/current;/snap/kimageannotator/current
+      - -DBUILD_TESTS:BOOL=OFF
     override-pull: |
       snapcraftctl pull
       sed -i 's|Icon=.*|Icon=share/icons/hicolor/scalable/apps/ksnip.svg|g' desktop/org.ksnip.ksnip.desktop
@@ -58,6 +57,8 @@ parts:
       - kcolorpicker
     configflags:
       - -DCMAKE_FIND_ROOT_PATH=/snap/kde-frameworks-5-core18-sdk/current;/snap/kcolorpicker/current
+      - -DBUILD_EXAMPLE:BOOL=OFF
+      - -DBUILD_TESTS:BOOL=OFF
   kcolorpicker:
     source: https://github.com/ksnip/kColorPicker.git
     plugin: cmake

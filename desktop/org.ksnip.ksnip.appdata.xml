@@ -111,6 +111,7 @@
                     <li>Fixed: Sometimes "Snipping Area Rulers" not shown after starting rectangular selection.</li>
                     <li>Fixed: Cursor not positioned correctly when snipping area opens.</li>
                     <li>Fixed: Mouse cursor not captured when triggered via global shortcut.</li>
+                    <li>Fixed: Dual 4K screens get scrambled on X11.</li>
                     <li>Fixed kImageAnnotator: Crash while typing text on wayland.</li>
                 </ul>
             </description>

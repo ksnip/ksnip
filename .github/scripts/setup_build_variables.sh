@@ -41,5 +41,7 @@ fi
 
 
 # Message show on the release page
-UPLOADTOOL_BODY="GitHub Action build logs: https://github.com/ksnip/ksnip/actions"
+ACTION_LINK_TEXT="GitHub Action build logs: https://github.com/ksnip/ksnip/actions"
+BUILD_TIME_TEXT="Build Time: ${BUILD_TIME}"
+UPLOADTOOL_BODY="${ACTION_LINK_TEXT}\n${BUILD_TIME_TEXT}"
 echo "UPLOADTOOL_BODY=$UPLOADTOOL_BODY" >> $GITHUB_ENV

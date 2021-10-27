@@ -1,6 +1,7 @@
 # [ksnip](http://ksnip.org/) 
 [![Linux build status][github-linux-badge]][github-linux-url] [![Windows build status][github-windows-badge]][github-windows-url] [![MacOS build status][github-macos-badge]][github-macos-url] [![GitHub commits (since latest release)][gh-comm-since-badge]][gh-comm-since-url]  
 [![Translation status][weblate-badge]][weblate-url] [![GitHub total downloads][gh-dl-badge]][gh-dl-url] [![SourceForge total downloads][sf-dt-badge]][sf-dt-badge-url] [![Discord][discord-badge]][discord-badge-url]
+[![IRC: #ksnip on libera.chat][libera-badge]][libera-badge-url]
 
 Version v1.10.0
 
@@ -268,3 +269,6 @@ you can do that [here](https://www.paypal.me/damirporobic), donations are always
 
 [discord-badge]:       https://img.shields.io/discord/812295724837371955.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2
 [discord-badge-url]:   http://discord.ksnip.org
+
+[libera-badge]:        https://img.shields.io/badge/libera.chat-%23ksnip-brightgreen.svg
+[libera-badge-url]:    https://web.libera.chat/?channels=#ksnip

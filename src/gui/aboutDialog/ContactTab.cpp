@@ -26,8 +26,9 @@ ContactTab::ContactTab() :
 	mContent->setText(
 			QLatin1String("<b>") + tr("Community") + QLatin1String("</b><br>") +
 			tr("If you have general questions, ideas or just want to talk about ksnip,") + QLatin1String("<br/>") +
-			tr("please join our ") + QLatin1String("<a href=\"http://discord.ksnip.org\">Discord</a>") +
-			tr(" server.") + QLatin1String("<br/><br/>") +
+			tr("please join our") + QLatin1String(" <a href=\"http://discord.ksnip.org\">Discord</a> ") +
+			tr("or our") + QLatin1String(" <a href=\"https://web.libera.chat/?channels=#ksnip\">IRC</a> ") +
+			tr("server")	+ QLatin1String(".<br/><br/>") +
 			QLatin1String("<b>") + tr("Bug Reports") + QLatin1String("</b><br>") +
 			tr("Please use ") + QLatin1String("<a href=\"https://github.com/ksnip/ksnip/issues/\">GitHub</a>") + tr(" to report bugs."));
 	mContent->setTextFormat(Qt::RichText);
@@ -35,6 +36,8 @@ ContactTab::ContactTab() :
 	mContent->setOpenExternalLinks(true);
 	mLayout->addWidget(mContent);
 	setLayout(mLayout);
+
+
 }
 
 ContactTab::~ContactTab()

@@ -21,6 +21,9 @@
 #define KSNIP_PLATFORMCHECKER_H
 
 #include <QString>
+#include "QFile"
+#include "QTextStream"
+#include "QRegularExpression"
 
 #include "CommandRunner.h"
 #include "src/common/enum/Platform.h"
@@ -37,16 +40,19 @@ public:
     bool isKde() const;
     bool isGnome() const;
     bool isSnap() const;
+    int gnomeVersion() const;
 
 private:
     Platform mPlatform;
     Environment mEnvironment;
     PackageManager mPackageManager;
+    int mGnomeVersion;
 
     void checkPlatform();
     void checkEnvironment();
     void checkCheckPackageManager();
     bool outputContainsValue(const QString& output, const QString& value) const;
+    void checkVersion();
 
     PlatformChecker();
 };

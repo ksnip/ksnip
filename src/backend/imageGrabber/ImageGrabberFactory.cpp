@@ -34,7 +34,7 @@ AbstractImageGrabber* ImageGrabberFactory::createImageGrabber()
 		}
     } else if (PlatformChecker::instance()->isWayland()) {
         auto config = KsnipConfigProvider::instance();
-    	if (config->forceGenericWaylandEnabled() || PlatformChecker::instance()->isSnap()) {
+    	if (config->forceGenericWaylandEnabled() || PlatformChecker::instance()->isSnap() || PlatformChecker::instance()->gnomeVersion() >= 41) {
 		    return new WaylandImageGrabber();
     	} else if(PlatformChecker::instance()->isKde()) {
 		    return new KdeWaylandImageGrabber();

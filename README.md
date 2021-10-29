@@ -226,6 +226,13 @@ enforce Portal screenshots in settings. Issue [#424](https://github.com/ksnip/ks
 2. Under Gnome Wayland copying images to clipboard and then pasting them somewhere might not work. This happens currently
 with native Wayland. A workaround is using XWayland by starting ksnip like this `QT_QPA_PLATFORM=xcb /usr/bin/ksnip` or
 switch to XWayland completely by exporting that variable `export QT_QPA_PLATFORM=xcb`. Issue [#416](https://github.com/ksnip/ksnip/issues/416)
+3. Native Wayland screenshots are no longer possible with Gnome 41 and higher. The Gnome developers have forbidden
+access to the DBus interface that provides Screenshots under Wayland and leave non Gnome application only the possibility
+to use xdg-desktop-portal screenshots. Security comes before usability for the Gnome developers. There is an open feature 
+request to only grant screenshot permission once instead of for every screenshot, help us raise awareness for such feature 
+[here](https://github.com/flatpak/xdg-desktop-portal/issues/649).
+4. Global Hotkeys don't work under Wayland, this is due to the secure nature of Wayland. As long as compositor developers
+don't provide an interface for us to work with Global Hotkeys, does won't be supported.
 
 # Discussion & Community
 If you have general questions, ideas or just want to talk about ksnip, please join our [Discord](http://discord.ksnip.org) server. 

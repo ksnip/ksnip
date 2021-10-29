@@ -273,6 +273,25 @@ Vidljivost ploča može se promijeniti pomoću tipke tabulatora.</translation>
         <source>Automatically resize Main Window to fit content image.</source>
         <translation>Automatski prilagodi veličinu glavnog prozora veličini slike sadržaja.</translation>
     </message>
+    <message>
+        <source>Enable Debugging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enables debug output written to the console.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resize to content delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resizing to content is delay to allow the Window Manager to receive
+the new content. In case that the Main Windows is not adjusted correctly
+to the new content, increasing this delay might improve the behavior.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -372,14 +391,6 @@ Do you want to save it?</source>
         <translation>Ako imaš opća pitanja, ideje ili ako samo želiš razgovarati o ksnipu,</translation>
     </message>
     <message>
-        <source>please join our </source>
-        <translation>pridruži se našem </translation>
-    </message>
-    <message>
-        <source> server.</source>
-        <translation> serveru.</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Prijave grešaka</translation>
     </message>
@@ -390,6 +401,18 @@ Do you want to save it?</source>
     <message>
         <source> to report bugs.</source>
         <translation> za prijavljivanje grešaka.</translation>
+    </message>
+    <message>
+        <source>please join our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>or our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>server</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -451,8 +474,8 @@ Do you want to continue?</source>
         <translation>ksnip je neprofitni projekt softvera otvorenog koda,&lt;br/&gt;ima troškove koje treba pokriti,&lt;br/&gt;poput troškova za domenu ili hardverskih troškova za podršku raznih platformi.</translation>
     </message>
     <message>
-        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Ako želiš pomoći ili ako se samo&lt;br/&gt;želiš zahvaliti&lt;br/&gt;, počasti programere pivom ili kavom. To možeš učiniti</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -491,6 +514,29 @@ Do you want to continue?</source>
     <message>
         <source>Screenshot Portal</source>
         <translation>Portal slika ekrana</translation>
+    </message>
+</context>
+<context>
+    <name>FtpUploaderSettings</name>
+    <message>
+        <source>Force anonymous upload.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished">Korisničko ime</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -540,16 +586,28 @@ Do you want to continue?</source>
         <translation>Web-greška. Pregledaj rezultat u konzoli.</translation>
     </message>
     <message>
-        <source>Unknown process error.</source>
-        <translation>Nepoznata greška u postupku.</translation>
-    </message>
-    <message>
         <source>Upload Failed</source>
         <translation>Prijenos nije uspio</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
         <translation>Skripta je zapisala u standardnu grešku (StdErr).</translation>
+    </message>
+    <message>
+        <source>FTP Upload finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -618,14 +676,6 @@ slikama ekrana.</translation>
         <translation>Snimanje slika</translation>
     </message>
     <message>
-        <source>Force Generic Wayland Screenshot</source>
-        <translation>Prisili generičku Wayland sliku ekrana</translation>
-    </message>
-    <message>
-        <source>Scale Generic Wayland Screenshots</source>
-        <translation>Skaliraj generičke Wayland slike ekrana</translation>
-    </message>
-    <message>
         <source>Generic Wayland implementations that use
 XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
@@ -666,6 +716,14 @@ Mijenjanje ove opcije zahtijeva ponovno pokretanje ksnip-a.</translation>
 when the Main Window was hidden or minimize.</source>
         <translation>Prikaži glavni prozor nakon snimanja nove snimke ekrana
 kad je glavni prozor bio skriven ili smanjen.</translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1017,6 +1075,10 @@ okidanja i snimanja slike ekrana.</translation>
         <source>Rotate Image</source>
         <translation>Okreni sliku</translation>
     </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished">Radnje</translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1316,6 +1378,10 @@ RegEx izrazom. Ako se izostavi, kopira se sve.</translation>
     <message>
         <source>Actions</source>
         <translation>Radnje</translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1641,6 +1707,10 @@ kad postoji. Zahtijeva ponovno pokretanje kako bi se promjena primijenila.</tran
     <message>
         <source>Uploader</source>
         <translation>Prijenos</translation>
+    </message>
+    <message>
+        <source>FTP</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

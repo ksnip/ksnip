@@ -273,6 +273,25 @@ Kaien ikusgarritasuna Tab teklarekin txandakatu daiteke.</translation>
         <source>Automatically resize Main Window to fit content image.</source>
         <translation>Aldatu automatikoki leiho nagusiaren tamaina edukiaren irudira doitzeko.</translation>
     </message>
+    <message>
+        <source>Enable Debugging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enables debug output written to the console.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resize to content delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resizing to content is delay to allow the Window Manager to receive
+the new content. In case that the Main Windows is not adjusted correctly
+to the new content, increasing this delay might improve the behavior.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -372,14 +391,6 @@ Nahi duzu gordetzea?</translation>
         <translation>Galdera orokorrak edo ideiak badituzu, nahiz Ksnip-en gainean hitz egiteko,</translation>
     </message>
     <message>
-        <source>please join our </source>
-        <translation>mesedez sartu gure </translation>
-    </message>
-    <message>
-        <source> server.</source>
-        <translation> zerbitzaria.</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Erroreen txostenak</translation>
     </message>
@@ -390,6 +401,18 @@ Nahi duzu gordetzea?</translation>
     <message>
         <source> to report bugs.</source>
         <translation> erroreen berri emateko.</translation>
+    </message>
+    <message>
+        <source>please join our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>or our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>server</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -451,8 +474,8 @@ Jarraitu nahi duzu?</translation>
         <translation>Ksnip irabazi asmorik gabeko software libreko proektua da, eta &lt;br/&gt;oraindik estali gabeko kostu batzuk ditu&lt;br/&gt;, hala nola plataforma anitzen sustengua emateko behar diren domeinuaren eta hardwarearen kostuak.</translation>
     </message>
     <message>
-        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Lagundu nahi bagaituzu edo &lt;br/&gt;egindako lana saritu nahi baduzu&lt;br/&gt; garatzaileak garagardo bat edo kafe batera gonbidatuz, egin dezakezu</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -491,6 +514,29 @@ Jarraitu nahi duzu?</translation>
     <message>
         <source>Screenshot Portal</source>
         <translation>Pantaila argazkien ataria</translation>
+    </message>
+</context>
+<context>
+    <name>FtpUploaderSettings</name>
+    <message>
+        <source>Force anonymous upload.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished">Erabiltzaile-izena</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -540,16 +586,28 @@ Jarraitu nahi duzu?</translation>
         <translation>Web errorea, begiratu kontsolaren irteera.</translation>
     </message>
     <message>
-        <source>Unknown process error.</source>
-        <translation>Prozesuaren errore ezezaguna.</translation>
-    </message>
-    <message>
         <source>Upload Failed</source>
         <translation>Kargak huts egin du</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
         <translation>StdErr-ra bidalitako scripta.</translation>
+    </message>
+    <message>
+        <source>FTP Upload finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -618,14 +676,6 @@ ikusiko da.</translation>
         <translation>Irudien kapturatzailea</translation>
     </message>
     <message>
-        <source>Force Generic Wayland Screenshot</source>
-        <translation>Behartu Wayland-en pantaila generikoa</translation>
-    </message>
-    <message>
-        <source>Scale Generic Wayland Screenshots</source>
-        <translation>Eskalatu Wayland-en pantaila-argazki generikoak</translation>
-    </message>
-    <message>
         <source>Generic Wayland implementations that use
 XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
@@ -666,6 +716,14 @@ Aukera hau aldatzeak ksnip berrabiaraztea eskatzen du.</translation>
 when the Main Window was hidden or minimize.</source>
         <translation>Erakutsi leiho nagusia pantaila argazki berri bat egin ondoren
 leiho nagusia ezkutuan edo minimizatuta dagoenean.</translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1017,6 +1075,10 @@ eta pantaila-argazkiaren artean.</translation>
         <source>Rotate Image</source>
         <translation>Biratu irudia</translation>
     </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished">Ekintzak</translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1315,6 +1377,10 @@ Ez badago, dena kopiatzen da.</translation>
     <message>
         <source>Actions</source>
         <translation>Ekintzak</translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1642,6 +1708,10 @@ zerbitzua erabiltzen baldin badago. Aldaketak berrabiaraztea eskatzen du eragina
     <message>
         <source>Uploader</source>
         <translation>Kargagailua</translation>
+    </message>
+    <message>
+        <source>FTP</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

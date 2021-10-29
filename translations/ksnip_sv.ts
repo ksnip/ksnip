@@ -272,6 +272,25 @@ Dockors synlighet kan växlas med Tab-tangenten.</translation>
         <source>Automatically resize Main Window to fit content image.</source>
         <translation>Ändra automatiskt storleken på huvudfönstret för att passa bilden.</translation>
     </message>
+    <message>
+        <source>Enable Debugging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enables debug output written to the console.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resize to content delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resizing to content is delay to allow the Window Manager to receive
+the new content. In case that the Main Windows is not adjusted correctly
+to the new content, increasing this delay might improve the behavior.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -371,14 +390,6 @@ Vill du spara det?</translation>
         <translation>Om du har allmänna frågor, idéer eller bara vill prata om ksnip,</translation>
     </message>
     <message>
-        <source>please join our </source>
-        <translation>kan du gå med i vår </translation>
-    </message>
-    <message>
-        <source> server.</source>
-        <translation> server.</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Felrapporter</translation>
     </message>
@@ -389,6 +400,18 @@ Vill du spara det?</translation>
     <message>
         <source> to report bugs.</source>
         <translation> för att rapportera fel.</translation>
+    </message>
+    <message>
+        <source>please join our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>or our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>server</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -450,8 +473,8 @@ Vill du fortsätta?</translation>
         <translation>ksnip är ett icke-lönsamt mjukvaruprojekt, som&lt;br/&gt;fortfarande har vissa kostnader som måste täckas,&lt;br/&gt;som domänkostnader eller hårdvarukostnader för flerplattformsberoende stöd.</translation>
     </message>
     <message>
-        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Om du vill hjälpa till eller bara&lt;br/&gt;uppskattar det arbete som görs&lt;br/&gt;genom att bjuda utvecklaren på en öl eller kaffe, kan du göra det</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -490,6 +513,29 @@ Vill du fortsätta?</translation>
     <message>
         <source>Screenshot Portal</source>
         <translation>Skärmklippsportal</translation>
+    </message>
+</context>
+<context>
+    <name>FtpUploaderSettings</name>
+    <message>
+        <source>Force anonymous upload.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished">Användarnamn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -539,16 +585,28 @@ Vill du fortsätta?</translation>
         <translation>Webbfel, kontrollera utdata i konsolen.</translation>
     </message>
     <message>
-        <source>Unknown process error.</source>
-        <translation>Okänt processfel.</translation>
-    </message>
-    <message>
         <source>Upload Failed</source>
         <translation>Uppladdning misslyckades</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
         <translation>Skript skrev till StdErr.</translation>
+    </message>
+    <message>
+        <source>FTP Upload finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -617,14 +675,6 @@ skärmklipp.</translation>
         <translation>Områdesklipp</translation>
     </message>
     <message>
-        <source>Force Generic Wayland Screenshot</source>
-        <translation>Framtvinga inbyggt Wayland-skärmklipp</translation>
-    </message>
-    <message>
-        <source>Scale Generic Wayland Screenshots</source>
-        <translation>Skala inbyggt Wayland-skärmklipp</translation>
-    </message>
-    <message>
         <source>Generic Wayland implementations that use
 XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
@@ -665,6 +715,14 @@ GNOME att använda XDG-DESKTOP-PORTAL-skärmklipp.
 when the Main Window was hidden or minimize.</source>
         <translation>Visa huvudfönstret efter att ha tagit ett nytt skärmklipp,
 när huvudfönstret var dolt eller minimerat.</translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1016,6 +1074,10 @@ och själva skärmklippet.</translation>
         <source>Rotate Image</source>
         <translation>Rotera bild</translation>
     </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished">Åtgärder</translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1314,6 +1376,10 @@ När detta utelämnas kopieras allt.</translation>
     <message>
         <source>Actions</source>
         <translation>Åtgärder</translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1641,6 +1707,10 @@ när sådan finnes. Ändring kräver omstart för att tillämpas.</translation>
     <message>
         <source>Uploader</source>
         <translation>Uppladdare</translation>
+    </message>
+    <message>
+        <source>FTP</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

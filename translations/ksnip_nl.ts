@@ -273,6 +273,25 @@ Ze kunnen dan worden getoond/verborgen met de Tab-toets.</translation>
         <source>Automatically resize Main Window to fit content image.</source>
         <translation>Pas de afmetingen van het hoofdvenster automatisch aan aan de schermfoto.</translation>
     </message>
+    <message>
+        <source>Enable Debugging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enables debug output written to the console.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resize to content delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resizing to content is delay to allow the Window Manager to receive
+the new content. In case that the Main Windows is not adjusted correctly
+to the new content, increasing this delay might improve the behavior.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -372,14 +391,6 @@ Wil je deze opslaan?</translation>
         <translation>Als je algemene vragen of ideeën hebt of gewoon even wilt praten over ksnip,</translation>
     </message>
     <message>
-        <source>please join our </source>
-        <translation>breng dan eens een bezoekje aan onze </translation>
-    </message>
-    <message>
-        <source> server.</source>
-        <translation> server.</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Bugmeldingen</translation>
     </message>
@@ -390,6 +401,18 @@ Wil je deze opslaan?</translation>
     <message>
         <source> to report bugs.</source>
         <translation> om bugs te melden.</translation>
+    </message>
+    <message>
+        <source>please join our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>or our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>server</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -451,8 +474,8 @@ Weet je zeker dat je wilt doorgaan?</translation>
         <translation>ksnip is een vrijesoftwareproject zonder winstoogmerk, maar&lt;br/&gt;maakt desondanks kosten,&lt;br/&gt;zoals domeinnaam- en hardwarekosten (voor platform-onafhankelijke ondersteuning).</translation>
     </message>
     <message>
-        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Als je wilt helpen of gewoon&lt;br/&gt;je waardering voor ons harde werk wilt tonen,&lt;br/&gt;dan kun je ons trakteren op een biertje of kopje koffie</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -491,6 +514,29 @@ Weet je zeker dat je wilt doorgaan?</translation>
     <message>
         <source>Screenshot Portal</source>
         <translation>Schermfotoportaal</translation>
+    </message>
+</context>
+<context>
+    <name>FtpUploaderSettings</name>
+    <message>
+        <source>Force anonymous upload.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished">Gebruikersnaam</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -540,16 +586,28 @@ Weet je zeker dat je wilt doorgaan?</translation>
         <translation>Netwerkfout. Controleer de opdrachtvensteruitvoer.</translation>
     </message>
     <message>
-        <source>Unknown process error.</source>
-        <translation>Onbekende procesfout.</translation>
-    </message>
-    <message>
         <source>Upload Failed</source>
         <translation>Uploaden mislukt</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
         <translation>Het script is weggeschreven naar StdErr.</translation>
+    </message>
+    <message>
+        <source>FTP Upload finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -618,14 +676,6 @@ schermfoto&apos;s.</translation>
         <translation>Vastleggen</translation>
     </message>
     <message>
-        <source>Force Generic Wayland Screenshot</source>
-        <translation>Algemene Wayland-schermfoto afdwingen</translation>
-    </message>
-    <message>
-        <source>Scale Generic Wayland Screenshots</source>
-        <translation>Grootte van algemene Wayland-schermfoto&apos;s aanpassen</translation>
-    </message>
-    <message>
         <source>Generic Wayland implementations that use
 XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
@@ -666,6 +716,14 @@ maken van schermfoto&apos;s. Herstart ksnip om de wijziging toe te passen.</tran
 when the Main Window was hidden or minimize.</source>
         <translation>Toon het hoofdvenster na het maken van een schermfoto als
 het hoofdvenster verborgen of geminimaliseerd is.</translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1017,6 +1075,10 @@ van een schermfoto, in seconden.</translation>
         <source>Rotate Image</source>
         <translation>Foto draaien</translation>
     </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished">Acties</translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1315,6 +1377,10 @@ Sla over om álles te kopiëren.</translation>
     <message>
         <source>Actions</source>
         <translation>Acties</translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1642,6 +1708,10 @@ Herstart KSnip om de wijziging toe te passen.</translation>
     <message>
         <source>Uploader</source>
         <translation>Uploader</translation>
+    </message>
+    <message>
+        <source>FTP</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

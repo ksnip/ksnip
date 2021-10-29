@@ -266,6 +266,25 @@ Docks visibility can be toggled with the Tab Key.</source>
         <source>Automatically resize Main Window to fit content image.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Enable Debugging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enables debug output written to the console.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resize to content delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resizing to content is delay to allow the Window Manager to receive
+the new content. In case that the Main Windows is not adjusted correctly
+to the new content, increasing this delay might improve the behavior.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -364,14 +383,6 @@ Do you want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>please join our </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> server.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation type="unfinished"></translation>
     </message>
@@ -382,6 +393,18 @@ Do you want to save it?</source>
     <message>
         <source> to report bugs.</source>
         <translation type="unfinished"> untuk melaporkan masalah.</translation>
+    </message>
+    <message>
+        <source>please join our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>or our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>server</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -442,7 +465,7 @@ Do you want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -481,6 +504,29 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Screenshot Portal</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FtpUploaderSettings</name>
+    <message>
+        <source>Force anonymous upload.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished">Nama user</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -531,15 +577,27 @@ Do you want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unknown process error.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Upload Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FTP Upload finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Permission Error.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -579,7 +637,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bersihkan</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
@@ -606,14 +664,6 @@ pada hasil tangkapan.</translation>
     <message>
         <source>Image Grabber</source>
         <translation type="unfinished">Penangkap Gambar</translation>
-    </message>
-    <message>
-        <source>Force Generic Wayland Screenshot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Scale Generic Wayland Screenshots</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -646,6 +696,14 @@ Change in this option require a ksnip restart.</source>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -939,7 +997,7 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Buka Direktori</translation>
     </message>
     <message>
         <source>&amp;View</source>
@@ -947,11 +1005,11 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hapus</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ubah nama</translation>
     </message>
     <message>
         <source>Open Images</source>
@@ -996,6 +1054,10 @@ gambar, dalam detik.</translation>
     <message>
         <source>Rotate Image</source>
         <translation>Putar Gambar</translation>
+    </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished">Tindakan</translation>
     </message>
 </context>
 <context>
@@ -1197,7 +1259,7 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Pengunggah Skrip</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
@@ -1274,7 +1336,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Area Pemotong</translation>
     </message>
     <message>
         <source>Tray Icon</source>
@@ -1287,6 +1349,10 @@ When omitted, everything is copied.</source>
     <message>
         <source>Actions</source>
         <translation>Tindakan</translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1597,6 +1663,10 @@ service when such exists. Change requires restart to take effect.</source>
     <message>
         <source>Uploader</source>
         <translation>Pengunggah</translation>
+    </message>
+    <message>
+        <source>FTP</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

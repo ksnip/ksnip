@@ -272,6 +272,25 @@ Viditelnost doků lze přepínat pomocí klávesy Tabulátor.</translation>
         <source>Automatically resize Main Window to fit content image.</source>
         <translation>Automaticky změnit velikost hlavního okna podle velikosti obrázku.</translation>
     </message>
+    <message>
+        <source>Enable Debugging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enables debug output written to the console.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resize to content delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resizing to content is delay to allow the Window Manager to receive
+the new content. In case that the Main Windows is not adjusted correctly
+to the new content, increasing this delay might improve the behavior.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -371,14 +390,6 @@ Chcete změny uložit?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>please join our </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> server.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation type="unfinished"></translation>
     </message>
@@ -389,6 +400,18 @@ Chcete změny uložit?</translation>
     <message>
         <source> to report bugs.</source>
         <translation type="unfinished"> pro hlášení chyb.</translation>
+    </message>
+    <message>
+        <source>please join our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>or our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>server</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -450,8 +473,8 @@ Chcete pokračovat?</translation>
         <translation>ksnip je neziskový softwarový projekt copylefted libre a &lt;br/&gt; má však stále určité náklady, které je třeba pokrýt, &lt;br/&gt; jedná se o náklady na doménu nebo náklady na hardware pro podporu mezi platformami.</translation>
     </message>
     <message>
-        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Pokud chcete pomoci nebo jen &lt;br/&gt; ocenit práci &lt;br/&gt; vývojářů kávou či pivem, můžete to udělat</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -490,6 +513,29 @@ Chcete pokračovat?</translation>
     <message>
         <source>Screenshot Portal</source>
         <translation>Portál snímků obrazovky</translation>
+    </message>
+</context>
+<context>
+    <name>FtpUploaderSettings</name>
+    <message>
+        <source>Force anonymous upload.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished">Uživatelské jméno</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -539,16 +585,28 @@ Chcete pokračovat?</translation>
         <translation>Chyba webu, zkontrolujte výstup konzoly.</translation>
     </message>
     <message>
-        <source>Unknown process error.</source>
-        <translation>Neznámá chyba procesu.</translation>
-    </message>
-    <message>
         <source>Upload Failed</source>
         <translation>Nahrání se nezdařilo</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
         <translation>Skript zapisoval do StdErr.</translation>
+    </message>
+    <message>
+        <source>FTP Upload finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -616,14 +674,6 @@ na snímku obrazovky.</translation>
         <translation>Snímkování</translation>
     </message>
     <message>
-        <source>Force Generic Wayland Screenshot</source>
-        <translation>Vynutit obecný snímek obrazovky Wayland</translation>
-    </message>
-    <message>
-        <source>Scale Generic Wayland Screenshots</source>
-        <translation>Škálování obecných snímků obrazovky Wayland</translation>
-    </message>
-    <message>
         <source>Generic Wayland implementations that use
 XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
@@ -662,6 +712,14 @@ Změna tohoto nastavení se projeví po restartu ksnip.</translation>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1014,6 +1072,10 @@ a zachycením obrazovky.</translation>
         <source>Rotate Image</source>
         <translation>Otočit Obrázek</translation>
     </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished">Akce</translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1312,6 +1374,10 @@ Když je vynechán, zkopíruje se vše.</translation>
     <message>
         <source>Actions</source>
         <translation>Akce</translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1639,6 +1705,10 @@ Změna vyžaduje restart pro projevení.</translation>
     <message>
         <source>Uploader</source>
         <translation>Uploader</translation>
+    </message>
+    <message>
+        <source>FTP</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

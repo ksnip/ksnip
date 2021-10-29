@@ -273,6 +273,25 @@ Valikon näkyvyyttä voidaan vaihtaa sarkaimella.</translation>
         <source>Automatically resize Main Window to fit content image.</source>
         <translation>Muuttaa pääikkunan kokoa automaattisesti kuvaan sopivaksi.</translation>
     </message>
+    <message>
+        <source>Enable Debugging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enables debug output written to the console.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resize to content delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resizing to content is delay to allow the Window Manager to receive
+the new content. In case that the Main Windows is not adjusted correctly
+to the new content, increasing this delay might improve the behavior.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -372,14 +391,6 @@ Haluatko tallentaa sen?</translation>
         <translation>Jos sinulla on kysymyksiä, ideoita tai haluat vain keskustella ksnipistä,</translation>
     </message>
     <message>
-        <source>please join our </source>
-        <translation>liity meidän </translation>
-    </message>
-    <message>
-        <source> server.</source>
-        <translation> palvelin.</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Virheraportit</translation>
     </message>
@@ -390,6 +401,18 @@ Haluatko tallentaa sen?</translation>
     <message>
         <source> to report bugs.</source>
         <translation> raportoi virheistä.</translation>
+    </message>
+    <message>
+        <source>please join our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>or our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>server</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -451,8 +474,8 @@ Haluatko jatkaa?</translation>
         <translation>ksnip on voittoa tavoittelematon ohjelmaisto projekti. &lt;br/&gt;Silti joitakin kustannuksia on katettava,&lt;br/&gt; kuten verkkotunnus ja laitteistokulu alustojen välisen tuen testaamisesi.</translation>
     </message>
     <message>
-        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Jos haluat auttaa tai&lt;br/&gt;vain arvostaa tehtyä työtä,&lt;br/&gt;voit tehdä sen tarjoamalla kehittäjille oluen tai kahvin</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -491,6 +514,29 @@ Haluatko jatkaa?</translation>
     <message>
         <source>Screenshot Portal</source>
         <translation>Ruudunkaappaus portaali</translation>
+    </message>
+</context>
+<context>
+    <name>FtpUploaderSettings</name>
+    <message>
+        <source>Force anonymous upload.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished">Käyttäjätunnus</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -540,16 +586,28 @@ Haluatko jatkaa?</translation>
         <translation>Verkkovirhe, tarkista konsolin tulos.</translation>
     </message>
     <message>
-        <source>Unknown process error.</source>
-        <translation>Tuntematon prosessivirhe.</translation>
-    </message>
-    <message>
         <source>Upload Failed</source>
         <translation>Lataaminen epäonnistui</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
         <translation>Skriptin kirjoitti StdErr.</translation>
+    </message>
+    <message>
+        <source>FTP Upload finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -618,14 +676,6 @@ kaappauksissa.</translation>
         <translation>Kuvan kaappaaja</translation>
     </message>
     <message>
-        <source>Force Generic Wayland Screenshot</source>
-        <translation>Pakota Wayland ruudunkaappaus</translation>
-    </message>
-    <message>
-        <source>Scale Generic Wayland Screenshots</source>
-        <translation>Skaalaa Wayland ruudunkaappaukset</translation>
-    </message>
-    <message>
         <source>Generic Wayland implementations that use
 XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
@@ -666,6 +716,14 @@ kaappausta. Vaatii ksnipin käynnistyksen uudelleen.</translation>
 when the Main Window was hidden or minimize.</source>
         <translation>Näytä pääikkuna kaappauksen ottamisen jälkeen kun
 pääikkuna oli piilotettu tai minimoitu.</translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1017,6 +1075,10 @@ ottamisen välillä.</translation>
         <source>Rotate Image</source>
         <translation>Pyöritä kuvaa</translation>
     </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished">Toimet</translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1315,6 +1377,10 @@ Kun kaikki jätetään pois, kaikki kopioidaan.</translation>
     <message>
         <source>Actions</source>
         <translation>Toimet</translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1642,6 +1708,10 @@ palvelua, jos sellainen on olemassa. Vaatii käynnistyksen uudelleen.</translati
     <message>
         <source>Uploader</source>
         <translation>Lataaja</translation>
+    </message>
+    <message>
+        <source>FTP</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

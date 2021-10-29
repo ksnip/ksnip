@@ -268,6 +268,25 @@ Docks visibility can be toggled with the Tab Key.</source>
         <source>Automatically resize Main Window to fit content image.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Enable Debugging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enables debug output written to the console.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resize to content delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resizing to content is delay to allow the Window Manager to receive
+the new content. In case that the Main Windows is not adjusted correctly
+to the new content, increasing this delay might improve the behavior.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -367,14 +386,6 @@ Speichern?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>please join our </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> server.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation type="unfinished"></translation>
     </message>
@@ -385,6 +396,18 @@ Speichern?</translation>
     <message>
         <source> to report bugs.</source>
         <translation type="unfinished"> um Fehler zu melden.</translation>
+    </message>
+    <message>
+        <source>please join our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>or our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>server</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -446,8 +469,8 @@ Wollen Sie Fortfahren?</translation>
         <translation>ksnip ist ein unkommerzielles, freies und unter „Copyleft“ stehendes Softwareprojekt, &lt;br/&gt;für das jedoch Kosten anfallen, die es zu decken gilt,&lt;br/&gt; wie z.B. Kosten für die Internetdomäne oder Hardwarekosten für die plattformübergreifende Unterstützung.</translation>
     </message>
     <message>
-        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Falls du helfen möchtest oder &lt;br/&gt;deine Wertschätzung für die Arbeit ausdrücken möchtest&lt;br/&gt;, indem du den Entwicklern ein Bier oder Kaffee ausgeben möchtest, kannst du das gerne tun</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -486,6 +509,29 @@ Wollen Sie Fortfahren?</translation>
     <message>
         <source>Screenshot Portal</source>
         <translation>Bildschirmfoto-Portal</translation>
+    </message>
+</context>
+<context>
+    <name>FtpUploaderSettings</name>
+    <message>
+        <source>Force anonymous upload.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished">Benutzername</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -535,16 +581,28 @@ Wollen Sie Fortfahren?</translation>
         <translation>Web-Fehler, Konsolenausgabe prüfen.</translation>
     </message>
     <message>
-        <source>Unknown process error.</source>
-        <translation>Unbekannter Prozess-Fehler.</translation>
-    </message>
-    <message>
         <source>Upload Failed</source>
         <translation>Hochladen fehlgeschlagen</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
         <translation>Script hat in die Fehlerausgabe (StdErr) geschrieben.</translation>
+    </message>
+    <message>
+        <source>FTP Upload finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -612,14 +670,6 @@ Screenshots sichtbar sein soll.</translation>
         <translation>Bildgrabber</translation>
     </message>
     <message>
-        <source>Force Generic Wayland Screenshot</source>
-        <translation>Erzwinge Screenshot über eine standardmäßige Wayland-Funktion</translation>
-    </message>
-    <message>
-        <source>Scale Generic Wayland Screenshots</source>
-        <translation>Skaliere Screenshots über eine standardmäßige Wayland-Funktion</translation>
-    </message>
-    <message>
         <source>Generic Wayland implementations that use
 XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
@@ -658,6 +708,14 @@ dieser Option erfordert einen Neustart von ksnip.</translation>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1010,6 +1068,10 @@ und der Aufnahme des Bildschirmfotos.</translation>
         <source>Rotate Image</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1307,6 +1369,10 @@ Alles wird kopiert wenn leer.</translation>
     </message>
     <message>
         <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1632,6 +1698,10 @@ service when such exists. Change requires restart to take effect.</source>
     <message>
         <source>Uploader</source>
         <translation>Hochladen-Programm</translation>
+    </message>
+    <message>
+        <source>FTP</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

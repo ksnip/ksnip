@@ -149,7 +149,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх 
+ліній, залишених пером чи маркером, але зробить їх&#x2028;
 плавнішими.</translation>
     </message>
     <message>
@@ -274,6 +274,25 @@ Docks visibility can be toggled with the Tab Key.</source>
         <source>Automatically resize Main Window to fit content image.</source>
         <translation>Автоматично змінювати розміри головного вікна за зображенням-вмістом.</translation>
     </message>
+    <message>
+        <source>Enable Debugging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enables debug output written to the console.
+Change requires ksnip restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resize to content delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resizing to content is delay to allow the Window Manager to receive
+the new content. In case that the Main Windows is not adjusted correctly
+to the new content, increasing this delay might improve the behavior.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthorTab</name>
@@ -373,14 +392,6 @@ Do you want to save it?</source>
         <translation>Якщо у вас є питання загального характеру, ідеї або ви просто хочете обговорити ksnip,</translation>
     </message>
     <message>
-        <source>please join our </source>
-        <translation>будь ласка, долучайтеся до нашого </translation>
-    </message>
-    <message>
-        <source> server.</source>
-        <translation> сервера.</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Звіти щодо вад</translation>
     </message>
@@ -391,6 +402,18 @@ Do you want to save it?</source>
     <message>
         <source> to report bugs.</source>
         <translation> для надсилання сповіщень щодо вад.</translation>
+    </message>
+    <message>
+        <source>please join our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>or our</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>server</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -452,8 +475,8 @@ Do you want to continue?</source>
         <translation>ksnip — проєкт зі створення неприбуткового програмного забезпечення із вільними умовами ліцензування та умовами безкоштовного поширення.&lt;br/&gt;Втім, це не означає, що він не коштує нічого.&lt;br/&gt;Нам доводиться сплачувати за домен та обладнання для підтримання роботи програми на багатьох платформах.</translation>
     </message>
     <message>
-        <source>If you want to help or just&lt;br/&gt;want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Якщо ви хочете допомогти або просто&lt;br/&gt;віддячити за виконану роботу&lt;br/&gt;келихом пива або чашкою кави для розробників, ви можете це зробити</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -492,6 +515,29 @@ Do you want to continue?</source>
     <message>
         <source>Screenshot Portal</source>
         <translation>Портал знімків вікон</translation>
+    </message>
+</context>
+<context>
+    <name>FtpUploaderSettings</name>
+    <message>
+        <source>Force anonymous upload.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Url</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished">Користувач</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -541,16 +587,28 @@ Do you want to continue?</source>
         <translation>Помилка із мережею, ознайомтеся із виведеними до консолі даними.</translation>
     </message>
     <message>
-        <source>Unknown process error.</source>
-        <translation>Невідома помилка обробки.</translation>
-    </message>
-    <message>
         <source>Upload Failed</source>
         <translation>Невдала спроба вивантаження</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
         <translation>Скрипт записано до StdErr.</translation>
+    </message>
+    <message>
+        <source>FTP Upload finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -619,14 +677,6 @@ screenshots.</source>
         <translation>Захоплення знімків</translation>
     </message>
     <message>
-        <source>Force Generic Wayland Screenshot</source>
-        <translation>Примусове створення типового знімка Wayland</translation>
-    </message>
-    <message>
-        <source>Scale Generic Wayland Screenshots</source>
-        <translation>Масштабувати типові знімки у Wayland</translation>
-    </message>
-    <message>
         <source>Generic Wayland implementations that use
 XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
@@ -667,6 +717,14 @@ Change in this option require a ksnip restart.</source>
 when the Main Window was hidden or minimize.</source>
         <translation>Показати головне вікно після створення знімка,
 якщо головне вікно було приховано або згорнуто.</translation>
+    </message>
+    <message>
+        <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1018,6 +1076,10 @@ and capturing screenshot.</source>
         <source>Rotate Image</source>
         <translation>Обертати зображення</translation>
     </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished">Дії</translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1316,6 +1378,10 @@ When omitted, everything is copied.</source>
     <message>
         <source>Actions</source>
         <translation>Дії</translation>
+    </message>
+    <message>
+        <source>FTP Uploader</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1644,6 +1710,10 @@ service when such exists. Change requires restart to take effect.</source>
     <message>
         <source>Uploader</source>
         <translation>Вивантажувач</translation>
+    </message>
+    <message>
+        <source>FTP</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -236,7 +236,8 @@ request to only grant screenshot permission once instead of for every screenshot
 don't provide an interface for us to work with Global Hotkeys, does won't be supported.
 
 # Discussion & Community
-If you have general questions, ideas or just want to talk about ksnip, please join our [Discord](http://discord.ksnip.org) server. 
+If you have general questions, ideas or just want to talk about ksnip, please join our [Discord][discord-badge-url] 
+or [IRC][libera-badge-url] server. 
 
 # Bug report
 Please report any bugs or feature requests related to the annotation editor on the [kImageAnnotator](https://github.com/ksnip/kImageAnnotator/issues) GitHub page under the "Issue" section.

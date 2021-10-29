@@ -275,22 +275,25 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>启用调试</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>启用写入控制台的调试输出。
+更改需要 ksnip 重新启动才能生效。</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>调整窗口大小适应内容的延迟</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>根据内容大小是允许窗口管理器接收新内容的延迟。
+如果未正确调整主窗口以适应新内容，
+增加延迟可能会改善行为。</translation>
     </message>
 </context>
 <context>
@@ -404,15 +407,15 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>please join our</source>
-        <translation type="unfinished"></translation>
+        <translation>请加入我们的</translation>
     </message>
     <message>
         <source>or our</source>
-        <translation type="unfinished"></translation>
+        <translation>或我们的</translation>
     </message>
     <message>
         <source>server</source>
-        <translation type="unfinished"></translation>
+        <translation>服务器</translation>
     </message>
 </context>
 <context>
@@ -475,7 +478,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>如果你想提供帮助或只是想&lt;br/&gt;请开发人员喝啤酒或喝咖啡来感谢所做的工作，您可以这样做</translation>
     </message>
 </context>
 <context>
@@ -520,23 +523,23 @@ Do you want to continue?</source>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>强制匿名上传。</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Url</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">用户名</translation>
+        <translation>用户名</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>密码</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP 上传器</translation>
     </message>
 </context>
 <context>
@@ -595,19 +598,19 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP 上传成功完成。</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>未知错误。</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>连接错误。</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>权限错误。</translation>
     </message>
 </context>
 <context>
@@ -719,7 +722,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>强制 Generic Wayland (xdg-desktop-portal) 截图</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
@@ -1077,7 +1080,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">操作</translation>
+        <translation>操作</translation>
     </message>
 </context>
 <context>
@@ -1380,7 +1383,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP 上传器</translation>
     </message>
 </context>
 <context>
@@ -1711,7 +1714,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>

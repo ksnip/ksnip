@@ -22,6 +22,7 @@
 * Fixed: Cursor not positioned correctly when snipping area opens. ([#736](https://github.com/ksnip/ksnip/issues/736))
 * Fixed: Mouse cursor not captured when triggered via global shortcut. ([#737](https://github.com/ksnip/ksnip/issues/737))
 * Fixed: Dual 4K screens get scrambled on X11. ([#734](https://github.com/ksnip/ksnip/issues/734))
+* Changed: Enforce xdg-desktop-portal screenshots for Gnome 41. ([#727](https://github.com/ksnip/ksnip/issues/727))
 * Fixed kImageAnnotator: Crash while typing text on wayland. ([#256](https://github.com/ksnip/kImageAnnotator/issues/256))
 
 ## Release 1.9.1

@@ -117,8 +117,13 @@ void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *depe
 			logger->log(QLatin1String("KdeWaylandImageGrabber selected"));
 			dependencyInjector->registerFactory<IImageGrabber, KdeWaylandImageGrabber, IConfig>();
 		} else if (PlatformChecker::instance()->isGnome()) {
-			logger->log(QLatin1String("GnomeWaylandImageGrabber selected"));
-			dependencyInjector->registerFactory<IImageGrabber, GnomeWaylandImageGrabber, IConfig>();
+            if(PlatformChecker::instance()->gnomeVersion() >= 41) {
+                logger->log(QLatin1String("Gnome Version is >= 41, WaylandImageGrabber selected"));
+                dependencyInjector->registerFactory<IImageGrabber, WaylandImageGrabber, IConfig>();
+            } else {
+                logger->log(QLatin1String("GnomeWaylandImageGrabber selected"));
+                dependencyInjector->registerFactory<IImageGrabber, GnomeWaylandImageGrabber, IConfig>();
+            }
 		} else {
 			qCritical("Unknown wayland platform, using default wayland Image Grabber.");
 			logger->log(QLatin1String("WaylandImageGrabber selected"));

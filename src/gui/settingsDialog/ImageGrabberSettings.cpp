@@ -63,14 +63,14 @@ void ImageGrabberSettings::initGui()
 	mShowMainWindowAfterTakingScreenshotCheckbox->setToolTip(tr("Show Main Window after capturing a new screenshot\n"
 															 	   "when the Main Window was hidden or minimize."));
 
-    mForceGenericWaylandCheckbox->setText(tr("Force Generic Wayland Screenshot"));
+    mForceGenericWaylandCheckbox->setText(tr("Force Generic Wayland (xdg-desktop-portal) Screenshot"));
     mForceGenericWaylandCheckbox->setToolTip(tr("GNOME and KDE Plasma support their own Wayland\n"
                                                    "and the Generic XDG-DESKTOP-PORTAL screenshots.\n"
                                                    "Enabling this option will force KDE Plasma and\n"
                                                    "GNOME to use the XDG-DESKTOP-PORTAL screenshots.\n"
                                                    "Change in this option require a ksnip restart."));
 
-    mScaleGenericWaylandScreenshotsCheckbox->setText(tr("Scale Generic Wayland Screenshots"));
+    mScaleGenericWaylandScreenshotsCheckbox->setText(tr("Scale Generic Wayland (xdg-desktop-portal) Screenshots"));
     mScaleGenericWaylandScreenshotsCheckbox->setToolTip(tr("Generic Wayland implementations that use\n"
                                                               "XDG-DESKTOP-PORTAL handle screen scaling\n"
                                                               "differently. Enabling this option will\n"

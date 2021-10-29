@@ -50,6 +50,11 @@ bool PlatformChecker::isSnap() const
 	return mPackageManager == PackageManager::Snap;
 }
 
+int PlatformChecker::gnomeVersion() const
+{
+    return mGnomeVersion;
+}
+
 void PlatformChecker::checkPlatform()
 {
     CommandRunner runner;
@@ -94,9 +99,27 @@ bool PlatformChecker::outputContainsValue(const QString& output, const QString& 
 PlatformChecker::PlatformChecker() :
 	mEnvironment(Environment::Unknown),
 	mPlatform(Platform::Unknown),
-	mPackageManager(PackageManager::Unknown)
+	mPackageManager(PackageManager::Unknown),
+    mGnomeVersion(-1)
 {
     checkPlatform();
     checkEnvironment();
     checkCheckPackageManager();
+    checkVersion();
+}
+
+void PlatformChecker::checkVersion()
+{
+    if(isGnome()) {
+        QFile gnomeVersionFile("/usr/share/gnome/gnome-version.xml");
+        if (gnomeVersionFile.open(QFile::ReadOnly | QFile::Text)) {
+            QTextStream inputStream(&gnomeVersionFile);
+            QRegularExpression regex("<platform>(.+?)</platform>");
+            bool isParseSuccessful;
+            auto value = regex.match(inputStream.readAll()).captured(1).toInt(&isParseSuccessful);
+            if(isParseSuccessful) {
+                mGnomeVersion = value;
+            }
+        }
+    }
 }

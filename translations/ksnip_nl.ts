@@ -407,15 +407,15 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>please join our</source>
-        <translation type="unfinished"></translation>
+        <translation>word lid van onze</translation>
     </message>
     <message>
         <source>or our</source>
-        <translation type="unfinished"></translation>
+        <translation>of onze</translation>
     </message>
     <message>
         <source>server</source>
-        <translation type="unfinished"></translation>
+        <translation>server</translation>
     </message>
 </context>
 <context>
@@ -478,7 +478,7 @@ Weet je zeker dat je wilt doorgaan?</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Als je wilt helpen of gewoon ons harde werk waardeert,&lt;br/&gt;trakteer onze ontwikkelaars dan eens op een biertje of bakje koffie</translation>
     </message>
 </context>
 <context>
@@ -523,23 +523,23 @@ Weet je zeker dat je wilt doorgaan?</translation>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dwing anoniem uploaden af.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Gebruikersnaam</translation>
+        <translation>Gebruikersnaam</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Wachtwoord</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP-upload</translation>
     </message>
 </context>
 <context>
@@ -598,19 +598,19 @@ Weet je zeker dat je wilt doorgaan?</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>De ftp-upload is afgerond.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Onbekende fout.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbindingsfout.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechtenfout.</translation>
     </message>
 </context>
 <context>
@@ -722,11 +722,11 @@ het hoofdvenster verborgen of geminimaliseerd is.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Algemene Wayland (xdg-desktop-portal)-schermfoto afdwingen</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Algemene Wayland (xdg-desktop-portal)-schermfoto&apos;s schalen</translation>
     </message>
 </context>
 <context>
@@ -1080,7 +1080,7 @@ van een schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Acties</translation>
+        <translation>Acties</translation>
     </message>
 </context>
 <context>
@@ -1383,7 +1383,7 @@ Sla over om álles te kopiëren.</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP-upload</translation>
     </message>
 </context>
 <context>
@@ -1714,7 +1714,7 @@ Herstart KSnip om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>

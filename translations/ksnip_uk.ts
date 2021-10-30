@@ -149,7 +149,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх&#x2028;
+ліній, залишених пером чи маркером, але зробить їх 
 плавнішими.</translation>
     </message>
     <message>
@@ -276,22 +276,25 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Увімкнути діагностику</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вмикає діагностичне виведення до консолі.
+Для набуття змінами чинності слід перезапустити ksnip.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Затримка зміни розмірів до вмісту</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Зміна розмірів за вмістом затримується з метою уможливлення для засобу
+керування вікнами отримання нового вмісту. Якщо головне вікно не
+коригується за новим вмістом, збільшення затримки може поліпшити ситуацію.</translation>
     </message>
 </context>
 <context>
@@ -405,15 +408,15 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>please join our</source>
-        <translation type="unfinished"></translation>
+        <translation>будь ласка, долучайтеся до нашого</translation>
     </message>
     <message>
         <source>or our</source>
-        <translation type="unfinished"></translation>
+        <translation>або нашого</translation>
     </message>
     <message>
         <source>server</source>
-        <translation type="unfinished"></translation>
+        <translation>сервер</translation>
     </message>
 </context>
 <context>
@@ -476,7 +479,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо ви хочете допомогти або просто хочете подякувати за виконану роботу,&lt;br/&gt;надавши розробникам кошти на пиво або каву, ви можете пожертвувати кошти</translation>
     </message>
 </context>
 <context>
@@ -521,23 +524,23 @@ Do you want to continue?</source>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Примусове анонімне вивантаження.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Адреса</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Користувач</translation>
+        <translation>Користувач</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Вивантажувач FTP</translation>
     </message>
 </context>
 <context>
@@ -596,19 +599,19 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вивантаження на FTP успішно завершено.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Невідома помилка.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка з&apos;єднання.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка із правами доступу.</translation>
     </message>
 </context>
 <context>
@@ -720,11 +723,11 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Примусово типовий знімок вікна Wayland (xdg-desktop-portal)</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Масштабовані загальні знімки вікон Wayland (xdg-desktop-portal)</translation>
     </message>
 </context>
 <context>
@@ -1078,7 +1081,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Дії</translation>
+        <translation>Дії</translation>
     </message>
 </context>
 <context>
@@ -1381,7 +1384,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Вивантажувач FTP</translation>
     </message>
 </context>
 <context>
@@ -1713,7 +1716,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>

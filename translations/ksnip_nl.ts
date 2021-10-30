@@ -275,22 +275,25 @@ Ze kunnen dan worden getoond/verborgen met de Tab-toets.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Foutopsporing inschakelen</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schrijft foutopsporingsinformatie weg naar een terminalvenster.
+Herstart ksnip om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Wachttijd alvorens te herschalen naar inhoud</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>De wachttijd omtrent herschalen naar inhoud geldt voor de vensterbeheerder.
+Als het hoofdvenster niet goed wordt aangepast aan de nieuwe inhoud,
+dan kan deze wachttijd het gedrag verbeteren.</translation>
     </message>
 </context>
 <context>

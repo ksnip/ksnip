@@ -275,22 +275,25 @@ La visibilité du panneau d’outils peut être basculée avec la touche TAB.</t
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer le débogage</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Active la sortie de débogage écrite sur la console.
+Le changement nécessite le redémarrage de ksnip pour prendre effet.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Redimensionnement en fonction du retard du contenu</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le redimensionnement du contenu est retardé pour permettre au gestionnaire de fenêtres de recevoir le nouveau contenu.
+le nouveau contenu. Dans le cas où la fenêtre principale n&apos;est pas ajustée correctement au nouveau contenu, l&apos;augmentation de ce délai peut améliorer le comportement.
+au nouveau contenu, l&apos;augmentation de ce délai peut améliorer le comportement.</translation>
     </message>
 </context>
 <context>
@@ -404,15 +407,15 @@ Voulez-vous l&apos;enregistrer?</translation>
     </message>
     <message>
         <source>please join our</source>
-        <translation type="unfinished"></translation>
+        <translation>veuillez rejoindre notre</translation>
     </message>
     <message>
         <source>or our</source>
-        <translation type="unfinished"></translation>
+        <translation>ou notre</translation>
     </message>
     <message>
         <source>server</source>
-        <translation type="unfinished"></translation>
+        <translation>serveur</translation>
     </message>
 </context>
 <context>
@@ -475,7 +478,7 @@ Voulez-vous continuer?</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Si vous voulez aider ou simplement apprécier le travail effectué&lt;br/&gt;en offrant aux développeurs une bière ou un café, vous pouvez le faire</translation>
     </message>
 </context>
 <context>
@@ -520,23 +523,23 @@ Voulez-vous continuer?</translation>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Forcer le téléversement anonyme.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Nom d&apos;utilisateur</translation>
+        <translation>Nom d&apos;utilisateur</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Mot de passe</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléverseur FTP</translation>
     </message>
 </context>
 <context>
@@ -595,19 +598,19 @@ Voulez-vous continuer?</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le téléversement FTP s&apos;est terminé avec succès.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur inconnue.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur de connexion.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur d&apos;autorisation.</translation>
     </message>
 </context>
 <context>
@@ -719,11 +722,11 @@ lorsque la fenêtre principale a été masquée ou réduite.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Capture d&apos;écran de Force Generic Wayland (xdg-desktop-portal)</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Captures d&apos;écran de Scale Generic Wayland (xdg-desktop-portal)</translation>
     </message>
 </context>
 <context>
@@ -1077,7 +1080,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Actions</translation>
+        <translation>Actions</translation>
     </message>
 </context>
 <context>
@@ -1381,7 +1384,7 @@ copiées dans le presse-papier. Si aucun filtre n&apos;est défini, toutes les l
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléverseur FTP</translation>
     </message>
 </context>
 <context>
@@ -1711,7 +1714,7 @@ spécifique à la plateforme lorsqu&apos;il existe. Le changement nécessite un 
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>

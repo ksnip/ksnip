@@ -275,7 +275,7 @@ La visibilità dei dock può essere attivata o disattivata con il tasto Tab.</tr
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Abilita il debug</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
@@ -404,15 +404,15 @@ Vuoi salvarla?</translation>
     </message>
     <message>
         <source>please join our</source>
-        <translation type="unfinished"></translation>
+        <translation>si prega di unirsi al nostro</translation>
     </message>
     <message>
         <source>or our</source>
-        <translation type="unfinished"></translation>
+        <translation>o al nostro</translation>
     </message>
     <message>
         <source>server</source>
-        <translation type="unfinished"></translation>
+        <translation>server</translation>
     </message>
 </context>
 <context>
@@ -520,19 +520,19 @@ Vuoi continuare?</translation>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Forza il caricamento anonimo.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Nome Utente</translation>
+        <translation>Nome utente</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password</translation>
     </message>
     <message>
         <source>FTP Uploader</source>

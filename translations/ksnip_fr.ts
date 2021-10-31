@@ -194,7 +194,7 @@ Le changement de couleur n&apos;affecte que les nouvelles zones d&apos;annotatio
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
         <translation>Si cette option est activée, l&apos;élément est sélectionné après
-après avoir été créé, ce qui permet de modifier les paramètres.</translation>
+avoir été créé, ce qui permet de modifier les paramètres.</translation>
     </message>
 </context>
 <context>

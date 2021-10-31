@@ -275,12 +275,13 @@ Widoczność doków można przełączać za pomocą klawisza Tab.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Włącz debugowanie</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Włącza debugowanie danych wyjściowych zapisanych w konsoli.
+Zmiana wymaga ponownego uruchomienia ksnip.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
@@ -404,15 +405,15 @@ Chcesz go zapisać?</translation>
     </message>
     <message>
         <source>please join our</source>
-        <translation type="unfinished"></translation>
+        <translation>dołącz do nas</translation>
     </message>
     <message>
         <source>or our</source>
-        <translation type="unfinished"></translation>
+        <translation>lub nasz</translation>
     </message>
     <message>
         <source>server</source>
-        <translation type="unfinished"></translation>
+        <translation>serwer</translation>
     </message>
 </context>
 <context>
@@ -475,7 +476,7 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeśli chcesz pomóc lub po prostu docenić wykonywaną pracę&lt;br/&gt;poprzez poczęstowanie deweloperów piwem lub kawą, możesz to zrobić</translation>
     </message>
 </context>
 <context>
@@ -520,23 +521,23 @@ Czy chcesz kontynuować?</translation>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wymuś anonimowe wysyłanie.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Adres URL</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Nazwa użytkownika</translation>
+        <translation>Nazwa użytkownika</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Hasło</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Przesyłanie FTP</translation>
     </message>
 </context>
 <context>
@@ -595,19 +596,19 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Przesyłanie FTP zakończyło się pomyślnie.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieznany błąd.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd połączenia.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd uprawnień.</translation>
     </message>
 </context>
 <context>
@@ -1077,7 +1078,7 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Działania</translation>
+        <translation>Działania</translation>
     </message>
 </context>
 <context>
@@ -1380,7 +1381,7 @@ W przypadku pominięcia wszystko jest kopiowane.</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Program do przesyłania FTP</translation>
     </message>
 </context>
 <context>
@@ -1711,7 +1712,7 @@ jeśli taka istnieje. Zmiana wymaga ponownego uruchomienia, aby zaczęła obowi�
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>

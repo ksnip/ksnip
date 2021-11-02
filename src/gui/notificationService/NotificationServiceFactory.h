@@ -24,6 +24,7 @@
 
 #include "src/gui/INotificationService.h"
 #include "src/backend/config/IConfig.h"
+#include "src/common/platform/IPlatformChecker.h"
 
 class NotificationServiceFactory
 {
@@ -31,7 +32,10 @@ public:
 	explicit NotificationServiceFactory() = default;
 	~NotificationServiceFactory() = default;
 
-	static QSharedPointer<INotificationService> create(INotificationService *defaultNotificationService, const QSharedPointer<IConfig> &config);
+	static QSharedPointer<INotificationService> create(
+			INotificationService *defaultNotificationService,
+			const QSharedPointer<IPlatformChecker> &platformChecker,
+			const QSharedPointer<IConfig> &config);
 };
 
 #endif //KSNIP_NOTIFICATIONSERVICEFACTORY_H

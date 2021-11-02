@@ -68,6 +68,7 @@ void MultiCaptureHandlerTests::Copy_Should_CopyCurrentTabImageToClipboard()
 			nullptr,
 			nullptr,
 			iconLoaderMock,
+			nullptr,
 			nullptr);
 
 	EXPECT_CALL(*captureTabStateHandlerMock, currentTabIndex())
@@ -143,6 +144,7 @@ void MultiCaptureHandlerTests::CopyToClipboardTab_Should_FetchCorrectImageFromAn
 			nullptr,
 			nullptr,
 			iconLoaderMock,
+			nullptr,
 			nullptr);
 
 	// act & assert
@@ -209,6 +211,7 @@ void MultiCaptureHandlerTests::CopyPathToClipboardTab_Should_FetchCorrectPathFro
 			nullptr,
 			nullptr,
 			iconLoaderMock,
+			nullptr,
 			nullptr);
 
 	// act & assert
@@ -276,6 +279,7 @@ void MultiCaptureHandlerTests::OpenDirectory_Should_FetchCorrectPathFromTabState
 			nullptr,
 			nullptr,
 			iconLoaderMock,
+			nullptr,
 			nullptr);
 
 	// act & assert
@@ -339,6 +343,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 			nullptr,
 			nullptr,
 			iconLoaderMock,
+			nullptr,
 			nullptr);
 
 	// act
@@ -427,6 +432,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 			nullptr,
 			nullptr,
 			iconLoaderMock,
+			nullptr,
 			nullptr);
 
 	// act
@@ -514,6 +520,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetSaveActionToDi
 			nullptr,
 			nullptr,
 			iconLoaderMock,
+			nullptr,
 			nullptr);
 
 	// act
@@ -581,6 +588,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetSaveActionToEn
 			nullptr,
 			nullptr,
 			iconLoaderMock,
+			nullptr,
 			nullptr);
 
 	// act
@@ -651,6 +659,7 @@ void MultiCaptureHandlerTests::CopyPath_Should_CopyCurrentTabPathToClipboard()
 			nullptr,
 			nullptr,
 			iconLoaderMock,
+			nullptr,
 			nullptr);
 
 	// act & assert
@@ -711,6 +720,7 @@ void MultiCaptureHandlerTests::OpenDirectory_Should_FetchCurrentTabPathFromTabSt
 			nullptr,
 			nullptr,
 			iconLoaderMock,
+			nullptr,
 			nullptr);
 
 	// act & assert
@@ -773,6 +783,7 @@ void MultiCaptureHandlerTests::RemoveImage_Should_NotRemoveTab_When_OperationDid
 			nullptr,
 			nullptr,
 			iconLoaderMock,
+			nullptr,
 			nullptr);
 
 	// act & assert
@@ -844,6 +855,7 @@ void MultiCaptureHandlerTests::RemoveImage_Should_RemoveTab_When_OperationDidDel
 			nullptr,
 			nullptr,
 			iconLoaderMock,
+			nullptr,
 			nullptr);
 
 	// act & assert

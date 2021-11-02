@@ -23,12 +23,6 @@
 #include <QDesktopServices>
 #include <QUrl>
 
-#if defined(UNIX_X11)
-#include <QProcess>
-
-#include "src/common/platform/PlatformChecker.h"
-#endif
-
 #include "IDesktopService.h"
 
 class DesktopServiceAdapter : public IDesktopService
@@ -38,11 +32,6 @@ public:
 	~DesktopServiceAdapter() override = default;
 	void openFile(const QString &path) override;
 	void openUrl(const QString &url) override;
-
-#if defined(UNIX_X11)
-private:
-	QProcess mXdgOpenProcess;
-#endif
 };
 
 #endif //KSNIP_DESKTOPSERVICEADAPTER_H

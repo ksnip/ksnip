@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,23 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "KeyHandlerFactory.h"
+#ifndef KSNIP_DIRECTORYPATHPROVIDER_H
+#define KSNIP_DIRECTORYPATHPROVIDER_H
 
-AbstractKeyHandler* KeyHandlerFactory::create()
+#include <QDir>
+
+#include "IDirectoryPathProvider.h"
+
+class DirectoryPathProvider : public IDirectoryPathProvider
 {
-#if defined(__APPLE__)
-    return new DummyKeyHandler;
-#endif
+public:
+	DirectoryPathProvider() = default;
+	~DirectoryPathProvider() override = default;
+	QString home() override;
+};
 
-#if defined(UNIX_X11)
-    if(PlatformChecker::instance()->isWayland()) {
-	    return new DummyKeyHandler;
-    } else {
-	    return new X11KeyHandler;
-    }
-#endif
-
-#if  defined(_WIN32)
-    return new WinKeyHandler;
-#endif
-}
+#endif //KSNIP_DIRECTORYPATHPROVIDER_H

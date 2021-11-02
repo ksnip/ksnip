@@ -29,6 +29,7 @@ SingleCaptureHandler::SingleCaptureHandler(
 		const QSharedPointer<IRecentImageService> &recentImageService,
 		const QSharedPointer<IImageSaver> &imageSaver,
 		const QSharedPointer<ISavePathProvider> &savePathProvider,
+		const QSharedPointer<IFileDialogService> &fileDialogService,
 		const QSharedPointer<IConfig> &config,
 		QWidget *parent) :
 	mImageAnnotator(imageAnnotator),
@@ -40,6 +41,7 @@ SingleCaptureHandler::SingleCaptureHandler(
 	mRecentImageService(recentImageService),
 	mImageSaver(imageSaver),
 	mSavePathProvider(savePathProvider),
+	mFileDialogService(fileDialogService),
 	mConfig(config),
 	mParent(parent),
 	mCaptureChangeListener(nullptr),
@@ -131,7 +133,17 @@ void SingleCaptureHandler::reset()
 void SingleCaptureHandler::innerSave(bool isInstant)
 {
 	auto image = mImageAnnotator->image();
-	SaveOperation operation(image, isInstant, mPath, mNotificationService, mRecentImageService, mImageSaver, mSavePathProvider, mConfig, mParent);
+	SaveOperation operation(
+			image,
+			isInstant,
+			mPath,
+			mNotificationService,
+			mRecentImageService,
+			mImageSaver,
+			mSavePathProvider,
+			mFileDialogService,
+			mConfig,
+			mParent);
 	auto saveResult = operation.execute();
 	mIsSaved = saveResult.isSuccessful;
 	if (mIsSaved) {
@@ -179,6 +191,7 @@ bool SingleCaptureHandler::discardChanges()
 			mMessageBoxService,
 			mImageSaver,
 			mSavePathProvider,
+			mFileDialogService,
 			mConfig,
 			mParent);
 	return operation.execute();

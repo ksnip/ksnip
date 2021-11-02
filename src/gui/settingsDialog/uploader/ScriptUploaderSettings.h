@@ -29,14 +29,14 @@
 #include <QFileDialog>
 
 #include "src/backend/config/IConfig.h"
-#include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
+#include "src/common/adapter/fileDialog/IFileDialogService.h"
 #include "src/common/helper/PathHelper.h"
 
 class ScriptUploaderSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit ScriptUploaderSettings(const QSharedPointer<IConfig> &config);
+	explicit ScriptUploaderSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IFileDialogService> &fileDialogService);
 	~ScriptUploaderSettings() override;
 	void saveSettings();
 
@@ -50,7 +50,7 @@ private:
 	QLabel *mCopyOutputFilterLabel;
 	QLabel *mScriptPathLabel;
 	QPushButton *mBrowseButton;
-	IFileDialogAdapter *mFileDialog;
+	QSharedPointer<IFileDialogService> mFileDialogService;
 
 	void initGui();
 	void loadConfig();

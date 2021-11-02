@@ -45,6 +45,7 @@ public:
 			const QSharedPointer<IRecentImageService> &recentImageService,
 			const QSharedPointer<IImageSaver> &imageSaver,
 			const QSharedPointer<ISavePathProvider> &savePathProvider,
+			const QSharedPointer<IFileDialogService> &fileDialogService,
 			const QSharedPointer<IConfig> &config,
 			QWidget *parent);
 	~SingleCaptureHandler() override = default;
@@ -75,6 +76,7 @@ private:
 	QSharedPointer<IRecentImageService> mRecentImageService;
 	QSharedPointer<IImageSaver> mImageSaver;
 	QSharedPointer<ISavePathProvider> mSavePathProvider;
+	QSharedPointer<IFileDialogService> mFileDialogService;
 	QSharedPointer<IConfig> mConfig;
 	QWidget *mParent;
 	ICaptureChangeListener *mCaptureChangeListener;

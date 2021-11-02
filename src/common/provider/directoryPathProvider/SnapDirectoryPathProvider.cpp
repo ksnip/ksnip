@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,4 +17,9 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "AbstractKeyHandler.h"
+#include "SnapDirectoryPathProvider.h"
+
+QString SnapDirectoryPathProvider::home()
+{
+	return qgetenv("SNAP_REAL_HOME");
+}

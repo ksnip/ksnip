@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,19 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "DirectoryPathProvider.h"
+#ifndef KSNIP_IFILEDIALOGSERVICE_H
+#define KSNIP_IFILEDIALOGSERVICE_H
 
-QString DirectoryPathProvider::home()
+class IFileDialogService
 {
-#if defined(UNIX_X11)
-	if (PlatformChecker::instance()->isSnap()) {
-		return qgetenv("SNAP_REAL_HOME");
-	} else {
-		return QDir::homePath();
-	}
-#endif
+public:
+	IFileDialogService() = default;
+	virtual ~IFileDialogService() = default;
+	virtual QString	getExistingDirectory(QWidget *parent, const QString &title, const QString &directory) = 0;
+	virtual QString	getOpenFileName(QWidget *parent, const QString &title, const QString &directory) = 0;
+	virtual QStringList	getOpenFileNames(QWidget *parent, const QString &title, const QString &directory, const QString &filter) = 0;
+	virtual QString	getSavePath(QWidget *parent, const QString &title, const QString &path, const QString &filter) = 0;
+};
 
-#if  defined(_WIN32) || defined(__APPLE__)
-	return QDir::homePath();
-#endif
-}
+#endif //KSNIP_IFILEDIALOGSERVICE_H

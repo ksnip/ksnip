@@ -22,9 +22,9 @@
 
 #include <QFileDialog>
 
-#include "IFileDialogAdapter.h"
+#include "IFileDialogService.h"
 
-class FileDialogAdapter : public IFileDialogAdapter
+class FileDialogAdapter : public IFileDialogService
 {
 public:
 	explicit FileDialogAdapter() = default;

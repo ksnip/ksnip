@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2017 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,14 +20,18 @@
 #ifndef COMMANDRUNNER_H
 #define COMMANDRUNNER_H
 
-#include <QString>
 #include <QProcess>
+#include <QFile>
+#include <QTextStream>
 
-class CommandRunner
+#include "ICommandRunner.h"
+
+class CommandRunner : public ICommandRunner
 {
 public:
-    QString getEnvironmentVariable(const QString &variable) const;
-    bool isEnvironmentVariableSet(const QString &variable) const;
+    QString getEnvironmentVariable(const QString &variable) const override;
+    bool isEnvironmentVariableSet(const QString &variable) const override;
+	QString readFile(const QString &path) const override;
 };
 
 #endif // COMMANDRUNNER_H

@@ -17,24 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_DIRECTORYPATHPROVIDER_H
-#define KSNIP_DIRECTORYPATHPROVIDER_H
+#ifndef KSNIP_KDEDESKTOPNOTIFICATIONSERVICE_H
+#define KSNIP_KDEDESKTOPNOTIFICATIONSERVICE_H
 
-#include <QDir>
+#include "FreeDesktopNotificationService.h"
 
-#if defined(UNIX_X11)
-#include "src/common/platform/PlatformChecker.h"
-#endif
-
-class DirectoryPathProvider
+class KdeDesktopNotificationService : public FreeDesktopNotificationService
 {
 public:
-	static QString home();
+	KdeDesktopNotificationService() = default;
+	~KdeDesktopNotificationService() override = default;
 
-private:
-	DirectoryPathProvider() = default;
-	~DirectoryPathProvider() = default;
+protected:
+	QVariantMap getHintsMap(const QString &contentUrl) override;
 };
 
-
-#endif //KSNIP_DIRECTORYPATHPROVIDER_H
+#endif //KSNIP_KDEDESKTOPNOTIFICATIONSERVICE_H

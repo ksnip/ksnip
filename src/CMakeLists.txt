@@ -39,7 +39,6 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceServerBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/bootstrapper/singleInstance/SingleInstanceParameterTranslator.cpp
 	${CMAKE_SOURCE_DIR}/src/common/adapter/fileDialog/FileDialogAdapter.cpp
-	${CMAKE_SOURCE_DIR}/src/common/adapter/fileDialog/FileDialogAdapterFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/MathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/PathHelper.cpp
 	${CMAKE_SOURCE_DIR}/src/common/helper/FileUrlHelper.cpp
@@ -50,10 +49,10 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/provider/ApplicationTitleProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/NewCaptureNameProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/PathFromCaptureProvider.cpp
-	${CMAKE_SOURCE_DIR}/src/common/provider/DirectoryPathProvider.cpp
-	${CMAKE_SOURCE_DIR}/src/common/provider/ScaledSizeProvider.cpp
+	${CMAKE_SOURCE_DIR}/src/common/provider/scaledSizeProvider/ScaledSizeProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/TempFileProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
+	${CMAKE_SOURCE_DIR}/src/common/provider/directoryPathProvider/DirectoryPathProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/dependencyInjector/DependencyInjector.cpp
 	${CMAKE_SOURCE_DIR}/src/dependencyInjector/DependencyInjectorBootstrapper.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomToolButton.cpp
@@ -117,11 +116,10 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/ContactTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/GlobalHotKey.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/NativeKeyEventFilter.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/AbstractKeyHandler.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeyHandlerFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/GlobalHotKeyHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/HotKeyMap.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/DummyKeyHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/keyHandler/DummyKeyHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/keyHandler/KeyHandlerFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/notificationService/NotificationServiceFactory.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/SaveOperation.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/operations/RenameOperation.cpp
@@ -157,8 +155,7 @@ if (APPLE)
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/MacWrapper.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/config/MacConfig.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/MacSnippingArea.cpp
-		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/DummyKeyHandler.cpp
-		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/MacKeyHandler.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/keyHandler/MacKeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToMacKeyCodeTranslator.cpp
 		)
 elseif (UNIX)
@@ -175,18 +172,22 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/common/platform/PlatformChecker.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/CommandRunner.cpp
 		${CMAKE_SOURCE_DIR}/src/common/adapter/fileDialog/SnapFileDialogAdapter.cpp
+		${CMAKE_SOURCE_DIR}/src/common/provider/directoryPathProvider/SnapDirectoryPathProvider.cpp
+		${CMAKE_SOURCE_DIR}/src/common/provider/scaledSizeProvider/GnomeScaledSizeProvider.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/LinuxSnippingArea.cpp
-		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11KeyHandler.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/keyHandler/X11KeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToX11KeyCodeTranslator.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11ErrorLogger.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/notificationService/FreeDesktopNotificationService.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/notificationService/KdeDesktopNotificationService.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/desktopService/SnapDesktopServiceAdapter.cpp
 		)
 elseif (WIN32)
 	list(APPEND KSNIP_SRCS
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WinWrapper.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/WinSnippingArea.cpp
-		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/WinKeyHandler.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/keyHandler/WinKeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToWinKeyCodeTranslator.cpp
 		)
 endif ()

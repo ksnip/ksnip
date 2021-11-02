@@ -17,29 +17,13 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "NotificationServiceFactory.h"
-
-#if defined(UNIX_X11)
-#include "FreeDesktopNotificationService.h"
 #include "KdeDesktopNotificationService.h"
-#endif
 
-QSharedPointer<INotificationService> NotificationServiceFactory::create(
-	INotificationService *defaultNotificationService,
-	const QSharedPointer<IPlatformChecker> &platformChecker,
-	const QSharedPointer<IConfig> &config)
+QVariantMap KdeDesktopNotificationService::getHintsMap(const QString &contentUrl)
 {
-#if defined(UNIX_X11)
-	if (config->platformSpecificNotificationServiceEnabled()) {
-		if(platformChecker->isKde()) {
-			return QSharedPointer<INotificationService>(new KdeDesktopNotificationService());
-		} else {
-			return QSharedPointer<INotificationService>(new FreeDesktopNotificationService());
-		}
-	} else {
-		return QSharedPointer<INotificationService>(defaultNotificationService);
+	QVariantMap hintsMap;
+	if (!contentUrl.isEmpty()) {
+			hintsMap[QLatin1String("x-kde-urls")] = QStringList(contentUrl);
 	}
-#else
-	return QSharedPointer<INotificationService>(defaultNotificationService);
-#endif
+	return hintsMap;
 }

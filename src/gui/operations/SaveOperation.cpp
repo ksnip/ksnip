@@ -28,6 +28,7 @@ SaveOperation::SaveOperation(
 		const QSharedPointer<IRecentImageService> &recentImageService,
 		const QSharedPointer<IImageSaver> &imageSaver,
 		const QSharedPointer<ISavePathProvider> &savePathProvider,
+		const QSharedPointer<IFileDialogService> &fileDialogService,
 		const QSharedPointer<IConfig> &config,
 		QWidget *parent) :
 	mParent(parent),
@@ -37,6 +38,7 @@ SaveOperation::SaveOperation(
 	mRecentImageService(recentImageService),
 	mImageSaver(imageSaver),
 	mSavePathProvider(savePathProvider),
+	mFileDialogService(fileDialogService),
 	mConfig(config)
 {
     Q_ASSERT(mParent != nullptr);
@@ -50,9 +52,10 @@ SaveOperation::SaveOperation(
 		const QSharedPointer<IRecentImageService> &recentImageService,
 		const QSharedPointer<IImageSaver> &imageSaver,
 		const QSharedPointer<ISavePathProvider> &savePathProvider,
+		const QSharedPointer<IFileDialogService> &fileDialogService,
 		const QSharedPointer<IConfig> &config,
 		QWidget *parent) :
-	SaveOperation(image, isInstantSave, notificationService, recentImageService, imageSaver, savePathProvider, config, parent)
+	SaveOperation(image, isInstantSave, notificationService, recentImageService, imageSaver, savePathProvider, fileDialogService, config, parent)
 {
 	mPathToImageSource = pathToImageSource;
 }
@@ -64,8 +67,7 @@ SaveResultDto SaveOperation::execute()
 	if(!mIsInstantSave){
 		auto title = tr("Save As");
 		auto filter = tr("Images") + QLatin1String(" (*.png *.gif *.jpg);;") + tr("All Files") + QLatin1String("(*)");
-		auto fileDialogAdapter = FileDialogAdapterFactory::create();
-		auto selectedSavePath = fileDialogAdapter->getSavePath(mParent, title, path, filter);
+		auto selectedSavePath = mFileDialogService->getSavePath(mParent, title, path, filter);
 
 		if (selectedSavePath.isNull()) {
 			return SaveResultDto(false, path);

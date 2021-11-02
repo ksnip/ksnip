@@ -35,13 +35,19 @@
 #include "src/gui/desktopService/DesktopServiceAdapter.h"
 #include "src/gui/messageBoxService/MessageBoxService.h"
 #include "src/gui/captureHandler/CaptureTabStateHandler.h"
+#include "src/gui/globalHotKeys/keyHandler/DummyKeyHandler.h"
 #include "src/logging/ConsoleLogger.h"
 #include "src/logging/NoneLogger.h"
 #include "src/common/loader/IconLoader.h"
+#include "src/common/platform/CommandRunner.h"
+#include "src/common/platform/PlatformChecker.h"
+#include "src/common/provider/directoryPathProvider/DirectoryPathProvider.h"
+#include "src/common/provider/scaledSizeProvider/ScaledSizeProvider.h"
 
 #if defined(__APPLE__)
 #include "src/backend/config/MacConfig.h"
 #include "src/backend/imageGrabber/MacImageGrabber.h"
+#include "src/common/adapter/fileDialog/FileDialogAdapter.h"
 #endif
 
 #if defined(UNIX_X11)
@@ -51,16 +57,25 @@
 #include "src/backend/imageGrabber/WaylandImageGrabber.h"
 #include "src/backend/imageGrabber/KdeWaylandImageGrabber.h"
 #include "src/backend/imageGrabber/GnomeWaylandImageGrabber.h"
-#include "src/common/platform/PlatformChecker.h"
+#include "src/common/adapter/fileDialog/SnapFileDialogAdapter.h"
+#include "src/common/provider/directoryPathProvider/SnapDirectoryPathProvider.h"
+#include "src/common/provider/scaledSizeProvider/GnomeScaledSizeProvider.h"
+#include "src/gui/desktopService/SnapDesktopServiceAdapter.h"
+#include "src/gui/globalHotKeys/keyHandler/X11KeyHandler.h"
 #endif
 
 #if  defined(_WIN32)
 #include "src/backend/config/Config.h"
 #include "src/backend/imageGrabber/WinImageGrabber.h"
+#include "src/common/adapter/fileDialog/FileDialogAdapter.h"
+#include "src/gui/globalHotKeys/WinKeyHandler.h"
 #endif
 
 void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependencyInjector)
 {
+	dependencyInjector->registerInstance<ICommandRunner, CommandRunner>();
+	dependencyInjector->registerInstance<IPlatformChecker, PlatformChecker, ICommandRunner>();
+	injectDirectoryPathProvider(dependencyInjector);
 	injectConfig(dependencyInjector);
 	injectLogger(dependencyInjector);
 	dependencyInjector->registerInstance<ITranslationLoader, TranslationLoader, ILogger>();
@@ -83,11 +98,28 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 	dependencyInjector->registerInstance<IFileService, FileService>();
 	dependencyInjector->registerInstance<IImagePathStorage, ImagePathStorage>();
 	dependencyInjector->registerInstance<IClipboard, ClipboardAdapter>();
-	dependencyInjector->registerInstance<IDesktopService, DesktopServiceAdapter>();
+	injectDesktopServiceAdapter(dependencyInjector);
 	dependencyInjector->registerInstance<IMessageBoxService, MessageBoxService>();
 	dependencyInjector->registerInstance<ICaptureTabStateHandler, CaptureTabStateHandler>();
 	dependencyInjector->registerInstance<IRecentImageService, RecentImagesPathStore, IImagePathStorage>();
 	dependencyInjector->registerInstance<IIconLoader, IconLoader>();
+	injectFileDialogService(dependencyInjector);
+	injectScaledSizeProvider(dependencyInjector);
+}
+
+void DependencyInjectorBootstrapper::injectDesktopServiceAdapter(DependencyInjector *dependencyInjector)
+{
+#if defined(UNIX_X11)
+	auto platformChecker = dependencyInjector->get<IPlatformChecker>();
+	if(platformChecker->isSnap()) {
+		dependencyInjector->registerInstance<IDesktopService, SnapDesktopServiceAdapter>();
+	} else {
+		dependencyInjector->registerInstance<IDesktopService, DesktopServiceAdapter>();
+	}
+#else
+	dependencyInjector->registerInstance<IDesktopService, DesktopServiceAdapter>();
+#endif
+
 }
 
 void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *dependencyInjector)
@@ -101,23 +133,24 @@ void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *depe
 #endif
 
 #if defined(UNIX_X11)
-	if (PlatformChecker::instance()->isX11()) {
-		if(PlatformChecker::instance()->isGnome()) {
+	auto platformChecker = dependencyInjector->get<IPlatformChecker>();
+	if (platformChecker->isX11()) {
+		if(platformChecker->isGnome()) {
 			logger->log(QLatin1String("GnomeX11ImageGrabber selected"));
 			dependencyInjector->registerFactory<IImageGrabber, GnomeX11ImageGrabber, IConfig>();
 		} else {
 			logger->log(QLatin1String("X11ImageGrabber selected"));
 			dependencyInjector->registerFactory<IImageGrabber, X11ImageGrabber, IConfig>();
 		}
-	} else if (PlatformChecker::instance()->isWayland()) {
-		if (config->forceGenericWaylandEnabled() || PlatformChecker::instance()->isSnap()) {
+	} else if (platformChecker->isWayland()) {
+		if (config->forceGenericWaylandEnabled() || platformChecker->isSnap()) {
 			logger->log(QLatin1String("WaylandImageGrabber selected"));
 			dependencyInjector->registerFactory<IImageGrabber, WaylandImageGrabber, IConfig>();
-		} else if(PlatformChecker::instance()->isKde()) {
+		} else if(platformChecker->isKde()) {
 			logger->log(QLatin1String("KdeWaylandImageGrabber selected"));
 			dependencyInjector->registerFactory<IImageGrabber, KdeWaylandImageGrabber, IConfig>();
-		} else if (PlatformChecker::instance()->isGnome()) {
-            if(PlatformChecker::instance()->gnomeVersion() >= 41) {
+		} else if (platformChecker->isGnome()) {
+            if(platformChecker->gnomeVersion() >= 41) {
                 logger->log(QLatin1String("Gnome Version is >= 41, WaylandImageGrabber selected"));
                 dependencyInjector->registerFactory<IImageGrabber, WaylandImageGrabber, IConfig>();
             } else {
@@ -155,19 +188,61 @@ void DependencyInjectorBootstrapper::injectLogger(DependencyInjector *dependency
 void DependencyInjectorBootstrapper::injectConfig(DependencyInjector *dependencyInjector)
 {
 #if defined(__APPLE__)
-	dependencyInjector->registerInstance<IConfig, MacConfig>();
+	dependencyInjector->registerInstance<IConfig, MacConfig, IDirectoryPathProvider>();
 #endif
 
 #if defined(UNIX_X11)
-	if (PlatformChecker::instance()->isWayland()) {
-		dependencyInjector->registerInstance<IConfig, WaylandConfig>();
+	auto platformChecker = dependencyInjector->get<IPlatformChecker>();
+	if (platformChecker->isWayland()) {
+		dependencyInjector->registerInstance<IConfig, WaylandConfig, IDirectoryPathProvider>();
 	} else {
-		dependencyInjector->registerInstance<IConfig, Config>();
+		dependencyInjector->registerInstance<IConfig, Config, IDirectoryPathProvider>();
 	}
 #endif
 
 #if  defined(_WIN32)
-	dependencyInjector->registerInstance<IConfig, Config>();
+	dependencyInjector->registerInstance<IConfig, Config, IDirectoryPathProvider>();
 #endif
+}
 
+void DependencyInjectorBootstrapper::injectFileDialogService(DependencyInjector *dependencyInjector)
+{
+#if defined(UNIX_X11)
+	auto platformChecker = dependencyInjector->get<IPlatformChecker>();
+	if (platformChecker->isSnap()) {
+		dependencyInjector->registerInstance<IFileDialogService, SnapFileDialogAdapter>();
+	} else {
+		dependencyInjector->registerInstance<IFileDialogService, FileDialogAdapter>();
+	}
+#else
+	return new FileDialogAdapter;
+#endif
+}
+
+void DependencyInjectorBootstrapper::injectDirectoryPathProvider(DependencyInjector *dependencyInjector)
+{
+#if defined(UNIX_X11)
+	auto platformChecker = dependencyInjector->get<IPlatformChecker>();
+	if (platformChecker->isSnap()) {
+		dependencyInjector->registerInstance<IDirectoryPathProvider, SnapDirectoryPathProvider>();
+	} else {
+		dependencyInjector->registerInstance<IDirectoryPathProvider, DirectoryPathProvider>();
+	}
+#else
+	dependencyInjector->registerInstance<IDirectoryPathProvider, DirectoryPathProvider>();
+#endif
+}
+
+void DependencyInjectorBootstrapper::injectScaledSizeProvider(DependencyInjector *dependencyInjector)
+{
+#if defined(UNIX_X11)
+	auto platformChecker = dependencyInjector->get<IPlatformChecker>();
+	if(platformChecker->isGnome()) {
+		dependencyInjector->registerInstance<IScaledSizeProvider, GnomeScaledSizeProvider>();
+	} else {
+		dependencyInjector->registerInstance<IScaledSizeProvider, ScaledSizeProvider>();
+	}
+#else
+	dependencyInjector->registerInstance<IScaledSizeProvider, ScaledSizeProvider>();
+#endif
 }

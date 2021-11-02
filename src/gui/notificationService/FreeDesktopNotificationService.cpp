@@ -24,8 +24,7 @@
 #include "FreeDesktopNotificationService.h"
 #include "src/common/helper/FileUrlHelper.h"
 
-FreeDesktopNotificationService::FreeDesktopNotificationService()
-	: mNotificationTimeout(7000)
+FreeDesktopNotificationService::FreeDesktopNotificationService() :	mNotificationTimeout(7000)
 {
 	mDBusInterface = new QDBusInterface(QStringLiteral("org.freedesktop.Notifications"),
 					   QStringLiteral("/org/freedesktop/Notifications"),
@@ -52,15 +51,6 @@ void FreeDesktopNotificationService::showCritical(const QString &title, const QS
 void FreeDesktopNotificationService::showToast(const QString &title, const QString &message, const QString &contentUrl, const QString &appIcon)
 {
 	QList<QVariant> args;
-	QVariantMap hintsMap;
-
-	if (!contentUrl.isEmpty()) {
-		if (PlatformChecker::instance()->isKde()) {
-			hintsMap[QLatin1String("x-kde-urls")] = QStringList(contentUrl);
-		} else {
-			hintsMap[QLatin1String("image-path")] = FileUrlHelper::toFileUrl(contentUrl);
-		}
-	}
 
 	args << qAppName()						// app_name
 		 << static_cast<unsigned int>(0)	// replaces_id (0 = does not replace existing notification)
@@ -68,8 +58,17 @@ void FreeDesktopNotificationService::showToast(const QString &title, const QStri
 		 << title							// summary
 		 << message							// body
 		 << QStringList()					// actions
-		 << hintsMap						// hints
+		 << getHintsMap(contentUrl)         // hints
 		 << mNotificationTimeout;			// expire_timeout
 
 	mDBusInterface->callWithArgumentList(QDBus::NoBlock, QStringLiteral("Notify"), args);
+}
+
+QVariantMap FreeDesktopNotificationService::getHintsMap(const QString &contentUrl)
+{
+	QVariantMap hintsMap;
+	if (!contentUrl.isEmpty()) {
+		hintsMap[QLatin1String("image-path")] = FileUrlHelper::toFileUrl(contentUrl);
+	}
+	return hintsMap;
 }

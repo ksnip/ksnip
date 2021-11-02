@@ -19,6 +19,11 @@
 
 #include "MacConfig.h"
 
+MacConfig::MacConfig(const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider) : Config(directoryPathProvider)
+{
+
+}
+
 bool MacConfig::isFreezeImageWhileSnippingEnabledReadOnly() const
 {
 	return true;

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,19 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "FileDialogAdapterFactory.h"
+#ifndef KSNIP_DUMMYKEYHANDLER_H
+#define KSNIP_DUMMYKEYHANDLER_H
 
-IFileDialogAdapter *FileDialogAdapterFactory::create()
+#include "IKeyHandler.h"
+
+class DummyKeyHandler : public IKeyHandler
 {
-#if defined(UNIX_X11)
-	if (PlatformChecker::instance()->isSnap()) {
-		return new SnapFileDialogAdapter;
-	} else {
-		return new FileDialogAdapter;
-	}
-#endif
+public:
+    DummyKeyHandler() = default;
+    ~DummyKeyHandler() override = default;
 
-#if  defined(_WIN32) || defined(__APPLE__)
-	return new FileDialogAdapter;
-#endif
-}
+    bool registerKey(const QKeySequence &keySequence) override;
+    bool isKeyPressed(void* message) override;
+};
+
+#endif //KSNIP_DUMMYKEYHANDLER_H

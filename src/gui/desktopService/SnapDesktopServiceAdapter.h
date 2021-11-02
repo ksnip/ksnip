@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,17 +17,23 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IFILEDIALOGADAPTER_H
-#define KSNIP_IFILEDIALOGADAPTER_H
+#ifndef KSNIP_SNAPDESKTOPSERVICEADAPTER_H
+#define KSNIP_SNAPDESKTOPSERVICEADAPTER_H
 
-class IFileDialogAdapter
+#include <QProcess>
+
+#include "DesktopServiceAdapter.h"
+
+class SnapDesktopServiceAdapter : public DesktopServiceAdapter
 {
 public:
-	virtual ~IFileDialogAdapter() = default;
-	virtual QString	getExistingDirectory(QWidget *parent, const QString &title, const QString &directory) = 0;
-	virtual QString	getOpenFileName(QWidget *parent, const QString &title, const QString &directory) = 0;
-	virtual QStringList	getOpenFileNames(QWidget *parent, const QString &title, const QString &directory, const QString &filter) = 0;
-	virtual QString	getSavePath(QWidget *parent, const QString &title, const QString &path, const QString &filter) = 0;
+	explicit SnapDesktopServiceAdapter() = default;
+	~SnapDesktopServiceAdapter() override = default;
+	void openFile(const QString &path) override;
+
+private:
+	QProcess mXdgOpenProcess;
 };
 
-#endif //KSNIP_IFILEDIALOGADAPTER_H
+
+#endif //KSNIP_SNAPDESKTOPSERVICEADAPTER_H

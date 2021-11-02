@@ -29,6 +29,7 @@ CanDiscardOperation::CanDiscardOperation(
 		const QSharedPointer<IMessageBoxService> &messageBoxService,
 		const QSharedPointer<IImageSaver> &imageSaver,
 		const QSharedPointer<ISavePathProvider> &savePathProvider,
+		const QSharedPointer<IFileDialogService> &fileDialogService,
 		const QSharedPointer<IConfig> &config,
 		QWidget *parent) :
 	mParent(parent),
@@ -41,7 +42,8 @@ CanDiscardOperation::CanDiscardOperation(
 	mMessageBoxService(messageBoxService),
 	mRecentImageService(recentImageService),
 	mImageSaver(imageSaver),
-	mSavePathProvider(savePathProvider)
+	mSavePathProvider(savePathProvider),
+	mFileDialogService(fileDialogService)
 {
 
 }
@@ -63,7 +65,17 @@ bool CanDiscardOperation::execute()
 
 bool CanDiscardOperation::saveImage() const
 {
-	SaveOperation operation(mImage, true, mPathToImageSource, mNotificationService, mRecentImageService, mImageSaver, mSavePathProvider, mConfig, mParent);
+	SaveOperation operation(
+			mImage,
+			true,
+			mPathToImageSource,
+			mNotificationService,
+			mRecentImageService,
+			mImageSaver,
+			mSavePathProvider,
+			mFileDialogService,
+			mConfig,
+			mParent);
 	return operation.execute().isSuccessful;
 }
 

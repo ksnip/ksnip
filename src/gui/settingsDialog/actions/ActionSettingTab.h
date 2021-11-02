@@ -39,8 +39,8 @@ class ActionSettingTab : public QWidget
 {
 	Q_OBJECT
 public:
-	explicit ActionSettingTab(const QString &name, const QList<CaptureModes> &captureModes);
-	explicit ActionSettingTab(const Action &action, const QList<CaptureModes> &captureModes);
+	explicit ActionSettingTab(const QString &name, const QList<CaptureModes> &captureModes, const QSharedPointer<IPlatformChecker> &platformChecker);
+	explicit ActionSettingTab(const Action &action, const QList<CaptureModes> &captureModes, const QSharedPointer<IPlatformChecker> &platformChecker);
 	~ActionSettingTab() override;
 	Action action() const;
 
@@ -48,7 +48,7 @@ signals:
 	void nameChanged(const QString &name);
 
 protected:
-	explicit ActionSettingTab(const QList<CaptureModes> &captureModes);
+	explicit ActionSettingTab(const QList<CaptureModes> &captureModes, const QSharedPointer<IPlatformChecker> &platformChecker);
 	void setAction(const Action &action) const;
 
 private:

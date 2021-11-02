@@ -33,13 +33,14 @@ class ActionsSettings : public QGroupBox
 {
 Q_OBJECT
 public:
-	explicit ActionsSettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config);
+	explicit ActionsSettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IPlatformChecker> &platformChecker, const QSharedPointer<IConfig> &config);
 	~ActionsSettings() override;
 	void saveSettings();
 
 private:
 	QVBoxLayout *mLayout;
 	QSharedPointer<IConfig> mConfig;
+	QSharedPointer<IPlatformChecker> mPlatformChecker;
 	QTabWidget *mTabWidget;
 	QList<CaptureModes> mCaptureModes;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,23 +17,26 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
-#define KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
+#ifndef KSNIP_SCALEDSIZEPROVIDER_H
+#define KSNIP_SCALEDSIZEPROVIDER_H
 
-#include "src/common/platform/IPlatformChecker.h"
+#include <QSize>
 
-#if defined(__APPLE__) || defined(_WIN32)
-#include "WidgetVisibilityHandler.h"
-#endif
+#include "IScaledSizeProvider.h"
 
-#if defined(UNIX_X11)
-#include "GnomeWaylandWidgetVisibilityHandler.h"
-#endif
-
-class WidgetVisibilityHandlerFactory
+class ScaledSizeProvider : public IScaledSizeProvider
 {
 public:
-	static WidgetVisibilityHandler *create(QWidget *widget, const QSharedPointer<IPlatformChecker> &platformChecker);
+	ScaledSizeProvider() = default;
+	~ScaledSizeProvider() = default;
+	QSize scaledSize(const QSize &size) override;
+	int scaledWidth(int width) override;
+
+protected:
+	virtual qreal getScaleFactor();
+
+private:
+	qreal scaleFactor();
 };
 
-#endif //KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
+#endif //KSNIP_SCALEDSIZEPROVIDER_H

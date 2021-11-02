@@ -19,10 +19,10 @@
 
 #include "GlobalHotKey.h"
 
-GlobalHotKey::GlobalHotKey(QCoreApplication *app, const QKeySequence &keySequence)
+GlobalHotKey::GlobalHotKey(QCoreApplication *app, const QKeySequence &keySequence, const QSharedPointer<IPlatformChecker> &platformChecker)
 {
 	mApp = app;
-    auto keyHandler = KeyHandlerFactory::create();
+    auto keyHandler = KeyHandlerFactory::create(platformChecker);
 	keyHandler->registerKey(keySequence);
 	mKeyEventFilter = new NativeKeyEventFilter(keyHandler);
 	mApp->installNativeEventFilter(mKeyEventFilter);

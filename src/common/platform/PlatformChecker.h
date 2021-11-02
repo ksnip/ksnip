@@ -21,28 +21,30 @@
 #define KSNIP_PLATFORMCHECKER_H
 
 #include <QString>
-#include "QFile"
-#include "QTextStream"
-#include "QRegularExpression"
+#include <QRegularExpression>
+#include <QSharedPointer>
 
-#include "CommandRunner.h"
+#include "IPlatformChecker.h"
+#include "ICommandRunner.h"
 #include "src/common/enum/Platform.h"
 #include "src/common/enum/Environment.h"
 #include "src/common/enum/PackageManager.h"
 
-class PlatformChecker
+class PlatformChecker : public IPlatformChecker
 {
 public:
-    static PlatformChecker *instance();
+	explicit PlatformChecker(const QSharedPointer<ICommandRunner> &commandRunner);
+	~PlatformChecker() override = default;
 
-    bool isX11() const;
-    bool isWayland() const;
-    bool isKde() const;
-    bool isGnome() const;
-    bool isSnap() const;
-    int gnomeVersion() const;
+    bool isX11() const override;
+    bool isWayland() const override;
+    bool isKde() const override;
+    bool isGnome() const override;
+    bool isSnap() const override;
+    int gnomeVersion() const override;
 
 private:
+	QSharedPointer<ICommandRunner> mCommandRunner;
     Platform mPlatform;
     Environment mEnvironment;
     PackageManager mPackageManager;
@@ -53,8 +55,6 @@ private:
     void checkCheckPackageManager();
     bool outputContainsValue(const QString& output, const QString& value) const;
     void checkVersion();
-
-    PlatformChecker();
 };
 
 #endif // KSNIP_PLATFORMCHECKER_H

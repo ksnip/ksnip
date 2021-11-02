@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,23 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
-#define KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
+#ifndef KSNIP_WINKEYHANDLER_H
+#define KSNIP_WINKEYHANDLER_H
 
-#include "src/common/platform/IPlatformChecker.h"
+#include <windows.h>
 
-#if defined(__APPLE__) || defined(_WIN32)
-#include "WidgetVisibilityHandler.h"
-#endif
+#include "IKeyHandler.h"
+#include "src/gui/globalHotKeys/KeySequenceToWinKeyCodeTranslator.h"
 
-#if defined(UNIX_X11)
-#include "GnomeWaylandWidgetVisibilityHandler.h"
-#endif
-
-class WidgetVisibilityHandlerFactory
+class WinKeyHandler : public AbstractKeyHandler
 {
 public:
-	static WidgetVisibilityHandler *create(QWidget *widget, const QSharedPointer<IPlatformChecker> &platformChecker);
+    WinKeyHandler() = default;
+    ~WinKeyHandler() override;
+
+    bool registerKey(const QKeySequence &keySequence) override;
+    bool isKeyPressed(void* message) override;
+
+private:
+	int mId;
+	static int mNextId;
+	KeySequenceToWinKeyCodeTranslator mKeyCodeMapper;
 };
 
-#endif //KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
+#endif //KSNIP_WINKEYHANDLER_H

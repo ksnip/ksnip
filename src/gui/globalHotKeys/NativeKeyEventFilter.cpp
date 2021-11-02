@@ -19,14 +19,9 @@
 
 #include "NativeKeyEventFilter.h"
 
-NativeKeyEventFilter::NativeKeyEventFilter(AbstractKeyHandler *keyHandler)
+NativeKeyEventFilter::NativeKeyEventFilter(const QSharedPointer<IKeyHandler> &keyHandler) :
+	mKeyHandler(keyHandler)
 {
-    mKeyHandler = keyHandler;
-}
-
-NativeKeyEventFilter::~NativeKeyEventFilter()
-{
-	delete mKeyHandler;
 }
 
 bool NativeKeyEventFilter::nativeEventFilter(const QByteArray &eventType, void *message, long *result)

@@ -17,27 +17,23 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_KEYHANDLERFACTORY_H
-#define KSNIP_KEYHANDLERFACTORY_H
+#include "KeyHandlerFactory.h"
 
+QSharedPointer<IKeyHandler> KeyHandlerFactory::create(const QSharedPointer<IPlatformChecker> &platformChecker)
+{
 #if defined(__APPLE__)
-#include "DummyKeyHandler.h"
+	return QSharedPointer<IKeyHandler>(new DummyKeyHandler);
 #endif
 
 #if defined(UNIX_X11)
-#include "X11KeyHandler.h"
-#include "DummyKeyHandler.h"
-#include "src/common/platform/PlatformChecker.h"
+    if(platformChecker->isWayland()) {
+		return QSharedPointer<IKeyHandler>(new DummyKeyHandler);
+    } else {
+		return QSharedPointer<IKeyHandler>(new X11KeyHandler);
+    }
 #endif
 
 #if  defined(_WIN32)
-#include "WinKeyHandler.h"
+	return QSharedPointer<IKeyHandler>(new WinKeyHandler);
 #endif
-
-class KeyHandlerFactory
-{
-public:
-    static AbstractKeyHandler* create();
-};
-
-#endif //KSNIP_KEYHANDLERFACTORY_H
+}

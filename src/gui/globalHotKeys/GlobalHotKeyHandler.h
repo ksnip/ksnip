@@ -33,7 +33,10 @@ class GlobalHotKeyHandler : public QObject
 {
 	Q_OBJECT
 public:
-	explicit GlobalHotKeyHandler(const QList<CaptureModes> &supportedCaptureModes, const QSharedPointer<IConfig> &config);
+	explicit GlobalHotKeyHandler(
+			const QList<CaptureModes> &supportedCaptureModes,
+			const QSharedPointer<IPlatformChecker> &platformChecker,
+			const QSharedPointer<IConfig> &config);
 	~GlobalHotKeyHandler() override;
 	void setEnabled(bool enabled);
 
@@ -45,6 +48,7 @@ private:
 	QSharedPointer<IConfig> mConfig;
 	QList<QSharedPointer<GlobalHotKey>> mGlobalHotKeys;
 	QList<CaptureModes> mSupportedCaptureModes;
+	QSharedPointer<IPlatformChecker> mPlatformChecker;
 
 	void removeHotKeys();
 	void createHotKey(const QKeySequence &keySequence, CaptureModes captureMode);

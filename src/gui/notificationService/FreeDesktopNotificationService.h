@@ -34,7 +34,7 @@ class FreeDesktopNotificationService : public QObject, public INotificationServi
 	Q_OBJECT
 public:
 	FreeDesktopNotificationService();
-	~FreeDesktopNotificationService() = default;
+	~FreeDesktopNotificationService() override = default;
 
 	void showInfo(const QString &title, const QString &message, const QString &contentUrl) override;
 	void showWarning(const QString &title, const QString &message, const QString &contentUrl) override;
@@ -42,6 +42,7 @@ public:
 
 protected:
 	void showToast(const QString &title, const QString &message, const QString &contentUrl, const QString &appIcon);
+	virtual QVariantMap getHintsMap(const QString &contentUrl);
 
 private:
 	QDBusInterface *mDBusInterface;

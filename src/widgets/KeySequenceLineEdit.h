@@ -25,14 +25,14 @@
 #include <QKeyEvent>
 #include <QApplication>
 
-#include "src/gui/globalHotKeys/KeyHandlerFactory.h"
+#include "src/gui/globalHotKeys/keyHandler/KeyHandlerFactory.h"
 #include "src/gui/globalHotKeys/NativeKeyEventFilter.h"
 
 class KeySequenceLineEdit : public QLineEdit
 {
 	Q_OBJECT
 public:
-	explicit KeySequenceLineEdit(QWidget *widget, const QList<Qt::Key> &allowedKeys);
+	explicit KeySequenceLineEdit(QWidget *widget, const QList<Qt::Key> &allowedKeys, const QSharedPointer<IPlatformChecker> &platformChecker);
 	~KeySequenceLineEdit() override;
 	QKeySequence value() const;
 	void setValue(const QKeySequence &keySequence);
@@ -50,6 +50,7 @@ private:
 	Qt::Key mKey;
 	QList<Qt::Key> mAllowedKeys;
 	QList<QSharedPointer<NativeKeyEventFilter>> mSpecialKeyFilters;
+	QSharedPointer<IPlatformChecker> mPlatformChecker;
 
 	void updateText();
 	void keyPressed(Qt::Key key);

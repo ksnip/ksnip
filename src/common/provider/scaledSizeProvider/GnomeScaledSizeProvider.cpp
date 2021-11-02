@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,22 +17,12 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_FILEDIALOGADAPTERFACTORY_H
-#define KSNIP_FILEDIALOGADAPTERFACTORY_H
+#include "GnomeScaledSizeProvider.h"
 
-#include "FileDialogAdapter.h"
-
-#if defined(UNIX_X11)
-#include "src/common/platform/PlatformChecker.h"
-#include "SnapFileDialogAdapter.h"
-#endif
-
-class FileDialogAdapterFactory
+qreal GnomeScaledSizeProvider::getScaleFactor()
 {
-public:
-	FileDialogAdapterFactory() = default;
-	~FileDialogAdapterFactory() = default;
-	static IFileDialogAdapter* create();
-};
-
-#endif //KSNIP_FILEDIALOGADAPTERFACTORY_H
+	auto screen = QApplication::primaryScreen();
+	auto logicalDotsPerInch = (int) screen->logicalDotsPerInch();
+	auto physicalDotsPerInch = (int) screen->physicalDotsPerInch();
+	return (qreal)logicalDotsPerInch / (qreal)physicalDotsPerInch;
+}

@@ -19,9 +19,13 @@
 
 #include "GlobalHotKeyHandler.h"
 
-GlobalHotKeyHandler::GlobalHotKeyHandler(const QList<CaptureModes> &supportedCaptureModes, const QSharedPointer<IConfig> &config) :
+GlobalHotKeyHandler::GlobalHotKeyHandler(
+		const QList<CaptureModes> &supportedCaptureModes,
+		const QSharedPointer<IPlatformChecker> &platformChecker,
+		const QSharedPointer<IConfig> &config) :
 	mSupportedCaptureModes(supportedCaptureModes),
-	mConfig(config)
+	mConfig(config),
+	mPlatformChecker(platformChecker)
 {
 	connect(mConfig.data(), &IConfig::hotKeysChanged, this, &GlobalHotKeyHandler::setupHotKeys);
 
@@ -60,7 +64,7 @@ void GlobalHotKeyHandler::setupHotKeys()
 void GlobalHotKeyHandler::createHotKey(const QKeySequence &keySequence, CaptureModes captureMode)
 {
 	if(mSupportedCaptureModes.contains(captureMode) && !keySequence.isEmpty()) {
-		auto hotKey = QSharedPointer<GlobalHotKey>(new GlobalHotKey(QApplication::instance(), keySequence));
+		auto hotKey = QSharedPointer<GlobalHotKey>(new GlobalHotKey(QApplication::instance(), keySequence, mPlatformChecker));
 		connect(hotKey.data(), &GlobalHotKey::pressed, [this, captureMode](){ emit captureTriggered(captureMode); });
 		mGlobalHotKeys.append(hotKey);
 	}
@@ -72,7 +76,7 @@ void GlobalHotKeyHandler::createHotKey(const Action &action)
 	auto isPostProcessingOnlyAction = !action.isCaptureEnabled();
 	auto isRequestedCaptureSupported = action.isCaptureEnabled() && mSupportedCaptureModes.contains(action.captureMode());
 	if(isShortcutSet && (isPostProcessingOnlyAction || isRequestedCaptureSupported)) {
-		auto hotKey = QSharedPointer<GlobalHotKey>(new GlobalHotKey(QApplication::instance(), action.shortcut()));
+		auto hotKey = QSharedPointer<GlobalHotKey>(new GlobalHotKey(QApplication::instance(), action.shortcut(), mPlatformChecker));
 		connect(hotKey.data(), &GlobalHotKey::pressed, [this, action](){ emit actionTriggered(action); });
 		mGlobalHotKeys.append(hotKey);
 	}

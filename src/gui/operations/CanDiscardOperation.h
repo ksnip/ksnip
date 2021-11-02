@@ -43,6 +43,7 @@ public:
 						const QSharedPointer<IMessageBoxService> &messageBoxService,
 						const QSharedPointer<IImageSaver> &imageSaver,
 						const QSharedPointer<ISavePathProvider> &savePathProvider,
+						const QSharedPointer<IFileDialogService> &fileDialogService,
 						const QSharedPointer<IConfig> &config,
 						QWidget *parent);
 	~CanDiscardOperation() override = default;
@@ -60,6 +61,7 @@ private:
 	QSharedPointer<IRecentImageService> mRecentImageService;
 	QSharedPointer<IImageSaver> mImageSaver;
 	QSharedPointer<ISavePathProvider> mSavePathProvider;
+	QSharedPointer<IFileDialogService> mFileDialogService;
 
 	MessageBoxResponse getSaveBeforeDiscard() const;
 	bool saveImage() const;

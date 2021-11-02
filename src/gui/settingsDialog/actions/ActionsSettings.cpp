@@ -19,8 +19,9 @@
 
 #include "ActionsSettings.h"
 
-ActionsSettings::ActionsSettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config) :
+ActionsSettings::ActionsSettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IPlatformChecker> &platformChecker, const QSharedPointer<IConfig> &config) :
 	mConfig(config),
+	mPlatformChecker(platformChecker),
 	mLayout(new QVBoxLayout(this)),
 	mTabWidget(new QTabWidget(this)),
 	mCaptureModes(captureModes)
@@ -75,7 +76,7 @@ void ActionsSettings::loadConfig()
 {
 	auto actions = mConfig->actions();
 	for(const auto& action : actions) {
-		auto tabContent = new ActionSettingTab(action, mCaptureModes);
+		auto tabContent = new ActionSettingTab(action, mCaptureModes, mPlatformChecker);
 		insertActionTab(tabContent, action.name());
 	}
 }
@@ -94,7 +95,7 @@ void ActionsSettings::insertActionTab(ActionSettingTab *tabContent, const QStrin
 void ActionsSettings::addEmptyTab()
 {
 	auto name = tr("Action") + QLatin1String(" ") + QString::number(mTabWidget->count());
-	auto tabContent = new ActionSettingTab(name, mCaptureModes);
+	auto tabContent = new ActionSettingTab(name, mCaptureModes, mPlatformChecker);
 	insertActionTab(tabContent, name);
 }
 

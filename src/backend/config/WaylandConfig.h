@@ -25,7 +25,7 @@
 class WaylandConfig : public Config
 {
 public:
-	WaylandConfig() = default;
+	explicit WaylandConfig(const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider);
 	~WaylandConfig() override = default;
 
 	bool isFreezeImageWhileSnippingEnabledReadOnly() const override;

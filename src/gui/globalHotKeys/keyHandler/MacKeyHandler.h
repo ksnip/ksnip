@@ -20,8 +20,8 @@
 #ifndef KSNIP_MACKEYHANDLER_H
 #define KSNIP_MACKEYHANDLER_H
 
-#include "AbstractKeyHandler.h"
-#include "KeySequenceToMacKeyCodeTranslator.h"
+#include "IKeyHandler.h"
+#include "src/gui/globalHotKeys/KeySequenceToMacKeyCodeTranslator.h"
 
 class MacKeyHandler : public AbstractKeyHandler
 {

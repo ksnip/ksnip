@@ -19,12 +19,14 @@
 
 #include "ActionSettingTab.h"
 
-ActionSettingTab::ActionSettingTab(const QString &name, const QList<CaptureModes> &captureModes) : ActionSettingTab(captureModes)
+ActionSettingTab::ActionSettingTab(const QString &name, const QList<CaptureModes> &captureModes, const QSharedPointer<IPlatformChecker> &platformChecker) :
+	ActionSettingTab(captureModes, platformChecker)
 {
 	mNameLineEdit->setTextAndPlaceholderText(name);
 }
 
-ActionSettingTab::ActionSettingTab(const Action &action, const QList<CaptureModes> &captureModes) : ActionSettingTab(captureModes)
+ActionSettingTab::ActionSettingTab(const Action &action, const QList<CaptureModes> &captureModes, const QSharedPointer<IPlatformChecker> &platformChecker) :
+	ActionSettingTab(captureModes, platformChecker)
 {
 	setAction(action);
 }
@@ -32,22 +34,8 @@ ActionSettingTab::ActionSettingTab(const Action &action, const QList<CaptureMode
 ActionSettingTab::~ActionSettingTab()
 {
 	delete mCaptureModeComboBox;
-	delete mCaptureEnabledCheckBox;
-	delete mIncludeCursorCheckBox;
-	delete mShowPinWindowCheckBox;
-	delete mCopyToClipboardCheckBox;
-	delete mUploadCheckBox;
-	delete mOpenDirectoryCheckBox;
-	delete mHideMainWindowCheckBox;
-	delete mSaveCheckBox;
-	delete mCaptureModeLabel;
-	delete mDelayLabel;
-	delete mNameLabel;
-	delete mShortcutLabel;
 	delete mDelaySpinBox;
-	delete mNameLineEdit;
 	delete mShortcutLineEdit;
-	delete mLayout;
 }
 
 void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
@@ -149,30 +137,6 @@ Action ActionSettingTab::action() const
 	return action;
 }
 
-ActionSettingTab::ActionSettingTab(const QList<CaptureModes> &captureModes) :
-	mCaptureModeComboBox(new QComboBox(nullptr)),
-	mCaptureEnabledCheckBox(new QCheckBox(this)),
-	mIncludeCursorCheckBox(new QCheckBox(this)),
-	mShowPinWindowCheckBox(new QCheckBox(this)),
-	mCopyToClipboardCheckBox(new QCheckBox(this)),
-	mUploadCheckBox(new QCheckBox(this)),
-	mOpenDirectoryCheckBox(new QCheckBox(this)),
-	mHideMainWindowCheckBox(new QCheckBox(this)),
-	mSaveCheckBox(new QCheckBox(this)),
-	mCaptureModeLabel(new QLabel(this)),
-	mDelayLabel(new QLabel(this)),
-	mNameLabel(new QLabel(this)),
-	mShortcutLabel(new QLabel(this)),
-	mDelaySpinBox(new CustomSpinBox(0, 100)),
-	mNameLineEdit(new CustomLineEdit(this)),
-	mShortcutLineEdit(new KeySequenceLineEdit(this, HotKeyMap::instance()->getAllKeys())),
-	mShortcutClearButton(new QPushButton(this)),
-	mLayout(new QGridLayout(this))
-{
-	initGui(captureModes);
-	captureEnabledChanged();
-}
-
 void ActionSettingTab::setAction(const Action &action) const
 {
 	mNameLineEdit->setTextAndPlaceholderText(getTextWithoutEscapedAmpersand(action.name()));
@@ -209,4 +173,28 @@ QString ActionSettingTab::getTextWithoutEscapedAmpersand(const QString &text)
 void ActionSettingTab::nameEditingFinished()
 {
 	emit nameChanged(getTextWithEscapedAmpersand(mNameLineEdit->textOrPlaceholderText()));
+}
+
+ActionSettingTab::ActionSettingTab(const QList<CaptureModes> &captureModes, const QSharedPointer<IPlatformChecker> &platformChecker) :
+	mCaptureModeComboBox(new QComboBox(nullptr)),
+	mCaptureEnabledCheckBox(new QCheckBox(this)),
+	mIncludeCursorCheckBox(new QCheckBox(this)),
+	mShowPinWindowCheckBox(new QCheckBox(this)),
+	mCopyToClipboardCheckBox(new QCheckBox(this)),
+	mUploadCheckBox(new QCheckBox(this)),
+	mOpenDirectoryCheckBox(new QCheckBox(this)),
+	mHideMainWindowCheckBox(new QCheckBox(this)),
+	mSaveCheckBox(new QCheckBox(this)),
+	mCaptureModeLabel(new QLabel(this)),
+	mDelayLabel(new QLabel(this)),
+	mNameLabel(new QLabel(this)),
+	mShortcutLabel(new QLabel(this)),
+	mDelaySpinBox(new CustomSpinBox(0, 100)),
+	mNameLineEdit(new CustomLineEdit(this)),
+	mShortcutLineEdit(new KeySequenceLineEdit(this, HotKeyMap::instance()->getAllKeys(), platformChecker)),
+	mShortcutClearButton(new QPushButton(this)),
+	mLayout(new QGridLayout(this))
+{
+	initGui(captureModes);
+	captureEnabledChanged();
 }

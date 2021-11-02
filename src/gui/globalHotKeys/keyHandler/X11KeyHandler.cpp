@@ -23,7 +23,7 @@
 
 #include "X11KeyHandler.h"
 
-#include "X11ErrorLogger.h"
+#include "src/gui/globalHotKeys/X11ErrorLogger.h"
 
 X11KeyHandler::X11KeyHandler() :
 	mFixedModifiers({ 0, Mod2Mask, LockMask, (Mod2Mask | LockMask)})

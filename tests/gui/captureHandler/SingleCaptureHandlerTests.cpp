@@ -69,6 +69,7 @@ void SingleCaptureHandlerTests::RemoveImage_Should_CleanupAnnotationData_When_Im
 			nullptr,
 			nullptr,
 			nullptr,
+			nullptr,
 			nullptr);
 
 	auto capture = CaptureFromFileDto(QPixmap(), QLatin1Literal("lala"));
@@ -114,6 +115,7 @@ void SingleCaptureHandlerTests::RemoveImage_Should_NotCleanupAnnotationData_When
 			nullptr,
 			nullptr,
 			nullptr,
+			nullptr,
 			nullptr);
 	auto capture = CaptureFromFileDto(QPixmap(), QLatin1Literal("lala"));
 	captureHandler.load(capture);
@@ -151,6 +153,7 @@ void SingleCaptureHandlerTests::Load_Should_SetPathAndIsSavedToValuesFromCapture
 			nullptr,
 			nullptr,
 			nullptr,
+			nullptr,
 			nullptr);
 
 	auto capture = CaptureFromFileDto(QPixmap(), QLatin1Literal("lala"));
@@ -185,6 +188,7 @@ void SingleCaptureHandlerTests::Load_Should_SetPathToEmptyAndIsSavedToFalse_When
 			fileServiceMock,
 			messageBoxServiceMock,
 			recentImageServiceMock,
+			nullptr,
 			nullptr,
 			nullptr,
 			nullptr,

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,27 +17,16 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_WINKEYHANDLER_H
-#define KSNIP_WINKEYHANDLER_H
+#ifndef KSNIP_ISCALEDSIZEPROVIDER_H
+#define KSNIP_ISCALEDSIZEPROVIDER_H
 
-#include <windows.h>
-
-#include "AbstractKeyHandler.h"
-#include "KeySequenceToWinKeyCodeTranslator.h"
-
-class WinKeyHandler : public AbstractKeyHandler
+class IScaledSizeProvider
 {
 public:
-    WinKeyHandler() = default;
-    ~WinKeyHandler() override;
-
-    bool registerKey(const QKeySequence &keySequence) override;
-    bool isKeyPressed(void* message) override;
-
-private:
-	int mId;
-	static int mNextId;
-	KeySequenceToWinKeyCodeTranslator mKeyCodeMapper;
+	IScaledSizeProvider() = default;
+	~IScaledSizeProvider() = default;
+	virtual QSize scaledSize(const QSize &size) = 0;
+	virtual int scaledWidth(int width) = 0;
 };
 
-#endif //KSNIP_WINKEYHANDLER_H
+#endif //KSNIP_ISCALEDSIZEPROVIDER_H

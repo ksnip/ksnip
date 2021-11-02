@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,23 +17,9 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
-#define KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
+#include "DirectoryPathProvider.h"
 
-#include "src/common/platform/IPlatformChecker.h"
-
-#if defined(__APPLE__) || defined(_WIN32)
-#include "WidgetVisibilityHandler.h"
-#endif
-
-#if defined(UNIX_X11)
-#include "GnomeWaylandWidgetVisibilityHandler.h"
-#endif
-
-class WidgetVisibilityHandlerFactory
+QString DirectoryPathProvider::home()
 {
-public:
-	static WidgetVisibilityHandler *create(QWidget *widget, const QSharedPointer<IPlatformChecker> &platformChecker);
-};
-
-#endif //KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
+	return QDir::homePath();
+}

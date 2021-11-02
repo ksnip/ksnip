@@ -19,8 +19,9 @@
 
 #include "HotKeySettings.h"
 
-HotKeySettings::HotKeySettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config) :
+HotKeySettings::HotKeySettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IPlatformChecker> &platformChecker, const QSharedPointer<IConfig> &config) :
 	mConfig(config),
+	mPlatformChecker(platformChecker),
 	mCaptureModes(captureModes),
 	mEnableGlobalHotKeysCheckBox(new QCheckBox(this)),
 	mRectAreaLabel(new QLabel(this)),
@@ -87,13 +88,13 @@ void HotKeySettings::saveSettings()
 void HotKeySettings::initGui()
 {
 	auto allowedKeys = HotKeyMap::instance()->getAllKeys();
-	mRectAreaKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
-	mLastRectAreaKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
-	mFullScreenKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
-	mCurrentScreenKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
-	mActiveWindowKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
-	mWindowUnderCursorKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
-	mPortalKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys);
+	mRectAreaKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys, mPlatformChecker);
+	mLastRectAreaKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys, mPlatformChecker);
+	mFullScreenKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys, mPlatformChecker);
+	mCurrentScreenKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys, mPlatformChecker);
+	mActiveWindowKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys, mPlatformChecker);
+	mWindowUnderCursorKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys, mPlatformChecker);
+	mPortalKeySequenceLineEdit = new KeySequenceLineEdit(this, allowedKeys, mPlatformChecker);
 
 	mEnableGlobalHotKeysCheckBox->setText(tr("Enable Global HotKeys"));
 	mEnableGlobalHotKeysCheckBox->setToolTip(tr("HotKeys are currently supported only for Windows and X11.\n"

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2017 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,4 +27,15 @@ QString CommandRunner::getEnvironmentVariable(const QString& variable) const
 bool CommandRunner::isEnvironmentVariableSet(const QString &variable) const
 {
 	return QProcessEnvironment::systemEnvironment().contains(variable);
+}
+
+QString CommandRunner::readFile(const QString &path) const
+{
+	QFile file(path);
+	if (file.open(QFile::ReadOnly | QFile::Text)) {
+		QTextStream inputStream(&file);
+		return inputStream.readAll();
+	} else {
+		return {};
+	}
 }

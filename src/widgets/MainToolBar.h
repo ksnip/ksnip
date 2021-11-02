@@ -27,13 +27,18 @@
 
 #include "CaptureModePicker.h"
 #include "CustomSpinBox.h"
-#include "src/common/provider/ScaledSizeProvider.h"
+#include "src/common/provider/scaledSizeProvider/IScaledSizeProvider.h"
 
 class MainToolBar : public QToolBar
 {
     Q_OBJECT
 public:
-    explicit MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoAction, QAction* redoAction, const QSharedPointer<IIconLoader> &iconLoader);
+    explicit MainToolBar(
+			const QList<CaptureModes> &captureModes,
+			QAction* undoAction,
+			QAction* redoAction,
+			const QSharedPointer<IIconLoader> &iconLoader,
+			const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider);
     ~MainToolBar() override;
     void selectCaptureMode(CaptureModes captureModes);
     void setCaptureDelay(int delay);

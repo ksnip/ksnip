@@ -19,7 +19,7 @@
 
 #include "SaverSettings.h"
 
-SaverSettings::SaverSettings(const QSharedPointer<IConfig> &config) :
+SaverSettings::SaverSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IFileDialogService> &fileDialogService) :
 	mConfig(config),
 	mAutoSaveNewCapturesCheckbox(new QCheckBox(this)),
 	mPromptToSaveBeforeExitCheckbox(new QCheckBox(this)),
@@ -33,10 +33,8 @@ SaverSettings::SaverSettings(const QSharedPointer<IConfig> &config) :
 	mLayout(new QGridLayout),
 	mSaveQualityLayout(new QGridLayout),
 	mSaveQualityGroupBox(new QGroupBox(this)),
-	mFileDialog(FileDialogAdapterFactory::create())
+	mFileDialogService(fileDialogService)
 {
-	Q_ASSERT(mConfig != nullptr);
-
 	initGui();
 	loadConfig();
 }
@@ -52,7 +50,6 @@ SaverSettings::~SaverSettings()
 	delete mSaveLocationLineEdit;
 	delete mBrowseButton;
 	delete mSaveQualityGroupBox;
-	delete mFileDialog;
 }
 
 void SaverSettings::initGui()
@@ -130,7 +127,7 @@ void SaverSettings::saveSettings()
 
 void SaverSettings::chooseSaveDirectory()
 {
-	auto path = mFileDialog->getExistingDirectory(this, tr("Capture save location"), mConfig->saveDirectory());
+	auto path = mFileDialogService->getExistingDirectory(this, tr("Capture save location"), mConfig->saveDirectory());
 	if(!path.isEmpty()) {
 		auto filename = PathHelper::extractFilename(mSaveLocationLineEdit->text());
 		auto format = PathHelper::extractFormat(mSaveLocationLineEdit->text());

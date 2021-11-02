@@ -19,7 +19,7 @@
 
 #include "AnnotationSettings.h"
 
-AnnotationSettings::AnnotationSettings(const QSharedPointer<IConfig> &config) :
+AnnotationSettings::AnnotationSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider) :
 	mSmoothPathCheckbox(new QCheckBox(this)),
 	mRememberToolSelectionCheckBox(new QCheckBox(this)),
 	mSwitchToSelectToolAfterDrawingItemCheckBox(new QCheckBox(this)),
@@ -30,10 +30,9 @@ AnnotationSettings::AnnotationSettings(const QSharedPointer<IConfig> &config) :
 	mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
 	mCanvasColorButton(new ColorButton(this)),
 	mLayout(new QGridLayout(this)),
-	mConfig(config)
+	mConfig(config),
+	mScaledSizeProvider(scaledSizeProvider)
 {
-    Q_ASSERT(mConfig != nullptr);
-
     initGui();
     loadConfig();
 }
@@ -65,7 +64,7 @@ void AnnotationSettings::saveSettings()
 
 void AnnotationSettings::initGui()
 {
-    auto const fixedButtonWidth = ScaledSizeProvider::scaledWidth(100);
+    auto const fixedButtonWidth = mScaledSizeProvider->scaledWidth(100);
 
     mRememberToolSelectionCheckBox->setText(tr("Remember annotation tool selection and load on startup"));
 

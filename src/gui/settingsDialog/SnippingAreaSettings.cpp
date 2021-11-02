@@ -19,8 +19,9 @@
 
 #include "SnippingAreaSettings.h"
 
-SnippingAreaSettings::SnippingAreaSettings(const QSharedPointer<IConfig> &config) :
+SnippingAreaSettings::SnippingAreaSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider) :
 	mConfig(config),
+	mScaledSizeProvider(scaledSizeProvider),
 	mFreezeImageWhileSnippingCheckbox(new QCheckBox(this)),
 	mSnippingAreaRulersCheckbox(new QCheckBox(this)),
 	mSnippingAreaPositionAndSizeInfoCheckbox(new QCheckBox(this)),
@@ -37,8 +38,6 @@ SnippingAreaSettings::SnippingAreaSettings(const QSharedPointer<IConfig> &config
 	mSnippingAreaTransparencySpinBox(new QSpinBox(this)),
 	mLayout(new QGridLayout(this))
 {
-	Q_ASSERT(mConfig != nullptr);
-
 	initGui();
 	loadConfig();
 }
@@ -77,7 +76,7 @@ void SnippingAreaSettings::saveSettings()
 
 void SnippingAreaSettings::initGui()
 {
-	auto const fixedButtonWidth = ScaledSizeProvider::scaledWidth(70);
+	auto const fixedButtonWidth = mScaledSizeProvider->scaledWidth(70);
 
 	mFreezeImageWhileSnippingCheckbox->setText(tr("Freeze Image while snipping"));
 	mFreezeImageWhileSnippingCheckbox->setToolTip(tr("When enabled will freeze the background while\n"

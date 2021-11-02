@@ -25,7 +25,7 @@
 class MacConfig : public Config
 {
 public:
-	MacConfig() = default;
+	explicit MacConfig(const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider);
 	~MacConfig() override = default;
 
 	bool isFreezeImageWhileSnippingEnabledReadOnly() const override;

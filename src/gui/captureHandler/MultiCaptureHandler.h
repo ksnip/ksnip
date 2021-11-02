@@ -53,8 +53,9 @@ public:
 			const QSharedPointer<IImageSaver> &imageSaver,
 			const QSharedPointer<ISavePathProvider> &savePathProvider,
 			const QSharedPointer<IIconLoader> &iconLoader,
+			const QSharedPointer<IFileDialogService> &fileDialogService,
 			QWidget *parent);
-	~MultiCaptureHandler() override;
+	~MultiCaptureHandler() override = default;
 	bool canClose() override;
 	bool canTakeNew() override;
 	bool isSaved() const override;
@@ -88,6 +89,7 @@ private:
 	QSharedPointer<IRecentImageService> mRecentImageService;
 	QSharedPointer<IImageSaver> mImageSaver;
 	QSharedPointer<ISavePathProvider> mSavePathProvider;
+	QSharedPointer<IFileDialogService> mFileDialogService;
 	TabContextMenuAction *mSaveContextMenuAction;
 	TabContextMenuAction *mSaveAsContextMenuAction;
 	TabContextMenuAction *mRenameContextMenuAction;

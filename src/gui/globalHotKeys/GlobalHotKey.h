@@ -24,13 +24,13 @@
 #include <QObject>
 
 #include "NativeKeyEventFilter.h"
-#include "KeyHandlerFactory.h"
+#include "src/gui/globalHotKeys/keyHandler/KeyHandlerFactory.h"
 
 class GlobalHotKey : public QObject
 {
     Q_OBJECT
 public:
-    explicit GlobalHotKey(QCoreApplication *app, const QKeySequence &keySequence);
+    explicit GlobalHotKey(QCoreApplication *app, const QKeySequence &keySequence, const QSharedPointer<IPlatformChecker> &platformChecker);
     ~GlobalHotKey() override;
 
 signals:

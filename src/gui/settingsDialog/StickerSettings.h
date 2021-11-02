@@ -32,13 +32,13 @@
 
 #include "src/backend/config/IConfig.h"
 #include "src/common/helper/PathHelper.h"
-#include "src/common/provider/DirectoryPathProvider.h"
+#include "src/common/provider/directoryPathProvider/IDirectoryPathProvider.h"
 
 class StickerSettings : public QGroupBox
 {
 Q_OBJECT
 public:
-	explicit StickerSettings(const QSharedPointer<IConfig> &config);
+	explicit StickerSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider);
 	~StickerSettings() override;
 	void saveSettings();
 
@@ -51,6 +51,7 @@ private:
 	QCheckBox *mUseDefaultStickerCheckBox;
 	QGridLayout *mLayout;
 	QSharedPointer<IConfig> mConfig;
+	QSharedPointer<IDirectoryPathProvider> mDirectoryPathProvider;
 	int mPathDataKey;
 	int mIsSavedDataKey;
 	int mIsRemovedDataKey;

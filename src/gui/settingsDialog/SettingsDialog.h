@@ -41,17 +41,25 @@
 #include "src/gui/settingsDialog/uploader/FtpUploaderSettings.h"
 #include "src/gui/settingsDialog/actions/ActionsSettings.h"
 #include "src/backend/config/IConfig.h"
-#include "src/common/provider/ScaledSizeProvider.h"
+#include "src/common/provider/scaledSizeProvider/IScaledSizeProvider.h"
 
 class SettingsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit SettingsDialog(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config, QWidget *parent);
+    explicit SettingsDialog(
+			const QList<CaptureModes> &captureModes,
+			const QSharedPointer<IConfig> &config,
+			const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider,
+			const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider,
+			const QSharedPointer<IFileDialogService> &fileDialogService,
+			const QSharedPointer<IPlatformChecker> &platformChecker,
+			QWidget *parent);
     ~SettingsDialog() override;
 
 private:
 	QSharedPointer<IConfig> mConfig;
+	QSharedPointer<IScaledSizeProvider> mScaledSizeProvider;
     QPushButton *mOkButton;
     QPushButton *mCancelButton;
 	ApplicationSettings *mApplicationSettings;

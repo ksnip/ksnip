@@ -20,26 +20,34 @@
 
 #include "SettingsDialog.h"
 
-SettingsDialog::SettingsDialog(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config, QWidget *parent) :
+SettingsDialog::SettingsDialog(
+		const QList<CaptureModes> &captureModes,
+		const QSharedPointer<IConfig> &config,
+		const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider,
+		const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider,
+		const QSharedPointer<IFileDialogService> &fileDialogService,
+		const QSharedPointer<IPlatformChecker> &platformChecker,
+		QWidget *parent) :
 	QDialog(parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
 	mOkButton(new QPushButton),
 	mCancelButton(new QPushButton),
 	mTreeWidget(new QTreeWidget),
 	mStackedLayout(new QStackedLayout),
 	mConfig(config),
+	mScaledSizeProvider(scaledSizeProvider),
 	mApplicationSettings(new ApplicationSettings(mConfig)),
 	mImageGrabberSettings(new ImageGrabberSettings(mConfig)),
 	mImgurUploaderSettings(new ImgurUploaderSettings(mConfig)),
-	mScriptUploaderSettings(new ScriptUploaderSettings(mConfig)),
-	mAnnotationSettings(new AnnotationSettings(mConfig)),
-	mHotKeySettings(new HotKeySettings(captureModes, mConfig)),
+	mScriptUploaderSettings(new ScriptUploaderSettings(mConfig, fileDialogService)),
+	mAnnotationSettings(new AnnotationSettings(mConfig, mScaledSizeProvider)),
+	mHotKeySettings(new HotKeySettings(captureModes, platformChecker, mConfig)),
 	mUploaderSettings(new UploaderSettings(mConfig)),
-	mSaverSettings(new SaverSettings(mConfig)),
-	mStickerSettings(new StickerSettings(mConfig)),
+	mSaverSettings(new SaverSettings(mConfig, fileDialogService)),
+	mStickerSettings(new StickerSettings(mConfig, directoryPathProvider)),
 	mTrayIconSettings(new TrayIconSettings(captureModes, mConfig)),
-	mSnippingAreaSettings(new SnippingAreaSettings(mConfig)),
-	mWatermarkSettings(new WatermarkSettings(mConfig)),
-	mActionsSettings(new ActionsSettings(captureModes, mConfig)),
+	mSnippingAreaSettings(new SnippingAreaSettings(mConfig, mScaledSizeProvider)),
+	mWatermarkSettings(new WatermarkSettings(mConfig, mScaledSizeProvider)),
+	mActionsSettings(new ActionsSettings(captureModes, platformChecker, mConfig)),
 	mFtpUploaderSettings(new FtpUploaderSettings(mConfig))
 {
     setWindowTitle(QApplication::applicationName() + QLatin1String(" - ") + tr("Settings"));
@@ -154,7 +162,7 @@ void SettingsDialog::initGui()
     mTreeWidget->addTopLevelItem(actions);
 	mTreeWidget->setHeaderHidden(true);
     mTreeWidget->setItemSelected(mNavigatorItems[0], true);
-    mTreeWidget->setFixedWidth(mTreeWidget->minimumSizeHint().width() + ScaledSizeProvider::scaledWidth(100));
+    mTreeWidget->setFixedWidth(mTreeWidget->minimumSizeHint().width() + mScaledSizeProvider->scaledWidth(100));
     mTreeWidget->expandAll();
 
     auto listAndStackLayout = new QHBoxLayout;

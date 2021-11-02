@@ -17,23 +17,10 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_SCALEDSIZEPROVIDER_H
-#define KSNIP_SCALEDSIZEPROVIDER_H
+#include "SnapDesktopServiceAdapter.h"
 
-#include <QSize>
-
-#include "src/common/platform/PlatformChecker.h"
-
-class ScaledSizeProvider
+void SnapDesktopServiceAdapter::openFile(const QString &path)
 {
-public:
-	static QSize scaledSize(const QSize &size);
-	static int scaledWidth(int width);
-
-private:
-	static qreal scaleFactor();
-	static qreal getScaleFactor();
-};
-
-
-#endif //KSNIP_SCALEDSIZEPROVIDER_H
+	// Workaround for issue #432, Qt unable to open file path in snap
+	mXdgOpenProcess.start(QLatin1String("xdg-open"), QStringList{ path });
+}

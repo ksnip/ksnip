@@ -41,6 +41,7 @@ ICaptureHandler* CaptureHandlerFactory::create(
 				dependencyInjector->get<IImageSaver>(),
 				dependencyInjector->get<ISavePathProvider>(),
 				dependencyInjector->get<IIconLoader>(),
+				dependencyInjector->get<IFileDialogService>(),
 				parent);
 	} else {
 		return new SingleCaptureHandler(
@@ -53,6 +54,7 @@ ICaptureHandler* CaptureHandlerFactory::create(
 				dependencyInjector->get<IRecentImageService>(),
 				dependencyInjector->get<IImageSaver>(),
 				dependencyInjector->get<ISavePathProvider>(),
+				dependencyInjector->get<IFileDialogService>(),
 				config,
 				parent);
 	}

@@ -25,10 +25,10 @@
 
 #include <xcb/xcb.h>
 
-#include "AbstractKeyHandler.h"
-#include "KeySequenceToX11KeyCodeTranslator.h"
+#include "src/gui/globalHotKeys/keyHandler/IKeyHandler.h"
+#include "src/gui/globalHotKeys/KeySequenceToX11KeyCodeTranslator.h"
 
-class X11KeyHandler : public AbstractKeyHandler
+class X11KeyHandler : public IKeyHandler
 {
 public:
 	X11KeyHandler();

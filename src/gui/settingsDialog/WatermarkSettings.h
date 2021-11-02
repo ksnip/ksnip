@@ -28,19 +28,20 @@
 
 #include "src/backend/config/IConfig.h"
 #include "src/gui/operations/UpdateWatermarkOperation.h"
-#include "src/common/provider/ScaledSizeProvider.h"
+#include "src/common/provider/scaledSizeProvider/IScaledSizeProvider.h"
 
 class WatermarkSettings : public QGroupBox
 {
 Q_OBJECT
 public:
-	explicit WatermarkSettings(const QSharedPointer<IConfig> &config);
+	explicit WatermarkSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider);
 	~WatermarkSettings() override;
 	void saveSettings();
 
 private:
 	QGridLayout *mLayout;
 	QSharedPointer<IConfig> mConfig;
+	QSharedPointer<IScaledSizeProvider> mScaledSizeProvider;
 	QCheckBox *mRotateWatermarkCheckbox;
 	QLabel *mWatermarkImageLabel;
 	QPushButton *mUpdateWatermarkImageButton;

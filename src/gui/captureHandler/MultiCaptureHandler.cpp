@@ -32,6 +32,7 @@ MultiCaptureHandler::MultiCaptureHandler(
 		const QSharedPointer<IImageSaver> &imageSaver,
 		const QSharedPointer<ISavePathProvider> &savePathProvider,
 		const QSharedPointer<IIconLoader> &iconLoader,
+		const QSharedPointer<IFileDialogService> &fileDialogService,
 		QWidget *parent) :
 	mImageAnnotator(imageAnnotator),
 	mNotificationService(notificationService),
@@ -46,6 +47,7 @@ MultiCaptureHandler::MultiCaptureHandler(
 	mRecentImageService(recentImageService),
 	mImageSaver(imageSaver),
 	mSavePathProvider(savePathProvider),
+	mFileDialogService(fileDialogService),
 	mSaveContextMenuAction(new TabContextMenuAction(this)),
 	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
 	mRenameContextMenuAction(new TabContextMenuAction(this)),
@@ -70,18 +72,6 @@ MultiCaptureHandler::MultiCaptureHandler(
 	addTabContextMenuActions(iconLoader);
 
 	annotatorConfigChanged();
-}
-
-MultiCaptureHandler::~MultiCaptureHandler()
-{
-	delete mSaveContextMenuAction;
-	delete mSaveAsContextMenuAction;
-	delete mRenameContextMenuAction;
-	delete mOpenDirectoryContextMenuAction;
-	delete mCopyPathToClipboardContextMenuAction;
-	delete mCopyToClipboardContextMenuAction;
-	delete mDeleteImageContextMenuAction;
-	delete mContextMenuSeparatorAction;
 }
 
 bool MultiCaptureHandler::canClose()
@@ -117,6 +107,7 @@ bool MultiCaptureHandler::discardChanges(int index)
 			mMessageBoxService,
 			mImageSaver,
 			mSavePathProvider,
+			mFileDialogService,
 			mConfig,
 			mParent);
 	return operation.execute();
@@ -195,6 +186,7 @@ void MultiCaptureHandler::saveAt(int index, bool isInstant)
 			mRecentImageService,
 			mImageSaver,
 			mSavePathProvider,
+			mFileDialogService,
 			mConfig,
 			mParent);
 	auto saveResult = operation.execute();

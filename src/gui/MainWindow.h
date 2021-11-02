@@ -54,7 +54,7 @@
 #include "src/backend/imageGrabber/IImageGrabber.h"
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
-#include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
+#include "src/common/adapter/fileDialog/IFileDialogService.h"
 #include "src/dependencyInjector/DependencyInjector.h"
 
 
@@ -129,7 +129,7 @@ private:
 	ICaptureHandler *mCaptureHandler;
 	PinWindowHandler *mPinWindowHandler;
 	WidgetVisibilityHandler *mVisibilityHandler;
-	IFileDialogAdapter *mFileDialog;
+	QSharedPointer<IFileDialogService> mFileDialogService;
 	WindowResizer *mWindowResizer;
 	ActionProcessor *mActionProcessor;
 

@@ -20,7 +20,12 @@
 
 #include "MainToolBar.h"
 
-MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoAction, QAction* redoAction, const QSharedPointer<IIconLoader> &iconLoader) :
+MainToolBar::MainToolBar(
+		const QList<CaptureModes> &captureModes,
+		QAction* undoAction,
+		QAction* redoAction,
+		const QSharedPointer<IIconLoader> &iconLoader,
+		const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider) :
 	QToolBar(),
 	mSaveButton(new QToolButton(this)),
 	mCopyButton(new QToolButton(this)),
@@ -66,13 +71,13 @@ MainToolBar::MainToolBar(const QList<CaptureModes> &captureModes, QAction* undoA
     mCropButton->setDefaultAction(mCropAction);
 
 	auto clockIcon = iconLoader->loadForTheme(QLatin1String("clock.svg"));
-	auto clockPixmap = clockIcon.pixmap(ScaledSizeProvider::scaledSize(QSize(24, 24)));
+	auto clockPixmap = clockIcon.pixmap(scaledSizeProvider->scaledSize(QSize(24, 24)));
 	mDelayLabel->setPixmap(clockPixmap);
 	mDelayLabel->setContentsMargins(0, 0, 2, 0);
 	mDelayLabel->setToolTip(tr("Delay in seconds between triggering\n"
 	                           "and capturing screenshot."));
     mDelayPicker->setSuffix(tr("s"));
-	mDelayPicker->setFixedWidth(ScaledSizeProvider::scaledWidth(55));
+	mDelayPicker->setFixedWidth(scaledSizeProvider->scaledWidth(55));
 	mDelayPicker->setToolTip(mDelayLabel->toolTip());
     connect(mDelayPicker, &CustomSpinBox::valueChanged, this, &MainToolBar::captureDelayChanged);
 

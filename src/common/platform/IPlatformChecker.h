@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,19 +17,21 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_DUMMYKEYHANDLER_H
-#define KSNIP_DUMMYKEYHANDLER_H
+#ifndef KSNIP_IPLATFORMCHECKER_H
+#define KSNIP_IPLATFORMCHECKER_H
 
-#include "AbstractKeyHandler.h"
-
-class DummyKeyHandler : public AbstractKeyHandler
+class IPlatformChecker
 {
 public:
-    DummyKeyHandler() = default;
-    ~DummyKeyHandler() override = default;
+	explicit IPlatformChecker() = default;
+	virtual ~IPlatformChecker() = default;
 
-    bool registerKey(const QKeySequence &keySequence) override;
-    bool isKeyPressed(void* message) override;
+	virtual bool isX11() const = 0;
+	virtual bool isWayland() const = 0;
+	virtual bool isKde() const = 0;
+	virtual bool isGnome() const = 0;
+	virtual bool isSnap() const = 0;
+	virtual int gnomeVersion() const = 0;
 };
 
-#endif //KSNIP_DUMMYKEYHANDLER_H
+#endif //KSNIP_IPLATFORMCHECKER_H

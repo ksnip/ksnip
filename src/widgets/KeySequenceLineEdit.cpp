@@ -19,7 +19,9 @@
 
 #include "KeySequenceLineEdit.h"
 
-KeySequenceLineEdit::KeySequenceLineEdit(QWidget *widget, const QList<Qt::Key> &allowedKeys) : QLineEdit(widget)
+KeySequenceLineEdit::KeySequenceLineEdit(QWidget *widget, const QList<Qt::Key> &allowedKeys, const QSharedPointer<IPlatformChecker> &platformChecker) :
+	QLineEdit(widget),
+	mPlatformChecker(platformChecker)
 {
 	mAllowedKeys = allowedKeys;
 }
@@ -116,7 +118,7 @@ void KeySequenceLineEdit::setupSpecialKeyHandling()
 
 void KeySequenceLineEdit::addSpecialKeyHandler(const QKeySequence &keySequence, Qt::Key key)
 {
-	auto keyHandler = KeyHandlerFactory::create();
+	auto keyHandler = KeyHandlerFactory::create(mPlatformChecker);
 	keyHandler->registerKey(keySequence);
 	auto keyFilter = QSharedPointer<NativeKeyEventFilter>(new NativeKeyEventFilter(keyHandler));
 	connect(keyFilter.data(), &NativeKeyEventFilter::triggered, [this, key]() { keyPressed(key); });

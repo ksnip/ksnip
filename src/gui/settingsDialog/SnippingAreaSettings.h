@@ -29,13 +29,13 @@
 #include "src/backend/config/IConfig.h"
 #include "src/widgets/ColorButton.h"
 #include "src/widgets/NumericComboBox.h"
-#include "src/common/provider/ScaledSizeProvider.h"
+#include "src/common/provider/scaledSizeProvider/IScaledSizeProvider.h"
 
 class SnippingAreaSettings : public QGroupBox
 {
 Q_OBJECT
 public:
-	explicit SnippingAreaSettings(const QSharedPointer<IConfig> &config);
+	explicit SnippingAreaSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider);
 	~SnippingAreaSettings() override;
 	void saveSettings();
 
@@ -56,6 +56,8 @@ private:
 	QSpinBox *mSnippingAreaTransparencySpinBox;
 	QGridLayout *mLayout;
 	QSharedPointer<IConfig> mConfig;
+	QSharedPointer<IScaledSizeProvider> mScaledSizeProvider;
+
 	void initGui();
 	void loadConfig();
 

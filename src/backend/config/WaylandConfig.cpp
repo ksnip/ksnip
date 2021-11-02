@@ -19,6 +19,11 @@
 
 #include "WaylandConfig.h"
 
+WaylandConfig::WaylandConfig(const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider) : Config(directoryPathProvider)
+{
+
+}
+
 bool WaylandConfig::isFreezeImageWhileSnippingEnabledReadOnly() const
 {
 	return true;

@@ -34,7 +34,7 @@ class HotKeySettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit HotKeySettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config);
+	explicit HotKeySettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IPlatformChecker> &platformChecker, const QSharedPointer<IConfig> &config);
 	~HotKeySettings() override;
 	void saveSettings();
 
@@ -64,6 +64,7 @@ private:
 	QGridLayout *mLayout;
 	QList<CaptureModes> mCaptureModes;
 	QSharedPointer<IConfig> mConfig;
+	QSharedPointer<IPlatformChecker> mPlatformChecker;
 
 	void initGui();
 	void loadConfig();

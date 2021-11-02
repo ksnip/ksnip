@@ -31,14 +31,14 @@
 #include "ConfigOptions.h"
 #include "src/common/helper/PathHelper.h"
 #include "src/common/constants/DefaultValues.h"
-#include "src/common/provider/DirectoryPathProvider.h"
+#include "src/common/provider/directoryPathProvider/IDirectoryPathProvider.h"
 #include "src/gui/actions/Action.h"
 
 class Config : public IConfig
 {
     Q_OBJECT
 public:
-	Config() = default;
+	explicit Config(const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider);
 	~Config() override = default;
 
     // Application
@@ -321,6 +321,7 @@ public:
 
 private:
     QSettings mConfig;
+	const QSharedPointer<IDirectoryPathProvider> mDirectoryPathProvider;
 
 	void saveValue(const QString &key, const QVariant &value);
 	QVariant loadValue(const QString &key, const QVariant &defaultValue = QVariant()) const;

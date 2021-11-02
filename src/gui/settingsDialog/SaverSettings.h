@@ -30,7 +30,7 @@
 #include <QRadioButton>
 
 #include "src/backend/config/IConfig.h"
-#include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
+#include "src/common/adapter/fileDialog/IFileDialogService.h"
 #include "src/common/helper/PathHelper.h"
 #include "src/widgets/CustomSpinBox.h"
 
@@ -38,7 +38,7 @@ class SaverSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-	explicit SaverSettings(const QSharedPointer<IConfig> &config);
+	explicit SaverSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IFileDialogService> &fileDialogService);
 	~SaverSettings() override;
 	void saveSettings();
 
@@ -56,7 +56,7 @@ private:
 	QGridLayout *mSaveQualityLayout;
 	QGroupBox *mSaveQualityGroupBox;
 	QSharedPointer<IConfig> mConfig;
-	IFileDialogAdapter *mFileDialog;
+	QSharedPointer<IFileDialogService> mFileDialogService;
 
 	void initGui();
 	void loadConfig();

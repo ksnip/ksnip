@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,19 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_ABSTRACTKEYHANDLER_H
-#define KSNIP_ABSTRACTKEYHANDLER_H
+#ifndef KSNIP_ICOMMANDRUNNER_H
+#define KSNIP_ICOMMANDRUNNER_H
 
-#include <QKeySequence>
+class QString;
 
-class AbstractKeyHandler
+class ICommandRunner
 {
 public:
-    AbstractKeyHandler() = default;
-    virtual ~AbstractKeyHandler() = default;
-
-    virtual bool registerKey(const QKeySequence &keySequence) = 0;
-    virtual bool isKeyPressed(void* message) = 0;
+	ICommandRunner() = default;
+	virtual ~ICommandRunner() = default;
+	virtual QString getEnvironmentVariable(const QString &variable) const = 0;
+	virtual bool isEnvironmentVariableSet(const QString &variable) const = 0;
+	virtual QString readFile(const QString &path) const = 0;
 };
 
-#endif //KSNIP_ABSTRACTKEYHANDLER_H
+#endif //KSNIP_ICOMMANDRUNNER_H

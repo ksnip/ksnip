@@ -20,6 +20,12 @@
 
 #include "Config.h"
 
+Config::Config(const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider) :
+		mDirectoryPathProvider(directoryPathProvider)
+{
+
+}
+
 // Application
 
 bool Config::rememberPosition() const
@@ -194,7 +200,7 @@ void Config::setCaptureMode(CaptureModes mode)
 
 QString Config::saveDirectory() const
 {
-	auto saveDirectoryString = loadValue(ConfigOptions::saveDirectoryString(), DirectoryPathProvider::home()).toString();
+	auto saveDirectoryString = loadValue(ConfigOptions::saveDirectoryString(), mDirectoryPathProvider->home()).toString();
 	if (!saveDirectoryString.isEmpty()) {
 		return saveDirectoryString + QLatin1String("/");
     } else {

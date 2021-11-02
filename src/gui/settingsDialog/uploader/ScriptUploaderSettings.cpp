@@ -19,7 +19,7 @@
 
 #include "ScriptUploaderSettings.h"
 
-ScriptUploaderSettings::ScriptUploaderSettings(const QSharedPointer<IConfig> &config) :
+ScriptUploaderSettings::ScriptUploaderSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IFileDialogService> &fileDialogService) :
 	mConfig(config),
 	mLayout(new QGridLayout(this)),
 	mCopyOutputToClipboardCheckbox(new QCheckBox(this)),
@@ -29,7 +29,7 @@ ScriptUploaderSettings::ScriptUploaderSettings(const QSharedPointer<IConfig> &co
 	mCopyOutputFilterLineEdit(new QLineEdit(this)),
 	mUploadScriptPathLineEdit(new QLineEdit(this)),
 	mBrowseButton(new QPushButton(this)),
-	mFileDialog(FileDialogAdapterFactory::create())
+	mFileDialogService(fileDialogService)
 {
 	initGui();
 	loadConfig();
@@ -104,7 +104,7 @@ void ScriptUploaderSettings::loadConfig()
 
 void ScriptUploaderSettings::ShowScriptSelectionDialog()
 {
-	auto path = mFileDialog->getOpenFileName(this, tr("Select Upload Script"), mConfig->uploadScriptPath());
+	auto path = mFileDialogService->getOpenFileName(this, tr("Select Upload Script"), mConfig->uploadScriptPath());
 	if(PathHelper::isPathValid(path)) {
 		mUploadScriptPathLineEdit->setText(path);
 	}

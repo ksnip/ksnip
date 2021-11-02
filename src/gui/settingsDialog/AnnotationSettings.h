@@ -30,13 +30,13 @@
 #include "src/backend/WatermarkImageLoader.h"
 #include "src/widgets/NumericComboBox.h"
 #include "src/widgets/ColorButton.h"
-#include "src/common/provider/ScaledSizeProvider.h"
+#include "src/common/provider/scaledSizeProvider/IScaledSizeProvider.h"
 
 class AnnotationSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
-    explicit AnnotationSettings(const QSharedPointer<IConfig> &config);
+    explicit AnnotationSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider);
     ~AnnotationSettings() override;
     void saveSettings();
 
@@ -52,6 +52,7 @@ private:
     ColorButton *mCanvasColorButton;
     QGridLayout *mLayout;
     QSharedPointer<IConfig> mConfig;
+	QSharedPointer<IScaledSizeProvider> mScaledSizeProvider;
 
     void initGui();
     void loadConfig();

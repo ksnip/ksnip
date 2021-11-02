@@ -17,40 +17,22 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "ScaledSizeProvider.h"
+#ifndef KSNIP_GNOMESCALEDSIZEPROVIDER_H
+#define KSNIP_GNOMESCALEDSIZEPROVIDER_H
 
-#if defined(UNIX_X11)
 #include <QApplication>
 #include <QScreen>
-#endif
 
-QSize ScaledSizeProvider::scaledSize(const QSize &size)
+#include "ScaledSizeProvider.h"
+
+class GnomeScaledSizeProvider : public ScaledSizeProvider
 {
-	return size * scaleFactor();
-}
+public:
+	GnomeScaledSizeProvider() = default;
+	~GnomeScaledSizeProvider() = default;
 
-int ScaledSizeProvider::scaledWidth(int width)
-{
-	return static_cast<int>(width * scaleFactor());
-}
+protected:
+	qreal getScaleFactor() override;
+};
 
-qreal ScaledSizeProvider::scaleFactor()
-{
-	static auto scaleFactor = getScaleFactor();
-	return scaleFactor;
-}
-
-qreal ScaledSizeProvider::getScaleFactor()
-{
-#if defined(UNIX_X11)
-	auto platformChecker = PlatformChecker::instance();
-	if(platformChecker->isGnome()) {
-		auto screen = QApplication::primaryScreen();
-		auto logicalDotsPerInch = (int) screen->logicalDotsPerInch();
-		auto physicalDotsPerInch = (int) screen->physicalDotsPerInch();
-		return (qreal)logicalDotsPerInch / (qreal)physicalDotsPerInch;
-	}
-#endif
-
-	return 1;
-}
+#endif //KSNIP_GNOMESCALEDSIZEPROVIDER_H

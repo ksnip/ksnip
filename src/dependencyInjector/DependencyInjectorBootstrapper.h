@@ -34,9 +34,12 @@ public:
 
 private:
 	static void injectConfig(DependencyInjector *dependencyInjector);
-	static void injectLogger(DependencyInjector *dependencyInjector) ;
+	static void injectLogger(DependencyInjector *dependencyInjector);
 	static void injectImageGrabber(DependencyInjector *dependencyInjector);
+	static void injectFileDialogService(DependencyInjector *dependencyInjector);
+	static void injectDirectoryPathProvider(DependencyInjector *dependencyInjector);
+	static void injectDesktopServiceAdapter(DependencyInjector *dependencyInjector);
+	static void injectScaledSizeProvider(DependencyInjector *dependencyInjector);
 };
-
 
 #endif //KSNIP_DEPENDENCYINJECTORBOOTSTRAPPER_H

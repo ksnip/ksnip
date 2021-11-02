@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2019 Damir Porobic <https://github.com/damirporobic>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,23 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
-#define KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
+#ifndef KSNIP_IKEYHANDLER_H
+#define KSNIP_IKEYHANDLER_H
 
-#include "src/common/platform/IPlatformChecker.h"
+#include <QKeySequence>
 
-#if defined(__APPLE__) || defined(_WIN32)
-#include "WidgetVisibilityHandler.h"
-#endif
-
-#if defined(UNIX_X11)
-#include "GnomeWaylandWidgetVisibilityHandler.h"
-#endif
-
-class WidgetVisibilityHandlerFactory
+class IKeyHandler
 {
 public:
-	static WidgetVisibilityHandler *create(QWidget *widget, const QSharedPointer<IPlatformChecker> &platformChecker);
+    IKeyHandler() = default;
+    virtual ~IKeyHandler() = default;
+
+    virtual bool registerKey(const QKeySequence &keySequence) = 0;
+    virtual bool isKeyPressed(void* message) = 0;
 };
 
-#endif //KSNIP_WIDGETVISIBILITYHANDLERRFACTORY_H
+#endif //KSNIP_IKEYHANDLER_H

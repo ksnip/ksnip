@@ -19,8 +19,9 @@
 
 #include "StickerSettings.h"
 
-StickerSettings::StickerSettings(const QSharedPointer<IConfig> &config) :
+StickerSettings::StickerSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider) :
 	mConfig(config),
+	mDirectoryPathProvider(directoryPathProvider),
 	mListWidget(new QListWidget(this)),
 	mAddButton(new QPushButton(this)),
 	mRemoveButton(new QPushButton(this)),
@@ -131,7 +132,7 @@ void StickerSettings::addTriggered()
 {
 	auto title = tr("Add Stickers");
 	auto filter = tr("Vector Image Files (*.svg)");
-	auto paths = QFileDialog::getOpenFileNames(this, title, DirectoryPathProvider::home(), filter);
+	auto paths = QFileDialog::getOpenFileNames(this, title, mDirectoryPathProvider->home(), filter);
 
 	for(const auto& path : paths) {
 		addSticker(path, false);

@@ -24,7 +24,7 @@
 
 #include "NotifyOperation.h"
 #include "src/common/dtos/SaveResultDto.h"
-#include "src/common/adapter/fileDialog/FileDialogAdapterFactory.h"
+#include "src/common/adapter/fileDialog/IFileDialogService.h"
 #include "src/backend/recentImages/IRecentImageService.h"
 #include "src/backend/config/IConfig.h"
 #include "src/backend/saver/ISavePathProvider.h"
@@ -42,6 +42,7 @@ public:
 			const QSharedPointer<IRecentImageService> &recentImageService,
 			const QSharedPointer<IImageSaver> &imageSaver,
 			const QSharedPointer<ISavePathProvider> &savePathProvider,
+			const QSharedPointer<IFileDialogService> &fileDialogService,
 			const QSharedPointer<IConfig> &config,
 			QWidget *parent);
 	SaveOperation(
@@ -52,6 +53,7 @@ public:
 			const QSharedPointer<IRecentImageService> &recentImageService,
 			const QSharedPointer<IImageSaver> &imageSaver,
 			const QSharedPointer<ISavePathProvider> &savePathProvider,
+			const QSharedPointer<IFileDialogService> &fileDialogService,
 			const QSharedPointer<IConfig> &config,
 			QWidget *parent);
     ~SaveOperation() override = default;
@@ -66,6 +68,7 @@ private:
 	QSharedPointer<ISavePathProvider> mSavePathProvider;
 	QSharedPointer<INotificationService> mNotificationService;
 	QSharedPointer<IRecentImageService> mRecentImageService;
+	QSharedPointer<IFileDialogService> mFileDialogService;
 	QSharedPointer<IConfig> mConfig;
 
 	void notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const;

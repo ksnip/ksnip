@@ -22,15 +22,16 @@
 
 #include <QObject>
 #include <QAbstractNativeEventFilter>
+#include <QSharedPointer>
 
-#include "AbstractKeyHandler.h"
+#include "src/gui/globalHotKeys/keyHandler/IKeyHandler.h"
 
 class NativeKeyEventFilter: public QObject, public QAbstractNativeEventFilter
 {
     Q_OBJECT
 public:
-    explicit NativeKeyEventFilter(AbstractKeyHandler *keyHandler);
-    ~NativeKeyEventFilter() override;
+    explicit NativeKeyEventFilter(const QSharedPointer<IKeyHandler> &keyHandler);
+    ~NativeKeyEventFilter() override = default;
 
     bool nativeEventFilter(const QByteArray&, void* message, long*) override;
 
@@ -38,7 +39,7 @@ signals:
     void triggered() const;
 
 private:
-    AbstractKeyHandler *mKeyHandler;
+    QSharedPointer<IKeyHandler> mKeyHandler;
 };
 
 #endif //KSNIP_KEYEVENTFILTER_H

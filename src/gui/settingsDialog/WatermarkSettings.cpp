@@ -19,17 +19,14 @@
 
 #include "WatermarkSettings.h"
 
-WatermarkSettings::WatermarkSettings(const QSharedPointer<IConfig> &config) :
+WatermarkSettings::WatermarkSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider) :
 	mConfig(config),
+	mScaledSizeProvider(scaledSizeProvider),
 	mLayout(new QGridLayout(this)),
 	mRotateWatermarkCheckbox(new QCheckBox(this)),
 	mWatermarkImageLabel(new QLabel(this)),
 	mUpdateWatermarkImageButton(new QPushButton(this))
 {
-	Q_ASSERT(mConfig != nullptr);
-
-	mConfig = config;
-
 	initGui();
 	loadConfig();
 }
@@ -51,7 +48,7 @@ void WatermarkSettings::initGui()
 	mWatermarkImageLabel->setPixmap(mWatermarkImageLoader.load());
 	mWatermarkImageLabel->setToolTip(tr("Watermark Image"));
 	mWatermarkImageLabel->setAutoFillBackground(true);
-	mWatermarkImageLabel->setFixedSize(ScaledSizeProvider::scaledSize(QSize(100, 100)));
+	mWatermarkImageLabel->setFixedSize(mScaledSizeProvider->scaledSize(QSize(100, 100)));
 	mWatermarkImageLabel->setScaledContents(true);
 	mWatermarkImageLabel->setStyleSheet(QLatin1String("QLabel { background-color : white; }"));
 	mUpdateWatermarkImageButton->setText(tr("Update"));

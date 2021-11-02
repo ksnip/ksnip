@@ -19,10 +19,17 @@
 
 #include "PlatformChecker.h"
 
-PlatformChecker* PlatformChecker::instance()
+PlatformChecker::PlatformChecker(const QSharedPointer<ICommandRunner> &commandRunner) :
+	mCommandRunner(commandRunner),
+	mEnvironment(Environment::Unknown),
+	mPlatform(Platform::Unknown),
+	mPackageManager(PackageManager::Unknown),
+	mGnomeVersion(-1)
 {
-    static PlatformChecker instance;
-    return &instance;
+	checkPlatform();
+	checkEnvironment();
+	checkCheckPackageManager();
+	checkVersion();
 }
 
 bool PlatformChecker::isX11() const
@@ -57,8 +64,7 @@ int PlatformChecker::gnomeVersion() const
 
 void PlatformChecker::checkPlatform()
 {
-    CommandRunner runner;
-    auto output = runner.getEnvironmentVariable(QLatin1String("XDG_SESSION_TYPE"));
+    auto output = mCommandRunner->getEnvironmentVariable(QLatin1String("XDG_SESSION_TYPE"));
     if (outputContainsValue(output, QLatin1String("x11"))) {
         mPlatform = Platform::X11;
     } else if (outputContainsValue(output, QLatin1String("wayland"))) {
@@ -70,8 +76,7 @@ void PlatformChecker::checkPlatform()
 
 void PlatformChecker::checkEnvironment()
 {
-    CommandRunner runner;
-    auto output = runner.getEnvironmentVariable(QLatin1String("XDG_CURRENT_DESKTOP"));
+    auto output = mCommandRunner->getEnvironmentVariable(QLatin1String("XDG_CURRENT_DESKTOP"));
     if (outputContainsValue(output, QLatin1String("kde"))) {
         mEnvironment = Environment::KDE;
     } else if (outputContainsValue(output, QLatin1String("gnome")) || outputContainsValue(output, QLatin1String("unity"))) {
@@ -83,8 +88,7 @@ void PlatformChecker::checkEnvironment()
 
 void PlatformChecker::checkCheckPackageManager()
 {
-	CommandRunner runner;
-	if (runner.isEnvironmentVariableSet(QLatin1String("SNAP"))) {
+	if (mCommandRunner->isEnvironmentVariableSet(QLatin1String("SNAP"))) {
 		mPackageManager = PackageManager::Snap;
 	} else {
 		mPackageManager = PackageManager::Unknown;
@@ -96,30 +100,15 @@ bool PlatformChecker::outputContainsValue(const QString& output, const QString& 
     return output.contains(value.toLatin1(), Qt::CaseInsensitive);
 }
 
-PlatformChecker::PlatformChecker() :
-	mEnvironment(Environment::Unknown),
-	mPlatform(Platform::Unknown),
-	mPackageManager(PackageManager::Unknown),
-    mGnomeVersion(-1)
-{
-    checkPlatform();
-    checkEnvironment();
-    checkCheckPackageManager();
-    checkVersion();
-}
-
 void PlatformChecker::checkVersion()
 {
     if(isGnome()) {
-        QFile gnomeVersionFile("/usr/share/gnome/gnome-version.xml");
-        if (gnomeVersionFile.open(QFile::ReadOnly | QFile::Text)) {
-            QTextStream inputStream(&gnomeVersionFile);
-            QRegularExpression regex("<platform>(.+?)</platform>");
-            bool isParseSuccessful;
-            auto value = regex.match(inputStream.readAll()).captured(1).toInt(&isParseSuccessful);
-            if(isParseSuccessful) {
-                mGnomeVersion = value;
-            }
-        }
+		auto path = QLatin1String("/usr/share/gnome/gnome-version.xml");
+		QRegularExpression regex("<platform>(.+?)</platform>");
+		bool isParseSuccessful;
+		auto value = regex.match(mCommandRunner->readFile(path)).captured(1).toInt(&isParseSuccessful);
+		if(isParseSuccessful) {
+			mGnomeVersion = value;
+		}
     }
 }

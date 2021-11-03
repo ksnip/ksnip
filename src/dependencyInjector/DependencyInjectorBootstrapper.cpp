@@ -215,7 +215,7 @@ void DependencyInjectorBootstrapper::injectFileDialogService(DependencyInjector 
 		dependencyInjector->registerInstance<IFileDialogService, FileDialogAdapter>();
 	}
 #else
-	return new FileDialogAdapter;
+	dependencyInjector->registerInstance<IFileDialogService, FileDialogAdapter>();
 #endif
 }
 

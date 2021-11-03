@@ -25,7 +25,7 @@
 #include "IKeyHandler.h"
 #include "src/gui/globalHotKeys/KeySequenceToWinKeyCodeTranslator.h"
 
-class WinKeyHandler : public AbstractKeyHandler
+class WinKeyHandler : public IKeyHandler
 {
 public:
     WinKeyHandler() = default;

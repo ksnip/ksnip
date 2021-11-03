@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,25 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_MACKEYHANDLER_H
-#define KSNIP_MACKEYHANDLER_H
+#ifndef KSNIP_COMMANDRUNNERMOCK_H
+#define KSNIP_COMMANDRUNNERMOCK_H
 
-#include "IKeyHandler.h"
-#include "src/gui/globalHotKeys/KeySequenceToMacKeyCodeTranslator.h"
+#include <gmock/gmock.h>
 
-class MacKeyHandler : public IKeyHandler
+#include "src/common/platform/ICommandRunner.h"
+
+class CommandRunnerMock : public ICommandRunner
 {
 public:
-	MacKeyHandler() = default;
-	~MacKeyHandler() override;
-
-	bool registerKey(const QKeySequence &keySequence) override;
-	bool isKeyPressed(void* message) override;
-
-private:
-	KeySequenceToMacKeyCodeTranslator mKeyCodeMapper;
-
-	void unregisterKey() const;
+	MOCK_METHOD(QString, getEnvironmentVariable, (const QString& variable), (const, override));
+	MOCK_METHOD(bool, isEnvironmentVariableSet, (const QString& variable), (const, override));
+	MOCK_METHOD(QString, readFile, (const QString &path), (const, override));
 };
 
-#endif //KSNIP_MACKEYHANDLER_H
+#endif //KSNIP_COMMANDRUNNERMOCK_H

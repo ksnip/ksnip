@@ -35,7 +35,6 @@
 #include "src/gui/desktopService/DesktopServiceAdapter.h"
 #include "src/gui/messageBoxService/MessageBoxService.h"
 #include "src/gui/captureHandler/CaptureTabStateHandler.h"
-#include "src/gui/globalHotKeys/keyHandler/DummyKeyHandler.h"
 #include "src/logging/ConsoleLogger.h"
 #include "src/logging/NoneLogger.h"
 #include "src/common/loader/IconLoader.h"
@@ -61,14 +60,12 @@
 #include "src/common/provider/directoryPathProvider/SnapDirectoryPathProvider.h"
 #include "src/common/provider/scaledSizeProvider/GnomeScaledSizeProvider.h"
 #include "src/gui/desktopService/SnapDesktopServiceAdapter.h"
-#include "src/gui/globalHotKeys/keyHandler/X11KeyHandler.h"
 #endif
 
 #if  defined(_WIN32)
 #include "src/backend/config/Config.h"
 #include "src/backend/imageGrabber/WinImageGrabber.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapter.h"
-#include "src/gui/globalHotKeys/WinKeyHandler.h"
 #endif
 
 void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependencyInjector)

@@ -35,7 +35,11 @@ private slots:
 	void isGnome_Should_ReturnTrue_WhenGnomeInEnvVar();
 	void isGnome_Should_ReturnTrue_WhenUnityInEnvVar();
 	void isGnome_Should_ReturnFalse_WhenGnomeOrUnityNotInEnvVar();
+	void isSnap_Should_ReturnTrue_WhenSnapEnvVarSet();
+	void isSnap_Should_ReturnFalse_WhenSnapEnvVarNotSet();
+	void gnomeVersion_Should_ReturnGnomeVersion_WhenGnomeAndVersionFileExists();
+	void gnomeVersion_Should_ReturnMinusOne_WhenNotGnomeButVersionFileExists();
+	void gnomeVersion_Should_ReturnMinusOne_WhenGnomeButVersionFileDoesNotExists();
 };
-
 
 #endif //KSNIP_PLATFORMCHECKERTESTS_H

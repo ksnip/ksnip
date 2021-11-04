@@ -52,8 +52,8 @@ private:
 
     void checkPlatform();
     void checkEnvironment();
-    void checkCheckPackageManager();
-    bool outputContainsValue(const QString& output, const QString& value) const;
+    void checkPackageManager();
+    static bool outputContainsValue(const QString& output, const QString& value);
     void checkVersion();
 };
 

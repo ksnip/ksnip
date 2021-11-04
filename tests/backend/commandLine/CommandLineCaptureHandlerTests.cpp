@@ -38,7 +38,6 @@ void CommandLineCaptureHandlerTests::CaptureAndProcessScreenshot_Should_CallUplo
 
 	auto captureDto = CaptureDto(QPixmap());
 
-
 	EXPECT_CALL(*imageGrabberMock, grabImage(testing::_, testing::_, testing::_))
 		.WillRepeatedly([imageGrabberMock, captureDto](CaptureModes mode, bool cursor, int delay) {
 			imageGrabberMock->finished(captureDto);

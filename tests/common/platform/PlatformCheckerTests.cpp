@@ -255,4 +255,139 @@ void PlatformCheckerTests::isGnome_Should_ReturnFalse_WhenGnomeOrUnityNotInEnvVa
 	QCOMPARE(result, false);
 }
 
+void PlatformCheckerTests::isSnap_Should_ReturnTrue_WhenSnapEnvVarSet()
+{
+	// arrange
+	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
+
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+			.WillRepeatedly([=](const QString &variable) {
+				return QLatin1String("Test123-Kde-somethingElse");
+			});
+
+	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(QString("SNAP")))
+			.WillRepeatedly([=](const QString &variable) {
+				return true;
+			});
+
+	PlatformChecker platformChecker(commandRunnerMock);
+
+	// act
+	auto result = platformChecker.isSnap();
+
+	// assert
+	QCOMPARE(result, true);
+}
+
+void PlatformCheckerTests::isSnap_Should_ReturnFalse_WhenSnapEnvVarNotSet()
+{
+	// arrange
+	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
+
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+			.WillRepeatedly([=](const QString &variable) {
+				return QLatin1String("Test123-Kde-somethingElse");
+			});
+
+	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(QString("SNAP")))
+			.WillRepeatedly([=](const QString &variable) {
+				return false;
+			});
+
+	PlatformChecker platformChecker(commandRunnerMock);
+
+	// act
+	auto result = platformChecker.isSnap();
+
+	// assert
+	QCOMPARE(result, false);
+}
+
+void PlatformCheckerTests::gnomeVersion_Should_ReturnGnomeVersion_WhenGnomeAndVersionFileExists()
+{
+	// arrange
+	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
+
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+			.WillRepeatedly([=](const QString &variable) {
+				return QLatin1String("Test123-Gnome-somethingElse");
+			});
+
+	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
+			.WillRepeatedly([=](const QString &variable) {
+				return false;
+			});
+
+	EXPECT_CALL(*commandRunnerMock, readFile(testing::_))
+			.WillRepeatedly([=](const QString &path) {
+				return QString("<version>111</version><platform>42</platform>");
+			});
+
+	PlatformChecker platformChecker(commandRunnerMock);
+
+	// act
+	auto result = platformChecker.gnomeVersion();
+
+	// assert
+	QCOMPARE(result, 42);
+}
+
+void PlatformCheckerTests::gnomeVersion_Should_ReturnMinusOne_WhenNotGnomeButVersionFileExists()
+{
+	// arrange
+	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
+
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+			.WillRepeatedly([=](const QString &variable) {
+				return QLatin1String("Test123-Kde-somethingElse");
+			});
+
+	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
+			.WillRepeatedly([=](const QString &variable) {
+				return false;
+			});
+
+	EXPECT_CALL(*commandRunnerMock, readFile(testing::_))
+			.WillRepeatedly([=](const QString &path) {
+				return QString("<version>111</version><platform>42</platform>");
+			});
+
+	PlatformChecker platformChecker(commandRunnerMock);
+
+	// act
+	auto result = platformChecker.gnomeVersion();
+
+	// assert
+	QCOMPARE(result, -1);
+}
+
+void PlatformCheckerTests::gnomeVersion_Should_ReturnMinusOne_WhenGnomeButVersionFileDoesNotExists()
+{
+	// arrange
+	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
+
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+			.WillRepeatedly([=](const QString &variable) {
+				return QLatin1String("Test123-Gnome-somethingElse");
+			});
+
+	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
+			.WillRepeatedly([=](const QString &variable) {
+				return false;
+			});
+
+	EXPECT_CALL(*commandRunnerMock, readFile(testing::_))
+			.WillRepeatedly([=](const QString &path) {
+				return QString();
+			});
+
+	PlatformChecker platformChecker(commandRunnerMock);
+
+	// act
+	auto result = platformChecker.gnomeVersion();
+
+	// assert
+	QCOMPARE(result, -1);
+}
+
 TEST_MAIN(PlatformCheckerTests)

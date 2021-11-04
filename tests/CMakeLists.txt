@@ -6,6 +6,7 @@ set(UNITTEST_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/backend/recentImages/RecentImagesPathStoreTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/backend/commandLine/CommandLineCaptureHandlerTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/common/helper/PathHelperTests.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/common/platform/PlatformCheckerTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/actions/ActionProcessorTests.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/gui/captureHandler/MultiCaptureHandlerTests.cpp
@@ -30,7 +31,8 @@ set(TESTUTILS_SRC
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/desktopService/DesktopServiceMock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/clipboard/ClipboardMock.h
 	${CMAKE_CURRENT_SOURCE_DIR}/mocks/gui/captureHandler/CaptureTabStateHandlerMock.h
-	${CMAKE_CURRENT_SOURCE_DIR}/mocks/common/loader/IconLoaderMock.h)
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/common/loader/IconLoaderMock.h
+	${CMAKE_CURRENT_SOURCE_DIR}/mocks/common/platform/CommandRunnerMock.h)
 
 add_library(KSNIP_STATIC ${KSNIP_SRCS})
 

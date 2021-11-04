@@ -28,7 +28,7 @@ PlatformChecker::PlatformChecker(const QSharedPointer<ICommandRunner> &commandRu
 {
 	checkPlatform();
 	checkEnvironment();
-	checkCheckPackageManager();
+	checkPackageManager();
 	checkVersion();
 }
 
@@ -86,7 +86,7 @@ void PlatformChecker::checkEnvironment()
     }
 }
 
-void PlatformChecker::checkCheckPackageManager()
+void PlatformChecker::checkPackageManager()
 {
 	if (mCommandRunner->isEnvironmentVariableSet(QLatin1String("SNAP"))) {
 		mPackageManager = PackageManager::Snap;
@@ -95,7 +95,7 @@ void PlatformChecker::checkCheckPackageManager()
 	}
 }
 
-bool PlatformChecker::outputContainsValue(const QString& output, const QString& value) const
+bool PlatformChecker::outputContainsValue(const QString& output, const QString& value)
 {
     return output.contains(value.toLatin1(), Qt::CaseInsensitive);
 }

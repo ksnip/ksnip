@@ -52,6 +52,8 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/provider/scaledSizeProvider/ScaledSizeProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/TempFileProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/platform/HdpiScaler.cpp
+	${CMAKE_SOURCE_DIR}/src/common/platform/PlatformChecker.cpp
+	${CMAKE_SOURCE_DIR}/src/common/platform/CommandRunner.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/directoryPathProvider/DirectoryPathProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/dependencyInjector/DependencyInjector.cpp
 	${CMAKE_SOURCE_DIR}/src/dependencyInjector/DependencyInjectorBootstrapper.cpp
@@ -169,8 +171,6 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/GnomeWaylandImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/imageGrabber/WaylandImageGrabber.cpp
 		${CMAKE_SOURCE_DIR}/src/backend/config/WaylandConfig.cpp
-		${CMAKE_SOURCE_DIR}/src/common/platform/PlatformChecker.cpp
-		${CMAKE_SOURCE_DIR}/src/common/platform/CommandRunner.cpp
 		${CMAKE_SOURCE_DIR}/src/common/adapter/fileDialog/SnapFileDialogAdapter.cpp
 		${CMAKE_SOURCE_DIR}/src/common/provider/directoryPathProvider/SnapDirectoryPathProvider.cpp
 		${CMAKE_SOURCE_DIR}/src/common/provider/scaledSizeProvider/GnomeScaledSizeProvider.cpp

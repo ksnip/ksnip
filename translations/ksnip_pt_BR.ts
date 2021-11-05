@@ -275,22 +275,25 @@ A visibilidade das Docks pode ser alternada com a tecla Tab.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Habilitar depuração</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ativa a saída de depuração gravada no console.
+A mudança requer o reinício do ksnip para ter efeito.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Atraso para redimensionar conteúdo</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Atraso para redimensionar conteúdo permite que o gerenciador de janelas receba 
+um novo conteúdo, caso a janela principal não esteja ajustada corretamente
+ ao novo conteúdo, aumentar esse atraso pode melhorar o comportamento.</translation>
     </message>
 </context>
 <context>
@@ -404,15 +407,15 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>please join our</source>
-        <translation type="unfinished"></translation>
+        <translation>Por favor junte-se a nós</translation>
     </message>
     <message>
         <source>or our</source>
-        <translation type="unfinished"></translation>
+        <translation>ou ao nosso</translation>
     </message>
     <message>
         <source>server</source>
-        <translation type="unfinished"></translation>
+        <translation>servidor</translation>
     </message>
 </context>
 <context>
@@ -475,7 +478,7 @@ Deseja continuar?</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Se você quiser ajudar ou apenas apreciar o trabalho que está sendo feito &lt;br/&gt; oferecendo uma cerveja ou café aos desenvolvedores, você pode fazer isso</translation>
     </message>
 </context>
 <context>
@@ -520,23 +523,23 @@ Deseja continuar?</translation>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Forçar upload anônimo.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Url</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Nome de usuário</translation>
+        <translation>Nome de usuário</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Senha</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP Uploader</translation>
     </message>
 </context>
 <context>
@@ -595,19 +598,19 @@ Deseja continuar?</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP Upload concluído com sucesso.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro desconhecido.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro de conexão.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro de permissão.</translation>
     </message>
 </context>
 <context>
@@ -719,11 +722,11 @@ quando a Janela Principal for ocultada ou minimizada.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Forçar Wayland genérico (xdg-desktop-portal) capturar de tela</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Escalar Wayland genérico (xdg-desktop-portal) para capturas de tela</translation>
     </message>
 </context>
 <context>
@@ -1077,7 +1080,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Ações</translation>
+        <translation>Ações</translation>
     </message>
 </context>
 <context>
@@ -1380,7 +1383,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP Uploader</translation>
     </message>
 </context>
 <context>
@@ -1711,7 +1714,7 @@ quando tal existir. A mudança requer reinicialização para ter efeito.</transl
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>

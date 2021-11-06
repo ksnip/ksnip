@@ -26,20 +26,26 @@ class PlatformCheckerTests : public QObject
 {
 	Q_OBJECT
 private slots:
-	void isX11_Should_ReturnTrue_WhenX11InEnvVar();
-	void isX11_Should_ReturnFalse_WhenX11NotInEnvVar();
-	void isWayland_Should_ReturnTrue_WhenWaylandInEnvVar();
-	void isWayland_Should_ReturnFalse_WhenWaylandNotInEnvVar();
-	void isKde_Should_ReturnTrue_WhenKdeInEnvVar();
-	void isKde_Should_ReturnFalse_WhenKdeNotInEnvVar();
-	void isGnome_Should_ReturnTrue_WhenGnomeInEnvVar();
-	void isGnome_Should_ReturnTrue_WhenUnityInEnvVar();
-	void isGnome_Should_ReturnFalse_WhenGnomeOrUnityNotInEnvVar();
-	void isSnap_Should_ReturnTrue_WhenSnapEnvVarSet();
-	void isSnap_Should_ReturnFalse_WhenSnapEnvVarNotSet();
-	void gnomeVersion_Should_ReturnGnomeVersion_WhenGnomeAndVersionFileExists();
-	void gnomeVersion_Should_ReturnMinusOne_WhenNotGnomeButVersionFileExists();
-	void gnomeVersion_Should_ReturnMinusOne_WhenGnomeButVersionFileDoesNotExists();
+	void isX11_Should_ReturnTrue_When_X11InEnvVar();
+	void isX11_Should_ReturnFalse_When_X11NotInEnvVar();
+	void isWayland_Should_ReturnTrue_When_WaylandInEnvVar();
+	void isWayland_Should_ReturnFalse_When_WaylandNotInEnvVar();
+	void isKde_Should_ReturnTrue_When_KdeInEnvVar();
+	void isKde_Should_ReturnFalse_When_KdeNotInEnvVar();
+	void isGnome_Should_ReturnTrue_When_GnomeInEnvVar();
+	void isGnome_Should_ReturnTrue_When_UnityInEnvVar();
+	void isGnome_Should_ReturnFalse_When_GnomeOrUnityNotInEnvVar();
+	void isSnap_Should_ReturnTrue_When_SnapEnvVarSet();
+	void isSnap_Should_ReturnFalse_When_SnapEnvVarNotSet();
+	void gnomeVersion_Should_ReturnGnomeVersion_When_GnomeAndVersionFileExists();
+	void gnomeVersion_Should_ReturnMinusOne_When_NotGnomeButVersionFileExists();
+	void gnomeVersion_Should_ReturnMinusOne_When_GnomeButVersionFileDoesNotExists();
+	void isX11_Should_CallCommandRunnerOnlyOnce_When_CalledMultipleTimes();
+	void isWayland_Should_CallCommandRunnerOnlyOnce_When_CalledMultipleTimes();
+	void isKde_Should_CallCommandRunnerOnlyOnce_When_CalledMultipleTimes();
+	void isGnome_Should_CallCommandRunnerOnlyOnce_When_CalledMultipleTimes();
+	void isSnap_Should_CallCommandRunnerOnlyOnce_When_CalledMultipleTimes();
+	void gnomeVersion_Should_CallCommandRunnerOnlyOnce_When_CalledMultipleTimes();
 };
 
 #endif //KSNIP_PLATFORMCHECKERTESTS_H

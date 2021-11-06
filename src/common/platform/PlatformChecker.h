@@ -36,12 +36,12 @@ public:
 	explicit PlatformChecker(const QSharedPointer<ICommandRunner> &commandRunner);
 	~PlatformChecker() override = default;
 
-    bool isX11() const override;
-    bool isWayland() const override;
-    bool isKde() const override;
-    bool isGnome() const override;
-    bool isSnap() const override;
-    int gnomeVersion() const override;
+    bool isX11() override;
+    bool isWayland() override;
+    bool isKde() override;
+    bool isGnome() override;
+    bool isSnap() override;
+    int gnomeVersion() override;
 
 private:
 	QSharedPointer<ICommandRunner> mCommandRunner;
@@ -49,6 +49,10 @@ private:
     Environment mEnvironment;
     PackageManager mPackageManager;
     int mGnomeVersion;
+	bool mIsPlatformChecked;
+	bool mIsEnvironmentChecked;
+	bool mIsPacketManagerChecked;
+	bool mIsGnomeVersionChecked;
 
     void checkPlatform();
     void checkEnvironment();

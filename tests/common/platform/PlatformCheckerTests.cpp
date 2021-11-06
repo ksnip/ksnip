@@ -24,19 +24,14 @@
 #include "tests/utils/TestRunner.h"
 #include "tests/mocks/common/platform/CommandRunnerMock.h"
 
-void PlatformCheckerTests::isX11_Should_ReturnTrue_WhenX11InEnvVar()
+void PlatformCheckerTests::isX11_Should_ReturnTrue_When_X11InEnvVar()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
 	
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_SESSION_TYPE")))
 			.WillRepeatedly([=](const QString &variable) {
 				return QLatin1String("Test123-X11-somethingElse");
-			});
-
-	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return false;
 			});
 	
 	PlatformChecker platformChecker(commandRunnerMock);
@@ -48,19 +43,14 @@ void PlatformCheckerTests::isX11_Should_ReturnTrue_WhenX11InEnvVar()
 	QCOMPARE(result, true);
 }
 
-void PlatformCheckerTests::isX11_Should_ReturnFalse_WhenX11NotInEnvVar()
+void PlatformCheckerTests::isX11_Should_ReturnFalse_When_X11NotInEnvVar()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
 
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_SESSION_TYPE")))
 			.WillRepeatedly([=](const QString &variable) {
 				return QLatin1String("Test123-Wayland-somethingElse");
-			});
-
-	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return false;
 			});
 
 	PlatformChecker platformChecker(commandRunnerMock);
@@ -72,19 +62,14 @@ void PlatformCheckerTests::isX11_Should_ReturnFalse_WhenX11NotInEnvVar()
 	QCOMPARE(result, false);
 }
 
-void PlatformCheckerTests::isWayland_Should_ReturnTrue_WhenWaylandInEnvVar()
+void PlatformCheckerTests::isWayland_Should_ReturnTrue_When_WaylandInEnvVar()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
 
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_SESSION_TYPE")))
 			.WillRepeatedly([=](const QString &variable) {
 				return QLatin1String("Test123-Wayland-somethingElse");
-			});
-
-	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return false;
 			});
 
 	PlatformChecker platformChecker(commandRunnerMock);
@@ -96,19 +81,14 @@ void PlatformCheckerTests::isWayland_Should_ReturnTrue_WhenWaylandInEnvVar()
 	QCOMPARE(result, true);
 }
 
-void PlatformCheckerTests::isWayland_Should_ReturnFalse_WhenWaylandNotInEnvVar()
+void PlatformCheckerTests::isWayland_Should_ReturnFalse_When_WaylandNotInEnvVar()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
 
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_SESSION_TYPE")))
 			.WillRepeatedly([=](const QString &variable) {
 				return QLatin1String("Test123-X11-somethingElse");
-			});
-
-	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return false;
 			});
 
 	PlatformChecker platformChecker(commandRunnerMock);
@@ -120,21 +100,16 @@ void PlatformCheckerTests::isWayland_Should_ReturnFalse_WhenWaylandNotInEnvVar()
 	QCOMPARE(result, false);
 }
 
-void PlatformCheckerTests::isKde_Should_ReturnTrue_WhenKdeInEnvVar()
+void PlatformCheckerTests::isKde_Should_ReturnTrue_When_KdeInEnvVar()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
 
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_CURRENT_DESKTOP")))
 			.WillRepeatedly([=](const QString &variable) {
 				return QLatin1String("Test123-Kde-somethingElse");
 			});
 
-	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return false;
-			});
-
 	PlatformChecker platformChecker(commandRunnerMock);
 
 	// act
@@ -144,24 +119,14 @@ void PlatformCheckerTests::isKde_Should_ReturnTrue_WhenKdeInEnvVar()
 	QCOMPARE(result, true);
 }
 
-void PlatformCheckerTests::isKde_Should_ReturnFalse_WhenKdeNotInEnvVar()
+void PlatformCheckerTests::isKde_Should_ReturnFalse_When_KdeNotInEnvVar()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
 
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_CURRENT_DESKTOP")))
 			.WillRepeatedly([=](const QString &variable) {
 				return QLatin1String("Test123-Gnome-somethingElse");
-			});
-
-	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return false;
-			});
-
-	EXPECT_CALL(*commandRunnerMock, readFile(testing::_))
-			.WillRepeatedly([=](const QString &path) {
-				return QString();
 			});
 
 	PlatformChecker platformChecker(commandRunnerMock);
@@ -173,24 +138,14 @@ void PlatformCheckerTests::isKde_Should_ReturnFalse_WhenKdeNotInEnvVar()
 	QCOMPARE(result, false);
 }
 
-void PlatformCheckerTests::isGnome_Should_ReturnTrue_WhenGnomeInEnvVar()
+void PlatformCheckerTests::isGnome_Should_ReturnTrue_When_GnomeInEnvVar()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
 
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_CURRENT_DESKTOP")))
 			.WillRepeatedly([=](const QString &variable) {
 				return QLatin1String("Test123-Gnome-somethingElse");
-			});
-
-	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return false;
-			});
-
-	EXPECT_CALL(*commandRunnerMock, readFile(testing::_))
-			.WillRepeatedly([=](const QString &path) {
-				return QString();
 			});
 
 	PlatformChecker platformChecker(commandRunnerMock);
@@ -202,26 +157,16 @@ void PlatformCheckerTests::isGnome_Should_ReturnTrue_WhenGnomeInEnvVar()
 	QCOMPARE(result, true);
 }
 
-void PlatformCheckerTests::isGnome_Should_ReturnTrue_WhenUnityInEnvVar()
+void PlatformCheckerTests::isGnome_Should_ReturnTrue_When_UnityInEnvVar()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
 
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_CURRENT_DESKTOP")))
 			.WillRepeatedly([=](const QString &variable) {
 				return QLatin1String("Test123-Unity-somethingElse");
 			});
 
-	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return false;
-			});
-
-	EXPECT_CALL(*commandRunnerMock, readFile(testing::_))
-			.WillRepeatedly([=](const QString &path) {
-				return QString();
-			});
-
 	PlatformChecker platformChecker(commandRunnerMock);
 
 	// act
@@ -231,19 +176,14 @@ void PlatformCheckerTests::isGnome_Should_ReturnTrue_WhenUnityInEnvVar()
 	QCOMPARE(result, true);
 }
 
-void PlatformCheckerTests::isGnome_Should_ReturnFalse_WhenGnomeOrUnityNotInEnvVar()
+void PlatformCheckerTests::isGnome_Should_ReturnFalse_When_GnomeOrUnityNotInEnvVar()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
 
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_CURRENT_DESKTOP")))
 			.WillRepeatedly([=](const QString &variable) {
 				return QLatin1String("Test123-Kde-somethingElse");
-			});
-
-	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return false;
 			});
 
 	PlatformChecker platformChecker(commandRunnerMock);
@@ -255,15 +195,10 @@ void PlatformCheckerTests::isGnome_Should_ReturnFalse_WhenGnomeOrUnityNotInEnvVa
 	QCOMPARE(result, false);
 }
 
-void PlatformCheckerTests::isSnap_Should_ReturnTrue_WhenSnapEnvVarSet()
+void PlatformCheckerTests::isSnap_Should_ReturnTrue_When_SnapEnvVarSet()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
-
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return QLatin1String("Test123-Kde-somethingElse");
-			});
 
 	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(QString("SNAP")))
 			.WillRepeatedly([=](const QString &variable) {
@@ -279,15 +214,10 @@ void PlatformCheckerTests::isSnap_Should_ReturnTrue_WhenSnapEnvVarSet()
 	QCOMPARE(result, true);
 }
 
-void PlatformCheckerTests::isSnap_Should_ReturnFalse_WhenSnapEnvVarNotSet()
+void PlatformCheckerTests::isSnap_Should_ReturnFalse_When_SnapEnvVarNotSet()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
-
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return QLatin1String("Test123-Kde-somethingElse");
-			});
 
 	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(QString("SNAP")))
 			.WillRepeatedly([=](const QString &variable) {
@@ -303,22 +233,17 @@ void PlatformCheckerTests::isSnap_Should_ReturnFalse_WhenSnapEnvVarNotSet()
 	QCOMPARE(result, false);
 }
 
-void PlatformCheckerTests::gnomeVersion_Should_ReturnGnomeVersion_WhenGnomeAndVersionFileExists()
+void PlatformCheckerTests::gnomeVersion_Should_ReturnGnomeVersion_When_GnomeAndVersionFileExists()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
 
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_CURRENT_DESKTOP")))
 			.WillRepeatedly([=](const QString &variable) {
 				return QLatin1String("Test123-Gnome-somethingElse");
 			});
 
-	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return false;
-			});
-
-	EXPECT_CALL(*commandRunnerMock, readFile(testing::_))
+	EXPECT_CALL(*commandRunnerMock, readFile(QString("/usr/share/gnome/gnome-version.xml")))
 			.WillRepeatedly([=](const QString &path) {
 				return QString("<version>111</version><platform>42</platform>");
 			});
@@ -332,22 +257,17 @@ void PlatformCheckerTests::gnomeVersion_Should_ReturnGnomeVersion_WhenGnomeAndVe
 	QCOMPARE(result, 42);
 }
 
-void PlatformCheckerTests::gnomeVersion_Should_ReturnMinusOne_WhenNotGnomeButVersionFileExists()
+void PlatformCheckerTests::gnomeVersion_Should_ReturnMinusOne_When_NotGnomeButVersionFileExists()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
 
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_CURRENT_DESKTOP")))
 			.WillRepeatedly([=](const QString &variable) {
 				return QLatin1String("Test123-Kde-somethingElse");
 			});
 
-	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return false;
-			});
-
-	EXPECT_CALL(*commandRunnerMock, readFile(testing::_))
+	EXPECT_CALL(*commandRunnerMock, readFile(QString("/usr/share/gnome/gnome-version.xml")))
 			.WillRepeatedly([=](const QString &path) {
 				return QString("<version>111</version><platform>42</platform>");
 			});
@@ -361,22 +281,17 @@ void PlatformCheckerTests::gnomeVersion_Should_ReturnMinusOne_WhenNotGnomeButVer
 	QCOMPARE(result, -1);
 }
 
-void PlatformCheckerTests::gnomeVersion_Should_ReturnMinusOne_WhenGnomeButVersionFileDoesNotExists()
+void PlatformCheckerTests::gnomeVersion_Should_ReturnMinusOne_When_GnomeButVersionFileDoesNotExists()
 {
 	// arrange
 	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
 
-	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_CURRENT_DESKTOP")))
 			.WillRepeatedly([=](const QString &variable) {
 				return QLatin1String("Test123-Gnome-somethingElse");
 			});
 
-	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(testing::_))
-			.WillRepeatedly([=](const QString &variable) {
-				return false;
-			});
-
-	EXPECT_CALL(*commandRunnerMock, readFile(testing::_))
+	EXPECT_CALL(*commandRunnerMock, readFile(QString("/usr/share/gnome/gnome-version.xml")))
 			.WillRepeatedly([=](const QString &path) {
 				return QString();
 			});
@@ -388,6 +303,118 @@ void PlatformCheckerTests::gnomeVersion_Should_ReturnMinusOne_WhenGnomeButVersio
 
 	// assert
 	QCOMPARE(result, -1);
+}
+
+void PlatformCheckerTests::isX11_Should_CallCommandRunnerOnlyOnce_When_CalledMultipleTimes()
+{
+	// arrange
+	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
+
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+			.Times(testing::Exactly(1))
+			.WillRepeatedly([=](const QString &variable) {
+				return QLatin1String("Test123-X11-somethingElse");
+			});
+
+	PlatformChecker platformChecker(commandRunnerMock);
+
+	// act
+	platformChecker.isX11();
+	platformChecker.isX11();
+}
+
+void PlatformCheckerTests::isWayland_Should_CallCommandRunnerOnlyOnce_When_CalledMultipleTimes()
+{
+	// arrange
+	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
+
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+			.Times(testing::Exactly(1))
+			.WillRepeatedly([=](const QString &variable) {
+				return QLatin1String("Test123-X11-somethingElse");
+			});
+
+	PlatformChecker platformChecker(commandRunnerMock);
+
+	// act
+	platformChecker.isWayland();
+	platformChecker.isWayland();
+}
+
+void PlatformCheckerTests::isKde_Should_CallCommandRunnerOnlyOnce_When_CalledMultipleTimes()
+{
+	// arrange
+	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
+
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+			.Times(testing::Exactly(1))
+			.WillRepeatedly([=](const QString &variable) {
+				return QLatin1String("Test123-kde-somethingElse");
+			});
+
+	PlatformChecker platformChecker(commandRunnerMock);
+
+	// act
+	platformChecker.isKde();
+	platformChecker.isKde();
+}
+
+void PlatformCheckerTests::isGnome_Should_CallCommandRunnerOnlyOnce_When_CalledMultipleTimes()
+{
+	// arrange
+	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
+
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(testing::_))
+			.Times(testing::Exactly(1))
+			.WillRepeatedly([=](const QString &variable) {
+				return QLatin1String("Test123-Gnome-somethingElse");
+			});
+
+	PlatformChecker platformChecker(commandRunnerMock);
+
+	// act
+	platformChecker.isGnome();
+	platformChecker.isGnome();
+}
+
+void PlatformCheckerTests::isSnap_Should_CallCommandRunnerOnlyOnce_When_CalledMultipleTimes()
+{
+	// arrange
+	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
+
+	EXPECT_CALL(*commandRunnerMock, isEnvironmentVariableSet(QString("SNAP")))
+			.Times(testing::Exactly(1))
+			.WillRepeatedly([=](const QString &variable) {
+				return true;
+			});
+
+	PlatformChecker platformChecker(commandRunnerMock);
+
+	// act
+	platformChecker.isSnap();
+	platformChecker.isSnap();
+}
+
+void PlatformCheckerTests::gnomeVersion_Should_CallCommandRunnerOnlyOnce_When_CalledMultipleTimes()
+{
+	// arrange
+	auto commandRunnerMock = QSharedPointer<CommandRunnerMock>(new CommandRunnerMock);
+
+	EXPECT_CALL(*commandRunnerMock, getEnvironmentVariable(QString("XDG_CURRENT_DESKTOP")))
+			.WillRepeatedly([=](const QString &variable) {
+				return QLatin1String("Test123-Gnome-somethingElse");
+			});
+
+	EXPECT_CALL(*commandRunnerMock, readFile(QString("/usr/share/gnome/gnome-version.xml")))
+			.WillRepeatedly([=](const QString &path) {
+				return QString();
+			});
+
+	PlatformChecker platformChecker(commandRunnerMock);
+
+	// act
+	platformChecker.gnomeVersion();
+	platformChecker.gnomeVersion();
 }
 
 TEST_MAIN(PlatformCheckerTests)

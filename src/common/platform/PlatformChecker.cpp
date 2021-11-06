@@ -24,74 +24,89 @@ PlatformChecker::PlatformChecker(const QSharedPointer<ICommandRunner> &commandRu
 	mEnvironment(Environment::Unknown),
 	mPlatform(Platform::Unknown),
 	mPackageManager(PackageManager::Unknown),
-	mGnomeVersion(-1)
+	mGnomeVersion(-1),
+	mIsPlatformChecked(false),
+	mIsEnvironmentChecked(false),
+	mIsPacketManagerChecked(false),
+	mIsGnomeVersionChecked(false)
+{
+}
+
+bool PlatformChecker::isX11()
 {
 	checkPlatform();
-	checkEnvironment();
-	checkPackageManager();
-	checkVersion();
+	return mPlatform == Platform::X11;
 }
 
-bool PlatformChecker::isX11() const
+bool PlatformChecker::isWayland()
 {
-    return mPlatform == Platform::X11;
-}
-
-bool PlatformChecker::isWayland() const
-{
+	checkPlatform();
     return mPlatform == Platform::Wayland;
 }
 
-bool PlatformChecker::isKde() const
+bool PlatformChecker::isKde()
 {
+	checkEnvironment();
     return mEnvironment == Environment::KDE;
 }
 
-bool PlatformChecker::isGnome() const
+bool PlatformChecker::isGnome()
 {
+	checkEnvironment();
     return mEnvironment == Environment::Gnome;
 }
 
-bool PlatformChecker::isSnap() const
+bool PlatformChecker::isSnap()
 {
+	checkPackageManager();
 	return mPackageManager == PackageManager::Snap;
 }
 
-int PlatformChecker::gnomeVersion() const
+int PlatformChecker::gnomeVersion()
 {
+	checkVersion();
     return mGnomeVersion;
 }
 
 void PlatformChecker::checkPlatform()
 {
-    auto output = mCommandRunner->getEnvironmentVariable(QLatin1String("XDG_SESSION_TYPE"));
-    if (outputContainsValue(output, QLatin1String("x11"))) {
-        mPlatform = Platform::X11;
-    } else if (outputContainsValue(output, QLatin1String("wayland"))) {
-        mPlatform = Platform::Wayland;
-    } else {
-        mPlatform = Platform::Unknown;
-    }
+	if(!mIsPlatformChecked) {
+		auto output = mCommandRunner->getEnvironmentVariable(QLatin1String("XDG_SESSION_TYPE"));
+		if (outputContainsValue(output, QLatin1String("x11"))) {
+			mPlatform = Platform::X11;
+		} else if (outputContainsValue(output, QLatin1String("wayland"))) {
+			mPlatform = Platform::Wayland;
+		} else {
+			mPlatform = Platform::Unknown;
+		}
+		mIsPlatformChecked = true;
+	}
 }
 
 void PlatformChecker::checkEnvironment()
 {
-    auto output = mCommandRunner->getEnvironmentVariable(QLatin1String("XDG_CURRENT_DESKTOP"));
-    if (outputContainsValue(output, QLatin1String("kde"))) {
-        mEnvironment = Environment::KDE;
-    } else if (outputContainsValue(output, QLatin1String("gnome")) || outputContainsValue(output, QLatin1String("unity"))) {
-        mEnvironment = Environment::Gnome;
-    } else {
-        mEnvironment = Environment::Unknown;
-    }
+	if(!mIsEnvironmentChecked) {
+		auto output = mCommandRunner->getEnvironmentVariable(QLatin1String("XDG_CURRENT_DESKTOP"));
+		if (outputContainsValue(output, QLatin1String("kde"))) {
+			mEnvironment = Environment::KDE;
+		} else if (outputContainsValue(output, QLatin1String("gnome")) || outputContainsValue(output, QLatin1String("unity"))) {
+			mEnvironment = Environment::Gnome;
+		} else {
+			mEnvironment = Environment::Unknown;
+		}
+		mIsEnvironmentChecked = true;
+	}
 }
 
 void PlatformChecker::checkPackageManager()
 {
-	if (mCommandRunner->isEnvironmentVariableSet(QLatin1String("SNAP"))) {
-		mPackageManager = PackageManager::Snap;
-	} else {
-		mPackageManager = PackageManager::Unknown;
+	if(!mIsPacketManagerChecked) {
+		if (mCommandRunner->isEnvironmentVariableSet(QLatin1String("SNAP"))) {
+			mPackageManager = PackageManager::Snap;
+		} else {
+			mPackageManager = PackageManager::Unknown;
+		}
+		mIsPacketManagerChecked = true;
 	}
 }
 
@@ -102,7 +117,7 @@ bool PlatformChecker::outputContainsValue(const QString& output, const QString& 
 
 void PlatformChecker::checkVersion()
 {
-    if(isGnome()) {
+    if(!mIsGnomeVersionChecked && isGnome()) {
 		auto path = QLatin1String("/usr/share/gnome/gnome-version.xml");
 		QRegularExpression regex("<platform>(.+?)</platform>");
 		bool isParseSuccessful;
@@ -110,5 +125,6 @@ void PlatformChecker::checkVersion()
 		if(isParseSuccessful) {
 			mGnomeVersion = value;
 		}
+		mIsGnomeVersionChecked = true;
     }
 }

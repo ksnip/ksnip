@@ -26,12 +26,12 @@ public:
 	explicit IPlatformChecker() = default;
 	virtual ~IPlatformChecker() = default;
 
-	virtual bool isX11() const = 0;
-	virtual bool isWayland() const = 0;
-	virtual bool isKde() const = 0;
-	virtual bool isGnome() const = 0;
-	virtual bool isSnap() const = 0;
-	virtual int gnomeVersion() const = 0;
+	virtual bool isX11() = 0;
+	virtual bool isWayland() = 0;
+	virtual bool isKde() = 0;
+	virtual bool isGnome() = 0;
+	virtual bool isSnap() = 0;
+	virtual int gnomeVersion() = 0;
 };
 
 #endif //KSNIP_IPLATFORMCHECKER_H

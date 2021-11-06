@@ -41,7 +41,6 @@ target_link_libraries(KSNIP_STATIC
 	Qt5::Network
 	Qt5::Xml
 	Qt5::PrintSupport
-	Qt5::DBus
 	kImageAnnotator::kImageAnnotator
 	kColorPicker::kColorPicker
 	Qt5::Svg
@@ -51,6 +50,7 @@ if (APPLE)
 	target_link_libraries(KSNIP_STATIC "-framework CoreGraphics")
 elseif (UNIX)
 	target_link_libraries(KSNIP_STATIC
+		Qt5::DBus
 		Qt5::X11Extras
 		XCB::XFIXES
 		)

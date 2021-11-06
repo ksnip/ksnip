@@ -232,7 +232,6 @@ set(DEPENDENCY_LIBRARIES
 	Qt5::Network
 	Qt5::Xml
 	Qt5::PrintSupport
-	Qt5::DBus
 	Qt5::Svg
 	)
 
@@ -244,6 +243,7 @@ if (APPLE)
 		)
 elseif (UNIX)
 	list(APPEND DEPENDENCY_LIBRARIES
+		Qt5::DBus
 		Qt5::X11Extras
 		kImageAnnotator::kImageAnnotator
 		kColorPicker::kColorPicker

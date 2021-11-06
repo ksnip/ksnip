@@ -42,15 +42,20 @@ Latest ksnip version contains following features:
 * Many configuration options.
 
 # Supported Screenshot Types
-|                    | Rect Area | Last Rect Area | Full Screen | Current Screen | Active Window | Window Under Cursor | Without Mouse Cursor | Screenshot Portal |
-| -------------------|:---------:|:--------------:|:-----------:|:--------------:|:-------------:|:-------------------:|:--------------------:|:-----------------:|
-| X11                | X         | X              | X           | X              | X             |                     | X                    |                   |
-| Plasma Wayland     |           |                | X           | X              |               | X                   |                      |                   |
-| Gnome Wayland      | X         | X              | X           | X              | X             |                     | X                    |                   |
-| xdg-desktop-portal |           |                |             |                |               |                     |                      | X                 |
-| Windows            | X         | X              | X           | X              | X             |                     | X                    |                   |
-| macOS              | X         | X              | X           | X              |               |                     |                      |                   |
+|                     | Rect Area | Last Rect Area | Full Screen | Current Screen | Active Window | Window Under Cursor | Without Mouse Cursor | Screenshot Portal |
+| --------------------|:---------:|:--------------:|:-----------:|:--------------:|:-------------:|:-------------------:|:--------------------:|:-----------------:|
+| X11                 | X         | X              | X           | X              | X             |                     | X                    |                   |
+| Plasma Wayland      |           |                | X           | X              |               | X                   |                      |                   |
+| Gnome Wayland `< 41`| X         | X              | X           | X              | X             |                     | X                    |                   |
+| xdg-desktop-portal* |           |                |             |                |               |                     |                      | X                 |
+| Windows             | X         | X              | X           | X              | X             |                     | X                    |                   |
+| macOS               | X         | X              | X           | X              |               |                     |                      |                   |
 
+&ast; xdg-desktop-portal screenshots are screenshot taken by the compositor and passed to ksnip, you will see a popup dialog that required additional confirmation
+    the real implementation can vary depending on the compositor. Currently, Snaps and Gnome Wayland `>= 41` only support xdg-desktop-portal screenshots, this is a
+    limitation coming from the Gnome and Snaps developers, non-native screenshot tools are not allowed to take screenshots in any other way except through the 
+    xdg-desktop-portal.
+    
 # Installing Binaries
 Binaries can be downloaded from the [Releases page](https://github.com/ksnip/ksnip/releases). 
 Currently RPM, DEB, APT, Snap, Flatpak and AppImage for Linux, 

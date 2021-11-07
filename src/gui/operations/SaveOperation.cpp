@@ -66,7 +66,7 @@ SaveResultDto SaveOperation::execute()
 
 	if(!mIsInstantSave){
 		auto title = tr("Save As");
-		auto filter = tr("Images") + QLatin1String(" (*.png *.gif *.jpg);;") + tr("All Files") + QLatin1String("(*)");
+		auto filter = tr("Image Files") + FileDialogFilters::ImageFiles + tr("All Files") + FileDialogFilters::AllFiles;
 		auto selectedSavePath = mFileDialogService->getSavePath(mParent, title, path, filter);
 
 		if (selectedSavePath.isNull()) {

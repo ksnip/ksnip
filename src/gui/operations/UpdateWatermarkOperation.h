@@ -24,6 +24,7 @@
 #include <QFileDialog>
 
 #include "src/backend/WatermarkImageLoader.h"
+#include "src/common/constants/FileDialogFilters.h"
 
 class UpdateWatermarkOperation : public QObject
 {

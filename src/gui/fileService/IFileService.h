@@ -20,8 +20,8 @@
 #ifndef KSNIP_IFILESERVICE_H
 #define KSNIP_IFILESERVICE_H
 
-#include <QString>
-#include <QPixmap>
+class QString;
+class QPixmap;
 
 class IFileService
 {

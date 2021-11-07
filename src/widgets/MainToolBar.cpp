@@ -34,7 +34,7 @@ MainToolBar::MainToolBar(
 	mRedoButton(new QToolButton(this)),
 	mCaptureModePicker(new CaptureModePicker(captureModes, iconLoader)),
 	mDelayPicker(new CustomSpinBox(0,100)),
-	mDelayLabel(new QLabel),
+	mDelayLabel(new QLabel(this)),
 	mNewCaptureAction(new QAction(this)),
 	mSaveAction(new QAction(this)),
 	mCopyAction(new QAction(this)),
@@ -128,19 +128,7 @@ MainToolBar::MainToolBar(
 MainToolBar::~MainToolBar()
 {
     delete mCaptureModePicker;
-    delete mSaveButton;
-    delete mCopyButton;
-    delete mCropButton;
-    delete mUndoButton;
-    delete mRedoButton;
-    delete mCaptureModePicker;
     delete mDelayPicker;
-    delete mNewCaptureAction;
-    delete mSaveAction;
-    delete mCopyAction;
-    delete mCropAction;
-    delete mUndoAction;
-    delete mRedoAction;
 }
 
 void MainToolBar::selectCaptureMode(CaptureModes captureModes)

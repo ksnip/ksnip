@@ -27,5 +27,5 @@ bool FileService::remove(const QString &path)
 
 QPixmap FileService::openPixmap(const QString &path)
 {
-	return QPixmap(path);
+	return { path };
 }

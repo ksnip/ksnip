@@ -21,7 +21,7 @@
 
 LoadImageFromFileOperation::LoadImageFromFileOperation(
 		const QString &path,
-		const QSharedPointer<IImageProcessor> &imageProcessor,
+		IImageProcessor *imageProcessor,
 		const QSharedPointer<INotificationService> &notificationService,
 		const QSharedPointer<IRecentImageService> &recentImageService,
 		const QSharedPointer<IFileService> &fileService,

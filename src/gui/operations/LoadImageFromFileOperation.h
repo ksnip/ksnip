@@ -35,7 +35,7 @@ Q_OBJECT
 public:
 	LoadImageFromFileOperation(
 			const QString &path,
-			const QSharedPointer<IImageProcessor> &imageProcessor,
+			IImageProcessor *imageProcessor,
 			const QSharedPointer<INotificationService> &notificationService,
 			const QSharedPointer<IRecentImageService> &recentImageService,
 			const QSharedPointer<IFileService> &fileService,
@@ -45,7 +45,7 @@ public:
 
 private:
 	QString mPath;
-	QSharedPointer<IImageProcessor> mImageProcessor;
+	IImageProcessor *mImageProcessor;
 	QSharedPointer<INotificationService> mNotificationService;
 	QSharedPointer<IRecentImageService> mRecentImageService;
 	QSharedPointer<IFileService> mFileService;

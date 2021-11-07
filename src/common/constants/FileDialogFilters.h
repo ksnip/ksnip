@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,21 +17,16 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_FILESERVICE_H
-#define KSNIP_FILESERVICE_H
+#ifndef KSNIP_FIXEDVALUES_H
+#define KSNIP_FIXEDVALUES_H
 
-#include <QFile>
-#include <QPixmap>
+#include <QString>
 
-#include "IFileService.h"
+inline namespace FileDialogFilters {
 
-class FileService : public IFileService
-{
-public:
-	explicit FileService() = default;
-	~FileService() override = default;
-	bool remove(const QString &path) override;
-	QPixmap openPixmap(const QString &path) override;
-};
+const QString ImageFiles = QLatin1String("(*.png *.gif *.jpg *.jpeg *.bmp);;");
+const QString AllFiles = QLatin1String("(*)");
 
-#endif //KSNIP_FILESERVICE_H
+} // namespace Constants
+
+#endif //KSNIP_FIXEDVALUES_H

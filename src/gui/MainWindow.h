@@ -55,6 +55,7 @@
 #include "src/common/provider/ApplicationTitleProvider.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/adapter/fileDialog/IFileDialogService.h"
+#include "src/common/constants/FileDialogFilters.h"
 #include "src/dependencyInjector/DependencyInjector.h"
 
 

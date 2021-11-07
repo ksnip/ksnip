@@ -7,6 +7,7 @@
 * New: Upload image via command line without opening editor. ([#217](https://github.com/ksnip/ksnip/issues/217))
 * New: Add multi-language comment option to desktop file. ([#726](https://github.com/ksnip/ksnip/issues/726))
 * New: Add MimeType of Images to desktop file. ([#725](https://github.com/ksnip/ksnip/issues/725))
+* New: Add .jpeg to open file dialog filter (File > Open). ([#749](https://github.com/ksnip/ksnip/issues/749))
 * Fixed: Opens a new window for each capture. ([#728](https://github.com/ksnip/ksnip/issues/728))
 
 ## Release 1.9.2

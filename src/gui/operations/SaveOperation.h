@@ -25,6 +25,7 @@
 #include "NotifyOperation.h"
 #include "src/common/dtos/SaveResultDto.h"
 #include "src/common/adapter/fileDialog/IFileDialogService.h"
+#include "src/common/constants/FileDialogFilters.h"
 #include "src/backend/recentImages/IRecentImageService.h"
 #include "src/backend/config/IConfig.h"
 #include "src/backend/saver/ISavePathProvider.h"

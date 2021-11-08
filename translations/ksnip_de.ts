@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontakt</translation>
     </message>
 </context>
 <context>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Werkzeug für Screenshots und Anmerkungen</translation>
     </message>
 </context>
 <context>
@@ -59,7 +59,7 @@
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Aufnehmen</translation>
     </message>
     <message>
         <source>Include Cursor</source>
@@ -67,19 +67,19 @@
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzögerung</translation>
     </message>
     <message>
         <source>s</source>
-        <translation type="unfinished">s</translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Aufnahmemodus</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild im angehefteten Fenster zeigen</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauptfenster verstecken</translation>
     </message>
 </context>
 <context>
@@ -166,31 +166,35 @@ macht sie glatter.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Eine Änderung des Seeds aktualisiert alle Zahlenwerte</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Deaktivieren dieser Option bewirkt, dass Änderungen des Nummernwerkzeugs
+sich nur auf neue Elemente auswirken, nicht aber auf vorhandene.
+Die Deaktivierung dieser Option ermöglicht das Vorhandensein von doppelten Nummern.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Canvas-Farbe</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard-Leinwandhintergrundfarbe für den Anmerkungsbereich.
+Die Änderung der Farbe wirkt sich nur auf neue Anmerkungsbereiche aus.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Objekt nach dem Zeichnen auswählen</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mit dieser Option wird das Objekt nach dem Erstellen
+ausgewählt, was eine Änderung der Einstellungen erlaubt.</translation>
     </message>
 </context>
 <context>
@@ -249,43 +253,47 @@ Einstellung erfordert einen Neustartet aller Instanzen.</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabs automatisch verstecken</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Docks automatisch verstecken</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Beim Start Toolbar- und Anmerkungs-Einstellungen verstecken.
+Die Sichtbarkeit der Docks kann mit der Tabulatortaste umgeschaltet werden.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Größe automatisch an Inhalt anpassen</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauptfenster automatisch der Bildgröße anpassen.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Debugging aktivieren</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiviert das Schreiben von Debug-Ausgaben in die Konsole.
+Eine Änderung erfordert den Neustart von ksnip.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Verzögerung bis zum Skalieren</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Anpassen an den Inhalt wird verzögert, um dem Fenstermanager das Empfangen
+des neuen Inhaltes zu erlauben. Falls die Hauptfenster für den neuen Inhalt nicht korrekt
+ausgerichtet sind, kann eine Erhöhung dieser Verzögerung jenes Verhalten verbessern.</translation>
     </message>
 </context>
 <context>
@@ -360,7 +368,7 @@ Speichern?</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation>Aufnahme des aktiven Fensters</translation>
+        <translation>Aufnahme des fokussierten Fensters</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
@@ -372,7 +380,7 @@ Speichern?</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation>Verwendet Screenshot Portal um Bildschirmaufnahmen zu erstellen</translation>
+        <translation>Verwendet das Screenshot-Portal, um Screenshots zu erstellen</translation>
     </message>
 </context>
 <context>
@@ -383,50 +391,50 @@ Speichern?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>Falls Sie allgemeine Fragen oder Ideen haben oder sich über ksnip unterhalten möchten,</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehlermeldungen</translation>
     </message>
     <message>
         <source>Please use </source>
-        <translation type="unfinished">Benutzen Sie bitte </translation>
+        <translation>Benutzen Sie bitte </translation>
     </message>
     <message>
         <source> to report bugs.</source>
-        <translation type="unfinished"> um Fehler zu melden.</translation>
+        <translation> um Fehler zu melden.</translation>
     </message>
     <message>
         <source>please join our</source>
-        <translation type="unfinished"></translation>
+        <translation>melden Sie sich bitte auf unserem</translation>
     </message>
     <message>
         <source>or our</source>
-        <translation type="unfinished"></translation>
+        <translation>oder unserem</translation>
     </message>
     <message>
         <source>server</source>
-        <translation type="unfinished"></translation>
+        <translation>Server</translation>
     </message>
 </context>
 <context>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopieren in die Zwischenablage fehlgeschlagen</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopieren des Base64-kodierten Bildes in die Zwischenablage fehlgeschlagen.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>In Zwischenablage kopiert</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Als Base64-kodiertes Bild in die Zwischenablage kopiert.</translation>
     </message>
 </context>
 <context>
@@ -462,7 +470,7 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor</source>
-        <translation>GitHub Sponsor werden</translation>
+        <translation>GitHub-Unterstützer werden</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
@@ -470,14 +478,14 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Falls Sie uns unterstützen oder sich für die Arbeit durch die Unterstützung&lt;br/&gt;unserer Entwickler durch ein Bier oder einen Kaffee bedanken möchten, ist dies hier möglich:</translation>
     </message>
 </context>
 <context>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fügen Sie neue Aktionen durch Klicken des &quot;Hinzufügen&quot;-Buttons hinzu.</translation>
     </message>
 </context>
 <context>
@@ -515,23 +523,23 @@ Wollen Sie Fortfahren?</translation>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anonymen Upload erzwingen.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Benutzername</translation>
+        <translation>Benutzername</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Passwort</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP-Uploader</translation>
     </message>
 </context>
 <context>
@@ -542,7 +550,7 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>Upload script </source>
-        <translation>Script hochladen </translation>
+        <translation>Upload-Skript </translation>
     </message>
     <message>
         <source> finished successfully.</source>
@@ -554,7 +562,7 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation>Temporäres Bild kann nicht zum Hochladen gespeichert werden.</translation>
+        <translation>Temporäres Speichern des Bildes zum Upload nicht möglich.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
@@ -570,11 +578,11 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation>Prozesslesefehler.</translation>
+        <translation>Prozess-Lesefehler.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation>Prozessschreibfehler.</translation>
+        <translation>Prozess-Schreibfehler.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
@@ -590,19 +598,19 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP-Upload erfolgreich beendet.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Unbekannter Fehler.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbindungsfehler.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Berechtigungsfehler.</translation>
     </message>
 </context>
 <context>
@@ -650,7 +658,8 @@ Wollen Sie Fortfahren?</translation>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>HotKeys werden aktuell nur unter Windows und X11 unterstützt.
+Das Deaktivieren dieser Option macht zudem die Aktions-Shortcuts ksnip-exklusiv.</translation>
     </message>
 </context>
 <context>
@@ -708,15 +717,16 @@ dieser Option erfordert einen Neustart von ksnip.</translation>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauptfenster nach der Aufnahme eines neuen Screenshots anzeigen,
+wenn jenes versteckt oder minimiert war.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Generischen Wayland-Screenshot (xdg-desktop-portal) erzwingen</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Generische Wayland-Screenshots (xdg-desktop-portal) skalieren</translation>
     </message>
 </context>
 <context>
@@ -1030,47 +1040,47 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Docks anzeigen</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Docks verbergen</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Als Daten-URI kopieren</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Kü&amp;rzlich verwendet</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Canvas anpassen</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>triggerCapture zu externer Quelle hochladen</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>triggerCapture in die Zwischenablage kopieren</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild skalieren</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Drehen</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bild drehen</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktionen</translation>
     </message>
 </context>
 <context>
@@ -1361,42 +1371,42 @@ Alles wird kopiert wenn leer.</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Tray-Icon</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Wasserzeichen</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktionen</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP-Uploader</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ausgewählten Bereich durch die Handler skalieren oder durch das Ziehen der Auswahl bewegen.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwenden Sie die Pfeiltasten, um die Auswahl zu verschieben.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwenden Sie die Pfeiltasten bei gedrückter STRG-Taste, um den oberen linken Griff zu verschieben.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwenden Sie die Pfeiltasten bei gedrückter ALT-Taste, um den unteren rechten Griff zu verschieben.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestätigen Sie die Auswahl durch Drücken von ENTER/Eingabe-Taste oder brechen Sie mit ESC ab.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
@@ -1526,21 +1536,23 @@ ENTER bestätigt werden.</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Randfarbe für Aufnahmebereich</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Setzt die Farbe für alle Dekorationselemente
+des Aufnahmebereichs.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Transparenz des Aufnahmebereichs</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alpha-Wert für nicht ausgewählte Regionen im Aufnahmebereich.
+Kleinere Werte bedeuten mehr Transparenz.</translation>
     </message>
 </context>
 <context>
@@ -1589,25 +1601,25 @@ Smaller number is more transparent.</source>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Benutze Tray Icon</translation>
+        <translation>Benutze Tray-Icon</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Bei Aktivierung wird ein Tray Icon in der Taskbar hinzugefügt, sofern das Betriebssystem dies unterstützt.
+        <translation>Bei Aktivierung wird ein Tray-Icon in der Taskbar hinzugefügt, sofern das Betriebssystem dies unterstützt.
 Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">In Tray minimieren</translation>
+        <translation>In Tray minimieren</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Im Tray minimiert starten</translation>
+        <translation>Im Tray minimiert starten</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">In Tray schließen</translation>
+        <translation>In Tray schließen</translation>
     </message>
     <message>
         <source>Show Editor</source>
@@ -1619,19 +1631,19 @@ Diese Änderung erfordert einen Neustart.</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard-Tray-Icon-Aktion</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Standardaktion, die beim Linksklick auf das Tray-Icon ausgeführt wird.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Tray-Icon-Einstellungen</translation>
     </message>
     <message>
         <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Tray-Icon-Benachrichtigungen anzeigen</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
@@ -1640,7 +1652,8 @@ Diese Änderung erfordert einen Neustart.</translation>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bei Aktivierung wird versucht, den plattformspezifischen Benachrichtungsservice
+zu verwenden, falls jener existiert. Diese Änderung erfordert einen Neustart.</translation>
     </message>
 </context>
 <context>
@@ -1701,7 +1714,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>
@@ -1723,23 +1736,23 @@ service when such exists. Change requires restart to take effect.</source>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished">Bild für Wasserzeichen</translation>
+        <translation>Wasserzeichen-Bild</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Aktualisieren</translation>
+        <translation>Aktualisieren</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Wasserzeichen drehen</translation>
+        <translation>Wasserzeichen drehen</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished">Wenn aktiviert, dreht Wasserzeichen beim Einfügen um 45°</translation>
+        <translation>Wenn aktiviert, wird das Wasserzeichen beim Einfügen um 45° gedreht</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Wasserzeichen-Einstellungen</translation>
     </message>
 </context>
 </TS>

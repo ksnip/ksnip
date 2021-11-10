@@ -275,12 +275,13 @@ Vidljivost ploča može se promijeniti pomoću tipke tabulatora.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiviraj ispravljanje grešaka</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivira rezultat ispravljanje grešaka ispisan u konzoli.
+Promjena zahtijeva ponovno pokretanje ksnip-a da bi stupilo na snagu.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
@@ -404,15 +405,15 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>please join our</source>
-        <translation type="unfinished"></translation>
+        <translation>pridruži se našem</translation>
     </message>
     <message>
         <source>or our</source>
-        <translation type="unfinished"></translation>
+        <translation>ili naš</translation>
     </message>
     <message>
         <source>server</source>
-        <translation type="unfinished"></translation>
+        <translation>poslužitelj</translation>
     </message>
 </context>
 <context>
@@ -475,7 +476,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Ako želiš pomoći ili ako samo želiš cijeniti obavljeni posao&lt;br/&gt;slobodno počastiti programere pivom ili kavom</translation>
     </message>
 </context>
 <context>
@@ -520,23 +521,23 @@ Do you want to continue?</source>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prisili anoniman prijenos.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Korisničko ime</translation>
+        <translation>Korisničko ime</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Lozinka</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP prenositelj</translation>
     </message>
 </context>
 <context>
@@ -595,19 +596,19 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP prijenos je uspješno završen.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepoznata greška.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Greška u vezi.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Greška u dozvoli.</translation>
     </message>
 </context>
 <context>
@@ -719,11 +720,11 @@ kad je glavni prozor bio skriven ili smanjen.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Prisili generičku wayland (xdg-desktop-portal) snimku ekrana</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Promijeni veličinu generičke wayland (xdg-desktop-portal) snimke ekrana</translation>
     </message>
 </context>
 <context>
@@ -1077,7 +1078,7 @@ okidanja i snimanja slike ekrana.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Radnje</translation>
+        <translation>Radnje</translation>
     </message>
 </context>
 <context>
@@ -1381,7 +1382,7 @@ RegEx izrazom. Ako se izostavi, kopira se sve.</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP prenositelj</translation>
     </message>
 </context>
 <context>
@@ -1710,7 +1711,7 @@ kad postoji. Zahtijeva ponovno pokretanje kako bi se promjena primijenila.</tran
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>

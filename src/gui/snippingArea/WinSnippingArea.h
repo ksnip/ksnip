@@ -29,6 +29,8 @@ class WinSnippingArea : public AbstractSnippingArea
 public:
     explicit WinSnippingArea();
     ~WinSnippingArea() override = default;
+	virtual void showWithoutBackground() override;
+	virtual void showWithBackground(const QPixmap& background) override;
     QRect selectedRectArea() const override;
 
 protected:

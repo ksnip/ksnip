@@ -27,8 +27,18 @@ WinSnippingArea::WinSnippingArea() :
     setWindowFlags(windowFlags() | Qt::Tool);
     
     mFullScreenRect = mWinWrapper.getFullScreenRect();
+}
 
-    setupScalingVariables();
+void WinSnippingArea::showWithoutBackground()
+{
+	setupScalingVariables();
+	AbstractSnippingArea::showWithoutBackground();
+}
+
+void WinSnippingArea::showWithBackground(const QPixmap &background)
+{
+	setupScalingVariables();
+	AbstractSnippingArea::showWithoutBackground(background);
 }
 
 QRect WinSnippingArea::selectedRectArea() const

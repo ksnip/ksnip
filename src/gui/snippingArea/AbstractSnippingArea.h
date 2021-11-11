@@ -40,8 +40,8 @@ class AbstractSnippingArea : public QWidget
 public:
 	explicit AbstractSnippingArea(const QSharedPointer<IConfig> &config);
     ~AbstractSnippingArea() override;
-    void showWithoutBackground();
-    void showWithBackground(const QPixmap& background);
+    virtual void showWithoutBackground();
+    virtual void showWithBackground(const QPixmap& background);
     virtual QRect selectedRectArea() const = 0;
 	virtual QPixmap background() const;
     bool closeSnippingArea();

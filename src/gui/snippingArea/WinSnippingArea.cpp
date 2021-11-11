@@ -38,7 +38,7 @@ void WinSnippingArea::showWithoutBackground()
 void WinSnippingArea::showWithBackground(const QPixmap &background)
 {
 	setupScalingVariables();
-	AbstractSnippingArea::showWithoutBackground(background);
+	AbstractSnippingArea::showWithBackground(background);
 }
 
 QRect WinSnippingArea::selectedRectArea() const

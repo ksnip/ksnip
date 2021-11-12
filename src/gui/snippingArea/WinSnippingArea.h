@@ -29,8 +29,6 @@ class WinSnippingArea : public AbstractSnippingArea
 public:
     explicit WinSnippingArea(const QSharedPointer<IConfig> &config);
     ~WinSnippingArea() override = default;
-	virtual void showWithoutBackground() override;
-	virtual void showWithBackground(const QPixmap& background) override;
     QRect selectedRectArea() const override;
 
 protected:
@@ -47,6 +45,9 @@ private:
     bool mIsMultipleScaledScreens;
 
     void setupScalingVariables();
+
+private slots:
+    void init();
 };
 
 #endif //KSNIP_WINSNIPPINGAREA_H

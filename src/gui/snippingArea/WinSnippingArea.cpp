@@ -25,20 +25,11 @@ WinSnippingArea::WinSnippingArea() :
     mIsMultipleScaledScreens(false)
 {
     setWindowFlags(windowFlags() | Qt::Tool);
-    
-    mFullScreenRect = mWinWrapper.getFullScreenRect();
-}
 
-void WinSnippingArea::showWithoutBackground()
-{
-	setupScalingVariables();
-	AbstractSnippingArea::showWithoutBackground();
-}
+    connect(qGuiApp, &QGuiApplication::screenRemoved, this, &WinSnippingArea::init);
+    connect(qGuiApp, &QGuiApplication::screenAdded, this, &WinSnippingArea::init);
 
-void WinSnippingArea::showWithBackground(const QPixmap &background)
-{
-	setupScalingVariables();
-	AbstractSnippingArea::showWithBackground(background);
+    init();
 }
 
 QRect WinSnippingArea::selectedRectArea() const
@@ -68,13 +59,13 @@ void WinSnippingArea::setFullScreen()
      * See bug https://bugreports.qt.io/browse/QTBUG-94638
      */
 
-    if(mIsMultipleScaledScreens) {
+    if (mIsMultipleScaledScreens) {
         setGeometry(QApplication::desktop()->geometry());
         QWidget::show();
         setGeometry(QApplication::desktop()->geometry());
-    } else if(!mIsFullScreenSizeSet) {
-            setGeometry(mFullScreenRect);
-            mIsFullScreenSizeSet = true;
+    } else if (!mIsFullScreenSizeSet) {
+        setGeometry(mFullScreenRect);
+        mIsFullScreenSizeSet = true;
     }
 
     QWidget::show();
@@ -118,4 +109,12 @@ void WinSnippingArea::setupScalingVariables()
     mScaleOffset.setY((mScaleOffset.y() - mFullScreenRect.y()) / mHdpiScaler.scaleFactor());
 
     mIsMultipleScaledScreens = scaledScreens > 1;
+}
+
+void WinSnippingArea::init()
+{
+    mIsFullScreenSizeSet = false;
+
+    mFullScreenRect = mWinWrapper.getFullScreenRect();
+    setupScalingVariables();
 }

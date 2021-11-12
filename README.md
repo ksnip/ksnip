@@ -248,10 +248,10 @@ Please report any bugs or feature requests related to the annotation editor on t
 All other bugs or feature requests can be reported on the [ksnip](https://github.com/ksnip/ksnip/issues) GitHub page under the "Issue" section.
 
 # Contribution
-Any contribution welcome, be it code, translations or other things. Currently, this is needed:
-* Write code and fix bugs for linux, windows and macOS.
-* Write wiki entries and documentation for ksnip.
-* Package ksnip for different operating systems and distros.
+Any contribution is welcome, be it code, translations or other things. Currently, we need:
+* Developers for writing code and fixing bugs for linux, windows and macOS. We have **only one developer** and the feature requests and bugs are pilling up.
+* Testers for testing releases on different OS and Distros.
+* Docu writers, there are a lot of features that the casual users don't know about.
 
 # Donation 
 ksnip is a non-profitable copylefted libre software project, and still has some costs that need to be covered, like domain costs or hardware costs for cross-platform support.

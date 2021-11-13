@@ -111,8 +111,13 @@ void WidgetVisibilityHandler::setVisible(bool isVisible)
 
 void WidgetVisibilityHandler::showWidget()
 {
-	mWidget->setWindowState(mSelectedWindowState);
+	mWidget->setWindowState(getSelectedWindowState());
 	mWidget->activateWindow();
 	mWidget->raise();
 	mWidget->show();
+}
+
+Qt::WindowState WidgetVisibilityHandler::getSelectedWindowState() const
+{
+	return mSelectedWindowState;
 }

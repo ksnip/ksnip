@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,37 +17,27 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_WINSNIPPINGAREA_H
-#define KSNIP_WINSNIPPINGAREA_H
+#ifndef KSNIP_X11SNIPPINGAREA_H
+#define KSNIP_X11SNIPPINGAREA_H
 
 #include "AbstractSnippingArea.h"
 #include "src/common/platform/HdpiScaler.h"
-#include "src/backend/imageGrabber/WinWrapper.h"
 
-class WinSnippingArea : public AbstractSnippingArea
+class X11SnippingArea : public AbstractSnippingArea
 {
 public:
-    explicit WinSnippingArea(const QSharedPointer<IConfig> &config);
-    ~WinSnippingArea() override = default;
+	explicit X11SnippingArea(const QSharedPointer<IConfig> &config);
+	~X11SnippingArea() override = default;
     QRect selectedRectArea() const override;
 
 protected:
-    void setFullScreen() override;
-    QRect getSnippingAreaGeometry() const override;
-    QPoint getLocalCursorPosition() const override;
+	void setFullScreen() override;
+	QRect getSnippingAreaGeometry() const override;
 
 private:
-    QPoint mScaleOffset;
-    QRect mFullScreenRect;
-    HdpiScaler mHdpiScaler;
-    WinWrapper mWinWrapper;
-    bool mIsFullScreenSizeSet;
-    bool mIsMultipleScaledScreens;
-
-    void setupScalingVariables();
-
-private slots:
-    void init();
+	QRect mDesktopGeometry;
+	HdpiScaler mHdpiScaler;
+	void calculateDesktopGeometry();
 };
 
-#endif //KSNIP_WINSNIPPINGAREA_H
+#endif //KSNIP_X11SNIPPINGAREA_H

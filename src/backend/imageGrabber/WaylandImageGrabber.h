@@ -25,7 +25,6 @@
 #include <QtDBus/QDBusReply>
 
 #include "AbstractImageGrabber.h"
-#include "src/gui/snippingArea/LinuxSnippingArea.h"
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/platform/HdpiScaler.h"
 
@@ -34,6 +33,7 @@ class WaylandImageGrabber  : public AbstractImageGrabber
     Q_OBJECT
 public:
 	explicit WaylandImageGrabber(const QSharedPointer<IConfig> &config);
+	~WaylandImageGrabber() override = default;
 
 public slots:
     void gotScreenshotResponse(uint response, const QVariantMap& results);

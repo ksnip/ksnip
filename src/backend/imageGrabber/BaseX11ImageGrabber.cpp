@@ -21,7 +21,7 @@
 #include "BaseX11ImageGrabber.h"
 
 BaseX11ImageGrabber::BaseX11ImageGrabber(X11Wrapper *x11Wrapper, const QSharedPointer<IConfig> &config) :
-	AbstractRectAreaImageGrabber(new LinuxSnippingArea(config), config),
+	AbstractRectAreaImageGrabber(new X11SnippingArea(config), config),
 	mX11Wrapper(x11Wrapper)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);

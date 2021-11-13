@@ -26,7 +26,7 @@
 
 #include "AbstractRectAreaImageGrabber.h"
 #include "src/common/helper/MathHelper.h"
-#include "src/gui/snippingArea/LinuxSnippingArea.h"
+#include "src/gui/snippingArea/WaylandSnippingArea.h"
 
 class GnomeWaylandImageGrabber : public AbstractRectAreaImageGrabber
 {

@@ -33,12 +33,12 @@
 #include <errno.h>
 
 #include "AbstractImageGrabber.h"
-#include "src/gui/snippingArea/LinuxSnippingArea.h"
 
 class KdeWaylandImageGrabber : public AbstractImageGrabber
 {
 public:
     explicit KdeWaylandImageGrabber(const QSharedPointer<IConfig> &config);
+	~KdeWaylandImageGrabber() override = default;
 
 protected:
 	void grab() override;

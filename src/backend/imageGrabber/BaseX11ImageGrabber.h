@@ -24,7 +24,7 @@
 #include "AbstractRectAreaImageGrabber.h"
 #include "X11Wrapper.h"
 #include "src/common/platform/HdpiScaler.h"
-#include "src/gui/snippingArea/LinuxSnippingArea.h"
+#include "src/gui/snippingArea/X11SnippingArea.h"
 
 class BaseX11ImageGrabber : public AbstractRectAreaImageGrabber
 {

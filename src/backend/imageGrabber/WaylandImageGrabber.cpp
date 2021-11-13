@@ -20,8 +20,8 @@
 #include "WaylandImageGrabber.h"
 
 WaylandImageGrabber::WaylandImageGrabber(const QSharedPointer<IConfig> &config) :
-        AbstractImageGrabber(config),
-        mRequestTokenCounter(1)
+	AbstractImageGrabber(config),
+	mRequestTokenCounter(1)
 {
 	addSupportedCaptureMode(CaptureModes::Portal);
 }

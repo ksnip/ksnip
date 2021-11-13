@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,18 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_GNOMEWAYLANDWIDGETVISIBILITYHANDLER_H
-#define KSNIP_GNOMEWAYLANDWIDGETVISIBILITYHANDLER_H
+#ifndef KSNIP_WAYLANDSNIPPINGAREA_H
+#define KSNIP_WAYLANDSNIPPINGAREA_H
 
-#include "WidgetVisibilityHandler.h"
+#include "X11SnippingArea.h"
 
-class GnomeWaylandWidgetVisibilityHandler : public WidgetVisibilityHandler
+class WaylandSnippingArea : public X11SnippingArea
 {
 public:
-	explicit GnomeWaylandWidgetVisibilityHandler(QWidget *widget);
-	~GnomeWaylandWidgetVisibilityHandler() = default;
-	void setVisible(bool isVisible) override;
-	void showWidget() override;
+	explicit WaylandSnippingArea(const QSharedPointer<IConfig> &config);
+	~WaylandSnippingArea() override = default;
+
+protected:
+	void grabKeyboardFocus() override;
 };
 
-#endif //KSNIP_GNOMEWAYLANDWIDGETVISIBILITYHANDLER_H
+#endif //KSNIP_WAYLANDSNIPPINGAREA_H

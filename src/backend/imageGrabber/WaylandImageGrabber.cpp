@@ -20,8 +20,8 @@
 #include "WaylandImageGrabber.h"
 
 WaylandImageGrabber::WaylandImageGrabber() :
-        AbstractImageGrabber(),
-        mRequestTokenCounter(1)
+	AbstractImageGrabber(),
+	mRequestTokenCounter(1)
 {
 	addSupportedCaptureMode(CaptureModes::Portal);
 }

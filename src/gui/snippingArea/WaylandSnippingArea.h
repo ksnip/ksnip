@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,27 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_LINUXSNIPPINGAREA_H
-#define KSNIP_LINUXSNIPPINGAREA_H
+#ifndef KSNIP_WAYLANDSNIPPINGAREA_H
+#define KSNIP_WAYLANDSNIPPINGAREA_H
 
-#include "AbstractSnippingArea.h"
-#include "src/common/platform/HdpiScaler.h"
+#include "X11SnippingArea.h"
 
-class LinuxSnippingArea : public AbstractSnippingArea
+class WaylandSnippingArea : public X11SnippingArea
 {
 public:
-	explicit LinuxSnippingArea();
-	~LinuxSnippingArea() override = default;
-    QRect selectedRectArea() const override;
+	explicit WaylandSnippingArea();
+	~WaylandSnippingArea() override = default;
 
 protected:
-	void setFullScreen() override;
-	QRect getSnippingAreaGeometry() const override;
-
-private:
-	QRect mDesktopGeometry;
-	HdpiScaler mHdpiScaler;
-	void calculateDesktopGeometry();
+	void grabKeyboardFocus() override;
 };
 
-#endif //KSNIP_LINUXSNIPPINGAREA_H
+#endif //KSNIP_WAYLANDSNIPPINGAREA_H

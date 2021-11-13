@@ -42,14 +42,14 @@ protected:
 	QWidget *mWidget;
 
 	virtual void setVisible(bool isVisible);
+	virtual void showWidget();
+	Qt::WindowState getSelectedWindowState() const;
 
 private:
 	bool mWindowStateChangeLock;
 	bool mIsMinimized;
 	bool mIsHidden;
 	Qt::WindowState mSelectedWindowState;
-
-	void showWidget();
 };
 
 #endif //KSNIP_WIDGETVISIBILITYHANDLER_H

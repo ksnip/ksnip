@@ -64,6 +64,7 @@ protected:
     virtual void setFullScreen() = 0;
 	virtual QRect getSnippingAreaGeometry() const = 0;
 	virtual QPoint getLocalCursorPosition() const;
+	virtual void grabKeyboardFocus();
 
 private:
 	KsnipConfig *mConfig;
@@ -80,7 +81,6 @@ private:
     void clearBackgroundImage();
     virtual void showSnippingArea();
 	void finishSelection();
-    void grabKeyboardFocus();
 
 private slots:
 	void updateCapturedArea(const QRectF &rect);

@@ -21,7 +21,7 @@
 #include "BaseX11ImageGrabber.h"
 
 BaseX11ImageGrabber::BaseX11ImageGrabber(X11Wrapper *x11Wrapper) :
-	AbstractRectAreaImageGrabber(new LinuxSnippingArea),
+	AbstractRectAreaImageGrabber(new X11SnippingArea),
 	mX11Wrapper(x11Wrapper)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);

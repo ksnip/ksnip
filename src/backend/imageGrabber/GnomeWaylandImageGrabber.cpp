@@ -19,7 +19,7 @@
 
 #include "GnomeWaylandImageGrabber.h"
 
-GnomeWaylandImageGrabber::GnomeWaylandImageGrabber() : AbstractRectAreaImageGrabber(new LinuxSnippingArea)
+GnomeWaylandImageGrabber::GnomeWaylandImageGrabber() : AbstractRectAreaImageGrabber(new WaylandSnippingArea)
 {
 	addSupportedCaptureMode(CaptureModes::RectArea);
 	addSupportedCaptureMode(CaptureModes::LastRectArea);

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
+ * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,32 +15,29 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
- *
  */
 
-#ifndef X11IMAGEGRABBER_H
-#define X11IMAGEGRABBER_H
+#ifndef KSNIP_X11SNIPPINGAREA_H
+#define KSNIP_X11SNIPPINGAREA_H
 
-#include "AbstractRectAreaImageGrabber.h"
-#include "X11Wrapper.h"
+#include "AbstractSnippingArea.h"
 #include "src/common/platform/HdpiScaler.h"
-#include "src/gui/snippingArea/X11SnippingArea.h"
 
-class BaseX11ImageGrabber : public AbstractRectAreaImageGrabber
+class X11SnippingArea : public AbstractSnippingArea
 {
 public:
-    explicit BaseX11ImageGrabber(X11Wrapper *x11Wrapper);
-	~BaseX11ImageGrabber() override;
+	explicit X11SnippingArea();
+	~X11SnippingArea() override = default;
+    QRect selectedRectArea() const override;
 
 protected:
-	QRect fullScreenRect() const override;
-	QRect activeWindowRect() const override;
-	bool isSnippingAreaBackgroundTransparent() const override;
-	CursorDto getCursorWithPosition() const override;
+	void setFullScreen() override;
+	QRect getSnippingAreaGeometry() const override;
 
 private:
-    X11Wrapper *mX11Wrapper;
+	QRect mDesktopGeometry;
 	HdpiScaler mHdpiScaler;
+	void calculateDesktopGeometry();
 };
 
-#endif // X11IMAGEGRABBER_H
+#endif //KSNIP_X11SNIPPINGAREA_H

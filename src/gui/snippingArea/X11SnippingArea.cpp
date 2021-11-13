@@ -17,16 +17,16 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "LinuxSnippingArea.h"
+#include "X11SnippingArea.h"
 
-LinuxSnippingArea::LinuxSnippingArea() : AbstractSnippingArea()
+X11SnippingArea::X11SnippingArea() : AbstractSnippingArea()
 {
 	setWindowFlags(windowFlags() | Qt::Tool | Qt::X11BypassWindowManagerHint);
 
 	calculateDesktopGeometry();
 }
 
-QRect LinuxSnippingArea::selectedRectArea() const
+QRect X11SnippingArea::selectedRectArea() const
 {
 	if(isBackgroundTransparent()) {
 		return mCaptureArea;
@@ -35,18 +35,18 @@ QRect LinuxSnippingArea::selectedRectArea() const
 	}
 }
 
-void LinuxSnippingArea::setFullScreen()
+void X11SnippingArea::setFullScreen()
 {
     setFixedSize(QDesktopWidget().size());
     QWidget::showFullScreen();
 }
 
-QRect LinuxSnippingArea::getSnippingAreaGeometry() const
+QRect X11SnippingArea::getSnippingAreaGeometry() const
 {
     return mDesktopGeometry;
 }
 
-void LinuxSnippingArea::calculateDesktopGeometry()
+void X11SnippingArea::calculateDesktopGeometry()
 {
 	auto screens = QApplication::screens();
 	for(auto screen : screens) {

@@ -164,7 +164,8 @@ elseif (UNIX)
 		${CMAKE_SOURCE_DIR}/src/common/platform/PlatformChecker.cpp
 		${CMAKE_SOURCE_DIR}/src/common/platform/CommandRunner.cpp
 		${CMAKE_SOURCE_DIR}/src/common/adapter/fileDialog/SnapFileDialogAdapter.cpp
-		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/LinuxSnippingArea.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/X11SnippingArea.cpp
+		${CMAKE_SOURCE_DIR}/src/gui/snippingArea/WaylandSnippingArea.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11KeyHandler.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToX11KeyCodeTranslator.cpp
 		${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/X11ErrorLogger.cpp

@@ -26,6 +26,7 @@
 * Fixed: VCRUNTIME140_1.dll was not found. ([#743](https://github.com/ksnip/ksnip/issues/743))
 * Fixed: Screenshot area issue when monitor count changes on Windows. ([#722](https://github.com/ksnip/ksnip/issues/722))
 * Fixed: Wayland does not support QWindow::requestActivate(). ([#656](https://github.com/ksnip/ksnip/issues/656))
+* Fixed: Wrong area is captured on a Wayland screen scaling. ([#691](https://github.com/ksnip/ksnip/issues/691))
 * Changed: Enforce xdg-desktop-portal screenshots for Gnome >= 41. ([#727](https://github.com/ksnip/ksnip/issues/727))
 * Fixed kImageAnnotator: Crash while typing text on wayland. ([#256](https://github.com/ksnip/kImageAnnotator/issues/256))
 

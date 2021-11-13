@@ -24,6 +24,11 @@ WaylandSnippingArea::WaylandSnippingArea(const QSharedPointer<IConfig> &config) 
 
 }
 
+QRect WaylandSnippingArea::selectedRectArea() const
+{
+	return mHdpiScaler.scale(mCaptureArea);
+}
+
 void WaylandSnippingArea::grabKeyboardFocus()
 {
 	QApplication::setActiveWindow(this);

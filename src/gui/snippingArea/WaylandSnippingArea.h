@@ -27,9 +27,13 @@ class WaylandSnippingArea : public X11SnippingArea
 public:
 	explicit WaylandSnippingArea();
 	~WaylandSnippingArea() override = default;
+	QRect selectedRectArea() const override;
 
 protected:
 	void grabKeyboardFocus() override;
+
+private:
+	HdpiScaler mHdpiScaler;
 };
 
 #endif //KSNIP_WAYLANDSNIPPINGAREA_H

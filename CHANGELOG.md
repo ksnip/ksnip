@@ -19,6 +19,7 @@
 * Fixed: Wrong area is captured on a Wayland screen scaling. ([#691](https://github.com/ksnip/ksnip/issues/691))
 * Changed: Enforce xdg-desktop-portal screenshots for Gnome >= 41. ([#727](https://github.com/ksnip/ksnip/issues/727))
 * Fixed kImageAnnotator: Crash while typing text on wayland. ([#256](https://github.com/ksnip/kImageAnnotator/issues/256))
+* Changed kImageAnnotator: Show scrollbar when not all tools visible. ([#258](https://github.com/ksnip/kImageAnnotator/issues/258))
 
 ## Release 1.9.1
 * Fixed: MacOS package damaged and not starting. ([#653](https://github.com/ksnip/ksnip/issues/653))

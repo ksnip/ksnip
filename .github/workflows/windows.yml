@@ -95,7 +95,7 @@ jobs:
 
     - name: Download OpenSSL
       run: |
-        curl "https://github.com/ksnip/dependencies/raw/master/windows/openSSL.zip" --output openssl.zip
+        curl -L "https://github.com/ksnip/dependencies/raw/master/windows/openSSL.zip" --output openssl.zip
         7z x openssl.zip -o"${{ env.OPENSSL_DIR }}"
 
     - name: Package exe

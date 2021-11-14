@@ -7,13 +7,17 @@ windeployqt.exe --no-opengl-sw --no-system-d3d-compiler --no-compiler-runtime --
 
 cp build/translations/ksnip_*.qm ./packageDir/translations/
 cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./packageDir/translations/
-cp open_ssl/{libeay32.dll,ssleay32.dll} ./packageDir/ || true
+cp ${OPENSSL_DIR}/{libeay32.dll,ssleay32.dll} ./packageDir/ || true
 
 echo "---------------"
-curl -L https://de.dll-files.com/download/7b92a6cb5d2cad407c457ab12d2b211d/msvcp140.dll.html?c=L20zYStrQm0zU1FDekpvTTdxRldJZz09 --output msvcp140.dll
-curl -L https://de.dll-files.com/download/3b22b2ec303b0721827dd768c87df6ed/vcruntime140_1.dll.html?c=aENVeFR6N21JY1VvT3JKNHNwckhndz09 --output vcruntime140_1.dll
+curl -L https://de.dll-files.com/download/7b92a6cb5d2cad407c457ab12d2b211d/msvcp140.dll.html?c=L20zYStrQm0zU1FDekpvTTdxRldJZz09 --output msvcp140.zip
+curl -L https://de.dll-files.com/download/cfc08fca16c3647a42e78ef7556e4090/vcruntime140.dll.html?c=SHY4Z3V4WlZQZ2RzYWFnVHVsNFdVdz09 --output vcruntime140.zip
+
+7z x msvcp140.zip || true
+7z x vcruntime140.zip || true
+
 cp msvcp140.dll ./packageDir/ || true
-cp vcruntime140_1.dll ./packageDir/ || true
+cp vcruntime140.dll ./packageDir/ || true
 echo "---------------"
 
 7z a ksnip-${VERSION}-windows.zip ./packageDir/*

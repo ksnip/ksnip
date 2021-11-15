@@ -285,13 +285,15 @@ Promjena zahtijeva ponovno pokretanje ksnip-a da bi stupilo na snagu.</translati
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Promijeni veličinu na kašnjenje sadržaja</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mijenjanje veličine sadržaja je odgoda kako bi se upravljaču prozora omogućilo primanje
+novog sadržaja. U slučaju da glavni prozori nisu pravilno podešeni
+na novi sadržaj, povećanje ovog kašnjenja moglo bi poboljšati ponašanje.</translation>
     </message>
 </context>
 <context>

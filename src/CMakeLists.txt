@@ -287,16 +287,16 @@ if (WIN32)
 
 	if (DEFINED ENV{OPENSSL_DIR})
 		file(TO_CMAKE_PATH "$ENV{OPENSSL_DIR}" OPENSSL_DIR)
-		install(CODE "execute_process(COMMAND ${COPY} ${OPENSSL_DIR}/libcrypto-1_1.dll ${OPENSSL_DIR}/libssl-1_1.dll \${CMAKE_INSTALL_PREFIX})")
+		install(CODE "execute_process(COMMAND ${COPY} ${OPENSSL_DIR}/*.dll \${CMAKE_INSTALL_PREFIX})")
 	else ()
-		message("OPENSSL_DIR not set, not able to install openssl dependencies.")
+		message("OPENSSL_DIR not set, not able to install openssl dependencies, skipping.")
 	endif()
 
 	if (DEFINED ENV{KIMAGEANNOTATOR_DIR})
 		file(TO_CMAKE_PATH "$ENV{KIMAGEANNOTATOR_DIR}" KIMAGEANNOTATOR_DIR)
 		install(CODE "execute_process(COMMAND ${COPY} -r \"${KIMAGEANNOTATOR_DIR}/${KIMAGEANNOTATOR_LANG_INSTALL_DIR}\" \${CMAKE_INSTALL_PREFIX})")
 	else ()
-		message("KIMAGEANNOTATOR_DIR not set, not able to install kImageAnnotator translations.")
+		message("KIMAGEANNOTATOR_DIR not set, not able to install kImageAnnotator translations, skipping.")
 	endif()
 
 	set_property(INSTALL "ksnip.exe"

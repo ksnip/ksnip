@@ -14,7 +14,7 @@ curl -L https://github.com/ksnip/dependencies/raw/master/windows/compileRuntime.
 
 7z x compileRuntime.zip -o"compileRuntime"
 
-cp compileRuntime/{msvcp140.dll,vcruntime140.dll} ./packageDir/
+cp compileRuntime/{msvcp140.dll,vcruntime140.dll,msvcp140_1.dll,vcruntime140_1.dll} ./packageDir/
 echo "---------------"
 
 7z a ksnip-${VERSION}-windows.zip ./packageDir/*

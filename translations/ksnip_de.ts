@@ -210,7 +210,7 @@ ausgewählt, was eine Änderung der Einstellungen erlaubt.</translation>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation>Setzt den Anwendungsstil, welcher das Aussehen des GUIs definiert.
+        <translation>Setzt den Anwendungsstil, welcher das Aussehen der GUI definiert.
 Eine Änderung benötigt einen Neustart von ksnip, um wirksam zu werden.</translation>
     </message>
     <message>
@@ -235,7 +235,7 @@ Eine Änderung benötigt einen Neustart von ksnip, um wirksam zu werden.</transl
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation>Registerkartenleiste verstecken wenn nur eine Registerkarte offen ist.</translation>
+        <translation>Registerkartenleiste verstecken, wenn nur eine Registerkarte offen ist.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
@@ -245,7 +245,7 @@ a new start of all instances.</source>
         <translation>Mit dieser Option wird das Ausführen von nur einer ksnip-Instanz erlaubt,
 alle weiteren Instanzen werden ihre Argumente an die zuerst gestartete
 Instanz übergeben und sich wieder schließen. Eine Änderung dieser
-Einstellung erfordert einen Neustartet aller Instanzen.</translation>
+Einstellung erfordert einen Neustart aller Instanzen.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
@@ -300,7 +300,7 @@ ausgerichtet sind, kann eine Erhöhung dieser Verzögerung jenes Verhalten verbe
     <name>AuthorTab</name>
     <message>
         <source>Contributors:</source>
-        <translation>Mitwirkenden:</translation>
+        <translation>Mitwirkende:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
@@ -332,7 +332,7 @@ ausgerichtet sind, kann eine Erhöhung dieser Verzögerung jenes Verhalten verbe
     </message>
     <message>
         <source>The Authors:</source>
-        <translation>Die Authoren:</translation>
+        <translation>Die Autoren:</translation>
     </message>
 </context>
 <context>
@@ -360,11 +360,11 @@ Speichern?</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation>Vollbild Aufnahme einschließlich aller Monitore</translation>
+        <translation>Vollbild-Aufnahme aller Monitore</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation>Aufnahme des Bildschirms auf dem sich dezeit die Maus befindet</translation>
+        <translation>Aufnahme des Bildschirms, auf dem sich derzeit die Maus befindet</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
@@ -447,7 +447,7 @@ Speichern?</translation>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
         <translation>Das Objekt &apos;%1&apos; wird gelöscht.
-Wollen Sie Fortfahren?</translation>
+Möchten Sie fortfahren?</translation>
     </message>
 </context>
 <context>
@@ -474,7 +474,7 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip ist ein unkommerzielles, freies und unter „Copyleft“ stehendes Softwareprojekt, &lt;br/&gt;für das jedoch Kosten anfallen, die es zu decken gilt,&lt;br/&gt; wie z.B. Kosten für die Internetdomäne oder Hardwarekosten für die plattformübergreifende Unterstützung.</translation>
+        <translation>ksnip ist ein nicht-kommerzielles, freies und unter „Copyleft“ stehendes Softwareprojekt, &lt;br/&gt;für das jedoch Kosten anfallen, die es zu decken gilt,&lt;br/&gt; wie z.B. Kosten für die Internetdomäne oder Hardwarekosten für die plattformübergreifende Unterstützung.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
@@ -485,7 +485,7 @@ Wollen Sie Fortfahren?</translation>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation>Fügen Sie neue Aktionen durch Klicken des &quot;Hinzufügen&quot;-Buttons hinzu.</translation>
+        <translation>Fügen Sie neue Aktionen durch Klicken des „Hinzufügen“-Buttons hinzu.</translation>
     </message>
 </context>
 <context>
@@ -516,7 +516,7 @@ Wollen Sie Fortfahren?</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation>Bildschirmfoto-Portal</translation>
+        <translation>Portal aufnehmen</translation>
     </message>
 </context>
 <context>
@@ -684,7 +684,7 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation>Standardmäßige Wayland-Implementationen, die
+        <translation>Generische Wayland-Implementierungen, die
 XDG-DESKTOP-PORTAL verwenden, handhaben
 die Bildschirmskalierung unterschiedlich. Wird diese
 Option aktiviert, wird die aktuelle Bildschirmskalierung
@@ -749,7 +749,7 @@ wenn jenes versteckt oder minimiert war.</translation>
     </message>
     <message>
         <source>Delete Link</source>
-        <translation>Löschlink</translation>
+        <translation>Link löschen</translation>
     </message>
 </context>
 <context>
@@ -783,7 +783,7 @@ wenn jenes versteckt oder minimiert war.</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation>Client-Geheimnis</translation>
+        <translation>Client-Secret</translation>
     </message>
     <message>
         <source>PIN</source>
@@ -807,7 +807,7 @@ wenn jenes versteckt oder minimiert war.</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation>Imgur-Hochlader</translation>
+        <translation>Imgur-Uploader</translation>
     </message>
     <message>
         <source>Username</source>
@@ -928,7 +928,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation>Druckdialog öffnen</translation>
+        <translation>Öffnet Druckerdialog und bietet Optionen zum Drucken des Bildes</translation>
     </message>
     <message>
         <source>Print Preview</source>
@@ -936,7 +936,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation>Druckvorschau öffnen</translation>
+        <translation>Öffnet die Druckvorschau, wo die Bildausrichtung angepasst werden kann</translation>
     </message>
     <message>
         <source>Scale</source>
@@ -972,7 +972,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Bilddateien (* .png * .jpg * .bmp)</translation>
+        <translation>Bilddateien (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -1008,11 +1008,11 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation>Hefte Screenshot am Vordergrund in einem rahmenlosen Fenster an</translation>
+        <translation>Hefte Screenshot im Vordergrund in einem rahmenlosen Fenster an</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation>Kein Bild geliefert, obwohl eines erwartet wurde.</translation>
+        <translation>Kein Bild angegeben, obwohl eines erwartet wurde.</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -1060,11 +1060,11 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation>triggerCapture zu externer Quelle hochladen</translation>
+        <translation>Aufnahme nach extern hochladen</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation>triggerCapture in die Zwischenablage kopieren</translation>
+        <translation>Aufnahme in die Zwischenablage kopieren</translation>
     </message>
     <message>
         <source>Scale Image</source>
@@ -1147,7 +1147,7 @@ und der Aufnahme des Bildschirmfotos.</translation>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation>Bild umbenennen</translation>
+        <translation>Bild umbenannt</translation>
     </message>
     <message>
         <source>Successfully renamed image to </source>
@@ -1155,11 +1155,11 @@ und der Aufnahme des Bildschirmfotos.</translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation>Bild Umbenennung fehlgeschlagen</translation>
+        <translation>Umbenennen des Bildes fehlgeschlagen</translation>
     </message>
     <message>
         <source>Failed to rename image to </source>
-        <translation>Fehler bei Umbennenung des Bildes zu </translation>
+        <translation>Fehler bei Umbenennung des Bildes zu </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1233,7 +1233,7 @@ Filename can contain following wildcards:
         <translation>Unterstützte Formate sind JPG, PNG und BMP. Wenn kein Format angegeben ist, wird standardmäßig PNG benutzt.
 Dateinamen können die folgenden Platzhalter verwenden:
 - $Y, $M, $D für das Datum, $h, $m, $s für die Uhrzeit, oder $T für die Zeit im Format hhmmss.
-- Mehrere aufeinanderfolgende # als Zähler. #### ergibt 0001, der darauffolgende Screenshot wäre 0002.</translation>
+- Mehrere aufeinander folgende # als Zähler. #### ergibt 0001, der darauf folgende Screenshot wäre 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1280,7 +1280,7 @@ Nicht alle Bildformate unterstützen die gesamte Bandbreite, JPEG schon.</transl
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
         <translation>Pfad zum Skript, das zum Hochladen aufgerufen wird. Beim Hochladen wird der Pfad zur temporären
-png-Datei als einziges Argument an das Script übergeben.</translation>
+PNG-Datei als einziges Argument an das Script übergeben.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1296,13 +1296,13 @@ png-Datei als einziges Argument an das Script übergeben.</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation>Stopp das Skript, wenn es in die Standardfehlerausgabe (StdErr) schreibt</translation>
+        <translation>Das Skript anhalten, wenn es in die Standardfehlerausgabe (StdErr) schreibt</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
         <translation>Markiert den Upload als fehlgeschlagen, wenn das Skript in die Standardfehlerausgabe (StdErr) schreibt.
-Ohne diese Einstellung werden Fehler im Skript möglicherweise nicht bemerkt.</translation>
+Ohne diese Einstellung bleiben Fehler im Skript möglicherweise unbemerkt.</translation>
     </message>
     <message>
         <source>Filter:</source>
@@ -1312,7 +1312,7 @@ Ohne diese Einstellung werden Fehler im Skript möglicherweise nicht bemerkt.</t
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
         <translation>Reguläre Ausdrücke. Nur das in die Zwischenablage kopieren, was dem regulären Ausdruck entspricht.
-Alles wird kopiert wenn leer.</translation>
+Falls leer, wird alles kopiert.</translation>
     </message>
 </context>
 <context>
@@ -1331,7 +1331,7 @@ Alles wird kopiert wenn leer.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>Bildgrabber</translation>
+        <translation>Bild-Grabber</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
@@ -1417,7 +1417,7 @@ Alles wird kopiert wenn leer.</translation>
     <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation>Klicken und ziehen Sie, um einen rechteckigen Bereich auszuwählen, oder drücken Sie ESC, um zu beenden.</translation>
+        <translation>Klicken und ziehen Sie, um einen rechteckigen Bereich auszuwählen, oder drücken Sie ESC, um die Aufnahme zu beenden.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
@@ -1453,9 +1453,9 @@ This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
         <translation>Ist diese Option gesetzt, wird der Hintergrund
 eingefroren und eine rechteckige Auswahl kann
-getroffen werden. Sie wirkt sicht auch auf verzögerte
+getroffen werden. Sie wirkt sich auch auf verzögerte
 Screenshots aus; wenn aktiviert, geschieht die Verzögerung,
-bevor die Auswahl getroffen werden kann; wenn deaktviert,
+bevor die Auswahl getroffen werden kann; wenn deaktiviert,
 geschieht die Verzögerung, nachdem die Auswahl
 getroffen wurde. Diese Option ist unter Wayland stets
 deaktiviert, unter macOS stets aktiviert.</translation>
@@ -1594,7 +1594,7 @@ Kleinere Werte bedeuten mehr Transparenz.</translation>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation>Editor Anzeigen</translation>
+        <translation>Editor anzeigen</translation>
     </message>
 </context>
 <context>
@@ -1679,7 +1679,7 @@ zu verwenden, falls jener existiert. Diese Änderung erfordert einen Neustart.</
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Bitte füge ein Upload-Skript über Optionen &gt; Einstellungen &gt; Upload-Skript hinzu</translation>
+        <translation>Bitte fügen Sie ein Upload-Skript über Optionen &gt; Einstellungen &gt; Upload-Skript hinzu</translation>
     </message>
     <message>
         <source>Capture Upload</source>
@@ -1687,7 +1687,7 @@ zu verwenden, falls jener existiert. Diese Änderung erfordert einen Neustart.</
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation>Du bist dabei das Bild zu einem externen Ziel hochzuladen, möchtest Du fortfahren?</translation>
+        <translation>Sind sind dabei, das Bild zu einem externen Ziel hochzuladen. Möchten Sie fortfahren?</translation>
     </message>
 </context>
 <context>
@@ -1698,7 +1698,7 @@ zu verwenden, falls jener existiert. Diese Änderung erfordert einen Neustart.</
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation>Hochladen-Typ:</translation>
+        <translation>Uploader-Typ:</translation>
     </message>
     <message>
         <source>Imgur</source>
@@ -1710,7 +1710,7 @@ zu verwenden, falls jener existiert. Diese Änderung erfordert einen Neustart.</
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Hochladen-Programm</translation>
+        <translation>Uploader</translation>
     </message>
     <message>
         <source>FTP</source>

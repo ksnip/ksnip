@@ -132,7 +132,7 @@
     <name>AnnotationSettings</name>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation>Glatte Malpfade</translation>
+        <translation>Malpfade glätten</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
@@ -154,11 +154,11 @@ macht sie glatter.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation>Beschriftungseinstellungen</translation>
+        <translation>Beschriftungs-Einstellungen</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation>Merke Auswahl des Beschriftungstool und stelle diese beim Starten wieder her</translation>
+        <translation>Merke Auswahl des Beschriftungstools und stelle diese beim Starten wieder her</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>

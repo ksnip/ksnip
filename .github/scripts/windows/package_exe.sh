@@ -10,6 +10,13 @@ cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./packageDir/translat
 cp ${OPENSSL_DIR}/*.dll ./packageDir/
 
 echo "---------------"
+
+echo "**************************"
+ls
+echo "**************************"
+ls ${OPENSSL_DIR}/
+echo "**************************"
+
 curl -L https://github.com/ksnip/dependencies/raw/master/windows/compileRuntime.zip --output compileRuntime.zip
 
 7z x compileRuntime.zip -o"compileRuntime"

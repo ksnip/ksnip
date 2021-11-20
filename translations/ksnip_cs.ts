@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontakt</translation>
     </message>
 </context>
 <context>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplikace pro zachycení snímku obrazovky a tvorbu popisků</translation>
     </message>
 </context>
 <context>
@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraz obrázek v samostatném okně</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Skryj hlavní okno</translation>
     </message>
 </context>
 <context>
@@ -188,12 +188,13 @@ Změna barvy ovlivní pouze nové oblasti anotací.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Po kreslení vyber prvek</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>S výběrem této volby získá prvek okamžité vybrání poté,
+co je vytvořen. A zpřístupní možnost editace prvku.</translation>
     </message>
 </context>
 <context>
@@ -274,12 +275,13 @@ Viditelnost doků lze přepínat pomocí klávesy Tabulátor.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolit ladění aplikace</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Povolit režim ladění do okna konzole.
+Pro změnu je nutné restartovat ksnip.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
@@ -340,7 +342,7 @@ to the new content, increasing this delay might improve the behavior.</source>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation>Zachycen í% 1% 2% 3 bylo upraveno.
+        <translation>Zachycení %1 %2 %3 bylo upraveno.
 Chcete změny uložit?</translation>
     </message>
 </context>
@@ -383,15 +385,15 @@ Chcete změny uložit?</translation>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Komunita</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokud máte nějaké zvídavé otázky, nápady a nebo se chcete jen pobavit o ksnipu,</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahlášení chyb</translation>
     </message>
     <message>
         <source>Please use </source>
@@ -403,15 +405,15 @@ Chcete změny uložit?</translation>
     </message>
     <message>
         <source>please join our</source>
-        <translation type="unfinished"></translation>
+        <translation>prosím připojte se k našemu</translation>
     </message>
     <message>
         <source>or our</source>
-        <translation type="unfinished"></translation>
+        <translation>nebo naší</translation>
     </message>
     <message>
         <source>server</source>
-        <translation type="unfinished"></translation>
+        <translation>server</translation>
     </message>
 </context>
 <context>
@@ -519,11 +521,11 @@ Chcete pokračovat?</translation>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vynutit anonymní nahrání.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Url</translation>
     </message>
     <message>
         <source>Username</source>
@@ -531,11 +533,11 @@ Chcete pokračovat?</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Heslo</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Nahrání na FTP</translation>
     </message>
 </context>
 <context>
@@ -594,19 +596,19 @@ Chcete pokračovat?</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Byl úspěšně dokončen FTP přenos.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Neznámá chyba.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba připojení.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba v přístupových oprávnění.</translation>
     </message>
 </context>
 <context>
@@ -716,7 +718,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Vynutit snímek přes Wayland Generic (xdg-desktop-portal)</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
@@ -1345,7 +1347,7 @@ Když je vynechán, zkopíruje se vše.</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Uploader</translation>
+        <translation>Nahrání</translation>
     </message>
     <message>
         <source>Script Uploader</source>
@@ -1704,7 +1706,7 @@ Změna vyžaduje restart pro projevení.</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Uploader</translation>
+        <translation>Nahrání</translation>
     </message>
     <message>
         <source>FTP</source>

@@ -280,17 +280,20 @@ La visibilità dei dock può essere attivata o disattivata con il tasto Tab.</tr
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Abilita l&apos;output di debug scritto nella console.
+La modifica richiede il riavvio di ksnip per avere effetto.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Ridimensiona al ritardo del contenuto</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Il ridimensionamento al contenuto è un ritardo per consentire a Window Manager di ricevere
+il nuovo contenuto. Nel caso in cui la finestra principale non sia regolata correttamente
+al nuovo contenuto, aumentare questo ritardo potrebbe migliorare il comportamento.</translation>
     </message>
 </context>
 <context>
@@ -475,7 +478,7 @@ Vuoi continuare?</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation type="unfinished"></translation>
+        <translation>Se vuoi aiutare o semplicemente apprezzare il lavoro svolto&lt;br/&gt;offrendo agli sviluppatori una birra o un caffè, puoi farlo</translation>
     </message>
 </context>
 <context>
@@ -536,7 +539,7 @@ Vuoi continuare?</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploader FTP</translation>
     </message>
 </context>
 <context>
@@ -595,19 +598,19 @@ Vuoi continuare?</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Caricamento FTP terminato con successo.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Errore sconosciuto.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Errore di connessione.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Errore di autorizzazione.</translation>
     </message>
 </context>
 <context>
@@ -719,11 +722,11 @@ quando la finestra principale era nascosta o ridotta a icona.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Force Generic Wayland (xdg-desktop-portal) Screenshot</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Scale Generic Wayland (xdg-desktop-portal) Screenshots</translation>
     </message>
 </context>
 <context>
@@ -1077,7 +1080,7 @@ e cattura screenshot.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Azioni</translation>
+        <translation>Azioni</translation>
     </message>
 </context>
 <context>
@@ -1380,7 +1383,7 @@ copiato negli appunti. Se non è definito alcun filtro, verranno copiate tutte l
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Uploader FTP</translation>
     </message>
 </context>
 <context>
@@ -1711,7 +1714,7 @@ della piattaforma quando questa esiste. La modifica richiede il riavvio per aver
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>

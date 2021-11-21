@@ -396,11 +396,11 @@ Vuoi salvarla?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se hai domande generali, idee o semplicemente vuoi parlare di ksnip,&lt;br/&gt;unisciti al nostro server %1 o %2.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si prega di utilizzare %1 per segnalare gli errori.</translation>
     </message>
 </context>
 <context>
@@ -447,19 +447,19 @@ Vuoi continuare?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip è un progetto non redditizio di software libero con copyleft, e&lt;br/&gt;ha ancora alcuni costi che devono essere coperti,&lt;br/&gt;come i costi del dominio o i costi dell&apos;hardware per il supporto multipiattaforma.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se vuoi aiutare o semplicemente apprezzare il lavoro che viene fatto&lt;br/&gt; offrendo agli sviluppatori una birra o un caffè, puoi farlo %1here%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Diventare uno sponsor di GitHub?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anche possibile, %1here%2.</translation>
     </message>
 </context>
 <context>
@@ -583,11 +583,11 @@ Vuoi continuare?</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Caricamento dello script %1 terminato con successo.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Caricato su %1</translation>
     </message>
 </context>
 <context>
@@ -699,11 +699,11 @@ quando la finestra principale era nascosta o ridotta a icona.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation>Force Generic Wayland (xdg-desktop-portal) Screenshot</translation>
+        <translation>Schermata di Force Generic Wayland (xdg-desktop-portal)</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation>Scale Generic Wayland (xdg-desktop-portal) Screenshots</translation>
+        <translation>Schermate di Scale Generic Wayland (xdg-desktop-portal)</translation>
     </message>
 </context>
 <context>
@@ -1058,7 +1058,7 @@ e cattura screenshot.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>File immagine</translation>
     </message>
 </context>
 <context>
@@ -1141,11 +1141,11 @@ e cattura screenshot.</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Immagine rinominata con successo in %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile rinominare l&apos;immagine in %1</translation>
     </message>
 </context>
 <context>
@@ -1168,15 +1168,15 @@ e cattura screenshot.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>File immagine</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvato in %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossibile salvare l&apos;immagine in %1</translation>
     </message>
 </context>
 <context>
@@ -1631,7 +1631,7 @@ della piattaforma quando questa esiste. La modifica richiede il riavvio per aver
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Visualizza notifiche dell&apos;icona della barra delle applicazioni</translation>
     </message>
 </context>
 <context>
@@ -1642,7 +1642,7 @@ della piattaforma quando questa esiste. La modifica richiede il riavvio per aver
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>File immagine</translation>
     </message>
 </context>
 <context>

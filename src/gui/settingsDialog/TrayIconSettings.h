@@ -35,7 +35,7 @@ class TrayIconSettings : public QGroupBox
 Q_OBJECT
 public:
 	explicit TrayIconSettings(const QList<CaptureModes> &captureModes, const QSharedPointer<IConfig> &config);
-	~TrayIconSettings() override;
+	~TrayIconSettings() override = default;
 	void saveSettings();
 
 private:

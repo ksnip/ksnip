@@ -42,20 +42,6 @@ TrayIconSettings::TrayIconSettings(const QList<CaptureModes> &captureModes, cons
 	loadConfig();
 }
 
-TrayIconSettings::~TrayIconSettings()
-{
-	delete mUseTrayIconCheckBox;
-	delete mMinimizeToTrayCheckBox;
-	delete mCloseToTrayCheckBox;
-	delete mTrayIconNotificationsCheckBox;
-	delete mUsePlatformSpecificNotificationServiceCheckBox;
-	delete mDefaultActionCaptureModeCombobox;
-	delete mStartMinimizedToTrayCheckBox;
-	delete mDefaultActionShowEditorRadioButton;
-	delete mDefaultActionCaptureRadioButton;
-	delete mDefaultActionGroupBox;
-}
-
 void TrayIconSettings::saveSettings()
 {
 	mConfig->setUseTrayIcon(mUseTrayIconCheckBox->isChecked());
@@ -76,7 +62,7 @@ void TrayIconSettings::initGui()
 	mMinimizeToTrayCheckBox->setText(tr("Minimize to Tray"));
 	mStartMinimizedToTrayCheckBox->setText(tr("Start Minimized to Tray"));
 	mCloseToTrayCheckBox->setText(tr("Close to Tray"));
-	mTrayIconNotificationsCheckBox->setText(tr("Display Tray icon notifications"));
+	mTrayIconNotificationsCheckBox->setText(tr("Display Tray Icon notifications"));
 	mUsePlatformSpecificNotificationServiceCheckBox->setText(tr("Use platform specific notification service"));
 	mUsePlatformSpecificNotificationServiceCheckBox->setToolTip(tr("When enabled will use try to use platform specific notification\n"
 																   "service when such exists. Change requires restart to take effect."));

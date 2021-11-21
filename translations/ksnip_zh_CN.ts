@@ -396,11 +396,11 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>如果您有常规问题、想法或只想谈谈 ksnip，&lt;br/&gt;请加入我们的 %1 或我们的 %2 服务器。</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>请使用 %1 报告故障。</translation>
     </message>
 </context>
 <context>
@@ -447,19 +447,19 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip 是一个非盈利的 Copyleft 自由软件项目，并且&lt;br/&gt;仍有一些费用需要支付，&lt;br/&gt;如域名成本或跨平台支持的硬件成本。</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;br/&gt;如果你想通过请开发者喝啤酒或咖啡提供帮助或只是想赞赏所做的工作，欢迎看看%1这里%2。</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>成为 GitHub 赞助者？</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>也可以在 %1此处%2 捐款。</translation>
     </message>
 </context>
 <context>
@@ -583,11 +583,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>脚本 %1 上传成功。</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>已上传至 %1</translation>
     </message>
 </context>
 <context>
@@ -703,7 +703,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>缩放 Generic Wayland (xdg-desktop-portal) 截图</translation>
     </message>
 </context>
 <context>
@@ -1058,7 +1058,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>图像文件</translation>
     </message>
 </context>
 <context>
@@ -1141,11 +1141,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>成功将图片重命名为 %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>未能将图片重命名为 %1</translation>
     </message>
 </context>
 <context>
@@ -1168,15 +1168,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>图像文件</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>已保存至 %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>未能将图片保存至 %1</translation>
     </message>
 </context>
 <context>
@@ -1631,7 +1631,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>显示托盘图标通知</translation>
     </message>
 </context>
 <context>
@@ -1642,7 +1642,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>图片文件</translation>
     </message>
 </context>
 <context>

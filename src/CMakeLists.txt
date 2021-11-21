@@ -275,7 +275,7 @@ if (WIN32)
 
 	if (DEFINED ENV{OPENSSL_DIR})
 		file(TO_CMAKE_PATH "$ENV{OPENSSL_DIR}" OPENSSL_DIR)
-		install(CODE "execute_process(COMMAND ${COPY} ${OPENSSL_DIR}/libeay32.dll ${OPENSSL_DIR}/ssleay32.dll \${CMAKE_INSTALL_PREFIX})")
+		install(CODE "execute_process(COMMAND ${COPY} \"${OPENSSL_DIR}\"/*.dll \${CMAKE_INSTALL_PREFIX})")
 	else ()
 		message("OPENSSL_DIR not set, not able to install openssl dependencies.")
 	endif()

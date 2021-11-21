@@ -97,14 +97,14 @@ void HandleUploadResultOperation::notifyFtpSuccessfulUpload() const
 
 void HandleUploadResultOperation::notifyScriptSuccessfulUpload() const
 {
-	NotifyOperation operation(tr("Upload Successful"), tr("Upload script ") + mConfig->uploadScriptPath() + tr(" finished successfully."),
+	NotifyOperation operation(tr("Upload Successful"), tr("Upload script %1  finished successfully.").arg(mConfig->uploadScriptPath()),
 							  NotificationTypes::Information, mNotificationService, mConfig);
 	operation.execute();
 }
 
 void HandleUploadResultOperation::notifyImgurSuccessfulUpload(const QString &url) const
 {
-	NotifyOperation operation(tr("Upload Successful"), tr("Uploaded to") + QLatin1String(" ") + url, url, NotificationTypes::Information,
+	NotifyOperation operation(tr("Upload Successful"), tr("Uploaded to %1").arg(url), url, NotificationTypes::Information,
 							  mNotificationService, mConfig);
 	operation.execute();
 }

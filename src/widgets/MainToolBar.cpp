@@ -76,6 +76,7 @@ MainToolBar::MainToolBar(
 	mDelayLabel->setContentsMargins(0, 0, 2, 0);
 	mDelayLabel->setToolTip(tr("Delay in seconds between triggering\n"
 	                           "and capturing screenshot."));
+    //: The small letter s stands for seconds.
     mDelayPicker->setSuffix(tr("s"));
 	mDelayPicker->setFixedWidth(scaledSizeProvider->scaledWidth(55));
 	mDelayPicker->setToolTip(mDelayLabel->toolTip());

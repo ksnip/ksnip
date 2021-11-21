@@ -103,15 +103,15 @@ SaveResultDto SaveOperation::save(const QString &path)
 {
 	auto successful = mImageSaver->save(mImage, path);
 	if(successful) {
-		notify(tr("Image Saved"), tr("Saved to"), path, NotificationTypes::Information);
+		notify(tr("Image Saved"), tr("Saved to %1").arg(path), path, NotificationTypes::Information);
 	} else {
-		notify(tr("Saving Image Failed"), tr("Failed to save image to"), path, NotificationTypes::Critical);
+		notify(tr("Saving Image Failed"), tr("Failed to save image to %1").arg(path), path, NotificationTypes::Critical);
 	}
 	return SaveResultDto(successful, path);
 }
 
 void SaveOperation::notify(const QString &title, const QString &message, const QString &path, NotificationTypes notificationType) const
 {
-	NotifyOperation operation(title, message + QLatin1String(" ") + path, path, notificationType, mNotificationService, mConfig);
+	NotifyOperation operation(title, message, path, notificationType, mNotificationService, mConfig);
 	operation.execute();
 }

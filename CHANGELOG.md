@@ -10,6 +10,7 @@
 * New: Add .jpeg to open file dialog filter (File > Open). ([#749](https://github.com/ksnip/ksnip/issues/749))
 * Fixed: Opens a new window for each capture. ([#728](https://github.com/ksnip/ksnip/issues/728))
 * Fixed: First cli invocation won't copy image to clipboard. ([#764](https://github.com/ksnip/ksnip/issues/764))
+* Changed: Improve translation experience by using full sentences. ([#759](https://github.com/ksnip/ksnip/issues/759))
 
 ## Release 1.9.2
 * Fixed: Version `Qt_5.15' not found (required by /usr/bin/ksnip). ([#712](https://github.com/ksnip/ksnip/issues/712))

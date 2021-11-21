@@ -59,6 +59,7 @@ void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 	mIncludeCursorCheckBox->setText(tr("Include Cursor"));
 
 	mDelayLabel->setText(tr("Delay") + QLatin1String(":"));
+    //: The small letter s stands for seconds.
 	mDelaySpinBox->setSuffix(tr("s"));
 
 	mCaptureModeLabel->setText(tr("Capture Mode") + QLatin1String(":"));

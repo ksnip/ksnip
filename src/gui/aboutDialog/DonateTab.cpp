@@ -23,15 +23,18 @@ DonateTab::DonateTab()
 {
 	mLayout = new QVBoxLayout();
 	mContent = new QLabel();
-	mContent->setText(QLatin1String("<b>") + tr("Donation") + QLatin1String("</b>") + QLatin1String("<br/>") +
-					  tr("ksnip is a non-profitable copylefted libre software project, and<br/>"
+	mContent->setText(QLatin1String("<b>") + tr("Donation") + QLatin1String("</b>") +
+	                  QLatin1String("<br/>") +
+					  tr("ksnip is a non-profitable copyleft libre software project, and<br/>"
 		                    "still has some costs that need to be covered,<br/>"
 		                    "like domain costs or hardware costs for cross-platform support.") + QLatin1String("<br/>") +
 		              tr("If you want to help or just want to appreciate the work being done<br/>"
-					         "by treating developers to a beer or coffee, you can do that") + QLatin1String(" <a href=\"https://www.paypal.me/damirporobic\">") + tr("here") + QLatin1String("</a>.<br/><br/>") +
+					         "by treating developers to a beer or coffee, you can do that %1here%2.").arg(QLatin1String("<a href=\"https://www.paypal.me/damirporobic\">")).arg(QLatin1String("</a>")) +
+					  QLatin1String("<br/><br/>") +
 					  tr("Donations are always welcome") + QLatin1String(" :)") + QLatin1String("<br/><br/>") +
-		              QLatin1String("<b>") + tr("Become a GitHub Sponsor") + QLatin1String("?</b>") + QLatin1String("<br/>") +
-		              tr("Also possible, ") + QLatin1String(" <a href=\"https://github.com/sponsors/DamirPorobic\">") + tr("here") + QLatin1String("</a>."));
+		              QLatin1String("<b>") + tr("Become a GitHub Sponsor?") + QLatin1String("</b>") +
+		              QLatin1String("<br/>") +
+		              tr("Also possible, %1here%2.").arg(QLatin1String(" <a href=\"https://github.com/sponsors/DamirPorobic\">")).arg(QLatin1String("</a>")));
 
 	mContent->setTextFormat(Qt::RichText);
 	mContent->setTextInteractionFlags(Qt::TextBrowserInteraction);

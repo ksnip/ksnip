@@ -45,7 +45,7 @@ RenameResultDto RenameOperation::execute()
 	if (renameSuccessful) {
 		NotifyOperation operation(
 				tr("Image Renamed"),
-				tr("Successfully renamed image to ") + newFilename,
+				tr("Successfully renamed image to %1").arg(newFilename),
 				NotificationTypes::Information,
 				mNotificationService,
 				mConfig);
@@ -53,7 +53,7 @@ RenameResultDto RenameOperation::execute()
 	} else {
 		NotifyOperation operation(
 				tr("Image Rename Failed"),
-				tr("Failed to rename image to ") + newFilename,
+				tr("Failed to rename image to %1").arg(newFilename),
 				NotificationTypes::Warning,
 				mNotificationService,
 				mConfig);

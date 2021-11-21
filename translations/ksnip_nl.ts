@@ -396,11 +396,11 @@ Wil je deze opslaan?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Als je vragen hebt, ideeën wilt delen of gewoon even een praatje wilt maken, &lt;br/&gt;neem dan deel aan onze %1- of %2-server.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Meld bugs op %1.</translation>
     </message>
 </context>
 <context>
@@ -431,7 +431,7 @@ Wil je deze opslaan?</translation>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation>&apos;%1&apos; wordt verwijderd.
+        <translation>‘%1’ wordt verwijderd.
 Weet je zeker dat je wilt doorgaan?</translation>
     </message>
 </context>
@@ -447,26 +447,26 @@ Weet je zeker dat je wilt doorgaan?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip is een vrij softwareproject zonder winstoogmerk. Er zijn echter&lt;br/&gt;kosten die moeten worden gedekt,&lt;br/&gt;zoals domeinnaamkosten en hardware voor platform-onafhankelijke ondersteuning.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Als je wilt helpen of je waardering wilt tonen&lt;br/&gt;door de ontwikkelaars te trakteren op een biertje of kopje koffie, dan kan dat via %1deze pagina%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub-sponsor worden?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dat kan ook, namelijk via %1deze pagina%2.</translation>
     </message>
 </context>
 <context>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation>Voeg nieuwe acties toe door de knop &apos;Toevoegen&apos; aan te klikken.</translation>
+        <translation>Voeg nieuwe acties toe door de knop ‘Toevoegen’ aan te klikken.</translation>
     </message>
 </context>
 <context>
@@ -535,7 +535,7 @@ Weet je zeker dat je wilt doorgaan?</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation>Het proces kan niet worden gestart. Controleer het pad en de toegangsrechten.</translation>
+        <translation>Het proces kan niet worden gestart. Controleer de locatie en toegangsrechten.</translation>
     </message>
     <message>
         <source>Process crashed</source>
@@ -583,11 +583,11 @@ Weet je zeker dat je wilt doorgaan?</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>‘%1’ is uitgevoerd.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Geüpload naar %1</translation>
     </message>
 </context>
 <context>
@@ -833,7 +833,7 @@ Herstart om de wijzigingen toe te passen.</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation>De schermfoto uit het pad &apos;%1&apos; kan niet worden geopend</translation>
+        <translation>De schermfoto uit ‘%1’ kan niet worden geopend</translation>
     </message>
 </context>
 <context>
@@ -966,7 +966,7 @@ van een schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation>Opslaan als...</translation>
+        <translation>Opslaan als…</translation>
     </message>
     <message>
         <source>Paste</source>
@@ -990,7 +990,7 @@ van een schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation>Pad kopiëren</translation>
+        <translation>Locatie kopiëren</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -1058,7 +1058,7 @@ van een schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeeldingsbestanden</translation>
     </message>
 </context>
 <context>
@@ -1081,7 +1081,7 @@ van een schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation>Pad kopiëren</translation>
+        <translation>Locatie kopiëren</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1141,11 +1141,11 @@ van een schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>De afbeeldingsnaam is gewijzigd in ‘%1’</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>De naam van ‘%1’ kan niet worden gewijzigd</translation>
     </message>
 </context>
 <context>
@@ -1168,22 +1168,22 @@ van een schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeeldingsbestanden</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Opgeslagen in %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>De afbeelding kan niet worden opgeslagen in %1</translation>
     </message>
 </context>
 <context>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation>Nieuwe schermfoto&apos;s automatisch opslaan in standaardlocatie</translation>
+        <translation>Nieuwe schermfoto&apos;s automatisch opslaan op standaardlocatie</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
@@ -1210,7 +1210,7 @@ Filename can contain following wildcards:
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
         <translation>Ondersteunde bestandsformaten: JPG, PNG en BMP. Als je geen formaat opgeeft, dan wordt PNG gebruikt.
 De bestandsnaam mag de volgende jokertekens bevatten:
-- $Y, $M, $D voor datum, $h, $m, $s voor tijd, of $T voor tijd in de opmaak &apos;uummss&apos;.
+- $Y, $M, $D voor datum, $h, $m, $s voor tijd, of $T voor tijd in de opmaak ‘uummss’.
 - Gebruik # voor optelling. Voorbeeld: #### geeft 0001, met als opvolger 0002.</translation>
     </message>
     <message>
@@ -1257,8 +1257,8 @@ hoge compressie. Niet alle formaten ondersteunen det volledige bereik, maar jpeg
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation>Pad naar het script dat moet worden gebruikt bij het uploaden. Tijdens het uploaden
-wordt dit script aangeroepen op het pad van de tijdelijke png.</translation>
+        <translation>Locatie van het script dat moet worden gebruikt bij het uploaden. Tijdens het uploaden
+wordt dit script aangeroepen op de locatie van de tijdelijke png.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1279,7 +1279,7 @@ wordt dit script aangeroepen op het pad van de tijdelijke png.</translation>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation>Markeert de upload als &apos;mislukt&apos; als het script wordt weggeschreven naar StdErr.
+        <translation>Markeert de upload als ‘mislukt’ als het script wordt weggeschreven naar StdErr.
 Schakel uit om scriptfouten te negeren.</translation>
     </message>
     <message>
@@ -1448,7 +1448,7 @@ the background image. This option only works
 with &apos;Freeze Image while snipping&apos; enabled.</source>
         <translation>Toont een vergrootglas om in te zoomen op de
 achtergrondafbeelding. Deze optie werkt alleen als
-&apos;Schermfoto bevriezen tijdens vastleggen&apos; is ingeschakeld.</translation>
+‘Schermfoto bevriezen tijdens vastleggen’ is ingeschakeld.</translation>
     </message>
     <message>
         <source>Show Snipping Area rulers</source>
@@ -1631,7 +1631,7 @@ Herstart KSnip om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Systeemvakmeldingen tonen</translation>
     </message>
 </context>
 <context>
@@ -1642,7 +1642,7 @@ Herstart KSnip om de wijziging toe te passen.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Afbeeldingsbestanden</translation>
     </message>
 </context>
 <context>

@@ -249,7 +249,7 @@ void StandAloneBootstrapper::loadTranslations(const QApplication &app)
 void StandAloneBootstrapper::openMainWindow(const CaptureDto &captureDto)
 {
 	createMainWindow();
-	mMainWindow->processImage(captureDto);
+	mMainWindow->processCapture(captureDto);
 }
 
 void StandAloneBootstrapper::close()

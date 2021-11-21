@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>δ</translation>
     </message>
     <message>
@@ -387,31 +388,15 @@ Do you want to save it?</source>
         <translation>Κοινότητα</translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation>Αν έχετε γενικές ερωτήσεις, ιδέες ή απλώς θέλετε να συζητήσετε για το ksnip,</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Αναφορές σφαλμάτων</translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Παρακαλώ χρησιμοποιήστε το </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation> για αναφορά σφαλμάτων.</translation>
-    </message>
-    <message>
-        <source>please join our</source>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>or our</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>server</source>
+        <source>Please use %1 to report bugs.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -450,14 +435,6 @@ Do you want to continue?</source>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation>εδώ</translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation>Και αυτό γίνεται, </translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation>Οι δωρεές είναι ευπρόσδεκτες</translation>
     </message>
@@ -466,15 +443,19 @@ Do you want to continue?</source>
         <translation>Δωρεά</translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
-        <translation>Γίνετε χορηγός στο GitHub</translation>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>Το ksnip είναι ένα μη κερδοσκοπικό λογισμικό ελευθέρων πνευματικών δικαιωμάτων, και&lt;br/&gt;εντούτοις έχει κάποια έξοδα που πρέπει να καλυφθούν,&lt;br/&gt;όπως τα έξοδα τομέα ή τα έξοδα για την υποστήριξη σε ανεξαρτήτως πλατύβαθρου υλικό.</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -546,18 +527,6 @@ Do you want to continue?</source>
         <translation>Επιτυχής αποστολή</translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation>Μακροεντολή αποστολής </translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation> ολοκληρώθηκε με επιτυχία.</translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation>Αποστολή σε</translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation>Αδύνατη η προσωρινή αποθήκευση της εικόνας για αποστολή.</translation>
     </message>
@@ -607,6 +576,14 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -870,6 +847,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>δ</translation>
     </message>
     <message>
@@ -966,10 +944,6 @@ and capturing screenshot.</source>
     <message>
         <source>&amp;Help</source>
         <translation>&amp;Βοήθεια</translation>
-    </message>
-    <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Αρχεία εικόνας (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -1079,6 +1053,10 @@ and capturing screenshot.</source>
         <source>Actions</source>
         <translation type="unfinished">Ενέργειες</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1147,16 +1125,8 @@ and capturing screenshot.</source>
         <translation>Η εικόνα μετονομάστηκε</translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation>Η εικόνα μετονομάστηκε επιτυχώς σε </translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
         <translation>Η μετονομασία της εικόνας απέτυχε</translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
-        <translation>Αποτυχία μετονομασίας της εικόνας σε </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1166,16 +1136,20 @@ and capturing screenshot.</source>
         <source>New filename:</source>
         <translation>Νέο όνομα αρχείου:</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>Αποθήκευση ως</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Εικόνες</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1190,12 +1164,16 @@ and capturing screenshot.</source>
         <translation>Η αποθήκευση της εικόνας απέτυχε</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>Αποθηκεύτηκε στο</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
-        <translation>Αποτυχία αποθήκευσης της εικόνας στο</translation>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1639,10 +1617,6 @@ Change requires restart.</source>
         <translation>Ρυθμίσεις του εικονιδίου του πλαισίου συστήματος</translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation>Εμφάνιση των ειδοποιήσεων του εικονιδίου του πλαισίου συστήματος</translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation>Χρήση μιας ειδικής υπηρεσίας ειδοποιήσεων του πλατύβαθρου</translation>
     </message>
@@ -1652,6 +1626,10 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Όταν είναι ενεργοποιημένο, θα γίνει προσπάθεια χρήσης της ειδικής υπηρεσίας ειδοποιήσεων του πλατύβαθρου,
 εφόσον υπάρχει μία. Για να λάβει χώρα η αλλαγή αυτής της ρύθμισης απαιτείται επανεκκίνηση.</translation>
     </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1660,12 +1638,8 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Επιλογή εικόνας</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Εικόνες</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>Όλα τα αρχεία</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

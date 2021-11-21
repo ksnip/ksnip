@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -387,31 +388,15 @@ Nahi duzu gordetzea?</translation>
         <translation>Komunitatea</translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation>Galdera orokorrak edo ideiak badituzu, nahiz Ksnip-en gainean hitz egiteko,</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Erroreen txostenak</translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Erabili </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation> erroreen berri emateko.</translation>
-    </message>
-    <message>
-        <source>please join our</source>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>or our</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>server</source>
+        <source>Please use %1 to report bugs.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -450,14 +435,6 @@ Jarraitu nahi duzu?</translation>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation>hemen</translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation>Izan liteke ere, </translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation>Diru-laguntzak beti dira ongi etorriak</translation>
     </message>
@@ -466,15 +443,19 @@ Jarraitu nahi duzu?</translation>
         <translation>Dohaintza</translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
-        <translation>Bihurtu GitHub-en babeslea</translation>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>Ksnip irabazi asmorik gabeko software libreko proektua da, eta &lt;br/&gt;oraindik estali gabeko kostu batzuk ditu&lt;br/&gt;, hala nola plataforma anitzen sustengua emateko behar diren domeinuaren eta hardwarearen kostuak.</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -546,18 +527,6 @@ Jarraitu nahi duzu?</translation>
         <translation>Karga ongi burutu da</translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation>Kargarako scripta </translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation> behar bezala burutu da.</translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation>Kargatuta hona</translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation>Ezin izan da irudia behin behinean gorde kargatzeko.</translation>
     </message>
@@ -607,6 +576,14 @@ Jarraitu nahi duzu?</translation>
     </message>
     <message>
         <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -870,6 +847,7 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -984,10 +962,6 @@ eta pantaila-argazkiaren artean.</translation>
         <translation>&amp;Laguntza</translation>
     </message>
     <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Irudi-fitxategiak (*.png *.jpg *.bmp)</translation>
-    </message>
-    <message>
         <source>Save As...</source>
         <translation>Gorde honela...</translation>
     </message>
@@ -1079,6 +1053,10 @@ eta pantaila-argazkiaren artean.</translation>
         <source>Actions</source>
         <translation type="unfinished">Ekintzak</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1147,16 +1125,8 @@ eta pantaila-argazkiaren artean.</translation>
         <translation>Irudia berrizendatua</translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation>Irudia behar bezala berrizendatu da horrela </translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
         <translation>Irudiaren berrizendatzeak huts egin du</translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
-        <translation>Huts egin du horrela berrizendatzen </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1166,16 +1136,20 @@ eta pantaila-argazkiaren artean.</translation>
         <source>New filename:</source>
         <translation>Fitxategi-izen berria:</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>Gorde honela</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Irudiak</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1186,16 +1160,20 @@ eta pantaila-argazkiaren artean.</translation>
         <translation>Irudia gorde da</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>Hemen gordea</translation>
-    </message>
-    <message>
         <source>Saving Image Failed</source>
         <translation>Irudiaren gordetzeak huts egin du</translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
-        <translation>Huts egin du irudia hona gordetzean</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1639,10 +1617,6 @@ Aldaketak berrabiaraztea eskatzen du.</translation>
         <translation>Erretiluko ikonoaren ezarpenak</translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation>Erakutsi erretiluko ikonoaren jakinarazpenak</translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation>Erabili plataformaren berariazko jakinarazpen zerbitzua</translation>
     </message>
@@ -1652,6 +1626,10 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Aktibatuta dagoenean saiatuko da plataformaren berariazko jakinarazpen
 zerbitzua erabiltzen baldin badago. Aldaketak berrabiaraztea eskatzen du eragina izateko.</translation>
     </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1660,12 +1638,8 @@ zerbitzua erabiltzen baldin badago. Aldaketak berrabiaraztea eskatzen du eragina
         <translation>Aukeratu irudia</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Irudiak</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>Fitxategi guztiak</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

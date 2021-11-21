@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation type="unfinished">s</translation>
     </message>
     <message>
@@ -388,32 +389,16 @@ Chcete změny uložit?</translation>
         <translation>Komunita</translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation>Pokud máte nějaké zvídavé otázky, nápady a nebo se chcete jen pobavit o ksnipu,</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Nahlášení chyb</translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation type="unfinished">Použijte prosím </translation>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> to report bugs.</source>
-        <translation type="unfinished"> pro hlášení chyb.</translation>
-    </message>
-    <message>
-        <source>please join our</source>
-        <translation>prosím připojte se k našemu</translation>
-    </message>
-    <message>
-        <source>or our</source>
-        <translation>nebo naší</translation>
-    </message>
-    <message>
-        <source>server</source>
-        <translation>server</translation>
+        <source>Please use %1 to report bugs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -451,14 +436,6 @@ Chcete pokračovat?</translation>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation>tady</translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation>Je také možné, </translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation>Dary jsou vždy vítány</translation>
     </message>
@@ -467,15 +444,19 @@ Chcete pokračovat?</translation>
         <translation>Sponzorský dar</translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
-        <translation>Staňte se sponzorem GitHub</translation>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip je neziskový softwarový projekt copylefted libre a &lt;br/&gt; má však stále určité náklady, které je třeba pokrýt, &lt;br/&gt; jedná se o náklady na doménu nebo náklady na hardware pro podporu mezi platformami.</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -547,18 +528,6 @@ Chcete pokračovat?</translation>
         <translation>Odeslání proběhlo úspěšně</translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation>Nahrávací skript </translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation> úspěšně dokončen.</translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation>Odesláno do</translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation>Nelze uložit dočasný obrázek pro nahrání.</translation>
     </message>
@@ -609,6 +578,14 @@ Chcete pokračovat?</translation>
     <message>
         <source>Permission Error.</source>
         <translation>Chyba v přístupových oprávnění.</translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -869,6 +846,7 @@ a zachycením obrazovky.</translation>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -983,10 +961,6 @@ a zachycením obrazovky.</translation>
         <translation>&amp;Pomoc</translation>
     </message>
     <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Soubory obrázků (*. png *. jpg *. bmp)</translation>
-    </message>
-    <message>
         <source>Save As...</source>
         <translation>Uložit jako...</translation>
     </message>
@@ -1078,6 +1052,10 @@ a zachycením obrazovky.</translation>
         <source>Actions</source>
         <translation type="unfinished">Akce</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1146,16 +1124,8 @@ a zachycením obrazovky.</translation>
         <translation>Obrázek byl přejmenován</translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation>Obrázek byl úspěšně přejmenován na </translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
         <translation>Přejmenování obrázku se nezdařilo</translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
-        <translation>Nepodařilo se přejmenovat obrázek na </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1165,16 +1135,20 @@ a zachycením obrazovky.</translation>
         <source>New filename:</source>
         <translation>Nový název souboru:</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>Uložit jako</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Obrázky</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1185,16 +1159,20 @@ a zachycením obrazovky.</translation>
         <translation>Obrázek uložen</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>Uložen do</translation>
-    </message>
-    <message>
         <source>Saving Image Failed</source>
         <translation>Ukládání obrázku selhalo</translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
-        <translation>Nepodařilo se uložit obrázek do</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1379,7 +1357,7 @@ Když je vynechán, zkopíruje se vše.</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nahrání na FTP</translation>
     </message>
 </context>
 <context>
@@ -1638,10 +1616,6 @@ pokud ji správce oken sytému podporuje. Změna vyžaduje restart.</translation
         <translation>Nastavení ikony v oznamovací oblasti</translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation>Zobrazit oznámení ikony v oznamovací oblasti</translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation>Používat službu oznámení dané platformy</translation>
     </message>
@@ -1651,6 +1625,10 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Pokud je možnost povolená, ksnip se pokusí používat službu oznámení dané platformy, pokud existuje.
 Změna vyžaduje restart pro projevení.</translation>
     </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1659,12 +1637,8 @@ Změna vyžaduje restart pro projevení.</translation>
         <translation>Vybrat obrázek</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Obrázky</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>Všechny soubory</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

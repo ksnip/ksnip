@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>dtk</translation>
     </message>
     <message>
@@ -379,31 +380,15 @@ Do you want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation type="unfinished">Mohon gunakan </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation type="unfinished"> untuk melaporkan masalah.</translation>
-    </message>
-    <message>
-        <source>please join our</source>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>or our</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>server</source>
+        <source>Please use %1 to report bugs.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -441,14 +426,6 @@ Do you want to continue?</source>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation type="unfinished"></translation>
     </message>
@@ -457,15 +434,19 @@ Do you want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -537,18 +518,6 @@ Do you want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -598,6 +567,14 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -850,6 +827,7 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>dtk</translation>
     </message>
     <message>
@@ -946,10 +924,6 @@ gambar, dalam detik.</translation>
     <message>
         <source>&amp;Help</source>
         <translation>Bantuan</translation>
-    </message>
-    <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>File Gambar (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -1059,6 +1033,10 @@ gambar, dalam detik.</translation>
         <source>Actions</source>
         <translation type="unfinished">Tindakan</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1127,15 +1105,7 @@ gambar, dalam detik.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1146,16 +1116,20 @@ gambar, dalam detik.</translation>
         <source>New filename:</source>
         <translation>Nama file baru:</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>Simpan Sebagai</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Gambar</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1170,12 +1144,16 @@ gambar, dalam detik.</translation>
         <translation>Gagal Menyimpan Gambar</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>Menyimpan ke</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
-        <translation>Gagal menyimpan gambar ke</translation>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1595,16 +1573,16 @@ Change requires restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1615,12 +1593,8 @@ service when such exists. Change requires restart to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Gambar</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation type="unfinished">Semua file</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

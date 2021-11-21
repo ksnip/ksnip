@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>с</translation>
     </message>
     <message>
@@ -149,7 +150,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх 
+ліній, залишених пером чи маркером, але зробить їх&#x2028;
 плавнішими.</translation>
     </message>
     <message>
@@ -391,32 +392,16 @@ Do you want to save it?</source>
         <translation>Спільнота</translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation>Якщо у вас є питання загального характеру, ідеї або ви просто хочете обговорити ksnip,</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Звіти щодо вад</translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Будь ласка, скористайтеся </translation>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> to report bugs.</source>
-        <translation> для надсилання сповіщень щодо вад.</translation>
-    </message>
-    <message>
-        <source>please join our</source>
-        <translation>будь ласка, долучайтеся до нашого</translation>
-    </message>
-    <message>
-        <source>or our</source>
-        <translation>або нашого</translation>
-    </message>
-    <message>
-        <source>server</source>
-        <translation>сервер</translation>
+        <source>Please use %1 to report bugs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -454,14 +439,6 @@ Do you want to continue?</source>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation>тут</translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation>Також можливо, </translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation>Пожертви завжди вітаються</translation>
     </message>
@@ -470,16 +447,20 @@ Do you want to continue?</source>
         <translation>Пожертва</translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
-        <translation>Стати спонсором на GitHub</translation>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip — проєкт зі створення неприбуткового програмного забезпечення із вільними умовами ліцензування та умовами безкоштовного поширення.&lt;br/&gt;Втім, це не означає, що він не коштує нічого.&lt;br/&gt;Нам доводиться сплачувати за домен та обладнання для підтримання роботи програми на багатьох платформах.</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Якщо ви хочете допомогти або просто хочете подякувати за виконану роботу,&lt;br/&gt;надавши розробникам кошти на пиво або каву, ви можете пожертвувати кошти</translation>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -550,18 +531,6 @@ Do you want to continue?</source>
         <translation>Успішне вивантаження</translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation>Скрипт вивантаження </translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation> успішно завершено.</translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation>Вивантажено до</translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation>Не вдалося зберегти тимчасове зображення для вивантаження.</translation>
     </message>
@@ -612,6 +581,14 @@ Do you want to continue?</source>
     <message>
         <source>Permission Error.</source>
         <translation>Помилка із правами доступу.</translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -874,6 +851,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>с</translation>
     </message>
     <message>
@@ -970,10 +948,6 @@ and capturing screenshot.</source>
     <message>
         <source>&amp;Help</source>
         <translation>&amp;Довідка</translation>
-    </message>
-    <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Файли зображень (*.png, *.jpg, *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -1083,6 +1057,10 @@ and capturing screenshot.</source>
         <source>Actions</source>
         <translation>Дії</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1151,16 +1129,8 @@ and capturing screenshot.</source>
         <translation>Зображення перейменовано</translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation>Зображення успішно перейменовано на </translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
         <translation>Не вдалося перейменувати зображення</translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
-        <translation>Не вдалося перейменувати зображення на </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1170,16 +1140,20 @@ and capturing screenshot.</source>
         <source>New filename:</source>
         <translation>Нова назва файла:</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>Зберегти як</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>зображення</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1194,12 +1168,16 @@ and capturing screenshot.</source>
         <translation>Не вдалося зберегти зображення</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>Зберегти до</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
-        <translation>Не вдалося зберегти зображення до</translation>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1644,10 +1622,6 @@ Change requires restart.</source>
         <translation>Параметри піктограми лотка</translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation>Показувати сповіщення піктограми лотка</translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation>Скористатися специфічною для платформи службою сповіщень</translation>
     </message>
@@ -1657,6 +1631,10 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Якщо увімкнено, програма спробує скористатися специфічною для платформи
 службою сповіщень, якщо така існує. Для набуття чинності змінами програму слід буде перезапустити.</translation>
     </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1665,12 +1643,8 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Вибрати зображення</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>зображення</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>усі файли</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

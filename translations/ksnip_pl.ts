@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -388,32 +389,16 @@ Chcesz go zapisać?</translation>
         <translation>Społeczność</translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation>Jeśli masz ogólne pytania, pomysły lub po prostu chcesz porozmawiać o ksnip,</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Zgłaszanie błędów</translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Użyj </translation>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> to report bugs.</source>
-        <translation> do raportowania błędów.</translation>
-    </message>
-    <message>
-        <source>please join our</source>
-        <translation>dołącz do nas</translation>
-    </message>
-    <message>
-        <source>or our</source>
-        <translation>lub nasz</translation>
-    </message>
-    <message>
-        <source>server</source>
-        <translation>serwer</translation>
+        <source>Please use %1 to report bugs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -451,14 +436,6 @@ Czy chcesz kontynuować?</translation>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation>tutaj</translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation>Możesz także, </translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation>Darowizny są zawsze mile widziane</translation>
     </message>
@@ -467,16 +444,20 @@ Czy chcesz kontynuować?</translation>
         <translation>Wspomóż</translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
-        <translation>Zostań Sponsorem GitHub</translation>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip jest niedochodowym projektem wolnego oprogramowania objętego licencją typu copylefted &lt;br/&gt; i nadal ma pewne koszty, które trzeba pokryć, takie jak koszty domeny lub koszty sprzętu&lt;br/&gt; do obsługi wielu platform.</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Jeśli chcesz pomóc lub po prostu docenić wykonywaną pracę&lt;br/&gt;poprzez poczęstowanie deweloperów piwem lub kawą, możesz to zrobić</translation>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -547,18 +528,6 @@ Czy chcesz kontynuować?</translation>
         <translation>Przesyłanie zakończone pomyślnie</translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation>Prześlij skrypt </translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation> zakończone pomyślnie.</translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation>Przesłane do</translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation>Nie można zapisać tymczasowego obrazu do przesłania.</translation>
     </message>
@@ -609,6 +578,14 @@ Czy chcesz kontynuować?</translation>
     <message>
         <source>Permission Error.</source>
         <translation>Błąd uprawnień.</translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -871,6 +848,7 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -967,10 +945,6 @@ i wykonaniem zrzutu ekranu.</translation>
     <message>
         <source>&amp;Help</source>
         <translation>&amp;Pomoc</translation>
-    </message>
-    <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Pliki obrazów (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -1080,6 +1054,10 @@ i wykonaniem zrzutu ekranu.</translation>
         <source>Actions</source>
         <translation>Działania</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1148,16 +1126,8 @@ i wykonaniem zrzutu ekranu.</translation>
         <translation>Zmieniono nazwę obrazu</translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation>Pomyślnie zmieniono nazwę obrazu na </translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
         <translation>Zmiana nazwy obrazu nie powiodła się</translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
-        <translation>Nie udało się zmienić nazwy obrazu na </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1167,16 +1137,20 @@ i wykonaniem zrzutu ekranu.</translation>
         <source>New filename:</source>
         <translation>Nowa nazwa pliku:</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>Zapisz jako</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Obrazy</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1191,12 +1165,16 @@ i wykonaniem zrzutu ekranu.</translation>
         <translation>Zapisywanie obrazu nie powiodło się</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>Zapisano w</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
-        <translation>Nie udało się zapisać obrazu w</translation>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1640,10 +1618,6 @@ Zmiana wymaga ponownego uruchomienia.</translation>
         <translation>Ustawienia ikony zasobnika</translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation>Wyświetlaj powiadomienia o ikonach na pasku zadań</translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation>Skorzystaj z usługi powiadomień specyficznej dla platformy</translation>
     </message>
@@ -1653,6 +1627,10 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Gdy włączone, będzie próbował używać powiadomień specyficznych dla platformy
 jeśli taka istnieje. Zmiana wymaga ponownego uruchomienia, aby zaczęła obowiązywać.</translation>
     </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1661,12 +1639,8 @@ jeśli taka istnieje. Zmiana wymaga ponownego uruchomienia, aby zaczęła obowi�
         <translation>Wybierz obraz</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Obrazy</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>Wszystkie Pliki</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

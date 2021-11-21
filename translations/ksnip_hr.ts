@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -390,32 +391,16 @@ Do you want to save it?</source>
         <translation>Zajednica</translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation>Ako imaš opća pitanja, ideje ili ako samo želiš razgovarati o ksnipu,</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Prijave grešaka</translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Koristi </translation>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> to report bugs.</source>
-        <translation> za prijavljivanje grešaka.</translation>
-    </message>
-    <message>
-        <source>please join our</source>
-        <translation>pridruži se našem</translation>
-    </message>
-    <message>
-        <source>or our</source>
-        <translation>ili naš</translation>
-    </message>
-    <message>
-        <source>server</source>
-        <translation>poslužitelj</translation>
+        <source>Please use %1 to report bugs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -453,14 +438,6 @@ Do you want to continue?</source>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation>ovdje</translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation>Također moguće, </translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation>Donacije su uvijek dobrodošle</translation>
     </message>
@@ -469,16 +446,20 @@ Do you want to continue?</source>
         <translation>Donacija</translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
-        <translation>Postani GitHub sponzor</translation>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip je neprofitni projekt softvera otvorenog koda,&lt;br/&gt;ima troškove koje treba pokriti,&lt;br/&gt;poput troškova za domenu ili hardverskih troškova za podršku raznih platformi.</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Ako želiš pomoći ili ako samo želiš cijeniti obavljeni posao&lt;br/&gt;slobodno počastiti programere pivom ili kavom</translation>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -549,18 +530,6 @@ Do you want to continue?</source>
         <translation>Prijenos je uspio</translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation>Prenesi skripta </translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation> uspješno završeno.</translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation>Preneseno u</translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation>Nije moguće spremiti privremenu sliku za prijenos.</translation>
     </message>
@@ -611,6 +580,14 @@ Do you want to continue?</source>
     <message>
         <source>Permission Error.</source>
         <translation>Greška u dozvoli.</translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -873,6 +850,7 @@ okidanja i snimanja slike ekrana.</translation>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -969,10 +947,6 @@ okidanja i snimanja slike ekrana.</translation>
     <message>
         <source>&amp;Help</source>
         <translation>&amp;Pomoć</translation>
-    </message>
-    <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Slikovne datoteke (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -1082,6 +1056,10 @@ okidanja i snimanja slike ekrana.</translation>
         <source>Actions</source>
         <translation>Radnje</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1150,16 +1128,8 @@ okidanja i snimanja slike ekrana.</translation>
         <translation>Slika je preimenovana</translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation>Slika je uspješno preimenovana u </translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
         <translation>Neuspjelo preimenovanje slike</translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
-        <translation>Neuspjelo preimenovanje slike u </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1169,16 +1139,20 @@ okidanja i snimanja slike ekrana.</translation>
         <source>New filename:</source>
         <translation>Novo ime datoteke:</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>Spremi kao</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Slike</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1193,12 +1167,16 @@ okidanja i snimanja slike ekrana.</translation>
         <translation>Spremanje slike neuspjelo</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>Spremljeno u</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
-        <translation>Neuspjelo spremanje slike u</translation>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1641,10 +1619,6 @@ Promjena zahtijeva ponovno pokretanje programa.</translation>
         <translation>Postavke ikone u programskoj traci</translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation>Prikaži obavijesti u programskoj traci</translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation>Koristi uslugu obavještavanja platforme</translation>
     </message>
@@ -1654,6 +1628,10 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Kad je aktivirano, pokušat će koristiti uslugu obavještavanja platforme
 kad postoji. Zahtijeva ponovno pokretanje kako bi se promjena primijenila.</translation>
     </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1662,12 +1640,8 @@ kad postoji. Zahtijeva ponovno pokretanje kako bi se promjena primijenila.</tran
         <translation>Odaberi sliku</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Slike</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>Sve datoteke</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

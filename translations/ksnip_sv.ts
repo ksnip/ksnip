@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -389,32 +390,16 @@ Vill du spara det?</translation>
         <translation>Gemenskap</translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation>Om du har allmänna frågor, idéer eller bara vill prata om ksnip,</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Felrapporter</translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Använd </translation>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> to report bugs.</source>
-        <translation> för att rapportera fel.</translation>
-    </message>
-    <message>
-        <source>please join our</source>
-        <translation>vänligen gå med i vår</translation>
-    </message>
-    <message>
-        <source>or our</source>
-        <translation>eller vår</translation>
-    </message>
-    <message>
-        <source>server</source>
-        <translation>server</translation>
+        <source>Please use %1 to report bugs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -452,14 +437,6 @@ Vill du fortsätta?</translation>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation>här</translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation>Också möjligt, </translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation>Donationer är alltid välkomna</translation>
     </message>
@@ -468,16 +445,20 @@ Vill du fortsätta?</translation>
         <translation>Donation</translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
-        <translation>Bli en GitHub-sponsor</translation>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip är ett icke-lönsamt mjukvaruprojekt, som&lt;br/&gt;fortfarande har vissa kostnader som måste täckas,&lt;br/&gt;som domänkostnader eller hårdvarukostnader för flerplattformsberoende stöd.</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Om du vill hjälpa till eller bara visa din uppskattning för det arbete som görs&lt;br/&gt;genom att bjuda utvecklarna på en öl eller en kopp kaffe kan du göra det.</translation>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -548,18 +529,6 @@ Vill du fortsätta?</translation>
         <translation>Uppladdning slutförd</translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation>Ladda upp skript </translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation> har slutförts.</translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation>Uppladdat till</translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation>Kan inte spara temporär bild för uppladdning.</translation>
     </message>
@@ -610,6 +579,14 @@ Vill du fortsätta?</translation>
     <message>
         <source>Permission Error.</source>
         <translation>Behörighetsfel.</translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -872,6 +849,7 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -968,10 +946,6 @@ och själva skärmklippet.</translation>
     <message>
         <source>&amp;Help</source>
         <translation>&amp;Hjälp</translation>
-    </message>
-    <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Bildfiler (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -1081,6 +1055,10 @@ och själva skärmklippet.</translation>
         <source>Actions</source>
         <translation>Åtgärder</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1149,16 +1127,8 @@ och själva skärmklippet.</translation>
         <translation>Bilden har bytt namn</translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation>Bilden har bytt namn till </translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
         <translation>Kunde inte byta namn</translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
-        <translation>Kunde inte byta namn till </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1168,16 +1138,20 @@ och själva skärmklippet.</translation>
         <source>New filename:</source>
         <translation>Nytt filnamn:</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>Spara som</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Bilder</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1192,12 +1166,16 @@ och själva skärmklippet.</translation>
         <translation>Kunde inte spara bilden</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>Sparad i</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
-        <translation>Kunde inte spara bilden i</translation>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1641,10 +1619,6 @@ Change requires restart.</source>
         <translation>Inställningar för systemfältsikon</translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation>Visa systemfältsaviseringar</translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation>Använd plattformsspecifik aviseringstjänst</translation>
     </message>
@@ -1654,6 +1628,10 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Vid aktivering försöker ksnip använda plattformsspecifik avisering
 när sådan finnes. Ändring kräver omstart för att tillämpas.</translation>
     </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1662,12 +1640,8 @@ när sådan finnes. Ändring kräver omstart för att tillämpas.</translation>
         <translation>Välj bild</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Bilder</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>Alla filer</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

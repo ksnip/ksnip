@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -390,32 +391,16 @@ Do you want to save it?</source>
         <translation>社区</translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation>如果您有一般性问题，想法或只想谈谈 ksnip，</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>错误报告</translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>请使用 </translation>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> to report bugs.</source>
-        <translation> 报告错误。</translation>
-    </message>
-    <message>
-        <source>please join our</source>
-        <translation>请加入我们的</translation>
-    </message>
-    <message>
-        <source>or our</source>
-        <translation>或我们的</translation>
-    </message>
-    <message>
-        <source>server</source>
-        <translation>服务器</translation>
+        <source>Please use %1 to report bugs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -453,14 +438,6 @@ Do you want to continue?</source>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation>这里</translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation>也可以 </translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation>欢迎捐款</translation>
     </message>
@@ -469,16 +446,20 @@ Do you want to continue?</source>
         <translation>捐赠</translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
-        <translation>成为一名 GitHub 赞助者</translation>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip 是一个非盈利的公共版权自由软件项目，&lt;br/&gt; 仍有一些成本需要支付，&lt;br/&gt; 比如域名成本和跨平台支持所需的硬件成本。</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>如果你想提供帮助或只是想&lt;br/&gt;请开发人员喝啤酒或喝咖啡来感谢所做的工作，您可以这样做</translation>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -549,18 +530,6 @@ Do you want to continue?</source>
         <translation>上传成功</translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation>上传脚本 </translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation> 已成功完成。</translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation>上传到</translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation>无法为上传保存临时图像。</translation>
     </message>
@@ -611,6 +580,14 @@ Do you want to continue?</source>
     <message>
         <source>Permission Error.</source>
         <translation>权限错误。</translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -873,6 +850,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>秒</translation>
     </message>
     <message>
@@ -969,10 +947,6 @@ and capturing screenshot.</source>
     <message>
         <source>&amp;Help</source>
         <translation>帮助(&amp;H)</translation>
-    </message>
-    <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>图像文件 (* .png * .jpg * .bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -1082,6 +1056,10 @@ and capturing screenshot.</source>
         <source>Actions</source>
         <translation>操作</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1150,16 +1128,8 @@ and capturing screenshot.</source>
         <translation>图像已重命名</translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation>成功重命名图像为 </translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
         <translation>图像重命名失败</translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
-        <translation>无法将图像重命名为 </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1169,16 +1139,20 @@ and capturing screenshot.</source>
         <source>New filename:</source>
         <translation>新文件名：</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>另存为</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>图像</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1193,12 +1167,16 @@ and capturing screenshot.</source>
         <translation>保存图像失败</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>保存到</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
-        <translation>无法将图像保存到</translation>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1642,10 +1620,6 @@ Change requires restart.</source>
         <translation>托盘图标设置</translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation>显示任务栏图标通知</translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation>使用平台特定的通知服务</translation>
     </message>
@@ -1655,6 +1629,10 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>启用后将使用尝试使用特定于平台的通知存在时提供服务。
  更改需要重新启动才能生效。</translation>
     </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1663,12 +1641,8 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>选择图像</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>图像</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>所有文件</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

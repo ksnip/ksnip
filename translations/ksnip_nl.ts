@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -390,32 +391,16 @@ Wil je deze opslaan?</translation>
         <translation>Gemeenschap</translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation>Als je algemene vragen of ideeën hebt of gewoon even wilt praten over ksnip,</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Bugmeldingen</translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Gebruik </translation>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> to report bugs.</source>
-        <translation> om bugs te melden.</translation>
-    </message>
-    <message>
-        <source>please join our</source>
-        <translation>word lid van onze</translation>
-    </message>
-    <message>
-        <source>or our</source>
-        <translation>of onze</translation>
-    </message>
-    <message>
-        <source>server</source>
-        <translation>server</translation>
+        <source>Please use %1 to report bugs.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -453,14 +438,6 @@ Weet je zeker dat je wilt doorgaan?</translation>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation>hier</translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation>Je kunt ook </translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation>Donaties zijn altijd welkom</translation>
     </message>
@@ -469,16 +446,20 @@ Weet je zeker dat je wilt doorgaan?</translation>
         <translation>Doneren</translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
-        <translation>GitHub-sponsor worden</translation>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip is een vrijesoftwareproject zonder winstoogmerk, maar&lt;br/&gt;maakt desondanks kosten,&lt;br/&gt;zoals domeinnaam- en hardwarekosten (voor platform-onafhankelijke ondersteuning).</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
-        <translation>Als je wilt helpen of gewoon ons harde werk waardeert,&lt;br/&gt;trakteer onze ontwikkelaars dan eens op een biertje of bakje koffie</translation>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -549,18 +530,6 @@ Weet je zeker dat je wilt doorgaan?</translation>
         <translation>Schermfoto geüpload</translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation>Het uploadscript </translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation> is uitgevoerd.</translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation>Geüpload naar</translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation>De tijdelijke schermfoto, nodig voor het uploaden, kan niet worden opgeslagen.</translation>
     </message>
@@ -611,6 +580,14 @@ Weet je zeker dat je wilt doorgaan?</translation>
     <message>
         <source>Permission Error.</source>
         <translation>Rechtenfout.</translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -873,6 +850,7 @@ van een schermfoto, in seconden.</translation>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -969,10 +947,6 @@ van een schermfoto, in seconden.</translation>
     <message>
         <source>&amp;Help</source>
         <translation>&amp;Hulp</translation>
-    </message>
-    <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Afbeeldingsbestanden (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -1082,6 +1056,10 @@ van een schermfoto, in seconden.</translation>
         <source>Actions</source>
         <translation>Acties</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1150,16 +1128,8 @@ van een schermfoto, in seconden.</translation>
         <translation>De fotonaam is gewijzigd</translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation>De nieuwe fotonaam is </translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
         <translation>Naamswijziging mislukt</translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
-        <translation>De fotonaam kan niet worden gewijzigd in </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1169,16 +1139,20 @@ van een schermfoto, in seconden.</translation>
         <source>New filename:</source>
         <translation>Nieuwe bestandsnaam:</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>Opslaan als</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Schermfoto&apos;s</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1193,12 +1167,16 @@ van een schermfoto, in seconden.</translation>
         <translation>Kan schermfoto niet opslaan</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>Opgeslagen in</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
-        <translation>Kan schermfoto niet opslaan in</translation>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1642,10 +1620,6 @@ Herstart om de wijziging toe te passen.</translation>
         <translation>Systeemvakinstellingen</translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation>Systeemvakmeldingen tonen</translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation>Systeemmeldingen tonen</translation>
     </message>
@@ -1655,6 +1629,10 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Schakel in om, indien mogelijk, systeemmeldingen te tonen.
 Herstart KSnip om de wijziging toe te passen.</translation>
     </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1663,12 +1641,8 @@ Herstart KSnip om de wijziging toe te passen.</translation>
         <translation>Foto kiezen</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Afbeeldingen</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>Alle bestanden</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

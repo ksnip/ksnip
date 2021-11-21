@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -387,31 +388,15 @@ Haluatko tallentaa sen?</translation>
         <translation>Yhteisö</translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation>Jos sinulla on kysymyksiä, ideoita tai haluat vain keskustella ksnipistä,</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Virheraportit</translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Ole hyvä ja käytä </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation> raportoi virheistä.</translation>
-    </message>
-    <message>
-        <source>please join our</source>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>or our</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>server</source>
+        <source>Please use %1 to report bugs.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -450,14 +435,6 @@ Haluatko jatkaa?</translation>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation>täällä</translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation>Mahdollista myös, </translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation>Lahjoitukset ovat aina tervetulleita</translation>
     </message>
@@ -466,15 +443,19 @@ Haluatko jatkaa?</translation>
         <translation>Lahjoitus</translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
-        <translation>Ryhdy GitHub-sponsoriksi</translation>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip on voittoa tavoittelematon ohjelmaisto projekti. &lt;br/&gt;Silti joitakin kustannuksia on katettava,&lt;br/&gt; kuten verkkotunnus ja laitteistokulu alustojen välisen tuen testaamisesi.</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -546,18 +527,6 @@ Haluatko jatkaa?</translation>
         <translation>Lataaminen onnistui</translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation>Lataamisen skripti </translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation> valmistunut onnistuneesti.</translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation>Ladattu kohteeseen</translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation>Väliaikaista kuvaa ei voi tallentaa lähetettäväksi.</translation>
     </message>
@@ -607,6 +576,14 @@ Haluatko jatkaa?</translation>
     </message>
     <message>
         <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -870,6 +847,7 @@ ottamisen välillä.</translation>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -966,10 +944,6 @@ ottamisen välillä.</translation>
     <message>
         <source>&amp;Help</source>
         <translation>&amp;Ohje</translation>
-    </message>
-    <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Kuvatiedostot (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -1079,6 +1053,10 @@ ottamisen välillä.</translation>
         <source>Actions</source>
         <translation type="unfinished">Toimet</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1147,16 +1125,8 @@ ottamisen välillä.</translation>
         <translation>Kuva nimetty</translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation>Kuvan nimeäminen uudelleen onnistui </translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
         <translation>Kuvan nimeäminen epäonnistui</translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
-        <translation>Kuvan nimeäminen uudelleen epäonnistui </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1166,16 +1136,20 @@ ottamisen välillä.</translation>
         <source>New filename:</source>
         <translation>Uusi tiedostonimi:</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>Tallenna nimellä</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Kuvat</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1190,12 +1164,16 @@ ottamisen välillä.</translation>
         <translation>Kuvan tallentaminen epäonnistui</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>Tallennettu kohteeseen</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
-        <translation>Kuvan tallennus epäonnistui kohteeseen</translation>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1639,10 +1617,6 @@ Muutos vaatii käynnistämisen uudelleen.</translation>
         <translation>Alavalikon kuvakkeen asetukset</translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation>Näytä alavalikon kuvakkeen ilmoitukset</translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation>Käytä alustakohtaista ilmoituspalvelua</translation>
     </message>
@@ -1652,6 +1626,10 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Kun asetus on käytössä, se yrittää käyttää alustakohtaista ilmoitusta,
 palvelua, jos sellainen on olemassa. Vaatii käynnistyksen uudelleen.</translation>
     </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1660,12 +1638,8 @@ palvelua, jos sellainen on olemassa. Vaatii käynnistyksen uudelleen.</translati
         <translation>Valitse kuva</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Kuvat</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>Kaikki tiedostot</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

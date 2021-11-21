@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -375,31 +376,15 @@ Doriți să o salvați?</translation>
         <translation>Comunitate</translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation>Dacă aveți întrebări generale, idei sau vreți doar să discutați despre ksnip,</translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation>Rapoarte de defecte</translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation>Folosiți </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation> pentru a raporta erori.</translation>
-    </message>
-    <message>
-        <source>please join our</source>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>or our</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>server</source>
+        <source>Please use %1 to report bugs.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -438,14 +423,6 @@ Doriți să continuați?</translation>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation>aici</translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation>Donațiile sunt binevenite mereu</translation>
     </message>
@@ -454,15 +431,19 @@ Doriți să continuați?</translation>
         <translation>Donație</translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
-        <translation>Deveniți sponsor pe GitHub</translation>
-    </message>
-    <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -534,18 +515,6 @@ Doriți să continuați?</translation>
         <translation>Încărcare reușită</translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation>Încărcat la</translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -595,6 +564,14 @@ Doriți să continuați?</translation>
     </message>
     <message>
         <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -845,6 +822,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -941,10 +919,6 @@ and capturing screenshot.</source>
     <message>
         <source>&amp;Help</source>
         <translation>&amp;Ajutor</translation>
-    </message>
-    <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Fișiere cu imagini (*png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -1054,6 +1028,10 @@ and capturing screenshot.</source>
         <source>Actions</source>
         <translation type="unfinished">Acțiuni</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1122,16 +1100,8 @@ and capturing screenshot.</source>
         <translation>Imagine redenumită</translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
         <translation>Redenumirea imaginii a eșuat</translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1141,16 +1111,20 @@ and capturing screenshot.</source>
         <source>New filename:</source>
         <translation>Denumire nouă:</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>Salvează ca</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Imagini</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1165,11 +1139,15 @@ and capturing screenshot.</source>
         <translation>Salvarea imaginii a eșuat</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>Salvat în</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1589,10 +1567,6 @@ Modificarea necesită repornire.</translation>
         <translation>Configurări pictogramă în tavă</translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation>Afișează notificări în tava de sistem</translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation>Folosește serviciu de notificare specific platformei</translation>
     </message>
@@ -1602,6 +1576,10 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Când e activat, se va încerca folosirea serviciului de notificare specific
 platformei, dacă există. Modificarea necesită o repornire pentru a intra în vigoare.</translation>
     </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
@@ -1610,12 +1588,8 @@ platformei, dacă există. Modificarea necesită o repornire pentru a intra în 
         <translation>Alege imaginea</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Imagini</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>Toate fișierele</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

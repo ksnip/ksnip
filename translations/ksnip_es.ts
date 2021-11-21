@@ -71,6 +71,7 @@
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation type="unfinished">s</translation>
     </message>
     <message>
@@ -386,31 +387,15 @@ Do you want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you have general questions, ideas or just want to talk about ksnip,</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Bug Reports</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Please use </source>
-        <translation type="unfinished">Utilice </translation>
-    </message>
-    <message>
-        <source> to report bugs.</source>
-        <translation type="unfinished"> para informar de defectos.</translation>
-    </message>
-    <message>
-        <source>please join our</source>
+        <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>or our</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>server</source>
+        <source>Please use %1 to report bugs.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -449,14 +434,6 @@ Do you want to continue?</source>
 <context>
     <name>DonateTab</name>
     <message>
-        <source>here</source>
-        <translation>aquí</translation>
-    </message>
-    <message>
-        <source>Also possible, </source>
-        <translation>También es posible, </translation>
-    </message>
-    <message>
         <source>Donations are always welcome</source>
         <translation>Las donaciones son siempre bienvenidas</translation>
     </message>
@@ -465,15 +442,19 @@ Do you want to continue?</source>
         <translation>Donación</translation>
     </message>
     <message>
-        <source>Become a GitHub Sponsor</source>
-        <translation>Convertirse en patrocinador en GitHub</translation>
+        <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>ksnip is a non-profitable copylefted libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation>ksnip es un projecto de software libre, y&lt;br/&gt;aún tiene algunos costos que necesitan ser cubiertos,&lt;br/&gt;como costos de dominios o hardware para soporte multi plataforma.</translation>
+        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that</source>
+        <source>Become a GitHub Sponsor?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also possible, %1here%2.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -545,18 +526,6 @@ Do you want to continue?</source>
         <translation>Subida con éxito</translation>
     </message>
     <message>
-        <source>Upload script </source>
-        <translation>Secuencia de carga </translation>
-    </message>
-    <message>
-        <source> finished successfully.</source>
-        <translation> finalizado exitosamente.</translation>
-    </message>
-    <message>
-        <source>Uploaded to</source>
-        <translation>Subido a</translation>
-    </message>
-    <message>
         <source>Unable to save temporary image for upload.</source>
         <translation>Incapaz de guardar temporalmente la imagen para subir.</translation>
     </message>
@@ -606,6 +575,14 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Permission Error.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Upload script %1  finished successfully.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uploaded to %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -868,6 +845,7 @@ y la captura de pantalla.</translation>
     </message>
     <message>
         <source>s</source>
+        <extracomment>The small letter s stands for seconds.</extracomment>
         <translation>s</translation>
     </message>
     <message>
@@ -964,10 +942,6 @@ y la captura de pantalla.</translation>
     <message>
         <source>&amp;Help</source>
         <translation>Ay&amp;uda</translation>
-    </message>
-    <message>
-        <source>Image Files (*.png *.jpg *.bmp)</source>
-        <translation>Archivos de imagen (*.png *.jpg *.bmp)</translation>
     </message>
     <message>
         <source>Add Watermark</source>
@@ -1077,6 +1051,10 @@ y la captura de pantalla.</translation>
         <source>Actions</source>
         <translation type="unfinished">Acciones</translation>
     </message>
+    <message>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
@@ -1145,16 +1123,8 @@ y la captura de pantalla.</translation>
         <translation>Imagen renombrada</translation>
     </message>
     <message>
-        <source>Successfully renamed image to </source>
-        <translation>Imagen renombrada exitosamente a </translation>
-    </message>
-    <message>
         <source>Image Rename Failed</source>
         <translation>Fallo al renombrar la imagen</translation>
-    </message>
-    <message>
-        <source>Failed to rename image to </source>
-        <translation>Falli al renombrar la imagen a </translation>
     </message>
     <message>
         <source>Rename image</source>
@@ -1164,16 +1134,20 @@ y la captura de pantalla.</translation>
         <source>New filename:</source>
         <translation>Nuevo nombre de archivo:</translation>
     </message>
+    <message>
+        <source>Successfully renamed image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to rename image to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
         <translation>Guardar como</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Imágenes</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -1188,12 +1162,16 @@ y la captura de pantalla.</translation>
         <translation>No se pudo guardar la imagen</translation>
     </message>
     <message>
-        <source>Saved to</source>
-        <translation>Guardado en</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Failed to save image to</source>
-        <translation>No se pudo guardar la imagen en</translation>
+        <source>Saved to %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save image to %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1630,16 +1608,16 @@ El cambio requiere que se reinicie.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Display Tray icon notifications</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Use platform specific notification service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display Tray Icon notifications</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1650,12 +1628,8 @@ service when such exists. Change requires restart to take effect.</source>
         <translation>Seleccionar imagen</translation>
     </message>
     <message>
-        <source>Images</source>
-        <translation>Imágenes</translation>
-    </message>
-    <message>
-        <source>All Files</source>
-        <translation>Todos los archivos</translation>
+        <source>Image Files</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -150,7 +150,7 @@ marker paths after finished drawing.</source>
 precision for pen and marker but will
 make them more smooth.</source>
         <translation>Збільшення коефіцієнта згладжування зменшить чіткість
-ліній, залишених пером чи маркером, але зробить їх&#x2028;
+ліній, залишених пером чи маркером, але зробить їх 
 плавнішими.</translation>
     </message>
     <message>
@@ -397,11 +397,11 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо у вас виникли питання загального характеру, ідеї, або ви просто хочете поговорити про ksnip,&lt;br/&gt;будь ласка, долучайтеся до нашого каналу %1 або нашого сервера %2.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Будь ласка, скористайтеся сторінкою %1 для звітування щодо вад.</translation>
     </message>
 </context>
 <context>
@@ -448,19 +448,19 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip є неприбутковим вільним відкритим проєктом із розробки програмного забезпечення, але&lt;br/&gt;має певні супутні витрати,&lt;br/&gt;зокрема, має платити за домен та обладнання для підтримки роботи на багатьох апаратних платформах.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Якщо ви хочете допомогти або просто вважаєте за потрібне віддячити за виконану роботу,&lt;br/&gt;надавши розробникам можливість випити пива або кави, ви можете підтримати проєкт %1тут%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Станете спонсором GitHub?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Також можна підтримати %1тут%2.</translation>
     </message>
 </context>
 <context>
@@ -584,11 +584,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрипт вивантаження %1 завершив роботу успішно.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Вивантажено до %1</translation>
     </message>
 </context>
 <context>
@@ -1059,7 +1059,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>файли зображень</translation>
     </message>
 </context>
 <context>
@@ -1142,11 +1142,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Зображення успішно перейменовано на %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося перейменувати зображення на %1</translation>
     </message>
 </context>
 <context>
@@ -1169,15 +1169,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>файли зображень</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Збережено до %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося зберегти зображення до %1</translation>
     </message>
 </context>
 <context>
@@ -1633,7 +1633,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Сповіщення з піктограми у лотку</translation>
     </message>
 </context>
 <context>
@@ -1644,7 +1644,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>файли зображень</translation>
     </message>
 </context>
 <context>

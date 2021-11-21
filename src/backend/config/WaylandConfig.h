@@ -21,11 +21,12 @@
 #define KSNIP_WAYLANDCONFIG_H
 
 #include "Config.h"
+#include "src/common/platform/IPlatformChecker.h"
 
 class WaylandConfig : public Config
 {
 public:
-	explicit WaylandConfig(const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider);
+	explicit WaylandConfig(const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider, const QSharedPointer<IPlatformChecker> &platformChecker);
 	~WaylandConfig() override = default;
 
 	bool isFreezeImageWhileSnippingEnabledReadOnly() const override;
@@ -38,8 +39,14 @@ public:
 	bool snippingAreaMagnifyingGlassEnabled() const override;
 
     bool isForceGenericWaylandEnabledReadOnly() const override;
+	bool forceGenericWaylandEnabled() const override;
 
     bool isScaleGenericWaylandScreenshotEnabledReadOnly() const override;
+
+private:
+	QSharedPointer<IPlatformChecker> mPlatformChecker;
+
+	bool isOnlyGenericScreenshotSupported() const;
 };
 
 #endif //KSNIP_WAYLANDCONFIG_H

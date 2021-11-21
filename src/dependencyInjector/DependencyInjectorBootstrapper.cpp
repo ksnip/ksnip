@@ -126,13 +126,13 @@ void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *depe
 
 #if defined(__APPLE__)
 	logger->log(QLatin1String("MacImageGrabber selected"));
-    dependencyInjector->registerFactory<IImageGrabber, MacImageGrabber, IConfig>();
+	dependencyInjector->registerFactory<IImageGrabber, MacImageGrabber, IConfig>();
 #endif
 
 #if defined(UNIX_X11)
 	auto platformChecker = dependencyInjector->get<IPlatformChecker>();
 	if (platformChecker->isX11()) {
-		if(platformChecker->isGnome()) {
+		if (platformChecker->isGnome()) {
 			logger->log(QLatin1String("GnomeX11ImageGrabber selected"));
 			dependencyInjector->registerFactory<IImageGrabber, GnomeX11ImageGrabber, IConfig>();
 		} else {
@@ -140,20 +140,15 @@ void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *depe
 			dependencyInjector->registerFactory<IImageGrabber, X11ImageGrabber, IConfig>();
 		}
 	} else if (platformChecker->isWayland()) {
-		if (config->forceGenericWaylandEnabled() || platformChecker->isSnap()) {
+		if (config->forceGenericWaylandEnabled()) {
 			logger->log(QLatin1String("WaylandImageGrabber selected"));
 			dependencyInjector->registerFactory<IImageGrabber, WaylandImageGrabber, IConfig>();
-		} else if(platformChecker->isKde()) {
+		} else if (platformChecker->isKde()) {
 			logger->log(QLatin1String("KdeWaylandImageGrabber selected"));
 			dependencyInjector->registerFactory<IImageGrabber, KdeWaylandImageGrabber, IConfig>();
 		} else if (platformChecker->isGnome()) {
-            if(platformChecker->gnomeVersion() >= 41) {
-                logger->log(QLatin1String("Gnome Version is >= 41, WaylandImageGrabber selected"));
-                dependencyInjector->registerFactory<IImageGrabber, WaylandImageGrabber, IConfig>();
-            } else {
-                logger->log(QLatin1String("GnomeWaylandImageGrabber selected"));
-                dependencyInjector->registerFactory<IImageGrabber, GnomeWaylandImageGrabber, IConfig>();
-            }
+			logger->log(QLatin1String("GnomeWaylandImageGrabber selected"));
+			dependencyInjector->registerFactory<IImageGrabber, GnomeWaylandImageGrabber, IConfig>();
 		} else {
 			qCritical("Unknown wayland platform, using default wayland Image Grabber.");
 			logger->log(QLatin1String("WaylandImageGrabber selected"));
@@ -167,9 +162,8 @@ void DependencyInjectorBootstrapper::injectImageGrabber(DependencyInjector *depe
 
 #if  defined(_WIN32)
 	logger->log(QLatin1String("WinImageGrabber selected"));
-    dependencyInjector->registerFactory<IImageGrabber, WinImageGrabber, IConfig>();
+	dependencyInjector->registerFactory<IImageGrabber, WinImageGrabber, IConfig>();
 #endif
-
 }
 
 void DependencyInjectorBootstrapper::injectLogger(DependencyInjector *dependencyInjector)
@@ -191,7 +185,7 @@ void DependencyInjectorBootstrapper::injectConfig(DependencyInjector *dependency
 #if defined(UNIX_X11)
 	auto platformChecker = dependencyInjector->get<IPlatformChecker>();
 	if (platformChecker->isWayland()) {
-		dependencyInjector->registerInstance<IConfig, WaylandConfig, IDirectoryPathProvider>();
+		dependencyInjector->registerInstance<IConfig, WaylandConfig, IDirectoryPathProvider, IPlatformChecker>();
 	} else {
 		dependencyInjector->registerInstance<IConfig, Config, IDirectoryPathProvider>();
 	}

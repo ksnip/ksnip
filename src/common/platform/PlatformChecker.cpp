@@ -79,8 +79,8 @@ void PlatformChecker::checkPlatform()
 		} else {
 			mPlatform = Platform::Unknown;
 		}
-		mIsPlatformChecked = true;
 	}
+	mIsPlatformChecked = true;
 }
 
 void PlatformChecker::checkEnvironment()
@@ -94,8 +94,8 @@ void PlatformChecker::checkEnvironment()
 		} else {
 			mEnvironment = Environment::Unknown;
 		}
-		mIsEnvironmentChecked = true;
 	}
+	mIsEnvironmentChecked = true;
 }
 
 void PlatformChecker::checkPackageManager()
@@ -125,6 +125,6 @@ void PlatformChecker::checkVersion()
 		if(isParseSuccessful) {
 			mGnomeVersion = value;
 		}
-		mIsGnomeVersionChecked = true;
-    }
+	}
+	mIsGnomeVersionChecked = true;
 }

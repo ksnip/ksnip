@@ -19,7 +19,9 @@
 
 #include "WaylandConfig.h"
 
-WaylandConfig::WaylandConfig(const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider) : Config(directoryPathProvider)
+WaylandConfig::WaylandConfig(const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider, const QSharedPointer<IPlatformChecker> &platformChecker) :
+	Config(directoryPathProvider),
+	mPlatformChecker(platformChecker)
 {
 
 }
@@ -56,10 +58,23 @@ bool WaylandConfig::snippingAreaMagnifyingGlassEnabled() const
 
 bool WaylandConfig::isForceGenericWaylandEnabledReadOnly() const
 {
-    return false;
+    return isOnlyGenericScreenshotSupported();
 }
 
 bool WaylandConfig::isScaleGenericWaylandScreenshotEnabledReadOnly() const
 {
     return false;
+}
+
+bool WaylandConfig::forceGenericWaylandEnabled() const
+{
+	if (isOnlyGenericScreenshotSupported()) {
+		return true;
+	}
+	return Config::forceGenericWaylandEnabled();
+}
+
+bool WaylandConfig::isOnlyGenericScreenshotSupported() const
+{
+	return mPlatformChecker->gnomeVersion() >= 41 || mPlatformChecker->isSnap();
 }

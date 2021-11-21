@@ -395,11 +395,11 @@ Vill du spara det?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Om du har allmänna frågor, idéer eller bara vill prata om ksnip,&lt;br/&gt;kan du ansluta till vår %1- eller %2-server.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd %1 för att rapportera fel.</translation>
     </message>
 </context>
 <context>
@@ -446,19 +446,19 @@ Vill du fortsätta?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip är ett icke-vinstdrivande copyleft-projekt för fri programvara, och&lt;br/&gt;har fortfarande vissa kostnader som måste täckas,&lt;br/&gt;som domänkostnader eller hårdvarukostnader för plattformsoberoende stöd.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Om du vill hjälpa till eller bara uppskatta det arbete som görs&lt;br/&gt;genom att bjuda utvecklarna på en öl eller en kopp kaffe kan du göra det %1här%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Vill du bli en GitHub-sponsor?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Det är också möjligt, %1här%2.</translation>
     </message>
 </context>
 <context>
@@ -582,11 +582,11 @@ Vill du fortsätta?</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppladdningsskriptet %1 har slutförts.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppladdat till %1</translation>
     </message>
 </context>
 <context>
@@ -1057,7 +1057,7 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildfiler</translation>
     </message>
 </context>
 <context>
@@ -1140,11 +1140,11 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildnamnet har ändrats till %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte att byta namn på bilden till %1</translation>
     </message>
 </context>
 <context>
@@ -1167,15 +1167,15 @@ och själva skärmklippet.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildfiler</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparat till %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte att spara bilden till %1</translation>
     </message>
 </context>
 <context>
@@ -1630,7 +1630,7 @@ när sådan finnes. Ändring kräver omstart för att tillämpas.</translation>
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa systemfältsaviseringar</translation>
     </message>
 </context>
 <context>
@@ -1641,7 +1641,7 @@ när sådan finnes. Ändring kräver omstart för att tillämpas.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildfiler</translation>
     </message>
 </context>
 <context>

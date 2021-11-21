@@ -120,6 +120,7 @@
                     <li>Fixed: Wrong area is captured on a Wayland screen scaling.</li>
                     <li>Changed: Enforce xdg-desktop-portal screenshots for Gnome >= 41.</li>
                     <li>Fixed kImageAnnotator: Crash while typing text on wayland.</li>
+                    <li>Changed kImageAnnotator: Show scrollbar when not all tools visible.</li>
                 </ul>
             </description>
         </release>

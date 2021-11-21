@@ -141,8 +141,8 @@ jobs:
 
       - name: Download OpenSSL
         run: |
-          curl "https://indy.fulgan.com/SSL/openssl-1.0.2q-i386-win32.zip" --output openssl.zip
-          7z x openssl.zip -o"${{ env.OPENSSL_DIR }}" || true
+          curl -L "https://github.com/ksnip/dependencies/raw/master/windows/openSSL.zip" --output openssl.zip
+          7z x openssl.zip -o"${{ env.OPENSSL_DIR }}"
 
       - name: Build
         run: bash ./.github/scripts/build_ksnip.sh

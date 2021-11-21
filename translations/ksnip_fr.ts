@@ -396,11 +396,11 @@ Voulez-vous l&apos;enregistrer&#xa0;?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si vous avez des questions générales, des idées ou si vous voulez simplement parler de ksnip,&lt;br/&gt;veuillez rejoindre notre %1 ou notre %2 serveur.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez utiliser %1 pour signaler les erreurs.</translation>
     </message>
 </context>
 <context>
@@ -447,19 +447,19 @@ Voulez-vous continuer ?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip est un projet de logiciel libre copylefté non rentable, et &lt;br/&gt;a toujours certains coûts qui doivent être couverts,&lt;br/&gt;comme les coûts de domaine ou les coûts de matériel pour la prise en charge multiplateforme.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Si vous voulez aider ou simplement apprécier le travail accompli&lt;br/&gt;en offrant aux développeurs une bière ou un café, vous pouvez le faire %1here%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Devenir un sponsor de GitHub&#xa0;?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Également possible, %1here%2.</translation>
     </message>
 </context>
 <context>
@@ -583,11 +583,11 @@ Voulez-vous continuer ?</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le script de téléversement %1 s&apos;est terminé avec succès.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléversé sur %1</translation>
     </message>
 </context>
 <context>
@@ -1058,7 +1058,7 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers d&apos;images</translation>
     </message>
 </context>
 <context>
@@ -1141,11 +1141,11 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;image a été renommée avec succès en %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec du renommage de l&apos;image en %1</translation>
     </message>
 </context>
 <context>
@@ -1168,15 +1168,15 @@ et la capture de l&apos;écran.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers d&apos;images</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Enregistré dans %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de la sauvegarde de l&apos;image dans %1</translation>
     </message>
 </context>
 <context>
@@ -1631,7 +1631,7 @@ spécifique à la plateforme lorsqu&apos;il existe. Le changement nécessite un 
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher les notifications de l&apos;icône de la barre d&apos;état système</translation>
     </message>
 </context>
 <context>
@@ -1642,7 +1642,7 @@ spécifique à la plateforme lorsqu&apos;il existe. Le changement nécessite un 
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichiers d&apos;images</translation>
     </message>
 </context>
 <context>

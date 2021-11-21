@@ -7,6 +7,6 @@ windeployqt.exe --no-opengl-sw --no-system-d3d-compiler --release packageDir/ksn
 
 cp build/translations/ksnip_*.qm ./packageDir/translations/
 cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./packageDir/translations/
-cp open_ssl/{libeay32.dll,ssleay32.dll} ./packageDir/ || true
+cp "${OPENSSL_DIR}"/*.dll ./packageDir/
 
 7z a ksnip-${VERSION}-windows.zip ./packageDir/*

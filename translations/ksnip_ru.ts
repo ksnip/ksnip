@@ -396,11 +396,11 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Присоединяйтесь к нашим %1 или %2 серверам,&lt;br/&gt; если у вас есть вопросы, идеи, или просто хотите обсудить ksnip.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Используйте, пожалуйста, %1 для сообщений об ошибках.</translation>
     </message>
 </context>
 <context>
@@ -447,19 +447,19 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip&amp;nbsp;&amp;mdash; это некоммерческий проект с открытым исходным кодом, но&lt;br/&gt;проект всё равно требует покрытия некоторых затрат,&lt;br/&gt;таких как оплата домена или инструментов кросс-платформенной поддержки.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Если вы хотите помочь или просто хотите оценить проделанную работу,&lt;br/&gt;угостив разработчиков пивом или кофе, можете сделать это %1здесь%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Стать спонсором на GitHub?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Также можете, %1здесь%2.</translation>
     </message>
 </context>
 <context>
@@ -583,11 +583,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузочный скрипт %1 завершился успешно.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Загружено в %1</translation>
     </message>
 </context>
 <context>
@@ -1058,7 +1058,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы изображений</translation>
     </message>
 </context>
 <context>
@@ -1141,11 +1141,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Изображение успешно переименовано в %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось переименовать изображение в %1</translation>
     </message>
 </context>
 <context>
@@ -1168,15 +1168,15 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы изображений</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранено в %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Не удалось сохранить изображение в %1</translation>
     </message>
 </context>
 <context>
@@ -1631,7 +1631,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Отображать уведомления значка в системном лотке</translation>
     </message>
 </context>
 <context>
@@ -1642,7 +1642,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы изображений</translation>
     </message>
 </context>
 <context>

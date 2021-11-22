@@ -98,6 +98,11 @@ jobs:
         curl -L "https://github.com/ksnip/dependencies/raw/master/windows/openSSL.zip" --output openssl.zip
         7z x openssl.zip -o"${{ env.OPENSSL_DIR }}"
 
+    - name: Download CompileRuntime
+      run: |
+        curl -L "https://github.com/ksnip/dependencies/raw/master/windows/compileRuntime.zip" --output compileruntime.zip
+        7z x compileruntime.zip -o"${{ env.COMPILE_RUNTIME_DIR }}"
+
     - name: Package exe
       run: bash ./.github/scripts/windows/package_exe.sh
 
@@ -143,6 +148,11 @@ jobs:
         run: |
           curl -L "https://github.com/ksnip/dependencies/raw/master/windows/openSSL.zip" --output openssl.zip
           7z x openssl.zip -o"${{ env.OPENSSL_DIR }}"
+
+      - name: Download CompileRuntime
+        run: |
+          curl -L "https://github.com/ksnip/dependencies/raw/master/windows/compileRuntime.zip" --output compileruntime.zip
+          7z x compileruntime.zip -o"${{ env.COMPILE_RUNTIME_DIR }}"
 
       - name: Build
         run: bash ./.github/scripts/build_ksnip.sh

@@ -7,15 +7,9 @@ windeployqt.exe --no-opengl-sw --no-system-d3d-compiler --no-compiler-runtime --
 
 cp build/translations/ksnip_*.qm ./packageDir/translations/
 cp kImageAnnotator/build/translations/kImageAnnotator_*.qm ./packageDir/translations/
+
 cp "${OPENSSL_DIR}"/*.dll ./packageDir/
 
-echo "---------------"
-
-curl -L https://github.com/ksnip/dependencies/raw/master/windows/compileRuntime.zip --output compileRuntime.zip
-
-7z x compileRuntime.zip -o"compileRuntime"
-
-cp compileRuntime/*.dll ./packageDir/
-echo "---------------"
+cp "${COMPILE_RUNTIME_DIR}"/*.dll ./packageDir/
 
 7z a ksnip-${VERSION}-windows.zip ./packageDir/*

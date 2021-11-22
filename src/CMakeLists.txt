@@ -292,6 +292,13 @@ if (WIN32)
 		message("OPENSSL_DIR not set, not able to install openssl dependencies, skipping.")
 	endif()
 
+	if (DEFINED ENV{COMPILE_RUNTIME_DIR})
+		file(TO_CMAKE_PATH "$ENV{COMPILE_RUNTIME_DIR}" COMPILE_RUNTIME_DIR)
+		install(CODE "execute_process(COMMAND ${COPY} \"${COMPILE_RUNTIME_DIR}\"/*.dll \${CMAKE_INSTALL_PREFIX})")
+	else ()
+		message("COMPILE_RUNTIME_DIR not set, not able to install compile runtime dependencies, skipping.")
+	endif()
+
 	if (DEFINED ENV{KIMAGEANNOTATOR_DIR})
 		file(TO_CMAKE_PATH "$ENV{KIMAGEANNOTATOR_DIR}" KIMAGEANNOTATOR_DIR)
 		install(CODE "execute_process(COMMAND ${COPY} -r \"${KIMAGEANNOTATOR_DIR}/${KIMAGEANNOTATOR_LANG_INSTALL_DIR}\" \${CMAKE_INSTALL_PREFIX})")

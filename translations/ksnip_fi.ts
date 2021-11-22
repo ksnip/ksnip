@@ -276,7 +276,7 @@ Valikon näkyvyyttä voidaan vaihtaa sarkaimella.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Ota virheenkorjaus käyttöön</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.

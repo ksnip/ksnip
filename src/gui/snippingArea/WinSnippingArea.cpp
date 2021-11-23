@@ -19,9 +19,6 @@
 
 #include "WinSnippingArea.h"
 
-#include <QFile>
-#include <QTextStream>
-
 WinSnippingArea::WinSnippingArea(const QSharedPointer<IConfig> &config) :
     AbstractSnippingArea(config),
     mIsFullScreenSizeSet(false),
@@ -120,12 +117,4 @@ void WinSnippingArea::init()
 
     mFullScreenRect = mWinWrapper.getFullScreenRect();
     setupScalingVariables();
-
-    QFile file(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/ksnip-log.txt");
-    if (file.open(QIODevice::WriteOnly | QIODevice::Append)) {
-        QTextStream log(&file);
-        log << QDateTime::currentDateTime().toString("hh:mm:ss.zzz") << " Screen Count: " << QApplication::screens().count() << "; Resolution: x=" << mFullScreenRect.x() << " y=" << mFullScreenRect.y() << " w=" << mFullScreenRect.width() << " h=" << mFullScreenRect.height() << endl;
-        file.flush();
-        file.close();
-    }
 }

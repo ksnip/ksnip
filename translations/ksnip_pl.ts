@@ -394,11 +394,11 @@ Chcesz go zapisać?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeśli masz ogólne pytania, pomysły lub po prostu chcesz porozmawiać o ksnip,&lt;br/&gt;dołącz do naszego serwera %1 lub %2.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Użyj %1, aby zgłosić błędy.</translation>
     </message>
 </context>
 <context>
@@ -445,7 +445,7 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip jest niedochodowym projektem wolnego oprogramowania objętego licencją typu copylefted &lt;br/&gt; i nadal ma pewne koszty, które trzeba pokryć, takie jak koszty domeny lub koszty sprzętu&lt;br/&gt; do obsługi wielu platform.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>

@@ -50,6 +50,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mPinAction(new QAction(this)),
 	mRemoveImageAction(new QAction(this)),
 	mModifyCanvasAction(new QAction(this)),
+	mCloseWindowAction(new QAction(this)),
 	mMainLayout(layout()),
 	mActionsMenu(new ActionsMenu(mConfig)),
 	mRecentImagesMenu(new RecentImagesMenu(mDependencyInjector->get<IRecentImageService>(), this)),
@@ -438,6 +439,11 @@ void MainWindow::initGui()
     mQuitAction->setIcon(QIcon::fromTheme(QLatin1String("application-exit")));
     connect(mQuitAction, &QAction::triggered, this, &MainWindow::quit);
 
+	mCloseWindowAction->setText(tr("Close Window"));
+	mCloseWindowAction->setShortcut(Qt::SHIFT + Qt::Key_Escape);
+	mCloseWindowAction->setIcon(QIcon::fromTheme(QLatin1String("window-close")));
+	connect(mCloseWindowAction, &QAction::triggered, this, &MainWindow::close);
+
 	mCopyPathAction->setText(tr("Copy Path"));
 	connect(mCopyPathAction, &QAction::triggered, mCaptureHandler, &ICaptureHandler::copyPath);
 
@@ -514,6 +520,7 @@ void MainWindow::initGui()
     menu->addAction(mPrintAction);
     menu->addAction(mPrintPreviewAction);
     menu->addSeparator();
+    menu->addAction(mCloseWindowAction);
     menu->addAction(mQuitAction);
     menu = menuBar()->addMenu(tr("&Edit"));
     menu->addAction(mToolBar->undoAction());

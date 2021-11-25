@@ -8,6 +8,7 @@
 * New: Add multi-language comment option to desktop file. ([#726](https://github.com/ksnip/ksnip/issues/726))
 * New: Add MimeType of Images to desktop file. ([#725](https://github.com/ksnip/ksnip/issues/725))
 * New: Add .jpeg to open file dialog filter (File > Open). ([#749](https://github.com/ksnip/ksnip/issues/749))
+* New: Escape closes window (and exits when not using tray). ([#770](https://github.com/ksnip/ksnip/issues/770))
 * Fixed: Opens a new window for each capture. ([#728](https://github.com/ksnip/ksnip/issues/728))
 * Fixed: First cli invocation won't copy image to clipboard. ([#764](https://github.com/ksnip/ksnip/issues/764))
 * Changed: Improve translation experience by using full sentences. ([#759](https://github.com/ksnip/ksnip/issues/759))

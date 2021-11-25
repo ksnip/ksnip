@@ -116,6 +116,7 @@ private:
 	QAction *mPinAction;
 	QAction *mRemoveImageAction;
 	QAction *mModifyCanvasAction;
+	QAction *mCloseWindowAction;
 	MainToolBar *mToolBar;
 	QLayout *mMainLayout;
 	ActionsMenu *mActionsMenu;

@@ -94,6 +94,7 @@
                     <li>New: Add multi-language comment option to desktop file.</li>
                     <li>New: Add MimeType of Images to desktop file.</li>
                     <li>New: Add .jpeg to open file dialog filter (File > Open).</li>
+                    <li>New: Escape closes window (and exits when not using tray).</li>
                     <li>Fixed: Opens a new window for each capture.</li>
                     <li>Fixed: First cli invocation won't copy image to clipboard.</li>
                     <li>Changed: Improve translation experience by using full sentences.</li>

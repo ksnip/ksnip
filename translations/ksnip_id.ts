@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation>Alat Tangkapan layar dan Anotasi</translation>
+        <translation>Alat Tangkapan Layar dan Anotasi</translation>
     </message>
 </context>
 <context>
@@ -59,7 +59,7 @@
     </message>
     <message>
         <source>Take Capture</source>
-        <translation>Ambil Gambar</translation>
+        <translation>Tangkap</translation>
     </message>
     <message>
         <source>Include Cursor</source>
@@ -80,23 +80,23 @@
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation>Tampilkan gambar di Jendela Sematkan</translation>
+        <translation>Tampilkan citra di Jendela Sematan</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation>Salin gambar ke Papan klip</translation>
+        <translation>Salin citra ke Papan klip</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation>Unggah gambar</translation>
+        <translation>Unggah citra</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation>Buka direktori induk gambar</translation>
+        <translation>Buka direktori induk citra</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation>Simpan gambar</translation>
+        <translation>Simpan citra</translation>
     </message>
     <message>
         <source>Hide Main Window</source>
@@ -122,11 +122,11 @@
     <name>AddWatermarkOperation</name>
     <message>
         <source>Watermark Image Required</source>
-        <translation>Gambar Watermark Diperlukan</translation>
+        <translation>Dibutuhkan Citra Tanda Air</translation>
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Mohon tambahkan sebuah Gambar Watermark melalui Pilihan &gt; Pengaturan &gt; Annotator &gt; Perbarui</translation>
+        <translation>Mohon tambahkan sebuah Citra Tanda Air melalui Pilihan &gt; Pengaturan &gt; Penganotasi &gt; Perbarui</translation>
     </message>
 </context>
 <context>
@@ -138,8 +138,8 @@
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation>Jika diaktifkan, akan membuat halus path pena 
-dan penanda setelah selesai menggambar.</translation>
+        <translation>Saat dinyalakan, perhalus jalur pena dan
+spidol setelah selesai menggambar.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
@@ -155,7 +155,7 @@ membuatnya lebih halus.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation>Pengaturan Annotator</translation>
+        <translation>Pengaturan Penganotasi</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
@@ -163,7 +163,7 @@ membuatnya lebih halus.</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation>Ubah ke Alat Seleksi setelah selesai menggambar</translation>
+        <translation>Ganti ke Perkakas Pemilihan setelah selesai menggambar</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
@@ -187,19 +187,20 @@ Mengganti warna hanya memengaruhi area anotasi baru.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation>Seleksi objek setelah selesai menggambar</translation>
+        <translation>Pilih butir setelah selesai menggambar</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ketika pilihan ini nyala, butir diseleksi setelah
+dibuat, mengizinkan adanya perubahan pengaturan.</translation>
     </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished">Tangkap layar pada startup dengan moda bawaan</translation>
+        <translation>Tangkap layar pada awal mula dengan moda bawaan</translation>
     </message>
     <message>
         <source>Application Style</source>
@@ -217,55 +218,59 @@ Perubahan ini membutuhkan ksnip ditutup dan buka lagi.</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Secara otomatis menyalin tangkapan baru ke papan klip</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Gunakan Tab</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Perubahan membutuhkan pemulaian ulang.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Jalankan ksnip sebagai instansi tunggal</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sembunyikan Bilah Tab ketika hanya satu tab digunakan.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mengaktifkan pilihan ini akan memungkinkan hanya satu instansi ksnip yang akan dijalankan,
+semua instansi lain dimulai setelah yang pertama akan meneruskan
+argumennya ke yang pertama lalu ditutup. Mengubah pilihan ini membutuhkan
+pemulaian baru dari semua instansi.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingat posisi Jendela Utama saat pemindahan dan pemuatan pada awal mula</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Sembunyikan otomatis tab-tab</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Sembunyikan otomatis Galangan</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Saat memulai, sembunyikan Bilah Alat dan Pengaturan Anotasi.
+Kenampakan Galangan dapat diaktifkan dengan Tombol Tab.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Ganti ukuran otomatis ke konten</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Secara otomatis ganti ukuran Jendela Utama agar sesuai dengan citra konten.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
@@ -278,75 +283,78 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubah ukuran menjadi penundaan konten</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mengubah ukuran konten adalah penundaan agar Pengelola Jendela menerima
+konten baru. Jika Jendela Utama tidak diatur dengan benar
+ke konten baru, meningkatkan penundaan ini dapat meningkatkan perilaku.</translation>
     </message>
 </context>
 <context>
     <name>AuthorTab</name>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Kontributor:</translation>
+        <translation>Penyumbang:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">Terjemahan Bahasa Spanyol</translation>
+        <translation>Terjemahan Bahasa Spanyol</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">Terjemahan Bahasa Belanda</translation>
+        <translation>Terjemahan Bahasa Belanda</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">Terjemahan Bahasa Rusia</translation>
+        <translation>Terjemahan Bahasa Rusia</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">Terjemahan Bahasa Bokmål Norwegia</translation>
+        <translation>Terjemahan Bahasa Bokmål Norwegia</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">Terjemahan Bahasa Perancis</translation>
+        <translation>Terjemahan Bahasa Perancis</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">Terjemahan Bahasa Polandia</translation>
+        <translation>Terjemahan Bahasa Polandia</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Dukungan Snap &amp; Flatpak</translation>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Penulis:</translation>
     </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished">Peringatan </translation>
+        <translation>Peringatan - </translation>
     </message>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangkapan %1%2%3 telah diubah.
+Apakah Anda ingin menyimpannya?</translation>
     </message>
 </context>
 <context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation>Buat Baru</translation>
+        <translation>Baru</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation>Buat area persegi dengan mouse anda</translation>
+        <translation>Buat area persegi dengan tetikus anda</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
@@ -366,281 +374,283 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangkap tangkapan layar dari area persegi panjang yang terakhir dipilih</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Menggunakan Portal tangkapan layar untuk mengambil tangkapan layar</translation>
     </message>
 </context>
 <context>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Komunitas</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Laporan Awakutu</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jika Anda memiliki pertanyaan umum, gagasan atau hanya ingin berbicara tentang ksnip,&lt;br/&gt;silakan bergabung dengan %1 atau server %2 kami.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Harap gunakan %1 untuk melaporkan awakutu.</translation>
     </message>
 </context>
 <context>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Gagal menyalin ke papan klip</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gagal menyalin ke papan klip sebagai citra yang disandikan base64.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Tersalin ke papan klip</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tersalin ke papan klip sebagai citra yang disandikan base64.</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Hapus Citra</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Butir &apos;%1&apos; akan dihapus.
+Apakah Anda ingin melanjutkan?</translation>
     </message>
 </context>
 <context>
     <name>DonateTab</name>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Donasi selalu diterima</translation>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Donasi</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip adalah proyek perangkat lunak bebas copyleft yang tidak komersial, dan&lt;br/&gt;masih memiliki beberapa biaya yang harus ditanggung,&lt;br/&gt;seperti biaya domain atau biaya perangkat keras untuk dukungan lintas platform.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jika Anda ingin membantu atau hanya ingin menghargai pekerjaan yang dilakukan&lt;br/&gt;dengan mentraktir pengembang bandrek atau kopi, Anda dapat melakukannya %1di sini%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Menjadi Sponsor GitHub?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mungkin juga, %1di sini%2.</translation>
     </message>
 </context>
 <context>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan tindakan baru dengan menekan tombol tab &apos;Tambah&apos;.</translation>
     </message>
 </context>
 <context>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Area Persegi</translation>
+        <translation>Area Persegi</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Area Persegi Terakhir</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
-        <translation type="unfinished">Layar Penuh (Seluruh Monitor)</translation>
+        <translation>Layar Penuh (Seluruh Monitor)</translation>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Layar Sekarang</translation>
+        <translation>Layar Saat Ini</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Jendela Aktif</translation>
+        <translation>Jendela Aktif</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">Jendela Pada Kursor</translation>
+        <translation>Jendela Di Bawah Kursor</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Portal Tangkapan Layar</translation>
     </message>
 </context>
 <context>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Paksa unggahan anonim.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Url</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Nama user</translation>
+        <translation>Nama pengguna</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Sandi</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengunggah FTP</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished"></translation>
+        <translation>Unggahan Berhasil</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak dapat menyimpan citra sementara untuk pengunggahan.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak dapat memulai proses, periksa jalur dan izin.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished"></translation>
+        <translation>Proses macet</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished"></translation>
+        <translation>Waktu proses habis.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Galat membaca proses.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Galat menulis proses.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kesalahan web, periksa keluaran konsol.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Unggahan Gagal</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrip menulis ke StdErr.</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Unggahan FTP berhasil diselesaikan.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Galat tak diketahui.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Galat Sambungan.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Galat Izin.</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Unggahan skrip %1 berhasil diselesaikan.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Terunggah ke %1</translation>
     </message>
 </context>
 <context>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktifkan Tombol Pintas Umum</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangkap Area Persegi</translation>
     </message>
     <message>
         <source>Capture Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangkap Layar Penuh</translation>
     </message>
     <message>
         <source>Capture current Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangkap Layar saat ini</translation>
     </message>
     <message>
         <source>Capture active Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangkap Jendela aktif</translation>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangkap Jendela di bawah Kursor</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Tombol Pintasan Umum</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangkap Area Persegi Terakhir</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Bersihkan</translation>
+        <translation>Bersihkan</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangkap menggunakan Portal</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tombol Pintasan saat ini hanya didukung untuk Windows dan X11.
+Menonaktifkan pilihan ini juga membuat pintasan tindakan hanya ksnip.</translation>
     </message>
 </context>
 <context>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation type="unfinished">Rekam juga kursor mouse pada hasil tangkapan</translation>
+        <translation>Tangkap juga kursor tetikus pada hasil tangkapan</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation type="unfinished">Apakah kursor mouse perlu ditampilkan
+        <translation>Apakah kursor tetikus perlu ditampilkan
 pada hasil tangkapan.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished">Penangkap Gambar</translation>
+        <translation>Penangkap Citra</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -648,7 +658,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>Implementasi Wayland Generik yang menggunakan
+XDG-DESKTOP-PORTAL menangani penskalaan layar
+secara berbeda. Mengaktifkan pilihan ini akan
+menentukan penskalaan layar saat ini dan
+menerapkannya ke tangkapan layar di ksnip.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -656,39 +670,44 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME dan KDE Plasma mendukung tangkapan layar Waylan
+dan XDG-DESKTOP-PORTAL Generik mereka sendiri.
+Mengaktifkan pilihan ini akan memaksa KDE Plasma dan
+GNOME untuk menggunakan tangkapan layar XDG-DESKTOP-PORTAL.
+Perubahan pada pilihan ini mengharuskan ksnip dimulai ulang.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan Jendela Utama setelah mengambil tangkapan layar</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Sembunyikan Jendela Utama selama penangkapan layar</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sembunyikan Jendela Utama saat mengambil tangkapan layar baru.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan Jendela Utama setelah mengambil tangkapan layar baru
+ketika Jendela Utama disembunyikan atau diminimalkan.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Paksa Tangkapan Layar Wayland Generik (xdg-desktop-portal)</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Skalakan Tangkapan Layar Wayland Generik (xdg-desktop-portal)</translation>
     </message>
 </context>
 <context>
     <name>ImgurHistoryDialog</name>
     <message>
         <source>Imgur History</source>
-        <translation>Riwayat imgur</translation>
+        <translation>Riwayat Imgur</translation>
     </message>
     <message>
         <source>Close</source>
@@ -715,22 +734,22 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
+        <translation>Menerima token baru, mencoba mengunggah kembali…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished"></translation>
+        <translation>Token Imgur telah kedaluwarsa, meminta token baru…</translation>
     </message>
 </context>
 <context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished">Paksa unggah anonim</translation>
+        <translation>Paksa unggahan anonim</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished">Selalu salin alamat imgur ke clipboard</translation>
+        <translation>Selalu salin alamat imgur ke papan klip</translation>
     </message>
     <message>
         <source>Client ID</source>
@@ -766,11 +785,11 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Username</source>
-        <translation>Nama user</translation>
+        <translation>Nama pengguna</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished"></translation>
+        <translation>Menunggu imgur.com…</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
@@ -782,35 +801,36 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Setelah mengunggah tautan Imgur terbuka di peramban baku</translation>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Tautan langsung ke citra</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>Url Dasar:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Url dasar yang akan digunakan untuk komunikasi dengan Imgur.
+Perubahan membutuhkan mulai ulang.</translation>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Bersihkan Token</translation>
     </message>
 </context>
 <context>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation>Tidak dapat membuka gambar</translation>
+        <translation>Tidak dapat membuka citra</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation>Tidak dapat membuka gambar dari %1</translation>
+        <translation>Tidak dapat membuka citra dari %1</translation>
     </message>
 </context>
 <context>
@@ -822,8 +842,8 @@ Changing requires restart.</source>
     <message>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
-        <translation>Jeda antara pemicu dan perekaman
-gambar, dalam detik.</translation>
+        <translation>Jeda antara pemicu dan penangkapan
+citra dalam detik.</translation>
     </message>
     <message>
         <source>s</source>
@@ -852,19 +872,19 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Tak Jadi</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Jadi Lagi</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished">Crop</translation>
+        <translation>Pangkas</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation type="unfinished">Crop Tangkapan Layar</translation>
+        <translation>Pangkas Tangkapan Layar</translation>
     </message>
 </context>
 <context>
@@ -883,15 +903,15 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Opens printer dialog and provide option to print image</source>
-        <translation>Buat dialog pencetakan dan opsi untuk mencetak gambar</translation>
+        <translation>Buat dialog pencetakan dan pilihan untuk mencetak citra</translation>
     </message>
     <message>
         <source>Print Preview</source>
-        <translation>Tampilan Cetak</translation>
+        <translation>Pratinjau Cetak</translation>
     </message>
     <message>
         <source>Opens Print Preview dialog where the image orientation can be changed</source>
-        <translation>Buka dialog Tampilan Cetak dimana orientasi gambar bisa diubah</translation>
+        <translation>Buka dialog Pratinjau Cetak dimana orientasi citra bisa diubah</translation>
     </message>
     <message>
         <source>Scale</source>
@@ -899,7 +919,7 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation>Tutup Program</translation>
+        <translation>Keluar</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -915,111 +935,111 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>&amp;Edit</translation>
+        <translation>&amp;Sunting</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation>&amp;Opsi</translation>
+        <translation>&amp;Pilihan</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>Bantuan</translation>
+        <translation>&amp;Bantuan</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan Tanda Air</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tambahkan Tanda Air ke citra yang diambil. Tanda air yang banyak dapat ditambahkan.</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Berkas</translation>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak dapat menampilkan citra</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan Sebagai...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempel</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Tempel Tertanam</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Sematkan</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Sematkan tangkapan layar ke latar depan di jendela tanpa bingkai</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidak ada citra yang disediakan tetapi setidaknya ada satu.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Salin Jalur</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished">Buka Direktori</translation>
+        <translation>Buka Direktori</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tampilan</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">Hapus</translation>
+        <translation>Hapus</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished">Ubah nama</translation>
+        <translation>Ganti nama</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka Citra</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan Dermaga</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Sembunyikan Dermaga</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Salin sebagai data URI</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Buka Te&amp;rkini</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubah Kanvas</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Unggah triggerCapture ke sumber eksternal</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Salin triggerCapture ke papan klip sistem</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Skalakan Citra</translation>
     </message>
     <message>
         <source>Rotate</source>
@@ -1027,7 +1047,7 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation>Putar Gambar</translation>
+        <translation>Putar Citra</translation>
     </message>
     <message>
         <source>Actions</source>
@@ -1035,7 +1055,7 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas-berkas Citra</translation>
     </message>
 </context>
 <context>
@@ -1058,7 +1078,7 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Salin Jalur</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1073,7 +1093,7 @@ gambar, dalam detik.</translation>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangkap</translation>
     </message>
 </context>
 <context>
@@ -1095,22 +1115,22 @@ gambar, dalam detik.</translation>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Sematkan Jendela %1</translation>
     </message>
 </context>
 <context>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Citra Diganti Nama</translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Penggantian Nama Citra Gagal</translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation>Ubah nama gambar</translation>
+        <translation>Ganti nama citra</translation>
     </message>
     <message>
         <source>New filename:</source>
@@ -1118,11 +1138,11 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Berhasil mengganti nama citra menjadi %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Gagal mengganti nama citra ke %1</translation>
     </message>
 </context>
 <context>
@@ -1137,30 +1157,30 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation>Gambar Disimpan</translation>
+        <translation>Citra Disimpan</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation>Gagal Menyimpan Gambar</translation>
+        <translation>Gagal Menyimpan Citra</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas-berkas Citra</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tersimpan ke %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Gagal menyimpan citra ke %1</translation>
     </message>
 </context>
 <context>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Secara otomatis menyimpan tangkapan baru ke lokasi baku</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
@@ -1168,12 +1188,13 @@ gambar, dalam detik.</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingat Direktori Penyimpanan terakhir</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Saat dinyalakan akan menimpa direktori penyimpanan yang disimpan dalam pengaturan
+dengan direktori penyimpanan terbaru untuk setiap penyimpanan.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
@@ -1184,7 +1205,10 @@ with the latest save directory, for every save.</source>
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Format yang didukung adalah JPG, PNG dan BMP. Jika tidak ada format yang disediakan, PNG akan digunakan sebagai format baku.
+Nama berkas dapat berisi wildcard berikut:
+- $Y, $M, $D untuk tanggal, $h, $m, $s untuk waktu, atau $T untuk waktu dalam format hhmmss.
+- Beberapa # berturut-turut sebagai penghitung. #### akan menghasilkan 0001, tangkapan berikutnya adalah 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1192,7 +1216,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengaturan Penyimpan</translation>
     </message>
     <message>
         <source>Capture save location</source>
@@ -1200,7 +1224,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Baku</translation>
     </message>
     <message>
         <source>Factor</source>
@@ -1213,14 +1237,15 @@ Filename can contain following wildcards:
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tata nilai ke 0 untuk mendapatkan berkas terkompresi kecil, nilai 100 untuk berkas besar yang tidak terkompresi.
+Tidak semua format citra mendukung rentang penuh, sedangkan JPEG mendukungnya.</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Salin keluaran skrip ke papan klip</translation>
     </message>
     <message>
         <source>Script:</source>
@@ -1229,7 +1254,8 @@ Not all image formats support the full range, JPEG does.</source>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jalur ke skrip yang akan dipanggil untuk diunggah. Saat mengunggah skrip akan dipanggil
+dengan jalur ke berkas png sementara sebagai argumen tunggal.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1241,25 +1267,27 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Pilih Unggahan Skrip</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Berhenti ketika skrip unggah menulis ke StdErr</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Menandai unggahan sebagai gagal saat skrip menulis ke StdErr.
+Tanpa pengaturan ini, kesalahan dalam skrip tidak akan diketahui.</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Penyaring:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekspresi RegEx. Hanya salin ke papan klip yang cocok dengan Ekspresi RegEx.
+Ketika dihilangkan, semuanya akan disalin.</translation>
     </message>
 </context>
 <context>
@@ -1278,7 +1306,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation>Penangkap Gambar</translation>
+        <translation>Penangkap Citra</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
@@ -1290,11 +1318,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished"></translation>
+        <translation>Penganotasi</translation>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Tombol Pintas</translation>
     </message>
     <message>
         <source>Uploader</source>
@@ -1306,11 +1334,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Penyimpan</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Stiker</translation>
     </message>
     <message>
         <source>Snipping Area</source>
@@ -1318,11 +1346,11 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikon Baki</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Tanda Air</translation>
     </message>
     <message>
         <source>Actions</source>
@@ -1330,57 +1358,57 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengunggah FTP</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubah ukuran persegi yang dipilih menggunakan pegangan atau pindahkan dengan menyeret pilihan.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gunakan tombol panah untuk memindahkan pilihan.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gunakan tombol panah sambil menekan CTRL untuk memindahkan pegangan kiri atas.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Gunakan tombol panah sambil menekan ALT untuk memindahkan pegangan kanan bawah.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfirmasi pilihan dengan menekan ENTER/RETURN atau batalkan dengan menekan ESC.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pesan ini dapat dimatikan melalui pengaturan.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klik dan Seret untuk memilih area persegi panjang atau tekan ESC untuk keluar.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tahan tekan CTRL untuk mengubah ukuran pilihan setelah memilih.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tahan tekan CTRL untuk mencegah pengubahan ukuran setelah memilih.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>Operasi akan dibatalkan setelah 60 detik jika tidak ada pilihan yang dibuat.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pesan ini dapat dimatikan melalui pengaturan.</translation>
     </message>
 </context>
 <context>
@@ -1398,7 +1426,14 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Saat dinyalakan akan membekukan latar belakang saat 
+memilih wilayah persegi panjang. Hal ini juga mengubah
+perilaku tangkapan layar yang tertunda, dengan pilihan ini
+memungkinkan penundaan terjadi sebelum area
+pemotongan ditampilkan dan dengan pilihan dimatikan,
+penundaan terjadi setelah area pemotongan
+ditampilkan. Fitur ini selalu dimatikan untuk Wayland dan
+selalu diaktifkan untuk macOS.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
@@ -1431,22 +1466,28 @@ desktop ke kursor pada area snipping.</translation>
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ketika tombol kiri tetikus tidak ditekan, posisi
+ditampilkan, ketika tombol tetikus ditekan, ukuran
+area pilih ditampilkan di kiri dan di atas dari daerah
+yang ditangkap.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Izinkan pengubahan ukuran pemilihan area persegi secara baku</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Saat dinyalakan akan membuat setelah memilih area
+persegi, bisa melakukan pengubahan ukuran
+pemilihan. Setelah selesai mengubah ukuran
+pemilihan dapat dikonfirmasi dengan menekan ENTER/RETURN.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan teks informasi Area Pemotongan</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
@@ -1454,7 +1495,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mengatur warna kursor area pemotongan.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
@@ -1462,7 +1503,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mengatur ketebalan kursor area pemotongan.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
@@ -1470,21 +1511,23 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Warna penghias Area Pemotongan</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mengatur warna semua elemen penghias
+pada area pemotongan.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Transparansi Area Pemotongan</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alfa untuk wilayah yang tidak dipilih pada area pemotongan.
+Nilai yang lebih kecil berarti lebih transparan.</translation>
     </message>
 </context>
 <context>
@@ -1507,7 +1550,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas Citra Vektor (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
@@ -1538,19 +1581,20 @@ Smaller number is more transparent.</source>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Saat dinyalakan akan menambahkan Ikon Baki ke Bilah Tugas jika Manajer Jendela OS mendukungnya.
+Perubahan membutuhkan mulai ulang.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Kecilkan ke Baki</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Mulai Dikecilkan ke Baki</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutup ke Baki</translation>
     </message>
     <message>
         <source>Show Editor</source>
@@ -1558,62 +1602,63 @@ Change requires restart.</source>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangkap</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindakan Ikon Baki baku</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tindakan baku yang dipicu dengan mengklik kiri ikon baki.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengaturan Ikon Baki</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Gunakan layanan pemberitahuan khusus platform</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Saat dinyalakan akan mencoba menggunakan layanan
+pemberitahuan khusus platform saat tersedia. Perubahan memerlukan mulai ulang untuk diterapkan.</translation>
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Tampilkan pemberitahuan Ikon Baki</translation>
     </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Pilih Citra</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Berkas-berkas Citra</translation>
     </message>
 </context>
 <context>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Dibutuhkan Skrip Unggah</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Silakan tambahkan skrip unggahan melalui Pilihan &gt; Pengaturan&gt; Skrip Unggahan</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Tangkap Unggahan</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Anda akan mengunggah gambar ke tujuan eksternal, apakah Anda ingin melanjutkan?</translation>
     </message>
 </context>
 <context>
@@ -1640,7 +1685,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>
@@ -1662,23 +1707,23 @@ service when such exists. Change requires restart to take effect.</source>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Citra Tanda Air</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Perbarui</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Putar Tanda Air</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation>Saat dinyalakan, Tanda Air akan ditambahkan dengan putaran 45°</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Pengaturan Tanda Air</translation>
     </message>
 </context>
 </TS>

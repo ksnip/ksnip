@@ -25,6 +25,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mDependencyInjector(dependencyInjector),
 	mConfig(mDependencyInjector->get<IConfig>()),
 	mImageGrabber(mDependencyInjector->get<IImageGrabber>()),
+	mPluginManager(mDependencyInjector->get<IPluginManager>()),
 	mTrayIcon(new TrayIcon(mConfig, mDependencyInjector->get<IIconLoader>(), this)),
 	mNotificationService(NotificationServiceFactory::create(mTrayIcon, mDependencyInjector->get<IPlatformChecker>(), mConfig)),
 	mToolBar(nullptr),
@@ -51,6 +52,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mRemoveImageAction(new QAction(this)),
 	mModifyCanvasAction(new QAction(this)),
 	mCloseWindowAction(new QAction(this)),
+	mOcrAction(new QAction(this)),
 	mMainLayout(layout()),
 	mActionsMenu(new ActionsMenu(mConfig)),
 	mRecentImagesMenu(new RecentImagesMenu(mDependencyInjector->get<IRecentImageService>(), this)),
@@ -325,6 +327,7 @@ void MainWindow::setEnablements(bool enabled)
     mRenameAction->setEnabled(enabled);
     mModifyCanvasAction->setEnabled(enabled);
     mActionProcessor->setPostProcessingEnabled(enabled);
+	mOcrAction->setEnabled(mPluginManager->isOcrAvailable() && enabled);
 }
 
 void MainWindow::loadSettings()
@@ -506,6 +509,9 @@ void MainWindow::initGui()
 	mActionsMenu->setIcon(iconLoader->loadForTheme(QLatin1String("action")));
 	connect(mActionsMenu, &ActionsMenu::triggered, this, &MainWindow::actionTriggered);
 
+	mOcrAction->setText(tr("OCR"));
+	connect(mOcrAction, &QAction::triggered, this, &MainWindow::ocrClicked);
+
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
 	menu->addSeparator();
@@ -545,6 +551,7 @@ void MainWindow::initGui()
 	menu->addAction(mModifyCanvasAction);
     menu = menuBar()->addMenu(tr("&Options"));
     menu->addAction(mPinAction);
+    menu->addAction(mOcrAction);
     menu->addAction(mSettingsAction);
     menu = menuBar()->addMenu(tr("&Help"));
     menu->addAction(mAboutAction);
@@ -777,4 +784,12 @@ void MainWindow::showAfterAction(bool minimized)
 	}
 
 	mWindowResizer->resize();
+}
+
+void MainWindow::ocrClicked()
+{
+	auto text = mPluginManager->ocr(QPixmap::fromImage(mCaptureHandler->image()));
+
+	auto ocrWindow = new OcrWindow(text);
+	ocrWindow->show();
 }

@@ -303,6 +303,11 @@ public:
 
 	MOCK_METHOD(QList<Action>, actions, (), (override));
 	MOCK_METHOD(void, setActions, (const QList<Action> &actions), (override));
+
+	// Plugins
+
+	MOCK_METHOD(QString, pluginOcrPath, (), (const, override));
+	MOCK_METHOD(void, setPluginOcrPath, (const QString &path), (override));
 };
 
 #endif //KSNIP_CONFIGMOCK_H

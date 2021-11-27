@@ -43,6 +43,7 @@
 #include "src/gui/captureHandler/ICaptureChangeListener.h"
 #include "src/gui/widgetVisibilityHandler/WidgetVisibilityHandlerFactory.h"
 #include "src/gui/pinWindow/PinWindowHandler.h"
+#include "src/gui/ocrWindow/OcrWindow.h"
 #include "src/gui/RecentImagesMenu.h"
 #include "src/gui/dragAndDrop/DragAndDropProcessor.h"
 #include "src/gui/dragAndDrop/IDragContentProvider.h"
@@ -57,6 +58,7 @@
 #include "src/common/adapter/fileDialog/IFileDialogService.h"
 #include "src/common/constants/FileDialogFilters.h"
 #include "src/dependencyInjector/DependencyInjector.h"
+#include "src/plugins/IPluginManager.h"
 
 
 class MainWindow : public QMainWindow, public ICaptureChangeListener, public IImageProcessor, public IResizableWindow, public IDragContentProvider
@@ -92,6 +94,7 @@ private:
 	DependencyInjector *mDependencyInjector;
 	QSharedPointer<IConfig> mConfig;
 	QSharedPointer<IImageGrabber> mImageGrabber;
+	QSharedPointer<IPluginManager> mPluginManager;
 	TrayIcon *mTrayIcon;
 	QSharedPointer<INotificationService> mNotificationService;
 	bool mSessionManagerRequestedQuit;
@@ -117,6 +120,7 @@ private:
 	QAction *mRemoveImageAction;
 	QAction *mModifyCanvasAction;
 	QAction *mCloseWindowAction;
+	QAction *mOcrAction;
 	MainToolBar *mToolBar;
 	QLayout *mMainLayout;
 	ActionsMenu *mActionsMenu;
@@ -176,6 +180,7 @@ private slots:
 	void toggleDocks();
 	void actionTriggered(const Action &action);
 	void showAfterAction(bool minimized);
+	void ocrClicked();
 };
 
 #endif // KSNIP_MAINWINDOW_H

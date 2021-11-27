@@ -314,10 +314,16 @@ public:
 	virtual QList<Action> actions() = 0;
 	virtual void setActions(const QList<Action> &actions) = 0;
 
+	// Plugins
+
+	virtual QString pluginOcrPath() const = 0;
+	virtual void setPluginOcrPath(const QString &path) = 0;
+
 signals:
 	void annotatorConfigChanged() const;
 	void hotKeysChanged() const;
 	void actionsChanged() const;
+	void pluginsChanged() const;
 };
 
 #endif //KSNIP_ICONFIG_H

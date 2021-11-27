@@ -1284,6 +1284,20 @@ void Config::setActions(const QList<Action> &actions)
 	emit hotKeysChanged();
 }
 
+QString Config::pluginOcrPath() const
+{
+	return loadValue(ConfigOptions::pluginOcrPathString()).toString();
+}
+
+void Config::setPluginOcrPath(const QString &path)
+{
+	if (pluginOcrPath() == path) {
+		return;
+	}
+	saveValue(ConfigOptions::pluginOcrPathString(), path);
+	emit pluginsChanged();
+}
+
 // Misc
 
 void Config::saveValue(const QString &key, const QVariant &value)

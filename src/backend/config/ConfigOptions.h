@@ -122,6 +122,7 @@ public:
 	static QString actionIsCopyToClipboardEnabledString();
 	static QString actionIsSaveEnabledString();
 	static QString actionIsHideMainWindowEnabledString();
+	static QString pluginOcrPathString();
 
 private:
 	static QString applicationSectionString();
@@ -134,6 +135,7 @@ private:
 	static QString hotKeysSectionString();
 	static QString mainWindowSectionString();
 	static QString saveSectionString();
+	static QString pluginsSectionString();
 };
 
 #endif //KSNIP_CONFIGOPTIONS_H

@@ -42,6 +42,7 @@
 #include "src/common/platform/PlatformChecker.h"
 #include "src/common/provider/directoryPathProvider/DirectoryPathProvider.h"
 #include "src/common/provider/scaledSizeProvider/ScaledSizeProvider.h"
+#include "src/plugins/PluginManager.h"
 
 #if defined(__APPLE__)
 #include "src/backend/config/MacConfig.h"
@@ -102,6 +103,7 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 	dependencyInjector->registerInstance<IIconLoader, IconLoader>();
 	injectFileDialogService(dependencyInjector);
 	injectScaledSizeProvider(dependencyInjector);
+	dependencyInjector->registerInstance<IPluginManager, PluginManager, IConfig, ILogger>();
 }
 
 void DependencyInjectorBootstrapper::injectDesktopServiceAdapter(DependencyInjector *dependencyInjector)

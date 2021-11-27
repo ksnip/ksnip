@@ -319,6 +319,11 @@ public:
 	QList<Action> actions() override;
 	void setActions(const QList<Action> &actions) override;
 
+	// Plugins
+
+	QString pluginOcrPath() const override;
+	void setPluginOcrPath(const QString &path) override;
+
 private:
     QSettings mConfig;
 	const QSharedPointer<IDirectoryPathProvider> mDirectoryPathProvider;

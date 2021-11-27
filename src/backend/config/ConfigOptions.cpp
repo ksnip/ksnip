@@ -429,6 +429,11 @@ QString ConfigOptions::actionIsHideMainWindowEnabledString()
 	return QLatin1String("IsHideMainWindowEnabled");
 }
 
+QString ConfigOptions::pluginOcrPathString()
+{
+	return pluginsSectionString() + QLatin1String("PluginOcrPath");;
+}
+
 QString ConfigOptions::uploadScriptCopyOutputToClipboardString()
 {
 	return uploadScriptSectionString() + QLatin1String("CopyOutputToClipboard");
@@ -552,4 +557,9 @@ QString ConfigOptions::mainWindowSectionString()
 QString ConfigOptions::saveSectionString()
 {
 	return QLatin1String("Save/");
+}
+
+QString ConfigOptions::pluginsSectionString()
+{
+	return QLatin1String("Plugins/");
 }

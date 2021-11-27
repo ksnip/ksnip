@@ -143,12 +143,14 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/TabContextMenuAction.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindowHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/ocrWindow/OcrWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/messageBoxService/MessageBoxService.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/windowResizer/WindowResizer.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/dragAndDrop/DragAndDropProcessor.cpp
 	${CMAKE_SOURCE_DIR}/src/logging/LogOutputHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/logging/ConsoleLogger.cpp
 	${CMAKE_SOURCE_DIR}/src/logging/NoneLogger.cpp
+	${CMAKE_SOURCE_DIR}/src/plugins/PluginManager.cpp
 	)
 
 if (APPLE)

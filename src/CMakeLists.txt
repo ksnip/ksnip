@@ -141,9 +141,9 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/SingleCaptureHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/MultiCaptureHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/TabContextMenuAction.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindow.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/pinWindow/PinWindowHandler.cpp
-	${CMAKE_SOURCE_DIR}/src/gui/ocrWindow/OcrWindow.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/pinWindow/PinWindow.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/pinWindow/PinWindowHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/ocrWindow/OcrWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/messageBoxService/MessageBoxService.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/windowResizer/WindowResizer.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/dragAndDrop/DragAndDropProcessor.cpp

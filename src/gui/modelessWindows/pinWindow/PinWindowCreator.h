@@ -17,18 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_PINWINDOWHANDLER_H
-#define KSNIP_PINWINDOWHANDLER_H
+#ifndef KSNIP_PINWINDOWCREATOR_H
+#define KSNIP_PINWINDOWCREATOR_H
 
-#include "IPinWindowHandler.h"
-#include "src/gui/modelessWindows/ModelessWindowHandler.h"
+#include "PinWindow.h"
+#include "IPinWindowCreator.h"
 
-class PinWindowHandler : public IPinWindowHandler, public ModelessWindowHandler
+class PinWindowCreator : public IPinWindowCreator, public QObject
 {
 public:
-	explicit PinWindowHandler(const QSharedPointer<IModelessWindowCreator> &windowCreator);
-	~PinWindowHandler() override = default;
-	void add(const QPixmap &pixmap) override;
+	explicit PinWindowCreator() = default;
+	~PinWindowCreator() override = default;
+	QSharedPointer<IModelessWindow> create(const QPixmap &pixmap, int windowId) const override;
 };
 
-#endif //KSNIP_PINWINDOWHANDLER_H
+#endif //KSNIP_PINWINDOWCREATOR_H

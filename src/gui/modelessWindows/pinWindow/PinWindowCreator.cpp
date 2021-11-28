@@ -17,18 +17,10 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_PINWINDOWHANDLER_H
-#define KSNIP_PINWINDOWHANDLER_H
+#include "PinWindowCreator.h"
 
-#include "IPinWindowHandler.h"
-#include "src/gui/modelessWindows/ModelessWindowHandler.h"
-
-class PinWindowHandler : public IPinWindowHandler, public ModelessWindowHandler
+QSharedPointer<IModelessWindow> PinWindowCreator::create(const QPixmap &pixmap, int windowId) const
 {
-public:
-	explicit PinWindowHandler(const QSharedPointer<IModelessWindowCreator> &windowCreator);
-	~PinWindowHandler() override = default;
-	void add(const QPixmap &pixmap) override;
-};
-
-#endif //KSNIP_PINWINDOWHANDLER_H
+	auto title = tr("OCR Window %1").arg(windowId);
+	return QSharedPointer<PinWindow>(new PinWindow(pixmap, title), &QObject::deleteLater);
+}

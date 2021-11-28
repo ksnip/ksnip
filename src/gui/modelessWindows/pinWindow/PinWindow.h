@@ -30,17 +30,13 @@
 #include <QContextMenuEvent>
 #include <QWheelEvent>
 
-class PinWindow : public QDialog
+#include "src/gui/modelessWindows/IModelessWindow.h"
+
+class PinWindow : public IModelessWindow
 {
-Q_OBJECT
 public:
 	explicit PinWindow(const QPixmap &pixmap, const QString &title);
 	~PinWindow() override;
-
-signals:
-	void closeRequest();
-	void closeOtherRequest();
-	void closeAllRequest();
 
 protected:
 	void mouseDoubleClickEvent(QMouseEvent *event) override;

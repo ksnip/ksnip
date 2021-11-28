@@ -42,8 +42,7 @@
 #include "src/gui/captureHandler/CaptureHandlerFactory.h"
 #include "src/gui/captureHandler/ICaptureChangeListener.h"
 #include "src/gui/widgetVisibilityHandler/WidgetVisibilityHandlerFactory.h"
-#include "src/gui/modelessWindows/pinWindow/PinWindowHandler.h"
-#include "src/gui/modelessWindows/ocrWindow/OcrWindow.h"
+#include "src/gui/modelessWindows/pinWindow/IPinWindowHandler.h"
 #include "src/gui/modelessWindows/ocrWindow/IOcrWindowHandler.h"
 #include "src/gui/RecentImagesMenu.h"
 #include "src/gui/dragAndDrop/DragAndDropProcessor.h"
@@ -134,7 +133,7 @@ private:
 	DragAndDropProcessor *mDragAndDropProcessor;
 	QSharedPointer<IUploadHandler> mUploadHandler;
 	ICaptureHandler *mCaptureHandler;
-	PinWindowHandler *mPinWindowHandler;
+	QSharedPointer<IPinWindowHandler> mPinWindowHandler;
 	WidgetVisibilityHandler *mVisibilityHandler;
 	QSharedPointer<IFileDialogService> mFileDialogService;
 	WindowResizer *mWindowResizer;
@@ -182,7 +181,7 @@ private slots:
 	void toggleDocks();
 	void actionTriggered(const Action &action);
 	void showAfterAction(bool minimized);
-	void ocrClicked();
+	void showOcrWindow();
 };
 
 #endif // KSNIP_MAINWINDOW_H

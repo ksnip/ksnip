@@ -145,6 +145,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/IModelessWindowCreator.h
 	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/ModelessWindowHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/pinWindow/PinWindow.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/pinWindow/PinWindowCreator.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/pinWindow/PinWindowHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/ocrWindow/OcrWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/ocrWindow/OcrWindowCreator.cpp

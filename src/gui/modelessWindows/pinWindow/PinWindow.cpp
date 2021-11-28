@@ -20,7 +20,6 @@
 #include "PinWindow.h"
 
 PinWindow::PinWindow(const QPixmap &pixmap, const QString &title) :
-	QDialog(nullptr),
 	mLayout(new QVBoxLayout(this)),
 	mCentralWidget(new QLabel(this)),
 	mDropShadowEffect(new QGraphicsDropShadowEffect(this)),

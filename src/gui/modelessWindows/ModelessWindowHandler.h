@@ -30,7 +30,7 @@ class ModelessWindowHandler : public QObject
 public:
 	explicit ModelessWindowHandler(const QSharedPointer<IModelessWindowCreator> &windowCreator);
 	~ModelessWindowHandler() override;
-	void add(const QPixmap &pixmap);
+	virtual void add(const QPixmap &pixmap);
 
 public slots:
 	void closeRequested();

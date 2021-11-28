@@ -63,7 +63,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mUploadHandler(mDependencyInjector->get<IUploadHandler>()),
 	mSessionManagerRequestedQuit(false),
 	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mNotificationService, mDependencyInjector, this)),
-	mPinWindowHandler(new PinWindowHandler(this)),
+	mPinWindowHandler(mDependencyInjector->get<IPinWindowHandler>()),
 	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this, mDependencyInjector->get<IPlatformChecker>())),
 	mFileDialogService(mDependencyInjector->get<IFileDialogService>()),
 	mWindowResizer(new WindowResizer(this, mConfig, this)),
@@ -511,7 +511,7 @@ void MainWindow::initGui()
 	connect(mActionsMenu, &ActionsMenu::triggered, this, &MainWindow::actionTriggered);
 
 	mOcrAction->setText(tr("OCR"));
-	connect(mOcrAction, &QAction::triggered, this, &MainWindow::ocrClicked);
+	connect(mOcrAction, &QAction::triggered, this, &MainWindow::showOcrWindow);
 
 	auto menu = menuBar()->addMenu(tr("&File"));
     menu->addAction(mToolBar->newCaptureAction());
@@ -787,7 +787,7 @@ void MainWindow::showAfterAction(bool minimized)
 	mWindowResizer->resize();
 }
 
-void MainWindow::ocrClicked()
+void MainWindow::showOcrWindow()
 {
 	mOcrWindowHandler->add(QPixmap::fromImage(mCaptureHandler->image()));
 }

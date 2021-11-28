@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,62 +19,12 @@
 
 #include "PinWindowHandler.h"
 
-PinWindowHandler::PinWindowHandler(QWidget *parent) :
-	QObject(parent),
-	mParent(parent)
+PinWindowHandler::PinWindowHandler(const QSharedPointer<IModelessWindowCreator> &windowCreator) :
+	ModelessWindowHandler(windowCreator)
 {
-}
-
-PinWindowHandler::~PinWindowHandler()
-{
-	mPinWindows.clear();
 }
 
 void PinWindowHandler::add(const QPixmap &pixmap)
 {
-	auto pinWindow = CreatePinWindow(pixmap);
-	pinWindow->show();
-	mPinWindows.append(pinWindow);
-}
-
-QSharedPointer<PinWindow> PinWindowHandler::CreatePinWindow(const QPixmap &pixmap) const
-{
-	auto title = tr("Pin Window %1").arg(QString::number(mPinWindows.count() + 1));
-	auto pinWindow = QSharedPointer<PinWindow>(new PinWindow(pixmap, title));
-	connect(pinWindow.data(), &PinWindow::closeRequest, this, &PinWindowHandler::closeRequested);
-	connect(pinWindow.data(), &PinWindow::closeOtherRequest, this, &PinWindowHandler::closeOtherRequested);
-	connect(pinWindow.data(), &PinWindow::closeAllRequest, this, &PinWindowHandler::closeAllRequested);
-
-	return pinWindow;
-}
-
-void PinWindowHandler::closeRequested()
-{
-	auto caller = dynamic_cast<PinWindow*>(sender());
-	caller->hide();
-	for(const auto& pinWindow : mPinWindows){
-		if(pinWindow.data() == caller) {
-			mPinWindows.removeOne(pinWindow);
-			break;
-		}
-	}
-}
-
-void PinWindowHandler::closeAllRequested()
-{
-	for(const auto& pinWindow : mPinWindows){
-		pinWindow->hide();
-	}
-	mPinWindows.clear();
-}
-
-void PinWindowHandler::closeOtherRequested()
-{
-	auto caller = dynamic_cast<PinWindow*>(sender());
-	for (auto iterator = mPinWindows.begin(); iterator != mPinWindows.end(); ++iterator) {
-		if(iterator->data() != caller) {
-			iterator->data()->hide();
-			mPinWindows.removeOne(*iterator);
-		}
-	}
+	ModelessWindowHandler::add(pixmap);
 }

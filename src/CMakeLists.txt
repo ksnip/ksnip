@@ -141,6 +141,9 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/SingleCaptureHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/MultiCaptureHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/captureHandler/TabContextMenuAction.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/IModelessWindow.h
+	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/IModelessWindowCreator.h
+	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/ModelessWindowHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/pinWindow/PinWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/pinWindow/PinWindowHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/ocrWindow/OcrWindow.cpp

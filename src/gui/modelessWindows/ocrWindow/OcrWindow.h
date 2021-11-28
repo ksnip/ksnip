@@ -20,20 +20,23 @@
 #ifndef KSNIP_OCRWINDOW_H
 #define KSNIP_OCRWINDOW_H
 
-#include <QDialog>
 #include <QTextEdit>
 #include <QVBoxLayout>
 
-class OcrWindow : public QDialog
+#include "src/gui/modelessWindows/IModelessWindow.h"
+
+class OcrWindow : public IModelessWindow
 {
 public:
-	explicit OcrWindow(const QString &text);
+	explicit OcrWindow(const QString &text, const QString &title);
 	~OcrWindow() override = default;
+
+protected:
+	void closeEvent(QCloseEvent *event) override;
 
 private:
 	QTextEdit *mTextEdit;
 	QVBoxLayout *mLayout;
 };
-
 
 #endif //KSNIP_OCRWINDOW_H

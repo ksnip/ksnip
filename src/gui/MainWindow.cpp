@@ -68,7 +68,8 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mFileDialogService(mDependencyInjector->get<IFileDialogService>()),
 	mWindowResizer(new WindowResizer(this, mConfig, this)),
 	mActionProcessor(new ActionProcessor),
-	mSavePathProvider(mDependencyInjector->get<ISavePathProvider>())
+	mSavePathProvider(mDependencyInjector->get<ISavePathProvider>()),
+	mOcrWindowHandler(mDependencyInjector->get<IOcrWindowHandler>())
 {
 	initGui();
 
@@ -788,8 +789,5 @@ void MainWindow::showAfterAction(bool minimized)
 
 void MainWindow::ocrClicked()
 {
-	auto text = mPluginManager->ocr(QPixmap::fromImage(mCaptureHandler->image()));
-
-	auto ocrWindow = new OcrWindow(text);
-	ocrWindow->show();
+	mOcrWindowHandler->add(QPixmap::fromImage(mCaptureHandler->image()));
 }

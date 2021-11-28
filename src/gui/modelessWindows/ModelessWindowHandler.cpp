@@ -53,7 +53,7 @@ void ModelessWindowHandler::closeRequested()
 	auto caller = dynamic_cast<IModelessWindow*>(sender());
 	caller->hide();
 	for(const auto& modelessWindow : mModelessWindows){
-		if(modelessWindow.data() == caller) {
+		if (modelessWindow.data() == caller) {
 			mModelessWindows.removeOne(modelessWindow);
 			break;
 		}

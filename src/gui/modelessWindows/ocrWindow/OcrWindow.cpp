@@ -19,10 +19,18 @@
 
 #include "OcrWindow.h"
 
-OcrWindow::OcrWindow(const QString &text) :
+OcrWindow::OcrWindow(const QString &text, const QString &title) :
 	mTextEdit(new QTextEdit(this)),
 	mLayout(new QVBoxLayout(this))
 {
+	setWindowTitle(title);
+
 	mTextEdit->setText(text);
 	mLayout->addWidget(mTextEdit);
+}
+
+void OcrWindow::closeEvent(QCloseEvent *event)
+{
+	emit closeRequest();
+	QDialog::closeEvent(event);
 }

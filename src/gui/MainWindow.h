@@ -44,6 +44,7 @@
 #include "src/gui/widgetVisibilityHandler/WidgetVisibilityHandlerFactory.h"
 #include "src/gui/modelessWindows/pinWindow/PinWindowHandler.h"
 #include "src/gui/modelessWindows/ocrWindow/OcrWindow.h"
+#include "src/gui/modelessWindows/ocrWindow/IOcrWindowHandler.h"
 #include "src/gui/RecentImagesMenu.h"
 #include "src/gui/dragAndDrop/DragAndDropProcessor.h"
 #include "src/gui/dragAndDrop/IDragContentProvider.h"
@@ -138,6 +139,7 @@ private:
 	QSharedPointer<IFileDialogService> mFileDialogService;
 	WindowResizer *mWindowResizer;
 	ActionProcessor *mActionProcessor;
+	QSharedPointer<IOcrWindowHandler> mOcrWindowHandler;
 
     void setEnablements(bool enabled);
     void loadSettings();

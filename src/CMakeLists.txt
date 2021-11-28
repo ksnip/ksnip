@@ -147,6 +147,8 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/pinWindow/PinWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/pinWindow/PinWindowHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/ocrWindow/OcrWindow.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/ocrWindow/OcrWindowCreator.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/ocrWindow/OcrWindowHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/messageBoxService/MessageBoxService.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/windowResizer/WindowResizer.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/dragAndDrop/DragAndDropProcessor.cpp

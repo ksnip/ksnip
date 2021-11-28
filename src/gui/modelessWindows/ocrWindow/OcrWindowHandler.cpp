@@ -17,31 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_MODELESSWINDOWHANDLER_H
-#define KSNIP_MODELESSWINDOWHANDLER_H
+#include "OcrWindowHandler.h"
 
-#include <QPixmap>
-
-#include "IModelessWindowCreator.h"
-
-class ModelessWindowHandler : public QObject
+OcrWindowHandler::OcrWindowHandler(const QSharedPointer<IModelessWindowCreator> &windowCreator) :
+	ModelessWindowHandler(windowCreator)
 {
-	Q_OBJECT
-public:
-	explicit ModelessWindowHandler(const QSharedPointer<IModelessWindowCreator> &windowCreator);
-	~ModelessWindowHandler() override;
-	void add(const QPixmap &pixmap);
 
-public slots:
-	void closeRequested();
-	void closeAllRequested();
-	void closeOtherRequested();
+}
 
-private:
-	QSharedPointer<IModelessWindowCreator> mWindowCreator;
-	QList<QSharedPointer<IModelessWindow>> mModelessWindows;
-
-	QSharedPointer<IModelessWindow> CreateModelessWindow(const QPixmap &pixmap) const;
-};
-
-#endif //KSNIP_MODELESSWINDOWHANDLER_H
+void OcrWindowHandler::add(const QPixmap &pixmap)
+{
+	ModelessWindowHandler::add(pixmap);
+}

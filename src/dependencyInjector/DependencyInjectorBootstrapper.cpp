@@ -35,6 +35,8 @@
 #include "src/gui/desktopService/DesktopServiceAdapter.h"
 #include "src/gui/messageBoxService/MessageBoxService.h"
 #include "src/gui/captureHandler/CaptureTabStateHandler.h"
+#include "src/gui/modelessWindows/ocrWindow/OcrWindowCreator.h"
+#include "src/gui/modelessWindows/ocrWindow/OcrWindowHandler.h"
 #include "src/logging/ConsoleLogger.h"
 #include "src/logging/NoneLogger.h"
 #include "src/common/loader/IconLoader.h"
@@ -104,6 +106,8 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 	injectFileDialogService(dependencyInjector);
 	injectScaledSizeProvider(dependencyInjector);
 	dependencyInjector->registerInstance<IPluginManager, PluginManager, IConfig, ILogger>();
+	dependencyInjector->registerInstance<IOcrWindowCreator, OcrWindowCreator, IPluginManager>();
+	dependencyInjector->registerInstance<IOcrWindowHandler, OcrWindowHandler, IOcrWindowCreator>();
 }
 
 void DependencyInjectorBootstrapper::injectDesktopServiceAdapter(DependencyInjector *dependencyInjector)

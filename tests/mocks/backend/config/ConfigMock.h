@@ -147,6 +147,9 @@ public:
 	MOCK_METHOD(QColor, canvasColor, (), (const, override));
 	MOCK_METHOD(void, setCanvasColor, (const QColor &color), (override));
 
+	MOCK_METHOD(bool, showControlsWidget, (), (const, override));
+	MOCK_METHOD(void, setShowControlsWidget, (bool enabled), (override));
+
 	// Image Grabber
 
 	MOCK_METHOD(bool, isFreezeImageWhileSnippingEnabledReadOnly, (), (const, override));

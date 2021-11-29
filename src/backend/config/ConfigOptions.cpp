@@ -229,6 +229,11 @@ QString ConfigOptions::useDefaultStickerString()
 	return annotatorSectionString() + QLatin1String("UseDefaultSticker");
 }
 
+QString ConfigOptions::showControlsWidgetEnabledString()
+{
+	return annotatorSectionString() + QLatin1String("ShowControlsWidget");
+}
+
 QString ConfigOptions::captureCursorString()
 {
 	return imageGrabberSectionString() + QLatin1String("CaptureCursor");

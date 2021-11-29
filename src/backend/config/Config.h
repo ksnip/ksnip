@@ -162,6 +162,9 @@ public:
 	QColor canvasColor() const override;
 	void setCanvasColor(const QColor &color) override;
 
+	bool showControlsWidget() const override;
+	void setShowControlsWidget(bool enabled) override;
+
     // Image Grabber
 
     bool isFreezeImageWhileSnippingEnabledReadOnly() const override;

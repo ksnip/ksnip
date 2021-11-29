@@ -625,6 +625,21 @@ void Config::setCanvasColor(const QColor &color)
 	emit annotatorConfigChanged();
 }
 
+bool Config::showControlsWidget() const
+{
+	return loadValue(ConfigOptions::showControlsWidgetEnabledString(), false).toBool();
+}
+
+void Config::setShowControlsWidget(bool enabled)
+{
+	if (showControlsWidget() == enabled) {
+		return;
+	}
+
+	saveValue(ConfigOptions::showControlsWidgetEnabledString(), enabled);
+	emit annotatorConfigChanged();
+}
+
 // Image Grabber
 
 bool Config::isFreezeImageWhileSnippingEnabledReadOnly() const

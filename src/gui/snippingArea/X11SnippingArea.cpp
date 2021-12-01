@@ -24,6 +24,7 @@ X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) : Abstra
 	setWindowFlags(windowFlags() | Qt::Tool | Qt::X11BypassWindowManagerHint);
 
 	calculateDesktopGeometry();
+    calculateOffset();
 }
 
 QRect X11SnippingArea::selectedRectArea() const
@@ -31,7 +32,10 @@ QRect X11SnippingArea::selectedRectArea() const
 	if(isBackgroundTransparent()) {
 		return mCaptureArea;
 	} else {
-		return mHdpiScaler.scale(mCaptureArea);
+        auto xWithOffset = mCaptureArea.x() - mOffset.x();
+        auto yWithOffset = mCaptureArea.y() - mOffset.y();
+        auto rect = QRect(xWithOffset, yWithOffset, mCaptureArea.width(), mCaptureArea.height());
+        return mHdpiScaler.scale(rect);
 	}
 }
 
@@ -43,7 +47,7 @@ void X11SnippingArea::setFullScreen()
 
 QRect X11SnippingArea::getSnippingAreaGeometry() const
 {
-    return mDesktopGeometry;
+    return {mOffset , mDesktopGeometry.size()};
 }
 
 void X11SnippingArea::calculateDesktopGeometry()
@@ -59,4 +63,13 @@ void X11SnippingArea::calculateDesktopGeometry()
 
 		mDesktopGeometry = mDesktopGeometry.united({x, y, width, height});
 	}
+}
+
+void X11SnippingArea::calculateOffset() {
+    auto scaleFactor = mHdpiScaler.scaleFactor();
+    if(scaleFactor > 1.5) {
+        mOffset = QPoint((int)(1920 / scaleFactor), 0);
+    } else {
+        mOffset = QPoint(0, 0);
+    }
 }

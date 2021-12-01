@@ -37,7 +37,11 @@ protected:
 private:
 	QRect mDesktopGeometry;
 	HdpiScaler mHdpiScaler;
+    QPoint mOffset;
+
 	void calculateDesktopGeometry();
+
+    void calculateOffset();
 };
 
 #endif //KSNIP_X11SNIPPINGAREA_H

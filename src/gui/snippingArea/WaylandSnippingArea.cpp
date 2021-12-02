@@ -21,7 +21,6 @@
 
 WaylandSnippingArea::WaylandSnippingArea(const QSharedPointer<IConfig> &config) : X11SnippingArea(config)
 {
-
 }
 
 QRect WaylandSnippingArea::selectedRectArea() const

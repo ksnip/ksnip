@@ -22,6 +22,7 @@
 
 #include "AbstractSnippingArea.h"
 #include "src/common/platform/HdpiScaler.h"
+#include "src/backend/imageGrabber/X11Wrapper.h"
 
 class X11SnippingArea : public AbstractSnippingArea
 {
@@ -38,10 +39,9 @@ private:
 	QRect mDesktopGeometry;
 	HdpiScaler mHdpiScaler;
     QPoint mOffset;
+    X11Wrapper mX11Wrapper;
 
 	void calculateDesktopGeometry();
-
-    void calculateOffset();
 };
 
 #endif //KSNIP_X11SNIPPINGAREA_H

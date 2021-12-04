@@ -19,14 +19,16 @@
 
 #include "X11SnippingArea.h"
 
-#include <QDebug>
-
-X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) : AbstractSnippingArea(config)
+X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) :
+    AbstractSnippingArea(config),
+    mConfig(config)
 {
 	setWindowFlags(windowFlags() | Qt::Tool | Qt::X11BypassWindowManagerHint);
 
-    qDebug("-----------------------");
+    connect(mConfig.data(), &IConfig::snippingAreaChangedChanged, this, &X11SnippingArea::updateOffset);
+
 	calculateDesktopGeometry();
+    updateOffset();
 }
 
 QRect X11SnippingArea::selectedRectArea() const
@@ -49,7 +51,7 @@ void X11SnippingArea::setFullScreen()
 
 QRect X11SnippingArea::getSnippingAreaGeometry() const
 {
-    return mDesktopGeometry;
+    return { mOffset , mDesktopGeometry.size() };
 }
 
 void X11SnippingArea::calculateDesktopGeometry()
@@ -63,35 +65,15 @@ void X11SnippingArea::calculateDesktopGeometry()
 		auto width = screenGeometry.width();
 		auto height = screenGeometry.height();
 
-        qDebug() << "Screen:" << screen->name();
-        qDebug() << "Screen Scaling: " << scaleFactor;
-        qDebug() << "Screen Geometry: " << screenGeometry;
-        qDebug() << "Screen virtual geometry" << screen->virtualGeometry();
-
         mDesktopGeometry = mDesktopGeometry.united({x, y, width, height});
 	}
+}
 
-    qDebug() << "Global scale factor: " << mHdpiScaler.scaleFactor();
-    qDebug() << "Desktop Geometry without offset: " << mDesktopGeometry;
-
-    auto scaleFactor = mHdpiScaler.scaleFactor();
-    if(scaleFactor >= 2) {
-        auto firstScreenWidth = screens[0]->geometry().width();
-        mOffset = QPoint(firstScreenWidth, 0);
-    } else if(scaleFactor >= 1.75) {
-        mOffset = QPoint((int)(1920 / scaleFactor), 0);
-    } else if(scaleFactor >= 1.5) {
-        auto firstScreenWidth = (qreal)screens[0]->geometry().width();
-        mOffset = QPoint((int)((firstScreenWidth * scaleFactor) / 2 / scaleFactor), 0);
+void X11SnippingArea::updateOffset()
+{
+    if(mConfig->snippingAreaOffsetEnable()) {
+        mOffset = mConfig->snippingAreaOffset();
     } else {
-        mOffset = QPoint(0, 0);
+        mOffset = {};
     }
-
-    mDesktopGeometry = QRect(mOffset , mDesktopGeometry.size());
-
-    qDebug() << "Desktop Geometry with offset: " << mDesktopGeometry;
-    qDebug() << "Calculated Offset: " << mOffset;
-    qDebug() << "Native Fullscreen: " << mX11Wrapper.getFullScreenRect();
-    qDebug() << "Desktop Widget Geometry: " << QDesktopWidget().geometry();
-
 }

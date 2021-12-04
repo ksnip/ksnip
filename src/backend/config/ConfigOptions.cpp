@@ -204,6 +204,16 @@ QString ConfigOptions::showSnippingAreaInfoTextString()
 	return applicationSectionString() + QLatin1String("ShowSnippingAreaInfoText");
 }
 
+QString ConfigOptions::snippingAreaOffsetEnableString()
+{
+	return snippingAreaSectionString() + QLatin1String("SnippingAreaOffsetEnable");
+}
+
+QString ConfigOptions::snippingAreaOffsetString()
+{
+    return snippingAreaSectionString() + QLatin1String("SnippingAreaOffset");
+}
+
 QString ConfigOptions::smoothPathEnabledString()
 {
 	return annotatorSectionString() + QLatin1String("SmoothPathEnabled");
@@ -567,4 +577,9 @@ QString ConfigOptions::saveSectionString()
 QString ConfigOptions::pluginsSectionString()
 {
 	return QLatin1String("Plugins/");
+}
+
+QString ConfigOptions::snippingAreaSectionString()
+{
+    return QLatin1String("SnippingArea/");
 }

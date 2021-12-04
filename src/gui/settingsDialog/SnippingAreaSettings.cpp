@@ -20,23 +20,28 @@
 #include "SnippingAreaSettings.h"
 
 SnippingAreaSettings::SnippingAreaSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider) :
-	mConfig(config),
-	mScaledSizeProvider(scaledSizeProvider),
-	mFreezeImageWhileSnippingCheckbox(new QCheckBox(this)),
-	mSnippingAreaRulersCheckbox(new QCheckBox(this)),
-	mSnippingAreaPositionAndSizeInfoCheckbox(new QCheckBox(this)),
-	mSnippingAreaMagnifyingGlassCheckbox(new QCheckBox(this)),
-	mAllowResizingRectSelectionCheckbox(new QCheckBox(this)),
-	mShowSnippingAreaInfoTextCheckbox(new QCheckBox(this)),
-	mSnippingCursorSizeLabel(new QLabel(this)),
-	mSnippingCursorColorLabel(new QLabel(this)),
-	mSnippingAdornerColorLabel(new QLabel(this)),
-	mSnippingAreaTransparencyLabel(new QLabel(this)),
-	mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
-	mSnippingCursorColorButton(new ColorButton(this)),
-	mSnippingAdornerColorButton(new ColorButton(this)),
-	mSnippingAreaTransparencySpinBox(new QSpinBox(this)),
-	mLayout(new QGridLayout(this))
+        mConfig(config),
+        mScaledSizeProvider(scaledSizeProvider),
+        mFreezeImageWhileSnippingCheckbox(new QCheckBox(this)),
+        mSnippingAreaRulersCheckbox(new QCheckBox(this)),
+        mSnippingAreaPositionAndSizeInfoCheckbox(new QCheckBox(this)),
+        mSnippingAreaMagnifyingGlassCheckbox(new QCheckBox(this)),
+        mAllowResizingRectSelectionCheckbox(new QCheckBox(this)),
+        mShowSnippingAreaInfoTextCheckbox(new QCheckBox(this)),
+        mSnippingAreaOffsetEnabledCheckbox(new QCheckBox(this)),
+        mSnippingCursorSizeLabel(new QLabel(this)),
+        mSnippingCursorColorLabel(new QLabel(this)),
+        mSnippingAdornerColorLabel(new QLabel(this)),
+        mSnippingAreaTransparencyLabel(new QLabel(this)),
+        mSnippingAreaOffsetXLabel(new QLabel(this)),
+        mSnippingAreaOffsetYLabel(new QLabel(this)),
+        mSnippingCursorSizeCombobox(new NumericComboBox(1, 2, 3)),
+        mSnippingCursorColorButton(new ColorButton(this)),
+        mSnippingAdornerColorButton(new ColorButton(this)),
+        mSnippingAreaTransparencySpinBox(new QSpinBox(this)),
+        mSnippingAreaOffsetXSpinBox(new QSpinBox(this)),
+        mSnippingAreaOffsetYSpinBox(new QSpinBox(this)),
+        mLayout(new QGridLayout(this))
 {
 	initGui();
 	loadConfig();
@@ -44,20 +49,7 @@ SnippingAreaSettings::SnippingAreaSettings(const QSharedPointer<IConfig> &config
 
 SnippingAreaSettings::~SnippingAreaSettings()
 {
-	delete mFreezeImageWhileSnippingCheckbox;
-	delete mSnippingAreaPositionAndSizeInfoCheckbox;
-	delete mSnippingAreaRulersCheckbox;
-	delete mSnippingAreaMagnifyingGlassCheckbox;
-	delete mAllowResizingRectSelectionCheckbox;
-	delete mShowSnippingAreaInfoTextCheckbox;
-	delete mSnippingCursorSizeLabel;
-	delete mSnippingCursorColorLabel;
-	delete mSnippingAdornerColorLabel;
-	delete mSnippingAreaTransparencyLabel;
-	delete mSnippingCursorColorButton;
-	delete mSnippingAdornerColorButton;
 	delete mSnippingCursorSizeCombobox;
-	delete mSnippingAreaTransparencySpinBox;
 }
 
 void SnippingAreaSettings::saveSettings()
@@ -72,6 +64,8 @@ void SnippingAreaSettings::saveSettings()
 	mConfig->setSnippingAdornerColor(mSnippingAdornerColorButton->color());
 	mConfig->setSnippingCursorSize(mSnippingCursorSizeCombobox->value());
 	mConfig->setSnippingAreaTransparency(mSnippingAreaTransparencySpinBox->value());
+	mConfig->setSnippingAreaOffsetEnable(mSnippingAreaOffsetEnabledCheckbox->isChecked());
+	mConfig->setSnippingAreaOffset({mSnippingAreaOffsetXSpinBox->value(), mSnippingAreaOffsetYSpinBox->value()});
 }
 
 void SnippingAreaSettings::initGui()
@@ -136,31 +130,71 @@ void SnippingAreaSettings::initGui()
 	mSnippingAreaTransparencySpinBox->setToolTip(mSnippingAreaTransparencyLabel->toolTip());
 	mSnippingAreaTransparencySpinBox->setMinimumWidth(fixedButtonWidth);
 
+    mSnippingAreaOffsetEnabledCheckbox->setText(tr("Enable Snipping Area offset"));
+    mSnippingAreaOffsetEnabledCheckbox->setToolTip(tr("When enabled will apply the configured\n"
+                                                        "offset to the Snipping Area position which\n"
+                                                        "is required when the position is not\n"
+                                                        "correctly calculated. This is sometimes\n"
+                                                        "required with screen scaling enabled."));
+    connect(mSnippingAreaOffsetEnabledCheckbox, &QCheckBox::stateChanged, this, &SnippingAreaSettings::snippingAreaOffsetEnableStateChanged);
+
+    mSnippingAreaOffsetXLabel->setText(tr("X") + QLatin1String(":"));
+    mSnippingAreaOffsetYLabel->setText(tr("Y") + QLatin1String(":"));
+
+    mSnippingAreaOffsetXSpinBox->setMinimum(-9999);
+    mSnippingAreaOffsetXSpinBox->setMaximum(9999);
+
+    mSnippingAreaOffsetYSpinBox->setMinimum(-9999);
+    mSnippingAreaOffsetYSpinBox->setMaximum(9999);
+
 	mLayout->setAlignment(Qt::AlignTop);
-	mLayout->setColumnMinimumWidth(0, 10);
-	mLayout->addWidget(mFreezeImageWhileSnippingCheckbox, 0, 0, 1, 3);
-	mLayout->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 1, 1, 1, 3);
-	mLayout->addWidget(mSnippingAreaRulersCheckbox, 2, 0, 1, 3);
-	mLayout->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 3, 0, 1, 3);
-	mLayout->addWidget(mAllowResizingRectSelectionCheckbox, 4, 0, 1, 3);
-	mLayout->addWidget(mShowSnippingAreaInfoTextCheckbox, 5, 0, 1, 3);
+	mLayout->setColumnMinimumWidth(0, mScaledSizeProvider->scaledWidth(10));
+    mLayout->setColumnMinimumWidth(1, mScaledSizeProvider->scaledWidth(40));
+	mLayout->addWidget(mFreezeImageWhileSnippingCheckbox, 0, 0, 1, 5);
+	mLayout->addWidget(mSnippingAreaMagnifyingGlassCheckbox, 1, 1, 1, 4);
+	mLayout->addWidget(mSnippingAreaRulersCheckbox, 2, 0, 1, 5);
+	mLayout->addWidget(mSnippingAreaPositionAndSizeInfoCheckbox, 3, 0, 1, 5);
+	mLayout->addWidget(mAllowResizingRectSelectionCheckbox, 4, 0, 1, 5);
+	mLayout->addWidget(mShowSnippingAreaInfoTextCheckbox, 5, 0, 1, 5);
 	mLayout->setRowMinimumHeight(6, 15);
-	mLayout->addWidget(mSnippingAdornerColorLabel, 7, 0, 1, 2);
-	mLayout->addWidget(mSnippingAdornerColorButton, 7, 2, Qt::AlignLeft);
-	mLayout->addWidget(mSnippingCursorColorLabel, 8, 0, 1, 2);
-	mLayout->addWidget(mSnippingCursorColorButton, 8, 2, Qt::AlignLeft);
-	mLayout->addWidget(mSnippingCursorSizeLabel, 9, 0, 1, 2);
-	mLayout->addWidget(mSnippingCursorSizeCombobox, 9, 2, Qt::AlignLeft);
-	mLayout->addWidget(mSnippingAreaTransparencyLabel, 10, 0, 1, 2);
-	mLayout->addWidget(mSnippingAreaTransparencySpinBox, 10, 2, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingAdornerColorLabel, 7, 0, 1, 3);
+	mLayout->addWidget(mSnippingAdornerColorButton, 7, 3, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingCursorColorLabel, 8, 0, 1, 3);
+	mLayout->addWidget(mSnippingCursorColorButton, 8, 3, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingCursorSizeLabel, 9, 0, 1, 3);
+	mLayout->addWidget(mSnippingCursorSizeCombobox, 9, 3, Qt::AlignLeft);
+	mLayout->addWidget(mSnippingAreaTransparencyLabel, 10, 0, 1, 3);
+	mLayout->addWidget(mSnippingAreaTransparencySpinBox, 10, 3, Qt::AlignLeft);
+    mLayout->setRowMinimumHeight(11, 15);
+	mLayout->addWidget(mSnippingAreaOffsetEnabledCheckbox, 12, 0, 1, 5);
+	mLayout->addWidget(mSnippingAreaOffsetXLabel, 13, 1, 1, 1);
+	mLayout->addWidget(mSnippingAreaOffsetXSpinBox, 13, 2, Qt::AlignLeft);
+    mLayout->addWidget(mSnippingAreaOffsetYLabel, 14, 1, 1, 1);
+    mLayout->addWidget(mSnippingAreaOffsetYSpinBox, 14, 2, Qt::AlignLeft);
+
+//    mFreezeImageWhileSnippingCheckbox->setStyleSheet("border: 1px solid black");
+//    mSnippingAreaMagnifyingGlassCheckbox->setStyleSheet("border: 1px solid black");
+//    mSnippingAreaRulersCheckbox->setStyleSheet("border: 1px solid black");
+//    mSnippingAreaPositionAndSizeInfoCheckbox->setStyleSheet("border: 1px solid black");
+//    mSnippingAreaMagnifyingGlassCheckbox->setStyleSheet("border: 1px solid black");
+//    mAllowResizingRectSelectionCheckbox->setStyleSheet("border: 1px solid black");
+//    mShowSnippingAreaInfoTextCheckbox->setStyleSheet("border: 1px solid black");
+//    mSnippingAdornerColorLabel->setStyleSheet("border: 1px solid black");
+//    mSnippingAdornerColorButton->setStyleSheet("border: 1px solid black");
+//    mSnippingCursorColorLabel->setStyleSheet("border: 1px solid black");
+//    mSnippingCursorColorButton->setStyleSheet("border: 1px solid black");
+//    mSnippingCursorSizeLabel->setStyleSheet("border: 1px solid black");
+//    mSnippingAreaTransparencyLabel->setStyleSheet("border: 1px solid black");
+//    mSnippingAreaTransparencySpinBox->setStyleSheet("border: 1px solid black");
+//    mSnippingAreaOffsetEnabledCheckbox->setStyleSheet("border: 1px solid black");
+//    mSnippingAreaOffsetXLabel->setStyleSheet("border: 1px solid black");
+//    mSnippingAreaOffsetXSpinBox->setStyleSheet("border: 1px solid black");
+//    mSnippingAreaOffsetYLabel->setStyleSheet("border: 1px solid black");
+//    mSnippingAreaOffsetYSpinBox->setStyleSheet("border: 1px solid black");
+//    mSnippingAreaOffsetYLabel->setStyleSheet("border: 1px solid black");
 
 	setTitle(tr("Snipping Area"));
 	setLayout(mLayout);
-}
-
-void SnippingAreaSettings::freezeImageWhileSnippingStateChanged()
-{
-	mSnippingAreaMagnifyingGlassCheckbox->setEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());
 }
 
 void SnippingAreaSettings::loadConfig()
@@ -177,6 +211,24 @@ void SnippingAreaSettings::loadConfig()
 	mSnippingAdornerColorButton->setColor(mConfig->snippingAdornerColor());
 	mSnippingCursorSizeCombobox->setValue(mConfig->snippingCursorSize());
 	mSnippingAreaTransparencySpinBox->setValue(mConfig->snippingAreaTransparency());
+	mSnippingAreaOffsetEnabledCheckbox->setChecked(mConfig->snippingAreaOffsetEnable());
+	mSnippingAreaOffsetXSpinBox->setValue(mConfig->snippingAreaOffset().x());
+	mSnippingAreaOffsetYSpinBox->setValue(mConfig->snippingAreaOffset().y());
 
 	freezeImageWhileSnippingStateChanged();
+    snippingAreaOffsetEnableStateChanged();
+}
+
+void SnippingAreaSettings::freezeImageWhileSnippingStateChanged()
+{
+    mSnippingAreaMagnifyingGlassCheckbox->setEnabled(mFreezeImageWhileSnippingCheckbox->isChecked());
+}
+
+void SnippingAreaSettings::snippingAreaOffsetEnableStateChanged()
+{
+    auto isEnabled = mSnippingAreaOffsetEnabledCheckbox->isChecked();
+    mSnippingAreaOffsetXLabel->setEnabled(isEnabled);
+    mSnippingAreaOffsetYLabel->setEnabled(isEnabled);
+    mSnippingAreaOffsetXSpinBox->setEnabled(isEnabled);
+    mSnippingAreaOffsetYSpinBox->setEnabled(isEnabled);
 }

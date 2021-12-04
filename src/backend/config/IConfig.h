@@ -217,6 +217,12 @@ public:
 	virtual bool showSnippingAreaInfoText() const = 0;
 	virtual void setShowSnippingAreaInfoText(bool enabled) = 0;
 
+    virtual bool snippingAreaOffsetEnable() const = 0;
+    virtual void setSnippingAreaOffsetEnable(bool enabled) = 0;
+
+    virtual QPoint snippingAreaOffset() const = 0;
+    virtual void setSnippingAreaOffset(const QPoint &offset) = 0;
+
 	// Uploader
 
 	virtual bool confirmBeforeUpload() const = 0;
@@ -327,6 +333,7 @@ signals:
 	void hotKeysChanged() const;
 	void actionsChanged() const;
 	void pluginsChanged() const;
+	void snippingAreaChangedChanged() const;
 };
 
 #endif //KSNIP_ICONFIG_H

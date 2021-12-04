@@ -222,6 +222,12 @@ public:
 	bool showSnippingAreaInfoText() const override;
 	void setShowSnippingAreaInfoText(bool enabled) override;
 
+    bool snippingAreaOffsetEnable() const override;
+    void setSnippingAreaOffsetEnable(bool enabled) override;
+
+    QPoint snippingAreaOffset() const override;
+    void setSnippingAreaOffset(const QPoint &offset) override;
+
 	// Uploader
 
 	bool confirmBeforeUpload() const override;

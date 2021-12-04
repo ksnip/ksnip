@@ -207,6 +207,12 @@ public:
 	MOCK_METHOD(bool, showSnippingAreaInfoText, (), (const, override));
 	MOCK_METHOD(void, setShowSnippingAreaInfoText, (bool enabled), (override));
 
+    MOCK_METHOD(bool, snippingAreaOffsetEnable, (), (const, override));
+    MOCK_METHOD(void, setSnippingAreaOffsetEnable, (bool enabled), (override));
+
+    MOCK_METHOD(QPoint, snippingAreaOffset, (), (const, override));
+    MOCK_METHOD(void, setSnippingAreaOffset, (const QPoint &offset), (override));
+
 	// Uploader
 
 	MOCK_METHOD(bool, confirmBeforeUpload, (), (const, override));

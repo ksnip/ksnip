@@ -46,14 +46,19 @@ private:
 	QCheckBox *mSnippingAreaMagnifyingGlassCheckbox;
 	QCheckBox *mAllowResizingRectSelectionCheckbox;
 	QCheckBox *mShowSnippingAreaInfoTextCheckbox;
+	QCheckBox *mSnippingAreaOffsetEnabledCheckbox;
 	QLabel *mSnippingCursorSizeLabel;
 	QLabel *mSnippingCursorColorLabel;
 	QLabel *mSnippingAdornerColorLabel;
 	QLabel *mSnippingAreaTransparencyLabel;
+	QLabel *mSnippingAreaOffsetXLabel;
+	QLabel *mSnippingAreaOffsetYLabel;
 	ColorButton *mSnippingCursorColorButton;
 	ColorButton *mSnippingAdornerColorButton;
 	NumericComboBox *mSnippingCursorSizeCombobox;
 	QSpinBox *mSnippingAreaTransparencySpinBox;
+	QSpinBox *mSnippingAreaOffsetXSpinBox;
+	QSpinBox *mSnippingAreaOffsetYSpinBox;
 	QGridLayout *mLayout;
 	QSharedPointer<IConfig> mConfig;
 	QSharedPointer<IScaledSizeProvider> mScaledSizeProvider;
@@ -63,7 +68,7 @@ private:
 
 private slots:
 	void freezeImageWhileSnippingStateChanged();
+	void snippingAreaOffsetEnableStateChanged();
 };
-
 
 #endif //KSNIP_SNIPPINGAREASETTINGS_H

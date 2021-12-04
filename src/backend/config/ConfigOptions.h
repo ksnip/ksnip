@@ -62,6 +62,8 @@ public:
 	static QString hideMainWindowDuringScreenshotString();
 	static QString allowResizingRectSelectionString();
 	static QString showSnippingAreaInfoTextString();
+	static QString snippingAreaOffsetEnableString();
+	static QString snippingAreaOffsetString();
 	static QString smoothPathEnabledString();
 	static QString smoothPathFactorString();
 	static QString rotateWatermarkEnabledString();
@@ -137,6 +139,7 @@ private:
 	static QString mainWindowSectionString();
 	static QString saveSectionString();
 	static QString pluginsSectionString();
+	static QString snippingAreaSectionString();
 };
 
 #endif //KSNIP_CONFIGOPTIONS_H

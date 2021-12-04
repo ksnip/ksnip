@@ -437,6 +437,36 @@ void Config::setShowSnippingAreaInfoText(bool enabled)
 	saveValue(ConfigOptions::showSnippingAreaInfoTextString(), enabled);
 }
 
+bool Config::snippingAreaOffsetEnable() const
+{
+    return loadValue(ConfigOptions::snippingAreaOffsetEnableString(), false).toBool();
+}
+
+void Config::setSnippingAreaOffsetEnable(bool enabled)
+{
+    if (snippingAreaOffsetEnable() == enabled) {
+        return;
+    }
+    saveValue(ConfigOptions::snippingAreaOffsetEnableString(), enabled);
+
+    emit snippingAreaChangedChanged();
+}
+
+QPoint Config::snippingAreaOffset() const
+{
+    return loadValue(ConfigOptions::snippingAreaOffsetString(), QPoint(0, 0)).value<QPoint>();
+}
+
+void Config::setSnippingAreaOffset(const QPoint &offset)
+{
+    if (snippingAreaOffset() == offset) {
+        return;
+    }
+    saveValue(ConfigOptions::snippingAreaOffsetString(), offset);
+
+    emit snippingAreaChangedChanged();
+}
+
 SaveQualityMode Config::saveQualityMode() const
 {
 	return loadValue(ConfigOptions::saveQualityModeString(), (int)SaveQualityMode::Default).value<SaveQualityMode>();

@@ -21,6 +21,7 @@
 
 WinSnippingArea::WinSnippingArea(const QSharedPointer<IConfig> &config) :
     AbstractSnippingArea(config),
+    mConfig(config),
     mIsFullScreenSizeSet(false),
     mIsMultipleScaledScreens(false)
 {
@@ -28,6 +29,8 @@ WinSnippingArea::WinSnippingArea(const QSharedPointer<IConfig> &config) :
 
     connect(qGuiApp, &QGuiApplication::screenRemoved, this, &WinSnippingArea::init);
     connect(qGuiApp, &QGuiApplication::screenAdded, this, &WinSnippingArea::init);
+
+    connect(mConfig.data(), &IConfig::snippingAreaChangedChanged, this, &WinSnippingArea::updateOffset);
 
     init();
 }
@@ -38,12 +41,10 @@ QRect WinSnippingArea::selectedRectArea() const
         auto topLeft = mapToGlobal(mCaptureArea.topLeft());
         auto bottomRight = mapToGlobal(mCaptureArea.bottomRight());
         return {topLeft, bottomRight};
-    } else if (mIsMultipleScaledScreens) {
-        auto xWithOffset = mCaptureArea.x() - mScaleOffset.x();
-        auto yWithOffset = mCaptureArea.y() - mScaleOffset.y();
-        return mHdpiScaler.scale({xWithOffset, yWithOffset, mCaptureArea.width(), mCaptureArea.height()});
     } else {
-        return mHdpiScaler.scale(mCaptureArea);
+        auto xWithOffset = mCaptureArea.x() - mOffset.x();
+        auto yWithOffset = mCaptureArea.y() - mOffset.y();
+        return mHdpiScaler.scale({xWithOffset, yWithOffset, mCaptureArea.width(), mCaptureArea.height()});
     }
 }
 
@@ -73,10 +74,10 @@ void WinSnippingArea::setFullScreen()
 
 QRect WinSnippingArea::getSnippingAreaGeometry() const
 {
-    if(mIsMultipleScaledScreens) {
-        return {mScaleOffset.x(), mScaleOffset.y(), mFullScreenRect.width() / 2, mFullScreenRect.height() / 2 };
+    if (mIsMultipleScaledScreens) {
+        return { mOffset.x(), mOffset.y(), mFullScreenRect.width() / 2, mFullScreenRect.height() / 2 };
     } else {
-        return {0, 0, geometry().width(), geometry().height() };
+        return { mOffset.x(), mOffset.y(), geometry().width(), geometry().height() };
     }
 }
 
@@ -89,7 +90,7 @@ void WinSnippingArea::setupScalingVariables()
 {
     auto scaledScreens = 0;
     auto screens = QApplication::screens();
-    for(auto screen : screens) {
+    for (auto screen : screens) {
         auto screenGeometry = screen->geometry();
         
         if(screen->devicePixelRatio() > 1) {
@@ -117,4 +118,16 @@ void WinSnippingArea::init()
 
     mFullScreenRect = mWinWrapper.getFullScreenRect();
     setupScalingVariables();
+    updateOffset();
+}
+
+void WinSnippingArea::updateOffset()
+{
+    if (mConfig->snippingAreaOffsetEnable()) {
+        mOffset = mConfig->snippingAreaOffset();
+    } else if (mIsMultipleScaledScreens) {
+        mOffset = mScaleOffset;
+    } else {
+        mOffset = {};
+    }
 }

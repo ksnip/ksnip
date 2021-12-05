@@ -38,9 +38,11 @@ protected:
 
 private:
     QPoint mScaleOffset;
+    QPoint mOffset;
     QRect mFullScreenRect;
     HdpiScaler mHdpiScaler;
     WinWrapper mWinWrapper;
+    QSharedPointer<IConfig> mConfig;
     bool mIsFullScreenSizeSet;
     bool mIsMultipleScaledScreens;
 
@@ -48,6 +50,7 @@ private:
 
 private slots:
     void init();
+    void updateOffset();
 };
 
 #endif //KSNIP_WINSNIPPINGAREA_H

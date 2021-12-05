@@ -25,7 +25,7 @@ AnnotationSettings::AnnotationSettings(const QSharedPointer<IConfig> &config, co
 		mSwitchToSelectToolAfterDrawingItemCheckBox(new QCheckBox(this)),
 		mNumberToolSeedChangeUpdatesAllItemsCheckBox(new QCheckBox(this)),
 		mSelectItemAfterDrawingCheckBox(new QCheckBox(this)),
-		mShowControlsWidgetCheckBox(new QCheckBox(this)),
+		mIsControlsWidgetVisibleCheckBox(new QCheckBox(this)),
 		mSmoothFactorLabel(new QLabel(this)),
 		mCanvasColorLabel(new QLabel(this)),
 		mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
@@ -51,7 +51,7 @@ void AnnotationSettings::saveSettings()
     mConfig->setSwitchToSelectToolAfterDrawingItem(mSwitchToSelectToolAfterDrawingItemCheckBox->isChecked());
 	mConfig->setNumberToolSeedChangeUpdatesAllItems(mNumberToolSeedChangeUpdatesAllItemsCheckBox->isChecked());
 	mConfig->setSelectItemAfterDrawing(mSelectItemAfterDrawingCheckBox->isChecked());
-	mConfig->setShowControlsWidget(mShowControlsWidgetCheckBox->isChecked());
+	mConfig->setIsControlsWidgetVisible(mIsControlsWidgetVisibleCheckBox->isChecked());
 	mConfig->setCanvasColor(mCanvasColorButton->color());
 }
 
@@ -73,9 +73,9 @@ void AnnotationSettings::initGui()
 																"seed to affect only new items but not existing items.\n"
 																"Disabling this option allows having duplicate numbers."));
 
-	mShowControlsWidgetCheckBox->setText(tr("Show Controls Widget"));
-	mShowControlsWidgetCheckBox->setToolTip(tr("The Controls Widget contains the Undo/Redo,\n"
-											     "Crop, Scale and Modify Canvas buttons."));
+	mIsControlsWidgetVisibleCheckBox->setText(tr("Show Controls Widget"));
+	mIsControlsWidgetVisibleCheckBox->setToolTip(tr("The Controls Widget contains the Undo/Redo,\n"
+											     "Crop, Scale, Rotate and Modify Canvas buttons."));
 
 	mSmoothPathCheckbox->setText(tr("Smooth Painter Paths"));
     mSmoothPathCheckbox->setToolTip(tr("When enabled smooths out pen and\n"
@@ -101,7 +101,7 @@ void AnnotationSettings::initGui()
     mLayout->addWidget(mSwitchToSelectToolAfterDrawingItemCheckBox, 1, 0, 1, 6);
     mLayout->addWidget(mSelectItemAfterDrawingCheckBox, 2, 1, 1, 5);
     mLayout->addWidget(mNumberToolSeedChangeUpdatesAllItemsCheckBox, 3, 0, 1, 6);
-    mLayout->addWidget(mShowControlsWidgetCheckBox, 4, 0, 1, 6);
+    mLayout->addWidget(mIsControlsWidgetVisibleCheckBox, 4, 0, 1, 6);
     mLayout->addWidget(mSmoothPathCheckbox, 5, 0, 1, 6);
     mLayout->addWidget(mSmoothFactorLabel, 6, 1, 1, 3);
     mLayout->addWidget(mSmoothFactorCombobox, 7, 3, 1,3, Qt::AlignLeft);
@@ -121,7 +121,7 @@ void AnnotationSettings::loadConfig()
     mSwitchToSelectToolAfterDrawingItemCheckBox->setChecked(mConfig->switchToSelectToolAfterDrawingItem());
     mNumberToolSeedChangeUpdatesAllItemsCheckBox->setChecked(mConfig->numberToolSeedChangeUpdatesAllItems());
 	mSelectItemAfterDrawingCheckBox->setChecked(mConfig->selectItemAfterDrawing());
-	mShowControlsWidgetCheckBox->setChecked(mConfig->showControlsWidget());
+	mIsControlsWidgetVisibleCheckBox->setChecked(mConfig->isControlsWidgetVisible());
     mCanvasColorButton->setColor(mConfig->canvasColor());
 	smoothPathCheckBoxClicked(mConfig->smoothPathEnabled());
 	switchToSelectToolAfterDrawingItemCheckBoxClicked(mConfig->switchToSelectToolAfterDrawingItem());

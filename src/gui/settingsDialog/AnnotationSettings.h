@@ -46,7 +46,7 @@ private:
     QCheckBox *mSwitchToSelectToolAfterDrawingItemCheckBox;
     QCheckBox *mNumberToolSeedChangeUpdatesAllItemsCheckBox;
     QCheckBox *mSelectItemAfterDrawingCheckBox;
-    QCheckBox *mShowControlsWidgetCheckBox;
+    QCheckBox *mIsControlsWidgetVisibleCheckBox;
     QLabel *mSmoothFactorLabel;
     QLabel *mCanvasColorLabel;
     NumericComboBox *mSmoothFactorCombobox;

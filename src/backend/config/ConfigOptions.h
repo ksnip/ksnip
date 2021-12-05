@@ -69,7 +69,7 @@ public:
 	static QString rotateWatermarkEnabledString();
 	static QString stickerPathsString();
 	static QString useDefaultStickerString();
-	static QString showControlsWidgetEnabledString();
+	static QString isControlsWidgetVisibleString();
 	static QString captureCursorString();
 	static QString snippingAreaRulersEnabledString();
 	static QString snippingAreaPositionAndSizeInfoEnabledString();

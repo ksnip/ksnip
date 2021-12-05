@@ -42,7 +42,6 @@ public:
 	void showScaler() override;
 	void showCanvasModifier() override;
 	void showRotator() override;
-	void showControlsWidget() override;
 	void setSettingsCollapsed(bool isCollapsed) override;
 	void hide() override;
 	void close() override;
@@ -65,10 +64,10 @@ public slots:
 	void setStickers(const QStringList &stickerPaths, bool keepDefault) override;
 	void addTabContextMenuActions(const QList<QAction*> & actions) override;
 	void setCanvasColor(const QColor &color) override;
+	void setControlsWidgetVisible(bool isVisible) override;
 
 private:
 	KImageAnnotator *mKImageAnnotator;
 };
-
 
 #endif //KSNIP_KIMAGEANNOTATORADAPTER_H

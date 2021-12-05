@@ -630,9 +630,7 @@ void MainWindow::setupImageAnnotator()
 	mImageAnnotator->setNumberToolSeedChangeUpdatesAllItems(mConfig->numberToolSeedChangeUpdatesAllItems());
 	mImageAnnotator->setStickers(mConfig->stickerPaths(), mConfig->useDefaultSticker());
 	mImageAnnotator->setCanvasColor(mConfig->canvasColor());
-	if(mConfig->showControlsWidget()) {
-		mImageAnnotator->showControlsWidget();
-	}
+	mImageAnnotator->setControlsWidgetVisible(mConfig->isControlsWidgetVisible());
 }
 
 void MainWindow::captureDelayChanged(int delay)

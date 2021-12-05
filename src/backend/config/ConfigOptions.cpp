@@ -239,9 +239,9 @@ QString ConfigOptions::useDefaultStickerString()
 	return annotatorSectionString() + QLatin1String("UseDefaultSticker");
 }
 
-QString ConfigOptions::showControlsWidgetEnabledString()
+QString ConfigOptions::isControlsWidgetVisibleString()
 {
-	return annotatorSectionString() + QLatin1String("ShowControlsWidget");
+	return annotatorSectionString() + QLatin1String("IsControlsWidgetVisible");
 }
 
 QString ConfigOptions::captureCursorString()

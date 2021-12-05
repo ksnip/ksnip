@@ -157,8 +157,8 @@ public:
 	virtual QColor canvasColor() const = 0;
 	virtual void setCanvasColor(const QColor &color) = 0;
 
-	virtual bool showControlsWidget() const = 0;
-	virtual void setShowControlsWidget(bool enabled) = 0;
+	virtual bool isControlsWidgetVisible() const = 0;
+	virtual void setIsControlsWidgetVisible(bool isVisible) = 0;
 
 	// Image Grabber
 

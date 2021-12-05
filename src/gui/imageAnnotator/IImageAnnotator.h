@@ -40,7 +40,6 @@ public:
 	virtual void showScaler() = 0;
 	virtual void showCanvasModifier() = 0;
 	virtual void showRotator() = 0;
-	virtual void showControlsWidget() = 0;
 	virtual void setSettingsCollapsed(bool isCollapsed) = 0;
 	virtual void hide() = 0;
 	virtual void close() = 0;
@@ -63,6 +62,7 @@ public slots:
 	virtual void setStickers(const QStringList &stickerPaths, bool keepDefault) = 0;
 	virtual void addTabContextMenuActions(const QList<QAction*> & actions) = 0;
 	virtual void setCanvasColor(const QColor &color) = 0;
+	virtual void setControlsWidgetVisible(bool isVisible) = 0;
 
 signals:
 	void imageChanged() const;

@@ -37,7 +37,6 @@ public:
 	MOCK_METHOD(void, showScaler, (), (override));
 	MOCK_METHOD(void, showCanvasModifier, (), (override));
 	MOCK_METHOD(void, showRotator, (), (override));
-	MOCK_METHOD(void, showControlsWidget, (), (override));
 	MOCK_METHOD(void, setSettingsCollapsed, (bool isCollapsed), (override));
 	MOCK_METHOD(void, hide, (), (override));
 	MOCK_METHOD(void, close, (), (override));
@@ -59,6 +58,7 @@ public:
 	MOCK_METHOD(void, setStickers, (const QStringList &stickerPaths, bool keepDefault), (override));
 	MOCK_METHOD(void, addTabContextMenuActions, (const QList<QAction*> &actions), (override));
 	MOCK_METHOD(void, setCanvasColor, (const QColor &color), (override));
+	MOCK_METHOD(void, setControlsWidgetVisible, (bool isVisible), (override));
 };
 
 #endif //KSNIP_IMAGEANNOTATORMOCK_H

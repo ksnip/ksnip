@@ -162,8 +162,8 @@ public:
 	QColor canvasColor() const override;
 	void setCanvasColor(const QColor &color) override;
 
-	bool showControlsWidget() const override;
-	void setShowControlsWidget(bool enabled) override;
+	bool isControlsWidgetVisible() const override;
+	void setIsControlsWidgetVisible(bool isVisible) override;
 
     // Image Grabber
 

@@ -179,12 +179,12 @@ void KImageAnnotatorAdapter::showRotator()
 	mKImageAnnotator->showRotator();
 }
 
-void KImageAnnotatorAdapter::showControlsWidget()
-{
-	mKImageAnnotator->showControlsWidget();
-}
-
 void KImageAnnotatorAdapter::setCanvasColor(const QColor &color)
 {
 	mKImageAnnotator->setCanvasColor(color);
+}
+
+void KImageAnnotatorAdapter::setControlsWidgetVisible(bool isVisible)
+{
+	mKImageAnnotator->setControlsWidgetVisible(isVisible);
 }

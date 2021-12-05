@@ -655,18 +655,18 @@ void Config::setCanvasColor(const QColor &color)
 	emit annotatorConfigChanged();
 }
 
-bool Config::showControlsWidget() const
+bool Config::isControlsWidgetVisible() const
 {
-	return loadValue(ConfigOptions::showControlsWidgetEnabledString(), false).toBool();
+	return loadValue(ConfigOptions::isControlsWidgetVisibleString(), false).toBool();
 }
 
-void Config::setShowControlsWidget(bool enabled)
+void Config::setIsControlsWidgetVisible(bool isVisible)
 {
-	if (showControlsWidget() == enabled) {
+	if (isControlsWidgetVisible() == isVisible) {
 		return;
 	}
 
-	saveValue(ConfigOptions::showControlsWidgetEnabledString(), enabled);
+	saveValue(ConfigOptions::isControlsWidgetVisibleString(), isVisible);
 	emit annotatorConfigChanged();
 }
 

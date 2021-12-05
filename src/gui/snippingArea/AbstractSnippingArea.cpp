@@ -168,7 +168,7 @@ void AbstractSnippingArea::paintEvent(QPaintEvent *event)
 
 	auto snippingAreaGeometry = getSnippingAreaGeometry();
 	if (!isBackgroundTransparent()) {
-		painter.drawPixmap(snippingAreaGeometry, *mBackground);
+		painter.drawPixmap(snippingAreaGeometry, *mBackground, mBackground->rect());
     }
 
 	painter.setClipRegion(mClippingRegion);
@@ -234,7 +234,7 @@ void AbstractSnippingArea::cancelSelection()
 void AbstractSnippingArea::updateCapturedArea(const QRectF &rect)
 {
     mCaptureArea = rect.toRect();
-	mClippingRegion = QRegion(getSnippingAreaGeometry()).subtracted(QRegion(mCaptureArea));
+	mClippingRegion = QRegion(getSnippingAreaGeometry().toRect()).subtracted(QRegion(mCaptureArea));
 }
 
 void AbstractSnippingArea::finishSelection()

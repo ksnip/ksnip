@@ -24,7 +24,7 @@
 #include <QCheckBox>
 #include <QLabel>
 #include <QGridLayout>
-#include <QSpinBox>
+#include <QDoubleSpinBox>
 
 #include "src/backend/config/IConfig.h"
 #include "src/widgets/ColorButton.h"
@@ -57,8 +57,8 @@ private:
 	ColorButton *mSnippingAdornerColorButton;
 	NumericComboBox *mSnippingCursorSizeCombobox;
 	QSpinBox *mSnippingAreaTransparencySpinBox;
-	QSpinBox *mSnippingAreaOffsetXSpinBox;
-	QSpinBox *mSnippingAreaOffsetYSpinBox;
+	QDoubleSpinBox *mSnippingAreaOffsetXSpinBox;
+	QDoubleSpinBox *mSnippingAreaOffsetYSpinBox;
 	QGridLayout *mLayout;
 	QSharedPointer<IConfig> mConfig;
 	QSharedPointer<IScaledSizeProvider> mScaledSizeProvider;

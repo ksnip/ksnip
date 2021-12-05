@@ -452,12 +452,12 @@ void Config::setSnippingAreaOffsetEnable(bool enabled)
     emit snippingAreaChangedChanged();
 }
 
-QPoint Config::snippingAreaOffset() const
+QPointF Config::snippingAreaOffset() const
 {
-    return loadValue(ConfigOptions::snippingAreaOffsetString(), QPoint(0, 0)).value<QPoint>();
+    return loadValue(ConfigOptions::snippingAreaOffsetString(), QPointF(0, 0)).value<QPointF>();
 }
 
-void Config::setSnippingAreaOffset(const QPoint &offset)
+void Config::setSnippingAreaOffset(const QPointF &offset)
 {
     if (snippingAreaOffset() == offset) {
         return;

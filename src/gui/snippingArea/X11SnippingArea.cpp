@@ -36,8 +36,8 @@ QRect X11SnippingArea::selectedRectArea() const
 	if(isBackgroundTransparent()) {
 		return mCaptureArea;
 	} else {
-        auto xWithOffset = mCaptureArea.x() - mOffset.x();
-        auto yWithOffset = mCaptureArea.y() - mOffset.y();
+        auto xWithOffset = static_cast<int>(mCaptureArea.x() - mOffset.x());
+        auto yWithOffset = static_cast<int>(mCaptureArea.y() - mOffset.y());
         auto rect = QRect(xWithOffset, yWithOffset, mCaptureArea.width(), mCaptureArea.height());
         return mHdpiScaler.scale(rect);
 	}
@@ -49,7 +49,7 @@ void X11SnippingArea::setFullScreen()
     QWidget::showFullScreen();
 }
 
-QRect X11SnippingArea::getSnippingAreaGeometry() const
+QRectF X11SnippingArea::getSnippingAreaGeometry() const
 {
     return { mOffset , mDesktopGeometry.size() };
 }
@@ -60,10 +60,10 @@ void X11SnippingArea::calculateDesktopGeometry()
 	for(auto screen : screens) {
 		auto scaleFactor = screen->devicePixelRatio();
 		auto screenGeometry = screen->geometry();
-		int x = screenGeometry.x() / scaleFactor;
-		int y = screenGeometry.y() / scaleFactor;
-		auto width = screenGeometry.width();
-		auto height = screenGeometry.height();
+		auto x = screenGeometry.x() / scaleFactor;
+		auto y = screenGeometry.y() / scaleFactor;
+		auto width = (qreal)screenGeometry.width();
+		auto height = (qreal)screenGeometry.height();
 
         mDesktopGeometry = mDesktopGeometry.united({x, y, width, height});
 	}

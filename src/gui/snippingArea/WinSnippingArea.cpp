@@ -42,8 +42,8 @@ QRect WinSnippingArea::selectedRectArea() const
         auto bottomRight = mapToGlobal(mCaptureArea.bottomRight());
         return {topLeft, bottomRight};
     } else {
-        auto xWithOffset = mCaptureArea.x() - mOffset.x();
-        auto yWithOffset = mCaptureArea.y() - mOffset.y();
+		auto xWithOffset = static_cast<int>(mCaptureArea.x() - mOffset.x());
+		auto yWithOffset = static_cast<int>(mCaptureArea.y() - mOffset.y());
         return mHdpiScaler.scale({xWithOffset, yWithOffset, mCaptureArea.width(), mCaptureArea.height()});
     }
 }
@@ -72,7 +72,7 @@ void WinSnippingArea::setFullScreen()
     QWidget::show();
 }
 
-QRect WinSnippingArea::getSnippingAreaGeometry() const
+QRectF WinSnippingArea::getSnippingAreaGeometry() const
 {
     if (mIsMultipleScaledScreens) {
         return { mOffset.x(), mOffset.y(), mFullScreenRect.width() / 2, mFullScreenRect.height() / 2 };

@@ -220,8 +220,8 @@ public:
     virtual bool snippingAreaOffsetEnable() const = 0;
     virtual void setSnippingAreaOffsetEnable(bool enabled) = 0;
 
-    virtual QPoint snippingAreaOffset() const = 0;
-    virtual void setSnippingAreaOffset(const QPoint &offset) = 0;
+    virtual QPointF snippingAreaOffset() const = 0;
+    virtual void setSnippingAreaOffset(const QPointF &offset) = 0;
 
 	// Uploader
 

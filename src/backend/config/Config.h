@@ -225,8 +225,8 @@ public:
     bool snippingAreaOffsetEnable() const override;
     void setSnippingAreaOffsetEnable(bool enabled) override;
 
-    QPoint snippingAreaOffset() const override;
-    void setSnippingAreaOffset(const QPoint &offset) override;
+    QPointF snippingAreaOffset() const override;
+    void setSnippingAreaOffset(const QPointF &offset) override;
 
 	// Uploader
 

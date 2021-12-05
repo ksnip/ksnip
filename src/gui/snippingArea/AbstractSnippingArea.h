@@ -62,7 +62,7 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 	virtual bool isBackgroundTransparent() const;
     virtual void setFullScreen() = 0;
-	virtual QRect getSnippingAreaGeometry() const = 0;
+	virtual QRectF getSnippingAreaGeometry() const = 0;
 	virtual QPoint getLocalCursorPosition() const;
 	virtual void grabKeyboardFocus();
 

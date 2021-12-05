@@ -32,11 +32,10 @@ public:
 
 protected:
     void setFullScreen() override;
-    QRect getSnippingAreaGeometry() const override;
+    QRectF getSnippingAreaGeometry() const override;
 
 private:
     HdpiScaler mHdpiScaler;
-};
-
+};F
 
 #endif //KSNIP_MACSNIPPINGAREA_H

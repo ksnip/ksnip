@@ -35,7 +35,7 @@ void MacSnippingArea::setFullScreen()
     QWidget::showFullScreen();
 }
 
-QRect MacSnippingArea::getSnippingAreaGeometry() const
+QRectF MacSnippingArea::getSnippingAreaGeometry() const
 {
-    return geometry();
+    return QRectF(geometry());
 }

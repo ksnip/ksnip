@@ -33,12 +33,12 @@ public:
 
 protected:
     void setFullScreen() override;
-    QRect getSnippingAreaGeometry() const override;
+    QRectF getSnippingAreaGeometry() const override;
     QPoint getLocalCursorPosition() const override;
 
 private:
-    QPoint mScaleOffset;
-    QPoint mOffset;
+    QPointF mScaleOffset;
+    QPointF mOffset;
     QRect mFullScreenRect;
     HdpiScaler mHdpiScaler;
     WinWrapper mWinWrapper;

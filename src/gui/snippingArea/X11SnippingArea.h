@@ -32,12 +32,12 @@ public:
 
 protected:
 	void setFullScreen() override;
-	QRect getSnippingAreaGeometry() const override;
+	QRectF getSnippingAreaGeometry() const override;
 
 private:
-	QRect mDesktopGeometry;
+	QRectF mDesktopGeometry;
+	QPointF mOffset;
 	HdpiScaler mHdpiScaler;
-    QPoint mOffset;
     QSharedPointer<IConfig> mConfig;
 
 	void calculateDesktopGeometry();

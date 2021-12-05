@@ -172,27 +172,6 @@ void SnippingAreaSettings::initGui()
     mLayout->addWidget(mSnippingAreaOffsetYLabel, 14, 1, 1, 1);
     mLayout->addWidget(mSnippingAreaOffsetYSpinBox, 14, 2, Qt::AlignLeft);
 
-//    mFreezeImageWhileSnippingCheckbox->setStyleSheet("border: 1px solid black");
-//    mSnippingAreaMagnifyingGlassCheckbox->setStyleSheet("border: 1px solid black");
-//    mSnippingAreaRulersCheckbox->setStyleSheet("border: 1px solid black");
-//    mSnippingAreaPositionAndSizeInfoCheckbox->setStyleSheet("border: 1px solid black");
-//    mSnippingAreaMagnifyingGlassCheckbox->setStyleSheet("border: 1px solid black");
-//    mAllowResizingRectSelectionCheckbox->setStyleSheet("border: 1px solid black");
-//    mShowSnippingAreaInfoTextCheckbox->setStyleSheet("border: 1px solid black");
-//    mSnippingAdornerColorLabel->setStyleSheet("border: 1px solid black");
-//    mSnippingAdornerColorButton->setStyleSheet("border: 1px solid black");
-//    mSnippingCursorColorLabel->setStyleSheet("border: 1px solid black");
-//    mSnippingCursorColorButton->setStyleSheet("border: 1px solid black");
-//    mSnippingCursorSizeLabel->setStyleSheet("border: 1px solid black");
-//    mSnippingAreaTransparencyLabel->setStyleSheet("border: 1px solid black");
-//    mSnippingAreaTransparencySpinBox->setStyleSheet("border: 1px solid black");
-//    mSnippingAreaOffsetEnabledCheckbox->setStyleSheet("border: 1px solid black");
-//    mSnippingAreaOffsetXLabel->setStyleSheet("border: 1px solid black");
-//    mSnippingAreaOffsetXSpinBox->setStyleSheet("border: 1px solid black");
-//    mSnippingAreaOffsetYLabel->setStyleSheet("border: 1px solid black");
-//    mSnippingAreaOffsetYSpinBox->setStyleSheet("border: 1px solid black");
-//    mSnippingAreaOffsetYLabel->setStyleSheet("border: 1px solid black");
-
 	setTitle(tr("Snipping Area"));
 	setLayout(mLayout);
 }

@@ -396,11 +396,11 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se você tiver dúvidas gerais, idéias ou apenas quiser falar sobre o ksnip, &lt;br/&gt; por favor entre em nosso servidor% 1 ou% 2.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Por favor, use% 1 para relatar bugs.</translation>
     </message>
 </context>
 <context>
@@ -447,19 +447,19 @@ Deseja continuar?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip é um projeto de software copyleft livre sem fins lucrativos, e &lt;br/&gt; ainda tem alguns custos que precisam ser cobertos, &lt;br/&gt; como custos de domínio ou custos de hardware para suporte de plataforma cruzada.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se você quiser ajudar ou apenas apreciar o trabalho que está sendo feito &lt;br/&gt; oferecendo uma cerveja ou café aos desenvolvedores, você pode fazer isso% 1aqui% 2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tornar-se um patrocinador do GitHub?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Também é possível,% 1aqui% 2.</translation>
     </message>
 </context>
 <context>
@@ -583,11 +583,11 @@ Deseja continuar?</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>O script de upload% 1 foi concluído com sucesso.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviado para% 1</translation>
     </message>
 </context>
 <context>
@@ -1058,7 +1058,7 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos de imagem</translation>
     </message>
 </context>
 <context>
@@ -1141,11 +1141,11 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagem renomeada com sucesso para% 1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao mudar o nome da imagem para% 1</translation>
     </message>
 </context>
 <context>
@@ -1168,15 +1168,15 @@ e captura de tela.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos de imagem</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvo em% 1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao salvar a imagem em% 1</translation>
     </message>
 </context>
 <context>
@@ -1631,7 +1631,7 @@ quando tal existir. A mudança requer reinicialização para ter efeito.</transl
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir notificações do ícone da bandeja</translation>
     </message>
 </context>
 <context>
@@ -1642,7 +1642,7 @@ quando tal existir. A mudança requer reinicialização para ter efeito.</transl
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos de imagem</translation>
     </message>
 </context>
 <context>

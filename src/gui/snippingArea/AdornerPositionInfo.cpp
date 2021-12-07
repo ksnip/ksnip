@@ -31,10 +31,11 @@ AdornerPositionInfo::~AdornerPositionInfo()
 	delete mPen;
 }
 
-void AdornerPositionInfo::update(const QPoint &mousePosition)
+void AdornerPositionInfo::update(const QPoint &mousePosition, const QRect &screenRect)
 {
 	QPoint textOffset(10, 8);
-	mText = QString::number(mousePosition.x()) + QLatin1String(", ") + QString::number(mousePosition.y());
+    auto offset = screenRect.topLeft();
+	mText = QString::number(mousePosition.x() - offset.x()) + QLatin1String(", ") + QString::number(mousePosition.y() - offset.y());
 	mBox = mFontMetric->boundingRect(mText);
 	mBox.moveTopLeft(mousePosition + textOffset);
 	mTextRect = mBox;

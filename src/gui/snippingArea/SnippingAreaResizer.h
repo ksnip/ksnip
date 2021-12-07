@@ -21,7 +21,6 @@
 #define KSNIP_SNIPPINGAREARESIZER_H
 
 #include <QPainter>
-#include <QMouseEvent>
 #include <QKeyEvent>
 #include <QCursor>
 #include <QVector>
@@ -39,9 +38,9 @@ public:
 	void deactivate();
 	void paint(QPainter *painter);
 	bool isActive() const;
-	void handleMousePress(QMouseEvent *event);
-	void handleMouseRelease(QMouseEvent *event);
-	void handleMouseMove(QMouseEvent *event);
+	void handleMousePress(const QPointF &pos);
+	void handleMouseRelease();
+	void handleMouseMove(const QPointF &pos);
 	void handleKeyPress(QKeyEvent *event);
 	void handleKeyRelease(QKeyEvent *event);
 
@@ -62,8 +61,8 @@ private:
 	bool mAltPressed;
 
 	void updateHandlePositions();
-	void updateCurrentRect(const QPoint &point);
-	void updateCursor(const QPoint &pos);
+	void updateCurrentRect(const QPointF &point);
+	void updateCursor(const QPointF &pos);
 	void notifyRectChanged();
 	void arrowUpPressed();
 	void arrowDownPressed();
@@ -71,6 +70,5 @@ private:
 	void arrowRightPressed();
 	void arrowKeyPressed(const QKeyEvent *event);
 };
-
 
 #endif //KSNIP_SNIPPINGAREARESIZER_H

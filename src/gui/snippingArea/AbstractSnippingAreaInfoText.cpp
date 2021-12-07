@@ -20,11 +20,12 @@
 #include "AbstractSnippingAreaInfoText.h"
 
 AbstractSnippingAreaInfoText::AbstractSnippingAreaInfoText(QObject *parent):
-	QObject(parent),
-	mRectPen(new QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin)),
-	mRectBrush(new QBrush(QColor(255, 255, 255, 160))),
-	mBaseInfoTextRect(new QRect(30, 30, 500, 100)),
-	mIsActive(false)
+        QObject(parent),
+        mRectPen(new QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin)),
+        mRectBrush(new QBrush(QColor(255, 255, 255, 160))),
+        mBaseInfoTextRectSize(new QSize(500, 100)),
+        mRectOffset(30, 30),
+        mIsActive(false)
 {
 }
 
@@ -32,20 +33,20 @@ AbstractSnippingAreaInfoText::~AbstractSnippingAreaInfoText()
 {
 	delete mRectPen;
 	delete mRectBrush;
-	delete mBaseInfoTextRect;
+	delete mBaseInfoTextRectSize;
 }
 
 void AbstractSnippingAreaInfoText::paint(QPainter *painter)
 {
 	if(mIsActive) {
 		auto fontMetric = painter->fontMetrics();
-		auto textRect = fontMetric.boundingRect(*mBaseInfoTextRect, Qt::TextWordWrap, mInfoText);
+		auto textRect = fontMetric.boundingRect(QRect(mSnippingAreaGeometry.topLeft().toPoint() + mRectOffset, *mBaseInfoTextRectSize), Qt::TextWordWrap, mInfoText);
 		auto boundingRect = textRect.adjusted(-10, -10, 10, 10);
 
-		if(boundingRect.contains(mCurrentMousePos)) {
-			auto newPos = mSnippingAreaGeometry.bottomRight().toPoint();
-			textRect.moveBottomRight(newPos - QPoint(40, 40));
-			boundingRect.moveBottomRight(newPos - QPoint(30, 30));
+		if(boundingRect.contains(mCurrentMousePos.toPoint())) {
+			auto bottomPosition = mSnippingAreaGeometry.bottomRight().toPoint();
+			textRect.moveBottomRight(bottomPosition - QPoint(40, 40));
+			boundingRect.moveBottomRight(bottomPosition - mRectOffset);
 		}
 
 		painter->setBrush(*mRectBrush);
@@ -55,7 +56,7 @@ void AbstractSnippingAreaInfoText::paint(QPainter *painter)
 	}
 }
 
-void AbstractSnippingAreaInfoText::handleMouseMove(const QPoint &pos)
+void AbstractSnippingAreaInfoText::handleMouseMove(const QPointF &pos)
 {
 	mCurrentMousePos = pos;
 }

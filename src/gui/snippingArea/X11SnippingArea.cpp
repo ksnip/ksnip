@@ -20,26 +20,19 @@
 #include "X11SnippingArea.h"
 
 X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) :
-    AbstractSnippingArea(config),
-    mConfig(config)
+    AbstractSnippingArea(config)
 {
 	setWindowFlags(windowFlags() | Qt::Tool | Qt::X11BypassWindowManagerHint);
 
-    connect(mConfig.data(), &IConfig::snippingAreaChangedChanged, this, &X11SnippingArea::updateOffset);
-
 	calculateDesktopGeometry();
-    updateOffset();
 }
 
-QRect X11SnippingArea::selectedRectArea() const
+QRect X11SnippingArea::getSelectedRectArea() const
 {
 	if(isBackgroundTransparent()) {
 		return mCaptureArea;
 	} else {
-        auto xWithOffset = static_cast<int>(mCaptureArea.x() - mOffset.x());
-        auto yWithOffset = static_cast<int>(mCaptureArea.y() - mOffset.y());
-        auto rect = QRect(xWithOffset, yWithOffset, mCaptureArea.width(), mCaptureArea.height());
-        return mHdpiScaler.scale(rect);
+        return mHdpiScaler.scale(mCaptureArea);
 	}
 }
 
@@ -49,9 +42,9 @@ void X11SnippingArea::setFullScreen()
     QWidget::showFullScreen();
 }
 
-QRectF X11SnippingArea::getSnippingAreaGeometry() const
+QSizeF X11SnippingArea::getSnippingAreaGeometry() const
 {
-    return { mOffset , mDesktopGeometry.size() };
+    return mDesktopGeometry.size();
 }
 
 void X11SnippingArea::calculateDesktopGeometry()
@@ -67,13 +60,4 @@ void X11SnippingArea::calculateDesktopGeometry()
 
         mDesktopGeometry = mDesktopGeometry.united({x, y, width, height});
 	}
-}
-
-void X11SnippingArea::updateOffset()
-{
-    if(mConfig->snippingAreaOffsetEnable()) {
-        mOffset = mConfig->snippingAreaOffset();
-    } else {
-        mOffset = {};
-    }
 }

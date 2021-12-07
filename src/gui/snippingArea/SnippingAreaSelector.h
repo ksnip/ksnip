@@ -21,7 +21,6 @@
 #define KSNIP_SNIPPINGAREASELECTOR_H
 
 #include <QPainter>
-#include <QMouseEvent>
 
 #include "SnippingAreaAdorner.h"
 #include "src/backend/config/Config.h"
@@ -37,9 +36,9 @@ public:
 	void deactivate();
 	void paint(QPainter *painter);
 	bool isActive() const;
-	void handleMousePress(QMouseEvent *event);
-	void handleMouseRelease(QMouseEvent *event);
-	void handleMouseMove(QMouseEvent *event);
+	void handleMousePress(const QPointF &pos);
+	void handleMouseRelease();
+	void handleMouseMove(const QPointF &pos);
 	void setBackgroundImage(const QPixmap *background);
 
 signals:

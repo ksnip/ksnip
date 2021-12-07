@@ -27,7 +27,7 @@ class AdornerPositionInfo
 public:
 	explicit AdornerPositionInfo();
 	~AdornerPositionInfo();
-	void update(const QPoint &mousePosition);
+	void update(const QPoint &mousePosition, const QRect &screenRect);
 	void paint(QPainter *painter, const QColor &color);
 
 private:

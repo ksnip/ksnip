@@ -28,22 +28,18 @@ class X11SnippingArea : public AbstractSnippingArea
 public:
 	explicit X11SnippingArea(const QSharedPointer<IConfig> &config);
 	~X11SnippingArea() override = default;
-    QRect selectedRectArea() const override;
 
 protected:
-	void setFullScreen() override;
-	QRectF getSnippingAreaGeometry() const override;
+    QRect getSelectedRectArea() const override;
+    void setFullScreen() override;
+    QSizeF getSize() const override;
 
 private:
 	QRectF mDesktopGeometry;
-	QPointF mOffset;
 	HdpiScaler mHdpiScaler;
     QSharedPointer<IConfig> mConfig;
 
 	void calculateDesktopGeometry();
-
-private slots:
-    void updateOffset();
 };
 
 #endif //KSNIP_X11SNIPPINGAREA_H

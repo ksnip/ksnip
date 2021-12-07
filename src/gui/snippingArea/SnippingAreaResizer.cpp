@@ -75,10 +75,9 @@ bool SnippingAreaResizer::isActive() const
 	return mIsActive;
 }
 
-void SnippingAreaResizer::handleMousePress(QMouseEvent *event)
+void SnippingAreaResizer::handleMousePress(const QPointF &pos)
 {
 	if(mIsActive) {
-		auto pos = event->pos();
 		for(const auto handle : mHandles) {
 			if(handle.contains(pos)) {
 				mIsGrabbed = true;
@@ -95,10 +94,8 @@ void SnippingAreaResizer::handleMousePress(QMouseEvent *event)
 	}
 }
 
-void SnippingAreaResizer::handleMouseRelease(QMouseEvent *event)
+void SnippingAreaResizer::handleMouseRelease()
 {
-	Q_UNUSED(event)
-
 	if(mIsActive && mIsGrabbed) {
 		mIsGrabbed = false;
 		mGrabOffset = {};
@@ -106,13 +103,13 @@ void SnippingAreaResizer::handleMouseRelease(QMouseEvent *event)
 	}
 }
 
-void SnippingAreaResizer::handleMouseMove(QMouseEvent *event)
+void SnippingAreaResizer::handleMouseMove(const QPointF &pos)
 {
 	if (mIsActive) {
 		if (mIsGrabbed) {
-			updateCurrentRect(event->pos());
+			updateCurrentRect(pos);
 		} else {
-			updateCursor(event->pos());
+			updateCursor(pos);
 		}
 	}
 }
@@ -153,7 +150,7 @@ void SnippingAreaResizer::handleKeyRelease(QKeyEvent *event)
 	}
 }
 
-void SnippingAreaResizer::updateCursor(const QPoint &pos)
+void SnippingAreaResizer::updateCursor(const QPointF &pos)
 {
 	if (mHandles[1].contains(pos) || mHandles[5].contains(pos)) {
 		emit cursorChanged(Qt::SizeVerCursor);
@@ -166,7 +163,7 @@ void SnippingAreaResizer::updateCursor(const QPoint &pos)
 	}
 }
 
-void SnippingAreaResizer::updateCurrentRect(const QPoint &point)
+void SnippingAreaResizer::updateCurrentRect(const QPointF &point)
 {
 	if(mGrabbedHandleIndex == -1){
 		mCurrentRect.moveTo(point - mGrabOffset);

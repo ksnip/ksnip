@@ -70,29 +70,25 @@ bool SnippingAreaSelector::isActive() const
 	return mIsActive;
 }
 
-void SnippingAreaSelector::handleMousePress(QMouseEvent *event)
+void SnippingAreaSelector::handleMousePress(const QPointF &pos)
 {
 	if(mIsActive) {
-		mMouseDownPos = event->pos();
+		mMouseDownPos = pos;
 		setIsMouseDown(true);
 		rectChanged(QRectF(mMouseDownPos, mMouseDownPos));
 	}
 }
 
-void SnippingAreaSelector::handleMouseRelease(QMouseEvent *event)
+void SnippingAreaSelector::handleMouseRelease()
 {
-	Q_UNUSED(event)
-
 	if(mIsActive) {
 		setIsMouseDown(false);
 	}
 }
 
-void SnippingAreaSelector::handleMouseMove(QMouseEvent *event)
+void SnippingAreaSelector::handleMouseMove(const QPointF &pos)
 {
 	if(mIsActive) {
-		const auto pos = event->pos();
-
 		if(mIsMouseDown) {
 			const auto rect = QRectF(mMouseDownPos, pos).normalized();
 			updateCurrentRect(rect, pos);

@@ -24,7 +24,7 @@ MacSnippingArea::MacSnippingArea(const QSharedPointer<IConfig> &config) : Abstra
     setWindowFlags(windowFlags() | Qt::WindowFullscreenButtonHint);
 }
 
-QRect MacSnippingArea::selectedRectArea() const
+QRect MacSnippingArea::getSelectedRectArea() const
 {
     return mHdpiScaler.scale(mCaptureArea);
 }
@@ -35,7 +35,7 @@ void MacSnippingArea::setFullScreen()
     QWidget::showFullScreen();
 }
 
-QRectF MacSnippingArea::getSnippingAreaGeometry() const
+QSizeF MacSnippingArea::getSize() const
 {
-    return QRectF(geometry());
+    return QSizeF(geometry().size());
 }

@@ -21,7 +21,6 @@
 
 WinSnippingArea::WinSnippingArea(const QSharedPointer<IConfig> &config) :
     AbstractSnippingArea(config),
-    mConfig(config),
     mIsFullScreenSizeSet(false),
     mIsMultipleScaledScreens(false)
 {
@@ -30,21 +29,17 @@ WinSnippingArea::WinSnippingArea(const QSharedPointer<IConfig> &config) :
     connect(qGuiApp, &QGuiApplication::screenRemoved, this, &WinSnippingArea::init);
     connect(qGuiApp, &QGuiApplication::screenAdded, this, &WinSnippingArea::init);
 
-    connect(mConfig.data(), &IConfig::snippingAreaChangedChanged, this, &WinSnippingArea::updateOffset);
-
     init();
 }
 
-QRect WinSnippingArea::selectedRectArea() const
+QRect WinSnippingArea::getSelectedRectArea() const
 {
     if(isBackgroundTransparent()) {
         auto topLeft = mapToGlobal(mCaptureArea.topLeft());
         auto bottomRight = mapToGlobal(mCaptureArea.bottomRight());
         return {topLeft, bottomRight};
     } else {
-		auto xWithOffset = static_cast<int>(mCaptureArea.x() - mOffset.x());
-		auto yWithOffset = static_cast<int>(mCaptureArea.y() - mOffset.y());
-        return mHdpiScaler.scale({xWithOffset, yWithOffset, mCaptureArea.width(), mCaptureArea.height()});
+        return mHdpiScaler.scale(mCaptureArea);
     }
 }
 
@@ -72,18 +67,18 @@ void WinSnippingArea::setFullScreen()
     QWidget::show();
 }
 
-QRectF WinSnippingArea::getSnippingAreaGeometry() const
+QSizeF WinSnippingArea::getSize() const
 {
     if (mIsMultipleScaledScreens) {
-        return { mOffset.x(), mOffset.y(), mFullScreenRect.width() / 2, mFullScreenRect.height() / 2 };
+        return { static_cast<double>(mFullScreenRect.width()) / 2, static_cast<double>(mFullScreenRect.height()) / 2 };
     } else {
-        return { mOffset.x(), mOffset.y(), geometry().width(), geometry().height() };
+        return { static_cast<double>(geometry().width()), static_cast<double>(geometry().height()) };
     }
 }
 
-QPoint WinSnippingArea::getLocalCursorPosition() const
+QPoint WinSnippingArea::getCursorPosition() const
 {
-    return mapFromGlobal(QCursor::pos());
+    return mapFromGlobal(AbstractSnippingArea::getCursorPosition());
 }
 
 void WinSnippingArea::setupScalingVariables()
@@ -98,16 +93,16 @@ void WinSnippingArea::setupScalingVariables()
         }
 
         if (screenGeometry.x() != 0) {
-            mScaleOffset.setX(screenGeometry.x());
+            mScalePosition.setX(screenGeometry.x());
         }
 
         if (screenGeometry.y() != 0) {
-            mScaleOffset.setY(screenGeometry.y());
+            mScalePosition.setY(screenGeometry.y());
         }
     }
 
-    mScaleOffset.setX((mScaleOffset.x() - mFullScreenRect.x()) / mHdpiScaler.scaleFactor());
-    mScaleOffset.setY((mScaleOffset.y() - mFullScreenRect.y()) / mHdpiScaler.scaleFactor());
+    mScalePosition.setX((mScalePosition.x() - mFullScreenRect.x()) / mHdpiScaler.scaleFactor());
+    mScalePosition.setY((mScalePosition.y() - mFullScreenRect.y()) / mHdpiScaler.scaleFactor());
 
     mIsMultipleScaledScreens = scaledScreens > 1;
 }
@@ -118,16 +113,13 @@ void WinSnippingArea::init()
 
     mFullScreenRect = mWinWrapper.getFullScreenRect();
     setupScalingVariables();
-    updateOffset();
 }
 
-void WinSnippingArea::updateOffset()
+QPointF WinSnippingArea::getPosition() const
 {
-    if (mConfig->snippingAreaOffsetEnable()) {
-        mOffset = mConfig->snippingAreaOffset();
-    } else if (mIsMultipleScaledScreens) {
-        mOffset = mScaleOffset;
+    if (mIsMultipleScaledScreens) {
+        return mScalePosition;
     } else {
-        mOffset = {};
+        return AbstractSnippingArea::getPosition();
     }
 }

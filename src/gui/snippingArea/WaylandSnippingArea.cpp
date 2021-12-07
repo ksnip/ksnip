@@ -23,7 +23,7 @@ WaylandSnippingArea::WaylandSnippingArea(const QSharedPointer<IConfig> &config) 
 {
 }
 
-QRect WaylandSnippingArea::selectedRectArea() const
+QRect WaylandSnippingArea::getSelectedRectArea() const
 {
 	return mHdpiScaler.scale(mCaptureArea);
 }

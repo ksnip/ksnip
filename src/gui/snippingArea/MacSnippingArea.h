@@ -28,14 +28,14 @@ class MacSnippingArea : public AbstractSnippingArea
 public:
     explicit MacSnippingArea(const QSharedPointer<IConfig> &config);
     ~MacSnippingArea() override = default;
-    QRect selectedRectArea() const override;
 
 protected:
+    QRect getSelectedRectArea() const override;
     void setFullScreen() override;
-    QRectF getSnippingAreaGeometry() const override;
+    QSizeF getSize() const override;
 
 private:
     HdpiScaler mHdpiScaler;
-};F
+};
 
 #endif //KSNIP_MACSNIPPINGAREA_H

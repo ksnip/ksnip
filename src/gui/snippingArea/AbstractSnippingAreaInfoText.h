@@ -29,7 +29,7 @@ public:
 	explicit AbstractSnippingAreaInfoText(QObject *parent);
 	~AbstractSnippingAreaInfoText() override;
 	virtual void paint(QPainter *painter);
-	virtual void handleMouseMove(const QPoint &pos);
+	virtual void handleMouseMove(const QPointF &pos);
 	virtual void activate(const QRectF &snippingAreaGeometry);
 	virtual void deactivate();
 
@@ -41,10 +41,11 @@ private:
 	QPen *mRectPen;
 	QBrush *mRectBrush;
 	QString mInfoText;
-	QRect *mBaseInfoTextRect;
-	QPoint mCurrentMousePos;
+	QSize *mBaseInfoTextRectSize;
+	QPointF mCurrentMousePos;
 	bool mIsActive;
 	QRectF mSnippingAreaGeometry;
+	QPoint mRectOffset;
 };
 
 

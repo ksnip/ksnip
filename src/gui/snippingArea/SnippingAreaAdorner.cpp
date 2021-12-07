@@ -62,7 +62,7 @@ void SnippingAreaAdorner::update(const QPoint &mousePosition, const QRect &scree
 		if (mMouseIsDown) {
 			mSizeInfo.update(captureRect);
 		} else {
-			mPositionInfo.update(mousePosition);
+			mPositionInfo.update(mousePosition, screenRect);
 		}
 	}
 

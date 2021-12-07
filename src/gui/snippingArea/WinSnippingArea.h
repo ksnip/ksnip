@@ -29,20 +29,19 @@ class WinSnippingArea : public AbstractSnippingArea
 public:
     explicit WinSnippingArea(const QSharedPointer<IConfig> &config);
     ~WinSnippingArea() override = default;
-    QRect selectedRectArea() const override;
 
 protected:
+    QRect getSelectedRectArea() const override;
     void setFullScreen() override;
-    QRectF getSnippingAreaGeometry() const override;
-    QPoint getLocalCursorPosition() const override;
+    QSizeF getSize() const override;
+    QPoint getCursorPosition() const override;
+    QPointF getPosition() const override;
 
 private:
-    QPointF mScaleOffset;
-    QPointF mOffset;
+    QPointF mScalePosition;
     QRect mFullScreenRect;
     HdpiScaler mHdpiScaler;
     WinWrapper mWinWrapper;
-    QSharedPointer<IConfig> mConfig;
     bool mIsFullScreenSizeSet;
     bool mIsMultipleScaledScreens;
 
@@ -50,7 +49,6 @@ private:
 
 private slots:
     void init();
-    void updateOffset();
 };
 
 #endif //KSNIP_WINSNIPPINGAREA_H

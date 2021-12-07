@@ -42,7 +42,7 @@ void AdornerMagnifyingGlass::update(const QPoint &mousePosition, const QRect &sc
 	}
 
 	updatePosition(mousePosition, screenRect);
-	updateImage(mousePosition);
+	updateImage(mousePosition - screenRect.topLeft());
 	updateCrossHair();
 }
 

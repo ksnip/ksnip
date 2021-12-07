@@ -42,7 +42,7 @@ void X11SnippingArea::setFullScreen()
     QWidget::showFullScreen();
 }
 
-QSizeF X11SnippingArea::getSnippingAreaGeometry() const
+QSizeF X11SnippingArea::getSize() const
 {
     return mDesktopGeometry.size();
 }

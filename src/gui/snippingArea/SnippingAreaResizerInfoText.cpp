@@ -31,7 +31,8 @@ void SnippingAreaResizerInfoText::updateInfoText()
 			tr("Use arrow keys to move the selection."),
 			tr("Use arrow keys while pressing CTRL to move top left handle."),
 			tr("Use arrow keys while pressing ALT to move bottom right handle."),
-			tr("Confirm selection by pressing ENTER/RETURN or abort by pressing ESC."),
+			tr("Confirm selection by pressing ENTER/RETURN or mouse double-click anywhere."),
+			tr("Abort by pressing ESC."),
 			tr("This message can be disabled via settings.")
 	};
 

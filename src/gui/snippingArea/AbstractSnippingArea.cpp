@@ -145,6 +145,15 @@ void AbstractSnippingArea::mouseMoveEvent(QMouseEvent *event)
     QWidget::mouseMoveEvent(event);
 }
 
+void AbstractSnippingArea::mouseDoubleClickEvent(QMouseEvent *event)
+{
+	if (mResizer->isActive()) {
+		finishSelection();
+	}
+
+	QWidget::mouseDoubleClickEvent(event);
+}
+
 bool AbstractSnippingArea::isResizerSwitchRequired() const
 {
 	bool allowResizingRectSelection = mConfig->allowResizingRectSelection();

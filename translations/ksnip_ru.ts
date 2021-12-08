@@ -59,7 +59,7 @@
     </message>
     <message>
         <source>Take Capture</source>
-        <translation>Сделать снимок</translation>
+        <translation>Сделать снимок экрана</translation>
     </message>
     <message>
         <source>Include Cursor</source>
@@ -76,7 +76,7 @@
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation>Режим снимка</translation>
+        <translation>Режим снимка экрана</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
@@ -88,7 +88,7 @@
     </message>
     <message>
         <source>Upload image</source>
-        <translation>Загрузить изображение</translation>
+        <translation>Выгрузить изображение на внешний ресурс</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
@@ -126,7 +126,7 @@
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation>Пожалуйста, добавьте изображение водяного знака через Опции &gt; Настройки &gt; Параметры рисования &gt; Установить водянной знак/логотип</translation>
+	<translation>Пожалуйста, добавьте изображение водяного знака через Опции &gt; Настройки &gt; Параметры рисования &gt; Установить водяной знак/логотип</translation>
     </message>
 </context>
 <context>
@@ -159,15 +159,15 @@ make them more smooth.</source>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation>Запомните выбор инструмента аннотации и запустить при загрузке</translation>
+        <translation>Запомнить выбор инструмента аннотации и запустить его при загрузке</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation>Переключитесь на выбор инструмента после рисования элемента</translation>
+        <translation>Переключиться на выбор инструмента после рисования элемента</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation>Изменение нумератора обновит все номерные элементы</translation>
+        <translation>Изменение нумератора обновит все нумерованные элементы</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
@@ -250,7 +250,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation>Запомните положение главного окна при перемещении и восстановить при загрузке</translation>
+        <translation>Запомнить положение главного окна при перемещении и восстановить при загрузке</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
@@ -263,7 +263,7 @@ a new start of all instances.</source>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation>Скрывать панель инструментов и настройки аннтирования при запуске.
+	<translation>Скрывать панель инструментов и настройки аннотирования при запуске.
 Видимость панелей можно переключать клавишей Tab.</translation>
     </message>
     <message>
@@ -381,7 +381,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation>Использовать портал скриншота для снимков</translation>
+        <translation>Использовать screenshot Portal для снимков экрана</translation>
     </message>
 </context>
 <context>
@@ -504,7 +504,7 @@ Do you want to continue?</source>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation>Анонимная загрузка.</translation>
+        <translation>Анонимная выгрузка.</translation>
     </message>
     <message>
         <source>Url</source>
@@ -520,14 +520,14 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation>FTP-загрузчик</translation>
+        <translation>Выгрузка на FTP</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation>Успешно загружено</translation>
+        <translation>Успешно выгружено</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
@@ -555,7 +555,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation>Ошибка веб, проверьте вывод консоли.</translation>
+	<translation>Ошибка сети, проверьте вывод консоли.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
@@ -567,7 +567,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation>Загрузка по FTP успешно завершена.</translation>
+        <translation>Выгрузка на FTP-сервер успешно завершена.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
@@ -583,11 +583,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation>Загрузочный скрипт %1 завершился успешно.</translation>
+        <translation>Скрипт выгрузки %1 завершился успешно.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation>Загружено в %1</translation>
+        <translation>Выгружено на %1</translation>
     </message>
 </context>
 <context>
@@ -614,7 +614,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Capture Window under Cursor</source>
-        <translation>Снимок под курсором</translation>
+	<translation>Снимок окна под курсором мыши</translation>
     </message>
     <message>
         <source>Global HotKeys</source>
@@ -643,13 +643,13 @@ Disabling this option makes also the action shortcuts ksnip only.</source>
     <name>ImageGrabberSettings</name>
     <message>
         <source>Capture mouse cursor on screenshot</source>
-        <translation>Показывать курсор мыши во время снимка</translation>
+	<translation>Показывать курсор мыши на снимке экрана</translation>
     </message>
     <message>
         <source>Should mouse cursor be visible on
 screenshots.</source>
-        <translation>Отображать курсор мыши 
-во время снимка.</translation>
+        <translation>Должен ли быть виден курсор мыши
+во время снимка экрана.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
@@ -681,7 +681,7 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation>Показать главное окно после захвата скриншота</translation>
+	<translation>Показать главное окно после выполнения снимка экрана</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
@@ -846,7 +846,7 @@ Changing requires restart.</source>
         <source>Delay in seconds between triggering
 and capturing screenshot.</source>
         <translation>Задержка в секундах перед тем,
-как будет сделан скриншот.</translation>
+как будет сделан снимок экрана.</translation>
     </message>
     <message>
         <source>s</source>
@@ -859,7 +859,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Save Screen Capture to file system</source>
-        <translation>Сохранить скриншот в файловой системе</translation>
+	<translation>Сохранить снимок экрана в файловой системе</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -867,7 +867,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Copy Screen Capture to clipboard</source>
-        <translation>Копировать скриншот в буфер обмена</translation>
+	<translation>Копировать снимок экрана в буфер обмена</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -887,7 +887,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Crop Screen Capture</source>
-        <translation>Обрезать снимок</translation>
+	<translation>Обрезать снимок экрана</translation>
     </message>
 </context>
 <context>
@@ -898,7 +898,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload</source>
-        <translation>Выгрузить</translation>
+        <translation>Выгрузить на внешний ресурс</translation>
     </message>
     <message>
         <source>Print</source>
@@ -950,7 +950,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation>Добавить водянной знак/логотип</translation>
+	<translation>Добавить водяной знак/логотип</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
@@ -982,7 +982,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation>Закрепить снимок на переднем плане в безрамочном окне</translation>
+	<translation>Закрепить снимок экрана на переднем плане в безрамочном окне</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
@@ -994,11 +994,11 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation>Открыть расположение</translation>
+	<translation>Открыть папку с файлом</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>Просмотр</translation>
+	<translation>&amp;Просмотр</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1026,7 +1026,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation>Открыть последний файл</translation>
+	<translation>&amp;Последние файлы</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
@@ -1034,7 +1034,7 @@ and capturing screenshot.</source>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation>Загрузить снимок во внешней сервис</translation>
+	<translation>Передать снимок экрана на внешний ресурс</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
@@ -1196,8 +1196,8 @@ and capturing screenshot.</source>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation>При включении каждый раз будет перезаписываться папка 
-сохранения, указанная в настройках, на последнюю используемую.</translation>
+        <translation>При включении каждый раз будет перезаписываться путь 
+для сохранения, указанный в настройках, на последний используемый.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
@@ -1257,8 +1257,8 @@ Not all image formats support the full range, JPEG does.</source>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation>Путь к скрипту, вызываемому для загрузки. В процессе загрузки скрипт будет вызван
-с путём к временному PNG-файлу в качестве единственного аргумента.</translation>
+        <translation>Путь к скрипту, вызываемому для выгрузки. В процессе выгрузки скрипт будет вызван
+с путём к временному PNG-файлу, в качестве единственного аргумента.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1270,16 +1270,16 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation>Выбрать скрипт загрузки</translation>
+        <translation>Выбрать скрипт выгрузки</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation>Прерваться, если скрипт загрузки напишет в стандартный поток ошибок</translation>
+        <translation>Остановить, если скрипт выгрузки напишет в стандартный поток ошибок</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation>Отметит загрузку как неудачную, если скрипт напишет в стандартный поток ошибок.
+        <translation>Отметит выгрузку как неудачную, если скрипт напишет в стандартный поток ошибок.
 Без этой опции ошибки скрипта будут проигнорированы.</translation>
     </message>
     <message>
@@ -1321,7 +1321,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Annotator</source>
-        <translation>Параметры аннотирования</translation>
+        <translation>Параметры рисования</translation>
     </message>
     <message>
         <source>HotKeys</source>
@@ -1429,11 +1429,11 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation>При включении - блокирует фон от изменений
-в течении выделение прямоугольной области. 
-Также меняет поведение отложенных снимков 
-экрана, при включенной опции - задержка 
-включается перед отображением зоны 
+        <translation>При включении - блокирует задний фон от изменений
+в процессе выделения области захвата. 
+Также меняет поведение снимков экрана с задержкой, 
+при включенной опции - задержка
+включается до захвата области 
 выбора, при выключенной - после.
 Эта опция всегда отключена для Wayland
 и всегда включена для MacOs.</translation>
@@ -1565,7 +1565,7 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation>Добавить наклейки</translation>
+	<translation>Добавить стикеры</translation>
     </message>
 </context>
 <context>
@@ -1649,15 +1649,15 @@ service when such exists. Change requires restart to take effect.</source>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation>Необходим скрипт загрузки</translation>
+        <translation>Необходим скрипт выгрузки</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation>Пожалуйста добавьте скрипт загрузки через Опции → Настройки → Скрипт загрузки</translation>
+        <translation>Пожалуйста добавьте скрипт выгрузки через Опции → Настройки → Выгрузка → Выгрузка через скрипт → Скрипт</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation>Загрузка снимка</translation>
+        <translation>Выгрузка снимка экрана на внешний ресурс</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
@@ -1668,7 +1668,7 @@ service when such exists. Change requires restart to take effect.</source>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation>Запрашивать подтверждение перед загрузкой</translation>
+        <translation>Запрашивать подтверждение перед выгрузкой</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
@@ -1684,7 +1684,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation>Выгрузка</translation>
+        <translation>Выгрузка на внешний ресурс</translation>
     </message>
     <message>
         <source>FTP</source>

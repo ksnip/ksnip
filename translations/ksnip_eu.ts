@@ -276,12 +276,13 @@ Kaien ikusgarritasuna Tab teklarekin txandakatu daiteke.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Gaitu arazketa</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Arazte-irteera gaitzen du kontsolan idatzita.
+Ksnip berrabiarazi behar da eragina izateko.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
@@ -393,11 +394,11 @@ Nahi duzu gordetzea?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Galdera orokorrak edo ideiak badituzu edo ksnip-i buruz hitz egin nahi baduzu,&lt;br/&gt;sartu gure %1 edo %2 zerbitzarian.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erabili %1 akatsen berri emateko.</translation>
     </message>
 </context>
 <context>
@@ -444,19 +445,19 @@ Jarraitu nahi duzu?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip irabazi asmorik gabeko copyleft libreko software proiektu bat da, eta&lt;br/&gt;oraindik estali beharreko kostu batzuk ditu,&lt;br/&gt;esaterako, domeinu-kostuak edo hardware-kostuak plataforma anitzeko zerbitzua emateko.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Garatzaileei garagardo bat edo kafe bat gonbidatuz lagundu nahi baduzu edo besterik gabe eskertu nahi baduzu egiten ari den lana&lt;br/&gt;, %1 hemen%2 egin dezakezu.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Githuben babeslea izan nahi duzu?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hori ere posible da, %1hemen%2.</translation>
     </message>
 </context>
 <context>
@@ -501,11 +502,11 @@ Jarraitu nahi duzu?</translation>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Behartu karga anonimoa.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Url</translation>
     </message>
     <message>
         <source>Username</source>
@@ -513,11 +514,11 @@ Jarraitu nahi duzu?</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasahitza</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP kargatzailea</translation>
     </message>
 </context>
 <context>
@@ -564,19 +565,19 @@ Jarraitu nahi duzu?</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP karga behar bezala burutu da.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Errore ezezaguna</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Konexio errorea.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Baimen errorea.</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
@@ -584,7 +585,7 @@ Jarraitu nahi duzu?</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1-era kargatu da</translation>
     </message>
 </context>
 <context>
@@ -696,11 +697,11 @@ leiho nagusia ezkutuan edo minimizatuta dagoenean.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Behartu Generic Wayland (xdg-desktop-portal) pantaila-argazkia</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Eskalatu Generic Wayland (xdg-desktop-portal) pantaila-argazkia</translation>
     </message>
 </context>
 <context>
@@ -1055,7 +1056,7 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Irudi fitxategiak</translation>
     </message>
 </context>
 <context>
@@ -1138,11 +1139,11 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Irudiari %1 izen berria ezarri zaio</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezin izan da %1 izena ezarri irudiari</translation>
     </message>
 </context>
 <context>
@@ -1165,15 +1166,15 @@ eta pantaila-argazkiaren artean.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Irudi fitxategiak</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 izenarekin gorde da</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezin izan da %1 izenarekin gorde</translation>
     </message>
 </context>
 <context>
@@ -1358,7 +1359,7 @@ Ez badago, dena kopiatzen da.</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP kargatzailea</translation>
     </message>
 </context>
 <context>
@@ -1628,7 +1629,7 @@ zerbitzua erabiltzen baldin badago. Aldaketak berrabiaraztea eskatzen du eragina
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Bistaratu erretiluko ikonoaren jakinarazpenak</translation>
     </message>
 </context>
 <context>
@@ -1639,7 +1640,7 @@ zerbitzua erabiltzen baldin badago. Aldaketak berrabiaraztea eskatzen du eragina
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Irudi fitxategiak</translation>
     </message>
 </context>
 <context>
@@ -1685,7 +1686,7 @@ zerbitzua erabiltzen baldin badago. Aldaketak berrabiaraztea eskatzen du eragina
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>

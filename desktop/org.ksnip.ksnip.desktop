@@ -6,29 +6,35 @@ Terminal=false
 StartupNotify=false
 Name=ksnip
 GenericName=ksnip Screenshot Tool
+GenericName[ru]=Создание снимков экрана
 Categories=Utility;
 Actions=Area;LastArea;FullScreen;Window;
 MimeType=image/bmp;image/gif;image/jpeg;image/jpg;image/png;
 Comment=Cross-platform screenshot tool that provides many annotation features for your screenshots.
 Comment[pt_BR]=Ferramenta de captura de tela de Cross-plataforma que fornece muitos recursos de anotação para suas capturas de tela.
+Comment[ru]=Кросс-платформенный инструмент для создания снимков экрана, который предоставляет множество функций их аннотирования.
 X-KDE-DBUS-Restricted-Interfaces=org.kde.kwin.Screenshot,org.kde.KWin.ScreenShot2
 
 [Desktop Action Area]
 Exec=ksnip -r -c
 Icon=ksnip
 Name=Capture a rectangular area
+Name[ru]=Снимок выделенной области
 
 [Desktop Action LastArea]
 Exec=ksnip -l -c
 Icon=ksnip
 Name=Capture last selected rectangular area
+Name[ru]=Снимок последней области
 
 [Desktop Action FullScreen]
 Exec=ksnip -m -c
 Icon=ksnip
 Name=Capture a fullscreen
+Name[ru]=Снимок всего экрана
 
 [Desktop Action Window]
 Exec=ksnip -a -c
 Icon=ksnip
 Name=Capture the focused window
+Name[ru]=Снимок активного экрана

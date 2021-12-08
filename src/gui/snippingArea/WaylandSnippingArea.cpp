@@ -23,9 +23,9 @@ WaylandSnippingArea::WaylandSnippingArea(const QSharedPointer<IConfig> &config) 
 {
 }
 
-QRect WaylandSnippingArea::getSelectedRectArea() const
+QRect WaylandSnippingArea::selectedRectArea() const
 {
-	return mHdpiScaler.scale(mCaptureArea);
+	return mHdpiScaler.scale(getCaptureArea());
 }
 
 void WaylandSnippingArea::grabKeyboardFocus()

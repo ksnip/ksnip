@@ -32,14 +32,16 @@ WinSnippingArea::WinSnippingArea(const QSharedPointer<IConfig> &config) :
     init();
 }
 
-QRect WinSnippingArea::getSelectedRectArea() const
+QRect WinSnippingArea::selectedRectArea() const
 {
+    auto captureArea = getCaptureArea();
+
     if(isBackgroundTransparent()) {
-        auto topLeft = mapToGlobal(mCaptureArea.topLeft());
-        auto bottomRight = mapToGlobal(mCaptureArea.bottomRight());
+        auto topLeft = mapToGlobal(captureArea.topLeft());
+        auto bottomRight = mapToGlobal(captureArea.bottomRight());
         return {topLeft, bottomRight};
     } else {
-        return mHdpiScaler.scale(mCaptureArea);
+        return mHdpiScaler.scale(captureArea);
     }
 }
 
@@ -76,7 +78,7 @@ QSizeF WinSnippingArea::getSize() const
     }
 }
 
-QPoint WinSnippingArea::getCursorPosition() const
+QPoint WinSnippingArea::getGlobalCursorPosition() const
 {
     return mapFromGlobal(AbstractSnippingArea::getCursorPosition());
 }

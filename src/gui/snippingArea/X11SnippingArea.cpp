@@ -27,12 +27,14 @@ X11SnippingArea::X11SnippingArea(const QSharedPointer<IConfig> &config) :
 	calculateDesktopGeometry();
 }
 
-QRect X11SnippingArea::getSelectedRectArea() const
+QRect X11SnippingArea::selectedRectArea() const
 {
-	if(isBackgroundTransparent()) {
-		return mCaptureArea;
+    auto captureArea = getCaptureArea();
+
+    if(isBackgroundTransparent()) {
+		return captureArea;
 	} else {
-        return mHdpiScaler.scale(mCaptureArea);
+        return mHdpiScaler.scale(captureArea);
 	}
 }
 

@@ -27,9 +27,9 @@ class WaylandSnippingArea : public X11SnippingArea
 public:
 	explicit WaylandSnippingArea(const QSharedPointer<IConfig> &config);
 	~WaylandSnippingArea() override = default;
+    QRect selectedRectArea() const override;
 
 protected:
-    QRect getSelectedRectArea() const override;
     void grabKeyboardFocus() override;
 
 private:

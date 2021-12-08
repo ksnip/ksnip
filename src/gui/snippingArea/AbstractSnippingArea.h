@@ -42,7 +42,7 @@ public:
     ~AbstractSnippingArea() override;
     void showWithoutBackground();
     void showWithBackground(const QPixmap& background);
-    virtual QRect selectedRectArea() const;
+    virtual QRect selectedRectArea() const = 0;
 	virtual QPixmap background() const;
     bool closeSnippingArea();
 
@@ -51,7 +51,6 @@ signals:
     void canceled();
 
 protected:
-    QRect mCaptureArea;
 	QRegion mClippingRegion;
 
     void mousePressEvent(QMouseEvent *event) override;
@@ -63,14 +62,15 @@ protected:
 	virtual bool isBackgroundTransparent() const;
     virtual void setFullScreen() = 0;
 	virtual QSizeF getSize() const = 0;
-	virtual QPoint getCursorPosition() const;
+	virtual QPoint getGlobalCursorPosition() const;
 	virtual void grabKeyboardFocus();
 	virtual QPointF getPosition() const;
 	virtual QRectF getGeometry() const;
-	virtual QRect getSelectedRectArea() const = 0;
+    QRect getCaptureArea() const;
 
 private:
-	QSharedPointer<IConfig> mConfig;
+    QRect mCaptureArea;
+    QSharedPointer<IConfig> mConfig;
 	QPixmap *mBackground;
 	SnippingAreaResizer *mResizer;
 	SnippingAreaSelector *mSelector;

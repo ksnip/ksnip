@@ -239,6 +239,10 @@ request to only grant screenshot permission once instead of for every screenshot
 4. Global Hotkeys don't work under Wayland, this is due to the secure nature of Wayland. As long as compositor developers
 don't provide an interface for us to work with Global Hotkeys, does won't be supported.
 
+### Screen Scaling (HiDPI)
+1. Qt is having issues with screen scaling, it can occur that the Snipping area is incorrectly positioned. As a workaround
+the Snipping Area position or offset can be configured so that it's placed correctly. Issue [#276]
+
 # Discussion & Community
 If you have general questions, ideas or just want to talk about ksnip, please join our [Discord][discord-badge-url] 
 or [IRC][libera-badge-url] server. 

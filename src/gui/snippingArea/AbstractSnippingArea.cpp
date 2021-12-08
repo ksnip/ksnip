@@ -72,10 +72,11 @@ void AbstractSnippingArea::showWithBackground(const QPixmap &background)
     showSnippingArea();
 }
 
-QRect AbstractSnippingArea::selectedRectArea() const
+QRect AbstractSnippingArea::getCaptureArea() const
 {
     auto offset = getPosition().toPoint();
-    return getSelectedRectArea().translated(-offset.x(), -offset.y());
+    const QRect &anAuto = mCaptureArea.translated(-offset.x(), -offset.y());
+    return anAuto;
 }
 
 void AbstractSnippingArea::showSnippingArea()
@@ -83,7 +84,7 @@ void AbstractSnippingArea::showSnippingArea()
 	startTimeout();
 	mIsSwitchPressed = false;
     setFullScreen();
-	mSelector->activate(getGeometry(), getCursorPosition());
+	mSelector->activate(getGeometry(), getGlobalCursorPosition());
 	mUnselectedRegionAlpha = mConfig->snippingAreaTransparency();
 	if(mConfig->showSnippingAreaInfoText()) {
 		mSelectorInfoText->activate(getGeometry(), mConfig->allowResizingRectSelection());
@@ -111,7 +112,7 @@ void AbstractSnippingArea::mousePressEvent(QMouseEvent *event)
         return;
     }
 
-    auto pos = getCursorPosition();
+    auto pos = event->pos();
     mResizer->handleMousePress(pos);
     mSelector->handleMousePress(pos);
 }
@@ -127,7 +128,7 @@ void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
 
 
     if(isResizerSwitchRequired() && !mResizer->isActive()) {
-        switchToResizer(getCursorPosition());
+        switchToResizer(event->pos());
     } else if(mSelector->isActive()){
 		finishSelection();
 	}
@@ -135,7 +136,7 @@ void AbstractSnippingArea::mouseReleaseEvent(QMouseEvent *event)
 
 void AbstractSnippingArea::mouseMoveEvent(QMouseEvent *event)
 {
-    auto pos = getCursorPosition();
+    auto pos = event->pos();
     mResizer->handleMouseMove(pos);
     mSelector->handleMouseMove(pos);
     mSelectorInfoText->handleMouseMove(pos);
@@ -207,7 +208,7 @@ bool AbstractSnippingArea::isBackgroundTransparent() const
     return mBackground == nullptr;
 }
 
-QPoint AbstractSnippingArea::getCursorPosition() const
+QPoint AbstractSnippingArea::getGlobalCursorPosition() const
 {
     return QCursor::pos();
 }

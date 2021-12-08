@@ -84,7 +84,7 @@
     <update_contact>damir.porobic@gmx.com</update_contact>
     <content_rating type="oars-1.0" />
     <releases>
-        <release type="stable" version="1.10.0" date="2021-12-01T00:00:00Z">
+        <release type="stable" version="1.10.0" date="2022-02-01T00:00:00Z">
             <description>
                 <ul>
                     <li>New: Set image save location on command line.</li>
@@ -98,6 +98,7 @@
                     <li>New kImageAnnotator: Add optional undo, redo, crop, scale and modify canvas buttons to dock widgets.</li>
                     <li>Fixed: Opens a new window for each capture.</li>
                     <li>Fixed: First cli invocation won't copy image to clipboard.</li>
+                    <li>Fixed: Snipping area incorrectly positioned with screen scaling.</li>
                     <li>Changed: Improve translation experience by using full sentences.</li>
                 </ul>
             </description>

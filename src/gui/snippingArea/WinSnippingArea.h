@@ -29,12 +29,12 @@ class WinSnippingArea : public AbstractSnippingArea
 public:
     explicit WinSnippingArea(const QSharedPointer<IConfig> &config);
     ~WinSnippingArea() override = default;
+    QRect selectedRectArea() const override;
 
 protected:
-    QRect getSelectedRectArea() const override;
     void setFullScreen() override;
     QSizeF getSize() const override;
-    QPoint getCursorPosition() const override;
+    QPoint getGlobalCursorPosition() const override;
     QPointF getPosition() const override;
 
 private:

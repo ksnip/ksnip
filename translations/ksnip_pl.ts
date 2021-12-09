@@ -449,15 +449,15 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeśli chcesz pomóc lub po prostu chcesz docenić wykonywaną pracę&lt;br/&gt;, częstując programistów piwem lub kawą, możesz to zrobić %1tutaj%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Czy możesz być sponsorem GitHub?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Możliwe również, %1tutaj%2.</translation>
     </message>
 </context>
 <context>
@@ -581,11 +581,11 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Przesyłanie skryptu %1 zakończone pomyślnie.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Przesłano do %1</translation>
     </message>
 </context>
 <context>
@@ -1056,7 +1056,7 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Pliki obrazów</translation>
     </message>
 </context>
 <context>
@@ -1139,11 +1139,11 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Pomyślnie zmieniono nazwę obrazu na %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie można zmienić nazwy obrazu na %1</translation>
     </message>
 </context>
 <context>
@@ -1166,15 +1166,15 @@ i wykonaniem zrzutu ekranu.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Pliki obrazów</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Zapisano w %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się zapisać obrazu w %1</translation>
     </message>
 </context>
 <context>
@@ -1629,7 +1629,7 @@ jeśli taka istnieje. Zmiana wymaga ponownego uruchomienia, aby zaczęła obowi�
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyświetl ikony powiadomień w zasobniku</translation>
     </message>
 </context>
 <context>
@@ -1640,7 +1640,7 @@ jeśli taka istnieje. Zmiana wymaga ponownego uruchomienia, aby zaczęła obowi�
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Pliki obrazów</translation>
     </message>
 </context>
 <context>

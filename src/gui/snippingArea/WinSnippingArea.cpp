@@ -80,7 +80,7 @@ QSizeF WinSnippingArea::getSize() const
 
 QPoint WinSnippingArea::getGlobalCursorPosition() const
 {
-    return mapFromGlobal(AbstractSnippingArea::getCursorPosition());
+    return mapFromGlobal(AbstractSnippingArea::getGlobalCursorPosition());
 }
 
 void WinSnippingArea::setupScalingVariables()

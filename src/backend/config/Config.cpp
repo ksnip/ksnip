@@ -1329,17 +1329,52 @@ void Config::setActions(const QList<Action> &actions)
 	emit hotKeysChanged();
 }
 
-QString Config::pluginOcrPath() const
+QString Config::pluginPath() const
 {
-	return loadValue(ConfigOptions::pluginOcrPathString()).toString();
+	return loadValue(ConfigOptions::pluginPathString()).toString();
 }
 
-void Config::setPluginOcrPath(const QString &path)
+void Config::setPluginPath(const QString &path)
 {
-	if (pluginOcrPath() == path) {
+	if (pluginPath() == path) {
 		return;
 	}
-	saveValue(ConfigOptions::pluginOcrPathString(), path);
+	saveValue(ConfigOptions::pluginPathString(), path);
+}
+
+QList<PluginInfo> Config::pluginInfos()
+{
+	QList<PluginInfo> pluginInfos;
+	auto count = mConfig.beginReadArray(ConfigOptions::pluginInfosString());
+	for (auto index = 0; index < count; index++) {
+		mConfig.setArrayIndex(index);
+		auto path = mConfig.value(ConfigOptions::pluginInfoPathString()).toString();
+		auto type = mConfig.value(ConfigOptions::pluginInfoTypeString()).value<PluginType>();
+		PluginInfo pluginInfo(type, path);
+		pluginInfos.append(pluginInfo);
+	}
+	mConfig.endArray();
+	return pluginInfos;
+}
+
+void Config::setPluginInfos(const QList<PluginInfo> &pluginInfos)
+{
+	auto savedPluginInfos = this->pluginInfos();
+	if(savedPluginInfos == pluginInfos) {
+		return;
+	}
+	
+	mConfig.remove(ConfigOptions::pluginInfosString());
+
+	auto count = pluginInfos.count();
+	mConfig.beginWriteArray(ConfigOptions::pluginInfosString());
+	for (auto index = 0; index < count; ++index) {
+		const auto& pluginInfo = pluginInfos.at(index);
+		mConfig.setArrayIndex(index);
+		mConfig.setValue(ConfigOptions::pluginInfoPathString(), pluginInfo.path());
+		mConfig.setValue(ConfigOptions::pluginInfoTypeString(), static_cast<int>(pluginInfo.type()));
+	}
+	mConfig.endArray();
 	emit pluginsChanged();
 }
 

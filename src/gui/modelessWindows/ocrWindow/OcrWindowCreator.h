@@ -23,6 +23,7 @@
 #include "OcrWindow.h"
 #include "IOcrWindowCreator.h"
 #include "src/plugins/IPluginManager.h"
+#include "src/plugins/interfaces/IPluginOcr.h"
 
 class OcrWindowCreator : public IOcrWindowCreator, public QObject
 {

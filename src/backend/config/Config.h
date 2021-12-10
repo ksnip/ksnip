@@ -32,6 +32,7 @@
 #include "src/common/helper/PathHelper.h"
 #include "src/common/constants/DefaultValues.h"
 #include "src/common/provider/directoryPathProvider/IDirectoryPathProvider.h"
+#include "src/plugins/PluginInfo.h"
 #include "src/gui/actions/Action.h"
 
 class Config : public IConfig
@@ -330,8 +331,11 @@ public:
 
 	// Plugins
 
-	QString pluginOcrPath() const override;
-	void setPluginOcrPath(const QString &path) override;
+	QString pluginPath() const override;
+	void setPluginPath(const QString &path) override;
+
+	QList<PluginInfo> pluginInfos() override;
+	void setPluginInfos(const QList<PluginInfo> &pluginInfos) override;
 
 private:
     QSettings mConfig;

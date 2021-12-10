@@ -125,7 +125,10 @@ public:
 	static QString actionIsCopyToClipboardEnabledString();
 	static QString actionIsSaveEnabledString();
 	static QString actionIsHideMainWindowEnabledString();
-	static QString pluginOcrPathString();
+	static QString pluginPathString();
+	static QString pluginInfosString();
+	static QString pluginInfoPathString();
+	static QString pluginInfoTypeString();
 
 private:
 	static QString applicationSectionString();

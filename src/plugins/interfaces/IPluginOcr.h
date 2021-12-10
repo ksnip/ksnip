@@ -22,10 +22,12 @@
 
 #include <QtPlugin>
 
-class IPluginOcr
+#include "IPlugin.h"
+
+class IPluginOcr : public IPlugin
 {
 public:
-	virtual ~IPluginOcr() = default;
+	~IPluginOcr() override = default;
 	virtual QString recognize(const QPixmap &pixmap) const = 0;
 };
 

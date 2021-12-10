@@ -2,7 +2,7 @@
  * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
+ * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
@@ -11,24 +11,29 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public License
+ * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IPLUGINMANAGER_H
-#define KSNIP_IPLUGINMANAGER_H
+#ifndef KSNIP_DIRECTORYSERVICE_H
+#define KSNIP_DIRECTORYSERVICE_H
 
-#include "src/common/enum/PluginType.h"
+#include <QDir>
 
-class IPluginManager
+#include "IDirectoryService.h"
+
+class DirectoryService : public IDirectoryService
 {
 public:
-	IPluginManager() = default;
-	~IPluginManager() = default;
-	virtual bool isAvailable(PluginType type) const = 0;
-	virtual QSharedPointer<QObject> get(PluginType type) const = 0;
+	DirectoryService() = default;
+	~DirectoryService() = default;
+	QList<QFileInfo> childDirectories(const QString &path) const override;
+	QList<QFileInfo> childFiles(const QString &path) const override;
+
+private:
+	QList<QFileInfo> getChildrenOfType(const QString &path, QFlags<QDir::Filter> filters) const;
 };
 
-#endif //KSNIP_IPLUGINMANAGER_H
+#endif //KSNIP_DIRECTORYSERVICE_H

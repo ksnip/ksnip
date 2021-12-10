@@ -28,6 +28,7 @@
 #include "src/common/enum/CaptureModes.h"
 
 class Action;
+class PluginInfo;
 
 class IConfig : public QObject
 {
@@ -325,8 +326,11 @@ public:
 
 	// Plugins
 
-	virtual QString pluginOcrPath() const = 0;
-	virtual void setPluginOcrPath(const QString &path) = 0;
+	virtual QString pluginPath() const = 0;
+	virtual void setPluginPath(const QString &path) = 0;
+
+	virtual QList<PluginInfo> pluginInfos() = 0;
+	virtual void setPluginInfos(const QList<PluginInfo> &pluginInfos) = 0;
 
 signals:
 	void annotatorConfigChanged() const;

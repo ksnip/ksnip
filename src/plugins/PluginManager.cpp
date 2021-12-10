@@ -19,40 +19,40 @@
 
 #include "PluginManager.h"
 
-PluginManager::PluginManager(const QSharedPointer<IConfig> &config, const QSharedPointer<ILogger> &logger) :
+PluginManager::PluginManager(const QSharedPointer<IConfig> &config, const QSharedPointer<IPluginLoader> &loader, const QSharedPointer<ILogger> &logger) :
 	mConfig(config),
+	mLoader(loader),
 	mLogger(logger)
 {
 	loadPlugins();
 }
 
-bool PluginManager::isOcrAvailable() const
+bool PluginManager::isAvailable(PluginType type)  const
 {
-	return !mPluginOcr.isNull();
+	return mPluginMap.contains(type);
 }
 
 void PluginManager::loadPlugins()
 {
-	auto pluginOcrPath = mConfig->pluginOcrPath();
-	if(!pluginOcrPath.isNull() && !pluginOcrPath.isEmpty()) {
-		mLogger->log(QString("Loading OCR Plugin from %1").arg(pluginOcrPath));
+	auto pluginInfos = mConfig->pluginInfos();
 
-		QPluginLoader pluginLoader(pluginOcrPath);
-		auto plugin = pluginLoader.instance();
-
-		if(plugin != nullptr) {
-			mPluginOcr = QSharedPointer<IPluginOcr>(qobject_cast<IPluginOcr*>(plugin));
+	for (const auto& pluginInfo : pluginInfos) {
+		auto plugin = mLoader->load(pluginInfo.path());
+		if(plugin.isNull()) {
+			mLogger->log(QString("Unable to load plugin %1 of type %2").arg(pluginInfo.path(), EnumTranslator::instance()->toString(pluginInfo.type())));
 		} else {
-			mLogger->log(QString("Unable to load OCR Plugin from %1").arg(pluginOcrPath));
+			mPluginMap[pluginInfo.type()] = plugin;
 		}
 	}
 }
 
-QString PluginManager::ocr(const QPixmap &pixmap) const
+QSharedPointer<QObject> PluginManager::get(PluginType type) const
 {
-	if(isOcrAvailable()) {
-		return mPluginOcr->recognize(pixmap);
+	if(isAvailable(type)) {
+		return mPluginMap[type];
 	} else {
+		mLogger->log(QString("Unavailable plugin type requested %1").arg(EnumTranslator::instance()->toString(type)));
+
 		return {};
 	}
 }

@@ -17,18 +17,17 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IPLUGINMANAGER_H
-#define KSNIP_IPLUGINMANAGER_H
+#ifndef KSNIP_IPLUGIN_H
+#define KSNIP_IPLUGIN_H
 
-#include "src/common/enum/PluginType.h"
+class QString;
 
-class IPluginManager
+class IPlugin
 {
 public:
-	IPluginManager() = default;
-	~IPluginManager() = default;
-	virtual bool isAvailable(PluginType type) const = 0;
-	virtual QSharedPointer<QObject> get(PluginType type) const = 0;
+	IPlugin() = default;
+	virtual ~IPlugin() = default;
+//	virtual QString version() const = 0;
 };
 
-#endif //KSNIP_IPLUGINMANAGER_H
+#endif //KSNIP_IPLUGIN_H

@@ -21,10 +21,11 @@
 #define KSNIP_ENUMTRANSLATOR_H
 
 #include <QObject>
-#include <QHash>
+#include <QMap>
 
 #include "src/common/enum/CaptureModes.h"
 #include "src/common/enum/UploadStatus.h"
+#include "src/common/enum/PluginType.h"
 
 class EnumTranslator : public QObject
 {
@@ -34,14 +35,17 @@ public:
 
 	QString toTranslatedString(CaptureModes captureMode) const;
 	QString toString(UploadStatus uploadStatus) const;
+	QString toString(PluginType pluginType) const;
 
 private:
-	QHash<CaptureModes, QString> mCaptureModeMap;
-	QHash<UploadStatus, QString> mUploadStatusMap;
+	QMap<CaptureModes, QString> mCaptureModeMap;
+	QMap<UploadStatus, QString> mUploadStatusMap;
+	QMap<PluginType, QString> mPluginTypeMap;
 
 	EnumTranslator();
 	void mapCaptureModeEnum();
 	void mapUploadStatusEnum();
+	void mapPluginTypeEnum();
 };
 
 #endif //KSNIP_ENUMTRANSLATOR_H

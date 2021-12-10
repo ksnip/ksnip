@@ -28,19 +28,29 @@ EnumTranslator *EnumTranslator::instance()
 QString EnumTranslator::toTranslatedString(CaptureModes captureMode) const
 {
 	Q_ASSERT(mCaptureModeMap.contains(captureMode));
-	return mCaptureModeMap.value(captureMode);
+
+	return mCaptureModeMap[captureMode];
 }
 
 QString EnumTranslator::toString(UploadStatus uploadStatus) const
 {
 	Q_ASSERT(mUploadStatusMap.contains(uploadStatus));
-	return mUploadStatusMap.value(uploadStatus);
+
+	return mUploadStatusMap[uploadStatus];
+}
+
+QString EnumTranslator::toString(PluginType pluginType) const
+{
+	Q_ASSERT(mPluginTypeMap.contains(pluginType));
+
+	return mPluginTypeMap[pluginType];
 }
 
 EnumTranslator::EnumTranslator()
 {
 	mapCaptureModeEnum();
 	mapUploadStatusEnum();
+	mapPluginTypeEnum();
 }
 
 void EnumTranslator::mapUploadStatusEnum()
@@ -68,4 +78,9 @@ void EnumTranslator::mapCaptureModeEnum()
 	mCaptureModeMap[CaptureModes::ActiveWindow] = tr("Active Window");
 	mCaptureModeMap[CaptureModes::WindowUnderCursor] = tr("Window Under Cursor");
 	mCaptureModeMap[CaptureModes::Portal] = tr("Screenshot Portal");
+}
+
+void EnumTranslator::mapPluginTypeEnum()
+{
+	mPluginTypeMap[PluginType::Ocr] = QLatin1String("OCR");
 }

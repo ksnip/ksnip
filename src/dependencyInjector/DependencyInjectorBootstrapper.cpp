@@ -31,6 +31,7 @@
 #include "src/backend/saver/SavePathProvider.h"
 #include "src/backend/saver/ImageSaver.h"
 #include "src/gui/fileService/FileService.h"
+#include "src/gui/directoryService/DirectoryService.h"
 #include "src/gui/clipboard/ClipboardAdapter.h"
 #include "src/gui/desktopService/DesktopServiceAdapter.h"
 #include "src/gui/messageBoxService/MessageBoxService.h"
@@ -47,6 +48,8 @@
 #include "src/common/provider/directoryPathProvider/DirectoryPathProvider.h"
 #include "src/common/provider/scaledSizeProvider/ScaledSizeProvider.h"
 #include "src/plugins/PluginManager.h"
+#include "src/plugins/PluginLoader.h"
+#include "src/plugins/PluginFinder.h"
 
 #if defined(__APPLE__)
 #include "src/backend/config/MacConfig.h"
@@ -98,6 +101,7 @@ void DependencyInjectorBootstrapper::BootstrapCommandLine(DependencyInjector *de
 void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependencyInjector)
 {
 	dependencyInjector->registerInstance<IFileService, FileService>();
+	dependencyInjector->registerInstance<IDirectoryService, DirectoryService>();
 	dependencyInjector->registerInstance<IImagePathStorage, ImagePathStorage>();
 	dependencyInjector->registerInstance<IClipboard, ClipboardAdapter>();
 	injectDesktopServiceAdapter(dependencyInjector);
@@ -107,7 +111,9 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 	dependencyInjector->registerInstance<IIconLoader, IconLoader>();
 	injectFileDialogService(dependencyInjector);
 	injectScaledSizeProvider(dependencyInjector);
-	dependencyInjector->registerInstance<IPluginManager, PluginManager, IConfig, ILogger>();
+	dependencyInjector->registerInstance<IPluginLoader, PluginLoader>();
+	dependencyInjector->registerInstance<IPluginManager, PluginManager, IConfig, IPluginLoader, ILogger>();
+	dependencyInjector->registerInstance<IPluginFinder, PluginFinder, IPluginLoader, IDirectoryService>();
 	dependencyInjector->registerInstance<IOcrWindowCreator, OcrWindowCreator, IPluginManager>();
 	dependencyInjector->registerInstance<IOcrWindowHandler, OcrWindowHandler, IOcrWindowCreator>();
 	dependencyInjector->registerInstance<IPinWindowCreator, PinWindowCreator>();

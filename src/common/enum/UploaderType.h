@@ -20,6 +20,8 @@
 #ifndef KSNIP_UPLOADERTYPE_H
 #define KSNIP_UPLOADERTYPE_H
 
+#include <QMetaType>
+
 enum class UploaderType
 {
 	Imgur,

@@ -39,7 +39,7 @@ class SaverSettings : public QGroupBox
 	Q_OBJECT
 public:
 	explicit SaverSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IFileDialogService> &fileDialogService);
-	~SaverSettings() override;
+	~SaverSettings() override = default;
 	void saveSettings();
 
 private:

@@ -17,33 +17,33 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_PLUGINMANAGER_H
-#define KSNIP_PLUGINMANAGER_H
+#ifndef KSNIP_PLUGINFINDER_H
+#define KSNIP_PLUGINFINDER_H
 
+#include <QString>
 #include <QSharedPointer>
+#include <QFileInfo>
 
-#include "IPluginManager.h"
+#include "IPluginFinder.h"
 #include "IPluginLoader.h"
 #include "PluginInfo.h"
-#include "src/backend/config/IConfig.h"
-#include "src/logging/ILogger.h"
-#include "src/common/helper/EnumTranslator.h"
+#include "src/plugins/interfaces/IPluginOcr.h"
+#include "src/gui/directoryService/IDirectoryService.h"
 
-class PluginManager : public IPluginManager
+class PluginFinder : public IPluginFinder
 {
 public:
-	explicit PluginManager(const QSharedPointer<IConfig> &config, const QSharedPointer<IPluginLoader> &loader, const QSharedPointer<ILogger> &logger);
-	~PluginManager() = default;
-	bool isAvailable(PluginType type) const override;
-	QSharedPointer<QObject> get(PluginType type) const override;
+	PluginFinder(const QSharedPointer<IPluginLoader> &loader, const QSharedPointer<IDirectoryService> &directoryService);
+	~PluginFinder() = default;
+	QList<PluginInfo> find(const QString &path) const override;
 
 private:
-	QSharedPointer<IConfig> mConfig;
 	QSharedPointer<IPluginLoader> mLoader;
-	QSharedPointer<ILogger> mLogger;
-	QMap<PluginType, QSharedPointer<QObject>> mPluginMap;
+	QSharedPointer<IDirectoryService> mDirectoryService;
 
-	void loadPlugins();
+	template<class T>
+	QSharedPointer<T> castTo(const QSharedPointer<QObject> &plugin) const;
+	QList<PluginInfo> findPluginsInDirectory(const QString &path) const;
 };
 
-#endif //KSNIP_PLUGINMANAGER_H
+#endif //KSNIP_PLUGINFINDER_H

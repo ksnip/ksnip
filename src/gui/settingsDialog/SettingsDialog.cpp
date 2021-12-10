@@ -27,6 +27,7 @@ SettingsDialog::SettingsDialog(
 		const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider,
 		const QSharedPointer<IFileDialogService> &fileDialogService,
 		const QSharedPointer<IPlatformChecker> &platformChecker,
+		const QSharedPointer<IPluginFinder> &pluginFinder,
 		QWidget *parent) :
 	QDialog(parent, Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
 	mOkButton(new QPushButton),
@@ -48,6 +49,7 @@ SettingsDialog::SettingsDialog(
 	mSnippingAreaSettings(new SnippingAreaSettings(mConfig, mScaledSizeProvider)),
 	mWatermarkSettings(new WatermarkSettings(mConfig, mScaledSizeProvider)),
 	mActionsSettings(new ActionsSettings(captureModes, platformChecker, mConfig)),
+	mPluginsSettings(new PluginsSettings(mConfig, fileDialogService, pluginFinder)),
 	mFtpUploaderSettings(new FtpUploaderSettings(mConfig))
 {
     setWindowTitle(QApplication::applicationName() + QLatin1String(" - ") + tr("Settings"));
@@ -76,6 +78,7 @@ SettingsDialog::~SettingsDialog()
     delete mWatermarkSettings;
     delete mActionsSettings;
     delete mFtpUploaderSettings;
+    delete mPluginsSettings;
 }
 
 void SettingsDialog::saveSettings()
@@ -94,6 +97,7 @@ void SettingsDialog::saveSettings()
     mWatermarkSettings->saveSettings();
 	mActionsSettings->saveSettings();
 	mFtpUploaderSettings->saveSettings();
+	mPluginsSettings->saveSettings();
 }
 
 void SettingsDialog::initGui()
@@ -123,6 +127,7 @@ void SettingsDialog::initGui()
 	mStackedLayout->addWidget(mWatermarkSettings);
 	mStackedLayout->addWidget(mHotKeySettings);
 	mStackedLayout->addWidget(mActionsSettings);
+	mStackedLayout->addWidget(mPluginsSettings);
 
 	auto application = new QTreeWidgetItem(mTreeWidget, { tr("Application") });
 	auto saver = new QTreeWidgetItem(application, { tr("Saver") });
@@ -138,6 +143,7 @@ void SettingsDialog::initGui()
 	auto watermark = new QTreeWidgetItem(annotator, { tr("Watermark") });
 	auto hotkeys = new QTreeWidgetItem(mTreeWidget, { tr("HotKeys") });
 	auto actions = new QTreeWidgetItem(mTreeWidget, { tr("Actions") });
+	auto plugins = new QTreeWidgetItem(mTreeWidget, { tr("Plugins") });
 
 	mNavigatorItems.append(application);
 	mNavigatorItems.append(saver);
@@ -153,6 +159,7 @@ void SettingsDialog::initGui()
 	mNavigatorItems.append(watermark);
 	mNavigatorItems.append(hotkeys);
 	mNavigatorItems.append(actions);
+	mNavigatorItems.append(plugins);
 
 	mTreeWidget->addTopLevelItem(application);
 	mTreeWidget->addTopLevelItem(imageGrabber);
@@ -160,6 +167,7 @@ void SettingsDialog::initGui()
 	mTreeWidget->addTopLevelItem(annotator);
     mTreeWidget->addTopLevelItem(hotkeys);
     mTreeWidget->addTopLevelItem(actions);
+    mTreeWidget->addTopLevelItem(plugins);
 	mTreeWidget->setHeaderHidden(true);
     mTreeWidget->setItemSelected(mNavigatorItems[0], true);
     mTreeWidget->setFixedWidth(mTreeWidget->minimumSizeHint().width() + mScaledSizeProvider->scaledWidth(100));

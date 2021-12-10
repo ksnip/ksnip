@@ -17,18 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IPLUGINMANAGER_H
-#define KSNIP_IPLUGINMANAGER_H
+#ifndef KSNIP_IPLUGINLOADER_H
+#define KSNIP_IPLUGINLOADER_H
 
-#include "src/common/enum/PluginType.h"
+class QObject;
+class QString;
 
-class IPluginManager
+class IPluginLoader
 {
 public:
-	IPluginManager() = default;
-	~IPluginManager() = default;
-	virtual bool isAvailable(PluginType type) const = 0;
-	virtual QSharedPointer<QObject> get(PluginType type) const = 0;
+	IPluginLoader() = default;
+	~IPluginLoader() = default;
+	virtual QSharedPointer<QObject> load(const QString &path) const = 0;
 };
 
-#endif //KSNIP_IPLUGINMANAGER_H
+#endif //KSNIP_IPLUGINLOADER_H

@@ -39,19 +39,6 @@ SaverSettings::SaverSettings(const QSharedPointer<IConfig> &config, const QShare
 	loadConfig();
 }
 
-SaverSettings::~SaverSettings()
-{
-	delete mAutoSaveNewCapturesCheckbox;
-	delete mPromptToSaveBeforeExitCheckbox;
-	delete mRememberSaveDirectoryCheckbox;
-	delete mSaveQualityDefaultRadioButton;
-	delete mSaveQualityFactorRadioButton;
-	delete mSaveLocationLabel;
-	delete mSaveLocationLineEdit;
-	delete mBrowseButton;
-	delete mSaveQualityGroupBox;
-}
-
 void SaverSettings::initGui()
 {
 	mAutoSaveNewCapturesCheckbox->setText(tr("Automatically save new captures to default location"));

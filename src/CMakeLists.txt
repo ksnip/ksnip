@@ -79,6 +79,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/imageAnnotator/IImageAnnotator.h
 	${CMAKE_SOURCE_DIR}/src/gui/desktopService/DesktopServiceAdapter.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/fileService/FileService.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/directoryService/DirectoryService.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/widgetVisibilityHandler/WidgetVisibilityHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/widgetVisibilityHandler/GnomeWaylandWidgetVisibilityHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/widgetVisibilityHandler/WidgetVisibilityHandlerFactory.cpp
@@ -110,6 +111,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/uploader/ImgurUploaderSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/uploader/ScriptUploaderSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/uploader/FtpUploaderSettings.cpp
+	${CMAKE_SOURCE_DIR}/src/gui/settingsDialog/plugins/PluginsSettings.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AboutDialog.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/AboutTab.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/aboutDialog/VersionTab.cpp
@@ -156,7 +158,10 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/logging/LogOutputHandler.cpp
 	${CMAKE_SOURCE_DIR}/src/logging/ConsoleLogger.cpp
 	${CMAKE_SOURCE_DIR}/src/logging/NoneLogger.cpp
+	${CMAKE_SOURCE_DIR}/src/plugins/PluginInfo.cpp
 	${CMAKE_SOURCE_DIR}/src/plugins/PluginManager.cpp
+	${CMAKE_SOURCE_DIR}/src/plugins/PluginFinder.cpp
+	${CMAKE_SOURCE_DIR}/src/plugins/PluginLoader.cpp
 	)
 
 if (APPLE)

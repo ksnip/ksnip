@@ -20,14 +20,15 @@
 #include "OcrWindowCreator.h"
 
 OcrWindowCreator::OcrWindowCreator(const QSharedPointer<IPluginManager> &pluginManager) :
-	mPluginManager(pluginManager)
+		mPluginManager(pluginManager)
 {
 
 }
 
 QSharedPointer<IModelessWindow> OcrWindowCreator::create(const QPixmap &pixmap, int windowId) const
 {
+	auto ocrPlugin = mPluginManager->get(PluginType::Ocr).objectCast<IPluginOcr>();
+	auto text = ocrPlugin->recognize(pixmap);
 	auto title = tr("OCR Window %1").arg(windowId);
-	auto text = mPluginManager->ocr(pixmap);
 	return QSharedPointer<OcrWindow>(new OcrWindow(text, title), &QObject::deleteLater);
 }

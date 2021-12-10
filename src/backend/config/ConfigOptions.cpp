@@ -444,9 +444,24 @@ QString ConfigOptions::actionIsHideMainWindowEnabledString()
 	return QLatin1String("IsHideMainWindowEnabled");
 }
 
-QString ConfigOptions::pluginOcrPathString()
+QString ConfigOptions::pluginPathString()
 {
-	return pluginsSectionString() + QLatin1String("PluginOcrPath");;
+	return pluginsSectionString() + QLatin1String("PluginOcrPath");
+}
+
+QString ConfigOptions::pluginInfosString()
+{
+	return pluginsSectionString() + QLatin1String("PluginInfos");
+}
+
+QString ConfigOptions::pluginInfoPathString()
+{
+	return pluginsSectionString() + QLatin1String("PluginInfoPath");
+}
+
+QString ConfigOptions::pluginInfoTypeString()
+{
+	return pluginsSectionString() + QLatin1String("PluginInfoType");
 }
 
 QString ConfigOptions::uploadScriptCopyOutputToClipboardString()

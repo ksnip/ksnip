@@ -24,6 +24,7 @@
 
 #include "src/backend/config/IConfig.h"
 #include "src/gui/actions/Action.h"
+#include "src/plugins/PluginInfo.h"
 
 class ConfigMock : public IConfig
 {
@@ -315,8 +316,11 @@ public:
 
 	// Plugins
 
-	MOCK_METHOD(QString, pluginOcrPath, (), (const, override));
-	MOCK_METHOD(void, setPluginOcrPath, (const QString &path), (override));
+	MOCK_METHOD(QString, pluginPath, (), (const, override));
+	MOCK_METHOD(void, setPluginPath, (const QString &path), (override));
+
+	MOCK_METHOD(QList<PluginInfo>, pluginInfos, (), (override));
+	MOCK_METHOD(void, setPluginInfos, (const QList<PluginInfo> &pluginInfos), (override));
 };
 
 #endif //KSNIP_CONFIGMOCK_H

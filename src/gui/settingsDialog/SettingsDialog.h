@@ -40,6 +40,7 @@
 #include "src/gui/settingsDialog/uploader/ScriptUploaderSettings.h"
 #include "src/gui/settingsDialog/uploader/FtpUploaderSettings.h"
 #include "src/gui/settingsDialog/actions/ActionsSettings.h"
+#include "src/gui/settingsDialog/plugins/PluginsSettings.h"
 #include "src/backend/config/IConfig.h"
 #include "src/common/provider/scaledSizeProvider/IScaledSizeProvider.h"
 
@@ -54,6 +55,7 @@ public:
 			const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider,
 			const QSharedPointer<IFileDialogService> &fileDialogService,
 			const QSharedPointer<IPlatformChecker> &platformChecker,
+			const QSharedPointer<IPluginFinder> &pluginFinder,
 			QWidget *parent);
     ~SettingsDialog() override;
 
@@ -76,6 +78,7 @@ private:
 	WatermarkSettings *mWatermarkSettings;
 	ActionsSettings *mActionsSettings;
 	FtpUploaderSettings *mFtpUploaderSettings;
+	PluginsSettings *mPluginsSettings;
 	QTreeWidget *mTreeWidget;
     QStackedLayout *mStackedLayout;
     QList<QTreeWidgetItem*> mNavigatorItems;

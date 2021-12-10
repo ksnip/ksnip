@@ -328,7 +328,7 @@ void MainWindow::setEnablements(bool enabled)
     mRenameAction->setEnabled(enabled);
     mModifyCanvasAction->setEnabled(enabled);
     mActionProcessor->setPostProcessingEnabled(enabled);
-	mOcrAction->setEnabled(mPluginManager->isOcrAvailable() && enabled);
+	mOcrAction->setEnabled(mPluginManager->isAvailable(PluginType::Ocr) && enabled);
 }
 
 void MainWindow::loadSettings()
@@ -661,6 +661,7 @@ void MainWindow::showSettingsDialog()
 				mDependencyInjector->get<IDirectoryPathProvider>(),
 				mDependencyInjector->get<IFileDialogService>(),
 				mDependencyInjector->get<IPlatformChecker>(),
+				mDependencyInjector->get<IPluginFinder>(),
 				this);
 		settingsDialog.exec();
 	});

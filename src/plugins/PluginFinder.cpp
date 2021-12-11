@@ -49,16 +49,10 @@ QList<PluginInfo> PluginFinder::findPluginsInDirectory(const QString &path) cons
 	for (const auto& childFileInfo : childFileInfos) {
 		auto plugin = mLoader->load(childFileInfo.filePath());
 
-		if (!plugin.isNull() && !castTo<IPluginOcr>(plugin).isNull()) {
+		if (plugin != nullptr && qobject_cast<IPluginOcr*>(plugin)) {
 			PluginInfo pluginInfo(PluginType::Ocr, childFileInfo.filePath());
 			plugins.append(pluginInfo);
 		}
 	}
 	return plugins;
-}
-
-template<class T>
-QSharedPointer<T> PluginFinder::castTo(const QSharedPointer<QObject> &plugin) const
-{
-	return QSharedPointer<T>(plugin.objectCast<T>());
 }

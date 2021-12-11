@@ -29,7 +29,7 @@ class PluginLoader : public IPluginLoader
 public:
 	PluginLoader() = default;
 	~PluginLoader() = default;
-	QSharedPointer<QObject> load(const QString &path) const override;
+	QObject* load(const QString &path) const override;
 };
 
 #endif //KSNIP_PLUGINLOADER_H

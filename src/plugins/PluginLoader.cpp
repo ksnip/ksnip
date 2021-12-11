@@ -19,8 +19,8 @@
 
 #include "PluginLoader.h"
 
-QSharedPointer<QObject> PluginLoader::load(const QString &path) const
+QObject* PluginLoader::load(const QString &path) const
 {
 	QPluginLoader pluginLoader(path);
-	return QSharedPointer<QObject>(pluginLoader.instance());
+	return pluginLoader.instance();
 }

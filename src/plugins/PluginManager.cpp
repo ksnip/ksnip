@@ -37,7 +37,7 @@ void PluginManager::loadPlugins()
 	auto pluginInfos = mConfig->pluginInfos();
 
 	for (const auto& pluginInfo : pluginInfos) {
-		auto plugin = mLoader->load(pluginInfo.path());
+		auto plugin = QSharedPointer<QObject>(mLoader->load(pluginInfo.path()));
 		if(plugin.isNull()) {
 			mLogger->log(QString("Unable to load plugin %1 of type %2").arg(pluginInfo.path(), EnumTranslator::instance()->toString(pluginInfo.type())));
 		} else {

@@ -41,8 +41,6 @@ private:
 	QSharedPointer<IPluginLoader> mLoader;
 	QSharedPointer<IDirectoryService> mDirectoryService;
 
-	template<class T>
-	QSharedPointer<T> castTo(const QSharedPointer<QObject> &plugin) const;
 	QList<PluginInfo> findPluginsInDirectory(const QString &path) const;
 };
 

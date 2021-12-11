@@ -28,7 +28,7 @@ class IPluginLoader
 public:
 	IPluginLoader() = default;
 	~IPluginLoader() = default;
-	virtual QSharedPointer<QObject> load(const QString &path) const = 0;
+	virtual QObject* load(const QString &path) const = 0;
 };
 
 #endif //KSNIP_IPLUGINLOADER_H

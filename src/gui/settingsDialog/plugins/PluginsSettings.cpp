@@ -106,7 +106,7 @@ void PluginsSettings::updatePluginTable()
 	for (auto i = 0; i < pluginCount; i++) {
 		auto pluginInfo = mDetectedPlugins[i];
 		auto name = new QTableWidgetItem(PathHelper::extractFilename(pluginInfo.path()));
-		auto version = new QTableWidgetItem("1.0.1");
+		auto version = new QTableWidgetItem(pluginInfo.version());
 		mTableWidget->setItem(i, 0, name);
 		mTableWidget->setItem(i, 1, version);
 	}

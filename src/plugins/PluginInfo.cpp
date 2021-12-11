@@ -19,8 +19,9 @@
 
 #include "PluginInfo.h"
 
-PluginInfo::PluginInfo(PluginType type, const QString &path) :
+PluginInfo::PluginInfo(PluginType type, const QString &version, const QString &path) :
 	mType(type),
+	mVersion(version),
 	mPath(path)
 {
 }
@@ -35,7 +36,12 @@ PluginType PluginInfo::type() const
 	return mType;
 }
 
+QString PluginInfo::version() const
+{
+	return mVersion;
+}
+
 bool operator==(const PluginInfo& left, const PluginInfo& right)
 {
-	return left.path() == right.path() && left.type() == right.type();
+	return left.path() == right.path() && left.type() == right.type() && left.version() == right.version();
 }

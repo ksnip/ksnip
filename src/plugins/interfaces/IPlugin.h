@@ -27,7 +27,7 @@ class IPlugin
 public:
 	IPlugin() = default;
 	virtual ~IPlugin() = default;
-//	virtual QString version() const = 0;
+	virtual QString version() const = 0;
 };
 
 #endif //KSNIP_IPLUGIN_H

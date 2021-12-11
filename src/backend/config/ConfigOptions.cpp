@@ -464,6 +464,11 @@ QString ConfigOptions::pluginInfoTypeString()
 	return pluginsSectionString() + QLatin1String("PluginInfoType");
 }
 
+QString ConfigOptions::pluginInfoVersionString()
+{
+	return pluginsSectionString() + QLatin1String("PluginInfoVersion");
+}
+
 QString ConfigOptions::uploadScriptCopyOutputToClipboardString()
 {
 	return uploadScriptSectionString() + QLatin1String("CopyOutputToClipboard");

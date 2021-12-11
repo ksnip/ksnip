@@ -27,14 +27,16 @@
 class PluginInfo
 {
 public:
-	PluginInfo(PluginType type, const QString &path);
+	PluginInfo(PluginType type, const QString &version, const QString &path);
 	~PluginInfo() = default;
 	QString path() const;
 	PluginType type() const;
+	QString version() const;
 
 private:
 	QString mPath;
 	PluginType mType;
+	QString mVersion;
 };
 
 bool operator==(const PluginInfo& left, const PluginInfo& right);

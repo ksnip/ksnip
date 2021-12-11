@@ -24,6 +24,7 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QApplication>
+
 #include "BuildConfig.h"
 
 class VersionTab : public QWidget

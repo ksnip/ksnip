@@ -24,11 +24,13 @@
 
 #include "IPlugin.h"
 
-class IPluginOcr : public IPlugin
+class IPluginOcr
 {
 public:
-	~IPluginOcr() override = default;
+	IPluginOcr() = default;
+	virtual ~IPluginOcr() = default;
 	virtual QString recognize(const QPixmap &pixmap) const = 0;
+	virtual QString version() const = 0;
 };
 
 #define IPluginOcr_iid "org.ksnip.plugin.ocr"

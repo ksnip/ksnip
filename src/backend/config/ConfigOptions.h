@@ -129,6 +129,7 @@ public:
 	static QString pluginInfosString();
 	static QString pluginInfoPathString();
 	static QString pluginInfoTypeString();
+	static QString pluginInfoVersionString();
 
 private:
 	static QString applicationSectionString();

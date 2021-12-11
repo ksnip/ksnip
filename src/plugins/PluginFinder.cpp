@@ -49,9 +49,12 @@ QList<PluginInfo> PluginFinder::findPluginsInDirectory(const QString &path) cons
 	for (const auto& childFileInfo : childFileInfos) {
 		auto plugin = mLoader->load(childFileInfo.filePath());
 
-		if (plugin != nullptr && qobject_cast<IPluginOcr*>(plugin)) {
-			PluginInfo pluginInfo(PluginType::Ocr, childFileInfo.filePath());
-			plugins.append(pluginInfo);
+		if (plugin != nullptr) {
+			auto ocrPlugin = qobject_cast<IPluginOcr*>(plugin);
+			if (ocrPlugin != nullptr) {
+				PluginInfo pluginInfo(PluginType::Ocr, ocrPlugin->version(), childFileInfo.filePath());
+				plugins.append(pluginInfo);
+			}
 		}
 	}
 	return plugins;

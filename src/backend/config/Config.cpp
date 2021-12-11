@@ -1350,7 +1350,8 @@ QList<PluginInfo> Config::pluginInfos()
 		mConfig.setArrayIndex(index);
 		auto path = mConfig.value(ConfigOptions::pluginInfoPathString()).toString();
 		auto type = mConfig.value(ConfigOptions::pluginInfoTypeString()).value<PluginType>();
-		PluginInfo pluginInfo(type, path);
+		auto version = mConfig.value(ConfigOptions::pluginInfoVersionString()).toString();
+		PluginInfo pluginInfo(type, version, path);
 		pluginInfos.append(pluginInfo);
 	}
 	mConfig.endArray();
@@ -1373,6 +1374,7 @@ void Config::setPluginInfos(const QList<PluginInfo> &pluginInfos)
 		mConfig.setArrayIndex(index);
 		mConfig.setValue(ConfigOptions::pluginInfoPathString(), pluginInfo.path());
 		mConfig.setValue(ConfigOptions::pluginInfoTypeString(), static_cast<int>(pluginInfo.type()));
+		mConfig.setValue(ConfigOptions::pluginInfoVersionString(), pluginInfo.version());
 	}
 	mConfig.endArray();
 	emit pluginsChanged();

@@ -95,9 +95,9 @@ void PluginsSettings::detectPlugins()
 	auto pluginPath = mPluginPathLineEdit->text();
 	if (!pluginPath.isEmpty()) {
 		mDetectedPlugins = mPluginFinder->find(pluginPath);
-
-		updatePluginTable();
 	}
+
+	updatePluginTable();
 }
 
 void PluginsSettings::updatePluginTable()

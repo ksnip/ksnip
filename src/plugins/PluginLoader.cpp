@@ -19,8 +19,21 @@
 
 #include "PluginLoader.h"
 
+PluginLoader::PluginLoader(const QSharedPointer<ILogger> &logger) :
+	mLogger(logger)
+{
+
+}
+
 QObject* PluginLoader::load(const QString &path) const
 {
 	QPluginLoader pluginLoader(path);
+
+	if (pluginLoader.isLoaded()) {
+		mLogger->log(QString("Loaded plugin %1").arg(path));
+	} else if (!pluginLoader.metaData().isEmpty()) {
+		mLogger->log(pluginLoader.errorString());
+	}
+
 	return pluginLoader.instance();
 }

@@ -111,7 +111,7 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 	dependencyInjector->registerInstance<IIconLoader, IconLoader>();
 	injectFileDialogService(dependencyInjector);
 	injectScaledSizeProvider(dependencyInjector);
-	dependencyInjector->registerInstance<IPluginLoader, PluginLoader>();
+	dependencyInjector->registerInstance<IPluginLoader, PluginLoader, ILogger>();
 	dependencyInjector->registerInstance<IPluginManager, PluginManager, IConfig, IPluginLoader, ILogger>();
 	dependencyInjector->registerInstance<IPluginFinder, PluginFinder, IPluginLoader, IDirectoryService>();
 	dependencyInjector->registerInstance<IOcrWindowCreator, OcrWindowCreator, IPluginManager>();

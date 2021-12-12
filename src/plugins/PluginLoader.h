@@ -23,13 +23,17 @@
 #include <QPluginLoader>
 
 #include "IPluginLoader.h"
+#include "src/logging/ILogger.h"
 
 class PluginLoader : public IPluginLoader
 {
 public:
-	PluginLoader() = default;
+	explicit PluginLoader(const QSharedPointer<ILogger> &logger);
 	~PluginLoader() = default;
 	QObject* load(const QString &path) const override;
+
+private:
+	QSharedPointer<ILogger> mLogger;
 };
 
 #endif //KSNIP_PLUGINLOADER_H

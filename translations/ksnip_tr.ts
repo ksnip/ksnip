@@ -29,33 +29,33 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>İletişim</translation>
     </message>
 </context>
 <context>
     <name>AboutTab</name>
     <message>
         <source>License: </source>
-        <translation type="unfinished">Lisans: </translation>
+        <translation>Lisans: </translation>
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran Görüntüsü ve Ek Açıklama Aracı</translation>
     </message>
 </context>
 <context>
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Ad</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Kısayol</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Temizle</translation>
+        <translation>Temizle</translation>
     </message>
     <message>
         <source>Take Capture</source>
@@ -63,16 +63,16 @@
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>İmleci Dahil Et</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Gecikme</translation>
     </message>
     <message>
         <source>s</source>
         <extracomment>The small letter s stands for seconds.</extracomment>
-        <translation type="unfinished">sn</translation>
+        <translation>sn</translation>
     </message>
     <message>
         <source>Capture Mode</source>
@@ -92,7 +92,7 @@
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü üst dizinini aç</translation>
     </message>
     <message>
         <source>Save image</source>
@@ -107,15 +107,15 @@
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Ekle</translation>
+        <translation>Ekle</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished">Eylem Özellikleri</translation>
+        <translation>Eylem Ayarları</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished">Eylem</translation>
+        <translation>Eylem</translation>
     </message>
 </context>
 <context>
@@ -126,7 +126,7 @@
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished">Lüffen Filigran Resmini Seçenekler &gt; Ayarlar &gt; Ek Açıklama &gt; Güncelle kısmından ekleyin</translation>
+        <translation>Lüffen Seçenekler &gt; Ayarlar &gt; Ek Açıklama &gt; Güncelle ile bir Filigran Resmi ekleyin</translation>
     </message>
 </context>
 <context>

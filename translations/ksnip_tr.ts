@@ -133,37 +133,37 @@
     <name>AnnotationSettings</name>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished">Boyama Yollarını Yumuşat</translation>
+        <translation>Boyama Yollarını Yumuşat</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished">Etkinleştirildiğinde, çizim bittikten sonra 
+        <translation>Etkinleştirildiğinde, çizim bittikten sonra
 kalem ve işaretleme yollarını yumuşatır.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished">Yumuşatma Çarpanı</translation>
+        <translation>Yumuşatma Çarpanı</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished">Yumuşatma faktörü artırmak, kalem ve
+        <translation>Yumuşatma çarpanını artırmak, kalem ve
 işaretleyici için hassasiyeti azaltır ancak
 daha düzgün hale getirir.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished">Yorumcu Ayarları</translation>
+        <translation>Ek Açıklama Ayarları</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Ek açıklama aracı seçimini hatırla ve başlangıçta yükle</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Ögeyi çizdikten sonra Araç Seçimine geç</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
@@ -177,54 +177,56 @@ Disabling this option allows having duplicate numbers.</source>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuval Rengi</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation>Açıklama alanı için öntanımlı Tuval arka plan rengi.
+Rengin değiştirilmesi yalnızca yeni açıklama alanlarını etkiler.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Çizdikden sonra Ögeyi seç</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu seçenek etkinleştirildiğinde, öge oluşturulduktan
+sonra seçilir ve ayarların değiştirilmesine izin verilir.</translation>
     </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished">Uygulama başlarken varsayılan kipte ekran görüntüsünü yakala</translation>
+        <translation>Uygulama başlarken varsayılan kipte ekran görüntüsünü yakala</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished">Uygulama Tarzı</translation>
+        <translation>Uygulama Tarzı</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished">GUI&apos;nin görünümünü ve uygulamanın temasını ayarlar.
-Değişiklik sonrası Ksnip&apos;in yeniden başlatılması gerekir.</translation>
+        <translation>Grafiksel arayüzün görünümünü ve uygulamanın temasını ayarlar.
+Değişiklik sonrası ksnip&apos;in yeniden başlatılması gerekir.</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished">Uygulama Ayarları</translation>
+        <translation>Uygulama Ayarları</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished">Yeni kayıtları otomatik olarak kopyala</translation>
+        <translation>Yeni kayıtları otomatik olarak panoya kopyala</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished">Pencereleri kullan</translation>
+        <translation>Sekmeleri Kullan</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished">Değişiklikler için yeniden başlatma gerekli</translation>
+        <translation>Değişiklik yeniden başlatmayı gerektirir.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
@@ -239,7 +241,10 @@ Değişiklik sonrası Ksnip&apos;in yeniden başlatılması gerekir.</translatio
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu seçeneğin etkinleştirilmesi, yalnızca bir ksnip örneğinin
+çalışmasına izin verir, ilkinden sonra başlatılan diğer tüm örnekler
+argümanlarını birinciye iletecek ve kapanacaktır. Bu seçeneğin
+değiştirilmesi, tüm örneklerin yeniden başlatılmasını gerektirir.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
@@ -247,7 +252,7 @@ a new start of all instances.</source>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekmeleri otomatik gizle</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
@@ -260,24 +265,25 @@ Docks visibility can be toggled with the Tab Key.</source>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>İçeriğe göre otomatik yeniden boyutlandır</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>İçerik görüntüsüne sığması için Ana Pencereyi otomatik olarak yeniden boyutlandır.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Hata Ayıklamayı Etkinleştir</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hata ayıklama çıktısının konsola yazdırılmasını etkinleştirir.
+Değişikliğin etkili olması için ksnip&apos;in yeniden başlatılması gerekir.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>İçeriğe göre yeniden boyutlandırma gecikmesi</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
@@ -290,31 +296,31 @@ to the new content, increasing this delay might improve the behavior.</source>
     <name>AuthorTab</name>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished">Katkıcılar:</translation>
+        <translation>Katkıda bulunanlar:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished">İspanyolca Çeviriler</translation>
+        <translation>İspanyolca Çeviri</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished">Hollandaca Çeviriler</translation>
+        <translation>Felemenkçe Çeviri</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished">Rusça Çeviriler</translation>
+        <translation>Rusça Çeviri</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished">Norveççe Bokmål Çeviriler</translation>
+        <translation>Norveççe Bokmål Çeviri</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished">Fransızca Çeviriler</translation>
+        <translation>Fransızca Çeviri</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished">Polanyaca Çeviriler</translation>
+        <translation>Lehçe Çeviri</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
@@ -322,14 +328,14 @@ to the new content, increasing this delay might improve the behavior.</source>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Yazarlar:</translation>
     </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished">Uyarı - </translation>
+        <translation>Uyarı - </translation>
     </message>
     <message>
         <source>The capture %1%2%3 has been modified.
@@ -365,61 +371,62 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished">En son seçilen bölgeyi seç</translation>
+        <translation>Son seçilen dikdörtgen alanın ekran görüntüsünü yakala</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran görüntüsü almak için ekran görüntüsü portalını kullanır</translation>
     </message>
 </context>
 <context>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Topluluk</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Hata Bildirimleri</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Genel sorularınız, fikirleriniz varsa veya sadece ksnip hakkında konuşmak istiyorsanız,&lt;br/&gt;lütfen %1 veya %2 sunucumuza katılın.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hataları bildirmek için lütfen %1 kullanın.</translation>
     </message>
 </context>
 <context>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Panoya kopyalanamadı</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Base64 ile kodlanmış görüntü olarak panoya kopyalanamadı.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Panoya kopyalandı</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Base64 ile kodlanmış görüntü olarak panoya kopyalandı.</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntüyü Sil</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;%1&apos; ögesi silinecek.
+Devam etmek istiyor musunuz?</translation>
     </message>
 </context>
 <context>
@@ -442,7 +449,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub Sponsoru Olun?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
@@ -453,18 +460,18 @@ Do you want to continue?</source>
     <name>EmptyActionSettingTab</name>
     <message>
         <source>Add new actions by pressing the &apos;Add&apos; tab button.</source>
-        <translation type="unfinished"></translation>
+        <translation>&apos;Ekle&apos; sekmesi düğmesine basarak yeni eylemler ekleyin.</translation>
     </message>
 </context>
 <context>
     <name>EnumTranslator</name>
     <message>
         <source>Rectangular Area</source>
-        <translation type="unfinished">Alan Seçimi</translation>
+        <translation>Dikdörtgen Alan</translation>
     </message>
     <message>
         <source>Last Rectangular Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Son Dikdörtgen Alan</translation>
     </message>
     <message>
         <source>Full Screen (All Monitors)</source>
@@ -472,81 +479,81 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Current Screen</source>
-        <translation type="unfinished">Geçerli Ekran</translation>
+        <translation>Geçerli Ekran</translation>
     </message>
     <message>
         <source>Active Window</source>
-        <translation type="unfinished">Etkin Pencere</translation>
+        <translation>Etkin Pencere</translation>
     </message>
     <message>
         <source>Window Under Cursor</source>
-        <translation type="unfinished">İmleç Altındaki Pencere</translation>
+        <translation>İmlecin Altındaki Pencere</translation>
     </message>
     <message>
         <source>Screenshot Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran Görüntüsü Portalı</translation>
     </message>
 </context>
 <context>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anonim yüklemeyi zorla.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Kullanıcı Adı</translation>
+        <translation>Kullanıcı Adı</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Parola</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP Yükleyicisi</translation>
     </message>
 </context>
 <context>
     <name>HandleUploadResultOperation</name>
     <message>
         <source>Upload Successful</source>
-        <translation type="unfinished">Yükleme Başarılı</translation>
+        <translation>Karşıya Yükleme Başarılı</translation>
     </message>
     <message>
         <source>Unable to save temporary image for upload.</source>
-        <translation type="unfinished">geçici resimi kaydederken sorun oluştu</translation>
+        <translation>Karşıya yüklemek için geçici görüntü kaydedilemiyor.</translation>
     </message>
     <message>
         <source>Unable to start process, check path and permissions.</source>
-        <translation type="unfinished">İşlem başlatılamadı, yolu ve yetkileri kontrol edin.</translation>
+        <translation>İşlem başlatılamıyor, yolu ve izinleri gözden geçirin.</translation>
     </message>
     <message>
         <source>Process crashed</source>
-        <translation type="unfinished">İşlem kesintiye uğradı</translation>
+        <translation>İşlem çöktü</translation>
     </message>
     <message>
         <source>Process timed out.</source>
-        <translation type="unfinished">Zaman aşımı</translation>
+        <translation>İşlem zaman aşımına uğradı.</translation>
     </message>
     <message>
         <source>Process read error.</source>
-        <translation type="unfinished">İşlemi okuma hatası</translation>
+        <translation>İşlem okuma hatası.</translation>
     </message>
     <message>
         <source>Process write error.</source>
-        <translation type="unfinished">İşlemi yazma hatası</translation>
+        <translation>İşlem yazma hatası.</translation>
     </message>
     <message>
         <source>Web error, check console output.</source>
-        <translation type="unfinished">Web hatası, konsol çıkışını kontrol edin</translation>
+        <translation>Web hatası, konsol çıktısını denetleyin.</translation>
     </message>
     <message>
         <source>Upload Failed</source>
-        <translation type="unfinished">Yükleme Başarısız</translation>
+        <translation>Karşıya Yükleme Başarısız Oldu</translation>
     </message>
     <message>
         <source>Script wrote to StdErr.</source>
@@ -554,19 +561,19 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP Karşıya Yüklemesi başarıyla tamamlandı.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilinmeyen hata.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağlantı Hatası.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>İzin Hatası.</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
@@ -581,7 +588,7 @@ Do you want to continue?</source>
     <name>HotKeySettings</name>
     <message>
         <source>Enable Global HotKeys</source>
-        <translation type="unfinished">Kısayolları Aktifleştir</translation>
+        <translation>Genel Kısayol Tuşlarını Etkinleştir</translation>
     </message>
     <message>
         <source>Capture Rect Area</source>
@@ -605,7 +612,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Global HotKeys</source>
-        <translation type="unfinished">Evrensel Kısayollar</translation>
+        <translation>Genel Kısayol Tuşları</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
@@ -613,7 +620,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished">Temizle</translation>
+        <translation>Temizle</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
@@ -639,7 +646,7 @@ gözükür.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished">Görüntü Yakalayıcı</translation>
+        <translation>Görüntü Yakalayıcı</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -663,11 +670,11 @@ Change in this option require a ksnip restart.</source>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran görüntüsü sırasında ana pencereyi gizle</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni bir ekran görüntüsü yakalarken ana pencereyi gizle.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
@@ -710,7 +717,7 @@ when the Main Window was hidden or minimize.</source>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">imgur.com adresine yükleme işlemi tamamlandı!</translation>
+        <translation>imgur.com adresine yükleme tamamlandı!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -725,47 +732,47 @@ when the Main Window was hidden or minimize.</source>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished">Anonim yüklemeyi zorla</translation>
+        <translation>Anonim yüklemeyi zorla</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished">Imgur bağlantısını her zaman panoya kopyala</translation>
+        <translation>Imgur bağlantısını her zaman panoya kopyala</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished">İstemci Kimliği</translation>
+        <translation>İstemci Kimliği</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished">İstemci Gizliliği</translation>
+        <translation>İstemci Parolası</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished">PIN</translation>
+        <translation>PIN</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished">Bir belirteçle değiştirilecek olan imgur Pin&apos;ini girin.</translation>
+        <translation>Bir belirteçle değiştirilecek olan imgur PIN&apos;ini girin.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished">PIN Al</translation>
+        <translation>PIN Al</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished">Belirteç Al</translation>
+        <translation>Belirteç Al</translation>
     </message>
     <message>
         <source>Imgur History</source>
-        <translation type="unfinished">Imgur Geçmişi</translation>
+        <translation>Imgur Geçmişi</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished">Imgur Yükleyici</translation>
+        <translation>Imgur Yükleyicisi</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Kullanıcı Adı</translation>
+        <translation>Kullanıcı Adı</translation>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
@@ -777,7 +784,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished">Imgur.com belirteç güncelleme hatası.</translation>
+        <translation>Imgur.com belirteç güncelleme hatası.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
@@ -789,23 +796,24 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished">Ana Url:</translation>
+        <translation>Temel URL:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur ile iletişim için kullanılacak temel URL.
+Değiştirmek yeniden başlatmayı gerektirir.</translation>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Belirteci Temizle</translation>
     </message>
 </context>
 <context>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Resim açılamıyor</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
@@ -859,7 +867,7 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Crop</source>
-        <translation type="unfinished">Kırp</translation>
+        <translation>Kırp</translation>
     </message>
     <message>
         <source>Crop Screen Capture</source>
@@ -942,15 +950,15 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished">Farklı Kaydet...</translation>
+        <translation>Farklı Kaydet...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished">Yapıştır</translation>
+        <translation>Yapıştır</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished">Gömülü Yapıştır</translation>
+        <translation>Gömülü Yapıştır</translation>
     </message>
     <message>
         <source>Pin</source>
@@ -962,7 +970,7 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü sağlanmadı, ancak bir tane bekleniyordu.</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -978,11 +986,11 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeniden Adlandır</translation>
     </message>
     <message>
         <source>Open Images</source>
@@ -998,7 +1006,7 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Veri URI&apos;si olarak kopyala</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
@@ -1006,7 +1014,7 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuvali Değiştir</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
@@ -1018,34 +1026,34 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntüyü Ölçekle</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Döndür</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntüyü Döndür</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Eylemler</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü Dosyaları</translation>
     </message>
 </context>
 <context>
     <name>MultiCaptureHandler</name>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Kaydet</translation>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Farklı Kaydet</translation>
+        <translation>Farklı Kaydet</translation>
     </message>
     <message>
         <source>Open Directory</source>
@@ -1053,7 +1061,7 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished">Kopyala</translation>
+        <translation>Kopyala</translation>
     </message>
     <message>
         <source>Copy Path</source>
@@ -1061,25 +1069,25 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Sil</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeniden Adlandır</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Yakala</translation>
+        <translation>Yakala</translation>
     </message>
 </context>
 <context>
     <name>PinWindow</name>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Kapat</translation>
+        <translation>Kapat</translation>
     </message>
     <message>
         <source>Close Other</source>
@@ -1101,50 +1109,50 @@ ve ekran görüntüsünü yakalanır.</translation>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü Yeniden Adlandırıldı</translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü Yeniden Adlandırılamadı</translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntüyü yeniden adlandır</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni dosya adı:</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü, %1 olarak başarıyla yeniden adlandırıldı</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü, %1 olarak yeniden adlandırılamadı</translation>
     </message>
 </context>
 <context>
     <name>SaveOperation</name>
     <message>
         <source>Save As</source>
-        <translation type="unfinished">Farklı Kaydet</translation>
+        <translation>Farklı Kaydet</translation>
     </message>
     <message>
         <source>All Files</source>
-        <translation type="unfinished">Tüm Dosyalar</translation>
+        <translation>Tüm Dosyalar</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished">Resim Kaydedildi</translation>
+        <translation>Görüntü Kaydedildi</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished">Resim Kaydedilemedi</translation>
+        <translation>Görüntü Kaydedilemedi</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü Dosyaları</translation>
     </message>
     <message>
         <source>Saved to %1</source>
@@ -1167,7 +1175,7 @@ ve ekran görüntüsünü yakalanır.</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished">Son kayıt dizinini hatırla</translation>
+        <translation>Son kayıt dizinini hatırla</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
@@ -1203,7 +1211,7 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Çarpan</translation>
     </message>
     <message>
         <source>Save Quality</source>
@@ -1212,14 +1220,15 @@ Filename can contain following wildcards:
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Küçük sıkıştırılmış dosyalar elde etmek için 0, büyük sıkıştırılmamış dosyalar için 100 belirtin.
+Tüm görüntü biçimleri tam aralığı desteklemez, JPEG destekler.</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Betik çıktısını panoya kopyala</translation>
     </message>
     <message>
         <source>Script:</source>
@@ -1253,12 +1262,13 @@ Without this setting errors in the script will be unnoticed.</source>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtre:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Düzenli İfade. Panoya yalnızca düzenli ifadeyle eşleşenleri kopyala.
+Boş bırakıldığında, her şey kopyalanır.</translation>
     </message>
 </context>
 <context>
@@ -1293,7 +1303,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished">Kısayollar</translation>
+        <translation>Kısayol Tuşları</translation>
     </message>
     <message>
         <source>Uploader</source>
@@ -1309,27 +1319,27 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished">Etiketler</translation>
+        <translation>Etiketler</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran Alıntısı Alanı</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Tepsi Simgesi</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Filigran</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Eylemler</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP Yükleyicisi</translation>
     </message>
 </context>
 <context>
@@ -1340,7 +1350,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seçimi taşımak için ok tuşlarını kullanın.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
@@ -1356,7 +1366,7 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu mesaj ayarlar aracılığıyla devre dışı bırakılabilir.</translation>
     </message>
 </context>
 <context>
@@ -1367,19 +1377,19 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seçtikten sonra seçimi yeniden boyutlandırmak için CTRL&apos;yi basılı tutun.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seçtikten sonra yeniden boyutlandırmayı önlemek için CTRL&apos;yi basılı tutun.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>Herhangi bir seçim yapılmadığında 60 saniye sonra işlem iptal edilecektir.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu mesaj ayarlar aracılığıyla devre dışı bırakılabilir.</translation>
     </message>
 </context>
 <context>
@@ -1449,7 +1459,7 @@ by pressing return.</source>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished">Seçim Alanı imleç rengi</translation>
+        <translation>Seçim Alanı imleç rengi</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
@@ -1490,11 +1500,11 @@ Smaller number is more transparent.</source>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished">Yukarı</translation>
+        <translation>Yukarı</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished">Aşağı</translation>
+        <translation>Aşağı</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
@@ -1502,19 +1512,19 @@ Smaller number is more transparent.</source>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished">Etiket Ayarları</translation>
+        <translation>Etiket Ayarları</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished">Vektör Resim Dosyalari (*.svg)</translation>
+        <translation>Vektör Görüntü Dosyaları (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Ekle</translation>
+        <translation>Ekle</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Kaldır</translation>
+        <translation>Kaldır</translation>
     </message>
     <message>
         <source>Add Stickers</source>
@@ -1525,56 +1535,56 @@ Smaller number is more transparent.</source>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Düzenleyici Göster</translation>
+        <translation>Düzenleyiciyi Göster</translation>
     </message>
 </context>
 <context>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished">Pencere Iconu Kullan</translation>
+        <translation>Tepsi Simgesi Kullan</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished">Etkinleştirildiğinde, işletim sisteminin pencere yöneticisi destekliyorsa görev çubuğuna bir tepsi simgesi ekleyecektir.
+        <translation>Etkinleştirildiğinde, işletim sisteminin pencere yöneticisi destekliyorsa görev çubuğuna bir tepsi simgesi ekleyecektir.
 Değişiklik yeniden başlatma gerektirir.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished">Pencereyi küçült</translation>
+        <translation>Tepsi Simgesi Durumuna Küçült</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished">Küçültülmüş durumda başlat</translation>
+        <translation>Tepsi Simgesi Durumuna Küçültülmüş Olarak Başlat</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished">Görev çubuğuna küçült</translation>
+        <translation>Tepsi Simgesi Durumuna Kapat</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished">Düzenleyici Göster</translation>
+        <translation>Düzenleyiciyi Göster</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished">Yakala</translation>
+        <translation>Yakala</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Öntanımlı Tepsi Simgesi Eylemi</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tepsi simgesine sol tıklandığında tetiklenen öntanımlı eylem.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Tepsi Simgesi Ayarları</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Platforma özel bildirim hizmetini kullan</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
@@ -1583,29 +1593,29 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Tepsi Simgesi bildirimlerini görüntüle</translation>
     </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished">Resmi Seç</translation>
+        <translation>Görüntü Seç</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü Dosyaları</translation>
     </message>
 </context>
 <context>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished">Yükleme Kodu Gerekli</translation>
+        <translation>Karşıya Yükleme Betiği Gerekli</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished">Lütfen yükleme kodu ekleyin &gt; Ayarlar &gt; Yükleme Kodu</translation>
+        <translation>Lütfen Seçenekler &gt; Ayarlar &gt; Karşıya Yükleme Betiği yoluyla bir karşıya yükleme betiği ekleyin</translation>
     </message>
     <message>
         <source>Capture Upload</source>
@@ -1620,34 +1630,34 @@ service when such exists. Change requires restart to take effect.</source>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished">Yüklemeden önce onay iste</translation>
+        <translation>Karşıya yüklemeden önce onay iste</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished">Yükleyici Türü:</translation>
+        <translation>Karşıya Yükleyici Türü:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished">Imgur</translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
-        <translation type="unfinished">Kod</translation>
+        <translation>Betik</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished">Yükleyici</translation>
+        <translation>Karşıya Yükleyici</translation>
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>
     <name>VersionTab</name>
     <message>
         <source>Version</source>
-        <translation type="unfinished">Sürüm</translation>
+        <translation>Sürüm</translation>
     </message>
     <message>
         <source>Build</source>
@@ -1666,11 +1676,11 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Güncelle</translation>
+        <translation>Güncelle</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished">Filigrani Döndür</translation>
+        <translation>Filigrani Döndür</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
@@ -1678,7 +1688,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Filigran Ayarları</translation>
     </message>
 </context>
 </TS>

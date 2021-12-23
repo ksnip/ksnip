@@ -400,7 +400,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Za prijavu grešaka koristi %1.</translation>
     </message>
 </context>
 <context>
@@ -455,11 +455,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Želiš postati GitHub sponzor?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Također moguće %1ovdje%2.</translation>
     </message>
 </context>
 <context>
@@ -583,11 +583,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prijenos skripta %1 uspješno završen.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Preneseno na %1</translation>
     </message>
 </context>
 <context>
@@ -1058,7 +1058,7 @@ okidanja i snimanja slike ekrana.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Datoteke slika</translation>
     </message>
 </context>
 <context>
@@ -1141,11 +1141,11 @@ okidanja i snimanja slike ekrana.</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Slika uspješno preimenovana u %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Neuspjelo preimenovanje slike u %1</translation>
     </message>
 </context>
 <context>
@@ -1168,15 +1168,15 @@ okidanja i snimanja slike ekrana.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Datoteke slika</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Spremljeno u %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Neuspjelo spremanje slike u %1</translation>
     </message>
 </context>
 <context>
@@ -1630,7 +1630,7 @@ kad postoji. Zahtijeva ponovno pokretanje kako bi se promjena primijenila.</tran
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Prikaži obavijesti trake ikona</translation>
     </message>
 </context>
 <context>
@@ -1641,7 +1641,7 @@ kad postoji. Zahtijeva ponovno pokretanje kako bi se promjena primijenila.</tran
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Datoteke slika</translation>
     </message>
 </context>
 <context>

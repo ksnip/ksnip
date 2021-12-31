@@ -32,7 +32,8 @@ set(KSNIP_LANG_TS
 	ksnip_sv.ts
 	ksnip_tr.ts
 	ksnip_uk.ts
-	ksnip_zh_CN.ts)
+	ksnip_zh_CN.ts
+	ksnip_zh_Hant.ts)
 
 if (DEFINED UPDATE_TS_FILES)
 	qt5_create_translation(KSNIP_LANG_QM ${CMAKE_SOURCE_DIR}/translations ${KSNIP_SRCS} ${KSNIP_LANG_TS} OPTIONS "-no-obsolete")

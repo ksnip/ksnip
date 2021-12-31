@@ -760,7 +760,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation>Client Secret</translation>
+        <translation>客户端 Secret</translation>
     </message>
     <message>
         <source>PIN</source>

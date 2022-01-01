@@ -276,22 +276,25 @@ A visibilidade das Docks pode ser alternada com a tecla Tab.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Ativar depuração</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ativa a saída de depuração gravada no console.
+A mudança requer o reinício do ksnip para ter efeito.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Atraso para redimensionar conteúdo</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Atraso para redimensionar conteúdo permite que o gestor de janelas receba 
+um novo conteúdo, caso a janela principal não esteja ajustada corretamente
+ ao novo conteúdo, aumentar esse atraso pode melhorar o comportamento.</translation>
     </message>
 </context>
 <context>
@@ -393,11 +396,11 @@ Deseja salvá-la?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se tiver dúvidas gerais, idéias ou apenas quiser falar sobre o ksnip, &lt;br/&gt; por favor entre em nosso servidor% 1 ou% 2.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Por favor, use %1 para relatar bugs.</translation>
     </message>
 </context>
 <context>
@@ -444,19 +447,19 @@ Deseja continuar?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip é um projeto de software copyleft livre sem fins lucrativos e &lt;br/&gt; ainda tem alguns custos que precisam ser cobertos, &lt;br/&gt; como custos de domínio ou custos de hardware para suporte de plataforma cruzada.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Se quiser ajudar ou apenas apreciar o trabalho que está sendo feito &lt;br/&gt; oferecendo uma cerveja ou café aos programadores, pode fazer isso% 1aqui% 2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tornar-se um patrocinador do GitHub?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Também é possível, %1aqui%2.</translation>
     </message>
 </context>
 <context>
@@ -501,23 +504,23 @@ Deseja continuar?</translation>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Forçar envio anônimo.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Url</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Nome de utilizador</translation>
+        <translation>Nome de utilizador</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Palavra-passe</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviador FTP</translation>
     </message>
 </context>
 <context>
@@ -564,27 +567,27 @@ Deseja continuar?</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP Envio concluído com sucesso.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro desconhecido.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro de conexão.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro de permissão.</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>O script de envio %1 foi concluído com sucesso.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviado para %1</translation>
     </message>
 </context>
 <context>
@@ -696,11 +699,11 @@ quando a Janela Principal foi escondida ou minimizada.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Forçar Wayland genérico (xdg-desktop-portal) capturar de ecrã</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Escalar Wayland genérico (xdg-desktop-portal) para capturas de ecrã</translation>
     </message>
 </context>
 <context>
@@ -1051,11 +1054,11 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Ações</translation>
+        <translation>Ações</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheiros de imagem</translation>
     </message>
 </context>
 <context>
@@ -1138,11 +1141,11 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Imagem renomeada com sucesso para %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao mudar o nome da imagem para %1</translation>
     </message>
 </context>
 <context>
@@ -1165,15 +1168,15 @@ e captura de ecrã.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheiros de imagem</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Salvo em %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao gravar a imagem em %1</translation>
     </message>
 </context>
 <context>
@@ -1358,7 +1361,7 @@ Quando omitido, tudo é copiado.</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviador de FTP</translation>
     </message>
 </context>
 <context>
@@ -1628,7 +1631,7 @@ quando tal existir. A mudança requer reinicialização para ter efeito.</transl
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir notificações do ícone da bandeja</translation>
     </message>
 </context>
 <context>
@@ -1639,7 +1642,7 @@ quando tal existir. A mudança requer reinicialização para ter efeito.</transl
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheiros de imagem</translation>
     </message>
 </context>
 <context>
@@ -1685,7 +1688,7 @@ quando tal existir. A mudança requer reinicialização para ter efeito.</transl
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>

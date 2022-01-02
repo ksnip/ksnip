@@ -167,13 +167,15 @@ membuatnya lebih halus.</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation>Bibit Alat Nomor mengubah pembaruan semua Item Nomor</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mematikan opsi ini akan mengakibatkan perubahan benih alat
+nomor yang akan berefek hanya item baru tapi bukan item yang telah ada.
+Mematikan opsi ini memperbolehkan mempunyai nomor ganda.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
@@ -204,17 +206,17 @@ dibuat, mengizinkan adanya perubahan pengaturan.</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished">Gaya Aplikasi</translation>
+        <translation>Gaya Aplikasi</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished">Setelan gaya aplikasi yang menentukan tampilan GUI-nya.
-Perubahan ini membutuhkan ksnip ditutup dan buka lagi.</translation>
+        <translation>Menyetel gaya aplikasi yang menentukan tampilan GUI-nya.
+Perubahan ini membutuhkan ksnip mulai ulang agar berefek.</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished">Pengaturan Aplikasi</translation>
+        <translation>Pengaturan Aplikasi</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
@@ -274,12 +276,13 @@ Kenampakan Galangan dapat diaktifkan dengan Tombol Tab.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktifkan Pengawakutuan</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mengaktifkan keluaran pengawakutuan ditulis ke konsol.
+Perubahan memerlukan ksnip untuk mulai ulang agar berefek.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
@@ -730,7 +733,7 @@ ketika Jendela Utama disembunyikan atau diminimalkan.</translation>
     <name>ImgurUploader</name>
     <message>
         <source>Upload to imgur.com finished!</source>
-        <translation type="unfinished">Pengunggahan ke imgur,com sudah selesai!</translation>
+        <translation>Pengunggahan ke imgur,com sudah selesai!</translation>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
@@ -757,7 +760,7 @@ ketika Jendela Utama disembunyikan atau diminimalkan.</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished">Secret Klien</translation>
+        <translation>Rahasia Klien</translation>
     </message>
     <message>
         <source>PIN</source>
@@ -793,11 +796,11 @@ ketika Jendela Utama disembunyikan atau diminimalkan.</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished">Token Imgur.com berhasil diperbarui.</translation>
+        <translation>Token Imgur.com berhasil diperbarui.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished">Ada kesalahan dalam pemutakhiran token imgur.com.</translation>
+        <translation>Ada kesalahan dalam pemutakhiran token imgur.com.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
@@ -1051,7 +1054,7 @@ citra dalam detik.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Tindakan</translation>
+        <translation>Aksi</translation>
     </message>
     <message>
         <source>Image Files</source>

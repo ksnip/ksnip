@@ -98,6 +98,7 @@ private:
 	TrayIcon *mTrayIcon;
 	QSharedPointer<INotificationService> mNotificationService;
 	bool mSessionManagerRequestedQuit;
+	bool mResizeOnNormalize;
 	QAction *mSaveAsAction;
 	QAction *mUploadAction;
 	QAction *mCopyAsDataUriAction;

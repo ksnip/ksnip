@@ -64,6 +64,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mDragAndDropProcessor(new DragAndDropProcessor(this)),
 	mUploadHandler(mDependencyInjector->get<IUploadHandler>()),
 	mSessionManagerRequestedQuit(false),
+	mResizeOnNormalize(false),
 	mCaptureHandler(CaptureHandlerFactory::create(mImageAnnotator, mNotificationService, mDependencyInjector, this)),
 	mPinWindowHandler(mDependencyInjector->get<IPinWindowHandler>()),
 	mVisibilityHandler(WidgetVisibilityHandlerFactory::create(this, mDependencyInjector->get<IPlatformChecker>())),
@@ -287,7 +288,10 @@ void MainWindow::closeEvent(QCloseEvent* event)
 void MainWindow::changeEvent(QEvent *event)
 {
 	if (event->type() == QEvent::WindowStateChange) {
-		if(isMinimized() && mTrayIcon->isVisible() && mConfig->minimizeToTray()) {
+		if(mResizeOnNormalize && !isMaximized()) {
+			mResizeOnNormalize = false;
+			resizeToContent();
+		} else if(isMinimized() && mTrayIcon->isVisible() && mConfig->minimizeToTray()) {
 			event->ignore();
 			mVisibilityHandler->hide();
 		}
@@ -762,6 +766,10 @@ void MainWindow::captureEmpty()
 {
 	setEnablements(false);
 	mWindowResizer->resetAndResize();
+
+	if (isWindowMaximized()) {
+		mResizeOnNormalize = true;
+	}
 }
 
 void MainWindow::showPinWindow()

@@ -100,6 +100,7 @@
                     <li>Fixed: Opens a new window for each capture.</li>
                     <li>Fixed: First cli invocation won't copy image to clipboard.</li>
                     <li>Fixed: Snipping area incorrectly positioned with screen scaling.</li>
+                    <li>Fixed: MainWindow position not restored when outside primary screen.</li>
                     <li>Changed: Improve translation experience by using full sentences.</li>
                 </ul>
             </description>

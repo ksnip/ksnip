@@ -14,6 +14,7 @@
 * Fixed: Opens a new window for each capture. ([#728](https://github.com/ksnip/ksnip/issues/728))
 * Fixed: First cli invocation won't copy image to clipboard. ([#764](https://github.com/ksnip/ksnip/issues/764))
 * Fixed: Snipping area incorrectly positioned with screen scaling. ([#276](https://github.com/ksnip/ksnip/issues/276))
+* Fixed: MainWindow position not restored when outside primary screen. ([#789](https://github.com/ksnip/ksnip/issues/789))
 * Changed: Improve translation experience by using full sentences. ([#759](https://github.com/ksnip/ksnip/issues/759))
 
 ## Release 1.9.2

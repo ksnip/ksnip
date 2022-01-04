@@ -20,6 +20,8 @@
 
 #include "MainWindow.h"
 
+#include <QDebug>
+
 MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	QMainWindow(),
 	mDependencyInjector(dependencyInjector),
@@ -139,9 +141,10 @@ void MainWindow::handleGuiStartup()
 void MainWindow::setPosition()
 {
 	auto position = mConfig->windowPosition();
-	auto screenGeometry = QApplication::desktop()->screenGeometry();
-	if(!screenGeometry.contains(position)) {
-		auto screenCenter = screenGeometry.center();
+	auto desktopGeometry = QApplication::desktop()->geometry();
+
+	if(!desktopGeometry.contains(position)) {
+		auto screenCenter = desktopGeometry.center();
 		auto mainWindowSize = size();
 		position = QPoint(screenCenter.x() - mainWindowSize.width() / 2, screenCenter.y() - mainWindowSize.height() / 2);
 	}

@@ -33,6 +33,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mToolBar(nullptr),
 	mImageAnnotator(new KImageAnnotatorAdapter),
 	mSaveAsAction(new QAction(this)),
+	mSaveAllAction(new QAction(this)),
 	mUploadAction(new QAction(this)),
 	mCopyAsDataUriAction(new QAction(this)),
 	mPrintAction(new QAction(this)),
@@ -330,6 +331,7 @@ void MainWindow::setEnablements(bool enabled)
     mToolBar->setCopyActionEnabled(enabled);
     mToolBar->setCropEnabled(enabled);
     mSaveAsAction->setEnabled(enabled);
+    mSaveAllAction->setEnabled(enabled);
     mPinAction->setEnabled(enabled);
     mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
     mRenameAction->setEnabled(enabled);
@@ -408,6 +410,10 @@ void MainWindow::initGui()
 	mSaveAsAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_S);
 	mSaveAsAction->setIcon(iconLoader->loadForTheme(QLatin1String("saveAs")));
 	connect(mSaveAsAction, &QAction::triggered, this, &MainWindow::saveAsClicked);
+
+	mSaveAllAction->setText(tr("Save All..."));
+	mSaveAllAction->setIcon(iconLoader->loadForTheme(QLatin1String("saveAs")));
+	connect(mSaveAllAction, &QAction::triggered, this, &MainWindow::saveAllClicked);
 
     mUploadAction->setText(tr("Upload"));
     mUploadAction->setToolTip(tr("Upload triggerCapture to external source"));
@@ -529,6 +535,7 @@ void MainWindow::initGui()
     menu->addMenu(mRecentImagesMenu);
     menu->addAction(mToolBar->saveAction());
     menu->addAction(mSaveAsAction);
+    menu->addAction(mSaveAllAction);
     menu->addAction(mUploadAction);
     menu->addSeparator();
     menu->addAction(mPrintAction);
@@ -722,6 +729,11 @@ void MainWindow::saveClicked()
 void MainWindow::saveAsClicked()
 {
 	mCaptureHandler->saveAs();
+}
+
+void MainWindow::saveAllClicked()
+{
+	mCaptureHandler->saveAll();
 }
 
 void MainWindow::loadImageFromFile(const QString &path)

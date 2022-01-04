@@ -50,6 +50,7 @@ MultiCaptureHandler::MultiCaptureHandler(
 	mFileDialogService(fileDialogService),
 	mSaveContextMenuAction(new TabContextMenuAction(this)),
 	mSaveAsContextMenuAction(new TabContextMenuAction(this)),
+	mSaveAllContextMenuAction(new TabContextMenuAction(this)),
 	mRenameContextMenuAction(new TabContextMenuAction(this)),
 	mOpenDirectoryContextMenuAction(new TabContextMenuAction(this)),
 	mCopyPathToClipboardContextMenuAction(new TabContextMenuAction(this)),
@@ -148,6 +149,11 @@ void MultiCaptureHandler::saveAs()
 void MultiCaptureHandler::save()
 {
 	saveTab(mTabStateHandler->currentTabIndex());
+}
+
+void MultiCaptureHandler::saveAll()
+{
+	saveAllTabs();
 }
 
 void MultiCaptureHandler::rename()
@@ -256,6 +262,9 @@ void MultiCaptureHandler::addTabContextMenuActions(const QSharedPointer<IIconLoa
 	mSaveAsContextMenuAction->setText(tr("Save As"));
 	mSaveAsContextMenuAction->setIcon(iconLoader->loadForTheme(QLatin1String("saveAs.svg")));
 
+	mSaveAllContextMenuAction->setText(tr("Save All"));
+	mSaveAllContextMenuAction->setIcon(iconLoader->loadForTheme(QLatin1String("save.svg")));
+
 	mRenameContextMenuAction->setText(tr("Rename"));
 
 	mOpenDirectoryContextMenuAction->setText(tr("Open Directory"));
@@ -272,6 +281,7 @@ void MultiCaptureHandler::addTabContextMenuActions(const QSharedPointer<IIconLoa
 
 	connect(mSaveContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveTab);
 	connect(mSaveAsContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveAsTab);
+	connect(mSaveAllContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::saveAllTabs);
 	connect(mRenameContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::renameTab);
 	connect(mOpenDirectoryContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::openDirectoryTab);
 	connect(mCopyPathToClipboardContextMenuAction, &TabContextMenuAction::triggered, this, &MultiCaptureHandler::copyPathToClipboardTab);
@@ -280,6 +290,7 @@ void MultiCaptureHandler::addTabContextMenuActions(const QSharedPointer<IIconLoa
 
 	auto actions = QList<QAction *>{mSaveContextMenuAction,
 									mSaveAsContextMenuAction,
+									mSaveAllContextMenuAction,
 									mRenameContextMenuAction,
 									mOpenDirectoryContextMenuAction,
 									mCopyToClipboardContextMenuAction,
@@ -298,6 +309,17 @@ void MultiCaptureHandler::saveAsTab(int index)
 void MultiCaptureHandler::saveTab(int index)
 {
 	saveAt(index, true);
+}
+
+void MultiCaptureHandler::saveAllTabs()
+{
+	int tabIndex = 0;
+	while (tabIndex < mTabStateHandler->count()) {
+		if (!mTabStateHandler->isSaved(tabIndex)) {
+			saveAt(tabIndex, true);
+		}
+		++tabIndex;
+	}
 }
 
 void MultiCaptureHandler::renameTab(int index)

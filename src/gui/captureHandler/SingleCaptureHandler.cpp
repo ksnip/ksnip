@@ -87,6 +87,11 @@ void SingleCaptureHandler::save()
 	innerSave(true);
 }
 
+void SingleCaptureHandler::saveAll()
+{
+	innerSave(true);
+}
+
 void SingleCaptureHandler::rename()
 {
 	RenameOperation operation(mPath, QFileInfo(mPath).fileName(), mNotificationService, mConfig, mParent);

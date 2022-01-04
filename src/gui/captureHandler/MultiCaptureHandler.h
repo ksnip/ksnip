@@ -63,6 +63,7 @@ public:
 	bool isPathValid() const override;
 	void saveAs() override;
 	void save() override;
+	void saveAll() override;
 	void rename() override;
 	void copy() override;
 	void copyPath() override;
@@ -92,6 +93,7 @@ private:
 	QSharedPointer<IFileDialogService> mFileDialogService;
 	TabContextMenuAction *mSaveContextMenuAction;
 	TabContextMenuAction *mSaveAsContextMenuAction;
+	TabContextMenuAction *mSaveAllContextMenuAction;
 	TabContextMenuAction *mRenameContextMenuAction;
 	TabContextMenuAction *mOpenDirectoryContextMenuAction;
 	TabContextMenuAction *mCopyPathToClipboardContextMenuAction;
@@ -112,6 +114,7 @@ private slots:
 	void saveAsTab(int index);
 	void renameTab(int index);
 	void saveTab(int index);
+	void saveAllTabs();
 	void openDirectoryTab(int index);
 	void updateContextMenuActions(int index);
 	void copyToClipboardTab(int index);

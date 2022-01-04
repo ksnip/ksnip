@@ -100,6 +100,7 @@ private:
 	bool mSessionManagerRequestedQuit;
 	bool mResizeOnNormalize;
 	QAction *mSaveAsAction;
+	QAction *mSaveAllAction;
 	QAction *mUploadAction;
 	QAction *mCopyAsDataUriAction;
 	QAction *mPrintAction;
@@ -171,6 +172,7 @@ private slots:
 	void handleGuiStartup();
 	void saveClicked();
 	void saveAsClicked();
+	void saveAllClicked();
 	void updateApplicationTitle();
 	void capturePostProcessing();
 	void loadImageFromFile(const QString &path);

@@ -46,9 +46,9 @@
 
 class SettingsDialog : public QDialog
 {
-    Q_OBJECT
+	Q_OBJECT
 public:
-    explicit SettingsDialog(
+	explicit SettingsDialog(
 			const QList<CaptureModes> &captureModes,
 			const QSharedPointer<IConfig> &config,
 			const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider,
@@ -57,39 +57,44 @@ public:
 			const QSharedPointer<IPlatformChecker> &platformChecker,
 			const QSharedPointer<IPluginFinder> &pluginFinder,
 			QWidget *parent);
-    ~SettingsDialog() override;
+	~SettingsDialog() override;
 
 private:
 	QSharedPointer<IConfig> mConfig;
 	QSharedPointer<IScaledSizeProvider> mScaledSizeProvider;
-    QPushButton *mOkButton;
-    QPushButton *mCancelButton;
+	QPushButton *mOkButton;
+	QPushButton *mCancelButton;
 	ApplicationSettings *mApplicationSettings;
 	ImageGrabberSettings *mImageGrabberSettings;
 	ImgurUploaderSettings *mImgurUploaderSettings;
 	ScriptUploaderSettings *mScriptUploaderSettings;
 	HotKeySettings *mHotKeySettings;
-    AnnotationSettings *mAnnotationSettings;
-    UploaderSettings *mUploaderSettings;
-    SaverSettings *mSaverSettings;
-    StickerSettings *mStickerSettings;
+	AnnotationSettings *mAnnotationSettings;
+	UploaderSettings *mUploaderSettings;
+	SaverSettings *mSaverSettings;
+	StickerSettings *mStickerSettings;
 	TrayIconSettings *mTrayIconSettings;
-    SnippingAreaSettings *mSnippingAreaSettings;
+	SnippingAreaSettings *mSnippingAreaSettings;
 	WatermarkSettings *mWatermarkSettings;
 	ActionsSettings *mActionsSettings;
 	FtpUploaderSettings *mFtpUploaderSettings;
 	PluginsSettings *mPluginsSettings;
+	QLineEdit *mSearchSettingsLineEdit;
 	QTreeWidget *mTreeWidget;
-    QStackedLayout *mStackedLayout;
-    QList<QTreeWidgetItem*> mNavigatorItems;
+	QStackedLayout *mStackedLayout;
+	QList<QTreeWidgetItem*> mNavigatorItems;
 
-    void saveSettings();
-    void initGui();
+	void saveSettings();
+	void initGui();
+
+	bool filterNavigatorItem(QTreeWidgetItem *navigatorItem, const QString &filterString);
+	bool settingsPageContainsFilterString(QWidget *settingsPage, const QString &filterString);
 
 private slots:
-    void switchTab();
-    void cancelClicked();
-    void okClicked();
+	void switchTab();
+	void filterSettings(const QString &filterString);
+	void cancelClicked();
+	void okClicked();
 };
 
 #endif // KSNIP_SETTINGSDIALOG_H

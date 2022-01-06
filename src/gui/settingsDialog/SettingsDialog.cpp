@@ -50,51 +50,53 @@ SettingsDialog::SettingsDialog(
 	mWatermarkSettings(new WatermarkSettings(mConfig, mScaledSizeProvider)),
 	mActionsSettings(new ActionsSettings(captureModes, platformChecker, mConfig)),
 	mPluginsSettings(new PluginsSettings(mConfig, fileDialogService, pluginFinder)),
+	mSearchSettingsLineEdit(new QLineEdit(this)),
 	mFtpUploaderSettings(new FtpUploaderSettings(mConfig))
 {
-    setWindowTitle(QApplication::applicationName() + QLatin1String(" - ") + tr("Settings"));
+	setWindowTitle(QApplication::applicationName() + QLatin1String(" - ") + tr("Settings"));
 
-    initGui();
+	initGui();
 
-    connect(mTreeWidget, &QTreeWidget::itemSelectionChanged, this, &SettingsDialog::switchTab);
+	connect(mTreeWidget, &QTreeWidget::itemSelectionChanged, this, &SettingsDialog::switchTab);
+	connect(mSearchSettingsLineEdit, &QLineEdit::textChanged, this, &SettingsDialog::filterSettings);
 }
 
 SettingsDialog::~SettingsDialog()
 {
-    delete mOkButton;
-    delete mCancelButton;
-    delete mTreeWidget;
-    delete mStackedLayout;
-    delete mApplicationSettings;
-    delete mImageGrabberSettings;
-    delete mImgurUploaderSettings;
-    delete mAnnotationSettings;
-    delete mHotKeySettings;
-    delete mUploaderSettings;
-    delete mSaverSettings;
-    delete mStickerSettings;
-    delete mTrayIconSettings;
-    delete mSnippingAreaSettings;
-    delete mWatermarkSettings;
-    delete mActionsSettings;
-    delete mFtpUploaderSettings;
-    delete mPluginsSettings;
+	delete mOkButton;
+	delete mCancelButton;
+	delete mTreeWidget;
+	delete mStackedLayout;
+	delete mApplicationSettings;
+	delete mImageGrabberSettings;
+	delete mImgurUploaderSettings;
+	delete mAnnotationSettings;
+	delete mHotKeySettings;
+	delete mUploaderSettings;
+	delete mSaverSettings;
+	delete mStickerSettings;
+	delete mTrayIconSettings;
+	delete mSnippingAreaSettings;
+	delete mWatermarkSettings;
+	delete mActionsSettings;
+	delete mFtpUploaderSettings;
+	delete mPluginsSettings;
 }
 
 void SettingsDialog::saveSettings()
 {
-    mApplicationSettings->saveSettings();
-    mImageGrabberSettings->saveSettings();
-    mUploaderSettings->saveSettings();
-    mImgurUploaderSettings->saveSettings();
-    mScriptUploaderSettings->saveSettings();
-    mAnnotationSettings->saveSettings();
-    mHotKeySettings->saveSettings();
-    mSaverSettings->saveSettings();
-    mStickerSettings->saveSettings();
-    mTrayIconSettings->saveSettings();
-    mSnippingAreaSettings->saveSettings();
-    mWatermarkSettings->saveSettings();
+	mApplicationSettings->saveSettings();
+	mImageGrabberSettings->saveSettings();
+	mUploaderSettings->saveSettings();
+	mImgurUploaderSettings->saveSettings();
+	mScriptUploaderSettings->saveSettings();
+	mAnnotationSettings->saveSettings();
+	mHotKeySettings->saveSettings();
+	mSaverSettings->saveSettings();
+	mStickerSettings->saveSettings();
+	mTrayIconSettings->saveSettings();
+	mSnippingAreaSettings->saveSettings();
+	mWatermarkSettings->saveSettings();
 	mActionsSettings->saveSettings();
 	mFtpUploaderSettings->saveSettings();
 	mPluginsSettings->saveSettings();
@@ -102,26 +104,26 @@ void SettingsDialog::saveSettings()
 
 void SettingsDialog::initGui()
 {
-    mOkButton->setText(tr("OK"));
-    connect(mOkButton, &QPushButton::clicked, this, &SettingsDialog::okClicked);
+	mOkButton->setText(tr("OK"));
+	connect(mOkButton, &QPushButton::clicked, this, &SettingsDialog::okClicked);
 
-    mCancelButton->setText(tr("Cancel"));
-    connect(mCancelButton, &QPushButton::clicked, this, &SettingsDialog::cancelClicked);
+	mCancelButton->setText(tr("Cancel"));
+	connect(mCancelButton, &QPushButton::clicked, this, &SettingsDialog::cancelClicked);
 
-    auto buttonLayout = new QHBoxLayout;
-    buttonLayout->addWidget(mOkButton);
-    buttonLayout->addWidget(mCancelButton);
-    buttonLayout->setAlignment(Qt::AlignRight);
+	auto buttonLayout = new QHBoxLayout;
+	buttonLayout->addWidget(mOkButton);
+	buttonLayout->addWidget(mCancelButton);
+	buttonLayout->setAlignment(Qt::AlignRight);
 
-    mStackedLayout->addWidget(mApplicationSettings);
-    mStackedLayout->addWidget(mSaverSettings);
-    mStackedLayout->addWidget(mTrayIconSettings);
-    mStackedLayout->addWidget(mImageGrabberSettings);
-    mStackedLayout->addWidget(mSnippingAreaSettings);
-    mStackedLayout->addWidget(mUploaderSettings);
-    mStackedLayout->addWidget(mImgurUploaderSettings);
-    mStackedLayout->addWidget(mFtpUploaderSettings);
-    mStackedLayout->addWidget(mScriptUploaderSettings);
+	mStackedLayout->addWidget(mApplicationSettings);
+	mStackedLayout->addWidget(mSaverSettings);
+	mStackedLayout->addWidget(mTrayIconSettings);
+	mStackedLayout->addWidget(mImageGrabberSettings);
+	mStackedLayout->addWidget(mSnippingAreaSettings);
+	mStackedLayout->addWidget(mUploaderSettings);
+	mStackedLayout->addWidget(mImgurUploaderSettings);
+	mStackedLayout->addWidget(mFtpUploaderSettings);
+	mStackedLayout->addWidget(mScriptUploaderSettings);
 	mStackedLayout->addWidget(mAnnotationSettings);
 	mStackedLayout->addWidget(mStickerSettings);
 	mStackedLayout->addWidget(mWatermarkSettings);
@@ -165,37 +167,121 @@ void SettingsDialog::initGui()
 	mTreeWidget->addTopLevelItem(imageGrabber);
 	mTreeWidget->addTopLevelItem(uploader);
 	mTreeWidget->addTopLevelItem(annotator);
-    mTreeWidget->addTopLevelItem(hotkeys);
-    mTreeWidget->addTopLevelItem(actions);
-    mTreeWidget->addTopLevelItem(plugins);
+	mTreeWidget->addTopLevelItem(hotkeys);
+	mTreeWidget->addTopLevelItem(actions);
+	mTreeWidget->addTopLevelItem(plugins);
 	mTreeWidget->setHeaderHidden(true);
-    mTreeWidget->setItemSelected(mNavigatorItems[0], true);
-    mTreeWidget->setFixedWidth(mTreeWidget->minimumSizeHint().width() + mScaledSizeProvider->scaledWidth(100));
-    mTreeWidget->expandAll();
+	mTreeWidget->setItemSelected(mNavigatorItems[0], true);
+	mTreeWidget->setFixedWidth(mTreeWidget->minimumSizeHint().width() + mScaledSizeProvider->scaledWidth(100));
+	mTreeWidget->expandAll();
 
-    auto listAndStackLayout = new QHBoxLayout;
-    listAndStackLayout->addWidget(mTreeWidget);
-    listAndStackLayout->addLayout(mStackedLayout);
+	mSearchSettingsLineEdit->setPlaceholderText(tr("Search Settings..."));
+	mSearchSettingsLineEdit->setFixedWidth(mTreeWidget->width());
 
-    auto mainLayout = new QVBoxLayout();
-    mainLayout->addLayout(listAndStackLayout);
-    mainLayout->addLayout(buttonLayout);
+	auto settingsNavigationLayout = new QVBoxLayout();
+	settingsNavigationLayout->addWidget(mSearchSettingsLineEdit);
+	settingsNavigationLayout->addWidget(mTreeWidget);
 
-    setLayout(mainLayout);
+	auto listAndStackLayout = new QHBoxLayout;
+	listAndStackLayout->addLayout(settingsNavigationLayout);
+	listAndStackLayout->addLayout(mStackedLayout);
+
+	auto mainLayout = new QVBoxLayout();
+	mainLayout->addLayout(listAndStackLayout);
+	mainLayout->addLayout(buttonLayout);
+
+	setLayout(mainLayout);
 }
 
 void SettingsDialog::switchTab()
 {
-    mStackedLayout->setCurrentIndex(mNavigatorItems.indexOf(mTreeWidget->currentItem()));
+	mStackedLayout->setCurrentIndex(mNavigatorItems.indexOf(mTreeWidget->currentItem()));
+}
+
+void SettingsDialog::filterSettings(const QString &filterString)
+{
+	if (filterString.isEmpty()) {
+		foreach (auto navigatorItem, mNavigatorItems) {
+			navigatorItem->setHidden(false);
+		}
+		return;
+	}
+
+	for (int index = 0; index < mTreeWidget->topLevelItemCount(); ++index) {
+		filterNavigatorItem(mTreeWidget->topLevelItem(index), filterString);
+	}
+
+	for (int index = 0; index < mNavigatorItems.size(); ++index) {
+		if (!mNavigatorItems[index]->isHidden()) {
+			mTreeWidget->setCurrentItem(mNavigatorItems[index]);
+			return;
+		}
+	}
+}
+
+bool SettingsDialog::filterNavigatorItem(QTreeWidgetItem *navigatorItem, const QString &filterString)
+{
+	bool filtered{true};
+
+	if (navigatorItem->text(0).contains(filterString, Qt::CaseInsensitive)) {
+		navigatorItem->setDisabled(false);
+		for (int index = 0; index < navigatorItem->childCount(); ++index) {
+			filterNavigatorItem(navigatorItem->child(index), filterString);
+		}
+		filtered = false;
+	} else {
+		filtered = !settingsPageContainsFilterString(mStackedLayout->itemAt(mNavigatorItems.indexOf(navigatorItem))->widget(), filterString);
+
+		for (int index = 0; index < navigatorItem->childCount(); ++index) {
+			filtered &= filterNavigatorItem(navigatorItem->child(index), filterString);
+		}
+	}
+
+	navigatorItem->setHidden(filtered);
+	return filtered;
+}
+
+bool SettingsDialog::settingsPageContainsFilterString(QWidget *settingsPage, const QString &filterString)
+{
+	foreach (auto button, settingsPage->findChildren<QAbstractButton*>()) {
+		if (button->text().contains(filterString, Qt::CaseInsensitive)) {
+			return true;
+		}
+	}
+
+	foreach (auto label, settingsPage->findChildren<QLabel*>()) {
+		if (label->text().contains(filterString, Qt::CaseInsensitive)) {
+			return true;
+		}
+	}
+
+	foreach (auto lineEdit, settingsPage->findChildren<QLineEdit*>()) {
+		if (lineEdit->text().contains(filterString, Qt::CaseInsensitive)) {
+			return true;
+		}
+		if (lineEdit->placeholderText().contains(filterString, Qt::CaseInsensitive)) {
+			return true;
+		}
+	}
+
+	foreach (auto comboBox, settingsPage->findChildren<QComboBox*>()) {
+		for (int index = 0; index < comboBox->count(); ++index) {
+			if (comboBox->itemText(index).contains(filterString, Qt::CaseInsensitive)) {
+				return true;
+			}
+		}
+	}
+
+	return false;
 }
 
 void SettingsDialog::okClicked()
 {
-    saveSettings();
-    close();
+	saveSettings();
+	close();
 }
 
 void SettingsDialog::cancelClicked()
 {
-    close();
+	close();
 }

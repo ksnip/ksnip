@@ -29,6 +29,7 @@ SaverSettings::SaverSettings(const QSharedPointer<IConfig> &config, const QShare
 	mSaveLocationLabel(new QLabel(this)),
 	mSaveLocationLineEdit(new QLineEdit(this)),
 	mBrowseButton(new QPushButton(this)),
+	mOverwriteFileCheckbox(new QCheckBox(this)),
 	mSaveQualityFactorSpinBox(new CustomSpinBox(0, 100, this)),
 	mLayout(new QGridLayout),
 	mSaveQualityLayout(new QGridLayout),
@@ -47,7 +48,7 @@ void SaverSettings::initGui()
 	mSaveQualityDefaultRadioButton->setText(tr("Default"));
 	mSaveQualityFactorRadioButton->setText(tr("Factor"));
 	mSaveQualityFactorRadioButton->setToolTip(tr("Specify 0 to obtain small compressed files, 100 for large uncompressed files.\n"
-											        "Not all image formats support the full range, JPEG does."));
+													"Not all image formats support the full range, JPEG does."));
 
 	mSaveQualityFactorSpinBox->setToolTip(mSaveQualityFactorRadioButton->toolTip());
 
@@ -60,12 +61,14 @@ void SaverSettings::initGui()
 	mSaveLocationLabel->setText(tr("Capture save location and filename") + QLatin1String(":"));
 
 	mSaveLocationLineEdit->setToolTip(tr("Supported Formats are JPG, PNG and BMP. If no format provided, PNG will be used as default.\n"
-									         "Filename can contain following wildcards:\n"
-									         "- $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.\n"
-		                                     "- Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002."));
+											 "Filename can contain following wildcards:\n"
+											 "- $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.\n"
+											 "- Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002."));
 
 	mBrowseButton->setText(tr("Browse"));
 	connect(mBrowseButton, &QPushButton::clicked, this, &SaverSettings::chooseSaveDirectory);
+
+	mOverwriteFileCheckbox->setText(tr("Overwrite file with same name"));
 
 	mSaveQualityLayout->addWidget(mSaveQualityDefaultRadioButton, 0, 0, 1, 1);
 	mSaveQualityLayout->addWidget(mSaveQualityFactorRadioButton, 1, 0, 1, 1);
@@ -84,6 +87,7 @@ void SaverSettings::initGui()
 	mLayout->addWidget(mSaveLocationLabel, 6, 0, 1, 4);
 	mLayout->addWidget(mSaveLocationLineEdit, 7, 0, 1, 3);
 	mLayout->addWidget(mBrowseButton, 7, 3);
+	mLayout->addWidget(mOverwriteFileCheckbox, 8, 0, 1, 4);
 
 	setTitle(tr("Saver Settings"));
 	setLayout(mLayout);
@@ -98,6 +102,7 @@ void SaverSettings::loadConfig()
 	mSaveQualityDefaultRadioButton->setChecked(mConfig->saveQualityMode() == SaveQualityMode::Default);
 	mSaveQualityFactorRadioButton->setChecked(mConfig->saveQualityMode() == SaveQualityMode::Factor);
 	mSaveLocationLineEdit->setText(mConfig->saveDirectory() + mConfig->saveFilename() + QLatin1String(".") + mConfig->saveFormat());
+	mOverwriteFileCheckbox->setChecked(mConfig->overwriteFile());
 }
 
 void SaverSettings::saveSettings()
@@ -110,6 +115,7 @@ void SaverSettings::saveSettings()
 	mConfig->setSaveDirectory(PathHelper::extractParentDirectory(mSaveLocationLineEdit->displayText()));
 	mConfig->setSaveFilename(PathHelper::extractFilename(mSaveLocationLineEdit->displayText()));
 	mConfig->setSaveFormat(PathHelper::extractFormat(mSaveLocationLineEdit->displayText()));
+	mConfig->setOverwriteFile(mOverwriteFileCheckbox->isChecked());
 }
 
 void SaverSettings::chooseSaveDirectory()

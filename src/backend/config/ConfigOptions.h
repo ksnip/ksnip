@@ -41,6 +41,7 @@ public:
 	static QString autoHideDocksString();
 	static QString autoResizeToContentString();
 	static QString resizeToContentDelayString();
+	static QString overwriteFileEnabledString();
 	static QString captureModeString();
 	static QString saveQualityModeString();
 	static QString saveQualityFactorString();

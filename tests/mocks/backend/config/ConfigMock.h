@@ -50,6 +50,9 @@ public:
 	MOCK_METHOD(int, resizeToContentDelay, (), (const, override));
 	MOCK_METHOD(void, setResizeToContentDelay, (int ms), (override));
 
+	MOCK_METHOD(bool, overwriteFile, (), (const, override));
+	MOCK_METHOD(void, setOverwriteFile, (bool enabled), (override));
+
 	MOCK_METHOD(bool, useTabs, (), (const, override));
 	MOCK_METHOD(void, setUseTabs, (bool enabled), (override));
 
@@ -208,11 +211,11 @@ public:
 	MOCK_METHOD(bool, showSnippingAreaInfoText, (), (const, override));
 	MOCK_METHOD(void, setShowSnippingAreaInfoText, (bool enabled), (override));
 
-    MOCK_METHOD(bool, snippingAreaOffsetEnable, (), (const, override));
-    MOCK_METHOD(void, setSnippingAreaOffsetEnable, (bool enabled), (override));
+	MOCK_METHOD(bool, snippingAreaOffsetEnable, (), (const, override));
+	MOCK_METHOD(void, setSnippingAreaOffsetEnable, (bool enabled), (override));
 
-    MOCK_METHOD(QPointF, snippingAreaOffset, (), (const, override));
-    MOCK_METHOD(void, setSnippingAreaOffset, (const QPointF &offset), (override));
+	MOCK_METHOD(QPointF, snippingAreaOffset, (), (const, override));
+	MOCK_METHOD(void, setSnippingAreaOffset, (const QPointF &offset), (override));
 
 	// Uploader
 

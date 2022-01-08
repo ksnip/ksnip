@@ -36,8 +36,8 @@ bool Config::rememberPosition() const
 void Config::setRememberPosition(bool enabled)
 {
 	if (rememberPosition() == enabled) {
-        return;
-    }
+		return;
+	}
 	saveValue(ConfigOptions::rememberPositionString(), enabled);
 }
 
@@ -48,9 +48,9 @@ bool Config::promptSaveBeforeExit() const
 
 void Config::setPromptSaveBeforeExit(bool  enabled)
 {
-    if (promptSaveBeforeExit() == enabled) {
-        return;
-    }
+	if (promptSaveBeforeExit() == enabled) {
+		return;
+	}
 	saveValue(ConfigOptions::promptSaveBeforeExitString(), enabled);
 }
 
@@ -61,9 +61,9 @@ bool Config::autoCopyToClipboardNewCaptures() const
 
 void Config::setAutoCopyToClipboardNewCaptures(bool  enabled)
 {
-    if (autoCopyToClipboardNewCaptures() == enabled) {
-        return;
-    }
+	if (autoCopyToClipboardNewCaptures() == enabled) {
+		return;
+	}
 	saveValue(ConfigOptions::autoCopyToClipboardNewCapturesString(), enabled);
 }
 
@@ -119,6 +119,19 @@ void Config::setResizeToContentDelay(int ms)
 	saveValue(ConfigOptions::resizeToContentDelayString(), ms);
 }
 
+bool Config::overwriteFile() const
+{
+	return loadValue(ConfigOptions::overwriteFileEnabledString(), false).toBool();
+}
+
+void Config::setOverwriteFile(bool enabled)
+{
+	if (overwriteFile() == enabled) {
+		return;
+	}
+	saveValue(ConfigOptions::overwriteFileEnabledString(), enabled);
+}
+
 bool Config::useTabs() const
 {
 	return loadValue(ConfigOptions::useTabsString(), true).toBool();
@@ -154,19 +167,19 @@ bool Config::captureOnStartup() const
 
 void Config::setCaptureOnStartup(bool enabled)
 {
-    if (captureOnStartup() == enabled) {
-        return;
-    }
+	if (captureOnStartup() == enabled) {
+		return;
+	}
 	saveValue(ConfigOptions::captureOnStartupString(), enabled);
 }
 
 QPoint Config::windowPosition() const
 {
 	// If we are not saving the position we return the default and ignore what
-    // has been save earlier
+	// has been save earlier
 	if (!rememberPosition()) {
-	    return { 200, 200 };
-    }
+		return { 200, 200 };
+	}
 
 	auto defaultPosition = QPoint(200, 200);
 	return loadValue(ConfigOptions::positionString(), defaultPosition).value<QPoint>();
@@ -174,27 +187,27 @@ QPoint Config::windowPosition() const
 
 void Config::setWindowPosition(const QPoint& position)
 {
-    if (windowPosition() == position) {
-        return;
-    }
+	if (windowPosition() == position) {
+		return;
+	}
 	saveValue(ConfigOptions::positionString(), position);
 }
 
 CaptureModes Config::captureMode() const
 {
-    // If we are not storing the tool selection, always return the rect area as default
+	// If we are not storing the tool selection, always return the rect area as default
 	if (!rememberToolSelection()) {
-        return CaptureModes::RectArea;
-    }
+		return CaptureModes::RectArea;
+	}
 
 	return loadValue(ConfigOptions::captureModeString(), (int)CaptureModes::RectArea).value<CaptureModes>();
 }
 
 void Config::setCaptureMode(CaptureModes mode)
 {
-    if (captureMode() == mode) {
-        return;
-    }
+	if (captureMode() == mode) {
+		return;
+	}
 	saveValue(ConfigOptions::captureModeString(), static_cast<int>(mode));
 }
 
@@ -203,16 +216,16 @@ QString Config::saveDirectory() const
 	auto saveDirectoryString = loadValue(ConfigOptions::saveDirectoryString(), mDirectoryPathProvider->home()).toString();
 	if (!saveDirectoryString.isEmpty()) {
 		return saveDirectoryString + QLatin1String("/");
-    } else {
+	} else {
 		return {};
-    }
+	}
 }
 
 void Config::setSaveDirectory(const QString& path)
 {
-    if (saveDirectory() == path) {
-        return;
-    }
+	if (saveDirectory() == path) {
+		return;
+	}
 	saveValue(ConfigOptions::saveDirectoryString(), path);
 }
 
@@ -229,9 +242,9 @@ QString Config::saveFilename() const
 
 void Config::setSaveFilename(const QString& filename)
 {
-    if (saveFilename() == filename) {
-        return;
-    }
+	if (saveFilename() == filename) {
+		return;
+	}
 	saveValue(ConfigOptions::saveFilenameString(), filename);
 }
 
@@ -241,16 +254,16 @@ QString Config::saveFormat() const
 	auto format = loadValue(ConfigOptions::saveFormatString(), defaultFormat).toString();
 	if (format.isEmpty() || format.isNull()) {
 		format = defaultFormat;
-    }
+	}
 
 	return format;
 }
 
 void Config::setSaveFormat(const QString& format)
 {
-    if (saveFormat() == format) {
-        return;
-    }
+	if (saveFormat() == format) {
+		return;
+	}
 	saveValue(ConfigOptions::saveFormatString(), format);
 }
 
@@ -262,9 +275,9 @@ QString Config::applicationStyle() const
 
 void Config::setApplicationStyle(const QString &style)
 {
-    if (applicationStyle() == style) {
-        return;
-    }
+	if (applicationStyle() == style) {
+		return;
+	}
 	saveValue(ConfigOptions::applicationStyleString(), style);
 }
 
@@ -439,32 +452,32 @@ void Config::setShowSnippingAreaInfoText(bool enabled)
 
 bool Config::snippingAreaOffsetEnable() const
 {
-    return loadValue(ConfigOptions::snippingAreaOffsetEnableString(), false).toBool();
+	return loadValue(ConfigOptions::snippingAreaOffsetEnableString(), false).toBool();
 }
 
 void Config::setSnippingAreaOffsetEnable(bool enabled)
 {
-    if (snippingAreaOffsetEnable() == enabled) {
-        return;
-    }
-    saveValue(ConfigOptions::snippingAreaOffsetEnableString(), enabled);
+	if (snippingAreaOffsetEnable() == enabled) {
+		return;
+	}
+	saveValue(ConfigOptions::snippingAreaOffsetEnableString(), enabled);
 
-    emit snippingAreaChangedChanged();
+	emit snippingAreaChangedChanged();
 }
 
 QPointF Config::snippingAreaOffset() const
 {
-    return loadValue(ConfigOptions::snippingAreaOffsetString(), QPointF(0, 0)).value<QPointF>();
+	return loadValue(ConfigOptions::snippingAreaOffsetString(), QPointF(0, 0)).value<QPointF>();
 }
 
 void Config::setSnippingAreaOffset(const QPointF &offset)
 {
-    if (snippingAreaOffset() == offset) {
-        return;
-    }
-    saveValue(ConfigOptions::snippingAreaOffsetString(), offset);
+	if (snippingAreaOffset() == offset) {
+		return;
+	}
+	saveValue(ConfigOptions::snippingAreaOffsetString(), offset);
 
-    emit snippingAreaChangedChanged();
+	emit snippingAreaChangedChanged();
 }
 
 SaveQualityMode Config::saveQualityMode() const
@@ -573,9 +586,9 @@ bool Config::smoothPathEnabled() const
 
 void Config::setSmoothPathEnabled(bool  enabled)
 {
-    if (smoothPathEnabled() == enabled) {
-        return;
-    }
+	if (smoothPathEnabled() == enabled) {
+		return;
+	}
 
 	saveValue(ConfigOptions::smoothPathEnabledString(), enabled);
 	emit annotatorConfigChanged();
@@ -588,9 +601,9 @@ int Config::smoothFactor() const
 
 void Config::setSmoothFactor(int  factor)
 {
-    if (smoothFactor() == factor) {
-        return;
-    }
+	if (smoothFactor() == factor) {
+		return;
+	}
 
 	saveValue(ConfigOptions::smoothPathFactorString(), factor);
 	emit annotatorConfigChanged();
@@ -697,9 +710,9 @@ bool Config::captureCursor() const
 
 void Config::setCaptureCursor(bool  enabled)
 {
-    if (captureCursor() == enabled) {
-        return;
-    }
+	if (captureCursor() == enabled) {
+		return;
+	}
 	saveValue(ConfigOptions::captureCursorString(), enabled);
 }
 
@@ -711,8 +724,8 @@ bool Config::snippingAreaRulersEnabled() const
 void Config::setSnippingAreaRulersEnabled(bool enabled)
 {
 	if (snippingAreaRulersEnabled() == enabled) {
-        return;
-    }
+		return;
+	}
 	saveValue(ConfigOptions::snippingAreaRulersEnabledString(), enabled);
 }
 
@@ -724,8 +737,8 @@ bool Config::snippingAreaPositionAndSizeInfoEnabled() const
 void Config::setSnippingAreaPositionAndSizeInfoEnabled(bool enabled)
 {
 	if (snippingAreaPositionAndSizeInfoEnabled() == enabled) {
-        return;
-    }
+		return;
+	}
 	saveValue(ConfigOptions::snippingAreaPositionAndSizeInfoEnabledString(), enabled);
 }
 
@@ -767,9 +780,9 @@ int Config::captureDelay() const
 
 void Config::setCaptureDelay(int delay)
 {
-    if (captureDelay() == delay) {
-        return;
-    }
+	if (captureDelay() == delay) {
+		return;
+	}
 	saveValue(ConfigOptions::captureDelayString(), delay);
 }
 
@@ -780,9 +793,9 @@ int Config::snippingCursorSize() const
 
 void Config::setSnippingCursorSize(int size)
 {
-    if (snippingCursorSize() == size) {
-        return;
-    }
+	if (snippingCursorSize() == size) {
+		return;
+	}
 	saveValue(ConfigOptions::snippingCursorSizeString(), size);
 }
 
@@ -794,9 +807,9 @@ QColor Config::snippingCursorColor() const
 
 void Config::setSnippingCursorColor(const QColor& color)
 {
-    if (snippingCursorColor() == color) {
-        return;
-    }
+	if (snippingCursorColor() == color) {
+		return;
+	}
 	saveValue(ConfigOptions::snippingCursorColorString(), color);
 }
 
@@ -841,38 +854,38 @@ void Config::setLastRectArea(const QRect &rectArea)
 
 bool Config::isForceGenericWaylandEnabledReadOnly() const
 {
-    return true;
+	return true;
 }
 
 bool Config::forceGenericWaylandEnabled() const
 {
-    return loadValue(ConfigOptions::forceGenericWaylandEnabledString(), false).toBool();
+	return loadValue(ConfigOptions::forceGenericWaylandEnabledString(), false).toBool();
 }
 
 void Config::setForceGenericWaylandEnabled(bool enabled)
 {
-    if (forceGenericWaylandEnabled() == enabled) {
-        return;
-    }
-    saveValue(ConfigOptions::forceGenericWaylandEnabledString(), enabled);
+	if (forceGenericWaylandEnabled() == enabled) {
+		return;
+	}
+	saveValue(ConfigOptions::forceGenericWaylandEnabledString(), enabled);
 }
 
 bool Config::isScaleGenericWaylandScreenshotEnabledReadOnly() const
 {
-    return true;
+	return true;
 }
 
 bool Config::scaleGenericWaylandScreenshotsEnabled() const
 {
-    return loadValue(ConfigOptions::scaleWaylandScreenshotsEnabledString(), false).toBool();
+	return loadValue(ConfigOptions::scaleWaylandScreenshotsEnabledString(), false).toBool();
 }
 
 void Config::setScaleGenericWaylandScreenshots(bool enabled)
 {
-    if (scaleGenericWaylandScreenshotsEnabled() == enabled) {
-        return;
-    }
-    saveValue(ConfigOptions::scaleWaylandScreenshotsEnabledString(), enabled);
+	if (scaleGenericWaylandScreenshotsEnabled() == enabled) {
+		return;
+	}
+	saveValue(ConfigOptions::scaleWaylandScreenshotsEnabledString(), enabled);
 }
 
 // Uploader
@@ -913,9 +926,9 @@ QString Config::imgurUsername() const
 
 void Config::setImgurUsername(const QString& username)
 {
-    if (imgurUsername() == username) {
-        return;
-    }
+	if (imgurUsername() == username) {
+		return;
+	}
 	saveValue(ConfigOptions::imgurUsernameString(), username);
 }
 
@@ -927,9 +940,9 @@ QByteArray Config::imgurClientId() const
 
 void Config::setImgurClientId(const QString& clientId)
 {
-    if (imgurClientId() == clientId) {
-        return;
-    }
+	if (imgurClientId() == clientId) {
+		return;
+	}
 	saveValue(ConfigOptions::imgurClientIdString(), clientId);
 }
 
@@ -941,9 +954,9 @@ QByteArray Config::imgurClientSecret() const
 
 void Config::setImgurClientSecret(const QString& clientSecret)
 {
-    if (imgurClientSecret() == clientSecret) {
-        return;
-    }
+	if (imgurClientSecret() == clientSecret) {
+		return;
+	}
 	saveValue(ConfigOptions::imgurClientSecretString(), clientSecret);
 }
 
@@ -955,9 +968,9 @@ QByteArray Config::imgurAccessToken() const
 
 void Config::setImgurAccessToken(const QString& accessToken)
 {
-    if (imgurAccessToken() == accessToken) {
-        return;
-    }
+	if (imgurAccessToken() == accessToken) {
+		return;
+	}
 	saveValue(ConfigOptions::imgurAccessTokenString(), accessToken);
 }
 
@@ -969,9 +982,9 @@ QByteArray Config::imgurRefreshToken() const
 
 void Config::setImgurRefreshToken(const QString& refreshToken)
 {
-    if (imgurRefreshToken() == refreshToken) {
-        return;
-    }
+	if (imgurRefreshToken() == refreshToken) {
+		return;
+	}
 	saveValue(ConfigOptions::imgurRefreshTokenString(), refreshToken);
 }
 
@@ -982,9 +995,9 @@ bool Config::imgurForceAnonymous() const
 
 void Config::setImgurForceAnonymous(bool  enabled)
 {
-    if (imgurForceAnonymous() == enabled) {
-        return;
-    }
+	if (imgurForceAnonymous() == enabled) {
+		return;
+	}
 	saveValue(ConfigOptions::imgurForceAnonymousString(), enabled);
 }
 
@@ -995,9 +1008,9 @@ bool Config::imgurLinkDirectlyToImage() const
 
 void Config::setImgurLinkDirectlyToImage(bool  enabled)
 {
-    if (imgurLinkDirectlyToImage() == enabled) {
-        return;
-    }
+	if (imgurLinkDirectlyToImage() == enabled) {
+		return;
+	}
 	saveValue(ConfigOptions::imgurLinkDirectlyToImageString(), enabled);
 }
 
@@ -1008,9 +1021,9 @@ bool Config::imgurAlwaysCopyToClipboard() const
 
 void Config::setImgurAlwaysCopyToClipboard(bool  enabled)
 {
-    if (imgurAlwaysCopyToClipboard() == enabled) {
-        return;
-    }
+	if (imgurAlwaysCopyToClipboard() == enabled) {
+		return;
+	}
 	saveValue(ConfigOptions::imgurAlwaysCopyToClipboardString(), enabled);
 }
 
@@ -1256,16 +1269,16 @@ void Config::setWindowUnderCursorHotKey(const QKeySequence &keySequence)
 
 QKeySequence Config::portalHotKey() const
 {
-    return loadValue(ConfigOptions::portalHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_T)).value<QKeySequence>();
+	return loadValue(ConfigOptions::portalHotKeyString(), QKeySequence(Qt::ALT + Qt::SHIFT + Qt::Key_T)).value<QKeySequence>();
 }
 
 void Config::setPortalHotKey(const QKeySequence &keySequence)
 {
-    if (portalHotKey() == keySequence) {
-        return;
-    }
-    saveValue(ConfigOptions::portalHotKeyString(), keySequence);
-    emit hotKeysChanged();
+	if (portalHotKey() == keySequence) {
+		return;
+	}
+	saveValue(ConfigOptions::portalHotKeyString(), keySequence);
+	emit hotKeysChanged();
 }
 
 // Actions
@@ -1364,7 +1377,7 @@ void Config::setPluginInfos(const QList<PluginInfo> &pluginInfos)
 	if(savedPluginInfos == pluginInfos) {
 		return;
 	}
-	
+
 	mConfig.remove(ConfigOptions::pluginInfosString());
 
 	auto count = pluginInfos.count();

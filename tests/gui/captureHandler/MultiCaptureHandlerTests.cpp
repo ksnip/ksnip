@@ -352,6 +352,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 	// assert
 	QAction *saveContextMenuAction = nullptr;
 	QAction *saveAsContextMenuAction = nullptr;
+	QAction *saveAllContextMenuAction = nullptr;
 	QAction *openDirectoryContextMenuAction = nullptr;
 	QAction *copyPathToClipboardContextMenuAction = nullptr;
 	QAction *copyToClipboardContextMenuAction = nullptr;
@@ -361,6 +362,9 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 		}
 		if(action->text() == QLatin1Literal("Save As")) {
 			saveAsContextMenuAction = action;
+		}
+		if(action->text() == QLatin1Literal("Save All")) {
+			saveAllContextMenuAction = action;
 		}
 		if(action->text() == QLatin1Literal("Open Directory")) {
 			openDirectoryContextMenuAction = action;
@@ -375,6 +379,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 
 	EXPECT_TRUE(saveContextMenuAction->isEnabled());
 	EXPECT_TRUE(saveAsContextMenuAction->isEnabled());
+	EXPECT_TRUE(saveAllContextMenuAction->isEnabled());
 	EXPECT_TRUE(openDirectoryContextMenuAction->isEnabled());
 	EXPECT_TRUE(copyPathToClipboardContextMenuAction->isEnabled());
 	EXPECT_TRUE(copyToClipboardContextMenuAction->isEnabled());
@@ -441,6 +446,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 	// assert
 	QAction *saveContextMenuAction = nullptr;
 	QAction *saveAsContextMenuAction = nullptr;
+	QAction *saveAllContextMenuAction = nullptr;
 	QAction *openDirectoryContextMenuAction = nullptr;
 	QAction *copyPathToClipboardContextMenuAction = nullptr;
 	QAction *copyToClipboardContextMenuAction = nullptr;
@@ -450,6 +456,9 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 		}
 		if(action->text() == QLatin1Literal("Save As")) {
 			saveAsContextMenuAction = action;
+		}
+		if(action->text() == QLatin1Literal("Save All")) {
+			saveAllContextMenuAction = action;
 		}
 		if(action->text() == QLatin1Literal("Open Directory")) {
 			openDirectoryContextMenuAction = action;
@@ -464,6 +473,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 
 	EXPECT_TRUE(saveContextMenuAction->isEnabled());
 	EXPECT_TRUE(saveAsContextMenuAction->isEnabled());
+	EXPECT_TRUE(saveAllContextMenuAction->isEnabled());
 	EXPECT_FALSE(openDirectoryContextMenuAction->isEnabled());
 	EXPECT_FALSE(copyPathToClipboardContextMenuAction->isEnabled());
 	EXPECT_TRUE(copyToClipboardContextMenuAction->isEnabled());

@@ -56,6 +56,7 @@ public:
 	bool isPathValid() const override;
 	void saveAs() override;
 	void save() override;
+	void saveAll() override;
 	void rename() override;
 	void copy() override;
 	void copyPath() override;

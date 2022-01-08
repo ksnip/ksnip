@@ -119,14 +119,14 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 
 MainWindow::~MainWindow()
 {
-    delete mImageAnnotator;
-    delete mCapturePrinter;
-    delete mDragAndDropProcessor;
-    delete mCaptureHandler;
-    delete mVisibilityHandler;
-    delete mWindowResizer;
-    delete mActionProcessor;
-    delete mActionsMenu;
+	delete mImageAnnotator;
+	delete mCapturePrinter;
+	delete mDragAndDropProcessor;
+	delete mCaptureHandler;
+	delete mVisibilityHandler;
+	delete mWindowResizer;
+	delete mActionProcessor;
+	delete mActionsMenu;
 }
 
 void MainWindow::handleGuiStartup()
@@ -155,7 +155,7 @@ void MainWindow::setPosition()
 
 void MainWindow::captureScreenshot(CaptureModes captureMode, bool captureCursor, int delay)
 {
-    mImageGrabber->grabImage(captureMode, captureCursor, delay);
+	mImageGrabber->grabImage(captureMode, captureCursor, delay);
 }
 
 void MainWindow::quit()
@@ -251,10 +251,10 @@ void MainWindow::showDefault()
 
 QMenu* MainWindow::createPopupMenu()
 {
-    // Filtering out the option to hide main toolbar which should no be allowed.
-    auto filteredMenu = QMainWindow::createPopupMenu();
-    filteredMenu->removeAction(mToolBar->toggleViewAction());
-    return filteredMenu;
+	// Filtering out the option to hide main toolbar which should no be allowed.
+	auto filteredMenu = QMainWindow::createPopupMenu();
+	filteredMenu->removeAction(mToolBar->toggleViewAction());
+	return filteredMenu;
 }
 
 QSize MainWindow::sizeHint() const
@@ -321,29 +321,29 @@ void MainWindow::updateApplicationTitle()
 
 void MainWindow::setEnablements(bool enabled)
 {
-    mPrintAction->setEnabled(enabled);
-    mPrintPreviewAction->setEnabled(enabled);
-    mUploadAction->setEnabled(enabled);
-    mCopyAsDataUriAction->setEnabled(enabled);
-    mScaleAction->setEnabled(enabled);
+	mPrintAction->setEnabled(enabled);
+	mPrintPreviewAction->setEnabled(enabled);
+	mUploadAction->setEnabled(enabled);
+	mCopyAsDataUriAction->setEnabled(enabled);
+	mScaleAction->setEnabled(enabled);
 	mRotateAction->setEnabled(enabled);
-    mAddWatermarkAction->setEnabled(enabled);
-    mToolBar->setCopyActionEnabled(enabled);
-    mToolBar->setCropEnabled(enabled);
-    mSaveAsAction->setEnabled(enabled);
-    mSaveAllAction->setEnabled(enabled);
-    mPinAction->setEnabled(enabled);
-    mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
-    mRenameAction->setEnabled(enabled);
-    mModifyCanvasAction->setEnabled(enabled);
-    mActionProcessor->setPostProcessingEnabled(enabled);
+	mAddWatermarkAction->setEnabled(enabled);
+	mToolBar->setCopyActionEnabled(enabled);
+	mToolBar->setCropEnabled(enabled);
+	mSaveAsAction->setEnabled(enabled);
+	mSaveAllAction->setEnabled(enabled);
+	mPinAction->setEnabled(enabled);
+	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
+	mRenameAction->setEnabled(enabled);
+	mModifyCanvasAction->setEnabled(enabled);
+	mActionProcessor->setPostProcessingEnabled(enabled);
 	mOcrAction->setEnabled(mPluginManager->isAvailable(PluginType::Ocr) && enabled);
 }
 
 void MainWindow::loadSettings()
 {
-    mToolBar->selectCaptureMode(mConfig->captureMode());
-    mToolBar->setCaptureDelay(mConfig->captureDelay() / 1000);
+	mToolBar->selectCaptureMode(mConfig->captureMode());
+	mToolBar->setCaptureDelay(mConfig->captureDelay() / 1000);
 
 	if(mConfig->autoHideDocks()) {
 		toggleDocks();
@@ -400,45 +400,45 @@ void MainWindow::initGui()
 			iconLoader,
 			mDependencyInjector->get<IScaledSizeProvider>());
 
-    connect(mToolBar, &MainToolBar::captureModeSelected, this, &MainWindow::triggerCapture);
-    connect(mToolBar, &MainToolBar::saveActionTriggered, this, &MainWindow::saveClicked);
-    connect(mToolBar, &MainToolBar::copyActionTriggered, this, &MainWindow::copyCaptureToClipboard);
-    connect(mToolBar, &MainToolBar::captureDelayChanged, this, &MainWindow::captureDelayChanged);
-    connect(mToolBar, &MainToolBar::cropActionTriggered, mImageAnnotator, &IImageAnnotator::showCropper);
+	connect(mToolBar, &MainToolBar::captureModeSelected, this, &MainWindow::triggerCapture);
+	connect(mToolBar, &MainToolBar::saveActionTriggered, this, &MainWindow::saveClicked);
+	connect(mToolBar, &MainToolBar::copyActionTriggered, this, &MainWindow::copyCaptureToClipboard);
+	connect(mToolBar, &MainToolBar::captureDelayChanged, this, &MainWindow::captureDelayChanged);
+	connect(mToolBar, &MainToolBar::cropActionTriggered, mImageAnnotator, &IImageAnnotator::showCropper);
 
 	mSaveAsAction->setText(tr("Save As..."));
 	mSaveAsAction->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_S);
 	mSaveAsAction->setIcon(iconLoader->loadForTheme(QLatin1String("saveAs")));
 	connect(mSaveAsAction, &QAction::triggered, this, &MainWindow::saveAsClicked);
 
-	mSaveAllAction->setText(tr("Save All..."));
-	mSaveAllAction->setIcon(iconLoader->loadForTheme(QLatin1String("saveAs")));
+	mSaveAllAction->setText(tr("Save All"));
+	mSaveAllAction->setIcon(iconLoader->loadForTheme(QLatin1String("save")));
 	connect(mSaveAllAction, &QAction::triggered, this, &MainWindow::saveAllClicked);
 
-    mUploadAction->setText(tr("Upload"));
-    mUploadAction->setToolTip(tr("Upload triggerCapture to external source"));
-    mUploadAction->setShortcut(Qt::SHIFT + Qt::Key_U);
-    connect(mUploadAction, &QAction::triggered, this, &MainWindow::upload);
+	mUploadAction->setText(tr("Upload"));
+	mUploadAction->setToolTip(tr("Upload triggerCapture to external source"));
+	mUploadAction->setShortcut(Qt::SHIFT + Qt::Key_U);
+	connect(mUploadAction, &QAction::triggered, this, &MainWindow::upload);
 
-    mCopyAsDataUriAction->setText(tr("Copy as data URI"));
-    mCopyAsDataUriAction->setToolTip(tr("Copy triggerCapture to system clipboard"));
-    connect(mCopyAsDataUriAction, &QAction::triggered, this, &MainWindow::copyAsDataUri);
+	mCopyAsDataUriAction->setText(tr("Copy as data URI"));
+	mCopyAsDataUriAction->setToolTip(tr("Copy triggerCapture to system clipboard"));
+	connect(mCopyAsDataUriAction, &QAction::triggered, this, &MainWindow::copyAsDataUri);
 
-    mPrintAction->setText(tr("Print"));
-    mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
-    mPrintAction->setShortcut(Qt::CTRL + Qt::Key_P);
-    mPrintAction->setIcon(QIcon::fromTheme(QLatin1String("document-print")));
-    connect(mPrintAction, &QAction::triggered, this, &MainWindow::printClicked);
+	mPrintAction->setText(tr("Print"));
+	mPrintAction->setToolTip(tr("Opens printer dialog and provide option to print image"));
+	mPrintAction->setShortcut(Qt::CTRL + Qt::Key_P);
+	mPrintAction->setIcon(QIcon::fromTheme(QLatin1String("document-print")));
+	connect(mPrintAction, &QAction::triggered, this, &MainWindow::printClicked);
 
-    mPrintPreviewAction->setText(tr("Print Preview"));
-    mPrintPreviewAction->setToolTip(tr("Opens Print Preview dialog where the image "
-                                       "orientation can be changed"));
-    mPrintPreviewAction->setIcon(QIcon::fromTheme(QLatin1String("document-print-preview")));
-    connect(mPrintPreviewAction, &QAction::triggered, this, &MainWindow::printPreviewClicked);
+	mPrintPreviewAction->setText(tr("Print Preview"));
+	mPrintPreviewAction->setToolTip(tr("Opens Print Preview dialog where the image "
+									   "orientation can be changed"));
+	mPrintPreviewAction->setIcon(QIcon::fromTheme(QLatin1String("document-print-preview")));
+	connect(mPrintPreviewAction, &QAction::triggered, this, &MainWindow::printPreviewClicked);
 
-    mScaleAction->setText(tr("Scale"));
-    mScaleAction->setToolTip(tr("Scale Image"));
-    mScaleAction->setShortcut(Qt::SHIFT + Qt::Key_S);
+	mScaleAction->setText(tr("Scale"));
+	mScaleAction->setToolTip(tr("Scale Image"));
+	mScaleAction->setShortcut(Qt::SHIFT + Qt::Key_S);
 	connect(mScaleAction, &QAction::triggered, this, &MainWindow::showScaleDialog);
 
 	mRotateAction->setText(tr("Rotate"));
@@ -451,10 +451,10 @@ void MainWindow::initGui()
 	mAddWatermarkAction->setShortcut(Qt::SHIFT + Qt::Key_W);
 	connect(mAddWatermarkAction, &QAction::triggered, this, &MainWindow::addWatermark);
 
-    mQuitAction->setText(tr("Quit"));
-    mQuitAction->setShortcut(Qt::CTRL + Qt::Key_Q);
-    mQuitAction->setIcon(QIcon::fromTheme(QLatin1String("application-exit")));
-    connect(mQuitAction, &QAction::triggered, this, &MainWindow::quit);
+	mQuitAction->setText(tr("Quit"));
+	mQuitAction->setShortcut(Qt::CTRL + Qt::Key_Q);
+	mQuitAction->setIcon(QIcon::fromTheme(QLatin1String("application-exit")));
+	connect(mQuitAction, &QAction::triggered, this, &MainWindow::quit);
 
 	mCloseWindowAction->setText(tr("Close Window"));
 	mCloseWindowAction->setShortcut(Qt::SHIFT + Qt::Key_Escape);
@@ -475,19 +475,19 @@ void MainWindow::initGui()
 	mToggleDocksAction->setShortcut(Qt::Key_Tab);
 	connect(mToggleDocksAction, &QAction::triggered, this, &MainWindow::toggleDocks);
 
-    mSettingsAction->setText(tr("Settings"));
-    mSettingsAction->setIcon(QIcon::fromTheme(QLatin1String("emblem-system")));
+	mSettingsAction->setText(tr("Settings"));
+	mSettingsAction->setIcon(QIcon::fromTheme(QLatin1String("emblem-system")));
 	mSettingsAction->setShortcut(Qt::ALT + Qt::Key_F7);
 	connect(mSettingsAction, &QAction::triggered, this, &MainWindow::showSettingsDialog);
 
-    mAboutAction->setText(tr("&About"));
+	mAboutAction->setText(tr("&About"));
 	mAboutAction->setIcon(iconLoader->load(QLatin1String("ksnip")));
 	connect(mAboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
 
-    mOpenImageAction->setText(tr("Open"));
-    mOpenImageAction->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
-    mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
-    connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::showOpenImageDialog);
+	mOpenImageAction->setText(tr("Open"));
+	mOpenImageAction->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
+	mOpenImageAction->setShortcut(Qt::CTRL + Qt::Key_O);
+	connect(mOpenImageAction, &QAction::triggered, this, &MainWindow::showOpenImageDialog);
 
 	mRecentImagesMenu->setTitle(tr("Open &Recent"));
 	mRecentImagesMenu->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
@@ -527,71 +527,71 @@ void MainWindow::initGui()
 	connect(mOcrAction, &QAction::triggered, this, &MainWindow::showOcrWindow);
 
 	auto menu = menuBar()->addMenu(tr("&File"));
-    menu->addAction(mToolBar->newCaptureAction());
+	menu->addAction(mToolBar->newCaptureAction());
 	menu->addSeparator();
-    menu->addMenu(mActionsMenu);
-    menu->addSeparator();
-    menu->addAction(mOpenImageAction);
-    menu->addMenu(mRecentImagesMenu);
-    menu->addAction(mToolBar->saveAction());
-    menu->addAction(mSaveAsAction);
-    menu->addAction(mSaveAllAction);
-    menu->addAction(mUploadAction);
-    menu->addSeparator();
-    menu->addAction(mPrintAction);
-    menu->addAction(mPrintPreviewAction);
-    menu->addSeparator();
-    menu->addAction(mCloseWindowAction);
-    menu->addAction(mQuitAction);
-    menu = menuBar()->addMenu(tr("&Edit"));
-    menu->addAction(mToolBar->undoAction());
-    menu->addAction(mToolBar->redoAction());
-    menu->addSeparator();
-    menu->addAction(mToolBar->copyToClipboardAction());
-    menu->addAction(mCopyAsDataUriAction);
-    menu->addAction(mCopyPathAction);
-    menu->addAction(mRenameAction);
-    menu->addAction(mPasteAction);
-    menu->addAction(mPasteEmbeddedAction);
+	menu->addMenu(mActionsMenu);
 	menu->addSeparator();
-    menu->addAction(mToolBar->cropAction());
-    menu->addAction(mScaleAction);
-    menu->addAction(mRotateAction);
-    menu->addAction(mAddWatermarkAction);
+	menu->addAction(mOpenImageAction);
+	menu->addMenu(mRecentImagesMenu);
+	menu->addAction(mToolBar->saveAction());
+	menu->addAction(mSaveAsAction);
+	menu->addAction(mSaveAllAction);
+	menu->addAction(mUploadAction);
+	menu->addSeparator();
+	menu->addAction(mPrintAction);
+	menu->addAction(mPrintPreviewAction);
+	menu->addSeparator();
+	menu->addAction(mCloseWindowAction);
+	menu->addAction(mQuitAction);
+	menu = menuBar()->addMenu(tr("&Edit"));
+	menu->addAction(mToolBar->undoAction());
+	menu->addAction(mToolBar->redoAction());
+	menu->addSeparator();
+	menu->addAction(mToolBar->copyToClipboardAction());
+	menu->addAction(mCopyAsDataUriAction);
+	menu->addAction(mCopyPathAction);
+	menu->addAction(mRenameAction);
+	menu->addAction(mPasteAction);
+	menu->addAction(mPasteEmbeddedAction);
+	menu->addSeparator();
+	menu->addAction(mToolBar->cropAction());
+	menu->addAction(mScaleAction);
+	menu->addAction(mRotateAction);
+	menu->addAction(mAddWatermarkAction);
 	menu->addSeparator();
 	menu->addAction(mRemoveImageAction);
 	menu = menuBar()->addMenu(tr("&View"));
 	menu->addAction(mOpenDirectoryAction);
 	menu->addAction(mToggleDocksAction);
 	menu->addAction(mModifyCanvasAction);
-    menu = menuBar()->addMenu(tr("&Options"));
-    menu->addAction(mPinAction);
-    menu->addAction(mOcrAction);
-    menu->addAction(mSettingsAction);
-    menu = menuBar()->addMenu(tr("&Help"));
-    menu->addAction(mAboutAction);
+	menu = menuBar()->addMenu(tr("&Options"));
+	menu->addAction(mPinAction);
+	menu->addAction(mOcrAction);
+	menu->addAction(mSettingsAction);
+	menu = menuBar()->addMenu(tr("&Help"));
+	menu->addAction(mAboutAction);
 
-    addToolBar(mToolBar);
+	addToolBar(mToolBar);
 
-    if(mConfig->useTrayIcon()) {
-	    connect(mTrayIcon, &TrayIcon::showEditorTriggered, [this](){ mVisibilityHandler->enforceVisible(); });
-	    mTrayIcon->setCaptureActions(mToolBar->captureActions());
-	    mTrayIcon->setOpenAction(mOpenImageAction);
-	    mTrayIcon->setSaveAction(mToolBar->saveAction());
-	    mTrayIcon->setPasteAction(mPasteAction);
-	    mTrayIcon->setCopyAction(mToolBar->copyToClipboardAction());
-	    mTrayIcon->setUploadAction(mUploadAction);
-	    mTrayIcon->setQuitAction(mQuitAction);
-	    mTrayIcon->setActionsMenu(mActionsMenu);
-	    mTrayIcon->setEnabled(true);
-    }
+	if(mConfig->useTrayIcon()) {
+		connect(mTrayIcon, &TrayIcon::showEditorTriggered, [this](){ mVisibilityHandler->enforceVisible(); });
+		mTrayIcon->setCaptureActions(mToolBar->captureActions());
+		mTrayIcon->setOpenAction(mOpenImageAction);
+		mTrayIcon->setSaveAction(mToolBar->saveAction());
+		mTrayIcon->setPasteAction(mPasteAction);
+		mTrayIcon->setCopyAction(mToolBar->copyToClipboardAction());
+		mTrayIcon->setUploadAction(mUploadAction);
+		mTrayIcon->setQuitAction(mQuitAction);
+		mTrayIcon->setActionsMenu(mActionsMenu);
+		mTrayIcon->setEnabled(true);
+	}
 
 	setCentralWidget(mImageAnnotator->widget());
 }
 
 void MainWindow::copyCaptureToClipboard()
 {
-    mCaptureHandler->copy();
+	mCaptureHandler->copy();
 }
 
 void MainWindow::upload()
@@ -649,7 +649,7 @@ void MainWindow::setupImageAnnotator()
 
 void MainWindow::captureDelayChanged(int delay)
 {
-    mConfig->setCaptureDelay(delay * 1000);
+	mConfig->setCaptureDelay(delay * 1000);
 }
 
 void MainWindow::addWatermark()

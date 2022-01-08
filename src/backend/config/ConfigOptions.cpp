@@ -89,6 +89,11 @@ QString ConfigOptions::resizeToContentDelayString()
 	return applicationSectionString() + QLatin1String("ResizeToContentDelay");
 }
 
+QString ConfigOptions::overwriteFileEnabledString()
+{
+	return applicationSectionString() + QLatin1String("OverwriteFileEnabled");
+}
+
 QString ConfigOptions::freezeImageWhileSnippingEnabledString()
 {
 	return imageGrabberSectionString() + QLatin1String("FreezeImageWhileSnippingEnabled");
@@ -211,7 +216,7 @@ QString ConfigOptions::snippingAreaOffsetEnableString()
 
 QString ConfigOptions::snippingAreaOffsetString()
 {
-    return snippingAreaSectionString() + QLatin1String("SnippingAreaOffset");
+	return snippingAreaSectionString() + QLatin1String("SnippingAreaOffset");
 }
 
 QString ConfigOptions::smoothPathEnabledString()
@@ -301,12 +306,12 @@ QString ConfigOptions::lastRectAreaString()
 
 QString ConfigOptions::forceGenericWaylandEnabledString()
 {
-    return imageGrabberSectionString() + QLatin1String("ForceGenericWaylandEnabled");
+	return imageGrabberSectionString() + QLatin1String("ForceGenericWaylandEnabled");
 }
 
 QString ConfigOptions::scaleWaylandScreenshotsEnabledString()
 {
-    return imageGrabberSectionString() + QLatin1String("ScaleGenericWaylandScreenshotsEnabledString");
+	return imageGrabberSectionString() + QLatin1String("ScaleGenericWaylandScreenshotsEnabledString");
 }
 
 QString ConfigOptions::imgurUsernameString()
@@ -541,7 +546,7 @@ QString ConfigOptions::windowUnderCursorHotKeyString()
 
 QString ConfigOptions::portalHotKeyString()
 {
-    return hotKeysSectionString() + QLatin1String("PortalHotKey");
+	return hotKeysSectionString() + QLatin1String("PortalHotKey");
 }
 
 QString ConfigOptions::applicationSectionString()
@@ -601,5 +606,5 @@ QString ConfigOptions::pluginsSectionString()
 
 QString ConfigOptions::snippingAreaSectionString()
 {
-    return QLatin1String("SnippingArea/");
+	return QLatin1String("SnippingArea/");
 }

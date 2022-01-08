@@ -37,12 +37,12 @@
 
 class Config : public IConfig
 {
-    Q_OBJECT
+	Q_OBJECT
 public:
 	explicit Config(const QSharedPointer<IDirectoryPathProvider> &directoryPathProvider);
 	~Config() override = default;
 
-    // Application
+	// Application
 
 	bool rememberPosition() const override;
 	void setRememberPosition(bool enabled) override;
@@ -64,6 +64,9 @@ public:
 
 	int resizeToContentDelay() const override;
 	void setResizeToContentDelay(int ms) override;
+
+	bool overwriteFile() const override;
+	void setOverwriteFile(bool enabled) override;
 
 	bool useTabs() const override;
 	void setUseTabs(bool enabled) override;
@@ -166,9 +169,9 @@ public:
 	bool isControlsWidgetVisible() const override;
 	void setIsControlsWidgetVisible(bool isVisible) override;
 
-    // Image Grabber
+	// Image Grabber
 
-    bool isFreezeImageWhileSnippingEnabledReadOnly() const override;
+	bool isFreezeImageWhileSnippingEnabledReadOnly() const override;
 	bool freezeImageWhileSnippingEnabled() const override;
 	void setFreezeImageWhileSnippingEnabled(bool enabled) override;
 
@@ -210,9 +213,9 @@ public:
 	bool forceGenericWaylandEnabled() const override;
 	void setForceGenericWaylandEnabled(bool enabled) override;
 
-    bool isScaleGenericWaylandScreenshotEnabledReadOnly() const override;
-    bool scaleGenericWaylandScreenshotsEnabled() const override;
-    void setScaleGenericWaylandScreenshots(bool enabled) override;
+	bool isScaleGenericWaylandScreenshotEnabledReadOnly() const override;
+	bool scaleGenericWaylandScreenshotsEnabled() const override;
+	void setScaleGenericWaylandScreenshots(bool enabled) override;
 
 	bool hideMainWindowDuringScreenshot() const override;
 	void setHideMainWindowDuringScreenshot(bool enabled) override;
@@ -223,11 +226,11 @@ public:
 	bool showSnippingAreaInfoText() const override;
 	void setShowSnippingAreaInfoText(bool enabled) override;
 
-    bool snippingAreaOffsetEnable() const override;
-    void setSnippingAreaOffsetEnable(bool enabled) override;
+	bool snippingAreaOffsetEnable() const override;
+	void setSnippingAreaOffsetEnable(bool enabled) override;
 
-    QPointF snippingAreaOffset() const override;
-    void setSnippingAreaOffset(const QPointF &offset) override;
+	QPointF snippingAreaOffset() const override;
+	void setSnippingAreaOffset(const QPointF &offset) override;
 
 	// Uploader
 
@@ -237,7 +240,7 @@ public:
 	UploaderType uploaderType() const override;
 	void setUploaderType(UploaderType type) override;
 
-    // Imgur Uploader
+	// Imgur Uploader
 
 	QString imgurUsername() const override;
 	void setImgurUsername(const QString &username) override;
@@ -321,10 +324,10 @@ public:
 	QKeySequence windowUnderCursorHotKey() const override;
 	void setWindowUnderCursorHotKey(const QKeySequence &keySequence) override;
 
-    QKeySequence portalHotKey() const override;
-    void setPortalHotKey(const QKeySequence &keySequence) override;
+	QKeySequence portalHotKey() const override;
+	void setPortalHotKey(const QKeySequence &keySequence) override;
 
-    // Actions
+	// Actions
 
 	QList<Action> actions() override;
 	void setActions(const QList<Action> &actions) override;
@@ -338,7 +341,7 @@ public:
 	void setPluginInfos(const QList<PluginInfo> &pluginInfos) override;
 
 private:
-    QSettings mConfig;
+	QSettings mConfig;
 	const QSharedPointer<IDirectoryPathProvider> mDirectoryPathProvider;
 
 	void saveValue(const QString &key, const QVariant &value);

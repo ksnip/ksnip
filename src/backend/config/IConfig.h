@@ -60,6 +60,9 @@ public:
 	virtual int resizeToContentDelay() const = 0;
 	virtual void setResizeToContentDelay(int ms) = 0;
 
+	virtual bool overwriteFile() const = 0;
+	virtual void setOverwriteFile(bool enabled) = 0;
+
 	virtual bool useTabs() const = 0;
 	virtual void setUseTabs(bool enabled) = 0;
 
@@ -218,11 +221,11 @@ public:
 	virtual bool showSnippingAreaInfoText() const = 0;
 	virtual void setShowSnippingAreaInfoText(bool enabled) = 0;
 
-    virtual bool snippingAreaOffsetEnable() const = 0;
-    virtual void setSnippingAreaOffsetEnable(bool enabled) = 0;
+	virtual bool snippingAreaOffsetEnable() const = 0;
+	virtual void setSnippingAreaOffsetEnable(bool enabled) = 0;
 
-    virtual QPointF snippingAreaOffset() const = 0;
-    virtual void setSnippingAreaOffset(const QPointF &offset) = 0;
+	virtual QPointF snippingAreaOffset() const = 0;
+	virtual void setSnippingAreaOffset(const QPointF &offset) = 0;
 
 	// Uploader
 

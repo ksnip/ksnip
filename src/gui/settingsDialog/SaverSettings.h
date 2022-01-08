@@ -51,6 +51,7 @@ private:
 	QLabel *mSaveLocationLabel;
 	QLineEdit *mSaveLocationLineEdit;
 	QPushButton *mBrowseButton;
+	QCheckBox *mOverwriteFileCheckbox;
 	CustomSpinBox *mSaveQualityFactorSpinBox;
 	QGridLayout *mLayout;
 	QGridLayout *mSaveQualityLayout;

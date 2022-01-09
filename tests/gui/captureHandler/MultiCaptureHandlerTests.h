@@ -38,6 +38,7 @@ private slots:
     void OpenDirectory_Should_FetchCurrentTabPathFromTabStateHandler_And_PassTheParentDirectoryOnlyToDesktopService();
     void RemoveImage_Should_NotRemoveTab_When_OperationDidNotDeleteImage();
     void RemoveImage_Should_RemoveTab_When_OperationDidDeleteImage();
+    void SaveAll_Should_CallSaveForAllTabs_When_TabIsNotSaved();
 };
 
 #endif //KSNIP_MULTICAPTUREHANDLERTESTS_H

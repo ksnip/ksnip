@@ -30,6 +30,9 @@
 #include "tests/mocks/gui/messageBoxService/MessageBoxServiceMock.h"
 #include "tests/mocks/gui/captureHandler/CaptureTabStateHandlerMock.h"
 #include "tests/mocks/backend/config/ConfigMock.h"
+#include "tests/mocks/backend/saver/ImageSaverMock.h"
+#include "tests/mocks/backend/saver/SavePathProviderMock.h"
+#include "tests/mocks/backend/recentImages/RecentImageServiceMock.h"
 #include "tests/mocks/common/loader/IconLoaderMock.h"
 
 void MultiCaptureHandlerTests::Copy_Should_CopyCurrentTabImageToClipboard()
@@ -51,9 +54,7 @@ void MultiCaptureHandlerTests::Copy_Should_CopyCurrentTabImageToClipboard()
 	EXPECT_CALL(*configMock, autoHideTabs());
 
 	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
-			.WillRepeatedly([=]() {
-				return QIcon();
-			});
+			.WillRepeatedly(testing::Return(QIcon()));
 
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
@@ -127,9 +128,7 @@ void MultiCaptureHandlerTests::CopyToClipboardTab_Should_FetchCorrectImageFromAn
 			});
 
 	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
-			.WillRepeatedly([=]() {
-				return QIcon();
-			});
+			.WillRepeatedly(testing::Return(QIcon()));
 
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
@@ -194,9 +193,7 @@ void MultiCaptureHandlerTests::CopyPathToClipboardTab_Should_FetchCorrectPathFro
 			});
 
 	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
-			.WillRepeatedly([=]() {
-				return QIcon();
-			});
+			.WillRepeatedly(testing::Return(QIcon()));
 
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
@@ -262,9 +259,7 @@ void MultiCaptureHandlerTests::OpenDirectory_Should_FetchCorrectPathFromTabState
 			});
 
 	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
-			.WillRepeatedly([=]() {
-				return QIcon();
-			});
+			.WillRepeatedly(testing::Return(QIcon()));
 
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
@@ -326,9 +321,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 			});
 
 	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
-			.WillRepeatedly([=]() {
-				return QIcon();
-			});
+			.WillRepeatedly(testing::Return(QIcon()));
 
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
@@ -420,9 +413,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetAllActionThatR
 			});
 
 	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
-			.WillRepeatedly([=]() {
-				return QIcon();
-			});
+			.WillRepeatedly(testing::Return(QIcon()));
 
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
@@ -513,9 +504,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetSaveActionToDi
 			});
 
 	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
-			.WillRepeatedly([=]() {
-				return QIcon();
-			});
+			.WillRepeatedly(testing::Return(QIcon()));
 
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
@@ -581,9 +570,7 @@ void MultiCaptureHandlerTests::UpdateContextMenuActions_Should_SetSaveActionToEn
 			});
 
 	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
-			.WillRepeatedly([=]() {
-				return QIcon();
-			});
+			.WillRepeatedly(testing::Return(QIcon()));
 
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
@@ -652,9 +639,7 @@ void MultiCaptureHandlerTests::CopyPath_Should_CopyCurrentTabPathToClipboard()
 	EXPECT_CALL(*clipboardMock, setText(path)).Times(testing::Exactly(1));
 
 	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
-			.WillRepeatedly([=]() {
-				return QIcon();
-			});
+			.WillRepeatedly(testing::Return(QIcon()));
 
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
@@ -713,9 +698,7 @@ void MultiCaptureHandlerTests::OpenDirectory_Should_FetchCurrentTabPathFromTabSt
 	EXPECT_CALL(*desktopServiceMock, openFile(parentDir)).Times(testing::Exactly(1));
 
 	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
-			.WillRepeatedly([=]() {
-				return QIcon();
-			});
+			.WillRepeatedly(testing::Return(QIcon()));
 
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
@@ -776,9 +759,7 @@ void MultiCaptureHandlerTests::RemoveImage_Should_NotRemoveTab_When_OperationDid
 			});
 
 	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
-			.WillRepeatedly([=]() {
-				return QIcon();
-			});
+			.WillRepeatedly(testing::Return(QIcon()));
 
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
@@ -848,9 +829,7 @@ void MultiCaptureHandlerTests::RemoveImage_Should_RemoveTab_When_OperationDidDel
 			});
 
 	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
-			.WillRepeatedly([=]() {
-				return QIcon();
-			});
+			.WillRepeatedly(testing::Return(QIcon()));
 
 	MultiCaptureHandler multiCaptureHandler(
 			&imageAnnotatorMock,
@@ -870,6 +849,89 @@ void MultiCaptureHandlerTests::RemoveImage_Should_RemoveTab_When_OperationDidDel
 
 	// act & assert
 	multiCaptureHandler.removeImage();
+}
+
+void MultiCaptureHandlerTests::SaveAll_Should_CallSaveForAllTabs_When_TabIsNotSaved()
+{
+	// arrange
+	QWidget parent;
+
+	ImageAnnotatorMock imageAnnotatorMock;
+	auto notificationServiceMock = QSharedPointer<NotificationServiceMock>(new NotificationServiceMock);
+	auto captureTabStateHandlerMock = QSharedPointer<CaptureTabStateHandlerMock>(new CaptureTabStateHandlerMock);
+	auto configMock = QSharedPointer<ConfigMock>(new ConfigMock);
+	auto iconLoaderMock = QSharedPointer<IconLoaderMock>(new IconLoaderMock);
+	auto imageSaverMock = QSharedPointer<ImageSaverMock>(new ImageSaverMock);
+	auto savePathProviderMock = QSharedPointer<SavePathProviderMock>(new SavePathProviderMock);
+	auto recentImageServiceMock = QSharedPointer<RecentImageServiceMock>(new RecentImageServiceMock);
+
+	EXPECT_CALL(imageAnnotatorMock, setTabBarAutoHide(testing::_));
+	EXPECT_CALL(imageAnnotatorMock, imageAt(testing::_))
+			.WillRepeatedly(testing::Return(QImage()));
+
+	EXPECT_CALL(*recentImageServiceMock, storeImagePath(testing::_))
+			.WillRepeatedly(testing::Return());
+
+	EXPECT_CALL(*configMock, trayIconNotificationsEnabled())
+			.WillRepeatedly(testing::Return(false));
+
+	EXPECT_CALL(*configMock, autoHideTabs());
+
+	EXPECT_CALL(*captureTabStateHandlerMock, count())
+			.WillRepeatedly([=]() {
+				return 3;
+			});
+
+	EXPECT_CALL(*captureTabStateHandlerMock, isSaved(0))
+			.Times(testing::Exactly(1))
+			.WillRepeatedly(testing::Return(false));
+
+	EXPECT_CALL(*captureTabStateHandlerMock, isSaved(1))
+			.Times(testing::Exactly(1))
+			.WillRepeatedly(testing::Return(true));
+
+	EXPECT_CALL(*captureTabStateHandlerMock, isSaved(2))
+			.Times(testing::Exactly(1))
+			.WillRepeatedly(testing::Return(false));
+
+	EXPECT_CALL(*captureTabStateHandlerMock, setSaveState(0, testing::_))
+			.Times(testing::Exactly(1));
+
+	EXPECT_CALL(*captureTabStateHandlerMock, setSaveState(2, testing::_))
+			.Times(testing::Exactly(1));
+
+	EXPECT_CALL(*captureTabStateHandlerMock, path(testing::_))
+			.WillRepeatedly(testing::Return(QString()));
+
+	EXPECT_CALL(*imageSaverMock, save(testing::_, testing::_))
+			.WillRepeatedly(testing::Return(true));
+
+	EXPECT_CALL(*savePathProviderMock, savePath())
+			.WillRepeatedly(testing::Return(QString()));
+
+	EXPECT_CALL(imageAnnotatorMock, addTabContextMenuActions(testing::_));
+
+	EXPECT_CALL(*iconLoaderMock, loadForTheme(testing::_))
+			.WillRepeatedly(testing::Return(QIcon()));
+
+	MultiCaptureHandler multiCaptureHandler(
+			&imageAnnotatorMock,
+			notificationServiceMock,
+			captureTabStateHandlerMock,
+			configMock,
+			nullptr,
+			nullptr,
+			nullptr,
+			nullptr,
+			recentImageServiceMock,
+			imageSaverMock,
+			savePathProviderMock,
+			iconLoaderMock,
+			nullptr,
+			&parent);
+
+	// act & assert
+	multiCaptureHandler.saveAll();
 }
 
 TEST_MAIN(MultiCaptureHandlerTests)

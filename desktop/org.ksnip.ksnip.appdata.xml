@@ -8,8 +8,8 @@
     <summary>Cross-Platform Screenshot tool with annotation features</summary>
     <description>
         <p>
-​        Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features for your screenshots.
-​        </p>
+            Ksnip is a Qt based cross-platform screenshot tool that provides many annotation features for your screenshots.
+        </p>
         <p>Features:</p>
         <ul>
             <li>Supports Linux (X11, Plasma Wayland, GNOME Wayland and xdg-desktop-portal Wayland), Windows and macOS.</li>

@@ -4,8 +4,6 @@ adopt-info: ksnip
 icon: desktop/ksnip.svg
 grade: stable
 confinement: strict
-description: |
-  Qt based cross-platform screenshot tool that provides many annotation features for your screenshots.
 compression: lzo
 
 apps:

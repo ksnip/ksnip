@@ -64,6 +64,7 @@ private:
 	QSharedPointer<IScaledSizeProvider> mScaledSizeProvider;
 	QPushButton *mOkButton;
 	QPushButton *mCancelButton;
+	QWidget *mEmptyWidget;
 	ApplicationSettings *mApplicationSettings;
 	ImageGrabberSettings *mImageGrabberSettings;
 	ImgurUploaderSettings *mImgurUploaderSettings;

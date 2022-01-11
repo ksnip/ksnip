@@ -36,6 +36,7 @@ SettingsDialog::SettingsDialog(
 	mStackedLayout(new QStackedLayout),
 	mConfig(config),
 	mScaledSizeProvider(scaledSizeProvider),
+	mEmptyWidget(new QWidget()),
 	mApplicationSettings(new ApplicationSettings(mConfig)),
 	mImageGrabberSettings(new ImageGrabberSettings(mConfig)),
 	mImgurUploaderSettings(new ImgurUploaderSettings(mConfig)),
@@ -67,6 +68,7 @@ SettingsDialog::~SettingsDialog()
 	delete mCancelButton;
 	delete mTreeWidget;
 	delete mStackedLayout;
+	delete mEmptyWidget;
 	delete mApplicationSettings;
 	delete mImageGrabberSettings;
 	delete mImgurUploaderSettings;
@@ -130,6 +132,7 @@ void SettingsDialog::initGui()
 	mStackedLayout->addWidget(mHotKeySettings);
 	mStackedLayout->addWidget(mActionsSettings);
 	mStackedLayout->addWidget(mPluginsSettings);
+	mStackedLayout->addWidget(mEmptyWidget);
 
 	auto application = new QTreeWidgetItem(mTreeWidget, { tr("Application") });
 	auto saver = new QTreeWidgetItem(application, { tr("Saver") });
@@ -177,6 +180,7 @@ void SettingsDialog::initGui()
 
 	mSearchSettingsLineEdit->setPlaceholderText(tr("Search Settings..."));
 	mSearchSettingsLineEdit->setFixedWidth(mTreeWidget->width());
+	mSearchSettingsLineEdit->setClearButtonEnabled(true);
 
 	auto settingsNavigationLayout = new QVBoxLayout();
 	settingsNavigationLayout->addWidget(mSearchSettingsLineEdit);
@@ -217,28 +221,31 @@ void SettingsDialog::filterSettings(const QString &filterString)
 			return;
 		}
 	}
+
+	mTreeWidget->clearSelection();
+	mStackedLayout->setCurrentIndex(mNavigatorItems.size());
 }
 
 bool SettingsDialog::filterNavigatorItem(QTreeWidgetItem *navigatorItem, const QString &filterString)
 {
-	bool filtered{true};
+	bool isFiltered{true};
 
 	if (navigatorItem->text(0).contains(filterString, Qt::CaseInsensitive)) {
 		navigatorItem->setDisabled(false);
 		for (int index = 0; index < navigatorItem->childCount(); ++index) {
 			filterNavigatorItem(navigatorItem->child(index), filterString);
 		}
-		filtered = false;
+		isFiltered = false;
 	} else {
-		filtered = !settingsPageContainsFilterString(mStackedLayout->itemAt(mNavigatorItems.indexOf(navigatorItem))->widget(), filterString);
+		isFiltered = !settingsPageContainsFilterString(mStackedLayout->itemAt(mNavigatorItems.indexOf(navigatorItem))->widget(), filterString);
 
 		for (int index = 0; index < navigatorItem->childCount(); ++index) {
-			filtered &= filterNavigatorItem(navigatorItem->child(index), filterString);
+			isFiltered &= filterNavigatorItem(navigatorItem->child(index), filterString);
 		}
 	}
 
-	navigatorItem->setHidden(filtered);
-	return filtered;
+	navigatorItem->setHidden(isFiltered);
+	return isFiltered;
 }
 
 bool SettingsDialog::settingsPageContainsFilterString(QWidget *settingsPage, const QString &filterString)

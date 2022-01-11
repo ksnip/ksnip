@@ -30,18 +30,15 @@ public:
 
 	void filterSettings(const QString &filterString,
 						QTreeWidget *treeWidget,
-						QStackedLayout *stackedLayout,
-						QList<QTreeWidgetItem*> &navigatorItems) const override;
+						std::function<QWidget *(QTreeWidgetItem *)> getSettingsPageFun) const override;
 
 private:
 	bool filterNavigatorItem(QTreeWidgetItem *navigatorItem,
-							 QList<QTreeWidgetItem *> &navigatorItems,
-							 QStackedLayout *stackedLayout,
-							 const QString &filterString) const;
+							 const QString &filterString,
+							 std::function<QWidget *(QTreeWidgetItem *)> getSettingsPageFun) const;
 
 	bool settingsPageContainsFilterString(QWidget *settingsPage,
 										  const QString &filterString) const;
-
 };
 
 #endif //KSNIP_SETTINGSFILTER_H

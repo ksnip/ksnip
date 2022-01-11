@@ -200,15 +200,20 @@ void SettingsDialog::initGui()
 
 void SettingsDialog::switchTab()
 {
-	mStackedLayout->setCurrentIndex(mNavigatorItems.indexOf(mTreeWidget->currentItem()));
+	if (mTreeWidget->selectedItems().size() == 0) {
+		mStackedLayout->setCurrentIndex(mNavigatorItems.size());
+	} else {
+		mStackedLayout->setCurrentIndex(mNavigatorItems.indexOf(mTreeWidget->currentItem()));
+	}
 }
 
 void SettingsDialog::filterSettings(const QString &filterString)
 {
 	mSettingsFilter->filterSettings(filterString,
 									mTreeWidget,
-									mStackedLayout,
-									mNavigatorItems);
+									[this](QTreeWidgetItem *treeWidgetItem) {
+		return mStackedLayout->itemAt(mNavigatorItems.indexOf(treeWidgetItem))->widget();
+	});
 }
 
 void SettingsDialog::okClicked()

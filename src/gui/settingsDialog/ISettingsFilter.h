@@ -33,9 +33,8 @@ public:
 	~ISettingsFilter() = default;
 
 	virtual void filterSettings(const QString &filterString,
-                                QTreeWidget *treeWidget,
-                                QStackedLayout *stackedLayout,
-								QList<QTreeWidgetItem*> &navigatorItems) const = 0;
+								QTreeWidget *treeWidget,
+								std::function<QWidget *(QTreeWidgetItem *)> getSettingsPageFun) const = 0;
 };
 
 #endif //KSNIP_ISETTINGSFILTER_H

@@ -17,6 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
+#include <functional>
+
 #include <QAbstractButton>
 #include <QComboBox>
 #include <QLabel>
@@ -26,49 +28,50 @@
 
 void SettingsFilter::filterSettings(const QString &filterString,
 									QTreeWidget *treeWidget,
-									QStackedLayout *stackedLayout,
-									QList<QTreeWidgetItem *> &navigatorItems) const
+									std::function<QWidget*(QTreeWidgetItem*)> getSettingsPageFun) const
 {
 	if (filterString.isEmpty()) {
-		foreach (auto navigatorItem, navigatorItems) {
-			navigatorItem->setHidden(false);
+		for (size_t topLevelItemIndex = 0; topLevelItemIndex < treeWidget->topLevelItemCount(); ++topLevelItemIndex) {
+			auto topLevelItem = treeWidget->topLevelItem(topLevelItemIndex);
+			for (size_t childIndex = 0; childIndex < topLevelItem->childCount(); ++childIndex) {
+				topLevelItem->child(childIndex)->setHidden(false);
+			}
+			topLevelItem->setHidden(false);
 		}
 		return;
 	}
 
 	for (int index = 0; index < treeWidget->topLevelItemCount(); ++index) {
-		filterNavigatorItem(treeWidget->topLevelItem(index), navigatorItems, stackedLayout, filterString);
+		filterNavigatorItem(treeWidget->topLevelItem(index), filterString, getSettingsPageFun);
 	}
 
-	for (int index = 0; index < navigatorItems.size(); ++index) {
-		if (!navigatorItems[index]->isHidden()) {
-			treeWidget->setCurrentItem(navigatorItems[index]);
+	for (size_t topLevelItemIndex = 0; topLevelItemIndex < treeWidget->topLevelItemCount(); ++topLevelItemIndex) {
+		if (!treeWidget->topLevelItem(topLevelItemIndex)->isHidden()) {
+			treeWidget->setCurrentItem(treeWidget->topLevelItem(topLevelItemIndex));
 			return;
 		}
 	}
 
 	treeWidget->clearSelection();
-	stackedLayout->setCurrentIndex(navigatorItems.size());
 }
 
 bool SettingsFilter::filterNavigatorItem(QTreeWidgetItem *navigatorItem,
-										 QList<QTreeWidgetItem *> &navigatorItems,
-										 QStackedLayout *stackedLayout,
-										 const QString &filterString) const
+										 const QString &filterString,
+										 std::function<QWidget*(QTreeWidgetItem*)> getSettingsPageFun) const
 {
 	bool isFiltered{true};
 
 	if (navigatorItem->text(0).contains(filterString, Qt::CaseInsensitive)) {
 		navigatorItem->setDisabled(false);
 		for (int index = 0; index < navigatorItem->childCount(); ++index) {
-			filterNavigatorItem(navigatorItem->child(index), navigatorItems, stackedLayout, filterString);
+			filterNavigatorItem(navigatorItem->child(index), filterString, getSettingsPageFun);
 		}
 		isFiltered = false;
 	} else {
-		isFiltered = !settingsPageContainsFilterString(stackedLayout->itemAt(navigatorItems.indexOf(navigatorItem))->widget(), filterString);
+		isFiltered = !settingsPageContainsFilterString(getSettingsPageFun(navigatorItem), filterString);
 
 		for (int index = 0; index < navigatorItem->childCount(); ++index) {
-			isFiltered &= filterNavigatorItem(navigatorItem->child(index), navigatorItems, stackedLayout, filterString);
+			isFiltered &= filterNavigatorItem(navigatorItem->child(index), filterString, getSettingsPageFun);
 		}
 	}
 

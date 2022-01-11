@@ -29,6 +29,7 @@
 #include "AnnotationSettings.h"
 #include "ApplicationSettings.h"
 #include "ImageGrabberSettings.h"
+#include "SettingsFilter.h"
 #include "HotKeySettings.h"
 #include "SaverSettings.h"
 #include "StickerSettings.h"
@@ -62,6 +63,7 @@ public:
 private:
 	QSharedPointer<IConfig> mConfig;
 	QSharedPointer<IScaledSizeProvider> mScaledSizeProvider;
+	QSharedPointer<ISettingsFilter> mSettingsFilter;
 	QPushButton *mOkButton;
 	QPushButton *mCancelButton;
 	QWidget *mEmptyWidget;
@@ -87,9 +89,6 @@ private:
 
 	void saveSettings();
 	void initGui();
-
-	bool filterNavigatorItem(QTreeWidgetItem *navigatorItem, const QString &filterString);
-	bool settingsPageContainsFilterString(QWidget *settingsPage, const QString &filterString);
 
 private slots:
 	void switchTab();

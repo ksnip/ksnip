@@ -36,6 +36,7 @@ SettingsDialog::SettingsDialog(
 	mStackedLayout(new QStackedLayout),
 	mConfig(config),
 	mScaledSizeProvider(scaledSizeProvider),
+	mSettingsFilter(new SettingsFilter()),
 	mEmptyWidget(new QWidget()),
 	mApplicationSettings(new ApplicationSettings(mConfig)),
 	mImageGrabberSettings(new ImageGrabberSettings(mConfig)),
@@ -204,82 +205,10 @@ void SettingsDialog::switchTab()
 
 void SettingsDialog::filterSettings(const QString &filterString)
 {
-	if (filterString.isEmpty()) {
-		foreach (auto navigatorItem, mNavigatorItems) {
-			navigatorItem->setHidden(false);
-		}
-		return;
-	}
-
-	for (int index = 0; index < mTreeWidget->topLevelItemCount(); ++index) {
-		filterNavigatorItem(mTreeWidget->topLevelItem(index), filterString);
-	}
-
-	for (int index = 0; index < mNavigatorItems.size(); ++index) {
-		if (!mNavigatorItems[index]->isHidden()) {
-			mTreeWidget->setCurrentItem(mNavigatorItems[index]);
-			return;
-		}
-	}
-
-	mTreeWidget->clearSelection();
-	mStackedLayout->setCurrentIndex(mNavigatorItems.size());
-}
-
-bool SettingsDialog::filterNavigatorItem(QTreeWidgetItem *navigatorItem, const QString &filterString)
-{
-	bool isFiltered{true};
-
-	if (navigatorItem->text(0).contains(filterString, Qt::CaseInsensitive)) {
-		navigatorItem->setDisabled(false);
-		for (int index = 0; index < navigatorItem->childCount(); ++index) {
-			filterNavigatorItem(navigatorItem->child(index), filterString);
-		}
-		isFiltered = false;
-	} else {
-		isFiltered = !settingsPageContainsFilterString(mStackedLayout->itemAt(mNavigatorItems.indexOf(navigatorItem))->widget(), filterString);
-
-		for (int index = 0; index < navigatorItem->childCount(); ++index) {
-			isFiltered &= filterNavigatorItem(navigatorItem->child(index), filterString);
-		}
-	}
-
-	navigatorItem->setHidden(isFiltered);
-	return isFiltered;
-}
-
-bool SettingsDialog::settingsPageContainsFilterString(QWidget *settingsPage, const QString &filterString)
-{
-	foreach (auto button, settingsPage->findChildren<QAbstractButton*>()) {
-		if (button->text().contains(filterString, Qt::CaseInsensitive)) {
-			return true;
-		}
-	}
-
-	foreach (auto label, settingsPage->findChildren<QLabel*>()) {
-		if (label->text().contains(filterString, Qt::CaseInsensitive)) {
-			return true;
-		}
-	}
-
-	foreach (auto lineEdit, settingsPage->findChildren<QLineEdit*>()) {
-		if (lineEdit->text().contains(filterString, Qt::CaseInsensitive)) {
-			return true;
-		}
-		if (lineEdit->placeholderText().contains(filterString, Qt::CaseInsensitive)) {
-			return true;
-		}
-	}
-
-	foreach (auto comboBox, settingsPage->findChildren<QComboBox*>()) {
-		for (int index = 0; index < comboBox->count(); ++index) {
-			if (comboBox->itemText(index).contains(filterString, Qt::CaseInsensitive)) {
-				return true;
-			}
-		}
-	}
-
-	return false;
+	mSettingsFilter->filterSettings(filterString,
+									mTreeWidget,
+									mStackedLayout,
+									mNavigatorItems);
 }
 
 void SettingsDialog::okClicked()

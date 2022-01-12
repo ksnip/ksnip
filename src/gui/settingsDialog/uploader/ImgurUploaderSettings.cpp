@@ -25,13 +25,13 @@ ImgurUploaderSettings::ImgurUploaderSettings(const QSharedPointer<IConfig> &conf
 	mDirectLinkToImageCheckbox(new QCheckBox(this)),
 	mAlwaysCopyToClipboardCheckBox(new QCheckBox(this)),
 	mOpenLinkInBrowserCheckbox(new QCheckBox(this)),
-	mUploadTitleEdit(new QLineEdit(this)),
-	mUploadDescriptionEdit(new QLineEdit(this)),
 	mClientIdLineEdit(new QLineEdit(this)),
 	mClientSecretLineEdit(new QLineEdit(this)),
 	mPinLineEdit(new QLineEdit(this)),
 	mUsernameLineEdit(new QLineEdit(this)),
 	mBaseUrlLineEdit(new CustomLineEdit(this)),
+	mUploadTitleEdit(new CustomLineEdit(this)),
+	mUploadDescriptionEdit(new CustomLineEdit(this)),
 	mUsernameLabel(new QLabel(this)),
 	mBaseUrlLabel(new QLabel(this)),
 	mUploadTitleLabel(new QLabel(this)),
@@ -49,37 +49,14 @@ ImgurUploaderSettings::ImgurUploaderSettings(const QSharedPointer<IConfig> &conf
 	loadConfig();
 }
 
-ImgurUploaderSettings::~ImgurUploaderSettings()
-{
-	delete mDirectLinkToImageCheckbox;
-	delete mAlwaysCopyToClipboardCheckBox;
-	delete mOpenLinkInBrowserCheckbox;
-	delete mUploadTitleEdit;
-	delete mUploadDescriptionEdit;
-	delete mClientIdLineEdit;
-	delete mClientSecretLineEdit;
-	delete mPinLineEdit;
-	delete mUsernameLineEdit;
-	delete mBaseUrlLineEdit;
-	delete mUsernameLabel;
-	delete mBaseUrlLabel;
-	delete mUploadTitleLabel;
-	delete mUploadDescriptionLabel;
-	delete mGetPinButton;
-	delete mGetTokenButton;
-	delete mClearTokenButton;
-	delete mHistoryButton;
-	delete mImgurWrapper;
-}
-
 void ImgurUploaderSettings::saveSettings()
 {
 	mConfig->setImgurForceAnonymous(mForceAnonymousCheckbox->isChecked());
 	mConfig->setImgurLinkDirectlyToImage(mDirectLinkToImageCheckbox->isChecked());
 	mConfig->setImgurAlwaysCopyToClipboard(mAlwaysCopyToClipboardCheckBox->isChecked());
 	mConfig->setImgurOpenLinkInBrowser(mOpenLinkInBrowserCheckbox->isChecked());
-	mConfig->setImgurUploadTitle(mUploadTitleEdit->text());
-	mConfig->setImgurUploadDescription(mUploadDescriptionEdit->text());
+	mConfig->setImgurUploadTitle(mUploadTitleEdit->textOrPlaceholderText());
+	mConfig->setImgurUploadDescription(mUploadDescriptionEdit->textOrPlaceholderText());
 	mConfig->setImgurBaseUrl(mBaseUrlLineEdit->textOrPlaceholderText());
 }
 
@@ -111,6 +88,9 @@ void ImgurUploaderSettings::initGui()
 	connect(mPinLineEdit, &QLineEdit::textChanged, [this](const QString & text) {
 		mGetTokenButton->setEnabled(text.length() > 8);
 	});
+
+	mUploadTitleEdit->setPlaceholderText(DefaultValues::ImgurUploadTitle);
+	mUploadDescriptionEdit->setPlaceholderText(DefaultValues::ImgurUploadDescription);
 
 	mBaseUrlLineEdit->setPlaceholderText(DefaultValues::ImgurBaseUrl);
 	mBaseUrlLineEdit->setToolTip(mBaseUrlLabel->toolTip());

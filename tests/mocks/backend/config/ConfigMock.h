@@ -254,6 +254,12 @@ public:
 	MOCK_METHOD(bool, imgurOpenLinkInBrowser, (), (const, override));
 	MOCK_METHOD(void, setImgurOpenLinkInBrowser, (bool enabled), (override));
 
+	MOCK_METHOD(QString, imgurUploadTitle, (), (const, override));
+	MOCK_METHOD(void, setImgurUploadTitle, (const QString &uploadTitle), (override));
+
+	MOCK_METHOD(QString, imgurUploadDescription, (), (const, override));
+	MOCK_METHOD(void, setImgurUploadDescription, (const QString &uploadDescription), (override));
+
 	MOCK_METHOD(QString, imgurBaseUrl, (), (const, override));
 	MOCK_METHOD(void, setImgurBaseUrl, (const QString &baseUrl), (override));
 

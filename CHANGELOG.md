@@ -13,6 +13,7 @@
 * New: Activate tab that is prompting for save. ([#750](https://github.com/ksnip/ksnip/issues/750))
 * New: Add Save all options menu. ([#754](https://github.com/ksnip/ksnip/issues/754))
 * New: Allow overwriting existing files. ([#661](https://github.com/ksnip/ksnip/issues/661))
+* New: Allow setting Imgur upload title/description. ([#679](https://github.com/ksnip/ksnip/issues/679))
 * New kImageAnnotator: Add optional undo, redo, crop, scale and modify canvas buttons to dock widgets. ([#263](https://github.com/ksnip/kImageAnnotator/issues/263))
 * Fixed: Opens a new window for each capture. ([#728](https://github.com/ksnip/ksnip/issues/728))
 * Fixed: First cli invocation won't copy image to clipboard. ([#764](https://github.com/ksnip/ksnip/issues/764))

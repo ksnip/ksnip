@@ -26,7 +26,9 @@ coding style, with a few exceptions:
 
 6. Use single TAB instead of four spaces to indent.
 
-7. UnitTest should have following naming convention:
+7. UnitTest should have the following naming convention:
     `<MethodUnderTes>_Should_<ExpectedBehavior>_When_<OptionCondition>`
    Example:
     `StoreImagesPath_Should_NotSavePath_When_PathAlreadyStored`
+
+8. Tabs should be used for indentation.

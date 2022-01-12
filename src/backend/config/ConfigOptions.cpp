@@ -354,6 +354,16 @@ QString ConfigOptions::imgurOpenLinkInBrowserString()
 	return imgurSectionString() + QLatin1String("OpenLinkInBrowser");
 }
 
+QString ConfigOptions::imgurUploadTitleString()
+{
+	return imgurSectionString() + QLatin1String("UploadTitle");
+}
+
+QString ConfigOptions::imgurUploadDescriptionString()
+{
+	return imgurSectionString() + QLatin1String("UploadDescription");
+}
+
 QString ConfigOptions::imgurAlwaysCopyToClipboardString()
 {
 	return imgurSectionString() + QLatin1String("AlwaysCopyToClipboard");

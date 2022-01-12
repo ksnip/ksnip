@@ -92,6 +92,8 @@ public:
 	static QString imgurForceAnonymousString();
 	static QString imgurLinkDirectlyToImageString();
 	static QString imgurOpenLinkInBrowserString();
+	static QString imgurUploadTitleString();
+	static QString imgurUploadDescriptionString();
 	static QString imgurAlwaysCopyToClipboardString();
 	static QString imgurBaseUrlString();
 	static QString uploadScriptPathString();

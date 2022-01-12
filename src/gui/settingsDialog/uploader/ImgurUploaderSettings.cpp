@@ -30,8 +30,12 @@ ImgurUploaderSettings::ImgurUploaderSettings(const QSharedPointer<IConfig> &conf
 	mPinLineEdit(new QLineEdit(this)),
 	mUsernameLineEdit(new QLineEdit(this)),
 	mBaseUrlLineEdit(new CustomLineEdit(this)),
+	mUploadTitleEdit(new CustomLineEdit(this)),
+	mUploadDescriptionEdit(new CustomLineEdit(this)),
 	mUsernameLabel(new QLabel(this)),
 	mBaseUrlLabel(new QLabel(this)),
+	mUploadTitleLabel(new QLabel(this)),
+	mUploadDescriptionLabel(new QLabel(this)),
 	mGetPinButton(new QPushButton(this)),
 	mGetTokenButton(new QPushButton(this)),
 	mClearTokenButton(new QPushButton(this)),
@@ -45,31 +49,14 @@ ImgurUploaderSettings::ImgurUploaderSettings(const QSharedPointer<IConfig> &conf
 	loadConfig();
 }
 
-ImgurUploaderSettings::~ImgurUploaderSettings()
-{
-	delete mDirectLinkToImageCheckbox;
-	delete mAlwaysCopyToClipboardCheckBox;
-	delete mOpenLinkInBrowserCheckbox;
-	delete mClientIdLineEdit;
-	delete mClientSecretLineEdit;
-	delete mPinLineEdit;
-	delete mUsernameLineEdit;
-	delete mBaseUrlLineEdit;
-	delete mUsernameLabel;
-	delete mBaseUrlLabel;
-	delete mGetPinButton;
-	delete mGetTokenButton;
-	delete mClearTokenButton;
-	delete mHistoryButton;
-	delete mImgurWrapper;
-}
-
 void ImgurUploaderSettings::saveSettings()
 {
 	mConfig->setImgurForceAnonymous(mForceAnonymousCheckbox->isChecked());
 	mConfig->setImgurLinkDirectlyToImage(mDirectLinkToImageCheckbox->isChecked());
 	mConfig->setImgurAlwaysCopyToClipboard(mAlwaysCopyToClipboardCheckBox->isChecked());
 	mConfig->setImgurOpenLinkInBrowser(mOpenLinkInBrowserCheckbox->isChecked());
+	mConfig->setImgurUploadTitle(mUploadTitleEdit->textOrPlaceholderText());
+	mConfig->setImgurUploadDescription(mUploadDescriptionEdit->textOrPlaceholderText());
 	mConfig->setImgurBaseUrl(mBaseUrlLineEdit->textOrPlaceholderText());
 }
 
@@ -82,6 +69,9 @@ void ImgurUploaderSettings::initGui()
 	mOpenLinkInBrowserCheckbox->setText(tr("After uploading open Imgur link in default browser"));
 	mDirectLinkToImageCheckbox->setText(tr("Link directly to image"));
 	mAlwaysCopyToClipboardCheckBox->setText(tr("Always copy Imgur link to clipboard"));
+
+	mUploadTitleLabel->setText(tr("Upload title:"));
+	mUploadDescriptionLabel->setText(tr("Upload description:"));
 
 	mBaseUrlLabel->setText(tr("Base Url:"));
 	mBaseUrlLabel->setToolTip(tr("Base url that will be used for communication with Imgur.\n"
@@ -98,6 +88,9 @@ void ImgurUploaderSettings::initGui()
 	connect(mPinLineEdit, &QLineEdit::textChanged, [this](const QString & text) {
 		mGetTokenButton->setEnabled(text.length() > 8);
 	});
+
+	mUploadTitleEdit->setPlaceholderText(DefaultValues::ImgurUploadTitle);
+	mUploadDescriptionEdit->setPlaceholderText(DefaultValues::ImgurUploadDescription);
 
 	mBaseUrlLineEdit->setPlaceholderText(DefaultValues::ImgurBaseUrl);
 	mBaseUrlLineEdit->setToolTip(mBaseUrlLabel->toolTip());
@@ -129,18 +122,22 @@ void ImgurUploaderSettings::initGui()
 	mLayout->addWidget(mDirectLinkToImageCheckbox, 2, 0, 1, 3);
 	mLayout->addWidget(mAlwaysCopyToClipboardCheckBox, 3, 0, 1, 3);
 	mLayout->setRowMinimumHeight(4, 15);
-	mLayout->addWidget(mBaseUrlLabel, 5, 0, 1, 1);
-	mLayout->addWidget(mBaseUrlLineEdit, 5, 1, 1, 2);
-	mLayout->setRowMinimumHeight(6, 15);
-	mLayout->addWidget(mUsernameLabel, 7, 0, 1, 1);
-	mLayout->addWidget(mUsernameLineEdit, 7, 1, 1, 2);
-	mLayout->addWidget(mClearTokenButton, 7, 3, 1, 1);
-	mLayout->addWidget(mClientIdLineEdit, 8, 0, 1, 3);
-	mLayout->addWidget(mClientSecretLineEdit, 9, 0, 1, 3);
-	mLayout->addWidget(mGetPinButton, 9, 3, 1, 1);
-	mLayout->addWidget(mPinLineEdit, 10, 0, 1, 3);
-	mLayout->addWidget(mGetTokenButton, 10, 3, 1, 1);
-	mLayout->addWidget(mHistoryButton, 11, 3, 1, 1);
+	mLayout->addWidget(mUploadTitleLabel, 5, 0, 1, 1);
+	mLayout->addWidget(mUploadTitleEdit, 5, 1, 1, 2);
+	mLayout->addWidget(mUploadDescriptionLabel, 6, 0, 1, 1);
+	mLayout->addWidget(mUploadDescriptionEdit, 6, 1, 1, 2);
+	mLayout->addWidget(mBaseUrlLabel, 7, 0, 1, 1);
+	mLayout->addWidget(mBaseUrlLineEdit, 7, 1, 1, 2);
+	mLayout->setRowMinimumHeight(8, 15);
+	mLayout->addWidget(mUsernameLabel, 9, 0, 1, 1);
+	mLayout->addWidget(mUsernameLineEdit, 9, 1, 1, 2);
+	mLayout->addWidget(mClearTokenButton, 9, 3, 1, 1);
+	mLayout->addWidget(mClientIdLineEdit, 10, 0, 1, 3);
+	mLayout->addWidget(mClientSecretLineEdit, 11, 0, 1, 3);
+	mLayout->addWidget(mGetPinButton, 11, 3, 1, 1);
+	mLayout->addWidget(mPinLineEdit, 12, 0, 1, 3);
+	mLayout->addWidget(mGetTokenButton, 12, 3, 1, 1);
+	mLayout->addWidget(mHistoryButton, 13, 3, 1, 1);
 
 	setTitle(tr("Imgur Uploader"));
 	setLayout(mLayout);
@@ -152,6 +149,8 @@ void ImgurUploaderSettings::loadConfig()
 	mOpenLinkInBrowserCheckbox->setChecked(mConfig->imgurOpenLinkInBrowser());
 	mDirectLinkToImageCheckbox->setChecked(mConfig->imgurLinkDirectlyToImage());
 	mAlwaysCopyToClipboardCheckBox->setChecked(mConfig->imgurAlwaysCopyToClipboard());
+	mUploadTitleEdit->setText(mConfig->imgurUploadTitle());
+	mUploadDescriptionEdit->setText(mConfig->imgurUploadDescription());
 	mUsernameLineEdit->setText(mConfig->imgurUsername());
 	mBaseUrlLineEdit->setText(mConfig->imgurBaseUrl());
 

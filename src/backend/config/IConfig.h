@@ -264,6 +264,12 @@ public:
 	virtual bool imgurOpenLinkInBrowser() const = 0;
 	virtual void setImgurOpenLinkInBrowser(bool enabled) = 0;
 
+	virtual QString imgurUploadTitle() const = 0;
+	virtual void setImgurUploadTitle(const QString &uploadTitle) = 0;
+
+	virtual QString imgurUploadDescription() const = 0;
+	virtual void setImgurUploadDescription(const QString &uploadDescription) = 0;
+
 	virtual QString imgurBaseUrl() const = 0;
 	virtual void setImgurBaseUrl(const QString &baseUrl) = 0;
 

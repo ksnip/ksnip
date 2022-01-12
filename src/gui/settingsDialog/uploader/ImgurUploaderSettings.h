@@ -39,7 +39,7 @@ class ImgurUploaderSettings : public QGroupBox
 	Q_OBJECT
 public:
 	explicit ImgurUploaderSettings(const QSharedPointer<IConfig> &config);
-	~ImgurUploaderSettings() override;
+	~ImgurUploaderSettings() override = default;
 	void saveSettings();
 
 private:
@@ -53,8 +53,12 @@ private:
 	QLineEdit *mPinLineEdit;
 	QLineEdit *mUsernameLineEdit;
 	CustomLineEdit *mBaseUrlLineEdit;
+	CustomLineEdit *mUploadTitleEdit;
+	CustomLineEdit *mUploadDescriptionEdit;
 	QLabel *mUsernameLabel;
 	QLabel *mBaseUrlLabel;
+	QLabel *mUploadTitleLabel;
+	QLabel *mUploadDescriptionLabel;
 	QPushButton *mGetPinButton;
 	QPushButton *mGetTokenButton;
 	QPushButton *mClearTokenButton;

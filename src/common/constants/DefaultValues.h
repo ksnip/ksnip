@@ -25,6 +25,8 @@
 inline namespace DefaultValues {
 
 const QString ImgurBaseUrl = QStringLiteral("https://api.imgur.com");
+const QString ImgurUploadTitle = QStringLiteral("Ksnip Screenshot");
+const QString ImgurUploadDescription = QStringLiteral("Screenshot uploaded via Ksnip");
 
 } // namespace Constants
 

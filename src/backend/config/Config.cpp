@@ -1040,6 +1040,32 @@ void Config::setImgurOpenLinkInBrowser(bool enabled)
 	saveValue(ConfigOptions::imgurOpenLinkInBrowserString(), enabled);
 }
 
+QString Config::imgurUploadTitle() const
+{
+	return loadValue(ConfigOptions::imgurUploadTitleString(), DefaultValues::ImgurUploadTitle).toString();
+}
+
+void Config::setImgurUploadTitle(const QString &uploadTitle)
+{
+	if (imgurUploadTitle() == uploadTitle) {
+		return;
+	}
+	saveValue(ConfigOptions::imgurUploadTitleString(), uploadTitle);
+}
+
+QString Config::imgurUploadDescription() const
+{
+	return loadValue(ConfigOptions::imgurUploadDescriptionString(), DefaultValues::ImgurUploadDescription).toString();
+}
+
+void Config::setImgurUploadDescription(const QString &uploadDescription)
+{
+	if (imgurUploadDescription() == uploadDescription) {
+		return;
+	}
+	saveValue(ConfigOptions::imgurUploadDescriptionString(), uploadDescription);
+}
+
 QString Config::imgurBaseUrl() const
 {
 	return loadValue(ConfigOptions::imgurBaseUrlString(), DefaultValues::ImgurBaseUrl).toString();

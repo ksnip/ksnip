@@ -269,6 +269,12 @@ public:
 	bool imgurOpenLinkInBrowser() const override;
 	void setImgurOpenLinkInBrowser(bool enabled) override;
 
+	QString imgurUploadTitle() const override;
+	void setImgurUploadTitle(const QString &uploadTitle) override;
+
+	QString imgurUploadDescription() const override;
+	void setImgurUploadDescription(const QString &uploadDescription) override;
+
 	QString imgurBaseUrl() const override;
 	void setImgurBaseUrl(const QString &baseUrl) override;
 

@@ -37,7 +37,7 @@ ImgurWrapper::ImgurWrapper(const QString &imgurUrl, QObject *parent) :
  * was successful the upload Fished signal will be emitted which holds the url
  * to the image.
  */
-void ImgurWrapper::startUpload(const QImage& image, const QByteArray& accessToken) const
+void ImgurWrapper::startUpload(const QImage& image, const QString &title, const QString &description, const QByteArray& accessToken) const
 {
     // Convert the image into a byteArray
     QByteArray imageByteArray;
@@ -49,8 +49,8 @@ void ImgurWrapper::startUpload(const QImage& image, const QByteArray& accessToke
     QUrlQuery urlQuery;
 
     // Add params that we send with the picture
-    urlQuery.addQueryItem(QLatin1String("title"), QLatin1String("Ksnip Screenshot"));
-    urlQuery.addQueryItem(QLatin1String("description"), QLatin1String("Screenshot uploaded via Ksnip"));
+	urlQuery.addQueryItem(QLatin1String("title"), title);
+	urlQuery.addQueryItem(QLatin1String("description"), description);
 
     url.setQuery(urlQuery);
     QNetworkRequest request;

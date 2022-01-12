@@ -48,6 +48,8 @@ private:
 	QCheckBox *mDirectLinkToImageCheckbox;
 	QCheckBox *mAlwaysCopyToClipboardCheckBox;
 	QCheckBox *mOpenLinkInBrowserCheckbox;
+	QLineEdit *mUploadTitleEdit;
+	QLineEdit *mUploadDescriptionEdit;
 	QLineEdit *mClientIdLineEdit;
 	QLineEdit *mClientSecretLineEdit;
 	QLineEdit *mPinLineEdit;
@@ -55,6 +57,8 @@ private:
 	CustomLineEdit *mBaseUrlLineEdit;
 	QLabel *mUsernameLabel;
 	QLabel *mBaseUrlLabel;
+	QLabel *mUploadTitleLabel;
+	QLabel *mUploadDescriptionLabel;
 	QPushButton *mGetPinButton;
 	QPushButton *mGetTokenButton;
 	QPushButton *mClearTokenButton;

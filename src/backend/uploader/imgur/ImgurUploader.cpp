@@ -44,13 +44,16 @@ ImgurUploader::~ImgurUploader()
 
 void ImgurUploader::upload(const QImage &image)
 {
-    mImage = image;
+	mImage = image;
 
-    if (!mConfig->imgurForceAnonymous() && !mConfig->imgurAccessToken().isEmpty()) {
-        mImgurWrapper->startUpload(mImage, mConfig->imgurAccessToken());
-    } else {
-        mImgurWrapper->startUpload(mImage);
-    }
+	const auto uploadTitle = mConfig->imgurUploadTitle();
+	const auto uploadDescription = mConfig->imgurUploadDescription();
+
+	if (!mConfig->imgurForceAnonymous() && !mConfig->imgurAccessToken().isEmpty()) {
+		mImgurWrapper->startUpload(mImage, uploadTitle, uploadDescription, mConfig->imgurAccessToken());
+	} else {
+		mImgurWrapper->startUpload(mImage, uploadTitle, uploadDescription);
+	}
 }
 
 void ImgurUploader::imgurUploadFinished(const ImgurResponse &response)

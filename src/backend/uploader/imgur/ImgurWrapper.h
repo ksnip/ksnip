@@ -35,8 +35,8 @@ class ImgurWrapper : public QObject
 {
     Q_OBJECT
 public:
-    explicit ImgurWrapper(const QString &imgurUrl, QObject *parent);
-    void startUpload(const QImage &image, const QByteArray &accessToken = nullptr) const;
+	explicit ImgurWrapper(const QString &imgurUrl, QObject *parent);
+	void startUpload(const QImage &image, const QString &title, const QString &description, const QByteArray &accessToken = nullptr) const;
     void getAccessToken(const QByteArray &pin, const QByteArray &clientId, const QByteArray &clientSecret) const;
     void refreshToken(const QByteArray &refreshToken, const QByteArray &clientId, const QByteArray &clientSecret) const;
     QUrl pinRequestUrl(const QString &clientId) const;

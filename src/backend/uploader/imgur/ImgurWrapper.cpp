@@ -157,9 +157,9 @@ void ImgurWrapper::handleDataResponse(const QDomElement& element) const
         emit tokenRefreshRequired();
     } else {
         if (element.elementsByTagName(QLatin1String("error")).isEmpty()) {
-            emit error(QLatin1String("Server responded with ") + element.attribute(QLatin1String("status")));
+			emit error(QNetworkReply::ProtocolFailure, QLatin1String("Server responded with ") + element.attribute(QLatin1String("status")));
         } else {
-            emit error(QLatin1String("Server responded with ") + element.attribute(QLatin1String("status")) + ": " +
+			emit error(QNetworkReply::ProtocolFailure, QLatin1String("Server responded with ") + element.attribute(QLatin1String("status")) + ": " +
                        element.elementsByTagName(QLatin1String("error")).at(0).toElement().text());
         }
     }
@@ -180,7 +180,7 @@ void ImgurWrapper::handleTokenResponse(const QDomElement& element) const
                           element.elementsByTagName(QLatin1String("account_username")).at(0).toElement().text()
                          );
     } else {
-        emit error(QLatin1String("Expected token response was received, something went wrong."));
+		emit error(QNetworkReply::ProtocolFailure, QLatin1String("Expected token response was received, something went wrong."));
     }
 }
 
@@ -203,7 +203,7 @@ void ImgurWrapper::handleReply(QNetworkReply* reply)
     // token.
     if (reply->error() != QNetworkReply::NoError &&
             reply->error() != QNetworkReply::ContentOperationNotPermittedError) {
-        emit error(QLatin1String("Network Error(") + QString::number(reply->error()) + "): " + reply->errorString());
+		emit error(reply->error(), QLatin1String("Network Error(") + QString::number(reply->error()) + "): " + reply->errorString());
         reply->deleteLater();
         return;
     }
@@ -213,13 +213,14 @@ void ImgurWrapper::handleReply(QNetworkReply* reply)
     int errorLine;
     int errorColumn;
 
-    // Try to parse reply into xml reader
-    if (!doc.setContent(reply->readAll(), false, &errorMessage, &errorLine, &errorColumn)) {
-        emit error(QLatin1String("Parse error: ") + errorMessage + QLatin1String(", line:") + errorLine +
-                   QLatin1String(", column:") + errorColumn);
-        reply->deleteLater();
-        return;
-    }
+	// Try to parse reply into xml reader
+	if (!doc.setContent(reply->readAll(), false, &errorMessage, &errorLine, &errorColumn)) {
+		emit error(QNetworkReply::ProtocolFailure,
+				   QLatin1String("Parse error: ") + errorMessage + QLatin1String(", line:") + errorLine +
+				   QLatin1String(", column:") + errorColumn);
+		reply->deleteLater();
+		return;
+	}
 
     // See if we have an upload reply, token response or error
     auto rootElement = doc.documentElement();
@@ -229,9 +230,8 @@ void ImgurWrapper::handleReply(QNetworkReply* reply)
     } else if (rootElement.tagName() == QLatin1String("response")) {
         handleTokenResponse(rootElement);
     }
-
     else {
-        emit error(QLatin1String("Received unexpected reply from imgur server."));
+		emit error(QNetworkReply::ProtocolFailure, QLatin1String("Received unexpected reply from imgur server."));
     }
 
     reply->deleteLater();

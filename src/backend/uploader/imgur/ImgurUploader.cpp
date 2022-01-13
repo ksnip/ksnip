@@ -74,10 +74,34 @@ QString ImgurUploader::formatResponseUrl(const ImgurResponse &response) const
 	return response.link();
 }
 
-void ImgurUploader::imgurError(const QString &message)
+void ImgurUploader::imgurError(QNetworkReply::NetworkError networkError, const QString &message)
 {
     qCritical("MainWindow: Imgur uploader returned error: '%s'", qPrintable(message));
-	emit finished(UploadResult(UploadStatus::NoError, type(), message));
+	emit finished(UploadResult(mapErrorTypeToStatus(networkError), type(), message));
+}
+
+UploadStatus ImgurUploader::mapErrorTypeToStatus(QNetworkReply::NetworkError errorType)
+{
+	switch (errorType) {
+		case QNetworkReply::NetworkError::NoError:
+			return UploadStatus::NoError;
+		case QNetworkReply::NetworkError::TimeoutError:
+			return UploadStatus::TimedOut;
+		case QNetworkReply::NetworkError::ConnectionRefusedError:
+		case QNetworkReply::NetworkError::RemoteHostClosedError:
+		case QNetworkReply::NetworkError::HostNotFoundError:
+		case QNetworkReply::NetworkError::TemporaryNetworkFailureError:
+		case QNetworkReply::NetworkError::ServiceUnavailableError:
+			return UploadStatus::ConnectionError;
+		case QNetworkReply::NetworkError::ContentOperationNotPermittedError:
+		case QNetworkReply::NetworkError::ContentAccessDenied:
+		case QNetworkReply::NetworkError::AuthenticationRequiredError:
+			return UploadStatus::PermissionError;
+	case QNetworkReply::ProtocolFailure:
+			return UploadStatus::WebError;
+		default:
+			return UploadStatus::UnknownError;
+	}
 }
 
 void ImgurUploader::imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username)

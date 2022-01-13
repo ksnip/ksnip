@@ -75,7 +75,7 @@ private slots:
 	void clearImgurToken();
 	void imgurClientEntered(const QString &text);
 	void imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username);
-	void imgurTokenError(const QString &message);
+	void imgurTokenError(QNetworkReply::NetworkError networkError, const QString &message);
 	void showImgurHistoryDialog();
 	void usernameChanged();
 };

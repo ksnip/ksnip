@@ -286,13 +286,15 @@ Zmiana wymaga ponownego uruchomienia ksnip.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmiana rozmiaru do opóźnienia zawartości</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zmiana rozmiaru zawartości jest opóźnione, aby umożliwić menedżerowi okien odebranie
+nowej zawartości. W przypadku, gdy główne okno nie jest poprawnie dostosowane
+do nowej zawartości, zwiększenie tego opóźnienia może poprawić zachowanie.</translation>
     </message>
 </context>
 <context>
@@ -697,11 +699,11 @@ kiedy główne okno było ukryte lub zminimalizowane.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zrzut ekranu Force Generic Wayland (xdg-desktop-portal)</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Skaluj ogólne zrzuty ekranu Wayland (xdg-desktop-portal)</translation>
     </message>
 </context>
 <context>

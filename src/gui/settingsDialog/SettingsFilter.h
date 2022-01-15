@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2022 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,17 +28,18 @@ public:
 	explicit SettingsFilter() = default;
 	~SettingsFilter() = default;
 
-	void filterSettings(const QString &filterString,
-						QTreeWidget *treeWidget,
-						std::function<QWidget *(QTreeWidgetItem *)> getSettingsPageFun) const override;
+	void filterSettings(
+			const QString &filterString,
+			QTreeWidget *treeWidget,
+			std::function<QWidget *(QTreeWidgetItem *)> getSettingsPageFunc) const override;
 
 private:
-	bool filterNavigatorItem(QTreeWidgetItem *navigatorItem,
-							 const QString &filterString,
-							 std::function<QWidget *(QTreeWidgetItem *)> getSettingsPageFun) const;
+	bool filterNavigatorItem(
+			QTreeWidgetItem *navigatorItem,
+			const QString &filterString,
+			std::function<QWidget *(QTreeWidgetItem *)> getSettingsPageFunc) const;
 
-	bool settingsPageContainsFilterString(QWidget *settingsPage,
-										  const QString &filterString) const;
+	bool settingsPageContainsFilterString(QWidget *settingsPage, const QString &filterString) const;
 };
 
 #endif //KSNIP_SETTINGSFILTER_H

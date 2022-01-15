@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2016 Damir Porobic <https://github.com/damirporobic>
+ *  Copyright (C) 2016 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -200,7 +200,7 @@ void SettingsDialog::initGui()
 
 void SettingsDialog::switchTab()
 {
-	if (mTreeWidget->selectedItems().size() == 0) {
+	if (mTreeWidget->selectedItems().empty()) {
 		mStackedLayout->setCurrentIndex(mNavigatorItems.size());
 	} else {
 		mStackedLayout->setCurrentIndex(mNavigatorItems.indexOf(mTreeWidget->currentItem()));
@@ -209,9 +209,7 @@ void SettingsDialog::switchTab()
 
 void SettingsDialog::filterSettings(const QString &filterString)
 {
-	mSettingsFilter->filterSettings(filterString,
-									mTreeWidget,
-									[this](QTreeWidgetItem *treeWidgetItem) {
+	mSettingsFilter->filterSettings(filterString, mTreeWidget, [this](QTreeWidgetItem *treeWidgetItem) {
 		return mStackedLayout->itemAt(mNavigatorItems.indexOf(treeWidgetItem))->widget();
 	});
 }

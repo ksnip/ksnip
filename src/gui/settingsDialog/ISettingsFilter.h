@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2022 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,9 +32,7 @@ public:
 	explicit ISettingsFilter() = default;
 	~ISettingsFilter() = default;
 
-	virtual void filterSettings(const QString &filterString,
-								QTreeWidget *treeWidget,
-								std::function<QWidget *(QTreeWidgetItem *)> getSettingsPageFun) const = 0;
+	virtual void filterSettings(const QString &filterString, QTreeWidget *treeWidget, std::function<QWidget *(QTreeWidgetItem *)> getSettingsPageFunc) const = 0;
 };
 
 #endif //KSNIP_ISETTINGSFILTER_H

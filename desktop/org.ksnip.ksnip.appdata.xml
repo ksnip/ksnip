@@ -100,6 +100,7 @@
                     <li>New: Add Save all options menu.</li>
                     <li>New: Allow overwriting existing files.</li>
                     <li>New: Allow setting Imgur upload title/description.</li>
+                    <li>New: Search bar in the settings menu.</li>
                     <li>New kImageAnnotator: Add optional undo, redo, crop, scale and modify canvas buttons to dock widgets.</li>
                     <li>Fixed: Opens a new window for each capture.</li>
                     <li>Fixed: First cli invocation won't copy image to clipboard.</li>

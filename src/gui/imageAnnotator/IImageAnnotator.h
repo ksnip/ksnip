@@ -40,6 +40,7 @@ public:
 	virtual void showScaler() = 0;
 	virtual void showCanvasModifier() = 0;
 	virtual void showRotator() = 0;
+	virtual void showCutter() = 0;
 	virtual void setSettingsCollapsed(bool isCollapsed) = 0;
 	virtual void hide() = 0;
 	virtual void close() = 0;

@@ -56,6 +56,7 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mModifyCanvasAction(new QAction(this)),
 	mCloseWindowAction(new QAction(this)),
 	mOcrAction(new QAction(this)),
+	mCutAction(new QAction(this)),
 	mMainLayout(layout()),
 	mActionsMenu(new ActionsMenu(mConfig)),
 	mRecentImagesMenu(new RecentImagesMenu(mDependencyInjector->get<IRecentImageService>(), this)),
@@ -336,6 +337,7 @@ void MainWindow::setEnablements(bool enabled)
 	mPasteEmbeddedAction->setEnabled(mClipboard->isPixmap() && mImageAnnotator->isVisible());
 	mRenameAction->setEnabled(enabled);
 	mModifyCanvasAction->setEnabled(enabled);
+	mCutAction->setEnabled(enabled);
 	mActionProcessor->setPostProcessingEnabled(enabled);
 	mOcrAction->setEnabled(mPluginManager->isAvailable(PluginType::Ocr) && enabled);
 }
@@ -519,6 +521,10 @@ void MainWindow::initGui()
 	mModifyCanvasAction->setText(tr("Modify Canvas"));
 	connect(mModifyCanvasAction, &QAction::triggered, mImageAnnotator, &IImageAnnotator::showCanvasModifier);
 
+	mCutAction->setText(tr("Cut"));
+	mCutAction->setShortcut(Qt::SHIFT + Qt::Key_T);
+	connect(mCutAction, &QAction::triggered, mImageAnnotator, &IImageAnnotator::showCutter);
+
 	mActionsMenu->setTitle(tr("Actions"));
 	mActionsMenu->setIcon(iconLoader->loadForTheme(QLatin1String("action")));
 	connect(mActionsMenu, &ActionsMenu::triggered, this, &MainWindow::actionTriggered);
@@ -557,6 +563,7 @@ void MainWindow::initGui()
 	menu->addAction(mToolBar->cropAction());
 	menu->addAction(mScaleAction);
 	menu->addAction(mRotateAction);
+	menu->addAction(mCutAction);
 	menu->addAction(mAddWatermarkAction);
 	menu->addSeparator();
 	menu->addAction(mRemoveImageAction);

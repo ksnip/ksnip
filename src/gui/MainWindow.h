@@ -123,6 +123,7 @@ private:
 	QAction *mModifyCanvasAction;
 	QAction *mCloseWindowAction;
 	QAction *mOcrAction;
+	QAction *mCutAction;
 	MainToolBar *mToolBar;
 	QLayout *mMainLayout;
 	ActionsMenu *mActionsMenu;

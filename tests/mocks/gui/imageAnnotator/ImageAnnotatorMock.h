@@ -37,6 +37,7 @@ public:
 	MOCK_METHOD(void, showScaler, (), (override));
 	MOCK_METHOD(void, showCanvasModifier, (), (override));
 	MOCK_METHOD(void, showRotator, (), (override));
+	MOCK_METHOD(void, showCutter, (), (override));
 	MOCK_METHOD(void, setSettingsCollapsed, (bool isCollapsed), (override));
 	MOCK_METHOD(void, hide, (), (override));
 	MOCK_METHOD(void, close, (), (override));

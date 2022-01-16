@@ -16,6 +16,7 @@
 * New: Allow setting Imgur upload title/description. ([#679](https://github.com/ksnip/ksnip/issues/679))
 * New: Search bar in the settings dialog. ([#619](https://github.com/ksnip/ksnip/issues/619))
 * New kImageAnnotator: Add optional undo, redo, crop, scale and modify canvas buttons to dock widgets. ([#263](https://github.com/ksnip/kImageAnnotator/issues/263))
+* New kImageAnnotator: Cut out vertical or horizontal slice of an image. ([#236](https://github.com/ksnip/kImageAnnotator/issues/236))
 * Fixed: Opens a new window for each capture. ([#728](https://github.com/ksnip/ksnip/issues/728))
 * Fixed: First cli invocation won't copy image to clipboard. ([#764](https://github.com/ksnip/ksnip/issues/764))
 * Fixed: Snipping area incorrectly positioned with screen scaling. ([#276](https://github.com/ksnip/ksnip/issues/276))

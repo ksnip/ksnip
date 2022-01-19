@@ -1699,7 +1699,7 @@ pemberitahuan khusus platform saat tersedia. Perubahan memerlukan mulai ulang un
     </message>
     <message>
         <source>Build</source>
-        <translation type="unfinished">Build</translation>
+        <translation>Build</translation>
     </message>
     <message>
         <source>Using:</source>

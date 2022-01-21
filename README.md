@@ -30,6 +30,7 @@ Latest ksnip version contains following features:
 * Print screenshot or save it to PDF/PS.
 * Annotate screenshots with pen, marker, rectangles, ellipses, texts and other tools.
 * Annotate screenshots with stickers and add custom stickers.
+* Crop and cut out vertical/horizontal slices of images.
 * Obfuscate image regions with blur and pixelate.
 * Add effects to image (Drop Shadow, Grayscale, invert color or Border).
 * Add watermarks to captured images.

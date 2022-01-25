@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Herramienta de Captura de Pantalla y Anotación</translation>
     </message>
 </context>
 <context>
@@ -100,7 +100,7 @@
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar la Ventana Principal</translation>
     </message>
 </context>
 <context>
@@ -189,12 +189,13 @@ El cambio de color afecta solo a las áreas de anotación nuevas.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar Elemento tras dibujar</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Con esta opción seleccionada, los elementos se seleccionan
+después de ser creados, permitiendo cambiar la configuración.</translation>
     </message>
 </context>
 <context>
@@ -262,12 +263,12 @@ un nuevo inicio de todas las instancias.</translation>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished">Al inicio ocultar la barra de herramientar y las opciones de comentarios.
-La visibilidad del Dock puede ser alternada con el tabulador.</translation>
+        <translation>Al inicio ocultar la barra de herramientas y las opciones de comentarios.
+Se puede alternar la visibilidad del Dock con el tabulador.</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation>Cambio de tamaño automático al contenido</translation>
+        <translation>Cambiar de tamaño automáticamente al contenido</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>

@@ -286,13 +286,15 @@ O cambio require o reinicio de ksnip para que teña efecto.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Atraso para redimensionar contido</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar o tamaño ao contido é un atraso para permitir que o Xestor de fiestras 
+reciba o novo contido. No caso de que as fiestras principais non se axusten 
+correctamente ao novo contido, aumentar este atraso pode mellorar o comportamento.</translation>
     </message>
 </context>
 <context>
@@ -620,20 +622,21 @@ Desexas continuar?</translation>
     </message>
     <message>
         <source>Capture Last Rect Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura da última área rectangular</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpar</translation>
     </message>
     <message>
         <source>Capture using Portal</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar utilizando o Portal</translation>
     </message>
     <message>
         <source>HotKeys are currently supported only for Windows and X11.
 Disabling this option makes also the action shortcuts ksnip only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualmente, as teclas de acceso rápido só son compatibles con Windows e X11.
+Ao desactivar esta opción, os atallos de accións son só do ksnip.</translation>
     </message>
 </context>
 <context>
@@ -650,7 +653,7 @@ capturas de pantalla.</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura de imaxe</translation>
     </message>
     <message>
         <source>Generic Wayland implementations that use
@@ -658,7 +661,11 @@ XDG-DESKTOP-PORTAL handle screen scaling
 differently. Enabling this option will
 determine the current screen scaling and
 apply that to the screenshot in ksnip.</source>
-        <translation type="unfinished"></translation>
+        <translation>As implementacións xenéricas de Wayland que usan
+XDG-DESKTOP-PORTAL manexan a escala da pantalla
+de forma diferente. Activar esta opción determinará
+a escala actual da pantalla e aplicarase á captura
+de pantalla en ksnip.</translation>
     </message>
     <message>
         <source>GNOME and KDE Plasma support their own Wayland
@@ -666,32 +673,37 @@ and the Generic XDG-DESKTOP-PORTAL screenshots.
 Enabling this option will force KDE Plasma and
 GNOME to use the XDG-DESKTOP-PORTAL screenshots.
 Change in this option require a ksnip restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>GNOME e KDE Plasma admiten as súas propias capturas
+de pantalla Wayland e Generic XDG-DESKTOP-PORTAL.
+Activar esta opción obrigará a KDE Plasma e GNOME a usar
+as capturas de pantalla XDG-DESKTOP-PORTAL.
+O cambio nesta opción require un reinicio de ksnip.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar a xanela principal despois de unha captura de pantalla</translation>
     </message>
     <message>
         <source>Hide Main Window during screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar a xanela principal durante a captura de pantalla</translation>
     </message>
     <message>
         <source>Hide Main Window when capturing a new screenshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar a xanela principal ao facer unha nova captura de pantalla.</translation>
     </message>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar a xanela rrincipal despois dunha nova captura
+cando a xanela principal foi escondida ou minimizada.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Forzar o modo xenérico Wayland (xdg-desktop-portal) de captura de pantalla</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Escalar o modo xenérico Wayland (xdg-desktop-portal) de captura de pantalla</translation>
     </message>
 </context>
 <context>
@@ -725,46 +737,46 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Received new token, trying upload again…</source>
-        <translation type="unfinished"></translation>
+        <translation>Recibiuse un novo token, tentando cargar de novo…</translation>
     </message>
     <message>
         <source>Imgur token has expired, requesting new token…</source>
-        <translation type="unfinished"></translation>
+        <translation>O token de Imgur caducou, solicitando un novo token…</translation>
     </message>
 </context>
 <context>
     <name>ImgurUploaderSettings</name>
     <message>
         <source>Force anonymous upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Forzar a carga anónima</translation>
     </message>
     <message>
         <source>Always copy Imgur link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia sempre a ligazón Imgur no portapapeis</translation>
     </message>
     <message>
         <source>Client ID</source>
-        <translation type="unfinished"></translation>
+        <translation>ID do cliente</translation>
     </message>
     <message>
         <source>Client Secret</source>
-        <translation type="unfinished"></translation>
+        <translation>Segredo do cliente</translation>
     </message>
     <message>
         <source>PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>PIN</translation>
     </message>
     <message>
         <source>Enter imgur Pin which will be exchanged for a token.</source>
-        <translation type="unfinished"></translation>
+        <translation>Introduce o Pin imgur que se trocará por un token.</translation>
     </message>
     <message>
         <source>Get PIN</source>
-        <translation type="unfinished"></translation>
+        <translation>Obter o PIN</translation>
     </message>
     <message>
         <source>Get Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Obter token</translation>
     </message>
     <message>
         <source>Imgur History</source>
@@ -772,7 +784,7 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargador de imgur</translation>
     </message>
     <message>
         <source>Username</source>
@@ -780,47 +792,48 @@ when the Main Window was hidden or minimize.</source>
     </message>
     <message>
         <source>Waiting for imgur.com…</source>
-        <translation type="unfinished"></translation>
+        <translation>Agardando por imgur.com…</translation>
     </message>
     <message>
         <source>Imgur.com token successfully updated.</source>
-        <translation type="unfinished"></translation>
+        <translation>O token de Imgur.com actualizouse con éxito.</translation>
     </message>
     <message>
         <source>Imgur.com token update error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro de actualización do token de Imgur.com.</translation>
     </message>
     <message>
         <source>After uploading open Imgur link in default browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Despois de cargar, abra a ligazón Imgur no navegador predeterminado</translation>
     </message>
     <message>
         <source>Link directly to image</source>
-        <translation type="unfinished"></translation>
+        <translation>Ligazón directa á imaxe</translation>
     </message>
     <message>
         <source>Base Url:</source>
-        <translation type="unfinished"></translation>
+        <translation>URL Base:</translation>
     </message>
     <message>
         <source>Base url that will be used for communication with Imgur.
 Changing requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>URL base que se utilizará para a comunicación con Imgur.
+O cambio require reiniciar.</translation>
     </message>
     <message>
         <source>Clear Token</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpar token</translation>
     </message>
 </context>
 <context>
     <name>LoadImageFromFileOperation</name>
     <message>
         <source>Unable to open image</source>
-        <translation type="unfinished"></translation>
+        <translation>Non se puido abrir a imaxe</translation>
     </message>
     <message>
         <source>Unable to open image from path %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Non foi posíbel abrir a imaxe da ruta % 1</translation>
     </message>
 </context>
 <context>
@@ -862,11 +875,11 @@ e a captura de pantalla.</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Desfacer</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Refacer</translation>
     </message>
     <message>
         <source>Crop</source>
@@ -937,115 +950,115 @@ e a captura de pantalla.</translation>
     </message>
     <message>
         <source>Add Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Engadir marca de auga</translation>
     </message>
     <message>
         <source>Add Watermark to captured image. Multiple watermarks can be added.</source>
-        <translation type="unfinished"></translation>
+        <translation>Engadir marca de auga á imaxe capturada. Pódense engadir varias marcas de auga.</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ficheiro</translation>
     </message>
     <message>
         <source>Unable to show image</source>
-        <translation type="unfinished"></translation>
+        <translation>Non se pode mostrar a imaxe</translation>
     </message>
     <message>
         <source>Save As...</source>
-        <translation type="unfinished"></translation>
+        <translation>Gardar como...</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Pegar</translation>
     </message>
     <message>
         <source>Paste Embedded</source>
-        <translation type="unfinished"></translation>
+        <translation>Pegar incrustado</translation>
     </message>
     <message>
         <source>Pin</source>
-        <translation type="unfinished"></translation>
+        <translation>Fixar</translation>
     </message>
     <message>
         <source>Pin screenshot to foreground in frameless window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fixar a captura de pantalla en primeiro plano nunha xanela sen marco</translation>
     </message>
     <message>
         <source>No image provided but one was expected.</source>
-        <translation type="unfinished"></translation>
+        <translation>Non se proporcionou ningunha imaxe pero agardábase unha.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar ruta</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir directorio</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ver</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Renomear</translation>
     </message>
     <message>
         <source>Open Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir imaxes</translation>
     </message>
     <message>
         <source>Show Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar Docks</translation>
     </message>
     <message>
         <source>Hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar Docks</translation>
     </message>
     <message>
         <source>Copy as data URI</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar como URI de datos</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir &amp;Recente</translation>
     </message>
     <message>
         <source>Modify Canvas</source>
-        <translation type="unfinished"></translation>
+        <translation>Modificar Canvas</translation>
     </message>
     <message>
         <source>Upload triggerCapture to external source</source>
-        <translation type="unfinished"></translation>
+        <translation>Carga triggerCapture a unha fonte externa</translation>
     </message>
     <message>
         <source>Copy triggerCapture to system clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia triggerCapture no portapapeis do sistema</translation>
     </message>
     <message>
         <source>Scale Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Escalar imaxe</translation>
     </message>
     <message>
         <source>Rotate</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotar</translation>
     </message>
     <message>
         <source>Rotate Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotar imaxe</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Accións</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheiros de imaxe</translation>
     </message>
 </context>
 <context>
@@ -1060,7 +1073,7 @@ e a captura de pantalla.</translation>
     </message>
     <message>
         <source>Open Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Abrir directorio</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -1068,22 +1081,22 @@ e a captura de pantalla.</translation>
     </message>
     <message>
         <source>Copy Path</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar ruta</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Renomear</translation>
     </message>
 </context>
 <context>
     <name>NewCaptureNameProvider</name>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar</translation>
     </message>
 </context>
 <context>
@@ -1094,45 +1107,45 @@ e a captura de pantalla.</translation>
     </message>
     <message>
         <source>Close Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Pechar outro</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished"></translation>
+        <translation>Pechar todo</translation>
     </message>
 </context>
 <context>
     <name>PinWindowHandler</name>
     <message>
         <source>Pin Window %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fixar a xanela %1</translation>
     </message>
 </context>
 <context>
     <name>RenameOperation</name>
     <message>
         <source>Image Renamed</source>
-        <translation type="unfinished"></translation>
+        <translation>Imaxe renomeada</translation>
     </message>
     <message>
         <source>Image Rename Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocorreu un erro ao renomear a imaxe</translation>
     </message>
     <message>
         <source>Rename image</source>
-        <translation type="unfinished"></translation>
+        <translation>Renomear imaxe</translation>
     </message>
     <message>
         <source>New filename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Novo nome de arquivo:</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiouse correctamente o nome da imaxe a %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Non se puido cambiar o nome da imaxe a %1</translation>
     </message>
 </context>
 <context>
@@ -1147,30 +1160,30 @@ e a captura de pantalla.</translation>
     </message>
     <message>
         <source>Image Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Imaxe gardada</translation>
     </message>
     <message>
         <source>Saving Image Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro ao gardar a imaxe</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheiros de imaxe</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Gardado en %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Non se puido gardar a imaxe en %1</translation>
     </message>
 </context>
 <context>
     <name>SaverSettings</name>
     <message>
         <source>Automatically save new captures to default location</source>
-        <translation type="unfinished"></translation>
+        <translation>Garda automaticamente as novas capturas na localización predeterminada</translation>
     </message>
     <message>
         <source>Prompt to save before discarding unsaved changes</source>
@@ -1178,12 +1191,13 @@ e a captura de pantalla.</translation>
     </message>
     <message>
         <source>Remember last Save Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Lembrar o último directorio onde se gardaron arquivos</translation>
     </message>
     <message>
         <source>When enabled will overwrite the save directory stored in settings
 with the latest save directory, for every save.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cando estea activado, sobrescribirase o directorio de gardado almacenado na configuración
+co último directorio de gardado, para cada gardado.</translation>
     </message>
     <message>
         <source>Capture save location and filename</source>
@@ -1194,7 +1208,10 @@ with the latest save directory, for every save.</source>
 Filename can contain following wildcards:
 - $Y, $M, $D for date, $h, $m, $s for time, or $T for time in hhmmss format.
 - Multiple consecutive # for counter. #### will result in 0001, next capture would be 0002.</source>
-        <translation type="unfinished"></translation>
+        <translation>Os formatos admitidos son JPG, PNG e BMP. Se non se proporciona ningún formato, empregarase PNG como predeterminado.
+O nome de ficheiro pode conter os seguintes comodíns:
+- $Y, $M, $D para a data, $h, $m, $s para a hora ou $T para a hora en formato hhmmss.
+- Múltiples # consecutivos para o contador. #### dará como resultado 0001, a seguinte captura sería 0002.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1202,44 +1219,46 @@ Filename can contain following wildcards:
     </message>
     <message>
         <source>Saver Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuracións de gardado</translation>
     </message>
     <message>
         <source>Capture save location</source>
-        <translation type="unfinished"></translation>
+        <translation>Localización para gardar as capturas</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Predeterminado</translation>
     </message>
     <message>
         <source>Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Factor</translation>
     </message>
     <message>
         <source>Save Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>Calidade para gardar</translation>
     </message>
     <message>
         <source>Specify 0 to obtain small compressed files, 100 for large uncompressed files.
 Not all image formats support the full range, JPEG does.</source>
-        <translation type="unfinished"></translation>
+        <translation>Especifique 0 para obter ficheiros pequenos comprimidos, 100 para ficheiros grandes sen comprimir.
+Non todos os formatos de imaxe admiten a gama completa, JPEG si.</translation>
     </message>
 </context>
 <context>
     <name>ScriptUploaderSettings</name>
     <message>
         <source>Copy script output to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar a saída do script no portapapeis</translation>
     </message>
     <message>
         <source>Script:</source>
-        <translation type="unfinished"></translation>
+        <translation>Script:</translation>
     </message>
     <message>
         <source>Path to script that will be called for uploading. During upload the script will be called
 with the path to a temporary png file as a single argument.</source>
-        <translation type="unfinished"></translation>
+        <translation>Camiño ao script que se chamará para cargalo. Durante a carga, o script chamarase
+coa ruta dun ficheiro png temporal como un único argumento.</translation>
     </message>
     <message>
         <source>Browse</source>
@@ -1247,15 +1266,15 @@ with the path to a temporary png file as a single argument.</source>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargador de scripts</translation>
     </message>
     <message>
         <source>Select Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecciona o script para envio</translation>
     </message>
     <message>
         <source>Stop when upload script writes to StdErr</source>
-        <translation type="unfinished"></translation>
+        <translation>Parar cando o script de envio graba em StdErr</translation>
     </message>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.

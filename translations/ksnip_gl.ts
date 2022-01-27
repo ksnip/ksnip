@@ -1231,7 +1231,7 @@ O nome de ficheiro pode conter os seguintes comodíns:
     </message>
     <message>
         <source>Factor</source>
-        <translation>Factor</translation>
+        <translation></translation>
     </message>
     <message>
         <source>Save Quality</source>
@@ -1279,16 +1279,18 @@ coa ruta dun ficheiro png temporal como un único argumento.</translation>
     <message>
         <source>Marks the upload as failed when script writes to StdErr.
 Without this setting errors in the script will be unnoticed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Marca a carga como fallida cando o script escribe en StdErr.
+Sen esta configuración, os erros no script pasarán desapercibidos.</translation>
     </message>
     <message>
         <source>Filter:</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtro:</translation>
     </message>
     <message>
         <source>RegEx Expression. Only copy to clipboard what matches the RegEx Expression.
 When omitted, everything is copied.</source>
-        <translation type="unfinished"></translation>
+        <translation>Expresión RegEx. Copia só no portapapeis o que coincida coa expresión RegEx.
+Cando se omite, cópiase todo.</translation>
     </message>
 </context>
 <context>
@@ -1299,117 +1301,117 @@ When omitted, everything is copied.</source>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>Aceptar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Image Grabber</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturador de imaxes</translation>
     </message>
     <message>
         <source>Imgur Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargador de imgur</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplicación</translation>
     </message>
     <message>
         <source>Annotator</source>
-        <translation type="unfinished"></translation>
+        <translation>Anotador</translation>
     </message>
     <message>
         <source>HotKeys</source>
-        <translation type="unfinished"></translation>
+        <translation>Atallos do teclado</translation>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargador</translation>
     </message>
     <message>
         <source>Script Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Script de envío</translation>
     </message>
     <message>
         <source>Saver</source>
-        <translation type="unfinished"></translation>
+        <translation>Gardador</translation>
     </message>
     <message>
         <source>Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Adhesivos</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Área de corte</translation>
     </message>
     <message>
         <source>Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Icona da bandexa</translation>
     </message>
     <message>
         <source>Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Marca de auga</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Accións</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargador FTP</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaResizerInfoText</name>
     <message>
         <source>Resize selected rect using the handles or move it by dragging the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambia o tamaño do recto seleccionado usando as asas ou móveo arrastrando a selección.</translation>
     </message>
     <message>
         <source>Use arrow keys to move the selection.</source>
-        <translation type="unfinished"></translation>
+        <translation>Use as frechas para mover a selección.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing CTRL to move top left handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Use as frechas mentres preme CTRL para mover o manexo superior esquerdo.</translation>
     </message>
     <message>
         <source>Use arrow keys while pressing ALT to move bottom right handle.</source>
-        <translation type="unfinished"></translation>
+        <translation>Use as frechas mentres preme ALT para mover o manexo inferior dereito.</translation>
     </message>
     <message>
         <source>Confirm selection by pressing ENTER/RETURN or abort by pressing ESC.</source>
-        <translation type="unfinished"></translation>
+        <translation>Confirme a selección premendo ENTER/RETURN ou cancele premendo ESC.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta mensaxe pódese desactivar mediante a configuración.</translation>
     </message>
 </context>
 <context>
     <name>SnippingAreaSelectorInfoText</name>
     <message>
         <source>Click and Drag to select a rectangular area or press ESC to quit.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fai clic e arrastra para seleccionar unha área rectangular ou preme ESC para saír.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to resize selection after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantén premido CTRL para cambiar o tamaño da selección despois de seleccionala.</translation>
     </message>
     <message>
         <source>Hold CTRL pressed to prevent resizing after selecting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mantén premido CTRL para evitar o cambio de tamaño despois de seleccionar.</translation>
     </message>
     <message>
         <source>Operation will be canceled after 60 sec when no selection made.</source>
-        <translation type="unfinished"></translation>
+        <translation>A operación cancelarase despois de 60 segundos cando non se realice ningunha selección.</translation>
     </message>
     <message>
         <source>This message can be disabled via settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta mensaxe pódese desactivar mediante a configuración.</translation>
     </message>
 </context>
 <context>
@@ -1427,7 +1429,14 @@ snipping area is shown and with the option disabled
 the delay happens after the snipping area is shown.
 This feature is always disabled for Wayland and always
 enabled for MacOs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cando estea activado, conxelará o fondo mentres
+selecciona unha rexión rectangular. Tamén cambia
+o comportamento das capturas de pantalla atrasadas, con
+esta opción activada, o atraso ocorre antes de que se mostre
+a área de recorte e coa opción desactivada, o atraso ocorre
+despois de que se mostre a área de recorte.
+Esta función sempre está desactivada para Wayland e sempre
+habilitado para MacOs.</translation>
     </message>
     <message>
         <source>Show magnifying glass on snipping area</source>
@@ -1460,204 +1469,214 @@ bordos do escritorio ata o cursor na área de recorte.</translation>
 is shown, when the mouse button is pressed,
 the size of the select area is shown left
 and above from the captured area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cando non se preme o botón esquerdo do rato móstrase a posición,
+cando se preme o botón do rato,
+o tamaño da área seleccionada móstrase á esquerda
+e arriba da área capturada.</translation>
     </message>
     <message>
         <source>Allow resizing rect area selection by default</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir redimensionar a selección da área recta de forma predeterminada</translation>
     </message>
     <message>
         <source>When enabled will, after selecting a rect
 area, allow resizing the selection. When
 done resizing the selection can be confirmed
 by pressing return.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cando estea activado, despois de seleccionar unha área
+recta, permitirá cambiar o tamaño da selección. Cando
+remate o cambio de tamaño, a selección pódese confirmar
+premendo Intro.</translation>
     </message>
     <message>
         <source>Show Snipping Area info text</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar texto de información da área de recorte</translation>
     </message>
     <message>
         <source>Snipping Area cursor color</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor do cursor da área de recorte</translation>
     </message>
     <message>
         <source>Sets the color of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Establece a cor do cursor da área de recorte.</translation>
     </message>
     <message>
         <source>Snipping Area cursor thickness</source>
-        <translation type="unfinished"></translation>
+        <translation>Grosor do cursor da área de recorte</translation>
     </message>
     <message>
         <source>Sets the thickness of the snipping area cursor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Establece o grosor do cursor da área de recorte.</translation>
     </message>
     <message>
         <source>Snipping Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Área de corte</translation>
     </message>
     <message>
         <source>Snipping Area adorner color</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor do adorno da área de corte</translation>
     </message>
     <message>
         <source>Sets the color of all adorner elements
 on the snipping area.</source>
-        <translation type="unfinished"></translation>
+        <translation>Establece a cor de todos os elementos
+de adorno na área de recorte.</translation>
     </message>
     <message>
         <source>Snipping Area Transparency</source>
-        <translation type="unfinished"></translation>
+        <translation>Transparencia da área de corte</translation>
     </message>
     <message>
         <source>Alpha for not selected region on snipping area.
 Smaller number is more transparent.</source>
-        <translation type="unfinished"></translation>
+        <translation>Alfa para a rexión non seleccionada na área de recorte.
+O número menor é máis transparente.</translation>
     </message>
 </context>
 <context>
     <name>StickerSettings</name>
     <message>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Arriba</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Abaixo</translation>
     </message>
     <message>
         <source>Use Default Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar adhesivos predeterminados</translation>
     </message>
     <message>
         <source>Sticker Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración de adhesivos</translation>
     </message>
     <message>
         <source>Vector Image Files (*.svg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Arquivos de imaxe vectorial (*.svg)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Engadir</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Sacar</translation>
     </message>
     <message>
         <source>Add Stickers</source>
-        <translation type="unfinished"></translation>
+        <translation>Engadir adhesivos</translation>
     </message>
 </context>
 <context>
     <name>TrayIcon</name>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra Editor</translation>
     </message>
 </context>
 <context>
     <name>TrayIconSettings</name>
     <message>
         <source>Use Tray Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Usa a icona da bandexa</translation>
     </message>
     <message>
         <source>When enabled will add a Tray Icon to the TaskBar if the OS Window Manager supports it.
 Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cando estea activado, engadirase unha icona da bandexa á barra de tarefas se o xestor de fiestras do SO o admite.
+O cambio require reiniciar.</translation>
     </message>
     <message>
         <source>Minimize to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimizar a bandexa</translation>
     </message>
     <message>
         <source>Start Minimized to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar minimizado na bandexa</translation>
     </message>
     <message>
         <source>Close to Tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Pechar para a bandexa</translation>
     </message>
     <message>
         <source>Show Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar editor</translation>
     </message>
     <message>
         <source>Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Capturar</translation>
     </message>
     <message>
         <source>Default Tray Icon action</source>
-        <translation type="unfinished"></translation>
+        <translation>Acción predeterminada da icona da bandexa</translation>
     </message>
     <message>
         <source>Default Action that is triggered by left clicking the tray icon.</source>
-        <translation type="unfinished"></translation>
+        <translation>Acción predeterminada que se activa facendo clic co botón esquerdo na icona da bandexa.</translation>
     </message>
     <message>
         <source>Tray Icon Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración da icona da bandexa</translation>
     </message>
     <message>
         <source>Use platform specific notification service</source>
-        <translation type="unfinished"></translation>
+        <translation>Use o servizo de notificación específico da plataforma</translation>
     </message>
     <message>
         <source>When enabled will use try to use platform specific notification
 service when such exists. Change requires restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cando estea activado, empregarase o servizo de notificacións
+específicos da plataforma, se existen. O cambio require o reinicio para que teña efecto.</translation>
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostrar notificacións da icona da bandexa</translation>
     </message>
 </context>
 <context>
     <name>UpdateWatermarkOperation</name>
     <message>
         <source>Select Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar imaxe</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheiros de imaxe</translation>
     </message>
 </context>
 <context>
     <name>UploadOperation</name>
     <message>
         <source>Upload Script Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Requírese o script de carga</translation>
     </message>
     <message>
         <source>Please add an upload script via Options &gt; Settings &gt; Upload Script</source>
-        <translation type="unfinished"></translation>
+        <translation>Engade un script de carga a través de Opcións &gt; Configuración &gt; Script de carga</translation>
     </message>
     <message>
         <source>Capture Upload</source>
-        <translation type="unfinished"></translation>
+        <translation>Subir captura</translation>
     </message>
     <message>
         <source>You are about to upload the image to an external destination, do you want to proceed?</source>
-        <translation type="unfinished"></translation>
+        <translation>Estás a piques de subir a imaxe a un destino externo, queres continuar?</translation>
     </message>
 </context>
 <context>
     <name>UploaderSettings</name>
     <message>
         <source>Ask for confirmation before uploading</source>
-        <translation type="unfinished"></translation>
+        <translation>Solicita confirmación antes de subir</translation>
     </message>
     <message>
         <source>Uploader Type:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipo de subida:</translation>
     </message>
     <message>
         <source>Imgur</source>
-        <translation type="unfinished"></translation>
+        <translation>Imgur</translation>
     </message>
     <message>
         <source>Script</source>
@@ -1665,7 +1684,7 @@ service when such exists. Change requires restart to take effect.</source>
     </message>
     <message>
         <source>Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>Subir imaxe</translation>
     </message>
     <message>
         <source>FTP</source>
@@ -1691,23 +1710,23 @@ service when such exists. Change requires restart to take effect.</source>
     <name>WatermarkSettings</name>
     <message>
         <source>Watermark Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Imaxe de marca de auga</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <source>Rotate Watermark</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotar a marca de auga</translation>
     </message>
     <message>
         <source>When enabled, Watermark will be added with a rotation of 45°</source>
-        <translation type="unfinished"></translation>
+        <translation>Cando estea activado, engadirase a marca de auga cunha rotación de 45°</translation>
     </message>
     <message>
         <source>Watermark Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración da marca de auga</translation>
     </message>
 </context>
 </TS>

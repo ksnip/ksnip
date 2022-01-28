@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontakt</translation>
     </message>
 </context>
 <context>
@@ -40,82 +40,82 @@
     </message>
     <message>
         <source>Screenshot and Annotation Tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Skærmbillede- og annoteringsværktøj</translation>
     </message>
 </context>
 <context>
     <name>ActionSettingTab</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Genvej</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Ryd</translation>
     </message>
     <message>
         <source>Take Capture</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag Skærmbillede</translation>
     </message>
     <message>
         <source>Include Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Medtag Musmarkøren</translation>
     </message>
     <message>
         <source>Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Udsæt</translation>
     </message>
     <message>
         <source>s</source>
         <extracomment>The small letter s stands for seconds.</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>s</translation>
     </message>
     <message>
         <source>Capture Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Optagelsesmåde</translation>
     </message>
     <message>
         <source>Show image in Pin Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis Billede I Fastgjort Vindue</translation>
     </message>
     <message>
         <source>Copy image to Clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier Billede Til Udklipsholder</translation>
     </message>
     <message>
         <source>Upload image</source>
-        <translation type="unfinished"></translation>
+        <translation>Upload Billede</translation>
     </message>
     <message>
         <source>Open image parent directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Åbn Billedes Overordnet Mappe</translation>
     </message>
     <message>
         <source>Save image</source>
-        <translation type="unfinished"></translation>
+        <translation>Gem Billede</translation>
     </message>
     <message>
         <source>Hide Main Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Skjul Hovedvindue</translation>
     </message>
 </context>
 <context>
     <name>ActionsSettings</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilføj</translation>
     </message>
     <message>
         <source>Actions Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Handlingsindstillinger</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Handling</translation>
     </message>
 </context>
 <context>
@@ -126,150 +126,160 @@
     </message>
     <message>
         <source>Please add a Watermark Image via Options &gt; Settings &gt; Annotator &gt; Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Vær sød at tilføje vandmærket billede via Valg &gt; Indstillinger &gt; Annotator &gt; Opdateringer</translation>
     </message>
 </context>
 <context>
     <name>AnnotationSettings</name>
     <message>
         <source>Smooth Painter Paths</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Jævn malede stier</translation>
     </message>
     <message>
         <source>When enabled smooths out pen and
 marker paths after finished drawing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Når aktiveret, og når tegning er færdig,
+jævner blyant og markørs linier ud.</translation>
     </message>
     <message>
         <source>Smooth Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Udjævningsfaktor</translation>
     </message>
     <message>
         <source>Increasing the smooth factor will decrease
 precision for pen and marker but will
 make them more smooth.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Forhøjelse af udjævningsfaktor vil forringe
+blyant og markørs nøjagtighed, men vil også
+gør dem mere jævne.</translation>
     </message>
     <message>
         <source>Annotator Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Annotator Indstillinger</translation>
     </message>
     <message>
         <source>Remember annotation tool selection and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Husk annoteringsværktøjsvalg og indlæs det ved computer opstart</translation>
     </message>
     <message>
         <source>Switch to Select Tool after drawing Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Når du er færdig med at tegne et element, skift til Vælg Værktøj menu</translation>
     </message>
     <message>
         <source>Number Tool Seed change updates all Number Items</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ved ændring af Tæller Værktøj, opdateres alle nummeriske elementer</translation>
     </message>
     <message>
         <source>Disabling this option causes changes of the number tool
 seed to affect only new items but not existing items.
 Disabling this option allows having duplicate numbers.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Deaktivering af dette her valg betyder at nummereringsværktøjet påvirker kun de nye elementer og ikke de gamle.
+Deaktivering lader dig anvende dubletnumre.</translation>
     </message>
     <message>
         <source>Canvas Color</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kanvassens Farve</translation>
     </message>
     <message>
         <source>Default Canvas background color for annotation area.
 Changing color affects only new annotation areas.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Standard kanvas baggrundsfarve for annoteringsområde.
+Skift af farve påvirker kun de nye annoteringsområder.</translation>
     </message>
     <message>
         <source>Select Item after drawing</source>
-        <translation type="unfinished"></translation>
+        <translation>Valg element når tegning er færdig</translation>
     </message>
     <message>
         <source>With this option enabled the item gets selected after
 being created, allowing changing settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Med denne valgmulighed aktiveret, markeres elementet
+lige efter det er blevet tegnet, hvilket gør det muligt at ændre indstillingerne.</translation>
     </message>
 </context>
 <context>
     <name>ApplicationSettings</name>
     <message>
         <source>Capture screenshot at startup with default mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag skærmbillede i standard måde ved computerens opstart</translation>
     </message>
     <message>
         <source>Application Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Programmets Brugergrænseflade</translation>
     </message>
     <message>
         <source>Sets the application style which defines the look and feel of the GUI.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Indstiller programmets brugergrænseflade og på den måde definerer
+den overordnede grafiske brugergrænseflade. For at få ændringerne til at træde i kraft, skal Ksnip genstartes.</translation>
     </message>
     <message>
         <source>Application Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Programindstillinger</translation>
     </message>
     <message>
         <source>Automatically copy new captures to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier automatisk de nye skærmbilleder til udklipsholderen</translation>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Brug faneblade</translation>
     </message>
     <message>
         <source>Change requires restart.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ændring kræver genstart.</translation>
     </message>
     <message>
         <source>Run ksnip as single instance</source>
-        <translation type="unfinished"></translation>
+        <translation>Kør Ksnip som enkelt instans</translation>
     </message>
     <message>
         <source>Hide Tabbar when only one Tab is used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skjul fanebladslinjen når kun et faneblad bruges.</translation>
     </message>
     <message>
         <source>Enabling this option will allow only one ksnip instance to run,
 all other instances started after the first will pass its
 arguments to the first and close. Changing this option requires
 a new start of all instances.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Aktivering af denne valgmulighed vil lade kun et Ksnip instans at køre,
+alle andre instanser der starter bagefter vil overføre deres argumenter til det første, og derefter lukke.</translation>
     </message>
     <message>
         <source>Remember Main Window position on move and load on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>Husk hovedvinduets placering ved flyttning og indlæs den ved opstart</translation>
     </message>
     <message>
         <source>Auto hide Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Skjul automatisk faneblade</translation>
     </message>
     <message>
         <source>Auto hide Docks</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Skjul automatisk docks</translation>
     </message>
     <message>
         <source>On startup hide Toolbar and Annotation Settings.
 Docks visibility can be toggled with the Tab Key.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ved opstart, skjul værktøjslinjen og annoteringsindstillingerne.
+Dockens synlighed kan slås til og fra med Tab tasten</translation>
     </message>
     <message>
         <source>Auto resize to content</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilpas automatisk til indholdet</translation>
     </message>
     <message>
         <source>Automatically resize Main Window to fit content image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skaler automatisk hovedvinduet og tilpas det til skærmbilledet.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiver fejlsøgning</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiverer fejlsøgnings udskrift i terminalen.
+Ændringen træder i kraft efter Ksnips genstart.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
@@ -286,155 +296,158 @@ to the new content, increasing this delay might improve the behavior.</source>
     <name>AuthorTab</name>
     <message>
         <source>Contributors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bidragydere:</translation>
     </message>
     <message>
         <source>Spanish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Spansk oversættelse</translation>
     </message>
     <message>
         <source>Dutch Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Hollandsk oversættelse</translation>
     </message>
     <message>
         <source>Russian Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Russisk oversættelse</translation>
     </message>
     <message>
         <source>Norwegian Bokmål Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Norsk bokmål oversættelse</translation>
     </message>
     <message>
         <source>French Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Fransk oversættelse</translation>
     </message>
     <message>
         <source>Polish Translation</source>
-        <translation type="unfinished"></translation>
+        <translation>Polsk oversættelse</translation>
     </message>
     <message>
         <source>Snap &amp; Flatpak Support</source>
-        <translation type="unfinished"></translation>
+        <translation>Snap &amp; Flatpak support</translation>
     </message>
     <message>
         <source>The Authors:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ophavsmænd:</translation>
     </message>
 </context>
 <context>
     <name>CanDiscardOperation</name>
     <message>
         <source>Warning - </source>
-        <translation type="unfinished"></translation>
+        <translation>Advarsel - </translation>
     </message>
     <message>
         <source>The capture %1%2%3 has been modified.
 Do you want to save it?</source>
-        <translation type="unfinished"></translation>
+        <translation>Skærmbilledet %1%2%3 er blevet ændret.
+Vil du gemme ændringerne?</translation>
     </message>
 </context>
 <context>
     <name>CaptureModePicker</name>
     <message>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>Ny</translation>
     </message>
     <message>
         <source>Draw a rectangular area with your mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Tegn et rektangulært område ved at bruge musen</translation>
     </message>
     <message>
         <source>Capture a screenshot of the last selected rectangular area</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag et skærmbillede af den sidste markerede rektangulære område</translation>
     </message>
     <message>
         <source>Capture full screen including all monitors</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag billeder af hele skærme på alle skærme</translation>
     </message>
     <message>
         <source>Capture screen where the mouse is located</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag billedet hvor musmarkøren ligger</translation>
     </message>
     <message>
         <source>Capture window that currently has focus</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag billede af vindue som har fokus</translation>
     </message>
     <message>
         <source>Capture that is currently under the mouse cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag billede af vindue under musmarkøren</translation>
     </message>
     <message>
         <source>Uses the screenshot Portal for taking screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bruger skærmbilledsportal</translation>
     </message>
 </context>
 <context>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Fællesskabet</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Fejlrapporter</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Har du nogle generelle spørgsmål, ideer, eller hvis du vil bare snakke om Ksnip,&lt;br/&gt;
+være sød at slutte dig til vores %1 eller %2 server.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vær sød at bruge %1 til fejlrepportering.</translation>
     </message>
 </context>
 <context>
     <name>CopyAsDataUriOperation</name>
     <message>
         <source>Failed to copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiering til udklipsholderen mislykkedes</translation>
     </message>
     <message>
         <source>Failed to copy to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiering til udklipsholderen som base64 indkodet billede mislykkedes.</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopieret til udklipsholderen</translation>
     </message>
     <message>
         <source>Copied to clipboard as base64 encoded image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopieret til udklipsholderen som base64 indkodet billede.</translation>
     </message>
 </context>
 <context>
     <name>DeleteImageOperation</name>
     <message>
         <source>Delete Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Slet billede</translation>
     </message>
     <message>
         <source>The item &apos;%1&apos; will be deleted.
 Do you want to continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Elementet %1 vil blive slettet.
+Vil du fortsætte?</translation>
     </message>
 </context>
 <context>
     <name>DonateTab</name>
     <message>
         <source>Donations are always welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>Donationer er altid velkomne</translation>
     </message>
     <message>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
+        <translation>Donation</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ksnip er et ikke-kommercielt libre software projekt, men&lt;br/&gt;den har stadigvæk nogle omkostninger der skal dækkes&lt;br/&gt;ligesom domæne omkostninger eller hardware omkostninger for support på tværs af styresystemmer.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hvis du vil hjælpe eller sætte pris på det arbejde de laver&lt;br/&gt;ved at give udviklerne et glas øl eller en kop kaffe, kan du gøre det %1here2%.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>

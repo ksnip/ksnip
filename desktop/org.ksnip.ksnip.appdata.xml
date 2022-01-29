@@ -103,6 +103,7 @@
                     <li>New: Search bar in the settings dialog.</li>
                     <li>New kImageAnnotator: Add optional undo, redo, crop, scale and modify canvas buttons to dock widgets.</li>
                     <li>New kImageAnnotator: Cut out vertical or horizontal slice of an image.</li>
+                    <li>New kImageAnnotator: Middle-click on tab header closes tab.</li>
                     <li>Fixed: Opens a new window for each capture.</li>
                     <li>Fixed: First cli invocation won't copy image to clipboard.</li>
                     <li>Fixed: Snipping area incorrectly positioned with screen scaling.</li>

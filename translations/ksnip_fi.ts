@@ -281,17 +281,20 @@ Valikon näkyvyyttä voidaan vaihtaa sarkaimella.</translation>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ottaa käyttöön konsoliin kirjoitettavan debug-listauksen.
+Muutos vaatii ksnipin käynnistyksen tullakseen voimaan.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Muuta kokoa sisällön viiveen mukaan</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sisällön koon muuttaminen viivästyy, jotta Ikkunanhallinta voi vastaanottaa
+uutta sisältöä. Jos pääikkunaa ei ole säädetty oikein uuteen sisältöön,
+viiveen lisääminen saattaa parantaa toimintaa.</translation>
     </message>
 </context>
 <context>
@@ -393,11 +396,11 @@ Haluatko tallentaa sen?</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jos sinulla on kysymyksiä, ideoita tai haluat vain puhua ksnipistä,&lt;br/&gt;liity %1 tai %2-palvelimelle.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilmoita virheistä %1 toiminnolla.</translation>
     </message>
 </context>
 <context>
@@ -444,19 +447,19 @@ Haluatko jatkaa?</translation>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip on voittoa tavoittelematon ohjelmaisto projekti. &lt;br/&gt;Silti joitakin kustannuksia on katettava,&lt;br/&gt; kuten verkkotunnus ja laitteistokulua alustojen välisen tuen testaamisesi.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Jos haluat auttaa tai vain arvostaa tehtyä työtä&lt;br/&gt; tarjoamalla kehittäjille oluen tai kahvin, voit tehdä sen %1 täällä %2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ryhdy GitHub-sponsoriksi?</translation>
     </message>
     <message>
         <source>Also possible, %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Mahdollista myös, %1 täällä %2.</translation>
     </message>
 </context>
 <context>
@@ -501,23 +504,23 @@ Haluatko jatkaa?</translation>
     <name>FtpUploaderSettings</name>
     <message>
         <source>Force anonymous upload.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakota anonyymi lataus.</translation>
     </message>
     <message>
         <source>Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Url</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">Käyttäjätunnus</translation>
+        <translation>Käyttäjätunnus</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Salasana</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP-lataaja</translation>
     </message>
 </context>
 <context>
@@ -564,27 +567,27 @@ Haluatko jatkaa?</translation>
     </message>
     <message>
         <source>FTP Upload finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP-lataus päättyi onnistuneesti.</translation>
     </message>
     <message>
         <source>Unknown error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tuntematon virhe.</translation>
     </message>
     <message>
         <source>Connection Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Yhteysvirhe.</translation>
     </message>
     <message>
         <source>Permission Error.</source>
-        <translation type="unfinished"></translation>
+        <translation>Käyttöoikeusvirhe.</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>Scriptin %1  lataus päättyi onnistuneesti.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ladattu %1</translation>
     </message>
 </context>
 <context>
@@ -696,11 +699,11 @@ pääikkuna oli piilotettu tai minimoitu.</translation>
     </message>
     <message>
         <source>Force Generic Wayland (xdg-desktop-portal) Screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakota Wayland (xdg-desktop-portal) ruudunkaappaus</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished"></translation>
+        <translation>Skaalaa Wayland (xdg-desktop-portal) ruudunkaappaus</translation>
     </message>
 </context>
 <context>
@@ -1051,11 +1054,11 @@ ottamisen välillä.</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">Toimet</translation>
+        <translation>Toimet</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvatiedostot</translation>
     </message>
 </context>
 <context>
@@ -1138,11 +1141,11 @@ ottamisen välillä.</translation>
     </message>
     <message>
         <source>Successfully renamed image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvan nimi muutettiin onnistuneesti muotoon %1</translation>
     </message>
     <message>
         <source>Failed to rename image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvan nimeäminen muotoon %1 epäonnistui</translation>
     </message>
 </context>
 <context>
@@ -1165,15 +1168,15 @@ ottamisen välillä.</translation>
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvatiedostot</translation>
     </message>
     <message>
         <source>Saved to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Tallennettu %1</translation>
     </message>
     <message>
         <source>Failed to save image to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvan tallentaminen %1 epäonnistui</translation>
     </message>
 </context>
 <context>
@@ -1358,7 +1361,7 @@ Kun kaikki jätetään pois, kaikki kopioidaan.</translation>
     </message>
     <message>
         <source>FTP Uploader</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP-lataaja</translation>
     </message>
 </context>
 <context>
@@ -1628,7 +1631,7 @@ palvelua, jos sellainen on olemassa. Vaatii käynnistyksen uudelleen.</translati
     </message>
     <message>
         <source>Display Tray Icon notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä alavalikon kuvakkeen ilmoitukset</translation>
     </message>
 </context>
 <context>
@@ -1639,7 +1642,7 @@ palvelua, jos sellainen on olemassa. Vaatii käynnistyksen uudelleen.</translati
     </message>
     <message>
         <source>Image Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvatiedostot</translation>
     </message>
 </context>
 <context>
@@ -1685,7 +1688,7 @@ palvelua, jos sellainen on olemassa. Vaatii käynnistyksen uudelleen.</translati
     </message>
     <message>
         <source>FTP</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP</translation>
     </message>
 </context>
 <context>

@@ -220,7 +220,7 @@ Change requires ksnip restart to take effect.</source>
     </message>
     <message>
         <source>Use Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>استخدم الألسنة</translation>
     </message>
     <message>
         <source>Change requires restart.</source>

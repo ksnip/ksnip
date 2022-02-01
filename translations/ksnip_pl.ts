@@ -694,7 +694,7 @@ Zmiana tej opcji wymaga ponownego uruchomienia ksnip.</translation>
     <message>
         <source>Show Main Window after capturing a new screenshot
 when the Main Window was hidden or minimize.</source>
-        <translation>Pokaż Główne okno po zrobieniu nowego zrzutu ekranu
+        <translation>Pokaż okno główne po zrobieniu nowego zrzutu ekranu
 kiedy główne okno było ukryte lub zminimalizowane.</translation>
     </message>
     <message>
@@ -703,7 +703,7 @@ kiedy główne okno było ukryte lub zminimalizowane.</translation>
     </message>
     <message>
         <source>Scale Generic Wayland (xdg-desktop-portal) Screenshots</source>
-        <translation type="unfinished">Skaluj ogólne zrzuty ekranu Wayland (xdg-desktop-portal)</translation>
+        <translation>Skaluj ogólne zrzuty ekranu Wayland (xdg-desktop-portal)</translation>
     </message>
 </context>
 <context>

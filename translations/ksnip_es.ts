@@ -276,12 +276,13 @@ Se puede alternar la visibilidad del Dock con el tabulador.</translation>
     </message>
     <message>
         <source>Enable Debugging</source>
-        <translation type="unfinished"></translation>
+        <translation>Activar depuración</translation>
     </message>
     <message>
         <source>Enables debug output written to the console.
 Change requires ksnip restart to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Activa la salida de depuración en consola.
+Este cambio require reiniciar ksnip.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
@@ -385,11 +386,11 @@ Do you want to save it?</source>
     <name>ContactTab</name>
     <message>
         <source>Community</source>
-        <translation type="unfinished"></translation>
+        <translation>Comunidad</translation>
     </message>
     <message>
         <source>Bug Reports</source>
-        <translation type="unfinished"></translation>
+        <translation>Reporte de errores</translation>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>

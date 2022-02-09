@@ -71,9 +71,9 @@
 #endif
 
 #if  defined(_WIN32)
-#include "src/backend/config/Config.h"
 #include "src/backend/imageGrabber/WinImageGrabber.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapter.h"
+#include "src/plugins/WindowsPluginLoader.h"
 #endif
 
 void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependencyInjector)
@@ -111,7 +111,7 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 	dependencyInjector->registerInstance<IIconLoader, IconLoader>();
 	injectFileDialogService(dependencyInjector);
 	injectScaledSizeProvider(dependencyInjector);
-	dependencyInjector->registerInstance<IPluginLoader, PluginLoader, ILogger>();
+	injectPluginLoader(dependencyInjector);
 	dependencyInjector->registerInstance<IPluginManager, PluginManager, IConfig, IPluginLoader, ILogger>();
 	dependencyInjector->registerInstance<IPluginFinder, PluginFinder, IPluginLoader, IDirectoryService>();
 	dependencyInjector->registerInstance<IOcrWindowCreator, OcrWindowCreator, IPluginManager>();
@@ -251,5 +251,14 @@ void DependencyInjectorBootstrapper::injectScaledSizeProvider(DependencyInjector
 	}
 #else
 	dependencyInjector->registerInstance<IScaledSizeProvider, ScaledSizeProvider>();
+#endif
+}
+
+void DependencyInjectorBootstrapper::injectPluginLoader(DependencyInjector *dependencyInjector)
+{
+#if defined(_WIN32)
+	dependencyInjector->registerInstance<IPluginLoader, WindowsPluginLoader, ILogger>();
+#else
+	dependencyInjector->registerInstance<IPluginLoader, PluginLoader, ILogger>();
 #endif
 }

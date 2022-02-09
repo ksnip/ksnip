@@ -22,12 +22,9 @@
 #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 #endif
 
-#include <QApplication>
-
 #include "BuildConfig.h"
 #include "src/bootstrapper/BootstrapperFactory.h"
 #include "src/logging/LogOutputHandler.h"
-#include "src/dependencyInjector/DependencyInjectorBootstrapper.h"
 
 int main(int argc, char** argv)
 {

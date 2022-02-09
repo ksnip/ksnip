@@ -46,6 +46,7 @@ QList<PluginInfo> PluginFinder::findPluginsInDirectory(const QString &path) cons
 {
 	auto plugins = QList<PluginInfo>();
 	auto childFileInfos = mDirectoryService->childFiles(path);
+
 	for (const auto& childFileInfo : childFileInfos) {
 		auto plugin = mLoader->load(childFileInfo.filePath());
 

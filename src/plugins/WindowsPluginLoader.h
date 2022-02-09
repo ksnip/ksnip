@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2022 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,25 +17,24 @@
  * Boston, MA 02110-1301, USA.
  */
 
+#ifndef KSNIP_WINDOWSPLUGINLOADER_H
+#define KSNIP_WINDOWSPLUGINLOADER_H
+
+#include <QDir>
+#include <QFileInfo>
+
 #include "PluginLoader.h"
 
-PluginLoader::PluginLoader(const QSharedPointer<ILogger> &logger) :
-	mLogger(logger)
+class WindowsPluginLoader : public PluginLoader
 {
+public:
+	explicit WindowsPluginLoader(const QSharedPointer<ILogger> &logger);
+	~WindowsPluginLoader() = default;
+	QObject* load(const QString &path) const override;
 
-}
+private:
+	QSharedPointer<ILogger> mLogger;
+};
 
-QObject* PluginLoader::load(const QString &path) const
-{
-	QPluginLoader pluginLoader(path);
 
-	pluginLoader.load();
-
-	if (pluginLoader.isLoaded()) {
-		mLogger->log(QString("Loaded plugin %1").arg(path));
-	} else if (!pluginLoader.metaData().isEmpty()) {
-		mLogger->log(pluginLoader.errorString());
-	}
-
-	return pluginLoader.instance();
-}
+#endif //KSNIP_WINDOWSPLUGINLOADER_H

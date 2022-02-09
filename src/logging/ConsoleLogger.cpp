@@ -26,7 +26,6 @@ void ConsoleLogger::log(const QString &message) const
 
 void ConsoleLogger::log(const QString &message, bool isSuccess) const
 {
-
 	qDebug("%s, %s.", qPrintable(message), qPrintable(boolToString(isSuccess)));
 }
 

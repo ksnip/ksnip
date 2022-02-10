@@ -205,7 +205,7 @@ elseif (WIN32)
                 ${CMAKE_SOURCE_DIR}/src/gui/snippingArea/WinSnippingArea.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/keyHandler/WinKeyHandler.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToWinKeyCodeTranslator.cpp
-				${CMAKE_SOURCE_DIR}/src/plugins/WindowsPluginLoader.cpp
+				${CMAKE_SOURCE_DIR}/src/plugins/WinPluginLoader.cpp
 				)
 endif ()
 

@@ -73,7 +73,7 @@
 #if  defined(_WIN32)
 #include "src/backend/imageGrabber/WinImageGrabber.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapter.h"
-#include "src/plugins/WindowsPluginLoader.h"
+#include "src/plugins/WinPluginLoader.h"
 #endif
 
 void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependencyInjector)
@@ -257,7 +257,7 @@ void DependencyInjectorBootstrapper::injectScaledSizeProvider(DependencyInjector
 void DependencyInjectorBootstrapper::injectPluginLoader(DependencyInjector *dependencyInjector)
 {
 #if defined(_WIN32)
-	dependencyInjector->registerInstance<IPluginLoader, WindowsPluginLoader, ILogger>();
+	dependencyInjector->registerInstance<IPluginLoader, WinPluginLoader, ILogger>();
 #else
 	dependencyInjector->registerInstance<IPluginLoader, PluginLoader, ILogger>();
 #endif

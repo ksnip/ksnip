@@ -17,16 +17,16 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "WindowsPluginLoader.h"
+#include "WinPluginLoader.h"
 
-WindowsPluginLoader::WindowsPluginLoader(const QSharedPointer<ILogger> &logger) : 
+WinPluginLoader::WinPluginLoader(const QSharedPointer<ILogger> &logger) :
 	PluginLoader(logger),
 	mLogger(logger)
 {
 
 }
 
-QObject *WindowsPluginLoader::load(const QString &path) const 
+QObject *WinPluginLoader::load(const QString &path) const
 {
 	// Under Windows the 3rd Party Dlls are next to the plugin in the same directory
 	// in order to find them we set the current directory to the plugin directory

@@ -42,6 +42,7 @@ void PluginManager::loadPlugins()
 			mLogger->log(QString("Unable to load plugin %1 of type %2").arg(pluginInfo.path(), EnumTranslator::instance()->toString(pluginInfo.type())));
 		} else {
 			mPluginMap[pluginInfo.type()] = plugin;
+			mPluginPathMap[pluginInfo.type()] = pluginInfo.path();
 		}
 	}
 }
@@ -51,7 +52,18 @@ QSharedPointer<QObject> PluginManager::get(PluginType type) const
 	if(isAvailable(type)) {
 		return mPluginMap[type];
 	} else {
-		mLogger->log(QString("Unavailable plugin type requested %1").arg(EnumTranslator::instance()->toString(type)));
+		mLogger->log(QString("Unavailable plugin requested %1").arg(EnumTranslator::instance()->toString(type)));
+
+		return {};
+	}
+}
+
+QString PluginManager::getPath(PluginType type) const
+{
+	if(isAvailable(type)) {
+		return mPluginPathMap[type];
+	} else {
+		mLogger->log(QString("Unavailable plugin path requested %1").arg(EnumTranslator::instance()->toString(type)));
 
 		return {};
 	}

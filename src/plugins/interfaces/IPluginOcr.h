@@ -30,6 +30,7 @@ public:
 	IPluginOcr() = default;
 	virtual ~IPluginOcr() = default;
 	virtual QString recognize(const QPixmap &pixmap) const = 0;
+	virtual QString recognize(const QPixmap &pixmap, const QString &dataPath) const = 0;
 	virtual QString version() const = 0;
 };
 

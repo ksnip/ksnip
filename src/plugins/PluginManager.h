@@ -36,12 +36,14 @@ public:
 	~PluginManager() = default;
 	bool isAvailable(PluginType type) const override;
 	QSharedPointer<QObject> get(PluginType type) const override;
+	QString getPath(PluginType type) const override;
 
 private:
 	QSharedPointer<IConfig> mConfig;
 	QSharedPointer<IPluginLoader> mLoader;
 	QSharedPointer<ILogger> mLogger;
 	QMap<PluginType, QSharedPointer<QObject>> mPluginMap;
+	QMap<PluginType, QString> mPluginPathMap;
 
 	void loadPlugins();
 };

@@ -17,19 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_WINDOWSPLUGINLOADER_H
-#define KSNIP_WINDOWSPLUGINLOADER_H
+#ifndef KSNIP_WINPLUGINLOADER_H
+#define KSNIP_WINPLUGINLOADER_H
 
 #include <QDir>
 #include <QFileInfo>
 
 #include "PluginLoader.h"
 
-class WindowsPluginLoader : public PluginLoader
+class WinPluginLoader : public PluginLoader
 {
 public:
-	explicit WindowsPluginLoader(const QSharedPointer<ILogger> &logger);
-	~WindowsPluginLoader() = default;
+	explicit WinPluginLoader(const QSharedPointer<ILogger> &logger);
+	~WinPluginLoader() = default;
 	QObject* load(const QString &path) const override;
 
 private:
@@ -37,4 +37,4 @@ private:
 };
 
 
-#endif //KSNIP_WINDOWSPLUGINLOADER_H
+#endif //KSNIP_WINPLUGINLOADER_H

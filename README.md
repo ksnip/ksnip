@@ -176,7 +176,7 @@ with your favorite unpacking tool. Ksnip can then be started by just double-clic
 ## macOS
 
 ### APP
-The app file comes in a DMG package which needs to be opened and the ksnip.app file needs to be dragged
+The app file comes in a DMG package which needs to be opened, and the ksnip.app file needs to be dragged
 and dropped into the "Application" folder. After that the application can be started by double clicking ksnip.app
 
 ### Homebrew Cask
@@ -185,12 +185,24 @@ Just install via Homebrew and start using from your "Applications" folder.
 $ brew install --cask ksnip
 ```
 
+# Plugins
+ksnip functionality can be extended by using plugins that need to be downloaded separately and installed or unpacked,
+depending on the environment. Currently, under `Options > Settings > Plugins` a path needs to be provided where the
+plugins are located, after clicking on "Detect", ksnip searches for known plugins and when found will list the name
+ans version. 
+
+## OCR (Window and Linux/Unix - WIP)
+ksnip supports OCR by using the [ksnip-plugin-ocr](https://github.com/ksnip/ksnip-plugin-ocr) which utilizes Tesseract
+to convert Image to text. When the OCR plugin was loaded, the OCR option becomes available under `Options > OCR`.
+The latest plugin version can be found [here](https://github.com/ksnip/ksnip-plugin-ocr/releases)
+
+
 # Dependencies
 ksnip depends on [kImageAnnotator](https://github.com/ksnip/kImageAnnotator) and [kColorPicker](https://github.com/DamirPorobic/kColorPicker) which needs
 to be installed before building ksnip from source. Installation instructions can be found on the Github pages.
 
 # Building from source
-1. Get latest release from GitHub by cloning the repo:
+1. Get the latest release from GitHub by cloning the repo:
     `$ git clone https://github.com/ksnip/ksnip`
 2. Change to repo directory:
     `$ cd ksnip`

@@ -20,6 +20,8 @@
 #ifndef KSNIP_OCRWINDOWCREATOR_H
 #define KSNIP_OCRWINDOWCREATOR_H
 
+#include <QFileInfo>
+
 #include "OcrWindow.h"
 #include "IOcrWindowCreator.h"
 #include "src/plugins/IPluginManager.h"
@@ -34,6 +36,8 @@ public:
 
 private:
 	QSharedPointer<IPluginManager> mPluginManager;
+
+	QString getText(const QPixmap &pixmap) const;
 };
 
 #endif //KSNIP_OCRWINDOWCREATOR_H

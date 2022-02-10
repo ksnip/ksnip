@@ -27,8 +27,20 @@ OcrWindowCreator::OcrWindowCreator(const QSharedPointer<IPluginManager> &pluginM
 
 QSharedPointer<IModelessWindow> OcrWindowCreator::create(const QPixmap &pixmap, int windowId) const
 {
-	auto ocrPlugin = mPluginManager->get(PluginType::Ocr).objectCast<IPluginOcr>();
-	auto text = ocrPlugin->recognize(pixmap);
+	QString text = getText(pixmap);
 	auto title = tr("OCR Window %1").arg(windowId);
 	return QSharedPointer<OcrWindow>(new OcrWindow(text, title), &QObject::deleteLater);
+}
+
+QString OcrWindowCreator::getText(const QPixmap &pixmap) const 
+{
+	auto ocrPlugin = mPluginManager->get(PluginType::Ocr).objectCast<IPluginOcr>();
+
+#if defined(_WIN32)
+	auto path = mPluginManager->getPath(PluginType::Ocr);
+	auto parentDir = QFileInfo(path).path();
+	return ocrPlugin->recognize(pixmap, parentDir.append("\\tessdata\\"));
+#else
+	return ocrPlugin->recognize(pixmap);
+#endif
 }

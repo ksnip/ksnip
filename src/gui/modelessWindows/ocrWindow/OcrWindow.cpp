@@ -21,11 +21,16 @@
 
 OcrWindow::OcrWindow(const QPixmap &pixmap, const QString &title, const QSharedPointer<IPluginManager> &pluginManager) :
 	mTextEdit(new QTextEdit(this)),
-	mLayout(new QVBoxLayout(this))
+	mProcessIndicator(new ProcessIndicator(this)),
+	mLayout(new QGridLayout(this))
 {
 	setWindowTitle(title);
+	setGeometry(geometry().x(), geometry().y(), pixmap.size().width(), pixmap.size().height());
 
-	mLayout->addWidget(mTextEdit);
+	mLayout->addWidget(mTextEdit, 0, 0);
+	mLayout->addWidget(mProcessIndicator, 0, 0, Qt::AlignCenter);
+
+	setProcessingVisible(true);
 
 	auto ocrProcessingFuture = QtConcurrent::run(this, &OcrWindow::process, pixmap, pluginManager);
 
@@ -45,8 +50,22 @@ QString OcrWindow::process(const QPixmap &pixmap, const QSharedPointer<IPluginMa
 	return ocrPlugin->recognize(pixmap);
 }
 
+void OcrWindow::setProcessingVisible(bool isVisible)
+{
+	if(isVisible) {
+		mProcessIndicator->start();
+	} else {
+		mProcessIndicator->stop();
+	}
+
+	mTextEdit->setVisible(!isVisible);
+	mProcessIndicator->setVisible(isVisible);
+}
+
 void OcrWindow::processingFinished()
 {
+	setProcessingVisible(false);
+
 	auto text = mOcrProcessFutureWatcher.future().result();
 	mTextEdit->setText(text);
 }

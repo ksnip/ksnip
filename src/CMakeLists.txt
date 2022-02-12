@@ -67,6 +67,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/widgets/MainToolBar.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/KeySequenceLineEdit.cpp
 	${CMAKE_SOURCE_DIR}/src/widgets/CustomLineEdit.cpp
+	${CMAKE_SOURCE_DIR}/src/widgets/ProcessIndicator.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/MainWindow.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/RecentImagesMenu.cpp
 	${CMAKE_SOURCE_DIR}/src/gui/ImgurHistoryDialog.cpp

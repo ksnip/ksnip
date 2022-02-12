@@ -21,10 +21,11 @@
 #define KSNIP_OCRWINDOW_H
 
 #include <QTextEdit>
-#include <QVBoxLayout>
+#include <QGridLayout>
 #include <QtConcurrent/QtConcurrent>
 
 #include "src/gui/modelessWindows/IModelessWindow.h"
+#include "src/widgets/ProcessIndicator.h"
 #include "src/plugins/IPluginManager.h"
 #include "src/plugins/interfaces/IPluginOcr.h"
 
@@ -39,10 +40,12 @@ protected:
 
 private:
 	QTextEdit *mTextEdit;
-	QVBoxLayout *mLayout;
+	ProcessIndicator *mProcessIndicator;
+	QGridLayout *mLayout;
 	QFutureWatcher<QString> mOcrProcessFutureWatcher;
 
 	virtual QString process(const QPixmap &pixmap, const QSharedPointer<IPluginManager> &pluginManager);
+	void setProcessingVisible(bool isVisible);
 
 private slots:
 	void processingFinished();

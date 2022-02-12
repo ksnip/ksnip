@@ -20,19 +20,19 @@
 #include "AnnotationSettings.h"
 
 AnnotationSettings::AnnotationSettings(const QSharedPointer<IConfig> &config, const QSharedPointer<IScaledSizeProvider> &scaledSizeProvider) :
-		mSmoothPathCheckbox(new QCheckBox(this)),
-		mRememberToolSelectionCheckBox(new QCheckBox(this)),
-		mSwitchToSelectToolAfterDrawingItemCheckBox(new QCheckBox(this)),
-		mNumberToolSeedChangeUpdatesAllItemsCheckBox(new QCheckBox(this)),
-		mSelectItemAfterDrawingCheckBox(new QCheckBox(this)),
-		mIsControlsWidgetVisibleCheckBox(new QCheckBox(this)),
-		mSmoothFactorLabel(new QLabel(this)),
-		mCanvasColorLabel(new QLabel(this)),
-		mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
-		mCanvasColorButton(new ColorButton(this)),
-		mLayout(new QGridLayout(this)),
-		mConfig(config),
-		mScaledSizeProvider(scaledSizeProvider)
+	mSmoothPathCheckbox(new QCheckBox(this)),
+	mRememberToolSelectionCheckBox(new QCheckBox(this)),
+	mSwitchToSelectToolAfterDrawingItemCheckBox(new QCheckBox(this)),
+	mNumberToolSeedChangeUpdatesAllItemsCheckBox(new QCheckBox(this)),
+	mSelectItemAfterDrawingCheckBox(new QCheckBox(this)),
+	mIsControlsWidgetVisibleCheckBox(new QCheckBox(this)),
+	mSmoothFactorLabel(new QLabel(this)),
+	mCanvasColorLabel(new QLabel(this)),
+	mSmoothFactorCombobox(new NumericComboBox(1, 1, 15)),
+	mCanvasColorButton(new ColorButton(this)),
+	mLayout(new QGridLayout(this)),
+	mConfig(config),
+	mScaledSizeProvider(scaledSizeProvider)
 {
     initGui();
     loadConfig();

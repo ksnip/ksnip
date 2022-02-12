@@ -40,8 +40,8 @@ private:
 	static void injectDirectoryPathProvider(DependencyInjector *dependencyInjector);
 	static void injectDesktopServiceAdapter(DependencyInjector *dependencyInjector);
 	static void injectScaledSizeProvider(DependencyInjector *dependencyInjector);
-
 	static void injectPluginLoader(DependencyInjector *dependencyInjector);
+	static void injectOcrWindowCreator(DependencyInjector *dependencyInjector);
 };
 
 #endif //KSNIP_DEPENDENCYINJECTORBOOTSTRAPPER_H

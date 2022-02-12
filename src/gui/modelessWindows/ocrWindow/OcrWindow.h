@@ -22,13 +22,16 @@
 
 #include <QTextEdit>
 #include <QVBoxLayout>
+#include <QtConcurrent/QtConcurrent>
 
 #include "src/gui/modelessWindows/IModelessWindow.h"
+#include "src/plugins/IPluginManager.h"
+#include "src/plugins/interfaces/IPluginOcr.h"
 
 class OcrWindow : public IModelessWindow
 {
 public:
-	explicit OcrWindow(const QString &text, const QString &title);
+	explicit OcrWindow(const QPixmap &pixmap, const QString &title, const QSharedPointer<IPluginManager> &pluginManager);
 	~OcrWindow() override = default;
 
 protected:
@@ -37,6 +40,12 @@ protected:
 private:
 	QTextEdit *mTextEdit;
 	QVBoxLayout *mLayout;
+	QFutureWatcher<QString> mOcrProcessFutureWatcher;
+
+	virtual QString process(const QPixmap &pixmap, const QSharedPointer<IPluginManager> &pluginManager);
+
+private slots:
+	void processingFinished();
 };
 
 #endif //KSNIP_OCRWINDOW_H

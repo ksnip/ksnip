@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2022 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,26 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_OCRWINDOWCREATOR_H
-#define KSNIP_OCRWINDOWCREATOR_H
+#ifndef KSNIP_WINOCRWINDOW_H
+#define KSNIP_WINOCRWINDOW_H
 
 #include "OcrWindow.h"
-#include "IOcrWindowCreator.h"
-#include "src/plugins/IPluginManager.h"
 
-class OcrWindowCreator : public IOcrWindowCreator, public QObject
+class WinOcrWindow : public OcrWindow
 {
 public:
-	explicit OcrWindowCreator(const QSharedPointer<IPluginManager> &pluginManager);
-	~OcrWindowCreator() override = default;
-	QSharedPointer<IModelessWindow> create(const QPixmap &pixmap, int windowId) const override;
-
-protected:
-	virtual OcrWindow *createWindow(const QPixmap &pixmap, const QString &title) const;
-	const QSharedPointer<IPluginManager> &getPluginManager() const;
+	explicit WinOcrWindow(const QPixmap &pixmap, const QString &title, const QSharedPointer<IPluginManager> &pluginManager);
+	~WinOcrWindow() override = default;
 
 private:
-	QSharedPointer<IPluginManager> mPluginManager;
+	QString process(const QPixmap &pixmap, const QSharedPointer<IPluginManager> &pluginManager) override;
 };
 
-#endif //KSNIP_OCRWINDOWCREATOR_H
+#endif //KSNIP_WINOCRWINDOW_H

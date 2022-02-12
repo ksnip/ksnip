@@ -19,18 +19,34 @@
 
 #include "OcrWindow.h"
 
-OcrWindow::OcrWindow(const QString &text, const QString &title) :
+OcrWindow::OcrWindow(const QPixmap &pixmap, const QString &title, const QSharedPointer<IPluginManager> &pluginManager) :
 	mTextEdit(new QTextEdit(this)),
 	mLayout(new QVBoxLayout(this))
 {
 	setWindowTitle(title);
 
-	mTextEdit->setText(text);
 	mLayout->addWidget(mTextEdit);
+
+	auto ocrProcessingFuture = QtConcurrent::run(this, &OcrWindow::process, pixmap, pluginManager);
+
+	connect(&mOcrProcessFutureWatcher, &QFutureWatcher<QString>::finished, this, &OcrWindow::processingFinished);
+	mOcrProcessFutureWatcher.setFuture(ocrProcessingFuture);
 }
 
 void OcrWindow::closeEvent(QCloseEvent *event)
 {
 	emit closeRequest();
 	QDialog::closeEvent(event);
+}
+
+QString OcrWindow::process(const QPixmap &pixmap, const QSharedPointer<IPluginManager> &pluginManager)
+{
+	auto ocrPlugin = pluginManager->get(PluginType::Ocr).objectCast<IPluginOcr>();
+	return ocrPlugin->recognize(pixmap);
+}
+
+void OcrWindow::processingFinished()
+{
+	auto text = mOcrProcessFutureWatcher.future().result();
+	mTextEdit->setText(text);
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2022 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,26 +17,19 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "OcrWindowCreator.h"
+#include "WinOcrWindow.h"
 
-OcrWindowCreator::OcrWindowCreator(const QSharedPointer<IPluginManager> &pluginManager) :
-	mPluginManager(pluginManager)
+WinOcrWindow::WinOcrWindow(const QPixmap &pixmap, const QString &title, const QSharedPointer<IPluginManager> &pluginManager) :
+	OcrWindow(pixmap, title, pluginManager)
 {
 
 }
 
-QSharedPointer<IModelessWindow> OcrWindowCreator::create(const QPixmap &pixmap, int windowId) const
+QString WinOcrWindow::process(const QPixmap &pixmap, const QSharedPointer<IPluginManager> &pluginManager)
 {
-	auto title = tr("OCR Window %1").arg(windowId);
-	return QSharedPointer<OcrWindow>(createWindow(pixmap, title), &QObject::deleteLater);
-}
+	auto ocrPlugin = pluginManager->get(PluginType::Ocr).objectCast<IPluginOcr>();
 
-OcrWindow *OcrWindowCreator::createWindow(const QPixmap &pixmap, const QString &title) const
-{
-	return new OcrWindow(pixmap, title, getPluginManager());
-}
-
-const QSharedPointer<IPluginManager> &OcrWindowCreator::getPluginManager() const
-{
-	return mPluginManager;
+	auto path = pluginManager->getPath(PluginType::Ocr);
+	auto parentDir = QFileInfo(path).path();
+	return ocrPlugin->recognize(pixmap, parentDir.append("\\tessdata\\"));
 }

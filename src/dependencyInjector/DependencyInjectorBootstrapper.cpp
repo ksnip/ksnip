@@ -74,6 +74,7 @@
 #include "src/backend/imageGrabber/WinImageGrabber.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapter.h"
 #include "src/plugins/WinPluginLoader.h"
+#include "src/gui/modelessWindows/ocrWindow/WinOcrWindowCreator.h"
 #endif
 
 void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependencyInjector)
@@ -114,7 +115,7 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 	injectPluginLoader(dependencyInjector);
 	dependencyInjector->registerInstance<IPluginManager, PluginManager, IConfig, IPluginLoader, ILogger>();
 	dependencyInjector->registerInstance<IPluginFinder, PluginFinder, IPluginLoader, IDirectoryService>();
-	dependencyInjector->registerInstance<IOcrWindowCreator, OcrWindowCreator, IPluginManager>();
+	injectOcrWindowCreator(dependencyInjector);
 	dependencyInjector->registerInstance<IOcrWindowHandler, OcrWindowHandler, IOcrWindowCreator>();
 	dependencyInjector->registerInstance<IPinWindowCreator, PinWindowCreator>();
 	dependencyInjector->registerInstance<IPinWindowHandler, PinWindowHandler, IPinWindowCreator>();
@@ -260,5 +261,14 @@ void DependencyInjectorBootstrapper::injectPluginLoader(DependencyInjector *depe
 	dependencyInjector->registerInstance<IPluginLoader, WinPluginLoader, ILogger>();
 #else
 	dependencyInjector->registerInstance<IPluginLoader, PluginLoader, ILogger>();
+#endif
+}
+
+void DependencyInjectorBootstrapper::injectOcrWindowCreator(DependencyInjector *dependencyInjector)
+{
+#if defined(_WIN32)
+	dependencyInjector->registerInstance<IOcrWindowCreator, WinOcrWindowCreator, IPluginManager>();
+#else
+	dependencyInjector->registerInstance<IOcrWindowCreator, OcrWindowCreator, IPluginManager>();
 #endif
 }

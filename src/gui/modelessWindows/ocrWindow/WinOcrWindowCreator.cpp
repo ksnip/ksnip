@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2022 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,26 +17,15 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "OcrWindowCreator.h"
+#include "WinOcrWindowCreator.h"
 
-OcrWindowCreator::OcrWindowCreator(const QSharedPointer<IPluginManager> &pluginManager) :
-	mPluginManager(pluginManager)
+WinOcrWindowCreator::WinOcrWindowCreator(const QSharedPointer<IPluginManager> &pluginManager) :
+	OcrWindowCreator(pluginManager)
 {
 
 }
 
-QSharedPointer<IModelessWindow> OcrWindowCreator::create(const QPixmap &pixmap, int windowId) const
+OcrWindow *WinOcrWindowCreator::createWindow(const QPixmap &pixmap, const QString &title) const
 {
-	auto title = tr("OCR Window %1").arg(windowId);
-	return QSharedPointer<OcrWindow>(createWindow(pixmap, title), &QObject::deleteLater);
-}
-
-OcrWindow *OcrWindowCreator::createWindow(const QPixmap &pixmap, const QString &title) const
-{
-	return new OcrWindow(pixmap, title, getPluginManager());
-}
-
-const QSharedPointer<IPluginManager> &OcrWindowCreator::getPluginManager() const
-{
-	return mPluginManager;
+	return new WinOcrWindow(pixmap, title, getPluginManager());
 }

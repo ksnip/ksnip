@@ -396,7 +396,7 @@ Do you want to save it?</source>
     </message>
     <message>
         <source>If you have general questions, ideas or just want to talk about ksnip,&lt;br/&gt;please join our %1 or our %2 server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ako imaš opća pitanja, ideje ili ako jednostavno želiš razgovarati o ksnipu,&lt;br/&gt;, pridruži se našem %1 ili našem %2 poslužitelju.</translation>
     </message>
     <message>
         <source>Please use %1 to report bugs.</source>
@@ -447,11 +447,11 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>ksnip is a non-profitable copyleft libre software project, and&lt;br/&gt;still has some costs that need to be covered,&lt;br/&gt;like domain costs or hardware costs for cross-platform support.</source>
-        <translation type="unfinished"></translation>
+        <translation>ksnip je neprofitabilan copyleft projekt slobodnog softvera i&lt;br/&gt;još uvijek ima neke troškove koje treba pokriti,&lt;br/&gt;poput troškova domene ili troškova hardvera za višeplatformsku podršku.</translation>
     </message>
     <message>
         <source>If you want to help or just want to appreciate the work being done&lt;br/&gt;by treating developers to a beer or coffee, you can do that %1here%2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ako želiš pomoći ili ako samo želiš cijeniti obavljeni posao&lt;br/&gt;slobodno počastiti programere pivom ili kavom %1ovdje%2.</translation>
     </message>
     <message>
         <source>Become a GitHub Sponsor?</source>

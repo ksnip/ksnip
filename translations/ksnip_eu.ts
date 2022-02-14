@@ -581,7 +581,7 @@ Jarraitu nahi duzu?</translation>
     </message>
     <message>
         <source>Upload script %1  finished successfully.</source>
-        <translation type="unfinished"></translation>
+        <translation>% 1 script-aren karga behar bezala amaitu da.</translation>
     </message>
     <message>
         <source>Uploaded to %1</source>

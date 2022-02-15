@@ -18,6 +18,7 @@
 * New kImageAnnotator: Add optional undo, redo, crop, scale and modify canvas buttons to dock widgets. ([#263](https://github.com/ksnip/kImageAnnotator/issues/263))
 * New kImageAnnotator: Cut out vertical or horizontal slice of an image. ([#236](https://github.com/ksnip/kImageAnnotator/issues/236))
 * New kImageAnnotator: Middle-click on tab header closes tab. ([#280](https://github.com/ksnip/kImageAnnotator/issues/280))
+* New kImageAnnotator: Add button to fit image into current view. ([#281](https://github.com/ksnip/kImageAnnotator/issues/281))
 * Fixed: Opens a new window for each capture. ([#728](https://github.com/ksnip/ksnip/issues/728))
 * Fixed: First cli invocation won't copy image to clipboard. ([#764](https://github.com/ksnip/ksnip/issues/764))
 * Fixed: Snipping area incorrectly positioned with screen scaling. ([#276](https://github.com/ksnip/ksnip/issues/276))

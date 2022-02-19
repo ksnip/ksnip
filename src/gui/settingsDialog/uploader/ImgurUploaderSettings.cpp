@@ -225,8 +225,9 @@ void ImgurUploaderSettings::imgurTokenUpdated(const QString& accessToken, const 
  * Something went wrong while requesting a new token, we write the message to
  * shell.
  */
-void ImgurUploaderSettings::imgurTokenError(const QString& message)
+void ImgurUploaderSettings::imgurTokenError(QNetworkReply::NetworkError networkError, const QString& message)
 {
+	Q_UNUSED(networkError);
 	qCritical("SettingsDialog returned error: '%s'", qPrintable(message));
 	qInfo("%s", qPrintable(tr("Imgur.com token update error.")));
 }

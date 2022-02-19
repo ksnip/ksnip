@@ -42,10 +42,10 @@ public:
     QUrl pinRequestUrl(const QString &clientId) const;
 
 signals:
-    void uploadFinished(const ImgurResponse &response) const;
-    void error(const QString &message) const;
-    void tokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username) const;
-    void tokenRefreshRequired() const;
+	void uploadFinished(const ImgurResponse &response) const;
+	void error(QNetworkReply::NetworkError networkError,  const QString &message) const;
+	void tokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username) const;
+	void tokenRefreshRequired() const;
 
 private:
     QNetworkAccessManager *mAccessManager;

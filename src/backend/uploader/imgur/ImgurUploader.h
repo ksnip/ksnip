@@ -46,9 +46,11 @@ private:
     ImgurResponseLogger *mImgurResponseLogger;
     QImage mImage;
 
+	static UploadStatus mapErrorTypeToStatus(QNetworkReply::NetworkError errorType);
+
 private slots:
     void imgurUploadFinished(const ImgurResponse &response);
-    void imgurError(const QString &message);
+	void imgurError(QNetworkReply::NetworkError networkError, const QString &message);
     void imgurTokenUpdated(const QString &accessToken, const QString &refreshToken, const QString &username);
     void imgurTokenRefresh();
 	QString formatResponseUrl(const ImgurResponse &response) const;

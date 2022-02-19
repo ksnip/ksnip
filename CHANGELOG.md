@@ -24,6 +24,7 @@
 * Fixed: Snipping area incorrectly positioned with screen scaling. ([#276](https://github.com/ksnip/ksnip/issues/276))
 * Fixed: MainWindow position not restored when outside primary screen. ([#789](https://github.com/ksnip/ksnip/issues/789))
 * Fixed: Interface window isn't restored to the default after tab is closed in maximized state. ([#757](https://github.com/ksnip/ksnip/issues/757))
+* Fixed: Failed Imgur uploads show up titled as 'Upload Successful'. ([#802](https://github.com/ksnip/ksnip/issues/802))
 * Changed: Improve translation experience by using full sentences. ([#759](https://github.com/ksnip/ksnip/issues/759))
 
 ## Release 1.9.2

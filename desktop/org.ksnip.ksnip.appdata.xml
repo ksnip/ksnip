@@ -110,6 +110,7 @@
                     <li>Fixed: Snipping area incorrectly positioned with screen scaling.</li>
                     <li>Fixed: MainWindow position not restored when outside primary screen.</li>
                     <li>Fixed: Interface window isn't restored to the default after tab is closed in maximized state.</li>
+                    <li>Fixed: Failed Imgur uploads show up titled as 'Upload Successful'.</li>
                     <li>Changed: Improve translation experience by using full sentences.</li>
                 </ul>
             </description>

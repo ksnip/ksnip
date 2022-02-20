@@ -50,7 +50,7 @@ signals:
 private:
     QNetworkAccessManager *mAccessManager;
     QByteArray mClientId;
-    QString mBaseImgutUrl;
+    QString mBaseImgurUrl;
 
     void handleDataResponse(const QDomElement &element) const;
     void handleTokenResponse(const QDomElement &element) const;

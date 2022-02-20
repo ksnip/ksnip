@@ -21,9 +21,9 @@
 #include "ImgurWrapper.h"
 
 ImgurWrapper::ImgurWrapper(const QString &imgurUrl, QObject *parent) :
-	mBaseImgutUrl(imgurUrl),
-	QObject(parent),
-    mAccessManager(new QNetworkAccessManager(this))
+		mBaseImgurUrl(imgurUrl),
+		QObject(parent),
+		mAccessManager(new QNetworkAccessManager(this))
 {
     connect(mAccessManager, &QNetworkAccessManager::finished, this, &ImgurWrapper::handleReply);
 
@@ -45,7 +45,7 @@ void ImgurWrapper::startUpload(const QImage& image, const QString &title, const 
     image.save(&buffer, "PNG");
 
     // Create the network request for posting the image
-    QUrl url(mBaseImgutUrl + QLatin1String("/3/upload.xml"));
+    QUrl url(mBaseImgurUrl + QLatin1String("/3/upload.xml"));
     QUrlQuery urlQuery;
 
     // Add params that we send with the picture
@@ -71,7 +71,7 @@ void ImgurWrapper::startUpload(const QImage& image, const QString &title, const 
 
 /*
  * This functions requests an access token, it only starts the request, the
- * topenUpdate signal will be emitted if the request was successful or otherwise
+ * tokenUpdate signal will be emitted if the request was successful or otherwise
  * the tokenError.
  */
 void ImgurWrapper::getAccessToken(const QByteArray& pin, const QByteArray& clientId, const QByteArray& clientSecret) const
@@ -80,7 +80,7 @@ void ImgurWrapper::getAccessToken(const QByteArray& pin, const QByteArray& clien
 
     // Build the URL that we will request the token from. The XML indicates we
     // want the response in XML format.
-    request.setUrl(QUrl(mBaseImgutUrl + QLatin1String("/oauth2/token.xml")));
+    request.setUrl(QUrl(mBaseImgurUrl + QLatin1String("/oauth2/token.xml")));
     request.setHeader(QNetworkRequest::ContentTypeHeader, QLatin1String("application/x-www-form-urlencoded"));
 
     // Prepare the params that we send with the request
@@ -95,8 +95,8 @@ void ImgurWrapper::getAccessToken(const QByteArray& pin, const QByteArray& clien
 }
 
 /*
- * The imgur token expires after some time, when this happens and you try to
- * post an image the server responds with 403 and we emit the
+ * The imgur token expires after some time, when this happens, and you try to
+ * post an image the server responds with 403, and we emit the
  * tokenRefreshRequired signal, after which this function should be called to
  * refresh the token.
  */
@@ -106,7 +106,7 @@ void ImgurWrapper::refreshToken(const QByteArray& refreshToken, const QByteArray
 
     // Build the URL that we will request the token from. The XML indicates we
     // want the response in XML format
-    request.setUrl(QUrl(mBaseImgutUrl + QLatin1String("/oauth2/token.xml")));
+    request.setUrl(QUrl(mBaseImgurUrl + QLatin1String("/oauth2/token.xml")));
     request.setHeader(QNetworkRequest::ContentTypeHeader, QLatin1String("application/x-www-form-urlencoded"));
 
     // Prepare the params
@@ -127,7 +127,7 @@ void ImgurWrapper::refreshToken(const QByteArray& refreshToken, const QByteArray
  */
 QUrl ImgurWrapper::pinRequestUrl(const QString& clientId) const
 {
-    QUrl url(mBaseImgutUrl + QLatin1String("/oauth2/authorize"));
+    QUrl url(mBaseImgurUrl + QLatin1String("/oauth2/authorize"));
     QUrlQuery urlQuery;
     urlQuery.addQueryItem(QLatin1String("client_id"), clientId);
     urlQuery.addQueryItem(QLatin1String("response_type"), QLatin1String("pin"));
@@ -135,10 +135,6 @@ QUrl ImgurWrapper::pinRequestUrl(const QString& clientId) const
     url.setQuery(urlQuery);
     return url;
 }
-
-//
-// Private Functions
-//
 
 /*
  * This function handles the default response, a 200OK and any error message is
@@ -159,7 +155,7 @@ void ImgurWrapper::handleDataResponse(const QDomElement& element) const
         if (element.elementsByTagName(QLatin1String("error")).isEmpty()) {
 			emit error(QNetworkReply::ProtocolFailure, QLatin1String("Server responded with ") + element.attribute(QLatin1String("status")));
         } else {
-			emit error(QNetworkReply::ProtocolFailure, QLatin1String("Server responded with ") + element.attribute(QLatin1String("status")) + ": " +
+			emit error(QNetworkReply::ProtocolFailure, QLatin1String("Server responded with ") + element.attribute(QLatin1String("status")) + QLatin1String(": ") +
                        element.elementsByTagName(QLatin1String("error")).at(0).toElement().text());
         }
     }
@@ -172,8 +168,8 @@ void ImgurWrapper::handleDataResponse(const QDomElement& element) const
 void ImgurWrapper::handleTokenResponse(const QDomElement& element) const
 {
     if (!element.elementsByTagName(QLatin1String("access_token")).isEmpty() &&
-            !element.elementsByTagName(QLatin1String("refresh_token")).isEmpty() &&
-            !element.elementsByTagName(QLatin1String("account_username")).isEmpty()
+		!element.elementsByTagName(QLatin1String("refresh_token")).isEmpty() &&
+		!element.elementsByTagName(QLatin1String("account_username")).isEmpty()
        ) {
         emit tokenUpdated(element.elementsByTagName(QLatin1String("access_token")).at(0).toElement().text(),
                           element.elementsByTagName(QLatin1String("refresh_token")).at(0).toElement().text(),
@@ -183,10 +179,6 @@ void ImgurWrapper::handleTokenResponse(const QDomElement& element) const
 		emit error(QNetworkReply::ProtocolFailure, QLatin1String("Expected token response was received, something went wrong."));
     }
 }
-
-//
-// Private Slots
-//
 
 /*
  * This function will be called when we've got the reply from imgur
@@ -201,9 +193,8 @@ void ImgurWrapper::handleReply(QNetworkReply* reply)
     // Check network return code, if we get no error or if we get a status 202,
     // proceed, the 202 is returned for invalid token, we will request a new
     // token.
-    if (reply->error() != QNetworkReply::NoError &&
-            reply->error() != QNetworkReply::ContentOperationNotPermittedError) {
-		emit error(reply->error(), QLatin1String("Network Error(") + QString::number(reply->error()) + "): " + reply->errorString());
+    if (reply->error() != QNetworkReply::NoError && reply->error() != QNetworkReply::ContentOperationNotPermittedError) {
+		emit error(reply->error(), QLatin1String("Network Error(") + QString::number(reply->error()) + QLatin1String("): ") + reply->errorString());
         reply->deleteLater();
         return;
     }
@@ -216,8 +207,8 @@ void ImgurWrapper::handleReply(QNetworkReply* reply)
 	// Try to parse reply into xml reader
 	if (!doc.setContent(reply->readAll(), false, &errorMessage, &errorLine, &errorColumn)) {
 		emit error(QNetworkReply::ProtocolFailure,
-				   QLatin1String("Parse error: ") + errorMessage + QLatin1String(", line:") + errorLine +
-				   QLatin1String(", column:") + errorColumn);
+				   QLatin1String("Parse error: ") + errorMessage + QLatin1String(", line:") + QString::number(errorLine) +
+				   QLatin1String(", column:") + QString::number(errorColumn));
 		reply->deleteLater();
 		return;
 	}

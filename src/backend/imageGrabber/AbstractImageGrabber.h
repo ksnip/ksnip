@@ -57,8 +57,7 @@ private:
     int mCaptureDelay;
     CaptureModes mCaptureMode;
     bool mIsCaptureCursorEnabled;
-    DelayHandler mDelayHandler;
+    DelayHandler *mDelayHandler;
 };
-
 
 #endif //KSNIP_ABSTRACTIMAGEGRABBER_H

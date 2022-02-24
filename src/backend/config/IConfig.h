@@ -227,6 +227,9 @@ public:
 	virtual QPointF snippingAreaOffset() const = 0;
 	virtual void setSnippingAreaOffset(const QPointF &offset) = 0;
 
+	virtual int implicitCaptureDelay() const = 0;
+	virtual void setImplicitCaptureDelay(int delay) = 0;
+
 	// Uploader
 
 	virtual bool confirmBeforeUpload() const = 0;
@@ -347,6 +350,7 @@ signals:
 	void actionsChanged() const;
 	void pluginsChanged() const;
 	void snippingAreaChangedChanged() const;
+	void delayChanged() const;
 };
 
 #endif //KSNIP_ICONFIG_H

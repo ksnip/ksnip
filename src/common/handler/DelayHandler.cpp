@@ -19,17 +19,24 @@
 
 #include "DelayHandler.h"
 
-DelayHandler::DelayHandler()
+DelayHandler::DelayHandler(const QSharedPointer<IConfig> &config) :
+		mConfig(config),
+		mImplicitDelay(config->implicitCaptureDelay())
 {
-    mMinDelayInMs = 200;
+	connect(mConfig.data(), &IConfig::delayChanged, this, &DelayHandler::delayChanged);
 }
 
 int DelayHandler::getDelay(int delay)
 {
-    return delay < mMinDelayInMs ? mMinDelayInMs : delay;
+    return delay < mImplicitDelay ? mImplicitDelay : delay;
 }
 
-int DelayHandler::minDelayInMs() const
+int DelayHandler::implicitDelay() const
 {
-    return mMinDelayInMs;
+    return mImplicitDelay;
+}
+
+void DelayHandler::delayChanged()
+{
+	mImplicitDelay = mConfig->implicitCaptureDelay();
 }

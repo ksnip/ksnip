@@ -23,15 +23,17 @@
 #include <QGroupBox>
 #include <QCheckBox>
 #include <QGridLayout>
+#include <QLabel>
 
 #include "src/backend/config/IConfig.h"
+#include "src/widgets/CustomSpinBox.h"
 
 class ImageGrabberSettings : public QGroupBox
 {
 	Q_OBJECT
 public:
 	explicit ImageGrabberSettings(const QSharedPointer<IConfig> &config);
-	~ImageGrabberSettings() override;
+	~ImageGrabberSettings() override = default;
 	void saveSettings();
 
 private:
@@ -40,6 +42,8 @@ private:
 	QCheckBox *mShowMainWindowAfterTakingScreenshotCheckbox;
 	QCheckBox *mForceGenericWaylandCheckbox;
 	QCheckBox *mScaleGenericWaylandScreenshotsCheckbox;
+	QLabel *mImplicitCaptureDelayLabel;
+	CustomSpinBox *mImplicitCaptureDelaySpinBox;
 	QGridLayout *mLayout;
 	QSharedPointer<IConfig> mConfig;
 

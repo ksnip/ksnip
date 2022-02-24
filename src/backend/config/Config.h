@@ -232,6 +232,9 @@ public:
 	QPointF snippingAreaOffset() const override;
 	void setSnippingAreaOffset(const QPointF &offset) override;
 
+	int implicitCaptureDelay() const override;
+	void setImplicitCaptureDelay(int delay) override;
+
 	// Uploader
 
 	bool confirmBeforeUpload() const override;

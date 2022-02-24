@@ -79,6 +79,7 @@ void ApplicationSettings::initGui()
 
 	mResizeToContentDelaySpinBox->setSuffix(QLatin1String("ms"));
 	mResizeToContentDelaySpinBox->setToolTip(mResizeToContentDelayLabel->toolTip());
+	mResizeToContentDelaySpinBox->setSingleStep(10);
 
 	connect(mUseTabsCheckbox, &QCheckBox::stateChanged, this, &ApplicationSettings::useTabsChanged);
 

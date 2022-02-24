@@ -101,6 +101,7 @@
                     <li>New: Allow overwriting existing files.</li>
                     <li>New: Allow setting Imgur upload title/description.</li>
                     <li>New: Search bar in the settings dialog.</li>
+                    <li>New: Make implicit capture delay configurable.</li>
                     <li>New kImageAnnotator: Add optional undo, redo, crop, scale and modify canvas buttons to dock widgets.</li>
                     <li>New kImageAnnotator: Cut out vertical or horizontal slice of an image.</li>
                     <li>New kImageAnnotator: Middle-click on tab header closes tab.</li>

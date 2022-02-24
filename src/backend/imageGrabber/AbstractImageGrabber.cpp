@@ -23,7 +23,8 @@ AbstractImageGrabber::AbstractImageGrabber(const QSharedPointer<IConfig> &config
     mConfig(config),
     mIsCaptureCursorEnabled(false),
     mCaptureDelay(0),
-    mCaptureMode(CaptureModes::FullScreen)
+    mCaptureMode(CaptureModes::FullScreen),
+	mDelayHandler(new DelayHandler(config))
 {
 }
 
@@ -53,7 +54,7 @@ void AbstractImageGrabber::addSupportedCaptureMode(CaptureModes captureMode)
 
 void AbstractImageGrabber::setCaptureDelay(int delay)
 {
-    mCaptureDelay = mDelayHandler.getDelay(delay);
+    mCaptureDelay = mDelayHandler->getDelay(delay);
 }
 
 int AbstractImageGrabber::captureDelay() const
@@ -78,7 +79,7 @@ void AbstractImageGrabber::setCaptureMode(CaptureModes captureMode)
 
 bool AbstractImageGrabber::isCaptureDelayBelowMin() const
 {
-    return mCaptureDelay <= mDelayHandler.minDelayInMs();
+    return mCaptureDelay <= mDelayHandler->implicitDelay();
 }
 
 bool AbstractImageGrabber::isCaptureCursorEnabled() const

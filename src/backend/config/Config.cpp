@@ -480,6 +480,21 @@ void Config::setSnippingAreaOffset(const QPointF &offset)
 	emit snippingAreaChangedChanged();
 }
 
+int Config::implicitCaptureDelay() const
+{
+	return loadValue(ConfigOptions::implicitCaptureDelayString(), 200).value<int>();
+}
+
+void Config::setImplicitCaptureDelay(int delay)
+{
+	if (implicitCaptureDelay() == delay) {
+		return;
+	}
+	saveValue(ConfigOptions::implicitCaptureDelayString(), delay);
+
+	emit delayChanged();
+}
+
 SaveQualityMode Config::saveQualityMode() const
 {
 	return loadValue(ConfigOptions::saveQualityModeString(), (int)SaveQualityMode::Default).value<SaveQualityMode>();

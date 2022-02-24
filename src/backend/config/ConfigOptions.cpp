@@ -219,6 +219,11 @@ QString ConfigOptions::snippingAreaOffsetString()
 	return snippingAreaSectionString() + QLatin1String("SnippingAreaOffset");
 }
 
+QString ConfigOptions::implicitCaptureDelayString()
+{
+	return imageGrabberSectionString() + QLatin1String("ImplicitCaptureDelay");
+}
+
 QString ConfigOptions::smoothPathEnabledString()
 {
 	return annotatorSectionString() + QLatin1String("SmoothPathEnabled");

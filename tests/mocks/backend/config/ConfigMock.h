@@ -217,6 +217,9 @@ public:
 	MOCK_METHOD(QPointF, snippingAreaOffset, (), (const, override));
 	MOCK_METHOD(void, setSnippingAreaOffset, (const QPointF &offset), (override));
 
+	MOCK_METHOD(int, implicitCaptureDelay, (), (const, override));
+	MOCK_METHOD(void, setImplicitCaptureDelay, (int delay)), (override));
+
 	// Uploader
 
 	MOCK_METHOD(bool, confirmBeforeUpload, (), (const, override));

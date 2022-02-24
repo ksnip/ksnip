@@ -20,15 +20,25 @@
 #ifndef KSNIP_DELAYHANDLER_H
 #define KSNIP_DELAYHANDLER_H
 
-class DelayHandler
+#include <QSharedPointer>
+
+#include "src/backend/config/IConfig.h"
+
+class DelayHandler : public QObject
 {
+	Q_OBJECT
 public:
-	explicit DelayHandler();
+	explicit DelayHandler(const QSharedPointer<IConfig> &config);
+	~DelayHandler() override = default;
     int getDelay(int delay);
-	int minDelayInMs() const;
+	int implicitDelay() const;
 
 private:
-	int mMinDelayInMs;
+	int mImplicitDelay;
+	QSharedPointer<IConfig> mConfig;
+
+private slots:
+	void delayChanged();
 };
 
 #endif //KSNIP_DELAYHANDLER_H

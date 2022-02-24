@@ -20,28 +20,20 @@
 #include "ImageGrabberSettings.h"
 
 ImageGrabberSettings::ImageGrabberSettings(const QSharedPointer<IConfig> &config) :
-	mCaptureCursorCheckbox(new QCheckBox(this)),
-	mHideMainWindowDuringScreenshotCheckbox(new QCheckBox(this)),
-	mShowMainWindowAfterTakingScreenshotCheckbox(new QCheckBox(this)),
-	mForceGenericWaylandCheckbox(new QCheckBox(this)),
-	mScaleGenericWaylandScreenshotsCheckbox(new QCheckBox(this)),
-	mLayout(new QGridLayout(this)),
-	mConfig(config)
+		mCaptureCursorCheckbox(new QCheckBox(this)),
+		mHideMainWindowDuringScreenshotCheckbox(new QCheckBox(this)),
+		mShowMainWindowAfterTakingScreenshotCheckbox(new QCheckBox(this)),
+		mForceGenericWaylandCheckbox(new QCheckBox(this)),
+		mScaleGenericWaylandScreenshotsCheckbox(new QCheckBox(this)),
+		mImplicitCaptureDelayLabel(new QLabel(this)),
+		mImplicitCaptureDelaySpinBox(new CustomSpinBox(0, 2000, this)),
+		mLayout(new QGridLayout(this)),
+		mConfig(config)
 {
 	Q_ASSERT(mConfig != nullptr);
 
 	initGui();
 	loadConfig();
-}
-
-ImageGrabberSettings::~ImageGrabberSettings()
-{
-	delete mCaptureCursorCheckbox;
-	delete mHideMainWindowDuringScreenshotCheckbox;
-	delete mShowMainWindowAfterTakingScreenshotCheckbox;
-	delete mForceGenericWaylandCheckbox;
-	delete mScaleGenericWaylandScreenshotsCheckbox;
-	delete mLayout;
 }
 
 void ImageGrabberSettings::saveSettings()
@@ -51,6 +43,7 @@ void ImageGrabberSettings::saveSettings()
 	mConfig->setShowMainWindowAfterTakingScreenshotEnabled(mShowMainWindowAfterTakingScreenshotCheckbox->isChecked());
 	mConfig->setForceGenericWaylandEnabled(mForceGenericWaylandCheckbox->isChecked());
 	mConfig->setScaleGenericWaylandScreenshots(mScaleGenericWaylandScreenshotsCheckbox->isChecked());
+	mConfig->setImplicitCaptureDelay(mImplicitCaptureDelaySpinBox->value());
 }
 
 void ImageGrabberSettings::initGui()
@@ -80,6 +73,17 @@ void ImageGrabberSettings::initGui()
 	mHideMainWindowDuringScreenshotCheckbox->setText(tr("Hide Main Window during screenshot"));
 	mHideMainWindowDuringScreenshotCheckbox->setToolTip(tr("Hide Main Window when capturing a new screenshot."));
 
+	mImplicitCaptureDelayLabel->setText(tr("Implicit capture delay") + QLatin1String(":"));
+	mImplicitCaptureDelayLabel->setToolTip(tr("This delay is used when no delay was selected in\n"
+												  "the UI, it allows ksnip to hide before taking\n"
+												  "a screenshot. Reducing this value can have\n"
+												  "the effect that ksnip's main window is visible\n"
+												  "on the screenshot."));
+
+	mImplicitCaptureDelaySpinBox->setSuffix(QLatin1String("ms"));
+	mImplicitCaptureDelaySpinBox->setToolTip(mImplicitCaptureDelayLabel->toolTip());
+	mImplicitCaptureDelaySpinBox->setSingleStep(10);
+
 	mLayout->setAlignment(Qt::AlignTop);
 	mLayout->setColumnMinimumWidth(0, 10);
 	mLayout->addWidget(mCaptureCursorCheckbox, 0, 0, 1, 3);
@@ -87,6 +91,9 @@ void ImageGrabberSettings::initGui()
 	mLayout->addWidget(mHideMainWindowDuringScreenshotCheckbox, 2, 0, 1, 3);
 	mLayout->addWidget(mForceGenericWaylandCheckbox, 3, 0, 1, 3);
 	mLayout->addWidget(mScaleGenericWaylandScreenshotsCheckbox, 4, 0, 1, 3);
+	mLayout->setRowMinimumHeight(5, 15);
+	mLayout->addWidget(mImplicitCaptureDelayLabel, 6, 0, 1, 1);
+	mLayout->addWidget(mImplicitCaptureDelaySpinBox, 6, 1, Qt::AlignLeft);
 
 	setTitle(tr("Image Grabber"));
 	setLayout(mLayout);
@@ -101,4 +108,5 @@ void ImageGrabberSettings::loadConfig()
 	mForceGenericWaylandCheckbox->setEnabled(!mConfig->isForceGenericWaylandEnabledReadOnly());
 	mScaleGenericWaylandScreenshotsCheckbox->setChecked(mConfig->scaleGenericWaylandScreenshotsEnabled());
 	mScaleGenericWaylandScreenshotsCheckbox->setEnabled(!mConfig->isScaleGenericWaylandScreenshotEnabledReadOnly());
+	mImplicitCaptureDelaySpinBox->setValue(mConfig->implicitCaptureDelay());
 }

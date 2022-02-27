@@ -286,13 +286,15 @@ Ksnip berrabiarazi behar da eragina izateko.</translation>
     </message>
     <message>
         <source>Resize to content delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Edukira doitzeko atzerapena</translation>
     </message>
     <message>
         <source>Resizing to content is delay to allow the Window Manager to receive
 the new content. In case that the Main Windows is not adjusted correctly
 to the new content, increasing this delay might improve the behavior.</source>
-        <translation type="unfinished"></translation>
+        <translation>Edukira doitzeko atzerapena Leiho-kudeatzaileari eduki berria jaso ahal izateko
+atzerapena da. Leiho nagusia eduki berrira behar bezala doitzen ez bada,
+atzerapen hori handitzeak portaera hobe dezake.</translation>
     </message>
 </context>
 <context>

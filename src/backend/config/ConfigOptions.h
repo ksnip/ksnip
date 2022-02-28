@@ -119,6 +119,7 @@ public:
 	static QString actionsString();
 	static QString actionNameString();
 	static QString actionShortcutString();
+	static QString actionShortcutIsGlobalString();
 	static QString actionIsCaptureEnabledString();
 	static QString actionIncludeCursorString();
 	static QString actionCaptureDelayString();

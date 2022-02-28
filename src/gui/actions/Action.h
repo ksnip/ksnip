@@ -67,6 +67,9 @@ public:
 	bool isHideMainWindowEnabled() const;
 	void setIsHideMainWindowEnabled(bool enabled);
 
+	bool isGlobalShortcut() const;
+	void setIsGlobalShortcut(bool isGlobal);
+
 	friend bool operator==(const Action& left, const Action& right);
 
 private:
@@ -82,6 +85,7 @@ private:
 	bool mIsOpenDirectoryEnabled;
 	bool mIsHideMainWindowEnabled;
 	QKeySequence mShortcut;
+	bool mIsGlobalShortcut;
 };
 
 bool operator==(const Action& left, const Action& right);

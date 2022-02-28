@@ -61,6 +61,7 @@ private:
 	QCheckBox *mCopyToClipboardCheckBox;
 	QCheckBox *mOpenDirectoryCheckBox;
 	QCheckBox *mHideMainWindowCheckBox;
+	QCheckBox *mIsGlobalShortcutCheckBox;
 	QLabel *mCaptureModeLabel;
 	QLabel *mDelayLabel;
 	QLabel *mNameLabel;

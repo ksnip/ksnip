@@ -46,7 +46,12 @@ void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 
 	mShortcutLabel->setText(tr("Shortcut") + QLatin1String(":"));
 	mShortcutLabel->setToolTip("When global hotkeys are enabled and supported then\n"
-							   "this shortcut will also work as a global hotkey.");
+							   "this shortcut will also work as a global hotkey\n"
+							   "when the 'Global' option is enabled.");
+
+	mIsGlobalShortcutCheckBox->setText(tr("Global"));
+	mIsGlobalShortcutCheckBox->setToolTip(tr("When enabled will make the shortcut\n"
+											 "available even when ksnip has no focus."));
 
 	mShortcutLineEdit->setToolTip(mShortcutLabel->toolTip());
 
@@ -83,6 +88,7 @@ void ActionSettingTab::initGui(const QList<CaptureModes> &captureModes)
 	mLayout->addWidget(mNameLineEdit, 0, 2, 1, 3);
 	mLayout->addWidget(mShortcutLabel, 1, 0, 1, 2);
 	mLayout->addWidget(mShortcutLineEdit, 1, 2, 1, 3);
+	mLayout->addWidget(mIsGlobalShortcutCheckBox, 1, 7, 1, 1);
 	mLayout->addWidget(mShortcutClearButton, 1, 6, 1, 1);
 	mLayout->setRowMinimumHeight(2, 10);
 	mLayout->addWidget(mCaptureEnabledCheckBox, 3, 0, 1, 5);
@@ -125,6 +131,7 @@ Action ActionSettingTab::action() const
 	Action action;
 	action.setName(getTextWithEscapedAmpersand(mNameLineEdit->textOrPlaceholderText()));
 	action.setShortcut(mShortcutLineEdit->value());
+	action.setIsGlobalShortcut(mIsGlobalShortcutCheckBox->isChecked());
 	action.setIsCaptureEnabled(mCaptureEnabledCheckBox->isChecked());
 	action.setCaptureDelay(mDelaySpinBox->value() * 1000);
 	action.setIncludeCursor(mIncludeCursorCheckBox->isChecked());
@@ -142,6 +149,7 @@ void ActionSettingTab::setAction(const Action &action) const
 {
 	mNameLineEdit->setTextAndPlaceholderText(getTextWithoutEscapedAmpersand(action.name()));
 	mShortcutLineEdit->setValue(action.shortcut());
+	mIsGlobalShortcutCheckBox->setChecked(action.isGlobalShortcut());
 	mCaptureEnabledCheckBox->setChecked(action.isCaptureEnabled());
 	mDelaySpinBox->setValue(action.captureDelay() / 1000);
 	mIncludeCursorCheckBox->setChecked(action.includeCursor());
@@ -186,6 +194,7 @@ ActionSettingTab::ActionSettingTab(const QList<CaptureModes> &captureModes, cons
 	mOpenDirectoryCheckBox(new QCheckBox(this)),
 	mHideMainWindowCheckBox(new QCheckBox(this)),
 	mSaveCheckBox(new QCheckBox(this)),
+	mIsGlobalShortcutCheckBox(new QCheckBox(this)),
 	mCaptureModeLabel(new QLabel(this)),
 	mDelayLabel(new QLabel(this)),
 	mNameLabel(new QLabel(this)),

@@ -414,6 +414,11 @@ QString ConfigOptions::actionShortcutString()
 	return QLatin1String("Shortcut");
 }
 
+QString ConfigOptions::actionShortcutIsGlobalString()
+{
+	return QLatin1String("IsGlobalShortcutString");
+}
+
 QString ConfigOptions::actionIsCaptureEnabledString()
 {
 	return QLatin1String("IsCaptureEnabled");

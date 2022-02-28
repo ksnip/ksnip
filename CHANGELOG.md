@@ -16,6 +16,7 @@
 * New: Allow setting Imgur upload title/description. ([#679](https://github.com/ksnip/ksnip/issues/679))
 * New: Search bar in the settings dialog. ([#619](https://github.com/ksnip/ksnip/issues/619))
 * New: Make implicit capture delay configurable. ([#820](https://github.com/ksnip/ksnip/issues/820))
+* New: Shortcuts for Actions can be made global and non-global per config. ([#823](https://github.com/ksnip/ksnip/issues/823))
 * New kImageAnnotator: Add optional undo, redo, crop, scale and modify canvas buttons to dock widgets. ([#263](https://github.com/ksnip/kImageAnnotator/issues/263))
 * New kImageAnnotator: Cut out vertical or horizontal slice of an image. ([#236](https://github.com/ksnip/kImageAnnotator/issues/236))
 * New kImageAnnotator: Middle-click on tab header closes tab. ([#280](https://github.com/ksnip/kImageAnnotator/issues/280))

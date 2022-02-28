@@ -29,7 +29,8 @@ Action::Action() :
 	mIsCopyToClipboardEnabled(false),
 	mIsOpenDirectoryEnabled(false),
 	mIncludeCursor(false),
-	mIsHideMainWindowEnabled(false)
+	mIsHideMainWindowEnabled(false),
+	mIsGlobalShortcut(false)
 {
 
 }
@@ -154,10 +155,21 @@ void Action::setIsHideMainWindowEnabled(bool enabled)
 	mIsHideMainWindowEnabled = enabled;
 }
 
+bool Action::isGlobalShortcut() const
+{
+	return mIsGlobalShortcut;
+}
+
+void Action::setIsGlobalShortcut(bool isGlobal)
+{
+	mIsGlobalShortcut = isGlobal;
+}
+
 bool operator==(const Action &left, const Action &right)
 {
 	return left.name() == right.name()
 		   && left.shortcut() == right.shortcut()
+		   && left.isGlobalShortcut() == right.isGlobalShortcut()
 		   && left.isCaptureEnabled() == right.isCaptureEnabled()
 		   && left.includeCursor() == right.includeCursor()
 		   && left.captureDelay() == right.captureDelay()

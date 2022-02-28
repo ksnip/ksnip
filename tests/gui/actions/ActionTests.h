@@ -39,7 +39,7 @@ private slots:
     void EqualsOperator_Should_ReturnFalse_When_IsOpenDirectoryEnabledDifferent();
     void EqualsOperator_Should_ReturnFalse_When_IsPinScreenshotEnabledDifferent();
     void EqualsOperator_Should_ReturnFalse_When_IsHideMainWindowEnabledDifferent();
-
+    void EqualsOperator_Should_ReturnFalse_When_IsGlobalShortcutDifferent();
 };
 
 #endif //KSNIP_ACTIONTESTS_H

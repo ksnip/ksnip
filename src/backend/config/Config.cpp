@@ -1333,6 +1333,7 @@ QList<Action> Config::actions()
 		Action action;
 		action.setName(mConfig.value(ConfigOptions::actionNameString()).toString());
 		action.setShortcut(mConfig.value(ConfigOptions::actionShortcutString()).value<QKeySequence>());
+		action.setIsGlobalShortcut(mConfig.value(ConfigOptions::actionShortcutIsGlobalString(), true).value<bool>());
 		action.setIsCaptureEnabled(mConfig.value(ConfigOptions::actionIsCaptureEnabledString()).toBool());
 		action.setIncludeCursor(mConfig.value(ConfigOptions::actionIncludeCursorString()).toBool());
 		action.setCaptureDelay(mConfig.value(ConfigOptions::actionCaptureDelayString()).toInt());
@@ -1366,6 +1367,7 @@ void Config::setActions(const QList<Action> &actions)
 		mConfig.setArrayIndex(index);
 		mConfig.setValue(ConfigOptions::actionNameString(), action.name());
 		mConfig.setValue(ConfigOptions::actionShortcutString(), action.shortcut());
+		mConfig.setValue(ConfigOptions::actionShortcutIsGlobalString(), action.isGlobalShortcut());
 		mConfig.setValue(ConfigOptions::actionIsCaptureEnabledString(), action.isCaptureEnabled());
 		mConfig.setValue(ConfigOptions::actionIncludeCursorString(), action.includeCursor());
 		mConfig.setValue(ConfigOptions::actionCaptureDelayString(), action.captureDelay());

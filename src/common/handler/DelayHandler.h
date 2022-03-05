@@ -22,16 +22,15 @@
 
 #include <QSharedPointer>
 
+#include "IDelayHandler.h"
 #include "src/backend/config/IConfig.h"
 
-class DelayHandler : public QObject
+class DelayHandler : public IDelayHandler
 {
-	Q_OBJECT
 public:
 	explicit DelayHandler(const QSharedPointer<IConfig> &config);
 	~DelayHandler() override = default;
-    int getDelay(int delay);
-	int implicitDelay() const;
+    int getDelay(int delay, bool isVisible) override;
 
 private:
 	int mImplicitDelay;

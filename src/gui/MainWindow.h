@@ -57,6 +57,7 @@
 #include "src/common/dtos/CaptureFromFileDto.h"
 #include "src/common/adapter/fileDialog/IFileDialogService.h"
 #include "src/common/constants/FileDialogFilters.h"
+#include "src/common/handler/IDelayHandler.h"
 #include "src/dependencyInjector/DependencyInjector.h"
 #include "src/plugins/IPluginManager.h"
 
@@ -142,6 +143,7 @@ private:
 	WindowResizer *mWindowResizer;
 	ActionProcessor *mActionProcessor;
 	QSharedPointer<IOcrWindowHandler> mOcrWindowHandler;
+	QSharedPointer<IDelayHandler> mDelayHandler;
 
     void setEnablements(bool enabled);
     void loadSettings();

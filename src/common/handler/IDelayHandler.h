@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2022 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,21 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "DelayHandler.h"
+#ifndef KSNIP_IDELAYHANDLER_H
+#define KSNIP_IDELAYHANDLER_H
 
-DelayHandler::DelayHandler(const QSharedPointer<IConfig> &config) :
-	mConfig(config),
-	mImplicitDelay(config->implicitCaptureDelay())
-{
-	connect(mConfig.data(), &IConfig::delayChanged, this, &DelayHandler::delayChanged);
-}
+#include <QObject>
 
-int DelayHandler::getDelay(int delay, bool isVisible)
+class IDelayHandler : public QObject
 {
-    return isVisible && delay < mImplicitDelay ? mImplicitDelay : delay;
-}
+	Q_OBJECT
+public:
+	explicit IDelayHandler() = default;
+	~IDelayHandler() override = default;
+	virtual int getDelay(int delay, bool isVisible) = 0;
+};
 
-void DelayHandler::delayChanged()
-{
-	mImplicitDelay = mConfig->implicitCaptureDelay();
-}
+#endif //KSNIP_IDELAYHANDLER_H

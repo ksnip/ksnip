@@ -76,9 +76,10 @@ void ImageGrabberSettings::initGui()
 	mImplicitCaptureDelayLabel->setText(tr("Implicit capture delay") + QLatin1String(":"));
 	mImplicitCaptureDelayLabel->setToolTip(tr("This delay is used when no delay was selected in\n"
 												  "the UI, it allows ksnip to hide before taking\n"
-												  "a screenshot. Reducing this value can have\n"
-												  "the effect that ksnip's main window is visible\n"
-												  "on the screenshot."));
+												  "a screenshot. This value is not applied when\n"
+												  "ksnip was already minimized. Reducing this value\n"
+												  "can have the effect that ksnip's main window is\n"
+												  "visible on the screenshot."));
 
 	mImplicitCaptureDelaySpinBox->setSuffix(QLatin1String("ms"));
 	mImplicitCaptureDelaySpinBox->setToolTip(mImplicitCaptureDelayLabel->toolTip());

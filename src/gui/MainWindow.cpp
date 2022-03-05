@@ -74,7 +74,8 @@ MainWindow::MainWindow(DependencyInjector *dependencyInjector) :
 	mWindowResizer(new WindowResizer(this, mConfig, this)),
 	mActionProcessor(new ActionProcessor),
 	mSavePathProvider(mDependencyInjector->get<ISavePathProvider>()),
-	mOcrWindowHandler(mDependencyInjector->get<IOcrWindowHandler>())
+	mOcrWindowHandler(mDependencyInjector->get<IOcrWindowHandler>()),
+	mDelayHandler(mDependencyInjector->get<IDelayHandler>())
 {
 	initGui();
 
@@ -365,8 +366,12 @@ void MainWindow::triggerCapture(CaptureModes captureMode)
 
 void MainWindow::capture(CaptureModes captureMode, bool captureCursor, int delay)
 {
+	auto isMainWindowVisible = !isMinimized();
+	auto adjustedDelay = mDelayHandler->getDelay(delay, isMainWindowVisible);
+
 	hideMainWindowIfRequired();
-	captureScreenshot(captureMode, captureCursor, delay);
+
+	captureScreenshot(captureMode, captureCursor, adjustedDelay);
 }
 
 void MainWindow::hideMainWindowIfRequired()

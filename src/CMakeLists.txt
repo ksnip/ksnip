@@ -47,6 +47,7 @@ set(KSNIP_SRCS
 	${CMAKE_SOURCE_DIR}/src/common/helper/EnumTranslator.cpp
 	${CMAKE_SOURCE_DIR}/src/common/loader/IconLoader.cpp
 	${CMAKE_SOURCE_DIR}/src/common/handler/DelayHandler.cpp
+	${CMAKE_SOURCE_DIR}/src/common/handler/IDelayHandler.h
 	${CMAKE_SOURCE_DIR}/src/common/provider/ApplicationTitleProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/NewCaptureNameProvider.cpp
 	${CMAKE_SOURCE_DIR}/src/common/provider/PathFromCaptureProvider.cpp

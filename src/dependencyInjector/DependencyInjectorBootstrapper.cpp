@@ -47,6 +47,7 @@
 #include "src/common/platform/PlatformChecker.h"
 #include "src/common/provider/directoryPathProvider/DirectoryPathProvider.h"
 #include "src/common/provider/scaledSizeProvider/ScaledSizeProvider.h"
+#include "src/common/handler/DelayHandler.h"
 #include "src/plugins/PluginManager.h"
 #include "src/plugins/PluginLoader.h"
 #include "src/plugins/PluginFinder.h"
@@ -89,6 +90,7 @@ void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependenc
 
 void DependencyInjectorBootstrapper::BootstrapCommandLine(DependencyInjector *dependencyInjector)
 {
+	dependencyInjector->registerInstance<IDelayHandler, DelayHandler, IConfig>();
 	injectImageGrabber(dependencyInjector);
 	dependencyInjector->registerInstance<ISavePathProvider, SavePathProvider, IConfig>();
 	dependencyInjector->registerInstance<IImageSaver, ImageSaver, IConfig>();

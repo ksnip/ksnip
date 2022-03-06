@@ -28,18 +28,24 @@
 #include "IPluginLoader.h"
 #include "PluginInfo.h"
 #include "src/plugins/interfaces/IPluginOcr.h"
+#include "src/plugins/searchPathProvider/IPluginSearchPathProvider.h"
 #include "src/gui/directoryService/IDirectoryService.h"
 
 class PluginFinder : public IPluginFinder
 {
 public:
-	PluginFinder(const QSharedPointer<IPluginLoader> &loader, const QSharedPointer<IDirectoryService> &directoryService);
+	PluginFinder(
+			const QSharedPointer<IPluginLoader> &loader,
+			const QSharedPointer<IDirectoryService> &directoryService,
+			const QSharedPointer<IPluginSearchPathProvider> &searchPathProvider);
 	~PluginFinder() = default;
 	QList<PluginInfo> find(const QString &path) const override;
+	QList<PluginInfo> find() const override;
 
 private:
 	QSharedPointer<IPluginLoader> mLoader;
 	QSharedPointer<IDirectoryService> mDirectoryService;
+	QSharedPointer<IPluginSearchPathProvider> mSearchPathProvider;
 
 	QList<PluginInfo> findPluginsInDirectory(const QString &path) const;
 };

@@ -41,6 +41,7 @@ private:
 	static void injectDesktopServiceAdapter(DependencyInjector *dependencyInjector);
 	static void injectScaledSizeProvider(DependencyInjector *dependencyInjector);
 	static void injectPluginLoader(DependencyInjector *dependencyInjector);
+	static void injectPluginSearchPathProvider(DependencyInjector *dependencyInjector);
 	static void injectOcrWindowCreator(DependencyInjector *dependencyInjector);
 };
 

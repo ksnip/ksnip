@@ -27,6 +27,7 @@
 #include <QPushButton>
 #include <QTableWidget>
 #include <QHeaderView>
+#include <QRadioButton>
 
 #include "src/backend/config/IConfig.h"
 #include "src/common/adapter/fileDialog/IFileDialogService.h"
@@ -52,6 +53,8 @@ private:
 	QPushButton *mBrowseButton;
 	QPushButton *mDetectButton;
 	QTableWidget *mTableWidget;
+	QRadioButton *mDefaultSearchPathRadioButton;
+	QRadioButton *mCustomSearchPathRadioButton;
 	QSharedPointer<IConfig> mConfig;
 	QSharedPointer<IFileDialogService> mFileDialogService;
 	QSharedPointer<IPluginFinder> mPluginFinder;
@@ -64,6 +67,7 @@ private:
 private slots:
 	void choosePluginDirectory();
 	void detectPlugins();
+	void searchPathSelectionChanged();
 };
 
 #endif //KSNIP_PLUGINSSETTINGS_H

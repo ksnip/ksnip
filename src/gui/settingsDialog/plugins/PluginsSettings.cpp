@@ -19,8 +19,6 @@
 
 #include "PluginsSettings.h"
 
-#include <QDebug>
-
 PluginsSettings::PluginsSettings(
 		const QSharedPointer<IConfig> &config,
 		const QSharedPointer<IFileDialogService> &fileDialogService,
@@ -33,7 +31,9 @@ PluginsSettings::PluginsSettings(
 	mPluginPathLineEdit(new QLineEdit(this)),
 	mBrowseButton(new QPushButton(this)),
 	mDetectButton(new QPushButton(this)),
-	mTableWidget(new QTableWidget(5, 2, this))
+	mTableWidget(new QTableWidget(5, 2, this)),
+	mDefaultSearchPathRadioButton(new QRadioButton(this)),
+	mCustomSearchPathRadioButton(new QRadioButton(this))
 {
 	initGui();
 	loadConfig();
@@ -47,7 +47,13 @@ void PluginsSettings::saveSettings()
 
 void PluginsSettings::initGui()
 {
-	mPluginPathLabel->setText(tr("Plugin directory") + QLatin1String(":"));
+	mPluginPathLabel->setText(tr("Search Path") + QLatin1String(":"));
+
+	mDefaultSearchPathRadioButton->setText(tr("Default"));
+	connect(mDefaultSearchPathRadioButton, &QRadioButton::clicked, this, &PluginsSettings::searchPathSelectionChanged);
+	mDefaultSearchPathRadioButton->setChecked(true);
+
+	connect(mCustomSearchPathRadioButton, &QRadioButton::clicked, this, &PluginsSettings::searchPathSelectionChanged);
 
 	mPluginPathLineEdit->setToolTip(tr("The directory where the plugins are located."));
 
@@ -63,11 +69,14 @@ void PluginsSettings::initGui()
 	connect(mDetectButton, &QPushButton::clicked, this, &PluginsSettings::detectPlugins);
 
 	mLayout->setAlignment(Qt::AlignTop);
+	mLayout->setColumnMinimumWidth(0, 18);
 	mLayout->addWidget(mPluginPathLabel, 0, 0, 1, 4);
-	mLayout->addWidget(mPluginPathLineEdit, 1, 0, 1, 3);
-	mLayout->addWidget(mBrowseButton, 1, 3);
-	mLayout->addWidget(mTableWidget, 2, 0, 2, 3);
-	mLayout->addWidget(mDetectButton, 2, 3);
+	mLayout->addWidget(mDefaultSearchPathRadioButton, 1, 0, 1, 4);
+	mLayout->addWidget(mCustomSearchPathRadioButton, 2, 0, 1, 4);
+	mLayout->addWidget(mPluginPathLineEdit, 2, 1, 1, 3);
+	mLayout->addWidget(mBrowseButton, 2, 4);
+	mLayout->addWidget(mTableWidget, 4, 0, 2, 4);
+	mLayout->addWidget(mDetectButton, 4, 4);
 
 	setTitle(tr("Plugin Settings"));
 	setLayout(mLayout);
@@ -79,6 +88,7 @@ void PluginsSettings::loadConfig()
 	mDetectedPlugins = mConfig->pluginInfos();
 
 	updatePluginTable();
+	searchPathSelectionChanged();
 }
 
 void PluginsSettings::choosePluginDirectory()
@@ -92,9 +102,13 @@ void PluginsSettings::choosePluginDirectory()
 
 void PluginsSettings::detectPlugins()
 {
-	auto pluginPath = mPluginPathLineEdit->text();
-	if (!pluginPath.isEmpty()) {
-		mDetectedPlugins = mPluginFinder->find(pluginPath);
+	if(mDefaultSearchPathRadioButton->isChecked()) {
+		mDetectedPlugins = mPluginFinder->find();
+	} else {
+		auto pluginPath = mPluginPathLineEdit->text();
+		if (!pluginPath.isEmpty()) {
+			mDetectedPlugins = mPluginFinder->find(pluginPath);
+		}
 	}
 
 	updatePluginTable();
@@ -110,4 +124,11 @@ void PluginsSettings::updatePluginTable()
 		mTableWidget->setItem(i, 0, name);
 		mTableWidget->setItem(i, 1, version);
 	}
+}
+
+void PluginsSettings::searchPathSelectionChanged()
+{
+	auto isCustomSelected = mCustomSearchPathRadioButton->isChecked();
+	mPluginPathLineEdit->setEnabled(isCustomSelected);
+	mBrowseButton->setEnabled(isCustomSelected);
 }

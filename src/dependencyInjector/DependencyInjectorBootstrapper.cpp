@@ -56,6 +56,7 @@
 #include "src/backend/config/MacConfig.h"
 #include "src/backend/imageGrabber/MacImageGrabber.h"
 #include "src/common/adapter/fileDialog/FileDialogAdapter.h"
+#include "src/plugins/searchPathProvider/MacPluginSearchPathProvider.h"
 #endif
 
 #if defined(UNIX_X11)
@@ -69,6 +70,7 @@
 #include "src/common/provider/directoryPathProvider/SnapDirectoryPathProvider.h"
 #include "src/common/provider/scaledSizeProvider/GnomeScaledSizeProvider.h"
 #include "src/gui/desktopService/SnapDesktopServiceAdapter.h"
+#include "src/plugins/searchPathProvider/LinuxPluginSearchPathProvider.h"
 #endif
 
 #if  defined(_WIN32)
@@ -76,6 +78,7 @@
 #include "src/common/adapter/fileDialog/FileDialogAdapter.h"
 #include "src/plugins/WinPluginLoader.h"
 #include "src/gui/modelessWindows/ocrWindow/WinOcrWindowCreator.h"
+#include "src/plugins/searchPathProvider/WinPluginSearchPathProvider.h"
 #endif
 
 void DependencyInjectorBootstrapper::BootstrapCore(DependencyInjector *dependencyInjector)
@@ -115,8 +118,9 @@ void DependencyInjectorBootstrapper::BootstrapGui(DependencyInjector *dependency
 	injectFileDialogService(dependencyInjector);
 	injectScaledSizeProvider(dependencyInjector);
 	injectPluginLoader(dependencyInjector);
+	injectPluginSearchPathProvider(dependencyInjector);
 	dependencyInjector->registerInstance<IPluginManager, PluginManager, IConfig, IPluginLoader, ILogger>();
-	dependencyInjector->registerInstance<IPluginFinder, PluginFinder, IPluginLoader, IDirectoryService>();
+	dependencyInjector->registerInstance<IPluginFinder, PluginFinder, IPluginLoader, IDirectoryService, IPluginSearchPathProvider>();
 	injectOcrWindowCreator(dependencyInjector);
 	dependencyInjector->registerInstance<IOcrWindowHandler, OcrWindowHandler, IOcrWindowCreator>();
 	dependencyInjector->registerInstance<IPinWindowCreator, PinWindowCreator>();
@@ -263,6 +267,21 @@ void DependencyInjectorBootstrapper::injectPluginLoader(DependencyInjector *depe
 	dependencyInjector->registerInstance<IPluginLoader, WinPluginLoader, ILogger>();
 #else
 	dependencyInjector->registerInstance<IPluginLoader, PluginLoader, ILogger>();
+#endif
+}
+
+void DependencyInjectorBootstrapper::injectPluginSearchPathProvider(DependencyInjector *dependencyInjector)
+{
+#if defined(__APPLE__)
+	dependencyInjector->registerInstance<IPluginSearchPathProvider, MacPluginSearchPathProvider>();
+#endif
+
+#if defined(UNIX_X11)
+	dependencyInjector->registerInstance<IPluginSearchPathProvider, LinuxPluginSearchPathProvider>();
+#endif
+
+#if  defined(_WIN32)
+	dependencyInjector->registerInstance<IPluginSearchPathProvider, WinPluginSearchPathProvider>();
 #endif
 }
 

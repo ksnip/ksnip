@@ -19,9 +19,13 @@
 
 #include "PluginFinder.h"
 
-PluginFinder::PluginFinder(const QSharedPointer<IPluginLoader> &loader, const QSharedPointer<IDirectoryService> &directoryService) :
+PluginFinder::PluginFinder(
+		const QSharedPointer<IPluginLoader> &loader, 
+		const QSharedPointer<IDirectoryService> &directoryService, 
+		const QSharedPointer<IPluginSearchPathProvider> &searchPathProvider) :
 	mLoader(loader),
-	mDirectoryService(directoryService)
+	mDirectoryService(directoryService),
+	mSearchPathProvider(searchPathProvider)
 {
 
 }
@@ -42,6 +46,15 @@ QList<PluginInfo> PluginFinder::find(const QString &path) const
 	return plugins;
 }
 
+QList<PluginInfo> PluginFinder::find() const
+{
+	auto plugins = QList<PluginInfo>();
+	for (const auto& path : mSearchPathProvider->searchPaths()) {
+		plugins.append(find(path));
+	}
+	return plugins;
+}
+
 QList<PluginInfo> PluginFinder::findPluginsInDirectory(const QString &path) const
 {
 	auto plugins = QList<PluginInfo>();
@@ -56,7 +69,7 @@ QList<PluginInfo> PluginFinder::findPluginsInDirectory(const QString &path) cons
 			if (ocrPlugin != nullptr) {
 				PluginInfo pluginInfo(PluginType::Ocr, ocrPlugin->version(), childFileInfo.filePath());
 				plugins.append(pluginInfo);
-			}
+			} 
 		}
 	}
 	return plugins;

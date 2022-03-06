@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Damir Porobic <damir.porobic@gmx.com>
+ * Copyright (C) 2022 Damir Porobic <damir.porobic@gmx.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -17,21 +17,9 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KSNIP_IPLUGINFINDER_H
-#define KSNIP_IPLUGINFINDER_H
+#include "MacPluginSearchPathProvider.h"
 
-#include <QList>
-
-class QString;
-class PluginInfo;
-
-class IPluginFinder
+QStringList MacPluginSearchPathProvider::searchPaths() const
 {
-public:
-	IPluginFinder() = default;
-	~IPluginFinder() = default;
-	virtual QList<PluginInfo> find(const QString &path) const = 0;
-	virtual QList<PluginInfo> find() const = 0;
-};
-
-#endif //KSNIP_IPLUGINFINDER_H
+	return {};
+}

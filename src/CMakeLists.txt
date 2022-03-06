@@ -176,6 +176,7 @@ if (APPLE)
                 ${CMAKE_SOURCE_DIR}/src/gui/snippingArea/MacSnippingArea.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/keyHandler/MacKeyHandler.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/globalHotKeys/KeySequenceToMacKeyCodeTranslator.cpp
+				${CMAKE_SOURCE_DIR}/src/plugins/searchPathProvider/MacPluginSearchPathProvider.cpp
                 )
 elseif (UNIX)
         list(APPEND KSNIP_SRCS
@@ -199,6 +200,7 @@ elseif (UNIX)
                 ${CMAKE_SOURCE_DIR}/src/gui/notificationService/FreeDesktopNotificationService.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/notificationService/KdeDesktopNotificationService.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/desktopService/SnapDesktopServiceAdapter.cpp
+                ${CMAKE_SOURCE_DIR}/src/plugins/searchPathProvider/LinuxPluginSearchPathProvider.cpp
                 )
 elseif (WIN32)
         list(APPEND KSNIP_SRCS
@@ -210,6 +212,7 @@ elseif (WIN32)
                 ${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/ocrWindow/WinOcrWindow.cpp
                 ${CMAKE_SOURCE_DIR}/src/gui/modelessWindows/ocrWindow/WinOcrWindowCreator.cpp
 				${CMAKE_SOURCE_DIR}/src/plugins/WinPluginLoader.cpp
+				${CMAKE_SOURCE_DIR}/src/plugins/searchPathProvider/WinPluginSearchPathProvider.cpp
 				)
 endif ()
 

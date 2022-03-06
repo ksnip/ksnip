@@ -32,7 +32,7 @@ QObject* PluginLoader::load(const QString &path) const
 	pluginLoader.load();
 
 	if (pluginLoader.isLoaded()) {
-		mLogger->log(QString("Loaded plugin %1").arg(path));
+		mLogger->log(QString("Loading plugin %1").arg(path));
 	} else if (!pluginLoader.metaData().isEmpty()) {
 		mLogger->log(pluginLoader.errorString());
 	}

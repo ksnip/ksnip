@@ -22,6 +22,6 @@
 QStringList WinPluginSearchPathProvider::searchPaths() const
 {
 	return {
-			QDir::current() + QString("/plugins")
+			QDir::current().absolutePath() + QString("/plugins")
 	};
 }

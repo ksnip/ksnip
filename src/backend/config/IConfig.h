@@ -344,6 +344,9 @@ public:
 	virtual QList<PluginInfo> pluginInfos() = 0;
 	virtual void setPluginInfos(const QList<PluginInfo> &pluginInfos) = 0;
 
+	virtual bool customPluginSearchPathEnabled() const = 0;
+	virtual void setCustomPluginSearchPathEnabled(bool enabled) = 0;
+
 signals:
 	void annotatorConfigChanged() const;
 	void hotKeysChanged() const;

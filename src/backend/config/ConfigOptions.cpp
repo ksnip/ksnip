@@ -474,6 +474,11 @@ QString ConfigOptions::pluginPathString()
 	return pluginsSectionString() + QLatin1String("PluginOcrPath");
 }
 
+QString ConfigOptions::customPluginSearchPathEnabledString()
+{
+	return pluginsSectionString() + QLatin1String("CustomPluginSearchPathEnabled");
+}
+
 QString ConfigOptions::pluginInfosString()
 {
 	return pluginsSectionString() + QLatin1String("PluginInfos");

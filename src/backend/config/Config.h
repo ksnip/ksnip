@@ -349,6 +349,9 @@ public:
 	QList<PluginInfo> pluginInfos() override;
 	void setPluginInfos(const QList<PluginInfo> &pluginInfos) override;
 
+	bool customPluginSearchPathEnabled() const override;
+	void setCustomPluginSearchPathEnabled(bool enabled) override;
+
 private:
 	QSettings mConfig;
 	const QSharedPointer<IDirectoryPathProvider> mDirectoryPathProvider;

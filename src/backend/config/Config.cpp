@@ -1436,6 +1436,19 @@ void Config::setPluginInfos(const QList<PluginInfo> &pluginInfos)
 	emit pluginsChanged();
 }
 
+bool Config::customPluginSearchPathEnabled() const
+{
+	return loadValue(ConfigOptions::customPluginSearchPathEnabledString(), false).toBool();
+}
+
+void Config::setCustomPluginSearchPathEnabled(bool enabled)
+{
+	if (customPluginSearchPathEnabled() == enabled) {
+		return;
+	}
+	saveValue(ConfigOptions::customPluginSearchPathEnabledString(), enabled);
+}
+
 // Misc
 
 void Config::saveValue(const QString &key, const QVariant &value)

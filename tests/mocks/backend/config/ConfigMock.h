@@ -333,6 +333,9 @@ public:
 
 	MOCK_METHOD(QList<PluginInfo>, pluginInfos, (), (override));
 	MOCK_METHOD(void, setPluginInfos, (const QList<PluginInfo> &pluginInfos), (override));
+
+	MOCK_METHOD(bool, customPluginSearchPathEnabled, (), (const, override));
+	MOCK_METHOD(void, setCustomPluginSearchPathEnabled, (bool enabled), (override));
 };
 
 #endif //KSNIP_CONFIGMOCK_H

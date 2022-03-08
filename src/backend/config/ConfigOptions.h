@@ -131,6 +131,7 @@ public:
 	static QString actionIsSaveEnabledString();
 	static QString actionIsHideMainWindowEnabledString();
 	static QString pluginPathString();
+	static QString customPluginSearchPathEnabledString();
 	static QString pluginInfosString();
 	static QString pluginInfoPathString();
 	static QString pluginInfoTypeString();

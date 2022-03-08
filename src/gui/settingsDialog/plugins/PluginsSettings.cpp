@@ -43,6 +43,7 @@ void PluginsSettings::saveSettings()
 {
 	mConfig->setPluginInfos(mDetectedPlugins);
 	mConfig->setPluginPath(mPluginPathLineEdit->text());
+	mConfig->setCustomPluginSearchPathEnabled(mCustomSearchPathRadioButton->isChecked());
 }
 
 void PluginsSettings::initGui()
@@ -85,6 +86,7 @@ void PluginsSettings::initGui()
 void PluginsSettings::loadConfig()
 {
 	mPluginPathLineEdit->setText(mConfig->pluginPath());
+	mCustomSearchPathRadioButton->setChecked(mConfig->customPluginSearchPathEnabled());
 	mDetectedPlugins = mConfig->pluginInfos();
 
 	updatePluginTable();
